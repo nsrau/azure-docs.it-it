@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 7761da75c16e2f89ae145bad3b04cc179f415751
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127537"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531213"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -35,7 +35,7 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
    3. **Gruppo di risorse**: gruppo di risorse di Azure in cui creare l'account. 
    4. **Posizione**: data center di Azure per l'account di Data Lake Analytics. 
    5. **Data Lake Store**: archivio predefinito da usare per l'account di Data Lake Analytics. L'account di Azure Data Lake Store e quello di Data Lake Analytics devono trovarsi nella stessa posizione.
-4. Fare clic su **Crea**. 
+4. Scegliere **Crea**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminare un account di Data Lake Analytics
 
@@ -95,7 +95,7 @@ Se altri servizi di Azure, come Azure Data Factory o Macchine virtuali, si conne
 
 Come per altri servizi di Azure, è possibile usare il controllo degli accessi in base al ruolo (RBAC, Role-Based Access Control) per controllare il modo con cui gli utenti interagiscono con il servizio.
 
-I ruoli RBAC standard offrono le funzionalità seguenti:
+I ruoli di Azure standard offrono le funzionalità seguenti:
 * **Proprietario**: può inviare e monitorare i processi, annullarli da qualsiasi utente e configurare l'account.
 * **Collaboratore**: può inviare e monitorare i processi, annullarli da qualsiasi utente e configurare l'account.
 * **Lettore**: può monitorare i processi.

@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475057"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533546"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -24,13 +24,13 @@ Backup di Azure offre la possibilità di ripristinare [dischi e macchine virtual
 
 Per ripristinare file o cartelle dal punto di recupero, passare alla macchina virtuale e scegliere il punto di recupero desiderato.
 
-1. Accedere al [portale di Azure](https://portal.Azure.com) e, nel riquadro a sinistra, fare clic su **Macchine virtuali**. Nell'elenco delle macchine virtuali selezionare la macchina virtuale per aprirne il dashboard.
+1. Accedere al [portale di Azure](https://portal.Azure.com) e nel riquadro sinistro selezionare **macchine virtuali**. Nell'elenco delle macchine virtuali selezionare la macchina virtuale per aprirne il dashboard.
 
-2. Nel menu della macchina virtuale fare clic su **Backup** per aprire il dashboard Backup.
+2. Nel menu della macchina virtuale selezionare **backup** per aprire il dashboard di backup.
 
     ![Aprire la voce di backup dell'insieme di credenziali di Servizi di ripristino](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. Nel menu del dashboard Backup fare clic su **Ripristino file**.
+3. Scegliere **ripristino file**dal menu Dashboard di backup.
 
     ![Pulsante Ripristino file](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -40,7 +40,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
 4. Nel menu a discesa **Selezionare il punto di ripristino**, selezionare il punto di ripristino contenente i file desiderati. Per impostazione predefinita, il punto di ripristino più recente è già selezionato.
 
-5. Per scaricare il software usato per copiare i file dal punto di ripristino, fare clic su **Scarica eseguibile**, per una macchina virtuale Windows di Azure, oppure su **Scarica script**, per una macchina virtuale Linux di Azure per cui viene generato uno script di Python.
+5. Per scaricare il software usato per copiare i file dal punto di ripristino, selezionare **Scarica eseguibile** (per le macchine virtuali di Windows Azure) o **Scarica script** (per le macchine virtuali Linux di Azure, viene generato uno script Python).
 
     ![Password generata](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -50,7 +50,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
     Per eseguire il file eseguibile o lo script come amministratore, è consigliabile salvare il file scaricato sul computer.
 
-6. Il file eseguibile o lo script è protetto da password, che viene quindi richiesta. Nel menu **Ripristino file** fare clic sul pulsante di copia per caricare la password in memoria.
+6. Il file eseguibile o lo script è protetto da password, che viene quindi richiesta. Nel menu **ripristino file** selezionare il pulsante copia per caricare la password in memoria.
 
     ![Password generata](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
@@ -78,7 +78,7 @@ In Linux i volumi del punto di ripristino sono montati nella cartella in cui vie
 
 ## <a name="closing-the-connection"></a>Chiusura della connessione
 
-Dopo avere identificato i file e averli copiati in un percorso di archiviazione locale, rimuovere o smontare le unità aggiuntive. Per smontare le unità, nel menu **Ripristino file** del portale di Azure fare clic su **Unmount Disks** (Smonta dischi).
+Dopo avere identificato i file e averli copiati in un percorso di archiviazione locale, rimuovere o smontare le unità aggiuntive. Per smontare le unità, nel menu **ripristino file** della portale di Azure selezionare **smontare i dischi**.
 
 ![Smontare i dischi](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -162,11 +162,11 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
 ```
 
-La prima colonna (PV) Mostra il volume fisico, le colonne successive mostrano il nome del gruppo di volumi, il formato, gli attributi, le dimensioni, lo spazio disponibile e l'ID univoco del gruppo di volumi pertinenti. L'output del comando Mostra tutti i volumi fisici. Vedere l'output dello script e identificare i volumi correlati al backup. Nell'esempio precedente, l'output dello script avrebbe mostrato/dev/sdf e/dev/sdd. Quindi, il gruppo di volumi datavg_db appartiene allo script e il gruppo del volume Appvg_new appartiene al computer. L'idea finale consiste nel verificare che il nome di un gruppo di volumi univoco includa 1 ID univoco.
+La prima colonna (PV) Mostra il volume fisico, le colonne successive mostrano il nome del gruppo di volumi, il formato, gli attributi, le dimensioni, lo spazio disponibile e l'ID univoco del gruppo di volumi pertinenti. L'output del comando Mostra tutti i volumi fisici. Vedere l'output dello script e identificare i volumi correlati al backup. Nell'esempio precedente, l'output dello script avrebbe mostrato/dev/sdf e/dev/sdd. Quindi, il gruppo di volumi *datavg_db* appartiene allo script e il gruppo del volume *Appvg_new* appartiene al computer. L'idea finale consiste nel verificare che il nome di un gruppo di volumi univoco includa un ID univoco.
 
 ###### <a name="duplicate-volume-groups"></a>Gruppi di volumi duplicati
 
-Esistono scenari in cui i nomi dei gruppi di volumi possono avere 2 UUID dopo l'esecuzione dello script. Significa che i nomi dei gruppi di volumi nel computer in cui viene eseguito lo script e nella VM sottoposta a backup sono uguali. Quindi, è necessario rinominare i gruppi di volumi di macchine virtuali di cui è stato eseguito il backup. Esaminare l'esempio seguente.
+Esistono scenari in cui i nomi dei gruppi di volumi possono avere 2 UUID dopo l'esecuzione dello script. Significa che i nomi dei gruppi di volumi nel computer in cui viene eseguito lo script e nella VM di cui è stato eseguito il backup sono uguali. Quindi, è necessario rinominare i gruppi di volumi di macchine virtuali di cui è stato eseguito il backup. Esaminare l'esempio seguente.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -184,9 +184,9 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
 ```
 
-L'output dello script avrebbe visualizzato/dev/sdg,/dev/SDH,/dev/sdm2 come allegato. Quindi, i nomi VG corrispondenti sono Appvg_new e rootvg. Gli stessi nomi, tuttavia, sono presenti anche nell'elenco VG del computer. È possibile verificare che 1 nome VG abbia 2 UUID.
+L'output dello script avrebbe visualizzato/dev/sdg,/dev/SDH,/dev/sdm2 come allegato. Quindi, i nomi VG corrispondenti sono Appvg_new e rootvg. Gli stessi nomi, tuttavia, sono presenti anche nell'elenco VG del computer. È possibile verificare che un nome VG abbia due UUID.
 
-È ora necessario rinominare i nomi VG per i volumi basati su script, ad esempio/dev/sdg,/dev/SDH,/dev/sdm2. Per rinominare il gruppo di volumi, utilizzare il comando seguente
+A questo punto è necessario rinominare i nomi VG per i volumi basati su script, ad esempio:/dev/sdg,/dev/SDH,/dev/sdm2. Per rinominare il gruppo di volumi, utilizzare il comando seguente
 
 ```bash
 vgimportclone -n rootvg_new /dev/sdm2
@@ -343,7 +343,7 @@ Poiché il processo di recupero file connette tutti i dischi dal backup, quando 
     - node.conn[0].timeo.noop_out_timeout = 5 in node.conn[0].timeo.noop_out_timeout = 30
 - Dopo avere apportato la modifica precedente, eseguire di nuovo lo script. Con queste modifiche, è molto probabile che il ripristino del file venga eseguito correttamente.
 - Ogni volta che un utente scarica uno script, Backup di Azure avvia il processo di preparazione del punto di ripristino per il download. Con dischi di grandi dimensioni, questo processo richiede molto tempo. In caso di picchi di richieste successivi, la preparazione della destinazione entra in una spirale di download. È quindi consigliabile scaricare uno script da Portal/PowerShell/CLI, attendere 20-30 minuti (approccio euristico) e quindi eseguirlo. A questo punto, la destinazione dovrebbe essere pronta per la connessione dallo script.
-- Dopo il ripristino dei file, assicurarsi di tornare al portale e fare clic su **Smonta dischi** per i punti di ripristino in cui non è stato possibile montare i volumi. In pratica, questo passaggio elimina eventuali processi/sessioni esistenti e aumenta le probabilità di ripristino.
+- Dopo il ripristino del file, assicurarsi di tornare al portale e selezionare **smontare i dischi** per i punti di ripristino in cui non è stato possibile montare i volumi. In pratica, questo passaggio elimina eventuali processi/sessioni esistenti e aumenta le probabilità di ripristino.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -357,7 +357,7 @@ Se si verificano problemi durante il ripristino di file dalle macchine virtuali,
 | Nella macchina virtuale in cui viene eseguito il file con estensione EXE: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di smontaggio | L'iniziatore iSCSI nel computer non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache. |  Dopo aver fatto clic **Smontare**, attendere qualche minuto. Se i nuovi volumi non vengono smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile.|
 | Output del file EXE: lo script viene eseguito correttamente ma l’indicazione di nuovi volumi associati non viene visualizzata nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stati già associati. Aprire Explorer per visualizzare lo stato. Se si usa lo stesso computer per eseguire gli script ogni volta, è consigliabile riavviarlo; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
 | Specifico per Linux: non è possibile visualizzare i volumi desiderati | Il sistema operativo del computer in cui viene eseguito lo script potrebbe non riconoscere il file system sottostante della VM protetta | Controllare se il punto di ripristino è coerente con l'arresto anomalo del sistema o a livello di file. Se è coerente a livello di file, eseguire lo script in un altro computer il cui sistema operativo riconosce il file system della VM protetta. |
-| Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in stato offline, provare a renderlo online facendo clic con il pulsante destro del mouse sul disco e scegliendo **Online**.|
+| Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in uno stato offline, provare a portarli online facendo clic con il pulsante destro del mouse sul disco e selezionando **online**.|
 
 ## <a name="security"></a>Sicurezza
 
@@ -383,7 +383,7 @@ Lo script generato è firmato con il certificato Microsoft ufficiale per il serv
 
 Solo un amministratore può eseguire lo script e l'operazione deve essere eseguita in modalità con privilegi elevati. Lo script esegue solo un set di passaggi pregenerati e non accetta input da un'origine esterna.
 
-Per eseguire lo script, è necessaria una password che viene visualizzata solo all'utente autorizzato al momento della generazione dello script nel portale di Azure o in PowerShell/CLI. In questo modo è possibile verificare che l'utente autorizzato che scarica lo script sia anche responsabile della relativa esecuzione.
+Per eseguire lo script, è necessaria una password che viene visualizzata solo all'utente autorizzato al momento della generazione dello script nel portale di Azure o in PowerShell/CLI. In questo modo, l'utente autorizzato che Scarica lo script è anche responsabile dell'esecuzione dello script.
 
 #### <a name="browse-files-and-folders"></a>Esplorare file e cartelle
 
@@ -393,7 +393,7 @@ Viene usato un meccanismo di autenticazione CHAP reciproca, in modo che ogni com
 
 Il flusso di dati tra il servizio di ripristino e il computer è protetto dalla compilazione di un tunnel TLS sicuro su TCP ([TLS 1.2 dovrebbe essere supportato](#system-requirements) nel computer in cui viene eseguito lo script).
 
-Anche eventuali elenchi di controllo di accesso (ACL) dei file presenti nella macchina virtuale padre/sottoposta a backup vengono conservati nel file system montato.
+Anche tutti gli elenchi di controllo di accesso (ACL) dei file presenti nella macchina virtuale padre/di cui è stato eseguito il backup vengono conservati nel file system montato.
 
 Lo script concede l'accesso in sola lettura a un punto di ripristino ed è valido solo per 12 ore. Se si intende rimuovere l'accesso in modo preventivo, accedere al portale di Azure/PowerShell/CLI ed eseguire l'operazione di **smontaggio dei dischi** per uno specifico punto di ripristino. Lo script verrà immediatamente invalidato.
 

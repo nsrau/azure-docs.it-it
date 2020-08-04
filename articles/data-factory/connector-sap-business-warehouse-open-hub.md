@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224622"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533411"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse tramite Open Hub usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "86224622"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da SAP Business Warehouse (BW) tramite Open Hub. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 >[!TIP]
->Per informazioni sul supporto generale di Azure Data Factory sullo scenario di integrazione dei dati SAP, vedere il [white paper sull'integrazione dei dati SAP con Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con sezioni di introduzione, confronto e istruzioni dettagliate.
+>Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere l'articolo relativo all' [integrazione dei dati SAP con Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con un'introduzione dettagliata su ogni connettore SAP, comparsing e linee guida.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -42,6 +42,7 @@ In particolare, il connettore SAP Business Warehouse Open Hub supporta:
 - Copia dei dati tramite tabella locale Open Hub Destination che può essere DSO, InfoCube, MultiProvider, DataSource e così via.
 - La copia di dati usando l'autenticazione di base.
 - Connessione a un server applicazioni SAP o a un server di messaggi SAP.
+- Recupero di dati tramite RFC.
 
 ## <a name="sap-bw-open-hub-integration"></a>Integrazione SAP BW Open Hub 
 
@@ -235,14 +236,14 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 
 | Tipo SAP ABAP | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| C (String) | Stringa |
+| C (String) | string |
 | I (integer) | Int32 |
 | F (Float) | Double |
-| D (Date) | Stringa |
-| T (Time) | Stringa |
+| D (Date) | string |
+| T (Time) | string |
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | Stringa |
-| X (Binary e Raw) | Stringa |
+| N (Numc) | string |
+| X (Binary e Raw) | string |
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 

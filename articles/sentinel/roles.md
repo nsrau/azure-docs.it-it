@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 95a966799b4cb66b74d998df9c58958b9b89ecdb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b907fead145847d54b8b1de196586b65101b22ed
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374219"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534006"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Sentinel di Azure
 
 Azure Sentinel usa il [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/role-assignments-portal.md) per fornire [ruoli predefiniti](../role-based-access-control/built-in-roles.md)   che possono essere assegnati a utenti, gruppi e servizi in Azure.
 
-Usare il controllo degli accessi in base al ruolo per creare e assegnare ruoli all'interno del team operativo di sicurezza per concedere l'accesso appropriato a Sentinel I diversi ruoli consentono di controllare con precisione i vantaggi che gli utenti di Azure Sentinel possono vedere e fare. I ruoli RBAC possono essere assegnati direttamente nell'area di lavoro di Azure Sentinel (vedere la nota di seguito) o in una sottoscrizione o un gruppo di risorse a cui appartiene l'area di lavoro, che verrà ereditata da Azure Sentinel.
+Usare il controllo degli accessi in base al ruolo per creare e assegnare ruoli all'interno del team operativo di sicurezza per concedere l'accesso appropriato a Sentinel I diversi ruoli consentono di controllare con precisione i vantaggi che gli utenti di Azure Sentinel possono vedere e fare. I ruoli di Azure possono essere assegnati direttamente all'area di lavoro di Azure Sentinel (vedere la nota di seguito) o in una sottoscrizione o in un gruppo di risorse a cui appartiene l'area di lavoro, che verrà ereditata da Azure Sentinel.
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Ruoli per l'uso in Sentinel di Azure
 
@@ -64,7 +64,7 @@ Per un confronto affiancato, vedere la [tabella seguente](#roles-and-allowed-act
 
 ### <a name="other-roles-you-might-see-assigned"></a>Altri ruoli che potrebbero essere stati assegnati
 
-Quando si assegnano ruoli di controllo degli accessi in base al ruolo di controllo degli accessi in base al ruolo, è possibile che si trovino altri ruoli di Azure e Log Analytics RBAC che potrebbero essere stati assegnati agli utenti È necessario tenere presente che questi ruoli concedono un set di autorizzazioni più ampio che include l'accesso all'area di lavoro di Azure Sentinel e ad altre risorse:
+Quando si assegnano ruoli di Azure specifici di Azure Sentinel, è possibile che si trovino altri ruoli di Azure e Log Analytics Azure che potrebbero essere stati assegnati agli utenti per altri scopi. È necessario tenere presente che questi ruoli concedono un set di autorizzazioni più ampio che include l'accesso all'area di lavoro di Azure Sentinel e ad altre risorse:
 
 - **Ruoli di Azure:** [proprietario](../role-based-access-control/built-in-roles.md#owner), [collaboratore](../role-based-access-control/built-in-roles.md#contributor)e [lettore](../role-based-access-control/built-in-roles.md#reader). I ruoli di Azure concedono l'accesso a tutte le risorse di Azure, tra cui Log Analytics aree di lavoro e risorse di Azure Sentinel.
 
@@ -76,7 +76,7 @@ Ad esempio, un utente a cui viene assegnato il ruolo di **lettore Sentinel di Az
 
 La tabella seguente riepiloga i ruoli e le azioni consentite in Sentinel di Azure. 
 
-| Ruolo | Creare ed eseguire PlayBook| Creazione e modifica di cartelle di lavoro, regole analitiche e altre risorse di Azure Sentinel | Gestire gli eventi imprevisti (Ignora, assegna e così via) | Visualizzare dati, eventi imprevisti, cartelle di lavoro e altre risorse di Azure Sentinel |
+| Role | Creare ed eseguire PlayBook| Creazione e modifica di cartelle di lavoro, regole analitiche e altre risorse di Azure Sentinel | Gestire gli eventi imprevisti (Ignora, assegna e così via) | Visualizzare dati, eventi imprevisti, cartelle di lavoro e altre risorse di Azure Sentinel |
 |---|---|---|---|---|
 | Ruolo con autorizzazioni di lettura di Azure Sentinel | -- | -- | -- | &#10003; |
 | Risponditore di Azure Sentinel | -- | -- | &#10003; | &#10003; |

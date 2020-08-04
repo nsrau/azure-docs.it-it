@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: fe9d4e5a981f9d626bb6086659593e1c3ce06469
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291135"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534737"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -113,7 +113,7 @@ Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione �
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurare le assegnazioni di ruolo per la macchina virtuale
 
-I criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) determinano chi può accedere alla macchina virtuale. Per autorizzare l'account alla VM vengono usati due ruoli Controllo degli accessi in base al ruolo:
+I criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) determinano chi può accedere alla macchina virtuale. Per autorizzare l'accesso alla macchina virtuale vengono usati due ruoli di Azure:
 
 - **Accesso amministratore alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente ROOT di Windows o Linux.
 - **Accesso utente alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.
@@ -181,9 +181,9 @@ Con la riga seguente:
 
 ## <a name="troubleshoot-sign-in-issues"></a>Risolvere i problemi di accesso
 
-Tra gli errori comuni che si commettono quando si tenta di accedere usando SSH con le credenziali di Azure AD si includono il fatto di non aver assegnato i ruoli Controllo degli accessi in base al ruolo e i prompt di accesso ripetuti. Usare le sezioni seguenti per risolvere questi problemi.
+Alcuni errori comuni quando si tenta di eseguire SSH con Azure AD credenziali non includono i ruoli di Azure assegnati e vengono ripetute richieste di accesso. Usare le sezioni seguenti per risolvere questi problemi.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Accesso negato: ruolo Controllo degli accessi in base al ruolo non assegnato
+### <a name="access-denied-azure-role-not-assigned"></a>Accesso negato: ruolo di Azure non assegnato
 
 Se viene visualizzato l'errore seguente nel prompt SSH, verificare di aver configurato i criteri di controllo degli accessi in base al ruolo per la macchina virtuale che concede all'utente il ruolo *Accesso amministratore alle macchine virtuali* o *Accesso utente alle macchine virtuali*:
 

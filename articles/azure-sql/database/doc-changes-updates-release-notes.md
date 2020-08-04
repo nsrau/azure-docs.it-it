@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067410"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533360"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -137,7 +137,7 @@ In alcuni casi, la modifica, la disabilitazione o l'abilitazione di un processo 
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>Autorizzazioni per il gruppo di risorse non applicate a SQL Istanza gestita
 
-Quando il ruolo di collaboratore di SQL Istanza gestita viene applicato a un gruppo di risorse (RG), non viene applicato a SQL Istanza gestita e non ha alcun effetto.
+Quando il ruolo Azure collaboratore SQL Istanza gestita viene applicato a un gruppo di risorse (RG), non viene applicato a SQL Istanza gestita e non ha alcun effetto.
 
 **Soluzione temporanea**: configurare un ruolo di collaboratore di SQL istanza gestita per gli utenti a livello di sottoscrizione.
 

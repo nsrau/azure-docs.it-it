@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887902"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530266"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informazioni generali e linee guida per la sicurezza aziendale in Azure HDInsight
 
@@ -20,7 +20,7 @@ Quando si distribuisce un cluster HDInsight sicuro, sono disponibili alcune proc
 
 ## <a name="use-of-secure-cluster"></a>Uso del cluster sicuro
 
-### <a name="recommended"></a>Implementazione consigliata
+### <a name="recommended"></a>Consigliato
 
 * Il cluster verrà usato da più utenti nello stesso momento.
 * Gli utenti hanno diversi livelli di accesso agli stessi dati.
@@ -62,7 +62,7 @@ Quando si distribuisce un cluster HDInsight sicuro, sono disponibili alcune proc
 Quando lo spazio del nome gerarchico in non è abilitato:
 
 * Non sono presenti autorizzazioni ereditate.
-* Solo l'autorizzazione filesystem che funziona è il ruolo di **dati di archiviazione xxxx** , da assegnare all'utente direttamente in portale di Azure.
+* Solo l'autorizzazione filesystem che funziona è il ruolo **dati di archiviazione xxxx** Azure, da assegnare all'utente direttamente in portale di Azure.
 
 ### <a name="default-hdfs-permissions"></a>Autorizzazioni HDFS predefinite
 

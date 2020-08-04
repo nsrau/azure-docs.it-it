@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d00f6ee8c10144a7c9fd65101dd21ccb7deeb0a6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3be5bdffd999907234fff64f8f88459d9c9b18b6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289491"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531864"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -33,30 +33,23 @@ Backup di una macchina virtuale di Azure nel server di backup  | Backup di file,
 
 Altre informazioni sul backup [con un server di backup](backup-architecture.md#architecture-back-up-to-dpmmabs) e sui [requisiti di supporto](backup-support-matrix-mabs-dpm.md).
 
->[!NOTE]
-> **Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tramite la soluzione di backup delle macchine virtuali di Azure.**
->
->Backup di Azure attualmente supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale contemporaneamente tramite la soluzione di backup delle macchine virtuali. Con la funzionalità di esclusione disco è possibile scegliere di eseguire il backup di uno o più dischi dati tra quelli disponibili in una macchina virtuale. Questa è una soluzione efficiente ed economica per soddisfare le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup. Questo consente anche di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
->
->Per iscriversi all'anteprima, scrivere all'indirizzo AskAzureBackupTeam@microsoft.com
-
 ## <a name="supported-backup-actions"></a>Azioni di backup supportate
 
 **Azione** | **Supporto**
 --- | ---
-Backup di una macchina virtuale arrestata/offline | Supportato.<br/><br/> Lo snapshot è coerente solo con l'arresto anomalo del sistema, non con l'app.
+Backup di una macchina virtuale arrestata/offline | Supportata.<br/><br/> Lo snapshot è coerente solo con l'arresto anomalo del sistema, non con l'app.
 Backup dei dischi dopo la migrazione in dischi gestiti | Supportato.<br/><br/> Il backup continuerà a funzionare. Non è richiesta alcuna azione.
-Backup dei dischi gestiti dopo l'abilitazione del blocco del gruppo di risorse | Non supportato.<br/><br/> Backup di Azure non può eliminare i punti di ripristino meno recenti e i backup iniziano ad avere esito negativo quando viene raggiunto il limite massimo di punti di ripristino.
+Backup dei dischi gestiti dopo l'abilitazione del blocco del gruppo di risorse | Non supportata.<br/><br/> Backup di Azure non può eliminare i punti di ripristino meno recenti e i backup iniziano ad avere esito negativo quando viene raggiunto il limite massimo di punti di ripristino.
 Modifica dei criteri di backup per una macchina virtuale | Supportato.<br/><br/> Il backup della macchina virtuale verrà eseguito usando le impostazioni di pianificazione e conservazione definite nei nuovi criteri. Se le impostazioni di conservazione vengono estese, i punti di ripristino esistenti verranno contrassegnati e mantenuti. Se vengono ridotte, i punti di ripristino esistenti verranno rimossi nel successivo processo di pulizia e infine eliminati.
 Annullamento di un processo di backup| Supportata durante il processo di snapshot.<br/><br/> Non supportata quando lo snapshot viene trasferito nell'insieme di credenziali.
-Backup della macchina virtuale in un'area o una sottoscrizione diversa |Non supportato.<br><br>Per eseguire correttamente il backup, le macchine virtuali devono trovarsi nella stessa sottoscrizione dell'insieme di credenziali per il backup.
+Backup della macchina virtuale in un'area o una sottoscrizione diversa |Non supportata.<br><br>Per eseguire correttamente il backup, le macchine virtuali devono trovarsi nella stessa sottoscrizione dell'insieme di credenziali per il backup.
 Backup al giorno (tramite l'estensione della macchina virtuale di Azure) | Un backup pianificato al giorno.<br/><br/>Il servizio Backup di Azure supporta fino a nove backup su richiesta al giorno, ma per avere prestazioni ottimali Microsoft consiglia non più di quattro backup su richiesta giornalieri.
 Backup al giorno (tramite l'agente di Servizi di ripristino di Microsoft Azure) | Tre backup pianificati al giorno.
 Backup al giorno (tramite DPM o il server di Backup di Microsoft Azure) | Due backup pianificati al giorno.
 Backup mensile/annuale| Non supportata quando si esegue il backup con l'estensione della macchina virtuale di Azure. È supportato solo il backup giornaliero e settimanale.<br/><br/> È possibile configurare i criteri in modo da conservare i backup giornalieri/settimanali per il periodo di conservazione mensile/annuale.
-Regolazione automatica dell'orologio | Non supportato.<br/><br/> Backup di Azure non si adatta automaticamente al passaggio all'ora legale per il backup di una macchina virtuale.<br/><br/>  Modificare manualmente i criteri in base alle esigenze.
+Regolazione automatica dell'orologio | Non supportata.<br/><br/> Backup di Azure non si adatta automaticamente al passaggio all'ora legale per il backup di una macchina virtuale.<br/><br/>  Modificare manualmente i criteri in base alle esigenze.
 [Funzionalità di sicurezza per il backup ibrido](./backup-azure-security-feature.md) |La disabilitazione delle funzionalità di sicurezza non è supportata.
-Eseguire il backup della macchina virtuale la cui ora del computer è cambiata | Non supportato.<br/><br/> Se l'ora del computer viene modificata in una data e ora successiva dopo l'abilitazione del backup per la VM. Tuttavia, anche se la modifica dell'ora viene ripristinata, il backup non è garantito.
+Eseguire il backup della macchina virtuale la cui ora del computer è cambiata | Non supportata.<br/><br/> Se l'ora del computer viene modificata in una data e ora successiva dopo l'abilitazione del backup per la VM. Tuttavia, anche se la modifica dell'ora viene ripristinata, il backup non è garantito.
 VM di Azure nei [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md) | Il backup e il ripristino sono supportati per le macchine virtuali con [modalità di orchestrazione](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) impostata su 3. <br><br>I set di disponibilità non sono supportati.
 
 ## <a name="operating-system-support-windows"></a>Supporto dei sistemi operativi (Windows)
@@ -78,7 +71,7 @@ Se si vuole eseguire il backup di computer Linux, sono supportati gli scenari se
 **Azione** | **Supporto**
 --- | ---
 Backup di macchine virtuali di Azure per Linux con l'agente di macchine virtuali di Azure per Linux | Backup coerente con i file.<br/><br/> Backup coerenti con le app tramite [script personalizzati](backup-azure-linux-app-consistent.md).<br/><br/> Durante il ripristino è possibile creare una nuova macchina virtuale, ripristinare un disco e usarlo per creare una macchina virtuale oppure ripristinare un disco e usarlo per sostituire un disco in una macchina virtuale esistente. È anche possibile ripristinare cartelle e file singoli.
-Backup di macchine virtuali di Azure per Linux con l'agente di Servizi di ripristino di Microsoft Azure | Non supportata.<br/><br/> L'agente MARS può essere installato solo in computer Windows.
+Backup di macchine virtuali di Azure per Linux con l'agente di Servizi di ripristino di Microsoft Azure | Non supportato.<br/><br/> L'agente MARS può essere installato solo in computer Windows.
 Backup di macchine virtuali di Azure per Linux con DPM o il server di Backup di Microsoft Azure | Non supportato.
 
 ## <a name="operating-system-support-linux"></a>Supporto dei sistemi operativi (Linux)
@@ -129,14 +122,14 @@ La tabella seguente riepiloga il supporto per il backup durante le attività di 
 
 **Restore** | **Supportato**
 --- | ---
-Ripristino a livello di sottoscrizione/area/zona. | Non supportato.
+Ripristino a livello di sottoscrizione/area/zona. | Non supportata.
 Ripristino in una macchina virtuale esistente | Usare l'opzione relativa alla sostituzione del disco.
-Ripristino del disco con un account di archiviazione abilitato per la crittografia del servizio di archiviazione di Azure | Non supportata.<br/><br/> Eseguire il ripristino in un account per cui la crittografia del servizio di archiviazione non sia abilitata.
+Ripristino del disco con un account di archiviazione abilitato per la crittografia del servizio di archiviazione di Azure | Non supportato.<br/><br/> Eseguire il ripristino in un account per cui la crittografia del servizio di archiviazione non sia abilitata.
 Ripristino in account di archiviazione misti |Non supportato.<br/><br/> A seconda del tipo di account di archiviazione, tutti i dischi ripristinati saranno Premium o Standard e non misti.
 Ripristino della macchina virtuale direttamente in un set di disponibilità | Per i dischi gestiti, è possibile ripristinare il disco e usare l'opzione relativa al set di disponibilità nel modello.<br/><br/> Non supportato per i dischi non gestiti. In tal caso, ripristinare il disco e quindi creare una macchina virtuale nel set di disponibilità.
 Ripristino del backup di macchine virtuali non gestite dopo l'aggiornamento a macchine virtuali gestite| Supportata.<br/><br/> È possibile ripristinare i dischi e quindi creare una macchina virtuale gestita.
-Ripristino di una macchina virtuale a un punto di ripristino prima della migrazione di tale macchina a dischi gestiti | Supportata.<br/><br/> È possibile eseguire il ripristino in dischi non gestiti (impostazione predefinita), convertire i dischi ripristinati in un disco gestito e creare una macchina virtuale con i dischi gestiti.
-Ripristino di una macchina virtuale eliminata. | Supportata.<br/><br/> È possibile ripristinare la macchina virtuale da un punto di ripristino.
+Ripristino di una macchina virtuale a un punto di ripristino prima della migrazione di tale macchina a dischi gestiti | Supportato.<br/><br/> È possibile eseguire il ripristino in dischi non gestiti (impostazione predefinita), convertire i dischi ripristinati in un disco gestito e creare una macchina virtuale con i dischi gestiti.
+Ripristino di una macchina virtuale eliminata. | Supportato.<br/><br/> È possibile ripristinare la macchina virtuale da un punto di ripristino.
 Ripristino di una macchina virtuale controller di dominio che fa parte di una configurazione con più controller di dominio tramite il portale | Supportato se si ripristina il disco e si crea una macchina virtuale con PowerShell.
 Ripristino di una macchina virtuale in una rete virtuale diversa |Supportata.<br/><br/> La rete virtuale deve trovarsi nella stessa sottoscrizione e nella stessa area.
 
@@ -145,11 +138,11 @@ Ripristino di una macchina virtuale in una rete virtuale diversa |Supportata.<br
 **Calcolo** | **Supporto**
 --- | ---
 Dimensioni macchina virtuale |Macchine virtuali di Azure di qualsiasi dimensione con almeno 2 core CPU e 1 GB di RAM.<br/><br/> [Altre informazioni.](../virtual-machines/windows/sizes.md)
-Backup di macchine virtuali in [set di disponibilità](../virtual-machines/availability.md#availability-sets) | Supportato.<br/><br/> Non è possibile ripristinare una macchina virtuale in un set di disponibilità usando l'opzione di creazione rapida di una macchina virtuale. Quando si ripristina la macchina virtuale, ripristinare il disco e usarlo per distribuire una macchina virtuale oppure ripristinare un disco e usarlo per sostituire un disco esistente.
-Backup di macchine virtuali distribuite con il [vantaggio Hybrid Use (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Supportata.
+Backup di macchine virtuali in [set di disponibilità](../virtual-machines/availability.md#availability-sets) | Supportata.<br/><br/> Non è possibile ripristinare una macchina virtuale in un set di disponibilità usando l'opzione di creazione rapida di una macchina virtuale. Quando si ripristina la macchina virtuale, ripristinare il disco e usarlo per distribuire una macchina virtuale oppure ripristinare un disco e usarlo per sostituire un disco esistente.
+Backup di macchine virtuali distribuite con il [vantaggio Hybrid Use (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Supportato.
 Backup di macchine virtuali distribuite in un [set di scalabilità](../virtual-machine-scale-sets/overview.md) |Supportata. Per il dominio di errore è necessario impostare la [modalità di orchestrazione](../virtual-machine-scale-sets/orchestration-modes.md) su 2. Il set di disponibilità non è supportato.
 Backup di macchine virtuali distribuite da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (pubblicazione da parte di Microsoft, terze parti) |Supportata.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo). Le macchine virtuali di Azure Marketplace supportate come VM non vengono ripristinate, in quanto queste richiedono informazioni sugli acquisti. Vengono ripristinati solo come dischi.
-Backup di macchine virtuali distribuite da un'immagine personalizzata (terze parti) |Supportata.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo).
+Backup di macchine virtuali distribuite da un'immagine personalizzata (terze parti) |Supportato.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo).
 Backup di macchine virtuali di cui è stata eseguita la migrazione in Azure| Supportato.<br/><br/> Per eseguire il backup della macchina virtuale, l'agente di macchine virtuali deve essere installato nella macchina sottoposta a migrazione.
 Backup della coerenza tra più macchine virtuali | Backup di Azure non garantisce la coerenza dei dati e delle applicazioni tra più macchine virtuali.
 Backup con [impostazioni di diagnostica](../azure-monitor/platform/platform-logs-overview.md)  | Non supportato. <br/><br/> Se il ripristino della macchina virtuale di Azure con impostazioni di diagnostica viene attivato usando l'opzione [Crea nuova](backup-azure-arm-restore-vms.md#create-a-vm), il ripristino ha esito negativo.
@@ -185,7 +178,7 @@ Macchine virtuali con più schede di rete| Supportata. <br/><br/> [Vedere altre 
 Macchine virtuali con indirizzi IP pubblici| Supportata.<br/><br/> Associare un indirizzo IP pubblico esistente alla scheda di interfaccia di rete oppure creare un indirizzo e associarlo a tale scheda dopo l'esecuzione del ripristino.
 Gruppo di sicurezza di rete (NSG) nella scheda di interfaccia di rete/subnet. |Supportata.
 Indirizzo IP statico | Non supportato.<br/><br/> A una nuova macchina virtuale creata a partire da un punto di ripristino viene assegnato un indirizzo IP dinamico.<br/><br/> Per le macchine virtuali classiche, non è possibile eseguire il backup con un indirizzo IP riservato e nessun endpoint definito.
-Indirizzo IP dinamico |Supportato.<br/><br/> Se la scheda di interfaccia di rete nella macchina virtuale di origine usa indirizzi IP dinamici, per impostazione predefinita farà altrettanto anche la scheda di interfaccia di rete nella macchina virtuale ripristinata.
+Indirizzo IP dinamico |Supportata.<br/><br/> Se la scheda di interfaccia di rete nella macchina virtuale di origine usa indirizzi IP dinamici, per impostazione predefinita farà altrettanto anche la scheda di interfaccia di rete nella macchina virtuale ripristinata.
 Gestione traffico di Azure| Supportata.<br/><br/>Se la macchina virtuale sottoposta a backup è in Gestione traffico, aggiungere manualmente la macchina virtuale ripristinata alla stessa istanza di Gestione traffico.
 DNS di Azure |Supportata.
 DNS personalizzato |Supportata.
@@ -201,7 +194,7 @@ Traffico di rete verso Azure:
 - Il traffico di backup dai server all'insieme di credenziali di Servizi di ripristino viene crittografato usando Advanced Encryption Standard 256.
 - I dati di backup vengono inviati tramite un collegamento HTTPS sicuro.
 - I dati di backup vengono archiviati nell'insieme di credenziali di Servizi di ripristino in formato crittografato.
-- Solo il cliente ha la passphrase per sbloccare questi dati. Microsoft non può decrittografare i dati di backup in nessun caso.
+- Per sbloccare i dati è sufficiente la chiave di crittografia. Microsoft non può decrittografare i dati di backup in nessun caso.
 
   > [!WARNING]
   > Dopo che l'insieme di credenziali è stato configurato, solo il cliente ha accesso alla chiave di crittografia. Microsoft non conserva mai una copia e non ha accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
@@ -214,9 +207,9 @@ Sicurezza dei dati:
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
-Macchine virtuali di Azure | ![sì][green] | ![sì][green]
-Computer locali/VM di Azure con DPM | ![sì][green] | ![sì][green]
+Computer Windows locali senza DPM/MABS | ![Sì][green] | ![sì][green]
+Macchine virtuali di Azure | ![Sì][green] | ![sì][green]
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![sì][green]
 Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
 
 ## <a name="vm-compression-support"></a>Supporto della compressione delle macchine virtuali
@@ -228,9 +221,9 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Compressione in insieme di credenziali (HTTPS)**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | N/D | ![Sì][green]
-Macchine virtuali di Azure | N/D | N/D
-Computer locali/VM di Azure con DPM | ![sì][green] | ![sì][green]
+Computer Windows locali senza DPM/MABS | ND | ![Sì][green]
+Macchine virtuali di Azure | ND | N/D
+Computer locali/VM di Azure con DPM | ![Sì][green] | ![sì][green]
 Computer locali/VM di Azure con MABS | ![Sì][green] | ![sì][green]
 
 ## <a name="next-steps"></a>Passaggi successivi

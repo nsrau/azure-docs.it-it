@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 61a281e5fa9e8d360b9b6e52cda9c54db49d93d0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406742"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534856"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -48,7 +48,7 @@ Storage Explorer inoltre possibile utilizzare le chiavi dell'account per autenti
 
 Archiviazione di Azure offre due livelli di accesso: _gestione_ e _dati_. Le sottoscrizioni e gli account di archiviazione sono accessibili tramite il livello di gestione. È possibile accedere a contenitori, BLOB e altre risorse dati tramite il livello dati. Se ad esempio si vuole ottenere un elenco degli account di archiviazione da Azure, si invia una richiesta all'endpoint di gestione. Se si desidera un elenco di contenitori BLOB in un account, inviare una richiesta all'endpoint di servizio appropriato.
 
-I ruoli RBAC possono concedere autorizzazioni per la gestione o l'accesso a livello di dati. Il ruolo Reader, ad esempio, concede l'accesso in sola lettura alle risorse del livello di gestione.
+I ruoli di Azure possono concedere autorizzazioni per la gestione o l'accesso a livello di dati. Il ruolo Reader, ad esempio, concede l'accesso in sola lettura alle risorse del livello di gestione.
 
 In modo rigoroso, il ruolo Reader non fornisce autorizzazioni per i livelli di dati e non è necessario per l'accesso al livello dati.
 

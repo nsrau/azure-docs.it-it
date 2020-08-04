@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 6923bb31e53493dd01f41cb0b0449f2093bc7e91
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092474"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532595"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -118,7 +118,7 @@ Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito 
 
 È possibile eseguire questa operazione in anticipo oppure facendo clic su un collegamento nella pagina in cui si aggiunge una destinazione di archiviazione BLOB. Tenere presente che possono essere necessari fino a cinque minuti per la propagazione delle impostazioni dei ruoli nell'ambiente Azure, quindi è necessario attendere alcuni minuti dopo aver aggiunto i ruoli prima di creare una destinazione di archiviazione.
 
-Passaggi per aggiungere i ruoli RBAC:
+Passaggi per aggiungere i ruoli di Azure:
 
 1. Aprire la pagina **controllo di accesso (IAM)** per l'account di archiviazione. Il collegamento nella pagina **Aggiungi destinazione di archiviazione** apre automaticamente questa pagina per l'account selezionato.
 
@@ -220,9 +220,9 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
 | Modello di utilizzo                   | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Lettura di scritture complesse e non frequenti | Read         | Mai                 | Nessuna                     |
+| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | Nessuno                     |
 | Scritture superiori al 15%       | Lettura/Scrittura   | Mai                 | 1 ora                   |
-| Client che ignorano la cache      | Read         | 30 secondi            | Nessuna                     |
+| Client che ignorano la cache      | Lettura         | 30 secondi            | Nessuno                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Creare una destinazione di archiviazione NFS
 

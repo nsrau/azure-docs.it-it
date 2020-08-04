@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514306"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532493"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -44,8 +44,8 @@ Gli insiemi di credenziali dei servizi di ripristino includono le funzionalità 
 - È possibile monitorare gli elementi di cui è stato eseguito il backup in un insieme di credenziali, incluse le macchine virtuali di Azure e i computer locali.
 - È possibile gestire l'accesso dell'insieme di credenziali tramite il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) di Azure.
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
-  - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md)
-  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md)
+  - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md).
+  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md).
   - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
 
 ## <a name="backup-agents"></a>Agenti di backup
@@ -120,16 +120,15 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
 - Quando viene creato un insieme di credenziali, viene creato anche un "DefaultPolicy" e può essere usato per eseguire il backup delle risorse.
 - Tutte le modifiche apportate al periodo di conservazione di un criterio di backup verranno applicate in modo retroattivo a tutti i punti di ripristino precedenti, oltre a quelli nuovi.
 
-### <a name="additional-reference"></a>Ulteriore riferimento 
+### <a name="additional-reference"></a>Ulteriore riferimento
 
--   Macchina virtuale di Azure: come [creare](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) e [modificare](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) i criteri 
--   SQL Server database nel computer della macchina virtuale di Azure: come [creare](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) e [modificare](./manage-monitor-sql-database-backup.md#modify-policy) i criteri 
--   Condivisione file di Azure: come [creare](./backup-afs.md#discover-file-shares-and-configure-backup) e [modificare](./manage-afs-backup.md#modify-policy) i criteri 
--   SAP HANA: come [creare](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [modificare](./sap-hana-db-manage.md#change-policy) i criteri? 
--   MARS: come [creare](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [modificare](./backup-azure-manage-mars.md#modify-a-backup-policy) i criteri? 
--   [Sono previste limitazioni per la pianificazione del backup in base al tipo di carico di lavoro?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- Macchina virtuale di Azure: come [creare](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) e [modificare](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) i criteri.
+- SQL Server database nel computer della macchina virtuale di Azure: come [creare](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) e [modificare](./manage-monitor-sql-database-backup.md#modify-policy) i criteri.
+- Condivisione file di Azure: come [creare](./backup-afs.md) e [modificare](./manage-afs-backup.md#modify-policy) i criteri.
+- SAP HANA: come [creare](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [modificare](./sap-hana-db-manage.md#change-policy) i criteri.
+- MARS: come [creare](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [modificare](./backup-azure-manage-mars.md#modify-a-backup-policy) i criteri.
+- [Sono previste limitazioni per la pianificazione del backup in base al tipo di carico di lavoro?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
 - [Cosa accade ai punti di ripristino esistenti se si modificano i criteri di conservazione?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
-
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architettura: backup di macchine virtuali di Azure predefinito
 

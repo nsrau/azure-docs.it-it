@@ -3,12 +3,12 @@ title: Panoramica delle API .NET Standard di Inoltro di Azure | Microsoft Docs
 description: Questo articolo riepiloga alcuni dei principali Cenni preliminari sull'inoltro di Azure Connessioni ibride .NET Standard API.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 578d0fd2bbf8b9bb897a79e88399dee3711f5990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d5aeed2ea76f47608ef03103b11fa236ec0362e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316842"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532901"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Panoramica dell'API .NET Standard per Connessioni ibride di Inoltro di Azure
 
@@ -82,7 +82,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>Ricezione di dati
 
-La classe [HybridConnectionStream][HCStream] consente la comunicazione bidirezionale. Nella maggior parte dei casi si ha una ricezione costante dal flusso. Se si legge il testo dal flusso, è anche possibile usare un oggetto [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) per usufruire di una più semplice analisi dei dati. Ad esempio, è possibile leggere i dati come testo anziché come `byte[]`.
+La classe [HybridConnectionStream][HCStream] consente la comunicazione bidirezionale. Nella maggior parte dei casi si ha una ricezione costante dal flusso. Se si legge il testo dal flusso, è anche possibile usare un oggetto [StreamReader](/dotnet/api/system.io.streamreader?view=netcore-3.1) per usufruire di una più semplice analisi dei dati. Ad esempio, è possibile leggere i dati come testo anziché come `byte[]`.
 
 Il codice seguente legge singole righe di testo dal flusso fino a quando non viene richiesto l'annullamento.
 
@@ -109,14 +109,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Invio di dati
 
-Dopo aver stabilito una connessione, è possibile inviare un messaggio all'endpoint di Inoltro di Azure. Poiché l'oggetto connessione eredita [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), inviare i dati come un `byte[]`. L'esempio seguente illustra come farlo:
+Dopo aver stabilito una connessione, è possibile inviare un messaggio all'endpoint di Inoltro di Azure. Poiché l'oggetto connessione eredita [Stream](/dotnet/api/system.io.stream?view=netcore-3.1), inviare i dati come un `byte[]`. L'esempio seguente illustra come farlo:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-Tuttavia, se si desidera inviare testo direttamente e senza dover codificare la stringa ogni volta, è possibile eseguire il wrapping dell'oggetto `hybridConnectionStream` con un oggetto [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx).
+Tuttavia, se si desidera inviare testo direttamente e senza dover codificare la stringa ogni volta, è possibile eseguire il wrapping dell'oggetto `hybridConnectionStream` con un oggetto [StreamWriter](/dotnet/api/system.io.streamwriter?view=netcore-3.1).
 
 ```csharp
 // The StreamWriter object only needs to be created once
@@ -129,7 +129,7 @@ await textWriter.WriteLineAsync("hello");
 Per altre informazioni sul servizio di inoltro di Azure, vedere i collegamenti seguenti:
 
 * [Riferimento su Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
-* [Che cos'è il servizio di inoltro di Azure?](relay-what-is-it.md)
+* [Che cos'è Inoltro di Azure?](relay-what-is-it.md)
 * [API di inoltro disponibili](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder

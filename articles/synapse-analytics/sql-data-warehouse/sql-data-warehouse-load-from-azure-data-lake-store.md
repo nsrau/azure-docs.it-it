@@ -11,12 +11,12 @@ ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fcebf66dba2fc13457ca359b81565fc5870032c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c634b4f7ac3aa1fe83e6ab3f863e998b8d25232c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213296"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533938"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Caricare dati da Azure Data Lake Storage per Synapse SQL
 
@@ -39,7 +39,7 @@ Prima di iniziare questa esercitazione, scaricare e installare la versione più 
 Per eseguire questa esercitazione è necessario:
 
 * Un pool SQL. Vedere [Creare un pool SQL ed eseguire query sui dati](create-data-warehouse-portal.md).
-* Un account di Data Lake Storage. Vedere [Introduzione ad Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per questo account di archiviazione, è necessario configurare o specificare una delle credenziali seguenti per il caricamento: una chiave dell'account di archiviazione, una chiave di firma di accesso condiviso, un utente dell'applicazione di directory di Azure o un utente di AAD con il ruolo controllo degli accessi in base al ruolo appropriato per l'account di archiviazione.
+* Un account di Data Lake Storage. Vedere [Introduzione ad Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per questo account di archiviazione, è necessario configurare o specificare una delle credenziali seguenti per il caricamento: una chiave dell'account di archiviazione, una chiave di firma di accesso condiviso, un utente dell'applicazione di directory di Azure o un utente di AAD con il ruolo di Azure appropriato per l'account di archiviazione.
 
 ## <a name="create-the-target-table"></a>Creare la tabella di destinazione
 

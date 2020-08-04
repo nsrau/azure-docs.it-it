@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f29ed1ad7ba0215e9b4193fd56dd3a32f3e9a2
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476175"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530147"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usare i gruppi di cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)
 
@@ -59,12 +59,13 @@ Gli scenari seguenti non sono supportati in questo momento:
 ## <a name="known-issues"></a>Problemi noti
 
 - Non è possibile creare o modificare un gruppo dinamico quando il ruolo viene assegnato tramite un gruppo.
-- Azure Information Protection non riconosce ancora l'appartenenza al ruolo tramite il gruppo. Le assegnazioni di ruolo dirette continuano a funzionare. Azure Information Protection portale (il portale classico) non riconosce ancora l'appartenenza al ruolo tramite il gruppo. Le assegnazioni di ruolo dirette continuano a funzionare. È possibile [eseguire la migrazione alla piattaforma Unified Sensitivity Labeling](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) e quindi usare Office 365 Security & Compliance Center per usare le assegnazioni di gruppo per gestire i ruoli.
 - L' **Abilitazione dell'implementazione temporanea per la funzionalità di accesso utente gestito** non supporta l'assegnazione tramite gruppo.
 - *Solo per i clienti con licenza Azure ad P2*: non assegnare un gruppo come attivo a un ruolo tramite Azure AD e Privileged Identity Management. In questo modo, si verificheranno problemi per cui gli utenti non possono visualizzare le relative assegnazioni di ruolo attive in PIM, oltre all'impossibilità di rimuovere tale assegnazione PIM. Le assegnazioni idonee non sono interessate in questo scenario. Se si tenta di eseguire questa assegnazione, è possibile che venga visualizzato un comportamento imprevisto, ad esempio:
   - L'ora di fine per l'assegnazione di ruolo potrebbe non essere visualizzata correttamente.
   - Nel portale di PIM, i **ruoli** possono visualizzare solo un'assegnazione di ruolo indipendentemente dal numero di metodi per cui viene concessa l'assegnazione (tramite uno o più gruppi e direttamente).
-- *Solo per i clienti con licenza Azure ad P2* Anche dopo l'eliminazione del gruppo, viene comunque visualizzato un membro idoneo del ruolo nell'interfaccia utente di PIM. Dal punto di vista funzionale non è presente alcun problema. si tratta semplicemente di un problema relativo alla cache nel portale di Azure.
+- *Solo per i clienti con licenza Azure ad P2* Anche dopo l'eliminazione del gruppo, viene comunque visualizzato un membro idoneo del ruolo nell'interfaccia utente di PIM. Dal punto di vista funzionale non è presente alcun problema. si tratta semplicemente di un problema relativo alla cache nel portale di Azure.  
+- L'interfaccia di amministrazione di Exchange non riconosce ancora l'appartenenza al ruolo tramite il gruppo, ma il cmdlet di PowerShell funzionerà.
+- Azure Information Protection portale (il portale classico) non riconosce ancora l'appartenenza al ruolo tramite il gruppo. È possibile [eseguire la migrazione alla piattaforma Unified Sensitivity Labeling](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) e quindi usare Office 365 Security & Compliance Center per usare le assegnazioni di gruppo per gestire i ruoli.
 
 Stiamo risolvendo questi problemi.
 
@@ -74,5 +75,5 @@ Per usare questa funzionalità, è necessario disporre di una licenza Azure AD P
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un gruppo assegnabile al ruolo](roles-groups-create-eligible.md)
+- [Creare un gruppo assegnabile a un ruolo](roles-groups-create-eligible.md)
 - [Assegnazione di un ruolo a un gruppo assegnabile al ruolo](roles-groups-assign-role.md)

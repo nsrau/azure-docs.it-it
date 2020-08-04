@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Informazioni su come individuare e risolvere i problemi comuni relativi all'abilitazione e all'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: cd242dc56e4a3215954fbe6703f47e29bd417ea8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232492"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534397"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -498,9 +498,9 @@ Dopo aver reinstallato il controller, ridistribuire i pod.
 
 ### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Autorizzazioni di Controllo degli accessi in base al ruolo non corrette per la chiamata al controller e alle API di Dev Spaces
 
-L'utente che accede al controller di Azure Dev Spaces deve avere accesso per leggere *kubeconfig* dell'amministratore nel cluster del servizio Azure Kubernetes. Questa autorizzazione è ad esempio disponibile nel [ruolo predefinito di amministratore del cluster del servizio Azure Kubernetes](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). L'utente che accede al controller di Azure Dev Spaces deve anche avere il ruolo Controllo degli accessi in base al ruolo di *Collaboratore* o *Proprietario* per il controller. Altre informazioni sull'aggiornamento delle autorizzazioni di un utente per un cluster del servizio Azure Kubernetes sono disponibili [qui](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
+L'utente che accede al controller di Azure Dev Spaces deve avere accesso per leggere *kubeconfig* dell'amministratore nel cluster del servizio Azure Kubernetes. Questa autorizzazione è ad esempio disponibile nel [ruolo predefinito di amministratore del cluster del servizio Azure Kubernetes](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). L'utente che accede al controller di Azure Dev Spaces deve avere anche il ruolo di *collaboratore* o *proprietario* di Azure per il controller. Altre informazioni sull'aggiornamento delle autorizzazioni di un utente per un cluster del servizio Azure Kubernetes sono disponibili [qui](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
-Per aggiornare il ruolo Controllo degli accessi in base al ruolo dell'utente per il controller:
+Per aggiornare il ruolo di Azure dell'utente per il controller:
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 1. Passare al gruppo di risorse contenente il controller, che in genere è lo stesso del cluster del servizio Azure Kubernetes.

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: a6092395929f4990010e2212f28a5962cfe1c7e7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087842"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534346"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -253,9 +253,6 @@ Questa funzionalità è supportata per la copia di dati da qualsiasi origine nei
 - [SQL Server](connector-sql-server.md)
 
 ![Creazione di tabelle di sink](media/copy-activity-overview/create-sink-table.png)
-
-> [!NOTE]
-> La creazione di tabelle automatiche attualmente non è supportata quando è abilitata la copia di gestione [temporanea](copy-activity-performance-features.md#staged-copy) .
 
 ## <a name="fault-tolerance"></a>Tolleranza di errore
 

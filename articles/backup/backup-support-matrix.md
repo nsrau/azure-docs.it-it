@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091012"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531881"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -106,20 +106,17 @@ Backup di Azure supporta la crittografia per i dati in movimento e inattivi.
 ### <a name="data-security"></a>Sicurezza dei dati
 
 - I dati di backup vengono archiviati nell'insieme di credenziali di Servizi di ripristino in formato crittografato.
-- Solo il cliente ha la passphrase per sbloccare questi dati. Microsoft non può decrittografare i dati di backup in nessun caso.
-
-    > [!WARNING]
-    > Dopo aver configurato l'insieme di credenziali, solo il cliente ha accesso alla chiave di crittografia. Microsoft non conserva mai una copia e non ha accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
+- Quando si esegue il backup dei dati dai server locali con l'agente MARS, i dati vengono crittografati con una passphrase prima del caricamento in backup di Azure e decrittografati solo dopo essere stati scaricati da backup di Azure.
 - Per il backup delle VM di Azure, è necessario configurare la crittografia *all'interno* della macchina virtuale.
 - Backup di Azure supporta Crittografia dischi di Azure, che usa BitLocker su macchine virtuali Windows e **dm-crypt** su macchine virtuali Linux.
 - Nel back-end Backup di Azure usa [Crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md), che protegge i dati inattivi.
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-**Computer Windows locali senza DPM/MABS** | ![Sì][green] | ![Sì][green]
-**Macchine virtuali di Azure** | ![Sì][green] | ![Sì][green]
-**Computer Windows locali o VM di Azure con DPM** | ![Sì][green] | ![Sì][green]
-**Computer Windows locali o VM di Azure con MAB** | ![Sì][green] | ![Sì][green]
+**Computer Windows locali senza DPM/MABS** | ![sì][green] | ![sì][green]
+**Macchine virtuali di Azure** | ![sì][green] | ![Sì][green]
+**Computer Windows locali o VM di Azure con DPM** | ![sì][green] | ![Sì][green]
+**Computer Windows locali o VM di Azure con MAB** | ![sì][green] | ![Sì][green]
 
 ## <a name="compression-support"></a>Supporto della compressione
 
@@ -131,7 +128,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Compressione in insieme di credenziali (HTTPS)**
 --- | --- | ---
 **Backup diretto di computer Windows locali** | ND | ![Sì][green]
-**Backup di VM di Azure tramite l'estensione della VM** | ND | ND
+**Backup di VM di Azure tramite l'estensione della VM** | N/D | ND
 **Backup in computer locali/macchine virtuali di Azure usando MABS/DPM** | ![Sì][green] | ![Sì][green]
 
 ## <a name="retention-limits"></a>Limiti di conservazione

@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9d4097e847417f56c9881a3e18237e97dfee465e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dcd1280dbe3a00a6a7cbdaaf59aa05326dfa8375
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501407"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534176"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare la portale di Azure per accedere ai dati di BLOB o di Accodamento
 
@@ -29,7 +29,7 @@ A seconda di come si vuole autorizzare l'accesso ai dati BLOB o di Accodamento n
 
 ### <a name="use-the-account-access-key"></a>Usare la chiave di accesso dell'account
 
-Per accedere ai dati BLOB e di Accodamento con la chiave di accesso dell'account, è necessario che sia stato assegnato un ruolo RBAC che includa l'azione RBAC **Microsoft. storage/storageAccounts/listkeys/Action**. Questo ruolo RBAC può essere un ruolo predefinito o personalizzato. I ruoli predefiniti che supportano **Microsoft. storage/storageAccounts/listkeys/Action** includono:
+Per accedere ai dati BLOB e di Accodamento con la chiave di accesso dell'account, è necessario disporre di un ruolo di Azure assegnato che includa l'azione RBAC **Microsoft. storage/storageAccounts/listkeys/Action**. Questo ruolo di Azure può essere un ruolo predefinito o personalizzato. I ruoli predefiniti che supportano **Microsoft. storage/storageAccounts/listkeys/Action** includono:
 
 - Ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - Ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
@@ -47,7 +47,7 @@ Per accedere ai dati BLOB o della coda dalla portale di Azure usando l'account A
 - Il ruolo di [lettore](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager è stato assegnato come minimo all'ambito del livello dell'account di archiviazione o superiore. Il ruolo **Reader** concede le autorizzazioni più limitate, ma è accettabile anche un altro Azure Resource Manager ruolo che concede l'accesso alle risorse di gestione degli account di archiviazione.
 - È stato assegnato un ruolo predefinito o personalizzato che consente di accedere ai dati di BLOB o di Accodamento.
 
-Per consentire all'utente di visualizzare le risorse di gestione degli account di archiviazione nell'portale di Azure, è necessaria l'assegnazione del ruolo **lettore** o un'altra assegnazione di ruolo Azure Resource Manager. I ruoli RBAC che concedono l'accesso ai dati di BLOB o di Accodamento non concedono l'accesso alle risorse di gestione degli account di archiviazione. Per accedere ai dati BLOB o di accodamento nel portale, l'utente deve disporre delle autorizzazioni per spostarsi tra le risorse dell'account di archiviazione. Per altre informazioni su questo requisito, vedere [assegnare il ruolo lettore per l'accesso al portale](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
+Per consentire all'utente di visualizzare le risorse di gestione degli account di archiviazione nell'portale di Azure, è necessaria l'assegnazione del ruolo **lettore** o un'altra assegnazione di ruolo Azure Resource Manager. I ruoli di Azure che concedono l'accesso ai dati BLOB o di Accodamento non concedono l'accesso alle risorse di gestione degli account di archiviazione. Per accedere ai dati BLOB o di accodamento nel portale, l'utente deve disporre delle autorizzazioni per spostarsi tra le risorse dell'account di archiviazione. Per altre informazioni su questo requisito, vedere [assegnare il ruolo lettore per l'accesso al portale](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 I ruoli predefiniti che supportano l'accesso ai dati BLOB o della coda includono:
 
@@ -82,7 +82,7 @@ Se si esegue l'autenticazione usando la chiave di accesso dell'account, verrà v
 
 ![Accesso ai dati del contenitore con la chiave dell'account](media/storage-access-blobs-queues-portal/auth-method-access-key.png)
 
-Per passare a utilizzando l'account Azure AD, fare clic sul collegamento evidenziato nell'immagine. Se si dispone delle autorizzazioni appropriate tramite i ruoli RBAC assegnati, sarà possibile procedere. Tuttavia, se non si dispone delle autorizzazioni appropriate, verrà visualizzato un messaggio di errore simile al seguente:
+Per passare a utilizzando l'account Azure AD, fare clic sul collegamento evidenziato nell'immagine. Se si dispone delle autorizzazioni appropriate tramite i ruoli di Azure assegnati, sarà possibile procedere. Tuttavia, se non si dispone delle autorizzazioni appropriate, verrà visualizzato un messaggio di errore simile al seguente:
 
 ![Errore visualizzato se Azure AD account non supporta l'accesso](media/storage-access-blobs-queues-portal/auth-error-azure-ad.png)
 

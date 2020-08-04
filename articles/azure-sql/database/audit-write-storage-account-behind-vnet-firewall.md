@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f6a64cf30ecc684e05675d366ff5c9fc6642126
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6ba0a599bcb0b058ce4902882df9459b177fb6b5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372162"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530405"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Controllo per la scrittura in un account di archiviazione dietro rete virtuale e firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -117,7 +117,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    }
    ```
 
-2. Aprire il [portale di Azure](https://portal.azure.com). Passare all'account di archiviazione. Individuare **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di **collaboratore dati BLOB di archiviazione** al server che ospita il database registrato con Azure Active Directory (Azure ad) come nel passaggio precedente.
+2. Aprire il [portale di Azure](https://portal.azure.com). Passare all'account di archiviazione. Individuare **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di Azure **collaboratore dati BLOB di archiviazione** al server che ospita il database registrato con Azure Active Directory (Azure ad) come nel passaggio precedente.
 
    > [!NOTE]
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).

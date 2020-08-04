@@ -1,5 +1,5 @@
 ---
-title: Impostare i ruoli RBAC per l'accesso amministrativo di Azure
+title: Impostare i ruoli di Azure per l'accesso amministrativo di Azure
 titleSuffix: Azure Cognitive Search
 description: Controllo amministrativo basato su ruoli (RBAC) nell'portale di Azure per il controllo e la delega delle attività amministrative per la gestione ricerca cognitiva di Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1b2576eb42cbe25919eb77fc30e2720ed812ca4
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84462839"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534431"
 ---
-# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Impostare i ruoli RBAC per l'accesso amministrativo ad Azure ricerca cognitiva
+# <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Impostare i ruoli di Azure per l'accesso amministrativo ad Azure ricerca cognitiva
 
 Azure offre un [modello di autorizzazione basata sui ruoli globali](../role-based-access-control/role-assignments-portal.md) per tutti i servizi gestiti tramite il portale o le API di Resource Manager. I ruoli proprietario, collaboratore e lettore determinano il livello di *amministrazione del servizio* per Active Directory utenti, gruppi e entità di sicurezza assegnati a ogni ruolo. 
 
@@ -26,10 +26,10 @@ Azure offre un [modello di autorizzazione basata sui ruoli globali](../role-base
 
 Per ricerca cognitiva di Azure, i ruoli sono associati ai livelli di autorizzazione che supportano le seguenti attività di gestione:
 
-| Ruolo | Attività |
+| Role | Attività |
 | --- | --- |
 | Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
-| Collaboratore |Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può creare o eliminare un oggetto o visualizzare e rigenerare [chiavi API](search-security-api-keys.md), ma non può modificare le appartenenze ai ruoli. |
+| Autore di contributi |Lo stesso livello di accesso del proprietario, meno la gestione dei ruoli di Azure. Ad esempio, un Collaboratore può creare o eliminare un oggetto o visualizzare e rigenerare [chiavi API](search-security-api-keys.md), ma non può modificare le appartenenze ai ruoli. |
 | [Ruolo integrato di Collaboratore servizio di ricerca](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalente al ruolo di Collaboratore. |
 | Reader |Visualizza le informazioni di base e le metriche del servizio. I membri con questo ruolo non possono visualizzare l’indice, l'indicizzatore, l’origine dati o informazioni sulla chiave.  |
 

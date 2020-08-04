@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: daf4eb4492f723b049dc62a16351e04ffc252337
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3a45f185a20345dac00bd459789afc9d53bd48f7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289242"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534312"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB
 
@@ -50,9 +50,11 @@ Non consentire l'accesso pubblico per l'account di archiviazione impedisce l'acc
 > [!IMPORTANT]
 > Non consentire l'accesso pubblico per un account di archiviazione sostituisce le impostazioni di accesso pubblico per tutti i contenitori nell'account di archiviazione. Quando l'accesso pubblico non è consentito per l'account di archiviazione, eventuali richieste anonime future a tale account avranno esito negativo. Prima di modificare questa impostazione, assicurarsi di comprendere l'effetto sulle applicazioni client che potrebbero accedere ai dati nell'account di archiviazione in modo anonimo. Per altre informazioni, vedere [impedire l'accesso in lettura pubblico anonimo a contenitori e BLOB](anonymous-read-access-prevent.md).
 
-Per consentire o impedire l'accesso pubblico per un account di archiviazione, usare l'portale di Azure o l'interfaccia della riga di comando di Azure per configurare la proprietà **blobPublicAccess** dell'account. Questa proprietà è disponibile per tutti gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager. Per altre informazioni, vedere [Panoramica dell'account di archiviazione](../common/storage-account-overview.md).
+Per consentire o impedire l'accesso pubblico per un account di archiviazione, configurare la proprietà **AllowBlobPublicAccess** dell'account. Questa proprietà è disponibile per tutti gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager. Per altre informazioni, vedere [Panoramica dell'account di archiviazione](../common/storage-account-overview.md).
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+Per impostazione predefinita, la proprietà **AllowBlobPublicAccess** non viene impostata e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente l'accesso pubblico quando il valore della proprietà è **null** o quando è **true**.
+
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per consentire o impedire l'accesso pubblico per un account di archiviazione nel portale di Azure, attenersi alla procedura seguente:
 
@@ -62,64 +64,118 @@ Per consentire o impedire l'accesso pubblico per un account di archiviazione nel
 
     :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot che illustra come consentire o impedire l'accesso pubblico BLOB per l'account":::
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Per consentire o impedire l'accesso pubblico per un account di archiviazione con PowerShell, installare [Azure PowerShell versione 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) o successiva. Successivamente, configurare la proprietà **AllowBlobPublicAccess** per un account di archiviazione nuovo o esistente.
+
+Nell'esempio seguente viene creato un account di archiviazione e viene impostata in modo esplicito la proprietà **AllowBlobPublicAccess** su **true**. Aggiorna quindi l'account di archiviazione per impostare la proprietà **AllowBlobPublicAccess** su **false**. Nell'esempio viene recuperato anche il valore della proprietà in ogni caso. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+
+```powershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$location = "<location>"
+
+# Create a storage account with AllowBlobPublicAccess set to true (or null).
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS
+    -AllowBlobPublicAccess $false
+
+# Read the AllowBlobPublicAccess property for the newly created storage account.
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
+
+# Set AllowBlobPublicAccess set to false
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -AllowBlobPublicAccess $false
+
+# Read the AllowBlobPublicAccess property.
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
+```
+
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per consentire o impedire l'accesso pubblico per un account di archiviazione con l'interfaccia della riga di comando di Azure, ottenere prima di tutto l'ID risorsa per l'account di archiviazione chiamando il comando [AZ Resource Show](/cli/azure/resource#az-resource-show) . Chiamare quindi il comando [AZ Resource Update](/cli/azure/resource#az-resource-update) per impostare la proprietà **allowBlobPublicAccess** per l'account di archiviazione. Per consentire l'accesso pubblico, impostare la proprietà **allowBlobPublicAccess** su true; per non consentire, impostarlo su **false**.
+Per consentire o impedire l'accesso pubblico per un account di archiviazione con l'interfaccia della riga di comando di Azure, installare l'interfaccia della riga di comando di Azure versione 2.9.0 Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Successivamente, configurare la proprietà **allowBlobPublicAccess** per un account di archiviazione nuovo o esistente.
 
-Nell'esempio seguente non è consentito l'accesso al BLOB pubblico per l'account di archiviazione. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+Nell'esempio seguente viene creato un account di archiviazione e viene impostata in modo esplicito la proprietà **allowBlobPublicAccess** su **true**. Aggiorna quindi l'account di archiviazione per impostare la proprietà **allowBlobPublicAccess** su **false**. Nell'esempio viene recuperato anche il valore della proprietà in ogni caso. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```azurecli-interactive
-storage_account_id=$(az resource show \
-    --name anonpublicaccess \
-    --resource-group storagesamples-rg \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query id \
-    --output tsv)
+az storage account create \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --kind StorageV2 \
+    --location <location> \
+    --allow-blob-public-access true
 
-az resource update \
-    --ids $storage_account_id \
-    --set properties.allowBlobPublicAccess=false
-    ```
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query allowBlobPublicAccess \
+    --output tsv
+
+az storage account update \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --allow-blob-public-access false
+
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query allowBlobPublicAccess \
+    --output tsv
 ```
+
+# <a name="template"></a>[Modello](#tab/template)
+
+Per consentire o impedire l'accesso pubblico per un account di archiviazione con un modello, creare un modello con la proprietà **AllowBlobPublicAccess** impostata su **true** o **false**. Nei passaggi seguenti viene descritto come creare un modello nel portale di Azure.
+
+1. Nella portale di Azure scegliere **Crea una risorsa**.
+1. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
+1. Scegliere **distribuzione modelli (Distribuisci usando i modelli personalizzati) (anteprima)**, scegliere Crea, quindi **creare** **un modello personalizzato nell'editor**.
+1. Nell'editor dei modelli incollare il codice JSON seguente per creare un nuovo account e impostare la proprietà **AllowBlobPublicAccess** su **true** o **false**. Ricordarsi di sostituire i segnaposto tra parentesi angolari con valori personalizzati.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {
+            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'template')]"
+        },
+        "resources": [
+            {
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "<location>",
+            "properties": {
+                "allowBlobPublicAccess": false
+            },
+            "dependsOn": [],
+            "sku": {
+              "name": "Standard_GRS"
+            },
+            "kind": "StorageV2",
+            "tags": {}
+            }
+        ]
+    }
+    ```
+
+1. Salvare il modello.
+1. Specificare il parametro del gruppo di risorse, quindi scegliere il pulsante **Verifica + crea** per distribuire il modello e creare un account di archiviazione con la proprietà **allowBlobPublicAccess** configurata.
 
 ---
 
 > [!NOTE]
 > La disattivazione dell'accesso pubblico per un account di archiviazione non influisce su tutti i siti web statici ospitati in tale account di archiviazione. Il contenitore **$Web** è sempre accessibile pubblicamente.
+>
+> Dopo l'aggiornamento dell'impostazione di accesso pubblico per l'account di archiviazione, potrebbero essere importati fino a 30 secondi prima che la modifica venga propagata completamente.
 
-## <a name="check-whether-public-access-is-allowed-for-a-storage-account"></a>Controllare se l'accesso pubblico è consentito per un account di archiviazione
+Per consentire o impedire l'accesso pubblico ai BLOB è richiesta la versione 2019-04-01 o successiva del provider di risorse di archiviazione di Azure. Per altre informazioni, vedere [API REST del provider di risorse di archiviazione di Azure](/rest/api/storagerp/).
 
-Per verificare se per un account di archiviazione è consentito l'accesso pubblico, ottenere il valore della proprietà **allowBlobPublicAccess** . Per controllare in una sola volta questa proprietà per un numero elevato di account di archiviazione, usare Azure Resource Graph Explorer.
-
-> [!IMPORTANT]
-> Per impostazione predefinita, la proprietà **allowBlobPublicAccess** non viene impostata e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente l'accesso pubblico quando il valore della proprietà è **null** o quando è **true**.
-
-### <a name="check-whether-public-access-is-allowed-for-a-single-storage-account"></a>Controllare se l'accesso pubblico è consentito per un singolo account di archiviazione
-
-Per verificare se è consentito l'accesso pubblico per un singolo account di archiviazione usando l'interfaccia della riga di comando di Azure, chiamare il comando [AZ Resource Show](/cli/azure/resource#az-resource-show) ed eseguire una query per la proprietà **allowBlobPublicAccess** :
-
-```azurecli-interactive
-az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.allowBlobPublicAccess \
-    --output tsv
-```
-
-### <a name="check-whether-public-access-is-allowed-for-a-set-of-storage-accounts"></a>Controllare se l'accesso pubblico è consentito per un set di account di archiviazione
-
-Per verificare se l'accesso pubblico è consentito in un set di account di archiviazione con prestazioni ottimali, è possibile usare Azure Resource Graph Explorer nella portale di Azure. Per altre informazioni sull'uso di Esplora grafico risorse, vedere [Guida introduttiva: eseguire la prima query di Resource Graph con Esplora risorse di Azure](/azure/governance/resource-graph/first-query-portal).
-
-Eseguendo la query seguente in Resource Graph Explorer viene restituito un elenco di account di archiviazione e viene visualizzato il valore della proprietà **allowBlobPublicAccess** per ogni account:
-
-```kusto
-resources
-| where type =~ 'Microsoft.Storage/storageAccounts'
-| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
-| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
-| order by subscriptionId, resourceGroup, name asc
-```
+Negli esempi di questa sezione è stato illustrato come leggere la proprietà **AllowBlobPublicAccess** per l'account di archiviazione per determinare se l'accesso pubblico è attualmente consentito o non consentito. Per altre informazioni su come verificare che l'impostazione di accesso pubblico di un account sia configurata per impedire l'accesso anonimo, vedere [correggere l'accesso pubblico anonimo](anonymous-read-access-prevent.md#remediate-anonymous-public-access).
 
 ## <a name="set-the-public-access-level-for-a-container"></a>Impostare il livello di accesso pubblico per un contenitore
 
@@ -131,11 +187,9 @@ Quando è consentito l'accesso pubblico per un account di archiviazione, è poss
 - **Accesso in lettura pubblico solo per i BLOB:** I BLOB all'interno del contenitore possono essere letti da una richiesta anonima, ma i dati del contenitore non sono disponibili in modo anonimo. I client anonimi non possono enumerare i BLOB all'interno del contenitore.
 - **Accesso in lettura pubblico per il contenitore e i relativi BLOB:** I dati del contenitore e del BLOB possono essere letti da una richiesta anonima, ad eccezione delle impostazioni di autorizzazione del contenitore e dei metadati del contenitore. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
-Non è possibile modificare il livello di accesso pubblico per un singolo BLOB. Il livello di accesso pubblico è impostato solo a livello di contenitore.
+Non è possibile modificare il livello di accesso pubblico per un singolo BLOB. Il livello di accesso pubblico è impostato solo a livello di contenitore. È possibile impostare il livello di accesso pubblico del contenitore quando si crea il contenitore oppure è possibile aggiornare l'impostazione in un contenitore esistente.
 
-Per impostare il livello di accesso pubblico di un contenitore, usare l'portale di Azure o l'interfaccia della riga di comando di Azure. È possibile impostare il livello di accesso pubblico del contenitore quando si crea il contenitore oppure aggiornare questa impostazione in un contenitore esistente.
-
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per aggiornare il livello di accesso pubblico per uno o più contenitori esistenti nel portale di Azure, attenersi alla procedura seguente:
 
@@ -151,44 +205,81 @@ Quando l'accesso pubblico non è consentito per l'account di archiviazione, non 
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot che mostra che l'impostazione del livello di accesso pubblico del contenitore è bloccata quando l'accesso pubblico non è consentito":::
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Per aggiornare il livello di accesso pubblico per uno o più contenitori con PowerShell, chiamare il comando [set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) . Autorizzare questa operazione passando la chiave dell'account, una stringa di connessione o una firma di accesso condiviso (SAS). L'operazione di [impostazione dell'ACL del contenitore](/rest/api/storageservices/set-container-acl) che imposta il livello di accesso pubblico del contenitore non supporta l'autorizzazione con Azure ad. Per ulteriori informazioni, vedere [autorizzazioni per la chiamata di operazioni sui dati di BLOB e di Accodamento](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+
+Nell'esempio seguente viene creato un contenitore con accesso pubblico disabilitato, quindi viene aggiornata l'impostazione di accesso pubblico del contenitore per consentire l'accesso anonimo al contenitore e ai relativi BLOB. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+
+```powershell
+# Set variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Get context object.
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+# Create a new container with public access setting set to Off.
+$containerName = "<container>"
+New-AzStorageContainer -Name $containerName -Permission Off -Context $ctx
+
+# Read the container's public access setting.
+Get-AzStorageContainerAcl -Container $containerName -Context $ctx
+
+# Update the container's public access setting to Container.
+Set-AzStorageContainerAcl -Container $containerName -Permission Container -Context $ctx
+
+# Read the container's public access setting.
+Get-AzStorageContainerAcl -Container $containerName -Context $ctx
+```
+
+Quando l'accesso pubblico non è consentito per l'account di archiviazione, non è possibile impostare il livello di accesso pubblico di un contenitore. Se si tenta di impostare il livello di accesso pubblico del contenitore, archiviazione di Azure restituisce un errore che indica che l'accesso pubblico non è consentito nell'account di archiviazione.
+
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per aggiornare il livello di accesso pubblico per uno o più contenitori con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ Storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) . Autorizzare questa operazione passando la chiave dell'account, una stringa di connessione o una firma di accesso condiviso (SAS). L'operazione di [impostazione dell'ACL del contenitore](/rest/api/storageservices/set-container-acl) che imposta il livello di accesso pubblico del contenitore non supporta l'autorizzazione con Azure ad. Per ulteriori informazioni, vedere [autorizzazioni per la chiamata di operazioni sui dati di BLOB e di Accodamento](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
-Nell'esempio seguente viene impostata l'impostazione di accesso pubblico per un contenitore per consentire l'accesso anonimo al contenitore e ai relativi BLOB. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+Nell'esempio seguente viene creato un contenitore con accesso pubblico disabilitato, quindi viene aggiornata l'impostazione di accesso pubblico del contenitore per consentire l'accesso anonimo al contenitore e ai relativi BLOB. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```azurecli-interactive
+az storage container create \
+    --name <container-name> \
+    --account-name <account-name> \
+    --resource-group <resource-group>
+    --public-access off \
+    --account-key <account-key> \
+    --auth-mode key
+
+az storage container show-permission \
+    --name <container-name> \
+    --account-name <account-name> \
+    --account-key <account-key> \
+    --auth-mode key
+
 az storage container set-permission \
     --name <container-name> \
     --account-name <account-name> \
     --public-access container \
     --account-key <account-key> \
     --auth-mode key
-```
 
-Quando l'accesso pubblico non è consentito per l'account di archiviazione, non è possibile impostare il livello di accesso pubblico di un contenitore. Se si tenta di impostare il livello di accesso pubblico del contenitore, si verifica un errore che indica che l'accesso pubblico non è consentito nell'account di archiviazione.
-
----
-
-## <a name="check-the-container-public-access-setting"></a>Controllare l'impostazione di accesso pubblico del contenitore
-
-Per controllare l'impostazione di accesso pubblico per uno o più contenitori, è possibile usare la portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, una delle librerie client di archiviazione di Azure o il provider di risorse di archiviazione di Azure. Le sezioni seguenti offrono alcuni esempi.  
-
-### <a name="check-the-public-access-setting-for-a-single-container"></a>Controllare l'impostazione di accesso pubblico per un singolo contenitore
-
-Per ottenere il livello di accesso pubblico per uno o più contenitori con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ Storage container Show permission](/cli/azure/storage/container#az-storage-container-show-permission) . Autorizzare questa operazione passando la chiave dell'account, una stringa di connessione o una firma di accesso condiviso (SAS). L'operazione [Get Container ACL](/rest/api/storageservices/get-container-acl) che restituisce il livello di accesso pubblico di un contenitore non supporta l'autorizzazione con Azure ad. Per ulteriori informazioni, vedere [autorizzazioni per la chiamata di operazioni sui dati di BLOB e di Accodamento](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
-
-Nell'esempio seguente viene letta l'impostazione di accesso pubblico per un contenitore. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
-
-```azurecli-interactive
 az storage container show-permission \
     --name <container-name> \
     --account-name <account-name> \
-    --account-key <account-key>
+    --account-key <account-key> \
     --auth-mode key
 ```
 
-### <a name="check-the-public-access-setting-for-a-set-of-containers"></a>Controllare l'impostazione di accesso pubblico per un set di contenitori
+Quando l'accesso pubblico non è consentito per l'account di archiviazione, non è possibile impostare il livello di accesso pubblico di un contenitore. Se si tenta di impostare il livello di accesso pubblico del contenitore, archiviazione di Azure restituisce un errore che indica che l'accesso pubblico non è consentito nell'account di archiviazione.
+
+# <a name="template"></a>[Modello](#tab/template)
+
+N/D.
+
+---
+
+## <a name="check-the-public-access-setting-for-a-set-of-containers"></a>Controllare l'impostazione di accesso pubblico per un set di contenitori
 
 È possibile verificare quali contenitori in uno o più account di archiviazione sono configurati per l'accesso pubblico elencando i contenitori e controllando l'impostazione di accesso pubblico. Questo approccio è un'opzione pratica quando un account di archiviazione non contiene un numero elevato di contenitori o quando si controlla l'impostazione in un numero ridotto di account di archiviazione. Tuttavia, le prestazioni possono soffrire se si tenta di enumerare un numero elevato di contenitori.
 

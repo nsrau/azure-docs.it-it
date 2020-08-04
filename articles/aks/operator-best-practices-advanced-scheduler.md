@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'uso delle f
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077848"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530062"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -71,8 +71,6 @@ Quando questo pod viene distribuito, ad esempio usando `kubectl apply -f gpu-tol
 
 Quando si applicano i taint, contattare gli sviluppatori e i proprietari delle applicazioni per consentire loro di definire le tolleranze richieste nelle proprie distribuzioni.
 
-Per altre informazioni su taint e tolleranze, vedere l'articolo sull'[applicazione di taint e tolleranze][k8s-taints-tolerations].
-
 Per altre informazioni su come usare più pool di nodi in AKS, vedere [creare e gestire pool di nodi multipli per un cluster in AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento di macchie e tolleranze in AKS
@@ -80,6 +78,7 @@ Per altre informazioni su come usare più pool di nodi in AKS, vedere [creare e 
 Quando si esegue l'aggiornamento di un pool di nodi in AKS, i guasti e le tollerazioni seguono un modello set quando vengono applicati ai nuovi nodi:
 
 - **Cluster predefiniti che usano i set di scalabilità di macchine virtuali**
+  - È possibile [intaccare un nodepool][taint-node-pool] dall'API AKS per fare in modo che i nodi con scalabilità orizzontale ricevano i guasti del nodo specificati dall'API.
   - Si supponga di avere un cluster a due nodi, *node1* e *node2*. Si aggiorna il pool di nodi.
   - Vengono creati due nodi aggiuntivi, *Nodo3* e *Nodo4*, e i guasti vengono passati rispettivamente.
   - I *node1* e *node2* originali vengono eliminati.
@@ -198,3 +197,4 @@ Questo articolo ha illustrato le funzionalità avanzate dell'utilità di pianifi
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

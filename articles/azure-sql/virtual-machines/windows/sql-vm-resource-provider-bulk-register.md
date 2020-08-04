@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 74757b2f5e272c7e7dbc0dc7f033c7899be1414b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5d1d74f1240f919bb20d8893755a86abc19fa828
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184280"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533802"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrare più macchine virtuali SQL in Azure con il provider di risorse per VM SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Per altre informazioni sul provider di risorse, vedere l'articolo relativo al [p
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario quanto segue: 
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/) che sia [registrata con il provider di risorse](sql-vm-resource-provider-register.md#register-subscription-with-rp) e contenga macchine virtuali di SQL Server non registrate. 
-- Le credenziali client usate per registrare le macchine virtuali sono disponibili in uno dei ruoli RBAC seguenti: **Collaboratore macchina virtuale**, **Collaboratore** o **Proprietario**. 
+- Le credenziali client usate per registrare le macchine virtuali sono disponibili in uno dei seguenti ruoli di Azure: **collaboratore macchina virtuale**, **collaboratore**o **proprietario**. 
 - La versione più recente di [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - La versione più recente di [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 

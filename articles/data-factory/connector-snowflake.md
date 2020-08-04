@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 07/30/2020
+ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220304"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529501"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiare dati da e a fiocco di neve usando Azure Data Factory
 
@@ -49,7 +49,7 @@ Per un servizio collegato a fiocco di neve sono supportate le proprietà seguent
 | Proprietà         | Descrizione                                                  | Obbligatoria |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | La proprietà Type deve essere impostata su **fiocco di neve**.              | Sì      |
-| connectionString | Configurare il [nome completo dell'account](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (inclusi i segmenti aggiuntivi che identificano l'area e la piattaforma cloud), il nome utente, la password, il database e il warehouse. Specificare la stringa di connessione JDBC per la connessione all'istanza di fiocco di neve. È anche possibile inserire la password in Azure Key Vault. Per altri dettagli, vedere gli esempi sotto la tabella, nonché le [credenziali di archiviazione nell'articolo Azure Key Vault](store-credentials-in-key-vault.md) .| Sì      |
+| connectionString | Specifica le informazioni necessarie per la connessione all'istanza di fiocco di neve. È possibile scegliere di inserire la password o l'intera stringa di connessione in Azure Key Vault. Per altri dettagli, vedere gli esempi sotto la tabella, nonché le [credenziali di archiviazione nell'articolo Azure Key Vault](store-credentials-in-key-vault.md) .<br><br>Alcune impostazioni tipiche:<br>- **Nome account:** [Nome completo dell'account](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) di fiocco di neve (inclusi i segmenti aggiuntivi che identificano l'area e la piattaforma cloud), ad esempio xy12345. East-US-2. Azure.<br/>- **Nome utente:** Nome dell'account di accesso dell'utente per la connessione.<br>- **Password:** Password per l'utente.<br>- **Database:** Il database predefinito da utilizzare una volta connessi. Deve essere un database esistente per il quale il ruolo specificato dispone dei privilegi.<br>- Data **Warehouse:** Il warehouse virtuale da usare una volta connessi. Deve essere un warehouse esistente per il quale il ruolo specificato dispone dei privilegi.<br>- **Ruolo:** Ruolo di controllo di accesso predefinito da usare nella sessione di fiocco di neve. Il ruolo specificato deve essere un ruolo esistente che è già stato assegnato all'utente specificato. Il ruolo predefinito è PUBLIC. | Sì      |
 | connectVia       | [Runtime di integrazione](concepts-integration-runtime.md) usato per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No       |
 
 **Esempio:**
@@ -60,7 +60,7 @@ Per un servizio collegato a fiocco di neve sono supportate le proprietà seguent
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ Per un servizio collegato a fiocco di neve sono supportate le proprietà seguent
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 

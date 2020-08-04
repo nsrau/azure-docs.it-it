@@ -4,12 +4,12 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 063d648c68431dd84fd1aeb88b85bc68f2acbe62
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475754"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531320"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -39,7 +39,8 @@ Installare tramite NPM.
 npm i --save @microsoft/applicationinsights-web
 ```
 
-> *Nota:* **le digitazioni sono incluse in questo pacchetto**, pertanto **non** è necessario installare un pacchetto di tipi separati.
+> [!Note]
+> **Le digitazioni sono incluse in questo pacchetto**, pertanto **non** è necessario installare un pacchetto di tipi separati.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -103,7 +104,7 @@ Ogni opzione di configurazione è illustrata sopra in una nuova riga, se non si 
 
 Le opzioni di configurazione disponibili sono 
 
-| Nome | Tipo | Descrizione
+| Nome | Tipo | Description
 |------|------|----------------
 | src | stringa **[obbligatorio]** | URL completo da cui caricare l'SDK. Questo valore viene usato per l'attributo "src" di uno &lt; script/tag aggiunto dinamicamente &gt; . È possibile usare il percorso di rete CDN pubblico o un host privato.
 | name | String *[facoltativo]* | Nome globale per l'SDK inizializzato. l'impostazione predefinita è appInsights. ```window.appInsights```Sarà quindi un riferimento all'istanza inizializzata. Nota: se si specifica un valore di nome o un'istanza precedente sembra essere assegnata (tramite il nome globale appInsightsSDK), il valore del nome verrà definito anche nello spazio dei nomi globale come ```window.appInsightsSDK=<name value>``` , necessario per il codice di inizializzazione dell'SDK per assicurarsi che l'inizializzazione e l'aggiornamento dei metodi del frammento e del proxy corretti.
@@ -235,7 +236,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche operative per un'applicazione Web.](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 
 ![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche delle dipendenze per un'applicazione Web.](./media/javascript/performance-dependencies.png)
 

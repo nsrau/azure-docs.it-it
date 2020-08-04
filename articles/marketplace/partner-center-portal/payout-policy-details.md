@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: d72a80298be96d32547737a98e5279da0c5d8ef0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 801d3ca383ebde75d6590558638df6820e538249
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324829"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529944"
 ---
 # <a name="payout-policy-details"></a>Dettagli dei criteri dei proventi
 
@@ -20,7 +20,7 @@ Questo articolo illustra il processo di pagamento di Microsoft, la pianificazion
 
 ## <a name="where-to-find-upcoming-payouts"></a>Dove trovare i pagamenti imminenti
 
-In centro per i partner selezionare **pagamento** in alto a destra nel portale:
+In centro per i partner selezionare il **pagamento** nell'angolo superiore destro della schermata:
 
 ![Viene illustrata l'icona di pagamento in alto a destra nel portale del centro per i partner.](./media/payout-overview.png)
 
@@ -40,24 +40,24 @@ A partire dal 1 ° maggio 2020, verranno aggiornati i criteri per i pagamenti re
 > [!NOTE]
 > Per le azioni da eseguire se il cliente non è in grado di pagare ma è già stato emesso un pagamento, vedere il [processo per i clienti che non](#process-for-customer-non-payment) pagano.
 
-| Event  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\* |
+| Evento  | Data (UTC) | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\* |
 | --- | --- | --- | --- |
 | Transazione o mese di utilizzo | 8/1/2020 – 8/31/2020 | N/D | **Report sull'utilizzo**: nuovo consumo visualizzato (aggiornato ogni quattro ore)<br>**Report ordini**: N/A |
 | Fine termine (mese) | 8/31/2020 | N/D | **Report sull'utilizzo**: consumo finale mensile visualizzato<br>**Report ordini**: N/A |
 | Ordine generato | 9/3/2020 – 9/7/2020 | N/D | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 | Calcolo del guadagno del pagamento | 9/4/2020 – 9/10/2020 | Contrassegnato come non **elaborato** nella cronologia delle transazioni nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 | Pagamento mensile | 10/5/2020 | Contrassegnato come **imminente** nella cronologia delle transazioni nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
-| Data di pagamento | 10/15/2020 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione relativa ai pagamenti del dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
+| Data di pagamento\** | 10/15/2020 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione relativa ai pagamenti del dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 | Fattura cliente raccolta | 12/1/2020 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione relativa ai pagamenti del dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi  |
 |  |  |  |  |
 
-\*I report sull'utilizzo e sugli ordini sono accessibili nella sezione Analyze del centro per i partner.
+\*I report sull'utilizzo e sugli ordini sono accessibili nella sezione Analyze del centro per i partner.</br>\** La data di pagamento è nell'ora solare Pacifico (PST).
 
 ### <a name="customers-who-pay-using-credit-card-or-invoice"></a>Clienti che pagano usando la carta di credito o la fattura
 
 Tutti gli acquisti con una carta di credito o una fattura mensile hanno un periodo di attesa di 30 giorni per garantire che i fondi vengano cancellati e che non siano presenti chargeback o sospetti illeciti.
 
-| Event  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\*  |
+| Evento  | Data (UTC) | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\*  |
 | --- | --- | --- | --- |
 | Transazione o mese di utilizzo | 8/1/2019 - 8/31/2019 | N/D | **Report sull'utilizzo**: nuovo consumo visualizzato (aggiornato ogni quattro ore)<br>**Report ordini**: N/A |
 | Fine termine (mese) | 8/31/2019 | N/D | **Report sull'utilizzo**: consumo finale mensile visualizzato<br>**Report ordini**: N/A |
@@ -65,16 +65,16 @@ Tutti gli acquisti con una carta di credito o una fattura mensile hanno un perio
 | Fattura cliente raccolta | 9/7/2019 – 9/10/2019 | N/D | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 | Calcola pagamenti | 9/8/2019 -9/12/2019 | Contrassegnato come non **elaborato** nella cronologia delle transazioni nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 | Pagamento mensile | 5/11/2019\* | Contrassegnato come **imminente** nella cronologia delle transazioni nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
-| Data di pagamento | 15/11/2019 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione relativa ai pagamenti nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
+| Data di pagamento\** | 15/11/2019 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione relativa ai pagamenti nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 |  |  |  |  |
 
-\*I report sull'utilizzo e sugli ordini sono accessibili nella sezione Analyze del centro per i partner.
+\*I report sull'utilizzo e sugli ordini sono accessibili nella sezione Analyze del centro per i partner.</br>\** La data di pagamento è nell'ora solare Pacifico (PST).
 
 ### <a name="enterprise-agreement-transactions-prior-to-may-1-2020"></a>Enterprise Agreement le transazioni precedenti al 1 ° maggio 2020
 
 Tutti gli acquisti che si verificano prima della data verranno elaborati e pagati in base alla pianificazione riportata di seguito dopo che Microsoft ha raccolto i pagamenti dai clienti ed elaborato la tariffa per il Marketplace.
 
-| Event  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\*  |
+| Evento  | Data (UTC)  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\*  |
 | --- | --- | --- | --- |
 | Transazione o mese di utilizzo | 8/1/2019 – 8/31/2019 | N/D | **Report sull'utilizzo**: nuovo consumo visualizzato (aggiornato ogni quattro ore)<br>**Report ordini**: N/A |
 | Fine termine (mese) | 8/31/2019 | N/D | **Report sull'utilizzo**: consumo finale mensile visualizzato<br>**Report ordini**: N/A |
@@ -82,10 +82,10 @@ Tutti gli acquisti che si verificano prima della data verranno elaborati e pagat
 | Fattura cliente raccolta | 12/1/2019 | N/D | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 | Calcola pagamenti | 12/5/2019 – 12/7/2019 | Contrassegnato come non **elaborato** nella cronologia delle transazioni nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 | Pagamento mensile | 1/5/2019 | Contrassegnato come **imminente** nella cronologia delle transazioni nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
-| Data di pagamento | 1/15/2019 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione relativa ai pagamenti nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
+| Data di pagamento\** | 1/15/2019 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione relativa ai pagamenti nel dashboard dei pagamenti | **Report sull'utilizzo**: consumo visualizzato con OrderID/OrderLineItemID<br>**Report ordine**: ordini cliente visualizzati come attivi |
 |  |  |  |  |
 
-\*I report sull'utilizzo e sugli ordini sono accessibili nella sezione Analyze del centro per i partner.
+\*I report sull'utilizzo e sugli ordini sono accessibili nella sezione Analyze del centro per i partner.</br>\** La data di pagamento è nell'ora solare Pacifico (PST).
 
 ## <a name="process-for-customer-non-payment"></a>Processo per il mancato pagamento del cliente
 
@@ -97,7 +97,7 @@ Microsoft effettuerà il recupero di tutti i pagamenti già effettuati utilizzan
 
 Di seguito è riportato un esempio di pianificazione:
 
-| Event | Data approssimativa | Visibilità del partner |
+| Evento | Data approssimativa | Visibilità del partner |
 | --- | --- | --- |
 | Data di pagamento di esempio | 10/15/2020 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione pagamenti nel dashboard dei pagamenti |
 | <font color="red">Se il cliente non paga Microsoft</font> | 12/2/2020 – 12/5/2020 | Nessuna modifica, come sopra |
@@ -109,6 +109,19 @@ Di seguito è riportato un esempio di pianificazione:
 | Il pagamento viene sottratto | 3/1/2021 | Il server di pubblicazione visualizzerà una transazione negativa nell'istruzione per il pagamento del partner Center |
 | Il pagamento è stato trattenuto | 3/15/2021 | I pagamenti futuri verranno visualizzati nell'istruzione per il pagamento del centro per i partner. Il server di pubblicazione non riceverà alcun pagamento finché il saldo non sarà più negativo.  |
 |||
+
+## <a name="number-of-days-for-payments-to-reach-a-payout-account"></a>Numero di giorni per i pagamenti per raggiungere un account di pagamento
+
+In genere si inviano pagamenti a causa di un determinato mese il 15 ° giorno del mese, ma è necessario più tempo per il pagamento per raggiungere l'account. Il numero di giorni dipende dal metodo di pagamento usato per l'account, come descritto di seguito.
+
+> [!NOTE]
+> I giorni indicati di seguito sono approssimativi; eventuali pagamenti possono richiedere una quantità di tempo più lunga o più breve per raggiungere l'account.
+
+| Metodo di pagamento     | Numero di giorni per il trasferimento all'account per i proventi     |
+|--------------------|--------------------------------------------|
+| PayPal             | 1 giorno lavorativo                             |
+| ACH/SEPA           | 2-3 giorni lavorativi                          |
+| Bonifico bancario      | 7-10 giorni lavorativi                         |
 
 ## <a name="next-step"></a>passaggio successivo
 

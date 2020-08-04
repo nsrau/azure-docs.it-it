@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/15/2020
-ms.openlocfilehash: 8d7171bafb292b0520b8873bad0ce8f55ab4040d
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/03/2020
+ms.openlocfilehash: caa132475df6481db7228a1ef7e18026b12cf38f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171497"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534329"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) usando Azure Data Factory
 
@@ -376,7 +376,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 | writeBatchSize    | Numero di righe da inserire nella tabella SQL **per batch**.<br/><br/>Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No.<br/>Applicare quando si usa l'inserimento bulk.     |
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/><br/>Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No.<br/>Applicare quando si usa l'inserimento bulk.        |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure SQL Data Warehouse ad ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
-| tableOption | Specifica se [creare automaticamente la tabella di sink](copy-activity-overview.md#auto-create-sink-tables) se non esiste in base allo schema di origine. La creazione automatica della tabella non è supportata quando la copia di staging è configurata nell'attività di copia. I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. |No |
+| tableOption | Specifica se [creare automaticamente la tabella di sink](copy-activity-overview.md#auto-create-sink-tables) se non esiste in base allo schema di origine. I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory raccoglie metriche come le DWU di SQL Data Warehouse per l'ottimizzazione delle prestazioni di copia e per fornire consigli. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Esempio di sink di SQL Data Warehouse

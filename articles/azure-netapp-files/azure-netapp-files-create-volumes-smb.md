@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: ba66716abe80a1b12bc64b739f498a0a01d54fe3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513078"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533173"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
-Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. Questo articolo illustra come creare un volume SMBv3. Se si vuole creare un volume NFS, vedere [Creare un volume NFS per Azure NetApp Files](azure-netapp-files-create-volumes.md). 
+Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMBv3 o il protocollo Dual (NFSv3 e SMB). L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. Questo articolo illustra come creare un volume SMBv3.
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 È necessario avere già configurato un pool di capacità.   
@@ -197,7 +197,7 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
 2. Fare clic su **+ Aggiungi volume** per creare un volume.  
     Viene visualizzata la finestra Crea un volume.
 
-3. Nella finestra Crea un volume fare clic su **Crea** e specificare le informazioni per i campi seguenti:   
+3. Nella finestra Crea un volume fare clic su **Crea** e fornire informazioni per i campi seguenti nella scheda nozioni di base:   
     * **Nome del volume**      
         Specificare il nome per il volume che si sta creando.   
 
@@ -230,7 +230,7 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
 
     * Se si desidera applicare un criterio snapshot esistente al volume, fare clic su **Mostra sezione avanzata** per espanderlo e selezionare un criterio di snapshot nel menu a discesa. 
 
-        Per informazioni sulla creazione di un criterio snapshot, vedere [gestire gli snapshot](azure-netapp-files-manage-snapshots.md).
+        Per informazioni sulla creazione di un criterio snapshot, vedere [Manage snapshot Policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Mostra selezione avanzata](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

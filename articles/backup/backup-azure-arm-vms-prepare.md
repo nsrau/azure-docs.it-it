@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Informazioni su come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino tramite Backup di Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439707"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533598"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -51,7 +51,8 @@ Modificare il tipo di replica di archiviazione come segue:
 1. Nel nuovo insieme di credenziali selezionare **Proprietà** nella sezione **Impostazioni** .
 2. In **Proprietà**, in **configurazione backup**, selezionare **Aggiorna**.
 3. Selezionare il tipo di replica di archiviazione e selezionare **Salva**.
-s ![ impostare la configurazione di archiviazione per il nuovo insieme di credenziali](./media/backup-azure-arm-vms-prepare/full-blade.png)
+
+      ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
    > Non è possibile modificare il tipo di replica di archiviazione dopo che l'insieme di credenziali è stato configurato e contiene elementi di backup. Se si vuole eseguire questa operazione, è necessario ricreare l'insieme di credenziali.
@@ -166,13 +167,6 @@ Backup di Azure esegue il backup di macchine virtuali di Azure tramite l'install
 --- | ---
 **Windows** | 1. [Scaricare e installare](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) il file MSI per l'agente.<br/><br/> 2. Eseguire l'installazione sul computer con autorizzazioni di amministratore.<br/><br/> 3. Verificare l'installazione. In *C:\WindowsAzure\Packages* nella macchina virtuale fare clic con il pulsante destro del mouse su **WaAppAgent.exe** > **Proprietà**. Nella scheda **Dettagli** **Versione prodotto** deve corrispondere alla versione 2.6.1198.718 o successiva.<br/><br/> Se si sta aggiornando l'agente, assicurarsi che non sia in esecuzione alcuna operazione di backup e [reinstallare l'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installare usando un pacchetto RPM o DEB dal repository dei pacchetti della distribuzione. Questo è il metodo preferito per l'installazione e l'aggiornamento dell'agente Linux di Azure. Tutti i [provider di distribuzione supportati](../virtual-machines/linux/endorsed-distros.md) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository. L'agente è disponibile in [GitHub](https://github.com/Azure/WALinuxAgent), ma non è consigliabile installarlo direttamente da questa posizione.<br/><br/> Se si sta aggiornando l'agente, assicurarsi che non sia in esecuzione alcuna operazione di backup e aggiornare i file binari.
-
->[!NOTE]
-> **Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tramite la soluzione di backup delle macchine virtuali di Azure.**
->
->Backup di Azure attualmente supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale contemporaneamente tramite la soluzione di backup delle macchine virtuali. Con la funzionalità di esclusione disco è possibile scegliere di eseguire il backup di uno o più dischi dati tra quelli disponibili in una macchina virtuale. Questa è una soluzione efficiente ed economica per soddisfare le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup. Questo consente anche di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
->
->Per iscriversi all'anteprima, scrivere all'indirizzo AskAzureBackupTeam@microsoft.com
 
 ## <a name="next-steps"></a>Passaggi successivi
 

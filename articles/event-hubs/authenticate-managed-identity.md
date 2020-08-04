@@ -3,12 +3,12 @@ title: Autenticazione di un'identità gestita con Azure Active Directory
 description: Questo articolo fornisce informazioni sull'autenticazione di un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi di Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4e3460fa4fc3807cda23d6e3835a9f0b843eb36d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 707c93d1f104dcc2982999c4e7461947280918ef
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537276"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534414"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi
 Hub eventi di Azure supporta l'autenticazione Azure Active Directory (Azure AD) con [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autorizzare l'accesso alle risorse di hub eventi usando Azure AD credenziali di applicazioni in esecuzione in macchine virtuali (VM) di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con l'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud.
@@ -25,9 +25,9 @@ Prima di poter usare le identità gestite per le risorse di Azure per autorizzar
 - [Librerie client di Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Concedere le autorizzazioni a un'identità gestita in Azure AD
-Per autorizzare una richiesta al servizio Hub eventi da un'identità gestita nell'applicazione, configurare prima le impostazioni di controllo degli accessi in base al ruolo (RBAC) per tale identità gestita. Hub eventi di Azure definisce i ruoli RBAC che includono le autorizzazioni per l'invio e la lettura da Hub eventi. Quando il ruolo RBAC viene assegnato a un'identità gestita, all'identità gestita viene concesso l'accesso ai dati di hub eventi nell'ambito appropriato.
+Per autorizzare una richiesta al servizio Hub eventi da un'identità gestita nell'applicazione, configurare prima le impostazioni di controllo degli accessi in base al ruolo (RBAC) per tale identità gestita. Hub eventi di Azure definisce i ruoli di Azure che includono le autorizzazioni per l'invio e la lettura da Hub eventi. Quando il ruolo di Azure viene assegnato a un'identità gestita, all'identità gestita viene concesso l'accesso ai dati di hub eventi nell'ambito appropriato.
 
-Per altre informazioni sull'assegnazione di ruoli RBAC, vedere [eseguire l'autenticazione con Azure Active Directory per l'accesso alle risorse di hub eventi](authorize-access-azure-active-directory.md).
+Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [eseguire l'autenticazione con Azure Active Directory per l'accesso alle risorse di hub eventi](authorize-access-azure-active-directory.md).
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Uso di Hub eventi con le identità gestite
 Per usare gli hub eventi con le identità gestite, è necessario assegnare all'identità il ruolo e l'ambito appropriato. La procedura descritta in questa sezione usa un'applicazione semplice che viene eseguita con un'identità gestita e accede alle risorse di hub eventi.
@@ -46,7 +46,7 @@ Una volta abilitata questa impostazione, viene creata una nuova identità del se
 
 A questo punto, assegnare l'identità del servizio a un ruolo nell'ambito necessario nelle risorse di hub eventi.
 
-### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Per assegnare i ruoli RBAC usando il portale di Azure
+### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Per assegnare i ruoli di Azure usando il portale di Azure
 Per assegnare un ruolo alle risorse di hub eventi, passare a tale risorsa nel portale di Azure. Visualizzare le impostazioni di controllo di accesso (IAM) per la risorsa e seguire queste istruzioni per gestire le assegnazioni di ruolo:
 
 > [!NOTE]

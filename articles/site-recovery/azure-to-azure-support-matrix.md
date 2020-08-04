@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 49e005d67702013b77d688d346860a217a13c561
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: d4beec60a2cd705884ee79296c9afab2afc08c2e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460117"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534499"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -136,7 +136,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-Debian 7 | 9,31, 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609) | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9,31, 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | [9,35](https://support.microsoft.com/help/4573888/) | da 3.16.0-4-amd64 a 3.16.0-11-amd64, 4.9.0-0. BPO. 4-amd64 a 4.9.0 0. BPO. 11-amd64 |
 Debian 8 | 9,31, 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609) | Da 3.16.0-4-amd64 a 3.16.0-10-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
@@ -274,7 +274,7 @@ Più indirizzi IP | Non supportate | Quando si esegue il failover di una macchin
 Gestione traffico     | Supportato | È possibile preconfigurare Gestione traffico in modo che il traffico venga regolarmente indirizzato all'endpoint nell'area di origine e all'endpoint nell'area di destinazione in caso di failover.
 DNS di Azure | Supportato |
 DNS personalizzato    | Supportato |
-Proxy non autenticato | Supportato | [Altre informazioni](./azure-to-azure-about-networking.md)
+Proxy non autenticato | Supportato | [Scopri di più](./azure-to-azure-about-networking.md)
 Proxy autenticato | Non supportate | Se la macchina virtuale utilizza un proxy autenticato per la connettività in uscita, non può essere replicata tramite Azure Site Recovery.
 Connessione da sito a sito VPN a locale<br/><br/>(con o senza ExpressRoute)| Supportato | Verificare che le route definite dall'utente e i gruppi di sicurezza di rete siano configurati in modo che il traffico di Site Recovery non venga instradato in locale. [Altre informazioni](./azure-to-azure-about-networking.md)
 Connessione da rete virtuale a rete virtuale    | Supportato | [Altre informazioni](./azure-to-azure-about-networking.md)
@@ -282,7 +282,7 @@ Endpoint servizio di rete virtuale | Supportato | Se si limita l'accesso alla re
 Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una macchina virtuale di origine. [Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md)
 Palo Alto Network Appliance | Non supportate | Con appliance di terze parti, vengono spesso imposte restrizioni dal provider all'interno della macchina virtuale. Azure Site Recovery richiede che agente, estensioni e connettività in uscita siano disponibili. Tuttavia, l'appliance non consente la configurazione di alcuna attività in uscita all'interno della macchina virtuale.
 IPv6  | Non supportate | Anche le configurazioni miste che includono IPv4 e IPv6 non sono supportate. Liberare la subnet dell'intervallo IPv6 prima di qualsiasi operazione di Site Recovery.
-Accesso a collegamento privato al servizio Site Recovery | Supportato | [Altre informazioni](azure-to-azure-how-to-enable-replication-private-endpoints.md)
+Accesso a collegamento privato al servizio Site Recovery | Supportato | [Scopri di più](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 
 
 

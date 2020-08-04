@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e3ba428c0e3564f724f02652fc77c6ce84947bd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ddfa12bd758ffc362c51e10f63800665109d54a6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494571"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534074"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Creare una firma di accesso condiviso per un contenitore o un BLOB con l'interfaccia della riga di comando di Azure
 
@@ -40,7 +40,7 @@ Accedere all'interfaccia della riga di comando di Azure con le credenziali Azure
 
 Per creare una firma di accesso condiviso di delega utente da Azure PowerShell, è necessario assegnare all'account Azure AD usato per accedere all'interfaccia della riga di comando di Azure un ruolo che includa l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Questa autorizzazione consente a tale account Azure AD di richiedere la *chiave di delega dell'utente*. La chiave di delega utente viene usata per firmare la firma di accesso condiviso della delega utente. Il ruolo che fornisce l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** deve essere assegnato a livello dell'account di archiviazione, del gruppo di risorse o della sottoscrizione.
 
-Se non si dispone di autorizzazioni sufficienti per assegnare i ruoli di controllo degli accessi in base al ruolo a un Azure AD entità di sicurezza, potrebbe essere necessario richiedere al proprietario o all'amministratore dell'account di assegnare le autorizzazioni necessarie.
+Se non si dispone di autorizzazioni sufficienti per assegnare i ruoli di Azure a un'entità di sicurezza Azure AD, potrebbe essere necessario chiedere al proprietario o all'amministratore dell'account di assegnare le autorizzazioni necessarie.
 
 Nell'esempio seguente viene assegnato il ruolo di **collaboratore dati BLOB di archiviazione** , che include l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . L'ambito del ruolo è a livello dell'account di archiviazione.
 

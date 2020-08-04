@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c1a5d302f63f57a142d014c8ef66d02405e119ea
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386215"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531167"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -38,16 +38,37 @@ Per altre informazioni sulle identità gestite per le risorse di Azure, vedere [
 
 Prima di usare chiavi, segreti o certificati nell'insieme di credenziali delle chiavi, l'insieme deve essere creato e gestito tramite l'interfaccia della riga di comando, PowerShell, modelli di Resource Manager o REST, come descritto negli articoli seguenti:
 
-- [Creare e gestire insiemi di credenziali delle chiavi tramite l'interfaccia della riga di comando](../secrets/quick-create-cli.md)
-- [Creare e gestire insiemi di credenziali delle chiavi tramite PowerShell](../secrets/quick-create-powershell.md)
-- [Creare e gestire insiemi di credenziali delle chiavi con il portale di Azure](../secrets/quick-create-portal.md)
-- [Creare e gestire insiemi di credenziali delle chiavi con Python](../secrets/quick-create-python.md)
-- [Creare e gestire insiemi di credenziali delle chiavi con Java](../secrets/quick-create-java.md)
-- [Creare e gestire insiemi di credenziali delle chiavi con Node.js](../secrets/quick-create-node.md)
-- [Creare e gestire insiemi di credenziali delle chiavi con .NET (v4 SDK)](../secrets/quick-create-net.md)
-- [Creare un insieme di credenziali delle chiavi e aggiungere un segreto tramite un modello di Azure Resource Manager](../secrets/quick-create-template.md)
-- [Creare e gestire Key Vault con REST](/rest/api/keyvault/)
+- [Creare e gestire insiemi di credenziali delle chiavi tramite l'interfaccia della riga di comando](quick-create-cli.md)
+- [Creare e gestire insiemi di credenziali delle chiavi tramite PowerShell](quick-create-powershell.md)
+- [Creare e gestire insiemi di credenziali delle chiavi con il portale di Azure](quick-create-portal.md)
+- [Creare e gestire Key Vault con REST](/rest/api/keyvault/vaults/createorupdate)
 
+### <a name="set-and-retrieve-secrets"></a>Impostare e recuperare i segreti
+
+- [Impostare e recuperare un segreto con l'interfaccia della riga di comando](../secrets/quick-create-cli.md)
+- [Impostare e recuperare un segreto con PowerShell](../secrets/quick-create-powershell.md)
+- [Impostare e recuperare un segreto con il portale di Azure](../secrets/quick-create-portal.md)
+- [Operazioni sui segreti con REST](/rest/api/keyvault/#secret-operations)
+- [Impostare e recuperare un segreto con Python](../secrets/quick-create-python.md)
+- [Impostare e recuperare un segreto con Java](../secrets/quick-create-java.md)
+- [Impostare e recuperare un segreto con Node.js](../secrets/quick-create-node.md)
+- [Impostare e recuperare un segreto con .NET (v4 SDK)](../secrets/quick-create-net.md)
+- [Creare un insieme di credenziali delle chiavi e aggiungere un segreto tramite un modello di Azure Resource Manager](../secrets/quick-create-template.md)
+
+### <a name="set-and-retrieve-keys"></a>Impostare e recuperare le chiavi
+
+- [Impostare e recuperare una chiave con l'interfaccia della riga di comando](../keys/quick-create-cli.md)
+- [Impostare e recuperare una chiave con PowerShell](../keys/quick-create-powershell.md)
+- [Impostare e recuperare una chiave con la portale di Azure](../keys/quick-create-portal.md)
+- [Operazioni di chiavi con REST](/rest/api/keyvault/#key-operations)
+- [Impostare e recuperare una chiave con Python](../secrets/quick-create-python.md)
+
+### <a name="set-and-retrieve-certificates"></a>Impostare e recuperare i certificati
+- [Impostare e recuperare un certificato con l'interfaccia della riga di comando](../certificates/quick-create-cli.md)
+- [Impostare e recuperare un certificato con PowerShell](../certificates/quick-create-powershell.md)
+- [Impostare e recuperare un certificato con il portale di Azure](../certificates/quick-create-portal.md)
+- [Operazioni di chiavi con REST](/rest/api/keyvault/#certificate-operations)
+- [Impostare e recuperare un certificato con Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Codifica con l'insieme di credenziali delle chiavi
 
@@ -64,8 +85,6 @@ Tutte le risorse di Key Vault (insiemi di credenziali, chiavi, segreti e così v
 #### <a name="net"></a>.NET
 
 [Informazioni di riferimento sulle API .NET per Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
-
-Per altre informazioni sulla versione 2.x di .NET SDK, vedere le [note sulla versione](dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
@@ -94,7 +113,6 @@ In Node.js l'API di gestione e l'API degli oggetti di Key Vault sono separate. L
 Per esempi completi che usano l'insieme di credenziali delle chiavi con le applicazioni, vedere:
 
 - [Esempi di codice di Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault): esempi di codice per Azure Key Vault. 
-- [Usare Azure Key Vault da un'applicazione Web](../secrets/quick-create-net.md): esercitazione sull'uso di Azure Key Vault da un'applicazione Web in Azure. 
 
 ## <a name="how-tos"></a>Procedure
 
@@ -124,7 +142,6 @@ Questi articoli illustrano altri scenari e servizi che usano o si integrano con 
 
 - [Key Vault comportamento di eliminazione](soft-delete-overview.md)temporanea) descrive una funzionalità che consente il ripristino di oggetti eliminati, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale.
 - [Limitazione del client di Key Vault](overview-throttling.md) descrive i concetti di base della limitazione e offre un approccio per l'app.
-- [Panoramica delle chiavi dell'account di archiviazione Key Vault](../secrets/overview-storage-keys.md)) descrive le chiavi degli account di archiviazione di Azure Key Vault Integration.
 - [Scenari di sicurezza di Key Vault](overview-security-worlds.md) descrive le relazioni tra le aree e le zone di sicurezza.
 
 ## <a name="social"></a>Social network

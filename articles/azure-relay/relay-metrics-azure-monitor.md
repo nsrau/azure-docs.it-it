@@ -4,17 +4,17 @@ description: Questo articolo fornisce informazioni su come usare monitoraggio di
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 42de5205be9a611957a6e340b5eaa55c5b7f52c0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fcc0f820983da388d808cadf8ce64a555e8ef0a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004563"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532884"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Metriche di inoltro di Azure in monitoraggio di Azure 
 Le metriche del servizio Inoltro di Azure indicano lo stato delle risorse nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse di inoltro, non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti poiché consentono di monitorare lo stato del servizio di inoltro di Azure. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
 
-Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di diversi servizi di Azure. Per altre informazioni, vedere [Panoramica sul monitoraggio in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e l'esempio che descrive come [recuperare le metriche di Monitoraggio di Azure con .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) in GitHub.
+Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di diversi servizi di Azure. Per altre informazioni, vedere [Panoramica sul monitoraggio in Microsoft Azure](../azure-monitor/overview.md) e l'esempio che descrive come [recuperare le metriche di Monitoraggio di Azure con .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) in GitHub.
 
 > [!IMPORTANT]
 > Questo articolo riguarda solo la funzionalità Connessioni ibride di Inoltro di Azure e non il servizio Inoltro WCF. 
@@ -65,7 +65,7 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 ## <a name="memory-usage-metrics"></a>Metriche di utilizzo della memoria
 
-| Nome misurazione | Descrizione |
+| Nome misurazione | Description |
 | ------------------- | ----------------- |
 |BytesTransferred |Numero di byte trasferiti in un periodo specificato.<br/><br/> Unità: Byte <br/> Tipo di aggregazione: Totale <br/> Dimensione: EntityName|
 
@@ -79,10 +79,6 @@ Il servizio di inoltro di Azure supporta le dimensioni seguenti per le metriche 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [Panoramica sul monitoraggio in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Vedere [Panoramica sul monitoraggio in Microsoft Azure](../azure-monitor/overview.md).
 
 [1]: ./media/relay-metrics-azure-monitor/relay-monitor1.png
-
-
-
-

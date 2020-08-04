@@ -10,12 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 949347d07fe120c6900f49499e78595b540718a7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 57d1cda2e74cfe4ae3948e55124123d05682591b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369000"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534227"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
 
@@ -27,7 +27,7 @@ Per una panoramica del flusso di concessione del codice di OAuth 2.0, vedere [Au
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Assegnare un ruolo a un'entità di sicurezza Azure AD
 
-Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archiviazione di Azure, configurare le impostazioni di controllo degli accessi in base al ruolo per l'entità di sicurezza. Archiviazione di Azure definisce i ruoli predefiniti di Azure che includono le autorizzazioni per contenitori e code. Quando il ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza, a questa viene concesso l'accesso a tale risorsa. Per altre informazioni, vedere [gestire i diritti di accesso ai dati di Accodamento e BLOB di Azure con RBAC](storage-auth-aad-rbac.md).
+Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archiviazione di Azure, configurare le impostazioni di controllo degli accessi in base al ruolo per l'entità di sicurezza. Archiviazione di Azure definisce i ruoli predefiniti di Azure che includono le autorizzazioni per contenitori e code. Quando il ruolo Azure viene assegnato a un'entità di sicurezza, all'entità di sicurezza viene concesso l'accesso a tale risorsa. Per altre informazioni, vedere [gestire i diritti di accesso ai dati di Accodamento e BLOB di Azure con RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrare l'applicazione nel tenant di Azure AD
 
@@ -115,7 +115,7 @@ Per eseguire l'esempio di codice, creare un account di archiviazione nella stess
 Successivamente, assegnare in modo esplicito il ruolo di **collaboratore dati BLOB di archiviazione** all'account utente con cui verrà eseguito il codice di esempio. Per istruzioni su come assegnare questo ruolo nella portale di Azure, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
-> Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È invece necessario assegnare in modo esplicito a se stessi un ruolo di controllo degli accessi in base al ruolo per Archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+> Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Creare un'applicazione Web che autorizza l'accesso all'archiviazione BLOB con Azure AD
 
@@ -281,7 +281,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>Abilita flusso di concessione implicita
 
-Per eseguire l'esempio, potrebbe essere necessario configurare il flusso di concessione implicita per la registrazione dell'app. A tale scopo, seguire questa procedura:
+Per eseguire l'esempio, potrebbe essere necessario configurare il flusso di concessione implicita per la registrazione dell'app. Seguire questa procedura:
 
 1. Passare alla registrazione dell'app nel portale di Azure.
 1. Nella sezione **Gestisci** selezionare l'impostazione di **autenticazione** .

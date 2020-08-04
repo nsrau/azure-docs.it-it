@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5b7f26a03c117620be7c16abaf689763e370e5ba
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0aa688d6e56629ca376844ce2d0669197b1bb2b7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285697"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531346"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Come proteggere un'applicazione a pagina singola con accesso non interattivo
 
@@ -102,7 +102,7 @@ Creare un'applicazione di servizio Web protetta responsabile dell'autenticazione
 
 ## <a name="grant-role-based-access"></a>Concedi accesso basato sui ruoli
 
-Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identità assegnata dal sistema a una o più definizioni di ruolo di Azure. Per visualizzare le definizioni di ruolo RBAC disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**. Selezionare **Roles (ruoli**) e quindi cercare i ruoli che iniziano con *Maps di Azure*.
+Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identità assegnata dal sistema a una o più definizioni di ruolo di Azure. Per visualizzare le definizioni dei ruoli di Azure disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**. Selezionare **Roles (ruoli**) e quindi cercare i ruoli che iniziano con *Maps di Azure*.
 
 1. Passare all' **account Azure Maps**. Selezionare l'assegnazione di ruolo **controllo di accesso (IAM)**  >  **Role assignment**.
 

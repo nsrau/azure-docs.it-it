@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 00c9482eab74003f6a667d52440d4cb6dd21fcfc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287369"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533819"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Istanze del cluster di failover con SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -98,7 +98,7 @@ Per iniziare, vedere [SQL Server istanza del cluster di failover con i dischi co
 - È necessaria una larghezza di banda di rete elevata per ottenere prestazioni elevate a causa della replica continua del disco. 
 - Richiede una dimensione di macchina virtuale più grande e un doppio pagamento per l'archiviazione, perché l'archiviazione è collegata a ogni macchina virtuale. 
 
-Per iniziare, vedere [SQL Server istanza del cluster di failover con spazi di archiviazione diretta](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+Per iniziare, vedere [SQL Server istanza del cluster di failover con spazi di archiviazione diretta](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 
 ### <a name="premium-file-share"></a>Condivisione file Premium
 

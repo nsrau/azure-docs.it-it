@@ -4,12 +4,12 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248278"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531830"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -116,9 +116,3 @@ Se il punto di ripristino contiene snapshot e si tratta dell'ultimo punto di rip
 
 La funzionalità di ripristino istantaneo è abilitata per tutti e non può essere disabilitata. È possibile ridurre la conservazione degli snapshot fino a un minimo di un giorno.
 
->[!NOTE]
-> **Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tramite la soluzione di backup delle macchine virtuali di Azure.**
->
->Backup di Azure attualmente supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale contemporaneamente tramite la soluzione di backup delle macchine virtuali. Con la funzionalità di esclusione disco è possibile scegliere di eseguire il backup di uno o più dischi dati tra quelli disponibili in una macchina virtuale. Questa è una soluzione efficiente ed economica per soddisfare le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup. Questo consente anche di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
->
->**Per registrarsi per l'anteprima, inviare un messaggio all'indirizzo AskAzureBackupTeam@microsoft.com**

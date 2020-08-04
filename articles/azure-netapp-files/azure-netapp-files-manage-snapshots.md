@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497597"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533292"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -49,7 +49,9 @@ Azure NetApp Files supporta la creazione di snapshot su richiesta e l'uso di cri
 
 ### <a name="register-the-feature"></a>Registrare la funzionalità
 
-1. La funzionalità per i **criteri di snapshot** è attualmente in anteprima. Se è la prima volta che si usa questa funzionalità, registrare la funzionalità prima di usarla: 
+La funzionalità per i **criteri di snapshot** è attualmente in anteprima. Se si utilizza questa funzionalità per la prima volta, è necessario prima registrare la funzionalità. 
+
+1. Registrare la funzionalità: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy

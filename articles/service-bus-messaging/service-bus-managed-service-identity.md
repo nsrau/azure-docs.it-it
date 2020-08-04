@@ -3,12 +3,12 @@ title: Identità gestite per le risorse di Azure con il bus di servizio
 description: Questo articolo descrive come usare le identità gestite per accedere alle entità del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7fbf0ec36f54f9ba5f8593094dbb0231881cbaef
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cdb4329f00138c51826ced1627ff316fc5fd4619
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423134"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534652"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure
 Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) offrono una funzionalità per l'intera piattaforma Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare l'identità ai ruoli di controllo di accesso che concedono autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
@@ -23,15 +23,15 @@ Quando un'entità di sicurezza (un utente, un gruppo o un'applicazione) tenta di
 
 Il passaggio di autenticazione richiede che una richiesta dell'applicazione contenga un token di accesso OAuth 2.0 in fase di esecuzione. Se un'applicazione è in esecuzione in un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app per le funzioni di Azure, può usare un'identità gestita per accedere alle risorse. 
 
-Il passaggio di autorizzazione richiede che uno o più ruoli di controllo degli accessi in base al ruolo siano assegnati all'entità di sicurezza. Il bus di servizio di Azure fornisce ruoli RBAC che includono i set di autorizzazioni per le risorse del bus di servizio. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli RBAC al bus di servizio di Azure, vedere [ruoli predefiniti di Azure per il bus di servizio](#azure-built-in-roles-for-azure-service-bus)di Azure. 
+Il passaggio di autorizzazione richiede che uno o più ruoli di Azure siano assegnati all'entità di sicurezza. Il bus di servizio di Azure fornisce ruoli di Azure che includono i set di autorizzazioni per le risorse del bus di servizio. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli di Azure al bus di servizio di Azure, vedere [ruoli predefiniti di Azure per il bus di servizio](#azure-built-in-roles-for-azure-service-bus)di Azure. 
 
 Le applicazioni native e le applicazioni Web che effettuano richieste al bus di servizio possono anche autorizzare con Azure AD. Questo articolo illustra come richiedere un token di accesso e usarlo per autorizzare le richieste per le risorse del bus di servizio. 
 
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>Assegnazione di ruoli RBAC per i diritti di accesso
+## <a name="assigning-azure-roles-for-access-rights"></a>Assegnazione dei ruoli di Azure per i diritti di accesso
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). Il bus di servizio di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni usati per accedere alle entità del bus di servizio ed è anche possibile definire ruoli personalizzati per l'accesso ai dati.
 
-Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza di Azure AD, Azure concede l'accesso a tali risorse per quell'entità di sicurezza. L'ambito di accesso può essere limitato al livello di sottoscrizione, al gruppo di risorse o allo spazio dei nomi del bus di servizio. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un'identità gestita per le risorse di Azure.
+Quando un ruolo di Azure viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. L'ambito di accesso può essere limitato al livello di sottoscrizione, al gruppo di risorse o allo spazio dei nomi del bus di servizio. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un'identità gestita per le risorse di Azure.
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Ruoli predefiniti di Azure per il bus di servizio di Azure
 Per il bus di servizio di Azure, la gestione degli spazi dei nomi e di tutte le risorse correlate tramite il portale di Azure e l'API Gestione risorse di Azure è già protetto mediante il modello di *Controllo degli accessi in base al ruolo*. Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a uno spazio dei nomi del bus di servizio:
@@ -41,11 +41,11 @@ Per il bus di servizio di Azure, la gestione degli spazi dei nomi e di tutte le 
 - [Ricevitore di dati del bus di servizio di Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): usare questo ruolo per concedere l'accesso allo spazio dei nomi del bus di servizio e alle relative entità. 
 
 ## <a name="resource-scope"></a>Ambito risorsa 
-Prima di assegnare un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è sempre preferibile concedere solo l'ambito più ristretto possibile.
+Prima di assegnare un ruolo di Azure a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è sempre preferibile concedere solo l'ambito più ristretto possibile.
 
 Nell'elenco seguente vengono descritti i livelli in cui è possibile definire l'ambito di accesso alle risorse del bus di servizio, a partire dall'ambito più restrittivo:
 
-- **Coda**, **argomento**o **sottoscrizione**: l'assegnazione di ruolo si applica all'entità del bus di servizio specifica. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli RBAC del bus di servizio a livello di sottoscrizione. Di seguito è riportato un esempio di uso del comando dell'interfaccia della riga di comando di Azure: [AZ-Role-Assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) per assegnare un'identità a un ruolo del bus di servizio. 
+- **Coda**, **argomento**o **sottoscrizione**: l'assegnazione di ruolo si applica all'entità del bus di servizio specifica. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli di Azure del bus di servizio a livello di sottoscrizione. Ecco un esempio di uso del comando dell'interfaccia della riga di comando di Azure: [AZ-Role-Assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) per assegnare un'identità a un ruolo di Azure del bus di servizio: 
 
     ```azurecli
     az role assignment create \
@@ -72,9 +72,9 @@ Prima di poter usare le identità gestite per le risorse di Azure per autorizzar
 - [Librerie client di Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Concedere le autorizzazioni a un'identità gestita in Azure AD
-Per autorizzare una richiesta al servizio Service Bus da un'identità gestita nell'applicazione, configurare prima le impostazioni di controllo degli accessi in base al ruolo (RBAC) per l'identità gestita. Il bus di servizio di Azure definisce i ruoli RBAC che includono le autorizzazioni per l'invio e la lettura dal bus di servizio. Quando il ruolo RBAC viene assegnato a un'identità gestita, all'identità gestita viene concesso l'accesso alle entità del bus di servizio nell'ambito appropriato.
+Per autorizzare una richiesta al servizio Service Bus da un'identità gestita nell'applicazione, configurare prima le impostazioni di controllo degli accessi in base al ruolo (RBAC) per l'identità gestita. Il bus di servizio di Azure definisce i ruoli di Azure che includono le autorizzazioni per l'invio e la lettura dal bus di servizio. Quando il ruolo di Azure viene assegnato a un'identità gestita, all'identità gestita viene concesso l'accesso alle entità del bus di servizio nell'ambito appropriato.
 
-Per ulteriori informazioni sull'assegnazione di ruoli RBAC, vedere [eseguire l'autenticazione e l'autorizzazione con Azure Active Directory per l'accesso alle risorse del bus di servizio](authenticate-application.md#azure-built-in-roles-for-azure-service-bus).
+Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [eseguire l'autenticazione e l'autorizzazione con Azure Active Directory per l'accesso alle risorse del bus di servizio](authenticate-application.md#azure-built-in-roles-for-azure-service-bus).
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Usare il bus di servizio con le identità gestite per le risorse di Azure
 Per usare il bus di servizio con le identità gestite, è necessario assegnare all'identità il ruolo e l'ambito appropriato. La procedura descritta in questa sezione usa un'applicazione semplice che viene eseguita con un'identità gestita e accede alle risorse del bus di servizio.
@@ -93,7 +93,7 @@ Una volta abilitata questa impostazione, viene creata una nuova identità del se
 
 A questo punto, assegnare l'identità del servizio a un ruolo nell'ambito necessario nelle risorse del bus di servizio.
 
-### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Per assegnare i ruoli RBAC usando il portale di Azure
+### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Per assegnare i ruoli di Azure usando il portale di Azure
 Per assegnare un ruolo a uno spazio dei nomi del bus di servizio, passare allo spazio dei nomi nel portale di Azure. Visualizzare le impostazioni di controllo di accesso (IAM) per la risorsa e seguire queste istruzioni per gestire le assegnazioni di ruolo:
 
 > [!NOTE]

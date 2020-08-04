@@ -3,12 +3,12 @@ title: Distribuzione di eventi con l'identità del servizio gestita
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento di Griglia di eventi di Azure e per usarla per inviare eventi alle destinazioni supportate.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499824"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534244"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Recapito di eventi con un'identità gestita
 Questo articolo descrive come abilitare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per gli argomenti o i domini di griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
@@ -63,20 +63,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 Il comando per l'aggiornamento di un dominio esistente è simile (`az eventgrid domain update`).
 
-## <a name="supported-destinations-and-rbac-roles"></a>Destinazioni e ruoli RBAC supportati
+## <a name="supported-destinations-and-azure-roles"></a>Destinazioni e ruoli di Azure supportati
 Dopo aver abilitato l'identità per l'argomento o il dominio di griglia di eventi, Azure crea automaticamente un'identità in Azure Active Directory. Aggiungere questa identità ai ruoli appropriati di Azure in modo che l'argomento o il dominio possa inviare eventi alle destinazioni supportate. Ad esempio, aggiungere l'identità al ruolo di **mittente dei dati di hub eventi di Azure** per uno spazio dei nomi di hub eventi di Azure in modo che l'argomento di griglia di eventi possa inviare eventi a hub eventi in tale spazio dei nomi. 
 
 Griglia di eventi di Azure supporta attualmente gli argomenti o i domini configurati con un'identità gestita assegnata dal sistema per l'invio di eventi alle destinazioni seguenti. Questa tabella elenca anche i ruoli in cui deve trovarsi l'identità per consentire all'argomento di inoltrare eventi.
 
-| Destination | Ruolo di controllo degli accessi in base al ruolo | 
+| Destination | Ruolo di Azure | 
 | ----------- | --------- | 
 | Code e argomenti del bus di servizio | [Mittente dei dati del bus di servizio di Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Hub eventi di Azure | [Mittente dei dati di Hub eventi di Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Archiviazione BLOB di Azure | [Collaboratore ai dati del BLOB di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Archiviazione code di Azure |[Mittente dei messaggi sui dati della coda di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Archiviazione BLOB di Azure | [Collaboratore ai dati del BLOB di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Archiviazione code di Azure |[Mittente dei messaggi sui dati della coda di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Aggiungere un'identità ai ruoli RBAC nelle destinazioni
-Questa sezione descrive come aggiungere un'identità relativa a un argomento o un dominio a un ruolo Controllo degli accessi in base al ruolo. 
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Aggiungere un'identità ai ruoli di Azure nelle destinazioni
+Questa sezione descrive come aggiungere l'identità per un argomento o un dominio a un ruolo di Azure. 
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 È possibile utilizzare il portale di Azure per assegnare l'identità dell'argomento o del dominio a un ruolo appropriato, in modo che l'argomento o il dominio possano inviare eventi alla destinazione. 
@@ -94,7 +94,7 @@ Nell'esempio seguente viene aggiunta un'identità gestita relativa a un argoment
 Per aggiungere un'identità agli altri ruoli specificati nella tabella, sarà necessario seguire una procedura simile. 
 
 ### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
-L'esempio in questa sezione illustra come usare l'interfaccia della riga di comando di Azure per aggiungere un'identità a un ruolo RBAC. I comandi di esempio fanno riferimento ad argomenti di Griglia di eventi, ma sono simili a quelli per i domini di Griglia di eventi. 
+L'esempio in questa sezione illustra come usare l'interfaccia della riga di comando di Azure per aggiungere un'identità a un ruolo di Azure. I comandi di esempio fanno riferimento ad argomenti di Griglia di eventi, ma sono simili a quelli per i domini di Griglia di eventi. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Ottenere l'ID entità per l'identità di sistema dell'argomento 
 Per prima cosa, ottenere l'ID entità di sicurezza dell'identità gestita dal sistema dell'argomento e assegnare l'identità ai ruoli appropriati.

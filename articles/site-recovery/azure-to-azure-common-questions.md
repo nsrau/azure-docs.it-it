@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201207"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534023"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza da Azure ad Azure
 
@@ -70,6 +70,10 @@ Configurare il ripristino di emergenza [tra sottoscrizioni](https://azure.micros
 ### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>È possibile replicare in un'altra area le macchine virtuali di Azure aggiunte a una certa zona?
 
 Sì, è possibile [replicare le macchine virtuali aggiunte a una certa zona](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) in un'altra area.
+
+### <a name="can-i-replicate-vms-in-a-region-that-has-zones-from-non-zone-to-zonal-configuration"></a>È possibile replicare le macchine virtuali in un'area con zone da una configurazione non di zona a una di zona?
+
+No, questa operazione non è attualmente supportata. Come soluzione alternativa, è possibile replicare la macchina virtuale usando ASR in una configurazione di zona in un'altra area, quindi disabilitare la replica. Successivamente, abilitare nuovamente la replica da tale area all'area originale e scegliere una configurazione di zona per il failover.
 
 ### <a name="can-i-exclude-disks"></a>È possibile escludere dei dischi?
 

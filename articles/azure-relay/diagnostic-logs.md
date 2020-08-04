@@ -3,12 +3,12 @@ title: Log di diagnostica per le connessioni ibride
 description: Questo articolo illustra tutti i log di attività e diagnostica disponibili per Inoltro di Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314908"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533003"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Abilitare i log di diagnostica per le connessioni ibride di Inoltro di Azure
 Quando si iniziano a usare le connessioni ibride di Inoltro di Azure, potrebbe essere utile monitorare l'apertura e la chiusura di listener e mittenti, nonché la modalità di creazione delle connessioni ibride e l'invio dei messaggi. Questo articolo include una panoramica dei log di attività e diagnostica forniti dal servizio Inoltro di Azure. 
@@ -46,7 +46,7 @@ Per abilitare i log di diagnostica, seguire questa procedura:
         ![Impostazioni di diagnostica di esempio](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni.
 
-Le nuove impostazioni diventano effettive entro 10 minuti circa. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**. Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Le nuove impostazioni diventano effettive entro 10 minuti circa. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**. Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Schema per gli eventi di connessioni ibride

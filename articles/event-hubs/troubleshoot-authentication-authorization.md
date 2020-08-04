@@ -3,12 +3,12 @@ title: Risolvere i problemi di autenticazione e autorizzazione-Hub eventi di Azu
 description: Questo articolo fornisce informazioni sulla risoluzione dei problemi di autenticazione e autorizzazione con hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502104"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533887"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Risolvere i problemi di autenticazione e autorizzazione-Hub eventi di Azure
 L'articolo [risolvere i problemi di connettività](troubleshooting-guide.md) fornisce suggerimenti per la risoluzione dei problemi di connettività con hub eventi di Azure. Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi di autenticazione e autorizzazione con hub eventi di Azure. 
@@ -16,13 +16,13 @@ L'articolo [risolvere i problemi di connettività](troubleshooting-guide.md) for
 ## <a name="if-you-are-using-azure-active-directory"></a>Se si usa Azure Active Directory
 Se si usa Azure Active Directory (Azure AD) per l'autenticazione e l'autorizzazione con hub eventi di Azure, verificare che l'identità che accede a hub eventi sia un membro del **ruolo di Azure** appropriato nell' **ambito di risorse** corretto (gruppo di consumer, Hub eventi, spazio dei nomi, gruppo di risorse o sottoscrizione).
 
-### <a name="rbac-roles"></a>Ruoli Controllo degli accessi in base al ruolo
+### <a name="azure-roles"></a>Ruoli di Azure
 - [Proprietario dei dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) per l'accesso completo alle risorse di hub eventi.
 - [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) per l'accesso di invio.
 - [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) per l'accesso di ricezione.
 
 ### <a name="resource-scopes"></a>Ambiti delle risorse
-- **Gruppo di consumer**: in questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo controllo degli accessi in base al ruolo a un'entità di sicurezza a questo livello. 
+- **Gruppo di consumer**: in questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo di Azure a un'entità di sicurezza a questo livello. 
 - **Hub eventi**: l'assegnazione di ruolo si applica all'entità Hub eventi e al gruppo di consumer al suo interno.
 - **Spazio dei nomi**: l'assegnazione di ruolo si estende all'intera topologia degli hub eventi nello spazio dei nomi e al gruppo di consumer associato.
 - **Gruppo di risorse**: l'assegnazione di ruolo si applica a tutte le risorse di hub eventi nel gruppo di risorse.

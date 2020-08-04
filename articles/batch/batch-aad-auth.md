@@ -4,12 +4,12 @@ description: Batch supporta Azure AD per l'autenticazione dal servizio Batch. In
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032460"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533513"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -130,9 +130,9 @@ Per eseguire l'autenticazione con un'entità servizio, è necessario assegnare i
 1. Dall'elenco a discesa **Ruolo** scegliere il ruolo *Collaboratore* o *Lettore* per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 1. Nel campo **Seleziona** immettere il nome dell'applicazione. Selezionare l'applicazione dall'elenco e fare clic su **Salva**.
 
-L'applicazione dovrebbe ora essere visualizzata nelle impostazioni di controllo di accesso con un ruolo con controllo degli accessi in base al ruolo assegnato.
+L'applicazione dovrebbe ora essere visualizzata nelle impostazioni di controllo di accesso con un ruolo di Azure assegnato.
 
-![Assegnare un ruolo con controllo degli accessi in base al ruolo all'applicazione](./media/batch-aad-auth/app-rbac-role.png)
+![Assegnare un ruolo di Azure all'applicazione](./media/batch-aad-auth/app-rbac-role.png)
 
 ### <a name="assign-a-custom-role"></a>Assegnare un ruolo personalizzato
 

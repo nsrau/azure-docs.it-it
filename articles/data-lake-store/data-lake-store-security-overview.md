@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086573"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529977"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sicurezza in Azure Data Lake Storage Gen1
 
@@ -20,7 +20,7 @@ Molte aziende sfruttano l'analisi di Big Data per una visione completa dell'atti
 
 * Authentication
 * Autorizzazione
-* Isolamento rete
+* Isolamento della rete
 * Protezione dei dati
 * Controllo
 
@@ -46,17 +46,17 @@ Dopo che Azure Active Directory ha autenticato un utente in modo che possa acced
 
 Quattro ruoli di base vengono definiti per Data Lake Storage Gen1 per impostazione predefinita. I ruoli permettono di eseguire diverse operazioni su un account Data Lake Storage Gen1 tramite il portale di Azure, i cmdlet di PowerShell e le API REST. I ruoli Proprietario e Collaboratore possono eseguire un'ampia gamma di funzioni di amministrazione sull'account. È possibile assegnare il ruolo Lettore agli utenti limitati alla sola visualizzazione dei dati di gestione degli account.
 
-![Ruoli Controllo degli accessi in base al ruolo](./media/data-lake-store-security-overview/rbac-roles.png "Ruoli Controllo degli accessi in base al ruolo")
+![Ruoli di Azure](./media/data-lake-store-security-overview/rbac-roles.png "Ruoli di Azure")
 
 Si noti che anche se per la gestione degli account vengono assegnati i ruoli, alcuni ruoli incidono sull'accesso ai dati. È necessario usare gli elenchi di controllo di accesso (ACL) alle operazioni che un utente può eseguire nel file system. La tabella seguente mostra un riepilogo dei diritti di gestione e dei diritti di accesso ai dati per questi ruoli predefiniti.
 
 | Ruoli | Diritti di gestione | Diritti di accesso ai dati | Spiegazione |
 | --- | --- | --- | --- |
-| Nessun ruolo assegnato |nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
+| Nessun ruolo assegnato |Nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
 | Proprietario |Tutti |Tutti |Il ruolo di Proprietario è un utente avanzato. Questo ruolo può gestire tutto e ha l'accesso completo ai dati. |
 | Reader |Sola lettura |Regolato da ACL |Il ruolo Lettore può visualizzare tutti gli elementi riguardanti la gestione degli account, ad esempio l'utente assegnato a un determinato ruolo, ma non prevede la possibilità di apportare modifiche. |
 | Autore di contributi |Tutti tranne quelli di aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Collaboratore può gestire alcuni aspetti di un account, ad esempio le distribuzioni e la creazione e la gestione di avvisi, ma non prevede la possibilità di aggiungere o rimuovere ruoli. |
-| Amministratore accessi utente |Aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Amministratore accessi utente può gestire l'accesso degli utenti agli account. |
+| Amministratore Accesso utenti |Aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Amministratore accessi utente può gestire l'accesso degli utenti agli account. |
 
 Per istruzioni, vedere [Assegnare utenti o gruppi di sicurezza agli account Data Lake Storage Gen1](data-lake-store-secure-data.md#assign-users-or-security-groups-to-data-lake-storage-gen1-accounts).
 
@@ -68,7 +68,7 @@ Data Lake Storage Gen1 è un file system gerarchico come HDFS (Hadoop Distribute
 
 ![Elencare le autorizzazioni di accesso](./media/data-lake-store-security-overview/adl.acl.2.png "Elencare le autorizzazioni di accesso")
 
-## <a name="network-isolation"></a>Isolamento rete
+## <a name="network-isolation"></a>Isolamento della rete
 
 Usare Data Lake Storage Gen1 per aiutare a controllare l'accesso all'archivio dati a livello di rete. È possibile stabilire firewall e definire un intervallo di indirizzi IP per i client attendibili. Con un intervallo di indirizzi IP, solo i client con indirizzo IP compreso nell'intervallo definito possono connettersi a Data Lake Storage Gen1.
 
@@ -111,7 +111,7 @@ Per altre informazioni sull'utilizzo dei log attività, vedere [Visualizzare i l
 
 Per altre informazioni sull'uso dei log di diagnostica con Data Lake Storage Gen1, vedere [Accesso ai log di diagnostica per Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I clienti aziendali richiedono una piattaforma cloud di analisi dei dati protetta e facile da usare. Data Lake Storage Gen1 è progettato per aiutare a soddisfare questi requisiti attraverso la gestione delle identità e l'autenticazione con l'integrazione di Azure Active Directory, l'autorizzazione basata su elenchi di controllo di accesso, l'isolamento della rete, la crittografia dei dati in transito e inattivi e il controllo.
 

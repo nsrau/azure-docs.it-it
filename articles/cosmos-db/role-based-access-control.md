@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 858e185a0e4fa406fb4645475673acc13a0d37f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086674"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530572"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controllo degli accessi in base al ruolo in Azure Cosmos DB
 
-Azure Cosmos DB fornisce il controllo degli accessi in base al ruolo (RBAC) predefinito per gli scenari di gestione comuni in Azure Cosmos DB. Un utente che dispone di un profilo in Azure Active Directory può assegnare questi ruoli RBAC a utenti, gruppi, entità servizio o identità gestite per concedere o negare l'accesso a risorse e operazioni su Azure Cosmos DB risorse. Le assegnazioni di ruolo hanno come ambito solo l'accesso al piano di controllo, che include l'accesso ad account, database, contenitori e offerte (velocità effettiva) di Azure Cosmos.
+Azure Cosmos DB fornisce il controllo degli accessi in base al ruolo (RBAC) predefinito per gli scenari di gestione comuni in Azure Cosmos DB. Un utente che dispone di un profilo in Azure Active Directory può assegnare questi ruoli di Azure a utenti, gruppi, entità servizio o identità gestite per concedere o negare l'accesso a risorse e operazioni su Azure Cosmos DB risorse. Le assegnazioni di ruolo hanno come ambito solo l'accesso al piano di controllo, che include l'accesso ad account, database, contenitori e offerte (velocità effettiva) di Azure Cosmos.
 
 ## <a name="built-in-roles"></a>Ruoli predefiniti
 
@@ -39,13 +39,13 @@ Il riquadro di **controllo di accesso (IAM)** nella portale di Azure viene usato
 
 ## <a name="custom-roles"></a>Ruoli personalizzati
 
-Oltre ai ruoli predefiniti, gli utenti possono anche creare [ruoli personalizzati](../role-based-access-control/custom-roles.md) in Azure e applicare questi ruoli alle entità servizio in tutte le sottoscrizioni all'interno del tenant Active Directory. I ruoli personalizzati forniscono agli utenti un modo per creare definizioni di ruolo RBAC con un set personalizzato di operazioni del provider di risorse. Per informazioni sulle operazioni disponibili per la creazione di ruoli personalizzati per Azure Cosmos DB vedere [Azure Cosmos DB operazioni del provider di risorse](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+Oltre ai ruoli predefiniti, gli utenti possono anche creare [ruoli personalizzati](../role-based-access-control/custom-roles.md) in Azure e applicare questi ruoli alle entità servizio in tutte le sottoscrizioni all'interno del tenant Active Directory. I ruoli personalizzati forniscono agli utenti un modo per creare le definizioni dei ruoli di Azure con un set personalizzato di operazioni del provider di risorse. Per informazioni sulle operazioni disponibili per la creazione di ruoli personalizzati per Azure Cosmos DB vedere [Azure Cosmos DB operazioni del provider di risorse](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Prevenzione delle modifiche da Azure Cosmos DB SDK
 
 Il provider di risorse Azure Cosmos DB può essere bloccato per evitare modifiche alle risorse da un client che si connette usando le chiavi dell'account (ovvero le applicazioni che si connettono tramite Azure Cosmos SDK). Sono incluse anche le modifiche apportate dal portale di Azure. Questa funzionalità può essere utile per gli utenti che desiderano livelli superiori di controllo e governance per gli ambienti di produzione. La prevenzione delle modifiche dall'SDK Abilita anche funzionalità quali i blocchi di risorsa e i log di diagnostica per le operazioni del piano di controllo. Ai client che si connettono da Azure Cosmos DB SDK verrà impedito di modificare qualsiasi proprietà per gli account, i database, i contenitori e la velocità effettiva di Azure Cosmos. Le operazioni che comportano la lettura e la scrittura dei dati nei contenitori Cosmos non sono interessate.
 
-Quando questa funzionalità è abilitata, è possibile apportare modifiche a qualsiasi risorsa solo da un utente con il ruolo controllo degli accessi in base al ruolo e Azure Active Directory credenziali, incluse le identità del servizio gestito.
+Quando questa funzionalità è abilitata, le modifiche a qualsiasi risorsa possono essere apportate solo da un utente con il ruolo di Azure corretto e Azure Active Directory credenziali, incluse le identità del servizio gestito.
 
 > [!WARNING]
 > L'abilitazione di questa funzionalità può avere un effetto sull'applicazione. Assicurarsi di aver compreso l'effetto prima di abilitarlo.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126772"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531372"
 ---
 # <a name="secure-a-daemon-application"></a>Proteggere un'applicazione daemon
 
@@ -109,7 +109,7 @@ Quando è in esecuzione in un ambiente non Azure, le identità gestite non sono 
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Concedere l'accesso in base al ruolo per l'applicazione daemon ad Azure Maps
 
-Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identità gestita creata o l'entità servizio a una o più definizioni di ruolo di controllo di accesso di Azure maps. Per visualizzare le definizioni di ruolo RBAC disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**. Selezionare **Roles (ruoli**) e quindi cercare i ruoli che iniziano con *Maps di Azure*. Questi ruoli di Azure Maps sono i ruoli a cui è possibile concedere l'accesso.
+Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identità gestita creata o l'entità servizio a una o più definizioni di ruolo di controllo di accesso di Azure maps. Per visualizzare le definizioni dei ruoli di Azure disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**. Selezionare **Roles (ruoli**) e quindi cercare i ruoli che iniziano con *Maps di Azure*. Questi ruoli di Azure Maps sono i ruoli a cui è possibile concedere l'accesso.
 
 > [!div class="mx-imgBorder"]
 > ![Visualizzare i ruoli disponibili](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -124,7 +124,7 @@ Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identi
     > [!div class="mx-imgBorder"]
     > ![Aggiungere un'assegnazione di ruolo](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Selezionare una definizione di ruolo di Azure Maps predefinita, ad esempio **lettore dati** di Azure Maps o **collaboratore dati di Azure Maps**. In **assegna accesso a**selezionare **Azure ad utente, un gruppo o un'entità servizio** o un'identità gestita con identità gestita assegnata dal sistema di identità gestito assegnato **dall'utente**  /  **System assigned Managed identity**. Selezionare l'entità. Selezionare quindi **Salva**.
+3. Selezionare una definizione di ruolo di Azure Maps predefinita, ad esempio **lettore dati** di Azure Maps o **collaboratore dati di Azure Maps**. In **assegna accesso a**selezionare **Azure ad utente, un gruppo o un'entità servizio** o un'identità gestita con identità gestita assegnata dal sistema di identità gestito assegnato **dall'utente**  /  **System assigned Managed identity**. Selezionare l'entità. Selezionare **Salva**.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungere un'assegnazione di ruolo](./media/how-to-manage-authentication/how-to-add-role-assignment.png)

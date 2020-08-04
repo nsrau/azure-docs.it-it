@@ -3,12 +3,12 @@ title: Installare l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 description: Informazioni su come installare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup di computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079367"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533479"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installare l'agente MARS di backup di Azure
 
@@ -136,13 +136,13 @@ Se l'agente è già stato installato in qualsiasi computer, verificare che sia i
 ## <a name="install-and-register-the-agent"></a>Installare e registrare l'agente
 
 1. Eseguire il file di *MARSagentinstaller.exe* nei computer di cui si desidera eseguire il backup.
-1. Nell'installazione guidata dell'agente MARS selezionare **impostazioni di installazione**. Scegliere la posizione in cui installare l'agente e scegliere un percorso per la cache. Selezionare quindi **Avanti**.
+1. Nell'installazione guidata dell'agente MARS selezionare **impostazioni di installazione**. Scegliere la posizione in cui installare l'agente e scegliere un percorso per la cache. Fare quindi clic su **Avanti**.
    * Backup di Azure usa la cache per archiviare gli snapshot dei dati prima di inviarli ad Azure.
    * Il percorso della cache deve avere uno spazio disponibile pari almeno al 5% delle dimensioni dei dati di cui eseguire il backup.
 
     ![Scegliere le impostazioni di installazione nell'installazione guidata dell'agente MARS](./media/backup-configure-vault/mars1.png)
 
-1. Per la **configurazione del proxy**, specificare il modo in cui l'agente in esecuzione nel computer Windows si connetterà a Internet. Selezionare quindi **Avanti**.
+1. Per la **configurazione del proxy**, specificare il modo in cui l'agente in esecuzione nel computer Windows si connetterà a Internet. Fare quindi clic su **Avanti**.
 
    * Se si usa un proxy personalizzato, specificare le credenziali e le impostazioni proxy necessarie.
    * Tenere presente che l'agente deve accedere a [URL specifici](#before-you-start).
@@ -151,11 +151,11 @@ Se l'agente è già stato installato in qualsiasi computer, verificare che sia i
 
 1. Per l' **installazione**, esaminare i prerequisiti e selezionare **Installa**.
 1. Dopo l'installazione dell'agente, selezionare **procedi alla registrazione**.
-1. In registra l'insieme di credenziali della **procedura guidata server**  >  **Vault Identification**individuare e selezionare il file delle credenziali scaricato. Selezionare quindi **Avanti**.
+1. In registra l'insieme di credenziali della **procedura guidata server**  >  **Vault Identification**individuare e selezionare il file delle credenziali scaricato. Fare quindi clic su **Avanti**.
 
     ![Aggiungere le credenziali dell'insieme di credenziali tramite la registrazione guidata server](./media/backup-configure-vault/register1.png)
 
-1. Nella pagina **impostazione crittografia** specificare una passphrase che verrà usata per crittografare e decrittografare i backup per il computer.
+1. Nella pagina **impostazione crittografia** specificare una passphrase che verrà usata per crittografare e decrittografare i backup per il computer. Per ulteriori informazioni sui caratteri di passphrase consentiti, [vedere qui](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase) .
 
     * Salvare la passphrase in una posizione sicura. È necessario ripristinare un backup.
     * Se la passphrase viene persa o dimenticata, Microsoft non può essere utile per ripristinare i dati di backup.

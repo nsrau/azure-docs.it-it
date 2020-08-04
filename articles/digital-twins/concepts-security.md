@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d29bccdadeef44f1ae4cdae5875257f95395b96f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373284"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534040"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Proteggere i dispositivi gemelli digitali di Azure con controllo degli accessi in base al ruolo
 
@@ -33,7 +33,7 @@ Con Azure AD, l'accesso è un processo in due passaggi. Quando un'entità di sic
 
 Il passaggio di autenticazione richiede che qualsiasi richiesta dell'applicazione contenga un token di accesso OAuth 2,0 in fase di esecuzione. Se un'applicazione è in esecuzione all'interno di un'entità di Azure, ad esempio un'app [funzioni di Azure](../azure-functions/functions-overview.md) , può usare un' **identità gestita** per accedere alle risorse. Per altre informazioni sulle identità gestite, vedere la sezione successiva.
 
-Per il passaggio di autorizzazione è necessario assegnare un ruolo RBAC all'entità di sicurezza. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. I dispositivi gemelli digitali di Azure forniscono i ruoli RBAC che includono i set di autorizzazioni per le risorse di Azure Digital gemelli. Questi ruoli sono descritti più avanti in questo articolo.
+Per il passaggio di autorizzazione è necessario assegnare un ruolo di Azure all'entità di sicurezza. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. I dispositivi gemelli digitali di Azure forniscono i ruoli di Azure che includono i set di autorizzazioni per le risorse di Azure Digital Twins. Questi ruoli sono descritti più avanti in questo articolo.
 
 Per altre informazioni sui ruoli e sulle assegnazioni di ruolo supportati in Azure, vedere informazioni sui [*diversi ruoli*](../role-based-access-control/rbac-and-directory-admin-roles.md) nella documentazione relativa a RBAC di Azure.
 
@@ -41,9 +41,9 @@ Per altre informazioni sui ruoli e sulle assegnazioni di ruolo supportati in Azu
 
 [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) è una funzionalità di Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare tale identità ai ruoli di controllo di accesso per concedere autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
 
-Con le identità gestite, la piattaforma Azure gestisce questa identità di runtime. Non è necessario archiviare e proteggere le chiavi di accesso nel codice o nella configurazione dell'applicazione, né per l'identità stessa, né per le risorse a cui è necessario accedere. Un'app client dei dispositivi gemelli digitali di Azure in esecuzione all'interno di un'applicazione di servizio app Azure non deve gestire le regole e le chiavi di firma di accesso condiviso o altri token di accesso. L'app client necessita solo dell'indirizzo endpoint dello spazio dei nomi di Azure Digital gemelli. Quando l'app si connette, i dispositivi gemelli digitali di Azure associano il contesto dell'entità gestita al client. Una volta associato a un'identità gestita, il client di Azure Digital Twins può eseguire tutte le operazioni autorizzate. L'autorizzazione verrà quindi concessa associando un'entità gestita a un ruolo di controllo degli accessi in base al ruolo di Azure Digital Twins (descritto di seguito).
+Con le identità gestite, la piattaforma Azure gestisce questa identità di runtime. Non è necessario archiviare e proteggere le chiavi di accesso nel codice o nella configurazione dell'applicazione, né per l'identità stessa, né per le risorse a cui è necessario accedere. Un'app client dei dispositivi gemelli digitali di Azure in esecuzione all'interno di un'applicazione di servizio app Azure non deve gestire le regole e le chiavi di firma di accesso condiviso o altri token di accesso. L'app client necessita solo dell'indirizzo endpoint dello spazio dei nomi di Azure Digital gemelli. Quando l'app si connette, i dispositivi gemelli digitali di Azure associano il contesto dell'entità gestita al client. Una volta associato a un'identità gestita, il client di Azure Digital Twins può eseguire tutte le operazioni autorizzate. L'autorizzazione verrà quindi concessa associando un'entità gestita a un ruolo Azure Digital Twins di Azure (descritto di seguito).
 
-### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorizzazione: ruoli RBAC per i dispositivi gemelli digitali di Azure
+### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorizzazione: ruoli di Azure per i dispositivi gemelli digitali di Azure
 
 Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a una risorsa di dispositivi gemelli digitali di Azure:
 * *Proprietario di dispositivi gemelli digitali di Azure (anteprima)* : usare questo ruolo per concedere l'accesso completo alle risorse di Azure Digital gemelli.
@@ -62,7 +62,7 @@ Per istruzioni più dettagliate su come eseguire questa operazione, vedere l'ese
 
 ## <a name="permission-scopes"></a>Ambiti delle autorizzazioni
 
-Prima di assegnare un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è preferibile concedere solo l'ambito più ristretto possibile.
+Prima di assegnare un ruolo di Azure a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è preferibile concedere solo l'ambito più ristretto possibile.
 
 L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di accesso alle risorse di Azure Digital gemelli.
 * Modelli: le azioni per questa risorsa determinano il controllo sui [modelli](concepts-models.md) caricati nei dispositivi gemelli digitali di Azure.

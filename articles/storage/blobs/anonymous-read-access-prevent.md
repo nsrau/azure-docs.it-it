@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f46a7927c149009eaf5baddbad2758732d4da758
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133164"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534277"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedisci l'accesso in lettura pubblico anonimo a contenitori e BLOB
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, l'accesso pubblico ai dati BLOB è sempre vietato.
 
 Quando si impedisce l'accesso al BLOB pubblico per l'account di archiviazione, archiviazione di Azure rifiuta tutte le richieste anonime a tale account. Dopo che l'accesso pubblico non è consentito per un account, i contenitori di tale account non possono essere configurati per l'accesso pubblico. Tutti i contenitori già configurati per l'accesso pubblico non accettano più richieste anonime. Per altre informazioni, vedere [configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB](anonymous-read-access-configure.md).
 
-Questo articolo descrive come analizzare le richieste anonime in un account di archiviazione e come impedire l'accesso anonimo per l'intero account di archiviazione o per un singolo contenitore.
+Questo articolo descrive come usare un Framework di trascinamento (rilevamento-monitoraggio e aggiornamento-controllo) per gestire continuamente l'accesso pubblico per gli account di archiviazione.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Rilevare richieste anonime da applicazioni client
 
@@ -157,6 +157,126 @@ $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
+
+### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Controllare l'impostazione di accesso pubblico per più account
+
+Per controllare l'impostazione di accesso pubblico in un set di account di archiviazione con prestazioni ottimali, è possibile usare Azure Resource Graph Explorer nella portale di Azure. Per altre informazioni sull'uso di Esplora grafico risorse, vedere [Guida introduttiva: eseguire la prima query di Resource Graph con Esplora risorse di Azure](/azure/governance/resource-graph/first-query-portal).
+
+L'esecuzione della query seguente in Resource Graph Explorer restituisce un elenco di account di archiviazione e visualizza le impostazioni di accesso pubblico per ogni account:
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+```
+
+## <a name="use-azure-policy-to-audit-for-compliance"></a>Usare i criteri di Azure per controllare la conformità
+
+Se si dispone di un numero elevato di account di archiviazione, è consigliabile eseguire un controllo per assicurarsi che tali account siano configurati per impedire l'accesso pubblico. Per controllare un set di account di archiviazione per la conformità, usare criteri di Azure. Criteri di Azure è un servizio che è possibile usare per creare, assegnare e gestire criteri che applicano regole alle risorse di Azure. Criteri di Azure consente di garantire che le risorse siano conformi agli standard aziendali e ai contratti di servizio. Per altre informazioni, vedere [Panoramica di Criteri di Azure](../../governance/policy/overview.md).
+
+### <a name="create-a-policy-with-an-audit-effect"></a>Creare un criterio con un effetto di controllo
+
+Criteri di Azure supporta gli effetti che determinano cosa accade quando una regola dei criteri viene valutata rispetto a una risorsa. L'effetto di controllo Crea un avviso quando una risorsa non è conforme, ma non interrompe la richiesta. Per altre informazioni sugli effetti, vedere [comprendere gli effetti dei criteri di Azure](../../governance/policy/concepts/effects.md).
+
+Per creare un criterio con un effetto di controllo per l'impostazione di accesso pubblico per un account di archiviazione con la portale di Azure, attenersi alla procedura seguente:
+
+1. Nel portale di Azure passare al servizio criteri di Azure.
+1. Nella sezione **creazione e modifica** selezionare **definizioni**.
+1. Selezionare **Aggiungi definizione criteri** per creare una nuova definizione dei criteri.
+1. Per il campo **percorso definizione** selezionare il pulsante **altro** per specificare dove si trova la risorsa dei criteri di controllo.
+1. Specificare un nome per il criterio. Facoltativamente, è possibile specificare una descrizione e una categoria.
+1. In **regola dei criteri**aggiungere la definizione di criteri seguente alla sezione **policyRule** .
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+              "equals": "false"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+1. Salvare il criterio.
+
+### <a name="assign-the-policy"></a>Assegnare i criteri
+
+Assegnare quindi il criterio a una risorsa. L'ambito dei criteri corrisponde alla risorsa e alle risorse sottostanti. Per altre informazioni sull'assegnazione dei criteri, vedere [struttura di assegnazione dei criteri di Azure](../../governance/policy/concepts/assignment-structure.md).
+
+Per assegnare i criteri alla portale di Azure, attenersi alla procedura seguente:
+
+1. Nel portale di Azure passare al servizio criteri di Azure.
+1. Nella sezione **creazione e modifica** selezionare **assegnazioni**.
+1. Selezionare **assegna criterio** per creare una nuova assegnazione di criteri.
+1. Per il campo **ambito** selezionare l'ambito dell'assegnazione di criteri.
+1. Per il campo **definizione criteri** selezionare il pulsante **altro** , quindi selezionare i criteri definiti nella sezione precedente dall'elenco.
+1. Consente di specificare un nome per l'assegnazione dei criteri. La descrizione è facoltativa.
+1. Lasciare impostato su *abilitato*per l' **imposizione dei criteri** . Questa impostazione non ha alcun effetto sui criteri di controllo.
+1. Selezionare **Verifica + crea** per creare l'assegnazione.
+
+### <a name="view-compliance-report"></a>Visualizza report conformità
+
+Dopo aver assegnato il criterio, è possibile visualizzare il report di conformità. Il report di conformità per i criteri di controllo fornisce informazioni sugli account di archiviazione che non sono conformi ai criteri. Per ulteriori informazioni, vedere [ottenere i dati di conformità dei criteri](../../governance/policy/how-to/get-compliance-data.md).
+
+Potrebbero essere necessari alcuni minuti per rendere disponibile il report di conformità dopo la creazione dell'assegnazione dei criteri.
+
+Per visualizzare il report di conformità nel portale di Azure, attenersi alla seguente procedura:
+
+1. Nel portale di Azure passare al servizio criteri di Azure.
+1. Selezionare **conformità**.
+1. Filtrare i risultati per il nome dell'assegnazione di criteri creata nel passaggio precedente. Il report Mostra il numero di risorse non conformi ai criteri.
+1. È possibile eseguire il drill-down del report per ulteriori dettagli, incluso un elenco di account di archiviazione non conformi.
+
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot che mostra il report di conformità per i criteri di controllo per l'accesso pubblico ai BLOB":::
+
+## <a name="use-azure-policy-to-enforce-authorized-access"></a>Usare i criteri di Azure per applicare l'accesso autorizzato
+
+Criteri di Azure supporta la governance del cloud garantendo che le risorse di Azure siano conformi ai requisiti e agli standard. Per assicurarsi che gli account di archiviazione nell'organizzazione consentano solo le richieste autorizzate, è possibile creare un criterio che impedisce la creazione di un nuovo account di archiviazione con un'impostazione di accesso pubblico che consente le richieste anonime. Questo criterio impedisce inoltre tutte le modifiche alla configurazione di un account esistente se l'impostazione di accesso pubblico per l'account non è conforme ai criteri.
+
+Il criterio di imposizione USA l'effetto Deny per impedire a una richiesta di creare o modificare un account di archiviazione per consentire l'accesso pubblico. Per altre informazioni sugli effetti, vedere [comprendere gli effetti dei criteri di Azure](../../governance/policy/concepts/effects.md).
+
+Per creare un criterio con un effetto negazione per un'impostazione di accesso pubblico che consente richieste anonime, seguire la stessa procedura descritta in [usare i criteri di Azure per controllare la conformità](#use-azure-policy-to-audit-for-compliance), ma fornire il codice JSON seguente nella sezione **policyRule** della definizione dei criteri:
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "not": {
+          "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+          "equals": "false"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Dopo aver creato il criterio con l'effetto nega e averlo assegnato a un ambito, un utente non può creare un account di archiviazione che consenta l'accesso pubblico. Né può apportare modifiche di configurazione a un account di archiviazione esistente che attualmente consente l'accesso pubblico. Il tentativo di eseguire questa operazione genera un errore. L'impostazione di accesso pubblico per l'account di archiviazione deve essere impostata su **false** per procedere con la creazione o la configurazione dell'account.
+
+La figura seguente mostra l'errore che si verifica se si tenta di creare un account di archiviazione che consente l'accesso pubblico (impostazione predefinita per un nuovo account) quando un criterio con un effetto di negazione richiede che l'accesso pubblico non sia consentito.
+
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot che mostra l'errore che si verifica quando si crea un account di archiviazione in violazione dei criteri":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

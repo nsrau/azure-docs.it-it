@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 3195c27351ba6110c784ddd8a10ea9ddfb0d903a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447354"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533904"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 
@@ -78,7 +78,7 @@ Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di bas
 
 ![Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](./media/isolation-choices/azure-isolation-fig3.png)
 
-Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale di Azure o alla subnet a cui la macchina virtuale si connette.
+Il resto dei ruoli di Azure in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale di Azure o alla subnet a cui la macchina virtuale si connette.
 
 [Ruoli predefiniti per il controllo degli accessi in base al ruolo](../../role-based-access-control/built-in-roles.md) elenca i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti. Per definire ruoli personalizzati per un maggiore controllo, vedere come creare [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/custom-roles.md).
 

@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: d45b792c655820b771ba956721e9169750c39fbd
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475414"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534108"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -365,7 +365,7 @@ Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra
 Alcuni servizi Microsoft operano da reti che non possono essere incluse nelle regole di rete. È possibile concedere a un sottoinsieme di questi servizi Microsoft attendibili l'accesso all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi attendibili useranno quindi l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione. Sono disponibili due modalità di accesso attendibile per i servizi Microsoft.
 
 - Le risorse di alcuni servizi, **se registrate nella sottoscrizione**, possono accedere all'account di archiviazione **nella stessa sottoscrizione** per determinate operazioni, come la scrittura di log o il backup.
-- Alle risorse di alcuni servizi può essere concesso l'accesso esplicito all'account di archiviazione tramite l'**assegnazione di un ruolo di controllo degli accessi in base al ruolo** all'identità gestita assegnata dal sistema.
+- Alle risorse di alcuni servizi è possibile concedere l'accesso esplicito all'account di archiviazione **assegnando un ruolo di Azure** all'identità gestita assegnata dal sistema.
 
 
 Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, alle risorse dei servizi seguenti registrati nella stessa sottoscrizione dell'account di archiviazione viene concesso l'accesso per un set limitato di operazioni, come descritto di seguito:
@@ -384,7 +384,7 @@ Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, all
 | Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log del traffico di rete, inclusi i servizi Network Watcher e Analisi del traffico. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usa un account di archiviazione di origine, di destinazione o della cache abilitato per il firewall.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
 
-L'impostazione **Consenti servizi Microsoft attendibili** consente anche a una particolare istanza dei servizi elencati di seguito di accedere all'account di archiviazione, se si [assegna in modo esplicito un ruolo di controllo degli accessi in base al ruolo](storage-auth-aad.md#assign-rbac-roles-for-access-rights) all'[identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di controllo degli accessi in base al ruolo assegnato all'identità gestita.
+L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a una particolare istanza dei servizi seguenti di accedere all'account di archiviazione, se si assegna in modo esplicito [un ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso, l'ambito di accesso per l'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
 
 | Service                        | Nome provider di risorse                 | Scopo            |
 | :----------------------------- | :------------------------------------- | :----------------- |

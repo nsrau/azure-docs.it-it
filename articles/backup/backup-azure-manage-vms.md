@@ -1,19 +1,18 @@
 ---
 title: Gestire e monitorare i backup delle macchine virtuali di Azure
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure.
-ms.reviewer: sogup
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/02/2020
+ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054748"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532052"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
-Questo articolo descrive come gestire le macchine virtuali di Azure di cui viene eseguito il backup con il [servizio backup di Azure](backup-overview.md). Questo articolo riepiloga anche le informazioni di backup che è possibile trovare nel dashboard dell'insieme di credenziali.
+Questo articolo descrive come gestire le macchine virtuali (VM) di Azure di cui viene eseguito il backup con il [servizio backup di Azure](backup-overview.md). Questo articolo riepiloga anche le informazioni di backup che è possibile trovare nel dashboard dell'insieme di credenziali.
 
 Nel portale di Azure il dashboard dell'insieme di credenziali dei servizi di ripristino fornisce l'accesso alle informazioni sull'insieme di credenziali, tra cui:
 
@@ -31,24 +30,30 @@ Nel portale di Azure il dashboard dell'insieme di credenziali dei servizi di rip
 Per visualizzare le macchine virtuali nel dashboard dell'insieme di credenziali:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Scegliere **Sfoglia**dal menu hub. Nell'elenco di risorse digitare **servizi di ripristino**. Durante la digitazione, l'elenco viene filtrato in base all'input. Selezionare insiemi di credenziali **dei servizi di ripristino**.
+1. Nel menu a sinistra selezionare **Tutti i servizi**.
 
-    ![Creare un insieme di credenziali di Servizi di ripristino](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![Selezionare tutti i servizi](./media/backup-azure-manage-vms/select-all-services.png)
 
-3. Per semplicità d'uso, fare clic con il pulsante destro del mouse sull'insieme di credenziali e selezionare **Aggiungi al dashboard**.
-4. Aprire il dashboard dell'insieme di credenziali.
+1. Nella finestra di dialogo **Tutti i servizi** inserire *Servizi di ripristino*. L'elenco delle risorse filtra sulla base degli input. Nell'elenco delle risorse selezionare**Insieme di credenziali di Servizi di ripristino**.
+
+    ![Inserire e selezionare le insiemi di credenziali di Servizi di ripristino](./media/backup-azure-manage-vms/all-services.png)
+
+    Viene visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
+
+1. Per semplicità d'uso, selezionare l'icona Aggiungi accanto al nome dell'insieme di credenziali e selezionare **Aggiungi al dashboard**.
+1. Aprire il dashboard dell'insieme di credenziali.
 
     ![Aprire il dashboard dell'insieme di credenziali e il riquadro Impostazioni](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-5. Nel riquadro **elementi di backup** selezionare **macchine virtuali di Azure**.
+1. Nel riquadro **elementi di backup** selezionare **macchina virtuale di Azure**.
 
-    ![Aprire il riquadro elementi di backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Aprire il riquadro elementi di backup](./media/backup-azure-manage-vms/azure-virtual-machine.png)
 
-6. Nel riquadro **elementi di backup** è possibile visualizzare l'elenco delle macchine virtuali protette. In questo esempio, l'insieme di credenziali protegge una macchina virtuale: demobackup.  
+1. Nel riquadro **elementi di backup** è possibile visualizzare l'elenco delle macchine virtuali protette. In questo esempio, l'insieme di credenziali protegge una macchina virtuale: *myVMR1*.  
 
     ![Visualizzare il riquadro elementi di backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-7. Dal dashboard dell'elemento dell'insieme di credenziali modificare i criteri di backup, eseguire un backup su richiesta, arrestare o riprendere la protezione delle macchine virtuali, eliminare i dati di backup, visualizzare i punti di ripristino ed eseguire un ripristino.
+1. Dal dashboard dell'elemento dell'insieme di credenziali è possibile modificare i criteri di backup, eseguire un backup su richiesta, arrestare o riprendere la protezione delle macchine virtuali, eliminare i dati di backup, visualizzare i punti di ripristino ed eseguire un ripristino.
 
     ![Il dashboard elementi di backup e il riquadro Impostazioni](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
@@ -59,18 +64,17 @@ Per visualizzare le macchine virtuali nel dashboard dell'insieme di credenziali:
 Per modificare un criterio di backup esistente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Aprire il dashboard dell'insieme di credenziali.
-2. In **gestisci > criteri di backup**selezionare i criteri di backup per il tipo macchina virtuale di Azure.
-3.  Fare clic su modifica e modificare le impostazioni.
+2. In **gestisci > criteri di backup**selezionare i criteri di backup per il tipo **macchina virtuale di Azure**.
+3. Selezionare **modifica** e modificare le impostazioni.
 
-
-### <a name="switch-backup-policy"></a>Cambia criterio di backup 
+### <a name="switch-backup-policy"></a>Cambia criterio di backup
 
 Per gestire i criteri di backup:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Aprire il dashboard dell'insieme di credenziali.
-2. Nel riquadro **elementi di backup** selezionare **macchine virtuali di Azure**.
+2. Nel riquadro **elementi di backup** selezionare **macchina virtuale di Azure**.
 
-    ![Aprire il riquadro elementi di backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Aprire il riquadro elementi di backup](./media/backup-azure-manage-vms/azure-virtual-machine.png)
 
 3. Nel riquadro **elementi di backup** è possibile visualizzare l'elenco delle macchine virtuali protette e l'ultimo stato del backup con i punti di ripristino più recenti.
 
@@ -162,11 +166,11 @@ Esistono due modi per eliminare i dati di backup di una macchina virtuale:
 
 * Nel dashboard dell'elemento dell'insieme di credenziali selezionare Interrompi backup e seguire le istruzioni per l'opzione [Interrompi protezione ed Elimina dati di backup](#stop-protection-and-delete-backup-data) .
 
-  ![Selezionare Interrompi backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
+  ![Selezionare Interrompi backup](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-* Nel dashboard dell'elemento dell'insieme di credenziali selezionare Elimina dati di backup. Questa opzione è abilitata se si è scelto di [arrestare la protezione e di mantenere l'opzione backup data](#stop-protection-and-retain-backup-data) durante l'arresto della protezione delle macchine virtuali
+* Nel dashboard dell'elemento dell'insieme di credenziali selezionare Elimina dati di backup. Questa opzione è abilitata se si è scelto di [arrestare la protezione e di mantenere l'opzione backup data](#stop-protection-and-retain-backup-data) durante l'arresto della protezione della macchina virtuale.
 
-  ![Selezionare Elimina backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  ![Selezionare Elimina backup](./media/backup-azure-manage-vms/delete-backup-button.png)
 
   * Nel [Dashboard dell'elemento](#view-vms-on-the-dashboard)dell'insieme di credenziali selezionare **Elimina dati di backup**.
   * Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.

@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/30/2020
-ms.openlocfilehash: 2c67e2b72b7d35f5f7c8e9ccd136d7c10329f531
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 0fb2f9dd156d18705308b41ef8d6b015b3b6d71b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513605"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534448"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Risolvere i problemi comuni della condivisione dati di Azure 
 
@@ -34,7 +34,7 @@ Questo problema può essere dovuto ai motivi seguenti:
     1. Cerca **Microsoft. DataShare**
     1. Fare clic su **Registra** 
 
-    Per completare questa procedura, è necessario il [ruolo Collaboratore di Controllo degli accessi in base al ruolo in Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor). 
+    Per completare questa procedura, è necessario avere il [ruolo Azure collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) . 
 
 * **L'invito viene inviato all'alias di posta elettronica anziché al messaggio di posta elettronica di accesso di Azure.** Se il servizio Condivisione dati di Azure è stato registrato o è già stata creata una risorsa di condivisione dati nel tenant di Azure, ma non è ancora possibile visualizzare l'invito, è possibile che il provider abbia immesso l'alias di posta elettronica come destinatario anziché l'indirizzo di posta elettronica di accesso di Azure. Contattare il provider di dati e assicurarsi che abbia inviato l'invito all'indirizzo di posta elettronica dell'account di accesso di Azure e non all'alias di posta elettronica.
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 4bdcb2b4008f54ff0d84594e6f3b5a7b76944e65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: 9088b36acead9f47e94949ee102d66a8aff2d226
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987019"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529603"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiare dati da SAP ECC usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84987019"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da SAP Enterprise Central Component (ECC). Per altre informazioni, vedere [Panoramica dell'attività di copia](copy-activity-overview.md).
 
 >[!TIP]
->Per informazioni sul supporto generale di Azure Data Factory sullo scenario di integrazione dei dati SAP, vedere il [white paper sull'integrazione dei dati SAP con Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con sezioni di introduzione, confronto e istruzioni dettagliate.
+>Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere l'articolo relativo all' [integrazione dei dati SAP con Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con un'introduzione dettagliata su ogni connettore SAP, comparsing e linee guida.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -52,13 +52,11 @@ In particolare, il connettore SAP ECC supporta:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-In genere, SAP ECC espone entità tramite i servizi OData mediante il gateway SAP. Per usare questo connettore SAP ECC, è necessario:
+Per usare questo connettore SAP ECC, è necessario esporre le entità ECC SAP tramite i servizi OData tramite il gateway SAP. Più in particolare:
 
 - **Configurare il gateway SAP**. Per i server con SAP NetWeaver versioni successive alla 7.4, il gateway SAP è già installato. Per le versioni precedenti, è necessario installare il gateway SAP incorporato o il sistema per l'hub del gateway SAP prima di esporre i dati SAP ECC tramite i servizi OData. Per configurare il gateway SAP, vedere la [guida all'installazione](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
 
 - **Attivare e configurare il servizio OData di SAP**. È possibile attivare il servizio OData tramite TCODE SICF in pochi secondi. È anche possibile configurare gli oggetti da esporre. Per altre informazioni, vedere la [guida dettagliata](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
-
-## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -148,6 +146,7 @@ Nella sezione `source` dell'attività di copia sono supportate le proprietà seg
 |:--- |:--- |:--- |
 | `type` | La proprietà `type` della sezione `source` dell'attività di copia deve essere impostata su `SapEccSource`. | Sì |
 | `query` | Opzioni di query OData per filtrare i dati. Ad esempio:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>il connettore SAP ECC copia dati dall'URL combinato:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Per altre informazioni, vedere [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) (Componenti dell'URL di OData). | No |
+| `sapDataColumnDelimiter` | Singolo carattere utilizzato come delimitatore passato a SAP RFC per suddividere i dati di output. | No |
 | `httpRequestTimeout` | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Se non è specificato, il valore predefinito è **00:30:00** (30 minuti). | No |
 
 ### <a name="example"></a>Esempio

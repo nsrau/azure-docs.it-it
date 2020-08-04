@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/09/2020
-ms.openlocfilehash: d96b2b1f8465132549c59ac5555adf99e7758a3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: a6eaa5519607d5d5e9a49851e1c55f9b60b554ea
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415229"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529722"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiare dati da una tabella SAP usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "81415229"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da una tabella SAP. Per altre informazioni, vedere [Panoramica dell'attività di copia](copy-activity-overview.md).
 
 >[!TIP]
->Per informazioni sul supporto generale di Azure Data Factory sullo scenario di integrazione dei dati SAP, vedere il [white paper sull'integrazione dei dati SAP con Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con sezioni di introduzione, confronto e istruzioni dettagliate.
+>Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere l'articolo relativo all' [integrazione dei dati SAP con Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con un'introduzione dettagliata su ogni connettore SAP, comparsing e linee guida.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -47,6 +47,7 @@ In particolare, questo connettore di tabella SAP supporta:
 - Copia di dati da una tabella di SAP trasparente, una tabella in pool, una tabella cluster e una vista.
 - La copia dei dati tramite l'autenticazione di base o le comunicazioni di rete sicure (SNC), se è configurata la SNC.
 - Connessione a un server applicazioni SAP o a un server di messaggi SAP.
+- Recupero di dati tramite RFC predefinito o personalizzato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -213,18 +214,19 @@ Per un elenco completo delle sezioni e delle proprietà per la definizione delle
 
 Per copiare dati da una tabella SAP, sono supportate le proprietà seguenti:
 
-| Proprietà                         | Descrizione                                                  | Obbligatoria |
+| Proprietà                         | Description                                                  | Obbligatoria |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | La proprietà `type` deve essere impostata su `SapTableSource`.         | Sì      |
 | `rowCount`                         | Numero di righe da recuperare.                              | No       |
-| `rfcTableFields`                   | Campi (colonne) da copiare dalla tabella SAP. Ad esempio: `column0, column1`. | No       |
-| `rfcTableOptions`                  | Opzioni per filtrare le righe in una tabella SAP. Ad esempio: `COLUMN0 EQ 'SOMEVALUE'`. Vedere anche la tabella degli operatori di query SAP più avanti in questo articolo. | No       |
-| `customRfcReadTableFunctionModule` | Un modulo della funzione RFC personalizzato che può essere usato per leggere i dati da una tabella SAP.<br>È possibile usare un modulo della funzione RFC personalizzato per definire il modo in cui i dati vengono recuperati dal sistema SAP e restituiti a Data Factory. Il modulo della funzione personalizzata deve disporre di un'interfaccia implementata (importazione, esportazione, tabelle) simile a `/SAPDS/RFC_READ_TABLE2` , ovvero l'interfaccia predefinita utilizzata da data factory. | No       |
+| `rfcTableFields`                 | Campi (colonne) da copiare dalla tabella SAP. Ad esempio: `column0, column1`. | No       |
+| `rfcTableOptions`                | Opzioni per filtrare le righe in una tabella SAP. Ad esempio: `COLUMN0 EQ 'SOMEVALUE'`. Vedere anche la tabella degli operatori di query SAP più avanti in questo articolo. | No       |
+| `customRfcReadTableFunctionModule` | Un modulo della funzione RFC personalizzato che può essere usato per leggere i dati da una tabella SAP.<br>È possibile usare un modulo della funzione RFC personalizzato per definire il modo in cui i dati vengono recuperati dal sistema SAP e restituiti a Data Factory. Il modulo della funzione personalizzata deve disporre di un'interfaccia implementata (importazione, esportazione, tabelle) simile a `/SAPDS/RFC_READ_TABLE2` , ovvero l'interfaccia predefinita utilizzata da data factory.<br>Data Factory | No       |
 | `partitionOption`                  | Meccanismo di partizione per la lettura da una tabella SAP. Le opzioni supportate includono: <ul><li>`None`</li><li>`PartitionOnInt`(valori integer o Integer normali con riempimento zero a sinistra, ad esempio `0000012345` )</li><li>`PartitionOnCalendarYear`(4 cifre nel formato "aaaa")</li><li>`PartitionOnCalendarMonth`(6 cifre nel formato "YYYYMM")</li><li>`PartitionOnCalendarDate`(8 cifre nel formato "AAAAMMGG")</li></ul> | No       |
 | `partitionColumnName`              | Nome della colonna utilizzata per partizionare i dati.                | No       |
 | `partitionUpperBound`              | Valore massimo della colonna specificata in `partitionColumnName` che verrà utilizzato per continuare con il partizionamento. | No       |
 | `partitionLowerBound`              | Valore minimo della colonna specificata in `partitionColumnName` che verrà utilizzato per continuare con il partizionamento. (Nota: `partitionLowerBound` non può essere "0" se l'opzione di partizione è `PartitionOnInt` ) | No       |
 | `maxPartitionsNumber`              | Numero massimo di partizioni in cui dividere i dati.     | No       |
+| `sapDataColumnDelimiter` | Singolo carattere utilizzato come delimitatore passato a SAP RFC per suddividere i dati di output. | No |
 
 >[!TIP]
 >Se la tabella SAP include un volume elevato di dati, ad esempio diversi miliardi di righe, usare `partitionOption` e `partitionSetting` per suddividere i dati in partizioni più piccole. In questo caso, i dati vengono letti per partizione e ogni partizione di dati viene recuperata dal server SAP tramite una singola chiamata RFC.<br/>

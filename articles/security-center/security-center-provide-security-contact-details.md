@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519286"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534635"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurare le notifiche di posta elettronica per gli avvisi di sicurezza 
 
 Per assicurarsi che le persone corrette nell'organizzazione ricevano notifiche relative agli avvisi di sicurezza nell'ambiente in uso, immettere gli indirizzi di posta elettronica nella pagina delle impostazioni di **notifica tramite posta elettronica** .
 
-Quando si configurano le notifiche, è possibile configurare i messaggi di posta elettronica da inviare a utenti specifici o a tutti gli utenti con un ruolo specifico per una sottoscrizione. 
+Quando si configurano le notifiche, è possibile configurare i messaggi di posta elettronica da inviare a utenti specifici o a chiunque disponga di un ruolo specifico di Azure per una sottoscrizione. 
 
 Per evitare l'affaticamento degli avvisi, il Centro sicurezza limita il volume dei messaggi in uscita. Per ogni sottoscrizione, il Centro sicurezza invia:
 
@@ -41,7 +41,7 @@ Per evitare l'affaticamento degli avvisi, il Centro sicurezza limita il volume d
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurare le notifiche di posta elettronica per gli avvisi<a name="email"></a>
 
-È possibile inviare notifiche tramite posta elettronica a singoli utenti o a tutti gli utenti con ruoli RBAC specifici.
+È possibile inviare notifiche tramite posta elettronica a singoli utenti o a tutti gli utenti con ruoli specifici di Azure.
 
 1. Dall'area dei prezzi del Centro sicurezza **& impostazioni** , la sottoscrizione pertinente e selezionare **notifiche tramite posta elettronica**.
 

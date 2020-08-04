@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 28563dc1e8acf4e521d75a7f4f8986d92d2a8348
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 17d19d0b87812ec1f38b43c1b26dbd5c19b4efc8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497937"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534210"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
@@ -47,7 +47,7 @@ Per altre informazioni sulla libreria client Azure Identity per .NET, vedere [li
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>Assegnare i ruoli di Azure per l'accesso ai dati
 
-Quando un Azure AD entità di sicurezza tenta di accedere ai dati del BLOB o della coda, l'entità di sicurezza deve avere le autorizzazioni per la risorsa. Se l'entità di sicurezza è un'identità gestita in Azure o un account utente Azure AD che esegue il codice nell'ambiente di sviluppo, all'entità di sicurezza deve essere assegnato un ruolo di controllo degli accessi in base al ruolo che concede l'accesso ai dati BLOB o della coda in archiviazione di Azure. Per informazioni sull'assegnazione di autorizzazioni tramite RBAC, vedere la sezione assegnare i **ruoli RBAC per i diritti di accesso** in [autorizzare l'accesso a BLOB e code di Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+Quando un Azure AD entità di sicurezza tenta di accedere ai dati del BLOB o della coda, l'entità di sicurezza deve avere le autorizzazioni per la risorsa. Se l'entità di sicurezza è un'identità gestita in Azure o un account utente Azure AD che esegue il codice nell'ambiente di sviluppo, all'entità di sicurezza deve essere assegnato un ruolo di Azure che concede l'accesso ai dati BLOB o della coda in archiviazione di Azure. Per informazioni sull'assegnazione di autorizzazioni tramite RBAC, vedere la sezione assegnare i **ruoli di Azure per i diritti di accesso** in [autorizzare l'accesso a BLOB e code di Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticare l'utente nell'ambiente di sviluppo
 
@@ -61,7 +61,7 @@ Se l'ambiente di sviluppo non supporta la Single Sign-On o l'accesso tramite un 
 
 #### <a name="create-the-service-principal"></a>Creare l'entità servizio
 
-Per creare un'entità servizio con l'interfaccia della riga di comando di Azure e assegnare un ruolo RBAC, chiamare il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Fornire un ruolo di accesso ai dati di archiviazione di Azure da assegnare alla nuova entità servizio. Fornire inoltre l'ambito per l'assegnazione di ruolo. Per altre informazioni sui ruoli predefiniti forniti per archiviazione di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
+Per creare un'entità servizio con l'interfaccia della riga di comando di Azure e assegnare un ruolo di Azure, chiamare il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Fornire un ruolo di accesso ai dati di archiviazione di Azure da assegnare alla nuova entità servizio. Fornire inoltre l'ambito per l'assegnazione di ruolo. Per altre informazioni sui ruoli predefiniti forniti per archiviazione di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 Se non si dispone di autorizzazioni sufficienti per assegnare un ruolo all'entità servizio, potrebbe essere necessario richiedere al proprietario o all'amministratore dell'account di eseguire l'assegnazione di ruolo.
 

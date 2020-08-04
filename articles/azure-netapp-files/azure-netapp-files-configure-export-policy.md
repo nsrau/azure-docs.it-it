@@ -7,13 +7,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/24/2020
-ms.openlocfilehash: 6d990b94210383ba4b30569693f4471f43306ed2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 07/27/2020
+ms.openlocfilehash: 4a20a223932f82c80ad5831ef3a02bad803e26e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169820"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533207"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurare i criteri di esportazione per un volume NFS
 
@@ -43,14 +43,18 @@ ms.locfileid: "87169820"
         * Lettura e scrittura
         * Sola lettura
 
+    * Sola **lettura** e **lettura/scrittura**  
+        Se si usa la crittografia Kerberos con NFSv 4.1, seguire le istruzioni in [configurare la crittografia Kerberos NFSv 4.1](configure-kerberos-encryption.md).  Per l'effetto sulle prestazioni di Kerberos, vedere l' [effetto sulle prestazioni di Kerberos in NFSv 4.1](configure-kerberos-encryption.md#kerberos_performance). 
+
+        ![Opzioni di sicurezza Kerberos](../media/azure-netapp-files/kerberos-security-options.png) 
+
     * **Accesso alla radice**  
         Specificare se l' `root` account può accedere al volume.  Per impostazione predefinita, l'accesso alla radice è impostato **su on**e l' `root` account ha accesso al volume.
 
-        ![Criteri di esportazione](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+![Criteri di esportazione](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi 
-* [Gestire i volumi](azure-netapp-files-manage-volumes.md)
 * [Montare o smontare un volume per le macchine virtuali](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Gestire gli snapshot](azure-netapp-files-manage-snapshots.md)

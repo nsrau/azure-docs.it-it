@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a7407ec0f507746198c13a7bbdcdcd2c801c92b6
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407371"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533394"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -215,9 +215,10 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 
 Usare questa tabella per determinare quali stili di pronuncia sono supportati per ogni voce neurale.
 
-| Chiamata vocale                   | Stile                     | Descrizione                                                 |
+| Chiamata vocale                   | Stile                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast"`        | Esprime un tono formale e professionale per la narrazione di notizie |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Un tono formale, sicuro e autorevole per la distribuzione di notizie|
+|                         | `style="newscast-casual"` | Un tono versatile e informale per la distribuzione di notizie generali       |
 |                         | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  |
 |                         | `style="chat"`            | Esprime un tono informale e rilassato                         |
 |                         | `style="cheerful"`        | Esprime un tono positivo e allegro                         |
@@ -264,7 +265,7 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 | `strength` | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>Nessuno</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
 | `time` | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono `2s` e`500` | Facoltativo |
 
-| Forza                      | Descrizione |
+| Forza                      | Description |
 |-------------------------------|-------------|
 | None oppure se non viene specificato alcun valore | 0 ms        |
 | x-debole                        | 250 ms      |
@@ -334,7 +335,7 @@ Gli alfabeti fonetici sono costituiti da telefoni, che sono costituiti da letter
 | `alphabet` | Specifica l'alfabeto fonetico da usare quando si sintetizza la pronuncia della stringa nell' `ph` attributo. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati gli alfabeti possibili che è possibile specificare.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonetico internazionale</a></li><li>`sapi`&ndash; [Alfabeto fonetico servizio vocale](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Set di telefono universale</a></li></ul><br>L'alfabeto si applica solo a `phoneme` nell'elemento. | Facoltativo |
 | `ph` | Stringa contenente i telefoni che specificano la pronuncia della parola nell' `phoneme` elemento. Se la stringa specificata contiene telefoni non riconosciuti, il servizio di sintesi vocale rifiuta l'intero documento SSML e non genera alcun output vocale specificato nel documento. | Obbligatorio se si utilizzano fonemi. |
 
-**Esempi**
+**esempi**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 2ef2cc86b3e12149977fa819a7e54ee9a1c0d7ac
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423984"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534907"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come gestire il comportamento di sicurezza dell'organizzazione su larga scala applicando criteri di sicurezza a tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory.
@@ -60,10 +60,10 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
 
 ## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Concedere la visibilità a livello di tenant e la possibilità di assegnare i criteri
 
-Per ottenere visibilità sulla sicurezza di tutte le sottoscrizioni registrate nel tenant di Azure AD, è necessario assegnare un ruolo Controllo degli accessi in base al ruolo con autorizzazioni di lettura sufficienti nel gruppo di gestione radice.
+Per ottenere visibilità sul comportamento di sicurezza di tutte le sottoscrizioni registrate nel tenant di Azure AD, è necessario assegnare un ruolo di Azure con autorizzazioni di lettura sufficienti al gruppo di gestione radice.
 
 ### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale in Azure Active Directory
-Un amministratore del tenant di Azure Active Directory non ha accesso diretto alle sottoscrizioni di Azure, ma, in qualità di amministratore della directory, ha il diritto di elevare se stesso a un ruolo che vi abbia accesso. Un amministratore del tenant di Azure AD deve elevare se stesso ad Amministratore Accesso utenti a livello del gruppo di gestione radice per poter assegnare i ruoli Controllo degli accessi in base al ruolo. Per le istruzioni relative a PowerShell e per altre informazioni, vedere [Eseguire con privilegi elevati l'accesso per l'amministratore globale in Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
+Un amministratore del tenant di Azure Active Directory non ha accesso diretto alle sottoscrizioni di Azure, ma, in qualità di amministratore della directory, ha il diritto di elevare se stesso a un ruolo che vi abbia accesso. Un amministratore tenant Azure AD deve elevarsi a amministratore accesso utenti a livello di gruppo di gestione radice per poter assegnare i ruoli di Azure. Per le istruzioni relative a PowerShell e per altre informazioni, vedere [Eseguire con privilegi elevati l'accesso per l'amministratore globale in Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
 
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com).
@@ -87,11 +87,11 @@ Un amministratore del tenant di Azure Active Directory non ha accesso diretto al
 5. Eseguire le attività necessarie per cui sono richiesti privilegi elevati. Al termine, impostare nuovamente l'opzione su **No**.
 
 
-### <a name="assign-rbac-roles-to-users"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti
-Per ottenere visibilità in tutte le sottoscrizioni, gli amministratori tenant devono assegnare il ruolo RBAC appropriato a tutti gli utenti a cui desiderano garantire la visibilità a livello di tenant, incluso a livello di gruppo di gestione radice. È consigliabile assegnare il ruolo di **Amministratore della sicurezza** oppure il **Ruolo con autorizzazioni di lettura per la sicurezza**. Il ruolo di amministratore della sicurezza è generalmente necessario per applicare i criteri a livello di radice, mentre il ruolo con autorizzazioni di lettura per la sicurezza è sufficiente per garantire la visibilità a livello di tenant. Per altre informazioni sulle autorizzazioni concesse da questi ruoli, vedere la [Descrizione del ruolo predefinito di amministratore della sicurezza](../role-based-access-control/built-in-roles.md#security-admin) o la [Descrizione del ruolo con autorizzazioni di lettura per la sicurezza predefinito ](../role-based-access-control/built-in-roles.md#security-reader).
+### <a name="assign-azure-roles-to-users"></a>Assegnare ruoli di Azure agli utenti
+Per ottenere visibilità per tutte le sottoscrizioni, gli amministratori tenant devono assegnare il ruolo di Azure appropriato a tutti gli utenti che desiderano concedere la visibilità a livello di tenant, incluso, a livello di gruppo di gestione radice. È consigliabile assegnare il ruolo di **Amministratore della sicurezza** oppure il **Ruolo con autorizzazioni di lettura per la sicurezza**. Il ruolo di amministratore della sicurezza è generalmente necessario per applicare i criteri a livello di radice, mentre il ruolo con autorizzazioni di lettura per la sicurezza è sufficiente per garantire la visibilità a livello di tenant. Per altre informazioni sulle autorizzazioni concesse da questi ruoli, vedere la [Descrizione del ruolo predefinito di amministratore della sicurezza](../role-based-access-control/built-in-roles.md#security-admin) o la [Descrizione del ruolo con autorizzazioni di lettura per la sicurezza predefinito ](../role-based-access-control/built-in-roles.md#security-reader).
 
 
-#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti tramite il portale di Azure: 
+#### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Assegnare i ruoli di Azure agli utenti tramite la portale di Azure: 
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Per visualizzare i gruppi di gestione, selezionare **Tutti i servizi** nel menu principale di Azure, quindi selezionare **Gruppi di gestione**.
@@ -108,7 +108,7 @@ Per ottenere visibilità in tutte le sottoscrizioni, gli amministratori tenant d
    ![Aggiungere la schermata del Ruolo con autorizzazioni di lettura per la sicurezza](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti con PowerShell: 
+#### <a name="assign-azure-roles-to-users-with-powershell"></a>Assegnare i ruoli di Azure agli utenti con PowerShell: 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ Dopo avere ottenuto l'accesso con privilegi elevati, aprire o aggiornare il Cent
     ![Screenshot dell'elenco con la copertura delle sottoscrizioni](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati 
-Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati agli utenti, l'amministratore del tenant deve rimuovere se stesso dal ruolo Amministratore Accesso utenti.
+Una volta assegnati i ruoli di Azure agli utenti, l'amministratore tenant deve rimuovere se stesso dal ruolo amministratore accesso utenti.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com).
 
@@ -183,7 +183,7 @@ Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati a
 4. Ripetere i passaggi da 1 a 3 finché non sono state aggiunte tutte le sottoscrizioni nell'ambito.
 
    > [!NOTE]
-   > I gruppi di gestione possono contenere sia sottoscrizioni che gruppi di gestione figlio. Quando si assegna a un utente un ruolo Controllo degli accessi in base al ruolo per il gruppo di gestione padre, l'accesso viene ereditato dalle sottoscrizioni del gruppo di gestione figlio. Anche i criteri impostati nel gruppo di gestione padre vengono ereditati dagli elementi figlio. 
+   > I gruppi di gestione possono contenere sia sottoscrizioni che gruppi di gestione figlio. Quando si assegna un utente a un ruolo di Azure al gruppo di gestione padre, l'accesso viene ereditato dalle sottoscrizioni del gruppo di gestione figlio. Anche i criteri impostati nel gruppo di gestione padre vengono ereditati dagli elementi figlio. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato come ottenere visibilità a livello di tenant per il Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:

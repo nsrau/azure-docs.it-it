@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 97168c95893ffdea99180c997265f259176ed07f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531538"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534601"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Supporto del servizio Device provisioning in hub Azure (DPS) per le reti virtuali
 
@@ -59,7 +59,7 @@ Si notino le seguenti limitazioni correnti per DPS quando si usano endpoint priv
 
 * Gli endpoint privati non funzioneranno con DPS quando la risorsa DPS e l'hub collegato si trovano in cloud diversi. Ad esempio, [Azure per enti pubblici e Azure globale](../azure-government/documentation-government-welcome.md).
 
-* Attualmente, i [criteri di allocazione personalizzati con funzioni di Azure](how-to-use-custom-allocation-policies.md) per DPS non funzioneranno come endpoint VNET e privati. 
+* Attualmente, i [criteri di allocazione personalizzati con funzioni di Azure](how-to-use-custom-allocation-policies.md) per DPS non funzioneranno quando la funzione di Azure verrà bloccata a un endpoint VNET e privato. 
 
 * Il supporto VNET DPS corrente è per l'ingresso di dati solo in DPS. I dati in uscita, ovvero il traffico da DPS a hub Internet, usano un meccanismo interno da servizio a servizio anziché una VNET dedicata. Il supporto per il blocco in uscita completo basato su VNET tra DPS e l'hub Internet non è attualmente disponibile.
 
@@ -77,7 +77,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
     ![Configurare la risorsa a cui viene eseguito il mapping di un nuovo endpoint privato](./media/virtual-network-support/create-private-endpoint-basics.png)
 
-    | Campo | valore |
+    | Campo | Valore |
     | :---- | :-----|
     | **Sottoscrizione** | Scegliere la sottoscrizione di Azure desiderata per contenere l'endpoint privato.  |
     | **Gruppo di risorse** | Scegliere o creare un gruppo di risorse che contenga l'endpoint privato |
@@ -90,7 +90,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
     ![Configurare la risorsa a cui viene eseguito il mapping di un nuovo endpoint privato](./media/virtual-network-support/create-private-endpoint-resource.png)
 
-    | Campo | valore |
+    | Campo | Valore |
     | :---- | :-----|
     | **Sottoscrizione**        | Scegliere la sottoscrizione di Azure che contiene la risorsa DPS a cui punterà l'endpoint privato.  |
     | **Tipo di risorsa**       | Scegliere **Microsoft. Devices/ProvisioningServices**. |
@@ -125,7 +125,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
 2. Una volta ottenuto l'ID risorsa, attenersi alla procedura descritta in [configurare un endpoint privato](#set-up-a-private-endpoint) nel passaggio 3 della pagina _creare una risorsa dell'endpoint privato_ . Fare clic su **Connetti a una risorsa di Azure in base all'ID risorsa o alias** e immettere le informazioni nella tabella seguente. 
 
-    | Campo | valore |
+    | Campo | Valore |
     | :---- | :-----|
     | **ID risorsa o alias** | Immettere l'ID risorsa per la risorsa DPS. |
     | **Sottorisorsa di destinazione** | Immettere **iotDps** |

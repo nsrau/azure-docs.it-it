@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 65ec92aeca44a514467a642de1dab06f06c220e9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371771"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533853"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,7 +104,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure
 
-Archiviazione di Azure ha implementato la stessa funzionalità che consente di limitare la connettività all'account di archiviazione di Azure. Se si sceglie di usare questa funzionalità con un account di archiviazione di Azure usato dal database SQL di Azure, è possibile riscontrare problemi. Di seguito sono riportati un elenco e una spiegazione delle funzionalità del database SQL di Azure e di Azure SQL Data Warehouse interessate.
+Archiviazione di Azure ha implementato la stessa funzionalità che consente di limitare la connettività all'account di archiviazione di Azure. Se si sceglie di usare questa funzionalità con un account di Archiviazione di Azure usato dal database SQL di Azure, possono verificarsi problemi. Di seguito sono riportati un elenco e una spiegazione delle funzionalità del database SQL di Azure e di Azure SQL Data Warehouse interessate.
 
 ### <a name="azure-synapse-polybase"></a>Polibase di sinapsi di Azure
 
@@ -136,7 +136,7 @@ PolyBase viene in genere usato per caricare i dati in Azure Synapse Analytics da
    > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di **collaboratore dei dati BLOB di archiviazione** al server che ospita l'analisi di sinapsi di Azure registrata con Azure Active Directory (AAD) come nel passaggio #1.
+1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare un ruolo di Azure di **collaboratore ai dati BLOB di archiviazione** al server che ospita l'analisi di sinapsi di Azure registrata con Azure Active Directory (AAD) come nel passaggio #1.
 
    > [!NOTE]
    > Solo i membri con privilegi di proprietario per l'account di archiviazione possono eseguire questo passaggio. Per i vari ruoli predefiniti di Azure, fare riferimento a questa [Guida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

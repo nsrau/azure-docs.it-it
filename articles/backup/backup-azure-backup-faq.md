@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091080"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532459"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -214,7 +214,7 @@ Microsoft non decrittografa mai i dati di backup.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Qual è la lunghezza minima della chiave di crittografia usata per crittografare i dati di backup?
 
-Quando si usa l'agente di Backup di Azure, la chiave di crittografia deve contenere almeno 16 caratteri. Per le macchine virtuali di Azure non c'è un limite di lunghezza delle chiavi usate da Azure Key Vault.
+La chiave di crittografia utilizzata dall'agente di Servizi di ripristino di Microsoft Azure (MARS) è derivata da una passphrase che deve avere una lunghezza compresa tra almeno 16 caratteri. Per le macchine virtuali di Azure non è previsto alcun limite per la lunghezza delle chiavi usate da Azure Key Vault.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può ripristinare i dati?
 

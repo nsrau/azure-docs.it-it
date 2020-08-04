@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.custom: references_regions
-ms.openlocfilehash: 19e4ea37aa10c90d15a2b7dcdf962c131c8e473d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ce903271accd3f63df7634dc5045932655ac2a7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193221"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531150"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Centro sicurezza di Azure per i prerequisiti per l'it
 
@@ -30,7 +30,7 @@ Questo articolo fornisce una spiegazione dei diversi componenti del Centro sicur
 ## <a name="minimum-requirements"></a>Requisiti minimi
 
 - Livello standard dell'hub Internet
-  - Privilegi a livello di **proprietario** del ruolo RBAC
+  - Privilegi a livello di **proprietario** del ruolo di Azure
 - [Area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 - Centro sicurezza di Azure (scelta consigliata)
   - L'uso del Centro sicurezza di Azure è un'indicazione e non un requisito. Senza il Centro sicurezza di Azure, non sarà possibile visualizzare le altre risorse di Azure all'interno dell'hub Internet.

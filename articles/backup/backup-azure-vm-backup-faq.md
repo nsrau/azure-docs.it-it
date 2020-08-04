@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bf09c4e56c3881987e14d27d5f2166c68e311ab3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538769"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533496"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -99,11 +99,7 @@ Se si modifica il caso (in alto o in basso) della VM o del gruppo di risorse VM,
 
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>È possibile eseguire il backup o il ripristino di dischi selettivi collegati a una macchina virtuale?
 
-Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tramite la soluzione di backup delle macchine virtuali di Azure.
-
-Attualmente, backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) in una macchina virtuale con la soluzione di backup della macchina virtuale. Con la funzionalità Escludi disco è possibile ottenere un'opzione per eseguire il backup di uno o più dischi dati in una macchina virtuale. Questa è una soluzione efficiente ed economica per soddisfare le esigenze di backup e ripristino. Ogni punto di ripristino contiene i dati dei dischi inclusi nell'operazione di backup. Questo consente anche di avere un subset di dischi ripristinati dal punto di ripristino specificato durante l'operazione di ripristino. Questo vale per il ripristino sia dallo snapshot che dall'insieme di credenziali.
-
-Per iscriversi all'anteprima, scrivere all'indirizzo AskAzureBackupTeam@microsoft.com
+Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tramite la soluzione di backup delle macchine virtuali di Azure. Per altre informazioni, vedere [backup e ripristino di dischi selettivi per macchine virtuali di Azure](selective-disk-backup-restore.md).
 
 ## <a name="restore"></a>Restore
 

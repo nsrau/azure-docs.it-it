@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54b4292c74f7737f1c392d601627eb3e0ff48812
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d523aeff87b95aaea91df9ad5d3f44c73c871b71
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116190"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528600"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gestire gli account utente Azure AD B2C con Microsoft Graph
 
@@ -60,7 +60,7 @@ Un utente con un account cliente può accedere con più identità. Ad esempio no
 
 Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity][graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
 
-| Proprietà   | Type |Descrizione|
+| Proprietà   | Type |Description|
 |:---------------|:--------|:----------|
 |signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale: `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` , `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su `federated` .|
 |autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è `federated` ), il valore è il nome dell'autorità emittente, ad esempio`facebook.com`|
@@ -117,7 +117,7 @@ Negli scenari di migrazione degli utenti, se gli account di cui si vuole eseguir
 
 Ogni applicazione rivolte ai clienti presenta requisiti specifici per la raccolta delle informazioni. Il tenant di Azure AD B2C dispone di un set predefinito di informazioni archiviate in proprietà, ad esempio nome, cognome, città e codice postale. Con Azure AD B2C è possibile estendere il set di proprietà archiviate in ogni account del cliente. Per altre informazioni sulla definizione di attributi personalizzati, vedere [attributi personalizzati (flussi utente)](user-flow-custom-attributes.md) e [attributi personalizzati (criteri personalizzati)](custom-policy-custom-attributes.md).
 
-L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nell'API Graph vengono denominati usando la convenzione `extension_ApplicationObjectID_attributename`. Ad esempio:
+L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nel API Graph vengono denominati usando la convenzione `extension_ApplicationClientID_attributename` , dove `ApplicationClientID` è l'ID dell'applicazione **(client)** dell' `b2c-extensions-app` applicazione (presente in **registrazioni app**  >  **tutte le applicazioni** nel portale di Azure). Si noti che l' **ID dell'applicazione (client)** come è rappresentato nel nome dell'attributo di estensione non include trattini. Ad esempio:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

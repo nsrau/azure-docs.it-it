@@ -32,7 +32,7 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: Concetti
   items:
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Autenticazione e autorizzazione
           href: relay-authentication-and-authorization.md
@@ -92,7 +92,7 @@
     - name: Domande frequenti
       href: relay-faq.md
     - name: Blog
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+      href: /archive/blogs/servicebus/
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Calcolatore prezzi

@@ -1,14 +1,14 @@
 ---
-title: Ruoli e autorizzazioni RBAC
+title: Ruoli e autorizzazioni di Azure
 description: Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e la gestione delle identità e degli accessi (IAM) per fornire autorizzazioni specifiche per le risorse in un registro contenitori di Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 0bf6059698191c975b212bee7f45d21977478b49
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497750"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533309"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Ruoli e autorizzazioni di Registro Azure Container
 
@@ -85,7 +85,7 @@ Per definire un ruolo personalizzato, vedere [passaggi per la creazione di un ru
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sull'assegnazione dei ruoli RBAC a un'identità di Azure usando il [portale di Azure](../role-based-access-control/role-assignments-portal.md), l'[interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md), o altri strumenti di Azure.
+* Altre informazioni sull'assegnazione di ruoli di Azure a un'identità di Azure con il [portale di Azure](../role-based-access-control/role-assignments-portal.md), l'interfaccia della riga di comando di [Azure](../role-based-access-control/role-assignments-cli.md)o altri strumenti di Azure.
 
 * Informazioni su [opzioni di autenticazione](container-registry-authentication.md) per il Registro Azure Container.
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419785"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529110"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -144,7 +144,7 @@ Il `provisioningState` di `Succeeded` viene visualizzato quando l'estensione vie
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurare le assegnazioni di ruolo per la macchina virtuale
 
-Ora che è stata creata la macchina virtuale, è necessario configurare i criteri di controllo degli accessi in base al ruolo di Azure per determinare chi può accedere alla macchina virtuale. Per autorizzare l'account alla VM vengono usati due ruoli Controllo degli accessi in base al ruolo:
+Ora che è stata creata la macchina virtuale, è necessario configurare i criteri di controllo degli accessi in base al ruolo di Azure per determinare chi può accedere alla macchina virtuale. Per autorizzare l'accesso alla macchina virtuale vengono usati due ruoli di Azure:
 
 - **Account di accesso amministratore macchina virtuale**: gli utenti con questo ruolo assegnati possono accedere a una macchina virtuale di Azure con privilegi di amministratore.
 - **Accesso utente alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.
@@ -208,7 +208,7 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Accedere con le credenziali Azure AD a una macchina virtuale Windows
 
 > [!IMPORTANT]
-> La connessione remota alle macchine virtuali Unite a Azure AD è consentita solo da PC Windows 10 che sono Azure AD registrati (la compilazione minima richiesta è 20H1) o Azure AD aggiunti o ibridi Azure AD aggiunti alla **stessa** directory della macchina virtuale. Inoltre, per RDP con Azure AD credenziali, l'utente deve appartenere a uno dei due ruoli RBAC, account di accesso dell'amministratore della macchina virtuale o accesso utente della macchina virtuale. Se si usa un Azure AD PC Windows 10 registrato, è necessario immettere le credenziali nel formato AzureAD\UPN, ad AzureAD\john@contoso.com esempio. Attualmente, non è possibile usare Azure Bastion per accedere usando l'autenticazione di Azure Active Directory con l'estensione AADLoginForWindows. è supportato solo il protocollo RDP diretto.
+> La connessione remota alle macchine virtuali Unite a Azure AD è consentita solo da PC Windows 10 che sono Azure AD registrati (la compilazione minima richiesta è 20H1) o Azure AD aggiunti o ibridi Azure AD aggiunti alla **stessa** directory della macchina virtuale. Inoltre, per RDP con Azure AD credenziali, l'utente deve appartenere a uno dei due ruoli di Azure, l'account di accesso dell'amministratore della macchina virtuale o l'account di accesso utente della macchina virtuale. Se si usa un Azure AD PC Windows 10 registrato, è necessario immettere le credenziali nel formato AzureAD\UPN, ad AzureAD\john@contoso.com esempio. Attualmente, non è possibile usare Azure Bastion per accedere usando l'autenticazione di Azure Active Directory con l'estensione AADLoginForWindows. è supportato solo il protocollo RDP diretto.
 
 Per accedere alla macchina virtuale Windows Server 2019 usando Azure AD: 
 
@@ -315,13 +315,13 @@ Nell'anteprima pubblica, l'estensione AADLoginForWindows è destinata solo a ess
 
 ### <a name="troubleshoot-sign-in-issues"></a>Risolvere i problemi di accesso
 
-Alcuni errori comuni quando si tenta di eseguire una connessione RDP con Azure AD credenziali includono i ruoli RBAC assegnati, client non autorizzato o metodo di accesso 2FA richiesto. Per risolvere questi problemi, utilizzare le seguenti informazioni.
+Alcuni errori comuni quando si tenta di eseguire la connessione RDP con Azure AD credenziali includono nessun ruolo di Azure assegnato, client non autorizzato o metodo di accesso 2FA richiesto. Per risolvere questi problemi, utilizzare le seguenti informazioni.
 
 Il dispositivo e lo stato SSO possono essere visualizzati eseguendo `dsregcmd /status` . L'obiettivo è quello di visualizzare lo stato del dispositivo come `AzureAdJoined : YES` e `SSO State` `AzureAdPrt : YES` .
 
 Inoltre, l'accesso RDP con account Azure AD viene acquisito nel Visualizzatore eventi nei registri eventi di AAD\Operational.
 
-#### <a name="rbac-role-not-assigned"></a>ruolo Controllo degli accessi in base al ruolo non assegnato
+#### <a name="azure-role-not-assigned"></a>Ruolo di Azure non assegnato
 
 Se viene visualizzato il messaggio di errore seguente quando si avvia una connessione Desktop remoto alla macchina virtuale: 
 

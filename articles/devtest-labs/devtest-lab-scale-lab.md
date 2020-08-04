@@ -3,12 +3,12 @@ title: Ridimensionare i limiti e le quote nel lab in Azure DevTest Labs | Micros
 description: Questo articolo descrive come è possibile ridimensionare il Lab in Azure DevTest Labs. Visualizzare le quote e i limiti di utilizzo e richiedere un aumento.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dacc699a6f4e7663d0f314acfc2212bd69d46d18
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287315"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533955"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Ridimensionare i limiti e le quote in DevTest Labs
 Quando si lavora in DevTest Labs, è possibile notare che esistono limiti predefiniti per determinate le risorse di Azure, che possono influenzare il servizio DevTest Labs. Questi limiti sono definiti **quote**.
@@ -20,7 +20,7 @@ Quando si lavora in DevTest Labs, è possibile notare che esistono limiti predef
 
 Ad esempio, ogni sottoscrizione ha una quota predefinita di 20 core. Pertanto, se si siano creano macchine virtuali nel lab con quattro core, è possibile creare solo cinque macchine virtuali.
 
-[Sottoscrizione di Azure e limiti dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md) elenca alcune delle quote più comuni per le risorse di Azure. Le risorse più comunemente usate in un lab e per cui è possibile che ci siano quote, includono i core di una macchina virtuale, gli indirizzi IP pubblici, l'interfaccia di rete, i dischi gestiti, l'assegnazione di ruoli controllo degli accessi in base al ruolo e i circuiti ExpressRoute.
+[Sottoscrizione di Azure e limiti dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md) elenca alcune delle quote più comuni per le risorse di Azure. Le risorse usate più di frequente in un Lab e per le quali è possibile che si verifichino quote, includono Core VM, indirizzi IP pubblici, interfaccia di rete, Managed disks, assegnazione di ruolo di Azure e circuiti ExpressRoute.
 
 ## <a name="view-your-usage-and-quotas"></a>Visualizzare le quote e l'uso
 Questa procedura illustra come visualizzare le quote correnti nella sottoscrizione per risorse specifiche di Azure e per visualizzare la percentuale di ogni quota usata.

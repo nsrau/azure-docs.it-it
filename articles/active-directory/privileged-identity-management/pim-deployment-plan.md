@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6597c268a2a017280d00f73366562de61b4781e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886111"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529790"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -100,7 +100,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Parti interessate: Privileged Identity Management per i ruoli di Azure AD
 
-| Nome | Ruolo | Action |
+| Nome | Role | Action |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Architetto delle identità o Amministratore globale di Azure**<br/>Un rappresentante del team di gestione delle identità che è responsabile di definire come questa modifica è allineata all'infrastruttura di base per la gestione delle identità all'interno dell'organizzazione. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Proprietario del servizio o diretto superiore**<br/>Un rappresentante dei proprietari IT di un servizio o di un gruppo di servizi. Sono essenziali per prendere decisioni e contribuire a implementare Privileged Identity Management per il team. | A/R/I |
@@ -110,12 +110,12 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Stakeholder: Privileged Identity Management per i ruoli delle risorse di Azure
 
-| Nome | Ruolo | Action |
+| Nome | Role | Action |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Proprietario delle risorse o delle sottoscrizioni**<br/>Un rappresentante dei proprietari IT di ogni sottoscrizione o risorsa che si desidera distribuire Privileged Identity Management per | A/R/I |
 | Nome e indirizzo di posta elettronica | **Responsabile della sicurezza**<br/>Un rappresentante del team addetto alla sicurezza che può approvare la conformità del piano ai requisiti di sicurezza dell'organizzazione. | A/R |
 | Nome e indirizzo di posta elettronica | **Responsabile del supporto tecnico**<br/>Un rappresentante dell'organizzazione di supporto IT che può fornire pareri riguardanti l'attuabilità di questa modifica dal punto di vista del supporto tecnico. | R/I |
-| Nome e indirizzo di posta elettronica per gli utenti pilota | **Utenti dotati di ruolo RBAC**<br/>Il gruppo di utenti per cui è stata implementata la gestione delle identità con privilegi. Dovranno essere in grado di attivare i ruoli una volta implementato Privileged Identity Management. | I |
+| Nome e indirizzo di posta elettronica per gli utenti pilota | **Utenti del ruolo di Azure**<br/>Il gruppo di utenti per cui è stata implementata la gestione delle identità con privilegi. Dovranno essere in grado di attivare i ruoli una volta implementato Privileged Identity Management. | I |
 
 ### <a name="enable-privileged-identity-management"></a>Abilita Privileged Identity Management
 
@@ -241,25 +241,25 @@ Prima di implementare la soluzione di Privileged Identity Management, è consigl
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Impostazioni Privileged Identity Management per i ruoli di Azure AD
 
-| Ruolo | Richiedere l'autenticazione MFA | Notifica | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
+| Role | Richiedere l'autenticazione MFA | Notifica | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Amministratore globale | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri amministratori globali | 1 ora | Account di accesso di emergenza |
-| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | nessuno | 2 ore | nessuno |
-| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | nessuno | 8 ore | nessuno |
+| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nessuno | 2 ore | Nessuno |
+| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | Nessuno | 8 ore | Nessuno |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Impostazioni Privileged Identity Management per i ruoli delle risorse di Azure
 
-| Ruolo | Richiedere l'autenticazione MFA | Notifica | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
+| Role | Richiedere l'autenticazione MFA | Notifica | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | nessuno | n/d | 3 mesi |
-| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | nessuno | 1 ora | nessuno | n/d | 3 mesi |
-| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | nessuno | 3 ore | nessuno | n/d | 6 mesi |
+| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | Nessuno | n/d | 3 mesi |
+| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | Nessuno | 1 ora | Nessuno | n/d | 3 mesi |
+| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | Nessuno | 3 ore | Nessuno | n/d | 6 mesi |
 
 La tabella seguente include le descrizioni per ciascuna delle impostazioni.
 
 | Impostazione | Descrizione |
 | --- | --- |
-| Ruolo | Nome del ruolo per cui si definiscono le impostazioni. |
+| Role | Nome del ruolo per cui si definiscono le impostazioni. |
 | Richiedere l'autenticazione MFA | Indica se l'utente idoneo deve eseguire l'autenticazione a più fattori (MFA) prima dell'attivazione del ruolo.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di applicare l'autenticazione a più fattori per tutti i ruoli di amministratore, soprattutto se i ruoli hanno utenti guest. |
 | Notifica | Se è impostato l'invio di notifiche, gli utenti dell'organizzazione con i ruoli Amministratore globale, Amministratore dei ruoli con privilegi e Amministratore della sicurezza ricevono una notifica di posta elettronica quando un utente idoneo attiva il ruolo.<br/><br/>**Nota:** Alcune organizzazioni non dispongono di un indirizzo di posta elettronica associato agli account di amministratore. per ricevere queste notifiche di posta elettronica, è necessario impostare un indirizzo di posta elettronica alternativo in modo che gli amministratori ricevano questi messaggi. |
 | Ticket di evento imprevisto | Indica se l'utente idoneo deve registrare un numero di ticket di evento imprevisto quando attiva il proprio ruolo. Questa impostazione consente a un'organizzazione di identificare ogni attivazione con un numero di evento imprevisto interno per limitare le attivazioni indesiderate.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di sfruttare i numeri dei biglietti per gli eventi imprevisti per associare Privileged Identity Management al sistema interno. Questo è particolarmente utile per i responsabili dell'approvazione che devono conoscere il contesto dell'attivazione. |
@@ -319,7 +319,7 @@ Ora che sono stati identificati gli utenti di test, usare questo passaggio per c
 
 È consigliabile usare questa fase per verificare se l'intera configurazione definita per i ruoli funziona correttamente. Usare la tabella seguente per documentare i test. Questa fase è utile anche per ottimizzare le comunicazioni con gli utenti interessati.
 
-| Ruolo | Comportamento previsto durante l'attivazione | Risultati effettivi |
+| Role | Comportamento previsto durante l'attivazione | Risultati effettivi |
 | --- | --- | --- |
 | Amministratore globale | (1) Richiedere l'autenticazione MFA<br/>(2) Richiedere l'approvazione<br/>(3) Il responsabile dell'approvazione riceve una notifica e può approvare l'assegnazione<br/>(4) Il ruolo scade dopo il tempo prestabilito |  |
 | Proprietario della sottoscrizione *X* | (1) Richiedere l'autenticazione MFA<br/>(2) L'assegnazione idonea scade dopo il periodo di tempo configurato |  |

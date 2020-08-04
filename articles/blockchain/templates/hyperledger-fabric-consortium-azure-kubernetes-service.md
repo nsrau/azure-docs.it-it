@@ -4,12 +4,12 @@ description: Come distribuire e configurare la rete dell'infrastruttura iperledg
 ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286054"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533428"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 
@@ -305,12 +305,12 @@ Dal client dell'organizzazione peer, eseguire il comando per impostare i peer di
   - Impostare `<anchorPeersList>` come "peer1" Se si vuole impostare solo il nodo Peer1 come peer di ancoraggio.
   - Impostare `<anchorPeersList>` come "peer1" "Peer3" Se si desidera impostare il nodo Peer1 e Peer3 come peer di ancoraggio.
 
-### <a name="chaincode-management-commands"></a>Comandi di gestione Chaincode
+## <a name="chaincode-management-commands"></a>Comandi di gestione Chaincode
 
 >[!NOTE]
 > Prima di iniziare con qualsiasi operazione chaincode, verificare che sia stata eseguita la configurazione iniziale dell'applicazione client.  
 
-**Imposta le variabili di ambiente specifiche di chaincode seguenti**
+### <a name="set-the-below-chaincode-specific-environment-variables"></a>Imposta le variabili di ambiente specifiche di chaincode seguenti
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -329,14 +329,6 @@ CC_PATH=<chaincodePath>
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-È possibile eseguire le operazioni di chaincode seguenti:  
-
-- [Installare chaincode](#install-chaincode)  
-- [Creare un'istanza di chaincode](#instantiate-chaincode)  
-- [Richiama chaincode](#invoke-chaincode)
-- [Chaincode query](#query-chaincode)
-
 
 ### <a name="install-chaincode"></a>Installare chaincode  
 
@@ -358,13 +350,13 @@ Attenersi alla procedura seguente:
 Dall'applicazione client peer eseguire il comando seguente per creare un'istanza di chaincode sul canale.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Passare il nome della funzione di creazione di istanze e l'elenco separato da spazi di argomenti `<instantiateFunc>` rispettivamente in e `<instantiateFuncArgs>` . Ad esempio, in chaincode_example02. go chaincode, per creare un'istanza di chaincode impostato `<instantiateFunc>` su `init` e `<instantiateFuncArgs>` su "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Eseguire il comando per una sola volta da una qualsiasi organizzazione peer nel canale. Una volta che la transazione è stata inviata correttamente all'ordinatore, l'ordinatore distribuisce questa transazione a tutte le organizzazioni peer nel canale. Viene quindi creata un'istanza di chaincode in tutti i nodi peer di tutte le organizzazioni peer nel canale.  
-
 
 ### <a name="invoke-chaincode"></a>Richiama chaincode  
 

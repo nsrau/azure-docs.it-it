@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430258"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530377"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -133,7 +133,7 @@ Monitorare il processo di copia eseguendo una query sulle viste [sys. databases]
 > [!IMPORTANT]
 > Se è necessario creare una copia con un obiettivo di servizio sostanzialmente più piccolo rispetto all'origine, è possibile che il database di destinazione non disponga di risorse sufficienti per completare il processo di seeding, causando l'esito negativo dell'operazione di copia. In questo scenario usare una richiesta di ripristino geografico per creare una copia in un server diverso e/o in un'area diversa. Per altre informazioni, vedere [ripristinare un database SQL di Azure usando i backup del database](recovery-using-backups.md#geo-restore) .
 
-## <a name="rbac-roles-to-manage-database-copy"></a>Ruoli RBAC per gestire la copia del database
+## <a name="azure-roles-to-manage-database-copy"></a>Ruoli di Azure per gestire la copia del database
 
 Per creare una copia del database, è necessario disporre dei seguenti ruoli
 
@@ -155,7 +155,7 @@ Per gestire la copia del database usando il portale di Azure, sono necessarie an
 
    Microsoft. resources/subscriptions/resources/leggere Microsoft. resources/subscriptions/resources/scrivere Microsoft. resources/Deployments/Read Microsoft. resources/Deployments/Write Microsoft. resources/Deployments/operationstatuses/Read
 
-Se si desidera visualizzare le operazioni in distribuzioni nel gruppo di risorse nel portale, le operazioni tra più provider di risorse, incluse le operazioni SQL, sono necessari i ruoli RBAC aggiuntivi:
+Se si desidera visualizzare le operazioni in distribuzioni nel gruppo di risorse nel portale, le operazioni tra più provider di risorse, incluse le operazioni SQL, sono necessari questi ruoli di Azure aggiuntivi:
 
    Microsoft. resources/subscriptions/ResourceGroups/Deployments/Operations/Read Microsoft. resources/subscriptions/ResourceGroups/Deployments/operationstatuses/Read
 

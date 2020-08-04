@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a9c3264a9a9d6ae27eee6da4338fa6fd401da461
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501373"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534057"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 
@@ -536,7 +536,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 **Linee guida**: Azure Active Directory (Azure ad) autorizza i diritti di accesso alle risorse protette tramite il controllo degli accessi in base al ruolo (RBAC). Archiviazione di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni utilizzate per accedere ai dati BLOB o di Accodamento. 
 
-- [Come assegnare i ruoli RBAC per l'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
+- [Come assegnare i ruoli di Azure per l'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 

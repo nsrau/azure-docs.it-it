@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ef777f235c85c423ea126fb7249f8e6a11492d3a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367764"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528549"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>Archiviazione automatica della configurazione dell'app di backup
 
@@ -191,7 +191,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Usare il comando o [portale di Azure](/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal) seguente per concedere all'identità gestita di Azure app per le funzioni l'accesso alla coda di archiviazione. 
+Usare il comando o [portale di Azure](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) seguente per concedere all'identità gestita di Azure app per le funzioni l'accesso alla coda di archiviazione. 
 - Assegnare `Storage Queue Data Contributor` un ruolo nella coda di archiviazione.
 
 ```azurecli-interactive

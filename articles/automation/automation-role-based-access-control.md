@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: c7051cca9029283b150eea0519aa7432d6a9c937
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420482"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528669"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gestire le autorizzazioni e la sicurezza dei ruoli
 
@@ -19,7 +19,7 @@ Il controllo degli accessi in base al ruolo consente di gestire gli accessi per 
 
 ## <a name="roles-in-automation-accounts"></a>Ruoli negli account di Automazione
 
-In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo degli accessi in base al ruolo appropriato a utenti, gruppi e applicazioni nell'ambito dell'account di automazione. Di seguito sono elencati i ruoli predefiniti supportati da un account di automazione:
+In automazione di Azure l'accesso viene concesso assegnando il ruolo di Azure appropriato a utenti, gruppi e applicazioni nell'ambito dell'account di automazione. Di seguito sono elencati i ruoli predefiniti supportati da un account di automazione:
 
 | **Ruolo** | **Descrizione** |
 |:--- |:--- |
@@ -319,7 +319,7 @@ La sezione seguente illustra come configurare il controllo degli accessi in base
 
 È possibile configurare l'accesso in base al ruolo per un account di Automazione anche con i [cmdlet di Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) seguenti:
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) elenca tutti i ruoli di Controllo degli accessi in base al ruolo disponibili in Azure Active Directory. È possibile usare questo cmdlet con il parametro `Name` per elencare tutte le azioni che possono essere eseguite da un ruolo specifico.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) elenca tutti i ruoli di Azure disponibili in Azure Active Directory. È possibile usare questo cmdlet con il parametro `Name` per elencare tutte le azioni che possono essere eseguite da un ruolo specifico.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
