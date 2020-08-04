@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496058"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387337"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadati condivisi di Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ Il modello di metadati condivisi supporta il modello di data warehouse moderno n
 
 La sincronizzazione degli oggetti avviene in modo asincrono. Gli oggetti vengono visualizzati nel contesto SQL con un leggero ritardo di alcuni secondi. Appena vengono visualizzati, possono essere sottoposti a query, ma non aggiornati o modificati dai motori SQL che sono autorizzati ad accedervi.
 
-## <a name="which-metadata-objects-are-shared"></a>Quali oggetti di metadati vengono condivisi
+## <a name="shared-metadata-objects"></a>Oggetti metadati condivisi
 
 Spark consente di creare database, tabelle esterne, tabelle gestite e viste. Poiché le viste di Spark richiedono un motore Spark che elabori l'istruzione Spark SQL e non possono essere elaborate da un motore SQL, solo i database e le relative tabelle esterne e gestite che usano il formato di archiviazione Parquet vengono condivise con il motore SQL dell'area di lavoro. Le viste di Spark vengono condivise solo tra le istanze del pool di Spark.
 
