@@ -3,23 +3,23 @@ title: 'Guida introduttiva: Libreria client di archiviazione BLOB di Azure per .
 description: In questo argomento di avvio rapido verrà illustrato come usare la libreria client di archiviazione BLOB di Azure per creare un contenitore e un BLOB in un'archiviazione BLOB (di oggetti). Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/20/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 5205506e3e7a32423dd9b438b648ff4af5136caa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4fa2d7f3884a30e60ce703dd45b295a85722fe67
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528554"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285289"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Guida introduttiva: Libreria client di archiviazione BLOB di Azure v11 per .NET
 
 Introduzione alla libreria client di archiviazione BLOB di Azure v11 per .NET. Archiviazione BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
 
 > [!NOTE]
-> In questo argomento di avvio rapido si usa una versione legacy della libreria client di Archiviazione BLOB di Azure. Per un'introduzione alla versione più recente, vedere [Avvio rapido: Libreria client di Archiviazione BLOB di Azure per .NET](storage-quickstart-blobs-dotnet.md).
+> In questo argomento di avvio rapido si usa una versione legacy della libreria client di Archiviazione BLOB di Azure. Per un'introduzione alla versione più recente, vedere [Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 per .NET](storage-quickstart-blobs-dotnet.md).
 
 Usare la libreria client di Archiviazione BLOB di Azure per .NET per:
 

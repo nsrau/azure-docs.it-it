@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a38f4744b6a1f9b4ebd0112be07b2556f1c39
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034997"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Esercitazione: Usare i rilevamenti dei rischi negli accessi utente per attivare Azure Multi-Factor Authentication o modifiche della password
 
-Per proteggere gli utenti, è possibile configurare criteri basati sul rischio in Azure Active Directory (Azure AD) per rispondere automaticamente a comportamenti a rischio. I criteri di Azure AD Identity Protection possono bloccare automaticamente un tentativo di accesso o richiedere azioni aggiuntive, ad esempio la modifica della password o l'uso di Azure Multi-Factor Authentication. Questi criteri funzionano con i criteri di accesso condizionale di Azure AD esistenti, come un ulteriore livello di protezione per l'organizzazione. Gli utenti potrebbero non attivare mai un comportamento a rischio di uno di questi criteri, ma l'organizzazione è protetta nel caso in cui venga effettuato un tentativo di compromettere la sicurezza.
+Per proteggere gli utenti, è possibile configurare criteri basati sul rischio in Azure Active Directory (Azure AD) per rispondere automaticamente a comportamenti a rischio. I criteri di Azure AD Identity Protection possono bloccare automaticamente un tentativo di accesso o richiedere azioni aggiuntive, ad esempio la modifica della password o l'uso di Azure Multi-Factor Authentication. Questi criteri funzionano con quelli di accesso condizionale di Azure AD per offrire uno strato aggiuntivo di protezione per l'organizzazione. Gli utenti potrebbero non attivare mai un comportamento a rischio di uno di questi criteri, ma l'organizzazione è protetta nel caso in cui venga effettuato un tentativo di compromettere la sicurezza.
+
+> [!IMPORTANT]
+> Questa esercitazione contiene indicazioni su come un amministratore può abilitare Azure Multi-Factor Authentication.
+>
+> Se il team IT non ha consentito di usare Azure Multi-Factor Authentication o se si verificano problemi durante l'accesso, rivolgersi al supporto tecnico per ulteriore assistenza.
 
 In questa esercitazione verranno illustrate le procedure per:
 

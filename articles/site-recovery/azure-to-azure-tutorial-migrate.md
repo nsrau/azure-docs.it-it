@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 198e07b80788629030b621dd3c5e235a91baaba3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076099"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -82,8 +82,9 @@ I passaggi seguenti mostrano come preparare la macchina virtuale per lo spostame
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Creare l'insieme di credenziali in qualsiasi area tranne quella di origine
 
-1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-1. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)** .
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. In Cerca digitare Servizi di ripristino e fare clic su Insiemi di credenziali dei servizi di ripristino
+1. Nel menu Insiemi di credenziali dei servizi di ripristino fare clic su +Aggiungi.
 1. In **Nome** specificare il nome descrittivo **ContosoVMVault**. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 1. Creare il gruppo di risorse **ContosoRG**.
 1. Specificare un'area di Azure. Per informazioni sulla disponibilità a livello geografico e sulle aree supportate, vedere la pagina relativa ai [dettagli sui prezzi per Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

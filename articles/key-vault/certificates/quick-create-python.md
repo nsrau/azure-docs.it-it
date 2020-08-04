@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Libreria client di Azure Key Vault per Python
+title: 'Avvio rapido: Libreria client di Azure Key Vault per Python - Gestire i certificati'
 description: Informazioni su come creare, recuperare ed eliminare certificati da Azure Key Vault con la libreria client per Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 7c67bc77984af8a25c3514931ed0983df1751d5e
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: abbe07d96daf5848d01cd1f4943d4969fe1e59d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043708"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Avvio rapido: libreria client di Azure Key Vault per Python
+# <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Avvio rapido: Libreria client dei certificati di Azure Key Vault per Python
 
 Introduzione alla libreria client di Azure Key Vault per Python Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -33,7 +33,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 
 - Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3 o versione successiva
-- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
+- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
 
 Questa Guida di avvio rapido presuppone l'esecuzione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) in una finestra del terminale Linux.
 

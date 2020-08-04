@@ -4,12 +4,12 @@ description: Informazioni su come richiamare i processi aziendali dall'app del S
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 2b478ae75c8be978ea93a493b65dafdc7756c4b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083243"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Esercitazione: Inviare messaggi di posta elettronica e richiamare altri processi aziendali dal Servizio app
 
@@ -17,7 +17,7 @@ Questa esercitazione illustra come integrare un'app del Servizio app con i proce
 
 - Inviare un messaggio di posta elettronica di conferma per una transazione
 - Aggiungere un utente al gruppo Facebook
-- Connettersi a sistemi di terze parti come SAP, SalesForce e così via.
+- Eseguire la connessione a sistemi di terze parti, ad esempio SAP, SalesForce e così via.
 - Messaggi B2B standard di Exchange
 
 Questa esercitazione illustra come inviare messaggi di posta elettronica con Gmail dall'app del Servizio app usando le [App per la logica di Azure](../logic-apps/logic-apps-overview.md). Esistono altri modi per inviare messaggi di posta elettronica da un'app Web, ad esempio la configurazione SMTP fornita dal framework del linguaggio. Tuttavia, le app per la logica offrono all'app del Servizio app maggiore potenza senza aggiungere complessità al codice. App per la logica offre una semplice interfaccia di configurazione per le integrazioni aziendali più diffuse e l'app può chiamarle in qualsiasi momento con una richiesta HTTP.
@@ -57,10 +57,10 @@ Distribuire un'app con il framework del linguaggio desiderato nel Servizio app. 
 1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota seguendo le istruzioni riportate in [Creare l'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). Quando viene visualizzata la finestra **Progettazione app per la logica**, tornare a questa esercitazione.
 1. Nella pagina iniziale di progettazione app per la logica selezionare **Alla ricezione di una richiesta HTTP** in **Inizia con un trigger comune**.
 
-    ![](./media/tutorial-send-email/receive-http-request.png)
+    ![Screenshot che mostra la pagina iniziale di progettazione app per la logica con il trigger Alla ricezione di una richiesta HTTP evidenziato.](./media/tutorial-send-email/receive-http-request.png)
 1. Nella finestra di dialogo **Alla ricezione di una richiesta HTTP**, selezionare **Usare il payload di esempio per generare lo schema**.
 
-    ![](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Screenshot che mostra la finestra di dialogo Alla ricezione di una richiesta HTTP con l'opzione Usare il payload di esempio per generare lo schema selezionata. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Copiare il codice JSON di esempio seguente nella casella di testo e selezionare **Fine**.
 
@@ -77,7 +77,7 @@ Distribuire un'app con il framework del linguaggio desiderato nel Servizio app. 
 
     Verrò visualizzato l'URL del trigger della richiesta HTTP. Selezionare l'icona di copia per copiarlo in modo da poterlo usare in seguito.
 
-    ![](./media/tutorial-send-email/http-request-url.png)
+    ![Screenshot in cui è evidenziata l'icona che consente di copiare l'URL del trigger della richiesta HTTP.](./media/tutorial-send-email/http-request-url.png)
 
     Questa definizione della richiesta HTTP è un trigger per qualsiasi operazione da eseguire in questa app per la logica, che sia Gmail o altro. Più avanti l'URL verrà richiamato nell'app del Servizio app. Per altre informazioni sul trigger della richiesta, vedere le [informazioni di riferimento sulla richiesta/risposta HTTP](../connectors/connectors-native-reqres.md).
 
@@ -87,18 +87,18 @@ Distribuire un'app con il framework del linguaggio desiderato nel Servizio app. 
     > È possibile cercare altri tipi di integrazioni, ad esempio SendGrid, MailChimp, Office 365 e SalesForce. Per altre informazioni, vedere la [Documentazione di App per la logica](https://docs.microsoft.com/azure/logic-apps/).
 1. Nella finestra di dialogo **Gmail** selezionare **Accedi** e accedere all'account Gmail da cui si vuole inviare il messaggio di posta elettronica.
 
-    ![](./media/tutorial-send-email/gmail-sign-in.png)
+    ![Screenshot che mostra la finestra di dialogo Gmail che consente di accedere all'account Gmail da cui si desidera inviare il messaggio di posta elettronica.](./media/tutorial-send-email/gmail-sign-in.png)
 
 1. Una volta effettuato l'accesso, fare clic nella casella di testo **A** e la finestra di dialogo con il contenuto dinamico verrà aperta automaticamente.
 
 1. Accanto all'azione **Alla ricezione di una richiesta HTTP**, selezionare **Vedi altre**.
 
-    ![](./media/tutorial-send-email/expand-dynamic-content.png)
+    ![Screenshot che mostra il pulsante Vedi altre disponibile accanto all'azione Alla ricezione di una richiesta HTTP.](./media/tutorial-send-email/expand-dynamic-content.png)
 
     Verranno quindi visualizzate le tre proprietà dei dati JSON di esempio usati in precedenza. In questo passaggio le proprietà della richiesta HTTP verranno usate per creare un messaggio di posta elettronica.
 1. Poiché si sta selezionando il valore per il campo **A**, scegliere **posta elettronica**. Se si desidera, disattivare la finestra di dialogo con contenuto dinamico facendo clic su **Aggiungi contenuto dinamico**.
 
-    ![](./media/tutorial-send-email/hide-dynamic-content.png)
+    ![Screenshot che mostra l'opzione posta elettronica e l'opzione Aggiungi contenuto dinamico evidenziate.](./media/tutorial-send-email/hide-dynamic-content.png)
 
 1. Nell'elenco a discesa **Aggiungi nuovo parametro** selezionare **Oggetto** e **Corpo**.
 
@@ -109,15 +109,15 @@ Distribuire un'app con il framework del linguaggio desiderato nel Servizio app. 
     > [!TIP]
     > Se si vuole modificare il contenuto HTML direttamente nel corpo del messaggio di posta elettronica, selezionare **Visualizzazione Codice** nella parte superiore della finestra Progettazione app per la logica. Assicurarsi di mantenere il codice del contenuto dinamico (ad esempio, `@{triggerBody()?['due']}`)
     >
-    > ![](./media/tutorial-send-email/edit-rich-html-email.png) 
+    > ![Screenshot che mostra la visualizzazione del codice per visualizzare il contenuto HTML direttamente nel corpo del messaggio di posta elettronica.](./media/tutorial-send-email/edit-rich-html-email.png) 
 
 1. Aggiungere quindi una risposta HTTP asincrona al trigger HTTP. Tra il trigger HTTP e l'azione Gmail, fare clic sul segno **+** e selezionare **Aggiungi un ramo parallelo**.
 
-    ![](./media/tutorial-send-email/add-http-response.png)
+    ![Screenshot che mostra il segno + e l'opzione Aggiungi un ramo parallelo evidenziati.](./media/tutorial-send-email/add-http-response.png)
 
 1. Nella casella di ricerca cercare **risposta**, quindi selezionare l'azione **Risposta**.
 
-    ![](./media/tutorial-send-email/choose-response-action.png)
+    ![Screenshot che mostra la casella di ricerca e l'azione Risposta evidenziate.](./media/tutorial-send-email/choose-response-action.png)
 
     Per impostazione predefinita, l'azione di risposta restituisce un codice HTTP 200. Per questa esercitazione, la risposta restituita è sufficiente. Per altre informazioni, vedere le [informazioni di riferimento sulla richiesta/risposta HTTP](../connectors/connectors-native-reqres.md).
 
@@ -127,7 +127,7 @@ Distribuire un'app con il framework del linguaggio desiderato nel Servizio app. 
 
 Assicurarsi di aver copiato l'URL del trigger della richiesta HTTP nella sezione precedente. Poiché contiene informazioni sensibili, è consigliabile non inserirlo direttamente nel codice. Con il Servizio app, è possibile farvi riferimento come variabile di ambiente, usando le impostazioni dell'app. 
 
-In [Cloud Shell](https://shell.azure.com) creare l'impostazione dell'app con il comando seguente (sostituire *\<app-name>* , *\<resource-group-name>* e *\<logic-app-url>* ):
+In [Cloud Shell](https://shell.azure.com) definire l'impostazione dell'app tramite il comando seguente (sostituire *\<app-name>* , *\<resource-group-name>* e *\<logic-app-url>* ):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<your-logic-app-url>"

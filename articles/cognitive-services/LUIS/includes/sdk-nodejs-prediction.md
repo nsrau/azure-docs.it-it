@@ -6,23 +6,23 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 504ba9106cc9d617858e8fad7ea421c8707707b3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 19da911cbc662f47e7bbd16aaddf8803d4109d6a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171277"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369265"
 ---
 Usare la libreria client di runtime di LUIS (Language Understanding) per Node.js per:
 
 * Previsioni per slot
 * Previsioni per versione
 
-[Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [Pacchetto di runtime (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Esempi](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
+[Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [Pacchetto di runtime (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Esempi](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,8 +35,6 @@ Usare la libreria client di runtime di LUIS (Language Understanding) per Node.js
 ### <a name="get-your-language-understanding-luis-runtime-key"></a>Ottenere la chiave di runtime di Language Understanding (LUIS)
 
 Ottenere la [chiave di runtime](../luis-how-to-azure-subscription.md) creando una risorsa di runtime LUIS. Conservare la chiave e il relativo endpoint per il passaggio successivo.
-
-[!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
 ### <a name="create-a-new-javascript-nodejs-file"></a>Creare un nuovo file JavaScript (Node.js)
 
@@ -75,13 +73,11 @@ Dalla directory del progetto aprire il file `luis_prediction.js` nell'editor o n
 
 1. Creare le variabili per le informazioni LUIS necessarie:
 
-    Aggiungere le variabili per gestire la chiave di previsione derivata da una variabile di ambiente denominata `LUIS_RUNTIME_KEY`. Se la variabile di ambiente è stata creata dopo l'avvio dell'applicazione, per accedere alla variabile sarà necessario chiudere e ricaricare l'editor, la shell o l'ambiente di sviluppo integrato in cui è in esecuzione. I metodi verranno creati in un secondo momento.
-
-    Creare una variabile che contenga il nome della risorsa `LUIS_RUNTIME_ENDPOINT`.
-
+    Aggiungere le variabili per gestire la chiave di stima e la chiave dell'endpoint. 
+    
     [!code-javascript [Azure resource variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=Variables)]
 
-1. Creare una variabile per l'ID app come variabile di ambiente denominata `LUIS_APP_ID`. Impostare la variabile di ambiente sull'app IoT pubblica, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Creare una variabile per impostare lo slot pubblicato `production`.
+1. Creare una variabile per l'ID app denominata `LUIS_APP_ID`. Impostare la variabile sull'app IoT pubblica, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Creare una variabile per impostare lo slot pubblicato `production`.
 
     [!code-javascript [LUIS app variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=OtherVariables)]
 

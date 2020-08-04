@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067557"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Raccogliere dati da una macchina virtuale di Azure con Monitoraggio di Azure
 
-[Monitoraggio di Azure](../overview.md) può raccogliere dati direttamente dalle macchine virtuali di Azure in un'area di lavoro di Log Analytics per l'analisi dettagliata e la correlazione. L'installazione dell'estensione Log Analytics VM per [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) consente a Monitoraggio di Azure di raccogliere i dati dalle VM di Azure. Questa guida di avvio rapido illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi tramite l'estensione VM.  
+[Monitoraggio di Azure](../overview.md) può raccogliere dati direttamente dalle macchine virtuali di Azure in un'area di lavoro Log Analytics per l'analisi di dettagli e correlazioni. L'installazione dell'estensione Log Analytics VM per [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) consente a Monitoraggio di Azure di raccogliere i dati dalle VM di Azure. Questa guida di avvio rapido illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi tramite l'estensione VM.  
  
 Questa guida introduttiva presuppone che esista già una macchina virtuale di Azure. In caso contrario, è possibile [creare una VM Windows](../../virtual-machines/windows/quick-create-portal.md) o [creare una VM Linux](../../virtual-machines/linux/quick-create-cli.md) seguendo le guide introduttive sulle VM.
 
@@ -141,4 +141,4 @@ Ora che è in corso la raccolta di dati operativi e sulle prestazioni dalle macc
 Per informazioni su come visualizzare e analizzare i dati, passare all'esercitazione.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](../../azure-monitor/learn/tutorial-viewdata.md)
+> [View or analyze data in Log Analytics (Visualizzare o analizzare i dati in Log Analytics)](../log-query/get-started-portal.md)

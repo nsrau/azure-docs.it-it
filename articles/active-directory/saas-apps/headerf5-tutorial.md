@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352f52a2a6d84d352bb46e09f104efde303307f5
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 341be30c30f7b4a2a53f70f18e1c2a3a30de1cb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034419"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
+# <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Esercitazione: Configurare l'accesso Single Sign-On tra Azure Active Directory e F5
 
 Questa esercitazione descrive come integrare F5 con Azure Active Directory (Azure AD). Integrando F5 con Azure AD, è possibile:
 

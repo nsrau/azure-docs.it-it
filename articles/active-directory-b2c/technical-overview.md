@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08c7a5b977534e6c2852f8095ce14c44bda71bf1
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 15b96a8bb5460064d6f50f81809f7e3850b30a4c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331535"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281923"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Panoramica degli aspetti tecnici e delle funzionalità di Azure Active Directory B2C
 
@@ -75,7 +75,7 @@ Per altre informazioni sui tipi di account utente in Azure AD B2C, vedere [Panor
 
 Con la federazione dei provider di identità esterni è possibile offrire agli utenti la possibilità di accedere con i propri account social o aziendali senza dover creare un nuovo account solo per l'applicazione.
 
-Nella pagina di iscrizione o accesso Azure AD B2C presenta un elenco di provider di identità esterni tra cui l'utente può scegliere per eseguire l'accesso. Dopo aver selezionato uno dei provider di identità esterni, l'utente viene reindirizzato al sito Web del provider selezionato per completare il processo di accesso. Dopo l'accesso, l'utente viene reindirizzato di nuovo ad Azure AD B2C per l'autenticazione dell'account nell'applicazione.
+Nella pagina di iscrizione o accesso Azure AD B2C presenta un elenco di provider di identità esterni tra cui l'utente può scegliere per eseguire l'accesso. Dopo aver selezionato uno dei provider di identità esterni, l'utente viene reindirizzato al sito Web del provider selezionato per completare il processo di accesso. Dopo l'accesso, l'utente viene reindirizzato ad Azure AD B2C per l'autenticazione dell'account nell'applicazione.
 
 ![Esempio di accesso tramite dispositivo mobile con un account di social network (Facebook)](media/technical-overview/external-idp.png)
 

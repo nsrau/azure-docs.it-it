@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Libreria client di Azure Key Vault per Python
+title: 'Avvio rapido: Libreria client di Azure Key Vault per Python - Gestire le chiavi'
 description: Informazioni su come creare, recuperare ed eliminare chiavi da Azure Key Vault con la libreria client per Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 5335d629ef6778cbab7273200652c19998c9c19d
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: fe88cfc71959cfa0e78c9e6129853afee248fd37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060981"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Avvio rapido: libreria client di Azure Key Vault per Python
+# <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Avvio rapido: Libreria client delle chiavi di Azure Key Vault per Python
 
 Introduzione alla libreria client di Azure Key Vault per Python Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -33,7 +33,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 
 - Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3 o versione successiva
-- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
+- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
 
 Questa Guida di avvio rapido presuppone l'esecuzione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) in una finestra del terminale Linux.
 

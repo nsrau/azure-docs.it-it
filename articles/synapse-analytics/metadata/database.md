@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496010"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385535"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Database condiviso di Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Usare Spark per gestire i database creati in Spark. Ad esempio, eliminare un dat
 
 Se si creano oggetti in un database creato in Spark usando SQL su richiesta o se si cerca di eliminare il database, l'operazione riesce, ma il database Spark originale non viene modificato.
 
-## <a name="handling-of-name-conflicts"></a>Gestione dei conflitti tra nomi
+## <a name="how-name-conflicts-are-handled"></a>Come vengono gestiti i conflitti di nome
 
 Se il nome di un database Spark è in conflitto con il nome di un database SQL su richiesta esistente, in SQL su richiesta viene aggiunto un suffisso al database Spark. Il suffisso in SQL su richiesta è `_<workspace name>-ondemand-DefaultSparkConnector`.
 
@@ -57,7 +57,7 @@ Se un'entità di sicurezza deve poter creare o eliminare oggetti in un database,
 
 ## <a name="examples"></a>Esempi
 
-### <a name="create--connect-to-spark-database---sql-on-demand"></a>Creare e connettersi a un database Spark - SQL su richiesta
+### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Creare e connettersi a un database Spark con SQL su richiesta
 
 Creare prima di tutto un nuovo database Spark denominato `mytestdb` usando un cluster Spark che è già stato creato nell'area di lavoro. A questo scopo è possibile usare, ad esempio, un notebook C# Spark con l'istruzione .NET per Spark seguente:
 

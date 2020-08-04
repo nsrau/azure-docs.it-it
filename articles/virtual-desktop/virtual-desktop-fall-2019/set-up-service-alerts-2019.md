@@ -1,6 +1,6 @@
 ---
-title: Configurare avvisi del servizio per Desktop virtuale Windows - Azure
-description: Come configurare l'integrità dei servizi di Azure per ricevere notifiche del servizio per Desktop virtuale Windows.
+title: Configurare gli avvisi del servizio per Desktop virtuale Windows (versione classica) - Azure
+description: Informazioni su come configurare l'integrità dei servizi di Azure per ricevere notifiche del servizio per Desktop virtuale Windows (versione classica).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a3f938c6e4c9bb13794ddd01092f0e79077a89cc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259757"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283385"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Esercitazione: Configurare gli avvisi dei servizi
+# <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Esercitazione: Configurare gli avvisi del servizio per Desktop virtuale Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../set-up-service-alerts.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta oggetti Desktop virtuale Windows con Azure Resource Manager. Se si sta tentando di gestire oggetti Desktop virtuale Windows con Azure Resource Manager, vedere [questo articolo](../set-up-service-alerts.md).
 
 È possibile usare il servizio di integrità dei servizi di Azure per monitorare i problemi del servizio e gli avvisi sull'integrità per Desktop virtuale Windows. Il servizio di integrità dei servizi di Azure è in grado di inviare notifiche con tipi diversi di avvisi (ad esempio messaggi di posta elettronica o SMS), di rendere più semplice la comprensione degli effetti dei problemi e di offrire informazioni aggiornate durante la risoluzione dei problemi stessi. Questo servizio è anche in grado di favorire la riduzione del tempo di inattività e la preparazione alla manutenzione pianificata e alle modifiche che possono influire sulla disponibilità delle risorse.
 

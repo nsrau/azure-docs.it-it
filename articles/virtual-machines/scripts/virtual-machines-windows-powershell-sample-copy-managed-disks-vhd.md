@@ -1,5 +1,5 @@
 ---
-title: Esportare o copiare il disco rigido virtuale di un disco gestito in un account di archiviazione di un'area diversa - Esempio di PowerShell
+title: Disco rigido virtuale di un disco gestito in un account di un'altra area (Windows) - PowerShell
 description: Esempio di script di Azure PowerShell - Esportare/Copiare il disco rigido virtuale di un disco gestito in un account di archiviazione della stessa area o di un'area diversa
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: 8388863bb88e3e97d16ad7c80aad6387cf9e03b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3476dd671c6ee536c3f85408c328f55ba83a47b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010071"
 ---
-# <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>Esportare/Copiare il disco rigido virtuale di un disco gestito in un account di archiviazione di un'area diversa con PowerShell
+# <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-windows"></a>Esportare o copiare il disco rigido virtuale di un disco gestito in un account di archiviazione di un'area diversa con PowerShell (Windows)
 
 Questo script consente di esportare il disco rigido virtuale di un disco gestito in un account di archiviazione di un'area diversa. Genera innanzitutto l'URI SAS del disco gestito e quindi lo usa per copiare il disco rigido virtuale sottostante in un account di archiviazione di un'area diversa. Usare questo script per copiare i dischi gestiti in un'altra area per l'espansione a livello di area.  
 
@@ -41,9 +41,9 @@ Questo script usa i comandi seguenti per generare l'URI SAS di un disco gestito 
 
 | Comando | Note |
 |---|---|
-| [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | Genera l'URI SAS di un disco gestito che viene usato per copiare il disco rigido virtuale sottostante in un account di archiviazione. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Crea un contesto per l'account di archiviazione usando nome e chiave dell'account. Questo contesto può essere usato per eseguire operazioni di lettura/scrittura sull'account di archiviazione. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Copia il file VHD sottostante di uno snapshot in un account di archiviazione |
+| [Grant-AzDiskAccess](/powershell/module/az.compute/grant-azdiskaccess) | Genera l'URI SAS di un disco gestito che viene usato per copiare il disco rigido virtuale sottostante in un account di archiviazione. |
+| [New-AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext) | Crea un contesto per l'account di archiviazione usando nome e chiave dell'account. Questo contesto può essere usato per eseguire operazioni di lettura/scrittura sull'account di archiviazione. |
+| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) | Copia il file VHD sottostante di uno snapshot in un account di archiviazione |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -51,6 +51,6 @@ Questo script usa i comandi seguenti per generare l'URI SAS di un disco gestito 
 
 [Creare una macchina virtuale da un disco gestito](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 
 Altri esempi di script PowerShell della macchina virtuale sono reperibili nella [documentazione della VM Windows di Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

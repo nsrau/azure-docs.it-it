@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 709926671e1ad4d8beefaf0f1cff4c56b1948ca3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 27a56a45845c1515b500a71528d3449b63c3f869
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80127375"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323962"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Esercitazione: Inviare notifiche push a utenti Android specifici con Hub di notifica di Azure e Google Cloud Messaging (deprecato)
 
@@ -154,7 +154,7 @@ Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata n
 
     Il layout grafico del file `main_activity.xml` dovrà essere simile a quello nell'immagine seguente:
 
-    ![][A1]
+    ![Screenshot di un'app con le caselle per il nome utente, la password, il destinatario e il messaggio e con i pulsanti per l'accesso e l'invio di notifiche.][A1]
 3. Creare una nuova classe denominata `RegisterClient` nello stesso pacchetto della classe `MainActivity`. Usare il codice seguente per il nuovo file di classe.
 
     ```java
@@ -474,7 +474,7 @@ Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata n
 2. Nell'app per Android immettere un nome utente e una password. Devono avere lo stesso valore di stringa e non devono contenere spazi o caratteri speciali.
 3. Nell'app per Android fare clic su **Accedi**. Attendere un avviso popup che indica **Logged in and registered**. Viene abilitato il pulsante **Send Notification** (Invia notifica).
 
-    ![][A2]
+    ![Screenshot di un'app. È visibile un messaggio popup che conferma che l'utente ha eseguito l'accesso e la registrazione. Il pulsante per l'invio di una notifica è abilitato.][A2]
 4. Fare clic sugli interruttori per abilitare tutte le piattaforme in cui è stata eseguita l'app ed è stato registrato un utente.
 5. Immettere il nome dell'utente che riceve il messaggio di notifica. L'utente dovrà essere registrato per le notifiche nei dispositivi di destinazione.
 6. Immettere un messaggio che l'utente riceverà come messaggio di notifica push.

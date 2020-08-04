@@ -1,5 +1,5 @@
 ---
-title: Sincronizzare Apache Spark per le definizioni di tabella esterna di Azure Synapse in SQL su richiesta (anteprima)
+title: Sincronizzare Apache Spark per le definizioni di tabella esterna in SQL su richiesta (anteprima)
 description: Panoramica su come eseguire query su tabelle Spark con SQL su richiesta (anteprima)
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e9f688a31d2847505e974ab6a1557aa6a7b2047
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247048"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046840"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronizzare Apache Spark per le definizioni di tabella esterna di Azure Synapse in SQL su richiesta (anteprima)
 
@@ -22,7 +22,7 @@ SQL su richiesta (anteprima) consente di sincronizzare automaticamente i metadat
 
 Per ogni tabella esterna Spark basata su Parquet e inclusa in Archiviazione di Azure, viene creata una tabella esterna nel database di SQL su richiesta. Di conseguenza, è possibile arrestare i pool di Spark e continuare a eseguire query sulle tabelle esterne Spark da SQL su richiesta.
 
-Quando una tabella viene partizionata in Spark, i file nell'account di archiviazione sono organizzati in base a cartelle. Per la query, SQL su richiesta utilizzerà i metadati della partizione e solo le cartelle e i file pertinenti come destinazione.
+Quando una tabella viene partizionata in Spark, i file nell'account di archiviazione sono organizzati in base a cartelle. Per la query, SQL su richiesta userà i metadati della partizione e solo le cartelle e i file pertinenti come destinazione.
 
 La sincronizzazione dei metadati viene configurata automaticamente per ogni pool di Spark con provisioning nell'area di lavoro di Azure Synapse. È possibile iniziare immediatamente a eseguire query sulle tabelle esterne Spark.
 
@@ -35,7 +35,7 @@ SELECT * FROM [db].dbo.[spark_table]
 ```
 
 > [!NOTE]
-> L'aggiunta, l'eliminazione o la modifica della colonna della tabella esterna Spark non verrà applicata alla tabella esterna in SQL su richiesta.
+> I comandi di aggiunta, eliminazione o modifica per una colonna della tabella esterna Spark non verranno riflessi nella tabella esterna in SQL su richiesta.
 
 ## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Mapping tra tipi di dati Apache Spark e tipi di dati SQL
 

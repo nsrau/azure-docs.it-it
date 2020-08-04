@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare i processi di Spark per ottenere prestazioni ottimali in Azure Synapse Analytics
+title: Ottimizzare i processi Spark per ottenere prestazioni ottimali
 description: Questo articolo fornisce un'introduzione ad Apache Spark in Azure Synapse Analytics e presenta i diversi concetti.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: a4d95e57e3b72f8338da5c88f4ddfd57f66014cb
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194859"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089261"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Ottimizzare i processi di Apache Spark (anteprima) in Azure Synapse Analytics
 

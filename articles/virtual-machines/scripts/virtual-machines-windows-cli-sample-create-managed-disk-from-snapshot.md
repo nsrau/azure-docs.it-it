@@ -1,5 +1,5 @@
 ---
-title: Creare un disco gestito da uno snapshot - Esempio dell'interfaccia della riga di comando
+title: Creare un disco gestito da uno snapshot (Windows) - Esempio dell'interfaccia della riga di comando
 description: "Esempio di script dell'interfaccia della riga di comando di Azure: creare un disco gestito da uno snapshot"
 services: virtual-machines-windows
 documentationcenter: storage
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 00fdfe3669e0ad84702f20be4d7efffcdc871149
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68435af52a9593d6b8c9fef0de66e867048919de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459543"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028499"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Creare un disco gestito da uno snapshot con l'interfaccia della riga di comando
+# <a name="create-a-managed-disk-from-a-snapshot-with-cli-windows"></a>Creare un disco gestito da uno snapshot con l'interfaccia della riga di comando (Windows)
 
 Questo script crea un disco gestito da uno snapshot. Può essere usato per ripristinare una macchina virtuale da snapshot dei dischi del sistema operativo e di dati. Creare dischi dati e del sistema operativo gestiti dai rispettivi snapshot e quindi creare una nuova macchina virtuale collegando i dischi gestiti. Collegando i dischi dati creati da snapshot, è anche possibile ripristinare i dischi di dati di una macchina virtuale esistente.
 
@@ -40,11 +40,11 @@ Questo script usa i comandi seguenti per creare un disco gestito da snapshot. Og
 
 | Comando | Note |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Ottiene tutte le proprietà di uno snapshot tramite le proprietà del nome e del gruppo di risorse dello snapshot. La proprietà ID viene usata per creare un disco gestito.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Crea un disco gestito mediante l'ID dello snapshot di uno snapshot gestito |
+| [az snapshot show](/cli/azure/snapshot) | Ottiene tutte le proprietà di uno snapshot tramite le proprietà del nome e del gruppo di risorse dello snapshot. La proprietà ID viene usata per creare un disco gestito.  |
+| [az disk create](/cli/azure/disk) | Crea un disco gestito mediante l'ID dello snapshot di uno snapshot gestito |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando di dischi gestiti e della macchina virtuale sono disponibili nella [documentazione della macchina virtuale Windows di Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

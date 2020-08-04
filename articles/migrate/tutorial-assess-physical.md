@@ -3,12 +3,12 @@ title: Valutare i server fisici per la migrazione ad Azure con Valutazione serve
 description: Questo articolo descrive come valutare i server fisici locali per la migrazione ad Azure usando Valutazione server di Azure Migrate.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5b4d5241e4236d4c11f2e2a5a8feb7c73258cba0
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080774"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171393"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Valutare i server fisici con Valutazione server di Azure Migrate
 
@@ -179,13 +179,14 @@ Configurare l'appliance per la prima volta.
 A questo punto, connettersi dall'appliance ai server fisici da individuare e avviare l'individuazione.
 
 1. Fare clic su **Aggiungi credenziali** per specificare le credenziali dell'account che verranno usate dall'appliance per individuare i server.  
-2. Specificare il **Sistema operativo**, un nome descrittivo per le credenziali e il nome utente e la password. Fare quindi clic su **Aggiungi**.
+2. Accedere con nome utente e password. L'accesso con una chiave non è supportato. È anche necessario che l'utente disponga di un account di accesso radice o che sia parte del gruppo degli amministratori locali.
+3. Specificare il **Sistema operativo**, un nome descrittivo per le credenziali e il nome utente e la password. Fare quindi clic su **Aggiungi**.
 È possibile aggiungere più credenziali per i server Windows e Linux.
 4. Fare clic su **Aggiungi server** e specificarne i dettagli, FQDN/indirizzo IP e nome descrittivo delle credenziali (una voce per riga), per eseguire la connessione.
-3. Fare clic su **Convalida**. Dopo la convalida, viene visualizzato l'elenco dei server che è possibile individuare.
+5. Fare clic su **Convalida**. Dopo la convalida, viene visualizzato l'elenco dei server che è possibile individuare.
     - Se la convalida non riesce per un server, esaminare l'errore passando il puntatore del mouse sull'icona nella colonna **Stato**. Risolvere i problemi e ripetere la convalida.
     - Per rimuovere un server, selezionare > **Elimina**.
-4. Dopo la convalida fare clic su **Salva e avvia individuazione** per avviare il processo di individuazione.
+6. Dopo la convalida fare clic su **Salva e avvia individuazione** per avviare il processo di individuazione.
 
 Viene avviata l'individuazione. Per visualizzare i metadati del server individuato nel portale di Azure, sono necessari circa 1,5 minuti per server.
 

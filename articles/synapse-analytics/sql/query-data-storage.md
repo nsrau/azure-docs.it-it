@@ -1,5 +1,5 @@
 ---
-title: "Panoramica: Eseguire query sui dati nell'archiviazione con SQL su richiesta (anteprima)"
+title: Eseguire query sui dati nell'archiviazione con SQL su richiesta (anteprima)
 description: Questo articolo descrive come eseguire query sull'archiviazione di Azure usando la risorsa SQL su richiesta (anteprima) all'interno di Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4f78928c26b595caafd6709a200297d62ce1c361
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7ef7a771442dba5c7f82196a13b77cb28b0d1ed8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259672"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386657"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Eseguire query sui file di archiviazione con le risorse di SQL su richiesta (anteprima) all'interno di Synapse SQL
 
@@ -54,7 +54,7 @@ Per esempi di utilizzo, vedere l'articolo [Eseguire query su file Parquet](query
 
 ## <a name="query-csv-files"></a>Eseguire query su file CSV
 
-Per eseguire query sui dati di origine Parquet, usare FORMAT = 'CSV'. Quando si eseguono query sui file CSV è possibile specificare lo schema del file CSV come parte della funzione `OPENROWSET`:
+Per eseguire query sui dati di origine CSV, usare FORMAT = 'CSV'. Quando si eseguono query sui file CSV è possibile specificare lo schema del file CSV come parte della funzione `OPENROWSET`:
 
 ```sql
 SELECT * FROM
@@ -186,7 +186,7 @@ Per impostazione predefinita, la funzione `OPENROWSET` abbina il nome e il perco
 - Se la proprietà non si trova in corrispondenza dell'elemento column_name specificato, la funzione restituisce un errore.
 - Se la proprietà non si trova in corrispondenza dell'elemento column_path specificato, in base alla [modalità Path](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), la funzione restituisce un errore se in modalità strict o Null se in modalità lax.
 
-Per esempi di query, vedere la sezione Accesso agli elementi di colonne annidate nell'articolo [Eseguire query su tipi annidati di Parquet](query-parquet-nested-types.md#access-elements-from-nested-columns).
+Per esempi di query, vedere la sezione Accesso agli elementi di colonne annidate nell'articolo [Eseguire query su tipi annidati di Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 
 #### <a name="access-elements-from-repeated-columns"></a>Accesso agli elementi di colonne ripetute
 

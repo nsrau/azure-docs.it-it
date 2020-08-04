@@ -5,12 +5,12 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058147"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040523"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Guida introduttiva: Creare modelli di Azure Resource Manager con Visual Studio Code
 
@@ -102,7 +102,7 @@ Selezionare `New` > `All Parameters` e quindi un nome e un percorso per il file 
 
 Questa azione crea un nuovo file di parametri e lo mappa al modello da cui è stato creato. È possibile visualizzare e modificare il mapping corrente tra modello e file di parametri sulla barra di stato di Visual Studio Code durante la sezione del modello.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Immagine che illustra il mapping del file di modello/parametro nella barra di stato del Visual Studio Code.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Ora che il file di parametri è stato mappato al modello, l'estensione convalida questi due elementi contemporaneamente. Per vedere la procedura di convalida, aggiungere un valore di due caratteri al parametro `storageAccountName` nel file di parametri e salvare il file.
 
@@ -118,7 +118,7 @@ Specificare un valore appropriato, salvare il file e tornare nel modello. Come s
 
 Aprire il terminale integrato di Visual Studio Code con la combinazione di tasti `ctrl` + ```` ` ```` e usare l'interfaccia della riga di comando di Azure o il modulo di Azure PowerShell per distribuire il modello.
 
-# <a name="cli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
 
 ```azurecli
 az group create --name arm-vscode --location eastus

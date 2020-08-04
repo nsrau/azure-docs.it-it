@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2dc2143619594c8fd46fa4e838b97a3ecde95653
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027716"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373522"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app ASP.NET Core con Configurazione app di Azure
 
@@ -242,6 +242,8 @@ Se si sta lavorando in Azure Cloud Shell, selezionare il pulsante *Anteprima Web
 ![Individuare il pulsante Anteprima Web](./media/quickstarts/cloud-shell-web-preview.png)
 
 Quando viene richiesto di configurare la porta per l'anteprima, immettere "5000" e selezionare *Apri ed esplora*.  Nella pagina verrà visualizzato il messaggio "Dati di Configurazione app di Azure".
+
+![Avvio dell'app di avvio rapido](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

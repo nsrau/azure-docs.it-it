@@ -11,21 +11,25 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996501"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171565"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Che cos'è il controllo degli accessi in base al ruolo di Azure?
 
 La gestione dell'accesso per le risorse cloud è una funzione essenziale per qualsiasi organizzazione che usa il cloud. Il controllo degli accessi in base al ruolo di Azure consente di gestire gli utenti autorizzati ad accedere alle risorse di Azure, le operazioni che possono eseguire su tali risorse e le aree a cui hanno accesso.
 
 Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) che garantisce una gestione con granularità fine degli accessi delle risorse di Azure.
+
+Questo video offre una panoramica rapida del Controllo degli accessi in base al ruolo di Azure.
+
+>[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
 
 ## <a name="what-can-i-do-with-azure-rbac"></a>Che cosa è possibile fare con il controllo degli accessi in base al ruolo di Azure?
 
@@ -65,6 +69,10 @@ Azure include diversi [ruoli predefiniti](built-in-roles.md) che è possibile us
 - [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator): consente di gestire l'accesso degli utenti alle risorse di Azure.
 
 Gli altri ruoli predefiniti consentono la gestione di risorse di Azure specifiche. Ad esempio, il ruolo [Collaboratore Macchina virtuale](built-in-roles.md#virtual-machine-contributor) consente a un utente di creare e gestire macchine virtuali. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati di Azure](custom-roles.md).
+
+Questo video offre una panoramica rapida dei ruoli predefiniti e dei ruoli personalizzati.
+
+>[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
 Azure dispone di operazioni sui dati che consentono di concedere l'accesso ai dati all'interno di un oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati per un account di archiviazione, può leggere i BLOB o i messaggi all'interno di tale account. Per altre informazioni, vedere [Informazioni sulle definizioni dei ruoli di Azure](role-definitions.md).
 

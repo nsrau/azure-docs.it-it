@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338200"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034403"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -41,7 +41,7 @@ La gestione dell'accesso dei dipendenti risulta spesso problematica per le organ
 Questi problemi diventano ancora più complessi per gli utenti che devono accedere a un'altra organizzazione, ad esempio utenti esterni di organizzazioni della supply chain o altri partner aziendali. Ad esempio:
 
 - Nessuno può conoscere tutti gli specifici individui inclusi nelle directory di altre organizzazioni per avere la possibilità di invitarli
-- Anche se si riesce a invitare questi utenti, nessuno nell'organizzazione esterna può ricordarsi di gestire in modo coerente tutti gli accessi degli utenti
+- Anche se fosse possibile invitare questi utenti, nessun membro di tale organizzazione può ricordare di gestire tutti gli accessi degli utenti in modo coerente
 
 La gestione entitlement di Azure AD può risultare utile per affrontare queste sfide.  Per altre informazioni su come viene usata la gestione entitlement di Azure AD da altri clienti, vedere i case study di [Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) e [Centrica](https://customers.microsoft.com/story/757467-centrica-energy-azure).  Questo video offre una panoramica della gestione entitlement e dei relativi vantaggi:
 
@@ -67,13 +67,13 @@ La gestione entitlement introduce in Azure AD il concetto di *pacchetto di acces
  Ecco i tipi di risorse per cui è possibile gestire l'accesso degli utenti con la gestione entitlement:
 
 - Appartenenza a gruppi di sicurezza di Azure AD
-- Appartenenza di gruppi di Microsoft 365 e team
+- Appartenenza a Gruppi e Team di Microsoft 365
 - Assegnazione ad applicazioni aziendali di Azure AD, tra cui applicazioni SaaS e con integrazioni personalizzate che supportano la federazione/Single Sign-On e/o il provisioning
 - Appartenenza a siti di SharePoint Online
 
-È anche possibile controllare l'accesso ad altre risorse che si basano su Azure AD gruppi di sicurezza o gruppi di Microsoft 365.  Ad esempio:
+È anche possibile controllare l'accesso ad altre risorse che si basano sui gruppi di sicurezza di Azure AD o su Gruppi di Office 365.  Ad esempio:
 
-- È possibile concedere agli utenti le licenze per Microsoft 365 usando un gruppo di sicurezza Azure AD in un pacchetto di accesso e configurando le [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per quel gruppo
+- È possibile concedere agli utenti licenze per Microsoft Office 365 usando un gruppo di sicurezza di Azure AD in un pacchetto di accesso e configurando [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per tale gruppo
 - È possibile concedere agli utenti l'accesso per gestire le risorse di Azure usando un gruppo di sicurezza di Azure AD in un pacchetto di e creando un'[assegnazione di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per tale gruppo
 
 ## <a name="how-do-i-control-who-gets-access"></a>Come si controlla chi ottiene l'accesso?

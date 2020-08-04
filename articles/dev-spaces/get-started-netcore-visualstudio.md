@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio per eseguire il debug e l'iterazione rapida di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: ba90cbc8bc0267f1fba8c9495886bdc8ce2ac5e3
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 722f2f5b86bd67df7c7250cdbfc44ebcc048c773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090791"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Creare uno spazio di sviluppo Kubernetes: Visual Studio e .NET Core con Azure Dev Spaces
 
@@ -23,7 +23,7 @@ In questa guida si apprenderà come:
 - Sviluppare in modo indipendente due servizi distinti e utilizzare l'individuazione del servizio DNS di Kubernetes per effettuare una chiamata a un altro servizio.
 - Sviluppare e testare il codice in modo produttivo in un ambiente di team.
 
-> [!Note]
+> [!NOTE]
 > **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md).
 
 ## <a name="install-the-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
@@ -36,7 +36,7 @@ Accedere ad Azure. Digitare il comando seguente in una finestra del terminale:
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Se sono disponibili più sottoscrizioni di Azure...
@@ -91,31 +91,31 @@ In questa sezione si creerà un'app Web ASP.NET Core e la si eseguirà in un con
 
 In Visual Studio creare un nuovo progetto. Attualmente deve trattarsi di un progetto **Applicazione Web ASP.NET Core**. Assegnare al progetto il nome "**webfrontend**".
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
+![La finestra di dialogo "Nuovo progetto" mostra la creazione di un'applicazione Web C sharp denominata "webfrontend" nella posizione C:\Source\Repos. L'elenco a discesa "Soluzione" è impostato su "Crea nuova soluzione". La casella di controllo "Crea directory per soluzione" è selezionata.](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
 Selezionare il modello **Applicazione Web (MVC)** e assicurarsi che nei due elenchi a discesa nella parte superiore della finestra di dialogo siano selezionati **.NET Core** e **ASP.NET Core 2.0**. Fare clic su **OK** per creare il progetto.
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
+![Nella finestra di dialogo "Nuova Applicazione Web ASP.NET Core" due elenchi a discesa mostrano ".NET Core" e "ASP.NET Core 2.0". Sotto gli elenchi a discesa è riportata una matrice di pulsanti per il modello di progetto in cui è selezionato il modello "Applicazione Web (MVC)". La casella di controllo "Abilita supporto Docker" non è selezionata.](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Abilitare Dev Spaces per un cluster servizio Azure Kubernetes
 
 Con il progetto appena creato, selezionare **Azure Dev Spaces** nell'elenco a discesa delle impostazioni di avvio, come mostrato di seguito.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![L'elenco a discesa è disponibile nella parte superiore di una finestra contrassegnata con l'etichetta Microsoft Visual Studio Int Preview. L'opzione "Azure Dev Spaces" è selezionata.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 Nella finestra di dialogo che viene quindi visualizzata verificare di aver effettuato l'accesso con l'account appropriato e quindi selezionare un cluster Kubernetes esistente.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
+![La finestra di dialogo Azure Dev Spaces contiene le tre caselle "Sottoscrizione" "Cluster servizio Azure Kubernetes" e "Spazio".](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
 Per il momento, nell'elenco a discesa **Spazio** lasciare l'impostazione predefinita `default`. Questa opzione verrà approfondita in seguito. Selezionare la casella di controllo **Publicly Accessible** (Accessibile pubblicamente) affinché l'app Web sia accessibile tramite un endpoint pubblico. Questa impostazione non è obbligatoria, ma sarà utile per illustrare alcuni concetti più avanti in questa procedura dettagliata. In ogni caso sarà comunque possibile eseguire il debug del sito Web con Visual Studio.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
+![La casella di controllo Accessibile pubblicamente è selezionata.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
 Fare clic su **OK** per selezionare o creare il cluster.
 
 Se si sceglie un cluster che non è stato abilitato per l'uso di Azure Dev Spaces, verrà visualizzato un messaggio che chiede se si vuole eseguire la configurazione.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![Il testo del messaggio sarà simile a questo: "Aggiungi risorsa di Azure Dev Spaces. Per usare Azure Dev Spaces è necessario configurare il cluster AKS selezionato. Continuare?" Saranno presenti i pulsanti "OK" e "Annulla".](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 Scegliere **OK**.
 
@@ -124,9 +124,9 @@ Scegliere **OK**.
 
  Verrà avviata un'attività in background a tale scopo. Il completamento dell'attività richiederà alcuni minuti. Per verificare se è ancora in corso la creazione, passare il puntatore sull'icona **Attività in background** nell'angolo inferiore sinistro della barra di stato, come illustrato nell'immagine seguente.
 
-![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
+![La finestra popup che viene visualizzata al passaggio del mouse indica che è in corso la creazione dell'AKS nel grippo di risorse.](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
 
-> [!Note]
+> [!NOTE]
 > Finché non viene completata la creazione dello spazio di sviluppo, non è possibile eseguire il debug dell'applicazione.
 
 ### <a name="look-at-the-files-added-to-project"></a>Esaminare i file aggiunti al progetto
@@ -138,7 +138,7 @@ Si noterà che è stato aggiunto un file denominato `Dockerfile`, che contiene l
 
 Si noterà infine in file denominato `azds.yaml` che contiene la configurazione in fase di sviluppo necessaria per lo spazio di sviluppo.
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+![Nell'ambito della finestra Esplora soluzioni, nella soluzione "webfrontend" viene visualizzato il file "azds.yaml".](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Eseguire il debug di un contenitore in Kubernetes
 Al termine della creazione dello spazio di sviluppo, è possibile eseguire il debug dell'applicazione. Impostare un punto di interruzione nel codice, ad esempio alla riga 20 del file `HomeController.cs` in cui viene impostata la variabile `Message`. Premere **F5** per avviare il debug. 

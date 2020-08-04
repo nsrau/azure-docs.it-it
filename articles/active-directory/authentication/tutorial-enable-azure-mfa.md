@@ -5,23 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77154679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035061"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Esercitazione: Proteggere gli eventi di accesso con Azure Multi-Factor Authentication
 
 L'autenticazione a più fattori è un processo che richiede all'utente di immettere ulteriori forme di identificazione durante un evento di accesso. La richiesta può prevedere l'immissione di un codice sul telefono cellulare o l'analisi dell'impronta digitale. Quando è necessaria una seconda forma di autenticazione, la sicurezza viene rafforzata, perché questo fattore aggiuntivo non è facile da ottenere o duplicare.
 
 I criteri di accesso condizionale e Multi-Factor Authentication di Azure offrono la flessibilità necessaria per abilitare l'autenticazione a più fattori per gli utenti durante eventi di accesso specifici.
+
+> [!IMPORTANT]
+> Questa esercitazione illustra all'amministratore come abilitare Azure Multi-Factor Authentication.
+>
+> Se il team IT non ha consentito di usare Azure Multi-Factor Authentication o se si verificano problemi durante l'accesso, rivolgersi al supporto tecnico per assistenza aggiuntiva.
 
 In questa esercitazione si apprenderà come:
 
@@ -38,9 +43,9 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un account con privilegi di *amministratore globale*.
 * Un utente non amministratore con una password conosciuta, ad esempio *testuser*. In questa esercitazione sarà possibile testare l'esperienza di zure Multi-Factor Authentication dell'utente finale usando questo account.
-    * Se è necessario creare un utente, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](../add-users-azure-active-directory.md).
+    * Se è necessario creare un utente, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Un gruppo di cui l'utente non amministratore è membro, ad esempio, *MFA-Test-Group*. In questa esercitazione verrà abilitata l'esperienza di Azure Multi-Factor Authentication per questo gruppo.
-    * Se è necessario creare un gruppo, vedere come [creare un gruppo e aggiungere membri in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Se è necessario creare un gruppo, vedere come [creare un gruppo e aggiungere membri in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 

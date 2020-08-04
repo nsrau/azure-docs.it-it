@@ -1,23 +1,24 @@
 ---
-title: Creare una data factory di Azure usando un modello di Resource Manager
-description: In questa esercitazione si crea una pipeline di esempio di Azure Data Factory usando il modello di Azure Resource Manager.
+title: Creare un'istanza di Azure Data Factory usando un modello di Azure Resource Manager (ARM)
+description: Creare una pipeline di Azure Data Factory di esempio usando un modello di Azure Resource Manager (ARM).
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
+tags: azure-resource-manager
 ms.workload: data-services
-ms.topic: quickstart
-ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
-manager: anandsub
-ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: maghan, jingwang
+ms.topic: quickstart
+ms.custom: subject-armqs
+ms.date: 07/16/2020
+ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419120"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283895"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare una data factory di Azure usando un modello di Azure Resource Manager
+# <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Avvio rapido: Creare un'istanza di Azure Data Factory con un modello di Azure Resource Manager
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
@@ -25,678 +26,170 @@ ms.locfileid: "81419120"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Questa guida introduttiva descrive come usare un modello di Azure Resource Manager per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** dati usando Azure Data Factory, vedere [Esercitazione: Trasformare i dati con Spark](transform-data-using-spark.md).
+Questo argomento di avvio rapido descrive come usare un modello di Azure Resource Manager (ARM) per creare un'istanza di Azure Data Factory. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** dati usando Azure Data Factory, vedere [Esercitazione: Trasformare i dati con Spark](transform-data-using-spark.md).
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 > [!NOTE]
 > Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per un'introduzione al servizio Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
-### <a name="azure-powershell"></a>Azure PowerShell
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="prerequisites"></a>Prerequisiti
 
-Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
+### <a name="azure-subscription"></a>Sottoscrizione di Azure
 
-## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-Per informazioni generali sui modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
+### <a name="create-a-file"></a>Creare un file
 
-La sezione seguente contiene il modello di Resource Manager completo per la definizione di entità di Data Factory. In questo modo sarà possibile eseguire rapidamente l'esercitazione e testare il modello. Per conoscere come viene definita ogni entità di Data Factory, vedere la sezione [Entità di Data Factory nel modello](#data-factory-entities-in-the-template).
+Aprire un editor di testo come il **Blocco note** e creare un file denominato **emp.txt** con il contenuto seguente:
 
-Per informazioni sulla sintassi e sulle proprietà JSON per le risorse di Data Factory in un modello, vedere [Microsoft.DataFactory resource types](/azure/templates/microsoft.datafactory/allversions) (Tipi di risorse Microsoft.DataFactory).
-
-## <a name="data-factory-json"></a>JSON per Data Factory
-
-Creare un file JSON denominato **ADFTutorialARM.json** con il contenuto seguente nella cartella **C:\ADFTutorial** (creando anche la cartella ADFTutorial, se non esiste):
-
-```json
-{  
-    "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion":"1.0.0.0",
-    "parameters":{  
-        "dataFactoryName":{  
-            "type":"string",
-            "metadata":"Data Factory Name"
-        },
-        "dataFactoryLocation":{  
-            "type":"string",
-            "defaultValue":"East US",
-            "metadata":{  
-                "description":"Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
-            }
-        },
-        "storageAccountName":{  
-            "type":"string",
-            "metadata":{  
-                "description":"Name of the Azure storage account that contains the input/output data."
-            }
-        },
-        "storageAccountKey":{  
-            "type":"securestring",
-            "metadata":{  
-                "description":"Key for the Azure storage account."
-            }
-        },
-        "triggerStartTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Start time for the trigger."
-            }
-        },
-        "triggerEndTime": {
-            "type": "string",
-            "metadata": {
-                "description": "End time for the trigger."
-            }
-        }
-    },      
-    "variables":{  
-        "factoryId":"[concat('Microsoft.DataFactory/factories/', parameters('dataFactoryName'))]"
-    },
-    "resources":[  
-        {  
-            "name":"[parameters('dataFactoryName')]",
-            "apiVersion":"2018-06-01",
-            "type":"Microsoft.DataFactory/factories",
-            "location":"[parameters('dataFactoryLocation')]",
-            "identity":{  
-                "type":"SystemAssigned"
-            },
-            "resources":[  
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateStorageLinkedService')]",
-                    "type":"Microsoft.DataFactory/factories/linkedServices",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "annotations":[  
-
-                        ],
-                        "type":"AzureBlobStorage",
-                        "typeProperties":{  
-                            "connectionString":"[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-                        }
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]"
-                    ]
-                },
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetIn')]",
-                    "type":"Microsoft.DataFactory/factories/datasets",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "linkedServiceName":{  
-                            "referenceName":"ArmtemplateStorageLinkedService",
-                            "type":"LinkedServiceReference"
-                        },
-                        "annotations":[  
-
-                        ],
-                        "type":"Binary",
-                        "typeProperties":{  
-                            "location":{  
-                                "type":"AzureBlobStorageLocation",
-                                "fileName":"emp.txt",
-                                "folderPath":"input",
-                                "container":"adftutorial"
-                            }
-                        }
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]",
-                        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
-                    ]
-                },
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetOut')]",
-                    "type":"Microsoft.DataFactory/factories/datasets",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "linkedServiceName":{  
-                            "referenceName":"ArmtemplateStorageLinkedService",
-                            "type":"LinkedServiceReference"
-                        },
-                        "annotations":[  
-
-                        ],
-                        "type":"Binary",
-                        "typeProperties":{  
-                            "location":{  
-                                "type":"AzureBlobStorageLocation",
-                                "folderPath":"output",
-                                "container":"adftutorial"
-                            }
-                        }
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]",
-                        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
-                    ]
-                },
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateSampleCopyPipeline')]",
-                    "type":"Microsoft.DataFactory/factories/pipelines",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "activities":[  
-                            {  
-                                "name":"MyCopyActivity",
-                                "type":"Copy",
-                                "dependsOn":[  
-
-                                ],
-                                "policy":{  
-                                    "timeout":"7.00:00:00",
-                                    "retry":0,
-                                    "retryIntervalInSeconds":30,
-                                    "secureOutput":false,
-                                    "secureInput":false
-                                },
-                                "userProperties":[  
-
-                                ],
-                                "typeProperties":{  
-                                    "source":{  
-                                        "type":"BinarySource",
-                                        "storeSettings":{  
-                                            "type":"AzureBlobStorageReadSettings",
-                                            "recursive":true
-                                        }
-                                    },
-                                    "sink":{  
-                                        "type":"BinarySink",
-                                        "storeSettings":{  
-                                            "type":"AzureBlobStorageWriteSettings"
-                                        }
-                                    },
-                                    "enableStaging":false
-                                },
-                                "inputs":[  
-                                    {  
-                                        "referenceName":"ArmtemplateTestDatasetIn",
-                                        "type":"DatasetReference",
-                                        "parameters":{  
-
-                                        }
-                                    }
-                                ],
-                                "outputs":[  
-                                    {  
-                                        "referenceName":"ArmtemplateTestDatasetOut",
-                                        "type":"DatasetReference",
-                                        "parameters":{  
-
-                                        }
-                                    }
-                                ]
-                            }
-                        ],
-                        "annotations":[  
-
-                        ]
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]",
-                        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetIn')]",
-                        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetOut')]"
-                    ]
-                },
-                {  
-                    "name":"[concat(parameters('dataFactoryName'), '/ArmTemplateTestTrigger')]",
-                    "type":"Microsoft.DataFactory/factories/triggers",
-                    "apiVersion":"2018-06-01",
-                    "properties":{  
-                        "annotations":[  
-
-                        ],
-                        "runtimeState":"Started",
-                        "pipelines":[  
-                            {  
-                                "pipelineReference":{  
-                                    "referenceName":"ArmtemplateSampleCopyPipeline",
-                                    "type":"PipelineReference"
-                                },
-                                "parameters":{  
-
-                                }
-                            }
-                        ],
-                        "type":"ScheduleTrigger",
-                        "typeProperties":{  
-                            "recurrence":{  
-                                "frequency":"Hour",
-                                "interval":1,
-                                "startTime":"[parameters('triggerStartTime')]",
-                                "endTime":"[parameters('triggerEndTime')]",
-                                "timeZone":"UTC"
-                            }
-                        }
-                    },
-                    "dependsOn":[  
-                        "[parameters('dataFactoryName')]",
-                        "[concat(variables('factoryId'), '/pipelines/ArmtemplateSampleCopyPipeline')]"
-                    ]
-                }
-            ]
-        }
-    ]
-}
-```
-## <a name="parameters-json"></a>Parametri JSON
-
-Creare un file JSON denominato **ADFTutorialARM-Parameters.json** contenente i parametri per il modello di Azure Resource Manager.
-
-> [!IMPORTANT]
-> - Specificare il nome e la chiave dell'account di archiviazione di Azure per i parametri **storageAccountName** e **storageAccountKey** in questo file dei parametri. È stato creato il contenitore adftutorial ed è stato caricato il file di esempio (emp.txt) nella cartella di input in questo archivio BLOB di Azure.
-> - Specificare un nome univoco globale per la data factory per il parametro **dataFactoryName**. Ad esempio: ARMTutorialFactoryJohnDoe11282017.
-> - Per **triggerStartTime** specificare la giornata corrente con formato `2019-09-08T00:00:00`.
-> - Per **triggerEndTime** specificare il giorno successivo con formato `2019-09-09T00:00:00`. È anche possibile selezionare l'ora UTC corrente e specificare l'ora o le due ore successive come ora di fine. Ad esempio, se l'ora UTC è attualmente 1:32 AM, specificare `2019-09-09:03:00:00` come ora di fine. In questo caso il trigger esegue due volte la pipeline (alle 2:00 e alle 3:00).
-
-```json
-{  
-    "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion":"1.0.0.0",
-    "parameters":{  
-        "dataFactoryName":{  
-            "value":"<datafactoryname>"
-        },
-        "dataFactoryLocation":{  
-            "value":"East US"
-        },
-        "storageAccountName":{  
-            "value":"<yourstorageaccountname>"
-        },
-        "storageAccountKey":{  
-            "value":"<yourstorageaccountkey>"
-        },
-        "triggerStartTime":{  
-            "value":"2019-09-08T11:00:00"
-        },
-        "triggerEndTime":{  
-            "value":"2019-09-08T14:00:00"
-        }
-    }
-}
+```emp.txt
+John, Doe
+Jane, Doe
 ```
 
-> [!IMPORTANT]
-> Si possono avere file JSON di parametri separati per gli ambienti di sviluppo, test e produzione che è possibile usare con lo stesso modello JSON di Data Factory. Usando uno script di Power Shell, è possibile automatizzare la distribuzione delle entità di Data Factory in questi ambienti.
+Salvare il file nella cartella **C:\ADFv2QuickStartPSH**. Se la cartella non esiste, crearla.
 
-## <a name="deploy-data-factory-entities"></a>Distribuire entità di Data Factory
+## <a name="review-template"></a>Rivedere il modello
 
-In PowerShell eseguire questo comando per distribuire entità di Data Factory nel gruppo di risorse (in questo caso, usare come esempio ADFTutorialResourceGroup) con il modello di Resource Manager creato in precedenza in questa guida di avvio rapido.
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-```powershell
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
+
+Nel modello sono definite risorse di Azure:
+
+- [Microsoft.Storage/storageAccounts](/azure/templates/Microsoft.Storage/storageAccounts): definisce un account di archiviazione.
+- [Microsoft.DataFactory/factories](/azure/templates/microsoft.datafactory/factories): crea un'istanza di Azure Data Factory.
+- [Microsoft.DataFactory/factories/linkedServices](/azure/templates/microsoft.datafactory/factories/linkedservices): crea un servizio collegato Azure Data Factory.
+- [Microsoft.DataFactory/factories/datasets](/azure/templates/microsoft.datafactory/factories/datasets): crea un'istanza di Azure Data Factory.
+- [Microsoft.DataFactory/factories/pipelines](/azure/templates/microsoft.datafactory/factories/pipelines): crea una pipeline di Azure Data Factory.
+
+Altri esempi di modelli di Azure Data Factory sono disponibili nella [raccolta di modelli di avvio rapido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular).
+
+## <a name="deploy-the-template"></a>Distribuire il modello
+
+1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un account Azure Data Factory, un account di archiviazione e un contenitore BLOB.
+
+    [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+
+2. Selezionare o immettere i valori seguenti.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-deploy-arm-template.png" alt-text="Distribuire un modello di Azure Resource Manager per Azure Data Factory":::
+
+    Se non specificati, usare i valori predefiniti per creare le risorse di Azure Data Factory:
+
+    - **Sottoscrizione** Selezionare una sottoscrizione di Azure.
+    - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi scegliere **OK**.
+    - **Area**: Selezionare una località.  Ad esempio *Stati Uniti orientali*.
+    - **Nome data factory**: usare il valore predefinito.
+    - **Località**: usare il valore predefinito.
+    - **Nome dell'account di archiviazione**: usare il valore predefinito.
+    - **Contenitore BLOB**: usare il valore predefinito.
+
+## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
+
+1. Selezionare **Vai al gruppo di risorse**.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Gruppo di risorse":::
+
+2.  Verificare che venga creata l'istanza di Azure Data Factory.
+    1. Il nome dell'istanza di Azure Data Factory è nel formato - datafactory\<uniqueid\>.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Data factory di esempio":::
+
+2. Verificare che venga creato un account di archiviazione.
+    1. Il nome dell'account di archiviazione è nel formato - storage\<uniqueid\>.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Storage Account":::
+
+3. Selezionare l'account di archiviazione creato e quindi selezionare **Contenitori**.
+    1. Nella pagina **Contenitori** selezionare il contenitore BLOB creato.
+        1. Il nome del contenitore BLOB è nel formato - blob\<uniqueid\>.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Contenitore BLOB":::
+
+### <a name="upload-a-file"></a>Caricare un file
+
+1. Nella pagina **Contenitori** selezionare **Carica**.
+
+2. Nel riquadro destro selezionare la casella **File** e quindi individuare e selezionare il file **emp.txt** creato in precedenza.
+
+3. Espandere l'intestazione **Avanzate**.
+
+4. Nella casella **Carica nella cartella** immettere *input*.
+
+5. Selezionare il pulsante **Carica**. Verranno visualizzati il file **emp.txt** e lo stato del caricamento nell'elenco.
+
+6. Selezionare l'icona **Chiudi** (una **X**) per chiudere la pagina **Carica BLOB**.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Caricare il file nella cartella di input":::
+
+Lasciare aperta la pagina del contenitore perché è possibile usarla per verificare l'output alla fine di questo argomento di avvio rapido.
+
+### <a name="start-trigger"></a>Avviare il trigger
+
+1. Passare alla pagina **Data factory** e selezionare la data factory creata. 
+
+2. Selezionare il riquadro **Crea e monitora**. 
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Crea e monitora":::
+
+2. Selezionare la scheda **Autore** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
+
+3. Selezionare la pipeline creata: ArmtemplateSampleCopyPipeline.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Pipeline del modello di Azure Resource Manager":::
+
+4. Selezionare **Aggiungi trigger** > **Trigger Now** (Attiva adesso).
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Trigger":::
+
+5. Nel riquadro destro in **Pipeline run** (Esecuzione pipeline) scegliere **OK**.
+
+### <a name="monitor-the-pipeline"></a>Monitorare la pipeline
+
+1. Selezionare la scheda **Monitoraggio** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-monitor.png" border="false":::.
+
+2. Vengono visualizzate le esecuzioni di attività associate all'esecuzione della pipeline. In questa guida introduttiva la pipeline ha solo un'attività di tipo copia. Viene pertanto visualizzata un'esecuzione per tale attività.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Esecuzione riuscita":::
+
+### <a name="verify-the-output-file"></a>Verificare il file di output
+
+La pipeline crea automaticamente una cartella di output nel contenitore BLOB. quindi copia il file emp.txt dalla cartella di input a quella di output. 
+
+1. Nella pagina **Contenitori** nel portale di Azure selezionare **Aggiorna** per visualizzare la cartella di output. 
+
+2. Nell'elenco delle cartelle selezionare **output**.
+
+3. Verificare che **emp.txt** venga copiato nella cartella di output. 
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Output":::
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+È possibile eseguire la pulizia delle risorse create nel corso della guida introduttiva in due modi. È possibile [eliminare il gruppo di risorse di Azure](../azure-resource-manager/management/delete-resource-group.md), che include tutte le risorse del gruppo. Se invece si vogliono mantenere intatte le altre risorse, eliminare solo la data factory creata in questa esercitazione.
+
+Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse in esso contenute, incluse le data factory. Eseguire il comando seguente per eliminare l'intero gruppo di risorse: 
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-L'output sarà simile all'esempio seguente:
+Per eliminare solo la data factory e non l'intero gruppo di risorse, eseguire questo comando: 
 
-```console
-DeploymentName          : MyARMDeployment
-ResourceGroupName       : ADFTutorialResourceGroup
-ProvisioningState       : Succeeded
-Timestamp               : 9/8/2019 10:52:29 AM
-Mode                    : Incremental
-TemplateLink            : 
-Parameters              : 
-                          Name                   Type                       Value     
-                          =====================  =========================  ==========
-                          dataFactoryName        String                     <data factory name>
-                          dataFactoryLocation    String                     East US   
-                          storageAccountName     String                     <storage account name>
-                          storageAccountKey      SecureString                         
-                          triggerStartTime       String                     9/8/2019 11:00:00 AM
-                          triggerEndTime         String                     9/8/2019 2:00:00 PM
-                          
-Outputs                 : 
-DeploymentDebugLogLevel : 
+```azurepowershell-interactive
+Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
-
-## <a name="start-the-trigger"></a>Avviare il trigger
-
-Il modello distribuisce le entità di Data Factory seguenti:
-
-- Servizio collegato Archiviazione di Azure
-- Set di dati binari (di input e di output)
-- Pipeline con un’attività di copia
-- Trigger per l'attivazione della pipeline
-
-Lo stato del trigger distribuito è arrestato. Uno dei modi per avviare il trigger consiste nell'usare il cmdlet **Start-AzDataFactoryV2Trigger** di PowerShell. La procedura seguente fornisce passaggi dettagliati:
-
-1. Nella finestra di PowerShell creare una variabile per includere il nome del gruppo di risorse. Copiare il comando seguente nella finestra di PowerShell e premere INVIO. Se è stato specificato un nome di gruppo di risorse diverso per il comando New-AZResourceGroupDeployment, aggiornare il valore qui.
-
-    ```powershell
-    $resourceGroupName = "ADFTutorialResourceGroup"
-    ```
-2. Creare una variabile per includere il nome della data factory. Specificare lo stesso nome indicato nel file ADFTutorialARM-Parameters.json.
-
-    ```powershell
-    $dataFactoryName = "<yourdatafactoryname>"
-    ```
-3. Impostare una variabile per il nome del trigger. Il nome del trigger è hardcoded nel file del modello di Resource Manager (ADFTutorialARM.json).
-
-    ```powershell
-    $triggerName = "ArmTemplateTestTrigger"
-    ```
-4. Ottenere lo **stato del trigger** eseguendo il comando di PowerShell seguente dopo avere specificato il nome della data factory e del trigger:
-
-    ```powershell
-    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
-    ```
-
-    Di seguito è riportato l'output di esempio:
-
-    ```json
-
-    TriggerName       : ArmTemplateTestTrigger
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : ADFQuickstartsDataFactory0905
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
-    RuntimeState      : Stopped
-    ```
-    
-    Si noti che lo stato di runtime del trigger è **Stopped**.
-5. **Avviare il trigger**. Il trigger esegue la pipeline definita nel modello all'ora specificata. Se questo comando è stato eseguito alle 14:25, il trigger esegue la pipeline alle 15:00 per la prima volta. La pipeline viene quindi eseguita ogni ora fino all'ora di fine specificata per il trigger.
-
-    ```powershell
-    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
-    ```
-    
-    Di seguito è riportato l'output di esempio:
-    
-    ```console
-    Confirm
-    Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-    True
-    ```
-6. Confermare che il trigger è stato avviato eseguendo di nuovo il comando Get-AzDataFactoryV2Trigger.
-
-    ```powershell
-    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
-    ```
-    
-    Di seguito è riportato l'output di esempio:
-    
-    ```console
-    TriggerName       : ArmTemplateTestTrigger
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : ADFQuickstartsDataFactory0905
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
-    RuntimeState      : Started
-    ```
-
-## <a name="monitor-the-pipeline"></a>Monitorare la pipeline
-
-1. Dopo avere eseguito l'accesso al [portale di Azure](https://portal.azure.com/), fare clic su **Tutti i servizi**, eseguire una ricerca con una parola chiave come **data fa** e selezionare **Data factory**.
-
-2. Nella pagina **Data factory** fare clic sulla data factory creata. Se necessario, filtrare l'elenco specificando il nome della data factory.
-
-3. Nella pagina Data factory fare clic sul riquadro **Crea e monitora**.
-
-4. Nella pagina **Attività iniziali** selezionare la scheda **Monitoraggio**.  ![Monitorare l'esecuzione della pipeline](media/doc-common-process/get-started-page-monitor-button.png)
-
-    > [!IMPORTANT]
-    > Le esecuzioni della pipeline vengono visualizzate solo al cambio di ogni ora (ad esempio 4:00, 5:00, 6:00 e così via). Fare clic su **Aggiorna** sulla barra degli strumenti per aggiornare l'elenco quando si arriva all'ora successiva.
-
-5. Fare clic sul collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**.
-
-    ![Collegamento Azioni della pipeline](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-
-6. Vengono visualizzate le esecuzioni di attività associate all'esecuzione della pipeline. In questa guida introduttiva la pipeline ha solo un'attività di tipo copia. Viene quindi visualizzata un'esecuzione per tale attività.
-
-    ![Esecuzioni attività](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-7. Fare clic sul collegamento **Output** nella colonna Azioni. Viene visualizzato l'output dell'operazione di copia in una finestra di **Output**. Per visualizzare l'output completo, fare clic sul pulsante Ingrandisci. È possibile chiudere la finestra di output ingrandita o chiuderla senza ingrandirla.
-
-8. Arrestare il trigger dopo la visualizzazione di un'esecuzione riuscita/non riuscita. Il trigger esegue la pipeline una volta all'ora. La pipeline copia lo stesso file dalla cartella di input alla cartella di output per ogni esecuzione. Per arrestare il trigger, eseguire il comando seguente nella finestra di PowerShell.
-    
-    ```powershell
-    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
-    ```
-
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
-
-## <a name="json-definitions-for-entities"></a><a name="data-factory-entities-in-the-template"></a> Definizioni JSON per le entità
-
-Le entità di Data Factory seguenti vengono definite nel modello JSON:
-
-- [Servizio collegato Archiviazione di Azure](#azure-storage-linked-service)
-- [Set di dati binario di input](#binary-input-dataset)
-- [Set di dati binario di output](#binary-output-dataset)
-- [Pipeline di dati con un'attività di copia](#data-pipeline)
-- [Trigger](#trigger)
-
-#### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
-
-AzureStorageLinkedService collega l'account di archiviazione di Azure alla data factory. Come parte dei prerequisiti è stato creato un contenitore e sono stati caricati i dati in questo account di archiviazione. In questa sezione si specificano il nome e la chiave dell'account di archiviazione di Azure. Per informazioni dettagliate sulle proprietà JSON usate per definire un servizio collegato di Archiviazione di Azure, vedere [Servizio collegato Archiviazione di Azure](connector-azure-blob-storage.md#linked-service-properties).
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateStorageLinkedService')]",
-    "type":"Microsoft.DataFactory/factories/linkedServices",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "annotations":[  
-
-        ],
-        "type":"AzureBlobStorage",
-        "typeProperties":{  
-            "connectionString":"[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-        }
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]"
-    ]
-}
-```
-
-connectionString usa i parametri storageAccountName e storageAccountKey. I valori per questi parametri sono stati passati usando un file di configurazione. La definizione usa anche le variabili azureStorageLinkedService e dataFactoryName definite nel modello.
-
-#### <a name="binary-input-dataset"></a>Set di dati binario di input
-
-Il servizio collegato Archiviazione di Azure specifica la stringa di connessione usata dal servizio Data Factory in fase di esecuzione per connettersi all'account di archiviazione di Azure. Nella definizione del set di dati binario si specificano i nomi del contenitore BLOB, della cartella e del file contenente i dati di input. Per informazioni dettagliate sulle proprietà JSON usate per definire un set di dati binario, vedere [Proprietà del set di dati binario](format-binary.md#dataset-properties).
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetIn')]",
-    "type":"Microsoft.DataFactory/factories/datasets",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "linkedServiceName":{  
-            "referenceName":"ArmtemplateStorageLinkedService",
-            "type":"LinkedServiceReference"
-        },
-        "annotations":[  
-
-        ],
-        "type":"Binary",
-        "typeProperties":{  
-            "location":{  
-                "type":"AzureBlobStorageLocation",
-                "fileName":"emp.txt",
-                "folderPath":"input",
-                "container":"adftutorial"
-            }
-        }
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]",
-        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
-    ]
-}
-```
-
-#### <a name="binary-output-dataset"></a>Set di dati binario di output
-
-Viene specificato il nome della cartella dell'archivio BLOB di Azure che include i dati copiati dalla cartella di input. Per informazioni dettagliate sulle proprietà JSON usate per definire un set di dati binario, vedere [Proprietà del set di dati binario](format-binary.md#dataset-properties).
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateTestDatasetOut')]",
-    "type":"Microsoft.DataFactory/factories/datasets",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "linkedServiceName":{  
-            "referenceName":"ArmtemplateStorageLinkedService",
-            "type":"LinkedServiceReference"
-        },
-        "annotations":[  
-
-        ],
-        "type":"Binary",
-        "typeProperties":{  
-            "location":{  
-                "type":"AzureBlobStorageLocation",
-                "folderPath":"output",
-                "container":"adftutorial"
-            }
-        }
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]",
-        "[concat(variables('factoryId'), '/linkedServices/ArmtemplateStorageLinkedService')]"
-    ]
-}
-```
-
-#### <a name="data-pipeline"></a>Data Pipeline
-
-Viene definita una pipeline che copia i dati da un set di dati binario a un altro set di dati binario. Per le descrizioni degli elementi JSON usati per definire una pipeline in questo esempio, vedere [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json).
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmtemplateSampleCopyPipeline')]",
-    "type":"Microsoft.DataFactory/factories/pipelines",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "activities":[  
-            {  
-                "name":"MyCopyActivity",
-                "type":"Copy",
-                "dependsOn":[  
-
-                ],
-                "policy":{  
-                    "timeout":"7.00:00:00",
-                    "retry":0,
-                    "retryIntervalInSeconds":30,
-                    "secureOutput":false,
-                    "secureInput":false
-                },
-                "userProperties":[  
-
-                ],
-                "typeProperties":{  
-                    "source":{  
-                        "type":"BinarySource",
-                        "storeSettings":{  
-                            "type":"AzureBlobStorageReadSettings",
-                            "recursive":true
-                        }
-                    },
-                    "sink":{  
-                        "type":"BinarySink",
-                        "storeSettings":{  
-                            "type":"AzureBlobStorageWriteSettings"
-                        }
-                    },
-                    "enableStaging":false
-                },
-                "inputs":[  
-                    {  
-                        "referenceName":"ArmtemplateTestDatasetIn",
-                        "type":"DatasetReference",
-                        "parameters":{  
-
-                        }
-                    }
-                ],
-                "outputs":[  
-                    {  
-                        "referenceName":"ArmtemplateTestDatasetOut",
-                        "type":"DatasetReference",
-                        "parameters":{  
-
-                        }
-                    }
-                ]
-            }
-        ],
-        "annotations":[  
-
-        ]
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]",
-        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetIn')]",
-        "[concat(variables('factoryId'), '/datasets/ArmtemplateTestDatasetOut')]"
-    ]
-}
-```
-
-#### <a name="trigger"></a>Trigger
-
-Viene definito un trigger che esegue la pipeline una volta all'ora. Lo stato del trigger distribuito è arrestato. Avviare il trigger usando il cmdlet **Start-AzDataFactoryV2Trigger**. Per altre informazioni sui trigger, vedere l'articolo [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#trigger-execution).
-
-```json
-{  
-    "name":"[concat(parameters('dataFactoryName'), '/ArmTemplateTestTrigger')]",
-    "type":"Microsoft.DataFactory/factories/triggers",
-    "apiVersion":"2018-06-01",
-    "properties":{  
-        "annotations":[  
-
-        ],
-        "runtimeState":"Started",
-        "pipelines":[  
-            {  
-                "pipelineReference":{  
-                    "referenceName":"ArmtemplateSampleCopyPipeline",
-                    "type":"PipelineReference"
-                },
-                "parameters":{  
-
-                }
-            }
-        ],
-        "type":"ScheduleTrigger",
-        "typeProperties":{  
-            "recurrence":{  
-                "frequency":"Hour",
-                "interval":1,
-                "startTime":"[parameters('triggerStartTime')]",
-                "endTime":"[parameters('triggerEndTime')]",
-                "timeZone":"UTC"
-            }
-        }
-    },
-    "dependsOn":[  
-        "[parameters('dataFactoryName')]",
-        "[concat(variables('factoryId'), '/pipelines/ArmtemplateSampleCopyPipeline')]"
-    ]
-}
-```
-
-## <a name="reuse-the-template"></a>Riutilizzare il modello
-
-Nell'esercitazione sono stati creati un modello per definire le entità di Data Factory e un modello per passare i valori dei parametri. Per usare lo stesso modello per distribuire le entità di Data Factory in ambienti diversi, si crea un file dei parametri per ogni ambiente e lo si usa durante la distribuzione in tale ambiente.
-
-Esempio:
-
-```powershell
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
-
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
-
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
-```
-
-Si noti che il primo comando usa il file dei parametri per l'ambiente di sviluppo, il secondo per l'ambiente di test e il terzo per l'ambiente di produzione.
-
-È anche possibile riutilizzare il modello per eseguire attività ripetute. Ad esempio, creare più data factory con una o più pipeline che implementano la stessa logica, anche se ogni data factory usa account di archiviazione diversi Azure. In questo scenario si usa lo stesso modello nello stesso ambiente (sviluppo, test o produzione) con file dei parametri diversi per creare le data factory.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La pipeline in questo esempio copia i dati da una posizione a un'altra in un archivio BLOB di Azure. Per informazioni sull'uso di Data Factory in più scenari, fare riferimento alle [esercitazioni](tutorial-copy-data-dot-net.md).
+In questo argomento di avvio rapido è stata creata un'istanza di Azure Data Factory usando un modello di Azure Resource Manager ed è stata convalidata la distribuzione. Per altre informazioni su Azure Data Factory e Azure Resource Manager, continuare con gli articoli seguenti.
+
+- [Documentazione di Azure Data Factory](index.yml)
+- Vedere altre informazioni su [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+- Ottenere altri [modelli di Azure Resource Manager per Azure Data Factory](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular)

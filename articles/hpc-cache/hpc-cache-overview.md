@@ -4,14 +4,15 @@ description: Illustra Cache HPC di Azure, una soluzione che accelera l'accesso a
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 05/29/2020
+ms.date: 07/16/2020
 ms.author: v-erkel
-ms.openlocfilehash: c0d32beeedba61bc2ecdc444685f7e81073459be
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: references_regions
+ms.openlocfilehash: 8c8223872ec3ef1d875e10ead8f327db01a924c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053682"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Che cos'è Cache HPC di Azure?
 
@@ -53,22 +54,16 @@ Una distribuzione di Cache HPC di Azure consente di velocizzare i calcoli dell'a
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Cache HPC di Azure è disponibile in queste aree di Azure:
+Per determinare le località in cui Cache HPC di Azure è disponibile, visitare la pagina dei [prodotti disponibili per area dell'infrastruttura globale di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache).
 
-| America del Nord      | Europa         | Asia            | Australia      |
-|--------------------|----------------|-----------------|----------------|
-| Stati Uniti orientali            | Europa settentrionale   | Corea centrale   | Australia orientale |
-| Stati Uniti orientali 2          | Europa occidentale    | Asia sud-orientale  |               |
-| Stati Uniti centro-meridionali | | | |
-| Stati Uniti occidentali 2        | | | |
-
-La [funzionalità delle chiavi gestite dal cliente](customer-keys.md) è supportata solo in queste aree:
+La [funzionalità delle chiavi gestite dal cliente](customer-keys.md) è supportata solo in queste aree di Azure:
 
 * Stati Uniti orientali
 * Stati Uniti centro-meridionali
 * Stati Uniti occidentali 2
-
-Per le informazioni più aggiornate sulla disponibilità, vedere la [pagina relativa al prodotto Cache HPC di Azure](https://azure.microsoft.com/services/hpc-cache).
+* Europa occidentale
+* US Gov Arizona
+* US Gov Virginia
 
 ## <a name="service-availability"></a>Disponibilità del servizio
 
@@ -79,5 +74,5 @@ Per richiedere l'accesso, compilare [questo modulo](https://aka.ms/onboard-hpc-c
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Leggere la [pagina relativa al prodotto Cache HPC di Azure](https://azure.microsoft.com/services/hpc-cache) per avere altre informazioni sulle relative funzionalità
-* Vedere le informazioni relative ai [prerequisiti](hpc-cache-prereqs.md) del prodotto
+* Vedere le informazioni relative ai [prerequisiti](hpc-cache-prerequisites.md) del prodotto
 * [Creare una cache HPC di Azure](hpc-cache-create.md) dal portale di Azure

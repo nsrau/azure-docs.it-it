@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ac62b1706749c4708d804dd2102ad3f2a7132a16
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193652"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070108"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Endpoint privati gestiti di Synapse (anteprima)
 
@@ -21,9 +21,9 @@ Questo articolo illustra gli endpoint privati gestiti in Azure Synapse Analytics
 
 ## <a name="managed-private-endpoints"></a>Endpoint privati gestiti
 
-Gli endpoint privati gestiti sono endpoint privati creati nella rete virtuale dell'area di lavoro gestita che consentono di stabilire un collegamento privato alle risorse di Azure. Azure Synapse gestisce questi endpoint privati per conto dell'utente.
+Gli endpoint privati gestiti sono endpoint privati creati nella rete virtuale di Microsoft Azure dell'area di lavoro gestita che consentono di stabilire un collegamento privato alle risorse di Azure. Azure Synapse gestisce questi endpoint privati per conto dell'utente.
 
-Azure Synapse supporta i collegamenti privati. Il collegamento privato consente di accedere in modo sicuro a servizi di Azure, ad esempio Archiviazione di Azure, Azure Cosmos DB e Azure SQL Data Warehouse, nonché a servizi di clienti/partner ospitati da Azure dalla rete virtuale di Azure.
+Azure Synapse supporta i collegamenti privati. Il collegamento privato consente di accedere in modo sicuro a servizi di Azure, ad esempio Archiviazione di Azure, Azure Cosmos DB e Azure SQL Data Warehouse, nonché a servizi di clienti/partner ospitati da Azure da Rete virtuale di Azure.
 
 Quando si usa un collegamento privato, il traffico tra la rete virtuale e l'area di lavoro attraversa interamente la rete backbone Microsoft. Il collegamento privato protegge da rischi di esfiltrazione dei dati. Per stabilire un collegamento privato a una risorsa, è necessario creare un endpoint privato.
 

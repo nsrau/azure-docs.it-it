@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva sull'invio di dati di telemetria all'hub IoT di Azure | Microsoft Docs
-description: In questa guida introduttiva si esegue un'applicazione iOS di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
+title: Avvio rapido all'invio di dati di telemetria all'hub IoT di Azure (iOS)
+description: Eseguire un'applicazione iOS di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - mqtt
 ms.date: 04/03/2019
-ms.openlocfilehash: dd6ad0a3bc20821f51fcb4637dd4af18a6c3ec84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5df389d9bb22fca72f2ff3b65c417f592208d58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769151"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061574"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT (iOS)
 

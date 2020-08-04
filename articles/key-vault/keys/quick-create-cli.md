@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Impostare e recuperare una chiave da Azure Key Vault'
+title: Creare e recuperare gli attributi di una chiave in Azure Key Vault - Interfaccia della riga di comando di Azure
 description: Avvio rapido che illustra come impostare e recuperare una chiave da Azure Key Vault con l'interfaccia della riga di comando di Azure
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: defc5317c127d771786989748e404285ca0c0584
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e9d56f0ad2da696eb683ea393ad75254ba3ce954
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061319"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare una chiave da Azure Key Vault con l'interfaccia della riga di comando di Azure
 
@@ -86,7 +86,7 @@ A questo punto è stata creata un'istanza di Key Vault nella quale è stata arch
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide di avvio rapido ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
+Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
 Quando non sono più necessari, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group). È possibile eliminare le risorse in questo modo:
 
 ```azurecli

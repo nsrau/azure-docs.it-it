@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b5a52d0a54a9671052b9b7d46810cc65c22951f
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 35bd80c2501f9e4c24093f861479f993d85d9c02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799896"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034177"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Hub Planner
 
@@ -90,7 +90,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://app.hubplanner.com/sso/callback`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Hub Planner](mailto:hello@hubplanner.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Questi valori sono quelli che verranno usati. L'unica modifica da apportare è la sostituzione di \<SUBDOMAIN\> nell'**URL di accesso** con il sottodominio ricevuto al momento dell'iscrizione a Hub Planner. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -99,6 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella sezione **Configura Hub Planner** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
@@ -131,7 +132,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-hub-planner-sso"></a>Configurare l'accesso Single Sign-On di Hub Planner
 
-Per configurare l'accesso Single Sign-On sul lato **Hub Planner**, è necessario inviare il **certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Hub Planner](mailto:hello@hubplanner.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare la funzionalità Single Sign-On nel lato **Hub Planner**, è necessario accedere all'account Hub Planner e completare le attività seguenti. 
 
 ### <a name="install-the-extension-in-hub-planner"></a>Installare l'estensione in Hub Planner
 

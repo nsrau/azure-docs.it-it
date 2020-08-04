@@ -1,6 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un esperimento di data science'
-titleSuffix: ML Studio (classic) - Azure
+title: 'Azure Machine Learning Studio (versione classica): Avvio rapido: Creare un esperimento di data science - Azure'
 description: Questa guida introduttiva di Machine Learning illustra un esperimento semplice di data science. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 99332a8716ae137b8ea5fe69a53c7f8e4c46f095
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965145"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282552"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Avvio rapido: Creare il primo esperimento data science in Azure Machine Learning Studio (classico)
+# <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Avvio rapido: Creare il primo esperimento data science in Machine Learning Studio (classico)
+
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 

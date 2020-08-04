@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: estfan, LADocs
 ms.topic: tutorial
-ms.date: 07/07/2020
-ms.openlocfilehash: 4edac3237f2eefaa98a6463bb0e720c0d884f0ca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 91ff67f886dbf54b93e9b91822b5f8535ea77e06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119413"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079190"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Esercitazione: Monitorare le modifiche delle macchine virtuali tramite Griglia di eventi e App per la logica di Azure
 
@@ -32,7 +32,7 @@ Di seguito sono elencati alcuni esempi di eventi che le risorse di pubblicazione
 
 Questa esercitazione crea un'app per la logica che consente di monitorare le modifiche a una macchina virtuale e inviare messaggi di posta elettronica su tali modifiche. Se si crea un'app per la logica con una sottoscrizione eventi per una risorsa di Azure, gli eventi vengono inviati dalla risorsa all'app per la logica tramite Griglia di eventi. L'esercitazione illustra la creazione di questa app per la logica:
 
-![Panoramica - Monitorare una macchina virtuale con Griglia di eventi e un'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
+![Screenshot di Progettazione app per la logica che mostra il flusso di lavoro per il monitoraggio della macchina virtuale con Griglia di eventi.](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -60,11 +60,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Dal menu principale di Azure selezionare **Crea una risorsa** > **Integrazione** > **App per la logica**.
 
-   ![Creare l'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
+   ![Screenshot del portale di Azure che mostra il pulsante per la creazione di una risorsa dell'app per la logica.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
 1. In **App per la logica** fornire informazioni sulla risorsa app per la logica. Al termine, selezionare **Crea**.
 
-   ![Specificare i dettagli dell'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
+   ![Screenshot del menu di creazione di app per la logica che mostra dettagli quali nome, sottoscrizione, gruppo di risorse e posizione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
@@ -78,7 +78,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. In **Modelli** selezionare **App per la logica vuota**.
 
-   ![Selezionare il modello App per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
+   ![Screenshot dei modelli di app per la logica che mostra la selezione per la creazione di un'app per la logica vuota.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
    Progettazione di App per la logica mostra ora i [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) che è possibile usare per avviare l'app per la logica. Ogni app per la logica deve essere avviata con un trigger, che viene attivato quando si verifica un determinato evento o quando viene soddisfatta una condizione specifica. Ogni volta che il trigger viene attivato, App per la logica di Azure crea un'istanza dell'app per il flusso di lavoro che esegue l'app per la logica.
 
@@ -88,18 +88,18 @@ Aggiungere ora un trigger di Griglia di eventi, da usare per monitorare il grupp
 
 1. Nella casella di ricerca della finestra di progettazione immettere `event grid` come filtro. Nell'elenco di trigger selezionare **Quando si verifica un evento della risorsa**.
 
-   ![Selezionare questo trigger: "Per un evento della risorsa"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Screenshot di Progettazione app per la logica che mostra la selezione del trigger di Griglia di eventi in un evento di risorsa.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 1. Quando richiesto, accedere a Griglia di eventi di Azure con le credenziali dell'account Azure. Nell'elenco **Tenant**, che mostra il tenant di Azure Active Directory associato alla sottoscrizione di Azure, verificare che venga visualizzato il tenant corretto, ad esempio:
 
-   ![Accedere con le credenziali di Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
+   ![Screenshot di Progettazione app per la logica che mostra la richiesta di accesso di Azure per la connessione a Griglia di eventi.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
    > Se è stato effettuato l'accesso con un account Microsoft personale, ad esempio @outlook.com o @hotmail.com, è possibile che il trigger di Griglia di eventi di Azure non venga visualizzato correttamente. In alternativa, selezionare [Connetti usando l'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md) o eseguire l'autenticazione come membro dell'istanza di Azure Active Directory associata alla sottoscrizione di Azure, ad esempio *nome-utente*@emailoutlook.onmicrosoft.com.
 
 1. A questo punto eseguire la sottoscrizione dell'app per la logica agli eventi dell'autore. Specificare i dettagli per la sottoscrizione degli eventi, come indicato nella tabella seguente:
 
-   ![Specificare i dettagli della sottoscrizione eventi](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
+   ![Screenshot di Progettazione app per la logica che mostra l'editor dei dettagli per il trigger per quando si verifica un evento della risorsa.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    | -------- | -------- | ----- | ----------- |
@@ -112,7 +112,7 @@ Aggiungere ora un trigger di Griglia di eventi, da usare per monitorare il grupp
 
 1. Salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**. Per comprimere e nascondere i dettagli di un'azione nell'app per la logica, selezionare la relativa barra del titolo.
 
-   ![Salvare l'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
+   ![Screenshot di Progettazione app per la logica che mostra il pulsante Salva per il salvataggio delle modifiche del flusso di lavoro.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
    Quando si salva l'app per la logica con un trigger di Griglia di eventi, Azure crea automaticamente una sottoscrizione eventi per l'app per la logica alla risorsa specificata. Quando la risorsa pubblica un evento in Griglia di eventi, quindi, il servizio esegue automaticamente il push dell'evento all'app per la logica. L'evento attiva l'app per la logica, che crea ed esegue un'istanza di un flusso di lavoro che verrà definito nei passaggi successivi.
 
@@ -124,25 +124,25 @@ Se si vuole che l'app per la logica venga eseguita solo quando si verifica uno s
 
 1. In Progettazione app per la logica, nel trigger di Griglia di eventi, selezionare **Nuovo passaggio**.
 
-   ![Selezionare "Nuovo passaggio"](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
+   ![Screenshot di Progettazione app per la logica che mostra il pulsante per l'aggiunta di un nuovo passaggio al flusso di lavoro.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
 
 1. Nella casella di ricerca di **Scegliere un'azione** immettere `condition` come filtro. Nell'elenco di azioni selezionare **Condizione**.
 
-   ![Aggiungere una condizione](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
+   ![Screenshot di Progettazione app per la logica che mostra il pulsante per l'aggiunta di un'azione di condizione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
 
    Progettazione app per la logica aggiunge una condizione vuota al flusso di lavoro, inclusi i percorsi di azioni da seguire se la condizione viene soddisfatta o meno.
 
-   ![Viene visualizzata una condizione vuota](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
+   ![Screenshot di Progettazione app per la logica che mostra una condizione vuota aggiunta al flusso di lavoro.](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
 1. Rinominare il riquadro della condizione in `If a virtual machine in your resource group has changed`. Sulla barra del titolo della condizione fare clic sui puntini di sospensione ( **...** ) e scegliere **Rinomina**.
 
-   ![Rinominare la condizione](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
+   ![Screenshot di Progettazione app per la logica che mostra il menu di scelta rapida dell'editor delle condizioni con l'opzione Rinomina selezionata.](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
 
 1. Creare una condizione che controlli l'evento `body` per un oggetto `data` in cui la proprietà `operationName` è uguale all'operazione `Microsoft.Compute/virtualMachines/write`. Per altre informazioni, vedere [Schema di eventi di Griglia di eventi](../event-grid/event-schema.md).
 
    1. Nella prima riga sotto **E** fare clic all'interno della casella di sinistra. Nell'elenco di contenuto dinamico che viene visualizzato selezionare **Espressione**.
 
-      ![Selezionare "Espressione" per aprire l'editor di espressioni](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
+      ![Screenshot di Progettazione app per la logica che mostra la condizione con l'editor di espressioni selezionato.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
 
    1. Nell'editor di espressioni immettere l'espressione, che restituisce il nome dell'operazione del trigger, quindi selezionare **OK**:
 
@@ -150,7 +150,7 @@ Se si vuole che l'app per la logica venga eseguita solo quando si verifica uno s
 
       Ad esempio:
 
-      ![Immettere l'espressione per estrarre il nome dell'operazione](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
+      ![Screenshot di Progettazione app per la logica che mostra l'editor delle condizioni con l'espressione per l'estrazione del nome dell'operazione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
    1. Nella casella centrale mantenere l'operatore **è uguale a**.
 
@@ -160,11 +160,11 @@ Se si vuole che l'app per la logica venga eseguita solo quando si verifica uno s
 
    La condizione completata dovrebbe avere ora un aspetto simile all'esempio seguente:
 
-   ![Condizione completata che confronta l'operazione](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
+   ![Screenshot di Progettazione app per la logica che mostra una condizione che confronta l'operazione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
    Se si passa dalla visualizzazione progettazione per creare il codice di visualizzazione e nuovamente alla visualizzazione progettazione, l'espressione specificata nella condizione si risolve nel token **data.operationName**:
 
-   ![Token risolti nella condizione](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
+   ![Screenshot di Progettazione app per la logica che mostra una condizione con token risolti.](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
 
 1. Salvare l'app per la logica.
 
@@ -174,7 +174,7 @@ Aggiungere ora un'[*azione*](../logic-apps/logic-apps-overview.md#logic-app-conc
 
 1. Nella casella **È true** della condizione selezionare **Aggiungi un'azione**.
 
-   ![Aggiungere un'azione se la condizione viene soddisfatta](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
+   ![Screenshot dell'editor delle condizioni di Progettazione app per la logica che mostra il pulsante per l'aggiunta di un'azione quando la condizione è true.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
 1. Nella casella di ricerca di **Scegliere un'azione** immettere `send an email` come filtro. Selezionare il connettore corrispondente al provider di posta elettronica in uso. Selezionare quindi l'azione di invio di un messaggio di posta elettronica relativa al connettore selezionato. Ad esempio:
 
@@ -186,7 +186,7 @@ Aggiungere ora un'[*azione*](../logic-apps/logic-apps-overview.md#logic-app-conc
 
    Questa esercitazione continua a usare il connettore Office 365 Outlook. Se si usa un provider diverso, la procedura rimane invariata ma è possibile che l'interfaccia utente abbia un aspetto leggermente diverso.
 
-   ![Selezionare l'azione di invio di un messaggio di posta elettronica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
+   ![Screenshot di Progettazione app per la logica che mostra la ricerca dell'azione di invio di un messaggio di posta elettronica nel connettore Office 365 Outlook.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
 
 1. Se non si ha ancora una connessione per il provider di posta elettronica, accedere al proprio account di posta elettronica quando viene richiesta l'autenticazione.
 
@@ -194,7 +194,7 @@ Aggiungere ora un'[*azione*](../logic-apps/logic-apps-overview.md#logic-app-conc
 
 1. Specificare informazioni sul messaggio di posta elettronica come illustrato nella tabella seguente:
 
-   ![Specificare informazioni sull'azione di invio del messaggio di posta elettronica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
+   ![Screenshot di Progettazione app per la logica che mostra il contenuto dinamico aggiunto alla riga dell'oggetto di un messaggio di posta elettronica per una condizione true.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
    > Per selezionare l'output dei passaggi precedenti nel flusso di lavoro, fare clic in una casella di modifica in modo che venga visualizzato l'elenco di contenuto dinamico oppure selezionare **Aggiungi contenuto dinamico**. Per altri risultati, selezionare **Vedi altro** per ogni sezione nell'elenco. Per chiudere l'elenco di contenuto dinamico selezionare nuovamente **Aggiungi contenuto dinamico**.
@@ -211,11 +211,11 @@ Aggiungere ora un'[*azione*](../logic-apps/logic-apps-overview.md#logic-app-conc
 
    L'azione di invio di un messaggio di posta elettronica avrà ora un aspetto simile all'esempio seguente:
 
-   ![Selezionare gli output da includere nel messaggio di posta elettronica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
+   ![Screenshot di Progettazione app per la logica che mostra gli output selezionati da inviare tramite posta elettronica quando viene aggiornata la macchina virtuale.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
 
    Al termine di questa operazione, l'app per la logica dovrebbe avere un aspetto simile all'esempio seguente:
 
-   ![App per la logica completata](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
+   ![Screenshot di Progettazione app per la logica che mostra l'app per la logica creata con i dettagli per trigger e azioni.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
 1. Salvare l'app per la logica. Per comprimere e nascondere i dettagli di un'azione nell'app per la logica, selezionare la relativa barra del titolo.
 
@@ -229,15 +229,15 @@ Aggiungere ora un'[*azione*](../logic-apps/logic-apps-overview.md#logic-app-conc
 
    Dopo alcuni istanti, si dovrebbe ricevere un messaggio di posta elettronica. Ad esempio:
 
-   ![Messaggio di posta elettronica sull'aggiornamento della macchina virtuale](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
+   ![Screenshot di un messaggio di posta elettronica di Outlook di esempio che mostra i dettagli sull'aggiornamento della macchina virtuale.](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 
 1. Per rivedere le esecuzioni e la cronologia dei trigger dell'app per la logica, selezionare **Panoramica** dal menu dell'app per la logica. Per visualizzare altri dettagli su un'esecuzione, selezionare la riga per tale esecuzione.
 
-   ![Cronologia di esecuzioni di app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
+   ![Screenshot della pagina di panoramica dell'app per la logica che mostra un'esecuzione riuscita selezionata.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
 
 1. Per visualizzare gli input e gli output per ogni passaggio, espandere il passaggio da revisionare. Queste informazioni consentono di eseguire la diagnostica e il debug di problemi nell'app per la logica.
 
-   ![Dettagli della cronologia di esecuzioni dell'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
+   ![Screenshot della cronologia delle esecuzioni dell'app per la logica che mostra i dettagli di ogni esecuzione.](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
 Congratulazioni, è stata creata ed eseguita un'app per la logica in grado di monitore gli eventi di risorse tramite Griglia di eventi e di inviare un messaggio di posta elettronica quando si verificano tali eventi. Si è inoltre appreso come creare con facilità flussi di lavoro per l'automazione dei processi e come integrare sistemi e servizi cloud.
 
@@ -254,7 +254,7 @@ In questa esercitazione vengono usate risorse ed eseguite azioni che generano ad
 
 * Per interrompere l'esecuzione dell'app per la logica senza eliminare il lavoro, disabilitare l'app. Selezionare **Panoramica** dal menu dell'app per la logica. Sulla barra degli strumenti selezionare **Disabilita**.
 
-  ![Disabilitare l'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+  ![Screenshot della panoramica dell'app per la logica che mostra il pulsante Disabilita selezionato per la disabilitazione dell'app per la logica.](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
   > [!TIP]
   > Se il menu dell'app per la logica non è visualizzato, provare a tornare al dashboard di Azure e riaprire l'app per la logica.

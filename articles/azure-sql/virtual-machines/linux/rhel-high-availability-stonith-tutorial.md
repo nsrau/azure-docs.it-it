@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: cd4128328ac0c3e9f03ecc80abb6e7b17537b2ee
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086796"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Esercitazione: Configurare i gruppi di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -497,7 +497,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Creare un ruolo personalizzato per l'agente di isolamento
 
-Seguire l'esercitazione [Creare un ruolo personalizzato per le risorse di Azure tramite l'interfaccia della riga di comando di Azure](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Seguire l'esercitazione [Creare un ruolo personalizzato di Azure tramite l'interfaccia della riga di comando di Azure](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 Il file JSON dovrebbe essere simile al seguente:
 
@@ -951,17 +951,17 @@ Verranno seguite le istruzioni fornite nella guida [Creare le risorse dei gruppi
 
 1. Usare uno dei comandi seguenti in base all'ambiente scelto in precedenza per creare la risorsa `ag_cluster` nel gruppo di disponibilità `ag1`.
 
-      **RHEL 7** 
+    **RHEL 7**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
 
-      **RHEL 8** 
+    **RHEL 8**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+    ```
 
 2. Controllare la risorsa e verificare che sia online prima di procedere con il comando seguente:
 

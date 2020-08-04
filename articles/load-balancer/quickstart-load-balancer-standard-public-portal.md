@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eb23f1e703c2e447c484ccb366914cb4b23c5bf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536548"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125191"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico per bilanciare il carico delle macchine virtuali con il portale di Azure
 
@@ -111,7 +111,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
     | Soglia non integra | Selezionare **2** per **Soglia di non integrità** come numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.|
     | | |
 
-3. Selezionare **OK**.
+3. Accettare tutte le impostazioni predefinite e selezionare **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 
@@ -140,7 +140,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
     | Porta back-end | Immettere **80**. |
     | Pool back-end | Selezionare **myBackendPool**.|
     | Probe di integrità | Selezionare **myHealthProbe**. |
-    | Crea regole in uscita implicite | Selezionare **Sì**. </br> Per altre informazioni e per la configurazione avanzata delle regole in uscita, vedere: </br> [Connessioni in uscita in Azure](load-balancer-outbound-connections.md) </br> [Configurare le regole in uscita e il bilanciamento del carico in Load Balancer Standard usando il portale di Azure](configure-load-balancer-outbound-portal.md)
+    | Crea regole in uscita implicite | Selezionare **No**.
 
 4. Accettare tutte le impostazioni predefinite e quindi selezionare **OK**.
 
@@ -156,7 +156,7 @@ In questa sezione verrà illustrato come:
 
 In questa sezione è necessario sostituire i parametri delle procedure con le informazioni riportate di seguito:
 
-| Parametro                   | Valore                |
+| Parametro                   | valore                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
@@ -237,6 +237,49 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Zona di disponibilità | **2** |**3**|
     | Gruppo di sicurezza di rete | Selezionare il gruppo di sicurezza di rete **myNSG** esistente| Selezionare il gruppo di sicurezza di rete **myNSG** esistente|
 
+## <a name="create-outbound-rule-configuration"></a>Creare la configurazione delle regole in uscita
+Le regole in uscita del servizio di bilanciamento del carico configurano la conversione degli indirizzi di rete di origine in uscita per le macchine virtuali nel pool back-end. 
+
+Per altre informazioni sulle connessioni in uscita, vedere [Connessioni in uscita in Azure](load-balancer-outbound-connections.md).
+
+### <a name="create-outbound-rule"></a>Creare una regola in uscita
+
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myLoadBalancer** nell'elenco di risorse.
+
+2. In **Impostazioni** selezionare **Regole in uscita** e quindi **Aggiungi**.
+
+3. Usare questi valori per configurare le regole in uscita:
+
+    | Impostazione | valore |
+    | ------- | ----- |
+    | Name (Nome) | Immettere **myOutboundRule**. |
+    | Indirizzo IP front-end | Selezionare **Crea nuovo**. </br> In **Nome** immettere **LoadBalancerFrontEndOutbound**. </br> Selezionare **Indirizzo IP** o **Prefisso IP**. </br> Selezionare **Crea nuovo** in **Indirizzo IP pubblico**  o **Prefisso IP pubblico**. </br> In Nome immettere **myPublicIPOutbound** o **myPublicIPPrefixOutbound**. </br> Selezionare **OK**. </br> Selezionare **Aggiungi**.|
+    | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15 minuti**.|
+    | Reimpostazione TCP | Selezionare **Enabled**.|
+    | Pool back-end | Selezionare **Crea nuovo**. </br> In **Nome** immettere **myBackendPoolOutbound**. </br> Selezionare **Aggiungi**. |
+    | Allocazione porte -> Allocazione porte | Selezionare **Scegliere manualmente il numero di porte in uscita** |
+    | Porte in uscita -> Scegli per | Selezionare **Porte per istanza** |
+    | Porte in uscita -> Porte per istanza | Immettere **10.000**. |
+
+4. Selezionare **Aggiungi**.
+
+### <a name="add-virtual-machines-to-outbound-pool"></a>Aggiungere le macchine virtuali al pool in uscita
+
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myLoadBalancer** nell'elenco di risorse.
+
+2. In **Impostazioni** selezionare **Pool back-end**.
+
+3. Selezionare **myBackendPoolOutbound**.
+
+4. In **Rete virtuale** selezionare **myVNet**.
+
+5. In **Macchine virtuali** selezionare **+ Aggiungi**.
+
+6. Selezionare le caselle accanto a **myVM1**, **myVM2** e **myVM3**. 
+
+7. Selezionare **Aggiungi**.
+
+8. Selezionare **Salva**.
 
 # <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opzione 2: Creare un servizio di bilanciamento del carico (SKU Basic)](#tab/option-1-create-load-balancer-basic)
 
@@ -308,9 +351,9 @@ Creare il pool di indirizzi back-end **myBackendPool** per includere le macchine
 
 3. Nella pagina **Aggiungi pool back-end** immettere o selezionare:
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | Name (Nome) | Immettere **myBackendPool**. |
+    | Nome | Immettere **myBackendPool**. |
     | Rete virtuale | Selezionare **myVNET**. |
     | Associato a | Selezionare **Macchine virtuali** |
 
@@ -326,7 +369,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Name (Nome) | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -354,7 +397,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -389,7 +432,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | Valore                                          |
+    | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -411,7 +454,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | Selezionare **myVNet** |
@@ -425,7 +468,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 5. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**.
 
 6. Nella scheda **Gestione** selezionare o immettere:
-    | Impostazione | Valore |
+    | Impostazione | valore |
     |-|-|
     | **Monitoring** | |
     | Diagnostica di avvio | Selezionare **Disattivato** |
@@ -441,9 +484,10 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Nome |  **myVM2** |**myVM3**|
     | Set di disponibilità| Selezionare **myAvailabilitySet** | Selezionare **myAvailabilitySet**|
     | Gruppo di sicurezza di rete | Selezionare il gruppo di sicurezza di rete **myNSG** esistente| Selezionare il gruppo di sicurezza di rete **myNSG** esistente|
+
 ---
 
-### <a name="install-iis"></a>Installare IIS
+## <a name="install-iis"></a>Installare IIS
 
 1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1**, che si trova nel gruppo di risorse **myResourceGroupLB**.
 

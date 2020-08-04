@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: 3311a9a92cc5e63a6fa20e4dd0d2af00fdacc95c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ac3e163ffefcb7b164860b0c4fa42edc866227e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194485"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065622"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Esercitazione: Creare una definizione di processo Apache Spark in Synapse Studio
 
@@ -24,7 +24,7 @@ Questa esercitazione illustra le attività seguenti:
 
 * Creare una definizione di processo Apache Spark per PySpark (Python)
 * Creare una definizione di processo Apache Spark per Spark (Scala)
-* Creare una definizione di processo Apache Spark per .NET Spark (C#)
+* Creare una definizione di processo Apache Spark per .NET Spark(C#/F#)
 * Inviare una definizione di processo Apache Spark come processo batch
 * Aggiungere una definizione di processo Apache Spark a una pipeline
 
@@ -42,7 +42,7 @@ In questa sezione viene creata una definizione di processo Apache Spark per PySp
 
 1. Aprire [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Nei [file di esempio per la creazione di definizioni di processi Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) scaricare **wordcount.jar** e **shakespear.txt**. Caricare quindi questi file in Archiviazione di Azure: Fare clic su **Dati**, selezionare **Account di archiviazione** e caricare i file correlati nel file system di ADLS Gen2. Se i file sono già in Archiviazione di Azure, saltare questo passaggio. 
+2. È possibile accedere ai [file di esempio per la creazione di definizioni di processi Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) per scaricare **wordcount.py** e **shakespear.txt**. Caricare quindi questi file in Archiviazione di Azure: Fare clic su **Dati**, selezionare **Account di archiviazione** e caricare i file correlati nel file system di ADLS Gen2. Se i file sono già in Archiviazione di Azure, saltare questo passaggio. 
 
      ![Caricamento del file Python](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -57,9 +57,9 @@ In questa sezione viene creata una definizione di processo Apache Spark per PySp
      |  Proprietà   | Descrizione   |  
      | ----- | ----- |  
      |Nome definizione processo| Specificare un nome per la definizione di processo Apache Spark. Questo nome può essere aggiornato in qualsiasi momento fino a quando non viene pubblicato. Esempio: `job definition sample`|
-     |File di definizione principale| File principale usato per il processo. Selezionare un file PY dalla risorsa di archiviazione. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione. Esempio: `abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/fileexists.py`|
-     |Argomenti della riga di comando| Argomenti facoltativi per il processo. Esempio: `shakespeare.txt`|
-     |File di riferimento| File aggiuntivi usati come riferimento nel file di definizione principale. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione. Esempio: `abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/shakespeare.txt`|
+     |File di definizione principale| File principale usato per il processo. Selezionare un file PY dalla risorsa di archiviazione. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione. Esempio: `abfss://…/path/to/wordcount.py`|
+     |Argomenti della riga di comando| Argomenti facoltativi per il processo. Esempio: `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |File di riferimento| File aggiuntivi usati come riferimento nel file di definizione principale. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione. |
      |Pool Spark| Il processo verrà inviato al pool di Apache Spark selezionato.|
      |Versione di Spark| Versione di Apache Spark in esecuzione nel pool di Apache Spark.|
      |Executors| Numero di executor da assegnare al pool di Apache Spark specificato per il processo.|
@@ -92,9 +92,9 @@ In questa sezione viene creata una definizione di processo Apache Spark per Apac
      |  Proprietà   | Descrizione   |  
      | ----- | ----- |  
      |Nome definizione processo| Specificare un nome per la definizione di processo Apache Spark. Questo nome può essere aggiornato in qualsiasi momento fino a quando non viene pubblicato. Esempio: `job definition sample`|
-     |File di definizione principale| File principale usato per il processo. Selezionare un file JAR dalla risorsa di archiviazione. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione. Esempio: `abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/wordcount.jar`|
+     |File di definizione principale| File principale usato per il processo. Selezionare un file JAR dalla risorsa di archiviazione. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione. Esempio: `abfss://…/path/to/wordcount.jar`|
      |Nome della classe principale| Identificatore completo o classe principale inclusa nel file di definizione principale. Esempio: `WordCount`|
-     |Argomenti della riga di comando| Argomenti facoltativi per il processo. Esempio: `abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/result`|
+     |Argomenti della riga di comando| Argomenti facoltativi per il processo. Esempio: `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
      |File di riferimento| File aggiuntivi usati come riferimento nel file di definizione principale. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione.|
      |Pool Spark| Il processo verrà inviato al pool di Apache Spark selezionato.|
      |Versione di Spark| Versione di Apache Spark in esecuzione nel pool di Apache Spark.|
@@ -109,9 +109,9 @@ In questa sezione viene creata una definizione di processo Apache Spark per Apac
      ![Pubblicazione della definizione per Scala](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
 
-## <a name="create-an-apache-spark-job-definition-for-net-sparkc"></a>Creare una definizione di processo Apache Spark per .NET Spark (C#)
+## <a name="create-an-apache-spark-job-definition-for-net-sparkcf"></a>Creare una definizione di processo Apache Spark per .NET Spark(C#/F#)
 
-In questa sezione viene creata una definizione di processo Apache Spark per .NET Spark (C#).
+In questa sezione viene creata una definizione di processo Apache Spark per .NET Spark(C#/F#).
  1. Aprire [Azure Synapse Studio](https://web.azuresynapse.net/).
 
  2. Nei [file di esempio per la creazione di definizioni di processi Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) scaricare **wordcount.zip** e **shakespear.txt**. Caricare quindi questi file in Archiviazione di Azure: Fare clic su **Dati**, selezionare **Account di archiviazione** e caricare i file correlati nel file system di ADLS Gen2. Se i file sono già in Archiviazione di Azure, saltare questo passaggio. 
@@ -125,13 +125,14 @@ In questa sezione viene creata una definizione di processo Apache Spark per .NET
  4. Selezionare **.NET Spark (C#/F#)** nell'elenco a discesa del linguaggio nella finestra principale della definizione di processo Apache Spark.
 
  5. Immettere le informazioni per la definizione di processo Apache Spark. È possibile copiare le informazioni di esempio.
+    
      |  Proprietà   | Descrizione   |  
      | ----- | ----- |  
      |Nome definizione processo| Specificare un nome per la definizione di processo Apache Spark. Questo nome può essere aggiornato in qualsiasi momento fino a quando non viene pubblicato. Esempio: `job definition sample`|
-     |File di definizione principale| File principale usato per il processo. Selezionare un file ZIP che contiene l'applicazione .NET per Apache Spark (ovvero il file eseguibile principale, le DLL contenenti le funzioni definite dall'utente e altri file necessari) dallo spazio di archiviazione. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione. Esempio: `abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/wordcount.zip`|
+     |File di definizione principale| File principale usato per il processo. Selezionare un file con estensione zip contenente l'applicazione .NET per Apache Spark (ovvero il file eseguibile principale, le DLL che includono le funzioni definite dall'utente e altri file necessari) dall'archivio. È possibile selezionare **Carica file** per caricare il file in un account di archiviazione. Esempio: `abfss://…/path/to/wordcount.zip`|
      |File eseguibile principale| File eseguibile principale nel file ZIP della definizione principale. Esempio: `WordCount`|
-     |Argomenti della riga di comando| Argomenti facoltativi per il processo. Esempio: `abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/result`|
-     |File di riferimento| File aggiuntivi necessari ai nodi di lavoro per l'esecuzione dell'applicazione Apache Spark per .NET e non inclusi nel file ZIP di definizione principale (ovvero, file JAR dipendenti, DLL di funzioni definite dall'utente aggiuntive e altri file di configurazione). È possibile selezionare **Carica file** per caricare il file in un account di archiviazione.|
+     |Argomenti della riga di comando| Argomenti facoltativi per il processo. Esempio: `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |File di riferimento| Altri file necessari ai nodi di lavoro per l'esecuzione dell'applicazione .NET per Apache Spark non inclusi nel file con estensione zip della definizione principale (ovvero file con estensione jar dipendenti, DLL di funzioni definite dall'utente aggiuntive e altri file di configurazione). È possibile selezionare **Carica file** per caricare il file in un account di archiviazione.|
      |Pool Spark| Il processo verrà inviato al pool di Apache Spark selezionato.|
      |Versione di Spark| Versione di Apache Spark in esecuzione nel pool di Apache Spark.|
      |Executors| Numero di executor da assegnare al pool di Apache Spark specificato per il processo.|  

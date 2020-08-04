@@ -6,15 +6,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.openlocfilehash: ff38f923f7b33c4bc893246970c1e47d33e59269
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.custom: devx-track-java
+ms.openlocfilehash: d6e4b77c6eba976de052295e4a0001924ad90644
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780417"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374202"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Eseguire il mapping di un dominio personalizzato esistente ad Azure Spring Cloud
-DNS (Distributed Name Service) è una tecnica per l'archiviazione dei nomi dei nodi di un'intera rete. Questa esercitazione illustra come eseguire il mapping di un dominio, ad esempio www.contoso.com, usando un record CNAME. Il dominio personalizzato viene protetto con un certificato e viene applicato il certificato TLS (Transport Layer Security), anche noto come SSL (Secure Sockets Layer). 
+DNS (Domain Name Service) è una tecnica per l'archiviazione dei nomi dei nodi di un'intera rete. Questa esercitazione illustra come eseguire il mapping di un dominio, ad esempio www.contoso.com, usando un record CNAME. Il dominio personalizzato viene protetto con un certificato e viene applicato il certificato TLS (Transport Layer Security), anche noto come SSL (Secure Sockets Layer). 
 
 I certificati crittografano il traffico Web. Questi certificati TLS/SSL possono essere archiviati in Azure Key Vault. 
 

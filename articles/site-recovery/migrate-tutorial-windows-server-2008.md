@@ -5,38 +5,43 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73936146"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281277"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Eseguire la migrazione di server con Windows Server 2008 in Azure
 
-Questa esercitazione spiega come eseguire la migrazione di server locali che eseguono Windows Server 2008 o 2008 R2 in Azure usando Azure Site Recovery. In questa esercitazione verranno illustrate le procedure per:
+Questa esercitazione illustra come eseguire la migrazione di server locali che eseguono Windows Server 2008 o 2008 R2 in Azure usando Azure Site Recovery. 
+
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Preparare l'ambiente locale per la migrazione
-> * Configurare l'ambiente di destinazione
-> * Configurare criteri di replica
-> * Abilitare la replica
-> * Eseguire una migrazione di test per verificare che tutti gli elementi funzionino come previsto
-> * Eseguire il failover in Azure e completare la migrazione
+> * Preparare l'ambiente locale per la migrazione.
+> * Configurare l'ambiente di destinazione.
+> * Configurare criteri di replica.
+> * Abilitare la replica.
+> * Eseguire una migrazione di test per verificare che tutti gli elementi funzionino come previsto.
+> * Eseguire il failover in Azure e completare la migrazione.
 
-La sezione relativa alle limitazioni e ai problemi noti contiene un elenco di limitazioni e soluzioni alternative per i problemi che possono verificarsi durante la migrazione dei computer Windows Server 2008 in Azure. 
+## <a name="migrate-with-azure-migrate"></a>Eseguire la migrazione con Azure Migrate
 
-> [!NOTE]
-> È ora possibile eseguire la migrazione dall'ambiente locale ad Azure usando il servizio Azure Migrate. [Altre informazioni](../migrate/migrate-services-overview.md)
+È consigliabile eseguire la migrazione di computer ad Azure usando il servizio [Azure Migrate](../migrate/migrate-services-overview.md). Azure Migrate offre un hub centralizzato per la valutazione e la migrazione di computer locali in Azure, usando Azure Migrate, altri servizi Azure e strumenti di terze parti. Azure Site Recovery deve essere usato solo per il ripristino di emergenza e non per la migrazione.
 
-
-## <a name="supported-operating-systems-and-environments"></a>Sistemi operativi e ambienti supportati
+Azure Migrate supporta la migrazione di server che eseguono Windows Server 2008.
 
 
-|Sistema operativo  | Ambiente locale  |
+## <a name="migrate-with-site-recovery"></a>Eseguire la migrazione con Site Recovery
+
+### <a name="supported-operating-systems"></a>Sistemi operativi supportati
+
+
+|Sistema operativo  | Environment  |
 |---------|---------|
 |Windows Server 2008 SP2 a 32 e 64 bit (IA-32 e x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     Macchine virtuali VMware, macchine virtuali Hyper-V e server fisici    |
 |Windows Server 2008 R2 SP1 a 64 bit</br>- Standard</br>- Enterprise</br>- Datacenter     |     Macchine virtuali VMware, macchine virtuali Hyper-V e server fisici|
@@ -46,7 +51,7 @@ La sezione relativa alle limitazioni e ai problemi noti contiene un elenco di li
 > - Assicurarsi di usare il Service Pack più recente e che gli aggiornamenti di Windows siano installati prima di eseguire la migrazione.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, è utile esaminare l'architettura di Azure Site Recovery in relazione alla [migrazione di server fisici e VMware](vmware-azure-architecture.md) o alla [migrazione delle macchine virtuali Hyper-V](hyper-v-azure-architecture.md) 
 
@@ -57,7 +62,7 @@ Il resto di questa esercitazione illustra come eseguire la migrazione di macchin
 > Per informazioni sulla migrazione di macchine virtuali VMware in Azure senza agenti, [fare clic qui](https://aka.ms/migrateVMs-signup).
 
 
-## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
+### <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 
 - Il server di configurazione, i server di elaborazione aggiuntivi e il servizio Mobility usato per la migrazione dei server Windows Server 2008 SP2 devono eseguire la versione 9.19.0.0 o versioni successive del software Azure Site Recovery.
 
@@ -79,10 +84,10 @@ Il resto di questa esercitazione illustra come eseguire la migrazione di macchin
   >
   >L'operazione di failover di test non comporta interruzioni e consente di testare le migrazioni creando macchine virtuali in una rete isolata di propria scelta. A differenza dell'operazione di failover, durante l'operazione di failover di test la replica dei dati continua. È possibile eseguire qualsiasi numero di failover di test prima di essere pronti a eseguire la migrazione. 
   >
-  >
+  
 
 
-## <a name="getting-started"></a>Introduzione
+### <a name="get-started"></a>Introduzione
 
 Eseguire le attività riportate di seguito per preparare la sottoscrizione di Azure e l'ambiente VMware o fisico locale:
 
@@ -90,7 +95,7 @@ Eseguire le attività riportate di seguito per preparare la sottoscrizione di Az
 2. Preparare istanze di [VMware](vmware-azure-tutorial-prepare-on-premises.md) locali
 
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
+### <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
 2. Fare clic su **Crea una risorsa** > **Strumenti di gestione** > **Backup e Site Recovery (OMS)** .
@@ -104,12 +109,12 @@ Eseguire le attività riportate di seguito per preparare la sottoscrizione di Az
 Il nuovo insieme di credenziali viene aggiunto al **Dashboard**, nella sezione **Tutte le risorse**, e nella pagina **Insiemi di credenziali dei servizi di ripristino** principale.
 
 
-## <a name="prepare-your-on-premises-environment-for-migration"></a>Preparare l'ambiente locale per la migrazione
+### <a name="prepare-your-on-premises-environment-for-migration"></a>Preparare l'ambiente locale per la migrazione
 
 - Per eseguire la migrazione di macchine virtuali di Windows Server 2008 in esecuzione in VMware [configurare il Server di configurazione locale in VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
 - Se il Server di configurazione non può essere configurato come una macchina virtuale VMware, [configurare il Server di configurazione in un server fisico locale o in una macchina virtuale](physical-azure-disaster-recovery.md#set-up-the-source-environment).
 
-## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
+### <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
 
 Selezionare e verificare le risorse di destinazione.
 
@@ -118,7 +123,7 @@ Selezionare e verificare le risorse di destinazione.
 3. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili.
 
 
-## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
+### <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
 
 1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** >  **+Criteri di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
@@ -133,7 +138,7 @@ I criteri vengono automaticamente associati al server di configurazione.
 
    ![Creare criteri di replica](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
-## <a name="enable-replication"></a>Abilitare la replica
+### <a name="enable-replication"></a>Abilitare la replica
 
 [Abilitare la replica](physical-azure-disaster-recovery.md#enable-replication) per il server Windows Server 2008 SP2 o Windows Server 2008 R2 SP1 da sottoporre a migrazione.
    
@@ -141,7 +146,7 @@ I criteri vengono automaticamente associati al server di configurazione.
 
    ![Abilitare la replica](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
-## <a name="run-a-test-migration"></a>Eseguire una migrazione di test
+### <a name="run-a-test-migration"></a>Eseguire una migrazione di test
 
 È possibile eseguire un failover di test dei server sottoposti a replica al termine della replica iniziale e lo stato del server diventa **Protetto**.
 
@@ -150,7 +155,7 @@ Eseguire un [failover di test](tutorial-dr-drill-azure.md) in Azure per verifica
    ![Failover di test](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
-## <a name="migrate-to-azure"></a>Eseguire la migrazione ad Azure
+### <a name="migrate-to-azure"></a>Eseguire la migrazione ad Azure
 
 Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 
@@ -168,3 +173,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 
 > [!WARNING]
 > **Non annullare un failover in corso**: La replica del server viene arrestata prima dell'avvio del failover. Se si annulla un failover in corso, il failover viene arrestato ma la replica del server non continuerà.
+
+## <a name="next-steps"></a>Passaggi successivi
+> [!div class="nextstepaction"]
+> [Esaminare le domande comuni](../migrate/resources-faq.md) su Azure Migrate.

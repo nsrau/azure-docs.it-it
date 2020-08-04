@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248612"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386574"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
+# <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows
 
 Desktop virtuale Windows è un servizio di virtualizzazione per desktop e app eseguito sul cloud.
 
@@ -78,7 +78,7 @@ L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
   * Azure AD Connect (per le organizzazioni ibride)
   * Azure AD Domain Services (per le organizzazioni ibride o cloud)
 * Una sottoscrizione di Azure contenente una rete virtuale che contiene o è connessa all'istanza di Windows Server Active Directory
-  
+
 Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere:
 
 * [Aggiunte a un dominio standard](../active-directory-domain-services/active-directory-ds-comparison.md) oppure [aggiunte ad AD ibrido](../active-directory/devices/hybrid-azuread-join-plan.md). Le macchine virtuali non possono essere aggiunte ad Azure AD.
@@ -105,7 +105,7 @@ I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android (anteprima)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > Desktop virtuale Windows non supporta il client RADC (RemoteApp and Desktop Connections) o il client Connessione Desktop remoto.
@@ -128,24 +128,24 @@ Desktop virtuale Windows supporta le immagini di sistema operativo x64 seguenti:
 
 Desktop virtuale Windows non supporta le immagini di sistemi operativi x86 (32 bit), Windows 10 Enterprise N o Windows 10 Enterprise KN. Windows 7 non supporta inoltre soluzioni di profili basati su VHD o VHDX ospitate in Archiviazione di Azure gestita a causa di una limitazione delle dimensioni dei settori.
 
-Le opzioni di automazione e distribuzione disponibili variano a seconda del sistema operativo e della versione scelta, come illustrato nella tabella seguente: 
+Le opzioni di automazione e distribuzione disponibili variano a seconda del sistema operativo e della versione scelta, come illustrato nella tabella seguente:
 
 |Sistema operativo|Raccolta immagini di Azure|Distribuzione manuale della macchina virtuale|Integrazione del modello di Azure Resource Manager|Effettuare il provisioning dei pool di host in Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 multisessione, versione 1903|Sì|Sì|Sì|Sì|
-|Windows 10 multisessione, versione 1809|Sì|Sì|No|No|
-|Windows 10 Enterprise, versione 1903|Sì|Sì|Sì|Sì|
-|Windows 10 Enterprise, versione 1809|Sì|Sì|No|No|
-|Windows 7 Enterprise|Sì|Sì|No|No|
-|Windows Server 2019|Sì|Sì|No|No|
-|Windows Server 2016|Sì|Sì|Sì|Sì|
-|Windows Server 2012 R2|Sì|Sì|No|No|
+|Windows 10 multisessione, versione 1903|sì|sì|sì|Sì|
+|Windows 10 multisessione, versione 1809|sì|sì|No|No|
+|Windows 10 Enterprise, versione 1903|sì|sì|sì|Sì|
+|Windows 10 Enterprise, versione 1809|sì|sì|No|No|
+|Windows 7 Enterprise|sì|sì|No|No|
+|Windows Server 2019|sì|sì|No|No|
+|Windows Server 2016|sì|sì|sì|sì|
+|Windows Server 2012 R2|Sì|sì|No|No|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si usa la versione Autunno 2019 di Desktop virtuale Windows, è possibile iniziare con l'esercitazione in [Creare un tenant in Desktop virtuale Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+Se è in uso Desktop virtuale Windows (versione classica), sarà possibile iniziare con l'esercitazione [Creare un tenant in Desktop virtuale Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
-Se si usa la versione Primavera 2020 di Desktop virtuale Windows, è necessario creare un pool di host. Passare all'esercitazione seguente per iniziare.
+Se è in uso Desktop virtuale Windows con integrazione di Azure Resource Manager, sarà invece necessario creare un pool di host. Passare all'esercitazione seguente per iniziare.
 
 > [!div class="nextstepaction"]
 > [Creare un pool di host con il portale di Azure](create-host-pools-azure-marketplace.md)

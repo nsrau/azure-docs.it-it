@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Creare un dominio gestito di Azure AD DS con una configurazione avanzata'
-description: Questa esercitazione illustra come creare e configurare un dominio gestito di Azure Active Directory Domain Services e specificare le opzioni di configurazione avanzate tramite il portale di Azure.
+title: 'Esercitazione: Creare un dominio gestito personalizzato di Azure Active Directory Domain Services | Microsoft Docs'
+description: Questa esercitazione illustra come creare e configurare un dominio gestito personalizzato di Azure Active Directory Domain Services e specificare le opzioni di configurazione avanzate tramite il portale di Azure.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b8eece33e13fca9fdef6b860513368f6c47a4628
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ead20713752b4eb28700541b4314241d86b6cc27
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518522"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278549"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Esercitazione: Creare e configurare un dominio gestito di Azure Active Directory Domain Services con opzioni di configurazione avanzate
 
@@ -131,7 +131,7 @@ Completare i campi della finestra *Rete* come indicato di seguito:
     1. Se si sceglie di creare una rete virtuale, immettere un nome per la rete virtuale, ad esempio *myVnet*, quindi specificare un intervallo di indirizzi, ad esempio *10.0.1.0/24*.
     1. Creare una subnet dedicata con un nome chiaro, ad esempio *DomainServices*. Specificare un intervallo di indirizzi, ad esempio *10.0.1.0/24*.
 
-    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
+    [ ![Creare una rete virtuale e una subnet per l'uso con Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Assicurarsi di scegliere un intervallo di indirizzi all'interno del proprio intervallo di indirizzi IP privato. Gli intervalli di indirizzi IP di cui non si è proprietari che si trovano nello spazio di indirizzi pubblici generano errori all'interno di Azure AD DS.
 
@@ -159,7 +159,7 @@ La procedura guidata crea automaticamente il gruppo *Amministratori di AAD DC* n
 
 ## <a name="configure-synchronization"></a>Configurare la sincronizzazione
 
-Azure AD DS consente di sincronizzare *tutti* gli utenti e i gruppi disponibili in Azure AD oppure di eseguire una sincronizzazione *con ambito* solo di gruppi specifici. Se si sceglie di sincronizzare *tutti* gli utenti e i gruppi, non sarà più possibile scegliere di eseguire solo una sincronizzazione con ambito. Per altre informazioni sulla sincronizzazione con ambito, vedere [Sincronizzazione con ambito in Azure AD Domain Services][scoped-sync].
+Azure AD DS consente di sincronizzare *tutti* gli utenti e i gruppi disponibili in Azure AD oppure di eseguire una sincronizzazione *con ambito* solo di gruppi specifici. È possibile modificare l'ambito di sincronizzazione ora o dopo aver distribuito il dominio gestito. Per altre informazioni, vedere [Sincronizzazione con ambito in Azure AD Domain Services][scoped-sync].
 
 1. Per questa esercitazione, scegliere di sincronizzare **tutti** gli utenti e i gruppi. Questa scelta di sincronizzazione è l'opzione predefinita.
 

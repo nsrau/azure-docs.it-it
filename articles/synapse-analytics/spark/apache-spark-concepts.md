@@ -1,5 +1,5 @@
 ---
-title: Apache Spark in Azure Synapse Analytics - Concetti principali
+title: Concetti principali di Apache Spark
 description: Questo articolo fornisce un'introduzione ad Apache Spark in Azure Synapse Analytics e presenta i diversi concetti.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: aa1b4287899aaff9ede4832e999603773d79d28c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 806f4dff49e9650dba073721109e7d54a18ecbbe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052331"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Concetti principali su Apache Spark in Azure Synapse Analytics
 

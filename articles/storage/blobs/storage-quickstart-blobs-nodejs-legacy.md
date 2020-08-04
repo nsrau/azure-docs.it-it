@@ -3,20 +3,23 @@ title: 'Guida introduttiva: Libreria client di archiviazione BLOB di Azure v10 p
 description: Creare, caricare ed eliminare BLOB e contenitori in Node.js con la libreria client di archiviazione di Azure v10 per JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 01d9c2e2b822af607d7473206461b97dfa627c17
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78269495"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282025"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Guida introduttiva: Gestire i BLOB con JavaScript v10 SDK in Node.js
 
 In questo argomento di avvio rapido viene illustrato come gestire i BLOB con Node.js. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Verranno caricati, scaricati, elencati ed eliminati i BLOB e verranno gestiti i contenitori.
+
+> [!NOTE]
+> In questo argomento di avvio rapido si usa una versione legacy della libreria client di Archiviazione BLOB di Azure. Per un'introduzione alla versione più recente, vedere [Avvio rapido: Gestire i BLOB con JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

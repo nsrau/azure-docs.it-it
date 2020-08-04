@@ -9,16 +9,16 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6350e85552a6c92592dbe2b1a9cf48a35f86a7be
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: acd2ae54d81fb508d5f8c02262cf8c2f0f071fb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080608"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia dischi di Azure
+# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Creare e configurare un insieme di credenziali delle chiavi per Crittografia dischi di Azure
 
-Crittografia dischi di Azure usa Azure Key Vault per controllare e gestire segreti e chiavi di crittografia dei dischi.  Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md) e [Proteggere l'insieme di credenziali delle chiavi](../key-vault/general/secure-your-key-vault.md).
+Crittografia dischi di Azure usa Azure Key Vault per controllare e gestire segreti e chiavi di crittografia dei dischi.  Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/general/overview.md) e [Proteggere l'insieme di credenziali delle chiavi](../key-vault/general/secure-your-key-vault.md).
 
 La creazione e la configurazione di un insieme di credenziali delle chiavi per l'uso con Crittografia dischi di Azure prevede tre passaggi:
 
@@ -32,7 +32,7 @@ Se si preferisce, è anche possibile generare o importare una chiave di crittogr
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installare gli strumenti e connettersi ad Azure
 
-Per completare i passaggi descritti in questo articolo, è possibile usare l'[interfaccia della riga di comando di Azure](/cli/azure/), il [modulo Az di Azure PowerShell](/powershell/azure/overview) oppure il [portale di Azure](https://portal.azure.com).
+Per completare i passaggi descritti in questo articolo, è possibile usare l'[interfaccia della riga di comando di Azure](/cli/azure/), il [modulo Az di Azure PowerShell](/powershell/azure/) oppure il [portale di Azure](https://portal.azure.com).
 
 ### <a name="connect-to-your-azure-account"></a>Connettersi all'account di Azure
 

@@ -6,18 +6,18 @@ ms.topic: overview
 description: Informazioni su come Azure Dev Spaces può offrire un'esperienza di sviluppo Kubernetes rapida e iterativa per i team nei cluster del servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: fd757d5392a7cefcacdd1d77807beb72e34c8f89
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 691845cd888e4d24c1144f2805402a3baf14a86e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006965"
 ---
 # <a name="what-is-azure-dev-spaces"></a>Che cos'è Azure Dev Spaces?
 
 Azure Dev Spaces offre un'esperienza di sviluppo Kubernetes rapida e iterativa per i team nei cluster del servizio Azure Kubernetes (AKS). Azure Dev Spaces consente anche di testare tutti i componenti dell'applicazione ed eseguirne il debug nel servizio Azure Kubernetes con una configurazione minima del computer di sviluppo, senza replicare o simulare le dipendenze.
 
-![](media/azure-dev-spaces/collaborate-graphic.gif)
+![Il diagramma mostra due versioni di un'applicazione sviluppate indipendentemente. Le due versioni vengono quindi combinate in un'unica versione in un ambiente di sviluppo Azure Dev Spaces.](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## <a name="how-azure-dev-spaces-simplifies-kubernetes-development"></a>Come Azure Dev Spaces semplifica lo sviluppo in Kubernetes
 

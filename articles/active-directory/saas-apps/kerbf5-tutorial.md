@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5 | Microsoft Docs"
+title: "Esercitazione: Integrazione dell'accesso Single Sign-On di Azure AD con F5 | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e F5.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8d64774bd76a88c2ee8c1981fb3509c7265f4736
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232186"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017449"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
 
@@ -282,45 +282,45 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 Per specificare i controller di dominio e le credenziali per Access Policy Manager (APM) da usare per l'autenticazione degli utenti, è necessario configurare un server AAA di Active Directory in APM.
 
-1.    Nella scheda Main (Principale) fare clic su **Access Policy > AAA Servers > Active Directory** (Criteri di accesso > Server AAA > Active Directory). Viene visualizzata la schermata dell'elenco Active Directory Servers (Server Active Directory).
+1. Nella scheda Main (Principale) fare clic su **Access Policy > AAA Servers > Active Directory** (Criteri di accesso > Server AAA > Active Directory). Viene visualizzata la schermata dell'elenco Active Directory Servers (Server Active Directory).
 
-2.    Fare clic su **Crea**. Viene visualizzata la schermata New Server properties (Proprietà del nuovo server).
+2. Fare clic su **Crea**. Viene visualizzata la schermata New Server properties (Proprietà del nuovo server).
 
-3.    Nel campo **Name** (Nome) digitare un nome univoco per il server di autenticazione.
+3. Nel campo **Name** (Nome) digitare un nome univoco per il server di autenticazione.
 
-4.    Nel campo **Domain Name** (Nome di dominio) digitare il nome di dominio di Windows.
+4. Nel campo **Domain Name** (Nome di dominio) digitare il nome di dominio di Windows.
 
-5.    Per l'impostazione **Server Connection** (Connessione server) selezionare una di queste opzioni:
+5. Per l'impostazione **Server Connection** (Connessione server) selezionare una di queste opzioni:
 
-    * Selezionare **Use Pool** (Usa pool) per configurare la disponibilità elevata per il server AAA.
+   * Selezionare **Use Pool** (Usa pool) per configurare la disponibilità elevata per il server AAA.
 
-    * Selezionare **Direct** (Diretto) per configurare il server AAA per la funzionalità autonoma.
+   * Selezionare **Direct** (Diretto) per configurare il server AAA per la funzionalità autonoma.
 
-6.    Se è stato selezionato **Direct** (Diretto), digitare un nome nel campo **Domain Controller** (Controller di dominio).
+6. Se è stato selezionato **Direct** (Diretto), digitare un nome nel campo **Domain Controller** (Controller di dominio).
 
-7.    Se è stata selezionata l'opzione **Use Pool** (Usa pool), configurare il pool:
+7. Se è stata selezionata l'opzione **Use Pool** (Usa pool), configurare il pool:
 
-    * Digitare un nome nel campo **Domain Controller Pool Name** (Nome del pool del controller di dominio).
+   * Digitare un nome nel campo **Domain Controller Pool Name** (Nome del pool del controller di dominio).
 
-    * Specificare i **controller di dominio** nel pool digitando l'indirizzo IP e il nome host di ognuno e quindi facendo clic sul pulsante **Add** (Aggiungi).
+   * Specificare i **controller di dominio** nel pool digitando l'indirizzo IP e il nome host di ognuno e quindi facendo clic sul pulsante **Add** (Aggiungi).
 
-    * Per monitorare lo stato del server AAA, è possibile selezionare un monitoraggio dello stato. In questo caso è appropriato solo il monitoraggio **gateway_icmp**, che può essere selezionato nell'elenco **Server Pool Monitor** (Monitoraggio pool di server).
+   * Per monitorare lo stato del server AAA, è possibile selezionare un monitoraggio dello stato. In questo caso è appropriato solo il monitoraggio **gateway_icmp**, che può essere selezionato nell'elenco **Server Pool Monitor** (Monitoraggio pool di server).
 
-8.    Nel campo **Admin Name** (Nome amministratore) digitare un nome con distinzione tra maiuscole e minuscole per un amministratore che dispone delle autorizzazioni amministrative di Active Directory. APM usa le informazioni contenute nei campi **Admin Name** (Nome amministratore) e **Admin Password** (Password amministratore) per la query AD. Se Active Directory è configurato per le query anonime, non è necessario specificare alcun nome di amministratore. In caso contrario, APM necessita di un account con privilegi sufficienti per eseguire il binding a un server Active Directory, recuperare informazioni sui gruppi di utenti e recuperare i criteri password di Active Directory per supportare la funzionalità correlata alle password. APM deve recuperare i criteri password, ad esempio, se si seleziona l'opzione Prompt user to change password before expiration (Richiedi all'utente di modificare la password prima della scadenza) in un'azione di query di Active Directory. Se non si specificano le informazioni sull'account amministratore in questa configurazione, APM usa l'account utente per recuperare le informazioni. Questo approccio funziona se l'account utente dispone di privilegi sufficienti.
+8. Nel campo **Admin Name** (Nome amministratore) digitare un nome con distinzione tra maiuscole e minuscole per un amministratore che dispone delle autorizzazioni amministrative di Active Directory. APM usa le informazioni contenute nei campi **Admin Name** (Nome amministratore) e **Admin Password** (Password amministratore) per la query AD. Se Active Directory è configurato per le query anonime, non è necessario specificare alcun nome di amministratore. In caso contrario, APM necessita di un account con privilegi sufficienti per eseguire il binding a un server Active Directory, recuperare informazioni sui gruppi di utenti e recuperare i criteri password di Active Directory per supportare la funzionalità correlata alle password. APM deve recuperare i criteri password, ad esempio, se si seleziona l'opzione Prompt user to change password before expiration (Richiedi all'utente di modificare la password prima della scadenza) in un'azione di query di Active Directory. Se non si specificano le informazioni sull'account amministratore in questa configurazione, APM usa l'account utente per recuperare le informazioni. Questo approccio funziona se l'account utente dispone di privilegi sufficienti.
 
-9.    Nel campo **Admin Password** (Password amministratore) digitare la password dell'amministratore associata al nome di dominio.
+9. Nel campo **Admin Password** (Password amministratore) digitare la password dell'amministratore associata al nome di dominio.
 
-10.    Nel campo **Verify Admin Password** (Verifica password amministratore) digitare la password dell'amministratore associata all'impostazione **Domain Name** (Nome di dominio).
+10. Nel campo **Verify Admin Password** (Verifica password amministratore) digitare la password dell'amministratore associata all'impostazione **Domain Name** (Nome di dominio).
 
-11.    Nel campo **Group Cache Lifetime** (Durata cache di gruppo) digitare il numero di giorni. La durata predefinita è 30 giorni.
+11. Nel campo **Group Cache Lifetime** (Durata cache di gruppo) digitare il numero di giorni. La durata predefinita è 30 giorni.
 
-12.    Nel campo **Password Security Object Cache Lifetime** (Durata cache oggetti di sicurezza password) digitare il numero di giorni. La durata predefinita è 30 giorni.
+12. Nel campo **Password Security Object Cache Lifetime** (Durata cache oggetti di sicurezza password) digitare il numero di giorni. La durata predefinita è 30 giorni.
 
-13.    Nell'elenco **Kerberos Preauthentication Encryption Type** (Tipo di crittografia preautenticazione Kerberos) selezionare un tipo di crittografia. L'impostazione predefinita è **None** (Nessuna). Se si specifica un tipo di crittografia, il sistema BIG-IP include i dati di preautenticazione Kerberos all'interno del primo pacchetto della richiesta del servizio di autenticazione (AS-REQ).
+13. Nell'elenco **Kerberos Preauthentication Encryption Type** (Tipo di crittografia preautenticazione Kerberos) selezionare un tipo di crittografia. L'impostazione predefinita è **None** (Nessuna). Se si specifica un tipo di crittografia, il sistema BIG-IP include i dati di preautenticazione Kerberos all'interno del primo pacchetto della richiesta del servizio di autenticazione (AS-REQ).
 
-14.    Nel campo **Timeout** digitare un intervallo di timeout (in secondi) per il server AAA. Questa impostazione è facoltativa.
+14. Nel campo **Timeout** digitare un intervallo di timeout (in secondi) per il server AAA. Questa impostazione è facoltativa.
 
-15.    Fare clic su **Finished** (Operazione completata). Il nuovo server viene visualizzato nell'elenco. Il nuovo server Active Directory verrà aggiunto all'elenco dei server di Active Directory.
+15. Fare clic su **Finished** (Operazione completata). Il nuovo server viene visualizzato nell'elenco. Il nuovo server Active Directory verrà aggiunto all'elenco dei server di Active Directory.
 
     ![Configurazione di F5 (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 

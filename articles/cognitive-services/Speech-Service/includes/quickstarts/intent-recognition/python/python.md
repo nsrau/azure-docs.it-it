@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d819eaa5c90e304a642efd3a6f2458cab4eefe7f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7572e5c5621b514c375e44ca44ddfc4102f5d714
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421969"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298723"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -68,6 +68,8 @@ Inserire questo codice sotto `IntentRecognizer`. Assicurarsi di sostituire `"You
 > Per informazioni su come trovare questo valore, vedere [Creare un'app LUIS per il riconoscimento delle finalità](#create-a-luis-app-for-intent-recognition).
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
+
+Questo esempio usa la funzione `add_intents()` per aggiungere un elenco di finalità definite in modo esplicito. Se si vogliono aggiungere tutte le finalità da un modello, usare `add_all_intents(model)` e passare il modello.
 
 ## <a name="recognize-an-intent"></a>Riconoscere una finalità
 

@@ -1,6 +1,6 @@
 ---
 title: Rete virtuale di Azure | Microsoft Docs
-description: Informazioni sui concetti e sulle funzionalità di Rete virtuale di Azure.
+description: Informazioni sui concetti e le funzionalità di Rete virtuale di Azure, inclusi lo spazio degli indirizzi, le subnet, le aree e le sottoscrizioni.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040606"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386997"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -27,7 +27,7 @@ Rete virtuale di Azure (VNet) è il blocco predefinito fondamentale per la rete 
 ## <a name="vnet-concepts"></a>Concetti di VNet
 
 - **Spazio indirizzi**: quando si crea una rete virtuale, è necessario specificare uno spazio indirizzi IP privato personalizzato con indirizzi pubblici e privati (RFC 1918). Azure assegna alle risorse di una rete virtuale un indirizzo IP privato dello spazio indirizzi specificato. Se, ad esempio, si distribuisce una macchina virtuale in una rete virtuale con spazio indirizzi 10.0.0.0/16, alla macchina virtuale verrà assegnato un indirizzo IP privato come 10.0.0.4.
-- **Subnet:** le subnet consentono di segmentare la rete virtuale in una o più reti secondarie e di allocare una parte dello spazio indirizzi della rete virtuale a ogni subnet. È quindi possibile distribuire le risorse di Azure in una subnet specifica. Proprio come le reti tradizionali, le subnet consentono di segmentare lo spazio indirizzi della rete virtuale in segmenti appropriati per la rete interna dell'organizzazione. In questo modo, anche l'allocazione degli indirizzi risulta più efficiente. È possibile proteggere le risorse all'interno delle subnet con i gruppi di sicurezza di rete. Per altre informazioni, vedere [Gruppi di sicurezza](security-overview.md).
+- **Subnet:** le subnet consentono di segmentare la rete virtuale in una o più reti secondarie e di allocare una parte dello spazio indirizzi della rete virtuale a ogni subnet. È quindi possibile distribuire le risorse di Azure in una subnet specifica. Proprio come le reti tradizionali, le subnet consentono di segmentare lo spazio indirizzi della rete virtuale in segmenti appropriati per la rete interna dell'organizzazione. In questo modo, anche l'allocazione degli indirizzi risulta più efficiente. È possibile proteggere le risorse all'interno delle subnet con i gruppi di sicurezza di rete. Per altre informazioni, vedere [Gruppi di sicurezza di rete](security-overview.md).
 - **Aree di Azure**: l'ambito di una rete virtuale è una singola area/località; tuttavia, è possibile connettere più reti virtuali da diverse aree di Azure usando il peering di rete virtuale.
 - **Sottoscrizione:** l'ambito di una rete virtuale è una sottoscrizione. È possibile implementare più reti virtuali in ogni [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [area](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) di Azure.
 
@@ -67,7 +67,7 @@ Le risorse di Azure comunicano in modo sicuro tra di esse in uno dei modi seguen
 
 È possibile filtrare il traffico di rete tra subnet usando una o entrambe le opzioni seguenti.
 
-- **Gruppi di sicurezza:** gruppi di sicurezza di rete e gruppi di sicurezza delle applicazioni possono contenere più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico verso e dalle risorse per protocollo, porta e indirizzo IP di origine e di destinazione. Per altre informazioni, consultare [Gruppi di sicurezza di rete](security-overview.md#network-security-groups) e [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
+- **Gruppi di sicurezza di rete:** gruppi di sicurezza di rete e gruppi di sicurezza delle applicazioni possono contenere più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico verso e dalle risorse per protocollo, porta e indirizzo IP di origine e di destinazione. Per altre informazioni, consultare [Gruppi di sicurezza di rete](security-overview.md#network-security-groups) e [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
 - **Appliance virtuali di rete:** un'appliance virtuale di rete è una macchina virtuale che esegue una funzione di rete, ad esempio un firewall, un'ottimizzazione WAN o un'altra funzione di rete. Per visualizzare un elenco delle appliance virtuali di rete disponibili che è possibile distribuire in una rete virtuale di Azure, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Indirizzare il traffico di rete

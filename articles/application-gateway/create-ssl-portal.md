@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 07/24/2020
 ms.author: victorh
-ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024493"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290128"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Esercitazione: Configurare un gateway applicazione con la terminazione TLS tramite il portale di Azure
 
@@ -158,7 +158,7 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
 
 5. Per **Impostazione HTTP** selezionare **Crea nuovo** per creare una nuova impostazione HTTP. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione HTTP** visualizzata immettere *myHTTPSetting* per **Nome impostazione HTTP**. Accettare i valori predefiniti per le altre impostazioni nella finestra **Aggiungi un'impostazione HTTP** e quindi selezionare **Aggiungi** per tornare alla finestra **Aggiungi una regola di routing**. 
 
-   ![Creare il nuovo gateway applicazione: impostazione HTTP](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Creare il nuovo gateway applicazione: impostazione HTTP":::
 
 6. Nella finestra **Aggiungi una regola di routing** selezionare **Aggiungi** per salvare la regola di routing e tornare alla scheda **Configurazione**.
 
@@ -250,7 +250,7 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 
     ![Registrare l'indirizzo IP pubblico del gateway applicazione](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. Nella barra degli indirizzi del browser digitare *https://\<indirizzo IP del gateway applicazione\>* .
+2. Nella barra degli indirizzi del browser digitare *https://\<your application gateway ip address\>* .
 
    Per accettare l'avviso di sicurezza se si è usato un certificato autofirmato, selezionare **Dettagli** (o **Avanzate** in Chrome) e quindi passare alla pagina Web:
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b54545708d21c876fb85e1795b26c34eece005dd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255711"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283453"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controllare l'accesso agli account di archiviazione per SQL su richiesta (anteprima)
 
@@ -87,6 +87,11 @@ Nella tabella seguente è possibile trovare i tipi di autorizzazione disponibili
 | *Identità gestita* | Supportato      | Supportato        | Supportato     |
 | *Identità utente*    | Supportato      | Supportato        | Supportato     |
 
+
+> [!IMPORTANT]
+> Quando si accede a uno spazio di archiviazione protetto da firewall, è possibile usare solo l'identità gestita. È necessario usare l'impostazione [Consenti servizi Microsoft attendibili](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [assegnare esplicitamente un ruolo di controllo degli accessi in base al ruolo](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) all'[identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per tale istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di controllo degli accessi in base al ruolo assegnato all'identità gestita.
+>
+
 ## <a name="credentials"></a>Credenziali
 
 Per eseguire query su un file in Archiviazione di Azure, l'endpoint SQL su richiesta deve avere una credenziale che contiene le informazioni di autenticazione. Vengono usati due tipi di credenziali:
@@ -109,11 +114,7 @@ Per usare le credenziali, l'utente deve disporre dell'autorizzazione `REFERENCES
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Per garantire un'esperienza uniforme con il pass-through di Azure AD, per impostazione predefinita tutti gli utenti hanno il diritto per l'uso della credenziale `UserIdentity`. Per ottenere questo risultato, viene eseguita automaticamente l'istruzione seguente con il provisioning dell'area di lavoro di Azure Synapse:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+Per garantire un'esperienza uniforme con il pass-through di Azure AD, per impostazione predefinita tutti gli utenti hanno il diritto per l'uso della credenziale `UserIdentity`.
 
 ## <a name="server-scoped-credential"></a>Credenziali con ambito server
 
@@ -243,7 +244,7 @@ SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
                                 DATA_SOURCE = [mysample],
-                                FORMAT=PARQUET) as rows;
+                                FORMAT='PARQUET') as rows;
 GO
 ```
 
@@ -288,7 +289,7 @@ L'utente del database può leggere il contenuto dei file dall'origine dati usand
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
 GO
 ```
 

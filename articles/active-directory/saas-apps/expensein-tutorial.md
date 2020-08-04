@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 07/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7e3659aa3044a4453574a2cd171303d00abc19
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 377499b1dd263398e1be42379f8db60e8a0477f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017517"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Esercitazione: Integrazione di ExpenseIn con Azure Active Directory
 
@@ -42,7 +41,10 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. ExpenseIn supporta l'accesso SSO avviato da **SP e IDP**.
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. 
+* ExpenseIn supporta l'accesso SSO avviato da **SP e IDP**.
+* Dopo aver configurato ExpenseIn, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
 
 ## <a name="adding-expensein-from-the-gallery"></a>Aggiunta di ExpenseIn dalla raccolta
 
@@ -55,20 +57,20 @@ Per configurare l'integrazione di ExpenseIn in Azure AD, è necessario aggiunger
 1. Nella sezione **Aggiungi dalla raccolta** digitare **ExpenseIn** nella casella di ricerca.
 1. Selezionare **ExpenseIn** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-expensein"></a>Configurare e testare l'accesso SSO di Azure AD per ExpenseIn
 
 Configurare e testare l'accesso SSO di Azure AD con ExpenseIn usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ExpenseIn.
 
 Per configurare e testare l'accesso SSO di Azure AD con ExpenseIn, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare ExpenseIn](#configure-expensein)** per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di ExpenseIn](#create-expensein-test-user)** per avere una controparte di B.Simon in ExpenseIn collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di ExpenseIn](#configure-expensein-sso)** per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare un utente di test di ExpenseIn](#create-expensein-test-user)** per avere una controparte di B.Simon in ExpenseIn collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
-### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
@@ -78,14 +80,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
-
-    Nella casella di testo **URL di risposta** digitare uno degli URL seguenti:
-
-    ```https
-    https://app.expensein.com/samlcallback
-    https://mobileapi.expensein.com/identity/samlcallback
-    ```
+4. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione in quanto l'app è già preintegrata in Azure.
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -98,38 +93,6 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella sezione **Configura ExpenseIn** copiare gli URL appropriati in base alle esigenze.
 
    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
-
-### <a name="configure-expensein"></a>Configurare ExpenseIn
-
-1. Per automatizzare la configurazione all'interno di ExpenseIn, è necessario installare l'**estensione de browser per l'accesso sicuro alle app personali** facendo clic su **Installa l'estensione**.
-
-    ![Estensione MyApps](common/install-myappssecure-extension.png)
-
-2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura ExpenseIn**. Si verrà indirizzati all'applicazione ExpenseIn. Specificare quindi le credenziali di amministratore per accedere a ExpenseIn. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 5.
-
-    ![Eseguire la configurazione](common/setup-sso.png)
-
-3. Se si intende configurare ExpenseIn manualmente, aprire una nuova finestra del Web browser, accedere al sito aziendale di ExpenseIn come amministratore e seguire questa procedura:
-
-4. Fare clic su **Admin** (Amministrazione) nella parte superiore della pagina, quindi passare a **Single Sign-On** e fare clic su **Add provider** (Aggiungi provider).
-
-     ![Configurazione di ExpenseIn](./media/expenseIn-tutorial/config01.png)
-
-5. Nella finestra popup **New Identity Provider** (Nuovo provider di identità) seguire questa procedura:
-
-    ![Configurazione di ExpenseIn](./media/expenseIn-tutorial/config02.png)
-
-    a. Nella casella di testo **Provider Name** (Nome provider) digitare il nome, ad esempio Azure.
-
-    b. Selezionare **Yes** (Sì) per **Allow Provider Initiated Sign-On** (Consenti accesso avviato da provider).
-
-    c. Nella casella di testo **Target Url** (URL di destinazione) incollare il valore di **URL di accesso** copiato dal portale di Azure.
-
-    d. Nella casella di testo **Issuer** (Autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
-
-    e. Aprire il certificato (Base64) nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Certificate** (Certificato).
-
-    f. Fare clic su **Crea**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -161,6 +124,31 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
+
+## <a name="configure-expensein-sso"></a>Configurare l'accesso Single Sign-On di ExpenseIn
+
+1. Aprire una nuova finestra del Web browser e accedere al sito aziendale di ExpenseIn come amministratore.
+
+1. Fare clic su **Admin** (Amministrazione) nella parte superiore della pagina, quindi passare a **Single Sign-On** e fare clic su **Add provider** (Aggiungi provider).
+
+     ![Configurazione di ExpenseIn](./media/expenseIn-tutorial/config01.png)
+
+1. Nella finestra popup **New Identity Provider** (Nuovo provider di identità) seguire questa procedura:
+
+    ![Configurazione di ExpenseIn](./media/expenseIn-tutorial/config02.png)
+
+    a. Nella casella di testo **Provider Name** (Nome provider) digitare il nome, ad esempio Azure.
+
+    b. Selezionare **Yes** (Sì) per **Allow Provider Initiated Sign-On** (Consenti accesso avviato da provider).
+
+    c. Nella casella di testo **Target Url** (URL di destinazione) incollare il valore di **URL di accesso** copiato dal portale di Azure.
+
+    d. Nella casella di testo **Issuer** (Autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
+
+    e. Aprire il certificato (Base64) nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Certificate** (Certificato).
+
+    f. Fare clic su **Crea**.
+
 ### <a name="create-expensein-test-user"></a>Creare l'utente di test di ExpenseIn
 
 Per consentire agli utenti di Azure AD di accedere a ExpenseIn, è necessario effettuarne il provisioning in ExpenseIn. Nel caso di ExpenseIn il provisioning è un'attività manuale.
@@ -185,7 +173,7 @@ Per consentire agli utenti di Azure AD di accedere a ExpenseIn, è necessario ef
 
     d. Fare clic su **Crea**.
 
-### <a name="test-sso"></a>Testare l'accesso SSO
+## <a name="test-sso"></a>Testare l'accesso SSO
 
 Quando si fa clic sul riquadro di ExpenseIn nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ExpenseIn per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -196,3 +184,9 @@ Quando si fa clic sul riquadro di ExpenseIn nel pannello di accesso, si dovrebbe
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Provare ExpenseIn con Azure AD](https://aad.portal.azure.com/)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Come proteggere ExpenseIn con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

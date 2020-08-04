@@ -1,5 +1,5 @@
 ---
-title: Rete virtuale gestita in Azure Synapse Analytics
+title: Rete virtuale gestita
 description: Articolo che illustra la rete virtuale gestita in Azure Synapse Analytics
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,20 +8,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b46ce6f6164479853bc762cb1ca45d67f7f80930
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 06b535b25df19e5062d16184f4469d9e9253b9c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194366"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042614"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Rete virtuale gestita di Azure Synapse Analytics (anteprima)
 
 Questo articolo illustra la rete virtuale gestita in Azure Synapse Analytics.
 
-## <a name="managed-workspace-vnet"></a>Rete virtuale dell'area di lavoro gestita
+## <a name="managed-workspace-virtual-network"></a>Rete virtuale dell'area di lavoro gestita
 
-Durante la creazione dell'area di lavoro di Azure Synapse, è possibile scegliere di associarla a una rete virtuale. La rete virtuale associata all'area di lavoro è gestita da Azure Synapse. Questa rete virtuale è detta *rete virtuale dell'area di lavoro gestita*.
+Durante la creazione dell'area di lavoro di Azure Synapse, è possibile scegliere di associarla a una rete virtuale di Microsoft Azure. La rete virtuale associata all'area di lavoro è gestita da Azure Synapse. Questa rete virtuale è definita *rete virtuale dell'area di lavoro gestita*.
 
 La rete virtuale dell'area di lavoro gestita è utile per quattro motivi:
 
@@ -37,9 +37,9 @@ Se l'area di lavoro dispone di una rete virtuale dell'area di lavoro gestita, le
 Il pool SQL e SQL su richiesta sono funzionalità multi-tenant e pertanto si trovano all'esterno della rete virtuale dell'area di lavoro gestita. Le comunicazioni all'interno dell'area di lavoro con il pool SQL e SQL su richiesta usano collegamenti privati di Azure. Questi collegamenti privati vengono creati automaticamente quando si crea un'area di lavoro con una rete virtuale dell'area di lavoro gestita associata.
 
 >[!IMPORTANT]
->Dopo aver creato l'area di lavoro, non è più possibile modificare questa configurazione dell'area di lavoro. Ad esempio, non è possibile riconfigurare un'area di lavoro a cui non è associata una rete virtuale dell'area di lavoro gestita e associarle una rete virtuale. Allo stesso modo, non è possibile riconfigurare un'area di lavoro a cui è associata una rete virtuale dell'area di lavoro gestita e rimuovere l'associazione della rete virtuale.
+>Dopo aver creato l'area di lavoro, non è più possibile modificare questa configurazione dell'area di lavoro. Ad esempio, non è possibile riconfigurare un'area di lavoro a cui non è associata una rete virtuale dell'area di lavoro gestita e associarle una rete virtuale. Analogamente, non è possibile riconfigurare un'area di lavoro a cui è associata una rete virtuale dell'area di lavoro gestita e rimuovere l'associazione della rete virtuale.
 
-## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>Creare un'area di lavoro di Azure Synapse con una rete virtuale dell'area di lavoro gestita
+## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-virtual-network"></a>Creare un'area di lavoro di Azure Synapse con una rete virtuale dell'area di lavoro gestita
 
 Se non è già stato fatto, registrare il provider di risorse di rete. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. Scegliere *Microsoft.Network* dall'elenco dei provider di risorse quando si [esegue la registrazione](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
@@ -50,7 +50,7 @@ Se si lascia deselezionata la casella di controllo, all'area di lavoro non verr�
 >[!IMPORTANT]
 >È possibile usare i collegamenti privati solo in un'area di lavoro con una rete virtuale dell'area di lavoro gestita.
 
-![Abilitazione della rete virtuale dell'area di lavoro gestita](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
+![Rete virtuale dell'area di lavoro gestita abilitata](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
 >Tutto il traffico in uscita dalla rete virtuale dell'area di lavoro gestita, eccetto quello tramite gli endpoint privati gestiti, verrà bloccato in futuro. È consigliabile creare endpoint privati gestiti per connettersi a tutte le origini dati di Azure esterne all’area di lavoro. 

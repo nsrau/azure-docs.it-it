@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055206"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386011"
 ---
 # <a name="what-is-application-management"></a>Cos'è la gestione delle applicazioni?
 
@@ -63,7 +63,7 @@ Sono principalmente quattro i tipi di applicazione che è possibile aggiungere a
 
 - **Applicazioni personalizzate**. È possibile integrare le applicazioni line-of-business create internamente con Azure AD per supportare il Single Sign-On. La registrazione dell'applicazione con Azure AD consente di avere il controllo dei criteri di autenticazione impostati per l'applicazione. Per altre informazioni, vedere [Sviluppare app line-of-business per Azure Active Directory](developer-guidance-for-integrating-applications.md).
 
-- **Applicazioni non incluse nella raccolta**. È possibile aggiungere le proprie applicazioni ad Azure AD per supportare il Single Sign-On. È possibile integrare un'applicazione in diversi modi, alcuni dei quali sono descritti di seguito. Per altre informazioni, vedere [Configurare il Single Sign-On per le app non incluse nella raccolta](configure-single-sign-on-non-gallery-applications.md).
+- **Applicazioni non incluse nella raccolta**. È possibile aggiungere le proprie applicazioni ad Azure AD per supportare il Single Sign-On. È possibile integrare un'applicazione in diversi modi, alcuni dei quali sono descritti di seguito. Per altre informazioni, vedere [Configurare Single Sign-On SAML](configure-saml-single-sign-on.md).
 
 >[!TIP]
 >È possibile integrare Azure AD con un'applicazione anche se non è già preconfigurata e inclusa nella raccolta di app. È possibile **integrare Azure AD con uno qualsiasi** degli elementi seguenti:
@@ -93,8 +93,6 @@ Per le applicazioni incentrate sulle risorse umane o altre applicazioni con un a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Visualizzare le applicazioni già configurate nel tenant di Azure AD](view-applications-portal.md)
-- [Avvio rapido: Aggiungere un'applicazione al tenant di Azure Active Directory](add-application-portal.md)
-- [Aggiungere un'app della raccolta all'organizzazione di Azure AD](add-gallery-app.md)
+- [Serie di guide introduttive sulla gestione delle app in Azure AD](view-applications-portal.md)
 - [Introduzione all'integrazione delle applicazioni](plan-an-application-integration.md)
 - [Come automatizzare il provisioning](../app-provisioning/user-provisioning.md)

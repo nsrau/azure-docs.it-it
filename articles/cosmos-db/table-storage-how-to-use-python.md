@@ -5,29 +5,31 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: 0d24f5621786ce292d98ae1fc6dd8fafc5b69c55
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3e21cc7a66f09b5e759b3d3a53ab95dd9710900d
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556231"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171962"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-L'archiviazione tabelle di Azure e Azure Cosmos DB sono servizi che archiviano dati NoSQL strutturati nel cloud, mettendo a disposizione un archivio di chiavi/attributi senza schema. Poiché l'archiviazione tabelle e Azure Cosmos DB sono senza schema, è facile adattare i dati con il variare delle esigenze dell'applicazione. L'accesso ai dati dell'archiviazione tabelle e dell'API Tabelle è rapido ed economico per molti tipi di applicazioni e presenta costi generalmente più bassi rispetto alle soluzioni SQL tradizionali per volumi di dati simili.
+L'archiviazione tabelle di Azure e Azure Cosmos DB sono servizi che archiviano dati NoSQL strutturati nel cloud, offrendo un archivio di chiavi/attributi con una struttura senza schema. Poiché l'archiviazione tabelle e Azure Cosmos DB sono senza schema, è facile adattare i dati con il variare delle esigenze dell'applicazione. L'accesso ai dati di archiviazione tabelle e API di tabella è veloce ed economicamente conveniente per molti tipi di applicazione e costituisce in genere un approccio meno costoso rispetto alle tradizionali soluzioni SQL per volumi simili di dati.
 
-È possibile usare l'archiviazione tabelle o Azure Cosmos DB per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. In una tabella possono essere archiviate il numero desiderato di tabelle e un account di archiviazione può contenere un numero qualsiasi di tabelle, fino a che non viene raggiunto il limite di capacità dell'account di archiviazione.
+È possibile utilizzare l'archiviazione tabelle o Azure Cosmos DB per archiviare set di dati flessibili, ad esempio dati utente relativi ad applicazioni Web, rubriche, informazioni sul dispositivo o altri tipi di metadati necessari per il servizio. In una tabella possono essere archiviate il numero desiderato di tabelle e un account di archiviazione può contenere un numero qualsiasi di tabelle, fino a che non viene raggiunto il limite di capacità dell'account di archiviazione.
 
 ### <a name="about-this-sample"></a>Informazioni sull'esempio
+
 Questo esempio illustra come usare [Azure Cosmos DB Table SDK per Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) all'interno di scenari comuni di archiviazione tabelle di Azure. Il nome dell'SDK indica che è destinato all'uso con Azure Cosmos DB. L'SDK funziona tuttavia sia con Azure Cosmos DB sia con l'archiviazione tabelle di Azure, ma ogni servizio ha un endpoint univoco. Questi scenari vengono esaminati tramite esempi Python che illustrano come:
+
 * Creare ed eliminare tabelle
 * Inserire ed eseguire query sulle entità
 * Modificare entità
@@ -38,17 +40,20 @@ Mentre si lavora agli scenari di questo esempio, è possibile vedere le [informa
 
 Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 
-- [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 o 3.6
-- [Azure Cosmos DB Table SDK per Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) Questo SDK si connette sia all'archiviazione tabelle di Azure sia all'API Tabelle di Azure Cosmos DB.
-- [Account di archiviazione di Azure](../storage/common/storage-account-create.md) o [account Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
+* [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 o 3.6
+* [Azure Cosmos DB Table SDK per Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) Questo SDK si connette sia all'archiviazione tabelle di Azure sia all'API Tabelle di Azure Cosmos DB.
+* [Account di archiviazione di Azure](../storage/common/storage-account-create.md) o [account Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>Creare un account del servizio di Azure
+
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
+**Creare un account di archiviazione di Azure**
+
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Creare un account per l'API di tabella di Azure Cosmos DB
+**Creare un account per l'API di tabella di Azure Cosmos DB**
+
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>Installare Azure Cosmos DB Table SDK per Python

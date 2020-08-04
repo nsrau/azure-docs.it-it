@@ -9,18 +9,21 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 03/04/2020
-ms.openlocfilehash: cca09f53f90b43713c2b9b764568fb0a6d157c5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 07/10/2020
+ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047841"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In questa esercitazione viene descritto come creare un modello di classificazione di base senza scrivere una sola riga di codice usando l'interfaccia di Machine Learning automatizzato di Azure Machine Learning. Questo modello di classificazione consente di stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
+In questa esercitazione viene descritto come creare un modello di classificazione di base senza scrivere una sola riga di codice usando Machine Learning automatizzato in Azure Machine Learning Studio. Questo modello di classificazione consente di stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
+
+>[!IMPORTANT]
+> L'esperienza di Machine Learning automatizzato in Azure Machine Learning Studio è in anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero avere funzionalità limitate.
 
 Con l'apprendimento automatico automatizzato, è possibile automatizzare le attività a elevato utilizzo di tempo. L'apprendimento automatico automatizzato esegue rapidamente l'iterazione su numerose combinazioni di algoritmi e iperparametri per aiutare a trovare il modello migliore in base a una metrica di riuscita di propria scelta.
 
@@ -44,18 +47,18 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 Un'area di lavoro di Machine Learning è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nel servizio. 
 
-Per creare un'area di lavoro è necessario usare il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
+Creare un'area di lavoro **Enterprise Edition** tramite il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 >[!IMPORTANT] 
 > Prendere nota dell'**area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
 
-## <a name="create-and-run-the-experiment"></a>Creare ed eseguire l'esperimento
+## <a name="get-started-in-azure-machine-learning-studio"></a>Iniziare con Azure Machine Learning Studio
 
-Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento tramite Azure Machine Learning in https://ml.azure.com, un'interfaccia Web consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia di qualsiasi livello di competenza. Questa interfaccia non è supportata nei browser Internet Explorer.
+Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento tramite Azure Machine Learning Studio in https://ml.azure.com, un'interfaccia Web consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia di qualsiasi livello di competenza. Studio non è supportato nei browser Internet Explorer.
 
-1. Accedere ad [Azure Machine Learning](https://ml.azure.com).
+1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Selezionare la sottoscrizione e l'area di lavoro create.
 
@@ -67,7 +70,11 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
    ![Pagina delle attività iniziali](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Selezionare **New automated ML run** (Nuova esecuzione di ML automatizzato). 
+1. Selezionare **Nuova esecuzione di ML automatizzato**. 
+
+## <a name="create-and-load-dataset"></a>Creare e caricare il set di dati
+
+Prima di configurare l'esperimento, caricare il file di dati nell'area di lavoro sotto forma di set di dati Azure Machine Learning. In questo modo, è possibile assicurarsi che i dati siano correttamente formattati per l'esperimento.
 
 1. Creare un nuovo set di dati selezionando **From local files** (Da file locali) dall'elenco a discesa **+Create dataset** (Crea set di dati). 
 
@@ -101,25 +108,35 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
         ![Configurazione della scheda Anteprima](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
-    1. Nel modulo **Confirm details** (Conferma dettagli) verificare che le informazioni corrispondano a quelle con cui erano stati precedentemente popolati i moduli **Basic info** (informazioni di base) e **Settings and preview** (Impostazioni e anteprima).
+    1. Nel modulo **Conferma dettagli** verificare che le informazioni corrispondano a quelle con cui erano stati precedentemente popolati i moduli **Informazioni di base, Selezione archivio dati e file** e **Impostazioni e anteprima**.
+    
     1. Selezionare **Crea** per completare la creazione del set di dati.
+    
     1. Selezionare il set di dati quando viene visualizzato nell'elenco.
+    
     1. Esaminare l'**anteprima dati** per assicurarsi di non avere incluso **day_of_week** e quindi scegliere **OK**.
 
     1. Selezionare **Avanti**.
+
+## <a name="configure-experiment-run"></a>Configurare l'esecuzione dell'esperimento
+
+Dopo aver caricato e configurato i dati, è possibile configurare l'esperimento. Questa configurazione include attività di progettazione dell'esperimento, ad esempio la selezione delle dimensioni dell'ambiente di calcolo e la specifica della colonna da stimare. 
 
 1. Popolare il modulo **Configure Run** (Configura esecuzione) come segue:
     1. Immettere questo nome di esperimento: `my-1st-automl-experiment`
 
     1. Selezionare **y** come colonna di destinazione, che indica le stime da eseguire. Questa colonna indica se il client ha sottoscritto o meno un deposito a termine.
+    
     1. Selezionare **Create a new compute** (Crea nuovo calcolo) e configurare la destinazione di calcolo. Una destinazione di calcolo è un ambiente di risorse locale o basato sul cloud usato per eseguire lo script di training o per ospitare la distribuzione del servizio. Per questo esperimento viene usato un calcolo basato sul cloud. 
 
         Campo | Descrizione | Valore per l'esercitazione
         ----|---|---
         Nome del calcolo |Un nome univoco che identifica il contesto di calcolo.|automl-compute
+        Tipo&nbsp;di macchina&nbsp;virtuale| Selezionare il tipo di macchina virtuale per il contesto di calcolo.|CPU (Central Processing Unit)
         Dimensioni&nbsp;della macchina&nbsp;virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.|Standard_DS12_V2
-        Numero minimo/massimo di nodi (in Impostazioni avanzate)| Per profilare i dati, è necessario specificare almeno un nodo.|Numero minimo di nodi: 1<br>Numero massimo di nodi: 6
-  
+        Nodi min/max| Per profilare i dati, è necessario specificare almeno un nodo.|Numero minimo di nodi: 1<br>Numero massimo di nodi: 6
+        Secondi di inattività prima della riduzione | Tempo di inattività prima che il cluster venga ridotto automaticamente al numero minimo di nodi.|120 (impostazione predefinita)
+        Impostazioni avanzate | Impostazioni per la configurazione e l'autorizzazione di una rete virtuale per l'esperimento.| nessuno
         1. Selezionare **Crea** per ottenere la destinazione di calcolo. 
 
             **Il completamento dell'operazione richiede alcuni minuti.** 
@@ -128,17 +145,16 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
     1. Selezionare **Avanti**.
 
-1. Nel modulo **Task type and settings** (Tipo di attività e impostazioni) selezionare **Classificazione** come tipo di attività di Machine Learning.
+1. Nel modulo **Tipo di attività e impostazioni** completare l'esperimento di ML automatizzato, specificare il tipo di attività di Machine Learning e le impostazioni di configurazione.
+    
+    1.  Selezionare **Classificazione** come tipo di attività di Machine Learning.
 
     1. Selezionare **View additional configuration settings** (Visualizza altre impostazioni di configurazione) e popolare i campi come indicato di seguito. Queste impostazioni consentono un maggior controllo del processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati.
 
-        >[!NOTE]
-        > In questa esercitazione non viene impostato un punteggio di metrica o un numero massimo di core come soglia per le iterazioni. E non vengono neanche bloccati i test degli algoritmi.
-   
         Configurazioni&nbsp;aggiuntive|Descrizione|Valore&nbsp;per&nbsp;l'esercitazione
         ------|---------|---
         Primary metric (Metrica principale)| Metrica di valutazione in base a cui verrà misurato l'algoritmo di Machine Learning.|AUC_weighted
-        Automatic featurization (Definizione automatica funzionalità)| Consente la pre-elaborazione dei dati. Sono incluse la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche.| Abilitare
+        Modello esplicativo migliore| Mostra automaticamente il modello esplicativo migliore creato da ML automatizzato.| Abilitare
         Blocked algorithms (Algoritmi bloccati) | Algoritmi da escludere dal processo di training| nessuno
         Exit criterion (Esci da criterio)| Se viene soddisfatto un criterio, il processo di training viene arrestato. |Durata del&nbsp;processo&nbsp;di training (ore): 1 <br> Soglia&nbsp;punteggio&nbsp;metrica: nessuno
         Convalida | Scegliere un tipo di convalida incrociata e un numero di test.|Tipo di convalida:<br>Convalida incrociata &nbsp;k-fold&nbsp; <br> <br> Numero di convalide: 2
@@ -161,7 +177,7 @@ Passare alla scheda **Modelli** per visualizzare gli algoritmi (modelli) testati
 
 Mentre si aspetta il completamento di tutti i modelli dell'esperimento, selezionare il **nome di algoritmo** di un modello completato per esplorare i dettagli delle relative prestazioni. 
 
-Di seguito vengono esaminate le schede **Dettagli del modello** e **Visualizzazioni** per visualizzare le proprietà, le metriche e i grafici delle prestazioni del modello selezionato. 
+Di seguito vengono esaminate le schede **Dettagli** e **Metriche** per visualizzare le proprietà, le metriche e i grafici delle prestazioni del modello selezionato. 
 
 ![Dettagli sull'esecuzione delle iterazioni](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
@@ -171,11 +187,15 @@ L'interfaccia di Machine Learning automatizzato consente di distribuire il model
 
 Per questo esperimento, attraverso la distribuzione a un servizio Web l'istituto finanziario ha ora una soluzione Web iterativa e scalabile per l'identificazione dei potenziali clienti con deposito a termine fisso. 
 
-Al termine dell'esecuzione, tornare alla pagina **Dettagli esecuzione** e selezionare la scheda **Modelli**.
+Verificare se l'esecuzione dell'esperimento è stata completata. A tale scopo, tornare alla pagina di esecuzione padre selezionando **Esecuzione 1** nella parte superiore della schermata. Viene visualizzato lo stato **Completato** nella parte superiore sinistra della schermata. 
 
-Nel contesto di questo esperimento **VotingEnsemble** viene considerato il modello migliore, in base alla metrica **AUC_weighted**.  Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti. Il processo di distribuzione comporta diversi passaggi, tra cui la registrazione del modello, la generazione delle risorse e la relativa configurazione per il servizio Web.
+Dopo aver completato l'esecuzione dell'esperimento, la pagina **Dettagli** viene popolata con una sezione di riepilogo **Modello migliore**. Nel contesto di questo esperimento **VotingEnsemble** viene considerato il modello migliore, in base alla metrica **AUC_weighted**.  
 
-1. Selezionare il pulsante **Distribuisci modello migliore** nell'angolo in basso a sinistra.
+Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti. Il processo di distribuzione comporta diversi passaggi, tra cui la registrazione del modello, la generazione delle risorse e la relativa configurazione per il servizio Web.
+
+1. Selezionare **VotingEnsemble** per aprire la pagina specifica del modello.
+
+1. Selezionare il pulsante **Distribuisci** nella parte superiore sinistra.
 
 1. Immettere i dati nel riquadro **Deploy a model** (Distribuisci un modello) in questo modo:
 
@@ -191,7 +211,7 @@ Nel contesto di questo esperimento **VotingEnsemble** viene considerato il model
 
 1. Selezionare **Distribuisci**.  
 
-    Nella parte superiore della schermata **Esegui** viene visualizzato un messaggio verde di operazione riuscita e nel riquadro **Recommended model** (Modello consigliato) viene visualizzato un messaggio di stato in **Deploy status** (Stato distribuzione). Selezionare a intervalli regolari **Aggiorna** per controllare lo stato della distribuzione.
+    Nella parte superiore della schermata **Esegui** viene visualizzato un messaggio verde di operazione riuscita e nel riquadro **Riepilogo modelli** viene visualizzato un messaggio di stato in **Deploy status** (Stato distribuzione). Selezionare a intervalli regolari **Aggiorna** per controllare lo stato della distribuzione.
     
 A questo punto, è disponibile un servizio Web operativo per generare stime. 
 

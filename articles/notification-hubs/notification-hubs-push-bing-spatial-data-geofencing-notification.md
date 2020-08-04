@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223432"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116925"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Esercitazione: Inviare notifiche push in base Location Based con Hub di notifica e i dati spaziali Bing
 
@@ -63,7 +63,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
     Il file pipe rappresenta questa entità:
 
-    ![Screenshot di un punto di accesso del waterfront di San Francisco con un poligono rosso che delinea un'area dei moli.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Screenshot di una mappa del lungomare di San Francisco con un poligono rosso che delinea un'area dei moli.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Nella pagina **Carica un'origine dati**, procedere come segue:
    1. Selezionare **pipe** per **Formato dati**.
    2. Individuare e selezionare il file `NotificationHubGeofence.pipe` creato nel passaggio precedente.
@@ -164,7 +164,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
     }
     ```
 
-    Per altre informazioni su come ottenere la posizione dell'utente nelle app UWP, vedere [Ottenere la posizione dell'utente](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    Per altre informazioni su come ottenere la posizione dell'utente nelle app UWP, vedere [Ottenere la posizione dell'utente](/windows/uwp/maps-and-location/get-location).
 5. Per verificare che l'acquisizione della posizione funzioni effettivamente, aprire il lato del codice della pagina principale (`MainPage.xaml.cs`). Creare un nuovo gestore eventi per l'evento `Loaded` nel costruttore `MainPage`.
 
     ```csharp
@@ -393,7 +393,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 È possibile eseguire un paio di passaggi per assicurarsi che la soluzione sia pronta per la produzione.
 
-1. Prima è necessario assicurarsi che i recinti virtuali siano dinamici. A questo scopo è necessario eseguire altre operazioni con l'API Bing per poter caricare nuovi limiti nell'origine dati esistente. Per altre informazioni, vedere [Documentazione dell'API dei servizi dati spaziali di Bing](https://msdn.microsoft.com/library/ff701734.aspx).
+1. Prima è necessario assicurarsi che i recinti virtuali siano dinamici. A questo scopo è necessario eseguire altre operazioni con l'API Bing per poter caricare nuovi limiti nell'origine dati esistente. Per altre informazioni, vedere [Documentazione dell'API dei servizi dati spaziali di Bing](/bingmaps/spatial-data-services/).
 2. Dato che lo scopo è assicurarsi che le notifiche siano recapitate ai partecipanti corretti, è consigliabile usare l' [assegnazione di tag](notification-hubs-tags-segment-push-message.md).
 
-La soluzione illustrata in questa esercitazione descrive uno scenario in cui è possibile avere un'ampia gamma di piattaforme di destinazione, quindi il recinto virtuale non limita le funzionalità specifiche del sistema. Ciò premesso, la piattaforma UWP (Universal Windows Platform) offre funzionalità per [rilevare automaticamente i recinti virtuali](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+La soluzione illustrata in questa esercitazione descrive uno scenario in cui è possibile avere un'ampia gamma di piattaforme di destinazione, quindi il recinto virtuale non limita le funzionalità specifiche del sistema. Ciò premesso, la piattaforma UWP (Universal Windows Platform) offre funzionalità per [rilevare automaticamente i recinti virtuali](/windows/uwp/maps-and-location/set-up-a-geofence).

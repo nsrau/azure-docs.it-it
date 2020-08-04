@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798256"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075333"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Esercitazione: Introduzione alle query di Log Analytics
 
@@ -189,7 +189,7 @@ Per salvare una query:
    
    Per salvare una query come funzione, fornire un **Alias della funzione**, ovvero un nome breve che può essere usato da altre query per chiamare questa query.
    
-1. Fornire una **Categoria** per **Esplora query** da usare per la query.
+1. Se ci si trova in un'area di lavoro Log Analytics, specificare una **categoria** per **Esplora query** da usare per la query. (Le categorie non sono disponibili per le query di Application Insights)
    
 1. Selezionare **Salva**.
    
@@ -202,6 +202,10 @@ Per caricare una query salvata, selezionare **Esplora query** in alto a destra. 
 
 ### <a name="export-and-share-queries"></a>Esportare e condividere query
 Per esportare una query, selezionare **Esporta** nella barra superiore, quindi selezionare **Esporta in CSV - tutte le colonne**, **Esporta in CSV - colonne visualizzate** o **Esporta in Power BI (Query M)** dall'elenco a discesa.
+
+Il video seguente mostra come integrare Log Analytics con Excel.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 Per condividere un collegamento a una query, selezionare **Copia collegamento** nella barra superiore, quindi selezionare **Copia collegamento alla query**, **Copia testo query** o **Copia risultati della query** per copiare l'elemento negli Appunti. È possibile inviare il collegamento alla query ad altri utenti che hanno accesso alla stessa area di lavoro.
 

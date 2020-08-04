@@ -6,14 +6,14 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione Node.js nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 18171a2f8d13bfcf3df76b1453c39c59cab89d7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 370d49b5287a4d5beafc8c2cc5d8f48c269715db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006945"
 ---
-# <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Guida introduttiva: Eseguire il debug e l'iterazione in Kubernetes con Visual Studio Code e Node.js - Azure Dev Spaces
+# <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Avvio rapido: Eseguire il debug e l'iterazione in Kubernetes con Visual Studio Code e Node.js - Azure Dev Spaces
 
 In questo argomento di avvio rapido si configura Azure Dev Spaces con un cluster Kubernetes gestito e si usa un'app Node.js in Visual Studio Code per sviluppare ed eseguire il debug in modo iterativo del codice nei contenitori. Azure Dev Spaces consente di eseguire il debug e i test di tutti i componenti dell'applicazione nel servizio Azure Kubernetes con una configurazione minima del computer di sviluppo. 
 
@@ -140,7 +140,7 @@ Selezionare **Debug** e quindi **Arresta debug** per arrestare il debugger.
 
 Cambiare la modalità di debug in **Attach to a Server (AZDS)** (Collega a un server AZDS) e avviare il servizio:
 
-![](media/get-started-node/attach-nodejs.png)
+![Screenshot dell'interfaccia utente di VS Code con l'opzione Attach to Server (Collega al server) selezionata.](media/get-started-node/attach-nodejs.png)
 
 Questo comando compila ed esegue il servizio in Azure Dev Spaces. Avvia inoltre un processo [nodemon](https://nodemon.io) nel contenitore del servizio e lo collega a VS Code. Il processo *nodemon* consente il riavvio automatico quando vengono apportate modifiche al codice sorgente, velocizzando lo sviluppo del ciclo interno in modo simile allo sviluppo nel computer locale.
 

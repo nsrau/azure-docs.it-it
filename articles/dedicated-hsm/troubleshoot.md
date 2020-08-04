@@ -1,5 +1,5 @@
 ---
-title: Che cos'è HSM dedicato? - Modulo di protezione hardware dedicato di Azure | Microsoft Docs
+title: Risolvere i problemi del servizio HSM dedicato - HSM dedicato di Azure | Microsoft Docs
 description: Panoramica di Modulo di protezione hardware dedicato di Azure che offre capacità di archiviazione chiavi in Azure conformi alla certificazione FIPS 140-2 Livello 3
 services: dedicated-hsm
 author: msmbaldwin
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c398049cfe1d5ec2ee090d4fabf8008803efecb1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074999"
 ---
-# <a name="troubleshooting"></a>Risoluzione dei problemi
+# <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Risoluzione dei problemi relativi al servizio HSM dedicato di Azure
 
 Il servizio HSM dedicato di Azure prevede due aspetti distinti. In primo luogo, la registrazione e la distribuzione in Azure dei dispositivi HSM con i relativi componenti di rete sottostanti. In secondo luogo, la configurazione dei dispositivi HSM in preparazione per l'uso o l'integrazione con un carico di lavoro o un'applicazione specifica. Anche se i dispositivi HSM di Thales Luna Network in Azure sono gli stessi di quelli che si acquistano direttamente da Thales, il fatto che si tratti di una risorsa in Azure impone alcune considerazioni specifiche. Queste considerazioni e le risultanti informazioni dettagliate o procedura consigliata per la risoluzione dei problemi sono documentate in questo articolo per assicurare ampia visibilità e accesso a informazioni critiche. Quando il servizio è in uso, le informazioni definitive sono disponibili tramite richieste di supporto inviate direttamente a Microsoft o a Thales. 
 

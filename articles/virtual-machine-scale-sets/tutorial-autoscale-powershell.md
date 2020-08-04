@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7ba6a059a35bee0b122659d8fc70466595112fca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700821"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011033"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con Azure PowerShell
 
@@ -99,7 +99,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 ## <a name="create-a-rule-to-autoscale-in"></a>Creare una regola per ridurre automaticamente il numero di istanze
 Nelle ore serali o nel fine settimana è possibile che la richiesta delle applicazioni si riduca. Se il carico diminuisce in modo coerente nel tempo, è possibile configurare regole di scalabilità automatica per diminuire il numero di istanze di macchine virtuali nel set di scalabilità. Questa azione riduce i costi di esecuzione del set di scalabilità poiché si esegue solo il numero di istanze necessarie per soddisfare la richiesta corrente.
 
-Creare con [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) un'altra regola che riduca il numero di istanze di VM in un set di scalabilità quando il carico medio della CPU scende quindi al di sotto del 30% per un periodo di 5 minuti. Quando la regola viene attivata, il numero di istanze di VM viene ridotto di uno. L'esempio seguente crea un oggetto denominato *myRuleScaleDown* contenente questa regola di aumento delle prestazioni. *-MetricResourceId* usa le variabili definite precedentemente per l'ID sottoscrizione, il nome del gruppo di risorse e il nome del set di scalabilità:
+Creare con [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) un'altra regola che riduca il numero di istanze di VM in un set di scalabilità quando il carico medio della CPU scende quindi al di sotto del 30% per un periodo di 5 minuti. All'attivazione della regola, il numero delle istanze di VM viene ridotto di uno. L'esempio che segue mostra la creazione di un oggetto denominato *myRuleScaleDown* contenente la regola che determina la scalabilità. *-MetricResourceId* usa le variabili definite precedentemente per l'ID sottoscrizione, il nome del gruppo di risorse e il nome del set di scalabilità:
 
 ```azurepowershell-interactive
 $myRuleScaleIn = New-AzureRmAutoscaleRule `

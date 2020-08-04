@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147018"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307200"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura 
 
@@ -37,11 +37,9 @@ Dopo che l'amministratore di progetto ha [creato un progetto di etichettatura](h
 
 1. Selezionare **Etichettatura dei dati** sul lato sinistro per trovare il progetto.  
 
-1. Selezionare il nome del progetto nell'elenco.
-
 ## <a name="understand-the-labeling-task"></a>Informazioni sull'attività di etichettatura
 
-Dopo aver selezionato il progetto, nella parte superiore della pagina selezionare **Etichetta dati**.
+Nella tabella dei progetti di etichettatura dei dati selezionare **Collegamento etichetta** per il progetto.
 
 Vengono visualizzate le istruzioni specifiche per il progetto. Descrivono il tipo di dati che verrà usato, come prendere le decisioni e includono altre informazioni pertinenti. Dopo aver letto le informazioni, nella parte superiore della pagina selezionare **Attività**.  In alternativa, nella parte inferiore della pagina selezionare **Avvia etichettatura**.
 
@@ -65,6 +63,10 @@ Azure abilita il pulsante **Invia** solo dopo aver completato l'aggiunta dei tag
 Dopo aver inviato i tag per i dati a disposizione, Azure aggiornerà la pagina con un nuovo set di immagini dalla coda di lavoro.
 
 ### <a name="assisted-machine-learning-preview"></a>Machine Learning assistito (anteprima) 
+
+> [!IMPORTANT]
+> Il servizio Machine Learning assistito è attualmente disponibile in anteprima pubblica.
+> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Gli algoritmi di Machine Learning possono essere attivati. Se nel progetto sono abilitati questi algoritmi, è possibile che vengano visualizzati gli elementi seguenti:
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001826"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Esercitazione: Distribuire ed esplorare un modello di app di monitoraggio pazienti continuo
 
@@ -85,7 +85,10 @@ Se si fa clic sulla scheda **Modelli di dispositivo**, si noterà che fanno part
 >[!div class="mx-imgBorder"] 
 >![Modello di dispositivo patch intelligente per i segni vitali](media/smart-vitals-device-template.png)
 
-Se si fa clic sulla scheda **Gruppi di dispositivi**, si noterà inoltre che per questi modelli di dispositivo vengono creati automaticamente gruppi di dispositivi.
+### <a name="device-groups"></a>Gruppi di dispositivi 
+I gruppi di dispositivi consentono di raggruppare logicamente un set di dispositivi per eseguire query o operazioni in blocco su di essi. 
+
+Selezionando la scheda Device groups (Gruppi di dispositivi), si noterà che sono stati creati alcuni gruppi di dispositivi predefiniti per ognuno dei modelli di dispositivo nell'applicazione. Si noterà che sono stati creati anche altri due gruppi di dispositivi di esempio, denominati "Provision devices" (Dispositivi per il provisioning) e "Devices with outdated firmware" (Dispositivi con firmware obsoleto). Questi gruppi di dispositivi di esempio verranno usati come input per eseguire alcuni [processi](#jobs).
 
 ### <a name="rules"></a>Regole
 
@@ -100,6 +103,13 @@ Se si passa alla scheda Regole, si noterà che nel modello di applicazione sono 
 >[!div class="mx-imgBorder"] 
 >![Regola per temperatura tutore elevata](media/brace-temp-rule.png)
 
+### <a name="jobs"></a>Processi
+
+I processi consentono di eseguire operazioni in blocco su un set di dispositivi, usando i [gruppi di dispositivi](#device-groups) come input. Il modello di applicazione è stato sottoposto a seeding con due processi di esempio che un operatore di soluzioni potrebbe dover eseguire in un determinato momento del ciclo di vita dei dispositivi:
+* **Aggiornare il firmware del tutore per il ginocchio**: questo processo troverà i dispositivi nel gruppo di dispositivi "Devices with outdated firmware" (Dispositivi con firmware obsoleto) ed eseguirà un comando per aggiornare questi dispositivi alla versione più recente del firmware del tutore per il ginocchio. Questo processo di esempio presuppone che i dispositivi dispongano di funzionalità per ricevere un comando di aggiornamento e recuperare i file del firmware direttamente dal cloud.  
+
+* **Eseguire nuovamente il provisioning dei dispositivi**: se si dispone di un set di dispositivi recentemente restituiti all'ospedale ed è necessario eseguirne nuovamente il provisioning per il set successivo di pazienti, è possibile eseguire questo processo per aggiornare in blocco i dispositivi per il provisioning. In questo caso, vengono rilevati tutti i dispositivi da un gruppo di dispositivi denominato "Provision devices" (Dispositivi per il provisioning) e viene avviato un comando per eseguire nuovamente il provisioning di questi dispositivi. 
+
 ### <a name="devices"></a>Dispositivi
 
 Fare clic sulla scheda **Dispositivi** e quindi selezionare un'istanza di **Smart Knee Brace** (Tutore intelligente per il ginocchio). Si noterà che sono disponibili tre viste per esplorare le informazioni relative allo specifico dispositivo selezionato. Queste viste vengono create e pubblicate al momento della compilazione del modello di dispositivo per il dispositivo, quindi saranno coerenti tra tutti i dispositivi connessi o simulati.
@@ -112,6 +122,10 @@ La scheda **Comandi** consentirà di eseguire comandi modellati come parte del m
 
 >[!div class="mx-imgBorder"] 
 >![Viste del tutore per il ginocchio](media/knee-brace-dashboard.png)
+
+### <a name="data-export"></a>Esportazione dati
+
+L'esportazione dei dati consente di esportare i dati del dispositivo IoT Central continuamente in altri servizi di Azure, tra cui l'[API di Azure per FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

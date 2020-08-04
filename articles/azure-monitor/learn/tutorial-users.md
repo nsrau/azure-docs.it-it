@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318403"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usare Azure Application Insights per comprendere in che modo i clienti usano l'applicazione
 
@@ -36,9 +36,9 @@ Per completare questa esercitazione:
     - Sviluppo Web e ASP.NET
     - Sviluppo di Azure
 - Scaricare e installare il [debugger di snapshot di Visual Studio](https://aka.ms/snapshotdebugger).
-- Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../../azure-monitor/app/asp-net.md). 
-- [Inviare dati di telemetria dall'applicazione](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) per aggiungere visualizzazioni pagina/eventi personalizzati.
-- Inviare il [contesto utente](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) per tenere traccia delle operazioni eseguite da un utente nel corso del tempo e sfruttare al meglio le funzionalità di utilizzo.
+- Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../app/asp-net.md). 
+- [Inviare dati di telemetria dall'applicazione](../app/usage-overview.md#send-telemetry-from-your-app) per aggiungere visualizzazioni pagina/eventi personalizzati.
+- Inviare il [contesto utente](../app/usage-send-user-context.md) per tenere traccia delle operazioni eseguite da un utente nel corso del tempo e sfruttare al meglio le funzionalità di utilizzo.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -102,16 +102,16 @@ Mentre i pannelli precedenti sono incentrati sulle attività eseguite dagli uten
 
 1. Scegliere **Imbuti** dal menu e quindi fare clic su **Nuovo**. 
 
-    ![](media/tutorial-users/funnelsnew.png)
+    ![Screenshot che illustra come creare un nuovo grafico a imbuto.](media/tutorial-users/funnelsnew.png)
 
 2. Specificare un nome in **Nome imbuto**.
 3. Creare un grafico a imbuto con almeno due passaggi selezionando un'azione per ogni passaggio.  L'elenco di azioni viene creato da dati sull'utilizzo raccolti da Application Insights.
 
-    ![](media/tutorial-users/funnelsedit.png)
+    ![Screenshot che illustra i passaggi per creare un nuovo grafico a imbuto.](media/tutorial-users/funnelsedit.png)
 
 4. Fare clic su **Salva** per salvare il grafico a imbuto e quindi visualizzare i risultati.  La finestra a destra del grafico a imbuto mostra gli eventi più comuni prima della prima attività e dopo l'ultima attività per comprendere le tendenze degli utenti per la specifica sequenza.
 
-    ![](media/tutorial-users/funnelsright.png)
+    ![Screenshot che illustra i risultati dell'evento di un grafico a imbuto appena creato.](media/tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Comprendere quali clienti tornano a usare l'applicazione
@@ -120,11 +120,11 @@ Il pannello **Conservazione** aiuta a identificare quali utenti tornano a usare 
 1. Scegliere **Conservazione** dal menu.
 2. Per impostazione predefinita, le informazioni analizzate includono gli utenti che hanno eseguito un'azione e quindi sono tornati a usare l'applicazione per eseguirne altre.  È possibile modificare questo filtro in modo da includere qualsiasi categoria, ad esempio solo gli utenti che sono tornati a usare l'applicazione dopo aver completato un acquisto.
 
-    ![](media/tutorial-users/retentionquery.png)
+    ![Screenshot che illustra come impostare un filtro di conservazione.](media/tutorial-users/retentionquery.png)
 
 3. Gli utenti che tornano a usare l'applicazione e che soddisfano i criteri specificati vengono visualizzati sotto forma di grafico e tabella per intervalli di tempo diversi.  Il modello tipico prevede un calo graduale nel corso del tempo degli utenti che tornano a usare l'applicazione.  Un calo improvviso da un momento all'altro potrebbe essere motivo di preoccupazione. 
 
-    ![](media/tutorial-users/retentiongraph.png)
+    ![Screenshot che illustra un grafico per gli utenti che soddisfano i criteri impostati per un filtro di conservazione.](media/tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Analizzare la navigazione degli utenti
 Un **flusso utente** permette di visualizzare il modo in cui gli utenti si spostano tra le pagine e le funzionalità dell'applicazione.  Ciò consente di identificare, ad esempio, dove si spostano in genere gli utenti che accedono a una determinata pagina, come escono di norma dall'applicazione e se ci sono azioni che vengono ripetute regolarmente.
@@ -133,15 +133,15 @@ Un **flusso utente** permette di visualizzare il modo in cui gli utenti si spost
 2.  Fare clic su **Nuovo** per creare un nuovo flusso utente e quindi fare clic su **Modifica** per modificarne i dettagli.
 3.  Aumentare l'**Intervallo di tempo** impostandolo su 7 giorni e quindi selezionare un evento iniziale.  Il flusso terrà traccia delle sessioni utente che iniziano con tale evento.
 
-    ![](media/tutorial-users/flowsedit.png)
+    ![Screenshot che illustra come creare un nuovo flusso utente.](media/tutorial-users/flowsedit.png)
 
 4.  Viene visualizzato il flusso utente ed è possibile visualizzare i diversi percorsi degli utenti e i relativi conteggi delle sessioni.  Le linee blu indicano un'azione che l'utente ha eseguito dopo l'azione corrente.  Una linea rossa indica la fine della sessione utente.
 
-    ![](media/tutorial-users/flows.png)
+    ![Screenshot che illustra la visualizzazione dei percorsi utente e dei conteggi delle sessioni per un flusso utente.](media/tutorial-users/flows.png)
 
 5.  Per rimuovere un evento dal flusso, fare clic sulla **x** nell'angolo dell'azione e quindi fare clic su **Crea grafico**.  Il grafico viene ridisegnato con tutte le istanze di tale evento rimosse.  Fare clic su **Modifica** per verificare che l'evento venga aggiunto in **Eventi esclusi**.
 
-    ![](media/tutorial-users/flowsexclude.png)
+    ![Screenshot che illustra l'elenco di eventi esclusi per un flusso utente.](media/tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Consolidare i dati sull'utilizzo
 Le **cartelle di lavoro** combinano le visualizzazioni dei dati, le query di Analytics e il testo in documenti interattivi.  È possibile usare le cartelle di lavoro per raggruppare le informazioni sull'utilizzo comuni, consolidare le informazioni di uno specifico evento imprevisto o creare report per il team sull'uso dell'applicazione.
@@ -150,12 +150,12 @@ Le **cartelle di lavoro** combinano le visualizzazioni dei dati, le query di Ana
 2.  Fare clic su **Nuova** per creare una nuova cartella di lavoro.
 3.  È già disponibile una query che include tutti i dati sull'utilizzo nell'ultimo giorno, visualizzati sotto forma di grafico a barre.  È possibile usare questa query, modificarla manualmente o fare clic su **Query di esempio** per sceglierne una da altre query utili.
 
-    ![](media/tutorial-users/samplequeries.png)
+    ![Screenshot che illustra un elenco di query di esempio che è possibile usare.](media/tutorial-users/samplequeries.png)
 
 4.  Fare clic su **Modifica completata**.
 5.  Fare clic su **Modifica** nel riquadro superiore per modificare il testo nella parte superiore della cartella di lavoro,  che viene formattato tramite markdown.
 
-    ![](media/tutorial-users/markdown.png)
+    ![Screenshot che illustra come modificare il testo nella parte superiore della cartella di lavoro.](media/tutorial-users/markdown.png)
 
 6.  Fare clic su **Aggiungi utenti** per aggiungere un grafico con le informazioni utente.  Modificare i dettagli del grafico, se necessario, e quindi fare clic su **Modifica completata** per salvarlo.
 
@@ -164,4 +164,5 @@ Le **cartelle di lavoro** combinano le visualizzazioni dei dati, le query di Ana
 Dopo avere appreso come analizzare gli utenti, passare all'esercitazione successiva per imparare a creare dashboard personalizzati che consentono di combinare queste informazioni con altri dati utili sull'applicazione.
 
 > [!div class="nextstepaction"]
-> [Creare dashboard personalizzati](../../azure-monitor/learn/tutorial-app-dashboards.md)
+> [Creare dashboard personalizzati](./tutorial-app-dashboards.md)
+

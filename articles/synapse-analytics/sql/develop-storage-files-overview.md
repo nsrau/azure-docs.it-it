@@ -1,5 +1,5 @@
 ---
-title: Accedere ai file di archiviazione con SQL su richiesta (anteprima) in Synapse SQL
+title: Accedere ai file di archiviazione in SQL su richiesta (anteprima)
 description: Questo articolo descrive come eseguire query sui file di archiviazione con le risorse di SQL su richiesta (anteprima) all'interno di Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f786e92ca99c4c1700d00adf396ba1127b66ea7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046879"
 ---
 # <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Accedere alle risorse di archiviazione esterne in Synapse SQL (su richiesta)
 
@@ -43,7 +43,7 @@ L'utente può accedere all'archiviazione usando le regole di accesso seguenti:
 - Utente di Azure AD: OPENROWSET userà l'identità di Azure AD del chiamante per accedere all'archiviazione di Azure o accederà all'archiviazione con l'accesso anonimo.
 - Utente di SQL: OPENROWSET accederà all'archiviazione con l'accesso anonimo.
 
-Le entità di sicurezza di SQL possono inoltre usare OPENROWSET per eseguire direttamente query sui file protetti tramite token di firma di accesso condiviso o l'identità gestita dell'area di lavoro. Se un utente di SQL esegue questa funzione, un utente Power User con autorizzazioni ALTER ANY CREDENTIAL deve creare credenziali con ambito server che corrispondenti all'URL nella funzione (usando il nome e il contenitore di archiviazione) e deve concedere l'autorizzazione REFERENCES per queste credenziali al chiamante della funzione OPENROWSET:
+Le entità di sicurezza di SQL possono inoltre usare OPENROWSET per eseguire direttamente query sui file protetti tramite token di firma di accesso condiviso o l'identità gestita dell'area di lavoro. Se un utente di SQL esegue questa funzione, un utente Power User con autorizzazione `ALTER ANY CREDENTIAL` deve creare credenziali con ambito server corrispondenti all'URL nella funzione (usando il nome e il contenitore di archiviazione) e concedere l'autorizzazione REFERENCES per tali credenziali al chiamante della funzione OPENROWSET:
 
 ```sql
 EXECUTE AS somepoweruser
@@ -87,8 +87,8 @@ L'autorizzazione DATABASE SCOPED CREDENTIAL specifica come accedere ai file nell
 Il chiamante deve disporre di una delle autorizzazioni seguenti per eseguire la funzione OPENROWSET:
 
 - Una delle autorizzazioni seguenti per eseguire OPENROWSET:
-  - L'autorizzazione ADMINISTER BULK OPERATION consente l'accesso per eseguire la funzione OPENROWSET.
-  - L'autorizzazione ADMINISTER DATABASE BULK OPERATION consente all'utente con ambito database di eseguire la funzione OPENROWSET.
+  - `ADMINISTER BULK OPERATIONS` consente di accedere per eseguire la funzione OPENROWSET.
+  - `ADMINISTER DATABASE BULK OPERATIONS` consente all'utente con ambito database di eseguire la funzione OPENROWSET.
 - L'autorizzazione REFERENCES DATABASE SCOPED CREDENTIAL per le credenziali a cui viene fatto riferimento in EXTERNAL DATA SOURCE
 
 #### <a name="accessing-anonymous-data-sources"></a>Accesso a origini dati anonime
@@ -151,13 +151,13 @@ Nella tabella seguente sono elencate le autorizzazioni necessarie per le operazi
 
 | Query | Autorizzazioni necessarie|
 | --- | --- |
-| OPENROWSET(BULK) senza origine dati | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` o l'account di accesso SQL deve avere REFERENCES CREDENTIAL::\<URL> per l'archiviazione protetta tramite firma di accesso condiviso |
-| OPENROWSET(BULK) con origine dati senza credenziali | `ADMINISTER BULK ADMIN` o `ADMINISTER DATABASE BULK ADMIN` |
-| OPENROWSET(BULK) con origine dati con credenziali | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` o `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| OPENROWSET(BULK) senza origine dati | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` o l'account di accesso SQL deve avere REFERENCES CREDENTIAL::\<URL> per l'archiviazione protetta tramite firma di accesso condiviso |
+| OPENROWSET(BULK) con origine dati senza credenziali | `ADMINISTER BULK OPERATIONS` o `ADMINISTER DATABASE BULK OPERATIONS` |
+| OPENROWSET(BULK) con origine dati con credenziali | `REFERENCES DATABASE SCOPED CREDENTIAL` e un'autorizzazione tra `ADMINISTER BULK OPERATIONS` o `ADMINISTER DATABASE BULK OPERATIONS` |
 | CREATE EXTERNAL DATA SOURCE | `ALTER ANY EXTERNAL DATA SOURCE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CREATE EXTERNAL TABLE | `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY EXTERNAL FILE FORMAT` e `ALTER ANY EXTERNAL DATA SOURCE` |
 | SELECT FROM EXTERNAL TABLE | `SELECT TABLE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| CETAS | Per creare la tabella: `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE` e `ALTER ANY EXTERNAL FILE FORMAT`. Per la lettura dei dati: `ADMIN BULK OPERATIONS` o `REFERENCES CREDENTIAL` o `SELECT TABLE` per ogni tabella/vista/funzione nella query + autorizzazione di lettura/scrittura per l'archiviazione |
+| CETAS | Per creare la tabella: `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE` e `ALTER ANY EXTERNAL FILE FORMAT`. Per la lettura dei dati: `ADMINISTER BULK OPERATIONS` o `REFERENCES CREDENTIAL` o `SELECT TABLE` per ogni tabella/vista/funzione nella query + autorizzazione di lettura/scrittura per l'archiviazione |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

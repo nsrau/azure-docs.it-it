@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Cercare località vicine su una mappa | Mappe di Microsoft Azure'
 description: In questa esercitazione si apprenderà come cercare punti di interesse su una mappa con Mappe di Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 0b0cb92cd6b4918e28e143178a5cdbbbb19ac9af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 4e16c4e88d749f6dbc4f6271a7ceaf77661a208c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333623"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281532"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -219,7 +219,7 @@ Questa sezione illustra come usare l'[API di ricerca](https://docs.microsoft.com
 
    ![Visualizzare la mappa con i risultati della ricerca](./media/tutorial-search-location/pins-map.png)
 
-4. È possibile visualizzare i dati non elaborati di cui la mappa esegue il mapping immettendo la richiesta HTTP seguente nel browser. Sostituire la \<chiave di Mappe di Azure\> con la chiave primaria.
+4. È possibile visualizzare i dati non elaborati di cui la mappa esegue il mapping immettendo la richiesta HTTP seguente nel browser. Sostituire \<Your Azure Maps Key\> con la chiave primaria.
 
    ```http
    https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000

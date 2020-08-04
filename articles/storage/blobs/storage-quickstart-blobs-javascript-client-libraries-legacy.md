@@ -6,21 +6,24 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 920d3d6c1cfc928efa5daa2d6c0aa3a6b4e81375
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0db110d02211323f64e7ffe795f72e3a5003ec91
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82161126"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282042"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Guida di avvio rapido: Gestire i BLOB con JavaScript v10 SDK nel browser
 
 In questo argomento di avvio rapido viene illustrato come gestire i BLOB usando codice JavaScript eseguito interamente nel browser. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Verranno usate le misure di sicurezza necessarie per garantire l'accesso protetto all'account di archiviazione BLOB.
+
+> [!NOTE]
+> In questo argomento di avvio rapido si usa una versione legacy della libreria client di Archiviazione BLOB di Azure. Per un'introduzione alla versione più recente, vedere [Avvio rapido: Gestire i BLOB con JavaScript v12 SDK in un browser](quickstart-blobs-javascript-browser.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +43,7 @@ Tornare al portale di Azure e selezionare l'account di archiviazione. Per defini
 
 La tabella seguente descrive ogni impostazione CORS e spiega i valori usati per definire la regola.
 
-|Impostazione  |valore  | Descrizione |
+|Impostazione  |valore  | Description |
 |---------|---------|---------|
 | Origini consentite | * | Accetta un elenco delimitato da virgole dei domini impostati come origini accettabili. Impostando il valore su `*`, tutti i domini potranno accedere all'account di archiviazione. |
 | Metodi consentiti     | delete, get, head, merge, post, options e put | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida di avvio rapido, selezionare tutte le opzioni disponibili. |
@@ -49,7 +52,7 @@ La tabella seguente descrive ogni impostazione CORS e spiega i valori usati per 
 | Tempo trascorso massimo (secondi) | 86400 | Periodo massimo di memorizzazione della richiesta OPTIONS preliminare nella cache di un browser. Il valore *86400* consente la conservazione della cache per un giorno intero. |
 
 > [!IMPORTANT]
-> Verificare che le impostazioni usate nell'ambiente di produzione espongano l'accesso minimo necessario all'account di archiviazione per mantenere un accesso sicuro. Le impostazioni CORS descritte in questo documento sono appropriate per una guida di avvio rapido perché definiscono criteri di sicurezza flessibili. Queste impostazioni, tuttavia, non sono consigliate per un contesto reale.
+> Verificare che le impostazioni usate nell'ambiente di produzione espongano l'accesso minimo necessario all'account di archiviazione per mantenere un accesso sicuro. Le impostazioni CORS descritte in questo documento sono appropriate per una guida introduttiva perché definiscono criteri di sicurezza flessibili. Queste impostazioni, tuttavia, non sono consigliate per un contesto reale.
 
 Usare quindi Azure Cloud Shell per creare un token di sicurezza.
 

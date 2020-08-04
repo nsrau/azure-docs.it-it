@@ -7,22 +7,22 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103960"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306112"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
-Questo articolo fornisce informazioni sull'utilizzo della versione precedente di Azure Migrate.
+Questo articolo fornisce informazioni sull'utilizzo della versione precedente di Azure Migrate. 
 
 
 Sono disponibili due versioni del servizio Azure Migrate:
 
 - **Versione corrente**: usare questa versione per creare progetti di Azure Migrate, individuare i computer locali e orchestrare valutazioni e migrazioni. [Vedere altre informazioni](whats-new.md) sulle novità di questa versione.
-- **Versione precedente**: se si usa la versione precedente di Azure Migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora consigliabile passare alla versione corrente. Se è ancora necessario usare progetti di Azure Migrate creati nella versione precedente, di seguito sono elencate le operazioni consentite e quelle non più consentite:
+- **Versione precedente**: se si usa la versione precedente di Azure Migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora consigliabile passare alla versione corrente. I progetti della versione precedente sono definiti progetti classici in questo articolo. Se è ancora necessario usare progetti di Azure Migrate creati nella versione precedente, di seguito sono elencate le operazioni consentite e quelle non più consentite:
     - Non è più possibile creare progetti di migrazione.
     - Si consiglia di non eseguire nuove individuazioni.
     - È ancora possibile accedere ai progetti esistenti.
@@ -31,7 +31,7 @@ Sono disponibili due versioni del servizio Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Aggiornamento della versione
 
-Non è possibile aggiornare i progetti o i componenti della versione precedente alla nuova versione. È necessario [creare un nuovo progetto di Azure Migrate](how-to-add-tool-first-time.md) e aggiungervi strumenti di valutazione e migrazione.
+Non è possibile aggiornare i progetti o i componenti della versione precedente alla nuova versione. È necessario [creare un nuovo progetto di Azure Migrate](create-manage-projects.md) e [aggiungervi strumenti di valutazione e migrazione](how-to-add-tool-first-time.md). Usare le esercitazioni per comprendere come usare gli strumenti di valutazione e migrazione disponibili. Se si dispone di un'area di lavoro Log Analytics collegata a un progetto classico, è possibile collegarla a un progetto di versione corrente dopo aver eliminato il progetto classico.
 
 ## <a name="find-projects-from-previous-version"></a>Trovare progetti dalla versione precedente
 
@@ -39,7 +39,16 @@ Per trovare i progetti della versione precedente, procedere come indicato di seg
 
 1. Nella portale di Azure > **Tutti i servizi** cercare e selezionare **Azure Migrate**. 
 2. Nel dashboard di Azure Migrate sono disponibili una notifica e un collegamento per accedere ai progetti di Azure Migrate precedenti.
-3. Fare clic sul collegamento per aprire i progetti della versione 1.
+3. Fare clic sul collegamento per aprire i progetti classici.
+
+## <a name="delete-projects-from-previous-version"></a>Eliminare progetti dalla versione precedente
+
+Per trovare i progetti della versione precedente, procedere come indicato di seguito:
+
+1. Nella portale di Azure > **Tutti i servizi** cercare e selezionare **Azure Migrate**. 
+2. Nel dashboard di Azure Migrate sono disponibili una notifica e un collegamento per accedere ai progetti di Azure Migrate precedenti.
+3. Fare clic sul collegamento per aprire i progetti classici.
+4. Selezionare il progetto che si vuole eliminare ed eliminarlo. 
 
 
 ## <a name="create-an-assessment"></a>Creare una valutazione
@@ -118,7 +127,7 @@ Client Windows 7, 8 e 10 | Azure offre supporto solo con [la sottoscrizione di V
 Windows 10 Pro Desktop | Azure fornisce supporto con [i diritti di hosting multi-tenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Idoneo per Azure con condizioni
 Windows Vista, XP Professional | Non più supportato. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di aggiornare il sistema operativo prima della migrazione in Azure.
 Linux | Azure approva questi [sistemi operativi Linux](../virtual-machines/linux/endorsed-distros.md). Altri sistemi operativi Linux potrebbero supportare l'avvio in Azure, ma è consigliabile aggiornare il sistema operativo a una versione approvata prima della migrazione ad Azure. | Idoneo per Azure se la versione è approvata.<br/><br/>Idoneo per Azure con condizioni se la versione non è approvata.
-Altri sistemi operativi<br/><br/> Ad esempio Oracle Solaris, Apple Mac OS, FreeBSD e così via. | Azure non approva questi sistemi operativi. Il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di installare un sistema operativo supportato prima della migrazione in Azure.  
+Altri sistemi operativi<br/><br/> Ad esempio Oracle Solaris, Apple macOS, FreeBSD e così via. | Azure non approva questi sistemi operativi. Il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di installare un sistema operativo supportato prima della migrazione in Azure.  
 Sistema operativo specificato come **Altro** nel server vCenter | In questo caso Azure Migrate non può identificare il sistema operativo. | Idoneità sconosciuta. Verificare che il sistema operativo eseguito nella VM sia supportato in Azure.
 Sistemi operativi a 32 bit | Il computer può eseguire l'avvio in Azure, ma Azure non offre il supporto completo. | Idoneo per Azure con condizioni, provare ad aggiornare il sistema operativo della macchina virtuale da 32 bit a 64 bit prima di eseguire la migrazione in Azure.
 
@@ -201,7 +210,7 @@ Per usare la visualizzazione delle dipendenze, è necessario associare un'area d
 1. Per associare un'area di lavoro Log Analytics a un progetto, in **Panoramica** passare a **Informazioni di base** e fare clic su **Configurazione richiesta**.
 2. È possibile creare una nuova area di lavoro o associarne una esistente:
   - Per creare una nuova area di lavoro, specificare un nome. L'area di lavoro viene creata in un'area nella stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) del progetto di migrazione.
-  - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'[area di Mapping dei servizi supportata](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Per associare un'area di lavoro, assicurarsi di avere l'accesso in lettura all'area di lavoro.
+  - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'[area di Mapping dei servizi supportata](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions). Per associare un'area di lavoro, assicurarsi di avere l'accesso in lettura all'area di lavoro.
 
 > [!NOTE]
 > Non è possibile modificare l'area di lavoro associata a un progetto di migrazione.
