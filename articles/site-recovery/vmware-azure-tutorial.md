@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610684"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290659"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -84,7 +84,7 @@ Tutti questi componenti vengono installati insieme nei singoli computer locali n
 ## <a name="import-the-template-in-vmware"></a>Importare il modello in VMware
 
 
-1. Accedere al server VMware vCenter o all'host vSphere ESXi con il client VMWare vSphere.
+1. Accedere al server VMware vCenter o all'host vSphere ESXi con il client VMware vSphere.
 2. Nel menu **File** scegliere **Deploy OVF Template** (Distribuire il modello OVF) **per avviare la relativa procedura**guidata.
 
      ![Modello OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
@@ -113,7 +113,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 Dopo la configurazione del server di configurazione, registrarlo nell'insieme di credenziali.
 
-1. Accendere la macchina virtuale dalla console del client VMWare vSphere.
+1. Accendere la macchina virtuale dalla console del client VMware vSphere.
 2. La macchina virtuale si avvia con la procedura di installazione di Windows Server 2016. Accettare il contratto di licenza e immettere una password amministratore.
 3. Al termine dell'installazione, accedere alla macchina virtuale come amministratore.
 4. Al primo accesso verrà avviato lo strumento di configurazione di Azure Site Recovery entro pochi secondi.
@@ -169,6 +169,8 @@ Selezionare e verificare le risorse di destinazione.
 
 - I criteri vengono automaticamente associati al server di configurazione.
 - Per impostazione predefinita, vengono creati automaticamente i criteri corrispondenti per il failback. Se, ad esempio, il criterio di replica è **rep-policy**, il criterio di failback sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.
+
+Nota: Nello scenario da VMware ad Azure lo snapshot coerente con l'arresto anomalo del sistema viene acquisito a intervalli di 5 minuti.
 
 ## <a name="enable-replication"></a>Abilitare la replica
 

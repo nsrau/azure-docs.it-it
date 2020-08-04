@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 54b5e3f0ed2fd10fa04305fdefbec725143f62c5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 142a78dbb994a28d267294ce3b3d86e32f52bb45
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422349"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298712"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -70,6 +70,8 @@ Creare ora un oggetto `IntentRecognizer`. Questo oggetto viene creato all'intern
 > Per informazioni su come trovare questo valore, vedere [Creare un'app LUIS per il riconoscimento delle finalità](#create-a-luis-app-for-intent-recognition).
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
+
+Questo esempio usa la funzione `AddIntent()` per aggiungere le finalità singolarmente. Se si vogliono aggiungere tutte le finalità da un modello, usare `AddAllIntents(model)` e passare il modello. 
 
 ## <a name="recognize-an-intent"></a>Riconoscere una finalità
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 58a63c9e11cf86318f0e9f051d034cbbaf7c40a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6411ec5a7e5e8af146eb2e906ea3d1c6ce7693ac
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76772259"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387618"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Windows
 
@@ -133,7 +133,7 @@ L'estensione Azure IoT Edge Tools fornisce modelli di progetto per tutti i lingu
    | ----- | ----- |
    | Modello di Visual Studio | Selezionare **C# Module** (Modulo C#). |
    | Nome del modulo | Accettare il valore predefinito **IotEdgeModule1**. |
-   | URL del repository | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il valore di **Server di accesso** dalla pagina **Panoramica** del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/iotedgemodule1. |
+   | URL del repository | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore di **Server di accesso** del registro contenitori di Azure. È possibile recuperare il valore di Server di accesso nella pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<registry name\>.azurecr.io/iotedgemodule1. |
 
       ![Configurare il progetto per il dispositivo di destinazione, il tipo di modulo e il registro contenitori](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -179,7 +179,7 @@ Il runtime IoT Edge richiede le credenziali del registro per eseguire il pull de
 
 Il modello di soluzione creato include codice di esempio per un modulo IoT Edge. Questo modulo di esempio riceve semplicemente i messaggi e quindi li invia. La funzionalità di pipeline illustra un concetto importante in IoT Edge, ovvero come i moduli comunicano tra loro.
 
-Per ogni modulo nel codice possono essere dichiarate più code di *input* e *output*. L'hub di IoT Edge in esecuzione nel dispositivo instrada i messaggi dall'output di un modulo all'input di uno o più moduli. Il linguaggio specifico per la dichiarazione di input e output varia a seconda dei linguaggi, ma il concetto è lo stesso in tutti i moduli. Per altre informazioni sul routing tra moduli, vedere [Dichiarare le route](module-composition.md#declare-routes).
+Per ogni modulo nel codice possono essere dichiarate più code di *input* e *output*. L'hub di IoT Edge in esecuzione nel dispositivo instrada i messaggi dall'output di un modulo all'input di uno o più moduli. Il codice specifico per la dichiarazione di input e output varia a seconda dei linguaggi, ma il concetto è lo stesso per tutti i moduli. Per altre informazioni sul routing tra moduli, vedere [Dichiarare le route](module-composition.md#declare-routes).
 
 L'esempio di codice C# disponibile con il modello di progetto usa la [classe ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) da IoT Hub SDK per .NET.
 
@@ -199,13 +199,13 @@ L'esempio di codice C# disponibile con il modello di progetto usa la [classe Mod
 
 6. Trovare la proprietà **modules** nelle proprietà desiderate di $edgeAgent.
 
-   Dovrebbero essere elencati due moduli. Il primo è **SimulatedTemperatureSensor**, incluso in tutti i modelli per impostazione predefinita per fornire dati di temperatura simulati che è possibile usare per testare i moduli. Il secondo è il modulo **IotEdgeModule1**, che è stato creato come parte di questo progetto.
+   Dovrebbero essere elencati due moduli. Il primo è il modulo **SimulatedTemperatureSensor**, incluso in tutti i modelli per impostazione predefinita per fornire dati di temperatura simulati che è possibile usare per testare i moduli. L'altro è il modulo **IotEdgeModule1**, che è stato creato come parte di questo progetto.
 
    La proprietà di questo modulo dichiara quali moduli includere nella distribuzione in uno o più dispositivi.
 
 7. Trovare la proprietà **routes** nelle proprietà desiderate di $edgeHub.
 
-   Una delle funzioni del modulo dell'hub di IoT Edge è quella di instradare i messaggi tra tutti i moduli in una distribuzione. Esaminare i valori nella proprietà routes. La prima route, **IotEdgeModule1ToIoTHub**, usa un carattere jolly ( **\*** ) per includere tutti i messaggi provenienti da qualsiasi coda di output nel modulo IotEdgeModule1. Questi messaggi vengono inseriti in *$upstream*, un nome riservato che indica l'hub IoT. La seconda route, **sensorToIotEdgeModule1**, instrada i messaggi provenienti dal modulo SimulatedTemperatureSensor alla coda di input *input1* del modulo IotEdgeModule1.
+   Una delle funzioni del modulo dell'hub di IoT Edge è quella di instradare i messaggi tra tutti i moduli in una distribuzione. Esaminare i valori nella proprietà routes. Una delle route, **IotEdgeModule1ToIoTHub**, usa un carattere jolly ( **\*** ) per includere gli eventuali messaggi provenienti da qualsiasi coda di output nel modulo IotEdgeModule1. Questi messaggi vengono inseriti in *$upstream*, un nome riservato che indica l'hub IoT. L'altra route, **sensorToIotEdgeModule1**, instrada i messaggi provenienti dal modulo SimulatedTemperatureSensor alla coda di input *input1* del modulo IotEdgeModule1.
 
    ![Esaminare le route in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -267,7 +267,7 @@ Il computer di sviluppo può ora accedere al Registro Container, come pure posso
 Se si verificano errori durante la compilazione e il push dell'immagine del modulo, spesso il problema è legato alla configurazione di Docker nel computer di sviluppo. Usare le indicazioni seguenti per esaminare la configurazione:
 
 * È stato eseguito il comando `docker login` usando le credenziali copiate dal Registro Container? Queste credenziali sono diverse rispetto a quelle usate per accedere ad Azure.
-* Il repository di contenitori è corretto? Il nome del Registro Container e quello del modulo sono corretti? Aprire il file **module.json** nella cartella IotEdgeModule1 per controllare. Il valore del repository deve essere simile a **\<nome registro\>.azurecr.io/iotedgemodule1**.
+* Il repository di contenitori è corretto? Il nome del Registro Container e quello del modulo sono corretti? Aprire il file **module.json** nella cartella IotEdgeModule1 per controllare. Il valore del repository dovrà essere simile a **\<registry name\>.azurecr.io/iotedgemodule1**.
 * Se è stato usato un nome diverso da **IotEdgeModule1** per il modulo, il nome è coerente in tutta la soluzione?
 * Il computer esegue contenitori dello stesso tipo di quelli che si stanno compilando? Questa esercitazione è relativa ai dispositivi IoT Edge Windows, quindi i file di Visual Studio devono avere l'estensione **windows-amd64** e Docker Desktop deve eseguire contenitori Windows.
 
@@ -328,6 +328,14 @@ I comandi in questa sezione sono destinati al dispositivo IoT Edge, non al compu
    I moduli IoT Edge fanno distinzione tra maiuscole e minuscole.
 
    I log di SimulatedTemperatureSensor e IotEdgeModule1 devono visualizzare i messaggi in corso di elaborazione. Il modulo edgeAgent è responsabile dell'avvio degli altri moduli, quindi i relativi log conterranno le informazioni sull'implementazione del manifesto della distribuzione. Se un modulo non è elencato o non è in esecuzione, i log di edgeAgent conterranno probabilmente gli errori. Il modulo edgeHub è responsabile delle comunicazioni tra i moduli e l'hub IoT. Se i moduli sono in esecuzione, ma i messaggi non arrivano all'hub IoT, i log di edgeHub conterranno probabilmente gli errori.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se si intende continuare con il prossimo articolo consigliato, è possibile conservare le risorse e le configurazioni create e riutilizzarle. È anche possibile continuare a usare lo stesso dispositivo IoT Edge come dispositivo di test.
+
+In caso contrario, è possibile eliminare le configurazioni locali e le risorse di Azure usate in questo articolo per evitare addebiti.
+
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

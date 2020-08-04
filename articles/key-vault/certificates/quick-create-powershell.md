@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault'
+title: 'Avvio rapido: Impostare e visualizzare i certificati di Azure Key Vault - Azure PowerShell'
 description: Avvio rapido che illustra come impostare e recuperare un certificato da Azure Key Vault con Azure PowerShell
 services: key-vault
 author: msmbaldwin
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecb9262a96d1c9857283de00224950d9bc7a583f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: efd73907a8ca691ceb451391477c9c8e2239c250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421025"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043899"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con Azure PowerShell
 
@@ -62,8 +62,6 @@ L'output di questo cmdlet mostra le proprietà dell'istanza di Key Vault appena 
 
 Dopo aver creato l'insieme di credenziali, l'account Azure è l'unico autorizzato a eseguire qualsiasi operazione su questo nuovo insieme di credenziali.
 
-![Output al termine del comando di creazione dell'insieme di credenziali delle chiavi](../media/quick-create-powershell/output-after-creating-keyvault.png)
-
 ## <a name="add-a-certificate-to-key-vault"></a>Aggiungere un certificato in Key Vault
 
 Per aggiungere un certificato a Key Vault, sono sufficienti un paio di passaggi aggiuntivi. Questo certificato può essere usato da un'applicazione. 
@@ -87,7 +85,7 @@ A questo punto è stata creata un'istanza di Key Vault nella quale è stato arch
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide di avvio rapido ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
+Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
 Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse correlate. È possibile eliminare le risorse in questo modo:
 
 ```azurepowershell-interactive

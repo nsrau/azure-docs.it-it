@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: ec6165ba8ab33beba0b50d6b589b3d31269d7b1e
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e1b67a5fc7b687804eb30c615648ab06bc308ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067271"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Creare un account Cosmos
 
@@ -61,7 +61,7 @@ Il completamento del comando potrebbe richiedere un minuto o due. Al termine, la
 
 Dopo la creazione dell'account Azure Cosmos DB:
 1. Aprire una nuova finestra del browser e passare a [https://portal.azure.com](https://portal.azure.com)
-1. Fare clic sul logo di Azure Cosmos DB ![Icona di Azure Cosmos DB nel portale di Azure](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) nella barra a sinistra per visualizzare tutte le istanze di Azure Cosmos DB disponibili.
+1. Fare clic sul logo di Azure Cosmos DB :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: nella barra a sinistra per visualizzare tutte le istanze di Azure Cosmos DB disponibili.
 1. Fare clic sull'account Azure Cosmos DB appena creato, selezionare la scheda **Panoramica** e scorrere verso il basso per visualizzare la mappa con la posizione del database. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Nuovo account Azure Cosmos DB nel portale di Azure":::

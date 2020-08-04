@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acfe4695b94fe9337296d70ef4a2864794730ec4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506350"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081730"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Avvio rapido: Creare una funzione in Azure che risponde a richieste HTTP
 
@@ -111,6 +111,9 @@ Quando richiesto, specificare i valori seguenti:
 Digitare `Y` o premere INVIO per confermare.
 
 Maven crea i file di progetto in una nuova cartella denominata _artifactId_, che in questo esempio è `fabrikam-functions`. 
+
+Per l'esecuzione su Java 11 in Azure è necessario modificare i valori nel file pom.xml. Per altre informazioni, vedere [Versioni di Java](functions-reference-java.md#java-versions). 
+
 ::: zone-end  
 Passare alla cartella del progetto:
 
@@ -157,6 +160,8 @@ Le impostazioni per le risorse di Azure create per ospitare l'app sono definite 
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 È possibile modificare queste impostazioni per controllare la modalità di creazione delle risorse in Azure, ad esempio cambiando `runtime.os` da `windows` a `linux` prima della distribuzione iniziale. Per un elenco completo delle impostazioni supportate dal plug-in Maven, vedere i [dettagli di configurazione](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+Se si vuole eseguire l'app per le funzioni in Java 11 invece che in Java 8, è necessario aggiornare manualmente il file pom.xml con i valori di Java 11. Per altre informazioni, vedere [Versioni di Java](functions-reference-java.md#java-versions). Se si esegue l'app in Java 11, verificare che  
 
 #### <a name="functiontestjava"></a>FunctionTest.java
 

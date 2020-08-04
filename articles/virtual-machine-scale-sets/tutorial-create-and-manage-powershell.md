@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali di Azure'
+title: 'Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali di Azure - Azure PowerShell'
 description: Informazioni su come usare Azure PowerShell per creare un set di scalabilità di macchine virtuali, con alcune attività di gestione comuni come l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 43816c815c206da7e3fec197e54e9e7889c6de47
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a657f8a4fd7b92aeb858b919052ca732bf630ae9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735354"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091335"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -45,7 +45,7 @@ In questa esercitazione, il nome del gruppo di risorse viene specificato quando 
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Impostare prima di tutto nome utente e password dell'amministratore delle istanze di macchine virtuali con il comando [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Impostare prima di tutto nome utente e password dell'amministratore delle istanze di macchine virtuali con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -66,6 +66,9 @@ New-AzVmss `
 ```
 
 La creazione e la configurazione di tutte le risorse e le istanze di VM del set di scalabilità richiedono alcuni minuti.
+
+> [!IMPORTANT]
+> Se non si riesce a connettersi al set di scalabilità, potrebbe essere necessario creare un gruppo di sicurezza di rete aggiungendo il parametro *[-SecurityGroupName "mySecurityGroup"](/powershell/module/az.compute/new-azvmss)* .
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Visualizzare le istanze di VM in un set di scalabilità
@@ -202,12 +205,12 @@ La tabella seguente classifica le dimensioni di VM comuni in base ai casi d'uso.
 
 | Type                     | Dimensioni comuni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Utilizzo generico](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
-| [Ottimizzate per il calcolo](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
-| [Ottimizzate per la memoria](../virtual-machines/windows/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Rapporto elevato tra memoria e core. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
-| [Ottimizzate per l'archiviazione](../virtual-machines/windows/sizes-storage.md)      | Ls                | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
-| [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | VM specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video.       |
-| [Prestazioni elevate](../virtual-machines/windows/sizes-hpc.md) | H, A8-11          | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). 
+| [Utilizzo generico](../virtual-machines/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
+| [Ottimizzate per il calcolo](../virtual-machines/sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
+| [Ottimizzate per la memoria](../virtual-machines/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Rapporto elevato tra memoria e core. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
+| [Ottimizzate per l'archiviazione](../virtual-machines/sizes-storage.md)      | Ls                | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
+| [GPU](../virtual-machines/sizes-gpu.md)          | NV, NC            | VM specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video.       |
+| [Prestazioni elevate](../virtual-machines/sizes-hpc.md) | H, A8-11          | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). 
 
 ### <a name="find-available-vm-instance-sizes"></a>Trovare le dimensioni di istanze di VM disponibili
 Per visualizzare un elenco delle dimensioni di istanze di VM disponibili in una determinata area, usare il comando [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize). 

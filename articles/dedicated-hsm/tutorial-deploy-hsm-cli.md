@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6c5484c421807f5657fe5fc460342d39d442bcda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79454313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048571"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con l'interfaccia della riga di comando
 
@@ -63,15 +63,7 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-Il comando seguente verifica le funzionalità di rete necessarie per il servizio HSM dedicato.
-
-```azurecli
-az feature show \
-   --namespace Microsoft.Network \
-   --name AllowBaremetalServers
-```
-
-Entrambi i comandi devono restituire lo stato "Registered", come illustrato di seguito. Se i comandi non restituiscono "Registered", è necessario registrarsi per il servizio contattando il rappresentante Microsoft.
+I comandi devono restituire lo stato "Registered", come illustrato di seguito. Se i comandi non restituiscono "Registered", è necessario registrarsi per il servizio contattando il rappresentante Microsoft.
 
 ![Stato della sottoscrizione](media/tutorial-deploy-hsm-cli/subscription-status.png)
 

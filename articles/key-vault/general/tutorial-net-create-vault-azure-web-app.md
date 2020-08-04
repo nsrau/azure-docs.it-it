@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013267"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault a un'app Web di Azure con .NET
 
@@ -28,7 +28,7 @@ Per completare questa guida introduttiva:
 
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core 3.1 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -51,7 +51,7 @@ Per creare un insieme di credenziali delle chiavi, usare il comando [az keyvault
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Prendere nota del valore di `vaultUri` restituito, che avrà il formato "https://<your-keyvault-name>.vault.azure.net/". Verrà usato nel passaggio [Aggiornare il codice](#update-the-code).
+Prendere nota del valore di `vaultUri` restituito, che avrà il formato "https://&lt;your-keyvault-name&gt;.vault.azure.net/". Verrà usato nel passaggio [Aggiornare il codice](#update-the-code).
 
 È ora possibile inserire un segreto nell'insieme di credenziali delle chiavi con il comando [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set). Impostare il nome del segreto su "MySecret" e il valore su "Success!".
 

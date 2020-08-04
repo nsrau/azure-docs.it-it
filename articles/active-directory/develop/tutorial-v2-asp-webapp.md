@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181614"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058278"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
@@ -407,7 +407,7 @@ Per altre informazioni, vedere [Autorizzazioni e consenso nell'endpoint di Micro
 
 ### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
 
-Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web. La home page è l'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. La home page include un messaggio di benvenuto di tipo *"Salve \<utente>"* , un collegamento per la disconnessione e un collegamento per la visualizzazione delle attestazioni dell'utente. Il collegamento per le attestazioni dell'utente consente di connettersi al controller Attestazioni creato in precedenza.
+Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web. La home page è l'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. La home page include un messaggio di benvenuto di tipo *"Salve \<user>>"* , un collegamento per la disconnessione e un collegamento per la visualizzazione delle attestazioni dell'utente. Il collegamento per le attestazioni dell'utente consente di connettersi al controller Attestazioni creato in precedenza.
 
 ### <a name="view-the-users-claims"></a>Visualizzare le attestazioni dell'utente
 
@@ -468,13 +468,13 @@ Questa opzione viene usata di frequente per le *applicazioni line-of-business*: 
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opzione 3: Usare un metodo personalizzato per convalidare le autorità di certificazione
 
-È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere la [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
+È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere la classe [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sulla modalità di chiamata delle API Web nelle app Web.
 
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart-guide"></a>Informazioni su come creare l'applicazione usata in questa guida di avvio rapido
+### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Informazioni su come creare l'applicazione usata in questo avvio rapido
 
 Altre informazioni su app Web che chiamano API Web con Microsoft Identity Platform:
 

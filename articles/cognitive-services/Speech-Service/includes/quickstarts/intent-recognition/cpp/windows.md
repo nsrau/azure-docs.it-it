@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 770e037641ac8fbf75989dc94b66fd1df0689e50
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422131"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298762"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -73,6 +73,8 @@ Inserire questo codice sotto `IntentRecognizer`. Assicurarsi di sostituire `"You
 > Per informazioni su come trovare questo valore, vedere [Creare un'app LUIS per il riconoscimento delle finalità](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
+
+Questo esempio usa la funzione `AddIntent()` per aggiungere le finalità singolarmente. Se si vogliono aggiungere tutte le finalità da un modello, usare `AddAllIntents(model)` e passare il modello.
 
 ## <a name="recognize-an-intent"></a>Riconoscere una finalità
 

@@ -123,6 +123,8 @@
               href: backup-azure-vms-encryption.md
             - name: Configurare backup coerenti con le app di macchine virtuali di Azure che eseguono Linux
               href: backup-azure-linux-app-consistent.md
+            - name: Backup selettivo su disco
+              href: selective-disk-backup-restore.md
         - name: Restore
           items:
             - name: Informazioni sul ripristino di VM di Azure
@@ -351,7 +353,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Panoramica
           href: security-overview.md

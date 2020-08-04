@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 02ebdfc0fe3fd39f29a64fdb49a3f0d37b007097
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dc4c348315dce59d5eaf58046c9a8d8f7f2e3725
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313677"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare una macchina virtuale Linux in Azure
 
@@ -140,7 +140,7 @@ Per abilitare il monitoraggio della macchina virtuale di Azure con Monitoraggio 
     Nell'elenco sono preselezionati l'area di lavoro predefinita e la località in cui è distribuita la macchina virtuale nella sottoscrizione. 
 
     >[!NOTE]
-    >Per creare una nuova area di lavoro Log Analytics per archiviare i dati di monitoraggio della macchina virtuale, vedere [Creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). L'area di lavoro Log Analytics deve risiedere in una delle [aree supportate](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics).
+    >Per creare una nuova area di lavoro Log Analytics per archiviare i dati di monitoraggio della macchina virtuale, vedere [Creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). L'area di lavoro deve risiedere in una delle [aree supportate](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 
 Dopo aver abilitato il monitoraggio, potrebbe essere necessario attendere alcuni minuti prima di poter visualizzare le metriche delle prestazioni per la macchina virtuale.
 

@@ -1,6 +1,6 @@
 ---
 title: Eseguire il peering di due reti virtuali - Esempio di script di Azure PowerShell
-description: Esempio di script di Azure PowerShell - Eseguire il peering di due reti virtuali
+description: Creare e connettere due reti virtuali nella stessa area. Usare lo script di Azure per due reti virtuali peer per connettere le reti tramite la rete di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 4061997aa2efbae250b30fc58cef06b1249c2b8f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7cbcae51228e5bf722f3ea802a322483aed6c225
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74091293"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286122"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Esempio di script per il peering di due reti virtuali
 
@@ -54,6 +54,6 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
+Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 
 Altri esempi di script di PowerShell della rete virtuale sono disponibili in [Virtual network PowerShell samples](../powershell-samples.md) (Esempi di PowerShell della rete virtuale).

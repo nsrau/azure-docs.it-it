@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257981"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281056"
 ---
 # <a name="what-is-azure-digital-twins"></a>Cos'è il servizio Gemelli digitali di Azure?
 
-**Gemelli digitali di Azure** è una piattaforma IoT che consente la creazione di modelli digitali completi di interi ambienti. Questi ambienti possono essere edifici, fabbriche, fattorie, reti energetiche, ferrovie, stadi e altro ancora, persino intere città. Questi modelli digitali possono essere usati per ottenere informazioni che consentono di migliorare i prodotti, ottimizzare le operazioni, ridurre i costi e rivoluzionare l'esperienza dei clienti.
+**Gemelli digitali di Azure** è un'offerta PaaS che consente la creazione di modelli digitali completi di interi ambienti. Questi ambienti possono essere edifici, fabbriche, fattorie, reti energetiche, ferrovie, stadi e altro ancora, persino intere città. Questi modelli digitali possono essere usati per ottenere informazioni che consentono di migliorare i prodotti, ottimizzare le operazioni, ridurre i costi e rivoluzionare l'esperienza dei clienti.
 
 È possibile sfruttare la propria esperienza del settore oltre a quella di Gemelli digitali di Azure per creare soluzioni personalizzate e connesse che consentono di:
 * Modellare qualsiasi ambiente e implementare i gemelli digitali in modo scalabile e sicuro
@@ -44,7 +44,7 @@ DTDL viene usato per i modelli di dati in tutti gli altri servizi IoT di Azure, 
 
 I modelli digitali in Gemelli digitali di Azure sono rappresentazioni live aggiornate del mondo reale. Usando le relazioni nei modelli DTDL personalizzati, è possibile connettere i gemelli in un **grafo live** che rappresenta l'ambiente.
 
-È possibile aprire una visualizzazione del grafo di Gemelli digitali di Azure tramite un'applicazione di esempio, [**Azure Digital Twins explorer**](https://github.com/Azure-Samples/digital-twins-explorer).
+È possibile aprire una visualizzazione del grafo di Gemelli digitali di Azure tramite un'applicazione di esempio, [**Azure Digital Twins explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Ecco un esempio di questa visualizzazione:
 
@@ -94,16 +94,16 @@ Il diagramma seguente illustra il punto in cui si trova Gemelli digitali di Azur
 
 > [!IMPORTANT]
 > Gemelli digitali di Azure è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere le [*Condizioni supplementari per l'uso delle anteprime di Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Per un elenco dei limiti di Gemelli digitali di Azure durante l'anteprima pubblica, vedere [Riferimento: Limiti del servizio durante l'anteprima pubblica](reference-service-limits.md).
+Per un elenco dei limiti di Gemelli digitali di Azure durante l'anteprima pubblica, vedere [*Riferimento: Limiti del servizio durante l'anteprima pubblica*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se si è già lavorato con la versione di anteprima precedente di Gemelli digitali di Azure, scoprire cosa è cambiato:
-* [Panoramica: Differenze rispetto alla versione precedente](overview-differences.md)
+* [*Panoramica: Differenze rispetto alla versione precedente*](overview-differences.md)
 
 In alternativa, continuare ad approfondire l'uso di Gemelli digitali di Azure con la prima esercitazione:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Scrivere il codice di un'app client](tutorial-code.md)
+> [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)

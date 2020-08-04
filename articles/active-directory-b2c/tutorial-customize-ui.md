@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 235fd429707a418fa193e986b95c9b38fa6c8101
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29a03f1d1b1007845c1df516192da22d74705af0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385026"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481734"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: Personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
 
@@ -139,7 +139,7 @@ In questa esercitazione i file creati devono essere archiviati nell'account di a
 ## <a name="update-the-user-flow"></a>Aggiornare il flusso utente
 
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-2. Selezionare **Flussi utente (criteri)** e quindi il flusso utente *B2C_1_signupsignin1*.
+2. Selezionare **Flussi utente** e quindi il flusso utente *B2C_1_signupsignin1*.
 3. Selezionare **Layout di pagina** e quindi in **Pagina unificata per l'iscrizione o l'accesso** fare clic su **Sì** per **Usa contenuto di pagina personalizzato**.
 4. In **URI della pagina personalizzata** immettere l'URI del file *custom-ui.html* registrato in precedenza.
 5. Nella parte superiore della pagina selezionare **Salva**.

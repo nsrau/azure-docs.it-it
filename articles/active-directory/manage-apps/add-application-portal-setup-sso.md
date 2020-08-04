@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b19427070d982918584c13c25518cffe55497000
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2f8f19e6b98143bb48430decdd51f5626e72d422
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223330"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387286"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -55,6 +55,8 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
 
 1. Il processo di configurazione di un'applicazione per l'uso di Azure AD per l'accesso SSO basato su SAML varia a seconda dell'applicazione. È disponibile un collegamento alle indicazioni per GitHub. Per trovare le guide per altre app, vedere [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 1. Seguire la guida per configurare l'accesso SSO per l'applicazione. Molte applicazioni prevedono requisiti specifici della sottoscrizione per la funzionalità SSO. GitHub richiede, ad esempio, una sottoscrizione Enterprise.
+    > [!TIP]
+    > Per altre informazioni sulle opzioni di configurazione SAML, vedere [Configurare l'accesso Single Sign-On basato su SAML](configure-saml-single-sign-on.md).
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot che mostra l'opzione Single Sign-On nella sottoscrizione aziendale della pagina di prezzi di GitHub.":::
 

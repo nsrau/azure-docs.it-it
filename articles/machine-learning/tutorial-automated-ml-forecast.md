@@ -9,18 +9,21 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 06/04/2020
-ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 07/10/2020
+ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092288"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Esercitazione: Prevedere la domanda con Machine Learning automatizzato
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In questa esercitazione si usa Machine Learning automatizzato, o ML automatizzato, in Azure Machine Learning Studio per creare un modello di previsione delle serie temporali e prevedere la domanda di noleggio per un servizio di bike sharing.
+
+>[!IMPORTANT]
+> L'esperienza di ML automatizzato in Azure Machine Learning Studio è in anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero avere funzionalità limitate.
 
 Per un esempio di modello di classificazione, vedere [Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
@@ -41,7 +44,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Iniziare con Azure Machine Learning Studio
 
-Per questa esercitazione viene creato un esperimento di ML automatizzato eseguito in Azure Machine Learning Studio, un'interfaccia consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia con qualsiasi livello di competenza. Studio non è supportato nei browser Internet Explorer.
+Per questa esercitazione, viene creato un esperimento di ML automatizzato eseguito in Azure Machine Learning Studio, un'interfaccia Web consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia con qualsiasi livello di competenza. Studio non è supportato nei browser Internet Explorer.
 
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com).
 
@@ -113,8 +116,11 @@ Dopo aver caricato e configurato i dati, configurare la destinazione di calcolo 
         Campo | Descrizione | Valore per l'esercitazione
         ----|---|---
         Nome del calcolo |Un nome univoco che identifica il contesto di calcolo.|bike-compute
+        Tipo&nbsp;di macchina&nbsp;virtuale|Selezionare il tipo di macchina virtuale per il contesto di calcolo.|CPU (Central Processing Unit)
         Dimensioni&nbsp;della macchina&nbsp;virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.|Standard_DS12_V2
-        Numero minimo/massimo di nodi (in Impostazioni avanzate)| Per profilare i dati, è necessario specificare almeno un nodo.|Numero minimo di nodi: 1<br>Numero massimo di nodi: 6
+        Nodi min/max| Per profilare i dati, è necessario specificare almeno un nodo.|Numero minimo di nodi: 1<br>Numero massimo di nodi: 6
+        Secondi di inattività prima della riduzione | Tempo di inattività prima che il cluster venga ridotto automaticamente al numero minimo di nodi.|120 (impostazione predefinita)
+        Impostazioni avanzate | Impostazioni per la configurazione e l'autorizzazione di una rete virtuale per l'esperimento.| nessuno
   
         1. Selezionare **Crea** per ottenere la destinazione di calcolo. 
 
@@ -130,23 +136,23 @@ Per completare l'esperimento di ML automatizzato, specificare il tipo di attivit
 
 1. Nel modulo **Tipo di attività e impostazioni** selezionare **previsione** come tipo di attività di Machine Learning.
 
-1. Selezionare **data** come **Colonna data/ora** e lasciare vuoto il campo **Raggruppa per colonne**. 
+1. Selezionare **data** come **Colonna data/ora** e lasciare vuoto il campo **Time series identifiers** (Identificatori serie temporale). 
 
-    1. Selezionare **View additional configuration settings** (Visualizza altre impostazioni di configurazione) e popolare i campi come indicato di seguito. Queste impostazioni consentono di controllare meglio il processo di training e di specificare le impostazioni per la previsione. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati.
+1. **Orizzonte di previsione** è il periodo di tempo futuro per cui eseguire la previsione.  Deselezionare Rilevamento automatico e digitare 14 nel campo. 
 
-  
-        Configurazioni&nbsp;aggiuntive|Descrizione|Valore&nbsp;per&nbsp;l'esercitazione
-        ------|---------|---
-        Primary metric (Metrica principale)| Metrica di valutazione in base a cui verrà misurato l'algoritmo di Machine Learning.|Radice normalizzata dell'errore quadratico medio
-        Automatic featurization (Definizione automatica funzionalità)| Consente la pre-elaborazione dei dati. Sono incluse la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche.| Abilitare
-        Modello esplicativo migliore (anteprima)| Mostra automaticamente il modello esplicativo migliore creato da ML automatizzato.| Abilitare
-        Blocked algorithms (Algoritmi bloccati) | Algoritmi da escludere dal processo di training| Extreme Random Trees
-        Altre impostazioni della previsione| Queste impostazioni consentono di migliorare l'accuratezza del modello <br><br> _**Orizzonte di previsione**_: il periodo di tempo futuro per cui eseguire la previsione <br> _**Prevedere ritardi di destinazione:**_ quanto indietro nel tempo si vogliono creare i ritardi di una variabile di destinazione <br> _**Dimensioni della finestra mobile di destinazione**_: specifica le dimensioni della finestra mobile in cui verranno generate funzionalità come *max, min* e *sum*. |Orizzonte di previsione: 14 <br> Prevedere&nbsp;i ritardi&nbsp;di destinazione: nessuno <br> Dimensioni&nbsp;della finestra&nbsp;mobile&nbsp;di destinazione: nessuno
-        Exit criterion (Esci da criterio)| Se viene soddisfatto un criterio, il processo di training viene arrestato. |Durata del&nbsp;processo&nbsp;di training (ore): 3 <br> Soglia&nbsp;punteggio&nbsp;metrica: nessuno
-        Convalida | Scegliere un tipo di convalida incrociata e un numero di test.|Tipo di convalida:<br>Convalida incrociata &nbsp;k-fold&nbsp; <br> <br> Numero di convalide: 5
-        Concorrenza| Il numero massimo di iterazioni parallele eseguite per ogni iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 6
-        
-        Selezionare **Salva**.
+1. Selezionare **View additional configuration settings** (Visualizza altre impostazioni di configurazione) e popolare i campi come indicato di seguito. Queste impostazioni consentono di controllare meglio il processo di training e di specificare le impostazioni per la previsione. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati.
+
+    Configurazioni&nbsp;aggiuntive|Descrizione|Valore&nbsp;per&nbsp;l'esercitazione
+    ------|---------|---
+    Primary metric (Metrica principale)| Metrica di valutazione in base a cui verrà misurato l'algoritmo di Machine Learning.|Radice normalizzata dell'errore quadratico medio
+    Modello esplicativo migliore| Mostra automaticamente il modello esplicativo migliore creato da ML automatizzato.| Abilitare
+    Blocked algorithms (Algoritmi bloccati) | Algoritmi da escludere dal processo di training| Extreme Random Trees
+    Altre impostazioni della previsione| Queste impostazioni consentono di migliorare l'accuratezza del modello <br><br> _**Prevedere ritardi di destinazione:**_ quanto indietro nel tempo si vogliono creare i ritardi di una variabile di destinazione <br> _**Dimensioni della finestra mobile di destinazione**_: specifica le dimensioni della finestra mobile in cui verranno generate funzionalità come *max, min* e *sum*. | <br><br>Prevedere&nbsp;i ritardi&nbsp;di destinazione: nessuno <br> Dimensioni&nbsp;della finestra&nbsp;mobile&nbsp;di destinazione: nessuno
+    Exit criterion (Esci da criterio)| Se viene soddisfatto un criterio, il processo di training viene arrestato. |Durata del&nbsp;processo&nbsp;di training (ore): 3 <br> Soglia&nbsp;punteggio&nbsp;metrica: nessuno
+    Convalida | Scegliere un tipo di convalida incrociata e un numero di test.|Tipo di convalida:<br>Convalida incrociata &nbsp;k-fold&nbsp; <br> <br> Numero di convalide: 5
+    Concorrenza| Il numero massimo di iterazioni parallele eseguite per ogni iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 6
+    
+    Selezionare **Salva**.
 
 ## <a name="run-experiment"></a>Eseguire esperimento
 
@@ -163,7 +169,7 @@ Passare alla scheda **Modelli** per visualizzare gli algoritmi (modelli) testati
 
 Mentre si aspetta il completamento di tutti i modelli dell'esperimento, selezionare il **nome di algoritmo** di un modello completato per esplorare i dettagli delle relative prestazioni. 
 
-Nell'esempio seguente vengono esaminate le schede **Dettagli del modello** e **Visualizzazioni** per visualizzare le proprietà, le metriche e i grafici delle prestazioni del modello selezionato. 
+Nell'esempio seguente vengono esaminate le schede **Dettagli** e **Metriche** per visualizzare le proprietà, le metriche e i grafici delle prestazioni del modello selezionato. 
 
 ![Dettagli esecuzione](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
@@ -173,11 +179,15 @@ Machine Learning automatizzato in Azure Machine Learning Studio consente di dist
 
 Per questo esperimento, la distribuzione in un servizio Web implica che l'azienda di bike sharing ha ora una soluzione Web iterativa e scalabile per prevedere la domanda di noleggio. 
 
-Al termine dell'esecuzione, tornare nella pagina **Dettagli esecuzione** e selezionare la scheda **Modelli**.
+Una volta completata l'esecuzione, tornare nella pagina di esecuzione padre selezionando **Esecuzione 1** nella parte superiore della schermata.
 
-Nel contesto di questo esperimento, viene considerato come migliore il modello **StackEnsemble**, in base alla metrica **Radice normalizzata dell'errore quadratico medio**.  Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti. Il processo di distribuzione comporta diversi passaggi, tra cui la registrazione del modello, la generazione delle risorse e la relativa configurazione per il servizio Web.
+Nella sezione **Riepilogo del modello migliore**, nel contesto di questo esperimento, viene considerato come migliore il modello **StackEnsemble**, in base alla metrica **Radice normalizzata dell'errore quadratico medio**.  
 
-1. Selezionare il pulsante **Distribuisci modello migliore** nell'angolo in basso a sinistra.
+Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti. Il processo di distribuzione comporta diversi passaggi, tra cui la registrazione del modello, la generazione delle risorse e la relativa configurazione per il servizio Web.
+
+1. Selezionare **StackEnsemble** per aprire la pagina specifica del modello.
+
+1. Selezionare il pulsante **Distribuisci** nell'area in alto a sinistra della schermata.
 
 1. Immettere i dati nel riquadro **Deploy a model** (Distribuisci un modello) in questo modo:
 
@@ -193,8 +203,7 @@ Nel contesto di questo esperimento, viene considerato come migliore il modello *
 
 1. Selezionare **Distribuisci**.  
 
-    Nella parte superiore della schermata **Esecuzione** viene visualizzato un messaggio verde che indica che la distribuzione è stata avviata correttamente. È possibile seguire lo stato di avanzamento della distribuzione  
-    nel riquadro **Modello consigliato** in **Stato distribuzione**.
+    Nella parte superiore della schermata **Esecuzione** viene visualizzato un messaggio verde che indica che la distribuzione è stata avviata correttamente. Lo stato di avanzamento della distribuzione è disponibile nel riquadro **Riepilogo modelli** in **Stato distribuzione**.
     
 Una colta completata la distribuzione, è disponibile un servizio Web operativo per generare previsioni. 
 

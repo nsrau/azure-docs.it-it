@@ -11,12 +11,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: 2e6feb7c1d406a26c5a668d36d60ea0dbbae160c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cfe85db7a49f2d7b830165d05acaa458f51119f0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115767"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure
 
@@ -88,6 +88,9 @@ Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il com
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+
+> [!NOTE]
+> Il comando riportato sopra usa il percorso predefinito del file di configurazione di Kubernetes, ossia `~/.kube/config`. È possibile specificare un percorso diverso per il file di configurazione di Kubernetes usando *--file*.
 
 Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 

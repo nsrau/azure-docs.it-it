@@ -4,15 +4,15 @@ description: Informazioni su funzionalità e sintassi supportate dell'API di Azu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 07/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 92c94b08602fb32ccebf6115306a5000665affe2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171702"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076838"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.6): funzionalità e sintassi supportate
 
@@ -542,7 +542,32 @@ Quando si usa l'operazione `findOneAndUpdate`, sono supportate le operazioni di 
 
 ## <a name="unique-indexes"></a>Indici univoci
 
-Gli indici univoci assicurano che un campo specifico non abbia valori duplicati in tutti i documenti di una raccolta, in modo simile alla preservazione dell'univocità per la chiave "_id" predefinita. È possibile creare indici personalizzati in Cosmos DB usando il comando createIndex, includendo il vincolo 'unique'.
+Gli [indici univoci](mongodb-indexing.md#unique-indexes) assicurano che un campo specifico non abbia valori duplicati in tutti i documenti di una raccolta, in modo simile alla preservazione dell'univocità per la chiave "_id" predefinita. È possibile creare indici univoci in Cosmos DB usando il comando `createIndex` con il parametro di vincolo `unique`:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
+{
+        "_t" : "CreateIndexesResponse",
+        "ok" : 1,
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 4
+}
+```
+
+## <a name="compound-indexes"></a>Indici composti
+
+Gli [indici composti](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) consentono di creare un indice per gruppi di campi, fino a un massimo di 8 campi. Questo tipo di indice è diverso dagli indici composti nativi di MongoDB. In Azure Cosmos DB gli indici composti vengono usati per le operazioni di ordinamento applicate a più campi. Per creare un indice composto è necessario specificare più proprietà come parametro:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
+{
+        "createdCollectionAutomatically" : false, 
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+```
 
 ## <a name="time-to-live-ttl"></a>Durata (TTL)
 

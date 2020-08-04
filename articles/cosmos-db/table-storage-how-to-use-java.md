@@ -5,42 +5,48 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 33569730e565c68d66539feb4491b1925796b300
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-java
+ms.openlocfilehash: 02adda920b838e39ce713709a952a23be6dc3a0c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76771155"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321072"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Java
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Panoramica
-Questo articolo illustra come eseguire scenari comuni usando il servizio di archiviazione tabelle di Azure e Azure Cosmos DB. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari presentati includono **creazione**, **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento**, **esecuzione di query**, **modifica** ed **eliminazione** di entità in una tabella. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi](#next-steps) .
+Questo articolo illustra come creare tabelle, archiviare i dati ed eseguire operazioni CRUD sui dati. Scegliere se usare il servizio tabelle di Azure o l'API Tabella di Azure Cosmos DB. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari presentati includono **creazione**, **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento**, **esecuzione di query**, **modifica** ed **eliminazione** di entità in una tabella. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi](#next-steps) .
 
 > [!NOTE]
 > per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK for Android].
 >
 
 ## <a name="create-an-azure-service-account"></a>Creare un account del servizio di Azure
+
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
+**Creare un account di archiviazione di Azure**
+
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
+**Creare un account di Azure Cosmos DB**
+
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
+
 In questa guida si utilizzeranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web o in un ruolo di lavoro in Azure.
 
 Per usare gli esempi in questo articolo, installare Java Development Kit (JDK) e creare un account di archiviazione di Azure o un account di Azure Cosmos DB nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nel repository [Azure Storage SDK per Java][Azure Storage SDK for Java] in GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di Archiviazione di Azure per Java nel sistema dal repository indicato. Dopo avere completato queste attività, è possibile creare un'applicazione Java che usa gli esempi in questo articolo.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione tabelle
+
 Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB per accedere alle tabelle:
 
 ```java
@@ -50,8 +56,13 @@ import com.microsoft.azure.storage.table.*;
 import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
-## <a name="add-an-azure-storage-connection-string"></a>Aggiungere una stringa di connessione di archiviazione di Azure
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](https://portal.azure.com) per i valori *AccountName* e *AccountKey*. 
+## <a name="add-your-connection-string"></a>Aggiungere la stringa di connessione
+
+È possibile connettersi all'account di archiviazione di Azure o all'account dell'API Tabella di Azure Cosmos DB. Ottenere la stringa di connessione in base al tipo di account in uso.
+
+### <a name="add-an-azure-storage-connection-string"></a>Aggiungere una stringa di connessione di archiviazione di Azure
+
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey**. 
 
 In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
@@ -63,8 +74,9 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-## <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Aggiungere una stringa di connessione dell'API Tabelle di Azure Cosmos DB
-Un account di Azure Cosmos DB usa una stringa di connessione per archiviare l'endpoint della tabella e le credenziali. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di Azure Cosmos DB nel formato seguente, usando il nome dell'account di Azure Cosmos DB e la chiave di accesso primaria relativa all'account riportata nel [portale di Azure](https://portal.azure.com) per i valori *AccountName* e *AccountKey*. 
+### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Aggiungere una stringa di connessione dell'API Tabelle di Azure Cosmos DB
+
+Un account di Azure Cosmos DB usa una stringa di connessione per archiviare l'endpoint della tabella e le credenziali. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di Azure Cosmos DB nel formato seguente, usando il nome dell'account di Azure Cosmos DB e la chiave di accesso primaria relativa all'account riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey**. 
 
 Questo esempio illustra come dichiarare un campo statico per memorizzare la stringa di connessione di Azure Cosmos DB:
 
@@ -93,10 +105,11 @@ StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_accoun
 Gli esempi seguenti presumono che sia stato usato uno di questi metodi per ottenere la stringa di connessione di archiviazione.
 
 ## <a name="create-a-table"></a>Creare una tabella
-Per ottenere oggetti di riferimento per tabelle ed entità, è possibile usare un oggetto **CloudTableClient**. Il codice seguente consente di creare un oggetto **CloudTableClient** e di usarlo per creare un oggetto **CloudTable** che rappresenta una tabella denominata "people". 
+
+Un oggetto `CloudTableClient` consente di ottenere oggetti di riferimento per tabelle ed entità. Il codice seguente consente di creare un oggetto `CloudTableClient` e di usarlo per creare un nuovo oggetto `CloudTable` che rappresenta una tabella denominata "people". 
 
 > [!NOTE]
-> Esistono altri modi per creare oggetti **CloudStorageAccount**. Per altre informazioni, vedere **CloudStorageAccount** nel [Riferimento all'SDK del client di Archiviazione di Azure].
+> Esistono altri modi per creare oggetti `CloudStorageAccount`. Per altre informazioni, vedere `CloudStorageAccount` nelle [Riferimento all'SDK del client di archiviazione di Azure].
 >
 
 ```java
@@ -122,6 +135,7 @@ catch (Exception e)
 ```
 
 ## <a name="list-the-tables"></a>Elencare le tabelle
+
 Per ottenere un elenco di tabelle, chiamare il metodo **CloudTableClient.listTables()** per recuperare un elenco iterabile di nomi di tabelle.
 
 ```java
@@ -149,7 +163,8 @@ catch (Exception e)
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Aggiungere un'entità a una tabella
-Per eseguire il mapping di entità a oggetti Java viene utilizzata una classe personalizzata che implementa **TableEntity**. Per comodità, la classe **TableServiceEntity** implementa **TableEntity** e usa la reflection per eseguire il mapping di proprietà ai metodi Get e Set denominati per le proprietà. Per aggiungere un'entità a una classe, creare prima una classe che definisca le proprietà dell'entità. Il codice seguente consente di definire una classe di entità che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse.
+
+Per eseguire il mapping di entità a oggetti Java viene usata una classe personalizzata che implementa `TableEntity`. Per comodità, la classe `TableServiceEntity` implementa `TableEntity` e usa la reflection per eseguire il mapping di proprietà ai metodi getter e setter denominati per le proprietà. Per aggiungere un'entità a una classe, creare prima una classe che definisca le proprietà dell'entità. Il codice seguente consente di definire una classe di entità che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse.
 
 ```java
 public class CustomerEntity extends TableServiceEntity {
@@ -181,7 +196,7 @@ public class CustomerEntity extends TableServiceEntity {
 }
 ```
 
-Per le operazioni su tabella che interessano entità è necessario un oggetto **TableServiceContext** . Questo oggetto definisce l'operazione da eseguire su un'entità, che può essere eseguita con un oggetto **CloudTable** . Il codice seguente crea una nuova istanza della classe **CustomerEntity** con alcuni dati del cliente da memorizzare. Il codice chiama quindi **TableOperation.insertOrReplace** per creare un oggetto **TableOperation** in modo da inserire un'entità in una tabella e vi associa la nuova classe **CustomerEntity**. Infine, il codice chiama il metodo **execute** sull'oggetto **CloudTable**, specificando la tabella "people" e il nuovo oggetto **TableOperation**, che quindi invia una richiesta al servizio di archiviazione per inserire la nuova entità cliente nella tabella "people" o sostituire l'entità se ne esiste già una.
+Per le operazioni su tabella che interessano entità è necessario un oggetto `TableOperation`. Questo oggetto definisce l'operazione da eseguire su un'entità, che può essere eseguita con un oggetto `CloudTable`. Il codice seguente consente di creare una nuova istanza della classe `CustomerEntity` con alcuni dati del cliente da archiviare. Il codice quindi chiama `TableOperation`.insertOrReplace** per creare un oggetto `TableOperation` per inserire un'entità in una tabella e associa la nuova entità `CustomerEntity` all'oggetto. Infine, il codice chiama il metodo `execute` sull'oggetto `CloudTable`, specificando la tabella "people" e il nuovo oggetto `TableOperation`, che quindi invia una richiesta al servizio di archiviazione per inserire la nuova entità cliente nella tabella "people" o sostituire l'entità se esiste già.
 
 ```java
 try
@@ -215,7 +230,8 @@ catch (Exception e)
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Inserire un batch di entità
-Per inserire un batch di entità nel servizio tabelle, è possibile usare un'unica operazione di scrittura. Il codice seguente crea un oggetto **TableBatchOperation** quindi vi aggiunge tre operazioni di inserimento. Ciascuna operazione di inserimento viene aggiunta creando un nuovo oggetto entità, impostandone i valori, quindi chiamando il metodo **insert** sull'oggetto **TableBatchOperation** per associare l'entità a una nuova operazione di inserimento. Il codice chiama quindi il metodo **execute** sull'oggetto **CloudTable**, specificando la tabella "people" e l'oggetto **TableBatchOperation**, che invia il batch di operazioni su tabella al servizio di archiviazione in un'unica richiesta.
+
+Per inserire un batch di entità nel servizio tabelle, è possibile usare un'unica operazione di scrittura. Il codice seguente crea un oggetto `TableBatchOperation` e quindi vi aggiunge tre operazioni di inserimento. Ciascuna operazione di inserimento viene aggiunta creando un nuovo oggetto entità, impostandone i valori e quindi chiamando il metodo `insert` sull'oggetto `TableBatchOperation` per associare l'entità a una nuova operazione di inserimento. Il codice chiama quindi il metodo `execute` sull'oggetto `CloudTable`, specificando la tabella "people" e l'oggetto `TableBatchOperation`, che invia il batch di operazioni su tabella al servizio di archiviazione in un'unica richiesta.
 
 ```java
 try
@@ -269,7 +285,8 @@ Di seguito sono riportate alcune informazioni sulle operazioni batch:
 * Un'operazione batch è limitata a un payload di dati di 4 MB.
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Recuperare tutte le entità di una partizione
-Per eseguire una query su una tabella relativa alle entità in una partizione è possibile utilizzare **TableQuery**. Chiamare **TableQuery.from** per creare su una particolare tabella una query che restituisca un tipo di risultato specificato. Nel codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. **TableQuery.generateFilterCondition** è un metodo helper che consente di creare filtri per le query. Chiamare **where** sul riferimento restituito dal metodo **TableQuery.from** per applicare il filtro alla query. Quando la query viene eseguita con una chiamata a **execute** sull'oggetto **CloudTable** restituisce un oggetto **Iterator** con il tipo di risultato **CustomerEntity** specificato. Per usufruire dei risultati, è quindi possibile utilizzare l'oggetto **Iterator** restituito in ogni ciclo. Il codice seguente consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
+
+Per eseguire una query su tabella per recuperare le entità in una partizione è possibile usare `TableQuery`. Chiamare `TableQuery.from` per creare su una particolare tabella una query che restituisca un tipo di risultato specificato. Nel codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. `TableQuery.generateFilterCondition` è un metodo helper per la creazione di filtri per le query. Chiamare `where` sul riferimento restituito dal metodo `TableQuery.from` per applicare il filtro alla query. Quando la query viene eseguita con una chiamata a `execute` sull'oggetto `CloudTable`, restituisce un oggetto `Iterator` con il tipo di risultato `CustomerEntity` specificato. Per utilizzare i risultati, è quindi possibile usare l'oggetto `Iterator` restituito in un ciclo "ForEach". Il codice seguente consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
 
 ```java
 try
@@ -316,6 +333,7 @@ catch (Exception e)
 ```
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Recuperare un intervallo di entità in una partizione
+
 Se non si desidera eseguire una query su tutte le entità di una partizione, è possibile specificare un intervallo usando gli operatori di confronto in un filtro. Nel codice seguente vengono combinati due filtri per recuperare tutte le entità della partizione "Smith" in cui la chiave di riga (nome) inizia con una lettera che precede la 'E' nell'alfabeto e quindi stampare i risultati della query. Se si utilizzano le entità aggiunte alla tabella nella sezione di inserimento batch di questa guida, questa volta verranno restituite solo due entità, ovvero Ben e Denise Smith, mentre Jeff Smith non sarà incluso.
 
 ```java
@@ -374,7 +392,8 @@ catch (Exception e)
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Recuperare una singola entità
-Per recuperare una singola entità specifica, è possibile scrivere una query. Il codice seguente chiama **TableOperation.retrieve** con i parametri della chiave di partizione e della chiave di riga per specificare il cliente "Jeff Smith", invece di creare un oggetto **TableQuery** e usare filtri per eseguire la stessa operazione. Quando si esegue l'operazione di recupero viene restituita una sola entità piuttosto che una raccolta. Il metodo **getResultAsType** esegue il cast del risultato al tipo di destinazione dell'assegnazione, un oggetto **CustomerEntity**. Se questo tipo non è compatibile con il tipo specificato per la query, viene generata un'eccezione. Viene restituito un valore Null se per nessuna entità è disponibile una corrispondenza esatta di chiave di riga e chiave di partizione. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio tabelle.
+
+Per recuperare una singola entità specifica, è possibile scrivere una query. Il codice seguente chiama `TableOperation.retrieve` con i parametri della chiave di partizione e della chiave di riga per specificare il cliente "Jeff Smith", invece di creare un oggetto `Table Query` e usare filtri per eseguire la stessa operazione. Quando si esegue l'operazione di recupero viene restituita una sola entità piuttosto che una raccolta. Il metodo `getResultAsType` esegue il cast del risultato al tipo di destinazione dell'assegnazione, un oggetto `CustomerEntity`. Se questo tipo non è compatibile con il tipo specificato per la query, viene generata un'eccezione. Viene restituito un valore Null se per nessuna entità è disponibile una corrispondenza esatta di chiave di riga e chiave di partizione. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio tabelle.
 
 ```java
 try
@@ -414,6 +433,7 @@ catch (Exception e)
 ```
 
 ## <a name="modify-an-entity"></a>Modificare un'entità
+
 Per modificare un'entità, recuperarla dal servizio tabelle, modificare l'oggetto entità e quindi salvare le modifiche nel servizio tabelle con un'operazione di sostituzione o unione. Il codice seguente consente di modificare il numero di telefono di un cliente esistente. Anziché chiamare **TableOperation.insert** come fatto in precedenza per l'inserimento, questo codice chiama **TableOperation.replace**. Il metodo **CloudTable.execute** chiama il servizio tabelle e l'entità viene sostituita a meno che non sia stata modificata da un'altra applicazione da quando è stata recuperata dall'applicazione corrente. Se si verifica questa situazione, viene generata un'eccezione, pertanto è necessario recuperare, modificare e salvare di nuovo l'entità. Questo schema di ripetizione dei tentativi che supporta la concorrenza ottimistica è comune in un sistema di sistema di archiviazione distribuita.
 
 ```java
@@ -454,7 +474,8 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Eseguire query su un subset di proprietà di entità
-Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata proiezione, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. La query nel codice seguente utilizza il metodo **select** per restituire solo gli indirizzi di posta elettronica di entità nella tabella. I risultati vengono proiettati in una raccolta di **stringhe** con l'aiuto di un oggetto **EntityResolver**, che esegue la conversione di tipo sulle entità restituite dal server. Per altre informazioni sulla proiezione, vedere [Introduzione di Upsert e proiezione di query in tabelle di Azure][Introduzione di Upsert e proiezione di query in tabelle di Azure]. Si noti che la proiezione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si utilizza un account sul servizio tabelle.
+
+Mediante una query su una tabella è possibile recuperare solo alcune proprietà da un'entità. Questa tecnica, denominata proiezione, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. La query nel codice seguente usa il metodo `select` per restituire solo gli indirizzi di posta elettronica di entità nella tabella. I risultati vengono proiettati in una raccolta di `String` con l'aiuto di un oggetto `Entity Resolver`, che esegue la conversione di tipo sulle entità restituite dal server. Per altre informazioni sulla proiezione, vedere [Introduzione di Upsert e proiezione di query in tabelle di Azure][Introduzione di Upsert e proiezione di query in tabelle di Azure]. La proiezione non è supportata nell'emulatore di archiviazione locale, di conseguenza questo codice viene eseguito solo quando si usa un account nel servizio tabelle.
 
 ```java
 try
@@ -496,7 +517,8 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Inserire o sostituire un'entità
-Spesso si desidera aggiungere un'entità a una tabella senza sapere se sia già esistente nella tabella. Con un'operazione di inserimento o sostituzione è possibile creare una singola richiesta e inserire l'entità se non esiste oppure sostituirla se è già esistente. Sulla base degli esempi precedenti, il codice seguente consente di inserire o sostituire l'entità per "Walter Harp". Dopo aver creato una nuova entità, nel codice viene chiamato il metodo **TableOperation.insertOrReplace** . Questo codice chiama quindi il metodo **execute** sull'oggetto **CloudTable** con la tabella e l'operazione di inserimento o sostituzione tabella come parametri. Per aggiornare solo parte di un'entità, è invece possibile utilizzare il metodo **TableOperation.insertOrMerge** . Si noti che l'operazione di inserimento o sostituzione non è supportata nell'emulatore di archiviazione locale, pertanto questo codice viene eseguito solo se si usa un account sul servizio tabelle. Per altre informazioni sull'operazione di inserimento o sostituzione e l'operazione di inserimento o unione, vedere [Introduzione di Upsert e proiezione di query in tabelle di Azure][Introduzione di Upsert e proiezione di query in tabelle di Azure].
+
+Spesso si desidera aggiungere un'entità a una tabella senza sapere se sia già esistente nella tabella. Con un'operazione di inserimento o sostituzione è possibile creare una singola richiesta e inserire l'entità se non esiste oppure sostituirla se è già esistente. Sulla base degli esempi precedenti, il codice seguente consente di inserire o sostituire l'entità per "Walter Harp". Dopo aver creato una nuova entità, nel codice viene chiamato il metodo **TableOperation.insertOrReplace** . Questo codice chiama quindi il metodo **execute** sull'oggetto **CloudTable** con la tabella e l'operazione su tabella di inserimento o sostituzione come parametri. Per aggiornare solo parte di un'entità, è invece possibile utilizzare il metodo **TableOperation.insertOrMerge** . L'operazione di inserimento o sostituzione non è supportata nell'emulatore di archiviazione locale, di conseguenza questo codice viene eseguito solo se si usa un account nel servizio tabelle. Per altre informazioni sull'operazione di inserimento o sostituzione e l'operazione di inserimento o unione, vedere [Introduzione di Upsert e proiezione di query in tabelle di Azure][Introduzione di Upsert e proiezione di query in tabelle di Azure].
 
 ```java
 try
@@ -530,7 +552,8 @@ catch (Exception e)
 ```
 
 ## <a name="delete-an-entity"></a>Eliminare un'entità
-È possibile eliminare facilmente un'entità dopo averla recuperata. Dopo il recupero dell'entità, chiamare **TableOperation.delete** con l'entità da eliminare. Chiamare **execute** sull'oggetto **CloudTable**. Il codice seguente consente di recuperare ed eliminare un'entità customer.
+
+È possibile eliminare facilmente un'entità dopo averla recuperata. Dopo il recupero dell'entità, chiamare `TableOperation.delete` con l'entità da eliminare. Chiamare quindi `execute` sull'oggetto `CloudTable`. Il codice seguente consente di recuperare ed eliminare un'entità customer.
 
 ```java
 try
@@ -566,6 +589,7 @@ catch (Exception e)
 ```
 
 ## <a name="delete-a-table"></a>Eliminare una tabella
+
 Nell'esempio di codice seguente viene infine illustrato come eliminare una tabella da un account di archiviazione. Per circa 40 secondi in seguito all'eliminazione di una tabella, non è possibile ricrearla. 
 
 ```java
@@ -588,6 +612,7 @@ catch (Exception e)
     e.printStackTrace();
 }
 ```
+
 [!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

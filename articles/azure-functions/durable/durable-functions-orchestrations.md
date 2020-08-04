@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033643"
 ---
 # <a name="durable-orchestrations"></a>Orchestrazioni durevoli
 
@@ -41,9 +41,9 @@ L'ID istanza di un'orchestrazione è un parametro obbligatorio per la maggior pa
 
 ## <a name="reliability"></a>Affidabilità
 
-Le funzioni dell'agente di orchestrazione mantengono in modo affidabile il proprio stato di esecuzione tramite il modello progettuale [Event Sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Invece di archiviare direttamente lo stato corrente di un'orchestrazione, Durable Task Framework usa un archivio di solo accodamento per registrare la serie completa di azioni eseguite dall'orchestrazione di funzioni. Rispetto al "dump" dello stato del runtime completo, l'archivio di solo accodamento presenta diversi vantaggi, in termini di prestazioni, scalabilità e reattività. Inoltre, consente di ottenere coerenza finale per i dati transazionali, oltre a dati di cronologia e audit trail completi, che supportano azioni di compensazione affidabili.
+Le funzioni dell'agente di orchestrazione mantengono in modo affidabile il proprio stato di esecuzione tramite il modello progettuale [Event Sourcing](/azure/architecture/patterns/event-sourcing). Invece di archiviare direttamente lo stato corrente di un'orchestrazione, Durable Task Framework usa un archivio di solo accodamento per registrare la serie completa di azioni eseguite dall'orchestrazione di funzioni. Rispetto al "dump" dello stato del runtime completo, l'archivio di solo accodamento presenta diversi vantaggi, in termini di prestazioni, scalabilità e reattività. Inoltre, consente di ottenere coerenza finale per i dati transazionali, oltre a dati di cronologia e audit trail completi, che supportano azioni di compensazione affidabili.
 
-Durable Functions usa il modello Event Sourcing in modo trasparente. Dietro le quinte, l'operatore `await` (C#) o `yield` (JavaScript) in una funzione di orchestrazione restituisce il controllo del thread di orchestrazione al dispatcher di Durable Task Framework. Il dispatcher quindi esegue il commit di eventuali nuove azioni pianificate dalla funzione di orchestrazione (ad esempio, la chiamata di una o più funzioni figlio o la pianificazione di un timer permanente) in un archivio. Questa azione di commit trasparente viene accodata alla cronologia di esecuzione dell'istanza di orchestrazione. La cronologia viene archiviata in una tabella di archiviazione. L'azione di commit aggiunge quindi messaggi a una coda per pianificare le operazioni effettive. A questo punto, la funzione di orchestrazione può essere scaricata dalla memoria.
+Durable Functions usa il modello Event Sourcing in modo trasparente. Dietro le quinte, l'operatore `await` (C#) o `yield` (JavaScript/Python) in una funzione di orchestrazione restituisce il controllo del thread di orchestrazione al dispatcher Durable Task Framework. Il dispatcher quindi esegue il commit di eventuali nuove azioni pianificate dalla funzione di orchestrazione (ad esempio, la chiamata di una o più funzioni figlio o la pianificazione di un timer permanente) in un archivio. Questa azione di commit trasparente viene accodata alla cronologia di esecuzione dell'istanza di orchestrazione. La cronologia viene archiviata in una tabella di archiviazione. L'azione di commit aggiunge quindi messaggi a una coda per pianificare le operazioni effettive. A questo punto, la funzione di orchestrazione può essere scaricata dalla memoria.
 
 Quando a una funzione di orchestrazione vengono assegnate altre operazioni da eseguire (ad esempio, si riceve un messaggio di risposta oppure un timer durevole scade), l'agente di orchestrazione si riattiva ed esegue nuovamente l'intera funzione dall'inizio per ricreare lo stato locale. Se durante la riesecuzione il codice tenta di chiamare una funzione o di eseguire un'altra operazione asincrona, Durable Task Framework esamina la cronologia di esecuzione dell'orchestrazione corrente. Se rileva che la [funzione di attività](durable-functions-types-features-overview.md#activity-functions) è già stata eseguita e ha restituito un risultato, riesegue il risultato della funzione, mentre il codice dell'agente di orchestrazione continua a essere eseguito. La riesecuzione prosegue fino al termine del codice della funzione oppure finché non viene pianificata una nuova operazione asincrona.
 
@@ -91,9 +91,23 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    result1 = yield context.call_activity('SayHello', "Tokyo")
+    result2 = yield context.call_activity('SayHello', "Seattle")
+    result3 = yield context.call_activity('SayHello', "London")
+    return [result1, result2, result3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
-In ogni istruzione `await` (C#) o `yield` (JavaScript) Durable Task Framework imposta un checkpoint dello stato di esecuzione della funzione in un back-end di archiviazione durevole, solitamente archiviazione tabelle di Azure. Questo stato viene definito come *cronologia di orchestrazione*.
+In ogni istruzione `await` (C#) o `yield` (JavaScript/Python), Durable Task Framework imposta un checkpoint dello stato di esecuzione della funzione in un back-end di archiviazione durevole, solitamente l'archiviazione tabelle di Azure. Questo stato viene definito come *cronologia di orchestrazione*.
 
 ### <a name="history-table"></a>Tabella di cronologia
 
@@ -133,25 +147,25 @@ Di seguito vengono indicate alcune note sui valori di colonna.
 
 * **PartitionKey**: contiene l'ID istanza dell'orchestrazione.
 * **EventType**: rappresenta uno dei tipi di evento indicati di seguito.
-  * **OrchestrationStarted**: funzione dell'agente di orchestrazione ripresa da un'istruzione await oppure in esecuzione per la prima volta. La colonna `Timestamp` viene utilizzata per popolare il valore deterministico per le API `CurrentUtcDateTime` (.NET) e `currentUtcDateTime` (JavaScript).
+  * **OrchestrationStarted**: funzione dell'agente di orchestrazione ripresa da un'istruzione await oppure in esecuzione per la prima volta. La colonna `Timestamp` viene usata per popolare il valore deterministico per le API `CurrentUtcDateTime` (.NET), `currentUtcDateTime` (JavaScript) e `current_utc_datetime` (Python).
   * **ExecutionStarted**: esecuzione della funzione dell'agente di orchestrazione avviata per la prima volta. Questo evento contiene anche l'input della funzione nella colonna `Input`.
-  * **TaskScheduled**: funzione di attività pianificata. Il nome della funzione di attività viene acquisito nella colonna `Name`.
-  * **TaskCompleted**: funzione di attività completata. Il risultato della funzione è nella colonna `Result`.
-  * **TimerCreated**: timer permanente creato. La colonna `FireAt` contiene l'ora UTC pianificata per la scadenza del timer.
+  * **TaskScheduled**: una funzione di attività pianificata. Il nome della funzione di attività viene acquisito nella colonna `Name`.
+  * **TaskCompleted**: una funzione di attività completata. Il risultato della funzione è nella colonna `Result`.
+  * **TimerCreated**: un timer permanente creato. La colonna `FireAt` contiene l'ora UTC pianificata per la scadenza del timer.
   * **TimerFired**: un timer permanente attivato.
   * **EventRaised**: evento esterno inviato all'istanza di orchestrazione. La colonna `Name` acquisisce il nome dell'evento, mentre la colonna `Input` ne acquisisce il payload.
-  * **OrchestratorCompleted**: funzione dell'agente di orchestrazione in attesa.
+  * **OrchestratorCompleted**: la funzione dell'agente di orchestrazione attesa.
   * **ContinueAsNew**: la funzione dell'agente di orchestrazione completata e riavviata con un nuovo stato. La colonna `Result` contiene il valore che viene usato come input nell'istanza riavviata.
-  * **ExecutionCompleted**: funzione dell'agente di orchestrazione stata eseguita fino al completamento (oppure non riuscita). Gli output della funzione o i dettagli dell'errore vengono archiviati nella colonna `Result`.
+  * **ExecutionCompleted**: la funzione dell'agente di orchestrazione eseguita fino al completamento (oppure non riuscita). Gli output della funzione o i dettagli dell'errore vengono archiviati nella colonna `Result`.
 * **Timestamp**: timestamp UTC dell'evento di cronologia.
 * **Name**: nome della funzione richiamata.
-* **Input**: input in formato JSON della funzione.
-* **Result**: output della funzione, ovvero il valore restituito.
+* **Input**: l'input in formato JSON della funzione.
+* **Result**: l'output della funzione, ovvero il valore restituito.
 
 > [!WARNING]
 > Benché sia utile come strumento di debug, usare con cautela questa tabella che può cambiare con l'evoluzione dell'estensione Funzioni permanenti.
 
-Ogni volta che la funzione viene ripresa da un'istruzione `await` (C#) o `yield` (JavaScript), il framework di attività permanenti riesegue la funzione dell'agente di orchestrazione a partire dall'inizio. A ogni riesecuzione, il framework esamina la cronologia di esecuzione per determinare se l'operazione asincrona corrente è stata effettuata.  In caso affermativo, il framework riesegue immediatamente l'output dell'operazione e passa alla successiva istruzione `await` (C#) o `yield` (JavaScript). Questo processo continua fino alla riesecuzione dell'intera cronologia. Una volta rieseguita la cronologia corrente, le variabili locali saranno state ripristinate sui rispettivi valori precedenti.
+Ogni volta che la funzione viene ripresa da un'istruzione `await` (C#) o `yield` (JavaScript/Python), Durable Task Framework riesegue la funzione dell'agente di orchestrazione a partire dall'inizio. A ogni riesecuzione, il framework esamina la cronologia di esecuzione per determinare se l'operazione asincrona corrente è stata effettuata.  In caso affermativo, il framework riesegue immediatamente l'output dell'operazione e passa alla successiva istruzione `await` (C#) o `yield` (JavaScript/Python). Questo processo continua fino alla riesecuzione dell'intera cronologia. Una volta rieseguita la cronologia corrente, le variabili locali saranno state ripristinate sui rispettivi valori precedenti.
 
 ## <a name="features-and-patterns"></a>Funzionalità e criteri
 
@@ -165,7 +179,7 @@ Per altre informazioni e per alcuni esempi, vedere l'articolo sulle [orchestrazi
 
 ### <a name="durable-timers"></a>Timer durevoli
 
-Le orchestrazioni possono pianificare *timer durevoli* per implementare ritardi oppure per configurare la gestione dei timeout per azioni asincrone. Usare timer durevoli nelle funzioni dell'agente di orchestrazione invece di `Thread.Sleep` e `Task.Delay` (C#) oppure di `setTimeout()` e `setInterval()` (JavaScript).
+Le orchestrazioni possono pianificare *timer durevoli* per implementare ritardi oppure per configurare la gestione dei timeout per azioni asincrone. Usare timer durevoli nelle funzioni dell'agente di orchestrazione invece di `Thread.Sleep` e `Task.Delay` (C#), `setTimeout()` e `setInterval()` (JavaScript) o `time.sleep()` (Python).
 
 Per altre informazioni e per alcuni esempi, vedere l'articolo sui [timer durevoli](durable-functions-timers.md).
 
@@ -252,6 +266,18 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    res = yield context.call_http('GET', url)
+    if res.status_code >= 400:
+        # handing of error code goes here
+```
 ---
 
 Oltre a modelli di richiesta/risposta di base, il metodo supporta la gestione automatica di comuni modelli di polling HTTP 202 asincroni, nonché l'autenticazione con servizi esterni tramite [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -267,7 +293,7 @@ Non è possibile passare più parametri direttamente a una funzione di attività
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-In .NET è anche possibile usare oggetti [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). L'esempio seguente usa le nuove funzionalità di [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) aggiunte con [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+In .NET è anche possibile usare oggetti [ValueTuples](/dotnet/csharp/tuples). L'esempio seguente usa le nuove funzionalità di [ValueTuples](/dotnet/csharp/tuples) aggiunte con [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -322,7 +348,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### <a name="activity"></a>Attività
+#### <a name="getweather-activity"></a>`GetWeather` Attività
 
 ```javascript
 module.exports = async function (context, location) {
@@ -330,6 +356,36 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="orchestrator"></a>Orchestrator
+
+```python
+from collections import namedtuple
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    Location = namedtuple('Location', ['city', 'state'])
+    location = Location(city='Seattle', state= 'WA')
+
+    weather = yield context.call_activity("GetWeather", location)
+
+    # ...
+
+```
+#### <a name="getweather-activity"></a>`GetWeather` Attività
+
+```python
+from collections import namedtuple
+
+Location = namedtuple('Location', ['city', 'state'])
+
+def main(location: Location) -> str:
+    city, state = location
+    return f"Hello {city}, {state}!"
 ```
 
 ---

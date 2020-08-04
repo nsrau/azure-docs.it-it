@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206561"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131736"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Creare una soluzione end-to-end
 
@@ -26,6 +26,9 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="set-up-cloud-shell-session"></a>Configurare una sessione di Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
@@ -90,7 +93,7 @@ Il passaggio successivo prevede la configurazione di un'[app di Funzioni di Azur
 * *ProcessHubToDTEvents*: elabora i dati dell'hub IoT in ingresso e aggiorna di conseguenza l'istanza di Gemelli digitali di Azure
 * *ProcessDTRoutedData*: elabora i dati provenienti dai gemelli digitali e aggiorna di conseguenza i gemelli padre nell'istanza di Gemelli digitali di Azure
 
-In questa sezione si pubblicherà l'app per le funzioni scritta in precedenza e si verificherà che sia in grado di accedere a Gemelli digitali di Azure assegnandole un'identità di Azure Active Directory (AAD). Completando questi passaggi sarà possibile usare le funzioni all'interno dell'app per le funzioni nel resto dell'esercitazione. 
+In questa sezione si pubblicherà l'app per le funzioni scritta in precedenza e si verificherà che sia in grado di accedere a Gemelli digitali di Azure assegnandole un'identità di Azure Active Directory (Azure AD). Completando questi passaggi sarà possibile usare le funzioni all'interno dell'app per le funzioni nel resto dell'esercitazione. 
 
 ### <a name="publish-the-app"></a>Pubblicare l'app
 
@@ -138,7 +141,7 @@ Nel riquadro *Pubblica* visualizzato di nuovo nella finestra principale di Visua
 
 ### <a name="assign-permissions-to-the-function-app"></a>Assegnare le autorizzazioni all'app per le funzioni
 
-Per consentire l'accesso dell'app per le funzioni a Gemelli digitali di Azure, il passaggio successivo consiste nel configurare un'impostazione dell'app, assegnare all'app un'identità di AAD gestita dal sistema e assegnare a questa identità le autorizzazioni di *proprietario* nell'istanza di Gemelli digitali di Azure.
+Per consentire l'accesso dell'app per le funzioni a Gemelli digitali di Azure, il passaggio successivo consiste nel configurare un'impostazione dell'app, assegnare all'app un'identità di Azure AD gestita dal sistema e assegnare a questa identità le autorizzazioni di *proprietario* nell'istanza di Gemelli digitali di Azure.
 
 In Azure Cloud Shell usare il comando seguente per configurare un'impostazione che verrà usata dall'app per le funzioni per fare riferimento all'istanza di gemelli digitali.
 
@@ -420,7 +423,7 @@ Usando Azure Cloud Shell, è possibile eliminare tutte le risorse di Azure di un
 az group delete --name <your-resource-group>
 ```
 
-Eliminare quindi la registrazione dell'app di AAD creata per l'app client con questo comando:
+Eliminare quindi la registrazione dell'app di Azure AD creata per l'app client con questo comando:
 
 ```azurecli
 az ad app delete --id <your-application-ID>
@@ -433,7 +436,7 @@ Infine, eliminare la cartella dell'esempio di progetto scaricata dal computer lo
 In questa esercitazione è stato creato uno scenario end-to-end che mostra un'istanza di Gemelli digitali di Azure basata su dati di dispositivo in tempo reale.
 
 Quindi, iniziare a esaminare la documentazione concettuale per altre informazioni sugli elementi usati nell'esercitazione:
-* [Concetti: Modelli personalizzati](concepts-models.md)
+* [*Concetti: Modelli personalizzati*](concepts-models.md)
 
 Oppure approfondire ulteriormente i processi illustrati in questa esercitazione a partire dagli articoli sulle procedure:
-* [Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure](how-to-use-cli.md)
+* [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)

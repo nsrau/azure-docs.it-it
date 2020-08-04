@@ -3,20 +3,18 @@ title: 'Guida introduttiva: Usare lo strumento URL per ottenere una risposta dal
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido assiste nell'ottenimento di una risposta da una knowledge base usando lo strumento di test URL come cURL o Postman.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
-ms.date: 04/27/2020
-ms.author: diberry
-ms.openlocfilehash: 1f19337aea8b39bbc8c7dc11fba683bee3c2955a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 07/16/2020
+ms.openlocfilehash: 6d03870a24e25327b43c14e57715cdaea23e700d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203964"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132891"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>Guida introduttiva: Ottenere una risposta da una knowledge base
 
@@ -38,3 +36,7 @@ ms.locfileid: "82203964"
 
 > [!div class="nextstepaction"]
 > [Testare la knowledge base con un file batch](batch-testing.md)
+
+Altre informazioni sui metadati:
+* [Creazione e modifica - aggiungere metadati a una coppia di domanda e risposta](../How-To/edit-knowledge-base.md#add-metadata)
+* [Eseguire query sulle previsioni - filtrare le risposte in base ai metadati](../How-To/metadata-generateanswer-usage.md#use-metadata-to-filter-answers-by-custom-metadata-tags)

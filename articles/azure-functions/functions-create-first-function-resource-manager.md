@@ -5,20 +5,24 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 403ff6407105574c78b8e600c37efbe61d2f8b79
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740199"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081713"
 ---
-# <a name="quickstart-create-and-deploy-azure-functions-resources-from-a-resource-manager-template"></a>Avvio rapido: Creare e distribuire risorse di Funzioni di Azure da un modello di Resource Manager
+# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Avvio rapido: Creare e distribuire risorse di Funzioni di Azure da un modello di Resource Manager
 
-In questo articolo si userà un modello di Resource Manager per creare una funzione che risponde alle richieste HTTP. 
+In questo articolo si userà un modello di Azure Resource Manager per creare una funzione che risponde alle richieste HTTP. 
 
 Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di qualche centesimo (USD) o meno nell'account Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,13 +52,11 @@ Scegliere una delle schede seguenti, seguire il collegamento e completare la sez
 
 Dopo aver creato il progetto in locale, è possibile creare le risorse necessarie per eseguire la nuova funzione in Azure. 
 
-## <a name="create-a-serverless-function-app-in-azure"></a>Creare un'app per le funzioni serverless in Azure
+## <a name="review-the-template"></a>Rivedere il modello
 
-### <a name="review-the-template"></a>Rivedere il modello
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic).
-
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
 
 Con questo modello vengono create le quattro risorse di Azure seguenti:
 
@@ -63,7 +65,7 @@ Con questo modello vengono create le quattro risorse di Azure seguenti:
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): crea un'app per le funzioni.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): crea un'istanza di Application Insights per il monitoraggio.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli-interactive

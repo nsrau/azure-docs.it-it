@@ -9,14 +9,14 @@ ms.devlang: cli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 391cc4c08b7067ef388c2130cb340fb5597c843f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 71bffe004ae8f2ac2060c1bfc12c4fff0be95c34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006212"
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>Eliminare i contenitori in base al prefisso del nome
+# <a name="use-an-azure-cli-script-to-delete-containers-based-on-container-name-prefix"></a>Usare uno script dell'interfaccia della riga di comando di Azure per eliminare i contenitori in base al prefisso del nome
 
 Per prima cosa, lo script crea alcuni contenitori di esempio nell'Archiviazione BLOB di Azure, quindi ne elimina alcuni in base a un prefisso nel nome dei contenitori stessi.
 

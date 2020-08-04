@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134451"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289302"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Eseguire il failback di una VM di Azure tra aree di Azure
 
@@ -58,7 +58,7 @@ Dopo la riprotezione delle VM, è possibile eseguire il failback nell'area prima
     ![VM nell'area primaria e in quella secondaria](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> Per i computer che eseguono la versione dell'estensione Site Recovery 9.28.x.x o successiva, [aggiornamento cumulativo 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery pulisce i computer nell'area di ripristino di emergenza secondaria, al termine del failback e quando le VM vengono nuovamente protette. Non è necessario eliminare manualmente le macchine virtuali e le schede di interfaccia di rete nell'area secondaria. Se si disabilita completamente la replica dopo il failback, Site Recovery pulisce anche i dischi nell'area secondaria, oltre alle VM e alle schede di interfaccia di rete.
+> Per le VM che usano i dischi gestiti ed eseguono la versione dell'estensione Site Recovery 9.28.x.x o successiva, [aggiornamento cumulativo 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery pulisce le VM nell'area di ripristino di emergenza secondaria, al termine del failback e quando le VM sono nuovamente protette. Non è necessario eliminare manualmente le macchine virtuali e le schede di interfaccia di rete nell'area secondaria. Tenere presente che le macchine virtuali con dischi non gestiti non vengono pulite. Se si disabilita completamente la replica dopo il failback, Site Recovery pulisce anche i dischi nell'area secondaria, oltre alle VM e alle schede di interfaccia di rete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

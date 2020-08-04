@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/28/2020
 ms.author: victorh
-ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565795"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372366"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Panoramica della distribuzione di Gestione firewall di Azure
 
@@ -65,6 +65,13 @@ Per distribuire Gestione firewall di Azure è possibile procedere in più modi, 
 > - Non è possibile disporre di più di un hub per ogni WAN virtuale per area. Per ottenere questo risultato, è tuttavia possibile aggiungere più WAN virtuali nell'area.
 > - Non è possibile avere spazi IP sovrapposti per gli hub in una WAN virtuale.
 > - Le connessioni di rete virtuale dell'hub devono trovarsi nella stessa area dell'hub.
+
+## <a name="convert-virtual-networks"></a>Convertire reti virtuali
+
+Le informazioni seguenti si applicano se si converte una rete virtuale esistente in una rete virtuale hub:
+
+- Se nella rete virtuale è presente un'istanza di Firewall di Azure, è necessario selezionare un criterio firewall da associare al firewall esistente. Lo stato di provisioning del firewall verrà aggiornato mentre il criterio firewall sostituisce le regole del firewall. Durante lo stato di provisioning il firewall continua l'elaborazione del traffico e non ha tempi di inattività. Per importare regole esistenti in un criterio firewall, è possibile usare Gestione firewall o Azure PowerShell.
+- Se alla rete virtuale non è associata un'istanza di Firewall di Azure, viene distribuito un firewall e il criterio del firewall viene associato al nuovo firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

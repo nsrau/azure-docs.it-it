@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio per eseguire il debug di un'applicazione .NET Core multiservizio nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 7f95c21c2cf5b7adcdb34d7bbe2b1f8314c20333
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 073019a75f78263e9d300a82469b36268d032679
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438395"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072945"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-with-azure-dev-spaces"></a>Esecuzione di più servizi dipendenti: .NET Core e Visual Studio con Azure Dev Spaces
 
@@ -21,7 +21,7 @@ Questa esercitazione illustra lo sviluppo di applicazioni multiservizio con Azur
 ## <a name="call-another-container"></a>Chiamare un altro contenitore
 In questa sezione si creerà un secondo servizio, `mywebapi`, e si farà in modo che venga chiamato da `webfrontend`. Ogni servizio viene eseguito in contenitori separati. Verrà quindi eseguito il debug in entrambi i contenitori.
 
-![](media/common/multi-container.png)
+![Il diagramma mostra il servizio webfrontend che chiama (come indicato da una freccia) il servizio mywebapi.](media/common/multi-container.png)
 
 ### <a name="download-sample-code-for-mywebapi"></a>Scaricare il codice di esempio per *mywebapi*
 Per motivi di tempo, scarichiamo il codice di esempio da un repository GitHub. Passare a https://github.com/Azure/dev-spaces e selezionare **Clone or Download** (Clona o scarica) per scaricare il repository GitHub. Il codice per questa sezione è disponibile in `samples/dotnetcore/getting-started/mywebapi`.
@@ -34,7 +34,7 @@ Per motivi di tempo, scarichiamo il codice di esempio da un repository GitHub. P
 2. Quando `mywebapi` è pronto, aprire il browser all'indirizzo localhost e aggiungere `/api/values` all'URL per richiamare l'API GET predefinita per `ValuesController`. 
 3. Se tutte le operazioni hanno avuto esito positivo, dovrebbe venire visualizzata una risposta da parte del servizio `mywebapi` simile a quanto segue.
 
-    ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
+    ![La pagina Web mostra una matrice JSON con due stringhe, ovvero "value1" e "value2".](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Creare una richiesta da *webfrontend* a *mywebapi*
 Ora scriviamo il codice in `webfrontend` che crea una richiesta a `mywebapi`. Passare alla finestra di Visual Studio con il progetto `webfrontend`. Nel file `HomeController.cs`*sostituire* il codice per il metodo About con il codice seguente:
@@ -72,7 +72,7 @@ L'esempio di codice precedente inoltra l'intestazione `azds-route-as` dalla rich
 1. Fare clic sul collegamento **About** nella parte superiore della pagina per attivare il punto di interruzione nel progetto `webfrontend`. 
 1. Premere F10 per continuare. Il punto di interruzione nel progetto `mywebapi` viene attivato.
 1. Premere F5 per continuare e tornare al codice nel progetto `webfrontend`.
-1. Se si preme F5 ancora una volta la richiesta viene completata e si torna a una pagina nel browser. Nell'app Web la pagina delle informazioni visualizza un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi".
+1. Se si preme F5 ancora una volta la richiesta viene completata e si torna a una pagina nel browser. Nell'app Web la pagina delle informazioni visualizza un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi."
 
 ### <a name="well-done"></a>Ecco fatto!
 È ora disponibile un'applicazione multicontenitore in cui ogni contenitore può essere sviluppato e distribuito separatamente.

@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ed552bfb37f01200a4dba38ea733a1189768d56a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067157"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Compilare l'interfaccia utente con Angular
 
@@ -41,7 +41,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
 ## <a name="build-the-ui"></a>Creare l'interfaccia utente
 
-1. In Visual Studio Code fare clic sul pulsante Arresta ![Pulsante Arresta in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) per arrestare l'app Node.
+1. In Visual Studio Code fare clic sul pulsante Arresta :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png"::: per arrestare l'app Node. 
 
 2. Nel prompt dei comandi di Windows o nella finestra del terminale Mac immettere il comando seguente per generare un componente di tipo heroes. Nel codice g equivale a generare, c a componente, heroes al nome del componente e viene usata la struttura di file flat (--flat), in modo che non venga creata alcuna sottocartella.
 
@@ -486,7 +486,7 @@ Quando il componente è disponibile, è necessario fare in modo che venga visual
 
     Ora eseguire l'app.
 
-2. In Visual Studio Code fare clic sul pulsante **Debug**![Icona Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) a sinistra, quindi sul pulsante **Avvia debug**![Icona Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+2. In Visual Studio Code fare clic sul pulsante **Debug** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: sul lato sinistro, quindi selezionare il pulsante **Avvia debug** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png":::.
 
 3. Aprire un browser Internet e passare a **localhost:3000** per visualizzare l'app in esecuzione in locale.
 

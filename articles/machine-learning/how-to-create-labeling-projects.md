@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146531"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326451"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -21,11 +21,11 @@ ms.locfileid: "86146531"
 
 L'etichettatura di un volume elevato di dati in progetti di Machine Learning è spesso un'operazione complicata. I progetti che includono un componente visione artificiale, ad esempio la classificazione di immagini o il rilevamento di oggetti, richiedono in genere le etichette per migliaia di immagini.
  
-[Azure Machine Learning](https://ml.azure.com/) offre una posizione centrale per creare, gestire e monitorare i progetti di etichettatura (anteprima pubblica). È possibile coordinare i dati, le etichette e i membri del team per gestire in modo efficiente le attività di etichettatura. Machine Learning supporta la classificazione di immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti tramite i riquadri di selezione.
+L'etichettatura dei dati di [Azure Machine Learning](https://ml.azure.com/) offre una posizione centrale in cui creare, gestire e monitorare i progetti di etichettatura. È possibile coordinare i dati, le etichette e i membri del team per gestire in modo efficiente le attività di etichettatura. Machine Learning supporta la classificazione di immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti tramite i riquadri di selezione.
 
-Azure Machine Learning tiene traccia dello stato di avanzamento e mantiene la coda delle attività di etichettatura non completate.
+L'etichettatura dei dati tiene traccia dello stato di avanzamento e mantiene la coda delle attività di etichettatura incomplete.
 
-È possibile avviare e arrestare il progetto e monitorare lo stato di avanzamento dell'etichettatura. È possibile esportare i dati etichettati in formato COCO o come set di dati di Azure Machine Learning.
+È possibile avviare e arrestare il progetto e controllare lo stato di avanzamento dell'etichettatura. È possibile rivedere i dati etichettati ed esportarli in formato COCO o come set di dati di Azure Machine Learning.
 
 > [!Important]
 > Attualmente sono supportati solo i progetti etichettatura per la classificazione di immagini e l'identificazione degli oggetti. Le immagini dei dati devono inoltre essere disponibili in un archivio dati BLOB di Azure. Se non si dispone di un archivio dati esistente, è possibile caricare le immagini durante la creazione del progetto.
@@ -57,9 +57,9 @@ Per creare un progetto, scegliere **Aggiungi il progetto**. Assegnare al progett
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Creazione guidata progetto di etichettatura":::
 
-* Scegliere **Classificazione delle immagini multi-classe** per i progetti in cui applicare a un'immagine solo una *classe singola* da un set di classi.
-* Scegliere **Classificazione delle immagini multi-etichetta** per i progetti in cui applicare a un'immagine *una o più* etichette da un set di classi. Ad esempio, la foto di un cane potrebbe essere etichettata sia con *cane* che con *giorno*.
-* Scegliere **Identificazione oggetto (rettangolo di selezione)** per i progetti in cui assegnare una classe e un rettangolo di selezione a ogni oggetto all'interno di un'immagine.
+* Scegliere **Classificazione delle immagini multi-classe** per i progetti in cui applicare a un'immagine solo un'*etichetta singola* da un set di etichette.
+* Scegliere **Classificazione delle immagini multi-etichetta** per i progetti in cui applicare a un'immagine *una o più* etichette da un set di etichette. Ad esempio, la foto di un cane potrebbe essere etichettata sia con *cane* che con *giorno*.
+* Scegliere **Identificazione oggetto (rettangolo di selezione)** per i progetti in cui assegnare un'etichetta e un rettangolo di selezione a ogni oggetto all'interno di un'immagine.
 
 Selezionare **Avanti** quando si è pronti per procedere.
 
@@ -148,6 +148,10 @@ Per i rettangoli di selezione, le domande importanti sono:
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
+> [!IMPORTANT]
+> L'etichettatura assistita da ML è attualmente disponibile in anteprima pubblica.
+> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 La pagina **Etichettatura assistita da ML** consente di attivare modelli di Machine Learning automatici per accelerare l'attività di etichettatura. All'inizio del progetto di etichettatura, le immagini vengono mescolate in modo casuale per ridurre le potenziali distorsioni. Tuttavia, eventuali distorsioni presenti nel set di dati si rifletteranno nel modello con training. Se, ad esempio, l'80% delle immagini appartiene a una singola classe, circa l'80% dei dati usati per il training del modello sarà di tale classe. Questo training non include l'apprendimento attivo.
 
 Selezionare *Abilita etichettatura assistita da ML* e specificare una GPU per abilitare l'etichettatura assistita, costituita da due fasi:
@@ -183,14 +187,54 @@ Dopo l'inizializzazione del progetto di etichettatura, alcuni aspetti non sarann
 > È possibile che questa pagina non venga aggiornata automaticamente. Quindi, dopo una pausa, aggiornare manualmente la pagina per visualizzare lo stato del progetto come **Creato**.
 
 ## <a name="run-and-monitor-the-project"></a>Eseguire e monitorare il progetto
+Una volta inizializzato il progetto, Azure inizierà a eseguirlo. Selezionare il progetto nella pagina principale **Etichettatura dei dati** per visualizzare i dettagli del progetto.
 
-Una volta inizializzato il progetto, Azure inizierà a eseguirlo. Selezionare il progetto nella pagina principale **Etichettatura dei dati** per passare a **Dettagli del progetto**. La scheda **Dashboard** indicherà lo stato di avanzamento dell'attività di etichettatura.
+Per sospendere o riavviare il progetto, attivare lo stato **In esecuzione** in alto a destra. È possibile etichettare i dati solo quando il progetto è in esecuzione.
+
+### <a name="dashboard"></a>Dashboard
+
+La scheda **Dashboard** indicherà lo stato di avanzamento dell'attività di etichettatura.
+
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Dashboard di etichettatura dei dati":::
+
+Il grafico sullo stato di avanzamento mostra il numero di elementi etichettati e il numero di quelli non ancora completati.  Gli elementi in sospeso possono essere:
+
+* Non ancora aggiunti a un'attività
+* Inclusi in un'attività assegnata a un etichettatore ma non ancora completata 
+* Inclusi nella coda delle attività ancora da assegnare
+
+La sezione intermedia mostra la coda delle attività ancora da assegnare. Se l'etichettatura assistita da ML è disattivata, questa sezione mostra il numero di attività manuali da assegnare. Se l'etichettatura assistita da ML è attivata, questa sezione mostra anche:
+
+* Le attività contenenti elementi in cluster nella coda
+* Le attività contenenti elementi pre-etichettati nella coda
+
+Inoltre, se l'etichettatura assistita da ML è abilitata, un piccolo indicatore di stato indica quando si verificherà la successiva esecuzione del training.  Le sezioni di esperimenti forniscono i collegamenti per ogni esecuzione di Machine Learning.
+
+* Training: esegue il training di un modello per prevedere le etichette
+* Convalida: determina se la previsione del modello verrà usata per pre-etichettare gli elementi 
+* Inferenza: esecuzione della previsione per i nuovi elementi
+* Definizione delle funzionalità: raggruppa gli elementi in cluster (solo per i progetti di classificazione delle immagini)
+
+Sul lato destro è disponibile una distribuzione delle etichette per le attività completate.  Tenere presente che in alcuni tipi di progetto un elemento può avere più etichette, nel qual caso il numero totale di etichette può essere maggiore del numero totale di elementi.
+
+### <a name="data-tab"></a>Scheda Dati
 
 Nella scheda **Dati** è possibile esaminare il set di dati e rivedere i dati etichettati. Se vengono individuati dati etichettati in modo errato, selezionarli e fare clic su **Rifiuta**. Le etichette verranno rimosse e i dati verranno inseriti nuovamente nella coda dei dati non etichettati.
 
-Per sospendere o riavviare il progetto, selezionare il pulsante **Sospendi**/**Avvia**. È possibile etichettare i dati solo quando il progetto è in esecuzione.
+### <a name="details-tab"></a>Scheda Dettagli
 
-È possibile etichettare i dati direttamente dalla pagina **Dettagli del progetto** selezionando **Etichetta dati**.
+Visualizzare i dettagli del progetto.  In questa scheda è possibile:
+
+* Visualizzare i dettagli del progetto e i set di dati di input
+* Abilitare l'aggiornamento incrementale
+* Visualizzare i dettagli del contenitore di archiviazione usato per archiviare gli output etichettati nel progetto
+* Aggiungere etichette al progetto
+* Modificare le istruzioni fornite alle etichette
+* Modificare i dettagli dell'etichettatura assistita da ML, inclusa l'abilitazione o la disabilitazione
+
+### <a name="access-for-labelers"></a>Accesso per gli etichettatori
+
+Chiunque abbia accesso all'area di lavoro può etichettare i dati nel progetto.  È anche possibile personalizzare le autorizzazioni per gli etichettatori in modo che possano accedere all'etichettatura ma non ad altre parti dell'area di lavoro o del progetto di etichettatura.  Per altre informazioni, vedere [Gestire l'accesso a un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md) e come creare il [ruolo personalizzato di etichettature](how-to-assign-roles.md#labeler).
 
 ## <a name="add-new-label-class-to-a-project"></a>Aggiungere una nuova classe di etichetta a un progetto
 
@@ -199,7 +243,7 @@ Durante il processo di etichettatura, si potrebbe rilevare che sono necessarie e
 Usare questi passaggi per aggiungere una o più etichette a un progetto:
 
 1. Selezionare il progetto nella pagina principale **Etichettatura dei dati**.
-1. Nella parte superiore della pagina selezionare **Sospendi** per arrestare l'attività degli etichettatori.
+1. In alto a destra nella pagina impostare **In esecuzione** su **In pausa** per arrestare l'attività degli etichettatori.
 1. Selezionare la scheda **Dettagli**.
 1. Nell'elenco a sinistra selezionare **Classi di etichetta**.
 1. All'inizio dell'elenco selezionare **+ Aggiungi etichette** ![Aggiungere un'etichetta](media/how-to-create-labeling-projects/add-label.png)
@@ -208,7 +252,7 @@ Usare questi passaggi per aggiungere una o più etichette a un progetto:
     * Ricominciare mantenendo tutte le etichette esistenti.  Scegliere questa opzione per contrassegnare tutti i dati come non etichettati, ma mantenere le etichette esistenti come tag predefinito per le immagini etichettate in precedenza.
     * Continuare mantenendo tutte le etichette esistenti. Scegliere questa opzione per mantenere tutti i dati etichettati così come sono e iniziare a usare la nuova etichetta per i dati non ancora etichettati.
 1. Modificare la pagina di istruzioni secondo necessità per le nuove etichette.
-1. Dopo aver aggiunto tutte le nuove etichette, nella parte superiore della pagina selezionare **Avvia** per riavviare il progetto.  
+1. Una volta aggiunte tutte le nuove etichette, in alto a destra nella pagina impostare **In pausa** su **In esecuzione** per riavviare il progetto.  
 
 ## <a name="export-the-labels"></a>Esportare le etichette
 

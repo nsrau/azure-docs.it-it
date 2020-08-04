@@ -1,6 +1,6 @@
 ---
-title: Gestire gruppi di app per Desktop virtuale Windows - Azure
-description: Descrive come configurare i tenant di Desktop virtuale Windows in Azure Active Directory.
+title: Gestire gruppi di app per Desktop virtuale Windows (versione classica) - Azure
+description: Descrive come configurare i tenant di Desktop virtuale Windows (versione classica) in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 55c2ed5f9066d85643588f77806bbd41e92dd16b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fcf946c4bde89f3c14e78744305bc274ea67962f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613947"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284983"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Esercitazione: Gestire gruppi di app per Desktop virtuale Windows
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Esercitazione: Gestire gruppi di app per Desktop virtuale Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../manage-app-groups.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../manage-app-groups.md).
 
 Il gruppo di app predefinito creato per un nuovo pool di host di Desktop virtuale Windows pubblica anche il desktop completo. È inoltre possibile creare uno o più gruppi di applicazioni RemoteApp per il pool di host. Seguire questa esercitazione per creare un gruppo di app RemoteApp e pubblicare singole app nel menu **Start**.
 

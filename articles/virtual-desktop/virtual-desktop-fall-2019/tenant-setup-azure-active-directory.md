@@ -1,6 +1,6 @@
 ---
-title: Creare un tenant in Desktop virtuale Windows - Azure
-description: Descrive come configurare i tenant di Desktop virtuale Windows in Azure Active Directory.
+title: Creare un tenant in Desktop virtuale Windows (versione classica) - Azure
+description: Descrive come configurare i tenant di Desktop virtuale Windows (versione classica) in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a1e301b63eee348f59a1b9570c2c3ffcd78ecef
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362391"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286360"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 La creazione di un tenant di Desktop virtuale Windows è il primo passaggio per lo sviluppo di una soluzione di virtualizzazione desktop. Un tenant è un gruppo di uno o più pool di host. Ogni pool di host è costituito da più host di sessione, in esecuzione come macchine virtuali in Azure e registrati nel servizio Desktop virtuale Windows. Ogni pool di host è inoltre costituito da uno o più gruppi di app usati per pubblicare le risorse delle applicazioni desktop e remote per gli utenti. Con un tenant è possibile creare pool di host e gruppi di app, assegnare utenti e stabilire connessioni tramite il servizio.
 

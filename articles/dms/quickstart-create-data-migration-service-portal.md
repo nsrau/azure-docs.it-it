@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 07/21/2020
+ms.openlocfilehash: 0dd150909a56aafdd2005f2d68a12d32a1e8fae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087782"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Avvio rapido: Creare un'istanza del Servizio Migrazione del database di Azure usando il portale di Azure
 
@@ -30,6 +30,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Nel Web browser passare al [portale di Microsoft Azure](https://portal.azure.com/) e quindi immettere le credenziali per accedere al portale.
 
 La visualizzazione predefinita è il dashboard del servizio.
+
+> [!NOTE]
+> È possibile creare fino a 10 istanze di Servizio Migrazione del database per sottoscrizione. Se è necessario un numero maggiore di istanze, creare un ticket di supporto.
 
 ## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 

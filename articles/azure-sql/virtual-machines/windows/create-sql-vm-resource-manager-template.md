@@ -1,5 +1,5 @@
 ---
-title: Creare la VM di SQL Server (modello di Azure Resource Manager)
+title: Creare una VM di SQL Server con un modello di Resource Manager
 description: Informazioni su come creare una macchina virtuale (VM) di SQL Server in Azure usando un modello di Azure Resource Manager.
 author: MashaMSFT
 ms.topic: quickstart
@@ -7,24 +7,28 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 8b165f640548f28e5d94e5a791c0fe8545df4d78
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852501"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003850"
 ---
-# <a name="create-sql-server-vm-azure-resource-manager-template"></a>Creare la VM di SQL Server (modello di Azure Resource Manager)
+# <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Avvio rapido: Creare una VM di SQL Server con un modello di Resource Manager
 
-Usare questo modello di Azure Resource Manager per distribuire una macchina virtuale (VM) di SQL Server in Azure. 
+Usare questo modello di Azure Resource Manager per distribuire una macchina virtuale di SQL Server in Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Con il modello di Resource Manager per la VM di SQL Server, sono richiesti gli elementi seguenti:
 
-- La versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) e/o di [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- La versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e/o di [PowerShell](/powershell/scripting/install/installing-powershell). 
 - Un [gruppo di risorse](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) preconfigurato con una [rete virtuale](../../../virtual-network/quick-create-portal.md) e una [subnet](../../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) preparate.
 - Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -43,7 +47,7 @@ Nel modello sono definite cinque risorse di Azure:
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): crea una macchina virtuale in Azure. 
 - [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registra la macchina virtuale con il provider di risorse della VM di SQL. 
 
-Altri modelli di VM di SQL Server in Azure sono disponibili nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine).
+Altri modelli di VM di SQL Server in Azure sono disponibili nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
@@ -116,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere:
 
 > [!div class="nextstepaction"]
-> [ Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Esercitazione: Creare e distribuire il primo modello di Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Per altre modalità di distribuzione di una VM di SQL Server, vedere: 
 - [Portale di Azure](create-sql-vm-portal.md)

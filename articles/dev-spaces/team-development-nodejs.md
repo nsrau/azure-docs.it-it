@@ -5,12 +5,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per lo sviluppo in team di un'applicazione Node.js nel servizio Azure Kubernetes
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: abcf4934af056d508ac136f80758597294d40b1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa168921f212f96f6e40ed062d2665e49202e86c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013593"
 ---
 # <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Sviluppo in team con Node.js e Visual Studio Code con Azure Dev Spaces
 
@@ -31,7 +31,7 @@ L'applicazione di esempio non è molto complessa al momento. Nello sviluppo nel 
 * Alcuni sviluppatori ricorrono alla simulazione di molte delle loro dipendenze di servizio. Questo approccio può essere di aiuto, ma la gestione di quelle simulazioni può influire presto sui costi di sviluppo. Inoltre, con questo approccio l'ambiente di sviluppo è visto in modo molto diverso dalla produzione e possono insorgere bug.
 * Di conseguenza, l'esecuzione di qualsiasi tipo di test di integrazione diventa difficile. I test di integrazione possono avvenire in modo realistico solo dopo il commit, il che significa che i problemi verranno riscontrati più avanti nel ciclo di sviluppo.
 
-    ![](media/common/microservices-challenges.png)
+    ![Immagine che restituisce la complessità del test di integrazione mostrando le relazioni esistenti tra un servizio app e le relative dipendenze.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Lavorare in uno spazio di sviluppo condiviso
 Con Azure Dev Spaces è possibile configurare uno spazio di sviluppo *condiviso* in Azure. Ogni sviluppatore può concentrarsi solo sulla propria parte dell'applicazione e può sviluppare in modo iterativo *codice pre-commit* in uno spazio di sviluppo che contiene già tutti gli altri servizi e le risorse cloud da cui dipendono i propri scenari. Le dipendenze sono sempre aggiornate e gli sviluppatori lavorano in un modo che rispecchia la produzione.
@@ -53,7 +53,7 @@ Prima di tutto è necessario distribuire una baseline dei servizi. Questa distri
 
 1. Clonare l'[applicazione di esempio Dev Spaces](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Estrarre il ramo remoto *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
-1. Selezionare lo spazio _dev_: `azds space select --name dev`. Quando viene chiesto di selezionare uno spazio dev padre, selezionare _\<none\>_ .
+1. Selezionare lo spazio _dev_: `azds space select --name dev`. Quando viene chiesto di selezionare uno spazio Dev Spaces padre, selezionare _\<none\>_ .
 1. Passare alla directory _mywebapi_ ed eseguire: `azds up -d`
 1. Passare alla directory _webfrontend_ ed eseguire: `azds up -d`
 1. Eseguire `azds list-uris` per visualizzare l'endpoint pubblico per _webfrontend_
@@ -91,7 +91,7 @@ Quando viene richiesto, selezionare _dev_ come **spazio di sviluppo padre**. Que
 
 Proseguendo con l'ipotesi introduttiva, è stato usato il nome _scott_ per il nuovo spazio, in modo che i colleghi possano identificare chi ci sta lavorando. È comunque possibile assegnare qualsiasi nome allo spazio con la massima flessibilità di significato, ad esempio _sprint4_ o _demo_. In entrambi i casi _dev_ funge da baseline per tutti gli sviluppatori che lavorano su una parte di questa applicazione:
 
-![](media/common/ci-cd-space-setup.png)
+![Diagramma che mostra un semplice spazio di sviluppo.](media/common/ci-cd-space-setup.png)
 
 Eseguire il comando `azds space list` per visualizzare un elenco di tutti gli spazi presenti nell'ambiente di sviluppo. La colonna _Selezionato_ indica quale spazio è attualmente selezionato (true/false). Nel caso specifico, lo spazio denominato _dev/scott_ è stato selezionato automaticamente al momento della creazione. È possibile selezionare un altro spazio in qualsiasi momento con il comando `azds space select`.
 

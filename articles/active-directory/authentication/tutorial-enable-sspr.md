@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983150"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035027"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Esercitazione: Consentire agli utenti di sbloccare l'account o reimpostare le password con la reimpostazione della password self-service di Azure Active Directory
 
 La reimpostazione della password self-service di Azure Active Directory (Azure AD) consente agli utenti di cambiare o reimpostare la password, senza intervento dell'amministratore o dell'help desk. Se un utente dimentica la password o ha l'account bloccato, può seguire le istruzioni per sbloccarlo autonomamente e tornare al lavoro. Questa funzionalità riduce le chiamate all'help desk e la perdita di produttività quando un utente non riesce ad accedere al dispositivo o a un'applicazione.
 
 > [!IMPORTANT]
-> Questa guida di avvio rapido illustra come un amministratore può abilitare la reimpostazione della password self-service. Se si è un utente finale già registrato per la reimpostazione della password self-service e si deve ripristinare l'accesso al proprio account, passare a https://aka.ms/sspr.
+> Questa esercitazione illustra in che modo un amministratore può abilitare la reimpostazione della password self-service. Se si è un utente finale già registrato per la reimpostazione della password self-service e si deve ripristinare l'accesso al proprio account, passare a https://aka.ms/sspr.
 >
 > Se il team IT non ha abilitato la funzionalità per reimpostare la propria password, rivolgersi al supporto tecnico per assistenza aggiuntiva.
 
@@ -41,9 +41,9 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un account con privilegi di *amministratore globale*.
 * Un utente non amministratore con una password conosciuta, ad esempio *testuser*. In questa esercitazione sarà possibile testare l'esperienza di reimpostazione della password self-service dell'utente finale usando questo account.
-    * Se è necessario creare un utente, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](../add-users-azure-active-directory.md).
+    * Se è necessario creare un utente, vedere [Avvio rapido: Aggiungere nuovi utenti ad Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Un gruppo di cui è membro l'utente non amministratore, ad esempio, *SSPR-Test-Group*. In questa esercitazione verrà abilitata la reimpostazione della password self-service per questo gruppo.
-    * Se è necessario creare un gruppo, vedere come [creare un gruppo e aggiungere membri in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Se è necessario creare un gruppo, vedere come [creare un gruppo e aggiungere membri in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Abilitare la reimpostazione self-service delle password
 
@@ -78,8 +78,8 @@ Quando gli utenti devono sbloccare l'account o reimpostare la password, viene ri
     * *Codice app per dispositivi mobili*
     * *Indirizzo di posta elettronica*
     * *Cellulare*
-    * *Telefono ufficio*
-    * *Domande di sicurezza*
+
+    Per soddisfare i requisiti aziendali, è possibile abilitare metodi di autenticazione aggiuntivi, ad esempio *Telefono ufficio* o *Domande di sicurezza*.
 
 1. Per applicare i metodi di autenticazione, selezionare **Salva**.
 
@@ -95,7 +95,7 @@ Le informazioni di contatto possono essere specificate manualmente dall'amminist
 
 ## <a name="configure-notifications-and-customizations"></a>Configurare notifiche e personalizzazioni
 
-Per informare gli utenti sull'attività dell'account, è possibile configurare le notifiche tramite posta elettronica da inviare quando si verifica un evento di reimpostazione della password self-service. Queste notifiche possono essere impostate sia per gli account utente normali che per gli account amministratore. Per gli account amministratore, questa notifica fornisce un livello aggiuntivo di consapevolezza quando una password dell'account amministratore con privilegi viene reimpostata tramite la reimpostazione della password self-service.
+Per informare gli utenti sull'attività dell'account, è possibile configurare le notifiche tramite posta elettronica da inviare quando si verifica un evento di reimpostazione della password self-service. Queste notifiche possono essere impostate sia per gli account utente normali che per gli account amministratore. Per gli account amministratore, questa notifica fornisce un livello aggiuntivo di consapevolezza quando una password dell'account amministratore con privilegi viene reimpostata tramite la reimpostazione della password self-service. Tutti gli amministratori globali riceveranno una notifica quando in un account amministratore viene usata la reimpostazione della password self-service.
 
 1. Nella pagina **Notifiche** dal menu a sinistra configurare le opzioni seguenti:
 

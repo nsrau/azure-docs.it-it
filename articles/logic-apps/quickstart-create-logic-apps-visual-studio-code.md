@@ -1,18 +1,18 @@
 ---
-title: Automatizzare le attività con Visual Studio Code
-description: Creare o modificare le definizioni JSON sottostanti dell'app per la logica con Visual Studio Code (VS Code)
+title: Automatizzare le attività e i flussi di lavoro con Visual Studio Code
+description: Creare o modificare le definizioni dei flussi di lavoro delle app per la logica con Visual Studio Code (VS Code)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, deli, logicappspm
+ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: 3dccb596be2d97dd0f38d680537913a76ce09e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147069"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131481"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Guida introduttiva: Creare e gestire definizioni dei flussi di lavoro delle app per la logica con Visual Studio Code
 
@@ -50,9 +50,9 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
     Per altre informazioni, vedere [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) (Marketplace delle estensioni). Per contribuire a questa versione open source dell'estensione, visitare la pagina dell'[estensione di App per la logica di Azure per Visual Studio Code su GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
-<a name="sign-in-azure"></a>
+<a name="access-azure"></a>
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="access-azure-from-visual-studio"></a>Accedere ad Azure da Visual Studio
 
 1. Aprire Visual Studio Code. Sulla barra degli strumenti di Visual Studio Code selezionare l'icona di Azure.
 
@@ -99,7 +99,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 ## <a name="create-new-logic-app"></a>Creare una nuova app per la logica
 
-1. Se non è stato effettuato l'accesso all'account e alla sottoscrizione di Azure da Visual Studio Code, seguire la [procedura descritta in precedenza per effettuare l'accesso adesso](#sign-in-azure).
+1. Se non è stato effettuato l'accesso all'account e alla sottoscrizione di Azure da Visual Studio Code, seguire la [procedura descritta in precedenza per effettuare l'accesso adesso](#access-azure).
 
 1. In Visual Studio Code, in **App per la logica** aprire il menu di scelta rapida della sottoscrizione e scegliere **Crea app per la logica**.
 
@@ -133,7 +133,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
    > Se si vuole riutilizzare questa definizione di app per la logica di esempio, è necessario un account aziendale Office 365, ad esempio @fabrikam.com. Assicurarsi di sostituire l'indirizzo di posta elettronica fittizio con il proprio indirizzo di posta elettronica. Per usare un connettore di posta elettronica diverso, ad esempio Outlook.com o Gmail, sostituire l'azione `Send_an_email_action` con un'azione simile disponibile da un [connettore di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md).
    >
    > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. 
-   > Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+   > Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). 
    > Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
    ```json
@@ -226,7 +226,7 @@ Per esaminare l'app per la logica in portale di Azure, seguire questa procedura:
 
 In Visual Studio Code se si modifica un'app per la logica pubblicata e si salvano le modifiche, si *sovrascrive* l'app già distribuita. Per evitare di interrompere l'app per la logica nell'ambiente di produzione e ridurre al minimo l'interruzione di servizio, disattivare prima l'app per la logica. È quindi possibile riattivare l'app per la logica dopo aver verificato che l'app per la logica funzioni ancora.
 
-1. Se non è stato effettuato l'accesso all'account e alla sottoscrizione di Azure da Visual Studio Code, seguire la [procedura descritta in precedenza per effettuare l'accesso adesso](#sign-in-azure).
+1. Se non è stato effettuato l'accesso all'account e alla sottoscrizione di Azure da Visual Studio Code, seguire la [procedura descritta in precedenza per effettuare l'accesso adesso](#access-azure).
 
 1. Nella finestra di Azure, in **App per la logica** espandere la sottoscrizione di Azure per visualizzare tutte le app per la logica nella sottoscrizione.
 
@@ -247,7 +247,7 @@ In Visual Studio Code è possibile aprire e modificare la definizione del flusso
 > [!IMPORTANT] 
 > Prima di modificare un'app per la logica attivamente in esecuzione nell'ambiente di produzione, per evitare il rischio di interrompere l'app per la logica e ridurre al minimo le interruzioni di servizio, è [prima necessario disabilitare l'app per la logica](#disable-enable-logic-app).
 
-1. Se non è stato effettuato l'accesso all'account e alla sottoscrizione di Azure da Visual Studio Code, seguire la [procedura descritta in precedenza per effettuare l'accesso adesso](#sign-in-azure).
+1. Se non è stato effettuato l'accesso all'account e alla sottoscrizione di Azure da Visual Studio Code, seguire la [procedura descritta in precedenza per effettuare l'accesso adesso](#access-azure).
 
 1. Nella finestra di Azure, in **App per la logica** espandere la sottoscrizione di Azure e selezionare l'app per la logica desiderata.
 

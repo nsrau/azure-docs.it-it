@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c0ca96d1829a73f856de021d1286e53007b03219
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: bc5d4e5a8a9607f74eb8733855a216b83520ff11
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368975"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503710"
 ---
 Azure prevede i seguenti ruoli predefiniti di Azure per l'autorizzazione dell'accesso a dati di BLOB e code tramite Azure AD e OAuth:
 
@@ -28,7 +28,7 @@ Azure prevede i seguenti ruoli predefiniti di Azure per l'autorizzazione dell'ac
 
 Solo i ruoli definiti in modo esplicito per l'accesso ai dati consentono a un'entità di sicurezza di accedere ai dati di BLOB o code. I ruoli predefiniti, ad esempio **Proprietario**, **Collaboratore** e **Collaboratore Account di archiviazione** permettono a un'entità di sicurezza di gestire un account di archiviazione, ma non forniscono l'accesso ai dati di BLOB o code all'interno di tale account tramite Azure AD. Tuttavia, se un ruolo include **Microsoft.Storage/storageAccounts/listKeys/action**, un utente a cui è assegnato può accedere ai dati nell'account di archiviazione tramite l'autorizzazione con chiave condivisa con le chiavi di accesso all'account. Per altre informazioni, vedere [Usare il portale di Azure per accedere ai dati di BLOB o code](../articles/storage/common/storage-access-blobs-queues-portal.md).
 
-Per informazioni dettagliate sui ruoli predefiniti di Azure per Archiviazione di Azure, sia per i servizi dati che per il servizio di gestione, vedere la sezione **Archiviazione** in [Ruoli predefiniti di Azure per il controllo degli accessi in base al ruolo di Azure](../articles/role-based-access-control/built-in-roles.md#storage). Inoltre, per informazioni sui diversi tipi di ruolo che forniscono le autorizzazioni in Azure, vedere [Ruoli di amministratore della sottoscrizione classica, ruoli Controllo degli accessi in base al ruolo di Azure e ruoli di Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
+Per informazioni dettagliate sui ruoli predefiniti di Azure per Archiviazione di Azure, sia per i servizi dati che per il servizio di gestione, vedere la sezione **Archiviazione** in [Ruoli predefiniti di Azure per il controllo degli accessi in base al ruolo di Azure](../articles/role-based-access-control/built-in-roles.md#storage). Inoltre, per informazioni sui diversi tipi di ruolo che forniscono le autorizzazioni in Azure, vedere [Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> La propagazione delle assegnazioni dei ruoli Controllo degli accessi in base al ruolo può richiedere fino a cinque minuti.
+> La propagazione delle assegnazioni dei ruoli può richiedere fino a cinque minuti.

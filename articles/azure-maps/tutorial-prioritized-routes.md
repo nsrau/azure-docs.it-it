@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Trovare più itinerari per modalità di trasporto | Mappe di Microsoft Azure'
 description: Questa esercitazione illustra come trovare itinerari per diverse modalità di trasporto usando Mappe di Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: c7ed2421f468dfbb64c635683a7909b517105bc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 0cb3c1eadae426cef59b7aad8821343c23e76d79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333799"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289537"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
@@ -27,7 +27,7 @@ Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio 
 > * Visualizzare più itinerari sulla mappa
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di continuare, seguire le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e selezionare il piano tariffario S1. Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+Prima di continuare, seguire le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-azure-maps-account) e selezionare il piano tariffario S1. Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Creare una nuova mappa
 
@@ -206,7 +206,7 @@ Questa API consente inoltre agli utenti di pianificare percorsi per il futuro tr
 
 Tutti i blocchi di codice seguenti devono essere aggiunti **all'interno del listener di eventi del caricamento mappa** per garantire che vengano caricati dopo che la mappa è stata caricata completamente.
 
-1. Nella funzione GetMap aggiungere il codice JavaScript seguente.
+1. Nella funzione GetMap aggiungere quanto segue al codice JavaScript.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key

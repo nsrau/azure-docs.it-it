@@ -171,10 +171,10 @@
           href: media-services-metrics-diagnostic-logs.md
         - name: Schemi dei log di diagnostica
           href: media-services-diagnostic-logs-schema.md
-    - name: Clienti più importanti
+    - name: Azure Media Player
       items:
-        - name: Azure Media Player
-          href: use-azure-media-player.md
+        - name: Panoramica di Azure Media Player
+          href: 'https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview'
     - name: Sviluppo con API versione 3
       items:
         - name: Panoramica
@@ -285,7 +285,11 @@
           items:
             - name: Con .NET
               displayName: 'encode, encoding, custom, transform'
-              href: customize-encoder-presets-how-to.md
+              items:
+                - name: Personalizzare le impostazioni predefinite del codificatore
+                  href: customize-encoder-presets-how-to.md
+                - name: Creare una trasformazione di sovrimpressione
+                  href: how-to-create-overlay.md
             - name: Con l'interfaccia della riga di comando
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
@@ -355,6 +359,14 @@
           href: download-results-howto.md
         - name: Segnalare l'audio descrittivo
           href: signal-descriptive-audio-howto.md
+    - name: Usare lettori multimediali
+      items:
+        - name: Configurazione completa di Azure Media Player
+          href: 'https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup'
+        - name: Usare il lettore Video.js
+          href: how-to-video-js-player.md
+        - name: Usare il lettore video Shaka
+          href: how-to-shaka-player.md
 - name: Informazioni di riferimento
   items:
     - name: Specifica OpenAPI (Swagger)

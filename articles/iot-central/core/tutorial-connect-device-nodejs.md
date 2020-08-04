@@ -3,17 +3,17 @@ title: "Esercitazione: Connettere un'app client Node.js generica ad Azure IoT Ce
 description: Questa esercitazione illustra agli sviluppatori di dispositivi come connettere un dispositivo che esegue un'app client Node.js all'applicazione Azure IoT Central. Per creare un modello di dispositivo, importare un modello di funzionalità di dispositivo e aggiungere visualizzazioni che consentono di interagire con un dispositivo connesso
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mqtt
-ms.openlocfilehash: 65f441425113d89010cc2d282758c5a042be9300
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: e20ab44f309fd9ff7f2d6d9b1ad2a4ca0bfa3223
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417906"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336090"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Esercitazione: Creare e connettere un'applicazione client all'applicazione Azure IoT Central (Node.js)
 
@@ -38,7 +38,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
-* Un'applicazione Azure IoT Central creata usando il modello **Applicazione personalizzata**. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md).
+* Un'applicazione Azure IoT Central creata usando il modello **Applicazione personalizzata**. Per altre informazioni, vedere la [guida introduttiva per la creazione di un'applicazione](quick-deploy-iot-central.md). L'applicazione deve essere stata creata a partire dal 14/07/2020 incluso.
 * Un computer di sviluppo con [Node.js](https://nodejs.org/) versione 10.0.0 o successiva installato. Per controllare la versione, è possibile eseguire `node --version` nella riga di comando. Le istruzioni riportate in questa esercitazione presuppongono che il comando **node** venga eseguito al prompt dei comandi di Windows. È tuttavia possibile usare Node.js in numerosi altri sistemi operativi.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -121,7 +121,7 @@ I passaggi seguenti illustrano come creare un'applicazione client Node.js che si
 
     IoT Central usa dispositivi gemelli per sincronizzare i valori delle proprietà tra il dispositivo e l'applicazione IoT Central. I valori delle proprietà del dispositivo usano le proprietà segnalate del dispositivo gemello. Le proprietà scrivibili usano sia le proprietà segnalate che quelle desiderate del dispositivo gemello.
 
-1. Per definire e gestire le proprietà scrivibili a cui risponde il dispositivo, aggiungere il codice seguente:
+1. Per definire e gestire le proprietà scrivibili a cui risponde il dispositivo, aggiungere il codice seguente. Il messaggio inviato dal dispositivo in risposta all'[aggiornamento delle proprietà scrivibili](concepts-telemetry-properties-commands.md#writeable-property-types) deve includere i campi `av` e `ac`. Il campo `ad` è facoltativo:
 
     ```javascript
     // Add any writeable properties your device supports,
@@ -130,12 +130,12 @@ I passaggi seguenti illustrano come creare un'applicazione client Node.js che si
     var writeableProperties = {
       'name': (newValue, callback) => {
           setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
           }, 1000);
       },
       'brightness': (newValue, callback) => {
         setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
         }, 5000);
       }
     };
@@ -145,13 +145,14 @@ I passaggi seguenti illustrano come creare un'applicazione client Node.js che si
       twin.on('properties.desired', function (desiredChange) {
         for (let setting in desiredChange) {
           if (writeableProperties[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting].value}`);
-            writeableProperties[setting](desiredChange[setting].value, (newValue, status) => {
+            console.log(`Received setting: ${setting}: ${desiredChange[setting]}`);
+            writeableProperties[setting](desiredChange[setting], (newValue, status, code) => {
               var patch = {
                 [setting]: {
                   value: newValue,
-                  status: status,
-                  desiredVersion: desiredChange.$version
+                  ad: status,
+                  ac: code,
+                  av: desiredChange.$version
                 }
               }
               sendDeviceProperties(twin, patch);
@@ -280,7 +281,9 @@ I passaggi seguenti illustrano come creare un'applicazione client Node.js che si
           } else {
             // Send device properties once on device start up.
             var properties = {
-              state: 'true'
+              state: 'true',
+              processorArchitecture: 'ARM',
+              swVersion: '1.0.0'
             };
             sendDeviceProperties(twin, properties);
 
@@ -326,11 +329,14 @@ node environmentalSensor.js
 
 ![Osservare l'applicazione client](media/tutorial-connect-device-nodejs/run-application-2.png)
 
+## <a name="view-raw-data"></a>Visualizzare dati non elaborati
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base relative alla creazione di un dispositivo con Node.js, i passaggi successivi consigliati per gli sviluppatori di dispositivi sono i seguenti:
 
-* Articolo procedurale [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](./howto-connect-devkit.md) per informazioni su come connettere un dispositivo reale a IoT Central.
 * Vedere [Che cosa sono i modelli di dispositivo?](./concepts-device-templates.md) per altre informazioni sul ruolo dei modelli di dispositivo durante l'implementazione del codice del dispositivo.
 * Articolo [Connettersi ad Azure IoT Central](./concepts-get-connected.md) per altre informazioni su come registrare dispositivi con IoT Central e sulla protezione delle connessioni ai dispositivi in IoT Central.
 

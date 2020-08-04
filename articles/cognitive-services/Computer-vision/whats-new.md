@@ -10,16 +10,28 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 75d191c9d65cc639522c3fbba5b8c438b8b83448
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ceb9e731b1052d47131dfbc6754e1cb921a8f585
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560118"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280835"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
 Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versione, video, post di blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere aggiornati sul servizio.
+
+## <a name="july-2020"></a>Luglio 2020
+
+### <a name="read-api-v31-preview1-adds-support-for-simplified-chinese"></a>L'API di lettura v3.1-preview.1 aggiunge il supporto per il cinese semplificato
+L'API di lettura v3.1-preview.1 di Visione artificiale aggiunge il supporto per il cinese semplificato.
+
+* Questa versione di anteprima dell'API di lettura supporta le lingue inglese, olandese, francese, tedesco, italiano, portoghese, cinese semplificato e spagnolo.
+
+Per altre informazioni, vedere la [panoramica dell'API di lettura](concept-recognizing-text.md).
+
+> [!div class="nextstepaction"]
+> [Altre informazioni sull'API di lettura v3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maggio 2020
 API Visione artificiale v3.0 è ora in stato di disponibilità generale, con aggiornamenti per [API di lettura](concept-recognizing-text.md):
@@ -35,7 +47,7 @@ API Visione artificiale v3.0 è ora in stato di disponibilità generale, con agg
 
 ## <a name="january-2020"></a>Gennaio 2020
 
-### <a name="read-api-30-preview"></a>API di lettura 3.0 (anteprima)
+### <a name="read-api-30-public-preview"></a>Anteprima pubblica dell'API di lettura 3.0
 
 È ora possibile usare la versione 3.0 dell'API di lettura per estrarre testo stampato o scritto a mano dalle immagini. Rispetto alle versioni precedenti, la 3.0 offre:
 * Miglioramento della precisione

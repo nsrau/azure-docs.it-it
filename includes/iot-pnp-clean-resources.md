@@ -1,25 +1,26 @@
 ---
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dominicbetts
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
-ms.openlocfilehash: d88d166e001e71cabdabc3a3d344adc4da19aa8c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6cd983b6421fc821853aa22d4dc2c297f672d292
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75453686"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336897"
 ---
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di continuare con altri articoli su Plug and Play IoT, non eliminare le risorse usate in questa guida di avvio rapido. In caso contrario, è possibile eliminare le risorse create per questa guida di avvio rapido per evitare addebiti aggiuntivi.
+Se si prevede di continuare con altri articoli su Plug and Play IoT, è possibile conservare e riutilizzare le risorse usate in questo articolo. In caso contrario, è possibile eliminare le risorse create in questo articolo per evitare addebiti aggiuntivi.
 
-È possibile eliminare l'hub e il dispositivo registrato contemporaneamente eliminando l'intero gruppo di risorse con il comando seguente per l'interfaccia della riga di comando di Azure. Non usare questo comando, tuttavia, se queste risorse condividono un gruppo di risorse con altre risorse disponibili per scopi diversi.
+È possibile eliminare l'hub e il dispositivo registrato contemporaneamente eliminando l'intero gruppo di risorse con il comando dell'interfaccia della riga di comando di Azure seguente. Non usare questo comando se queste risorse condividono un gruppo di risorse con altre risorse che si vogliono conservare.
 
 ```azurecli-interactive
 az group delete --name <YourResourceGroupName>
 ```
+
 Per eliminare solo l'hub IoT, eseguire questo comando usando l'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive

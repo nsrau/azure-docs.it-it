@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: dee07db85d8886ab44be096e405143ea0d881ba2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a388cde60e0d19aed1af9620f82b7baa6d5b08fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067315"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Python SDK e Azure Cosmos DB
 
@@ -137,9 +137,9 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**. 
 
-1. Usare il ![Pulsante Copia](./media/create-cassandra-python/copy.png) pulsante sul lato destro della schermata per copiare il primo valore, PUNTO DI CONTATTO.
+1. Usare il pulsante :::image type="icon" source="./media/create-cassandra-python/copy.png"::: sul lato destro della schermata per copiare il primo valore, PUNTO DI CONTATTO. 
 
-    :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Visualizzare e copiare i valori di nome utente, password e punto di contatto dal pannello della stringa di connessione del portale di Azure":::
+   :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Visualizzare e copiare i valori di nome utente, password e punto di contatto dal pannello della stringa di connessione del portale di Azure":::
 
 1. Aprire il file *config.py*. 
 

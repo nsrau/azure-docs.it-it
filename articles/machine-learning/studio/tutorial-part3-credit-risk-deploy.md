@@ -1,25 +1,25 @@
 ---
-title: 'Esercitazione 3: Distribuire il modello di rischio di credito'
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 'ML Studio (versione classica) - Esercitazione 3: Distribuire i modelli di rischio di credito - Azure'
 description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio (versione classica). Questa esercitazione è la terza di una serie in tre parti. Mostra come distribuire un modello come servizio Web.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio, distribuire, servizio Web
-author: sdgilley
-ms.author: sgilley
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fb0b59374edf322e5e2221b90e912ee2c665bac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: 21b2308fb931d1c0932184dcc7946e99d3551b13
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204154"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324863"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Esercitazione 3: Distribuire il modello di rischio di credito - Azure Machine Learning Studio (versione classica)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice in Machine Learning Studio (versione classica).  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **terza di una serie in tre parti**.
 
@@ -227,7 +227,10 @@ Nel passaggio precedente di questa esercitazione è stato distribuito un servizi
 Questo è un servizio Web di Azure che può ricevere e restituire dati tramite le API REST in due modi:  
 
 * **Richiesta/risposta** : l'utente invia uno o più set di dati di credito al servizio usando un protocollo HTTP e il servizio risponde con uno o più set di risultati.
-* **Esecuzione batch** : l'utente archivia una o più righe di dati di credito in un BLOB di Azure e invia il percorso del BLOB al servizio. Il servizio assegna un punteggio a tutte le righe di dati del BLOB di input, archivia i risultati in un altro BLOB e restituisce l'URL di quel contenitore.  
+* **Esecuzione batch** : l'utente archivia una o più righe di dati di credito in un BLOB di Azure e invia il percorso del BLOB al servizio. Il servizio assegna un punteggio a tutte le righe di dati del BLOB di input, archivia i risultati in un altro BLOB e restituisce l'URL di quel contenitore. 
+
+> [!NOTE]
+> I nomi delle colonne di funzionalità in Studio (versione classica) fanno **distinzione tra maiuscole e minuscole**. Assicurarsi che i dati di input per richiamare il servizio Web abbiano gli stessi nomi di colonna del set di dati di training.
 
 Per altre informazioni sull'accesso e sull'utilizzo del servizio Web, vedere [Utilizzare un servizio Web di Azure Machine Learning con un modello di app Web](/azure/machine-learning/studio/consume-web-services).
 

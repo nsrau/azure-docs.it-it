@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ce3f775b7a72239fba7eb7c1538ec4f0831f1c74
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391826"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124563"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Esplorare Gemelli digitali di Azure con un'app client di esempio
 
-Questa esercitazione presenta un'applicazione di esempio che implementa un'applicazione client da riga di comando per interagire con un'istanza di Gemelli digitali di Azure. L'app client è simile a quella scritta in [Esercitazione: Scrivere il codice di un'app client](tutorial-code.md).
+Questa esercitazione presenta un'applicazione di esempio che implementa un'applicazione client da riga di comando per interagire con un'istanza di Gemelli digitali di Azure. L'app client è simile a quella scritta in [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md).
 
 È possibile usare questo esempio per eseguire azioni essenziali di Gemelli digitali di Azure, ad esempio il caricamento di modelli, la creazione e la modifica di gemelli e la creazione di relazioni. È anche possibile esaminare il codice dell'esempio per acquisire informazioni sulle API di Gemelli digitali di Azure e provare a implementare i propri comandi modificando il progetto di esempio come si preferisce.
 
@@ -78,7 +78,7 @@ Assicurarsi di salvare il file prima di procedere.
 > Se si vuole provare a creare un modello personalizzato, è possibile incollare il codice del modello *Room* in un nuovo file salvato con un estensione *json* nella cartella *AdtSampleApp\SampleClientApp\Models*. Quindi, è possibile provare ad aggiungere proprietà e relazioni per rappresentare qualsiasi tipo di soluzione. È anche possibile esaminare gli altri modelli di esempio in questa cartella per trovare idee.
 
 > [!TIP] 
-> È disponibile un [esempio di validator DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) indipendente dal linguaggio che è possibile usare per controllare i documenti del modello e verificare che il file DTDL sia valido. È basato sulla libreria di parser DTDL, descritta in maggior dettaglio in [Procedura: Analizzare e convalidare modelli](how-to-use-parser.md).
+> È disponibile un [esempio di validator DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) indipendente dal linguaggio che è possibile usare per controllare i documenti del modello e verificare che il file DTDL sia valido. È basato sulla libreria di parser DTDL, descritta in maggior dettaglio in [*Procedura: Analizzare e convalidare modelli*](how-to-use-parser.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Introduzione all'app da riga di comando
 
@@ -129,7 +129,7 @@ CreateModels Room
 ```
 
 Poiché i modelli non possono essere sovrascritti, ora viene restituito un errore del servizio.
-Per informazioni dettagliate su come eliminare i modelli esistenti, vedere [Procedura: Gestire i modelli personalizzati](how-to-manage-model.md).
+Per informazioni dettagliate su come eliminare i modelli esistenti, vedere [*Procedura: Gestire modelli personalizzati*](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -285,7 +285,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il progetto di questa esercitazione costituisce la base per quella successiva, [Esercitazione: Connettere una soluzione end-to-end](tutorial-end-to-end.md). Se si prevede di continuare con l'esercitazione successiva, è possibile mantenere le risorse configurate qui per continuare a usare questa istanza di Gemelli digitali di Azure e l'app di esempio configurata.
+Il progetto di questa esercitazione costituisce la base per quella successiva, [*Esercitazione: Connettere una soluzione end-to-end*](tutorial-end-to-end.md). Se si prevede di continuare con l'esercitazione successiva, è possibile mantenere le risorse configurate qui per continuare a usare questa istanza di Gemelli digitali di Azure e l'app di esempio configurata.
 * In questo caso, è possibile usare i comandi `DeleteAllTwins` e `DeleteAllModels` dell'app di esempio per cancellare rispettivamente i gemelli e i modelli nell'istanza. In questo modo si ottiene un ambiente pulito per l'esercitazione successiva.
 
 Se le risorse create in questa esercitazione non sono più necessarie, seguire questa procedura per eliminarle.
@@ -316,10 +316,10 @@ In questa esercitazione sono state configurate un'istanza di Gemelli digitali di
 Continuare con l'esercitazione successiva per usare l'app da riga di comando di esempio in combinazione con altri servizi di Azure per completare uno scenario end-to-end basato sui dati:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Connettere una soluzione end-to-end](tutorial-end-to-end.md)
+> [*Esercitazione: Connettere una soluzione end-to-end*](tutorial-end-to-end.md)
 
 Oppure iniziare a esaminare la documentazione concettuale per altre informazioni sugli elementi usati nell'esercitazione:
-* [Concetti: Modelli personalizzati](concepts-models.md)
+* [*Concetti: Modelli personalizzati*](concepts-models.md)
 
 È anche possibile approfondire ulteriormente i processi illustrati in questa esercitazione a partire dagli articoli sulle procedure:
-* [Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure](how-to-use-cli.md)
+* [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)

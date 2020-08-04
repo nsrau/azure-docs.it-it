@@ -2,27 +2,27 @@
 title: includere il file
 description: includere file
 services: azure data share
-author: jife
+author: jifems
 ms.service: azure data share
 ms.topic: include
-ms.date: 02/07/2020
+ms.date: 07/30/2020
 ms.author: jife
 ms.custom: include file
-ms.openlocfilehash: e1416b8b99c66daa4a27fa7f9bd7a20dfa9519e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 7c11ace5983ee906ebb12ebb2c60f4567f40e430
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77087439"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515302"
 ---
-La condivisione di dati di Azure consente alle organizzazioni di condividere i dati in modo semplice e sicuro con i clienti e i partner.
+Condivisione dati di Azure consente alle organizzazioni di condividere i dati in modo semplice e sicuro con clienti e partner.
 
 | **Risorsa** | **Limite** |
 | --- | --- |
-| Numero massimo di risorse di condivisione dati per ogni sottoscrizione di Azure |50 |
-| Numero massimo di condivisioni inviate per ogni risorsa di condivisione dati |100 |
-| Numero massimo di condivisioni ricevute per ogni risorsa di condivisione dati |100 |
-| Numero massimo di inviti per ogni condivisione inviata |100 |
-| Numero massimo di sottoscrizioni di condivisione per ogni condivisione inviata |100 |
-| Numero massimo di set di impostazioni per condivisione |100 |
-| Numero massimo di pianificazioni snapshot per condivisione |1 |
+| Numero massimo di risorse di Condivisione dati per sottoscrizione di Azure |100 |
+| Numero massimo di condivisioni inviate per risorsa di Condivisione dati |200 |
+| Numero massimo di condivisioni ricevute per risorsa di Condivisione dati |100 |
+| Numero massimo di inviti per condivisione inviata |200 |
+| Numero massimo di sottoscrizioni di condivisione per condivisione inviata |200 |
+| Numero massimo di set di dati per condivisione |200 |
+| Numero massimo di pianificazioni di snapshot per condivisione |1 |

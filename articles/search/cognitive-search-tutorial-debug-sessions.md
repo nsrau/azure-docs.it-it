@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510988"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290675"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Esercitazione: Diagnosticare, correggere ed eseguire il commit delle modifiche apportate al set di competenze
 
@@ -73,7 +73,7 @@ In questa sezione verranno usati Postman e una raccolta fornita per creare l'ori
 1. In **Files** > **New** (File > Nuovo) selezionare la raccolta da importare.
 1. Dopo aver importato la raccolta, espandere l'elenco delle azioni (...).
 1. Fare clic su **Modifica**.
-1. Immettere il nome del searchService (ad esempio, se l'endpoint è https://mydemo.search.windows.net, il nome del servizio sarà "mydemo").
+1. Immettere il nome di searchService (ad esempio, se l'endpoint è `https://mydemo.search.windows.net`, il nome del servizio sarà "`mydemo`").
 1. Immettere l'apiKey con la chiave primaria o secondaria del servizio di ricerca.
 1. Immettere la storageConnectionString dalla pagina Chiavi dell'account di archiviazione di Azure.
 1. Immettere il containerName del contenitore creato nell'account di archiviazione.

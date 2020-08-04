@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a8d27b77e210236216883bf630464324a47d2e80
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: c1406b5e7297b1d48b23d9dfa684e0d76b68139f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102776"
 ---
 <a name="HOLTop"></a>
 
@@ -70,7 +70,7 @@ Nella classe **Program** dell'applicazione creare le variabili per l'endpoint e 
 Nella directory dell'applicazione installare la libreria client di Visione artificiale per .NET con il comando seguente:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
 ```
 
 Se si usa l'ambiente di sviluppo integrato di Visual Studio, la libreria client è disponibile come pacchetto NuGet scaricabile.
@@ -211,7 +211,7 @@ Il codice seguente stampa informazioni sul tipo di immagine,&mdash;ad esempio se
 
 ## <a name="read-printed-and-handwritten-text"></a>Leggere il testo stampato e scritto a mano
 
-Visione artificiale può leggere il testo visibile di un'immagine e convertirlo in un flusso di caratteri. Il codice di questa sezione definisce un metodo, `ExtractTextUrl`, che usa l'oggetto client per rilevare ed estrarre il testo stampato o scritto a mano nell'immagine.
+Visione artificiale può leggere il testo visibile di un'immagine e convertirlo in un flusso di caratteri. Per altre informazioni sul riconoscimento del testo, vedere il documento concettuale [Riconoscimento ottico dei caratteri (OCR)](../../concept-recognizing-text.md#read-api). Il codice di questa sezione definisce un metodo, `BatchReadFileUrl`, che usa l'oggetto client per rilevare ed estrarre il testo nell'immagine.
 
 Aggiungere la chiamata al metodo nel metodo `Main`.
 
@@ -219,7 +219,7 @@ Aggiungere la chiamata al metodo nel metodo `Main`.
 
 ### <a name="set-up-test-image"></a>Configurare l'immagine di test
 
-Nella classe **Program** salvare un riferimento all'URL dell'immagine da cui estrarre il testo.
+Nella classe **Program** salvare un riferimento all'URL dell'immagine da cui si vuole estrarre il testo. Questo frammento di codice include immagini di esempio per testo sia stampato che scritto a mano.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttext_url)]
 
@@ -228,13 +228,13 @@ Nella classe **Program** salvare un riferimento all'URL dell'immagine da cui est
 
 ### <a name="call-the-read-api"></a>Chiamare l'API di lettura
 
-Definire il nuovo metodo per la lettura del testo. Aggiungere il codice seguente, che chiama il metodo **BatchReadFileAsync** per l'immagine specificata. Viene restituito un ID operazione e viene avviato un processo asincrono per leggere il contenuto dell'immagine.
+Definire il nuovo metodo per la lettura del testo. Aggiungere il codice seguente, che chiama il metodo **ReadAsync** per l'immagine specificata. Viene restituito un ID operazione e viene avviato un processo asincrono per leggere il contenuto dell'immagine.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_call)]
 
 ### <a name="get-read-results"></a>Ottenere risultati della lettura
 
-Ottenere quindi l'ID operazione restituito dalla chiamata a **BatchReadFileAsync** e usarlo per eseguire una query sul servizio per ottenere i risultati dell'operazione. Il codice seguente controlla l'operazione a intervalli di un secondo fino a quando non vengono restituiti i risultati. Stampa quindi i dati di testo estratti nella console.
+Ottenere quindi l'ID operazione restituito dalla chiamata a **ReadAsync** e usarlo per eseguire una query sul servizio per ottenere i risultati dell'operazione. Il codice seguente controlla l'operazione a intervalli di un secondo fino a quando non vengono restituiti i risultati. Stampa quindi i dati di testo estratti nella console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_response)]
 

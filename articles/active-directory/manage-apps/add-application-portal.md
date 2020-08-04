@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f93a25854bc8b93e9bd75ea71037f6363d143914
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145724"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338028"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Aggiungere un'applicazione al tenant di Azure Active Directory (Azure AD)
 
@@ -53,7 +53,7 @@ Per aggiungere un'applicazione al tenant di Azure AD:
 6. È possibile sfogliare la raccolta per individuare l'applicazione da aggiungere oppure cercare l'applicazione immettendone il nome nella casella di ricerca. Selezionare quindi l'applicazione nei risultati. Nel modulo è possibile modificare il nome dell'applicazione in base alle esigenze dell'organizzazione. In questo esempio è stato selezionato GitHub e il nome è stato cambiato in **GitHub-test**.
     ![Mostra come aggiungere un'applicazione dalla raccolta](media/add-application-portal/create-application.png)
     >[!TIP]
-    >Se l'applicazione da trovare non è presente nella raccolta, è possibile fare clic sul collegamento **Crea un'applicazione personalizzata**. Microsoft ha collaborato con molti sviluppatori di applicazioni per preconfigurarle per l'uso con Azure AD. Queste sono le app visualizzate nella raccolta. Ma se l'app da aggiungere non è presente nell'elenco, è possibile crearne una nuova generica e quindi configurarla autonomamente o con le indicazioni dello sviluppatore che l'ha creata.
+    >Se l'applicazione che si sta cercando non è presente nella raccolta, è possibile fare clic sul collegamento **Crea un'applicazione personalizzata** e quindi in **Che cosa si vuole fare con l'applicazione?** scegliere **Integrare qualsiasi altra applicazione non trovata nella raccolta**. Microsoft ha collaborato con molti sviluppatori di applicazioni per preconfigurarle per l'uso con Azure AD. Queste sono le app visualizzate nella raccolta. Ma se l'app da aggiungere non è presente nell'elenco, è possibile crearne una nuova generica e quindi configurarla autonomamente o con le indicazioni dello sviluppatore che l'ha creata.
 7. Selezionare **Crea**. Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione.
 
 L'aggiunta di un'applicazione è stata completata. L'argomento di avvio rapido successivo illustra come modificare il logo e altre proprietà dell'applicazione.

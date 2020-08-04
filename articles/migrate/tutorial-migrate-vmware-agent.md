@@ -4,12 +4,12 @@ description: Informazioni su come eseguire una migrazione di macchine virtuali V
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ca06dc9d5de9853915e2aaa0d86c1a444dab415a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 707a74d0e993625d32c60f7120bf69055dc9e885
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119260"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290207"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Eseguire la migrazione di macchine virtuali VMware in Azure (basata su agente)
 
@@ -195,7 +195,7 @@ Per scaricare il modello, seguire questa procedura:
 
 Dopo aver scaricato il modello OVF, occorre importarlo in VMware per creare l'applicazione di replica in una macchina virtuale VMware che esegue Windows Server 2016.
 
-1. Accedere al server VMware vCenter o all'host vSphere ESXi con il client VMWare vSphere.
+1. Accedere al server VMware vCenter o all'host vSphere ESXi con il client VMware vSphere.
 2. Nel menu **File** scegliere **Deploy OVF Template** (Distribuire il modello OVF) **per avviare la relativa procedura**guidata. 
 3. In **Select source** (Selezionare l'origine) immettere il percorso del modello OVF scaricato.
 4. In **Review details** (Verifica dettagli) selezionare **Next** (Avanti).
@@ -209,7 +209,7 @@ Dopo aver scaricato il modello OVF, occorre importarlo in VMware per creare l'ap
 
 ### <a name="start-appliance-setup"></a>Avviare la configurazione dell'appliance
 
-1. Accendere la macchina virtuale nella console del client VMWare vSphere. La macchina virtuale si avvia con la procedura di installazione di Windows Server 2016.
+1. Accendere la macchina virtuale nella console del client VMware vSphere. La macchina virtuale si avvia con la procedura di installazione di Windows Server 2016.
 2. Accettare il contratto di licenza e immettere una password amministratore.
 3. Al termine dell'installazione, accedere alla macchina virtuale come amministratore usando la password amministratore. Al primo accesso verrà avviato lo strumento di configurazione dell'appliance di replica (strumento di configurazione di Azure Site Recovery) entro pochi secondi.
 5. Immettere un nome da usare per registrare l'appliance con lo strumento Migrazione del server. Quindi fare clic su **Next**.

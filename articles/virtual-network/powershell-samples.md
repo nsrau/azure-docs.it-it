@@ -1,6 +1,6 @@
 ---
 title: Esempi di Azure PowerShell per una rete virtuale
-description: Esempi di Azure PowerShell per una rete virtuale.
+description: Informazioni sugli esempi di Azure PowerShell per la gestione delle reti virtuali, incluso un esempio per la creazione di una rete virtuale per applicazioni multilivello.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 1e1bac855ef943bdddcc82966ff3b824bcbe2ad0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b3107d521fb79e3ea6cfe190abd2ec3fb7859cb3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232220"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288234"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>Esempi di Azure PowerShell per una rete virtuale
 

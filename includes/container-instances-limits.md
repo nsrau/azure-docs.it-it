@@ -2,21 +2,24 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 02/13/2019
+ms.date: 07/22/2020
 ms.author: danlep
-ms.openlocfilehash: 33a82a55b03cde79d2d80826041ee6d43565476a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 6878180ffedfaa53f25d2bdc6db72dcd7dd8b38b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334774"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384829"
 ---
 | Risorsa | Limite |
 | --- | :--- |
-| Gruppi di contenitori SKU standard per area per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
-| Gruppi di contenitori SKU dedicati per area per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) | 0<sup>1</sup> |
+| Gruppi di contenitori dello SKU standard per area e per sottoscrizione | 100<sup>1</sup> |
+| Gruppi di contenitori dello SKU dedicato per area e per sottoscrizione | 0<sup>1</sup> |
 | Numero di contenitori per gruppo di contenitori | 60 |
 | Numero di volumi per gruppo di contenitori | 20 |
+| Core (CPU) dello SKU standard per area e per sottoscrizione | 10<sup>1,2</sup> | 
+| Core (CPU) dello SKU standard per GPU K80, per area e per sottoscrizione | 18<sup>1,2</sup> |
+| Core (CPU) dello SKU standard per GPU P100 o V100, per area e per sottoscrizione | 0<sup>1,2</sup> |
 | Porte per IP | 5 |
 | Dimensioni del log dell'istanza di contenitore - istanza in esecuzione | 4 MB |
 | Dimensioni del log dell'istanza di contenitore - istanza arrestata | 16 KB o 1000 righe |
@@ -26,7 +29,8 @@ ms.locfileid: "80334774"
 | Eliminazioni di contenitori ogni 5 minuti | 100<sup>1</sup> |
 
 
-<sup>1</sup> Per richiedere un aumento del limite, creare una [richiesta di supporto di Azure][azure-support].<br />
+<sup>1</sup>Per richiedere un aumento del limite, creare una [richiesta di supporto di Azure][azure-support]. Le sottoscrizioni gratuite, tra cui [account Azure gratuito](https://azure.microsoft.com/offers/ms-azr-0044p/) e [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/), non sono idonee per gli aumenti di limite o quota. Se si ha una sottoscrizione gratuita, è possibile [eseguire l'aggiornamento](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) a una sottoscrizione con pagamento in base al consumo.<br />
+<sup>2</sup>Limite predefinito per la sottoscrizione [con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Il limite può essere diverso per altri tipi di categoria.<br/>
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

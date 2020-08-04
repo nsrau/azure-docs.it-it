@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115677"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informazioni sui certificati di Azure Key Vault
 
@@ -81,10 +81,10 @@ I criteri dei certificati contengono informazioni su come creare e gestire la du
 
 Quando viene creato un certificato di Key Vault completamente nuovo, è necessario specificare i criteri. I criteri specificano come creare questa versione o la versione successiva del certificato di Key Vault. Dopo aver definito i criteri, non sarà necessario ripetere la procedura per le successive operazioni di creazione delle versioni future. È presente una sola istanza dei criteri per tutte le versioni di un certificato di Key Vault.  
 
-In generale, i criteri dei certificati contengono le informazioni seguenti:  
+In generale, i criteri dei certificati contengono le informazioni seguenti, le cui definizioni sono disponibili [qui](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0):  
 
 -   Proprietà del certificato X509: nome del soggetto, nomi alternativi del soggetto e altre proprietà usate per creare una richiesta di certificato x509.  
--   Proprietà della chiave: contiene il tipo di chiave, la lunghezza della chiave e i campi relativi alla chiave esportabile e di riutilizzo. Questi campi indicare all’insieme di credenziali delle chiavi come generare una chiave.  
+-   Proprietà della chiave: contiene i campi relativi al tipo di chiave, alla lunghezza della chiave, nonché all'esportabilità e il campo ReuseKeyOnRenewal. Questi campi indicare all’insieme di credenziali delle chiavi come generare una chiave.  
 -   Proprietà del segreto: contiene le proprietà del segreto, ad esempio tipo di contenuto del segreto indirizzabile per generare il valore del segreto, al fine di recuperare il certificato come segreto.  
 -   Azioni di durata: contiene le azioni di durata per il certificato KV. Ogni azione di durata contiene:  
 

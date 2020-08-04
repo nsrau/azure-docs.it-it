@@ -1,6 +1,5 @@
 ---
-title: 'Esercitazione 2: Eseguire il training di modelli di rischio di credito'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (versione classica) - Esercitazione 2: Eseguire il training di modelli di rischio di credito - Azure'
 description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning Studio (versione classica). Questa esercitazione è la seconda di una serie in tre parti. Illustra come eseguire il training e la valutazione dei modelli.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio
 author: sdgilley
@@ -10,16 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c88a7e2a74d4ad7b9ee353b24c46e36d4365db5e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79217861"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324880"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Esercitazione 2: Eseguire il training di modelli di rischio di credito - Azure Machine Learning Studio (versione classica)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**SI APPLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Azure Machine Learning Studio (versione classica) 
+
 
 In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice in Machine Learning Studio (versione classica).  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **seconda di una serie in tre parti**.
 
@@ -69,10 +69,10 @@ Prima di tutto verrà configurato il modello di albero delle decisioni con boost
    
    Il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Albero delle decisioni con boosting a due classi) inizializza il modello generico e [Train Model][train-model] (Training modello) usa i dati di training per il training del modello. 
 
-1. Connettere l'output sinistro del modulo [Execute R Script][execute-r-script] (Esecuzione script R) sinistro alla porta di input destra del modulo [Train Model][train-model] (Training modello). In questa esercitazione sono stati [usati i dati provenienti dal lato sinistro](#train) del modulo Split Data (Divisione dati) per il training.
+1. Connettere l'output sinistro del modulo [Execute R Script][execute-r-script] sinistro alla porta di input destra del modulo [Train Model][train-model] (Training modello). In questa esercitazione [sono stati usati i dati provenienti dal lato sinistro](#train) del modulo Split Data (Divisione dati) per il training.
    
    > [!TIP]
-   > Due degli input e uno degli output del modulo [Execute R Script][execute-r-script] (Esecuzione script R) non sono necessari per questo esperimento, pertanto potranno rimanere scollegati. 
+   > Due degli input e uno degli output del modulo [Execute R Script][execute-r-script] (Esegui script R) non sono necessari per questo esperimento, pertanto potranno rimanere scollegati. 
    > 
    > 
 
@@ -106,7 +106,7 @@ Per configurare il modello SVM, procedere come segue:
 
 1. Trovare il modulo [Normalize Data][normalize-data] (Normalizza dati) e trascinarlo nel canvas.
 
-1. Connettere l'output sinistro del modulo [Execute R Script][execute-r-script] (Esecuzione script R) sinistro all'input di questo modulo (si noti che la porta di output di un modulo potrebbe essere connessa a più di un modulo).
+1. Connettere l'output sinistro del modulo [Execute R Script][execute-r-script] (Esegui script R) sinistro all'input di questo modulo (si noti che la porta di output di un modulo potrebbe essere connessa a più di un modulo).
 
 1. Connettere la porta di output sinistra del modulo [Normalize Data][normalize-data] (Normalizza dati) alla porta di input destra del secondo modulo [Train Model][train-model] (Training modello).
 
@@ -183,7 +183,7 @@ Per verificare i risultati, fare clic sulla porta di output del modulo [Evaluate
 
 Il modulo [Evaluate Model][evaluate-model] (Valutazione modello) produce una coppia di curve e metriche che consentono di confrontare i risultati dei due modelli classificati. È possibile visualizzare i risultati come curve ROC (Receiver Operator Characteristic), curve precisione/recupero o curve di accuratezza. Altri dati visualizzati includono una matrice di confusione, valori cumulativi per l'area nella curva (AUC) e altra metrica. È possibile modificare il valore soglia spostando il dispositivo di scorrimento a sinistra o a destra e vedere come ciò influisce sul set della metrica.  
 
-A destra del grafico fare clic su **Scored dataset** (Set di dati con punteggio) o **Scored dataset to compare** (Set di dati con punteggio da confrontare) per evidenziare la curva associata e visualizzare le metriche associate più sotto. Nella legenda per le curve, "Scored dataset" (Set di dati con punteggio) corrisponde alla porta di input sinistra del modulo [Evaluate Model][evaluate-model] (Valutazione modello). In questo caso si tratta del modello di albero delle decisioni con boosting. "Scored dataset to compare" corrisponde alla porta di input destra, in questo caso il modello di macchina a vettori di supporto. Quando si fa clic su una di queste etichette, viene evidenziata la curva per il modello e viene visualizzata la metrica corrispondente, come mostrato dalla grafica seguente.  
+A destra del grafico fare clic su **Scored dataset** (Set di dati con punteggio) o **Scored dataset to compare** (Set di dati con punteggio da confrontare) per evidenziare la curva associata e visualizzare le metriche associate più sotto. Nella legenda per le curve, "Scored dataset" (Set di dati con punteggio) corrisponde alla porta di input sinistra del modulo [Evaluate Model][evaluate-model] (Modello di valutazione). In questo caso si tratta del modello di albero delle decisioni con boosting. "Scored dataset to compare" corrisponde alla porta di input destra, in questo caso il modello di macchina a vettori di supporto. Quando si fa clic su una di queste etichette, viene evidenziata la curva per il modello e viene visualizzata la metrica corrispondente, come mostrato dalla grafica seguente.  
 
 ![ROC curves for models](./media/tutorial-part2-credit-risk-train/roc-curves.png)
 

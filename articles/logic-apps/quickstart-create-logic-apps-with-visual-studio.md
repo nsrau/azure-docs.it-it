@@ -1,18 +1,18 @@
 ---
-title: Automatizzare i flussi di lavoro delle attività in Visual Studio
-description: Creare, pianificare ed eseguire flussi di lavoro ricorrenti per l'integrazione aziendale usando App per la logica di Azure e Visual Studio
+title: Automatizzare le attività e i flussi di lavoro con Visual Studio
+description: Creare, pianificare ed eseguire flussi di lavoro automatizzati per l'integrazione aziendale usando App per la logica di Azure e Visual Studio
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
-ms.openlocfilehash: 4416c9f9d1c55a460cb983089706e984d90ba082
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: cd46821b74803d62be0361346166ed78a5f53286
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520767"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132365"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare attività, processi e flussi di lavoro automatizzati con App per la logica di Azure - Visual Studio
 
@@ -51,9 +51,15 @@ In questo argomento di avvio rapido verrà creata con Visual Studio la stessa ap
   
     È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Assicurarsi di riavviare Visual Studio al termine dell'installazione.
 
+  * Per usare le sottoscrizioni di Azure per enti pubblici con Visual Studio, vedere gli argomenti seguenti per le operazioni di configurazione aggiuntive:
+
+    * Visual Studio 2019: [Avvio rapido: Connettersi ad Azure per enti pubblici con Visual Studio](../azure-government/documentation-government-connect-vs.md)
+
+    * Visual Studio 2017: [Presentazione dell'estensione Azure Environment Selector di Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), che è possibile scaricare e installare da [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
 * Accesso al Web mentre si usa la finestra integrata Progettazione app per la logica
 
-  La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. Ad esempio, per connessioni Dynamics CRM Online, la finestra di progettazione verifica la presenza di proprietà predefinite e personalizzate nell'istanza di CRM.
+  La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica.
 
 * Un account di posta elettronica supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](/connectors/). Questo esempio usa Outlook per Office 365. Se si usa un altro provider, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
@@ -85,7 +91,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
    1. Nella finestra di dialogo **Crea un nuovo progetto** selezionare il progetto **Gruppo di risorse di Azure** per Visual C# o Visual Basic. Selezionare **Avanti**.
 
-   1. Specificare un nome per il gruppo di risorse di Azure da usare e altre informazioni sul progetto. Selezionare **Create** (Crea).
+   1. Specificare un nome per il gruppo di risorse di Azure da usare e altre informazioni sul progetto. Selezionare **Crea**.
 
 1. Selezionare il modello **App per la logica** nell'elenco. Selezionare **OK**.
 
