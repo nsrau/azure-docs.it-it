@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 06/10/2020
+ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 984f2d82e21344dd7e3bb8b7267e289832343e1b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252437"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385781"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Avvio rapido: Creare un budget con un modello di Resource Manager
 
@@ -29,13 +29,31 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Il modello di Resource Manager supporta solo le sottoscrizioni di Azure per i contratti Enterprise (EA). Altri tipi di sottoscrizione non sono supportati dal modello.
-
-Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. Non è tuttavia possibile creare budget per gli account di fatturazione EA. Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget.
-
-Dopo aver creato un budget, per visualizzarlo, è necessario disporre almeno dell'accesso in lettura per l'account Azure.
-
 Se si ha una nuova sottoscrizione, non è possibile creare immediatamente un budget o usare altre funzionalità di Gestione costi. Potrebbero essere necessarie fino a 48 ore prima di poter usarle usare tutte.
+
+I budget sono supportati per i tipi di account e gli ambiti di Azure seguenti:
+
+- Ambiti di Controllo degli accessi in base al ruolo di Azure
+    - Gruppi di gestione
+    - Subscription
+- Ambiti del Contratto Enterprise
+    - Account di fatturazione
+    - department
+    - Account di registrazione
+- Singoli contratti
+    - Account di fatturazione
+- Ambiti del Contratto del cliente Microsoft
+    - Account di fatturazione
+    - Profilo di fatturazione
+    - Sezione della fattura
+    - Customer
+- Scopi AWS
+    - Account esterno
+    - Sottoscrizione esterna
+
+Per visualizzare i budget, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
+
+Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore.
 
 Le autorizzazioni o gli ambiti di Azure riportati di seguito sono supportati per i budget per ogni sottoscrizione, in base a utente e gruppo. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
@@ -49,7 +67,7 @@ Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
 
 Nel modello è definita una risorsa di Azure:
 
@@ -63,27 +81,29 @@ Nel modello è definita una risorsa di Azure:
 
 2. Selezionare o immettere i valori seguenti.
 
-   [![Modello di Resource Manager, creare un budget, portale per la distribuzione](./media/quick-create-budget-template/create-budget-using-template-portal.png)](./media/quick-create-budget-template/create-budget-using-template-portal.png#lightbox)
-
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Modello di Resource Manager, creare un budget, portale per la distribuzione]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   
     * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse**: selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK** o selezionare un gruppo di risorse esistente.
-    * **Località**: selezionare una località. Ad esempio **Stati Uniti centrali**.
+    * **Gruppo di risorse**: se necessario, selezionare un gruppo di risorse esistente oppure scegliere **Crea nuovo**.
+    * **Area**: selezionare un'area di Azure. Ad esempio **Stati Uniti centrali**.
     * **Budget Name** (Nome del budget): immettere un nome per il budget. Deve essere univoco all'interno di un gruppo di risorse. Sono consentiti solo caratteri alfanumerici, caratteri di sottolineatura e trattini.
-    * **Importo**: immettere l'importo totale o la quantità di utilizzo da monitorare con il budget.
-    * **Budget Category** (Categoria budget): selezionare la categoria del budget, indipendentemente dal fatto che il budget monitori **Costi** o **Utilizzo**.
+    * **Importo**: immettere l'importo totale dei costi da monitorare con il budget.
     * **Time Grain** (Intervallo di tempo): immettere l'intervallo di tempo per un budget. I valori consentiti sono Mensile, Trimestrale o Annuale. Il budget viene reimpostato alla fine dell'intervallo di tempo.
     * **Data di inizio**: immettere la data di inizio con il primo giorno del mese in formato AAAA-MM-GG. Una data di inizio futura non deve essere successiva a tre mesi dalla data odierna. È possibile specificare una data di inizio passata nel periodo dell'intervallo di tempo.
-    * **Data di fine**: immettere la data di fine del budget nel formato AAAA-MM-GG. Se non viene specificata, il valore predefinito viene impostato su 10 anni dalla data di inizio.
-    * **Operatore**: selezionare un operatore di confronto. I valori possibili sono EqualTo, GreaterThan o GreaterThanOrEqualTo.
-    * **Soglia**: immettere un valore di soglia per la notifica. Quando il costo supera la soglia, viene inviata una notifica. Il valore è sempre percentuale e deve essere compreso tra 0 e 1000.
-    * **Contact Emails** (Indirizzi di posta elettronica di contatto): immettere un elenco di indirizzi di posta elettronica a cui inviare la notifica del budget quando viene superata la soglia. Il formato previsto è `["user1@domain.com","user2@domain.com"]`.
+    * **Data di fine**: immettere la data di fine del budget nel formato AAAA-MM-GG. 
+    * **First Threshold** (Prima soglia): immettere un valore di soglia per la prima notifica. Quando il costo supera la soglia, viene inviata una notifica. Il valore è sempre percentuale e deve essere compreso tra 0 e 1000.
+    * **Second Threshold** (Seconda soglia): immettere un valore di soglia per la seconda notifica. Quando il costo supera la soglia, viene inviata una notifica. Il valore è sempre percentuale e deve essere compreso tra 0 e 1000.
     * **Contact Roles** (Ruoli di contatto): immettere l'elenco dei ruoli di contatto a cui inviare la notifica del budget quando viene superata la soglia. I valori predefiniti sono Proprietario, Collaboratore e Lettore. Il formato previsto è `["Owner","Contributor","Reader"]`.
+    * **Contact Emails** (Indirizzi di posta elettronica di contatto): immettere un elenco di indirizzi di posta elettronica a cui inviare la notifica del budget quando viene superata una soglia. Il formato previsto è `["user1@domain.com","user2@domain.com"]`.
     * **Contact Groups** (Gruppi di contatto): immettere un elenco di ID della risorsa di gruppi di azioni, come URI completi delle risorse, a cui inviare la notifica del budget quando viene superata la soglia. Accetta una matrice di stringhe. Il formato previsto è `["action group resource ID1","action group resource ID2"]`. Se non si vuole usare i gruppi di azioni, specificare `[]`.
-    * **Resources Filter** (Filtro risorse): immettere un elenco di filtri per le risorse. Il formato previsto è `["Resource Filter Name1","Resource Filter Name2"]`. Se non si vuole applicare un filtro, immettere `[]`. Se si specifica un filtro delle risorse, è anche necessario immettere valori dei **filtri dei contatori**.
-    * **Meters Filter** (Filtro contatori): immettere un elenco di filtri per i contatori, obbligatori per la categoria budget **Utilizzo**. Il formato previsto è `["Meter Filter Name1","Meter Filter Name2"]`. Se non è stato immesso un **filtro risorse**, immettere `[]`.
-    * **Accetto le condizioni riportate sopra**: selezionare questa casella.
+    * **Resource Group Filter Values** (Valori filtro per i gruppi di risorse): immettere un elenco dei nomi di gruppi di risorse da filtrare. Il formato previsto è `["Resource Group Name1","Resource Group Name2"]`. Se non si vuole applicare un filtro, immettere `[]`. 
+    * **Meter Category Filter Values** (Valori filtro per le categorie dei contatori): immettere un elenco di categorie dei contatori dei servizi di Azure. Il formato previsto è `["Meter Category1","Meter Category2"]`. Se non si vuole applicare un filtro, immettere `[]`.
+   
+3. In base al tipo di sottoscrizione di Azure, eseguire una di queste azioni:
+   - Selezionare **Rivedi e crea**.
+   - Esaminare le condizioni, selezionare **Accetto le condizioni riportate sopra** e quindi fare clic su **Acquista**.
 
-3. Selezionare **Acquisto**. Al termine della distribuzione del budget, si riceverà una notifica:
+4. Se si seleziona **Rivedi e crea**, il modello verrà convalidato. Selezionare **Crea**.  
 
    ![Modello di Resource Manager, budget, notifica nel portale per la distribuzione](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -93,7 +113,7 @@ Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azur
 
 Per verificare che il budget sia stato creato nel portale di Azure, passare a **Gestione costi e fatturazione** > selezionare un ambito > **Budget**. In alternativa, per visualizzare il budget è possibile usare l'interfaccia della riga di comando di Azure o gli script di Azure PowerShell seguenti.
 
-# <a name="cli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
 
 ```azurecli-interactive
 az consumption budget list
