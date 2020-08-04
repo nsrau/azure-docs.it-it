@@ -1,39 +1,41 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di WAF v2 nel gateway applicazione - Modello di Resource Manager"
+title: "Avvio rapido: Creare un'istanza di WAF di Azure v2 nel gateway applicazione - Modello di Azure Resource Manager"
 titleSuffix: Azure Application Gateway
-description: Informazioni su come usare un modello di Resource Manager per creare un'istanza di Web Application Firewall v2 nel gateway applicazione di Azure.
+description: Informazioni su come usare un modello di Azure Resource Manager per creare un'istanza di Web Application Firewall v2 nel gateway applicazione di Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081bab0cd930d90ca0d359461e4a41b15ba4911b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81617990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075505"
 ---
-# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>Guida introduttiva: Creare un'istanza di WAF v2 nel gateway applicazione - Modello di Resource Manager
+# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Avvio rapido: Creare un'istanza di WAF di Azure v2 nel gateway applicazione con un modello di Azure Resource Manager
 
-In questo argomento di avvio rapido si userà un modello di Resource Manager per creare un'istanza di Web Application Firewall v2 do Azure nel gateway applicazione.
+In questo argomento di avvio rapido si userà un modello di Azure Resource Manager per creare un'istanza di Web Application Firewall v2 do Azure nel gateway applicazione.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-web-application-firewall"></a>Creare un'istanza di Web Application Firewall
+## <a name="review-the-template"></a>Rivedere il modello
 
 Questo modello crea una semplice istanza di Web Application Firewall v2 nel gateway applicazione di Azure. La procedura include un indirizzo IP front-end pubblico, le impostazioni HTTP, una regola con un listener di base sulla porta 80 e un pool back-end. Viene creato un criterio WAF con una regola personalizzata per bloccare il traffico verso il pool back-end in base a un tipo di corrispondenza degli indirizzi IP.
 
-### <a name="review-the-template"></a>Rivedere il modello
-
-Il modello usato in questo argomento di avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-wafv2/azuredeploy.json)
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
 :::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
 
@@ -48,7 +50,7 @@ Nel modello sono definite più risorse di Azure:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): due per le macchine virtuali
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions): per configurare IIS e le pagine Web
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Distribuire il modello di Resource Manager in Azure:
 
@@ -61,7 +63,7 @@ Distribuire il modello di Resource Manager in Azure:
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 
-Nonostante l'installazione di IIS non sia necessaria per creare il gateway applicazione, è stata eseguita nei server back-end per verificare se Azure ha creato un'istanza di WAF v2 nel gateway applicazione. 
+Nonostante l'installazione di IIS non sia necessaria per creare il gateway applicazione, è stata eseguita nei server back-end per verificare se Azure ha creato un'istanza di WAF v2 nel gateway applicazione.
 
 Usare IIS per testare il gateway applicazione:
 

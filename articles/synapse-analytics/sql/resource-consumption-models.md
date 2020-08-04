@@ -1,5 +1,5 @@
 ---
-title: Consumo di risorse di Synapse Analytics SQL
+title: Consumo di risorse di Synapse SQL
 description: Informazioni sui modelli di consumo di Synapse SQL in Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112762"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369017"
 ---
-# <a name="azure-synapse-analytics-sql-resource-consumption"></a>Consumo di risorse di Azure Synapse Analytics SQL
+# <a name="synapse-sql-resource-consumption"></a>Consumo di risorse di Synapse SQL
 
 Questo articolo descrive i modelli di consumo di risorse di Synapse SQL (anteprima).
 
@@ -99,7 +99,7 @@ Il pool SQL è un sistema con scalabilità orizzontale che supporta il provision
 
 Per modificare le unità Data Warehouse sono necessarie le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-I ruoli predefiniti per le risorse di Azure, ad esempio Collaboratore database SQL e Collaboratore SQL Server, possono modificare le impostazioni DWU.
+I ruoli predefiniti di Azure, ad esempio Collaboratore database SQL e Collaboratore SQL Server, possono modificare le impostazioni DWU.
 
 #### <a name="view-current-dwu-settings"></a>Visualizzare le impostazioni DWU correnti
 

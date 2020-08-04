@@ -3,17 +3,17 @@ title: "Avvio rapido: Aggiungere un dispositivo simulato all'applicazione Azure 
 description: Questa guida di avvio rapido mostra come creare un modello di dispositivo e aggiungere un dispositivo simulato all'applicazione IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 25e1742612c6fc8c326f2918a4d69c55a9888c97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81001130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001953"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Guida introduttiva: Aggiungere un dispositivo simulato all'applicazione IoT Central
 
@@ -64,7 +64,7 @@ I passaggi seguenti illustrano come usare il catalogo di dispositivi per importa
 
 ### <a name="add-cloud-properties"></a>Aggiungere proprietà cloud
 
-Un modello di dispositivo può includere proprietà cloud. Le proprietà cloud esistono solo nell'applicazione IoT Central e non vengono mai inviate a o ricevute da un dispositivo.
+Un modello di dispositivo può includere proprietà cloud. Le proprietà cloud esistono solo nell'applicazione IoT Central e non vengono mai inviate a o ricevute da un dispositivo. Per aggiungere una proprietà cloud:
 
 1. Selezionare **Proprietà cloud** e quindi **+ Aggiungi proprietà cloud**. Usare le informazioni nella tabella seguente per aggiungere due proprietà cloud al modello di dispositivo:
 
@@ -134,17 +134,19 @@ Per aggiungere un dispositivo simulato all'applicazione, usare il modello di dis
 
 È ora possibile interagire con le visualizzazioni create per il modello di dispositivo usando dati simulati:
 
-1. Selezionare il dispositivo simulato nella pagina **Dispositivi**.
+1. Selezionare il dispositivo simulato nella pagina **Dispositivi**
 
-1. La visualizzazione **Panoramica** mostra un tracciato dei dati di telemetria simulati:
+    * La visualizzazione **Panoramica** mostra un tracciato dei dati di telemetria simulati:
 
-    ![Visualizzazione Panoramica](./media/quick-create-simulated-device/simulated-telemetry.png)
+        ![Visualizzazione Panoramica](./media/quick-create-simulated-device/simulated-telemetry.png)
 
-1. La visualizzazione **Informazioni** mostra i valori delle proprietà, tra cui le proprietà cloud aggiunte.
+    * La visualizzazione **Informazioni** mostra i valori delle proprietà, tra cui le proprietà cloud aggiunte.
 
-1. La visualizzazione **Comandi** consente di eseguire comandi, come **blink**, nel dispositivo.
+    * La visualizzazione **Comandi** consente di eseguire comandi, come **blink**, nel dispositivo.
 
-1. La visualizzazione **Gestisci dispositivi** è il modulo creato per consentire all'operatore di gestire il dispositivo.
+    * La visualizzazione **Gestisci dispositivi** è il modulo creato per consentire all'operatore di gestire il dispositivo.
+
+    * La visualizzazione **Dati non elaborati** consente di visualizzare i dati di telemetria non elaborati e i valori delle proprietà inviati dal dispositivo. Questa visualizzazione risulta utile per il debug dei dispositivi.
 
 ## <a name="use-a-simulated-device-to-improve-views"></a>Usare un dispositivo simulato per migliorare le visualizzazioni
 

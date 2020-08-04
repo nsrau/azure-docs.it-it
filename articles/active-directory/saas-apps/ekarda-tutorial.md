@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3790da8674732c50d55a85c84367f0d2fe3e08f5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: aacaec5ff632385a1f1686610370bb92eb63c349
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017551"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Ekarda
 
@@ -151,12 +151,12 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Admin** -> **My Account** (Amministrazione -> Account personale).
 
-    ![Configurazione di Ekarda](./media/ekarda-tutorial/ekarda.PNG)    
+    ![Configurazione di Ekarda](./media/ekarda-tutorial/ekarda.png)    
 
 1. Nella parte inferiore della pagina è presente la sezione **SAML SETTINGS** (IMPOSTAZIONI SAML) in cui verrà configurata l'integrazione SAML.
 1. Nella pagina successiva seguire questa procedura:
 
-    ![Configurazione di Ekarda](./media/ekarda-tutorial/ekarda1.PNG)
+    ![Configurazione di Ekarda](./media/ekarda-tutorial/ekarda1.png)
 
     a. Fare clic sul collegamento **Service Provider metadata** (Metadati del provider di servizi) e salvarlo come file nel computer.
 
@@ -194,7 +194,8 @@ Quando si fa clic sul riquadro di Ekarda nel pannello di accesso, si dovrebbe ac
 
 - [Provare Ekarda con Azure AD](https://aad.portal.azure.com/)
 
+- Usare la [soluzione per eCard aziendali di Ekarda](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) per effettuare il provisioning di un numero qualsiasi di addetti e consentire loro di inviare eCard con il logo aziendale a clienti e colleghi. Altre informazioni sul provisioning di [Ekarda come soluzione per l'accesso SSO](https://support.ekarda.com/#SSO-Implementation).
+
 - [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Come proteggere Ekarda con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

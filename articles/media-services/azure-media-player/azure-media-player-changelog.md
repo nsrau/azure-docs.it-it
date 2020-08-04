@@ -5,15 +5,127 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.date: 07/27/2020
+ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698318"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281345"
 ---
 # <a name="changelog"></a>Log delle modifiche #
+
+## <a name="235-official-update-june-1-2020"></a>2.3.5 (aggiornamento ufficiale del 1° giugno 2020)
+
+### <a name="bug-fixes-235"></a>Correzioni di bug 2.3.5
+
+- [Accessibilità] Il listener di tasto ESC nel riquadro Opzioni è collegato al documento
+- [Accessibilità] È possibile impedire la scomparsa dell'interfaccia utente del lettore se la barra di controllo o il menu Opzioni hanno lo stato attivo
+- La barra di controllo mostra il tempo reale quando è abilitata l'impostazione dello schermo relativa al tempo reale
+
+### <a name="changes-235"></a>Modifiche 2.3.5
+
+- Aggiunta e documentazione di un messaggio di errore per il codice errore 0x00400005
+
+## <a name="234-official-update-march-4-2020"></a>2.3.4 (aggiornamento ufficiale del 4 marzo 2020)
+
+### <a name="bug-fixes-234"></a>Correzioni di bug 2.3.4
+
+- Non è possibile impostare overrideLicenseAcquistionUrl di PlayReady
+- Non è possibile riprodurre alcuni contenuti con discontinuità
+- [Accessibilità] Il valore dell'attributo ID per gli avvisi dell'utilità per la lettura dello schermo deve essere univoco
+- [Accessibilità] Durante l'esplorazione della finestra di dialogo delle impostazioni Sottotitoli codificati lo stato attivo non rimane nella finestra di dialogo
+
+### <a name="changes-234"></a>Modifiche 2.3.4
+
+- Registrazione del valore Content-Length dopo un download riuscito per contribuire all'analisi degli errori di decrittografia 2.3.3 (aggiornamento ufficiale 12 novembre 2019)
+
+### <a name="features-234"></a>Funzionalità 2.3.4
+
+- Aggiunta di supporto per la visualizzazione del tempo reale di un video come sovrimpressione e sulla barra di controllo
+
+### <a name="bug-fixes-234"></a>Correzioni di bug 2.3.4
+
+- Il cambio di traccia audio funziona ma restituisce come output un errore di tipo "L'oggetto non supporta la proprietà o metodo 'enabled'" in Internet Explorer 11 e Windows 7
+- Il cambio di traccia audio ha esito negativo quando il buffer è completamente caricato
+- Il cambio di traccia audio ha esito negativo quando un utente sospende il video e si sposta molto rapidamente tra tracce audio
+- [Accessibilità] Non sono definite descrizioni comando per il controllo video nel lettore video
+- Pulsanti per il volume mancanti in Html5 in base al momento in cui viene ricevuto "loadstart"
+- [Accessibilità] Non è possibile impostare il testo alternativo per l'immagine del poster
+- [Accessibilità] Lo stato attivo dell'applicazione viene perso dopo la selezione di "Fine" nella finestra di dialogo delle impostazioni dei sottotitoli
+- [Accessibilità] Sono definiti attributi ARIA non corretti per "video" in "anteprima segmenti"
+
+### <a name="changes-234"></a>Modifiche 2.3.4
+
+- Rimozione di etichette di sottotitolo/tracce vuote durante la riproduzione di HLS in iOS e MacOS Safari
+- Riduzione del numero di errori 412 per i sottotitoli IMSC1
+- Restituzione come output di un avviso nella console per 10 risposte di sottotitoli IMSC1 vuote per contribuire al debug in tempo reale
+
+## <a name="232-official-update-october-9-2019"></a>2.3.2 (aggiornamento ufficiale del 9 ottobre 2019)
+
+### <a name="features"></a>Funzionalità
+
+\- Aggiunta di supporto di PlayReady per la riproduzione DASH per il browser Microsoft Edge basato su Chromium
+
+### <a name="bug-fixes-232"></a>Correzioni di bug 2.3.2
+
+- La velocità di riproduzione corrente viene mostrata nel menu corrispondente solo se l'utente configura manualmente questa opzione
+- [Accessibilità] Non è possibile comprimere il riquadro "Impostazioni" con il tasto ESC
+- [Accessibilità] Il tasto di scelta rapida "M" per AMP non funziona quando l'Assistente vocale è attivato
+
+### <a name="changes-232"></a>Modifiche 2.3.2
+
+- Per i browser che non supportano il codec audio E-AC3, le tracce audio E-AC3 sono nascoste nel menu della traccia audio
+- Per i browser che supportano il codec audio E-AC3 viene selezionata per impostazione predefinita una traccia audio E-AC3
+- Per i browser che non supportano il cambio di codec audio, le tracce audio con codec diverso dalla traccia selezionata sono nascoste nel menu della traccia audio
+
+## <a name="231-official-update-august-12-2019"></a>2.3.1 (aggiornamento ufficiale del 12 agosto 2019)
+
+### <a name="features-231"></a>Funzionalità 2.3.1
+
+- Segnalazione di un evento quando vengono ricevute caselle emsg nella riproduzione DASH - Aggiunta di supporto per mostrare le tracce audio ec-3 nel menu audio nei browser che supportano ec-3 e consentono lo scambio della traccia audio da aac a ec3 e viceversa solo nel browser Microsoft Edge basato su Chromimum
+
+### <a name="bug-fixes-231"></a>Correzioni di bug 2.3.1
+
+- Il menu della traccia audio risulta danneggiato dopo la rimozione di tracce ec-3
+- La durata corrente può essere superiore alla durata del video
+- Non è possibile impostare la velocità di riproduzione tramite initialSpeed
+- Il lettore sembra spesso bloccato dopo una ricerca
+- In un touchscreen in Microsoft Edge e Internet Explorer la selezione o il passaggio del puntatore sulla barra di ricerca dopo l'ingrandimento di una pagina non consente di ottenere in modo preciso il segmento corretto del video
+- [Accessibilità] L'attributo aria-label per Play/Pausa non è descrittivo per il lettore video. È possibile eseguire il mapping dell'errore relativo al segmento attivo per flashSS all'errore relativo alla funzione amp corretta
+- [Accessibilità] I ruoli ARIA usati per Play/Pausa devono essere conformi ai valori validi (.vjs-text-track-display)
+- [Accessibilità] Alcuni ruoli ARIA devono essere contenuti in determinati elementi padre
+- [Accessibilità] Non sono stati definite descrizioni comando per il pulsante Play/Pausa del lettore video e i sottotitoli IMSC1 possono scomparire dopo la ricerca nel buffer audio/video corrente
+
+### <a name="changes-231"></a>Modifiche 2.3.1
+
+- Quando si riceve un errore segmentDecryptError e il lettore si trova già sul bordo attivo, il lettore aggiorna ora il manifesto invece di provare il segmento successivo
+- Aggiunta di altre opzioni di registrazione per la diagnosi
+- Aggiornamento della documentazione per includere il supporto di FairPlay per iOS Safari
+- Aggiunta di un esempio per "srclang" dell'opzione IMSC1
+- Aggiunta degli override padding, textPadding, boxShadow per le tracce di testo.
+- Aggiunta di un codice errore (0x0020025B) per differenziare tale errore di download di segmenti a causa di Internet assente invece di generare semplicemente 0x00200259
+
+## <a name="230-official-release-april-30-2019"></a>2.3.0 (release ufficiale del 30 aprile 2019)
+
+### <a name="features-230"></a>Funzionalità 2.3.0
+
+- Aggiunta del supporto per i sottotitoli IMSC1 per DASH
+- Aggiunta del supporto per asset solo video per DASH
+- Aggiunta della variabile presentationTimeOffsetInSec dell'API
+
+### <a name="bug-fixes-230"></a>Correzioni di bug 2.3.0
+
+- Il profilo dell'euristica LowLatency di AMP interferisce con le opzioni "Disattiva audio" e "Riattiva audio" della riproduzione video in iOS perché alcune lingue usano traduzioni errate
+- Il valore aria-valuenow del dispositivo di scorrimento dell'indicatore di stato è a volte errato
+- Il valore del ruolo ARIA della visualizzazione della traccia di testo non è corretto
+
+### <a name="changes-230"></a>Modifiche 2.3.0
+
+- I log includono ora le dimensioni dei frammenti di file multimediali scaricati
+- Rimozione del supporto per Internet Explorer 9 e Internet Explorer 10
+- Aggiornamento dell'esempio CEA708 per mostrare i sottotitoli allineati a sinistra
+- Inclusione di MediaError.message nei log per gli errori di riproduzione
 
 ## <a name="224-official-update-february-22-2019"></a>2.2.4 (aggiornamento ufficiale del 22 febbraio 2019) ##
 
@@ -31,7 +143,7 @@ ms.locfileid: "83698318"
 
 ## <a name="223-official-update-january-9-2019"></a>2.2.3 (aggiornamento ufficiale del 9 gennaio 2019) ##
 
-### <a name="features"></a>Funzionalità ###
+### <a name="features-223"></a>Funzionalità 2.2.3 ###
 
 - [Funzionalità][HLS] Aggiunta del menu di tracce audio per la riproduzione in HLS Safari
 
@@ -72,7 +184,7 @@ ms.locfileid: "83698318"
 
 ### <a name="changes"></a>Modifiche ###
 
-- [Modifica][Sottotitoli in tempo reale] Nome dell'API cambiato da 608 a 708 per i sottotitoli CEA. Per altre informazioni, vedere le [impostazioni dei sottotitoli CEA708](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- [Modifica][Sottotitoli in tempo reale] Nome dell'API cambiato da 608 a 708 per i sottotitoli CEA. Per altre informazioni, vedere le [impostazioni dei sottotitoli CEA708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (versione ufficiale) ##
 

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045145"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124341"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestione dei ruoli Enterprise di Azure
 
@@ -32,7 +32,7 @@ Il primo amministratore della registrazione configurato durante il provisioning 
 
 Se ad esempio il tipo di autenticazione iniziale viene impostato su Misto, il contratto Enterprise verrà aggiunto come account Microsoft e il contatto per la fatturazione avrà privilegio di amministratore EA di sola lettura. Se l'amministratore EA non approva l'autorizzazione tramite account Microsoft per un contatto per la fatturazione, l'amministratore EA potrà eliminare l'utente specifico e richiedere al cliente di aggiungere di nuovo l'utente come amministratore di sola lettura con un account aziendale o dell'istituto di istruzione configurato solo a livello di registrazione in EA Portal.
 
-Questi ruoli sono specifici per la gestione del Contratto Enterprise di Azure e si aggiungono ai ruoli predefiniti disponibili in Azure per controllare l'accesso alle risorse. Per altre informazioni, vedere [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
+Questi ruoli sono specifici per la gestione del Contratto Enterprise di Azure e si aggiungono ai ruoli predefiniti disponibili in Azure per controllare l'accesso alle risorse. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 
@@ -121,4 +121,4 @@ Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visua
 
 - [Gestire l'accesso alle informazioni di fatturazione per Azure](manage-billing-access.md)
 - [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
-- [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md)
+- [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)

@@ -4,19 +4,19 @@ description: Informazioni su come visualizzare le prenotazioni per Azure nel por
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/31/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 0635c21ee30a40344281f31c8f9aedf9d74a1284
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: fd5d4248e9b1e645628ac8b87df3b4b0a16e2049
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633859"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288962"
 ---
 # <a name="view-azure-reservations"></a>Visualizzare le prenotazioni di Azure
 
-È possibile visualizzare e gestire la prenotazione acquistata dal portale di Azure.   
+È possibile visualizzare e gestire la prenotazione acquistata dal portale di Azure.
 
 ## <a name="permissions-to-view-a-reservation"></a>Autorizzazioni per la visualizzazione di una prenotazione
 
@@ -24,7 +24,7 @@ Per visualizzare o gestire una prenotazione, è necessario disporre dell'autoriz
 
 Per altre informazioni vedere [Aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-## <a name="view-reservation-and-utilization-in-azure-portal"></a>Visualizzare la prenotazione e l'utilizzo nel portale di Azure
+## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Visualizzare la prenotazione e l'utilizzo nel portale di Azure
 
 Per visualizzare una prenotazione come proprietario o lettore
 

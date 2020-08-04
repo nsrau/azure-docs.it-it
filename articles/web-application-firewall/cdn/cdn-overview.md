@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754292"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278625"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Azure Web Application Firewall nella rete di distribuzione dei contenuti di Azure
 
@@ -45,7 +45,7 @@ A un'applicazione Web ospitata nella rete CDN di Azure è possibile associare un
 
 I criteri di WAF possono essere configurati per l'esecuzione nelle due modalità seguenti:
 
-- *Modalità di rilevamento*: quando è attiva la modalità di rilevamento, WAF esegue solo le azioni di monitoraggio e registrazione nei log della richiesta e della regola di WAF corrispondente. È possibile attivare la diagnostica della registrazione per Frontdoor. Se si usa il portale, andare alla sezione **Diagnostica**.
+- *Modalità di rilevamento*: quando è attiva la modalità di rilevamento, WAF esegue solo le azioni di monitoraggio e registrazione nei log della richiesta e della regola di WAF corrispondente. È possibile attivare la diagnostica della registrazione per Rete CDN. Se si usa il portale, andare alla sezione **Diagnostica**.
 
 - *Modalità di prevenzione*: In modalità di prevenzione, WAF esegue l'azione specificata se una richiesta corrisponde a una regola. Se viene trovata una corrispondenza, non vengono valutate ulteriori regole con priorità più bassa. Tutte le richieste corrispondenti vengono anche registrate nei log di WAF.
 

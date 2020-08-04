@@ -1,6 +1,6 @@
 ---
 title: Creare un endpoint privato in collegamento privato di Azure
-description: In questa guida di avvio rapido si usa un modello di Azure Resource Manager per creare un endpoint privato.
+description: In questo argomento di avvio rapido si usa un modello di Azure Resource Manager per creare un endpoint privato.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a60edde222a6200a0378cd8c9c4f4774da9c2e50
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071487"
 ---
-# <a name="quickstart-create-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un endpoint privato con un modello di Azure Resource Manager
+# <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Avvio rapido: Creare un endpoint privato con un modello di Azure Resource Manager
 
-In questa guida di avvio rapido si usa un modello di Azure Resource Manager per creare un endpoint privato.
+In questo argomento di avvio rapido si usa un modello di Azure Resource Manager per creare un endpoint privato.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 È anche possibile completare questa guida di avvio rapido usando il [portale di Azure](create-private-endpoint-portal.md), [Azure PowerShell](create-private-endpoint-powershell.md) o l'[interfaccia della riga di comando di Azure](create-private-endpoint-cli.md).
 
-## <a name="prerequisite"></a>Prerequisito
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-endpoint"></a>Creare un endpoint privato
+## <a name="review-the-template"></a>Rivedere il modello
 
 Questo modello crea un endpoint privato per un'istanza del database SQL di Azure.
 
-### <a name="review-the-template"></a>Rivedere il modello
-
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
@@ -50,9 +52,9 @@ Nel modello sono definite più risorse di Azure:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): interfaccia di rete per la macchina virtuale.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): macchina virtuale usata per testare la connessione privata con endpoint privato all'istanza del database SQL.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
-Di seguito è riportata la procedura per distribuire il modello di Azure Resource Manager in Azure:
+Ecco come distribuire il modello di Resource Manager in Azure:
 
 1. Selezionare **Distribuisci in Azure** per accedere ad Azure e aprire il modello. Il modello crea l'endpoint privato, l'istanza del database SQL, l'infrastruttura di rete e una macchina virtuale da convalidare.
 
@@ -66,7 +68,7 @@ Di seguito è riportata la procedura per distribuire il modello di Azure Resourc
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 
 > [!NOTE]
-> Il modello di Azure Resource Manager genera un nome univoco per la risorsa macchina virtuale myVm<b>{UniqueId}</b> e per la risorsa database SQL SqlServer<b>{UniqueId}</b>. Sostituire il valore generato per **{UniqueId}** .
+> Il modello di Azure Resource Manager genera un nome univoco per la risorsa macchina virtuale myVm<b>{UniqueId}</b> e per la risorsa database SQL SqlServer<b>{UniqueId}</b>. Sostituire il valore generato per **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 

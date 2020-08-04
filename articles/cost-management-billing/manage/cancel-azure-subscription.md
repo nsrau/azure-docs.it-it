@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: banders
-ms.openlocfilehash: 2d8b529683f4d07bc47010711d65ca40536823fb
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8b0ba7b597921d82883f2c7ba505ebb10eee1876
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039758"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annullare la sottoscrizione di Azure
 
@@ -25,7 +25,7 @@ Sebbene non sia obbligatorio, Microsoft *consiglia* di eseguire le azioni seguen
 * Arrestare i servizi. Passare alla [pagina delle risorse nel portale di gestione](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) e **arrestare** qualsiasi macchina virtuale, applicazione o altri servizi.
 * Prendere in considerazione la migrazione dei dati. Vedere [Spostare le risorse in un nuovo gruppo o sottoscrizione](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 * Eliminare tutte le risorse e tutti i gruppi di risorse.
-* Se sono presenti ruoli personalizzati che fanno riferimento a questa sottoscrizione in `AssignableScopes`, è necessario aggiornarli per rimuovere la sottoscrizione. Se si prova ad aggiornare un ruolo personalizzato dopo aver annullato una sottoscrizione, è possibile che venga generato un errore. Per altre informazioni, vedere [Risolvere i problemi dei ruoli personalizzati](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) e [Ruoli personalizzati per le risorse di Azure](../../role-based-access-control/custom-roles.md).
+* Se sono presenti ruoli personalizzati che fanno riferimento a questa sottoscrizione in `AssignableScopes`, è necessario aggiornarli per rimuovere la sottoscrizione. Se si prova ad aggiornare un ruolo personalizzato dopo aver annullato una sottoscrizione, è possibile che venga generato un errore. Per altre informazioni, vedere [Risolvere i problemi dei ruoli personalizzati](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) e [Ruoli personalizzati di Azure](../../role-based-access-control/custom-roles.md).
 
 Se si annulla un piano di supporto di Azure a pagamento, verrà emessa una fattura per il resto del periodo di validità della sottoscrizione. Per altre informazioni, vedere [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/).
 

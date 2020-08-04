@@ -3,17 +3,17 @@ title: Architettura di monitoraggio pazienti continuo in Azure IoT Central | Mic
 description: Informazioni sull'architettura della soluzione di monitoraggio pazienti continuo.
 author: philmea
 ms.author: philmea
-ms.date: 10/24/2019
+ms.date: 7/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 92eb4157abb55b7056952d1fb064c7c7d7500335
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0032f341330ad394241806a4fe61add530253f09
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77021697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116853"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architettura del monitoraggio pazienti continuo
 
@@ -34,15 +34,15 @@ ms.locfileid: "77021697"
 Questa sezione illustra in modo più dettagliato ogni parte del diagramma dell'architettura.
 
 ### <a name="ble-medical-devices"></a>Dispositivi medicali Bluetooth a basso consumo
-Molti dispositivi medicali indossabili nel settore IoT sanitario sono di tipo Bluetooth a basso consumo. Non sono in grado di comunicare direttamente con il cloud e dovranno passare attraverso un gateway. Questa architettura suggerisce di usare un'applicazione per telefoni cellulari come gateway.
+Molti dispositivi medicali indossabili nel settore IoT sanitario sono di tipo Bluetooth a basso consumo. Non sono in grado di comunicare direttamente con il cloud e dovranno passare attraverso un gateway. Questa architettura suggerisce di usare un'applicazione per telefoni cellulari come gateway. 
 
 ### <a name="mobile-phone-gateway"></a>Gateway telefono cellulare
-La funzione principale dell'applicazione per telefoni cellulari prevede l'inserimento di dati Bluetooth a basso consumo dai dispositivi medicali e la comunicazione con Azure IoT Central. L'app può inoltre guidare i pazienti attraverso un flusso di configurazione e provisioning del dispositivo e aiutarli a visualizzare i dati sanitari personali. Altre soluzioni possono usare un gateway tablet o un gateway statico, se all'interno di una stanza ospedaliera, per ottenere lo stesso flusso di comunicazione.
+La funzione principale dell'applicazione per telefoni cellulari prevede l'inserimento di dati Bluetooth a basso consumo dai dispositivi medicali e la comunicazione con Azure IoT Central. L'app può inoltre guidare i pazienti attraverso un flusso di configurazione e provisioning del dispositivo e aiutarli a visualizzare i dati sanitari personali. Altre soluzioni possono usare un gateway tablet o un gateway statico, se all'interno di una stanza ospedaliera, per ottenere lo stesso flusso di comunicazione. È stata creata un'applicazione per dispositivi mobili open source di esempio, disponibile per Android e iOS, che può essere usata come punto di partenza per le attività di sviluppo delle applicazioni. Per altre informazioni sull'esempio di app per dispositivi mobili di IoT Central per il monitoraggio continuo dei pazienti, vedere [Esempi di Azure](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Esportare nell'API di Azure per FHIR&reg;
-Azure IoT Central è conforme a HIPAA e dotato di certificazione HITRUST&reg;, ma potrebbe essere necessario inviare i dati sanitari dei pazienti all'API di Azure per FHIR. L'[API di Azure per FHIR](../../healthcare-apis/overview.md) è un'API conforme, basata su standard e completamente gestita per i dati sanitari clinici, che consente di creare nuovi sistemi di engagement con i dati sanitari. Consente lo scambio di dati rapido tramite le API per FHIR ed è supportata da un'offerta PaaS (Platform-as-a-Service) gestita nel cloud. Usando la funzionalità di esportazione dei dati continua di IoT Central, è possibile inviare i dati all'API di Azure per FHIR.
+Azure IoT Central è conforme a HIPAA e dotato di certificazione HITRUST&reg;, ma potrebbe essere necessario inviare i dati sanitari dei pazienti all'API di Azure per FHIR. L'[API di Azure per FHIR](../../healthcare-apis/overview.md) è un'API conforme, basata su standard e completamente gestita per i dati sanitari clinici, che consente di creare nuovi sistemi di engagement con i dati sanitari. Consente lo scambio di dati rapido tramite le API per FHIR ed è supportata da un'offerta PaaS (Platform-as-a-Service) gestita nel cloud. Usando la funzionalità di esportazione dei dati continua di IoT Central, è possibile inviare i dati all'API di Azure per FHIR tramite il [Connettore di Azure IoT per FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart).
 
-### <a name="machine-learning"></a>Machine learning
+### <a name="machine-learning"></a>Machine Learning
 Dopo aver aggregato i dati e averli convertiti nel formato FHIR, è possibile creare modelli di Machine Learning in grado di arricchire le informazioni dettagliate e abilitare processi decisionali più intelligente per il team di assistenza sanitaria. È disponibile un'ampia gamma di servizi che possono essere usati per creare, sottoporre a training e distribuire modelli di Machine Learning. Per altre informazioni su come usare le offerte di Machine Learning di Azure, vedere la [documentazione di Machine Learning](../../machine-learning/index.yml).
 
 ### <a name="provider-dashboard"></a>Dashboard del provider

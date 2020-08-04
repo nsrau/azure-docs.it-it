@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374781"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291231"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -29,7 +29,7 @@ Questo articolo viene aggiornato ogni mese. Controllare spesso l'articolo per ot
 
 ## <a name="june-2020"></a>Giugno 2020
 
-Il mese scorso è stato presentato in anteprima l'aggiornamento della primavera 2020 per Desktop virtuale Windows. Questo aggiornamento offre molte nuove funzionalità straordinarie. Di seguito sono illustrate le novità dell'aggiornamento della primavera 2020.
+Il mese scorso è stato presentato Desktop virtuale Windows con l'integrazione con Azure Resource Manager in anteprima. Questo aggiornamento offre molte nuove funzionalità straordinarie. Ecco le novità per questa versione di Desktop virtuale Windows.
 
 ### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>Desktop virtuale Windows è ora integrato con Azure Resource Manager (anteprima)
 
@@ -39,22 +39,22 @@ Questa modifica ha gli effetti seguenti:
 
 - Desktop virtuale Windows è ora integrato con il portale di Azure. È quindi possibile gestire tutto direttamente nel portale, senza che sia necessario usare PowerShell, app Web o strumenti di terze parti. Per iniziare, vedere l'esercitazione [Creare un pool di host con il portale di Azure](create-host-pools-azure-marketplace.md).
 
-- Prima dell'aggiornamento della primavera 2020 era possibile pubblicare RemoteApps e desktop solo per singoli utenti. Grazie ad Azure Resource Manager, è ora possibile pubblicare risorse nei gruppi di Azure Active Directory.
+- Prima dell'aggiornamento era possibile pubblicare RemoteApps e desktop solo per singoli utenti. Grazie ad Azure Resource Manager, è ora possibile pubblicare risorse nei gruppi di Azure Active Directory.
 
 - La versione precedente di Desktop virtuale Windows include quattro ruoli di amministratore predefiniti che è possibile assegnare a un tenant o a un pool di host. Questi ruoli sono ora disponibili nel [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) do Azure. È possibile applicare questi ruoli a ogni oggetto di Azure Resource Manager di Desktop virtuale Windows, in modo da ottenere un modello di delega completo e avanzato.
 
-- Nell'aggiornamento della primavera 2020 non è più necessario eseguire Azure Marketplace o il modello di GitHub ripetutamente per espandere un pool di host. Per espandere un pool di host è sufficiente passare al pool di host nel portale di Azure e selezionare **+ Aggiungi** per distribuire host di sessione aggiuntivi.
+- In questo aggiornamento non è più necessario eseguire Azure Marketplace o il modello di GitHub ripetutamente per espandere un pool di host. Per espandere un pool di host è sufficiente passare al pool di host nel portale di Azure e selezionare **+ Aggiungi** per distribuire host di sessione aggiuntivi.
 
 - La distribuzione di pool di host è ora completamente integrata con la [Raccolta immagini condivise di Azure](../virtual-machines/windows/shared-image-galleries.md). La Raccolta immagini condivise è un servizio separato di Azure che consente di archiviare definizioni delle immagini di macchine virtuali, incluso il controllo delle versioni delle immagini. È anche possibile usare la replica globale per copiare e inviare immagini ad altre aree di Azure per la distribuzione locale.
 
 - Le funzioni di monitoraggio eseguite in precedenza tramite PowerShell o l'app Web Servizio diagnostica sono ora state spostate in Log Analytics nel portale di Azure. Sono inoltre ora disponibili due opzioni per visualizzare i report. È possibile eseguire query di Kusto e usare Cartelle di lavoro per creare report visivi.
 
-- Non è più necessario completare il consenso di Azure Active Directory (Azure AD) per usare Desktop virtuale Windows. Nell'aggiornamento della primavera 2020 il tenant di Azure AD nella sottoscrizione di Azure esegue l'autenticazione degli utenti e fornisce controlli del Controllo degli accessi in base al ruolo per gli amministratori.
+- Non è più necessario completare il consenso di Azure Active Directory (Azure AD) per usare Desktop virtuale Windows. In questo aggiornamento il tenant di Azure AD nella sottoscrizione di Azure esegue l'autenticazione degli utenti e fornisce controlli del Controllo degli accessi in base al ruolo per gli amministratori.
 
 
 ### <a name="powershell-support"></a>Supporto PowerShell
 
-Sono stati aggiunti nuovi cmdlet di AzWvd al modulo Az di Azure PowerShell con l'aggiornamento della primavera 2020. Questo nuovo modulo è supportato in PowerShell Core, in esecuzione in .NET Core.
+Sono stati aggiunti nuovi cmdlet di AzWvd al modulo Az di Azure PowerShell con questo aggiornamento. Questo nuovo modulo è supportato in PowerShell Core, in esecuzione in .NET Core.
 
 Per installare il modulo, seguire le istruzioni disponibili in [Configurare il modulo PowerShell per Desktop virtuale Windows](powershell-module.md).
 

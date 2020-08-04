@@ -3,17 +3,17 @@ title: Introduzione a Gestione costi di Azure per i partner
 description: Questo articolo illustra in che modo i partner usano le funzionalità di Gestione costi di Azure e autorizzano l'accesso alla gestione dei costi da parte dei clienti.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849847"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372145"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -123,9 +123,9 @@ Indipendentemente dai criteri, gli amministratori globali e gli agenti di ammini
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Abilitare i criteri per visualizzare gli addebiti per l'utilizzo di Azure
 
-I partner usano le informazioni seguenti per abilitare i criteri che consentono di visualizzare gli addebiti per l'utilizzo di Azure per i clienti.
+Per visualizzare e aggiornare il criterio, è necessario essere membri del gruppo **Agente amministratore**. Usare le informazioni seguenti per abilitare il criterio che consente ai clienti di visualizzare gli addebiti per l'utilizzo di Azure.
 
-Nel portale di Azure accedere al tenant partner e selezionare **Gestione dei costi e fatturazione**. Selezionare l'account di fatturazione del Contratto Microsoft Partner pertinente e quindi selezionare **Clienti**. L'elenco dei clienti è associato all'account di fatturazione.
+Nel portale di Azure accedere al tenant partner e selezionare **Gestione dei costi e fatturazione**. Selezionare l'ambito di fatturazione rilevante nell'area Ambito di fatturazione e quindi selezionare **Clienti**. L'elenco dei clienti è associato all'account di fatturazione.
 
 Nell'elenco dei clienti selezionare il cliente a cui si vuole consentire di visualizzare i costi.
 

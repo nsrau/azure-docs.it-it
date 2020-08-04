@@ -6,32 +6,31 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 07/16/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 07c86ca016d3e38359cbe8ba61d67f109c42edb0
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 62ab110a24bbf6b93f7f019c829222ca666ecfaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944968"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039464"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-return-azure-data-box-disk"></a>Esercitazione: Restituire Azure Data Box Disk 
+# <a name="tutorial-return-azure-data-box-disk"></a>Esercitazione: Restituire Azure Data Box Disk
 
-In questa esercitazione viene descritto come pianificare un ritiro per restituire il dispositivo Azure Data Box Disk. Le istruzioni per il ritiro dipendono dalla località da cui viene restituito il dispositivo. 
+Questa esercitazione illustra come restituire il dispositivo Azure Data Box Disk. Le istruzioni per il ritiro dipendono dalla località da cui viene restituito il dispositivo.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+>
 > * Spedire i dischi di Data Box a Microsoft
-> * Ritirare Data Box Disk in aree diverse
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i dati in Azure Data Box Disk ed eseguire la verifica](data-box-disk-deploy-copy-data.md).
-
 
 ## <a name="ship-data-box-disk-back"></a>Restituire i dischi di Data Box
 
@@ -39,7 +38,7 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i da
 
 ::: zone target="chromeless"
 
-## <a name="return-azure-data-box-disk"></a>Restituire Azure Data Box Disk 
+## <a name="return-azure-data-box-disk"></a>Restituire Azure Data Box Disk
 
 ::: zone-end
 
@@ -51,11 +50,11 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i da
 
 I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Unione Europa (UE), Australia o paesi/aree geografiche in Asia.
 
-### <a name="in-us-or-canada"></a>[Stati Uniti o Canada](#tab/in-us-or-canada)
+### <a name="us-or-canada"></a>[Stati Uniti o Canada](#tab/in-us-or-canada)
 
 Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Uniti o in Canada.
 
-1. Usare l'etichetta per la spedizione di ritorno nella busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita:
+1. Usare l'etichetta per la spedizione di ritorno con busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita:
     - Passare a **Panoramica > Scarica etichetta di spedizione** e scaricare un'etichetta di spedizione per reso.
     - Applicare l'etichetta sul dispositivo.
 
@@ -67,28 +66,28 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
     - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
     - Anziché pianificare il ritiro, è anche possibile consegnare Data Box Disk al più vicino punto di consegna.
 
-### <a name="in-europe"></a>[Europa](#tab/in-europe)
+### <a name="europe"></a>[Europa](#tab/in-europe)
 
 Eseguire la procedura seguente se si restituisce il dispositivo in Europa.
 
-1. Usare l'etichetta per la spedizione di ritorno nella busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita:
+1. Usare l'etichetta per la spedizione di ritorno con busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita:
     - Passare a **Panoramica > Scarica etichetta di spedizione** e scaricare un'etichetta di spedizione per reso.
     - Applicare l'etichetta sul dispositivo.
 
 2. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
 3. Se i dischi vengono rispediti in Europa con DHL, richiedere un ritiro a DHL, visitando il sito Web e specificando il numero di lettera di vettura.
-4. Passare al sito Web di DHL Express del paese o area e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.    
-3. Specificare il numero di lettera di vettura e fare clic su **Schedule Pickup** (Pianifica ritiro) per organizzare il ritiro.
+4. Passare al sito Web di DHL Express del paese o area e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.
+5. Specificare il numero di lettera di vettura e fare clic su **Schedule Pickup** (Pianifica ritiro) per organizzare il ritiro.
 
-### <a name="in-australia"></a>[Australia](#tab/in-australia)
+### <a name="australia"></a>[Australia](#tab/in-australia)
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per il ritiro in Australia.
 
 1. Usare l'etichetta di spedizione per reso fornita e verificare che vi sia scritto il codice TAU (numero di riferimento). Se l'etichetta di spedizione fornita è mancante o per qualsiasi altro problema, inviare un messaggio di posta elettronica a [Data Box Asia Operations](mailto:adbo@microsoft.com). Specificare il nome dell'ordine nell'intestazione dell'oggetto e fornire i dettagli del problema riscontrato.
-3. Applicare l'etichetta sulla scatola. 
-4. Prenotare un ritiro online al collegamento https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
+2. Applicare l'etichetta sulla scatola.
+3. Prenotare un ritiro online al collegamento https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="in-japan"></a>[Giappone](#tab/in-japan)
+### <a name="japan"></a>[Giappone](#tab/in-japan)
 
 1. Sulla lettera di vettura, nelle informazioni sul mittente, indicare il nome dell'azienda e l'indirizzo.
 2. Inviare un messaggio di posta elettronica a Quantium Solutions usando il modello di messaggio di posta elettronica seguente.
@@ -99,10 +98,10 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
-        a. 08：00-13：00 
-        b. 13：00-15：00 
-        c. 15：00-17：00 
-        d. 17：00-19：00 
+        a. 08：00-13：00
+        b. 13：00-15：00
+        c. 15：00-17：00
+        d. 17：00-19：00
     ```
     - **Se il ritiro avviene a Osaka**, modificare l'oggetto nel modello di messaggio di posta elettronica in: `Pickup request for Microsoft Azure OSA`.
     - Se la lettera di vettura di Japan Post Chakubarai non era inclusa o risulta mancante, indicarlo nel messaggio di posta elettronica. Quantium Solutions Japan richiederà a Japan Post di portare la lettera di vettura al momento del ritiro.
@@ -112,25 +111,24 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 
 Se necessario, è possibile contattare il supporto di Quantium Solutions (in lingua giapponese) come segue: 
 
-- Posta elettronica：Customerservice.JP@quantiumsolutions.com 
+- Indirizzo di posta elettronica：[Customerservice.JP@quantiumsolutions.com](mailto:Customerservice.JP@quantiumsolutions.com)
 - Telefono：03-5755-0150 
 
-### <a name="in-korea"></a>[Corea del Sud](#tab/in-korea)
+### <a name="korea"></a>[Corea del Sud](#tab/in-korea)
 
 1. Assicurarsi di includere la lettera di vettura per il reso.
 2. Per richiedere il prelievo quando è presente la lettera di vettura:
     1. Chiamare l'assistenza clienti di *Quantium Solutions International* al numero 070-8231-1418 durante l'orario di ufficio (dalle 10.00 alle 17.00, dal lunedì al venerdì). Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio per organizzare il ritiro.  
     2. Se il numero dell'assistenza clienti è occupato, inviare un messaggio di posta elettronica all'indirizzo `microsoft@rocketparcel.com` con l'oggetto *Ritiro Microsoft Azure* e il numero della richiesta di servizio come riferimento.
-    3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo. 
+    3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo.
     4. Si riceverà una conferma tramite posta elettronica con la pianificazione del prelievo.
 3. Eseguire questo passaggio solo se la lettera di vettura non è presente. Per richiedere il ritiro:
     1. Chiamare l'assistenza clienti di *Quantium Solutions International* al numero 070-8231-1418 durante l'orario di ufficio (dalle 10.00 alle 17.00, dal lunedì al venerdì). Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio per organizzare il ritiro. Specificare che è necessaria una nuova lettera di vettura per organizzare un prelievo. Specificare il mittente (cliente), le informazioni sul destinatario (data center di Azure) e il numero di riferimento (numero della richiesta di servizio). 
     2. Se il numero dell'assistenza clienti è occupato, inviare un messaggio di posta elettronica all'indirizzo `microsoft@rocketparcel.com` con l'oggetto *Ritiro Microsoft Azure* e il numero della richiesta di servizio come riferimento.
-    3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo. 
+    3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo.
     4. Se la richiesta viene eseguita tramite telefono, si riceverà una conferma verbale.
 
-
-### <a name="in-singapore"></a>[Singapore](#tab/in-singapore)
+### <a name="singapore"></a>[Singapore](#tab/in-singapore)
 
 1. Stampare l'etichetta indirizzo e applicarla alla scatola. Se l'etichetta è danneggiata o è stata smarrita:
     - Passare a **Panoramica > Scarica etichetta di spedizione** e ottenere un'etichetta di spedizione per reso.
@@ -140,8 +138,8 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - XZ00001234567 
-    Body: 
+    Subject: Microsoft Azure Pick-up - XZ00001234567
+    Body:
      a.    Requestor name
      b.    Requestor contact number
      c.    Requestor collection address
@@ -150,16 +148,57 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 
    > [!NOTE]
    > Per le richieste di prenotazione ricevute in un giorno lavorativo:
-   > - Prima delle 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 9:00 e le 13:00.
-   > - Dopo le 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 14:00 e le 18:00.
+   >
+   > * Prima delle 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 9:00 e le 13:00.
+   > * Dopo le 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 14:00 e le 18:00.
 
    In caso di problemi, contattare Data Box Operations Asia all'indirizzo adbo@microsoft.com. Specificare il nome del processo nell'intestazione dell'oggetto e il problema riscontrato.
 
 3. Consegnare la scatola al corriere.
 
-### <a name="in-self-managed"></a>[Nella modalità autogestita](#tab/in-selfmanaged)
+### <a name="china"></a>[Cina](#tab/in-china)
 
-Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale o India ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
+Eseguire questa procedura se si restituisce il dispositivo in Cina.
+
+1. Allegare l'etichetta indirizzo fornita e incollarla sulla scatola. L'etichetta contiene il numero tracciabilità. Se l'etichetta indirizzo non è presente, è possibile scaricarne una nuova da **Panoramica > Scarica etichetta di spedizione**.
+
+2. Inviare un messaggio di posta elettronica al servizio clienti FedEx Premier e specificare il numero tracciabilità (numero di riferimento della spedizione) per organizzare il prelievo usando il modello di messaggio di posta elettronica seguente:  
+
+   ```output
+   To: ying.bao@fedex.com;739951@fedex.com
+   Subject: Pickup request for Microsoft Azure : Order Name
+   Body: Need pick up for the below shipment
+   * FedEx tracking number (reference number)
+   * Requested pickup date：yyyy/mm/dd; time: HH MM
+   ```
+
+3. Ricevere una conferma tramite posta elettronica da FedEx dopo il completamento della prenotazione del prelievo.  
+
+4. Se si verificano problemi, inviare un messaggio di posta elettronica a [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) specificando i dettagli del problema rilevato e indicando nell'oggetto il nome dell'ordine.
+
+#### <a name="premier-customer-care-contact-information"></a>Informazioni di contatto per il servizio clienti Premier
+
+<ins>Server/istanza primaria</ins>
+
+| Informazioni contatto | Dettagli |
+|---|---|
+|Nome:       | Bao Ying|
+|Designazione | Senior OneCall Representative |
+|Telefono:      | 400.889.6066 ext. 3693 |
+|Indirizzo di posta elettronica:     | [ying.bao@fedex.com](mailto:ying.bao@fedex.com) |
+
+<ins>Backup</ins>
+
+| Informazioni contatto | Dettagli |
+|---|---|
+|Nome:       | He Xun|
+|Designazione | OneCall Representative |
+|Telefono:      | 400.889.6066 ext. 3603 |
+|Indirizzo di posta elettronica:     | [739951@fedex.com](mailto:739951@fedex.com) |
+
+### <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged)
+
+Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale o India ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni.
 
 1. Passare al pannello **Panoramica** dell'ordine nel portale di Azure. Seguire le istruzioni visualizzate quando si seleziona **Pianifica ritiro**. Verrà visualizzato un codice di autorizzazione da usare per la consegna dell'ordine.
 
@@ -168,11 +207,13 @@ Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale o In
     ```
     To: adbops@microsoft.com
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
-    Body: 
+    Body:
      a. Order name
      b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
 3. Il team delle operazioni di Azure Data Box collaborerà con l'utente per organizzare la consegna presso il data center di Azure.
+
+---
 
 ::: zone target="docs"
 
@@ -181,13 +222,13 @@ Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale o In
 In questa esercitazione sono stati illustrati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
+>
 > * Spedire i dischi di Data Box a Microsoft
-> * Ritirare Data Box Disk in aree diverse
 
 Passare alla guida pratica successiva per informazioni su come verificare il caricamento dei dati da Data Box Disk all'account di archiviazione di Azure.
 
 > [!div class="nextstepaction"]
-> [Verificare il caricamento dei dati da Azure Data Box Disk](./data-box-disk-deploy-picked-up.md)
+> [Verificare il caricamento dei dati da Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)
 
 ::: zone-end
 

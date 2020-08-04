@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un pool di Apache Spark (anteprima) con il portale di Azure'
+title: 'Avvio rapido: Creare un pool di Apache Spark con il portale di Azure'
 description: Per creare un nuovo pool Apache Spark con il portale di Azure, seguire i passaggi descritti in questa guida.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 0930b7cb7b98874e20f070763a7ec50a6b4f3ef0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006076"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Avvio rapido: Creare un pool di Apache Spark con il portale di Azure
+# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Avvio rapido: Creare un pool di Apache Spark usando il portale di Azure
 
 Azure Synapse Analytics offre vari motori di analisi che consentono di inserire, trasformare, modellare, analizzare e distribuire i dati. Un pool di Apache Spark offre funzionalità di calcolo open source per i Big Data. Dopo aver creato un pool Apache Spark nell'area di lavoro di Synapse, è possibile caricare, modellare, elaborare e distribuire i dati per ottenere dati analitici in modo più rapido.
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 3a607f03bf238b1b05a91c772a7ac77a79574515
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077555"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure
 
@@ -44,8 +44,9 @@ Creare prima di tutto un servizio Load Balancer Standard pubblico usando il port
     | Type          | Selezionare **Pubblica**.       |
     | SKU           | Selezionare **Standard**.       |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
-    | Nome dell'indirizzo IP pubblico  | *MyPip*   |
+    | Nome dell'indirizzo IP pubblico  | *myPip*   |
     | Assegnazione| Statico |
+    | Zona di disponibilità | Selezionare **Con ridondanza della zona**. |
 
 1. Al termine, selezionare **Rivedi e crea**. 
 1. Dopo la convalida selezionare **Crea**. 
@@ -55,11 +56,11 @@ Creare prima di tutto un servizio Load Balancer Standard pubblico usando il port
 ## <a name="create-virtual-machine-scale-set"></a>Creare un set di scalabilità di macchine virtuali
 È possibile distribuire un set di scalabilità con un'immagine di Windows Server o di Linux, ad esempio RHEL, CentOS, Ubuntu o SLES.
 
-1. Nella casella di ricerca digitare **Set di scalabilità**. Nei risultati di **Marketplace** selezionare **Set di scalabilità di macchine virtuali**. Verrà aperta la pagina **Crea un set di scalabilità di macchine virtuali**. 
+1. Nella casella di ricerca digitare **Set di scalabilità**. Nei risultati di **Marketplace** selezionare **Set di scalabilità di macchine virtuali**. Selezionare **Crea** nella pagina **Set di scalabilità di macchine virtuali** che consente di aprire la pagina **Crea un set di scalabilità di macchine virtuali**. 
 1. Nella scheda **Nozioni di base**, sotto **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta e quindi scegliere **Crea nuovo** gruppo di risorse. Digitare *myVMSSResourceGroup* per il nome e quindi selezionare **OK**. 
 1. Digitare *myScaleSet* come nome del set di scalabilità.
 1. In **Area** selezionare un'area vicina a quella in cui si risiede.
-1. Lasciare invariato il valore predefinito **ScaleSet VMs** per **Orchestrator**.
+1. Lasciare invariato il valore predefinito **Macchine virtuali del set di scalabilità** per **Orchestrator**.
 1. Selezionare un'immagine del marketplace per **Immagine**. In questo esempio è stata scelta l'immagine *Ubuntu Server 18.04 LTS*.
 1. Immettere il nome utente desiderato e selezionare il tipo di autenticazione preferito.
    - Il valore del campo **Password** deve avere una lunghezza di almeno 12 caratteri e soddisfare tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Per altre informazioni, fare riferimento ai [requisiti relativi a nome utente e password](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).

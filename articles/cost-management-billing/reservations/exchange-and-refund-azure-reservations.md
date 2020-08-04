@@ -3,26 +3,25 @@ title: Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 description: Informazioni su come scambiare le prenotazioni di Azure o chiederne il rimborso.
 author: yashesvi
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 07/01/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 3f41f26e6934e156ab38340a74e2c070b26cefb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807690"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287654"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
-Le prenotazioni di Azure offrono la flessibilità necessaria a soddisfare le esigenze in continua evoluzione. È possibile scambiare una prenotazione per un'altra prenotazione dello stesso tipo, ovvero una prenotazione di macchina virtuale può essere scambiata per l'acquisto di una prenotazione per qualsiasi dimensione o area della macchina virtuale. Analogamente, è possibile scambiare una prenotazione del database SQL PaaS per acquistare qualsiasi prenotazione per qualsiasi tipo o area SQL PaaS. È anche possibile rimborsare le prenotazioni, ma la somma totale dell'impegno di prenotazione annullato non può essere superiore a 50.000 USD in un periodo continuo di 12 mesi. La capacità riservata di Azure Databricks, la prenotazione della soluzione Azure VMware di CloudSimple, la prenotazione di Azure Red Hat Open Shift, i piani di Red Hat e i piani di SUSE Linux non sono idonei per i rimborsi.
+Le prenotazioni di Azure offrono la flessibilità necessaria a soddisfare le esigenze in continua evoluzione. È possibile scambiare una prenotazione per un'altra dello stesso tipo. È ad esempio possibile scambiare una prenotazione di macchina virtuale per acquistare un'altra prenotazione per qualsiasi altra dimensione di VM o area. Analogamente, è possibile scambiare una prenotazione del database SQL PaaS per acquistare un'altra prenotazione per qualsiasi tipo o area SQL PaaS. È anche possibile rimborsare le prenotazione, ma la somma totale dell'impegno di tutte le prenotazioni annullate nell'ambito di fatturazione, ad esempio Contratto Enterprise, Contratto del cliente Microsoft e Contratto Microsoft Partner, non può superare i 50.000 USD in una finestra di mobile di 12 mesi. La capacità riservata di Azure Databricks, la prenotazione della soluzione Azure VMware di CloudSimple, la prenotazione di Azure Red Hat Open Shift, i piani di Red Hat e i piani di SUSE Linux non sono idonei per i rimborsi.
 
 La funzionalità di scambio e annullamento self-service non è disponibile per i clienti US Government con Contratto Enterprise. Sono supportati altri tipi di sottoscrizione US Government, inclusi con pagamento in base al consumo e CSP (Cloud Solution Provider).
 
-È necessario avere l'accesso proprietario all'ordine di prenotazione per richiedere lo scambio o il rimborso di una prenotazione esistente. È possibile [Aggiungere o modificare gli utenti che possono gestire una prenotazione](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
-
 > [!NOTE]
-> Microsoft non applica attualmente penali per risoluzione anticipata per i rimborsi delle prenotazioni. Le penali potrebbero essere addebitate per i rimborsi effettuati in futuro. Non è attualmente prevista alcuna data per l'abilitazione delle penali.
+> - **È necessario avere l'accesso proprietario all'ordine di prenotazione per richiedere lo scambio o il rimborso di una prenotazione esistente.** È possibile [Aggiungere o modificare gli utenti che possono gestire una prenotazione](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - Microsoft non applica attualmente penali per risoluzione anticipata per i rimborsi delle prenotazioni. Le penali potrebbero essere addebitate per i rimborsi effettuati in futuro. Non è attualmente prevista alcuna data per l'abilitazione delle penali.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Come scambiare o rimborsare una prenotazione esistente
 
@@ -76,7 +75,8 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 **Criteri di rimborso**
 
 - Non viene attualmente applicata alcuna penale per risoluzione anticipata, ma in futuro è possibile che venga applicata una penale per risoluzione anticipata del 12% per gli annullamenti.
-- L'impegno annullato totale non può essere superiore a 50.000 USD in un periodo continuo di 12 mesi. Esempio: per una prenotazione di tre anni da 100 USD al mese e rimborsata nel 18° mese, l'impegno annullato sarà pari a 1.800 USD. Dopo il rimborso il nuovo limite disponibile per i rimborsi sarà pari a 48.200 USD. Dopo 365 giorni dal rimborso, il limite di 48.200 USD verrà incrementato di 1.800 USD e il nuovo pool sarà pari a 50.000 USD. Eventuali altri annullamenti di prenotazioni esauriranno lo stesso pool e verrà applicata la stessa logica di rifornimento.
+- L'impegno totale annullato non può superare i 50.000 USD in una finestra mobile di 12 mesi per un profilo di fatturazione o una singola registrazione. Ad esempio, per una prenotazione di tre anni da 100 USD al mese e rimborsata nel 18° mese, l'impegno annullato sarà pari a 1.800 USD. Dopo il rimborso il nuovo limite disponibile per i rimborsi sarà pari a 48.200 USD. Dopo 365 giorni dal rimborso, il limite di 48.200 USD verrà incrementato di 1.800 USD e il nuovo pool sarà pari a 50.000 USD. Eventuali altri annullamenti di prenotazioni per il profilo di fatturazione o la registrazione EA esauriranno lo stesso pool e verrà applicata la stessa logica di rifornimento.
+- Azure non elaborerà i rimborsi che superano il limite di 50.000 USD in una finestra di 12 mesi per un profilo di fatturazione o una registrazione EA.
 - I rimborsi vengono calcolati in base al prezzo più basso, tra quello di acquisto o quello corrente della prenotazione.
 - Solo i proprietari degli ordini di prenotazioni possono elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

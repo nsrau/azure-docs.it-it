@@ -1,5 +1,5 @@
 ---
-title: Differenze delle funzionalità T-SQL in Azure Synapse SQL
+title: Differenze delle funzionalità T-SQL in Synapse SQL
 description: Elenco delle funzionalità di Transact-SQL disponibili in Synapse SQL.
 services: synapse analytics
 author: jovanpop-msft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43882316c1f8d3f52d434d916e8aea79226a3177
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e1223a9cd5bd3a092bc35c9ba03f7352c6ac7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059399"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funzionalità Transact-SQL supportate in Azure Synapse SQL
 

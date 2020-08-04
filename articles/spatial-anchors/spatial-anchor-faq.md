@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9f6f428a930f03259986373ca70a95d5df1f7dc3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296670"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091488"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -88,9 +88,9 @@ Ancoraggi nello spazio di Azure è conforme alle [Condizioni del contratto del s
 
 Ciò significa che sia l'ambiente di calcolo che l'archiviazione alla base di questo servizio risiedono in queste aree. Detto questo, non esistono restrizioni per la posizione in cui si trovano i client. 
 
-**D: Vengono o verranno applicati addebiti per Ancoraggi nello spazio di Azure?**
+**D: Vengono applicati addebiti per Ancoraggi nello spazio di Azure?**
 
-**R:** È possibile trovare i dettagli sui prezzi durante l'anteprima nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/spatial-anchors/).
+**R:** È possibile trovare i dettagli sui prezzi nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 
 ## <a name="technical-faqs"></a>Domande frequenti tecniche
 

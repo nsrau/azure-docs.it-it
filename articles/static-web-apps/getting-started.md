@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089499"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Avvio rapido: Creazione della prima app Web statica
 
@@ -69,7 +69,7 @@ Dopo aver creato il repository, è possibile creare un'app Web statica dal porta
 - Passare al [portale di Azure](https://portal.azure.com)
 - Fare clic su **Crea una risorsa**
 - Cercare **App Web statiche**
-- Fare clic su **App Web statiche (anteprima)**
+- Fare clic su **Static Web Apps (Preview)** (App Web statiche - Anteprima)
 - Fare clic su **Crea**
 
 ### <a name="basics"></a>Nozioni di base
@@ -97,7 +97,10 @@ Dopo aver eseguito l'accesso con GitHub, immettere le informazioni sul repositor
 
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Pulsante Avanti > Compilazione":::
 
-### <a name="build"></a>Compilare
+> [!NOTE]
+>  Se non viene visualizzato alcun repository, potrebbe essere necessario autorizzare App Web statiche di Azure in GitHub. Passare al repository GitHub e quindi a **Impostazioni > Applicazioni > App OAuth autorizzate**, selezionare **App Web statiche di Azure** e infine **Concedi**. Per concedere le autorizzazioni per i repository dell'organizzazione, è necessario essere un proprietario dell'organizzazione.
+
+### <a name="build"></a>Compilazione
 
 Aggiungere quindi i dettagli di configurazione specifici del framework front-end preferito.
 

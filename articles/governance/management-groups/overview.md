@@ -3,12 +3,12 @@ title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963683"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132926"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -92,7 +92,7 @@ Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gr
 |Proprietario                       | X      | X      | X        | X      | X             | X             | X     |
 |Collaboratore                 | X      | X      | X        | X      |               |               | X     |
 |Collaboratore gruppo di gestione\*            | X      | X      | X        | X      |               |               | X     |
-|Reader                      |        |        |          |        |               |               | X     |
+|Lettore                      |        |        |          |        |               |               | X     |
 |Lettore gruppo di gestione\*                 |        |        |          |        |               |               | X     |
 |Collaboratore per i criteri delle risorse |        |        |          |        |               | X             |       |
 |Amministratore accessi utente   |        |        |          |        | X             | X             |       |
@@ -100,9 +100,9 @@ Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gr
 \*: i ruoli Collaboratore gruppo di gestione e Lettore gruppo di gestione consentono agli utenti di eseguire le azioni solo nell'ambito del gruppo di gestione.  
 \*\*: per spostare una sottoscrizione o un gruppo di gestione all'interno o all'esterno di un gruppo di gestione radice, non sono necessarie assegnazioni di ruolo. Per informazioni su come spostare elementi all'interno della gerarchia, vedere [Gestire le risorse con i gruppi di gestione](manage.md).
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Definizione e assegnazione del ruolo Controllo degli accessi in base al ruolo personalizzato
+## <a name="azure-custom-role-definition-and-assignment"></a>Definizione e assegnazione di un ruolo personalizzato di Azure
 
-Il supporto del ruolo Controllo degli accessi in base al ruolo personalizzato per i gruppi di gestione è attualmente disponibile in anteprima con alcune [limitazioni](#limitations). È possibile definire l'ambito del gruppo di gestione nell'ambito assegnabile della definizione del ruolo. Il ruolo Controllo degli accessi in base al ruolo personalizzato sarà quindi disponibile per l'assegnazione in tale gruppo di gestione e in qualsiasi gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa in esso contenuti. Questo ruolo personalizzato erediterà la gerarchia in modo analogo a qualsiasi ruolo predefinito.  
+Il supporto del ruolo personalizzato di Azure per i gruppi di gestione è attualmente disponibile in anteprima con alcune [limitazioni](#limitations). È possibile definire l'ambito del gruppo di gestione nell'ambito assegnabile della definizione del ruolo. Il ruolo personalizzato di Azure sarà quindi disponibile per l'assegnazione in tale gruppo di gestione e in qualsiasi gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa in esso contenuti. Questo ruolo personalizzato erediterà la gerarchia in modo analogo a qualsiasi ruolo predefinito.  
 
 ### <a name="example-definition"></a>Definizione di esempio
 
