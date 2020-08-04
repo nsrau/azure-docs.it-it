@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510635"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535094"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte 2: assegnare autorizzazioni a livello di condivisione a un'identità
 
@@ -38,11 +38,11 @@ Sono disponibili tre ruoli predefiniti di Azure per la concessione di autorizzaz
 
 È possibile usare l'interfaccia della riga di comando di portale di Azure, Azure PowerShell o Azure per assegnare i ruoli predefiniti all'identità Azure AD di un utente per concedere autorizzazioni a livello di condivisione.
 
-## <a name="assign-an-rbac-role"></a>Assegnare un ruolo RBAC
+## <a name="assign-an-azure-role"></a>Assegnare un ruolo di Azure
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per assegnare un ruolo controllo degli accessi in base al ruolo a un'identità Azure AD, usando il [portale di Azure](https://portal.azure.com), attenersi alla procedura seguente:
+Per assegnare un ruolo di Azure a un'identità di Azure AD, usando il [portale di Azure](https://portal.azure.com), seguire questa procedura:
 
 1. Nella portale di Azure passare alla condivisione file o [creare una condivisione file](storage-how-to-create-file-share.md).
 1. Selezionare **Controllo di accesso (IAM)** .
@@ -52,7 +52,7 @@ Per assegnare un ruolo controllo degli accessi in base al ruolo a un'identità A
 
 ### <a name="powershell"></a>PowerShell
 
-L'esempio di PowerShell seguente illustra come assegnare un ruolo RBAC a un'identità Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione dei ruoli RBAC con PowerShell, vedere [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+L'esempio di PowerShell seguente illustra come assegnare un ruolo di Azure a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione di ruoli di Azure con PowerShell, vedere [gestire l'accesso con RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Prima di eseguire lo script di esempio seguente, sostituire i valori segnaposto, comprese le parentesi quadre, con i valori.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-Il comando seguente dell'interfaccia della riga di comando 2,0 assegna un ruolo RBAC a un'identità Azure AD, in base al nome di accesso. Per ulteriori informazioni sull'assegnazione di ruoli RBAC con l'interfaccia della riga di comando di Azure, vedere [Manage Access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+Il comando seguente dell'interfaccia della riga di comando 2,0 assegna un ruolo di Azure a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione di ruoli di Azure con l'interfaccia della [riga di comando di Azure, vedere Manage Access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Prima di eseguire lo script di esempio seguente, ricordarsi di sostituire i valori segnaposto, comprese le parentesi, con valori personalizzati.
 

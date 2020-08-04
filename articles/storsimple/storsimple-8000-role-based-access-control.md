@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 58332be22600620e7a3ff1f455f96fe0d786d846
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500045"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535111"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controllo degli accessi in base al ruolo per StorSimple
 
@@ -29,7 +29,7 @@ Questo articolo si applica ai dispositivi StorSimple serie 8000 con Update 3.0 o
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-storsimple"></a>Ruoli di controllo degli accessi in base al ruolo per StorSimple
+## <a name="azure-roles-for-storsimple"></a>Ruoli di Azure per StorSimple
 
 Il controllo degli accessi in base al ruolo può essere assegnato in funzione dei ruoli, che assicurano determinati livelli di autorizzazione in base alle risorse disponibili nell'ambiente. Esistono due tipi di ruoli tra cui gli utenti di StorSimple possono scegliere: predefiniti o personalizzati.
 
@@ -58,7 +58,7 @@ Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consen
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Aprire il file JSON in Visual Studio. In genere, un ruolo di controllo degli accessi in base al ruolo è composto da tre sezioni principali: **Actions**, **NotActions** e **AssignableScopes**.
+4. Aprire il file JSON in Visual Studio. Si noterà che un tipico ruolo di Azure è costituito da tre sezioni principali, **Actions**, **notacts**e **AssignableScopes**.
 
     Nella sezione **Action** vengono elencate tutte le operazioni consentite per questo ruolo. Ogni azione viene assegnata da un provider di risorse. Per il ruolo Amministratore dell'infrastruttura StorSimple, usare il provider di risorse `Microsoft.StorSimple`.
 
@@ -68,9 +68,9 @@ Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consen
 
     È possibile anche cercare tutti i cmdlet di PowerShell disponibili per gestire i provider di risorse.
 
-    Nelle sezioni **NotActions** vengono elencate tutte le azioni vietate a un determinato ruolo di controllo degli accessi in base al ruolo. In questo esempio non è vietata alcuna azione.
+    Nelle sezioni **Notacts** vengono elencate tutte le azioni limitate per un particolare ruolo di Azure. In questo esempio non è vietata alcuna azione.
     
-    In **AssignableScopes** vengono elencati gli ID di sottoscrizione. Accertarsi che il ruolo di controllo degli accessi in base al ruolo contenga gli ID di sottoscrizione espliciti in cui viene usato. Se non viene specificato l'ID di sottoscrizione corretto, non è possibile importare il ruolo nella sottoscrizione.
+    In **AssignableScopes** vengono elencati gli ID di sottoscrizione. Verificare che il ruolo di Azure contenga l'ID sottoscrizione esplicito in cui viene usato. Se non viene specificato l'ID di sottoscrizione corretto, non è possibile importare il ruolo nella sottoscrizione.
 
     Modificare il file tenendo presenti le considerazioni precedenti.
 
@@ -109,7 +109,7 @@ Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consen
 
 Il ruolo dovrebbe essere ora visualizzato nell'elenco dei ruoli nel pannello **Controllo di accesso**.
 
-![Visualizzare i ruoli di controllo degli accessi in base al ruolo](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
+![Visualizzare i ruoli di Azure](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 Per altre informazioni, passare a [Custom roles](../role-based-access-control/custom-roles.md) (Ruoli personalizzati).
 
@@ -167,7 +167,7 @@ Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione
 
 1. Passare a **controllo di accesso (IAM)**. Fare clic su **+Aggiungi** nel pannello Controllo di accesso.
 
-    ![Aggiungere l'accesso al ruolo di controllo degli accessi in base al ruolo](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
+    ![Aggiunta dell'accesso al ruolo di Azure](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
 2. Selezionare il ruolo che si vuole assegnare, in questo caso **Amministratore dell'infrastruttura StorSimple**.
 
@@ -175,7 +175,7 @@ Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione
 
 4. Scegliere **Salva** per creare l'assegnazione.
 
-    ![Aggiungere autorizzazioni al ruolo di controllo degli accessi in base al ruolo](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Aggiungere autorizzazioni al ruolo di Azure](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
 La notifica **Aggiunta dell'utente in corso** tiene traccia dello stato di avanzamento del processo di aggiunta. Al termine del processo, l'elenco degli utenti nel pannello Controllo degli accessi viene aggiornato.
 

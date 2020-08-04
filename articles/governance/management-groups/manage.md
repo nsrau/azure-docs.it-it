@@ -3,12 +3,12 @@ title: Come lavorare con i gruppi di gestione - Governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259406"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535009"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -69,7 +69,7 @@ Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requis
 
    - Per spostare una sottoscrizione o un gruppo di gestione in un altro gruppo di gestione, vedere [Spostare gruppi di gestione e sottoscrizioni nella gerarchia](#moving-management-groups-and-subscriptions).
 
-1. Sono necessarie autorizzazioni di scrittura per il gruppo di gestione ("Proprietario" o "Collaboratore" o "Collaboratore del gruppo di gestione"). Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere  
+1. Sono necessarie autorizzazioni di scrittura per il gruppo di gestione ("Proprietario" o "Collaboratore" o "Collaboratore del gruppo di gestione"). Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per ulteriori informazioni sui ruoli di Azure, vedere  
    [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>Eseguire l'eliminazione nel portale
@@ -113,7 +113,7 @@ az account management-group delete --name 'Contoso'
 
 ## <a name="view-management-groups"></a>Visualizzare i gruppi di gestione
 
-È possibile visualizzare tutti i gruppi di gestione su cui si ha un ruolo Controllo degli accessi in base al ruolo, diretto o ereditato.  
+È possibile visualizzare qualsiasi gruppo di gestione di cui si ha un ruolo di Azure diretto o ereditato.  
 
 ### <a name="view-in-the-portal"></a>Visualizzare nel portale
 
@@ -215,7 +215,7 @@ Per eseguire l'azione di spostamento, è necessario avere:
 
 Se il ruolo Proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si ha il ruolo Proprietario. Non è possibile spostarla in un gruppo di gestione in cui si ha il ruolo Collaboratore perché si perderebbe la proprietà della sottoscrizione. Se il ruolo Proprietario per la sottoscrizione è stato assegnato direttamente (non ereditato dal gruppo di gestione), è possibile eseguire lo spostamento in qualsiasi gruppo di gestione in cui si ha il ruolo Collaboratore.
 
-Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
+Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli di Azure, vedere [gestire l'accesso e le autorizzazioni con RBAC](../../role-based-access-control/overview.md).
 
 ## <a name="move-subscriptions"></a>Spostare sottoscrizioni 
 

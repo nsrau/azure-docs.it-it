@@ -1,0 +1,141 @@
+---
+title: Creazione di un volume a doppio protocollo (NFSv3 e SMB) per Azure NetApp Files | Microsoft Docs
+description: Viene descritto come creare un volume che usa il protocollo duale di NFSv3 e SMB con supporto per il mapping utente LDAP.
+services: azure-netapp-files
+documentationcenter: ''
+author: b-juche
+manager: ''
+editor: ''
+ms.assetid: ''
+ms.service: azure-netapp-files
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: how-to
+ms.date: 07/28/2020
+ms.author: b-juche
+ms.openlocfilehash: 61e8c56e75e82bc28ddb2abf231d9a5e919691b0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535491"
+---
+# <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creazione di un volume a doppio protocollo (NFSv3 e SMB) per Azure NetApp Files
+
+Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMBv3 o il protocollo duale. Questo articolo illustra come creare un volume che usa il protocollo duale di NFSv3 e SMB con supporto per il mapping utente LDAP.  
+
+
+## <a name="before-you-begin"></a>Prima di iniziare 
+
+* È necessario avere già configurato un pool di capacità.  
+    Vedere [configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md).   
+* È necessario delegare una subnet ad Azure NetApp Files.  
+    Vedere [delegare una subnet a Azure NetApp files](azure-netapp-files-delegate-subnet.md).
+
+## <a name="considerations"></a>Considerazioni
+
+* Assicurarsi di soddisfare i [requisiti per le connessioni Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Verificare che il client NFS sia aggiornato ed esegua gli aggiornamenti più recenti per il sistema operativo.
+
+## <a name="create-a-dual-protocol-volume"></a>Creazione di un volume con doppio protocollo
+
+1.  Scegliere il pannello **Volumi** nel pannello Pool di capacità. Fare clic su **+ Aggiungi volume** per creare un volume. 
+
+    ![Passare a Volumi](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
+
+2.  Nella finestra Crea un volume fare clic su **Crea**e fornire informazioni per i campi seguenti nella scheda nozioni di base:   
+    * **Nome del volume**      
+        Specificare il nome per il volume che si sta creando.   
+
+        Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile usare qualsiasi carattere alfanumerico.   
+
+        Non è possibile utilizzare `default` come nome del volume.
+
+    * **Pool di capacità**  
+        Specificare il pool di capacità in cui si vuole creare il volume.
+
+    * **Quota**  
+        Specificare la quantità di spazio di archiviazione logico allocato al volume.  
+
+        Il campo **Quota disponibile** mostra la quantità di spazio inutilizzato nel pool di capacità scelto che è possibile usare per la creazione di un nuovo volume. Le dimensioni del nuovo volume non devono superare la quota disponibile.  
+
+    * **Rete virtuale**  
+        Specificare la rete virtuale di Azure da cui si vuole accedere al volume.  
+
+        Per la rete virtuale specificata è necessario delegare una subnet ad Azure NetApp Files. Il servizio Azure NetApp Files è accessibile solo dalla stessa rete virtuale o da una rete virtuale presente nella stessa area del volume tramite il peering delle reti virtuali. È anche possibile accedere al volume dalla rete locale tramite ExpressRoute.   
+
+    * **Subnet**  
+        Specificare la subnet desiderata per il volume.  
+        La subnet specificata deve essere delegata ad Azure NetApp Files. 
+        
+        Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni VNET è possibile delegare una sola subnet a Azure NetApp Files.   
+ 
+        ![Crea un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+    
+        ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Se si desidera applicare un criterio snapshot esistente al volume, fare clic su **Mostra sezione avanzata** per espanderlo e selezionare un criterio di snapshot nel menu a discesa. 
+
+        Per informazioni sulla creazione di un criterio snapshot, vedere [Manage snapshot Policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+
+        ![Mostra selezione avanzata](../media/azure-netapp-files/volume-create-advanced-selection.png)
+
+3. Fare clic su **Protocollo** e quindi completare le azioni seguenti:  
+    * Selezionare il **protocollo Dual (NFSv3 e SMB)** come tipo di protocollo per il volume.   
+
+    * Selezionare la connessione **Active Directory** dall'elenco a discesa.  
+    Il Active Directory che si utilizza deve disporre di un certificato CA radice del server. 
+
+    * Specificare il **percorso del volume** per il volume.   
+    Questo percorso del volume è il nome del volume condiviso. Il nome deve iniziare con un carattere alfabetico e deve essere univoco all'interno di ogni sottoscrizione e in ogni area.  
+
+    * Specificare lo **stile di sicurezza** da utilizzare: NTFS (impostazione predefinita) o UNIX.
+
+    * Facoltativamente, [configurare i criteri di esportazione per il volume](azure-netapp-files-configure-export-policy.md).
+
+    ![Specifica doppio protocollo](../media/azure-netapp-files/create-volume-protocol-dual.png)
+
+4. Fare clic su **Rivedi e crea** per esaminare i dettagli del volume. Fare quindi clic su **Crea** per creare il volume.
+
+    Il volume creato viene visualizzato nella pagina Volumi. 
+ 
+    Un volume eredita sottoscrizione, gruppo di risorse e attributi di posizione dal relativo pool di capacità. Per monitorare lo stato di distribuzione del volume, è possibile usare la scheda Notifiche.
+
+## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Carica certificato radice pubblico dell'autorità di certificazione Active Directory  
+
+1.  Seguire [installare l'autorità di certificazione](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) per installare e configurare l'aggiunta di un'autorità di certificazione. 
+
+2.  Per utilizzare lo snap-in MMC e lo strumento Gestione certificati, [vedere visualizzare i certificati con lo snap-in MMC](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) .  
+    Utilizzare lo snap-in Gestione certificati per individuare la radice o il certificato di emissione del dispositivo locale. È consigliabile eseguire i comandi dello snap-in Gestione certificati da una delle seguenti impostazioni:  
+    * Un client basato su Windows che è stato aggiunto al dominio e in cui è installato il certificato radice 
+    * Un altro computer nel dominio che contiene il certificato radice  
+
+3. Esportare il certificato radice.  
+    Verificare che il certificato venga esportato nel X. 509 con codifica base 64 (. Formato CER): 
+
+    ![Esportazione guidata certificati](../media/azure-netapp-files/certificate-export-wizard.png)
+
+4. Passare all'account NetApp del volume con doppio protocollo, fare clic su **Active Directory connessioni**e caricare il certificato CA radice usando la finestra **join Active Directory** :  
+
+    ![Certificato CA radice server](../media/azure-netapp-files/server-root-ca-certificate.png)
+
+    Verificare che il nome dell'autorità di certificazione possa essere risolto da DNS. Questo nome è il campo "rilasciato da" o "emittente" del certificato:  
+
+    ![Informazioni relative al certificato](../media/azure-netapp-files/certificate-information.png)
+
+## <a name="manage-ldap-posix-attributes"></a>Gestisci attributi POSIX LDAP
+
+È possibile gestire gli attributi POSIX, ad esempio UID, Home Directory e altri valori, usando lo snap-in MMC utenti e computer Active Directory.  Nell'esempio seguente viene illustrato l'editor di attributi Active Directory:  
+
+![Editor attributi Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
+
+
+## <a name="configure-the-nfs-client"></a>Configurare il client NFS 
+
+Per configurare il client NFS, seguire le istruzioni riportate in [configurare un client NFS per Azure NetApp files](configure-nfs-clients.md) .  
+
+## <a name="next-steps"></a>Passaggi successivi  
+
+* [Domande frequenti su doppio protocollo](azure-netapp-files-faqs.md#dual-protocol-faqs)
+* [Configurare un client NFS per Azure NetApp Files](configure-nfs-clients.md) 

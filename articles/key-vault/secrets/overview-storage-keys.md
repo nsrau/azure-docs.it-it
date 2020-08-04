@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7819b62fb92945a409cab0dff926e281620dd80c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 727a5052b0531cc0a37cc631e11bc498498be5b3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496645"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534975"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire chiavi dell'account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure
 
@@ -71,7 +71,7 @@ az login
 
 Usare l'interfaccia della riga di comando di Azure [AZ Role Assignment create](/cli/azure/role/assignment?view=azure-cli-latest) per concedere a Key Vault l'accesso all'account di archiviazione. Fornire al comando i valori di parametro seguenti:
 
-- `--role`: Passare il ruolo "ruolo del servizio operatore chiave dell'account di archiviazione". Questo ruolo limita l'ambito di accesso all'account di archiviazione. Per un account di archiviazione classico, passare invece "ruolo del servizio operatore chiave account di archiviazione classico".
+- `--role`: Passare il ruolo Azure "ruolo del servizio operatore chiave dell'account di archiviazione". Questo ruolo limita l'ambito di accesso all'account di archiviazione. Per un account di archiviazione classico, passare invece "ruolo del servizio operatore chiave account di archiviazione classico".
 - `--assignee`: Passare il valore " https://vault.azure.net ", che è l'URL per Key Vault nel cloud pubblico di Azure. Per il cloud di Azure governo usare invece "--asingee-Object-ID", vedere [ID applicazione dell'entità servizio](#service-principal-application-id).
 - `--scope`: Passare l'ID risorsa dell'account di archiviazione, nel formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` . Per trovare l'ID sottoscrizione, usare il comando [AZ account list](/cli/azure/account?view=azure-cli-latest#az-account-list) per l'interfaccia della riga di comando di Azure. per trovare il nome dell'account di archiviazione e il gruppo di risorse dell'account di archiviazione, usare l'interfaccia della riga di comando di Azure [AZ storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
 

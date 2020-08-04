@@ -1,7 +1,7 @@
 ---
 title: Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati di BLOB o di Accodamento
 titleSuffix: Azure Storage
-description: PowerShell supporta l'accesso con le credenziali Azure AD per eseguire i comandi nei BLOB di archiviazione di Azure e accodare i dati. Un token di accesso viene fornito per la sessione e usato per autorizzare la chiamata delle operazioni. Le autorizzazioni dipendono dal ruolo RBAC assegnato alla Azure AD entità di sicurezza.
+description: PowerShell supporta l'accesso con le credenziali Azure AD per eseguire i comandi nei BLOB di archiviazione di Azure e accodare i dati. Un token di accesso viene fornito per la sessione e usato per autorizzare la chiamata delle operazioni. Le autorizzazioni dipendono dal ruolo di Azure assegnato alla Azure AD entità di sicurezza.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,18 +10,18 @@ ms.date: 12/30/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b7e93f54c1aa0eaa5edf3b3fcbfbf8bd9a6442d7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a99b2841441e43ac02688494b1324fa5d630dcd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417540"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534924"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati di BLOB o di Accodamento
 
 Archiviazione di Azure fornisce estensioni per PowerShell che consentono di accedere ed eseguire comandi di script con le credenziali di Azure Active Directory (Azure AD). Quando si accede a PowerShell con Azure AD credenziali, viene restituito un token di accesso OAuth 2,0. Il token viene usato automaticamente da PowerShell per autorizzare le operazioni sui dati successive sull'archiviazione BLOB o di Accodamento. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
 
-È possibile assegnare autorizzazioni per i dati BLOB e di Accodamento a un Azure AD entità di sicurezza tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sui ruoli RBAC in archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC](storage-auth-aad-rbac.md).
+È possibile assegnare autorizzazioni per i dati BLOB e di Accodamento a un Azure AD entità di sicurezza tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sui ruoli di Azure in archiviazione di Azure, vedere [gestire i diritti di accesso ai dati di archiviazione di Azure con RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Operazioni supportate
 
@@ -68,7 +68,7 @@ L'esempio seguente illustra come creare un contenitore in un nuovo account di ar
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Prima di creare il contenitore, assegnare il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli RBAC, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac.md).
+1. Prima di creare il contenitore, assegnare il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Le assegnazioni di ruolo di Azure potrebbero richiedere alcuni minuti per la propagazione.
@@ -82,5 +82,5 @@ L'esempio seguente illustra come creare un contenitore in un nuovo account di ar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare PowerShell per assegnare un ruolo RBAC per l'accesso ai dati BLOB e di Accodamento](storage-auth-aad-rbac-powershell.md)
+- [Usare PowerShell per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di Accodamento](storage-auth-aad-rbac-powershell.md)
 - [Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure](storage-auth-aad-msi.md)

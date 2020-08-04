@@ -7,18 +7,18 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 40d372eb5569f3a4079acda3ab1e43b3e86cc113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999599"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535060"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte 4: montare una condivisione file da una macchina virtuale aggiunta a un dominio
 
 Prima di iniziare questo articolo, assicurarsi di completare l'articolo precedente, [configurare le autorizzazioni a livello di directory e di file su SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-Il processo descritto in questo articolo Verifica che le autorizzazioni di accesso e condivisione file siano configurate correttamente e che sia possibile accedere a una condivisione file di Azure da una macchina virtuale aggiunta a un dominio. L'assegnazione del ruolo RBAC a livello di condivisione può richiedere del tempo. 
+Il processo descritto in questo articolo Verifica che le autorizzazioni di accesso e condivisione file siano configurate correttamente e che sia possibile accedere a una condivisione file di Azure da una macchina virtuale aggiunta a un dominio. L'assegnazione del ruolo di Azure a livello di condivisione può richiedere del tempo per diventare effettiva. 
 
 Accedere al client usando le credenziali a cui sono state concesse le autorizzazioni, come illustrato nella figura seguente.
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: e2f38daea40f89e73422ca8115f2425758be81a4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413103"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535077"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: abilitare l'autenticazione di servizi di dominio Active Directory per le condivisioni file di Azure 
 
@@ -30,7 +30,7 @@ I cmdlet nel modulo AzFilesHybrid di PowerShell effettuano le modifiche necessar
 
 - [Scaricare e decomprimere il modulo AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) (modulo GA: v 0.2.0 +)
 - Installare ed eseguire il modulo in un dispositivo che è aggiunto a un dominio ad DS locale con le credenziali di servizi di dominio Active Directory che dispongono delle autorizzazioni per creare un account di accesso al servizio o un account computer nell'annuncio di destinazione.
--  Eseguire lo script con una credenziale AD DS locale sincronizzata con la Azure AD. Le credenziali di servizi di dominio Active Directory locali devono avere il proprietario dell'account di archiviazione o le autorizzazioni del ruolo di collaboratore RBAC.
+-  Eseguire lo script con una credenziale AD DS locale sincronizzata con la Azure AD. Le credenziali di servizi di dominio Active Directory locali devono avere il proprietario dell'account di archiviazione o le autorizzazioni del ruolo di Azure collaboratore.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Eseguire join-AzStorageAccountForAuth
 

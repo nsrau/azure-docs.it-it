@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 34cfafadabd9a6328cbe85a5444211828df9db6d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5fa591530e92682c582b5929240e74a5430fb559
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133719"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534992"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server
 
@@ -47,6 +47,8 @@ SQL Server in una macchina virtuale IaaS di Azure o in locale.| Replica con Azur
 > * È possibile scegliere di usare Site Recovery per qualsiasi distribuzione in Azure, Hyper-V, VMware o nell'infrastruttura fisica. Per [informazioni su come proteggere un cluster di SQL Server](#how-to-help-protect-a-sql-server-cluster) con Site Recovery, seguire le istruzioni disponibili alla fine di questo articolo.
 > * Verificare che la frequenza di modifica dei dati osservata nel computer sia entro [Site Recovery limiti](vmware-physical-azure-support-matrix.md#churn-limits). La frequenza di modifica viene misurata in byte scritti al secondo. Per i computer che eseguono Windows, è possibile visualizzare questa frequenza di modifica selezionando la scheda **prestazioni** in Gestione attività. Osservare la velocità di scrittura per ogni disco.
 > * Site Recovery supporta la replica delle istanze del cluster di failover su Spazi di archiviazione diretta. Per ulteriori informazioni, vedere [come abilitare la replica spazi di archiviazione diretta](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+> 
+> Quando si esegue la migrazione del carico di lavoro SQL ad Azure, è consigliabile applicare le [linee guida sulle prestazioni per SQL Server in macchine virtuali di Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices).
 
 ## <a name="disaster-recovery-of-an-application"></a>Ripristino di emergenza di un'applicazione
 
