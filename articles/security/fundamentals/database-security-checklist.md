@@ -1,6 +1,6 @@
 ---
 title: Elenco di controllo della sicurezza del database di Azure | Microsoft Docs
-description: Questo articolo fornisce un set di elenco di controllo per la sicurezza del database di Azure.
+description: Usare l'elenco di controllo della sicurezza del database di Azure per assicurarsi di risolvere importanti problemi di sicurezza cloud computing.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8f15f7d1cf69824bfb9298d7ccf097e4893ea8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021841"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542977"
 ---
 # <a name="azure-database-security-checklist"></a>Elenco di controllo per la sicurezza del database di Azure
 
 Per contribuire al miglioramento della sicurezza, il database di Azure include una serie di controlli di sicurezza predefiniti che è possibile usare per limite e controllare l'accesso.
 
-Tra queste sono incluse:
+incluse le seguenti:
 
 -    Un firewall che consente di creare [regole del firewall](../../azure-sql/database/firewall-configure.md) limitando la connettività tramite un indirizzo IP,
 -    Regola del firewall a livello di server accessibile nel portale di Azure
@@ -44,7 +44,7 @@ Il cloud computing richiede nuovi paradigmi di sicurezza che sono diversi per mo
 Si consiglia di leggere l'articolo [Azure Database Security Best Practices](database-best-practices.md) (Best practice di sicurezza per il database di Azure) prima di esaminare questo elenco di controllo. Si sarà in grado di sfruttare al meglio questo elenco di controllo dopo aver compreso le procedure consigliate. È quindi possibile usare questo elenco di controllo per assicurarsi di aver risolto i problemi importanti della sicurezza del database di Azure.
 
 
-|Categoria dell'elenco di controllo| Descrizione|
+|Categoria dell'elenco di controllo| Description|
 | ------------ | -------- |
 |**Proteggere i dati**||
 | <br> Crittografia in movimento/transito| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), per la crittografia dei dati durante lo spostamento dei dati nelle reti.</li><li>Il database richiede una comunicazione sicura da client basati sul protocollo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) in TLS (Transport Layer Security).</li></ul> |
@@ -56,7 +56,7 @@ Si consiglia di leggere l'articolo [Azure Database Security Best Practices](data
 | <br>Monitoraggio e rilevamento| <ul><li>Il [Controllo](../../sql-database/sql-database-auditing.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo/log di attività nell'[account di Archiviazione di Azure](../../storage/common/storage-create-storage-account.md).</li><li>Tenere traccia dell'integrità del database di Azure tramite i [log attività di Monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md).</li><li>La [funzionalità di rilevamento delle minacce](../../azure-sql/database/threat-detection-configure.md) individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. </li></ul> |
 |<br>Centro sicurezza di Azure| <ul><li>Il [Monitoraggio dati](../../security-center/security-center-enable-auditing-on-sql-databases.md) usa il centro sicurezza di Azure come soluzione di monitoraggio di sicurezza centralizzato per SQL e altri servizi di Azure.</li></ul>|        
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Il database di Azure è una piattaforma di database affidabile, con una gamma completa di funzionalità di sicurezza che soddisfano molti requisiti normativi e aziendali. È possibile proteggere facilmente i dati controllando l'accesso fisico agli stessi, e tramite un'ampia gamma di opzioni per la protezione dei dati a livello di file, di colonna o di riga con Transparent Data Encryption, Cell-Level Encryption o Row-Level Encryption. Always Encrypted consente anche operazioni sui dati crittografati, semplificando il processo di aggiornamenti dell'applicazione. A sua volta, l'accesso ai log di controllo dell'attività del database SQL fornisce le informazioni necessarie, consentendo di sapere come e quando viene eseguito l'accesso ai dati.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sulla documentazione di analisi del codice di sicurezza Microsoft
-description: Questo articolo contiene le domande frequenti sull'estensione di analisi del codice di sicurezza Microsoft
+description: Per informazioni sull'estensione Microsoft Security Code Analysis, vedere Domande frequenti (FAQ).
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: df995f60867cb2062330e19a2ccfb8c29f173653
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071451"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543045"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 Domande? Per ulteriori informazioni, vedere le domande frequenti seguenti.

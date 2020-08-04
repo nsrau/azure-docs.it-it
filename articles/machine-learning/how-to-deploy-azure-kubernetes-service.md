@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bc53a243a58522a76be63536aa721f269ed4759a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433221"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544048"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ Il cluster AKS e l'area di lavoro di AML possono trovarsi in gruppi di risorse d
 
 - Se è necessario un Load Balancer Standard (SLB) distribuito nel cluster anziché una Load Balancer di base (BLB), creare un cluster nel portale AKS/CLI/SDK e quindi collegarlo all'area di lavoro AML.
 
-- Se si connette un cluster AKS per cui è [abilitato un intervallo di indirizzi IP autorizzati per accedere al server API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), abilitare gli intervalli di indirizzi IP del piano di AML per il cluster AKS. Il piano di controllo AML viene distribuito tra le aree abbinate e distribuisce i pod di inferenza nel cluster AKS. Senza l'accesso al server API, non è possibile distribuire i pod di inferenza. Usare gli [intervalli IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) per entrambe le [aree abbinate]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) quando si abilitano gli intervalli IP in un cluster AKS.
+- Se si connette un cluster AKS per cui è [abilitato un intervallo di indirizzi IP autorizzati per accedere al server API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), abilitare gli intervalli IP del piano di controllo AML per il cluster AKS. Il piano di controllo AML viene distribuito tra le aree abbinate e distribuisce i pod di inferenza nel cluster AKS. Senza l'accesso al server API, non è possibile distribuire i pod di inferenza. Usare gli [intervalli IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) per entrambe le [aree abbinate]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) quando si abilitano gli intervalli IP in un cluster AKS.
 
 __Gli intervalli IP Authroized funzionano solo con Load Balancer Standard.__
  
@@ -423,15 +423,12 @@ print(token)
 >
 > Per recuperare un token, è necessario usare l'SDK Azure Machine Learning o il comando [AZ ml Service Get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
-## <a name="update-the-web-service"></a>Aggiornare il servizio Web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Sperimentazione e inferenza sicure in una rete virtuale](how-to-enable-virtual-network.md)
 * [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
+* [Aggiornare il servizio Web](how-to-deploy-update-web-service.md)
 * [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)

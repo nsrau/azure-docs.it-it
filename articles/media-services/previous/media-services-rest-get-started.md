@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 45a8a2e4df35b0ddbf3fe3e42308a3361e1c912e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c15883f4e2a515e8c6015a39951a8729cf77274
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000143"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543997"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST  
 
@@ -34,7 +34,7 @@ L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo s
 
 Fare clic sull'immagine per visualizzarla a schermo intero.  
 
-<a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
+[![Diagramma che illustra alcuni degli oggetti usati più di frequente nel modello di dati degli oggetti di servizi multimediali di Azure per lo sviluppo di applicazioni video on demand.](./media/media-services-rest-get-started/media-services-overview-object-model-small.png)](./media/media-services-rest-get-started/media-services-overview-object-model.png#lightbox)
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare l'attività di sviluppo con Servizi multimediali e le API REST sono previsti i seguenti prerequisiti.

@@ -1,6 +1,6 @@
 ---
 title: Elenco di controllo della sicurezza operativa di Azure | Microsoft Docs
-description: Questo articolo fornisce un set di elenchi di controllo per la sicurezza operativa di Azure.
+description: Esaminare questo elenco di controllo per aiutare le aziende a considerare le considerazioni sulla sicurezza operativa di Azure.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c7c44018bb1a010298738d3e46b7b9e7b6c04292
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 656459c4a29a73732b8825e735719731a0979a0e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448310"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542926"
 ---
 # <a name="azure-operational-security-checklist"></a>Elenco di controllo per la sicurezza operativa di Azure
 La distribuzione di un'applicazione in Azure è rapida, semplice ed economica. Prima di distribuire l'applicazione cloud nell'ambiente di produzione è utile disporre di un elenco di controllo per facilitare la valutazione dell'applicazione in un elenco di azioni di sicurezza operative essenziali e consigliate da prendere in considerazione.
@@ -37,7 +37,7 @@ Azure fornisce una suite di servizi di infrastruttura che è possibile usare per
 
 Questo elenco di controllo ha lo scopo di aiutare la aziende a valutare diverse considerazioni di sicurezza operative nel momento in cui distribuiscono applicazioni aziendali sofisticate in Azure. Può anche essere usato per facilitare la compilazione di una strategia di migrazione sicura e operativa per l'organizzazione.
 
-|Categoria dell'elenco di controllo| Descrizione|
+|Categoria dell'elenco di controllo| Description|
 | ------------ | -------- |
 | [<br>Ruoli di sicurezza & controlli di accesso](../../security-center/security-center-planning-and-operations-guide.md)|<ul><li>Usare il [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/role-assignments-portal.md) per fornire una specifica-utente che assegni autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito.</li></ul> |
 | [<br>Raccolta dati & archiviazione](../../storage/blobs/security-recommendations.md)|<ul><li>Usare Gestione del piano di sicurezza per proteggere l'account di archiviazione tramite il [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/role-assignments-portal.md).</li><li>Piano di sicurezza dei dati per la protezione dell'accesso ai dati tramite le [Firme di accesso condiviso (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) e i Criteri di accesso archiviati.</li><li>Usare la crittografia a livello di trasporto: uso di HTTPS e la crittografia usata da [SMB (Protocolli Server Message Block) 3.0](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) per le [condivisioni dei File di Azure](../../storage/files/storage-dotnet-how-to-use-files.md).</li><li>Usare [Crittografia lato client](../../storage/common/storage-client-side-encryption.md) per proteggere i dati da inviare agli account di archiviazione quando si richiede il controllo esclusivo delle chiavi di crittografia. </li><li>Usare [Crittografia del servizio di archiviazione (SSE)](../../storage/common/storage-service-encryption.md) per crittografare automaticamente i dati in archiviazione di Azure e [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) per crittografare i file di disco della macchina virtuale per i dischi dei dati e del sistema operativo.</li><li>Usare [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics) (Analitica di archiviazione) di Azure per monitorare il tipo di autorizzazione; ad esempio con archiviazione BLOB è possibile vedere se gli utenti hanno usato una firma di accesso condiviso o le chiavi dell'account di archiviazione.</li><li>Usare [Condivisione di risorse tra le origini (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) per accedere alle risorse di archiviazione da domini diversi.</li></ul> |
@@ -48,7 +48,7 @@ Questo elenco di controllo ha lo scopo di aiutare la aziende a valutare diverse 
 | [<br>Operazioni per sviluppatori (DevOps)](https://docs.microsoft.com/azure/architecture/checklist/dev-ops)|<ul><li>L'[Infrastruttura come Codice (IaC)](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) è una procedura consigliata che consente l'automazione e la convalida della creazione e dell'eliminazione di reti e macchine virtuali per facilitare la distribuzione sicura e l'applicazione stabile delle piattaforme di hosting.</li><li>[Integrazione continua e distribuzione](/visualstudio/containers/overview#continuous-delivery-and-continuous-integration-cicd) favoriscono l'unione in corso e il test del codice, consentendo di individuare tempestivamente i difetti. </li><li>[Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) gestisce le distribuzioni automatizzate in ogni fase della pipeline.</li><li>[Monitoraggio delle prestazioni delle app](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) per le applicazioni in esecuzione, inclusi gli ambienti di produzione per l'integrità delle applicazioni e l'utilizzo da parte delle organizzazioni per aiutare le organizzazioni a formare un'ipotesi e a verificare rapidamente</li><li>Usando [il test di carico e scalabilità automatica](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) è possibile trovare i problemi di prestazione nell'app per migliorare la qualità della distribuzione e assicurarsi che l'app sia sempre aggiornata o disponibile per soddisfare le esigenze aziendali.</li></ul> |
 
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Molte organizzazioni hanno distribuito e gestito con esito positivo le applicazioni cloud in Azure. Gli elenchi di controllo forniti evidenziano diversi elenchi di controllo essenziali che consentono di aumentare la probabilità di successo di distribuzioni e operazioni prive di frustrazione. Si consigliano vivamente queste considerazioni operative e strategiche per le distribuzioni di applicazioni nuove ed esistenti in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi

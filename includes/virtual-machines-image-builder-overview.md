@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821509"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545186"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni predefinite di configurazione e sicurezza, oltre al software necessario. La configurazione della pipeline di creazione di immagini richiede tempo, infrastruttura e installazioni, ma con Image Builder per macchine virtuali di Azure è sufficiente specificare una semplice configurazione con la descrizione dell'immagine e inviarla al servizio che provvederà a compilare e distribuire l'immagine.
  
@@ -70,9 +70,9 @@ Image Builder è un servizio di Azure completamente gestito accessibile tramite 
 ![Diagramma concettuale del processo di Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. Creare il modello di immagine come file JSON. Questo file JSON contiene informazioni sull'origine, le personalizzazioni e la distribuzione di immagini. Diversi esempi sono disponibili nel [repository GitHub di Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
-1. Inviarlo al servizio. Verrà creato un artefatto del modello di immagine nel gruppo di risorse specificato. In background, Image Builder scarica l'immagine di origine o l'ISO e gli script necessari. Questi componenti vengono archiviati in un gruppo di risorse distinto creato automaticamente nella sottoscrizione, nel formato IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. Una volta creato il modello di immagine, è possibile compilare l'immagine. In background, Image Builder usa i modello e i file di origine per creare una VM (dimensioni predefinite: Standard_D1_v2), una rete, un indirizzo IP pubblico, un gruppo di sicurezza di rete e una risorsa di archiviazione nel gruppo di risorse IT_\<DestinationResourceGroup>_\<TemplateName>.
-1. Come parte del processo di creazione, Image Builder distribuisce l'immagine in base al modello, quindi elimina le risorse aggiuntive del gruppo di risorse IT_\<DestinationResourceGroup>_\<TemplateName> creato per il processo.
+1. Inviarlo al servizio. Verrà creato un artefatto del modello di immagine nel gruppo di risorse specificato. In background, Image Builder scarica l'immagine di origine o l'ISO e gli script necessari. Questi vengono archiviati in un gruppo di risorse distinto creato automaticamente nella sottoscrizione, nel formato: IT_ \<DestinationResourceGroup> _ \<TemplateName> . 
+1. Una volta creato il modello di immagine, è possibile compilare l'immagine. Nel generatore di immagini di sfondo usa il modello e i file di origine per creare una macchina virtuale (dimensioni predefinite: Standard_D1_v2), rete, IP pubblico, NSG e archiviazione \<DestinationResourceGroup> nel \<TemplateName> gruppo di risorse it_ _.
+1. Nell'ambito della creazione dell'immagine, Image Builder distribuisce l'immagine in base al modello, quindi Elimina le risorse aggiuntive nel gruppo di \<DestinationResourceGroup> risorse it_ _ \<TemplateName> creato per il processo.
 
 
 ## <a name="permissions"></a>Autorizzazioni
@@ -97,6 +97,9 @@ Durante il processo di creazione dell'immagine, i file vengono scaricati e archi
 Image Builder crea una VM di dimensioni D1v2, oltre alle risorse di archiviazione e di rete necessarie. Queste risorse rimarranno disponibili per l'intero processo di compilazione e verranno eliminate quando Image Builder completa la creazione dell'immagine. 
  
 Azure Image Builder distribuirà l'immagine nelle aree scelte, che potrebbero comportare addebiti in uscita dalla rete.
+
+## <a name="hyper-v-generation"></a>Generazione Hyper V
+Il generatore di immagini attualmente in supporta immagini e macchine virtuali Hyper-V di generazione 1.
  
 ## <a name="next-steps"></a>Passaggi successivi 
  

@@ -1,6 +1,6 @@
 ---
 title: 'Gestione della sessione: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
-description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
+description: Informazioni sulla mitigazione della gestione delle sessioni per le minacce esposte nel Threat Modeling Tool. Vedere le informazioni di mitigazione e gli esempi di codice di visualizzazione.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 7f9eb18e72c12a8585ea8bcd42d8d720af43dbaf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a40d89db3e81721ec8a35973b79a558c17caee4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420550"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543691"
 ---
 # <a name="security-frame-session-management"></a>Infrastruttura di sicurezza: gestione della sessione
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implementare la disconnessione appropriata con i metodi ADAL quando si usa Azure AD](#logout-adal)</li></ul> |
-| Dispositivo IoT | <ul><li>[Usare durate limitate per i token di firma di accesso condiviso generati](#finite-tokens)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Usare durate limitate per i token di firma di accesso condiviso generati](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[Usare durate minime per i token delle risorse generati](#resource-tokens)</li></ul> |
 | **AD FS** | <ul><li>[Implementare la disconnessione appropriata con i metodi WsFederation quando si usa AD FS](#wsfederation-logout)</li></ul> |
 | **Identity Server** | <ul><li>[Implementare la disconnessione appropriata quando si usa Identity Server](#proper-logout)</li></ul> |

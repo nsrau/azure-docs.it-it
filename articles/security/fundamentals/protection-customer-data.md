@@ -1,6 +1,6 @@
 ---
 title: Protezione dei dati dei clienti in Azure
-description: Questo articolo spiega in che modo Azure protegge i dati dei clienti.
+description: Scopri in che modo Azure protegge i dati dei clienti tramite la separazione dei dati, la ridondanza dei dati e la distruzione dei dati.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: 4f3b4b5e26c8feab44a01d3714c194eee0fc98e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14589e4efe22d89468b069bf6ff7e3d9babcc714
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076286"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543793"
 ---
 # <a name="azure-customer-data-protection"></a>Protezione dei dati dei clienti di Azure   
 L'accesso ai dati dei clienti da parte del personale di supporto e delle operazioni Microsoft è negato per impostazione predefinita. Quando viene concesso l'accesso ai dati correlati a un caso di supporto, questo viene concesso solo usando un modello JIT (just-in-Time) che usa criteri controllati e controllati in base ai criteri di conformità e privacy.  I requisiti di controllo di accesso vengono definiti dai criteri di sicurezza di Azure seguenti:

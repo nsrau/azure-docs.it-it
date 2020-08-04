@@ -1,18 +1,18 @@
 ---
 title: Crittografia dischi di Azure per macchine virtuali e set di scalabilità di macchine virtuali
-description: Questo articolo fornisce una panoramica di crittografia dischi di Azure
+description: Informazioni su crittografia dischi di Azure per macchine virtuali (VM) e set di scalabilità di VM. Crittografia dischi di Azure funziona per le macchine virtuali Linux e Windows.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062120"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543674"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Crittografia dischi di Azure per macchine virtuali e set di scalabilità di macchine virtuali
 
@@ -25,7 +25,7 @@ Gli articoli seguenti forniscono indicazioni per la crittografia delle macchine 
 ### <a name="current-version-of-azure-disk-encryption"></a>Versione corrente di crittografia dischi di Azure
 
 - [Panoramica della crittografia dischi di Azure per le macchine virtuali Linux](../../virtual-machines/linux/disk-encryption-overview.md)
-- [Scenari di crittografia dischi di Azure per macchine virtuali Linux](../../virtual-machines/linux/disk-encryption-linux.md)
+- [Scenari di Crittografia dischi di Azure nelle macchine virtuali Linux](../../virtual-machines/linux/disk-encryption-linux.md)
 - [Creare e crittografare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
 - [Creare e crittografare una macchina virtuale Linux con Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Creare e crittografare una macchina virtuale Linux con il portale di Azure](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)

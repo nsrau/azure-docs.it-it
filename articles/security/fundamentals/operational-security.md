@@ -1,6 +1,6 @@
 ---
 title: Sicurezza operativa di Azure | Microsoft Docs
-description: Informazioni sui log di monitoraggio Microsoft Azure, sui relativi servizi e sul relativo funzionamento.
+description: Introduzione a Microsoft Azure monitorare i log, i relativi servizi e il relativo funzionamento leggendo questa panoramica.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c2a49c76e6fdb7f957c026e8f8220cd29a7b35d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448363"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543334"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
@@ -144,7 +144,7 @@ Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo st
 
 -   Macchine virtuali: usa informazioni sulla configurazione e informazioni sugli eventi di sicurezza, ad esempio registri eventi di Windows e log di controllo, log di IIS, messaggi syslog e file di dump di arresto anomalo del sistema dalle macchine virtuali.
 
-### <a name="data-protection"></a>Protezione dati
+### <a name="data-protection"></a>Protezione dei dati
 
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, log eventi, file di dump di arresto anomalo del sistema e altro. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
 
@@ -308,7 +308,7 @@ Gli eventi nel report di controllo di Azure Active Directory vengono conservati 
 
 Per i clienti interessati a archiviare [gli eventi di controllo](../../active-directory/active-directory-reporting-activity-audit-logs.md) per periodi di conservazione più lunghi, l'API di creazione report può essere usata per eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo articolo riassume le caratteristiche di protezione della privacy e dei dati degli utenti, mettendo a disposizione software e servizi che aiutino a gestire l'infrastruttura IT dell'organizzazione. Microsoft è a conoscenza della necessità di applicare rigorose misure di sicurezza quando si affidano i dati a terzi. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.  La sicurezza e la protezione dei dati sono altamente prioritarie per Microsoft.
 

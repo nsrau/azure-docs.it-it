@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c5369d63c0937605cc288e3a90466e723e69d163
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255439"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543368"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -47,6 +47,17 @@ Con *kubenet* solo i nodi ricevono un indirizzo IP nella subnet della rete virtu
 Azure supporta un massimo di 400 route in un routing definito dall'utente, quindi un cluster del servizio Azure Kubernetes non può avere più di 400 nodi. I [nodi virtuali][virtual-nodes] AKS e i criteri di rete di Azure non sono supportati con *kubenet*.  È possibile usare i [criteri di rete di calice][calico-network-policies], perché sono supportati con kubenet.
 
 Con *Azure CNI* ogni pod riceve un indirizzo IP nella subnet IP e può comunicare direttamente con altri pod e servizi. I cluster possono avere le stesse dimensioni dell'intervallo di indirizzi IP specificato. Questo intervallo deve però essere pianificato in anticipo e tutti gli indirizzi IP vengono utilizzati dai nodi del servizio Azure Kubernetes in base al numero massimo di pod che possono supportare. Le funzionalità e gli scenari di rete avanzati, ad esempio i [nodi virtuali][virtual-nodes] o i criteri di rete (Azure o calice) sono supportati con *Azure CNI*.
+
+### <a name="limitations--considerations-for-kubenet"></a>Limitazioni & considerazioni per kubenet
+
+* Un hop aggiuntivo è necessario nella progettazione di kubenet, che aggiunge una minore latenza alla comunicazione pod.
+* Le tabelle di route e le route definite dall'utente sono necessarie per l'uso di kubenet, che consente di aggiungere complessità alle operazioni.
+* L'indirizzamento di Pod diretti non è supportato per kubenet a causa della progettazione kubenet.
+* A differenza dei cluster CNI di Azure, più cluster kubenet non possono condividere una subnet.
+* Le funzionalità **non supportate in kubenet** includono:
+   * [Criteri di rete di Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), ma i criteri di rete di calice sono supportati in kubenet
+   * [Pool di nodi di Windows](windows-node-limitations.md)
+   * [Componente aggiuntivo nodi virtuali](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilità ed esaurimento degli indirizzi IP
 

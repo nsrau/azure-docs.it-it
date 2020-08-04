@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: d39b5f414b1998a4c0eacbbf8fd792d27c70309c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9464544e8c80ad32269ad27ed3592871d0077713
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474581"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544031"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creare & usare gli ambienti software in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Gli esempi in questo articolo illustrano come:
 
 Per una panoramica di alto livello del funzionamento degli ambienti in Azure Machine Learning, vedere [che cosa sono gli ambienti ml?](concept-environments.md) Per informazioni sulla configurazione degli ambienti di sviluppo, vedere [qui](how-to-configure-environment.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md)
@@ -376,6 +376,12 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
+```
+### <a name="retrieve-dockerfile-from-a-run"></a>Recuperare Dockerfile da un'esecuzione
+
+Usare il codice seguente per ottenere Dockerfile per un'esecuzione abilitata per docker.
+```python
+print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## <a name="use-environments-for-web-service-deployment"></a>Usare gli ambienti per la distribuzione del servizio Web

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 30e70e56eb54815c26521829e4baf82dce574e43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432601"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543436"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrare Analisi di flusso di Azure con Azure Machine Learning (anteprima)
 
@@ -25,7 +25,7 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 1. Usare Azure Machine Learning per [distribuire il modello come servizio Web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Lo script di assegnazione dei punteggi deve contenere [input e output di esempio](../machine-learning/how-to-deploy-and-where.md#example-entry-script) che vengono usati da Azure Machine Learning per generare una specifica relativa allo schema. Analisi di flusso di Azure usa lo schema per comprendere la firma della funzione del servizio Web. Questa [definizione di spavalderia di esempio](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) può essere usata come riferimento per assicurarsi che sia stata configurata correttamente.
+2. Lo script di assegnazione dei punteggi deve contenere [input e output di esempio](../machine-learning/how-to-deploy-and-where.md) che vengono usati da Azure Machine Learning per generare una specifica relativa allo schema. Analisi di flusso di Azure usa lo schema per comprendere la firma della funzione del servizio Web. Questa [definizione di spavalderia di esempio](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) può essere usata come riferimento per assicurarsi che sia stata configurata correttamente.
 
 3. Assicurarsi che il servizio Web accetti e restituisca i dati serializzati JSON.
 
@@ -147,7 +147,7 @@ Di seguito è riportata una richiesta JSON di esempio dalla query precedente:
 
 ## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Ottimizzare le prestazioni delle funzioni definite dall'utente di Azure Machine Learning
 
-Quando si distribuisce il modello nel servizio Azure Kubernetes, è possibile [profilare il modello per determinare l'utilizzo delle risorse](../machine-learning/how-to-deploy-and-where.md#profilemodel). È anche possibile [abilitare App Insights per le distribuzioni](../machine-learning/how-to-enable-app-insights.md) al fine di comprendere la frequenza delle richieste, i tempi di risposta e le percentuali di errore.
+Quando si distribuisce il modello nel servizio Azure Kubernetes, è possibile [profilare il modello per determinare l'utilizzo delle risorse](../machine-learning/how-to-deploy-profile-model.md). È anche possibile [abilitare App Insights per le distribuzioni](../machine-learning/how-to-enable-app-insights.md) al fine di comprendere la frequenza delle richieste, i tempi di risposta e le percentuali di errore.
 
 In uno scenario con velocità effettiva degli eventi elevata, potrebbe essere necessario modificare i parametri seguenti in Analisi di flusso di Azure per ottenere prestazioni ottimali con latenze end-to-end minime:
 

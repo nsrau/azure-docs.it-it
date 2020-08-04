@@ -1,6 +1,6 @@
 ---
 title: Panoramica sulla sicurezza operativa di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica sulla sicurezza operativa di Azure.
+description: Per informazioni sulla sicurezza operativa di Azure, vedere questa panoramica. La sicurezza operativa si riferisce ai servizi, ai controlli e alle funzionalità di Asset Protection.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674233"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542892"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544735"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545114"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 assegnare le autorizzazioni di accesso a un'identità
 
@@ -28,7 +28,7 @@ Sono stati introdotti tre ruoli predefiniti di Azure per la concessione di autor
 > [!IMPORTANT]
 > Il controllo amministrativo completo di una condivisione file, inclusa la possibilità di assumere la proprietà di un file, richiede l'uso della chiave dell'account di archiviazione. Il controllo amministrativo non è supportato con le credenziali di Azure AD.
 
-È possibile usare la portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure per assegnare i ruoli predefiniti all'identità Azure AD di un utente per concedere autorizzazioni a livello di condivisione. Tenere presente che l'assegnazione del ruolo controllo degli accessi in base al ruolo può richiedere del tempo. 
+È possibile usare la portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure per assegnare i ruoli predefiniti all'identità Azure AD di un utente per concedere autorizzazioni a livello di condivisione. Tenere presente che l'assegnazione del ruolo di Azure a livello di condivisione può richiedere del tempo. 
 
 > [!NOTE]
 > Ricordarsi di [sincronizzare le credenziali di servizi di dominio Active Directory per Azure ad](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) se si prevede di usare servizi di dominio Active Directory locali per l'autenticazione. La sincronizzazione dell'hash delle password da servizi di dominio Active Directory a Azure AD è facoltativa. L'autorizzazione a livello di condivisione verrà concessa al Azure AD identità sincronizzata da servizi di dominio Active Directory locale.
@@ -36,7 +36,7 @@ Sono stati introdotti tre ruoli predefiniti di Azure per la concessione di autor
 L'indicazione generale prevede l'uso dell'autorizzazione a livello di condivisione per la gestione degli accessi di alto livello per un gruppo di Active Directory che rappresenta un gruppo di utenti e identità, quindi sfrutta le autorizzazioni NTFS per il controllo di accesso granulare a livello di directory/file. 
 
 #### <a name="azure-portal"></a>Portale di Azure
-Per assegnare un ruolo controllo degli accessi in base al ruolo a un'identità Azure AD, usando il [portale di Azure](https://portal.azure.com), attenersi alla procedura seguente:
+Per assegnare un ruolo di Azure a un'identità di Azure AD, usando il [portale di Azure](https://portal.azure.com), seguire questa procedura:
 
 1. Nella portale di Azure passare alla condivisione file o [creare una condivisione file](../articles/storage/files/storage-how-to-create-file-share.md).
 2. Selezionare **Controllo di accesso (IAM)** .
@@ -46,7 +46,7 @@ Per assegnare un ruolo controllo degli accessi in base al ruolo a un'identità A
 
 #### <a name="powershell"></a>PowerShell
 
-L'esempio di PowerShell seguente illustra come assegnare un ruolo RBAC a un'identità Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione dei ruoli RBAC con PowerShell, vedere [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+L'esempio di PowerShell seguente illustra come assegnare un ruolo di Azure a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione di ruoli di Azure con PowerShell, vedere [gestire l'accesso con RBAC e Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 Prima di eseguire lo script di esempio seguente, ricordarsi di sostituire i valori segnaposto, comprese le parentesi, con valori personalizzati.
 
@@ -61,7 +61,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-Il comando seguente dell'interfaccia della riga di comando 2,0 illustra come assegnare un ruolo RBAC a un'identità Azure AD, in base al nome di accesso. Per ulteriori informazioni sull'assegnazione di ruoli RBAC con l'interfaccia della riga di comando di Azure, vedere [Manage Access by using RBAC and Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
+Il comando seguente dell'interfaccia della riga di comando 2,0 illustra come assegnare un ruolo di Azure a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione di ruoli di Azure con l'interfaccia della [riga di comando di Azure, vedere Manage Access by using RBAC and Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
 
 Prima di eseguire lo script di esempio seguente, ricordarsi di sostituire i valori segnaposto, comprese le parentesi, con valori personalizzati.
 
@@ -130,7 +130,7 @@ Per ulteriori informazioni su come utilizzare icacls per impostare le autorizzaz
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 montare una condivisione file da una macchina virtuale aggiunta a un dominio
 
-Il processo seguente verifica che la condivisione file e le autorizzazioni di accesso siano state configurate correttamente e che sia possibile accedere a una condivisione file di Azure da una macchina virtuale aggiunta a un dominio. Tenere presente che l'assegnazione del ruolo controllo degli accessi in base al ruolo può richiedere del tempo. 
+Il processo seguente verifica che la condivisione file e le autorizzazioni di accesso siano state configurate correttamente e che sia possibile accedere a una condivisione file di Azure da una macchina virtuale aggiunta a un dominio. Tenere presente che l'assegnazione del ruolo di Azure a livello di condivisione può richiedere del tempo. 
 
 Accedere alla macchina virtuale usando l'identità Azure AD a cui sono state concesse le autorizzazioni, come illustrato nella figura seguente. Se è stata abilitata l'autenticazione di servizi di dominio Active Directory locale per File di Azure, usare le credenziali di Active Directory Domain Services. Per l'autenticazione Azure AD DS, accedere con Azure AD credenziali.
 

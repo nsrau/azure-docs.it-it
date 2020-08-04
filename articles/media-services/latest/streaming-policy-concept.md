@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30164e1af1948f86c68e102f4d348674ea931e7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091947"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544014"
 ---
 # <a name="streaming-policies"></a>Criteri di streaming
 
@@ -40,7 +40,7 @@ Il seguente "albero delle decisioni" consente di scegliere un criterio di stream
 
 Fare clic sull'immagine per visualizzarla a schermo intero.  
 
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+[![Diagramma che mostra un albero delle decisioni progettato per facilitare la scelta di un criterio di streaming predefinito per lo scenario.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
 Se si crittografa il contenuto, è necessario creare un [criterio della chiave](content-key-policy-concept.md)simmetrica. i **criteri della chiave** simmetrica non sono necessari per cancellare lo streaming o il download. 
 

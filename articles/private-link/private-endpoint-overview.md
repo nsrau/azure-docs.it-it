@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: d61527a7a57c82c0e1485ef249306618def9a57c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077931"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543470"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -66,7 +66,7 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |**Database di Azure per MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
 |**Hub IoT Azure** | Microsoft.Devices/IotHubs    | iotHub |
 |**Insieme di credenziali chiave Azure** | Microsoft.KeyVault/vaults    | insieme di credenziali |
-|**Servizio Azure Kubernetes - API Kubernetes** | Microsoft.ContainerService/managedClusters    | managedCluster |
+|**Servizio Azure Kubernetes - API Kubernetes** | Microsoft.ContainerService/managedClusters    | management |
 |**Ricerca di Azure** | Microsoft.Search/searchService| searchService|  
 |**Registro Azure Container** | Microsoft.ContainerRegistry/registries    | Registro di sistema |
 |**Configurazione app di Azure** | Microsoft.Appconfiguration/configurationStores    | configurationStores |

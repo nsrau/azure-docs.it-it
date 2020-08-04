@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82929758"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543385"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -74,7 +74,7 @@ Per altre informazioni, vedere la sezione relativa alla registrazione di un mode
 ### <a name="profile-models"></a>Modelli di profilo
 
 Azure Machine Learning possono essere utili per comprendere i requisiti di CPU e memoria del servizio che verrà creato durante la distribuzione del modello. Il profiling testa il servizio che esegue il modello e restituisce informazioni quali l'utilizzo della CPU, l'utilizzo della memoria e la latenza della risposta. Fornisce inoltre una raccomandazione per CPU e memoria basata sull'utilizzo delle risorse.
-Per ulteriori informazioni, vedere la sezione relativa alla profilatura di [deploy Models](how-to-deploy-and-where.md#profilemodel).
+Per ulteriori informazioni, vedere la sezione relativa alla profilatura di [deploy Models](how-to-deploy-profile-model.md).
 
 ### <a name="package-and-debug-models"></a>Modelli di pacchetti ed debug
 
@@ -94,16 +94,16 @@ Per altre informazioni su ONNX con Azure Machine Learning, vedere l'articolo [cr
 
 I modelli di apprendimento automatico sottoposti a training vengono distribuiti come servizi Web nel cloud o localmente. È anche possibile distribuire modelli a dispositivi Azure IoT Edge. Le distribuzioni usano CPU, GPU o FPGA (Field-Programmable Gate Array) per l'inferenza. È anche possibile usare i modelli di Power BI.
 
-Quando si usa un modello come servizio Web o IoT Edge dispositivo, vengono forniti gli elementi seguenti:
+Quando si usa un modello come servizio Web o dispositivo IoT Edge, vengono forniti gli elementi seguenti:
 
 * Il modello o i modelli usati per assegnare un punteggio ai dati inviati al servizio o al dispositivo.
 * Uno script di avvio. Questo script accetta le richieste, usa il modello o i modelli per assegnare un punteggio ai dati e restituire una risposta.
 * Un ambiente Azure Machine Learning che descrive le dipendenze PIP e conda richieste dai modelli e dallo script di immissione.
 * Eventuali asset aggiuntivi, ad esempio testo, dati e così via, necessari per i modelli e lo script di immissione.
 
-Viene inoltre fornita la configurazione della piattaforma di distribuzione di destinazione. Ad esempio, il tipo di famiglia di VM, la memoria disponibile e il numero di core quando si esegue la distribuzione nel servizio Azure Kubernetes.
+Viene inoltre specificata la configurazione della piattaforma di distribuzione di destinazione. Ad esempio, il tipo di famiglia di VM, la memoria disponibile e il numero di core quando si esegue la distribuzione nel servizio Azure Kubernetes.
 
-Quando viene creata l'immagine, vengono aggiunti anche i componenti necessari per Azure Machine Learning. Ad esempio, gli asset necessari per eseguire il servizio Web e interagire con IoT Edge.
+Quando viene creata l'immagine vengono aggiunti anche i componenti richiesti da Azure Machine Learning. Ad esempio, gli asset necessari per eseguire il servizio Web e interagire con IoT Edge.
 
 #### <a name="batch-scoring"></a>Assegnazione dei punteggi batch
 Il Punteggio batch è supportato tramite pipeline ML. Per ulteriori informazioni, vedere [stime batch in Big Data](how-to-use-parallel-run-step.md).

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 19b8e91ce85bb80f78ec75ab14332464d6331904
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2c79566f51647492118f307e1c9737b98b1be484
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078145"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543589"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK  
 
@@ -57,7 +57,7 @@ L'immagine seguente illustra alcuni degli oggetti più comuni usati durante lo s
 
 Fare clic sull'immagine per visualizzarla a schermo intero.  
 
-<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+[![Diagramma che illustra alcuni degli oggetti usati più di frequente nel modello di dati degli oggetti di servizi multimediali di Azure per lo sviluppo di applicazioni video on demand.](./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png)](./media/media-services-dotnet-get-started/media-services-overview-object-model.png#lightbox)
 
 È possibile visualizzare il modello completo [qui](https://media.windows.net/API/$metadata?api-version=2.15).  
 

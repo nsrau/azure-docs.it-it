@@ -1,6 +1,6 @@
 ---
 title: Sicurezza dell'infrastruttura di Azure | Microsoft Docs
-description: L'articolo descrive come Microsoft opera per garantire la sicurezza dei data center di Azure.
+description: Informazioni sul funzionamento di Microsoft per la protezione dei Data Center di Azure. I data center vengono gestiti, monitorati e amministrati da operatori Microsoft.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 10aecff797effb5abebea16a18dd4e02f40de326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72595401"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543929"
 ---
 # <a name="azure-infrastructure-security"></a>Sicurezza dell'infrastruttura di Azure
 Microsoft Azure è in esecuzione in data center gestiti da Microsoft. Tali data center, distribuiti geograficamente, sono conformi agli standard di settore, ad esempio ISO/IEC 27001:2013 e NIST SP 800-53, per la sicurezza e l'affidabilità. I data center vengono gestiti, monitorati e amministrati da operatori Microsoft. Tali operatori vantano anni di esperienza nella fornitura dei maggiori servizi online nel mondo, con continuità 24 ore su 24, 7 giorni su 7.

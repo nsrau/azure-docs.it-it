@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9d680283250cc323c833f388f6b20d7fe6fa132d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60e79ecd4148829c38b237c0e28d60796e84ac01
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211052"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543657"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure sinapsi Analytics
 
@@ -38,9 +38,7 @@ Per distribuire il modello sono necessarie le informazioni seguenti:
 
 Dopo aver recuperato le informazioni riportate sopra, distribuire questo modello:
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Immagine che mostra un pulsante con etichetta "Distribuisci in Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json)
 
 Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove risorse: un piano di servizio app di Azure gratuito, un piano di app per le funzioni a consumo e un account di archiviazione che gestisce la registrazione e la coda delle operazioni. Per informazioni su come modificare le funzioni distribuite in base alle esigenze, vedere le altre sezioni.
 
@@ -141,7 +139,7 @@ Questa sezione illustra brevemente gli elementi necessari per ottenere una piani
 
 Eseguire ogni giorno l'aumento delle prestazioni a DW600 alle ore 8 e la riduzione delle prestazioni a DW200 alle ore 20.
 
-| Funzione  | Pianificazione     | Operazione                                |
+| Funzione  | Pianifica     | Operazione                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Funzione 1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
 | Funzione 2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -150,7 +148,7 @@ Eseguire ogni giorno l'aumento delle prestazioni a DW600 alle ore 8 e la riduzio
 
 Eseguire ogni giorno l'aumento delle prestazioni a DW1000 alle ore 8 e la riduzione delle prestazioni a DW600 alle ore 16 e a DW200 alle ore 22.
 
-| Funzione  | Pianificazione     | Operazione                                |
+| Funzione  | Pianifica     | Operazione                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Funzione 1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Funzione 2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -160,7 +158,7 @@ Eseguire ogni giorno l'aumento delle prestazioni a DW1000 alle ore 8 e la riduzi
 
 Eseguire nei giorni feriali l'aumento delle prestazioni a DW1000 alle ore 8 e la riduzione delle prestazioni a DW600 alle ore 16, nonché sospendere alle ore 23 di venerdì e riprendere alle ore 7 di lunedì.
 
-| Funzione  | Pianificazione       | Operazione                                |
+| Funzione  | Pianifica       | Operazione                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Funzione 1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Funzione 2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
