@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4c224f40996625ead4592a3bf50e02f0877c76db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05283c02c2e5f95e22beb6fbeaad7a99e42ee6aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051316"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540836"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -74,7 +74,7 @@ L'app Authenticator consente di impedire l'accesso non autorizzato agli account 
 ![Screenshot di un esempio di prompt del Web browser per la notifica dell'app Authenticator per completare il processo di accesso](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> Se il personale dell'organizzazione lavora o viaggia verso la Cina, il metodo di *notifica tramite l'app per dispositivi mobili* nei dispositivi Android non funziona in quel paese o in quell'area geografica. Per questi utenti è necessario rendere disponibili metodi di autenticazione alternativi.
+> Se l'organizzazione dispone di personale che lavora o viaggia in Cina, la *notifica tramite* il metodo di app per dispositivi mobili nei dispositivi Android non funziona in quel paese/area geografica perché i servizi Google Play (incluse le notifiche push) sono bloccati nell'area. Tuttavia, le notifiche iOS funzionano. Per i dispositivi Android, è necessario rendere disponibili metodi di autenticazione alternativi per tali utenti.
 
 ### <a name="verification-code-from-mobile-app"></a>Codice di verifica dall'app per dispositivi mobili
 

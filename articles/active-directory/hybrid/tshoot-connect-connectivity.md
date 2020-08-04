@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: a329ec32e241d88a56fc7031904777888ac194ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7bc39e409d0ac10e41fae58c5e5216f386427e30
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356407"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541737"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -32,7 +32,7 @@ Azure AD Connect usa l'autenticazione moderna con la libreria ADAL per l'autenti
 
 Questo articolo illustra in che modo Fabrikam si connette ad Azure AD tramite il proxy. Il server proxy è denominato fabrikamproxy e usa la porta 8080.
 
-Prima di tutto è necessario verificare che [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) sia configurato correttamente.
+Prima di tutto è necessario assicurarsi che [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) sia configurato correttamente e che **Microsoft Azure ad servizio di sincronizzazione** sia stato riavviato dopo l'aggiornamento del machine.config file.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -122,7 +122,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
-**Configurare**
+**Configurare un**
 
 | Tempo | URL |
 | --- | --- |

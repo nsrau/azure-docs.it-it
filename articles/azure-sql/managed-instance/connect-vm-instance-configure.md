@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706359"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542654"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Guida introduttiva: configurare una macchina virtuale di Azure per la connessione ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
 
 1. Verificare di essere connessi al portale di Azure in un'altra scheda del browser. Selezionare quindi il pulsante seguente per creare una macchina virtuale client e installare SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Immagine che mostra un pulsante con etichetta "Distribuisci in Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Compilare il modulo usando le informazioni riportate nella tabella seguente:
 
@@ -91,7 +91,7 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
    | **Nome rete virtuale**|Rete virtuale in cui è stata creata l'istanza gestita|
    | **Nome della subnet**|Nome della subnet creata nella procedura precedente| Non scegliere la subnet in cui è stata creata l'istanza gestita.|
    | **artifacts Location** (Posizione elementi) | [deployment().properties.templateLink.uri] | Non modificare questo valore. |
-   | **artifacts location SAS token** (Token di firma di accesso condiviso posizione elementi) | Lasciare vuoto | Non modificare questo valore. |
+   | **artifacts location SAS token** (Token di firma di accesso condiviso posizione elementi) | Lasciare vuoto il campo | Non modificare questo valore. |
 
    ![Creare una VM client](./media/connect-vm-instance-configure/create-client-sql-vm.png)
 

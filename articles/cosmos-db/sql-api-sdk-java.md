@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b8cc0d44c654bd7047bac462ce98126fb4a27334
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461035"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541669"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -260,11 +260,10 @@ Si tratta di Azure Cosmos DB Sync Java SDK v2 per API SQL, che supporta operazio
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata. Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 > [!WARNING]
-> Tutte le versioni **1.x** di SQL SDK per Java verranno ritirate il **30 maggio 2020**. Tutte le versioni dell'SDK per Java di SQL precedenti alla versione **1.0.0** sono state ritirate il **29 febbraio 2016**.
-> 
-> 
+> Dopo il 30 maggio 2020, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni 1. x di Azure Cosmos DB Java SDK per l'API SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1. x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
+>
+> Dopo il 29 febbraio 2016, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni 0. x dell'API Azure Cosmos DB Java SDK per SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 0. x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
 
-<br/>
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |

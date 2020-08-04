@@ -1,6 +1,6 @@
 ---
 title: "Convalida dell'input: Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
+description: Informazioni sulla convalida dell'input nel Threat Modeling Tool. Vedere le informazioni di mitigazione e gli esempi di codice di visualizzazione.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653121"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539799"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Infrastruttura di sicurezza: Convalida dell'input - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |

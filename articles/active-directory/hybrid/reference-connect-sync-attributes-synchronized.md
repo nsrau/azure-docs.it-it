@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1754456873e464e4bd624f47c5ea98e4fb88827
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082119"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542230"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
@@ -52,7 +52,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | assistant |X |X | | |
@@ -165,7 +165,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |sincronizzato una sola volta da Azure AD a Exchange Online dopo il quale Exchange Online diventa l'origine dell'autorità per questo attributo e le eventuali modifiche successive non possono essere sincronizzate dall'ambiente locale. Per ulteriori informazioni, vedere ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |Proprietà meccanica. Paese o area geografica dell'utente. Usato per l'assegnazione delle licenze. |
@@ -175,7 +175,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | authOrig |X |X |X | |
@@ -247,7 +247,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |sincronizzato una sola volta da Azure AD a Exchange Online dopo il quale Exchange Online diventa l'origine dell'autorità per questo attributo e le eventuali modifiche successive non possono essere sincronizzate dall'ambiente locale. Per ulteriori informazioni, vedere ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -257,7 +257,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>Teams e Skype for business online
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -298,14 +298,14 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |sincronizzato una sola volta da Azure AD a Exchange Online dopo il quale Exchange Online diventa l'origine dell'autorità per questo attributo e le eventuali modifiche successive non possono essere sincronizzate dall'ambiente locale. Per ulteriori informazioni, vedere ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)).|
 | title |X |X | | |
 | usageLocation |X | | |Proprietà meccanica. Paese o area geografica dell'utente. Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | cn |X | |X |Nome comune o alias. In genere il prefisso del valore [mail]. |
@@ -320,7 +320,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X | | |Questo nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="intune"></a>Intune
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -377,7 +377,7 @@ Questo gruppo è un set di attributi usati come gli attributi minimi necessari p
 
 Questo gruppo è un set di attributi che può essere usato se non si utilizza la directory di Azure AD per supportare Office 365, Dynamics o Intune. Contiene un piccolo set di attributi principali. Si noti che Single Sign-On o il provisioning per alcune applicazioni di terze parti richiede la configurazione della sincronizzazione degli attributi oltre agli attributi descritti qui. I requisiti dell'applicazione sono descritti nell' [esercitazione sull'app Saas](../saas-apps/tutorial-list.md) per ogni applicazione.
 
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | cn |X | |X | |
@@ -422,7 +422,7 @@ Questi attributi per l' **utente** si aggiungono alle altre app selezionate.
 ## <a name="exchange-hybrid-writeback"></a>Writeback della distribuzione ibrida Exchange
 Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi attributi viene eseguito il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
 
-| Nome attributo (Active Directory locale) | Nome attributo (interfaccia utente di Azure AD Connect) | Utente | Contatto | Gruppo | Commento |
+| Nome attributo (Active Directory locale) | Nome attributo (interfaccia utente di Azure AD Connect) | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivato da cloudAnchor in Azure AD. Si tratta di un nuovo attributo di Exchange 2016 e Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archivio online: consente ai clienti di archiviare la posta elettronica. |

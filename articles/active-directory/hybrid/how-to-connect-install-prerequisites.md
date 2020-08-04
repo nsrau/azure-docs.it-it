@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33b3e406e21f5bc2a4128fdd7dc9930fa3e0c32
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447015"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542060"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -125,6 +125,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
         </system.net>
     ```
 
+* Se la configurazione del proxy viene eseguita in un programma di installazione esistente, è necessario riavviare il **servizio Microsoft Azure ad Sync** per la Azure ad Connect per leggere la configurazione del proxy e aggiornare il behviour. 
 * Quando Azure AD Connect invia una richiesta Web ad Azure AD come parte della sincronizzazione della directory, possono essere necessari fino a 5 minuti per ottenere la risposta da Azure AD. Per i server proxy è frequente la configurazione del timeout di inattività della connessione. Verificare che la configurazione sia impostata su almeno 6 minuti o più.
 
 Per ulteriori informazioni, vedere MSDN sull' [elemento proxy predefinito](https://msdn.microsoft.com/library/kd3cf2ex.aspx).

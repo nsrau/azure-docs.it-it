@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3a5e2c368fd956abb98b2b4c9ccd1060677f3e06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085759"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542739"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Trovare ed eliminare dischi gestiti e non gestiti di Azure che non sono collegati tramite il portale di Azure
 
@@ -27,7 +27,7 @@ Il processo illustrato di seguito spiega come usare il portale di Azure per trov
 
     Nel pannello **Dischi** viene visualizzato un elenco di tutti i dischi. I dischi con il simbolo " **-** " nella colonna **Proprietario** sono dischi non collegati.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![Screenshot del pannello Managed disks, se il disco è presente nella colonna Owner, si tratta di un disco non collegato.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. Selezionare il disco non collegato che si vuole eliminare. Si aprirà il pannello del disco.
 1. Nel pannello del disco è possibile confermare che lo stato del disco è Scollegato, quindi selezionare **Elimina**.

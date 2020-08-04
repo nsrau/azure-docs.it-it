@@ -1,7 +1,7 @@
 ---
 title: Note sulla versione di Microsoft Threat Modeling Tool
 titleSuffix: Azure
-description: Documentazione delle note sulla versione per lo strumento di modellazione delle minacce
+description: Leggere le note sulla versione per tutti gli aggiornamenti del Microsoft Threat Modeling Tool. Vedere un collegamento per il download e i requisiti di sistema.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: jegeib
-ms.openlocfilehash: eea853ec5829eda3f7496439979adae7bb20c639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0db0a68b622b9f4596820918d66860d3ea286981
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80125095"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539068"
 ---
 # <a name="threat-modeling-tool-releases"></a>Versioni di Threat Modeling Tool
 

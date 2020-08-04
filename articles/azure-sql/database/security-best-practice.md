@@ -1,7 +1,7 @@
 ---
 title: PlayBook per soddisfare i requisiti di sicurezza comuni
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: Questo articolo fornisce i requisiti di sicurezza comuni e le procedure consigliate nel database SQL di Azure e in Azure SQL Istanza gestita
+description: Questo articolo fornisce i requisiti di sicurezza comuni e le procedure consigliate nel database SQL di Azure e in Azure SQL Istanza gestita.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371788"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541720"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -255,7 +255,7 @@ Le procedure consigliate seguenti sono facoltative, ma comporteranno una miglior
 - Creare e utilizzare ruoli personalizzati con le autorizzazioni esatte necessarie. Ruoli tipici usati in pratica:
   - Distribuzione della sicurezza
   - Amministratore
-  - Developer
+  - Sviluppo
   - Personale di supporto
   - Revisore
   - Processi automatizzati
@@ -266,7 +266,7 @@ Le procedure consigliate seguenti sono facoltative, ma comporteranno una miglior
 - Tenere presente che le autorizzazioni nel motore di database possono essere applicate all'interno degli ambiti seguenti (minore sarà l'ambito, minore sarà l'effetto delle autorizzazioni concesse):
   - Server (ruoli speciali nel database master) in Azure
   - Database
-  - Schema
+  - SCHEMA
     - È consigliabile utilizzare gli schemi per concedere autorizzazioni all'interno di un database. (vedere anche: [progettazione schema: suggerimenti per la progettazione dello schema tenendo presente la sicurezza](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Oggetto (tabella, vista, procedura e così via)
 
@@ -291,7 +291,7 @@ La separazione dei compiti, detta anche separazione dei compiti, descrive la nec
 - Identificare una gerarchia completa di utenti (e processi automatizzati) che accedono al sistema.
 
 - Creare ruoli in base ai gruppi di utenti necessari e assegnare autorizzazioni ai ruoli.
-  - Per le attività a livello di gestione in portale di Azure o tramite l'automazione di PowerShell usare i ruoli RBAC. Trovare un ruolo predefinito che corrisponda al requisito oppure creare un ruolo personalizzato di Azure usando le autorizzazioni disponibili
+  - Per le attività a livello di gestione in portale di Azure o tramite PowerShell-Automazione usare i ruoli di Azure. Trovare un ruolo predefinito che corrisponda al requisito oppure creare un ruolo personalizzato di Azure usando le autorizzazioni disponibili
   - Creare ruoli del server per attività a livello di server (creazione di nuovi account di accesso, database) in un'istanza gestita.
   - Creare ruoli del database per le attività a livello di database.
 
@@ -318,7 +318,7 @@ La separazione dei compiti, detta anche separazione dei compiti, descrive la nec
 
 - Creare e utilizzare i ruoli definiti dall'utente quando i ruoli predefiniti concedono un numero eccessivo di autorizzazioni o autorizzazioni insufficienti.
 
-- Le assegnazioni di ruolo possono anche essere eseguite temporaneamente, note anche come separazione dinamica dei compiti (DSD), nei passaggi del processo di SQL Agent in T-SQL o usando Azure PIM per i ruoli RBAC.
+- Le assegnazioni di ruolo possono anche essere eseguite temporaneamente, note anche come separazione dinamica dei compiti (DSD), nei passaggi del processo di SQL Agent in T-SQL o usando Azure PIM per i ruoli di Azure.
 
 - Verificare che DBA non dispongano dell'accesso alle chiavi di crittografia o agli archivi di chiavi e che gli amministratori della sicurezza con accesso alle chiavi non dispongano dell'accesso al database a sua volta. L'uso di [Extensible Key Management (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) può rendere la separazione più semplice da raggiungere. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) può essere utilizzato per implementare EKM.
 

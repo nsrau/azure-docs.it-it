@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di nodi multipli per un 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d007ec18a982d5327aa2ea0871bbe88f64786fce
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133096"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542026"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster nel servizio Azure Kubernetes (AKS)
 
@@ -489,6 +489,8 @@ Solo i pod a cui è applicata questa tolleranza possono essere pianificati nei n
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Specificare un Taint, un'etichetta o un tag per un pool di nodi
 
+### <a name="setting-nodepool-taints"></a>Impostazione di nodepool tains
+
 Quando si crea un pool di nodi, è possibile aggiungere macchie, etichette o tag al pool di nodi. Quando si aggiunge un Taint, un'etichetta o un tag, tutti i nodi all'interno del pool di nodi ottengono anche tale macchia, etichetta o tag.
 
 Per creare un pool di nodi con un Taint, usare [AZ AKS nodepool Add][az-aks-nodepool-add]. Specificare il nome *taintnp* e usare il `--node-taints` parametro per specificare *SKU = GPU: NoSchedule* per il Taint.
@@ -532,6 +534,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Le informazioni sulle macchie sono visibili in Kubernetes per la gestione delle regole di pianificazione per i nodi.
 
+### <a name="setting-nodepool-labels"></a>Impostazione delle etichette nodepool
+
 È inoltre possibile aggiungere etichette a un pool di nodi durante la creazione del pool di nodi. Le etichette impostate nel pool di nodi vengono aggiunte a ogni nodo nel pool di nodi. Queste [etichette sono visibili in Kubernetes][kubernetes-labels] per la gestione delle regole di pianificazione per i nodi.
 
 Per creare un pool di nodi con un'etichetta, usare [AZ AKS nodepool Add][az-aks-nodepool-add]. Specificare il nome *labelnp* e utilizzare il `--labels` parametro per specificare *Dept = it* e *CostCenter = 9999* per le etichette.
@@ -574,7 +578,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### <a name="setting-nodepool-azure-tags"></a>Impostazione di tag di Azure nodepool
+
 È possibile applicare un tag di Azure ai pool di nodi nel cluster AKS. I tag applicati a un pool di nodi vengono applicati a ogni nodo all'interno del pool di nodi e vengono salvati in modo permanente tramite aggiornamenti. I tag vengono applicati anche ai nuovi nodi aggiunti a un pool di nodi durante le operazioni di scalabilità orizzontale. L'aggiunta di un tag può essere utile per attività quali il rilevamento dei criteri o la stima dei costi.
+
+I tag di Azure includono chiavi che non fanno distinzione tra maiuscole e minuscole per le operazioni, ad esempio quando si recupera un tag cercando la chiave. In questo caso, un tag con la chiave specificata verrà aggiornato o recuperato indipendentemente dalla combinazione di maiuscole e minuscole. I valori dei tag distinguono tra maiuscole e minuscole
+
+In AKS, se vengono impostati più tag con chiavi identiche, ma con maiuscole e minuscole diverse, il tag usato è il primo in ordine alfabetico. Ad esempio, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` i risultati `Key1` `val1` vengono impostati e.
 
 Creare un pool di nodi usando [AZ AKS nodepool Add][az-aks-nodepool-add]. Specificare il nome *tagnodepool* e usare il `--tag` parametro per specificare *Dept = it* e *CostCenter = 9999* per i tag.
 
@@ -786,7 +796,7 @@ az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodep
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 In questo articolo è stato creato un cluster AKS che include nodi basati su GPU. Per ridurre i costi non necessari, è consigliabile eliminare il *gpunodepool*o l'intero cluster AKS.
 

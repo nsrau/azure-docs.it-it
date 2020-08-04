@@ -1,6 +1,6 @@
 ---
 title: Funzionalità di sicurezza di Azure per la gestione delle identità | Documentazione Microsoft
-description: " Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità. Le soluzioni Microsoft per la gestione delle identità e degli accessi consentono di proteggere l'accesso alle applicazioni e alle risorse nel data center aziendale e nel cloud, abilitando livelli aggiuntivi di convalida, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. "
+description: Informazioni sulle funzionalità di sicurezza principali di Azure che contribuiscono alla gestione delle identità. Vedere informazioni su argomenti come Single Sign-On e proxy inverso.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384532"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542077"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 

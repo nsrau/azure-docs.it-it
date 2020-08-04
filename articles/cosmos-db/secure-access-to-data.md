@@ -6,16 +6,16 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3a9039470c32b89d398dd41e3df99e91c70d913c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023585"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542637"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 
-Questo articolo offre una panoramica della protezione dell'accesso ai dati archiviati in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+Questo articolo fornisce una panoramica della protezione dell'accesso ai dati archiviati in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire accesso ai dati e alle risorse. 
 
@@ -57,7 +57,7 @@ Il processo di rotazione della chiave master è semplice.
 
 ### <a name="code-sample-to-use-a-master-key"></a>Esempio di codice per l'uso di una chiave master
 
-L'esempio di codice seguente illustra come usare un endpoint dell'account Cosmos DB e la chiave master per creare un'istanza di DocumentClient e un database.
+Nell'esempio di codice seguente viene illustrato come usare un endpoint dell'account Cosmos DB e una chiave master per creare un'istanza di un DocumentClient e creare un database:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -69,6 +69,10 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
+
+Nell'esempio di codice seguente viene illustrato come utilizzare l'endpoint dell'account Azure Cosmos DB e la chiave master per creare un'istanza di un `CosmosClient` oggetto:
+
+:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## <a name="resource-tokens"></a>Token delle risorse<a id="resource-tokens"></a>
 

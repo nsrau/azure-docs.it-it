@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e7c0a4cd6e44994c4b002fcc2e5fde441cf22283
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537715"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541652"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Trasformazione UnPivot Azure Data Factory
 
@@ -46,7 +46,7 @@ Scegliere infine l'aggregazione che si desidera usare per i valori trasformati t
 
 Ad esempio, se si trasforma tramite Pivot "Vendite" in base ad "Area" verrebbero generati semplicemente nuovi valori di colonna da ogni valore delle vendite. Ad esempio: "25", "50", "1000",... Tuttavia, se si imposta un valore di prefisso "Sales", "Sales" sarà anteposto ai valori.
 
-<img src="media/data-flow/unpivot3.png" width="400">
+![Immagine che mostra le colonne PO, vendor e Fruit prima e dopo una trasformazione unipivot usando la colonna Fruit come chiave unipivot.](media/data-flow/unpivot3.png)
 
 Impostare la disposizione delle colonne "Normal" (Normale) per raggruppare insieme tutte le colonne trasformate tramite Pivot con i relativi valori aggregati. La disposizione delle colonne "Lateral" (Laterale) consentirà di alternare colonna e valore.
 

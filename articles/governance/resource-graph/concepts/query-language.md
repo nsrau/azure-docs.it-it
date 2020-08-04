@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970451"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541822"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -19,6 +19,7 @@ Questo articolo illustra i componenti del linguaggio supportati da Resource Grap
 - [Tabelle di Resource Graph](#resource-graph-tables)
 - [Elementi di linguaggio personalizzati del grafico risorse](#resource-graph-custom-language-elements)
 - [Elementi supportati del linguaggio KQL](#supported-kql-language-elements)
+- [Ambito della query](#query-scope)
 - [Caratteri di escape](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Tabelle di Resource Graph
@@ -116,6 +117,31 @@ Di seguito è riportato l'elenco degli operatori tabulari di KQL supportati da R
 |[top](/azure/kusto/query/topoperator) |[Mostrare le prime cinque macchine virtuali per nome e tipo di sistema operativo](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Combinare i risultati di due query in un singolo risultato](../samples/advanced.md#unionresults) |Singola tabella consentita: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limite di 3 code `union` in una singola query. La risoluzione fuzzy di tabelle di code `union` non è consentita. Può essere usato all'interno di una singola tabella o tra le tabelle _Resources_ e _ResourceContainers_. |
 |[where](/azure/kusto/query/whereoperator) |[Mostrare le risorse che contengono archivi](../samples/starter.md#show-storage) | |
+
+## <a name="query-scope"></a>Ambito delle query
+
+L'ambito delle sottoscrizioni da cui le risorse vengono restituite da una query dipende dal metodo di accesso al grafico delle risorse. L'interfaccia della riga di comando di Azure e Azure PowerShell popolare l'elenco di sottoscrizioni da includere nella richiesta in base al contesto dell'utente autorizzato. L'elenco delle sottoscrizioni può essere definito manualmente per ogni con le **sottoscrizioni** e i parametri di **sottoscrizione** , rispettivamente.
+Nell'API REST e in tutti gli altri SDK, l'elenco di sottoscrizioni per includere le risorse da deve essere definito in modo esplicito come parte della richiesta.
+
+Come **Anteprima**, la versione dell'API REST `2020-04-01-preview` aggiunge una proprietà per definire l'ambito della query a un [gruppo di gestione](../../management-groups/overview.md). Questa API di anteprima rende inoltre la proprietà della sottoscrizione facoltativa. Se non è stato definito né l'elenco di sottoscrizioni né il gruppo di gestione, l'ambito della query corrisponde a tutte le risorse a cui l'utente autenticato può accedere. La nuova `managementGroupId` proprietà accetta l'ID del gruppo di gestione, che è diverso dal nome del gruppo di gestione.
+Quando `managementGroupId` si specifica, vengono incluse le risorse della prima sottoscrizioni 5000 in o sotto la gerarchia del gruppo di gestione specificata. `managementGroupId`non può essere usato contemporaneamente a `subscriptions` .
+
+Esempio: eseguire una query su tutte le risorse nella gerarchia del gruppo di gestione denominato "My Management Group" con ID "myMG".
+
+- URI DELL'API REST
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  ```
+
+- Request Body
+
+  ```json
+  {
+      "query": "Resources | summarize count()",
+      "managementGroupId": "myMG"
+  }
+  ```
 
 ## <a name="escape-characters"></a>Caratteri di escape
 

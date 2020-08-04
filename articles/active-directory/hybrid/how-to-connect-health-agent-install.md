@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7267da7db91e153190e98b09e9a3c505837bd042
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c709fca3fbddb6fc16699052c5f01d1255c79dd8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446306"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542094"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 
@@ -154,6 +154,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 7. Nel riquadro **Azioni** fare clic su **Modifica proprietà servizio federativo**.
 8. Nella finestra di dialogo **Federation Service Properties** fare clic sulla scheda **Events**.
 9. Selezionare le caselle di controllo **Operazioni riuscite** e Operazioni non riuscite e quindi fare clic su **OK**.
+10. La registrazione dettagliata può essere abilitata tramite PowerShell usando il comando: ```Set-AdfsProperties -LOGLevel Verbose``` .
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Per abilitare il controllo per AD FS in Windows Server 2016
 
@@ -383,7 +384,7 @@ Test-AzureADConnectHealthConnectivity -Role ADFS
 Il parametro role accetta attualmente i valori seguenti:
 
 * AD FS
-* Sincronizza
+* Sincronizzazione
 * ADDS
 
 > [!NOTE]

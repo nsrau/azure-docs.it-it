@@ -1,6 +1,6 @@
 ---
 title: 'Crittografia: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
-description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
+description: Informazioni sulla mitigazione della crittografia per le minacce esposte nel Threat Modeling Tool. Vedere le informazioni di mitigazione e gli esempi di codice di visualizzazione.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: c9116472af5b400ded0fea24f98b07bad9d9039b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68728196"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539952"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastruttura di sicurezza: crittografia - Procedure di mitigazione 
 

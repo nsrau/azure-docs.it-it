@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 499b7348c645f4792332769ac598ffcea07ea102
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098901"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541907"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Ottenere un token per un'app per dispositivi mobili che chiama API Web
 
@@ -221,7 +221,7 @@ Le sezioni seguenti illustrano i parametri facoltativi in MSAL.NET.
 
 Il `WithPrompt()` parametro controlla l'interattività con l'utente specificando una richiesta.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Immagine che mostra i campi nella struttura dei messaggi di richiesta. Questi valori costanti controllano l'interattività con l'utente definendo il tipo di messaggio di richiesta visualizzato dal parametro WithPrompt ().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 La classe definisce le costanti seguenti:
 

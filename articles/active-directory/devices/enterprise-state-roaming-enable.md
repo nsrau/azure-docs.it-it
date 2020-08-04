@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a2f8b69c8ef75be4f9190933969ed20404b5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5f6e44aa89c1e2815d70bb4ba2ae5f5680252ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253002"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541890"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Abilitare Enterprise State Roaming in Azure Active Directory
 
@@ -31,7 +31,7 @@ Quando si abilita il servizio Enterprise State Roaming, all'organizzazione viene
 ## <a name="to-enable-enterprise-state-roaming"></a>Per abilitare Enterprise State Roaming
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com/).
-1. Selezionare **Azure Active Directory** &gt; **Dispositivi** &gt; **Enterprise State Roaming**.
+1. Selezionare **Azure Active Directory**  >  **dispositivi**Azure Active Directory  >  **Enterprise state roaming**.
 1. Selezionare **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](/azure/active-directory/device-management-azure-portal).
   
    ![Immagine dell'impostazione del dispositivo Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -56,7 +56,7 @@ Il valore relativo al paese/all'area geografica viene impostato come parte del p
 Seguire questi passaggi per visualizzare un report di stato della sincronizzazione dei dispositivi per ogni utente.
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com/).
-1. Selezionare **Azure Active Directory** &gt; **Utenti** &gt; **Tutti gli utenti**.
+1. Selezionare **Azure Active Directory**  >  **utenti**  >  **tutti gli utenti**.
 1. Selezionare l'utente e quindi selezionare **Dispositivi**.
 1. In **Mostra** selezionare **Impostazioni di sincronizzazione dispositivi e dati dell'app aziendali** per mostrare lo stato della sincronizzazione.
   
@@ -86,7 +86,7 @@ I dati a cui non è stato eseguito l'accesso per un anno ("periodo di conservazi
 * Se un utente ha disattivato la sincronizzazione delle impostazioni in tutti i dispositivi, non verrà eseguito l'accesso a nessuno dei dati delle impostazioni e tutti i dati delle impostazioni per quell'utente diventeranno obsoleti e potranno essere eliminati dopo il periodo di conservazione. 
 * Se l'amministratore della directory di Azure AD disattiva il servizio Enterprise State Roaming per l'intera directory, tutti gli utenti in tale directory non sincronizzeranno più le impostazioni e tutti i dati delle impostazioni per tutti gli utenti diventeranno obsoleti e potranno essere eliminati allo scadere del periodo di conservazione. 
 
-### <a name="deleted-data-recovery"></a>Recupero di dati eliminati
+### <a name="deleted-data-recovery"></a>Ripristino dei dati eliminati
 
 Il criterio relativo alla conservazione dei dati non può essere configurato. I dati eliminati in modo definitivo non sono recuperabili. Tuttavia, i dati delle impostazioni vengono eliminati solo dal cloud Microsoft e non dal dispositivo dell'utente finale. Se un dispositivo si riconnette successivamente al servizio Enterprise State Roaming, le impostazioni vengono sincronizzate e archiviate di nuovo nel cloud Microsoft.
 

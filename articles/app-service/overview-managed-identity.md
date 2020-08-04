@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3ec80b5d71bbdbf0f1b89606859dcc734d037e5
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415041"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542213"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -314,6 +314,9 @@ Potrebbe essere necessario configurare la risorsa di destinazione per consentire
 
 ### <a name="using-the-rest-protocol"></a>Uso del protocollo API
 
+> [!NOTE]
+> Una versione precedente di questo protocollo, che usa la versione 2017-09-01 dell'API e l'intestazione `secret` anziché `X-IDENTITY-HEADER`, inoltre accetta solo la proprietà `clientid` per le identità assegnate dall'utente. Restituisce inoltre anche `expires_on` in formato timestamp. MSI_ENDPOINT può essere usato come alias per IDENTITY_ENDPOINT e MSI_SECRET può essere usato come alias per IDENTITY_HEADER. Questa versione del protocollo è attualmente necessaria per i piani di hosting a consumo Linux.
+
 Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 - IDENTITY_ENDPOINT: URL del servizio token locale.
@@ -323,8 +326,8 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 > | Nome parametro    | In ingresso     | Descrizione                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | resource          | Query  | URI della risorsa Azure AD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.    |
-> | api-version       | Query  | Versione dell'API del token da usare. Usare la versione 2019-08-01 o versioni successive.                                                                                                                                                                                                                                                                 |
+> | Risorsa          | Query  | URI della risorsa Azure AD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.    |
+> | api-version       | Query  | Versione dell'API del token da usare. Usare "2019-08-01" o versione successiva (a meno che non si usi il consumo di Linux, che attualmente offre solo "2017-09-01", vedere la nota precedente).                                                                                                                                                                                                                                                                 |
 > | X-IDENTITY-HEADER | Intestazione | Valore della variabile di ambiente IDENTITY_HEADER. Questa intestazione viene usata per mitigare gli attacchi SSRF (Server Side Request Forgery).                                                                                                                                                                                                    |
 > | client_id         | Query  | (Facoltativo) ID client dell'identità assegnata dall'utente da usare. Non può essere usato in una richiesta che include `principal_id`, `mi_res_id` o `object_id`. Se vengono omessi tutti i parametri ID (`client_id`, `principal_id`, `object_id` e `mi_res_id`), viene usata l'identità assegnata dal sistema.                                             |
 > | principal_id      | Query  | (Facoltativo) ID entità di sicurezza dell'identità assegnata dall'utente da usare. `object_id` è un alias che può essere usato in alternativa. Non può essere usato in una richiesta che include: client_id, mi_res_id oppure object_id. Se vengono omessi tutti i parametri ID (`client_id`, `principal_id`, `object_id` e `mi_res_id`), viene usata l'identità assegnata dal sistema. |
@@ -335,7 +338,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
-> | Nome proprietà | Descrizione                                                                                                                                                                                                                                        |
+> | Nome proprietà | Description                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.                                                                                                                               |
 > | client_id     | ID client dell'identità usata.                                                                                                                                                                                                       |
@@ -345,9 +348,6 @@ Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà s
 > | token_type    | Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è FBearer. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 
 Questa risposta è uguale alla [risposta per la richiesta del token di accesso da servizio a servizio di Azure AD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
-
-> [!NOTE]
-> Una versione precedente di questo protocollo, che usa la versione 2017-09-01 dell'API e l'intestazione `secret` anziché `X-IDENTITY-HEADER`, inoltre accetta solo la proprietà `clientid` per le identità assegnate dall'utente. Restituisce inoltre anche `expires_on` in formato timestamp. MSI_ENDPOINT può essere usato come alias per IDENTITY_ENDPOINT e MSI_SECRET può essere usato come alias per IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Esempi di protocollo REST
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1e87eec4384887ebd82d5f70c0897add250f31fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6e4ed8514cd99d42790296a58296a73696989b69
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320800"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539136"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -132,7 +132,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
 1. (Facoltativo) Visualizzare le impostazioni di configurazione aggiuntive: altre impostazioni che è possibile usare per controllare meglio il processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati. 
 
-    Configurazioni aggiuntive|Descrizione
+    Configurazioni aggiuntive|Description
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche dei modelli](how-to-configure-auto-train.md#explore-model-metrics).
     Modello esplicativo migliore | Selezionare questa opzione per abilitare o disabilitare per mostrare la spiegazione del modello migliore consigliato.
@@ -222,14 +222,14 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
 
-    Campo| valore
+    Campo| Valore
     ----|----
     Nome| Specificare un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
     Tipo di calcolo| Selezionare il tipo di endpoint da distribuire: *Servizio Azure Kubernetes* o *Istanza di contenitore di Azure*.
     Nome del calcolo| *Solo per il servizio Azure Kubernetes:* Selezionare il nome del cluster del servizio Azure Kubernetes in cui si vuole eseguire la distribuzione.
     Abilita autenticazione | Selezionare questa impostazione per consentire l'autenticazione basata su token o basata su chiave.
-    Usa asset di distribuzione personalizzati| Abilitare questa funzionalità se si desidera caricare lo script di punteggio e il file di ambiente. [Altre informazioni sugli script di punteggio](how-to-deploy-and-where.md#script).
+    Usa asset di distribuzione personalizzati| Abilitare questa funzionalità se si desidera caricare lo script di punteggio e il file di ambiente. [Altre informazioni sugli script di punteggio](how-to-deploy-and-where.md).
 
     >[!Important]
     > I nomi file devono essere inferiori a 32 caratteri e iniziare e terminare con caratteri alfanumerici. Possono includere trattini, caratteri di sottolineatura, punti e caratteri alfanumerici. Gli spazi non sono consentiti.

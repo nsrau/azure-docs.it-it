@@ -3,17 +3,17 @@ title: Crittografare i dischi del sistema operativo usando chiavi gestite dal cl
 description: Informazioni su come crittografare i dischi del sistema operativo usando chiavi gestite dal cliente in Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: 153d27061814969964c9340cd85cad92bfdbc7d2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b9eb401521f6bd81efe3238dc05d07e4554c4f62
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462338"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542421"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Crittografare i dischi del sistema operativo usando chiavi gestite dal cliente in Azure DevTest Labs
 La crittografia lato server (SSE) protegge i dati e consente di soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. SSE crittografa automaticamente i dati archiviati nei dischi gestiti in Azure (dischi del sistema operativo e dati) per impostazione predefinita quando vengono salvati in modo permanente nel cloud. Scopri di più sulla [crittografia del disco](../virtual-machines/windows/disk-encryption.md) in Azure. 
 
-All'interno di DevTest Labs tutti i dischi del sistema operativo e i dischi dati creati come parte di un Lab vengono crittografati usando chiavi gestite dalla piattaforma. Tuttavia, in qualità di proprietario del Lab, è possibile scegliere di crittografare i dischi del sistema operativo della macchina virtuale del Lab usando le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una **chiave gestita dal cliente** da usare per la crittografia dei dati nei dischi del sistema operativo Lab. Per altre informazioni sulla crittografia lato server (SSE) con chiavi gestite dal cliente e altri tipi di crittografia dei dischi gestiti, vedere [chiavi gestite dal cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Vedere anche [restrizioni relative all'uso delle chiavi gestite dal cliente](/virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
+All'interno di DevTest Labs tutti i dischi del sistema operativo e i dischi dati creati come parte di un Lab vengono crittografati usando chiavi gestite dalla piattaforma. Tuttavia, in qualità di proprietario del Lab, è possibile scegliere di crittografare i dischi del sistema operativo della macchina virtuale del Lab usando le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una **chiave gestita dal cliente** da usare per la crittografia dei dati nei dischi del sistema operativo Lab. Per altre informazioni sulla crittografia lato server (SSE) con chiavi gestite dal cliente e altri tipi di crittografia dei dischi gestiti, vedere [chiavi gestite dal cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Vedere anche [restrizioni relative all'uso delle chiavi gestite dal cliente](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 
 > [!NOTE]
@@ -25,21 +25,41 @@ La sezione seguente illustra come un proprietario del Lab può configurare la cr
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-- Il set di crittografia del disco deve trovarsi nella stessa area e nella stessa sottoscrizione del Lab. 
-- Assicurarsi che (proprietario del Lab) disponga almeno di un **accesso a livello di lettura** al set di crittografia del disco che verrà usato per crittografare i dischi del sistema operativo del Lab. Se non è stata impostata una crittografia del disco, seguire questo articolo per [configurare un Key Vault e un set di crittografia del disco](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). 
-- Affinché il Lab possa gestire la crittografia per tutti i dischi del sistema operativo Lab, il proprietario del lab deve concedere in modo esplicito all'identità assegnata dal sistema del Lab l'autorizzazione per la crittografia del disco impostata. Il proprietario del Lab può eseguire questa operazione completando i passaggi seguenti:
-    1. Assicurarsi di essere un membro del [ruolo amministratore accesso utenti](/role-based-access-control/built-in-roles.md#user-access-administrator) a livello di sottoscrizione di Azure, in modo da poter gestire l'accesso utente alle risorse di Azure. 
+1. Se non è stata impostata una crittografia del disco, seguire questo articolo per [configurare un Key Vault e un set di crittografia del disco](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Tenere presente i requisiti seguenti per il set di crittografia del disco: 
+
+    - Il set di crittografia del disco deve trovarsi **nella stessa area e nella stessa sottoscrizione del Lab**. 
+    - Assicurarsi che (proprietario del Lab) disponga almeno di un **accesso a livello di lettura** al set di crittografia del disco che verrà usato per crittografare i dischi del sistema operativo del Lab.  
+2. Affinché il Lab possa gestire la crittografia per tutti i dischi del sistema operativo Lab, il proprietario del lab deve concedere in modo esplicito all' **identità assegnata dal sistema** del Lab l'autorizzazione per la crittografia del disco impostata. Il proprietario del Lab può eseguire questa operazione completando i passaggi seguenti:
+
+    > [!IMPORTANT]
+    > È necessario eseguire questi passaggi per i Lab creati il o dopo il 8/1/2020. Non è necessaria alcuna azione per i Lab creati prima di tale data.
+
+    1. Assicurarsi di essere un membro del [ruolo amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) a livello di sottoscrizione di Azure, in modo da poter gestire l'accesso utente alle risorse di Azure. 
     1. Nella pagina **Set Encryption disk** selezionare controllo di **accesso (IAM)** nel menu a sinistra. 
     1. Selezionare **+ Aggiungi** sulla barra degli strumenti e selezionare **Aggiungi un'assegnazione di ruolo**.  
 
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Aggiungi gestione ruoli-menu":::
-    1. Selezionare il ruolo **Reader** o un ruolo che consente un maggiore accesso. 
+    1. Nella pagina **Aggiungi assegnazione ruolo** selezionare il ruolo **lettore** o un ruolo che consente un maggiore accesso. 
     1. Digitare il nome del Lab per il quale verrà usato il set di crittografia del disco e selezionare il nome del Lab (identità assegnata dal sistema per il Lab) nell'elenco a discesa. 
     
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Selezionare l'identità gestita dal sistema del Lab":::        
     1. Sulla barra degli strumenti selezionare **Salva**. 
 
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Salva assegnazione ruolo":::
+3. Aggiungere l' **identità assegnata dal sistema** Lab al ruolo **collaboratore macchina virtuale** utilizzando la pagina controllo di accesso della **sottoscrizione**  ->  **(IAM)** . I passaggi sono simili a quelli descritti nei passaggi precedenti. 
+
+    > [!IMPORTANT]
+    > È necessario eseguire questi passaggi per i Lab creati il o dopo il 8/1/2020. Non è necessaria alcuna azione per i Lab creati prima di tale data.
+
+    1. Passare alla pagina **sottoscrizione** nel portale di Azure. 
+    1. Selezionare **Controllo di accesso (IAM)** . 
+    1. Selezionare **+ Aggiungi** sulla barra degli strumenti e selezionare **Aggiungi un'assegnazione di ruolo**. 
+    
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Sottoscrizione-pagina controllo di accesso > (IAM)":::
+    1. Nella pagina **Aggiungi assegnazione ruolo** selezionare **collaboratore macchina virtuale** per il ruolo.
+    1. Digitare il nome del Lab e selezionare il **nome del Lab** (identità assegnata dal sistema per il Lab) nell'elenco a discesa. 
+    1. Sulla barra degli strumenti selezionare **Salva**. 
+
 ## <a name="encrypt-lab-os-disks-with-a-customer-managed-key"></a>Crittografare i dischi del sistema operativo Lab con una chiave gestita dal cliente 
 
 1. Nella portale di Azure home page per il Lab selezionare **configurazione e criteri** dal menu a sinistra. 

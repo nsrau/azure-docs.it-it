@@ -5,12 +5,12 @@ description: Informazioni sulle procedure consigliate per l'operatore del cluste
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208058"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542705"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -37,7 +37,9 @@ Container Networking Interface (CNI) è un protocollo indipendente dal fornitore
 
 ![Diagramma che illustra due nodi ognuno dei quali è connesso da bridge a una singola rete virtuale di Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-Per la maggior parte delle distribuzioni di produzione, è consigliabile usare le funzionalità di rete Azure CNI. Questo modello di rete consente di separare il controllo e la gestione delle risorse. Dal punto di vista della sicurezza, è spesso preferibile che siano team diversi a gestire e proteggere tali risorse. Le funzionalità di rete Azure CNI consentono di connettersi a risorse Azure esistenti, a risorse locali o ad altri servizi direttamente tramite gli indirizzi IP assegnati a ogni pod.
+Per le distribuzioni di produzione, kubenet e Azure CNI sono opzioni valide.
+
+Un vantaggio rilevante della rete CNI di Azure per la produzione è il modello di rete che consente di separare il controllo e la gestione delle risorse. Dal punto di vista della sicurezza, è spesso preferibile che siano team diversi a gestire e proteggere tali risorse. Le funzionalità di rete Azure CNI consentono di connettersi a risorse Azure esistenti, a risorse locali o ad altri servizi direttamente tramite gli indirizzi IP assegnati a ogni pod.
 
 Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale si trova in un gruppo di risorse separato rispetto al cluster del servizio Azure Kubernetes. Delegare le autorizzazioni per consentire all'entità servizio del servizio Azure Kubernetes di accedere e gestire queste risorse. L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`

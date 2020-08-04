@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: d3abd6411197c9e7994e9ae642b07e72a0a24735
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ab3d0a4b33bd2e424141adc9f6b8739380c2947b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496288"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542009"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,21 +95,20 @@ La versione con ridondanza della zona dell'architettura a disponibilità elevata
 
 ## <a name="testing-application-fault-resiliency"></a>Test della resilienza degli errori delle applicazioni
 
-La disponibilità elevata è una parte fondamentale del database SQL e della piattaforma SQL Istanza gestita che funziona in modo trasparente per l'applicazione di database. Tuttavia, è possibile che si desideri testare il modo in cui le operazioni di failover automatico avviate durante gli eventi pianificati o non pianificati avranno un effetto su un'applicazione prima di distribuirla nell'ambiente di produzione. È possibile attivare manualmente un failover chiamando un'API speciale per riavviare un database o un pool elastico. Nel caso di un database con ridondanza della zona o di un pool elastico, la chiamata API comporterebbe il reindirizzamento delle connessioni client al nuovo primario in una zona di disponibilità diversa dalla zona di disponibilità della replica primaria precedente. Quindi, oltre a testare il modo in cui il failover influisca sulle sessioni di database esistenti, è anche possibile verificare se le prestazioni end-to-end vengono modificate a causa di modifiche alla latenza di rete. Poiché l'operazione di riavvio è intrusiva e un numero elevato di questi potrebbe sottolineare la piattaforma, viene consentita una sola chiamata di failover ogni 30 minuti per ogni database o pool elastico.
+La disponibilità elevata è una parte fondamentale del database SQL e della piattaforma SQL Istanza gestita che funziona in modo trasparente per l'applicazione di database. Tuttavia, è possibile che si desideri testare il modo in cui le operazioni di failover automatico avviate durante gli eventi pianificati o non pianificati avranno un effetto su un'applicazione prima di distribuirla nell'ambiente di produzione. È possibile attivare manualmente un failover chiamando un'API speciale per riavviare un database, un pool elastico o un'istanza gestita. Nel caso di un database con ridondanza della zona o di un pool elastico, la chiamata API comporterebbe il reindirizzamento delle connessioni client al nuovo primario in una zona di disponibilità diversa dalla zona di disponibilità della replica primaria precedente. Quindi, oltre a testare il modo in cui il failover influisca sulle sessioni di database esistenti, è anche possibile verificare se le prestazioni end-to-end vengono modificate a causa di modifiche alla latenza di rete. Poiché l'operazione di riavvio è intrusiva e un numero elevato di questi potrebbe sottolineare la piattaforma, viene consentita una sola chiamata di failover ogni 30 minuti per ogni database, pool elastico o istanza gestita.
 
 È possibile avviare un failover usando PowerShell, l'API REST o l'interfaccia della riga di comando di Azure:
 
 |Tipo di distribuzione|PowerShell|API REST| Interfaccia della riga di comando di Azure|
 |:---|:---|:---|:---|
-|Database|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover del database](/rest/api/sql/databases(failover)/failover/)|[stato AZ Rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
-|Pool elastico|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover del pool elastico](/rest/api/sql/elasticpools(failover)/failover/)|[stato AZ Rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
+|Database|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover del database](/rest/api/sql/databases(failover)/failover/)|[AZ Rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) può essere usato per richiamare una chiamata API REST dall'interfaccia della riga di comando di Azure|
+|Pool elastico|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover del pool elastico](/rest/api/sql/elasticpools(failover)/failover/)|[AZ Rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) può essere usato per richiamare una chiamata API REST dall'interfaccia della riga di comando di Azure|
 |database SQL|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Istanze gestite-failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[failover AZ SQL mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
-
 > [!IMPORTANT]
-> Il comando di failover non è attualmente disponibile nel livello di servizio di iperscalabilità.
+> Il comando di failover non è disponibile per le repliche secondarie leggibili dei database con iperscalabilità.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Il database SQL di Azure e Azure SQL Istanza gestita offrono una soluzione di disponibilità elevata incorporata che è strettamente integrata con la piattaforma Azure. Dipende da Service Fabric per il rilevamento e il ripristino degli errori, sull'archiviazione BLOB di Azure per la protezione dei dati e su zone di disponibilità per una maggiore tolleranza di errore (come indicato in precedenza nel documento non applicabile al Istanza gestita SQL di Azure). Inoltre, il database SQL e SQL Istanza gestita sfruttano la tecnologia del gruppo di disponibilità Always On dall'istanza di SQL Server per la replica e il failover. La combinazione di queste tecnologie consente alle applicazioni di realizzare in modo completo i vantaggi di un modello di archiviazione mista e supportare i contratti di servizio più complessi.
 

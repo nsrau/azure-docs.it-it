@@ -1,14 +1,14 @@
 ---
 title: Istruzioni per le richieste con limitazioni
 description: Informazioni per il raggruppamento, la distribuzione, l’impaginazione e l’esecuzione di query in parallelo per evitare che le richieste vengano limitate da Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682052"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541839"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Istruzioni per le richieste con limitazioni in Azure Resource Graph
 
@@ -29,6 +29,8 @@ In ogni risposta alle query, Azure Resource Graph aggiunge due intestazioni di l
 
 - `x-ms-user-quota-remaining` (int): quota di risorse rimanenti per l'utente. Questo valore è associato al conteggio delle query.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): durata temporale fino alla reimpostazione del consumo della quota dell'utente.
+
+Quando un'entità di sicurezza ha accesso a più di 5000 sottoscrizioni nell' [ambito di query](./query-language.md#query-scope)del tenant o del gruppo di gestione, la risposta è limitata alle prime 5000 sottoscrizioni e l' `x-ms-tenant-subscription-limit-hit` intestazione viene restituita come `true` .
 
 Per illustrare il funzionamento delle intestazioni, viene ora esaminata una risposta di query con l'intestazione e i valori di `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03`.
 

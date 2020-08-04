@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695a63705cce90bb0bf6b3cf787d9e6481b888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 121bf7ef05c2a5bee621ecddcb40033d54194fac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603894"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542111"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze nel portale di Azure Active Directory
 
@@ -35,7 +35,7 @@ Sono disponibili diversi piani di licenza per il servizio Azure AD, tra cui:
 
 - Azure AD Premium P2
 
-Per informazioni specifiche su ogni piano di licenza e i dettagli relativi alle licenze associate, vedere [quali sono le licenze necessarie?](https://azure.microsoft.com/pricing/details/active-directory/).
+Per informazioni specifiche su ogni piano di licenza e i dettagli relativi alle licenze associate, vedere [quali sono le licenze necessarie?](https://azure.microsoft.com/pricing/details/active-directory/). Per iscriversi a Azure AD piani di licenza Premium, vedere [qui](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 Non tutti i servizi Microsoft sono disponibili in tutte le posizioni. Prima che una licenza possa essere assegnata a un gruppo, è necessario specificare la **Località di utilizzo** per tutti i membri. È possibile impostare questo valore nell'area **Azure Active Directory &gt; Utenti &gt; Profilo &gt; Impostazioni** in Azure AD. Qualsiasi utente la cui località di utilizzo non è specificata eredita il percorso dell'organizzazione Azure AD.
 
@@ -84,7 +84,7 @@ Verificare che chiunque necessiti di usare un servizio Azure AD concesso in lice
     > [!NOTE]
     > Non tutti i servizi Microsoft sono disponibili in tutte le posizioni. Prima che una licenza possa essere assegnata a un utente, è necessario specificare la **Località di utilizzo**. È possibile impostare questo valore nell'area **Azure Active Directory &gt; Utenti &gt; Profilo &gt; Impostazioni** in Azure AD. Qualsiasi utente la cui località di utilizzo non è specificata eredita il percorso dell'organizzazione Azure AD.
 
-1. Selezionare **assegna**.
+1. Selezionare **Assegna**.
 
     L'utente viene aggiunto all'elenco degli utenti con licenza e può accedere ai servizi di Azure AD inclusi.
     > [!NOTE]
@@ -110,7 +110,7 @@ Verificare che chiunque necessiti di usare un servizio Azure AD concesso in lice
 
     La pagina **Assegna licenza** viene aggiornata per indicare che un utente è selezionato e che le assegnazioni sono configurate.
 
-1. Selezionare **assegna**.
+1. Selezionare **Assegna**.
 
     Il gruppo viene aggiunto all'elenco di gruppi con licenza e tutti i membri hanno accesso ai servizi di Azure AD inclusi.
 

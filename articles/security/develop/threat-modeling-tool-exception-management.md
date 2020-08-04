@@ -1,6 +1,6 @@
 ---
 title: 'Gestione delle eccezioni: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
-description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
+description: Informazioni sulla gestione delle eccezioni nel Threat Modeling Tool. Vedere le informazioni di mitigazione e gli esempi di codice di visualizzazione.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 05e9e627afecfc95e03eae39eed1183857df8b4b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650094"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539935"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Infrastruttura di sicurezza: Gestione delle eccezioni | Procedure di mitigazione 
 | Prodotto o servizio | Articolo |

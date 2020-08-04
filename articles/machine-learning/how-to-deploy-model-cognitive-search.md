@@ -10,12 +10,12 @@ ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: c8b25e1d3ef2d2b780d88fbf2ba6c6568b4a804d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59671a0520d665d594356a2e6aee46116a8de5d3
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744703"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541771"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Distribuire un modello da usare con Ricerca cognitiva
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -216,7 +216,7 @@ Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il 
 La configurazione della distribuzione definisce l'ambiente di hosting del servizio Kubernetes di Azure usato per eseguire il servizio Web.
 
 > [!TIP]
-> Se non si è certi delle esigenze di memoria, CPU o GPU della distribuzione, è possibile usare la profilatura per apprendere queste informazioni. Per ulteriori informazioni, vedere [How and where to deploy a Model](how-to-deploy-and-where.md#prepare-to-deploy).
+> Se non si è certi delle esigenze di memoria, CPU o GPU della distribuzione, è possibile usare la profilatura per apprendere queste informazioni. Per ulteriori informazioni, vedere [How and where to deploy a Model](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core.model import Model

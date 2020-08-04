@@ -1,19 +1,19 @@
 ---
 title: Microsoft Threat Modeling Tool versione 11/1/2018
 titleSuffix: Azure
-description: Documentazione delle note sulla versione per lo strumento di modellazione delle minacce
+description: Leggere le note sulla versione per l'aggiornamento di Threat Modeling Tool rilasciato il 11/1/2018. Questa versione non contiene nuove funzionalità o correzioni.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: 3d6057c729b2f3f9d7157e91656db1912422f168
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e48e14c13ef2ff171145022f4eafa6e0f80a9b22
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78269758"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539017"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Aggiornamento di Threat Modeling Tool versione 7.1.51023.1 - 01/11/2018
 
@@ -25,7 +25,7 @@ Come originariamente indicato nelle [note sulla versione GA](threat-modeling-too
 
 ## <a name="feature-changes"></a>Modifiche apportate alle funzionalità
 
-- nessuno
+- Nessuno
 
 ## <a name="system-requirements"></a>Requisiti di sistema
 
