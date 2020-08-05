@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 7aa0889ab95cdac37f9fe0735c7ad58569621059
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf9e403fb8691f378558ef5f0403d132214ed187
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205414"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421774"
 ---
 # <a name="azure-load-balancer-components"></a>Componenti di Azure Load Balancer
 
@@ -75,7 +75,7 @@ Una regola di Load Balancer viene utilizzata per definire il modo in cui il traf
 Ad esempio, usare una regola di bilanciamento del carico per la porta 80 per instradare il traffico dall'IP front-end alla porta 80 delle istanze back-end.
 
 <p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Regole di bilanciamento del carico">
+  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Regole di bilanciamento del carico">
 </p>
 
 *Figura: Regole di bilanciamento del carico*
@@ -97,7 +97,7 @@ La decisione di bilanciamento del carico viene presa per ogni flusso Questa azio
 Le regole di bilanciamento del carico per porte a disponibilità elevata permettono di gestire scenari critici, ad esempio la disponibilità elevata e la scalabilità per appliance di rete virtuali all'interno di reti virtuali. Questa funzionalità può essere utile quando è necessario eseguire il bilanciamento del carico di un numero elevato di porte.
 
 <p align="center">
-  <img src="./media/load-balancer-components/harules.svg" width="512" title="Regole per le porte a disponibilità elevata">
+  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="Regole per le porte a disponibilità elevata">
 </p>
 
 *Figura: Regole per le porte a disponibilità elevata*
@@ -111,7 +111,7 @@ Una regola NAT in ingresso inoltra il traffico in arrivo inviato alla combinazio
 Ad esempio, se si desidera utilizzare le sessioni Remote Desktop Protocol (RDP) o Secure Shell (SSH) per separare le istanze delle macchine virtuali all'interno di un pool back-end. È possibile eseguire il mapping di più endpoint interni a porte sullo stesso indirizzo IP front-end. È possibile usare gli indirizzi IP front-end per gestire in modalità remota le macchine virtuali senza un sistema jump box.
 
 <p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Regole NAT in ingresso">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Regole NAT in ingresso">
 </p>
 
 *Figura: Regole NAT in ingresso*

@@ -3,13 +3,13 @@ title: "Avvio rapido: Distribuire un contenitore Docker in un'istanza di conteni
 description: In questo argomento di avvio rapido viene usata l'interfaccia della riga di comando di Docker per distribuire rapidamente un'app Web che viene eseguita in un'istanza di contenitore di Azure isolata
 ms.topic: quickstart
 ms.date: 07/16/2020
-ms.custom: ''
-ms.openlocfilehash: 684bb3537d26b60afb0fc0796a94e1a134aa50c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0e4569904ef6aee304518ce012889d10dc2ecbce
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100948"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408085"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-docker-cli"></a>Avvio rapido: Distribuire un'istanza di contenitore in Azure con l'interfaccia della riga di comando di Docker
 

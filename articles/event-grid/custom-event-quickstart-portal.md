@@ -3,12 +3,12 @@ title: "Avvio rapido: Inviare eventi personalizzati all'endpoint Web - Griglia d
 description: "Avvio rapido: Usare Griglia di eventi di Azure e il portale di Azure per pubblicare un argomento personalizzato e sottoscrivere gli eventi per tale argomento. Gli eventi sono gestiti da un'applicazione Web."
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 21c3d043925d328c671de19444b0fed1c6950bf1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115231"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421043"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Avvio rapido: Instradare eventi personalizzati all'endpoint Web con il portale di Azure e Griglia di eventi
 
@@ -44,7 +44,8 @@ Un argomento di Griglia di eventi fornisce un endpoint definito dall'utente in c
 5. Al termine della distribuzione, digitare **Argomenti di Griglia di eventi** nella barra di ricerca e selezionare **Argomenti di Griglia di eventi** nell'elenco a discesa come è stato fatto in precedenza. 
 6. Selezionare l'argomento creato dall'elenco. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selezionare l'argomento dall'elenco":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selezionare l'argomento dall'elenco":::
+
 7. Verrà visualizzata la pagina **Argomento di Griglia di eventi** relativa all'argomento. Tenere aperta questa pagina. Verrà usata in seguito nell'argomento di avvio rapido. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Home page di Argomento di Griglia di eventi":::
@@ -54,7 +55,7 @@ Prima di creare una sottoscrizione per l'argomento personalizzato, creare un end
 
 1. Nella pagina dell'articolo selezionare **Distribuisci in Azure** per distribuire la soluzione nella sottoscrizione. Nel portale di Azure specificare i valori per i parametri.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 1. Per il completamento della distribuzione possono essere necessari alcuni minuti. Dopo il completamento della distribuzione, visualizzare l'app Web per assicurarsi che sia in esecuzione. In un Web browser passare a: `https://<your-site-name>.azurewebsites.net`
 
     Se la distribuzione non riesce, controllare il messaggio di errore. È possibile che il nome del sito Web sia già stato scelto da altri utenti. Distribuire di nuovo il modello e scegliere un nome diverso per il sito. 
