@@ -7,7 +7,7 @@
       href: overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -377,6 +377,8 @@
           href: partner-itsme.md
         - name: LexisNexis
           href: partner-lexisnexis.md
+        - name: Onfido
+          href: partner-onfido.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio

@@ -4,7 +4,7 @@ summary: La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantagg
 brand: azure
 metadata:
   title: Documentazione sulla sicurezza di Azure
-  description: La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusivi relativi alla sicurezza, derivanti da un intelligence globale per la sicurezza, controlli relativi ai clienti e un'infrastruttura con protezione avanzata. Questa combinazione avanzata contribuisce alla protezione delle applicazioni e dei dati e al supporto del lavoro richiesto per la conformità e offre una sicurezza a costi contenuti per organizzazioni di qualsiasi dimensione.
+  description: Informazioni sulla sicurezza in Azure. Informazioni su concetti di base, procedure consigliate e modelli di sicurezza, oltre che su Centro sicurezza di Azure.
   services: security
   ms.service: security
   ms.subservice: na
@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
-  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.openlocfilehash: de2b3baae0ab999c0e3eb8ed76194632e7b066e6
+  ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/10/2020
-  ms.locfileid: "81115371"
+  ms.lasthandoff: 08/03/2020
+  ms.locfileid: "87540853"
 highlightedContent:
   items:
   - title: Introduzione alla sicurezza di Azure

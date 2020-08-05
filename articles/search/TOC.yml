@@ -7,7 +7,7 @@
       href: search-what-is-azure-search.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Portale
       items:
@@ -335,6 +335,8 @@
           items:
             - name: Chiavi gestite dal cliente
               href: search-security-manage-encryption-keys.md
+            - name: Ottenere informazioni sulle chiavi
+              href: search-security-get-encryption-keys.md
         - name: Sicurezza in ingresso
           items:
             - name: Chiavi di accesso API

@@ -2,16 +2,16 @@
   items:
     - name: Panoramica
       items:
-        - name: HPC per VM serie H
+        - name: HPC per VM serie H e serie N
           href: overview.md
     - name: Configurazione
       items:
-        - name: Ottimizzazione per Linux
+        - name: Configurare e ottimizzare le macchine virtuali
           href: configure.md
         - name: Abilitare InfiniBand
           href: enable-infiniband.md
-    - name: Configurare MPI
-      href: setup-mpi.md
+        - name: Configurare MPI
+          href: setup-mpi.md
     - name: Ridimensionamento delle applicazioni
       href: compiling-scaling-applications.md
     - name: Macchine virtuali
@@ -28,5 +28,5 @@
               href: hc-series-overview.md
             - name: Prestazioni
               href: hc-series-performance.md
-        - name: Problemi noti relativi alle macchine virtuali delle serie HB e HC
+        - name: Problemi noti delle VM serie H e serie N
           href: hb-hc-known-issues.md

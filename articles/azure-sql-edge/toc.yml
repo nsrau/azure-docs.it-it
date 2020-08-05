@@ -8,7 +8,9 @@
       href: features.md
     - name: Note sulla versione
       href: release-notes.md
-- name: Avvii rapidi
+    - name: Raccolta di dati di utilizzo e diagnostica
+      href: usage-and-diagnostics-data-configuration.md
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Distribuire SQL Edge

@@ -91,7 +91,7 @@
       items:
         - name: Panoramica dell'accesso con privilegi
           href: groups-features.md
-        - name: Individuare i gruppi
+        - name: Inserire i gruppi nella gestione
           href: groups-discover-groups.md
         - name: Assegnare un membro o un proprietario
           href: groups-assign-member-owner.md

@@ -8,7 +8,7 @@
       href: introduction.md
     - name: Confrontare la versione corrente con la versione 1
       href: compare-versions.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare una data factory - Interfaccia utente
@@ -726,6 +726,8 @@
           href: pricing-concepts.md
     - name: Guide alla risoluzione dei problemi
       items:
+        - name: Esperienza utente di Data Factory
+          href: data-factory-ux-troubleshoot-guide.md
         - name: attività
           href: data-factory-troubleshoot-guide.md
         - name: Connettori

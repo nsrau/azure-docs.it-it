@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: f3603bf8afdcd990144897113f4e8506629f60a3
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429744"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543402"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: Eseguire il training e la distribuzione di un modello dall'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -383,7 +383,7 @@ Questo comando distribuisce un nuovo servizio denominato `myservice`, usando la 
 
 Nel file `inferenceConfig.yml` vengono fornite informazioni su come usare il modello per l'inferenza. Ad esempio, fa riferimento allo script di immissione (`score.py`) e alle dipendenze software.
 
-Per altre informazioni sulla struttura di questo file, vedere [Schema di configurazione dell'inferenza](reference-azure-machine-learning-cli.md#inference-configuration-schema). Per altre informazioni sugli script di immissione, vedere [Distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+Per altre informazioni sulla struttura di questo file, vedere [Schema di configurazione dell'inferenza](reference-azure-machine-learning-cli.md#inference-configuration-schema). Per altre informazioni sugli script di immissione, vedere [Distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 Il file `aciDeploymentConfig.yml` descrive l'ambiente di distribuzione usato per ospitare il servizio. La configurazione della distribuzione è specifica del tipo di calcolo usato per la distribuzione. In questo caso, viene usata un'istanza di Azure Container. Per altre informazioni, vedere [Schema di configurazione della distribuzione](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 

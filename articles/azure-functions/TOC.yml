@@ -10,7 +10,7 @@
       href: functions-compare-logic-apps-ms-flow-webjobs.md
     - name: Opzioni del piano di hosting
       href: functions-scale.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare una funzione
@@ -345,8 +345,8 @@
       items:
         - name: Risolvere i problemi relativi alle risorse di archiviazione
           href: functions-recover-storage-account.md
-        - name: Risolvere i problemi delle dipendenze di Python
-          href: recover-module-not-found.md
+        - name: Risolvere i problemi delle funzioni Python
+          href: recover-python-functions.md
 - name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sulle API

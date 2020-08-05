@@ -15,28 +15,6 @@
 - name: Esercitazioni
   expanded: true
   items:
-    - name: Studio
-      expanded: true
-      items:
-        - name: Finestra di progettazione (trascinamento della selezione)
-          items:
-            - name: 1. Eseguire il training di un modello di regressione
-              displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. Distribuire il modello
-              displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
-        - name: ML automatizzato (interfaccia utente)
-          items:
-            - name: Creare esperimenti di Machine Learning automatizzato
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-first-experiment-automated-ml.md
-            - name: Prevedere la domanda (dati sul bike sharing)
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-automated-ml-forecast.md
-        - name: Etichettare i dati delle immagini
-          displayName: 'tag, tagging, images'
-          href: tutorial-labeling.md
     - name: Python SDK
       expanded: true
       items:
@@ -64,11 +42,33 @@
         - name: Preparare il codice per la produzione
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
+    - name: Studio
+      expanded: true
+      items:
+        - name: ML automatizzato (interfaccia utente)
+          items:
+            - name: Creare esperimenti di Machine Learning automatizzato
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-first-experiment-automated-ml.md
+            - name: Prevedere la domanda (dati sul bike sharing)
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-automated-ml-forecast.md
+        - name: Finestra di progettazione (trascinamento della selezione)
+          items:
+            - name: 1. Eseguire il training di un modello di regressione
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 2. Distribuire il modello
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: Etichettare i dati delle immagini
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: R SDK
       items:
         - name: Creare il primo esperimento di Machine Learning (R)
           href: tutorial-1st-r-experiment.md
-    - name: Interfaccia della riga di comando di Machine Learning
+    - name: CLI
       items:
         - name: Eseguire il training e la distribuzione con l'interfaccia della riga di comando
           href: tutorial-train-deploy-model-cli.md
@@ -226,9 +226,6 @@
         - name: Usare pacchetti Python privati
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-private-python-packages.md
-        - name: Abilitazione della registrazione
-          displayName: 'troubleshoot, log, files, tracing'
-          href: how-to-enable-logging.md
         - name: Impostare le directory di input e output
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
@@ -309,8 +306,12 @@
             - name: 'Avviare, monitorare o annullare esecuzioni'
               displayName: 'cancel, fail, status, child run'
               href: how-to-manage-runs.md
-            - name: Registrare le metriche per le esecuzioni di training
+            - name: Abilitare i log
+              displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
+            - name: Visualizzare i log
+              displayName: 'troubleshoot, log, files, tracing'
+              href: how-to-monitor-view-training-logs.md
             - name: Tenere traccia di esperimenti con MLflow
               displayName: 'log, monitor, metrics, Databricks'
               href: how-to-use-mlflow.md
@@ -363,7 +364,7 @@
         - name: Dove e come eseguire la distribuzione
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Scenari di distribuzione
+        - name: Destinazioni della distribuzione
           items:
             - name: Usare i modelli esistenti
               displayName: publish existing model
@@ -394,19 +395,37 @@
               href: how-to-deploy-fpga-web-service.md
         - name: Risolvere i problemi ed eseguire il debug
           href: how-to-troubleshoot-deployment.md
-        - name: Creare client
+        - name: Usare un servizio Web
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Monitorare i modelli
+        - name: Aggiornare un servizio Web
+          displayName: update hot reload model mounting
+          href: how-to-deploy-update-web-service.md
+        - name: Creazione avanzata di script di immissione
+          displayName: swagger inference schema binary cors
+          href: how-to-deploy-advanced-entry-script.md
+        - name: Monitorare i servizi Web
           items:
             - name: Raccogliere e valutare i dati dei modelli
               displayName: track production
               href: how-to-enable-data-collection.md
             - name: Monitorare con Application Insights
               href: how-to-enable-app-insights.md
+        - name: Modelli di distribuzione continua
+          displayName: ci cd azure devops models
+          href: how-to-deploy-continuously-deploy.md
         - name: Distribuire il servizio di inferenza crittografato
           displayName: 'homomorhic,encryption,deployment'
           href: how-to-homomorphic-encryption-seal.md
+        - name: Modelli di profilo
+          displayName: profile resource requirement
+          href: how-to-deploy-profile-model.md
+        - name: Nessuna distribuzione di codice (anteprima)
+          displayName: no code
+          href: how-to-deploy-no-code-deployment.md
+        - name: Modelli di pacchetto
+          displayName: docker file download
+          href: how-to-deploy-package-models.md
     - name: Creare e usare le pipeline di Machine Learning
       displayName: pipelines
       items:
@@ -423,6 +442,9 @@
           href: how-to-debug-pipelines.md
         - name: Debug delle pipeline in Application Insights
           href: how-to-debug-pipelines-application-insights.md
+        - name: Metriche di log della finestra di progettazione
+          displayName: 'designer, logging'
+          href: how-to-track-designer-experiments.md
         - name: Trasformare i dati con la finestra di progettazione
           displayName: pipeline
           href: how-to-designer-transform-data.md

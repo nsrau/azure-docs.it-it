@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 19b39cbba137a1ca66405873f56f565b7fbc8ae9
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: f3d934a0f357cc98731b51c5abe61fff92cda3e5
+  ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87079282"
+  ms.lasthandoff: 08/04/2020
+  ms.locfileid: "87562583"
 landingContent:
 - title: Informazioni su Backup di Azure
   linkLists:
@@ -116,7 +116,7 @@ landingContent:
       url: backup-azure-manage-mars.md
     - text: Matrice di supporto per l'agente MARS
       url: backup-support-matrix-mars-agent.md
-    - text: Domande frequenti - Agente di Servizi di ripristino di Microsoft Azure
+    - text: Domande frequenti - Agente MARS
       url: backup-azure-file-folder-backup-faq.md
 - title: Eseguire il backup con il Server di Backup di Microsoft Azure e DPM
   linkLists:
