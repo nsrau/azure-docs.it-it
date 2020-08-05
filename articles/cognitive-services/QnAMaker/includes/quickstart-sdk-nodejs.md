@@ -3,12 +3,13 @@ title: 'Avvio rapido: Libreria client di QnA Maker per Node.js'
 description: Questo argomento di avvio rapido illustra come usare la libreria client di QnA Maker per Node.js.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 7b3c5e69e820951896cb00b82295dc07ba698c94
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 76d0587c68ac46253dbd937c661b06bdb8c495c8
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114538"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404082"
 ---
 Usare la libreria client di QnA Maker per Node.js per eseguire queste operazioni:
 
@@ -70,7 +71,7 @@ Creare una variabile per la chiave di Azure della risorsa e il nome della risors
 > [!IMPORTANT]
 > Passare al portale di Azure e individuare la chiave e l'endpoint per la risorsa QnA Maker creata nei prerequisiti. Si trovano nella pagina **Chiave ed endpoint** della risorsa, in **Gestione risorse**.
 > Per creare la knowledge base, è necessaria l'intera chiave. È necessario solo il nome della risorsa dall'endpoint. Il formato è `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`.
-> Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) fornisce un'archiviazione sicura per le chiavi.
+> Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Ad esempio, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) fornisce una risorsa di archiviazione sicura per le chiavi.
 
 [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Resourcevariables)]
 
