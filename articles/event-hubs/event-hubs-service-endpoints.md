@@ -3,12 +3,12 @@ title: Endpoint servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. EventHub a una rete virtuale.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420456"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554074"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da reti virtuali specifiche 
 
@@ -31,6 +31,7 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 > I servizi Microsoft seguenti devono essere in una rete virtuale
 > - App Web di Azure
 > - Funzioni di Azure
+> - Monitoraggio di Azure (impostazioni di diagnostica)
 
 
 > [!IMPORTANT]

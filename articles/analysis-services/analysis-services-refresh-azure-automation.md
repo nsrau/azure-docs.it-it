@@ -2,16 +2,16 @@
 title: Aggiornare i modelli di Azure Analysis Services con automazione di Azure | Microsoft Docs
 description: Questo articolo descrive come codificare gli aggiornamenti dei modelli per Azure Analysis Services usando automazione di Azure.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 5314c933b01a1fb9c4ea9902a6fbb698c104d195
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025405"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553904"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
@@ -19,7 +19,7 @@ Usando automazione di Azure e manuali operativi di PowerShell, è possibile eseg
 
 L'esempio in questo articolo usa il [modulo di PowerShell SqlServer](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido.  L'esempio in questo articolo usa un'entità servizio (SPN) per eseguire l'autenticazione Azure Analysis Services. Per altre informazioni, vedere [creare un'entità servizio usando portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -143,7 +143,7 @@ L' **URL** è l'URL creato dal webhook.
 Il **corpo** è un documento JSON che deve contenere le proprietà seguenti:
 
 
-|Proprietà  |Valore  |
+|Proprietà  |valore  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nome del database di Azure Analysis Services <br/> Esempio: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/         |

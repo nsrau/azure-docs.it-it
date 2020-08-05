@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d7aab7f5db6256d2f2525ff4a58c10ff5aa517f7
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999582"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553173"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Panoramica-autenticazione Active Directory Domain Services locale su SMB per le condivisioni file di Azure
 
@@ -46,6 +46,8 @@ Prima di abilitare l'autenticazione di servizi di dominio Active Directory per l
     È possibile abilitare la funzionalità in un ambiente AD DS locale nuovo o esistente. Le identità usate per l'accesso devono essere sincronizzate con Azure AD. Il tenant Azure AD e la condivisione file a cui si accede devono essere associati alla stessa sottoscrizione.
 
 - Aggiungere un dominio a un computer locale o una macchina virtuale di Azure in servizi di dominio Active Directory locale. Per informazioni su come aggiungere un dominio, vedere [aggiungere un computer a un dominio](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+
+    Se il computer non è aggiunto a un dominio di servizi di dominio Active Directory, potrebbe essere comunque possibile utilizzare le credenziali di Active Directory per l'autenticazione se il computer ha una visione del controller di dominio di Active Directory.
 
 - Selezionare o creare un account di archiviazione di Azure.  Per ottenere prestazioni ottimali, si consiglia di distribuire l'account di archiviazione nella stessa area del client da cui si prevede di accedere alla condivisione. Quindi, [montare la condivisione file di Azure](storage-how-to-use-files-windows.md) con la chiave dell'account di archiviazione. Il montaggio con la chiave dell'account di archiviazione verifica la connettività.
 

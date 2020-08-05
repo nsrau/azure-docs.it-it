@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 'Creare una VM: interfaccia della riga di comando di Azure'
@@ -352,7 +352,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza e criteri
           href: security-policy.md
@@ -372,7 +372,7 @@
     - name: Monitoraggio
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Backup e ripristino
-      href: backup-recovery.md
+      href: ../backup-recovery.md
     - name: Cloud Adoption Framework
       href: /azure/cloud-adoption-framework/get-started/
     - name: Centro architetture

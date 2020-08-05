@@ -3,12 +3,12 @@ title: Agente di Servizi di ripristino di Microsoft Azure (MARS) – domande fre
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c4494b09a5cf838aae3dde01c1268042929ef213
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533581"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563101"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Domande frequenti-agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -19,6 +19,12 @@ Questo articolo risponde a domande comuni sul backup dei dati con l'agente di Se
 ### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Dove è possibile scaricare la versione più recente dell'agente MARS?
 
 L'agente MARS più recente usato per il backup di computer Windows Server, System Center DPM e Backup di Microsoft Azure server è disponibile per il [download](https://aka.ms/azurebackup_agent).
+
+### <a name="where-can-i-download-the-vault-credentials-file"></a>Dove è possibile scaricare il file dell'insieme di credenziali?
+
+Nella portale di Azure passare alle **Proprietà** dell'insieme di credenziali. In **credenziali di backup**selezionare la casella di controllo per **usare già l'agente di servizi di ripristino più recente**. Selezionare **Download**.
+
+![Scaricare le credenziali](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Per quanto tempo sono valide le credenziali dell'insieme di credenziali?
 
@@ -74,7 +80,7 @@ Quando si rinomina un computer Windows, tutti i backup attualmente configurati v
 
 * È necessario registrare il nuovo nome del computer con l'insieme di credenziali per il backup.
 * Quando si registra il nuovo nome con l'insieme di credenziali, la prima operazione è un backup *completo* .
-* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per eseguire il ripristino in un percorso alternativo nella procedura guidata Ripristina dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per eseguire il ripristino in un percorso alternativo nella procedura guidata Ripristina dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Qual è la lunghezza massima del percorso file per il backup?
 
@@ -106,7 +112,7 @@ La dimensione della cartella della cache determina la quantità di dati di cui s
 1. Per impostazione predefinita, la cartella Scratch si trova in`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verificare che il percorso della cartella dei file temporanei corrisponda ai valori delle voci della chiave del registro di sistema mostrate di seguito:
 
-    | Percorso del Registro | Chiave del Registro di sistema | Valore |
+    | Percorso del Registro | Chiave del Registro di sistema | valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
@@ -121,7 +127,7 @@ La dimensione della cartella della cache determina la quantità di dati di cui s
 4. Copiare l'intera `\Scratch` cartella in un'altra unità con spazio sufficiente. Verificare che il contenuto venga copiato, non spostato.
 5. Aggiornare le voci del registro di sistema seguenti con il percorso della cartella Scratch appena spostata.
 
-    | Percorso del Registro | Chiave del Registro di sistema | Valore |
+    | Percorso del Registro | Chiave del Registro di sistema | valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso cartella Scratch* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso cartella Scratch* |
@@ -157,7 +163,7 @@ La cartella della cache e il VHD dei metadati non hanno gli attributi necessari 
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>È possibile modificare la quantità di larghezza di banda usata per il backup?
 
-Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-windows-with-mars-agent.md#enable-network-throttling).
+Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-windows-with-mars-agent.md#enable-network-throttling)
 
 ## <a name="restore"></a>Restore
 
@@ -174,7 +180,7 @@ L'agente di backup di Azure richiede una passphrase (fornita durante la registra
 
 Prendere in considerazione le condizioni seguenti:
 
-* Se si disinstalla e si registra di nuovo l'agente nello stesso computer originale con te
+* Se si disinstalla e si registra di nuovo l'agente nello stesso computer originale con il
   * *Stessa passphrase*, è possibile ripristinare i dati di cui è stato eseguito il backup.
   * *Passphrase diversa*, quindi non è possibile ripristinare i dati di cui è stato eseguito il backup.
 * Se si installa l'agente in un *computer diverso* con il

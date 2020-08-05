@@ -7,19 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501492"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553955"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
 
-Questo articolo descrive le principali funzionalità di sicurezza di Azure ricerca cognitiva che possono proteggere il contenuto e le operazioni. 
+Questo articolo descrive le principali funzionalità di sicurezza di Azure ricerca cognitiva che possono proteggere il contenuto e le operazioni.
 
-+ A livello di archiviazione, la crittografia dei dati inattivi è a livello di piattaforma, ma ricerca cognitiva offre anche chiavi gestite dal cliente tramite Azure Key Vault per un ulteriore livello di crittografia.
++ A livello di archiviazione, la crittografia dei dati inattivi è incorporata per tutti i contenuti gestiti dal servizio salvati su disco, inclusi indici, mappe sinonimi e definizioni di indicizzatori, origini dati e skillsets. Azure ricerca cognitiva supporta anche l'aggiunta di chiavi gestite dal cliente (CMK) per la crittografia supplementare del contenuto indicizzato. Per i servizi creati dopo il 1 2020 agosto, la crittografia CMK estende ai dati nei dischi temporanei per la crittografia completa del contenuto indicizzato.
 
 + La sicurezza in ingresso protegge l'endpoint del servizio di ricerca a livelli di sicurezza crescenti: dalle chiavi API della richiesta, alle regole in ingresso nel firewall, agli endpoint privati che proteggono completamente il servizio dalla rete Internet pubblica.
 
@@ -29,29 +30,41 @@ Guarda questo video veloce per una panoramica dell'architettura della sicurezza 
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
+<a name="encryption"></a>
+
 ## <a name="encrypted-transmissions-and-storage"></a>Trasmissioni e archiviazione crittografate
 
-La crittografia è Pervasive in Azure ricerca cognitiva, a partire da connessioni e trasmissioni, estendendo al contenuto archiviato su disco. Per i servizi di ricerca sulla rete Internet pubblica, Azure ricerca cognitiva è in ascolto sulla porta HTTPS 443. Tutte le connessioni da client a servizio utilizzano la crittografia TLS 1,2. Le versioni precedenti (1,0 o 1,1) non sono supportate.
+In Azure ricerca cognitiva la crittografia inizia con connessioni e trasmissioni e si estende ai contenuti archiviati su disco. Per i servizi di ricerca sulla rete Internet pubblica, Azure ricerca cognitiva è in ascolto sulla porta HTTPS 443. Tutte le connessioni da client a servizio utilizzano la crittografia TLS 1,2. Le versioni precedenti (1,0 o 1,1) non sono supportate.
 
-### <a name="data-encryption-at-rest"></a>Crittografia dei dati inattivi
+Per i dati gestiti internamente dal servizio di ricerca, nella tabella seguente vengono descritti i [modelli di crittografia dei dati](../security/fundamentals/encryption-atrest.md#data-encryption-models). Alcune funzionalità, ad esempio archivio informazioni, arricchimento incrementale e indicizzazione basata su indicizzatore, lettura o scrittura in strutture di dati di altri servizi di Azure. Questi servizi hanno i propri livelli di supporto della crittografia separati da Azure ricerca cognitiva.
 
-Azure ricerca cognitiva archivia le definizioni degli indici e il contenuto, le definizioni delle origini dati, le definizioni degli indicizzatori, le definizioni di competenze e le mappe sinonimi.
+| Modello | Chiavi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisiti&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrizioni | Si applica a |
+|------------------|-------|-------------|--------------|------------|
+| crittografia lato server | Chiavi gestite da Microsoft | Nessuno (predefinito) | Nessuno, disponibile in tutti i livelli, in tutte le aree, per il contenuto creato dopo il 24 2018 gennaio. | Contenuto (mappe indici e sinonimi) e definizioni (indicizzatori, origini dati, skillsets) |
+| crittografia lato server | chiavi gestite dal cliente | Insieme di credenziali chiave di Azure | Disponibile nei livelli fatturabili, in tutte le aree, per il contenuto creato dopo il 2019 gennaio. | Contenuto (mappe indici e sinonimi) sui dischi dati |
+| crittografia doppia lato server | chiavi gestite dal cliente | Insieme di credenziali chiave di Azure | Disponibile su livelli fatturabili, in aree selezionate, nei servizi di ricerca dopo il 1 2020 agosto. | Contenuto (mappe indici e sinonimi) su dischi dati e dischi temporanei |
 
-Attraverso il livello di archiviazione, i dati vengono crittografati su disco usando chiavi gestite da Microsoft. Non è possibile attivare o disattivare la crittografia o visualizzare le impostazioni di crittografia nel portale o a livello di codice. La crittografia è completamente interna, senza alcun effetto misurabile sul tempo di indicizzazione o sulle dimensioni degli indici. Viene applicata automaticamente a tutta l'indicizzazione, inclusi gli aggiornamenti incrementali di un indice non completamente crittografato (creato prima di gennaio 2018).
+### <a name="service-managed-keys"></a>Chiavi gestite dal servizio
 
-Internamente la crittografia si basa su [Crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md), con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit.
+La crittografia gestita dal servizio è un'operazione interna di Microsoft, basata su [crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md), che usa la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)a 256 bit. Si verifica automaticamente in tutte le indicizzazione, inclusi gli aggiornamenti incrementali degli indici che non sono completamente crittografati (creati prima del gennaio 2018).
 
-> [!NOTE]
-> La crittografia dei servizi inattivi è stata annunciata il 24 gennaio 2018 e si applica a tutti i livelli di servizio, incluso il livello gratuito, in tutte le aree. Per la crittografia completa, gli indici creati prima di tale data devono essere eliminati e ricompilati per poter applicare la crittografia. In caso contrario, vengono crittografati solo i nuovi dati aggiunti dopo il 24 gennaio.
+### <a name="customer-managed-keys-cmk"></a>Chiavi gestite dal cliente (CMK)
 
-### <a name="customer-managed-key-cmk-encryption"></a>Crittografia della chiave gestita dal cliente (CMK)
+Le chiavi gestite dal cliente richiedono un servizio fatturabile aggiuntivo, Azure Key Vault, che può trovarsi in un'area diversa, ma nella stessa sottoscrizione di Azure ricerca cognitiva. L'abilitazione della crittografia CMK aumenterà le dimensioni degli indici e diminuirà le prestazioni di query. In base alle osservazioni date, è possibile prevedere un aumento del 30%-60% nei tempi di esecuzione delle query, anche se le prestazioni effettive variano a seconda della definizione dell'indice e dei tipi di query. A causa di questo effetto sulle prestazioni, si consiglia di abilitare questa funzionalità solo negli indici che lo richiedono effettivamente. Per altre informazioni, vedere [configurare le chiavi di crittografia gestite dal cliente in Azure ricerca cognitiva](search-security-manage-encryption-keys.md).
 
-I clienti che desiderano una protezione aggiuntiva dell'archiviazione possono crittografare i dati e gli oggetti prima che vengano archiviati e crittografati su disco. Questo approccio si basa su una chiave di proprietà dell'utente, gestita e archiviata tramite Azure Key Vault, indipendentemente da Microsoft. La crittografia del contenuto prima che venga crittografata su disco è detta "crittografia doppia". Attualmente, è possibile crittografare in modo selettivo gli indici e le mappe sinonimi. Per altre informazioni, vedere [chiavi di crittografia gestite dal cliente in Azure ricerca cognitiva](search-security-manage-encryption-keys.md).
+<a name="double-encryption"></a>
 
-> [!NOTE]
-> La crittografia CMK è disponibile a livello generale per i servizi di ricerca creati dopo il 2019 gennaio. Non è supportato nei servizi gratuiti (Shared). 
->
->L'abilitazione di questa funzionalità aumenterà le dimensioni degli indici e diminuirà le prestazioni delle query. In base alle osservazioni date, è possibile prevedere un aumento del 30%-60% nei tempi di esecuzione delle query, anche se le prestazioni effettive variano a seconda della definizione dell'indice e dei tipi di query. A causa di questo effetto sulle prestazioni, si consiglia di abilitare questa funzionalità solo negli indici che lo richiedono effettivamente.
+### <a name="double-encryption"></a>Crittografia doppia 
+
+In Azure ricerca cognitiva la crittografia doppia è un'estensione di CMK. Si tratta di una crittografia a due riduzioni (una volta per CMK e di nuovo da chiavi gestite dal servizio) e di un ambito completo, che include l'archiviazione a lungo termine scritta in un disco dati e l'archiviazione a breve termine scritta nei dischi temporanei. La differenza tra CMK prima del 1 2020 agosto e dopo e che rende CMK una doppia funzionalità di crittografia in Azure ricerca cognitiva è la crittografia aggiuntiva dei dati inattivi sui dischi temporanei.
+
+La crittografia doppia è attualmente disponibile nei nuovi servizi creati in queste aree dopo il 1 ° agosto:
+
++ Stati Uniti occidentali 2
++ Stati Uniti orientali
++ Stati Uniti centro-meridionali
++ US Gov Virginia
++ US Gov Arizona
 
 <a name="service-access-and-authentication"></a>
 
@@ -107,7 +120,7 @@ Il modo in cui un utente accede a un indice e altri oggetti è determinato dal t
 
 Se è necessario un controllo granulare per utente sui risultati della ricerca, è possibile creare filtri di sicurezza nelle query, restituendo i documenti associati a una determinata identità di sicurezza. Anziché i ruoli predefiniti e le assegnazioni di ruolo, il controllo degli accessi in base all'identità viene implementato come un *filtro* che elimina i risultati della ricerca di documenti e contenuti in base alle identità. La tabella seguente descrive due approcci per limitare i risultati della ricerca di contenuto non autorizzato.
 
-| Approccio | Descrizione |
+| Approccio | Description |
 |----------|-------------|
 |[Limitazione per motivi di sicurezza in base ai filtri delle identità](search-security-trimming-for-azure-search.md)  | Documenta il flusso di lavoro di base per implementare il controllo di accesso dell'identità utente. Illustra l'aggiunta di ID di sicurezza a un indice e quindi illustra l'applicazione di filtri a tale campo per limitare i risultati di contenuto non consentito. |
 |[Limitazione per motivi di sicurezza in base alle identità di Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Questo articolo è un approfondimento dell'articolo precedente e contiene la procedura per recuperare le identità da Azure Active Directory (AAD), uno dei [servizi gratuiti](https://azure.microsoft.com/free/) della piattaforma cloud Azure. |

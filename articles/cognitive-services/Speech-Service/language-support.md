@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457805"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554057"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -161,7 +161,7 @@ Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.m
 |         |                                 | Female | `zh-CN-XiaoyouNeural`    | Voce infantile, ottimizzata per la narrazione di storie |
 |         |                                 | Male   | `zh-CN-YunyangNeural`    | Ottimizzata per la lettura di notizie, più stili vocali disponibili |
 |         |                                 | Male   | `zh-CN-YunyeNeural`      | Ottimizzata per la narrazione di storie |
-| `zh-HK` | Cinese (cantonese, tranditional)   | Female | `zh-HK-HiuGaaiNeural`| Generale |
+| `zh-HK` | Cinese (cantonese, tradizionale)   | Female | `zh-HK-HiuGaaiNeural`| Generale |
 | `zh-TW` | Cinese (mandarino taiwanese)   | Female | `zh-TW-HsiaoYuNeural`    | Generale |
 
 > [!IMPORTANT]

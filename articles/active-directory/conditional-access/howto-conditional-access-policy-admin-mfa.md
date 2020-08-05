@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/03/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a2830db6132e665d3f876a535fb645e936971b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cc38e576f53c3623bacc374a00adcb4cced01517
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283062"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552884"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accesso condizionale: Richiedi autenticazione a più fattori per gli amministratori
 
@@ -65,6 +65,10 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
       * Amministratore della sicurezza
       * Amministratore di SharePoint
       * Amministratore utenti
+   
+      > [!WARNING]
+      > I criteri di accesso condizionale non supportano gli utenti assegnati a un ruolo della directory [con ambito a un'unità amministrativa](../users-groups-roles/roles-admin-units-assign-roles.md) o a ruoli della directory con ambito diretto a un oggetto, ad esempio tramite [ruoli personalizzati](../users-groups-roles/roles-create-custom.md).
+
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
    1. Selezionare **Operazione completata**.
 1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Tutte le app Cloud** e quindi **Chiudi**.

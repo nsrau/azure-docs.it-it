@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 31df880d9d6d586491d115d9b70de9f85bc980b2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502920"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552476"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Conteggi in Machine Learning automatizzato
 
@@ -45,7 +45,7 @@ Per gli esperimenti configurati con Python SDK, è possibile abilitare o disabil
 
 Nella tabella seguente vengono illustrate le impostazioni accettate per `featurization` nella [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configurazione di conteggi | Descrizione|
+|Configurazione di conteggi | Description|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Specifica che, come parte della pre-elaborazione, [i passaggi per i dati Guardrails e conteggi](#featurization) devono essere eseguiti automaticamente. È l'impostazione predefinita.|
 |`"featurization": 'off'`| Specifica che i passaggi di conteggi non devono essere eseguiti automaticamente.|
@@ -60,7 +60,7 @@ Nella tabella seguente sono riepilogate le tecniche applicate automaticamente ai
 > [!NOTE]
 > Se si prevede di esportare i modelli creati da AutoML in un [modello ONNX](concept-onnx.md), nel formato ONNX sono supportate solo le opzioni conteggi indicate con un asterisco ("*"). Altre informazioni sulla [conversione di modelli in ONNX](concept-automated-ml.md#use-with-onnx).
 
-|&nbsp;Procedura conteggi| Descrizione |
+|&nbsp;Procedura conteggi| Description |
 | ------------- | ------------- |
 |**Elimina la cardinalità elevata o nessuna funzionalità di varianza*** |Eliminare queste funzionalità dai set di training e di convalida. Si applica alle funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità elevata (ad esempio, hash, ID o GUID).|
 |**Imputare i valori mancanti*** |Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
@@ -161,7 +161,7 @@ text_transformations_used
 > [!NOTE]
 > La nostra implementazione di BERT limita la lunghezza totale del testo di un campione di training a 128 token. Ciò significa che tutte le colonne di testo concatenate devono avere una lunghezza massima di 128 token. Idealmente, se sono presenti più colonne, ogni colonna deve essere eliminata in modo tale che questa condizione venga soddisfatta. Se, ad esempio, sono presenti due colonne di testo nei dati, entrambe le colonne di testo devono essere eliminate ogni 64 token (presupponendo che entrambe le colonne siano ugualmente rappresentate nella colonna di testo concatenata finale) prima di inserire i dati in AutoML. Per le colonne concatenate di lunghezza >token 128, il livello tokenizer di BERT tronca questo input a 128 token.
 
-3. Nel passaggio della funzionalità di sweep, AutoML confronta BERT con la linea di base (elenco di parole funzionalità + incorporamenti di parole con training) su un campione dei dati e determina se BERT darebbe miglioramenti all'accuratezza. Se determina che il BERT garantisce prestazioni migliori rispetto alla linea di base, AutoML usa quindi BERT per il testo conteggi come strategia conteggi ottimale e procede con conoscenze l'intero dato. In tal caso, nel modello finale viene visualizzato "PretrainedTextDNNTransformer".
+3. Nel passaggio feature sweeping, AutoML confronta BERT con la baseline (Bag of Words features) in un campione dei dati e determina se BERT darebbe miglioramenti di precisione. Se determina che il BERT garantisce prestazioni migliori rispetto alla linea di base, AutoML usa quindi BERT per il testo conteggi come strategia conteggi ottimale e procede con conoscenze l'intero dato. In tal caso, nel modello finale viene visualizzato "PretrainedTextDNNTransformer".
 
 BERT viene generalmente eseguito più a lungo rispetto alla maggior parte degli altri featurizers. È possibile velocizzare l'elaborazione offrendo più risorse di calcolo nel cluster. AutoML distribuirà il training BERT tra più nodi, se disponibili, fino a un massimo di 8 nodi. Questa operazione può essere eseguita impostando [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) su un valore maggiore di 1. Per ottenere prestazioni ottimali, è consigliabile usare SKU con funzionalità RDMA, ad esempio "STANDARD_NC24r" o "STANDARD_NC24rs_V3".
 

@@ -10,7 +10,7 @@
       href: environment/intro.md
     - name: Confrontare le opzioni di hosting
       href: /azure/architecture/guide/technology-choices/compute-decision-tree
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un'app .NET Core
@@ -74,7 +74,7 @@
       href: operating-system-functionality.md
     - name: Procedura consigliate per la distribuzione
       href: deploy-best-practices.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Consigli
           href: security-recommendations.md
@@ -84,6 +84,9 @@
           href: overview-patch-os-runtime.md
         - name: Criteri di sicurezza integrati
           href: app-service-security-controls.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Panoramica della sicurezza
           href: overview-security.md
     - name: Funzionalità di rete

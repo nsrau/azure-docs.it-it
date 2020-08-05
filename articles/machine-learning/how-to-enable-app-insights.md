@@ -11,17 +11,17 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e12c22d56399ce1690bee678623c58288cf0163b
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423814"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552204"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere dati da endpoint servizio Web di ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come raccogliere e monitorare i modelli distribuiti negli endpoint dei servizi Web in Azure Kubernetes Service (AKS) o nelle istanze di contenitore di Azure (ACI) abilitando applicazione Azure Insights tramite 
+Questo articolo illustra come raccogliere e monitorare i modelli distribuiti negli endpoint dei servizi Web in Azure Kubernetes Service (AKS) o istanze di contenitore di Azure eseguendo query sui log e abilitando applicazione Azure Insights tramite 
 * [Python SDK di Azure Machine Learning](#python)
 * [Azure Machine Learning Studio](#studio) allehttps://ml.azure.com
 
@@ -42,6 +42,18 @@ Oltre a raccogliere i dati di output e la risposta di un endpoint, è possibile 
 
 * Un modello di training di Machine Learning da distribuire nel servizio Azure Kubernetes o nel servizio Azure Container. Se non si dispone di un, vedere l'esercitazione [Train image classification Model](tutorial-train-models-with-aml.md)
 
+## <a name="query-logs-for-deployed-models"></a>Log di query per i modelli distribuiti
+
+Per recuperare i log da un servizio Web distribuito in precedenza, caricare il servizio e usare la funzione `get_logs()`. Il log può contenere informazioni dettagliate sugli errori che si sono verificati durante la distribuzione.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
 ## <a name="web-service-metadata-and-response-data"></a>Metadati del servizio Web e dati di risposta
 
 > [!IMPORTANT]
@@ -50,6 +62,7 @@ Oltre a raccogliere i dati di output e la risposta di un endpoint, è possibile 
 Per registrare le informazioni per una richiesta al servizio Web, aggiungere `print` istruzioni al file score.py. Ogni `print` istruzione restituisce una voce della tabella di traccia in Application Insights, sotto il messaggio `STDOUT` . Il contenuto dell' `print` istruzione sarà contenuto in `customDimensions` , quindi `Contents` nella tabella di traccia. Se si stampa una stringa JSON, viene prodotta una struttura di dati gerarchica nell'output di traccia in `Contents` .
 
 È possibile eseguire query direttamente in applicazione Azure Insights per accedere a questi dati oppure configurare un' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) in un account di archiviazione per un periodo di conservazione più lungo o un'ulteriore elaborazione. È quindi possibile usare i dati del modello nella Azure Machine Learning per configurare l'assegnazione di etichette, la ripetizione del training, la spiegazione, l'analisi dei dati o altro uso. 
+
 
 <a name="python"></a>
 
@@ -164,7 +177,7 @@ Per visualizzarli:
 1. Passare all'area di lavoro Azure Machine Learning in [Studio](https://ml.azure.com/).
 1. Selezionare **Endpoint**.
 1. Selezionare il servizio distribuito.
-1. Scorrere verso il basso per trovare l' **url Application Insights** e fare clic sul collegamento.
+1. Scorrere verso il basso per trovare l' **URL del Application Insights** e selezionare il collegamento.
 
     [![Individuare l'URL Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 

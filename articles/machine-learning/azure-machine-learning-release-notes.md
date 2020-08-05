@@ -9,18 +9,45 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 8546b74401a291a29493164f8b5bebc7d67a9b6f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b1f45cad5def0e7d9a576a05299b065705ff3e30
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531116"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553444"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2020-08-03"></a>2020-08-03
+
+### <a name="azure-machine-learning-sdk-for-python-v1110"></a>SDK di Azure Machine Learning per Python v 1.11.0
+
++ **Correzioni di bug e miglioramenti**
+  + **azure-cli-ml**
+    + Correzione del Framework del modello e del Framework del modello non passati nell'oggetto Run nel percorso di registrazione del modello CLI
+    + Correzione dell'interfaccia della riga di comando amlcompute Identity show per visualizzare l'ID tenant e l'ID entità 
+  + **azureml-train-automl-client**
+    + Aggiunta get_best_child () a AutoMLRun per il recupero della migliore esecuzione figlio per un'esecuzione AutoML senza scaricare il modello associato.
+    + Aggiunta dell'oggetto ModelProxy che consente l'esecuzione di stime o previsioni in un ambiente di training remoto senza scaricare il modello localmente.
+    + Le eccezioni non gestite in AutoML ora puntano a una pagina HTTP relativa ai problemi noti, in cui è possibile trovare altre informazioni sugli errori.
+  + **azureml-core**
+    + I nomi dei modelli possono avere una lunghezza di 255 caratteri.
+    + Environment. get_image_details () restituisce il tipo di oggetto modificato. `DockerImageDetails`classe sostituita `dict` , i dettagli dell'immagine sono disponibili dalle nuove proprietà della classe. Le modifiche sono compatibili con le versioni precedenti.
+    + Correzione del bug per Environment. from_pip_requirements () per mantenere la struttura delle dipendenze
+    + Correzione di un bug in cui log_list avrebbe esito negativo se nella stessa lista sono inclusi int e Double.
+    + Quando si Abilita il collegamento privato in un'area di lavoro esistente, tenere presente che se sono presenti destinazioni di calcolo associate all'area di lavoro, tali destinazioni non funzioneranno se non si trovano dietro la stessa rete virtuale dell'endpoint privato dell'area di lavoro.
+    + Reso `as_named_input` facoltativo quando si usano i set di impostazioni negli esperimenti e si aggiungono `as_mount` e `as_download` a `FileDataset` . Il nome di input verrà generato automaticamente `as_mount` se `as_download` viene chiamato o.
+  + **azureml-automl-core**
+    + Le eccezioni non gestite in AutoML ora puntano a una pagina HTTP relativa ai problemi noti, in cui è possibile trovare altre informazioni sugli errori.
+    + Aggiunta get_best_child () a AutoMLRun per il recupero della migliore esecuzione figlio per un'esecuzione AutoML senza scaricare il modello associato.
+    + Aggiunta dell'oggetto ModelProxy che consente l'esecuzione di stime o previsioni in un ambiente di training remoto senza scaricare il modello localmente.
+  + **azureml-pipeline-steps**
+    + Aggiunta `enable_default_model_output` `enable_default_metrics_output` di e flag a `AutoMLStep` . Questi flag possono essere utilizzati per abilitare o disabilitare gli output predefiniti.
+
 
 ## <a name="2020-07-20"></a>2020-07-20
 
@@ -110,7 +137,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
   + **azureml-train-automl-runtime**
     + Aggiunta della disponibilità limitata di conteggi distribuiti con più GPU e multiGPU con BERT.
     + Aggiunta della gestione degli errori per i pacchetti incompatibili nelle esecuzioni automatiche di Machine Learning basate su ADB.
-  + **azureml-widgets**
+  + **azureml-widget**
     + Aggiornamenti del documento per azureml-widget.
 
   
@@ -767,7 +794,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
   + **azureml-core**
     + Ottenere l'utilizzo di base corrente e la limitazione delle quote per le risorse di AmlCompute in una determinata area di lavoro e sottoscrizione
   
-  + **azureml-contrib-pipeline-steps**
+  + **azureml-contrib-pipeline-passaggi**
     + Consentire all'utente di passare il set di dati tabulare come risultato intermedio dal passaggio precedente a parallelrunstep
 
 + **Correzioni di bug e miglioramenti**

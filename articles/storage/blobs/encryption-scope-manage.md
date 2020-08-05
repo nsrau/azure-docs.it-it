@@ -1,20 +1,20 @@
 ---
 title: Creare e gestire gli ambiti di crittografia (anteprima)
-description: ''
+description: Informazioni su come creare un ambito di crittografia per isolare i dati BLOB a livello di contenitore o BLOB.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f589f0108cf21e77be5103afcaa0242c6f191ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531879"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564147"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Creare e gestire gli ambiti di crittografia (anteprima)
 
@@ -24,7 +24,7 @@ Questo articolo illustra come creare un ambito di crittografia. Viene inoltre il
 
 ## <a name="create-an-encryption-scope"></a>Creare un ambito di crittografia
 
-Per creare un ambito di crittografia, è necessario creare prima di tutto un insieme di credenziali delle chiavi di Azure e aggiungere la chiave che si intende usare per l'ambito. Per l'insieme di credenziali delle chiavi devono essere abilitate le proprietà di protezione **eliminazione** temporanea e **ripulitura** e deve trovarsi nella stessa area dell'account di archiviazione. Per altre informazioni, vedere [Usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di Archiviazione di Azure](../common/encryption-customer-managed-keys.md).
+È possibile creare ambiti di crittografia con una chiave gestita da Microsoft o con una chiave gestita dal cliente archiviata in Azure Key Vault. Per creare un ambito di crittografia con una chiave gestita dal cliente, è necessario creare prima di tutto un insieme di credenziali delle chiavi di Azure e aggiungere la chiave che si intende usare per l'ambito. Per l'insieme di credenziali delle chiavi devono essere abilitate le proprietà di protezione **eliminazione** temporanea e **ripulitura** e deve trovarsi nella stessa area dell'account di archiviazione. Per altre informazioni, vedere [Usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di Archiviazione di Azure](../common/encryption-customer-managed-keys.md).
 
 Un ambito di crittografia viene abilitato automaticamente al momento della creazione. Dopo aver creato l'ambito di crittografia, è possibile specificarlo quando si crea un BLOB. È anche possibile specificare un ambito di crittografia predefinito quando si crea un contenitore, che viene applicato automaticamente a tutti i BLOB nel contenitore.
 

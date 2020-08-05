@@ -1,19 +1,19 @@
 ---
 title: "Concetti: mapping dei modelli nel connettore Azure Internet per FHIR (anteprima) funzionalità dell'API di Azure per FHIR"
-description: Informazioni su come creare due tipi di modelli di mapping nel connettore Azure per FHIR (anteprima). Il modello di mapping dei dispositivi trasforma i dati del dispositivo in uno schema normalizzato. Il modello di mapping di FHIR trasforma un messaggio normalizzato in una risorsa di osservazione basata su FHIR.
+description: Informazioni su come creare due tipi di modelli di mapping nel connettore Azure per FHIR (anteprima). Il modello di mapping del dispositivo trasforma i dati del dispositivo in uno schema normalizzato. Il modello di mapping FHIR trasforma un messaggio normalizzato in una risorsa di osservazione basata su FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: cc8b7d46e1018974c6a88cef9e4f4a9f9a09caa7
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513350"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553648"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Connettore Azure per i modelli di mapping di FHIR (anteprima)
 Questo articolo illustra come configurare il connettore Azure per FHIR * usando i modelli di mapping.
@@ -25,7 +25,7 @@ I modelli di mapping sono composti in un documento JSON basato sul tipo. Questi 
 > [!NOTE]
 > I modelli di mapping vengono archiviati in un archivio BLOB sottostante e caricati dal BLOB per ogni esecuzione di calcolo. Una volta aggiornati, i risultati dovrebbero essere applicati immediatamente. 
 
-## <a name="device-mapping"></a>Mapping del dispositivo
+## <a name="device-mapping"></a>Mapping dispositivo
 Il mapping dei dispositivi fornisce funzionalità di mapping per estrarre il contenuto del dispositivo in un formato comune per un'ulteriore valutazione. Ogni messaggio ricevuto viene valutato rispetto a tutti i modelli. Questo approccio consente di proiettare un singolo messaggio in ingresso in più messaggi in uscita, che in seguito vengono mappati a osservazioni diverse in FHIR. Il risultato è un oggetto dati normalizzato che rappresenta il valore o i valori analizzati dai modelli. Il modello di dati normalizzato ha alcune proprietà obbligatorie che devono essere trovate ed estratte:
 
 | Proprietà | Descrizione |
@@ -332,7 +332,7 @@ Quando si usa questo modello, il presupposto è che i messaggi valutati siano st
 }
 ```
 
-## <a name="fhir-mapping"></a>Mapping di FHIR
+## <a name="fhir-mapping"></a>Mapping FHIR
 Una volta che il contenuto del dispositivo è stato estratto in un modello normalizzato, i dati vengono raccolti e raggruppati in base all'identificatore del dispositivo, al tipo di misurazione e al periodo di tempo. L'output di questo raggruppamento viene inviato per la conversione in una risorsa FHIR ([osservazione](https://www.hl7.org/fhir/observation.html) attualmente). Il modello di mapping di FHIR controlla il modo in cui viene eseguito il mapping dei dati in un'osservazione di FHIR. È necessario creare un'osservazione per un momento specifico o per un periodo di un'ora? Quali codici devono essere aggiunti all'osservazione? Il valore deve essere rappresentato come [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) o [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)? Questi tipi di dati sono tutte opzioni dei controlli di configurazione del mapping di FHIR.
 
 ### <a name="codevaluefhirtemplate"></a>CodeValueFhirTemplate
@@ -565,7 +565,7 @@ Rappresenta il tipo di dati FHIR di [CodeableConcept](http://hl7.org/fhir/dataty
 Vedere le domande frequenti sul connettore Azure per FHIR (anteprima).
 
 >[!div class="nextstepaction"]
->[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md#iot-connector-preview)
+>[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
 * Nel portale di Azure, il connettore Azure per FHIR viene indicato come connettore Internet (anteprima).
 

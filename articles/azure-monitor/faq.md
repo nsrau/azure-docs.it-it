@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318114"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563841"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -121,7 +121,7 @@ Un gruppo di azioni è una raccolta di notifiche e di azioni che vengono attivat
 
 
 ### <a name="what-is-an-action-rule"></a>Che cos'è una regola di azione?
-Una regola di azione consente di modificare il comportamento di un set di avvisi che soddisfano determinati criteri. In questo modo, è possibile soddisfare determinati requisiti, ad esempio la disabilitazione delle azioni di avviso quando è attiva una finestra di manutenzione. È anche possibile applicare un gruppo di azioni a un set di avvisi anziché applicarlo direttamente alle regole di avviso. Vedere [Regole di azione](platform/alerts-action-rules.md).
+Una regola di azione consente di modificare il comportamento di un set di avvisi che soddisfano determinati criteri. Questo consente di eseguire tali requisiti come disabilitare le azioni di avviso durante una finestra di manutenzione. È anche possibile applicare un gruppo di azioni a un set di avvisi anziché applicarlo direttamente alle regole di avviso. Vedere [Regole di azione](platform/alerts-action-rules.md).
 
 ## <a name="agents"></a>Agenti
 
@@ -137,7 +137,7 @@ L'estensione diagnostica di Azure è destinata alle macchine virtuali di Azure e
 Il traffico verso Monitoraggio di Azure usa il circuito ExpressRoute di peering Microsoft. Per una descrizione dei diversi tipi di traffico ExpressRoute, vedere la [documentazione di ExpressRoute](../expressroute/expressroute-faqs.md#supported-services). 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>Come è possibile verificare se l’agente di Log Analytics è in grado di comunicare con Monitoraggio di Azure?
-Nel pannello di controllo del computer dell’agente selezionare **Security & Settings** (Sicurezza e impostazioni), **Microsoft Monitoring Agent**. Nella scheda **Azure Log Analytics (OMS)** , la presenza di un’icona segno di spunta verde conferma che l’agente è in grado di comunicare con Monitoraggio di Azure. Un’icona di avviso gialla significa che l’agente incontra problemi nella comunicazione. Spesso il motivo è che il servizio **Microsoft Monitoring Agent** è stato arrestato. Usare Gestione controllo servizi per riavviare il servizio.
+Nel pannello di controllo del computer agente selezionare **impostazioni & sicurezza**, * * Microsoft Monitoring Agent. Nella scheda **Azure Log Analytics (OMS)** , la presenza di un’icona segno di spunta verde conferma che l’agente è in grado di comunicare con Monitoraggio di Azure. Un’icona di avviso gialla significa che l’agente incontra problemi nella comunicazione. Spesso il motivo è che il servizio **Microsoft Monitoring Agent** è stato arrestato. Usare Gestione controllo servizi per riavviare il servizio.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Come si arresta la comunicazione tra l’agente di Log Analytics e Monitoraggio di Azure?
 Per gli agenti connessi direttamente a Log Analytics, aprire il Pannello di controllo e selezionare **Security & Settings** (Sicurezza e impostazioni), **Microsoft Monitoring Agent**. Nella scheda **Azure Log Analytics (OMS)** rimuovere tutte le aree di lavoro elencate. In System Center Operations Manager, rimuovere il computer dall'elenco di computer gestiti da Log Analytics. Operations Manager aggiorna la configurazione dell'agente affinché non invii altri report a Log Analytics. 
@@ -207,7 +207,7 @@ Progettazione visualizzazioni è disponibile solo per gli utenti con autorizzazi
 * [Configurare un server ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurare un server Java](app/java-agent.md)
 
-*Quanti servizi Application Insights è necessario distribuire?:*
+*Il numero di risorse Application Insights da distribuire:*
 
 * [Come progettare la distribuzione di Application Insights: Una a molte risorse di Application Insights?](app/separate-resources.md)
 
@@ -272,7 +272,7 @@ Non è consigliabile usare questo metodo per popolare la versione dell'API. La v
 
 Un'app desktop che è possibile usare nel server Web IIS per configurare Application Insights nelle app Web. Non raccoglie dati di telemetria: è possibile interromperlo se non si sta configurando un'app. 
 
-[Altre informazioni](app/monitor-performance-live-website-now.md#questions).
+[Altre informazioni](app/monitor-performance-live-website-now.md#questions)
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>Quali dati di telemetria vengono raccolti da Application Insights?
 
@@ -315,7 +315,7 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 
 * Telemetria del browser: viene raccolto l'indirizzo IP del mittente.
 * Telemetria del server: viene raccolto l'indirizzo IP del client. L'indirizzo non viene raccolto se è impostato `X-Forwarded-For`.
-* Per altre informazioni sulla modalità di raccolta dei dati relativi a indirizzi IP e georilevazione in Application Insights, fare riferimento a questo [articolo](./app/ip-collection.md).
+* Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione in Application Insights fare riferimento a questo [articolo](./app/ip-collection.md).
 
 
 È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/posts/2016-07-05-client-ip-address/)
@@ -509,6 +509,15 @@ Quasi tutti i dati di Application Insights hanno una latenza inferiore a 5 minut
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>Le risposte HTTP 502 e 503 non vengono sempre acquisite da Application Insights
+
+gli errori "502 gateway non valido" e "503 servizio non disponibile" non vengono sempre acquisiti da Application Insights. Se per il monitoraggio è usato solo JavaScript sul lato client, questo comportamento è previsto perché la risposta di errore viene restituita prima della pagina contenente l'intestazione HTML con il rendering del frammento JavaScript di monitoraggio sottoposto a rendering. 
+
+Se la risposta 502 o 503 è stata inviata da un server con monitoraggio lato server abilitato, gli errori verranno raccolti da Application Insights SDK. 
+
+Tuttavia, esistono ancora casi in cui anche quando il monitoraggio lato server è abilitato nel server Web di un'applicazione che non viene acquisito da Application Insights un errore 502 o 503. Molti server Web moderni non consentono a un client di comunicare direttamente, ma utilizzano soluzioni come i proxy inversi per passare le informazioni tra il client e i server Web front-end. 
+
+In questo scenario è possibile che a un client venga restituita una risposta 502 o 503 a causa di un problema al livello del proxy inverso e che questa non venga acquisita in modo predefinito da Application Insights. Per consentire il rilevamento di problemi a questo livello, potrebbe essere necessario inviare i log dal proxy inverso a Log Analytics e creare una regola personalizzata per verificare la presenza di 502/503 risposte. Per ulteriori informazioni sulle cause comuni degli errori 502 e 503, consultare l' [articolo sulla risoluzione dei problemi del servizio app Azure per "502 gateway non valido" e "servizio 503 non disponibile"](../app-service/troubleshoot-http-502-http-503.md).     
 
 ## <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
 

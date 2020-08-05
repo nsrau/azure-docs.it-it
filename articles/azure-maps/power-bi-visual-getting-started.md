@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e840517934e77c96f1c19c3243ad2884d7ccce66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261885"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552000"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introduzione ad Azure Maps Power BI Visual
 
@@ -25,9 +25,9 @@ Questo articolo illustra come usare l'oggetto visivo Microsoft Azure Maps per Po
 > [!NOTE]
 > Questo oggetto visivo può essere creato e visualizzato sia in Power BI Desktop che nel servizio Power BI. Le procedure e le illustrazioni in questo articolo si riferiscono a Power BI Desktop.
 
-L'oggetto visivo Maps di Azure per Power BI offre un set completo di visualizzazioni dei dati spaziali su una mappa. Si stima che oltre il 80% dei dati aziendali disponga di un contesto di posizione. L'oggetto visivo mappe di Azure può essere usato per ottenere informazioni approfondite sul modo in cui il contesto del percorso è correlato e influisce sui dati aziendali.
+L'oggetto visivo Mappe di Azure per Power BI offre un set completo di visualizzazioni dei dati spaziali su una mappa. Si stima che oltre l'80% dei dati aziendali abbia un contesto di posizione. L'oggetto visivo mappe di Azure può essere usato per ottenere informazioni approfondite sul modo in cui il contesto del percorso è correlato e influisce sui dati aziendali.
 
-![Power BI desktop con l'oggetto visivo Maps di Azure che Visualizza i dati aziendali](media/power-bi-visual/azure-maps-visual-hero.png)
+![Power BI Desktop con l'oggetto visivo Mappe di Azure per la visualizzazione di dati aziendali](media/power-bi-visual/azure-maps-visual-hero.png)
 
 ## <a name="what-is-sent-to-azure"></a>Cosa viene inviato ad Azure?
 
@@ -35,6 +35,9 @@ L'oggetto visivo Maps di Azure si connette al servizio cloud ospitato in Azure p
 
 -   I dettagli relativi all'area sulla quale si concentra la mappa vengono inviati ad Azure per recuperare le immagini necessarie per il rendering dell'area di disegno della mappa, nota anche come tessere mappa. 
 -   I dati nei bucket location, latitudine e longitudine possono essere inviati ad Azure per recuperare le coordinate della mappa (un processo denominato geocodifica). 
+-   I dati di telemetria possono essere raccolti sullo stato dell'oggetto visivo (ad esempio, le segnalazioni di arresti anomali) se è abilitata l'opzione di telemetria in Power BI.
+
+Oltre agli scenari descritti in precedenza, nessun altro dato sovrapposto alla mappa viene inviato ai server Azure maps. Tutti i rendering dei dati vengono eseguite localmente nel client.
 
 L'utente o l'amministratore può dover aggiornare il firewall per consentire l'accesso alla piattaforma Azure Maps che usa l'URL seguente.
 
@@ -89,7 +92,7 @@ Per caricare l'oggetto visivo di Azure Maps, seguire questa procedura:
 
 I bucket di dati seguenti sono disponibili nel riquadro **campi** dell'oggetto visivo mappe di Azure.
 
-| Campo     | Descrizione  |
+| Campo     | Description  |
 |-----------|--------------|
 | Latitude  | Campo utilizzato per specificare il valore di latitudine dei punti dati. I valori di latitudine devono essere compresi tra-90 e 90 in formato decimale.  |
 | Longitudine | Campo utilizzato per specificare il valore di longitudine dei punti dati. I valori di longitudine devono essere compresi tra-180 e 180 in formato decimale.  |

@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni su come aggiungere un endpoin
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422947"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552986"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Consentire l'accesso allo spazio dei nomi del bus di servizio di Azure da reti virtuali specifiche
 
@@ -32,6 +32,7 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 > I servizi Microsoft seguenti devono essere in una rete virtuale
 > - Servizio app di Azure
 > - Funzioni di Azure
+> - Monitoraggio di Azure (impostazioni di diagnostica)
 
 > [!IMPORTANT]
 > Le reti virtuali sono supportate solo negli spazi dei nomi del bus di servizio di [livello Premium](service-bus-premium-messaging.md).

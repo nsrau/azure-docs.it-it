@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 71dcad908884351950c89b590523ffa91d6d47f9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424781"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552782"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utilizzo degli attributi di estensione dello schema di directory nelle attestazioni
 
@@ -41,7 +41,7 @@ Gli attributi di estensione dello schema di directory possono essere registrati 
 Gli attributi di estensione dello schema di directory creati e sincronizzati con AD Connect sono sempre associati all'ID applicazione usato da AD Connect. Possono essere usate come origine per le attestazioni configurate come attestazioni nella configurazione delle **applicazioni aziendali** nell'interfaccia utente del portale per le applicazioni SAML registrate tramite la raccolta o nell'esperienza di configurazione dell'applicazione non della raccolta in **applicazioni aziendali**e tramite un criterio di mapping delle attestazioni per le applicazioni registrate tramite l'esperienza di registrazione dell'applicazione.  Quando un attributo di estensione della directory creato tramite AD Connect si trova nella directory, verrà visualizzato nell'interfaccia utente di configurazione delle attestazioni SSO SAML.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-for-an-application-using-graph-or-powershell"></a>Creazione di attestazioni con dati da attributi di estensione dello schema di directory creati per un'applicazione con Graph o PowerShell
-Se un attributo dell'estensione dello schema di directory viene registrato per un'applicazione che usa Microsoft Graph o PowerShell (tramite un'installazione iniziale o un passaggio di provisioning di applicazioni), è possibile configurare la stessa applicazione in Azure Active Directory per ricevere dati in tale attributo da un oggetto utente in un'attestazione quando l'utente esegue l'accesso.  L'applicazione può essere configurata in modo da ricevere i dati nelle estensioni dello schema di directory registrate nella stessa applicazione utilizzando [attestazioni facoltative](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Questi possono essere impostati nel manifesto dell'applicazione.  Questo consente a un'applicazione multi-tenant di registrare gli attributi dell'estensione dello schema di directory per uso personale. Quando viene eseguito il provisioning dell'applicazione in un tenant, le estensioni dello schema di directory associate diventano disponibili per essere impostate sugli utenti in tale tenant e per essere utilizzate.  Una volta configurata nel tenant e concessa, può essere usata per archiviare e recuperare i dati tramite Graph e per eseguire il mapping alle attestazioni nei token Azure AD genera le applicazioni.
+Se un attributo dell'estensione dello schema di directory viene registrato per un'applicazione che usa Microsoft Graph o PowerShell (tramite un'installazione iniziale o un passaggio di provisioning di applicazioni), è possibile configurare la stessa applicazione in Azure Active Directory per ricevere dati in tale attributo da un oggetto utente in un'attestazione quando l'utente esegue l'accesso.  L'applicazione può essere configurata in modo da ricevere i dati nelle estensioni dello schema di directory registrate nella stessa applicazione utilizzando [attestazioni facoltative](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Questi possono essere impostati nel manifesto dell'applicazione.  Questo consente a un'applicazione multi-tenant di registrare gli attributi dell'estensione dello schema di directory per uso personale. Quando viene eseguito il provisioning dell'applicazione in un tenant, le estensioni dello schema di directory associate diventano disponibili per essere impostate sugli utenti in tale tenant e per essere utilizzate.  Una volta configurata nel tenant e concessa, può essere usata per archiviare e recuperare i dati tramite Graph e per eseguire il mapping alle attestazioni nei token che Microsoft Identity Platform emette per le applicazioni.
 
 Gli attributi di estensione dello schema di directory possono essere registrati e popolati per qualsiasi applicazione.
 

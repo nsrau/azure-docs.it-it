@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885634"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552714"
 ---
 # <a name="app-registration-reference"></a>Riferimento alla registrazione delle app
 
@@ -38,11 +38,11 @@ Questo elenco include tutte le applicazioni registrate per l'uso solo con l'acco
 
 ## <a name="application-secrets"></a>Segreti applicazione
 
-I segreti applicazione sono credenziali che consentono all'applicazione di eseguire [l'autenticazione client](https://tools.ietf.org/html/rfc6749#section-2.3) in modo affidabile con Azure AD. In OAuth e OpenID Connect il segreto dell'applicazione è noto come `client_secret`. Nel protocollo della versione 2.0, qualsiasi applicazione che riceve un token di sicurezza in una posizione con indirizzo Web, usando uno schema `https` , deve fare uso di un segreto applicazione per identificarsi in Azure AD al momento del riscatto del token di sicurezza. Inoltre i client nativi che ricevono i token in un dispositivo non possono usare un segreto dell'applicazione per eseguire l'autenticazione client. Questo scoraggia l'archiviazione dei segreti in ambienti non protetti.
+I segreti dell'applicazione sono credenziali che consentono all'applicazione di eseguire [l'autenticazione client](https://tools.ietf.org/html/rfc6749#section-2.3) affidabile con la piattaforma di identità Microsoft. In OAuth e OpenID Connect il segreto dell'applicazione è noto come `client_secret`. Nel protocollo v 2.0, qualsiasi applicazione che riceve un token di sicurezza in una posizione indirizzabile Web (usando uno `https` schema) deve usare un segreto dell'applicazione per identificarsi con la piattaforma di identità Microsoft al momento del riscatto del token di sicurezza. Inoltre i client nativi che ricevono i token in un dispositivo non possono usare un segreto dell'applicazione per eseguire l'autenticazione client. Questo scoraggia l'archiviazione dei segreti in ambienti non protetti.
 
 Ogni app può contenere due segreti applicazione validi in qualsiasi momento. Mantenendo due segreti è possibile eseguire periodicamente un rollover della chiave nell'intero ambiente dell'applicazione. Dopo aver eseguito la migrazione dell'intera applicazione in un nuovo segreto, è possibile eliminare quello precedente ed eseguire il provisioning di un nuovo segreto.
 
-Al momento nel portale di registrazione delle app sono consentiti solo due tipi di segreti applicazione. Scegliendo **Genera nuova password** viene generato e archiviato nell'archivio dati corrispondente un segreto condiviso, che è possibile usare nell'applicazione. Scegliendo **Genera nuova coppia di chiavi** viene creata una nuova coppia di chiavi pubblica/privata che può essere scaricata e usata per l'autenticazione client in Azure AD. Scegliendo **Carica la chiave pubblica** è possibile usare la propria coppia di chiavi pubblica e privata.
+Al momento nel portale di registrazione delle app sono consentiti solo due tipi di segreti applicazione. Scegliendo **Genera nuova password** viene generato e archiviato nell'archivio dati corrispondente un segreto condiviso, che è possibile usare nell'applicazione. Scegliendo **genera nuova coppia di chiavi** viene creata una nuova coppia di chiavi pubblica/privata che può essere scaricata e usata per l'autenticazione client nella piattaforma di identità Microsoft. Scegliendo **Carica la chiave pubblica** è possibile usare la propria coppia di chiavi pubblica e privata.
 È necessario caricare un certificato che contiene una chiave pubblica.
 
 ## <a name="profile"></a>Profilo

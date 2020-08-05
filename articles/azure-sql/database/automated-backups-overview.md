@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 07/20/2020
-ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 08/04/2020
+ms.openlocfilehash: c24a78413b09de04a10266f883e11617bb7a2f27
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428235"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554040"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -120,7 +120,7 @@ Per ulteriori informazioni su LTR, vedere [conservazione dei backup a lungo term
 
 ## <a name="storage-costs"></a>Costi di archiviazione
 
-Il prezzo per l'archiviazione varia a seconda che si stia usando il modello DTU o il modello vCore.
+Il prezzo per l'archiviazione dei backup varia a seconda che si stia usando il modello DTU o il modello vCore e anche nella propria area. Per i prezzi, l'archiviazione di backup viene addebitata per GB/mese, vedere la pagina dei prezzi del [database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e la pagina dei [prezzi di Azure SQL istanza gestita](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
 
 ### <a name="dtu-model"></a>Modello DTU
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131634"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562430"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendere i modelli gemelli nei dispositivi gemelli digitali di Azure
 
@@ -26,7 +26,7 @@ I modelli vengono scritti usando il **linguaggio DTDL (Digital Twin Definition L
 
 I modelli per i dispositivi gemelli digitali di Azure vengono definiti tramite il linguaggio DTDL (Digital Gemini Definition Language). DTDL è basato su JSON-LD ed è indipendente dal linguaggio di programmazione. DTDL non è esclusivo per i dispositivi gemelli digitali di Azure, ma viene usato anche per rappresentare i dati dei dispositivi in altri servizi Internet, ad esempio [plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
-I dispositivi gemelli digitali di Azure usano DTDL *versione 2*. Per ulteriori informazioni su questa versione di DTDL, vedere la relativa documentazione specifica in GitHub: [*Digital Gemini Definition Language (DTDL)-versione 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+I dispositivi gemelli digitali di Azure usano **DTDL _versione 2_**. Per ulteriori informazioni su questa versione di DTDL, vedere la relativa documentazione specifica in GitHub: [*Digital Gemini Definition Language (DTDL)-versione 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). L'uso di DTDL _versione 1_ con i dispositivi gemelli digitali di Azure è ora deprecato.
 
 > [!TIP] 
 > Non tutti i servizi che usano DTDL implementano esattamente le stesse funzionalità di DTDL. Ad esempio, il Plug and Play Internet delle cose non usa le funzionalità di DTDL per i grafici, mentre i dispositivi gemelli digitali di Azure attualmente non implementano i comandi di DTDL. Per altre informazioni sulle funzionalità di DTDL specifiche per i dispositivi gemelli digitali di Azure, vedere la sezione più avanti in questo articolo sulle specifiche di implementazione di DTDL per i dispositivi [digitali gemelli di Azure](#azure-digital-twins-dtdl-implementation-specifics).
@@ -216,7 +216,7 @@ Per altre informazioni sulla libreria del parser, inclusi esempi di utilizzo, ve
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come gestire i modelli con le API DigitalTwinsModels:
-* [*Procedura: Gestire i modelli personalizzati*](how-to-manage-model.md)
+* [*Procedura: Gestire modelli personalizzati*](how-to-manage-model.md)
 
 In alternativa, informazioni su come vengono creati i dispositivi digitali gemelli in base ai modelli:
 * [*Concetti: i dispositivi gemelli digitali e i grafici gemelli*](concepts-twins-graph.md)

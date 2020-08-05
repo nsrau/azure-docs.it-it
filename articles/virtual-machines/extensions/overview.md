@@ -1,54 +1,36 @@
 ---
 title: Estensioni e funzionalità delle macchine virtuali di Azure
-description: Informazioni sulle estensioni delle VM di Azure e su come usarle con le macchine virtuali di Azure
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+description: Altre informazioni sulle estensioni di VM di Azure
+services: virtual-machines
+author: amjads1
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
-ms.author: akjosh
-ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.author: amjads
+ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74072971"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552051"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Estensioni e funzionalità delle macchine virtuali di Azure
-Le estensioni macchina virtuale (VM) di Azure sono piccole applicazioni che consentono di eseguire attività di configurazione e automazione post-distribuzione nelle VM di Azure. È possibile usare le immagini esistenti e quindi personalizzarle durante le distribuzioni, evitando così di dover compilare immagini personalizzate.
-
-La piattaforma Azure ospita diverse estensioni, tra cui applicazioni di utilità, sicurezza, monitoraggio e configurazione delle VM. Gli editori eseguono il wrapping di un'applicazione esistente in un'estensione e semplificano l'installazione in modo che all'utente rimanga solo da specificare i parametri obbligatori. 
-
- È disponibile un'ampia scelta di estensioni Microsoft e di terze parti, se l'applicazione nel repository di estensioni non esiste, quindi è possibile usare l'estensione di script personalizzati e configurare la VM senza i propri script e comandi.
-
-Esempi di scenari chiave per cui vengono usate le estensioni:
-* Configurazione di VM. È possibile usare le estensioni PowerShell DSC (Desired State Configuration), Chef, Puppet e di script personalizzati per installare gli agenti di configurazione di VM e configurare la VM. 
-* Prodotti antivirus, ad esempio Symantec ed ESET.
-* Strumento per la vulnerabilità della VM, ad esempio Qualys, Rapid7, HPE.
-* Strumenti di monitoraggio di app e VM, ad esempio DynaTrace, Azure Network Watcher, Site24x7 e Stackify.
-
-Le estensioni possono essere aggregate con una nuova distribuzione di VM. Possono, ad esempio, fare parte di una distribuzione più ampia, in le applicazioni vengono configurate durante il provisioning della VM, o venire eseguite nei sistemi gestiti dalle estensioni supportate dopo la distribuzione.
+Le estensioni sono piccole applicazioni che forniscono configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. La piattaforma Azure ospita molte estensioni per la configurazione delle macchine virtuali, il monitoraggio, la sicurezza e le applicazioni di utilità. Gli editori accettano un'applicazione, ne esegue il wrapping in un'estensione e semplificano l'installazione. È sufficiente specificare parametri obbligatori. 
 
 ## <a name="how-can-i-find-what-extensions-are-available"></a>Come trovare le estensioni disponibili
-È possibile visualizzare le estensioni disponibili nella sezione delle estensioni nel pannello della VM nel portale. Queste sono solo una piccola parte. Per l'elenco completo, è possibile usare gli strumenti dell'interfaccia della riga di comando. Vedere [Discovering VM Extensions for Linux](features-linux.md) (Individuazione delle estensioni VM per Linux) e [Discovering VM Extensions for Windows](features-windows.md) (Individuazione delle estensioni VM per Windows).
+È possibile visualizzare le estensioni disponibili selezionando una macchina virtuale, selezionando **estensioni** nel menu a sinistra. Per ottenere un elenco completo delle estensioni, vedere [individuazione delle estensioni VM per Linux](features-linux.md) e [individuazione delle estensioni VM per Windows](features-windows.md).
 
 ## <a name="how-can-i-install-an-extension"></a>Come installare un'estensione
-Le estensioni di macchina virtuale di Azure possono essere gestite con l'interfaccia della riga di comando di Azure, Azure PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Per provare un'estensione, è possibile andare al portale di Azure, selezionare l'estensione di script personalizzati, quindi passare un comando/script ed eseguire le estensioni.
+Le estensioni di macchina virtuale di Azure possono essere gestite usando l'interfaccia della riga di comando di Azure, PowerShell, i modelli Gestione risorse e il portale di Azure. Per provare un'estensione, passare alla portale di Azure, selezionare l'estensione dello script personalizzato, quindi passare un comando o uno script per eseguire l'estensione.
 
-Per usare la stessa estensione aggiunta nel portale con l'interfaccia della riga di comando o il modello di Resource Manager, vedere la documentazione relativa alle altre estensioni, ad esempio [Estensione di script personalizzati Windows](custom-script-windows.md) e [Estensione di script personalizzati Linux](custom-script-linux.md).
+Per altre informazioni, vedere [estensione script personalizzato di Windows](custom-script-windows.md) e [estensione script personalizzato Linux](custom-script-linux.md).
 
 ## <a name="how-do-i-manage-extension-application-lifecycle"></a>Come gestire il ciclo di vita dell'applicazione di un'estensione
-Non è necessario connettersi direttamente a una VM per installare o eliminare l'estensione. Poiché il ciclo di vita dell'applicazione dell'estensione di Azure viene gestito al di fuori della VM e integrato nella piattaforma Azure, si ottiene anche lo stato integrato dell'estensione.
+Non è necessario connettersi direttamente a una macchina virtuale per installare o eliminare un'estensione. Il ciclo di vita dell'estensione di Azure viene gestito all'esterno della macchina virtuale e integrato nella piattaforma Azure.
 
 ## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>Altre informazioni sulle estensioni
-Le estensioni installano applicazioni. Per qualsiasi applicazione sono previsti alcuni requisiti. Per le estensioni, esiste un elenco di sistemi operativi Windows e Linux supportati e gli agenti delle VM di devono essere installati. Alcune singole applicazioni delle estensioni VM possono avere prerequisiti ambientali specifici, ad esempio l'accesso a un endpoint.
+Alcune singole applicazioni delle estensioni VM possono avere prerequisiti ambientali specifici, ad esempio l'accesso a un endpoint. Ogni estensione include un articolo che illustra i prerequisiti, inclusi i sistemi operativi supportati.
 
 ## <a name="troubleshoot-extensions"></a>Risoluzione dei problemi relativi alle estensioni
 
@@ -69,14 +51,14 @@ Per informazioni sulla risoluzione dei problemi di ogni estensione, vedere la se
 | Microsoft. enterprisecloud. Monitoring. omsagentforlinux | [Monitoraggio di Azure per Linux](oms-linux.md#troubleshoot-and-support)
 | Microsoft. enterprisecloud. Monitoring. microsoftmonitoringagent | [Monitoraggio di Azure per Windows](oms-windows.md#troubleshoot-and-support) |
 | stackify. linuxagent. Extension. stackifylinuxagentextension | [Stackify ritraccia per Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
-| vmaccessforlinux. Microsoft. ostcextensions | [Reimposta password (VMAccess) per Linux](vmaccess.md#troubleshoot-and-support) |
+| vmaccessforlinux. Microsoft. ostcextensions | [Reimposta la password per Linux](vmaccess.md#troubleshoot-and-support) |
 | Microsoft. recoveryservices. VMSnapshot | [Snapshot per Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
 | Microsoft. recoveryservices. VMSnapshot | [Snapshot per Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sul funzionamento delle estensioni e dell'agente Linux, vedere [Azure VM extensions and features for Linux (Funzionalità ed estensioni VM di Azure per Linux)](features-linux.md).
-* Per altre informazioni sul funzionamento delle estensioni e dell'agente guest di Windows, vedere [Estensioni e funzionalità della macchina virtuale per Windows](features-windows.md).  
+* Per altre informazioni sul funzionamento dell'agente Linux e delle estensioni, vedere [estensioni e funzionalità delle macchine virtuali di Azure per Linux](features-linux.md).
+* Per ulteriori informazioni sul funzionamento delle estensioni e dell'agente guest di Windows, vedere [estensioni e funzionalità delle macchine virtuali di Azure per Windows](features-windows.md).  
 * Per installare l'agente guest di Windows, vedere [Panoramica dell'agente di macchine virtuali Windows di Azure](agent-windows.md).  
 * Per installare l'agente Linux, vedere [Panoramica dell'agente di macchine virtuali Linux di Azure](agent-linux.md).  
 

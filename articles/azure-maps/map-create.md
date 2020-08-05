@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: b7bebfb227de3f9f1c51024845054d2d7a02f923
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 77eaa3e1f4390182ad210ae3aa2ce6a1427d8b0f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285646"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551898"
 ---
 # <a name="create-a-map"></a>Creare una mappa
 
@@ -127,6 +127,47 @@ Nel codice seguente il primo blocco di codice crea una mappa e imposta gli stili
 
 <iframe height='500' scrolling='no' title='Aggiungere un'animazione alla visualizzazione della mappa' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animate Map View</a> (Aggiungi animazione a visualizzazione mappa) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+## <a name="request-transforms"></a>Trasformazioni delle richieste
+
+A volte è utile essere in grado di modificare le richieste HTTP effettuate dal controllo mappa. Ad esempio:
+
+- Aggiungere intestazioni aggiuntive alle richieste di riquadri. Questa operazione viene spesso eseguita per i servizi protetti da password.
+- Modificare gli URL per eseguire le richieste tramite un servizio proxy.
+
+Le [Opzioni del servizio](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) della mappa hanno un oggetto `transformRequest` che può essere usato per modificare tutte le richieste effettuate dalla mappa prima che vengano eseguite. L' `transformRequest` opzione è una funzione che accetta due parametri, un URL di stringa e una stringa di tipo di risorsa che indica per cosa viene usata la richiesta. Questa funzione deve restituire un risultato [RequestParameters contiene](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters) .
+
+```JavaScript
+transformRequest: (url: string, resourceType: string) => RequestParameters
+```
+
+Nell'esempio seguente viene illustrato come utilizzare questa impostazione per modificare tutte le richieste alla dimensione `https://example.com` aggiungendo un nome utente e una password come intestazioni alla richiesta.
+
+```JavaScript
+var map = new atlas.Map('myMap', {
+    transformRequest: function (url, resourceType) {
+        //Check to see if the request is to the specified endpoint.
+        if (url.indexOf('https://examples.com') > -1) {
+            //Add custom headers to the request.
+            return {
+                url: url,
+                header: {
+                    username: 'myUsername',
+                    password: 'myPassword'
+                }
+            };
+        }
+
+        //Return the URL unchanged by default.
+        return { url: url };
+    },
+
+    authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+    }
+});
+```
 
 ## <a name="try-out-the-code"></a>Provare il codice
 

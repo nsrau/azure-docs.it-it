@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: fd9433c2482c4ddd907f7e30c0028dc2a15faed2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ffbb81fa56b87281199309d61ab3e2e59c1a5acd
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187677"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563994"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Abilitare l'autenticazione di Azure Active Directory per Azure-SSIS Integration Runtime
 
@@ -128,7 +128,7 @@ Per questo passaggio successivo, è necessario [Microsoft SQL Server Management
 
    Il comando dovrebbe completare l'operazione correttamente, concedendo all'utente indipendente la possibilità di creare un database (SSISDB).
 
-10. Se il database SSISDB è stato creato usando l'autenticazione SQL e si vuole passare a usare Azure AD autenticazione per il Azure-SSIS IR per accedervi, fare clic con il pulsante destro del mouse sul database **SSISDB** e scegliere **nuova query**.
+10. Se il database SSISDB è stato creato usando l'autenticazione SQL e si vuole passare a usare l'autenticazione Azure AD per accedere al Azure-SSIS IR, assicurarsi prima di tutto che i passaggi per concedere l'autorizzazione al database **Master** siano stati completati correttamente. Fare quindi clic con il pulsante destro del mouse sul database **SSISDB** e scegliere **nuova query**.
 
 11. Nella finestra query immettere il comando T-SQL seguente e selezionare **Esegui** sulla barra degli strumenti.
 
@@ -176,7 +176,7 @@ Per questo passaggio successivo, è necessario [Microsoft SQL Server Management
     
     Il comando dovrebbe completare l'operazione correttamente, concedendo all'identità gestita per ADF la possibilità di creare un database (SSISDB).
 
-6.  Se il database SSISDB è stato creato usando l'autenticazione SQL e si vuole passare a usare Azure AD autenticazione per il Azure-SSIS IR per accedervi, fare clic con il pulsante destro del mouse sul database **SSISDB** e scegliere **nuova query**.
+6.  Se il database SSISDB è stato creato usando l'autenticazione SQL e si vuole passare a usare l'autenticazione Azure AD per accedere al Azure-SSIS IR, assicurarsi prima di tutto che i passaggi per concedere l'autorizzazione al database **Master** siano stati completati correttamente. Fare quindi clic con il pulsante destro del mouse sul database **SSISDB** e scegliere **nuova query**.
 
 7.  Nella finestra query immettere il comando T-SQL seguente e selezionare **Esegui** sulla barra degli strumenti.
 
@@ -226,7 +226,7 @@ Per eseguire il provisioning del runtime di integrazione Azure-SSIS con PowerShe
 
 Quando si eseguono pacchetti SSIS in Azure-SSIS IR, è possibile usare l'autenticazione dell'identità gestita per connettersi a varie risorse di Azure. Attualmente è già supportata l'autenticazione dell'identità gestita nelle gestioni connessioni seguenti.
 
-- [gestione connessione OLE DB](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)
+- [Gestione connessione OLE DB](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)
 
 - [Gestione connessione ADO.NET](https://docs.microsoft.com/sql/integration-services/connection-manager/ado-net-connection-manager#managed-identities-for-azure-resources-authentication)
 

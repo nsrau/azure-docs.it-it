@@ -2,17 +2,17 @@
 title: Aggiornare con app per la logica per i modelli di Azure Analysis Services | Microsoft Docs
 description: Questo articolo descrive come codificare l'aggiornamento asincrono per Azure Analysis Services usando app per la logica di Azure.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 9d8c3c7668da939227b3e8aaef002b4292c7d962
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025320"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552238"
 ---
 # <a name="refresh-with-logic-apps"></a>Eseguire l'aggiornamento con App per la logica
 
@@ -20,7 +20,7 @@ Usando le app per la logica e le chiamate REST, è possibile eseguire operazioni
 
 Per altre informazioni sull'uso delle API REST con Azure Analysis Services, vedere [aggiornamento asincrono con l'API REST](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido.  Gli esempi in questo articolo utilizzeranno un'entità servizio (SPN) per l'autenticazione Azure Analysis Services. Per altre informazioni, vedere [creare un'entità servizio usando portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -63,7 +63,7 @@ Questo passaggio verrà popolato con l'URL HTTP POST dopo il salvataggio dell'ap
 
 Configurare l'attività HTTP come indicato di seguito:
 
-|Proprietà  |Valore  |
+|Proprietà  |valore  |
 |---------|---------|
 |**Metodo**     |POST         |
 |**URI**     | https://*l'area Server*/Servers/*AAS nome server*/models/*il nome del database*/refreshes <br /> <br /> Ad esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/refreshes|

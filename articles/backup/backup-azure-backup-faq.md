@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532459"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553088"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -196,6 +196,10 @@ Quando vengono applicati nuovi criteri, vengono seguite la pianificazione e la c
 
 - Se la conservazione è estesa, i punti di ripristino esistenti vengono contrassegnati per mantenerli in base ai nuovi criteri.
 - Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione ed eliminati nel successivo processo di pulizia.
+
+### <a name="how-long-is-data-retained-when-stopping-backups-but-selecting-the-option-to-retain-backup-data"></a>Per quanto tempo vengono conservati i dati quando si arrestano i backup, ma si seleziona l'opzione per conservare i dati di backup?
+
+Quando i backup vengono arrestati e i dati vengono conservati, le regole dei criteri esistenti per l'eliminazione dei dati verranno interrotte e i dati verranno conservati per un periodo illimitato fino a quando non vengono avviati dall'amministratore per l'eliminazione.
 
 ## <a name="encryption"></a>Crittografia
 

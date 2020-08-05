@@ -9,18 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 57589552af3b93d98733d4872b43a719703d501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f51afbcf50939d762b1b5d32d6204ccfbb9a62d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285731"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551677"
 ---
 # <a name="create-a-data-source"></a>Creare un'origine dati
 
 Azure Maps Web SDK archivia i dati nelle origini dati. L'utilizzo di origini dati ottimizza le operazioni di dati per l'esecuzione di query e il rendering. Attualmente esistono due tipi di origini dati:
 
-**Origine dati GeoJSON**
+- **Origine GeoJSON**: gestisce i dati di posizione non elaborati in formato GeoJSON localmente. Ideale per set di dati di piccole e medie dimensioni (a partire da centinaia di migliaia di forme).
+- **Origine del riquadro vettoriale**: carica i dati formattati come riquadri vettoriali per la vista mappa corrente, in base al sistema di affiancamento mappe. Ideale per set di dati di grandi dimensioni (milioni o miliardi di forme).
+
+## <a name="geojson-data-source"></a>Origine dati GeoJSON
 
 Un'origine dati basata su GeoJSON carica e archivia i dati localmente usando la `DataSource` classe. I dati GeoJSON possono essere creati o creati manualmente usando le classi helper nello spazio dei nomi [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . La `DataSource` classe fornisce funzioni per l'importazione di file GeoJSON locali o remoti. I file GeoJSON remoti devono essere ospitati in un endpoint abilitato per CORs. La `DataSource` classe fornisce funzionalità per i dati dei punti di clustering. E, i dati possono essere facilmente aggiunti, rimossi e aggiornati con la `DataSource` classe. Il codice seguente mostra come è possibile creare i dati GeoJSON in mappe di Azure.
 
@@ -37,7 +40,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -69,7 +72,7 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > Si supponga di voler sovrascrivere tutti i dati in un `DataSource` . Se si effettuano chiamate alle `clear` `add` funzioni then, è possibile che venga nuovamente eseguito il rendering della mappa due volte, il che potrebbe causare un po' di ritardo. Usare invece la `setShapes` funzione, che rimuoverà e sostituirà tutti i dati nell'origine dati e attiverà un solo nuovo rendering della mappa.
 
-**Origine riquadro vettoriale**
+## <a name="vector-tile-source"></a>Origine riquadro vettoriale
 
 Un'origine del riquadro vettoriale descrive come accedere a un livello tessera vettoriale. Usare la classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) per creare un'istanza di un'origine del riquadro vettoriale. I livelli dei riquadri vettoriali sono simili ai livelli affiancati, ma non sono uguali. Un livello sezione è un'immagine raster. I livelli del riquadro vettoriale sono file compressi in formato **PBF** . Questo file compresso contiene i dati della mappa vettoriale e uno o più livelli. È possibile eseguire il rendering e lo stile del file nel client, in base allo stile di ogni livello. I dati in un riquadro vettoriale contengono funzionalità geografiche sotto forma di punti, linee e poligoni. Esistono diversi vantaggi derivanti dall'uso di livelli di tessera vettoriale invece dei livelli di riquadri raster:
 
@@ -88,7 +91,7 @@ Mappe di Azure rispetta la [specifica del riquadro vettoriale MapBox](https://gi
 > [!TIP]
 > Quando si usano i riquadri di immagini Vector o raster del servizio di rendering di Azure Maps con SDK Web, è possibile sostituire `atlas.microsoft.com` con il segnaposto `{azMapsDomain}` . Questo segnaposto verrà sostituito con lo stesso dominio utilizzato dalla mappa e aggiungerà automaticamente anche i dettagli di autenticazione. Questo semplifica notevolmente l'autenticazione con il servizio di rendering quando si usa l'autenticazione Azure Active Directory.
 
-Per visualizzare i dati da un'origine del riquadro vettoriale sulla mappa, connettere l'origine a uno dei livelli di rendering dei dati. Tutti i livelli che usano un'origine vettore devono specificare un `sourceLayer` valore nelle opzioni. Della codice seguente carica il servizio Tile del vettore del flusso di traffico di Azure Maps come origine del riquadro vettoriale, quindi lo Visualizza su una mappa usando un livello linea. Questa origine del riquadro vettoriale dispone di un singolo set di dati nel livello di origine denominato "flusso del traffico". Nei dati della riga di questo set di dati è presente una proprietà denominata `traffic_level` utilizzata in questo codice per selezionare il colore e ridimensionare le linee.
+Per visualizzare i dati da un'origine del riquadro vettoriale sulla mappa, connettere l'origine a uno dei livelli di rendering dei dati. Tutti i livelli che usano un'origine vettore devono specificare un `sourceLayer` valore nelle opzioni. Il codice seguente carica il servizio Tile del vettore del flusso di traffico di Azure Maps come origine del riquadro vettoriale, quindi lo Visualizza su una mappa usando un livello linea. Questa origine del riquadro vettoriale dispone di un singolo set di dati nel livello di origine denominato "flusso del traffico". Nei dati della riga di questo set di dati è presente una proprietà denominata `traffic_level` utilizzata in questo codice per selezionare il colore e ridimensionare le linee.
 
 ```javascript
 //Create a vector tile source and add it to the map.

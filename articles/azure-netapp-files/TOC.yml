@@ -61,24 +61,16 @@
           href: azure-netapp-files-create-volumes.md
         - name: Configurare il dominio predefinito NFSv 4.1
           href: azure-netapp-files-configure-nfsv41-domain.md
-        - name: Configurare la crittografia Kerberos NFSv 4.1
-          href: configure-kerberos-encryption.md
-        - name: Configurare un client NFS per Azure NetApp Files
-          href: configure-nfs-clients.md
         - name: Configurare i criteri di esportazione per un volume NFS
           href: azure-netapp-files-configure-export-policy.md
     - name: Creare un volume SMB
       href: azure-netapp-files-create-volumes-smb.md
-    - name: Creare un volume con doppio protocollo
-      href: create-volumes-dual-protocol.md
     - name: Montare o smontare un volume per macchine virtuali Windows o Linux
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Gestire gli snapshot
       href: azure-netapp-files-manage-snapshots.md
     - name: Ridimensionare un pool di capacità o un volume
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-    - name: Modificare dinamicamente il livello di servizio di un volume
-      href: dynamic-change-volume-service-level.md
     - name: Sviluppo
       items:
         - name: API REST

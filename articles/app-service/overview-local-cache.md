@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628794"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562447"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -48,7 +48,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 ## <a name="enable-local-cache-in-app-service"></a>Abilitare la cache locale nel servizio app
 La cache locale viene configurata mediante una combinazione di impostazioni delle app riservate. Queste impostazioni delle app possono essere configurate usando i metodi seguenti:
 
-* [Azure portal](#Configure-Local-Cache-Portal)
+* [Portale di Azure](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurare la cache locale tramite il portale di Azure
@@ -104,6 +104,9 @@ Se viene usata la funzionalità della cache locale con gli ambienti di staging, 
 
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Sono state appena pubblicate nuove modifiche, ma sembra che non siano presenti nell'app. Perché?
 Se l'app usa la cache locale, è necessario riavviare il sito per visualizzare le ultime modifiche. Se non si vogliono pubblicare le modifiche in un sito di produzione, vedere le opzioni dello slot nella sezione precedente relativa alle procedure consigliate.
+
+> [!NOTE]
+> L'opzione [di distribuzione Esegui da pacchetto](deploy-run-package.md) non è compatibile con la cache locale.
 
 ### <a name="where-are-my-logs"></a>Dove si trovano i log?
 Se si usa la cache locale, i log e le cartelle di dati hanno un aspetto leggermente diverso. Tuttavia, la struttura delle sottocartelle rimane la stessa, eccetto il fatto che le sottocartelle sono annidate in una sottocartella con il formato "identificatore VM univoco" + timestamp.

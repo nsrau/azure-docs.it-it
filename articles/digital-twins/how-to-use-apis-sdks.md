@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b83c60182c311d9b04a205da4ab0c3477dc9b9e
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373242"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563704"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -43,7 +43,7 @@ Le API del piano dati vengono usate per gestire gli elementi all'interno dell'is
 * **Query** : la categoria query consente agli sviluppatori [di individuare set di gemelli digitali nel grafico gemello tra le](how-to-query-graph.md) relazioni.
 * **EventRoutes** : la categoria EventRoutes contiene le API per [indirizzare i dati](concepts-route-events.md), attraverso il sistema e i servizi downstream.
 
-La versione più recente dell'API del piano dati per l'anteprima pubblica è _**2020-05-31-Preview**_.
+La versione più recente dell'API del piano dati per l'anteprima pubblica è _**2020-05-31-Preview**_. La versione dell'API _2020-03-01-Preview_ per le operazioni del piano dati è ora deprecata.
 
 Per usare le API del piano dati:
 * È possibile chiamare direttamente le API, da...

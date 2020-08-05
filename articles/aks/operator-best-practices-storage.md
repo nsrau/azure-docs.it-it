@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'archiviazio
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26af9e0ab2bd3a52c159e947f1f40300f9e84dd4
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80877899"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562839"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
 
@@ -34,9 +34,9 @@ La tabella seguente descrive i tipi di archiviazione disponibili e le relative f
 
 | Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto per i contenitori di Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| Configurazione condivisa       | File di Azure   | Sì | Sì | Sì | Sì |
+| Configurazione condivisa       | File di Azure   | sì | sì | sì | sì |
 | Dati di app strutturati        | Dischi di Azure   | Sì | No  | No  | Sì |
-| Dati non strutturati, operazioni sui file system | [BlobFuse][blobfuse] | Sì | Sì | Sì | No |
+| Dati non strutturati, operazioni sui file system | [BlobFuse][blobfuse] | sì | sì | Sì | No |
 
 I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo del servizio Azure Kubernetes.
 
@@ -104,7 +104,7 @@ In questo articolo sono state illustrate in particolare le procedure consigliate
 
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [dynamic-disks]: azure-disks-dynamic-pv.md
 [dynamic-files]: azure-files-dynamic-pv.md
 [reclaim-policy]: concepts-storage.md#storage-classes

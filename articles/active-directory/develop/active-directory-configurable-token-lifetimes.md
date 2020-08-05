@@ -1,7 +1,7 @@
 ---
-title: Durata del token di Azure AD configurabile
+title: Durata del token configurabile
 titleSuffix: Microsoft identity platform
-description: Informazioni su come impostare la durata per i token rilasciati da Azure AD.
+description: Informazioni su come impostare la durata dei token emessi dalla piattaforma di identità Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 23283a44f78522d2b589993c11b494092352cbb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d25c2e2603f36ff090d01f235a4c8e4a1ae12605
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478366"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552850"
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
+# <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durata del token configurabile nella piattaforma di identità Microsoft (anteprima)
 
-È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
+È possibile specificare la durata di un token emesso dalla piattaforma di identità Microsoft. La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
 
 > [!IMPORTANT]
 > Dopo aver ascoltato i clienti durante l'anteprima, sono state implementate le [funzionalità di gestione delle sessioni di autenticazione](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure ad l'accesso condizionale. È possibile usare questa nuova funzionalità per configurare la durata dei token di aggiornamento impostando la frequenza di accesso. Dopo il 30 maggio 2020 nessun nuovo tenant sarà in grado di usare i criteri di durata dei token configurabili per configurare i token di sessione e di aggiornamento. La deprecazione avverrà entro diversi mesi, il che significa che non verranno rispettati i criteri di sessione e di aggiornamento dei token esistenti. È comunque possibile configurare la durata dei token di accesso dopo la deprecazione.
@@ -68,12 +68,12 @@ I client pubblici non possono archiviare in modo sicuro una password client, ovv
 > La proprietà validità massima indica il periodo di tempo in cui è possibile usare un singolo token. 
 
 ### <a name="id-tokens"></a>Token ID
-I token ID vengono passati a siti Web e client nativi e contengono informazioni relative al profilo di un utente. Ogni token ID è associato a una combinazione specifica di utente e client ed è considerato valido fino alla relativa scadenza. La durata della sessione di un utente in un'applicazione Web corrisponde in genere alla durata del token ID rilasciato per l'utente. È possibile regolare la durata del token ID per controllare con quale frequenza si verifica la scadenza di una sessione in un'applicazione Web ed è necessario rieseguire l'autenticazione dell'utente con Azure AD, in modo automatico o interattivo.
+I token ID vengono passati a siti Web e client nativi e contengono informazioni relative al profilo di un utente. Ogni token ID è associato a una combinazione specifica di utente e client ed è considerato valido fino alla relativa scadenza. La durata della sessione di un utente in un'applicazione Web corrisponde in genere alla durata del token ID rilasciato per l'utente. È possibile regolare la durata di un token ID per controllare la frequenza con cui l'applicazione Web scade la sessione dell'applicazione e la frequenza con cui l'utente deve essere riautenticato con la piattaforma di identità Microsoft (in modo invisibile all'utente).
 
 ### <a name="single-sign-on-session-tokens"></a>Token di sessione Single Sign-On
-Quando un utente esegue l'autenticazione con Azure AD, viene stabilita una sessione Single Sign-On (SSO) con Azure AD e il browser dell'utente. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Il token di sessione SSO non è associato a una risorsa/applicazione client specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
+Quando un utente esegue l'autenticazione con Microsoft Identity Platform, viene stabilita una sessione di Single Sign-On (SSO) con il browser dell'utente e la piattaforma delle identità Microsoft. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Il token di sessione SSO non è associato a una risorsa/applicazione client specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
 
-Azure AD usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono eliminati quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
+Microsoft Identity Platform usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono eliminati quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
 
 I token di sessione non permanenti hanno una durata di 24 ore, I token permanenti hanno una durata di 90 giorni. Ogni volta che un token di sessione SSO viene usato entro il relativo periodo di validità, il periodo di validità viene esteso per altre 24 ore o 90 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
 
@@ -83,7 +83,7 @@ I token di sessione non permanenti hanno una durata di 24 ore, I token permanent
 I criteri per la durata dei token rappresentano un tipo di oggetto criteri contenente le regole di durata dei token. Usare le proprietà dei criteri per controllare la durata di token specifici. Se non si impostano criteri, il valore di durata predefinito viene applicato dal sistema.
 
 ### <a name="configurable-token-lifetime-properties"></a>Proprietà configurabili per la durata dei token
-| Proprietà | Stringa proprietà criteri | Impatto | Predefinito | Minima | Massimo |
+| Proprietà | Stringa proprietà criteri | Impatto | Impostazione predefinita | Minima | Massimo |
 | --- | --- | --- | --- | --- | --- |
 | Durata dei token di accesso |AccessTokenLifetime<sup>2</sup> |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
 | Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |90 giorni |10 minuti |90 giorni |
@@ -96,13 +96,13 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 * <sup>2</sup> Per assicurarsi che il client Web Microsoft teams funzioni, è consigliabile mantenere AccessTokenLifetime a più di 15 minuti per Microsoft teams.
 
 ### <a name="exceptions"></a>Eccezioni
-| Proprietà | Impatto | Predefinito |
+| Proprietà | Impatto | Impostazione predefinita |
 | --- | --- | --- |
 | Validità massima dei token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |Token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |12 ore |
 | Tempo inattività massimo token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |90 giorni |
 | Validità massima token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |Fino a revoca |
 
-* <sup>1</sup>Gli utenti federati con informazioni di revoca insufficienti comprendono tutti gli utenti che non dispongono dell'attributo "LastPasswordChangeTimestamp" sincronizzato. Questi utenti hanno una validità massima breve perché AAD non è in grado di verificare in quale momento revocare i token che sono collegati a una credenziale precedente (ad esempio una password che è stata modificata) e devono eseguire più spesso nuove verifiche per garantire che l'utente e i token associati siano ancora attivi. Per migliorare questa esperienza, gli amministratori del tenant devono assicurare che la sincronizzazione dell'attributo "LastPasswordChangeTimestamp" sia in corso (può essere impostata sull'oggetto utente tramite Powershell o AADSync).
+* <sup>1</sup> gli utenti federati con informazioni di revoca insufficienti includono tutti gli utenti che non dispongono dell'attributo "LastPasswordChangeTimestamp" sincronizzato. Questi utenti hanno una validità massima breve perché AAD non è in grado di verificare in quale momento revocare i token che sono collegati a una credenziale precedente (ad esempio una password che è stata modificata) e devono eseguire più spesso nuove verifiche per garantire che l'utente e i token associati siano ancora attivi. Per migliorare questa esperienza, gli amministratori tenant devono assicurarsi che stiano sincronizzando l'attributo "LastPasswordChangeTimestamp" (può essere impostato sull'oggetto utente usando PowerShell o AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Definizione della priorità e valutazione dei criteri
 È possibile creare e quindi assegnare criteri per la durata dei token a un'applicazione specifica, all'organizzazione e alle entità servizio. A un'applicazione specifica si possono applicare più criteri. Di seguito sono riportate le regole su cui si basano i criteri per la durata dei token validi:
@@ -129,13 +129,13 @@ Tutti gli intervalli di tempo usati qui sono formattati in base all'oggetto[Time
 > * L'applicazione Web A è di tipo normale e non è collegata a criteri.
 > * L'applicazione Web B viene usata per processi riservati. La relativa entità servizio è collegata ai criteri per la durata dei token 2, che hanno una validità massima del token di sessione di 30 minuti.
 >
-> Alle 12.00 l'utente avvia una nuova sessione del browser e tenta di accedere all'applicazione Web A. L'utente viene reindirizzato ad Azure AD a cui dovrà accedere. Nel browser viene creato un cookie con un token di sessione. L'utente viene di nuovo reindirizzato all'applicazione Web A con un token ID che gli consente di accedere all'applicazione.
+> Alle ore 12:00, l'utente avvia una nuova sessione del browser e tenta di accedere all'applicazione Web A. L'utente viene reindirizzato alla piattaforma di identità Microsoft e viene richiesto di effettuare l'accesso. Nel browser viene creato un cookie con un token di sessione. L'utente viene di nuovo reindirizzato all'applicazione Web A con un token ID che gli consente di accedere all'applicazione.
 >
-> Alle 12.15 l'utente tenta di accedere all'applicazione Web B. Il browser lo reindirizza ad Azure AD che rileva il cookie di sessione. L'entità servizio dell'applicazione Web B è collegata ai criteri per la durata dei token 2, ma è anche parte dell'elemento organizzazione padre associato ai criteri per la durata dei token 1 predefiniti. Vengono applicati i criteri per la durata dei token 2 perché i criteri collegati alle entità servizio hanno una priorità maggiore rispetto a quelli predefiniti dell'organizzazione. Il token di sessione è stato rilasciato negli ultimi 30 minuti, quindi è considerato valido. L'utente viene di nuovo reindirizzato all'applicazione Web B con un token ID che consente l'accesso.
+> Alle 12:15, l'utente tenta di accedere all'applicazione Web B. Il browser reindirizza a Microsoft Identity Platform, che rileva il cookie di sessione. L'entità servizio dell'applicazione Web B è collegata ai criteri per la durata dei token 2, ma è anche parte dell'elemento organizzazione padre associato ai criteri per la durata dei token 1 predefiniti. Vengono applicati i criteri per la durata dei token 2 perché i criteri collegati alle entità servizio hanno una priorità maggiore rispetto a quelli predefiniti dell'organizzazione. Il token di sessione è stato rilasciato negli ultimi 30 minuti, quindi è considerato valido. L'utente viene di nuovo reindirizzato all'applicazione Web B con un token ID che consente l'accesso.
 >
-> Alle 13.00 l'utente tenta di accedere all'applicazione Web A e viene reindirizzato ad Azure AD. L'applicazione Web A non è collegata a criteri, ma si trova in un'organizzazione con criteri per la durata dei token 1 predefiniti. Vengono quindi applicati tali criteri. Viene rilevato il cookie di sessione rilasciato nelle ultime otto ore. L'utente viene reindirizzato automaticamente all'applicazione Web A con un nuovo token ID. Non è necessario che l'utente esegua l'autenticazione.
+> Alle ore 1:00, l'utente tenta di accedere all'applicazione Web A. L'utente viene reindirizzato alla piattaforma di identità Microsoft. L'applicazione Web A non è collegata a criteri, ma si trova in un'organizzazione con criteri per la durata dei token 1 predefiniti. Vengono quindi applicati tali criteri. Viene rilevato il cookie di sessione rilasciato nelle ultime otto ore. L'utente viene reindirizzato automaticamente all'applicazione Web A con un nuovo token ID. Non è necessario che l'utente esegua l'autenticazione.
 >
-> Immediatamente dopo, l'utente prova ad accedere all'applicazione Web B e viene reindirizzato ad Azure AD. Come prima, vengono applicati i criteri per la durata dei token 2. Dato che il token è stato rilasciato da oltre 30 minuti, all'utente viene richiesto di immettere nuovamente le credenziali di accesso. Vengono rilasciati un nuovo token di sessione e un nuovo token ID. L'utente può quindi accedere all'applicazione Web B.
+> Immediatamente dopo, l'utente tenta di accedere all'applicazione Web B. L'utente viene reindirizzato alla piattaforma di identità Microsoft. Come prima, vengono applicati i criteri per la durata dei token 2. Dato che il token è stato rilasciato da oltre 30 minuti, all'utente viene richiesto di immettere nuovamente le credenziali di accesso. Vengono rilasciati un nuovo token di sessione e un nuovo token ID. L'utente può quindi accedere all'applicazione Web B.
 >
 >
 

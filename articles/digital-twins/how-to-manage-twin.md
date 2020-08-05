@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061603"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563926"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -37,10 +37,10 @@ Per creare un dispositivo gemello digitale, è necessario fornire:
 
 Facoltativamente, è possibile fornire i valori iniziali per tutte le proprietà del dispositivo gemello digitale. 
 
-> [!TIP]
-> Quando si recupera un dispositivo gemello con GetDigitalTwin, vengono restituite solo le proprietà impostate almeno una volta.  
-
 Il modello e i valori delle proprietà iniziali vengono forniti tramite il `initData` parametro, ovvero una stringa JSON contenente i dati rilevanti.
+
+> [!TIP]
+> Dopo la creazione o l'aggiornamento di un dispositivo gemello, è possibile che si verifichi una latenza di un massimo di 10 secondi prima che le modifiche vengano riflesse nelle [query](how-to-query-graph.md). L' `GetDigitalTwin` API, descritta [più avanti in questo articolo](#get-data-for-a-digital-twin), non riscontra questo ritardo, quindi usare la chiamata API anziché eseguire query per visualizzare i dispositivi gemelli appena creati se è necessaria una risposta immediata. 
 
 ### <a name="initialize-properties"></a>Inizializza proprietà
 
@@ -90,6 +90,9 @@ object result = await client.GetDigitalTwin(id);
 ```
 
 Questa chiamata restituisce i dati gemelli come stringa JSON. 
+
+> [!TIP]
+> Quando si recupera un gemello con, vengono restituite solo le proprietà impostate almeno una volta `GetDigitalTwin` .
 
 Per recuperare più dispositivi gemelli usando una singola chiamata API, vedere gli esempi di API di query in [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).
 
@@ -148,14 +151,14 @@ Il risultato della chiamata `object result = await client.DigitalTwins.GetByIdAs
 Le proprietà definite del gemello digitale vengono restituite come proprietà di primo livello nel dispositivo gemello digitale. I metadati o le informazioni di sistema che non fanno parte della definizione DTDL vengono restituiti con un `$` prefisso. Le proprietà dei metadati includono:
 * ID del gemello digitale in questa istanza di Azure Digital gemelli, come `$dtId` .
 * `$etag`, un campo HTTP standard assegnato dal server Web
-* Altre proprietà in una `$metadata` sezione. Queste includono:
+* Altre proprietà in una `$metadata` sezione. incluse le seguenti:
     - DTMI del modello del gemello digitale.
     - Stato di sincronizzazione per ogni proprietà scrivibile. Questa operazione è particolarmente utile per i dispositivi, in cui è possibile che il servizio e il dispositivo abbiano stati divergenti, ad esempio quando un dispositivo è offline. Attualmente questa proprietà si applica solo ai dispositivi fisici connessi all'hub Internet. Con i dati nella sezione dei metadati, è possibile comprendere lo stato completo di una proprietà, oltre ai timestamp dell'Ultima modifica. Per altre informazioni sullo stato di sincronizzazione, vedere [questa esercitazione sull'hub di questo](../iot-hub/tutorial-device-twins.md) strumento sulla sincronizzazione dello stato del dispositivo.
     - Metadati specifici del servizio, ad esempio dall'hub o dai dispositivi gemelli digitali di Azure. 
 
 È possibile analizzare il JSON restituito per il gemello usando una libreria di analisi JSON di propria scelta, ad esempio `System.Text.Json` .
 
-È anche possibile usare la classe helper di serializzazione `BasicDigitalTwin` inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Ecco un esempio:
+È anche possibile usare la classe helper di serializzazione `BasicDigitalTwin` inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Esempio:
 
 ```csharp
 Response<string> res = client.GetDigitalTwin(twin_id);
@@ -170,11 +173,16 @@ foreach (string prop in twin.CustomProperties.Keys)
 
 Per altre informazioni sulle classi helper di serializzazione, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
 
-## <a name="update-a-digital-twin"></a>Aggiornare un dispositivo gemello digitale
+## <a name="update-a-digital-twin"></a>Aggiornare un gemello digitale
 
 Per aggiornare le proprietà di un dispositivo gemello digitale, è necessario scrivere le informazioni che si desidera sostituire nel formato di [patch JSON](http://jsonpatch.com/) . In questo modo, è possibile sostituire più proprietà contemporaneamente. Passare quindi il documento della patch JSON in un `Update` Metodo:
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+> [!TIP]
+> Dopo la creazione o l'aggiornamento di un dispositivo gemello, è possibile che si verifichi una latenza di un massimo di 10 secondi prima che le modifiche vengano riflesse nelle [query](how-to-query-graph.md). L' `GetDigitalTwin` API (descritta [in precedenza in questo articolo](#get-data-for-a-digital-twin)) non presenta questo ritardo, quindi usare la chiamata API invece di eseguire query per visualizzare i gemelli appena aggiornati se è necessaria una risposta immediata. 
 
 Di seguito è riportato un esempio di codice patch JSON. Questo documento sostituisce i valori delle proprietà di *massa* e *RADIUS* del dispositivo gemello digitale a cui viene applicato.
 

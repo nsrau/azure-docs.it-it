@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447703"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562685"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -34,7 +34,7 @@ Per ottenere un ulteriore isolamento per la manuali operativi, è possibile usar
 
 In alternativa, se si ha un requisito specifico, è possibile usare anche il firewall di Azure per soddisfarlo.
 
-* [Reti virtuali e macchine virtuali in Azure](../virtual-machines/windows/network-overview.md)
+* [Reti virtuali e macchine virtuali in Azure](../virtual-machines/network-overview.md)
 
 * [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
@@ -848,7 +848,7 @@ Il controllo delle applicazioni adattivi è una soluzione end-to-end intelligent
 
 **Linee guida**: le applicazioni ad alto rischio distribuite nell'ambiente Azure possono essere isolate usando contenitori di rete e di risorse separati usando costrutti come reti virtuali, subnet, sottoscrizioni, gruppi di gestione e possono essere sufficientemente protetti con un firewall di Azure, un Web Application Firewall (WAF) o un gruppo di sicurezza di rete (NSG).
 
-* [Reti virtuali e macchine virtuali in Azure](../virtual-machines/windows/network-overview.md)
+* [Reti virtuali e macchine virtuali in Azure](../virtual-machines/network-overview.md)
 
 * [Panoramica del firewall di Azure](../firewall/overview.md)
 

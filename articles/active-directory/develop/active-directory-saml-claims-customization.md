@@ -1,7 +1,7 @@
 ---
-title: Personalizzare le attestazioni del token SAML per le app Azure AD
+title: Personalizzare le attestazioni del token SAML dell'app
 titleSuffix: Microsoft identity platform
-description: Informazioni su come personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure AD.
+description: Informazioni su come personalizzare le attestazioni rilasciate dalla piattaforma di identità Microsoft nel token SAML per le applicazioni aziendali.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,20 +13,20 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5cce985e3f63ade94fb626d18bded440caeff1fa
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274469"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552833"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
-Oggi Azure Active Directory (Azure AD) supporta l'accesso Single Sign-On (SSO) con la maggior parte delle applicazioni aziendali, incluse quelle preintegrate nella raccolta di app Azure AD e quelle personalizzate. Quando un utente esegue l'autenticazione in un'applicazione con Azure AD usando il protocollo SAML 2.0, Azure AD invia un token all'applicazione (via HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente, note come *attestazioni*.
+Microsoft Identity Platform, attualmente, supporta Single Sign-On (SSO) con la maggior parte delle applicazioni aziendali, incluse entrambe le applicazioni preintegrate nella raccolta di app Azure AD e nelle applicazioni personalizzate. Quando un utente esegue l'autenticazione in un'applicazione tramite la piattaforma Microsoft Identity usando il protocollo SAML 2,0, la piattaforma Microsoft Identity Invia un token all'applicazione (tramite un HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente, note come *attestazioni*.
 
 Un'*attestazione* è un insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. Nel [token SAML](https://en.wikipedia.org/wiki/SAML_2.0) questi dati sono in genere contenuti nell'istruzione degli attributi SAML. L'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML definito anche identificatore del nome.
 
-Per impostazione predefinita, Azure AD genera per l'applicazione un token SAML che contiene un'attestazione `NameIdentifier`, il cui valore del nome utente, o nome dell'entità utente, in Azure AD può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
+Per impostazione predefinita, Microsoft Identity Platform rilascia un token SAML all'applicazione che contiene un' `NameIdentifier` attestazione con un valore del nome utente dell'utente (noto anche come nome dell'entità utente) in Azure ad, che può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
 
 Per visualizzare o modificare le attestazioni generate nel token SAML per l'applicazione, aprire l'applicazione nel portale di Azure. Quindi aprire la sezione **Attributi utente e attestazioni**.
 
@@ -48,19 +48,19 @@ Per modificare NameID (valore dell'identificatore del nome):
 
 ### <a name="nameid-format"></a>Formato di NameID
 
-Se la richiesta SAML contiene l'elemento NameIDPolicy con un formato specifico, Azure AD rispetterà tale formato.
+Se la richiesta SAML contiene l'elemento NameIDPolicy con un formato specifico, la piattaforma di identità Microsoft rispetterà il formato nella richiesta.
 
-Se la richiesta SAML non contiene un elemento per NameIDPolicy, Azure AD genererà NameID con il formato specificato. Se non viene specificato alcun formato, Azure AD userà il formato di origine predefinito associato all'origine dell'attestazione selezionata.
+Se la richiesta SAML non contiene un elemento per NameIDPolicy, la piattaforma Microsoft Identity NameID rilascerà il formato specificato dall'utente. Se non viene specificato alcun formato, Microsoft Identity Platform utilizzerà il formato di origine predefinito associato all'origine dell'attestazione selezionata.
 
 Nell'elenco a discesa **Scegliere il formato per l'identificatore del nome** è possibile selezionare una delle opzioni seguenti.
 
 | Formato di NameID | Descrizione |
 |---------------|-------------|
-| **Default** | Azure AD userà il formato di origine predefinito. |
-| **Persistente** | Azure AD userà il formato persistente per NameID. |
-| **EmailAddress** | Azure AD userà EmailAddress come formato per NameID. |
-| **Non specificato** | Azure AD userà Non specificato come formato per NameID. |
-| **Nome completo dominio Windows** | Azure AD userà WindowsDomainQualifiedName come formato per NameID. |
+| **Default** | La piattaforma Microsoft Identity utilizzerà il formato di origine predefinito. |
+| **Persistente** | La piattaforma Microsoft Identity utilizzerà il formato persistente come NameID. |
+| **EmailAddress** | Microsoft Identity Platform utilizzerà EmailAddress come formato NameID. |
+| **Non specificato** | La piattaforma Microsoft Identity utilizzerà il formato NameID non specificato. |
+| **Nome completo dominio Windows** | La piattaforma Microsoft Identity utilizzerà WindowsDomainQualifiedName come formato NameID. |
 
 È supportato anche un formato temporaneo di NameID, ma non è disponibile nell'elenco a discesa e non può essere configurato sul lato di Azure. Per alter informazioni sull'attributo NameIDPolicy, vedere [Protocollo SAML per Single Sign-On](single-sign-on-saml-protocol.md).
 
@@ -169,9 +169,9 @@ Per aggiungere una condizione per l'attestazione:
 
 L'ordine in cui si aggiungono le condizioni è importante. Azure AD valuta le condizioni dall'alto verso il basso per decidere quale valore generare nell'attestazione. 
 
-Britta Simon, ad esempio, è un utente guest nel tenant di Contoso. Appartiene a un'altra organizzazione che usa Azure AD. Data la configurazione seguente per l'applicazione Fabrikam, quando Britta prova ad accedervi, Azure AD valuterà le condizioni come segue.
+Britta Simon, ad esempio, è un utente guest nel tenant di Contoso. Appartiene a un'altra organizzazione che usa Azure AD. Considerata la configurazione seguente per l'applicazione Fabrikam, quando Britta tenta di accedere a Fabrikam, Microsoft Identity Platform valuterà le condizioni come segue.
 
-Prima di tutto, Azure AD verifica se il tipo di utente di Britta è `All guests`. Poiché questa condizione è vera, Azure AD assegna l'origine per l'attestazione a `user.extensionattribute1`. Poi Azure AD verifica se il tipo di utente di Britta è `AAD guests` e, poiché anche questa condizione è vera, assegna l'origine per l'attestazione a `user.mail`. Infine, l'attestazione viene creata con il valore `user.mail` per Britta.
+Per prima cosa, la piattaforma di identità Microsoft verifica se il tipo di utente di Britta è `All guests` . Poiché questo è vero, la piattaforma Microsoft Identity assegna l'origine per l'attestazione a `user.extensionattribute1` . In secondo luogo, la piattaforma di identità Microsoft verifica se il tipo di utente di Britta è `AAD guests` , poiché questo è vero anche se la piattaforma Microsoft Identity assegna l'origine per l'attestazione a `user.mail` . Infine, l'attestazione viene creata con il valore `user.mail` per Britta.
 
 ![Configurazione condizionale delle attestazioni](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

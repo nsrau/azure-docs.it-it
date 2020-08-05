@@ -5,12 +5,12 @@ description: Informazioni su come creare e usare un indirizzo IP pubblico static
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517774"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563246"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un indirizzo IP pubblico statico per il traffico in uscita con un servizio di bilanciamento del carico SKU *Basic* in Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Questo articolo illustra come creare e usare un indirizzo IP pubblico statico pe
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si stia usando il Load Balancer Basic di Azure.  È consigliabile usare il [Load Balancer standard di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)ed è possibile usare funzionalità più avanzate per [controllare il traffico in uscita da AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
+Questo articolo presuppone che si stia usando il Load Balancer Basic di Azure.  È consigliabile usare il [Load Balancer standard di Azure](../load-balancer/load-balancer-overview.md)ed è possibile usare funzionalità più avanzate per [controllare il traffico in uscita da AKS](./limit-egress-traffic.md).
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087663"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553309"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server a un Istanza gestita SQL di Azure in linea con DMS
 
@@ -262,6 +262,9 @@ Al termine del ripristino del backup completo del database nell'istanza di desti
 4. Selezionare **Conferma** e quindi **Applica**.
 
     ![Preparazione per il completamento del cutover](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
+
+    > [!IMPORTANT]
+    > Dopo il cutover, la disponibilità del Istanza gestita SQL con business critical livello di servizio può richiedere solo molto più tempo del per utilizzo generico perché tre repliche secondarie devono essere sottoposte a seeding per il gruppo di disponibilità elevata AlwaysOn. La durata dell'operazione dipende dalle dimensioni dei dati. per altre informazioni, vedere [durata delle operazioni di gestione](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
 
 5. Quando lo stato della migrazione del database viene visualizzato **completato**, connettere le applicazioni alla nuova istanza di destinazione di SQL istanza gestita.
 

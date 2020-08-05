@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073627"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564096"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informazioni sul funzionamento dello strumento di migrazione
 
@@ -104,7 +104,7 @@ Gli avvisi per le metriche delle richieste non riuscite di Mongo devono essere s
 
 ### <a name="classic-compute-metrics"></a>Metriche di calcolo classiche
 
-Tutti gli avvisi sulle metriche di calcolo classiche non verranno migrati usando lo strumento di migrazione perché le risorse di calcolo classiche non sono ancora supportate con i nuovi avvisi. Il supporto per i nuovi avvisi per questi tipi di risorse verrà aggiunto in futuro. Una volta che è disponibile, i clienti devono ricreare le nuove regole di avviso equivalenti in base alle regole di avviso classiche prima del 2020 giugno.
+Tutti gli avvisi sulle metriche di calcolo classiche non verranno migrati usando lo strumento di migrazione perché le risorse di calcolo classiche non sono ancora supportate con i nuovi avvisi. Il supporto per i nuovi avvisi per questi tipi di risorse è attualmente disponibile in anteprima pubblica e i clienti possono ricreare nuove regole di avviso equivalenti in base alle regole di avviso classiche.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Regole di avviso classiche su metriche deprecate
 

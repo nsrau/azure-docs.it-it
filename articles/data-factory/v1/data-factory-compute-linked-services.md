@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac92e45e69522fe3de8abdb3afcf6049e5f07ac8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537565"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563501"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambienti di calcolo supportati da Azure Data Factory versione 1
 > [!NOTE]
@@ -26,7 +26,7 @@ Questo articolo illustra gli ambienti di calcolo che è possibile usare per elab
 
 La tabella seguente presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti. 
 
-| Ambiente di calcolo                      | Attività                               |
+| Ambiente di calcolo                      | attività                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight di Azure on demand](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |

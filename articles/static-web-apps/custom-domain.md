@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960300"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563348"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurare un dominio personalizzato in App Web statiche di Azure (anteprima)
 
@@ -37,7 +37,7 @@ Per un'applicazione sono disponibili diversi tipi di configurazioni DNS.
 
 ## <a name="map-a-cname-record"></a>Esecuzione del mapping di un record CNAME
 
-Un record CNAME esegue il mapping di un dominio a un altro. È possibile usare un record CNAME per eseguire il mapping di `www.example.com` al dominio generato automaticamente fornito da App Web statiche di Azure.
+Un record CNAME esegue il mapping di un dominio a un altro. È possibile usare un record CNAME per eseguire `www.example.com` il mapping di, `blog.example.com` o qualsiasi altro sottodominio al dominio generato automaticamente fornito dalle app Web statiche di Azure.
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 

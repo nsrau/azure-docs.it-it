@@ -3,12 +3,12 @@ title: Configurare le regole del firewall IP per il bus di servizio di Azure
 description: Uso delle regole del firewall per consentire le connessioni da indirizzi IP specifici a bus di servizio di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 378f8a6331c18b2c99e3e08e83021878f7384c2b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e9b39f1b163a894bf4831662ac050463086133d5
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418517"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552918"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Consentire l'accesso allo spazio dei nomi del bus di servizio di Azure da intervalli o indirizzi IP specifici
 Per impostazione predefinita, gli spazi dei nomi del bus di servizio sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -34,6 +34,7 @@ Le regole del firewall IP vengono applicate a livello dello spazio dei nomi del 
 > I servizi Microsoft seguenti devono essere in una rete virtuale
 > - Servizio app di Azure
 > - Funzioni di Azure
+> - Monitoraggio di Azure (impostazioni di diagnostica)
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
 Questa sezione illustra come usare il portale di Azure per creare regole del firewall per gli indirizzi IP per uno spazio dei nomi del bus di servizio. 

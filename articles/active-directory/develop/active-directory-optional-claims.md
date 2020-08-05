@@ -1,7 +1,7 @@
 ---
 title: Fornire attestazioni facoltative alle app Azure AD
 titleSuffix: Microsoft identity platform
-description: Come aggiungere attestazioni personalizzate o aggiuntive ai token SAML 2.0 e JSON Web (JWT) rilasciati da Azure Active Directory.
+description: Come aggiungere attestazioni personalizzate o aggiuntive ai token SAML 2,0 e JSON Web Tokens (JWT) emessi dalla piattaforma di identità Microsoft.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: dd181e87305f3d32fb301c8b563b7330e09b43d6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445585"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552867"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: Fornire attestazioni facoltative alle app Azure AD
+# <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
 Gli sviluppatori di applicazioni possono usare attestazioni facoltative nelle rispettive applicazioni di Azure AD per specificare quali attestazioni vogliono ottenere nei token inviati all'applicazione.
 
 Le attestazioni facoltative possono essere usate per:
 
 - Selezionare attestazioni aggiuntive da includere nei token per l'applicazione.
-- Modificare il comportamento di determinate attestazioni che Azure AD restituisce nei token.
+- Modificare il comportamento di determinate attestazioni restituite dalla piattaforma di identità Microsoft nei token.
 - Aggiungere e accedere ad attestazioni personalizzate per l'applicazione.
 
 Per gli elenchi di attestazioni standard, vedere la documentazione relativa alle attestazioni [token di accesso](access-tokens.md) e [id_token](id-tokens.md).

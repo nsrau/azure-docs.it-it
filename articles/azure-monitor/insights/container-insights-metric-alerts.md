@@ -2,13 +2,13 @@
 title: Avvisi relativi alle metriche da monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo esamina gli avvisi della metrica consigliati disponibili da monitoraggio di Azure per i contenitori in anteprima pubblica.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: c8b75b0d9b22658253c4637bd6507144575934de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097798"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563365"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Avvisi metrica consigliati (anteprima) da monitoraggio di Azure per i contenitori
 
@@ -33,7 +33,7 @@ Prima di iniziare, verificare quanto segue:
 
     Il valore visualizzato deve essere una versione successiva a **ciprod05262020**. Se il cluster ha una versione precedente, seguire l' [aggiornamento dell'agente nei passaggi del cluster AKS](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) per ottenere la versione più recente.
     
-    Per ulteriori informazioni relative alla versione dell'agente, vedere [cronologia delle versioni degli agenti](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Per verificare la raccolta delle metriche, è possibile usare Esplora metriche di monitoraggio di Azure e verificare dallo **spazio dei nomi della metrica** che sono elencate le **informazioni dettagliate** . In tal caso, è possibile iniziare a configurare gli avvisi.
+    Per ulteriori informazioni relative alla versione dell'agente, vedere [cronologia delle versioni degli agenti](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Per verificare la raccolta delle metriche, è possibile usare Esplora metriche di monitoraggio di Azure e verificare dallo **spazio dei nomi della metrica** che sono elencate le **informazioni dettagliate** . In tal caso, è possibile iniziare a configurare gli avvisi. Se non viene visualizzata alcuna metrica, l'entità servizio cluster o l'identità del servizio gestito non dispone delle autorizzazioni necessarie. Per verificare che il nome SPN o l'identità del servizio gestito sia un membro del ruolo **server di pubblicazione metrica di monitoraggio** , seguire i passaggi descritti nella sezione [eseguire l'aggiornamento per cluster usando l'interfaccia](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) della riga di comando di Azure per confermare e impostare l'assegnazione di ruolo
 
 ## <a name="alert-rules-overview"></a>Cenni preliminari sulle regole di avviso
 

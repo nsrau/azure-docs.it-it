@@ -3,12 +3,12 @@ title: Regole del firewall per Hub eventi di Azure | Microsoft Docs
 description: Usare le regole del firewall per consentire le connessioni da indirizzi IP specifici ad Hub eventi di Azure.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: a27c5981bb14c2ff98dfcb74692cf9db19a55137
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8ba327c78888d9e5f38693ae08a2022b2d1543a4
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421502"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553122"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da intervalli o indirizzi IP specifici
 Per impostazione predefinita, gli spazi dei nomi di Hub eventi sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -28,6 +28,7 @@ Questa funzionalità è utile negli scenari in cui Hub eventi di Azure deve esse
 > I servizi Microsoft seguenti devono essere in una rete virtuale
 > - App Web di Azure
 > - Funzioni di Azure
+> - Monitoraggio di Azure (impostazioni di diagnostica)
 
 
 ## <a name="ip-firewall-rules"></a>Regole del firewall IP
