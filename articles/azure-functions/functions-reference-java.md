@@ -4,12 +4,12 @@ description: Informazioni sullo sviluppo di funzioni con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 121a3263a28da5e17b1ab918529aa9f285089687
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372417"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810089"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -17,9 +17,9 @@ Questa guida contiene informazioni dettagliate che consentono di sviluppare funz
 
 Gli sviluppatori Java, se non si ha familiarità con funzioni di Azure, si consiglia di leggere prima di tutto uno degli articoli seguenti:
 
-| Introduzione | Concetti| 
+| Guida introduttiva | Concetti| 
 | -- | -- |  
-| <ul><li>[Funzione Java con Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[Funzione Java/Maven con terminale/prompt dei comandi](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Funzione Java con Gradle](functions-create-first-java-gradle.md)</li><li>[Funzione Java con Eclipse](functions-create-maven-eclipse.md)</li><li>[Funzione Java con IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> |
+| <ul><li>[Funzione Java con Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Funzione Java/Maven con terminale/prompt dei comandi](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Funzione Java con Gradle](functions-create-first-java-gradle.md)</li><li>[Funzione Java con Eclipse](functions-create-maven-eclipse.md)</li><li>[Funzione Java con IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Nozioni fondamentali sulle funzioni Java
 

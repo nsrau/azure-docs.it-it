@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: c24a78413b09de04a10266f883e11617bb7a2f27
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554040"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810275"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -26,22 +26,38 @@ ms.locfileid: "87554040"
 
 ## <a name="what-is-a-database-backup"></a>Informazioni sul backup del database
 
-I backup del database sono una parte essenziale di qualsiasi strategia di continuità aziendale e di ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione.
+I backup del database sono una parte essenziale di qualsiasi strategia di continuità aziendale e di ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione. Questi backup consentono il ripristino del database fino a un punto nel tempo entro il periodo di memorizzazione configurato. Se le regole di protezione dei dati richiedono che i backup siano disponibili per un periodo di tempo prolungato (fino a 10 anni), è possibile configurare la [conservazione a lungo termine](long-term-retention-overview.md) per i database singoli e in pool.
+
+### <a name="backup-frequency"></a>Frequenza di backup
 
 Sia il database SQL che SQL Istanza gestita utilizzano la tecnologia SQL Server per creare [backup completi](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) ogni settimana, [backup differenziali](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) ogni 12-24 ore e [backup del log delle transazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) ogni 5-10 minuti. La frequenza dei backup del log delle transazioni è basata sulle dimensioni di calcolo e sulla quantità di attività del database.
 
 Quando si ripristina un database, il servizio determina quali backup completi, differenziali e del log delle transazioni devono essere ripristinati.
 
-Questi backup consentono il ripristino del database fino a un punto nel tempo entro il periodo di memorizzazione configurato. I backup vengono archiviati come [BLOB di archiviazione RA-GRS](../../storage/common/storage-redundancy.md) replicati in un' [area abbinata](../../best-practices-availability-paired-regions.md) per la protezione da interruzioni che influiscano sull'archiviazione di backup nell'area primaria. 
+### <a name="backup-storage-redundancy"></a>Ridondanza dell'archiviazione di backup
 
-Se le regole di protezione dei dati richiedono che i backup siano disponibili per un periodo di tempo prolungato (fino a 10 anni), è possibile configurare la [conservazione a lungo termine](long-term-retention-overview.md) per i database singoli e in pool.
+> [!IMPORTANT]
+> La ridondanza di archiviazione configurabile per i backup è attualmente disponibile solo per SQL Istanza gestita e può essere specificata solo durante il processo di creazione dell'istanza gestita. Una volta eseguito il provisioning della risorsa, non è possibile modificare l'opzione di ridondanza dell'archiviazione di backup.
+
+L'opzione per configurare la ridondanza dell'archiviazione di backup offre la flessibilità di scegliere tra i [BLOB di archiviazione](../../storage/common/storage-redundancy.md)con ridondanza locale (con ridondanza locale), con ridondanza della zona (ZRS) o con ridondanza geografica (RA-GRS). I meccanismi di ridondanza dell'archiviazione archiviano più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione o calamità naturali di grandi dimensioni. Questa funzionalità è attualmente disponibile solo per SQL Istanza gestita.
+
+I BLOB di archiviazione RA-GRS vengono replicati in un' [area abbinata](../../best-practices-availability-paired-regions.md) per evitare interruzioni che influiscano sull'archiviazione dei backup nell'area primaria e consentono di ripristinare il server in un'area diversa in caso di emergenza. 
+
+Viceversa, i BLOB di archiviazione con ridondanza locale e ZRS assicurano che i dati rimangano nella stessa area in cui è distribuito il database SQL o SQL Istanza gestita. L'archiviazione con ridondanza della zona (ZRS) è attualmente disponibile solo in [determinate aree geografiche](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+> [!IMPORTANT]
+> In SQL Istanza gestita la ridondanza del backup configurata viene applicata alle impostazioni di conservazione dei backup a breve termine usate per il ripristino temporizzato (ripristino temporizzato) e i backup con conservazione a lungo termine usati per i backup a lungo termine (LTR).
+
+### <a name="backup-usage"></a>Utilizzo backup
 
 È possibile usare questi backup per:
 
-- [Ripristinare un database esistente fino a un punto nel tempo precedente](recovery-using-backups.md#point-in-time-restore) entro il periodo di conservazione usando portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Per i database singoli e in pool, questa operazione creerà un nuovo database nello stesso server del database originale, ma con un nome diverso per evitare la sovrascrittura del database originale. Al termine del ripristino, è possibile eliminare o [rinominare](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) il database originale e rinominare il database ripristinato in modo che abbia il nome del database originale. In un'istanza gestita, questa operazione può creare in modo analogo una copia del database nello stesso o in un'istanza gestita diversa nella stessa sottoscrizione e nella stessa area.
-- [Ripristinare un database eliminato al momento dell'eliminazione](recovery-using-backups.md#deleted-database-restore) o a qualsiasi punto nel tempo entro il periodo di memorizzazione. Il database eliminato può essere ripristinato solo nello stesso server o in un'istanza gestita in cui è stato creato il database originale. Quando si elimina un database, il servizio esegue un backup del log delle transazioni finale prima dell'eliminazione, per evitare la perdita di dati.
-- [Ripristinare un database in un'altra area geografica](recovery-using-backups.md#geo-restore). Il ripristino geografico consente di eseguire il ripristino da un'emergenza geografica quando non è possibile accedere al database o ai backup nell'area primaria. Viene creato un nuovo database in qualsiasi server esistente o istanza gestita, in qualsiasi area di Azure.
-- [Ripristinare un database da uno specifico backup a lungo termine](long-term-retention-overview.md) di un database singolo o di un database in pool, se il database è stato configurato con un criterio di conservazione a lungo termine (LTR). LTR consente di ripristinare una versione precedente del database usando [il portale di Azure](long-term-backup-retention-configure.md#using-the-azure-portal) o [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) per soddisfare una richiesta di conformità o per eseguire una versione precedente dell'applicazione. Per altre informazioni, vedere [conservazione a lungo termine](long-term-retention-overview.md).
+- **Ripristino temporizzato di un database esistente**  -  [Ripristinare un database esistente fino a un punto nel tempo precedente](recovery-using-backups.md#point-in-time-restore) entro il periodo di conservazione usando portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Per il database SQL, questa operazione crea un nuovo database nello stesso server del database originale, ma utilizza un nome diverso per evitare la sovrascrittura del database originale. Al termine del ripristino, è possibile eliminare il database originale. In alternativa, è possibile [rinominare](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) il database originale, quindi rinominare il database ripristinato con il nome del database originale. Analogamente, per Istanza gestita SQL, questa operazione crea una copia del database nella stessa istanza di o in un'istanza gestita diversa nella stessa sottoscrizione e nella stessa area.
+- **Ripristino temporizzato del database eliminato**  -  [Ripristinare un database eliminato al momento dell'eliminazione](recovery-using-backups.md#deleted-database-restore) o a qualsiasi punto nel tempo entro il periodo di memorizzazione. Il database eliminato può essere ripristinato solo nello stesso server o in un'istanza gestita in cui è stato creato il database originale. Quando si elimina un database, il servizio esegue un backup del log delle transazioni finale prima dell'eliminazione, per evitare la perdita di dati.
+- **Ripristino**  -  geografico [Ripristinare un database in un'altra area geografica](recovery-using-backups.md#geo-restore). Il ripristino geografico consente di eseguire il ripristino da un'emergenza geografica quando non è possibile accedere al database o ai backup nell'area primaria. Viene creato un nuovo database in qualsiasi server esistente o istanza gestita, in qualsiasi area di Azure.
+   > [!IMPORTANT]
+   > Il ripristino geografico è disponibile solo per le istanze gestite con archiviazione di backup con ridondanza geografica (RA-GRS) configurata.
+- **Ripristino dal backup**  -  a lungo termine [Ripristinare un database da uno specifico backup a lungo termine](long-term-retention-overview.md) di un database singolo o di un database in pool, se il database è stato configurato con un criterio di conservazione a lungo termine (LTR). LTR consente di ripristinare una versione precedente del database usando [il portale di Azure](long-term-backup-retention-configure.md#using-the-azure-portal) o [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) per soddisfare una richiesta di conformità o per eseguire una versione precedente dell'applicazione. Per altre informazioni, vedere [conservazione a lungo termine](long-term-retention-overview.md).
 
 Per eseguire un ripristino, vedere [Restore database from backups](recovery-using-backups.md).
 
@@ -50,13 +66,13 @@ Per eseguire un ripristino, vedere [Restore database from backups](recovery-usin
 
 È possibile provare a eseguire le operazioni di configurazione e ripristino del backup usando gli esempi seguenti:
 
-| | Portale di Azure | Azure PowerShell |
+| Operazione | Portale di Azure | Azure PowerShell |
 |---|---|---|
-| **Modificare la conservazione dei backup** | [Database singolo](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Istanza gestita](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Database singolo](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| **Modificare la conservazione dei backup a lungo termine** | [Database singolo](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Istanza gestita-N/A  | [Database singolo](long-term-backup-retention-configure.md)<br/>Istanza gestita-N/A  |
-| **Ripristinare un database da un punto nel tempo** | [Database singolo](recovery-using-backups.md#point-in-time-restore) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Ripristino di un database eliminato** | [Database singolo](recovery-using-backups.md) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Ripristinare un database da un archivio BLOB di Azure** | Database singolo-N/A <br/>Istanza gestita-N/A  | Database singolo-N/A <br/>[Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Modificare la conservazione dei backup** | [Database SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Istanza gestita di SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Database SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Istanza gestita di SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Modificare la conservazione dei backup a lungo termine** | [Database SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Istanza gestita SQL-N/A  | [Database SQL](long-term-backup-retention-configure.md)<br/>[Istanza gestita di SQL](../managed-instance/long-term-backup-retention-configure.md)  |
+| **Ripristinare un database da un punto nel tempo** | [Database SQL](recovery-using-backups.md#point-in-time-restore)<br>[Istanza gestita di SQL](../managed-instance/point-in-time-restore.md) | [Database SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Istanza gestita di SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Ripristino di un database eliminato** | [Database SQL](recovery-using-backups.md)<br>[Istanza gestita di SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Database SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Istanza gestita di SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Ripristinare un database da un archivio BLOB di Azure** | Database SQL-N/A <br/>Istanza gestita SQL-N/A  | Database SQL-N/A <br/>[Istanza gestita di SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-scheduling"></a>Pianificazione dei backup
 
@@ -98,6 +114,7 @@ L'utilizzo dell'archiviazione di backup fino alle dimensioni massime dei dati pe
 - Per operazioni di caricamento di dati di grandi dimensioni, è consigliabile utilizzare [indici columnstore cluster](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) e le [procedure consigliate](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)correlate e/o ridurre il numero di indici non cluster.
 - Nel livello di servizio per utilizzo generico, l'archiviazione dei dati di cui è stato effettuato il provisioning è meno costosa del prezzo dell'archiviazione di backup. Se i costi di archiviazione di backup sono costantemente elevati, è possibile considerare l'aumento dell'archiviazione dei dati per il salvataggio nell'archivio di backup.
 - Utilizzare TempDB anziché le tabelle permanenti nella logica dell'applicazione per archiviare i risultati temporanei e/o i dati temporanei.
+- Usare l'archiviazione di backup con ridondanza locale quando possibile (ad esempio, ambienti di sviluppo/test)
 
 ## <a name="backup-retention"></a>Conservazione backup
 
@@ -112,15 +129,13 @@ La conservazione dei backup per gli scopi di ripristino temporizzato negli ultim
 
 ### <a name="long-term-retention"></a>Conservazione a lungo termine
 
-Per i database singoli e in pool e le istanze gestite, è possibile configurare la conservazione a lungo termine dei backup completi per un massimo di 10 anni nell'archivio BLOB di Azure. Se si Abilita un criterio LTR, i backup completi settimanali vengono copiati automaticamente in un altro contenitore di archiviazione RA-GRS. Per soddisfare i diversi requisiti di conformità, è possibile selezionare diversi periodi di conservazione per i backup completi settimanali, mensili e/o annuali. Il consumo di spazio di archiviazione dipende dalla frequenza selezionata dei backup di LTR e dal periodo di memorizzazione o dai periodi. È possibile usare il [calcolatore dei prezzi di LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per stimare il costo dell'archiviazione con ltr.
-
-Analogamente ai backup ripristino temporizzato, i backup di LTR sono protetti con archiviazione con ridondanza geografica. Per altre informazioni, vedere [Ridondanza di Archiviazione di Azure](../../storage/common/storage-redundancy.md).
+Per database SQL e Istanza gestita SQL è possibile configurare la conservazione a lungo termine del backup completo (LTR) per un massimo di 10 anni nell'archivio BLOB di Azure. Una volta configurato il criterio LTR, i backup completi vengono copiati automaticamente in un contenitore di archiviazione diverso ogni settimana. Per soddisfare i diversi requisiti di conformità, è possibile selezionare diversi periodi di conservazione per i backup completi settimanali, mensili e/o annuali. Il consumo di spazio di archiviazione dipende dalla frequenza e dai periodi di memorizzazione dei backup di LTR selezionati. È possibile usare il [calcolatore dei prezzi di LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per stimare il costo dell'archiviazione con ltr.
 
 Per ulteriori informazioni su LTR, vedere [conservazione dei backup a lungo termine](long-term-retention-overview.md).
 
 ## <a name="storage-costs"></a>Costi di archiviazione
 
-Il prezzo per l'archiviazione dei backup varia a seconda che si stia usando il modello DTU o il modello vCore e anche nella propria area. Per i prezzi, l'archiviazione di backup viene addebitata per GB/mese, vedere la pagina dei prezzi del [database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e la pagina dei [prezzi di Azure SQL istanza gestita](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
+Il prezzo per l'archiviazione dei backup varia a seconda del modello di acquisto (DTU o vCore), dell'opzione di ridondanza dell'archiviazione di backup scelta e anche della propria area. Per i prezzi, l'archiviazione di backup viene addebitata per GB/mese, vedere la pagina dei prezzi del [database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e la pagina dei [prezzi di Azure SQL istanza gestita](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
 
 ### <a name="dtu-model"></a>Modello DTU
 
@@ -153,6 +168,18 @@ Ora, un esempio più complesso. Si supponga che la conservazione dello stesso da
 Gli scenari di fatturazione dei backup effettivi sono più complessi. Poiché la frequenza delle modifiche nel database dipende dal carico di lavoro ed è variabile nel corso del tempo, le dimensioni di ogni backup differenziale e del log variano, causando la fluttuazione del consumo di spazio di archiviazione di backup orario. Ogni backup differenziale, inoltre, contiene tutte le modifiche apportate nel database dall'ultimo backup completo, pertanto le dimensioni totali di tutti i backup differenziali aumentano gradualmente nel corso di una settimana e quindi vengono eliminate in modo nitido dopo un set di backup completo, differenziale e del log obsoleti. Se, ad esempio, un'attività di scrittura pesante, ad esempio la ricompilazione dell'indice, è stata eseguita subito dopo il completamento di un backup completo, le modifiche apportate dalla ricompilazione dell'indice verranno incluse nei backup del log delle transazioni eseguite per la durata della ricompilazione, nel backup differenziale successivo e in ogni backup differenziale eseguito fino al backup completo successivo. Per il secondo scenario in database di dimensioni maggiori, un'ottimizzazione del servizio crea un backup completo anziché un backup differenziale se un backup differenziale è troppo grande in caso contrario. In questo modo si riduce la dimensione di tutti i backup differenziali fino al backup completo seguente.
 
 È possibile monitorare il consumo totale di spazio di archiviazione di backup per ogni tipo di backup (completo, differenziale, log delle transazioni) nel tempo, come descritto in [monitorare l'utilizzo](#monitor-consumption).
+
+### <a name="backup-storage-redundancy"></a>Ridondanza dell'archiviazione di backup
+
+La ridondanza dell'archiviazione di backup influisca sui costi del backup nel modo seguente:
+- Prezzo con ridondanza locale = x
+- Prezzo ZRS = 1.25 x
+- Prezzo RA-GRS = 2x
+
+Per altre informazioni sui prezzi di archiviazione dei backup, vedere la pagina dei prezzi del [database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e la [pagina dei prezzi di Azure SQL istanza gestita](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+> [!IMPORTANT]
+> La ridondanza di archiviazione configurabile per i backup è attualmente disponibile solo per SQL Istanza gestita e può essere specificata solo durante il processo di creazione dell'istanza gestita. Una volta eseguito il provisioning della risorsa, non è possibile modificare l'opzione di ridondanza dell'archiviazione di backup.
 
 ### <a name="monitor-costs"></a>Monitorare i costi
 
@@ -300,6 +327,54 @@ Codice di stato: 200
 ```
 
 Per altre informazioni, vedere [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) (API REST di conservazione dei backup).
+
+#### <a name="sample-request"></a>Richiesta di esempio
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+```
+
+#### <a name="request-body"></a>Corpo della richiesta
+
+```json
+{
+  "properties":{
+    "retentionDays":28
+  }
+}
+```
+
+#### <a name="sample-response"></a>Risposta di esempio
+
+Codice di stato: 200
+
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+  }
+}
+```
+
+Per altre informazioni, vedere [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) (API REST di conservazione dei backup).
+
+## <a name="configure-backup-storage-redundancy"></a>Configurare la ridondanza dell'archiviazione di backup
+
+> [!NOTE]
+> La ridondanza di archiviazione configurabile per i backup è attualmente disponibile solo per SQL Istanza gestita e può essere specificata solo durante il processo di creazione dell'istanza gestita. Una volta eseguito il provisioning della risorsa, non è possibile modificare l'opzione di ridondanza dell'archiviazione di backup.
+
+Una ridondanza di archiviazione di backup di un'istanza gestita può essere impostata solo durante la creazione dell'istanza. Il valore predefinito è archiviazione con ridondanza geografica (RA-GRS). Per le differenze tra i prezzi tra archiviazione con ridondanza locale (con ridondanza locale), con ridondanza della zona (ZRS) e archiviazione con ridondanza geografica (RA-GRS), vedere la [pagina dei prezzi delle istanze gestite](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configurare la ridondanza dell'archiviazione di backup usando il portale di Azure
+
+Nell'portale di Azure l'opzione per modificare la ridondanza dell'archiviazione dei backup si trova nel pannello **calcolo e archiviazione** accessibile dall'opzione **Configura istanza gestita** nella scheda **nozioni di base** durante la creazione del istanza gestita SQL.
+![Apri calcolo + configurazione archiviazione-pannello](./media/automated-backups-overview/open-configuration-blade-mi.png)
+
+Trovare l'opzione per selezionare la ridondanza dell'archiviazione di backup nel pannello **calcolo e archiviazione** .
+![Configurare la ridondanza dell'archiviazione di backup](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

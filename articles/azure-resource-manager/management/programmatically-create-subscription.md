@@ -7,12 +7,12 @@ ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3097dcb0444bc8b73d89b42d73ad1f5b9306ab09
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1b4c16dd276f9f564963fdefe8d16dbc92c1303d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502818"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810446"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Creare sottoscrizioni di Azure a livello di codice (anteprima)
 
@@ -157,7 +157,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | string | ID oggetto di un utente che si desidera aggiungere come proprietario con Controllo degli accessi in base al ruolo nella sottoscrizione al momento della creazione.  |
 
-Nella risposta, come parte dell'intestazione `Location` , viene restituito un URL su cui è possibile eseguire una query per ottenere lo stato nell'operazione di creazione della sottoscrizione. Al termine della creazione della sottoscrizione, l'URL GET on `Location` restituirà un `subscriptionLink` oggetto con ID sottoscrizione. Per altri dettagli, vedere la [documentazione dell'API di sottoscrizione](https://docs.microsoft.com/rest/api/subscription/)
+Nella risposta, come parte dell'intestazione `Location` , viene restituito un URL su cui è possibile eseguire una query per ottenere lo stato nell'operazione di creazione della sottoscrizione. Al termine della creazione della sottoscrizione, l'URL GET on `Location` restituirà un `subscriptionLink` oggetto con ID sottoscrizione. Per altri dettagli, vedere la [documentazione dell'API di sottoscrizione](/rest/api/subscription/)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -4,12 +4,12 @@ description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle 
 ms.topic: conceptual
 author: davidsmatlak
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe0703fbbea75b221dfc6fd16f334dcf58e8ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 79aaa594a708fe775a2cdcc6e15b7c7f880f9f50
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515877"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810480"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -375,11 +375,11 @@ Per altre informazioni sui limiti di File di Azure, vedere [obiettivi di scalabi
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Per altre informazioni, vedere [dimensioni delle macchine virtuali](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per altre informazioni, vedere [dimensioni delle macchine virtuali](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 #### <a name="disk-encryption-sets"></a>Set di crittografia del disco
 
-Esiste una limitazione di 50 set di crittografia del disco per area, per sottoscrizione. Per ulteriori informazioni, vedere la documentazione sulla crittografia per le macchine virtuali [Linux](/azure/virtual-machines/linux/disk-encryption#restrictions) o [Windows](/azure/virtual-machines/windows/disk-encryption#restrictions) . Se è necessario aumentare la quota, contattare il supporto tecnico di Azure.
+Esiste una limitazione di 50 set di crittografia del disco per area, per sottoscrizione. Per ulteriori informazioni, vedere la documentazione sulla crittografia per le macchine virtuali [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) . Se è necessario aumentare la quota, contattare il supporto tecnico di Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Dischi delle macchine virtuali gestiti
 
@@ -426,6 +426,6 @@ Sono previsti limiti, per sottoscrizione, per la distribuzione delle risorse tra
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni sui limiti e sugli aumenti di Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-* [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Dimensioni dei servizi cloud di Azure](../../cloud-services/cloud-services-sizes-specs.md)
 * [Regole di denominazione e restrizioni per le risorse di Azure](resource-name-rules.md)

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
-ms.openlocfilehash: 3e38fae84f63f4867befbc3695242dc62dc8dbe8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 266df5371ff5f47526fa9d6567c62e31d51ebb05
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502648"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810225"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Spostamento da Express.js a funzioni di Azure
 
@@ -27,7 +27,7 @@ Quando si esegue la migrazione del codice a un'architettura senza server, il ref
 - **Configurazione e convenzioni**: un'app per le funzioni usa il _function.jssu_ file per definire i verbi HTTP, definire i criteri di sicurezza e può configurare l' [input e l'output](./functions-triggers-bindings.md)della funzione. Per impostazione predefinita, il nome della cartella che contiene i file di funzione definisce il nome dell'endpoint, ma è possibile modificare il nome tramite la `route` proprietà nell' [function.jssu](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) file.
 
 > [!TIP]
-> Per altre informazioni, vedere l'esercitazione interattiva [refactoring Node.js ed Express API per le API senza server con funzioni di Azure](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/).
+> Per altre informazioni, vedere l'esercitazione interattiva [refactoring Node.js ed Express API per le API senza server con funzioni di Azure](/learn/modules/shift-nodejs-express-apis-serverless/).
 
 ## <a name="example"></a>Esempio
 
@@ -138,4 +138,4 @@ Definendo `get` nella `methods` matrice, la funzione è disponibile per le richi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri di più con l'esercitazione interattiva [refactoring Node.js ed Express API per le API senza server con funzioni di Azure](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/)
+- Scopri di più con l'esercitazione interattiva [refactoring Node.js ed Express API per le API senza server con funzioni di Azure](/learn/modules/shift-nodejs-express-apis-serverless/)
