@@ -2,16 +2,15 @@
 title: Usare Azure AD nel servizio Azure Kubernetes
 description: Informazioni su come usare Azure AD in Azure Kubernetes Service (AKS)
 services: container-service
-manager: gwallace
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 07/27/2020
 ms.author: thomasge
-ms.openlocfilehash: 896986775f0132ef08b17bdfefc00e5e06cf3d9f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: afc20052680e7f3e5b7d3a6b7320b7ca3b10dbd5
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448129"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799858"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integrazione Azure Active Directory gestita da AKS
 
@@ -36,11 +35,6 @@ L'integrazione Azure Active Directory gestita da AKS è disponibile nelle aree p
 * i cluster non abilitati per RBAC non sono supportati per l'integrazione AAD gestita da AKS
 * La modifica del tenant di Azure AD associato all'integrazione AAD gestita da AKS non è supportata
 
-> [!IMPORTANT]
-> Le funzionalità di anteprima del servizio contenitore di servizi sono disponibili in base al consenso esplicito. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico del cliente in base al massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per altre informazioni, vedere gli articoli di supporto seguenti: 
-> - [Criteri di supporto del servizio Azure Kubernetes](support-policies.md) 
-> - [Domande frequenti relative al supporto tecnico Azure](faq.md)
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 * L'interfaccia della riga di comando di Azure versione 2.9.0 o successiva
@@ -57,22 +51,6 @@ kubectl version --client
 ```
 
 Usare [queste istruzioni](https://kubernetes.io/docs/tasks/tools/install-kubectl/) per altri sistemi operativi.
-
-```azurecli-interactive 
-az feature register --name AAD-V2 --namespace Microsoft.ContainerService    
-``` 
-
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list): 
-
-```azurecli-interactive 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"    
-``` 
-
-Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):    
-
-```azurecli-interactive 
-az provider register --namespace Microsoft.ContainerService 
-``` 
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare

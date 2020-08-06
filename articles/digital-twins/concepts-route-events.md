@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537512"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800467"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Indirizzare gli eventi all'interno e all'esterno dei dispositivi gemelli digitali di Azure
 
@@ -77,7 +77,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * `endpoint-name`Identifica un endpoint, ad esempio un hub eventi, una griglia di eventi o un bus di servizio. Questi endpoint devono essere creati nella sottoscrizione e collegati ai dispositivi gemelli digitali di Azure usando le API del piano di controllo prima di effettuare questa chiamata di registrazione.
 
-L'oggetto route dell'evento passato a `EventRoutes.Add` accetta anche un [parametro **Filter** ](./how-to-manage-routes.md#filter-events), che può essere usato per limitare i tipi di eventi che seguono questa route.
+L'oggetto route dell'evento passato a `EventRoutes.Add` accetta anche un [parametro **Filter** ](./how-to-manage-routes-apis-cli.md#filter-events), che può essere usato per limitare i tipi di eventi che seguono questa route.
 
 È anche possibile creare route usando l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
@@ -90,7 +90,7 @@ Tipi diversi di eventi nell'hub Internet e i gemelli digitali di Azure producono
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come configurare e gestire una route di eventi:
-* [*Procedura: gestire endpoint e Route*](how-to-manage-routes.md)
+* [*Procedura: gestire endpoint e Route*](how-to-manage-routes-apis-cli.md)
 
 In alternativa, vedere come usare funzioni di Azure per indirizzare gli eventi nei dispositivi gemelli digitali di Azure:
 * [*Procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md)

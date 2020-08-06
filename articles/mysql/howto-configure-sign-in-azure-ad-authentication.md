@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 6efe6392c32221f979a9ac319b4385b4b94b1235
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171318"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799839"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Usare Azure Active Directory per l'autenticazione con MySQL
 
@@ -22,7 +22,7 @@ Questo articolo illustra in modo dettagliato i passaggi per configurare l'access
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Impostazione dell'utente amministratore di Azure AD
 
-Solo un utente amministratore di Azure AD può creare o abilitare gli utenti per l'autenticazione basata su Azure AD. Per creare un utente amministratore di Azure AD, seguire questa procedura
+Solo un utente amministratore di Azure AD può creare o abilitare gli utenti per l'autenticazione basata su Azure AD. Per creare un utente amministratore di Azure AD, attenersi alla procedura seguente:
 
 1. Nel portale di Azure selezionare l'istanza di Database di Azure per MySQL da abilitare per Azure AD.
 2. In Impostazioni selezionare Amministratore di Active Directory:

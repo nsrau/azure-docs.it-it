@@ -2,7 +2,7 @@
 title: Iscriversi all'organizzazione-Azure Active Directory | Microsoft Docs
 description: Istruzioni su come iscrivere l'organizzazione per l'uso di Azure e Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb306e1ecbbdf2142d88b837b9750bbd2166cfda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7af76e98175c1c9cd3031c13bbecca6acc43ca55
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68561629"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799072"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Iscrivere l'organizzazione per l'uso di Azure Active Directory
 Iscriversi ad Azure Active Directory (Azure AD) o per una nuova sottoscrizione di Microsoft Azure usando:

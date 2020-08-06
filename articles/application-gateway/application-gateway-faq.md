@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506571"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810004"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione di Azure
 
@@ -466,30 +466,6 @@ Sì. Se la configurazione corrisponde allo scenario seguente, non verrà visuali
 - È stato distribuito il gateway applicazione v2
 - È presente un gruppo di sicurezza di rete nella subnet del gateway applicazione
 - Sono stati abilitati i log del flusso del gruppo di sicurezza di rete nel gruppo di sicurezza
-
-### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Come usare il gateway applicazione v2 con solo indirizzi IP front-end privati?
-
-Il gateway applicazione v2 attualmente non supporta solo la modalità IP privato. Supporta le combinazioni seguenti
-* IP privato e IP pubblico
-* Solo IP pubblico
-
-Tuttavia, se si vuole usare il gateway applicazione v2 con solo IP privato, è possibile seguire questa procedura:
-1. Creare un gateway applicazione con un indirizzo IP front-end pubblico e privato
-2. Non creare listener per l'indirizzo IP front-end pubblico. Il gateway applicazione non sarà in ascolto di alcun traffico sull'indirizzo IP pubblico se non viene creato alcun listener.
-3. Creare e associare un [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview) per la subnet del gateway applicazione con la configurazione seguente in ordine di priorità:
-    
-    a. Consentire il traffico dall'origine come tag di servizio **GatewayManager**, la destinazione come **Any** e la porta di destinazione come **65200-65535**. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) tramite l'autenticazione del certificato. Le entità esterne, inclusi gli amministratori utenti del gateway, non possono avviare modifiche sugli endpoint senza certificati appropriati
-    
-    b. Consentire il traffico dall'origine come tag di servizio **AzureLoadBalancer** e la porta di destinazione come **Any**
-    
-    c. Negare tutto il traffico in ingresso dall'origine come tag di servizio **Internet** e la porta di destinazione come **Any**. Assegnare a questa regola la *priorità minima* nelle regole in ingresso
-    
-    d. Mantenere le regole predefinite come consentire VirtualNetwork in ingresso in modo che l'accesso all'indirizzo IP privato non venga bloccato
-    
-    e. La connettività Internet in uscita non può essere bloccata. In caso contrario, si verificheranno problemi con la registrazione, le metriche e così via.
-
-Esempio di configurazione del gruppo di sicurezza di rete per l'accesso solo IP privato: ![Configurazione del gruppo di sicurezza di rete del gateway applicazione v2 solo per l'accesso IP privato](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

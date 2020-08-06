@@ -108,8 +108,6 @@
           href: configure-password-single-sign-on-non-gallery-applications.md
         - name: Configurare l'accesso collegato
           href: configure-linked-sign-on.md
-        - name: Automatizzare l'accesso Single Sign-On basato su SAML con le API Microsoft Graph
-          href: application-saml-sso-configure-api.md
     - name: Assegnare utenti e gestire l'accesso alle app
       items:
         - name: Configurare il consenso utente

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 8148163dc969920b473f12a7162c6f317d85b3c8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ff2745a636d25c429a1a40644757c00b28e2668c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503226"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799175"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta di contenitore di Azure in Azure Marketplace
 
@@ -195,14 +195,15 @@ Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono es
 
 #### <a name="store-logos"></a>Logo dello store
 
- Inserire file PNG del logo dell'offerta in tutte e quattro le dimensioni in pixel seguenti:
+Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel) e un valore **medio** (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse.
+
+Tutte e tre le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
 
 - **Piccola** (48 x 48)
-- **Media** (90 X 90)
-- **Grande** (216 x 216)
-- **Molto grande** (255 X 115)
+- **Media** (90 x 90)
+- **Grande** (compreso tra 216 x 216 e 350 x 350)
 
-Tutti e quattro i logo sono obbligatori e sono usati in posizioni diverse nella presentazione del marketplace.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Screenshot (facoltativo)
 

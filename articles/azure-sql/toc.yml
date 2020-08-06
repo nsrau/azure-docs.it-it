@@ -273,7 +273,7 @@
               href: database/geo-distributed-application-configure-tutorial.md
             - name: Replica geografica attiva
               href: database/active-geo-replication-configure-portal.md
-        - name: Security
+        - name: Sicurezza
           items:
             - name: Configurare la sicurezza
               href: database/secure-database-tutorial.md
@@ -715,7 +715,7 @@
               href: managed-instance/machine-learning-services-overview.md
             - name: Differenze principali
               href: managed-instance/machine-learning-services-differences.md
-            - name: Avvii rapidi
+            - name: Avvi rapidi
               items:
                 - name: Python
                   items:
@@ -811,7 +811,7 @@
               href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json'
             - name: Posta elettronica database
               href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json'
-        - name: Security
+        - name: Sicurezza
           items:
             - name: Proteggere gli endpoint pubblici
               href: managed-instance/public-endpoint-overview.md
@@ -998,7 +998,7 @@
                       href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
                     - name: Creare un'istanza FCI con
                       items:
-                        - name: Dischi condivisi di Azure (SQL 2019 e versioni successive)
+                        - name: Dischi condivisi di Azure
                           href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
                         - name: Spazi di archiviazione diretta (Win2016 e versioni successive)
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md

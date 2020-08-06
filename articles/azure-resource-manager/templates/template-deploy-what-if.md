@@ -3,23 +3,23 @@ title: Distribuzione modelli simulazione (anteprima)
 description: Determinare quali modifiche si verificheranno nelle risorse prima di distribuire un modello di Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888744"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810072"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operazione di simulazione della distribuzione del modello ARM (anteprima)
 
-Prima di distribuire un modello di Azure Resource Manager (ARM), è possibile visualizzare l'anteprima delle modifiche che si verificheranno. Azure Resource Manager fornisce l'operazione di simulazione per visualizzare il modo in cui le risorse vengono modificate se si distribuisce il modello. L'operazione di simulazione non consente di apportare modifiche alle risorse esistenti. Vengono invece stimate le modifiche se il modello specificato viene distribuito.
+Prima di distribuire un modello di Azure Resource Manager (modello ARM), è possibile visualizzare in anteprima le modifiche che si verificheranno. Azure Resource Manager fornisce l'operazione di simulazione per visualizzare il modo in cui le risorse vengono modificate se si distribuisce il modello. L'operazione di simulazione non consente di apportare modifiche alle risorse esistenti. Vengono invece stimate le modifiche se il modello specificato viene distribuito.
 
 > [!NOTE]
 > L'operazione di simulazione è attualmente in anteprima. Come versione di anteprima, i risultati possono a volte indicare che una risorsa cambierà quando in realtà non si verifica alcuna modifica. Ci stiamo impegnando per ridurre questi problemi, ma è necessario aiutarti. Segnala questi problemi all'indirizzo [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-È possibile usare l'operazione di simulazione con Azure PowerShell, l'interfaccia della riga di comando di Azure o le operazioni dell'API REST. Cosa-se è supportato per le distribuzioni a livello di gruppo di risorse e di sottoscrizione.
+È possibile usare l'operazione di simulazione con Azure PowerShell, l'interfaccia della riga di comando di Azure o le operazioni dell'API REST. Cosa-se è supportato per le distribuzioni di gruppi di risorse, sottoscrizioni, gruppi di gestione e a livello di tenant.
 
 ## <a name="install-azure-powershell-module"></a>Installare il modulo Azure PowerShell
 
@@ -125,20 +125,23 @@ I comandi precedenti restituiscono un riepilogo di testo che è possibile ispezi
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per visualizzare in anteprima le modifiche prima di distribuire un modello, usare [AZ Deployment Group What-If](/cli/azure/deployment/group#az-deployment-group-what-if) o [AZ Deployment Sub What-If](/cli/azure/deployment/sub#az-deployment-sub-what-if).
+Per visualizzare in anteprima le modifiche prima di distribuire un modello, usare:
 
-* `az deployment group what-if`per le distribuzioni di gruppi di risorse
-* `az deployment sub what-if`per le distribuzioni a livello di sottoscrizione
+* [AZ Deployment Group-se](/cli/azure/deployment/group#az-deployment-group-what-if) per le distribuzioni di gruppi di risorse
+* [AZ Deployment Sub What-If](/cli/azure/deployment/sub#az-deployment-sub-what-if) per le distribuzioni a livello di sottoscrizione
+* [AZ Deployment mg-se](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) per le distribuzioni di gruppi di gestione
+* [AZ Deployment tenant](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) simulazione per le distribuzioni tenant
 
-È possibile usare l' `--confirm-with-what-if` opzione (o la relativa forma breve `-c` ) per visualizzare l'anteprima delle modifiche e ricevere la richiesta di continuare con la distribuzione. Aggiungere questa opzione a [AZ Deployment Group create](/cli/azure/deployment/group#az-deployment-group-create) o [AZ Deployment Sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+È possibile usare l' `--confirm-with-what-if` opzione (o la relativa forma breve `-c` ) per visualizzare l'anteprima delle modifiche e ricevere la richiesta di continuare con la distribuzione. Aggiungere questa opzione a:
 
-* `az deployment group create --confirm-with-what-if`o `-c` per le distribuzioni di gruppi di risorse
-* `az deployment sub create --confirm-with-what-if`o `-c` per le distribuzioni a livello di sottoscrizione
+* [AZ Deployment Group create](/cli/azure/deployment/group#az-deployment-group-create)
+* [AZ Deployment Sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [AZ Deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [AZ Deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-I comandi precedenti restituiscono un riepilogo di testo che è possibile ispezionare manualmente. Per ottenere un oggetto JSON che è possibile controllare a livello di codice delle modifiche, usare:
+Ad esempio, usare `az deployment group create --confirm-with-what-if` o `-c` per le distribuzioni di gruppi di risorse.
 
-* `az deployment group what-if --no-pretty-print`per le distribuzioni di gruppi di risorse
-* `az deployment sub what-if --no-pretty-print`per le distribuzioni a livello di sottoscrizione
+I comandi precedenti restituiscono un riepilogo di testo che è possibile ispezionare manualmente. Per ottenere un oggetto JSON che è possibile controllare a livello di codice le modifiche, usare l' `--no-pretty-print` opzione. Ad esempio, usare `az deployment group what-if --no-pretty-print` per le distribuzioni di gruppi di risorse.
 
 Se si vogliono restituire i risultati senza colori, aprire il file di [configurazione dell'interfaccia](/cli/azure/azure-cli-configuration) della riga di comando di Azure. Impostare **no_color** su **Sì**.
 
@@ -147,7 +150,9 @@ Se si vogliono restituire i risultati senza colori, aprire il file di [configura
 Per l'API REST, usare:
 
 * [Distribuzioni-What If](/rest/api/resources/deployments/whatif) per le distribuzioni di gruppi di risorse
-* [Distribuzioni-What If nell'ambito della sottoscrizione](/rest/api/resources/deployments/whatifatsubscriptionscope) per le distribuzioni a livello di sottoscrizione
+* [Distribuzioni-What If nell'ambito della sottoscrizione](/rest/api/resources/deployments/whatifatsubscriptionscope) per le distribuzioni di sottoscrizioni
+* [Distribuzioni-What If nell'ambito del gruppo di gestione](/rest/api/resources/deployments/whatifatmanagementgroupscope) per le distribuzioni di gruppi di gestione
+* [Distribuzioni: What If nell'ambito del tenant](/rest/api/resources/deployments/whatifattenantscope) per le distribuzioni tenant.
 
 ## <a name="change-types"></a>Tipi di modifiche
 
@@ -312,7 +317,7 @@ Resource changes: 1 to modify.
 
 Si noti che nella parte superiore dell'output vengono definiti i colori per indicare il tipo di modifiche.
 
-Nella parte inferiore dell'output è indicato che il proprietario del tag è stato eliminato. Il prefisso dell'indirizzo è stato modificato da 10.0.0.0/16 a 10.0.0.0/15. La subnet denominata subnet001 è stata eliminata. Tenere presente che queste modifiche non sono state effettivamente distribuite. Viene visualizzata un'anteprima delle modifiche che si verificheranno se si distribuisce il modello.
+Nella parte inferiore dell'output è indicato che il proprietario del tag è stato eliminato. Il prefisso dell'indirizzo è stato modificato da 10.0.0.0/16 a 10.0.0.0/15. La subnet denominata subnet001 è stata eliminata. Tenere presente che queste modifiche non sono state distribuite. Viene visualizzata un'anteprima delle modifiche che si verificheranno se si distribuisce il modello.
 
 Alcune delle proprietà elencate come eliminate non cambiano effettivamente. Le proprietà possono essere segnalate erroneamente come eliminate quando non sono incluse nel modello, ma vengono impostate automaticamente durante la distribuzione come valori predefiniti. Questo risultato viene considerato "Noise" nella risposta di simulazione. La risorsa finale distribuita avrà i valori impostati per le proprietà. Quando l'operazione di simulazione è matura, queste proprietà verranno filtrate fuori dal risultato.
 

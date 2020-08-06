@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077092"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800501"
 ---
 # <a name="azure-resource-logs"></a>Log delle risorse di Azure
 I log delle risorse di Azure sono [log di piattaforma](platform-logs-overview.md) che forniscono informazioni dettagliate sulle operazioni eseguite all'interno di una risorsa di Azure. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. I log delle risorse non vengono raccolti per impostazione predefinita. È necessario creare un'impostazione di diagnostica per ogni risorsa di Azure per inviare i log delle risorse a un'area di lavoro Log Analytics da usare con i [log di monitoraggio di Azure](data-platform-logs.md), Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione.
 
-Vedere [creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](diagnostic-settings.md) per informazioni dettagliate sulla creazione di un'impostazione di diagnostica e sulla [distribuzione di monitoraggio di Azure su larga scala usando criteri](deploy-scale.md) di Azure per informazioni dettagliate sull'uso di criteri di Azure per creare automaticamente un'impostazione di diagnostica per ogni risorsa di Azure creata.
+Vedere [creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](diagnostic-settings.md) per informazioni dettagliate sulla creazione di un'impostazione di diagnostica e sulla [distribuzione di monitoraggio di Azure su larga scala usando criteri](../deploy-scale.md) di Azure per informazioni dettagliate sull'uso di criteri di Azure per creare automaticamente un'impostazione di diagnostica per ogni risorsa di Azure creata.
 
 ## <a name="send-to-log-analytics-workspace"></a>Inviare all'area di lavoro Log Analytics
  Inviare i log delle risorse a un'area di lavoro di Log Analytics per abilitare le funzionalità dei [log di monitoraggio di Azure](data-platform-logs.md) , inclusi i seguenti:
@@ -43,7 +43,7 @@ Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono ra
 
 La tabella AzureDiagnostics sarà simile alla seguente:  
 
-| ResourceProvider    | Category     | Una  | b  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Categoria     | Una  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | Z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -60,7 +60,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
  
 - Tabella *Service1AuditLogs* come segue:
 
-    | Provider di risorse | Category | Una | b | C |
+    | Provider di risorse | Categoria | Una | b | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | Z1 |
     | Service1 | AuditLogs | X5 | Y5 | z5 |
@@ -68,7 +68,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
 - Tabella *Service1ErrorLogs* come segue:  
 
-    | Provider di risorse | Category | D | E | F |
+    | Provider di risorse | Categoria | D | E | F |
     | -- | -- | -- | -- | -- | 
     | Service1 | ErrorLogs |  q1 | W1 | E1 |
     | Service1 | ErrorLogs |  q2 | W2 | E2 |
@@ -76,7 +76,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
 - Tabella *Service2AuditLogs* come segue:  
 
-    | Provider di risorse | Category | G | H | I |
+    | Provider di risorse | Categoria | G | H | I |
     | -- | -- | -- | -- | -- |
     | Service2 | AuditLogs | J1 | k1 | L1|
     | Service2 | AuditLogs | J3 | K3 | L3|

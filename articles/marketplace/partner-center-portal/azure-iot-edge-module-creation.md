@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320035"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808712"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -50,10 +50,10 @@ La pagina **Panoramica offerta** mostra una rappresentazione visiva dei passaggi
 
 Questa pagina include i collegamenti per eseguire operazioni su questa offerta in base alla selezione effettuata. Ad esempio:
 
-- Se l'offerta è una bozza di [eliminazione](update-existing-offer.md#delete-a-draft-offer),
-- Se l'offerta è Live- [stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se l'offerta è in anteprima- [Go-Live](publishing-status.md#publisher-approval))
-- Se il server di pubblicazione non è stato completato, [annullare la pubblicazione.](update-existing-offer.md#cancel-publishing)
+- Se l'offerta è una bozza: [Eliminare un'offerta bozza](update-existing-offer.md#delete-a-draft-offer)
+- Se l'offerta è live: [Interrompere la vendita dell'offerta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se l'offerta è in anteprima: [Passare allo stato Live](publishing-status.md#publisher-approval)
+- Se non è stata completata la disconnessione dell'editore: [Annullare la pubblicazione](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configurazione dell'offerta
 
@@ -199,14 +199,15 @@ Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono es
 
 #### <a name="store-logos"></a>Logo dello store
 
-Inserire file PNG del logo dell'offerta in tutte e quattro le dimensioni in pixel seguenti:
+Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel) e un valore **medio** (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse.
 
-- **Piccola (48 x 48)**
-- **Media (90 X 90)**
-- **Grande (216 x 216)**
-- **Molto grande (255 X 115)**
+Tutte e tre le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
 
-Tutti e quattro i logo sono obbligatori e vengono usati in posizioni diverse nella presentazione del marketplace.
+- **Piccola** (48 x 48)
+- **Media** (90 x 90)
+- **Grande** (compreso tra 216 x 216 e 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Screenshot (facoltativo)
 

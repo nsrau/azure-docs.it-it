@@ -3,12 +3,12 @@ title: Procedure consigliate per i modelli
 description: Descrive gli approcci consigliati per la creazione di modelli di Azure Resource Manager. Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248918"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809256"
 ---
 # <a name="arm-template-best-practices"></a>Procedure consigliate per il modello ARM
 
@@ -136,7 +136,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Per le risorse che non sono disponibili in tutte le posizioni, usare un parametro distinto oppure specificare un valore letterale per location.
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 
 Le informazioni seguenti possono essere utili quando si usano le [variabili](template-variables.md):
 
@@ -226,7 +226,7 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](templ
    
      Per altre informazioni sulla connessione alle macchine virtuali, vedere:
    
-   * [Eseguire macchine virtuali per un'architettura a più livelli in Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Eseguire macchine virtuali per un'architettura a più livelli in Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Configurare l'accesso WinRM per le macchine virtuali in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Consentire l'accesso esterno alla macchina virtuale tramite il portale di Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Consentire l'accesso esterno alla macchina virtuale tramite PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)

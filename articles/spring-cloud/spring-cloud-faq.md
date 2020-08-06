@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037509"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800371"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -161,6 +161,21 @@ Quando si esegue la migrazione di microservizi cloud primaverili esistenti al cl
 * Si consiglia di usare le librerie di primavera pivotal stabili e ufficiali. Le versioni non ufficiale, beta o con fork delle librerie di Spring pivot non hanno supporto per il contratto di servizio (SLA).
 
 Dopo la migrazione, monitorare le metriche della CPU/RAM e il traffico di rete per assicurarsi che le istanze dell'applicazione vengano ridimensionate in modo appropriato.
+
+## <a name="trouble-shooting"></a>Problemi di ripresa
+
+### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Quali sono gli effetti del registro di sistema del servizio raramente non disponibili?
+
+In alcuni casi, è possibile che vengano visualizzati alcuni errori come 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+dai log delle applicazioni. Questo problema è stato introdotto da Spring Framework con frequenza molto bassa a causa di problemi di rete instabili o di altro genere. 
+
+Non dovrebbe esserci alcun effetto sull'esperienza utente. il client Eureka dispone di criteri di heartbeat e di ripetizione dei tentativi per gestire questo problema. È possibile considerarlo come un errore temporaneo e ignorarlo in modo sicuro.
+
+Questa parte verrà migliorata ed evitare questo errore dalle applicazioni degli utenti in breve futuro.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

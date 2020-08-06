@@ -2,36 +2,37 @@
 title: Informazioni di riferimento sugli attributi di SAP SuccessFactors
 description: Informazioni sugli attributi di SuccessFactors supportati dal provisioning basato su SuccessFactors-HR
 services: active-directory
-author: kenwith
+author: cmmdesai
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/06/2019
-ms.author: kenwith
+ms.date: 08/05/2020
+ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781549"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808508"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Informazioni di riferimento sugli attributi di SAP SuccessFactors
 
 In questo articolo sono disponibili informazioni su:
 
-- [Entità e attributi SuccessFactors supportati](#supported-successfactors-entities-and-attributes)
+- [Entità e attributi di SuccessFactors](#supported-successfactors-entities-and-attributes)
 - [Mapping predefinito degli attributi](#default-attribute-mapping)
 
 ## <a name="supported-successfactors-entities-and-attributes"></a>Entità e attributi SuccessFactors supportati
 
-La tabella seguente acquisisce l'elenco degli attributi SuccessFactors supportati dalle due app di provisioning seguenti:
+La tabella seguente consente di acquisire l'elenco degli attributi SuccessFactors inclusi per impostazione predefinita nelle due app di provisioning seguenti:
 
 - [SuccessFactors per Active Directory il provisioning utenti](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 - [SuccessFactors per Azure AD il provisioning utenti](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
+Per estendere lo schema per attributi aggiuntivi, vedere informazioni di [riferimento sull'integrazione di SAP SuccessFactors](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) . 
 
 | \# | Entità SuccessFactors                  | Attributo SuccessFactors     | Tipo di operazione |
 |----|----------------------------------------|------------------------------|----------------|

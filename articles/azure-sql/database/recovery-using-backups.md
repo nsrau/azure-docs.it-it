@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: e12d5d7e9cfc6cfa80de1032e3d4d5659c44c0a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075888"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809477"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Ripristino usando i backup automatici del database: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Per impostazione predefinita, il database SQL di Azure e i backup di Azure SQL Istanza gestita vengono archiviati nell'archiviazione BLOB con replica geografica (tipo di archiviazione RA-GRS). Le opzioni seguenti sono disponibili per il ripristino del database usando i [backup automatici del database](automated-backups-overview.md). È possibile:
+Le opzioni seguenti sono disponibili per il ripristino del database usando i [backup automatici del database](automated-backups-overview.md). È possibile:
 
 - Consente di creare un nuovo database nello stesso server, ripristinato fino a un punto nel tempo specificato entro il periodo di memorizzazione.
 - Creare un database nello stesso server, ripristinato fino all'ora di eliminazione per un database eliminato.
@@ -33,6 +33,11 @@ Se è stata configurata la [conservazione a lungo termine del backup](long-term-
 
 > [!IMPORTANT]
 > Non è possibile sovrascrivere un database esistente durante il ripristino.
+
+Per impostazione predefinita, il database SQL di Azure e i backup di Azure SQL Istanza gestita vengono archiviati nell'archiviazione BLOB con replica geografica (tipo di archiviazione RA-GRS). Inoltre, SQL Istanza gestita supporta anche l'archiviazione di backup con ridondanza locale (con ridondanza locale) e con ridondanza della zona (ZRS). La ridondanza garantisce che i dati siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione e gravi calamità naturali. L'archiviazione con ridondanza della zona (ZRS) è disponibile solo in [determinate aree geografiche](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+> [!IMPORTANT]
+> La configurazione della ridondanza di archiviazione per i backup è disponibile solo per l'istanza gestita e è consentita durante il processo di creazione. Una volta eseguito il provisioning della risorsa, non è possibile modificare l'opzione di ridondanza dell'archiviazione di backup.
 
 Quando si usa il livello di servizio standard o Premium, il ripristino del database potrebbe comportare un costo di archiviazione aggiuntivo. Il costo aggiuntivo si verifica quando le dimensioni massime del database ripristinato sono maggiori della quantità di spazio di archiviazione inclusa con il livello di servizio e il livello di prestazioni del database di destinazione. Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità di spazio di archiviazione inclusa, è possibile evitare questo costo aggiuntivo impostando le dimensioni massime del database sulla quantità inclusa.
 
@@ -51,7 +56,7 @@ Per un database di grandi dimensioni o molto attive, il ripristino potrebbe rich
 
 Per una singola sottoscrizione, esistono alcune limitazioni al numero di richieste di ripristino simultanee. Queste limitazioni si applicano a qualsiasi combinazione di ripristini temporizzati, ripristini geografici e ripristini dal backup con conservazione a lungo termine.
 
-|| **Numero massimo di richieste simultanee elaborate** | **Numero massimo di richieste simultanee inviate** |
+| **Opzione di distribuzione** | **Numero massimo di richieste simultanee elaborate** | **Numero massimo di richieste simultanee inviate** |
 | :--- | --: | --: |
 |**Database singolo (per sottoscrizione)**|10|60|
 |**Pool elastico (per pool)**|4|200|
@@ -74,7 +79,7 @@ In genere si ripristina un database a un punto precedente per scopi di ripristin
 
   Se si desidera che il database ripristinato sia una sostituzione per il database originale, è necessario specificare le dimensioni di calcolo e il livello di servizio del database originale. È quindi possibile rinominare il database originale e assegnare al database ripristinato il nome originale usando il comando [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL.
 
-- **Recupero dati**
+- **Ripristino dei dati**
 
   Se si prevede di recuperare dati dal database ripristinato in caso di errore di un utente o di un'applicazione, è necessario scrivere ed eseguire uno script di ripristino dei dati che estrae i dati dal database ripristinato e si applica al database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione di ripristino verrà annullata e non verrà addebitato alcun addebito per il database che non ha completato il ripristino.
   
@@ -137,6 +142,9 @@ Per uno script di PowerShell di esempio che illustra come ripristinare un databa
 
 ## <a name="geo-restore"></a>Ripristino geografico
 
+> [!IMPORTANT]
+> Il ripristino geografico è disponibile solo per le istanze gestite configurate con il tipo di archiviazione di backup con ridondanza geografica (RA-GRS). Le istanze gestite configurate con con tipi di archiviazione di backup con ridondanza locale o con ridondanza della zona non supportano il ripristino geografico.
+
 È possibile ripristinare un database in qualsiasi server di database SQL o un database di istanza in qualsiasi istanza gestita in qualsiasi area di Azure dai backup con replica geografica più recenti. Il ripristino geografico USA come origine un backup con replica geografica. È possibile richiedere il ripristino geografico anche se il database o il Data Center è inaccessibile a causa di un'interruzione del servizio.
 
 Il ripristino geografico è l'opzione di ripristino predefinita quando il database non è disponibile a causa di un evento imprevisto nell'area di hosting. È possibile ripristinare il database in un server in qualsiasi altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica geografica in un BLOB di Azure in un'area diversa. Di conseguenza, il database ripristinato può essere fino a un'ora dopo il database originale. Nella figura seguente viene illustrato un ripristino del database dall'ultimo backup disponibile in un'altra area.
@@ -162,7 +170,7 @@ Completare il processo di creazione di un nuovo database dal backup. Quando si c
 
 #### <a name="sql-managed-instance"></a>Istanza gestita di SQL
 
-Per ripristinare il ripristino geografico di un database di istanza gestita dal portale di Azure a un'istanza gestita esistente in un'area di propria scelta, selezionare un'istanza gestita in cui si desidera ripristinare un database. Attenersi ai passaggi descritti di seguito.
+Per ripristinare il ripristino geografico di un database di istanza gestita dal portale di Azure a un'istanza gestita esistente in un'area di propria scelta, selezionare un'istanza gestita in cui si desidera ripristinare un database. Seguire questa procedura:
 
 1. Selezionare **nuovo database**.
 2. Digitare un nome di database desiderato.
@@ -232,7 +240,7 @@ Per ripristinare un database di istanza gestita, vedere [Restore-AzSqlInstanceDa
 
 Per ripristinare un database tramite l'API REST:
 
-| API | Description |
+| API | Descrizione |
 | --- | --- |
 | [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Ripristina un database. |
 | [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/operations) |Restituisce lo stato durante un'operazione di ripristino. |
@@ -247,7 +255,7 @@ Per ripristinare un database usando l'interfaccia della riga di comando di Azure
 
 Per ripristinare un database di istanza gestita usando l'interfaccia della riga di comando di Azure, vedere [AZ SQL MidB Restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e le dimensioni di calcolo.
 

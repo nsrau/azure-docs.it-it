@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes con il servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 8b28507c072f338342dc1a936cb1ab5f3910eea1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498107"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799362"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
 
@@ -33,29 +33,25 @@ La possibilità di gestire il controllo degli accessi in base al ruolo per le ri
 
 ### <a name="prerequisites"></a>Prerequisiti 
 - Iscriversi per l'anteprima <https://aka.ms/aad-rbac-sign-up-form> .
+- Assicurarsi di avere la versione 2.9.0 o successiva dell'interfaccia della riga di comando di Azure
 - Assicurarsi di avere `EnableAzureRBACPreview` abilitato il flag funzionalità.
-- Assicurarsi di avere `AAD-V2` abilitato il flag funzionalità.
 - Assicurarsi che sia installata l' `aks-preview` [estensione CLI][az-extension-add] v 0.4.55 o versione successiva
 - Assicurarsi di aver installato [kubectl v 1.18.3 +][az-aks-install-cli].
 
-#### <a name="register-enableazurerbacpreview-and-aad-v2-preview-features"></a>`EnableAzureRBACPreview`Funzionalità di registrazione e `AAD-V2` anteprima
+#### <a name="register-enableazurerbacpreview-preview-feature"></a>Registrare la `EnableAzureRBACPreview` funzionalità in anteprima
 
-Per creare un cluster AKS che usa il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes, è necessario abilitare i `EnableAzureRBACPreview` `AAD-V2` flag di funzionalità e nella sottoscrizione.
+Per creare un cluster AKS che usa il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes, è necessario abilitare il `EnableAzureRBACPreview` flag funzionalità per la sottoscrizione.
 
-Registrare i `EnableAzureRBACPreview` `AAD-V2` flag della funzionalità e usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
+Registrare il `EnableAzureRBACPreview` flag feature usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
-
-az feature register --namespace "Microsoft.ContainerService"  --name "AAD-V2"
 ```
 
 Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
-
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
 ```
 
 Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register] [AZ-provider-Register]:

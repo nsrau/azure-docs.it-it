@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 34624358a26fbd52db5832cf3531a6f1d3b91e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061750"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800416"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
 
@@ -300,7 +300,7 @@ La notifica corrispondente, se eseguita in modo sincrono dal servizio, ad esempi
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come creare endpoint e route per recapitare gli eventi:
-* [*Procedura: gestire endpoint e Route*](how-to-manage-routes.md)
+* [*Procedura: gestire endpoint e Route*](how-to-manage-routes-apis-cli.md)
 
 In alternativa, Scopri di più sulle API dei dispositivi digitali gemelli di Azure e sulle opzioni dell'SDK:
 * [*Procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md)

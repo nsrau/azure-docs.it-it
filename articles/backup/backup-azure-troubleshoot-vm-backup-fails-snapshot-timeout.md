@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 5bf52606e6fa5de6a122a65432da87de1491e17f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324744"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809766"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -23,7 +23,7 @@ Gli errori di backup più comuni possono essere risolti autonomamente seguendo i
 
 ### <a name="step-1-check-azure-vm-health"></a>Passaggio 1: controllare l'integrità delle macchine virtuali di Azure
 
-- **Verificare che lo stato di provisioning della macchina virtuale di Azure sia ' running '**: se lo stato di [provisioning della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states) è in stato di **arresto/deallocazione/aggiornamento** , interferisce con l'operazione di backup. Aprire *portale di Azure > vm > Overview >* e controllare lo stato della macchina virtuale per verificare che sia **in esecuzione** e ripetere l'operazione di backup.
+- **Verificare che lo stato di provisioning della macchina virtuale di Azure sia ' running '**: se lo stato di [provisioning della macchina virtuale](../virtual-machines/windows/states-lifecycle.md#provisioning-states) è in stato di **arresto/deallocazione/aggiornamento** , interferisce con l'operazione di backup. Aprire *portale di Azure > vm > Overview >* e controllare lo stato della macchina virtuale per verificare che sia **in esecuzione** e ripetere l'operazione di backup.
 - **Esaminare gli aggiornamenti o i riavvii del sistema operativo in sospeso**: assicurarsi che non ci siano aggiornamenti del sistema operativo in sospeso o riavvii in sospeso nella macchina virtuale.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Passaggio 2: controllare l'integrità del servizio agente guest della macchina virtuale di Azure
@@ -31,18 +31,18 @@ Gli errori di backup più comuni possono essere risolti autonomamente seguendo i
 - **Verificare che il servizio agente guest di macchine virtuali di Azure sia avviato e aggiornato**:
   - In una macchina virtuale Windows:
     - Passare a **Services. msc** e verificare che il **servizio agente guest della macchina virtuale di Microsoft Azure** sia in esecuzione. Verificare inoltre che sia installata la [versione più recente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) . Per altre informazioni, vedere [problemi relativi all'agente guest della macchina virtuale Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - L'agente di macchine virtuali di Azure viene installato per impostazione predefinita in qualsiasi VM Windows distribuita dall'immagine di Azure Marketplace dal portale, da PowerShell, dall'interfaccia della riga di comando o da un modello di Azure Resource Manager. Quando si crea un'immagine di macchina virtuale personalizzata distribuita in Azure, potrebbe essere necessaria un' [installazione manuale dell'agente](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows#manual-installation) .
+    - L'agente di macchine virtuali di Azure viene installato per impostazione predefinita in qualsiasi VM Windows distribuita dall'immagine di Azure Marketplace dal portale, da PowerShell, dall'interfaccia della riga di comando o da un modello di Azure Resource Manager. Quando si crea un'immagine di macchina virtuale personalizzata distribuita in Azure, potrebbe essere necessaria un' [installazione manuale dell'agente](../virtual-machines/extensions/agent-windows.md#manual-installation) .
     - Esaminare la matrice di supporto per verificare se la macchina virtuale è in esecuzione nel [sistema operativo Windows supportato](backup-support-matrix-iaas.md#operating-system-support-windows).
   - Nella VM Linux,
-    - Verificare che il servizio agente guest della macchina virtuale di Azure sia in esecuzione eseguendo il comando `ps-e` . Verificare inoltre che sia installata la [versione più recente](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) . Per altre informazioni, vedere [problemi relativi all'agente guest della macchina virtuale Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
-    - Verificare che le [dipendenze dell'agente VM Linux nei pacchetti di sistema](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) abbiano la configurazione supportata. Ad esempio: la versione di Python supportata è 2,6 e successive.
+    - Verificare che il servizio agente guest della macchina virtuale di Azure sia in esecuzione eseguendo il comando `ps-e` . Verificare inoltre che sia installata la [versione più recente](../virtual-machines/extensions/update-linux-agent.md) . Per altre informazioni, vedere [problemi relativi all'agente guest della macchina virtuale Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Verificare che le [dipendenze dell'agente VM Linux nei pacchetti di sistema](../virtual-machines/extensions/agent-linux.md#requirements) abbiano la configurazione supportata. Ad esempio: la versione di Python supportata è 2,6 e successive.
     - Esaminare la matrice di supporto per verificare se la macchina virtuale è in esecuzione nel [sistema operativo Linux supportato.](backup-support-matrix-iaas.md#operating-system-support-linux)
 
 ### <a name="step-3-check-azure-vm-extension-health"></a>Passaggio 3: controllare l'integrità dell'estensione VM di Azure
 
 - **Assicurarsi che tutte le estensioni di macchina virtuale di Azure siano nello stato "provisioning riuscito"**: se un'estensione è in stato di errore, può interferire con il backup.
 - *Aprire portale di Azure > impostazioni > VM > estensioni > stato estensioni* e verificare se tutte le estensioni sono in stato di **provisioning riuscito** .
-- Verificare che tutti i [problemi di estensione](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions) vengano risolti e ripetere l'operazione di backup.
+- Verificare che tutti i [problemi di estensione](../virtual-machines/extensions/overview.md#troubleshoot-extensions) vengano risolti e ripetere l'operazione di backup.
 - **Verificare che l'applicazione di sistema com+** sia attiva e in esecuzione. Inoltre, il **servizio di Distributed Transaction Coordinator** dovrebbe essere in esecuzione come **account del servizio di rete**. Eseguire la procedura descritta in questo articolo per risolvere i problemi relativi a [com+ e MSDTC](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
 
 ### <a name="step-4-check-azure-backup-vm-extension-health"></a>Passaggio 4: controllare lo stato dell'estensione della VM di backup di Azure
@@ -57,9 +57,9 @@ Backup di Azure usa l'estensione di snapshot VM per eseguire un backup coerente 
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **Controllare se è necessario l'accesso alla rete**: i pacchetti di estensione vengono scaricati dal repository dell'estensione di archiviazione di Azure e i caricamenti dello stato dell'estensione vengono inseriti in archiviazione di Azure. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+- **Controllare se è necessario l'accesso alla rete**: i pacchetti di estensione vengono scaricati dal repository dell'estensione di archiviazione di Azure e i caricamenti dello stato dell'estensione vengono inseriti in archiviazione di Azure. [Altre informazioni](../virtual-machines/extensions/features-windows.md#network-access)
   - Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
-  - Se è stato bloccato l'accesso a `168.63.129.16` tramite il firewall Guest o con un proxy, le estensioni avranno esito negativo indipendentemente da quanto sopra. Sono necessarie le porte 80, 443 e 32526, [altre informazioni](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+  - Se è stato bloccato l'accesso a `168.63.129.16` tramite il firewall Guest o con un proxy, le estensioni avranno esito negativo indipendentemente da quanto sopra. Sono necessarie le porte 80, 443 e 32526, [altre informazioni](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Verificare che DHCP sia abilitato all'interno della VM guest**: questa operazione è necessaria per ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP affinché il backup della macchina virtuale IaaS funzioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite il portale di Azure o PowerShell e assicurarsi che l'opzione DHCP all'interno della VM sia abilitata. [altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
 

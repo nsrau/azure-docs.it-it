@@ -3,7 +3,7 @@ title: Verificare l'accesso di un pacchetto di accesso in Azure AD gestione dei 
 description: Informazioni su come completare una verifica di accesso dei pacchetti di accesso alla gestione dei diritti in Azure Active Directory le verifiche di accesso (anteprima).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4de2ac3ee74d60eb532bd469b20523fa937db0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1115c08214db19227b4b8d7be671ce4da1cf2b1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078568"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798598"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Verificare l'accesso di un pacchetto di accesso in Azure AD gestione dei diritti
 

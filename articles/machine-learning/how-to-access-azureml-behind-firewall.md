@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540071"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808117"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro un firewall per Azure Machine Learning
 
@@ -34,7 +34,7 @@ Nel firewall creare una regola di rete che consenta il traffico da e verso gli i
 > [!TIP]
 > Quando si aggiunge la regola di rete, impostare il __protocollo__ su Any e le porte su `*` .
 >
-> Per altre informazioni sulla configurazione del firewall di Azure, vedere [distribuire e configurare il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+> Per altre informazioni sulla configurazione del firewall di Azure, vedere [distribuire e configurare il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Host Microsoft
 
@@ -57,7 +57,7 @@ Gli host in questa sezione sono di proprietà di Microsoft e forniscono i serviz
 | **azurecr.io** | Registro Azure Container |
 | **mcr.microsoft.com** | Microsoft Container Registry per le immagini Docker di base |
 | **your-acr-server-name.azurecr.io** | È necessario solo se il Container Registry di Azure è dietro la rete virtuale. In questa configurazione, viene creato un collegamento privato dall'ambiente Microsoft all'istanza di ACR nella sottoscrizione. Usare il nome del server ACR per l'area di lavoro Azure Machine Learning. |
-
+| **\*. notebooks.azure.net** | Necessaria per i notebook in Azure Machine Learning Studio. |
 ## <a name="python-hosts"></a>Host Python
 
 Gli host in questa sezione vengono usati per installare i pacchetti Python. Sono necessari durante lo sviluppo, il training e la distribuzione. 

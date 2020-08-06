@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317724"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800337"
 ---
 # <a name="create-a-saas-offer"></a>Creare un'offerta SaaS
 
@@ -282,12 +282,16 @@ Questo campo è obbligatorio.
 #### <a name="files-and-images"></a>File e immagini
 
 - **Documenti** (obbligatorio): aggiungere documenti di marketing correlati per l'offerta, in formato PDF, di almeno uno e fino a tre documenti per ogni offerta.
-- **Immagini** (facoltativo): le immagini del logo dell'offerta possono apparire in più posizioni nei marketplace e devono essere in formato PNG con le dimensioni in pixel seguenti:
+- **Immagini** (obbligatorio): sono presenti più posizioni in cui le immagini del logo dell'offerta possono essere visualizzate in tutto il Marketplace. Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel) e un valore **medio** (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse. L'aggiunta di un logo **esteso** è facoltativa.
 
-  - **Piccola** (48 x 48, obbligatoria)
-  - **Media** (90 x 90, obbligatoria)
-  - **Grande** (216 x 216, obbligatoria)
-  - **Molto grande** (255 x 115)
+    Per l'uso in posizioni diverse dell'elenco sono necessarie tre dimensioni del logo; uno è facoltativo:
+
+    - **Piccola** (48 x 48)
+    - **Media** (90 x 90)
+    - **Grande** (compreso tra 216 x 216 e 350 x 350)
+    - **Wide** (255 x 115), *facoltativo*
+
+    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 - **Screenshot** (obbligatorio): aggiungere un massimo di cinque screenshot che dimostrano l'offerta, ridimensionata a 1280 x 720 pixel. Tutte le immagini devono essere in formato PNG.
 - **Video** (facoltativo): aggiungere collegamenti a video che mostrano l'offerta. È possibile usare collegamenti a video di YouTube e/o Vimeo che vengono visualizzati insieme all'offerta ai clienti. È necessario immettere anche un'immagine di anteprima del video, in formato PNG con dimensioni 1280 x 720 pixel. È possibile fornire un massimo di quattro video per ogni offerta.
