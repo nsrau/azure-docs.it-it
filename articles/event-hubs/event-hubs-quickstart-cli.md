@@ -4,12 +4,13 @@ description: Questa guida introduttiva illustra come creare un hub eventi usando
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 90828a09b925fd3af774b22db3102094c1dd0c6d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: acdeb1e176be1676bd531eca33faf1e0e18f3ecd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537157"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502342"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Guida introduttiva: Creare un hub eventi usando l'interfaccia della riga di comando di Azure
 

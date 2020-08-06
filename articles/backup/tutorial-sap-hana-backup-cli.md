@@ -3,12 +3,13 @@ title: Esercitazione - Backup del database SAP HANA in Azure tramite l'interfacc
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure tramite l'interfaccia della riga di comando di Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 30e1f9fbda16841bbabf1407ef1f3d6ef658ecf9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003458"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489504"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Eseguire il backup di database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 

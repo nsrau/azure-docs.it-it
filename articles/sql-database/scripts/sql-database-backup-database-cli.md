@@ -3,19 +3,19 @@ title: 'Interfaccia della riga di comando di Azure: Eseguire il backup di un dat
 description: Script di esempio dell'interfaccia della riga di comando di Azure per eseguire il backup di un database SQL di Azure singolo in un contenitore di archiviazione di Azure
 services: sql-database
 ms.service: sql-database
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 605b2690f85ea8c800e6485b0eb998b795ea9d10
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 33ac44f4910c858dd4d5cfc9d4288ce4970f7f4c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022710"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501985"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>Usare l'interfaccia della riga di comando per eseguire il backup di un database SQL di Azure singolo in un contenitore di archiviazione di Azure
 

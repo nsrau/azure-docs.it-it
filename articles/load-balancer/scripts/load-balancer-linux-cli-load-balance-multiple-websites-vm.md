@@ -9,12 +9,13 @@ ms.topic: sample
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 80ec18ca722b9833307fc270c710abd93c6fb6f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8be0dd6e68d6d50ef80c75ffa87974a63d2e0b36
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76274628"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501764"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Esempio di script dell'interfaccia della riga di comando di Azure: bilanciare il carico di più siti Web
 

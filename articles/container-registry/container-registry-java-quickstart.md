@@ -2,16 +2,16 @@
 title: 'Avvio rapido: Creare ed eseguire il push delle immagini del contenitore Java in Registro Azure Container usando Maven e Jib'
 description: Creare un'app Java in contenitori ed eseguirne il push in Registro Azure Container usando il plug-in Jib di Maven.
 author: KarlErickson
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 9310fb92b4b0ad1163d343f13daf42c15923ec20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e87e2d59dd70fbf96c04d9cd467594aa6576639b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327413"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501305"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Guida introduttiva: Creare ed eseguire il push di immagini del contenitore Java in Registro Azure Container
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 880ccf9a69d5898da98aeabcfd89d05ff94e3b43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223007"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489810"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Creare un dominio gestito di Azure Active Directory Domain Services usando un modello di Azure Resource Manager
 
@@ -126,7 +126,7 @@ Come parte della definizione della risorsa Resource Manager, sono necessari i pa
 | domainName              | Immettere un nome di dominio DNS per il dominio gestito, prendendo in considerazione i punti precedenti sui prefissi e sui conflitti di denominazione. |
 | filteredSync            | Azure AD DS consente di sincronizzare *tutti* gli utenti e i gruppi disponibili in Azure AD oppure di eseguire una sincronizzazione *con ambito* solo di gruppi specifici.<br /><br /> Per altre informazioni sulla sincronizzazione con ambito, vedere [Sincronizzazione con ambito in Azure AD Domain Services][scoped-sync].|
 | notificationSettings    | Se sono stati generati avvisi nel dominio gestito, è possibile inviare notifiche tramite posta elettronica. <br /><br />Gli *amministratori globali* del tenant di Azure e i membri del gruppo *AAD DC Administrators* possono essere *Abilitati* per queste notifiche.<br /><br /> Se si desidera, è possibile aggiungere altri destinatari per le notifiche quando sono presenti avvisi che richiedono attenzione.|
-| domainConfigurationType | Per impostazione predefinita, un dominio gestito viene creato come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Non è necessario specificare un valore per *domainConfiguration* per creare una foresta di utenti.<br /><br /> Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Impostare il valore su *ResourceTrusting* per creare una foresta di risorse.<br /><br />Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].|
+| domainConfigurationType | Per impostazione predefinita, un dominio gestito viene creato come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Non è necessario specificare un valore per *domainConfiguration* per creare una foresta di utenti.<br /><br /> Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Impostare il valore su *ResourceTrusting* per creare una foresta di risorse.<br /><br />Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].|
 
 La definizione dei parametri condensati seguente mostra come vengono dichiarati questi valori. Viene creata una foresta utente denominata *aaddscontoso.com* con tutti gli utenti di Azure AD sincronizzati con il dominio gestito:
 
