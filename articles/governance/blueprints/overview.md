@@ -3,12 +3,12 @@ title: Panoramica di Azure Blueprint
 description: Informazioni sul servizio Azure Blueprints, che consente di creare, definire e distribuire artefatti nell'ambiente di Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970927"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530398"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
@@ -103,7 +103,7 @@ Per assegnare o annullare l'assegnazione di un progetto l'account necessita dell
 
 Sono disponibili i ruoli predefiniti seguenti:
 
-|Ruolo Controllo degli accessi in base al ruolo | Descrizione |
+|Ruolo di Azure | Descrizione |
 |-|-|
 |[Proprietario](../../role-based-access-control/built-in-roles.md#owner) | Oltre ad altre autorizzazioni, include tutte le autorizzazioni correlate ad Azure Blueprint. |
 |[Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) | Oltre ad altre autorizzazioni, può creare ed eliminare definizioni di progetto, ma non ha le autorizzazioni per l'assegnazione di progetti. |

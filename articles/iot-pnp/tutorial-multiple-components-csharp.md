@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cf2662bef194bc2b7afdb07f55809ba63f40fd6e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 67b71399332fb29a277381a8c2806dbe7fb31d85
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351903"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552121"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Esercitazione: Connettere un'applicazione di un dispositivo Plug and Play IoT con più componenti in esecuzione in Windows a un hub IoT (C#)
 
@@ -60,7 +60,7 @@ In questa esercitazione viene preparato un ambiente di sviluppo che è possibile
 Aprire un prompt dei comandi nella directory di propria scelta. Eseguire il comando seguente per clonare il repository GitHub di [SDK e librerie di Azure IoT per C#](https://github.com/Azure/azure-iot-sdk-csharp) in tale percorso:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-c.git
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
 ## <a name="build-the-code"></a>Compilare il codice

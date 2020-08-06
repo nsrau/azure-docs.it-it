@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: lbosq
-ms.openlocfilehash: 0d8c153bb95ee4eda109d8d7d6ce8ae40dae19e1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e1ce632a04269704b498a69e1a0dd4fe72e00c87
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260726"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543776"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Avvio rapido: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
 
@@ -81,7 +81,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
    connectionPool: {
      enableSsl: true
    }
-   serializer: { className: org.apache.tinkerpop.gremlin.driver.   ser.GraphSONMessageSerializerV2d0, config: {    serializeResultToString: true }}
+   serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
    ```
 
    assicurarsi di inserire il valore del parametro di host all'interno di parentesi quadre []. 
