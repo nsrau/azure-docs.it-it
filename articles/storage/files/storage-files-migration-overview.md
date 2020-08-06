@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660752"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827861"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
@@ -78,10 +78,10 @@ Come usare la tabella:
 
 Uno scenario senza collegamento non dispone ancora di una guida alla migrazione pubblicata. Controllare occasionalmente questa tabella per gli aggiornamenti. Le nuove guide verranno pubblicate quando sono disponibili.
 
-| Source (Sorgente) | Destinazione: </br>Distribuzione ibrida | Destinazione: </br>Distribuzione solo cloud |
+| Origine | Destinazione: </br>Distribuzione ibrida | Destinazione: </br>Distribuzione solo cloud |
 |:---|:--|:--|
 | | Combinazione di strumenti:| Combinazione di strumenti: |
-| Windows Server 2012 R2 e versioni successive | <ul><li>[Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronizzazione file di Azure e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li></ul> | <ul><li>Sincronizzazione file di Azure</li><li>Sincronizzazione file di Azure e Data Box</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li><li>RoboCopy</li></ul> |
+| Windows Server 2012 R2 e versioni successive | <ul><li>[Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronizzazione file di Azure e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Sincronizzazione file di Azure e file con pre-seeding nel cloud](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li></ul> | <ul><li>Sincronizzazione file di Azure</li><li>Sincronizzazione file di Azure e Data Box</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 e versioni precedenti | <ul><li>Sincronizzazione file di Azure e Data Box</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li></ul> | <ul><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li><li>RoboCopy</li></ul> |
 | Archiviazione collegata alla rete (NAS) | <ul><li>[Sincronizzazione file di Azure e RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux o Samba | <ul><li>[Sincronizzazione file di Azure e RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |

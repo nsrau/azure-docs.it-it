@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 406991de2441836565c911ef8a8e1402f6398eb0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326002"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824784"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio in Monitoraggio di Azure
 
@@ -192,7 +192,6 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Ottenere un [elenco di soluzioni di monitoraggio da Microsoft](/azure/azure-monitor/monitor-reference).
+* Ottenere un [elenco di soluzioni di monitoraggio da Microsoft](../monitor-reference.md).
 * Informazioni su come [creare query](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle soluzioni di monitoraggio.
 * Vedere tutti i [comandi dell'interfaccia della riga di comando di Azure per Azure monitor](/cli/azure/azure-cli-reference-for-monitor).
-

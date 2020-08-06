@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc7c256ca6866e5b981f8740c9953534d830316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e72e3cb3ccc6273a9b698475c5e5aa0bb87b8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359161"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828796"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
 Questo argomento descrive le varie operazioni che è possibile eseguire tramite Azure Active Directory (Azure AD) Connect Health.
@@ -104,7 +104,7 @@ Quando si elimina un'istanza del servizio, tenere presente quanto segue:
 
 [//]: # (Inizio della sezione Controllo degli accessi in base al ruolo)
 ## <a name="manage-access-with-role-based-access-control"></a>Gestire l'accesso con il controllo degli accessi in base al ruolo
-Il [controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) per Azure AD Connect Health consente l'accesso a utenti e gruppi che non sono amministratori globali. Questa funzionalità assegna ruoli agli utenti e ai gruppi previsti e fornisce un meccanismo per limitare gli amministratori globali all'interno di una directory.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md) per Azure ad Connect Health fornisce accesso a utenti e gruppi diversi dagli amministratori globali. Questa funzionalità assegna ruoli agli utenti e ai gruppi previsti e fornisce un meccanismo per limitare gli amministratori globali all'interno di una directory.
 
 ### <a name="roles"></a>Ruoli
 Azure AD Connect Health supporta i ruoli predefiniti seguenti:
@@ -113,7 +113,7 @@ Azure AD Connect Health supporta i ruoli predefiniti seguenti:
 | --- | --- |
 | Proprietario |I proprietari possono *gestire l'accesso* (ad esempio assegnare ruoli a un utente o gruppo), *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. <br>Per impostazione predefinita, gli amministratori globali di Azure AD vengono assegnati a questo ruolo e questa assegnazione non è modificabile. |
 | Collaboratore |I collaboratori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. |
-| Reader |I lettori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health. |
+| Lettore |I lettori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health. |
 
 Tutti gli altri ruoli, ad esempio gli amministratori dell'accesso utente o gli utenti DevTest Labs, anche se disponibili nell'esperienza del portale, non influiscono sull'accesso all'interno di Azure AD Connect Health.
 

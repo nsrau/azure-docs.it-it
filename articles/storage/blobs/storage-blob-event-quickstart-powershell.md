@@ -1,6 +1,6 @@
 ---
-title: Inviare gli eventi di archiviazione BLOB di Azure a un endpoint Web - PowerShell | Microsoft Docs
-description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB.
+title: Inviare eventi di archiviazione BLOB di Azure a un endpoint Web-PowerShell | Microsoft Docs
+description: Usare griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB, attivare un evento e visualizzare il risultato. Usare Azure PowerShell per indirizzare gli eventi di archiviazione a un endpoint Web.
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -8,12 +8,12 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 809ab593d4d3f58fa3c91b896e5df3a0db7865f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68847166"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824512"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con PowerShell
 

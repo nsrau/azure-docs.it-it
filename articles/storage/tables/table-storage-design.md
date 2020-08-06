@@ -1,6 +1,6 @@
 ---
 title: Progettare tabelle scalabili ed efficienti in Archiviazione tabelle di Azure. | Microsoft Docs
-description: Progettare tabelle scalabili ed efficienti in Archiviazione tabelle di Azure.
+description: Informazioni su come progettare tabelle scalabili ed efficienti nell'archiviazione tabelle di Azure. Esaminare le partizioni di tabella, le transazioni dei gruppi di entità e le considerazioni relative alla capacità e ai costi.
 services: storage
 author: SnehaGunda
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59af13bcae14839a5b583ad7e063668b5305b30a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656900"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824410"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Progettare tabelle scalabili ad alte prestazioni
 

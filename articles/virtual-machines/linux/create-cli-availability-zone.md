@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e68dbbf86c5bda1758a6331f4c6fc0797df4557
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 964d2b5d89fd91aca68e9b47b0049529fe284848
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368354"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829000"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creare una macchina virtuale Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 
@@ -23,7 +23,7 @@ Verificare di avere installato la versione più recente dell'[interfaccia della 
 
 
 ## <a name="check-vm-sku-availability"></a>Verificare la disponibilità dello SKU di VM
-La disponibilità delle dimensioni delle macchine virtuali, o SKU, può variare in base all'area e alla zona. Per semplificare la pianificazione dell'uso delle zone di disponibilità, è possibile elencare gli SKU di VM disponibili per area e zona di Azure. Questa possibilità assicura la scelta di dimensioni adeguate per le macchine virtuali e l'ottenimento della resilienza desiderata tra le aree. Per altre informazioni sui tipi e sulle dimensioni delle VM, vedere la [panoramica delle dimensioni delle VM](sizes.md).
+La disponibilità delle dimensioni delle macchine virtuali, o SKU, può variare in base all'area e alla zona. Per semplificare la pianificazione dell'uso delle zone di disponibilità, è possibile elencare gli SKU di VM disponibili per area e zona di Azure. Questa possibilità assicura la scelta di dimensioni adeguate per le macchine virtuali e l'ottenimento della resilienza desiderata tra le aree. Per altre informazioni sui tipi e sulle dimensioni delle VM, vedere la [panoramica delle dimensioni delle VM](../sizes.md).
 
 È possibile visualizzare gli SKU di VM disponibili con il comando [az vm list-skus](/cli/azure/vm). L'esempio seguente elenca gli SKU di VM disponibili nell'area *eastus2*:
 
@@ -189,7 +189,3 @@ L'output indica che l'indirizzo IP si trova nella stessa zona di disponibilità 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Altre informazioni sulla [disponibilità](../availability.md) per le macchine virtuali di Azure.
-
-
-
-

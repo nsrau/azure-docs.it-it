@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6be91be4d1189fb99ffa39ec96d555d4534cdb2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005736"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825447"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Collegare un disco dati a una macchina virtuale Windows con PowerShell
 
@@ -20,7 +20,7 @@ Questo articolo illustra come collegare dischi nuovi ed esistenti a una macchina
 
 Esaminare prima di tutto i suggerimenti seguenti:
 
-* La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per ulteriori informazioni, vedere [dimensioni per le macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per ulteriori informazioni, vedere [dimensioni per le macchine virtuali](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Per usare unità SSD Premium, è necessario un [tipo di macchina virtuale abilitato per Archiviazione Premium](../sizes-memory.md), ad esempio una macchina virtuale serie DS o GS.
 
 Questo articolo usa PowerShell all'interno del [Azure cloud Shell](../../cloud-shell/overview.md), che viene costantemente aggiornato alla versione più recente. Per aprire Cloud Shell, selezionare **Prova** nella parte superiore di qualsiasi blocco di codice.

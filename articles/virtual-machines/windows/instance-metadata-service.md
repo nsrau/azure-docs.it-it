@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 071baacd375cb5595bc99eeead7e818a35c4539b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d074c3f806b36ff530396fbafcb3c7c6f9661fcf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500413"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827572"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -262,7 +262,7 @@ tagsList | Tag formattati come matrice JSON per un'analisi più semplice a livel
 version | Versione dell'immagine della macchina virtuale | 2017-04-02
 vmId | [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale | 2017-04-02
 vmScaleSetName | [Nome del set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/overview.md) del proprio set di scalabilità di macchine virtuali | 2017-12-01
-vmSize | [Dimensioni macchina virtuale](sizes.md) | 2017-04-02
+vmSize | [Dimensioni macchina virtuale](../sizes.md) | 2017-04-02
 zona | [Zona di disponibilità](../../availability-zones/az-overview.md) della macchina virtuale | 2017-12-01
 
 ### <a name="sample-1-tracking-vm-running-on-azure"></a>Esempio 1. Rilevamento della macchina virtuale in esecuzione in Azure
@@ -496,7 +496,7 @@ Il profilo di archiviazione di una macchina virtuale è suddiviso in tre categor
 
 L'oggetto di riferimento immagine contiene le informazioni seguenti sull'immagine del sistema operativo:
 
-Data    | Descrizione
+Dati    | Descrizione
 --------|-----------------
 id      | ID risorsa
 offer   | Offerta dell'immagine della piattaforma o del marketplace
@@ -506,7 +506,7 @@ version | Versione dell'immagine della piattaforma o del marketplace
 
 L'oggetto disco del sistema operativo contiene le informazioni seguenti sul disco del sistema operativo usato dalla macchina virtuale:
 
-Data    | Descrizione
+Dati    | Descrizione
 --------|-----------------
 caching | Requisiti per la memorizzazione nella cache
 createOption | Informazioni sul modo in cui è stata creata la macchina virtuale

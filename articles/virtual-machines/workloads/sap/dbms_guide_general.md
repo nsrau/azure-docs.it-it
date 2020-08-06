@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44a41f43aa31c15b71d7b35ebd29bf935c7df966
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525467"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827419"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -174,7 +174,7 @@ Un account di archiviazione di Azure è un costrutto amministrativo ed è anche 
 
 Per l'archiviazione Standard, tenere presente che è previsto un limite per il numero di operazioni di I/O al secondo per ogni account di archiviazione. Vedere la riga che contiene **Total Request Rate** (Frequenza di richiesta totale) nell'articolo [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../../storage/common/scalability-targets-standard-account.md). Esiste inoltre un limite iniziale per il numero di account di archiviazione per ogni sottoscrizione di Azure. Bilanciare i dischi rigidi virtuali per il panorama applicativo SAP di maggiori dimensioni tra i diversi account di archiviazione per evitare di raggiungere i limiti di questi account di archiviazione. Si tratta di un lavoro noioso quando si parla di alcune centinaia di macchine virtuali con più di mille dischi rigidi virtuali.
 
-Poiché non è consigliabile usare l'archiviazione Standard per le distribuzioni DBMS in combinazione con un carico di lavoro SAP, i riferimenti e le raccomandazioni per l'archiviazione Standard sono limitati a questo breve [articolo](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)
+Poiché non è consigliabile usare l'archiviazione Standard per le distribuzioni DBMS in combinazione con un carico di lavoro SAP, i riferimenti e le raccomandazioni per l'archiviazione Standard sono limitati a questo breve [articolo](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance)
 
 Per evitare il lavoro amministrativo di pianificazione e distribuzione di dischi rigidi virtuali nei diversi account di archiviazione di Azure, nel 2017 Microsoft ha introdotto il servizio [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). I dischi gestiti sono disponibili per l'archiviazione Standard e per l'archiviazione Premium. I vantaggi principali dei dischi gestiti rispetto ai dischi non gestiti sono i seguenti:
 
@@ -327,7 +327,7 @@ Il bilanciamento del carico offre un'opzione DirectServerReturn. Se tale opzione
 
 È consigliabile configurare l'opzione DirectServerReturn in combinazione con i servizi di bilanciamento del carico che si trovano tra il livello dell'applicazione SAP e il livello DBMS. Questa configurazione riduce la latenza di rete tra i due livelli.
 
-Per un esempio di come configurare questa configurazione con SQL Server Always On, vedere [Configurare un listener ILB per gruppi di disponibilità Always On in Azure](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
+Per un esempio di come configurare questa configurazione con SQL Server Always On, vedere [Configurare un listener ILB per gruppi di disponibilità Always On in Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
 
 Se si usano i modelli JSON di GitHub pubblicati come riferimento per le distribuzioni di infrastrutture SAP in Azure, studiare questo [modello per un sistema SAP a 3 livelli](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). In questo modello è anche possibile visualizzare le impostazioni corrette per il servizio di bilanciamento del carico.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526878"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825685"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una VM Linux quando non è possibile accedere alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
 
@@ -272,6 +272,6 @@ Se la macchina virtuale esegue lo scambio di disco lo arresterà, riavviare la m
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su:
 
- [Console seriale di Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+ [Console seriale di Azure]( ./serial-console-linux.md)
 
 [Modalità utente singolo](./serial-console-grub-single-user-mode.md)

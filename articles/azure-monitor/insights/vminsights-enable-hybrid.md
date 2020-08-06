@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417115"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828405"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale ibrida
 Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale all'esterno di Azure, inclusi ambienti locali e altri ambienti cloud.
@@ -41,9 +41,9 @@ I requisiti del firewall per l'agente Log Analytics sono disponibili nella [Pano
 
 È possibile scaricare Dependency Agent da questi percorsi:
 
-| File | Sistema operativo | Versione | SHA-256 |
+| File | OS | Versione | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | WINDOWS | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
 
@@ -92,10 +92,10 @@ Se Dependency Agent non si avvia, controllare i log per vedere le informazioni d
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 
-| File | Location |
+| File | Percorso |
 |:--|:--|
 | File core | /opt/microsoft/dependency-agent |
-| File di registro | /var/opt/microsoft/dependency-agent/log |
+| File di log | /var/opt/microsoft/dependency-agent/log |
 | File di configurazione | /etc/opt/microsoft/dependency-agent/config |
 | File eseguibili del servizio | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | File binary di archiviazione | /var/opt/microsoft/dependency-agent/storage |
@@ -158,7 +158,7 @@ Se l'installazione dell'agente di dipendenza ha avuto esito positivo, ma il comp
 
     **Linux**: cercare il processo in esecuzione "Microsoft-Dependency-Agent".
 
-2. Il piano [tariffario gratuito di log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Il piano gratuito consente fino a cinque computer univoci. Eventuali computer successivi non verranno visualizzati sulla mappa, anche se i cinque precedenti non inviano più dati.
+2. Il piano [tariffario gratuito di log Analytics](./solutions.md)? Il piano gratuito consente fino a cinque computer univoci. Eventuali computer successivi non verranno visualizzati sulla mappa, anche se i cinque precedenti non inviano più dati.
 
 3. Il computer invia i dati di log e delle prestazioni ai log di monitoraggio di Azure? Eseguire la query seguente per il computer:
 

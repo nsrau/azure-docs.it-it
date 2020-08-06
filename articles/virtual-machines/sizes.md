@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 99419a73386f39492d78ee93aeb61f432ac9c690
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421060"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827623"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Dimensioni delle macchine virtuali in Azure
 
 Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. 
 
-| Tipo | Dimensioni | Descrizione |
+| Type | Dimensioni | Descrizione |
 |------|-------|-------------|
 | [Utilizzo generico](sizes-general.md)   | B, Dsv3, dv3, Dasv4, Dav4, DSv2, dv2, AV2, DC, DCv2, dv4, Dsv4, Ddv4, Ddsv4  | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
 | [Ottimizzate per il calcolo](sizes-compute.md) | F, FS, Fsv2 | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. |
@@ -31,7 +31,7 @@ Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine 
 - Per informazioni sui prezzi delle varie dimensioni, vedere le pagine relative ai prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
 - Per la disponibilità delle dimensioni di VM nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 - Per trovare i limiti generali delle VM di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Per altre informazioni sul modo in cui Azure denomina le proprie macchine virtuali, vedere [convenzioni di denominazione di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
+- Per altre informazioni sul modo in cui Azure denomina le proprie macchine virtuali, vedere [convenzioni di denominazione di macchine virtuali di Azure](./vm-naming-conventions.md).
 
 ## <a name="rest-api"></a>API REST
 

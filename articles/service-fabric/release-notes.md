@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 08808fa0577077b642d0f21e3995931726d4d8a3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8a9ca656ec102a101df9aafb87652680a1001f31
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423542"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826280"
 ---
 # <a name="service-fabric-releases"></a>Versioni Service Fabric
 
@@ -51,9 +51,9 @@ Siamo entusiasti di annunciare la prossima versione di Service Fabric. Questa ve
 ### <a name="improve-application-life-cycle-experience"></a>Migliorare l'esperienza del ciclo di vita dell'applicazione
 
 - **[Anteprima: svuotamento richieste](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: durante la manutenzione pianificata del servizio, ad esempio gli aggiornamenti del servizio o la disattivazione del nodo, si desidera consentire ai servizi di svuotare normalmente le connessioni. Questa funzionalità aggiunge una durata del ritardo di chiusura dell'istanza nella configurazione del servizio. Durante le operazioni pianificate, SF eliminerà l'indirizzo del servizio dall'individuazione e quindi attenderà la durata prima di arrestare il servizio.
-- **[Rilevamento e bilanciamento automatico del sottocluster](/azure/service-fabric/cluster-resource-manager-subclustering )**: il sottoclustering si verifica quando i servizi con vincoli di posizionamento diversi hanno una [metrica di carico](./service-fabric-cluster-resource-manager-metrics.md)comune. Se il carico sui diversi set di nodi differisce in modo significativo, il cluster Service Fabric Gestione risorse ritiene che il cluster sia sbilanciato, anche quando dispone del migliore equilibrio possibile a causa dei vincoli di posizionamento. Di conseguenza, tenta di ribilanciare il cluster, causando potenzialmente movimenti di servizio non necessari (poiché lo "squilibrio" non può essere notevolmente migliorato). A partire da questa versione, il cluster Gestione risorse tenterà di rilevare automaticamente questi tipi di configurazioni e di comprendere quando lo squilibrio può essere risolto tramite lo spostamento e quando invece dovrebbe lasciarsi da solo perché non è possibile apportare miglioramenti sostanziali.  
+- **[Rilevamento e bilanciamento automatico del sottocluster](./cluster-resource-manager-subclustering.md)**: il sottoclustering si verifica quando i servizi con vincoli di posizionamento diversi hanno una [metrica di carico](./service-fabric-cluster-resource-manager-metrics.md)comune. Se il carico sui diversi set di nodi differisce in modo significativo, il cluster Service Fabric Gestione risorse ritiene che il cluster sia sbilanciato, anche quando dispone del migliore equilibrio possibile a causa dei vincoli di posizionamento. Di conseguenza, tenta di ribilanciare il cluster, causando potenzialmente movimenti di servizio non necessari (poiché lo "squilibrio" non può essere notevolmente migliorato). A partire da questa versione, il cluster Gestione risorse tenterà di rilevare automaticamente questi tipi di configurazioni e di comprendere quando lo squilibrio può essere risolto tramite lo spostamento e quando invece dovrebbe lasciarsi da solo perché non è possibile apportare miglioramenti sostanziali.  
 - [**Costo di spostamento diverso per le repliche secondarie**](./service-fabric-cluster-resource-manager-movement-cost.md): è stato introdotto un nuovo valore di costo di spostamento VeryHigh che offre maggiore flessibilità in alcuni scenari per definire se usare un costo di spostamento separato per le repliche secondarie.
-- Meccanismo di [**Probe di Livezza**](/azure/service-fabric/probes-codepackage ) abilitato per applicazioni in contenitori. Il probe di Livenza consente di annunciare la vita dell'applicazione in contenitori e quando non rispondono in modo tempestivo, comporterà un riavvio.
+- Meccanismo di [**Probe di Livezza**](./probes-codepackage.md) abilitato per applicazioni in contenitori. Il probe di Livenza consente di annunciare la vita dell'applicazione in contenitori e quando non rispondono in modo tempestivo, comporterà un riavvio.
 - [**Esegui fino al completamento/una volta per i servizi**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Miglioramenti di archivio immagini

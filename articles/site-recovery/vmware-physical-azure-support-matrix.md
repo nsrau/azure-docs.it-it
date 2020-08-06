@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 56c86993e4e98764bc7e3ce04180f9e870cc612d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 595f12f9204dff58af0bfebb60402cc89ffb386a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87458026"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826246"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -32,7 +32,7 @@ Ripristino di emergenza di server fisici | Replica di server fisici Windows/Linu
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Server vCenter | Versione 7,0, 6,7, 6,5, 6,0 o 5,5 | Si consiglia di usare un server vCenter nella distribuzione di ripristino di emergenza.
-Host vSphere | Versione 7,0, 6,7, 6,5, 6,0 o 5,5 | È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Il server di elaborazione viene eseguito per impostazione predefinita nel server di configurazione. [Altre informazioni](vmware-physical-azure-config-process-server-overview.md).
+Host vSphere | Versione 7,0, 6,7, 6,5, 6,0 o 5,5 | È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Il server di elaborazione viene eseguito per impostazione predefinita nel server di configurazione. [Altre informazioni](vmware-physical-azure-config-process-server-overview.md)
 
 
 ## <a name="site-recovery-configuration-server"></a>Server di configurazione di Site Recovery
@@ -66,7 +66,7 @@ Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in
 **Componente** | **Dettagli**
 --- | ---
 Impostazioni del computer | I computer che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
-Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato. [Altre informazioni](https://aka.ms/asr_workload).
+Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato. [Altre informazioni](https://aka.ms/asr_workload)
 Nome computer | Verificare che il nome visualizzato del computer non rientri nei [nomi delle risorse riservate di Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> I nomi di volumi logici non fanno distinzione tra maiuscole e minuscole. Assicurarsi che non siano presenti due volumi in un dispositivo con lo stesso nome. Esempio: i volumi con nomi "voLUME1", "voLUME1" non possono essere protetti tramite Azure Site Recovery.
 
 ### <a name="for-windows"></a>Per Windows
@@ -77,7 +77,7 @@ Windows Server 2019 | Supportato dall' [aggiornamento cumulativo 34](https://sup
 Windows Server 2016 64 bit | Supportato per Server Core, Server con Esperienza Desktop.
 Windows Server 2012 R2/Windows Server 2012 | Supportata.
 Windows Server 2008 R2 con SP1 e versioni successive. | Supportata.<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario [aggiornare lo stack di manutenzione (SSU)](https://support.microsoft.com/help/4490628) e l' [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer che eseguono Windows 2008 R2 con SP1 o versione successiva. SHA-1 non è supportato da settembre 2019 e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull'[aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 con SP2 o versioni successive (64 bit/32 bit) |  Supportato solo per la migrazione. [Altre informazioni](migrate-tutorial-windows-server-2008.md).<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario aggiornare lo [stack di manutenzione (SSU)](https://support.microsoft.com/help/4493730) e l' [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer Windows 2008 SP2. Il codice di aggiornamento in base al codice non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull'[aggiornamento e sui requisiti di SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
+Windows Server 2008 con SP2 o versioni successive (64 bit/32 bit) |  Supportato solo per la migrazione. [Altre informazioni](migrate-tutorial-windows-server-2008.md)<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario aggiornare lo [stack di manutenzione (SSU)](https://support.microsoft.com/help/4493730) e l' [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer Windows 2008 SP2. Il codice di aggiornamento in base al codice non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull'[aggiornamento e sui requisiti di SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
 Windows 10, Windows 8.1, Windows 8 | Supportata.
 Windows 7 con SP1 64 bit | Supportato dall' [aggiornamento cumulativo 36](https://support.microsoft.com/help/4503156) (versione 9,22 del servizio Mobility) in poi. </br></br> Da [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility sono necessari aggiornamento [dello stack di manutenzione (SSU)](https://support.microsoft.com/help/4490628) e [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer Windows 7 SP1.  SHA-1 non è supportato da settembre 2019 e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull'[aggiornamento e sui requisiti di SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
 
@@ -183,7 +183,7 @@ IPv6 rete guest/server | No.
 IP statico (Windows) rete guest/server | Sì.
 IP statico (Linux) rete guest/server | Sì. <br/><br/>Le VM sono configurate per l'uso di DHCP in caso di failback.
 Più schede di interfaccia rete guest/server | Sì.
-Accesso a collegamento privato al servizio Site Recovery | Sì. [Altre informazioni](hybrid-how-to-enable-replication-private-endpoints.md).
+Accesso a collegamento privato al servizio Site Recovery | Sì. [Altre informazioni](hybrid-how-to-enable-replication-private-endpoints.md)
 
 
 ## <a name="azure-vm-network-after-failover"></a>Rete VM di Azure (dopo il failover)
@@ -229,7 +229,7 @@ Guest/server - esclusione disco | Sì
 Percorsi multipli (MPIO) guest/server | No
 Partizioni GPT Guest/server | Sono supportate cinque partizioni dall' [aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) (versione 9,25 del servizio Mobility). Sono state supportate quattro versioni precedenti.
 ReFS | Resilient file System è supportato con il servizio Mobility versione 9,23 o successiva
-Avvio EFI/UEFI Guest/server | -Supportato per tutti i [sistemi operativi UEFI di Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) con l'agente di Site Recovery mobility versione 9,30 e versioni successive. <br/> -Il tipo di avvio UEFI sicuro non è supportato. [Altre informazioni.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Avvio EFI/UEFI Guest/server | -Supportato per tutti i [sistemi operativi UEFI di Azure Marketplace](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) con l'agente di Site Recovery mobility versione 9,30 e versioni successive. <br/> -Il tipo di avvio UEFI sicuro non è supportato. [Altre informazioni.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canali di replica
 

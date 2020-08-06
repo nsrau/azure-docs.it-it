@@ -1,7 +1,7 @@
 ---
 title: Ridondanza dei dati
 titleSuffix: Azure Storage
-description: I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le configurazioni della ridondanza includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS), archiviazione con ridondanza geografica della zona (GZRS) e archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS).
+description: Informazioni sulla ridondanza dei dati in archiviazione di Azure. I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036727"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827844"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -161,7 +161,7 @@ La tabella seguente descrive i principali parametri per ogni opzione di ridondan
 
 La tabella seguente indica se viene garantita la durabilità e la disponibilità dei dati in un determinato scenario, a seconda del tipo di ridondanza attivo per l'account di archiviazione:
 
-| Scenario di interruzione | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+| Scenario di interruzione | Archiviazione con ridondanza locale | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | Un nodo all'interno di un data center non è più disponibile | Sì | Sì | Sì | Sì |
 | Mancata disponibilità di un intero data center (di zona o non di zona) | No | Sì | Sì<sup>1</sup> | Sì |

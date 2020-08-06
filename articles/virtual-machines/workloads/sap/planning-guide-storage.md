@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65fbd84a6fa4b03db9f5dfce81eeba23aceebbc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042298"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825005"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
 Azure dispone di numerosi tipi di archiviazione che variano notevolmente in funzionalità, velocità effettiva, latenza e prezzi. Alcuni tipi di archiviazione non sono o di utilizzo limitato per gli scenari SAP. Mentre alcuni tipi di archiviazione di Azure sono particolarmente adatti o ottimizzati per scenari specifici del carico di lavoro SAP. In particolare per SAP HANA, alcuni tipi di archiviazione di Azure sono stati certificati per l'utilizzo con SAP HANA. In questo documento vengono esaminati i diversi tipi di archiviazione e ne viene descritta la funzionalità e l'usabilità con i carichi di lavoro SAP e i componenti SAP.
@@ -90,15 +90,15 @@ Caratteristiche che è possibile prevedere dall'elenco dei diversi tipi di archi
 
 | Scenario di utilizzo | HDD Standard | SSD Standard | Archiviazione Premium | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| SLA velocità effettiva/IOPS | No | no | sì | Sì | Sì |
+| SLA velocità effettiva/IOPS | No | No | sì | sì | sì |
 | Letture latenza | high | da medio a alto | low | millisecondi | millisecondi |
 | Scritture latenza | high | da medio a alto  | bassa (sub-millisecond<sup>1</sup>) | millisecondi | millisecondi |
-| HANA supportato | No | no | Sì<sup>1</sup> | Sì | Sì |
-| Snapshot del disco possibili | Sì | Sì | sì | no | sì |
+| HANA supportato | No | No | Sì<sup>1</sup> | sì | sì |
+| Snapshot del disco possibili | sì | sì | sì | No | sì |
 | Allocazione di dischi in cluster di archiviazione diversi quando si usano i set di disponibilità | tramite Managed Disks | tramite Managed Disks | tramite Managed Disks | tipo di disco non supportato con le macchine virtuali distribuite tramite i set di disponibilità | n.<sup>3</sup> |
-| Allineato con zone di disponibilità | Sì | Sì | Sì | Sì | richiede il coinvolgimento di Microsoft |
-| Ridondanza di zona | non per Managed Disks | non per Managed Disks | non per Managed Disks | No | no |
-| Ridondanza geografica | non per Managed Disks | non per Managed Disks | No | No | no |
+| Allineato con zone di disponibilità | sì | sì | sì | sì | richiede il coinvolgimento di Microsoft |
+| Ridondanza di zona | non per Managed Disks | non per Managed Disks | non per Managed Disks | No | No |
+| Ridondanza geografica | non per Managed Disks | non per Managed Disks | No | No | No |
 
 
 <sup>1</sup> con utilizzo del [acceleratore di scrittura di Azure](../../windows/how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward
@@ -146,7 +146,7 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | Latenza | da basso a medio | - |
 | SLA IOPS | YES | - |
 | IOPS lineare a capacità | semi lineare tra parentesi quadre  | [Prezzi del disco gestito](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Numero massimo di IOPS per disco | 20.000 [dipendente dalla dimensione del disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Prendere in considerazione anche i [limiti delle VM](../../linux/sizes.md) |
+| Numero massimo di IOPS per disco | 20.000 [dipendente dalla dimensione del disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Prendere in considerazione anche i [limiti delle VM](../../sizes.md) |
 | SLA velocità effettiva | YES | - |
 | Velocità effettiva lineare a capacità | semi lineare tra parentesi quadre | [Prezzi del disco gestito](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Certificazione HANA | YES | [appositamente per SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -312,7 +312,7 @@ Archiviazione HDD Standard di Azure è l'unico tipo di archiviazione quando l'in
 | VHD di base del sistema operativo | non adatto | - |
 | Disco dati | non adatto | - |
 | Directory di trasporto globale SAP | NO | [Non supportato](https://launchpad.support.sap.com/#/notes/2015553) |
-| Sapmnt SAP | NO | Non supportato |
+| Sapmnt SAP | NO | Non supportate |
 | Archiviazione di backup | adatto | - |
 | Condivisioni/disco condiviso | non disponibile | Necessità File di Azure o di terze parti |
 | Resilienza | LRS, GRS | Nessun ZRS disponibile per i dischi |
@@ -335,11 +335,11 @@ In modo contrario agli scenari locali, il singolo tipo di macchina virtuale che 
 
 | Tipo di archiviazione| Linux | Windows | Commenti |
 | --- | --- | --- | --- |
-| HDD Standard | [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../windows/sizes.md) | Probabilmente è difficile toccare i limiti di archiviazione delle VM di medie o grandi dimensioni |
-| SSD Standard | [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../windows/sizes.md) | Probabilmente è difficile toccare i limiti di archiviazione delle VM di medie o grandi dimensioni |
-| Archiviazione Premium | [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../windows/sizes.md) | Facilità di utilizzo di IOPS o limiti di velocità effettiva di archiviazione con la configurazione dell'archiviazione |
-| Archiviazione su disco Ultra | [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../windows/sizes.md) | Facilità di utilizzo di IOPS o limiti di velocità effettiva di archiviazione con la configurazione dell'archiviazione |
-| Azure NetApp Files | [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../windows/sizes.md) | Il traffico di archiviazione sta usando la larghezza di banda della rete e non la larghezza di banda. |
+| HDD Standard | [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../sizes.md) | Probabilmente è difficile toccare i limiti di archiviazione delle VM di medie o grandi dimensioni |
+| SSD Standard | [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../sizes.md) | Probabilmente è difficile toccare i limiti di archiviazione delle VM di medie o grandi dimensioni |
+| Archiviazione Premium | [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../sizes.md) | Facilità di utilizzo di IOPS o limiti di velocità effettiva di archiviazione con la configurazione dell'archiviazione |
+| Archiviazione su disco Ultra | [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../sizes.md) | Facilità di utilizzo di IOPS o limiti di velocità effettiva di archiviazione con la configurazione dell'archiviazione |
+| Azure NetApp Files | [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md) | [Dimensioni delle macchine virtuali Windows in Azure](../../sizes.md) | Il traffico di archiviazione sta usando la larghezza di banda della rete e non la larghezza di banda. |
 
 Come limitazioni, è possibile notare quanto segue:
 

@@ -1,6 +1,6 @@
 ---
 title: Reazione a eventi di Archiviazione BLOB di Azure | Microsoft Docs
-description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB.
+description: Usare griglia di eventi di Azure per sottoscrivere e reagire agli eventi di archiviazione BLOB. Comprendere il modello di eventi, filtrare gli eventi e le procedure per l'utilizzo di eventi.
 author: normesta
 ms.author: normesta
 ms.date: 04/06/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 8f51b6f94ae8a245471757d256a923570582bb12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62cd31ab6f63aec5ddeb675bca3621a329ab1f2b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809065"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826569"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 

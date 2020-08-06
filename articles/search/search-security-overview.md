@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553955"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829289"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
 
@@ -60,7 +60,7 @@ In Azure ricerca cognitiva la crittografia doppia è un'estensione di CMK. Si tr
 
 La crittografia doppia è attualmente disponibile nei nuovi servizi creati in queste aree dopo il 1 ° agosto:
 
-+ Stati Uniti occidentali 2
++ West US 2
 + Stati Uniti orientali
 + Stati Uniti centro-meridionali
 + US Gov Virginia
@@ -120,14 +120,14 @@ Il modo in cui un utente accede a un indice e altri oggetti è determinato dal t
 
 Se è necessario un controllo granulare per utente sui risultati della ricerca, è possibile creare filtri di sicurezza nelle query, restituendo i documenti associati a una determinata identità di sicurezza. Anziché i ruoli predefiniti e le assegnazioni di ruolo, il controllo degli accessi in base all'identità viene implementato come un *filtro* che elimina i risultati della ricerca di documenti e contenuti in base alle identità. La tabella seguente descrive due approcci per limitare i risultati della ricerca di contenuto non autorizzato.
 
-| Approccio | Description |
+| Approccio | Descrizione |
 |----------|-------------|
 |[Limitazione per motivi di sicurezza in base ai filtri delle identità](search-security-trimming-for-azure-search.md)  | Documenta il flusso di lavoro di base per implementare il controllo di accesso dell'identità utente. Illustra l'aggiunta di ID di sicurezza a un indice e quindi illustra l'applicazione di filtri a tale campo per limitare i risultati di contenuto non consentito. |
 |[Limitazione per motivi di sicurezza in base alle identità di Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Questo articolo è un approfondimento dell'articolo precedente e contiene la procedura per recuperare le identità da Azure Active Directory (AAD), uno dei [servizi gratuiti](https://azure.microsoft.com/free/) della piattaforma cloud Azure. |
 
 ## <a name="administrative-rights"></a>Diritti amministrativi
 
-[L'accesso in base al ruolo (RBAC)](../role-based-access-control/overview.md) è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il provisioning delle risorse di Azure. In ricerca cognitiva di Azure, Gestione risorse viene usato per creare o eliminare il servizio, gestire le chiavi API e ridimensionare il servizio. Di conseguenza, le assegnazioni di ruolo di Azure determineranno chi può eseguire tali attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il provisioning delle risorse di Azure. In ricerca cognitiva di Azure, Gestione risorse viene usato per creare o eliminare il servizio, gestire le chiavi API e ridimensionare il servizio. Di conseguenza, le assegnazioni di ruolo di Azure determineranno chi può eseguire tali attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 Al contrario, i diritti di amministratore sul contenuto ospitato nel servizio, ad esempio la possibilità di creare o eliminare un indice, vengono condotti tramite le chiavi API, come descritto nella [sezione precedente](#index-access).
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04536836c4d061249201c82f738aa41501f0847e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387711"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828864"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informazioni sull'utilizzo della macchina virtuale di Azure
 Attraverso l'analisi dei dati di utilizzo di Azure, è possibile ottenere informazioni dettagliate sul consumo che assicurano una migliore gestione e allocazione dei costi in tutta l'organizzazione. Questo documento offre un approfondimento sui dettagli relativi al consumo di Calcolo di Azure. Per altre informazioni sull'utilizzo generale di Azure, vedere [Comprendere la fattura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -35,8 +35,8 @@ Per iniziare, [scaricare i dettagli di utilizzo](../../cost-management-billing/m
 | Consumato| La quantità di risorsa consumata per il giorno corrente. Per il calcolo, viene addebitato un importo per ogni minuto in cui la macchina virtuale è stata eseguita per una data ora (fino a 6 cifre decimali di precisione).| `1, 0.5`|
 | Percorso della risorsa  | Identifica il datacenter in cui la risorsa è in esecuzione.| `JA East`|
 | Servizio utilizzato | Il servizio della piattaforma Azure che è stato utilizzato.| `Microsoft.Compute`|
-| Gruppo di risorse | Il gruppo di risorse in cui la risorsa distribuita è in esecuzione. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).|`MyRG`|
-| ID istanza | Identificatore della risorsa. L'identificatore contiene il nome specificato per la risorsa al momento della creazione. Per le macchine virtuali, l'ID istanza includerà i campi SubscriptionId, ResourceGroupName e VMName (o il nome del set di scalabilità per l'utilizzo del set di scalabilità).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>o<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
+| Gruppo di risorse | Il gruppo di risorse in cui la risorsa distribuita è in esecuzione. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).|`MyRG`|
+| ID istanza | Identificatore della risorsa. L'identificatore contiene il nome specificato per la risorsa al momento della creazione. Per le macchine virtuali, l'ID istanza includerà i campi SubscriptionId, ResourceGroupName e VMName (o il nome del set di scalabilità per l'utilizzo del set di scalabilità).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>oppure<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | Tag| Tag assegnato alla risorsa. Usare i tag per raggruppare i record di fatturazione. Informazioni su come [assegnare tag alle macchine virtuali](tag.md). Disponibile solo per le macchine virtuali di Gestione risorse.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Informazioni aggiuntive | Metadati specifici del servizio. Per le macchine virtuali, è necessario specificare i dati seguenti nel campo Informazioni aggiuntive: <br><br> Image Type: l'immagine specifica che è stata eseguita. L'elenco completo delle stringhe supportate è disponibile di seguito in Tipo di immagine.<br><br> Service Type: la dimensione che è stata distribuita.<br><br> VMName: il nome della macchina virtuale. Questo campo viene popolato solo per le macchine virtuali dei set di scalabilità. Il nome della macchina virtuale per le macchine virtuali dei set di scalabilità è disponibile nella stringa ID istanza precedente.<br><br> UsageType: specifica il tipo di utilizzo che rappresenta.<br><br> ComputeHR è l'utilizzo delle ore di calcolo per la macchina virtuale sottostante, ad esempio Standard_D1_v2.<br><br> ComputeHR_SW è l'addebito per il software Premium se la macchina virtuale usa un software Premium, come Microsoft R Server. | Macchine virtuali<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Set di scalabilità di macchine virtuali<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Software Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 

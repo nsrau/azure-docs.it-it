@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: 5bddb1d141b461eec794de0849b6234c6a5c6102
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 02a1db47a194f4604534f0b96eb836a33009be85
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284456"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827470"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creare e gestire macchine virtuali Windows in Azure usando Python
 
@@ -464,7 +464,7 @@ Durante il ciclo di vita di una macchina virtuale si eseguono attività di gesti
 
 ### <a name="resize-the-vm"></a>Ridimensionare la VM
 
-Al momento di decidere le dimensioni della macchina virtuale, è necessario considerare molti aspetti della distribuzione. Per altre informazioni, vedere [Dimensioni delle macchine virtuali](sizes.md).
+Al momento di decidere le dimensioni della macchina virtuale, è necessario considerare molti aspetti della distribuzione. Per altre informazioni, vedere [Dimensioni delle macchine virtuali](../sizes.md).
 
 1. Per modificare le dimensioni della macchina virtuale, aggiungere questa funzione dopo le variabili nel file con estensione py:
 

@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: bd7619f000d16a55e1cfb31cc3b9cfb3b6d33502
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7f9c5afbeed0c772f76e013a37dd870ed2185be7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432621"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827674"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicare le macchine virtuali di Azure in esecuzione nei gruppi di posizionamento di prossimità in un'altra area
 
@@ -42,7 +42,7 @@ In uno scenario tipico, è possibile che le macchine virtuali siano in esecuzion
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurare Site Recovery per le macchine virtuali nel gruppo di posizionamento di prossimità
 
 > [!NOTE]
-> Assicurarsi di avere a portata di mano l'ID univoco del gruppo di posizionamento di prossimità di destinazione. Se si sta creando un nuovo gruppo di posizionamento di prossimità, controllare il comando [qui](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) e, se si usa un gruppo di posizionamento di prossimità esistente, usare il comando [qui](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
+> Assicurarsi di avere a portata di mano l'ID univoco del gruppo di posizionamento di prossimità di destinazione. Se si sta creando un nuovo gruppo di posizionamento di prossimità, controllare il comando [qui](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) e, se si usa un gruppo di posizionamento di prossimità esistente, usare il comando [qui](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
 
 ### <a name="azure-to-azure"></a>Da Azure ad Azure
 

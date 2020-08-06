@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321106"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828456"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Risolvere gli avvisi del log in monitoraggio di Azure  
 
@@ -190,7 +190,7 @@ Ogni regola di avviso del log creata in monitoraggio di Azure come parte della r
 
 ## <a name="alert-rule-quota-was-reached"></a>È stata raggiunta la quota della regola di avviso
 
-Il numero di regole di avviso di ricerca log per sottoscrizione e risorsa è soggetto ai limiti di quota descritti [qui](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+Il numero di regole di avviso di ricerca log per sottoscrizione e risorsa è soggetto ai limiti di quota descritti [qui](../service-limits.md).
 
 ### <a name="recommended-steps"></a>Procedure consigliate
     
@@ -201,7 +201,7 @@ Se è stato raggiunto il limite di quota, i passaggi seguenti possono contribuir
 
     - ID sottoscrizione per cui è necessario aumentare i limiti di quota
     - Motivo dell'aumento della quota
-    - Tipo di risorsa per l'aumento della quota: **log Analytics**, **Application Insights** ect.
+    - Tipo di risorsa per l'aumento della quota: **log Analytics**, **Application Insights**e così via.
     - Limite di quota richiesto
 
 
@@ -226,4 +226,3 @@ Se è stato raggiunto il limite di quota, i passaggi seguenti possono contribuir
 - Per altre informazioni, fare riferimento agli [avvisi di log in Azure](./alerts-unified-log.md).
 - Altre informazioni su [Application Insights](../log-query/log-query-overview.md).
 - Altre informazioni sulle [query di log](../log-query/log-query-overview.md).
-

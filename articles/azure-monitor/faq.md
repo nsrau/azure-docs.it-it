@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563841"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828507"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -670,7 +670,7 @@ Se le macchine virtuali sono già connesse a un'area di lavoro di Log Analytics,
 ### <a name="can-i-onboard-to-a-new-workspace"></a>È possibile eseguire l'onboarding in una nuova area di lavoro? 
 Se le macchine virtuali non attualmente connesse a un'area di lavoro Log Analytics esistente, è necessario crearne una nuova per archiviare i dati. La creazione di una nuova area di lavoro predefinita avviene automaticamente nel caso in cui si configuri una singola macchina virtuale di Azure per Monitoraggio di Azure per le macchine virtuali tramite il portale di Azure.
 
-Se si sceglie di utilizzare il metodo basato su script, questi passaggi sono illustrati nell’articolo [Abilitare Monitoraggio di Azure per le macchine virtuali usando modelli di Azure PowerShell o Gestione risorse](insights/vminsights-enable-at-scale-powershell.md). 
+Se si sceglie di utilizzare il metodo basato su script, questi passaggi sono illustrati nell’articolo [Abilitare Monitoraggio di Azure per le macchine virtuali usando modelli di Azure PowerShell o Gestione risorse](./insights/vminsights-enable-powershell.md). 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Cosa occorre fare se la macchina virtuale invia già informazioni a un'area di lavoro esistente?
 Se già si raccolgono dati dalle macchine virtuali, è possibile che sia già stato configurato l'invio di dati a un'area di lavoro Log Analytics esistente.  Se quest'area di lavoro è in una delle aree supportate, è possibile abilitare Monitoraggio di Azure per le macchine virtuali per tale area di lavoro preesistente.  Se l'area di lavoro già in uso non si trova in una delle aree di Azure supportate, non è attualmente possibile eseguire l'onboarding per Monitoraggio di Azure per le macchine virtuali.  Microsoft sta lavorando attivamente per supportare altre aree.
@@ -691,7 +691,7 @@ Se l'onboarding è stato avviato e vengono visualizzati dei messaggi che indican
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>I grafici delle prestazioni della macchina virtuale non contengono alcuni dati o non ne contengono affatto.
 I grafici delle prestazioni sono stati aggiornati per usare i dati archiviati nella tabella *InsightsMetrics*.  Per visualizzare i dati in questi grafici, sarà necessario eseguire l'aggiornamento alla nuova soluzione Informazioni dettagliate sulle macchine virtuali.  Per altre informazioni, fare riferimento alle [Domande frequenti sulla disponibilità generale](insights/vminsights-ga-release-faq.md).
 
-Se i dati sulle prestazioni non compaiono nella tabella del disco o in alcuni grafici delle prestazioni, è possibile che i contatori delle prestazioni non siano stati configurati nell'area di lavoro. Per risolvere il problema, eseguire lo [script di PowerShell](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell) seguente.
+Se i dati sulle prestazioni non compaiono nella tabella del disco o in alcuni grafici delle prestazioni, è possibile che i contatori delle prestazioni non siano stati configurati nell'area di lavoro. Per risolvere il problema, eseguire lo [script di PowerShell](./insights/vminsights-enable-powershell.md) seguente.
 
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>In cosa differisce la funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali da Mapping dei servizi?

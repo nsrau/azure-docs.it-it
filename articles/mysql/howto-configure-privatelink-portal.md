@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: cdefca11131a16630e600385bf350465fccc228f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37c5a0fb1addf9f84c8a237b4d185d140553535e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206664"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825974"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per MySQL con il portale
 
@@ -20,7 +20,7 @@ Un endpoint privato è il blocco predefinito fondamentale per il collegamento pr
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per MySQL supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
+> La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per MySQL nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al [portale di Azure](https://portal.azure.com).
@@ -37,11 +37,11 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Name (Nome) | Immettere *MyVirtualNetwork*. |
+    | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Località | Selezionare **Europa occidentale**.|
+    | Percorso | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
@@ -53,7 +53,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 2. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -80,7 +80,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
@@ -103,7 +103,7 @@ In questa sezione verrà creato un database di Azure per il server MySQL in Azur
 
 1. In **database di Azure per MySQL** fornire queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -138,7 +138,7 @@ In questa sezione si creerà un server MySQL e si aggiungerà un endpoint privat
 
 1. In **Crea un endpoint privato-nozioni di base**immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -151,7 +151,7 @@ In questa sezione si creerà un server MySQL e si aggiungerà un endpoint privat
 5. Selezionare **Avanti: Risorsa**.
 6. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |

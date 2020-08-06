@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: c3c4c4ea25a8f8057a5830ad2207bb674d9cc011
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501552"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825260"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Salva i costi con le prenotazioni host dedicato di Azure
 
@@ -24,7 +24,7 @@ Quando si esegue il commit in un'istanza riservata di host dedicati di Azure, è
 
 Prima di acquistare una prenotazione, è necessario determinare quale host dedicato è necessario. Uno SKU viene definito per un host dedicato che rappresenta la serie di macchine virtuali e il tipo. 
 
-Per identificare la serie di macchine virtuali, è innanzitutto necessario passare alle dimensioni supportate per la [macchina virtuale Windows](./windows/sizes.md) o [Linux](./linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+Per identificare la serie di macchine virtuali, è innanzitutto necessario passare alle dimensioni supportate per la [macchina virtuale Windows](./sizes.md) o [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 Controllare quindi se è supportato in host dedicati di Azure. La pagina dei [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing) include l'elenco completo di SKU host dedicati, le informazioni sulla CPU e varie opzioni di prezzo, incluse le istanze riservate.
 
@@ -70,7 +70,7 @@ Se si dispone di un contratto Enterprise, è possibile utilizzare l' **opzione 
 
 | **Campo**           | **Descrizione**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subscription        | La sottoscrizione usata per pagare la prenotazione. Al metodo di pagamento per la sottoscrizione vengono addebitati i costi per la prenotazione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto di servizio Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo dell'impegno monetario, se disponibile, o addebitati come eccedenze. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione. |
+| Subscription        | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto di servizio Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo dell'impegno monetario, se disponibile, o vengono addebitati come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione. |
 | Scope               | L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Region              | L'area di Azure coperta dalla prenotazione.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dimensioni host dedicate | Dimensioni delle istanze host dedicate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |

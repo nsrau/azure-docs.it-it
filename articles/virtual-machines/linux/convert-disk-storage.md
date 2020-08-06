@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 51ebecf784b7a3ec38f84703a74e96d277afa70c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf16ee0af1c5816822f6a201ad1d5a70127082db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658204"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825379"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Convertire l'archiviazione di Azure Managed disks da standard a Premium o Premium a standard
 
@@ -30,7 +30,7 @@ Questo articolo illustra come convertire i dischi gestiti da standard a Premium 
 
 ## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Passa a tutti i dischi gestiti di una macchina virtuale tra Premium e standard
 
-Questo esempio illustra come convertire tutti i dischi di una macchina virtuale dall'archiviazione standard all'archiviazione Premium o da Premium ad archiviazione standard. Per usare i dischi gestiti Premium, la macchina virtuale deve avere [dimensioni tali](sizes.md) da supportare l'archiviazione Premium. Questo esempio passa anche a una dimensione che supporta archiviazione Premium.
+Questo esempio illustra come convertire tutti i dischi di una macchina virtuale dall'archiviazione standard all'archiviazione Premium o da Premium ad archiviazione standard. Per usare i dischi gestiti Premium, la macchina virtuale deve avere [dimensioni tali](../sizes.md) da supportare l'archiviazione Premium. Questo esempio passa anche a una dimensione che supporta archiviazione Premium.
 
  ```azurecli
 
@@ -67,7 +67,7 @@ az vm start --name $vmName --resource-group $rgName
 ```
 ## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Passa singoli dischi gestiti tra standard e Premium
 
-Per il carico di lavoro di sviluppo/test, potrebbe essere necessario disporre di una combinazione di dischi standard e Premium per ridurre i costi. È possibile scegliere di aggiornare solo i dischi che necessitano di prestazioni migliori. Questo esempio illustra come convertire un singolo disco della macchina virtuale dall'archiviazione standard all'archiviazione Premium o da Premium ad archiviazione standard. Per usare i dischi gestiti Premium, la macchina virtuale deve avere [dimensioni tali](sizes.md) da supportare l'archiviazione Premium. Questo esempio passa anche a una dimensione che supporta archiviazione Premium.
+Per il carico di lavoro di sviluppo/test, potrebbe essere necessario disporre di una combinazione di dischi standard e Premium per ridurre i costi. È possibile scegliere di aggiornare solo i dischi che necessitano di prestazioni migliori. Questo esempio illustra come convertire un singolo disco della macchina virtuale dall'archiviazione standard all'archiviazione Premium o da Premium ad archiviazione standard. Per usare i dischi gestiti Premium, la macchina virtuale deve avere [dimensioni tali](../sizes.md) da supportare l'archiviazione Premium. Questo esempio passa anche a una dimensione che supporta archiviazione Premium.
 
  ```azurecli
 
@@ -129,7 +129,7 @@ az vm start --ids $vmId
 
 ## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>Passa a dischi gestiti tra standard e Premium in portale di Azure
 
-Attenersi ai passaggi descritti di seguito.
+Seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare la macchina virtuale dall'elenco di **macchine virtuali**.

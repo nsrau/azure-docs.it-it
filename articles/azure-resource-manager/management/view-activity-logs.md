@@ -3,12 +3,12 @@ title: Visualizzare i log attività di Azure per monitorare le risorse
 description: Usare i log attività per esaminare le azioni degli utenti e gli errori. Mostra portale di Azure PowerShell, l'interfaccia della riga di comando di Azure e REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75478136"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827062"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualizzare i log attività per monitorare le azioni sulle risorse
 
@@ -191,7 +191,7 @@ Le operazioni REST per l'uso del log attività fanno parte delle [Informazioni d
 ## <a name="next-steps"></a>Passaggi successivi
 
 * I log attività di Azure possono essere usati con Power BI per ottenere altre informazioni sulle azioni nella sottoscrizione. Vedere [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Visualizzare e analizzare i log attività di Azure in Power BI e altri strumenti).
-* Per informazioni su come impostare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo in Azure](../../role-based-access-control/role-assignments-portal.md).
+* Per informazioni sull'impostazione dei criteri di sicurezza, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md).
 * Per visualizzare altri dettagli sulle modifiche apportate alle applicazioni dal livello dell'infrastruttura fino alla distribuzione delle applicazioni, vedere [usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure](../../azure-monitor/app/change-analysis.md).
 * Per informazioni sui comandi per visualizzare le operazioni di distribuzione, vedere [Visualizzare le operazioni di distribuzione](../templates/deployment-history.md).
 * Per informazioni su come impedire operazioni di eliminazione su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Azure Resource Manager](lock-resources.md).

@@ -1,7 +1,7 @@
 ---
 title: Controlli di sicurezza
 titleSuffix: Azure Storage
-description: Elenco di controllo dei controlli di sicurezza per la valutazione di archiviazione di Azure.
+description: Visualizzare gli elenchi di controllo di sicurezza per la valutazione di archiviazione di Azure. Le aree interessate sono la protezione dei dati, la rete, il monitoraggio e la registrazione, l'identità e la configurazione.
 services: storage
 author: msmbaldwin
 ms.author: mbaldwin
@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82128030"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826518"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controlli di sicurezza per archiviazione di Azure
 

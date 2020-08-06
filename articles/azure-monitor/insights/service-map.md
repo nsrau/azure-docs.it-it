@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326070"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825362"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
@@ -35,7 +35,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 ## <a name="enable-service-map"></a>Abilitare il Mapping dei servizi
 
 1. Abilitare la soluzione Mapping dei servizi da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) o seguendo la procedura descritta in [aggiungere soluzioni di monitoraggio dalla raccolta di soluzioni](solutions.md).
-1. [Installare Dependency Agent in Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) o [installare Dependency Agent in Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) in ogni computer in cui si desidera ottenere i dati. Dependency Agent può monitorare le connessioni con i vicini immediati e potrebbe quindi non essere necessario un agente in ogni computer.
+1. [Installare Dependency Agent in Windows](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) o [installare Dependency Agent in Linux](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) in ogni computer in cui si desidera ottenere i dati. Dependency Agent può monitorare le connessioni con i vicini immediati e potrebbe quindi non essere necessario un agente in ogni computer.
 
 È possibile accedere a Mapping dei servizi nel portale di Azure dall'area di lavoro Log Analytics e selezionare l'opzione **Soluzioni** dal riquadro sinistro.<br><br> ![Selezionare l'opzione Soluzioni nell'area di lavoro](./media/service-map/select-solution-from-workspace.png).<br> Dall'elenco delle soluzioni, selezionare **ServiceMap(workspaceName)** e nella pagina della panoramica della soluzione Mapping dei servizi, fare clic sul riquadro di riepilogo di Mapping dei servizi.<br><br> ![Riquadro di riepilogo di Mapping dei servizi](./media/service-map/service-map-summary-tile.png).
 
@@ -571,7 +571,7 @@ Potrebbe essere utile per l'utente installare prima [la versione più recente de
 
 La tabella seguente elenca i codici e le risoluzioni consigliate.
 
-| Codice | Descrizione | Soluzione |
+| Codice | Descrizione | Risoluzione |
 |:--|:--|:--|
 | 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente.<br><br>Se un riferimento a `Windows8.1-KB2999226-x64.msu` è seguito da una riga `Error 0x80240017: Failed to execute MSU package,` , non si dispone dei prerequisiti per l'installazione di KB2999226. Seguire le istruzioni riportate nella sezione relativa ai prerequisiti nell'articolo [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226). Potrebbe essere necessario eseguire Windows Update e riavviare più volte per installare i prerequisiti.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
 
@@ -603,4 +603,3 @@ Controllare `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` 
 ## <a name="suggestions"></a>Suggerimenti
 
 Per inviare commenti su Mapping dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
-

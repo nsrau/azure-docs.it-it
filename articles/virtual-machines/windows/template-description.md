@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: cd96fe550a508e54c467ca52cd36322581029654
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283232"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827453"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -144,7 +144,7 @@ Questo esempio mostra una sezione di risorse tipica di un modello per la creazio
 >
 >
 
-## <a name="api-version"></a>Versione API
+## <a name="api-version"></a>Versione dell'API
 
 Quando si distribuiscono risorse usando un modello, è necessario specificare una versione dell'API da usare. L'esempio illustra l'uso di questa risorsa di macchina virtuale usando l'elemento apiVersion:
 
@@ -245,7 +245,7 @@ Tenere presente che la creazione di un ciclo per una risorsa nel modello potrebb
 } ]
 ```
 
-## <a name="dependencies"></a>Dependencies
+## <a name="dependencies"></a>Dipendenze
 
 Il corretto funzionamento della maggior parte delle risorse dipende dalle altre risorse. Le macchine virtuali deve essere associate a una rete virtuale e a tale scopo è necessaria un'interfaccia di rete. L'elemento [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) viene usato per verificare che l'interfaccia di rete sia pronta per essere usata prima che vengano create le VM:
 
@@ -274,7 +274,7 @@ Per impostare questa proprietà, è necessario che esista l'interfaccia di rete.
 
 Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elementi di profilo. Alcuni sono necessari e alcuni sono facoltativi. Ad esempio, sono necessari gli elementi hardwareProfile, osProfile, storageProfile e networkProfile, ma diagnosticsProfile è facoltativo. Questi profili definiscono impostazioni, ad esempio:
    
-- [size](sizes.md)
+- [size](../sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenziali
 - disco e [impostazioni del sistema operativo](cli-ps-findimage.md)
 - [interfaccia di rete](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
@@ -353,7 +353,7 @@ Se si vuole creare una macchina virtuale da un'immagine gestita, cambiare l'elem
 
 ### <a name="attach-data-disks"></a>Collegare i dischi dei dati
 
-È facoltativamente possibile aggiungere dischi di dati alle VM. Il [numero di dischi](sizes.md) dipende dalle dimensioni del disco del sistema operativo in uso. Con le dimensioni delle VM impostate su Standard_DS1_v2, il numero massimo di dischi dati che possono essere aggiunti è due. Nell'esempio viene aggiunto un disco dati gestito a ogni VM:
+È facoltativamente possibile aggiungere dischi di dati alle VM. Il [numero di dischi](../sizes.md) dipende dalle dimensioni del disco del sistema operativo in uso. Con le dimensioni delle VM impostate su Standard_DS1_v2, il numero massimo di dischi dati che possono essere aggiunti è due. Nell'esempio viene aggiunto un disco dati gestito a ogni VM:
 
 ```json
 "dataDisks": [
@@ -439,7 +439,7 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 È possibile anche ottenere informazioni sull'estensione mediante il comando **Get-AzVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure oppure l'API REST **Get extension information**.
 
-## <a name="deployments"></a>Distribuzioni
+## <a name="deployments"></a>Deployments
 
 Quando si distribuisce un modello, Azure tiene traccia delle risorse distribuite come gruppo e assegna automaticamente un nome a questo gruppo distribuito. Il nome della distribuzione corrisponde a quello del modello.
 

@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115930"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828932"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -55,7 +55,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
 1. Cercare e selezionare le **sottoscrizioni**oppure selezionare **sottoscrizioni** nella **Home** page.
 
-   ![Cerca](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Ricerca](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selezionare la sottoscrizione in cui si desidera creare l'entità servizio.
 
@@ -187,5 +187,5 @@ Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiun
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare Azure PowerShell per creare un'entità servizio](howto-authenticate-service-principal-powershell.md).
-* Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/role-assignments-portal.md).  
+* Per informazioni su come specificare i criteri di sicurezza, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md).  
 * Per un elenco di azioni disponibili che è possibile concedere o negare agli utenti, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).

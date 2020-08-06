@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323945"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824767"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Abilita Panoramica Monitoraggio di Azure per le macchine virtuali
 
@@ -87,7 +87,7 @@ Nella tabella seguente sono elencati i sistemi operativi Windows e Linux support
 |Windows Server 2016 | X | X |
 |Windows Server 2012 R2 | X | X |
 |Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
+|Windows Server 2008 R2 | X | X|
 |Windows 10 1803 | X | X |
 |Windows 8.1 | X | X |
 |Windows 8 | X | X |
@@ -113,7 +113,7 @@ Nella tabella seguente sono elencati i sistemi operativi Windows e Linux support
 | Versione sistema operativo | Versione del kernel |
 |:--|:--|
 | 7.6 | 3.10.0-957 |
-| 7,5 | 3.10.0-862 |
+| 7.5 | 3.10.0-862 |
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
@@ -150,7 +150,7 @@ Nella tabella seguente sono elencati i sistemi operativi Windows e Linux support
 
 | Versione sistema operativo | Versione del kernel |
 |:--|:--|
-| 9 | 4,9 | 
+| 9 | 4.9 | 
 
 ## <a name="supported-azure-arc-machines"></a>Computer Azure Arc supportati
 Monitoraggio di Azure per le macchine virtuali è disponibile per i server abilitati per Azure Arc in aree in cui è disponibile il servizio estensione ARC. È necessario eseguire la versione 0,9 o successiva dell'agente Arc.
@@ -174,10 +174,10 @@ Di seguito sono riportati diversi metodi per la distribuzione di questi agenti.
 
 | Metodo | Descrizione |
 |:---|:---|
-| [Azure portal](vminsights-enable-single-vm.md) | Installare entrambi gli agenti in un'unica macchina virtuale, un set di scalabilità di macchine virtuali o macchine virtuali ibride connesse ad Azure Arc. |
+| [Azure portal](./vminsights-enable-portal.md) | Installare entrambi gli agenti in un'unica macchina virtuale, un set di scalabilità di macchine virtuali o macchine virtuali ibride connesse ad Azure Arc. |
 | [Modelli di Gestione risorse](vminsights-enable-powershell.md) | Installare entrambi gli agenti usando uno dei metodi supportati per distribuire un modello di Gestione risorse, ad esempio l'interfaccia della riga di comando e PowerShell. |
-| [Criteri di Azure](vminsights-enable-at-scale-policy.md) | Assegnare ad Azure Policy Initiative per installare automaticamente gli agenti quando viene creata una macchina virtuale o un set di scalabilità di macchine virtuali. |
-| [Installazione manuale](vminsights-enable-hybrid-cloud.md) | Installare gli agenti nel sistema operativo guest nei computer ospitati all'esterno di Azure, inclusi nel Data Center o in altri ambienti cloud. |
+| [Criteri di Azure](./vminsights-enable-policy.md) | Assegnare ad Azure Policy Initiative per installare automaticamente gli agenti quando viene creata una macchina virtuale o un set di scalabilità di macchine virtuali. |
+| [Installazione manuale](./vminsights-enable-hybrid.md) | Installare gli agenti nel sistema operativo guest nei computer ospitati all'esterno di Azure, inclusi nel Data Center o in altri ambienti cloud. |
 
 
 
@@ -200,4 +200,3 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come usare la funzionalità di monitoraggio delle prestazioni, vedere [visualizzare le prestazioni monitoraggio di Azure per le macchine virtuali](vminsights-performance.md). Per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).
-

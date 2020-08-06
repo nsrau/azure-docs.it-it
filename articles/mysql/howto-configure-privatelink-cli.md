@@ -7,19 +7,19 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 105cb38ccb65c96e2a1177e09839fc9d295c2b80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8948ed51a9cda3d308046f3b85b6ce338462e82c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489946"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826178"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MySQL tramite l'interfaccia della riga di comando
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. In questo articolo si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una VM in una rete virtuale di Azure e un database di Azure per il server MySQL con un endpoint privato di Azure.
 
 > [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per MySQL supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
+> La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per MySQL nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 85366b8b3e3ba7d612373e6b754aa9805d00f8f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116965"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825957"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
 > [!NOTE]
-> Il termine "Users" si riferisce agli utenti all'interno di un gruppo di server con iperscalabilità (CITUS). Per informazioni sugli utenti della sottoscrizione di Azure e sui relativi privilegi, vedere l' [articolo controllo degli accessi in base al ruolo (RBAC) di Azure](../role-based-access-control/built-in-roles.md) o vedere [come personalizzare i ruoli](../role-based-access-control/custom-roles.md).
+> Il termine "Users" si riferisce agli utenti all'interno di un gruppo di server con iperscalabilità (CITUS). Per informazioni sugli utenti della sottoscrizione di Azure e sui relativi privilegi, vedere l' [articolo controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/built-in-roles.md) o vedere [come personalizzare i ruoli](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>Account amministratore del server
 
@@ -50,7 +50,7 @@ Come indicato in precedenza, l' `citus` account amministratore non dispone dell'
 
    ![Pagina ruoli](media/howto-hyperscale-create-users/1-role-page.png)
 
-2. Immettere il nome e la password del ruolo. Fare clic su **Salva**.
+2. Immettere il nome e la password del ruolo. Fare clic su **Save** (Salva).
 
    ![Aggiungi ruolo](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
@@ -88,5 +88,5 @@ Aprire il firewall per gli indirizzi IP dei computer dei nuovi utenti per consen
 Per ulteriori informazioni sulla gestione degli account utente del database, vedere la documentazione del prodotto PostgreSQL:
 
 * [Privilegi e ruoli del database](https://www.postgresql.org/docs/current/static/user-manag.html)
-* [Concedi sintassi](https://www.postgresql.org/docs/current/static/sql-grant.html)
+* [Sintassi GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html)
 * [Privilegi](https://www.postgresql.org/docs/current/static/ddl-priv.html)

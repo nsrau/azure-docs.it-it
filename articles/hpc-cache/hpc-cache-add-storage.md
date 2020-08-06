@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532595"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826705"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -112,7 +112,7 @@ Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Aggiungere i ruoli di controllo di accesso all'account
 
-Cache HPC di Azure usa il [controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) per autorizzare il servizio cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
+Cache HPC di Azure usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/index) per autorizzare il servizio cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
 
 Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito i ruoli collaboratore [account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) e collaboratore [dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) per l'utente "HPC cache Resource Provider".
 
@@ -147,7 +147,7 @@ Passaggi per aggiungere i ruoli di Azure:
 
 Prima di aggiungere una destinazione di archiviazione BLOB, verificare che la cache disponga dei ruoli corretti per accedere all'account di archiviazione e che le impostazioni del firewall consentano la creazione della destinazione di archiviazione.
 
-Cache HPC di Azure usa il [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/index.yml) per autorizzare il servizio cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
+Cache HPC di Azure usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/index.yml) per autorizzare il servizio cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
 
 Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito i ruoli collaboratore [account di archiviazione](../role-based-access-control/built-in-roles.md#storage-account-contributor) e collaboratore [dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) per l'utente "HPC cache Resource Provider".
 

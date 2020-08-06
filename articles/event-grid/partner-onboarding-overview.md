@@ -3,12 +3,12 @@ title: Eseguire l'onboarding come partner di Griglia di eventi di Azure
 description: Onboarding come tipo di argomento del partner di griglia di eventi di Azure. Informazioni sul modello di risorse e sul flusso di pubblicazione per gli argomenti del partner.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: bf4534849ae29d89524a877ca410d25c74637c94
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 36f2178b7c21af016f9074d6f973a01cedb873d7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461256"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826790"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Eseguire l'onboarding come partner di Griglia di eventi di Azure
 
@@ -91,7 +91,7 @@ Il modello di risorse seguente è per gli argomenti del partner.
 ### <a name="partner-topic-types"></a>Tipi di argomento partner
 * Risorsa: `partnerTopicTypes`
 * Usata da: Clienti
-* Descrizione: i tipi di argomento partner sono tipi di risorse tenantwide che consentono ai clienti di individuare l'elenco dei tipi di argomento Partner approvati. L'URL è simile ahttps://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Descrizione: i tipi di argomento partner sono tipi di risorse a livello di tenant che consentono ai clienti di individuare l'elenco dei tipi di argomento Partner approvati. L'URL è simile ahttps://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Ambito: Global
 
 ## <a name="publish-events-to-event-grid"></a>Pubblica eventi in griglia di eventi
@@ -153,7 +153,7 @@ Dopo aver pubblicato l'endpoint partnerNamespace, si riceve una risposta. La ris
 ## <a name="references"></a>Riferimenti
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
-  * [Modello ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
+  * [Modello ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Schema modello ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [API REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [Estensione dell'interfaccia della riga di comando](/cli/azure/ext/eventgrid/?view=azure-cli-latest)

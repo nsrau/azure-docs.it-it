@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e838a91ba6f985094d061351b1701696a2e5d88a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 101aae2ab200d5d78ab617f63c6955dc0547310f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286326"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825651"
 ---
 # <a name="fsv2-series"></a>Serie Fsv2
 
@@ -68,7 +68,7 @@ Manutenzione con mantenimento della memoria: Supportato
 
 Calcolatore prezzi: [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
-Altre informazioni sui tipi di dischi: [tipi di disco](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Altre informazioni sui tipi di dischi: [tipi di disco](./linux/disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

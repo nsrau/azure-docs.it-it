@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 0707d578f90f70318c2a01f324b50092d9962965
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 3a628a70d8ce62827f79c1f7e16d2826be8d80f5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513843"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827249"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
@@ -50,7 +50,7 @@ I connettori sono disponibili come trigger e azioni predefiniti o come connettor
 
   È anche possibile identificare i connettori usando queste categorie, sebbene alcuni connettori possano incrociare più categorie. Ad esempio, SAP è un connettore aziendale e un connettore locale:
 
-  | Category | Descrizione |
+  | Categoria | Descrizione |
   |----------|-------------|
   | [**Connettori gestiti**](#managed-api-connectors) | Consentono di creare app per la logica che usano i servizi, ad esempio archiviazione BLOB di Azure, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online e molti altri. |
   | [**Connettori locali**](#on-premises-connectors) | Dopo aver installato e configurato il [gateway dati locale][gateway-doc], questi connettori consentono alle app per la logica di accedere a sistemi locali quali SQL Server, SharePoint Server, Oracle DB, condivisioni di file e altri. |
@@ -79,7 +79,7 @@ Per le app per la logica che richiedono l'accesso diretto alle risorse in una re
 
 App per la logica fornisce trigger e azioni predefiniti che consentono di creare flussi di lavoro basati sulla pianificazione, consentire alle app per la logica di comunicare con altre app e servizi, controllare il flusso di lavoro attraverso le app per la logica e gestire o modificare i dati.
 
-| Nome | Description |
+| Nome | Descrizione |
 |------|-------------|
 | [![Icona API ][schedule-icon]<br> **pianificazione**][schedule-doc] | -Eseguire un'app per la logica in una ricorrenza specificata, da pianificazioni di base a avanzate con il trigger di [ **ricorrenza** ][schedule-recurrence-doc]. <br>-Eseguire un'app per la logica che deve gestire i dati in blocchi continui con il trigger della [ **finestra temporale scorrevole** ][schedule-sliding-window-doc]. <br>-Sospendere l'app per la logica per una durata specificata con l'azione di [ **ritardo** ][schedule-delay-doc]. <br>-Sospendere l'app per la logica fino alla data e all'ora specificate con il [ **ritardo fino** all'azione][schedule-delay-until-doc]. |
 | [![Icona API ][batch-icon]<br> **batch**][batch-doc] | - Elaborare i messaggi in batch con il trigger **Messaggi batch**. <br>- Richiamare le app per la logica con trigger di batch esistenti tramite l'azione **Invia messaggi al batch**. |
@@ -94,7 +94,7 @@ App per la logica fornisce trigger e azioni predefiniti che consentono di creare
 
 App per la logica offre azioni predefinite per l'esecuzione di codice personalizzato nel flusso di lavoro dell'app per la logica:
 
-| Nome | Description |
+| Nome | Descrizione |
 |------|-------------|
 | [![Icona API ][azure-functions-icon]<br> **funzioni di Azure**][azure-functions-doc] | Richiamare le funzioni Azure che eseguono frammenti di codice personalizzati (C# o Node.js) dalle app per la logica. |
 | [![Icona API ][inline-code-icon]<br> **codice inline**][inline-code-doc] | Aggiungere ed eseguire frammenti di codice JavaScript dalle app per la logica. |
@@ -104,7 +104,7 @@ App per la logica offre azioni predefinite per l'esecuzione di codice personaliz
 
 App per la logica offre azioni predefinite per la strutturazione e il controllo delle azioni nel flusso di lavoro dell'app per la logica:
 
-| Nome | Description |
+| Nome | Descrizione |
 |------|-------------|
 | [![][condition-icon]<br>**Condizione** icona predefinita][condition-doc] | Valutare una condizione ed eseguire diverse azioni in base al fatto che la condizione sia true o false. |
 | [![Icona predefinita ][for-each-icon]<br> **per ogni**][for-each-doc] | Eseguire le stesse azioni su ogni elemento in una matrice. |
@@ -393,7 +393,7 @@ Le connessioni possono accedere al servizio o al sistema di destinazione per il 
 
 ## <a name="custom-apis-and-connectors"></a>API e connettori personalizzati
 
-Per chiamare API che eseguono codice personalizzato o non sono disponibili come connettori, è possibile estendere la piattaforma di App per la logica [creando app per le API personalizzate](../logic-apps/logic-apps-create-api-app.md). È anche possibile [creare connettori personalizzati](../logic-apps/custom-connector-overview.md) per *qualsiasi* API basata su REST o SOAP, che rendono le API disponibili a qualsiasi app per la logica nella sottoscrizione di Azure. Per rendere pubblici i connettori o le app per le API personalizzate da utilizzare in Azure, è possibile [inviare i connettori per la certificazione Microsoft](../logic-apps/custom-connector-submit-certification.md).
+Per chiamare API che eseguono codice personalizzato o non sono disponibili come connettori, è possibile estendere la piattaforma di App per la logica [creando app per le API personalizzate](../logic-apps/logic-apps-create-api-app.md). È anche possibile [creare connettori personalizzati](../logic-apps/custom-connector-overview.md) per *qualsiasi* API basata su REST o SOAP, che rendono le API disponibili a qualsiasi app per la logica nella sottoscrizione di Azure. Per rendere pubblici i connettori o le app per le API personalizzate da utilizzare in Azure, è possibile [inviare i connettori per la certificazione Microsoft](/connectors/custom-connectors/submit-certification).
 
 > [!NOTE]
 > Le app per la logica distribuite ed eseguite in un [ambiente di Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) possono accedere direttamente alle risorse in una rete virtuale di Azure. Se sono presenti connettori personalizzati che richiedono il gateway dati locale e i connettori sono stati creati al di fuori di un ISE, le app per la logica in un ISE possono anche usare tali connettori.
@@ -618,4 +618,3 @@ Se l'organizzazione non consente la connessione a risorse specifiche usando i co
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Codificare i messaggi che usano il protocollo X12"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Trasformazione di messaggi XML"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Convalida dei messaggi XML"
-

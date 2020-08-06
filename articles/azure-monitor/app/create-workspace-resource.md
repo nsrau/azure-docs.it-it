@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ef3c2161e5a032983a2cbc9e4ccdf60af6920a7d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323112"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824988"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Risorse di Application Insights basate sull'area di lavoro (anteprima)
 
@@ -19,7 +19,7 @@ Le risorse basate sull'area di lavoro supportano l'integrazione completa tra App
 Ciò consente anche un controllo degli accessi in base al ruolo comune tra le risorse ed elimina la necessità di eseguire query tra app e aree di lavoro.
 
 > [!NOTE]
-> L'inserimento e la conservazione di dati per le risorse di Application Insights basate sull'area di lavoro vengono fatturate tramite l'area di lavoro Log Analytics in cui si trovano i dati. [Altre informazioni]( https://docs.microsoft.com/azure/azure-monitor/app/pricing#workspace-based-application-insights) sulla fatturazione per le risorse di Application Insights basate sull'area di lavoro.
+> L'inserimento e la conservazione di dati per le risorse di Application Insights basate sull'area di lavoro vengono fatturate tramite l'area di lavoro Log Analytics in cui si trovano i dati. [Altre informazioni]( ./pricing.md#workspace-based-application-insights) sulla fatturazione per le risorse di Application Insights basate sull'area di lavoro.
 
 Per testare la nuova esperienza, accedere al [portale di Azure](https://portal.azure.com) e creare una risorsa di Application Insights:
 
@@ -204,4 +204,3 @@ La funzionalità di esportazione continua legacy non è supportata per risorse b
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../platform/metrics-charts.md
 [start]: ./app-insights-overview.md
-

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda05331163d071a9a47c6f6af8c758a11ec7dd8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514382"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827895"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Eseguire la migrazione di dati in blocco a Sincronizzazione file di Azure con Azure DataBox
 È possibile eseguire la migrazione dei dati in blocco a Sincronizzazione file di Azure in due modi:
@@ -49,9 +49,9 @@ Di seguito viene illustrato come configurare Sincronizzazione file di Azure in m
 
 ![Diagramma che illustra come configurare Sincronizzazione file di Azure](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Passaggio | Dettagli |
+| Passaggio | Dettaglio |
 |---|---------------------------------------------------------------------------------------|
-| ![Step 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Ordinare il Data Box](../../databox/data-box-deploy-ordered.md). La famiglia di Data Box offre [diversi prodotti](https://azure.microsoft.com/services/storage/databox/data) che soddisfino le proprie esigenze. Quando si riceve la Data Box, seguire la relativa [documentazione per copiare i dati](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) in questo percorso UNC nell'Data Box: * \\<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Qui *ShareName* è il nome della condivisione di staging. Inviare il Data Box ad Azure. |
+| ![Passaggio 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Ordinare il Data Box](../../databox/data-box-deploy-ordered.md). La famiglia di Data Box offre [diversi prodotti](https://azure.microsoft.com/services/storage/databox/data) che soddisfino le proprie esigenze. Quando si riceve la Data Box, seguire la relativa [documentazione per copiare i dati](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) in questo percorso UNC nell'Data Box: * \\<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Qui *ShareName* è il nome della condivisione di staging. Inviare il Data Box ad Azure. |
 | ![Passaggio 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Attendere che i file vengano visualizzati nelle condivisioni file di Azure selezionate come condivisioni di staging temporanee. *Non abilitare la sincronizzazione per queste condivisioni.* |
 | ![Passaggio 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Creare una nuova condivisione vuota per ogni condivisione file che Data Box creata automaticamente. Questa nuova condivisione deve trovarsi nello stesso account di archiviazione della condivisione Data Box. [Come creare una nuova condivisione file di Azure](storage-how-to-create-file-share.md).</li><li>[Creare un gruppo di sincronizzazione](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in un servizio di sincronizzazione archiviazione. Fare riferimento alla condivisione vuota come endpoint cloud. Ripetere questo passaggio per ogni condivisione file del Data Box. [Configurare sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).</li></ul> |
 | ![Passaggio 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Aggiungere la directory del server live come endpoint server](storage-sync-files-deployment-guide.md#create-a-server-endpoint). Nel processo specificare che i file sono stati spostati in Azure e fare riferimento alle condivisioni di staging. È possibile abilitare o disabilitare la suddivisione in livelli nel cloud in base alle esigenze. Quando si crea un endpoint server sul server Live, fare riferimento alla condivisione di staging. Nel pannello **Aggiungi endpoint server** , in **trasferimento dati offline**Selezionare **abilitato**e quindi selezionare la condivisione di gestione temporanea che deve trovarsi nello stesso account di archiviazione dell'endpoint cloud. In questo caso, l'elenco delle condivisioni disponibili viene filtrato in base all'account di archiviazione e alle condivisioni che non sono già sincronizzate. Nella schermata che segue questa tabella viene illustrato come fare riferimento alla condivisione DataBox durante la creazione dell'endpoint server nel portale di Azure. |
@@ -88,6 +88,13 @@ Disabilitare la modalità di trasferimento dati offline solo quando lo stato è 
 
 > [!IMPORTANT]
 > Dopo aver disattivato la modalità di trasferimento dati offline, non è possibile abilitarla di nuovo, anche se la condivisione di staging dalla migrazione in blocco è ancora disponibile.
+
+## <a name="azure-file-sync-and-pre-seeded-files-in-the-cloud"></a>Sincronizzazione file di Azure e file con pre-seeding nel cloud
+
+Se si dispone di un seeding di file in una condivisione file di Azure con altri mezzi rispetto a DataBox, ad esempio tramite AzCopy, RoboCopy da un backup nel cloud o qualsiasi altro metodo, è comunque necessario seguire la [procedura di trasferimento dati offline](#process-for-offline-data-transfer) descritta in questo articolo. È sufficiente ignorare DataBox come metodo di spostamento dei file nel cloud. Tuttavia, è fondamentale assicurarsi che si stia ancora seguendo il processo di seeding dei file in una *condivisione di staging* e non della condivisione finale sincronizzazione file di Azure connessa.
+
+> [!WARNING]
+> **Seguire il processo di seeding dei file in una condivisione di staging e non nella condivisione finale**sincronizzazione file di Azure connessa. In caso contrario, è possibile che si verifichino conflitti di file (entrambe le versioni dei file verranno archiviati) e che i file eliminati sul server Live possano tornare indietro, se sono ancora presenti nel set di file con seeding precedente. Inoltre, le modifiche alle cartelle si uniscono tra loro, rendendo molto difficile separare lo spazio dei nomi dopo tale errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Pianificare una distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261174"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824597"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Pianificazione della capacità e scalabilità per Azure Service Fabric
 
@@ -19,7 +19,7 @@ Prima di creare un cluster di Azure Service Fabric o ridimensionare le risorse d
 Oltre a considerare il tipo di nodo e le caratteristiche del cluster, è necessario prevedere che le operazioni di ridimensionamento imprendano più di un'ora per il completamento di un ambiente di produzione. Questa considerazione è valida indipendentemente dal numero di macchine virtuali che si stanno aggiungendo.
 
 ## <a name="autoscaling"></a>Scalabilità automatica
-È consigliabile eseguire operazioni di ridimensionamento tramite Azure Resource Manager modelli, perché è la procedura consigliata considerare le [configurazioni delle risorse come codice]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
+È consigliabile eseguire operazioni di ridimensionamento tramite Azure Resource Manager modelli, perché è la procedura consigliata considerare le [configurazioni delle risorse come codice](./service-fabric-best-practices-infrastructure-as-code.md). 
 
 Con il ridimensionamento automatico tramite i set di scalabilità di macchine virtuali, il modello di Gestione risorse con versione viene definito in modo non accurato per i set di scalabilità di macchine virtuali. Una definizione non accurata aumenta il rischio che le distribuzioni future provochino operazioni di ridimensionamento indesiderate. In generale, è consigliabile usare la scalabilità automatica se:
 
@@ -38,7 +38,7 @@ Con il ridimensionamento automatico tramite i set di scalabilità di macchine vi
 
 ## <a name="vertical-scaling-considerations"></a>Considerazioni sul ridimensionamento verticale
 
-Il [ridimensionamento verticale](./virtual-machine-scale-set-scale-node-type-scale-out.md) di un tipo di nodo in Azure Service Fabric richiede una serie di passaggi e considerazioni. ad esempio:
+Il [ridimensionamento verticale](./virtual-machine-scale-set-scale-node-type-scale-out.md) di un tipo di nodo in Azure Service Fabric richiede una serie di passaggi e considerazioni. Ad esempio:
 
 * Prima del ridimensionamento, il cluster deve essere integro, In caso contrario, sarà necessario destabilizzare ulteriormente il cluster.
 * Il livello di durabilità Silver o un valore superiore è necessario per tutti i tipi di nodo del cluster Service Fabric che ospitano i servizi con stato.
@@ -123,7 +123,7 @@ Per applicare la scalabilità manuale, aggiornare la capacità nella proprietà 
 }
 ```
 
-È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). ad esempio:
+È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). Ad esempio:
 
 ```csharp
 using (var client = new FabricClient())

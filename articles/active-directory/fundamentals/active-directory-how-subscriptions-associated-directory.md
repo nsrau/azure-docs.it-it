@@ -2,7 +2,7 @@
 title: Aggiungere una sottoscrizione di Azure esistente al tenant-Azure AD
 description: Informazioni su come aggiungere una sottoscrizione di Azure esistente al tenant di Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86223c35118c9c54be49fa830a264a0059ef3937
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494435"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825022"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -31,7 +31,7 @@ Se la sottoscrizione scade, non sarà più possibile accedere alle altre risorse
 Tutti gli utenti dispongono di una singola *Home* directory per l'autenticazione. Gli utenti possono anche essere Guest in altre directory. È possibile visualizzare sia la home directory che la directory guest per ogni utente in Azure AD.
 
 > [!Important]
-> Quando si associa una sottoscrizione a una directory diversa, gli utenti che dispongono di ruoli assegnati tramite il [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdono l'accesso. Anche gli amministratori delle sottoscrizioni classiche, tra cui l'amministratore del servizio e i coamministratori, perdono l'accesso.
+> Quando si associa una sottoscrizione a una directory diversa, gli utenti che dispongono di ruoli assegnati tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md) perdono l'accesso. Anche gli amministratori delle sottoscrizioni classiche, tra cui l'amministratore del servizio e i coamministratori, perdono l'accesso.
 >
 > Anche le assegnazioni dei criteri vengono rimosse da una sottoscrizione quando la sottoscrizione è associata a una directory diversa.
 >

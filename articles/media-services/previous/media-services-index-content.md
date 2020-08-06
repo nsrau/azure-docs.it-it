@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 2989343a5cc9612ea0f4d3b177093fdef93f5d73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b9f0e824352126204c7a6f1cfe08d3e7c6c29a9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000670"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826059"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indicizzazione di file multimediali con Azure Media Indexer
 
@@ -45,7 +45,7 @@ Questo articolo illustra come creare processi di indicizzazione per **indicizzar
 
 È anche possibile elaborare più file multimediali contemporaneamente usando un file manifesto.
 
-Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
+Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](./media-services-analytics-overview.md).
 
 ## <a name="index-an-asset"></a>Indicizzare un asset
 Il seguente metodo carica un file multimediale come asset e crea un processo per indicizzare l'asset.
@@ -158,7 +158,7 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 ## <a name="index-multiple-files"></a>indicizzare più file
 Il seguente metodo carica più file multimediali come asset e crea un processo per indicizzare tutti i file in un batch.
 
-Viene creato un file manifesto con estensione LST, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
+Viene creato un file manifesto con estensione LST, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](./media-services-analytics-overview.md).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -245,7 +245,7 @@ L'elaborazione in Azure Media Indexer può essere personalizzata fornendo un set
 
 | Nome | Richiedi | Descrizione |
 | --- | --- | --- |
-| **input** |false |File di asset che si desidera indicizzare.</p><p>Azure Media Indexer supporta i seguenti formati di file multimediali: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>È possibile specificare il nome di file nell'attributo **name** o **list** dell'elemento **input** (come illustrato di seguito). Se non si specifica il file di asset da indicizzare, viene selezionato il file primario. Se non è impostato alcun file di asset primario, viene indicizzato il primo file dell'asset di input.</p><p>Per specificare in modo esplicito il nome del file di asset, eseguire:<br/>`<input name="TestFile.wmv">`<br/><br/>È anche possibile indicizzare più file di asset contemporaneamente (fino a 10). A tale scopo, effettuare l'operazione seguente:<br/><br/><ol class="ordered"><li><p>Creare un file di testo (file manifesto) con estensione .lst. </p></li><li><p>Aggiungere un elenco di tutti i nomi file di asset nell'asset di input a questo file manifesto. </p></li><li><p>Aggiungere (caricare) il file manifesto nella risorsa.  </p></li><li><p>Specificare il nome del file manifesto nell'attributo dell'elenco di input.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con codice di errore 2006. |
+| **input** |false |File di asset che si desidera indicizzare.</p><p>Azure Media Indexer supporta i seguenti formati di file multimediali: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>È possibile specificare il nome di file nell'attributo **name** o **list** dell'elemento **input** (come illustrato di seguito). Se non si specifica il file di asset da indicizzare, viene selezionato il file primario. Se non è impostato alcun file di asset primario, viene indicizzato il primo file dell'asset di input.</p><p>Per specificare in modo esplicito il nome del file di asset, eseguire:<br/>`<input name="TestFile.wmv">`<br/><br/>È anche possibile indicizzare più file di asset contemporaneamente (fino a 10). A tale scopo, effettuare le seguenti operazioni:<br/><br/><ol class="ordered"><li><p>Creare un file di testo (file manifesto) con estensione .lst. </p></li><li><p>Aggiungere un elenco di tutti i nomi file di asset nell'asset di input a questo file manifesto. </p></li><li><p>Aggiungere (caricare) il file manifesto nella risorsa.  </p></li><li><p>Specificare il nome del file manifesto nell'attributo dell'elenco di input.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con codice di errore 2006. |
 | **metadati** |false |Metadati per uno o più file di asset specificati usati per l'adattamento al vocabolario.  Utili per preparare l'indicizzatore per riconoscere le parole di vocabolario non standard, ad esempio i nomi propri.<br/>`<metadata key="..." value="..."/>` <br/><br/>È possibile assegnare i **valori** delle **chiavi** predefinite. Attualmente sono supportate le chiavi seguenti:<br/><br/>"title" e "description", usate per l'adattamento al vocabolario per perfezionare il modello linguistico del processo e migliorare la precisione del riconoscimento vocale.  I valori alimentano le ricerche per trovare documenti di testo pertinenti a livello di contesto, usando i contenuti per ampliare il dizionario interno per tutta la durata dell'attività di indicizzazione.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
 | **funzionalità** <br/><br/>  Aggiunto nella versione 1.2. Attualmente la sola funzionalità supportata è il riconoscimento vocale ("ASR"). |false |La funzionalità di riconoscimento vocale ha le chiavi di impostazioni seguenti:<table><tr><th><p>Chiave</p></th>        <th><p>Descrizione</p></th><th><p>Valore di esempio</p></th></tr><tr><td><p>Linguaggio</p></td><td><p>Linguaggio naturale da riconoscere nel file multimediale,</p></td><td><p>Inglese, spagnolo</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Un elenco separato da punto e virgola dei formati desiderati per l'output dell'eventuale sottotitolo.</p></td><td><p>TTML; WEBVTT</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Flag booleano che specifica se sia o meno necessario un file XML di parole chiave.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Flag booleano che specifica se forzare o meno i sottotitoli completi (indipendentemente dal livello di probabilità).  </p><p>Il valore predefinito è false e in questo caso le parole e le frasi con un livello di probabilità inferiore al 50% vengono omesse dagli output finali dei sottotitoli e sostituite da puntini di sospensione ("...").  I puntini di sospensione sono utili per il controllo della qualità dei sottotitoli.</p></td><td><p>True; False. </p></td></tr></table> |
 
