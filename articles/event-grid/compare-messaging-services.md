@@ -3,20 +3,20 @@ title: Confrontare i servizi di messaggistica di Azure
 description: Descrive i tre servizi di messaggistica di Azure - Griglia di eventi di Azure, Hub eventi di Azure e bus di servizio di Azure. Consiglia il servizio da usare a seconda dello scenario.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 9c539accbc41f56e4421b9e793c25496987363aa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101376"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460406"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Scegliere tra i servizi di messaggistica di Azure - Griglia di eventi, Hub eventi, bus di servizio
 
 Azure offre tre servizi che agevolano il recapito di messaggi di eventi tramite una soluzione. Questi servizi sono:
 
-* [Griglia di eventi](/azure/event-grid/)
-* [Hub eventi](/azure/event-hubs/)
-* [Bus di servizio](/azure/service-bus-messaging/)
+* [Griglia di eventi](./index.yml)
+* [Hub eventi](../event-hubs/index.yml)
+* [Bus di servizio](../service-bus-messaging/index.yml)
 
 Nonostante alcune analogie, ogni servizio è progettato per determinati scenari. Questo articolo descrive le differenze tra i servizi e consente di scegliere quello più adatto all'applicazione. In molti casi, i servizi di messaggistica sono complementari e possono essere usati insieme.
 

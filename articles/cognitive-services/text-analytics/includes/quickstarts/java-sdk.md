@@ -10,16 +10,16 @@ ms.date: 07/27/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 6e8e00d7f9f529010cf99ae5a180c1ecb0a74177
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e0edd688fa34033209798603ef15352b42cd9497
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374932"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451326"
 ---
 <a name="HOLTop"></a>
 
-[Documentazione di riferimento](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Pacchetto](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0) | [Esempi](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Documentazione di riferimento](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Pacchetto](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Esempi](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ ms.locfileid: "87374932"
 
 ### <a name="add-the-client-library"></a>Aggiungere la libreria client
 
-Creare un progetto Maven nell'ambiente IDE o di sviluppo preferito. Aggiungere quindi la dipendenza seguente al file *pom.xml* del progetto. È possibile trovare la sintassi di implementazione [per altri strumenti di compilazione](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0) online.
+Creare un progetto Maven nell'ambiente IDE o di sviluppo preferito. Aggiungere quindi la dipendenza seguente al file *pom.xml* del progetto. È possibile trovare la sintassi di implementazione [per altri strumenti di compilazione](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) online.
 
 ```xml
 <dependencies>

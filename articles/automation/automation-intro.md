@@ -7,12 +7,12 @@ keywords: automazione di azure, DSC, powershell, configurazione dello stato, ges
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186181"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448062"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -43,7 +43,7 @@ La [configurazione dello stato di Automazione di Azure](automation-dsc-overview.
 
 ## <a name="update-management"></a>Gestione degli aggiornamenti
 
-Automazione di Azure include la funzionalità [Gestione aggiornamenti](automation-update-management.md) per i sistemi Windows e Linux in ambienti ibridi. Gestione aggiornamenti offre la visibilità della conformità degli aggiornamenti in Azure e nell'ambiente locale e in altri ambienti cloud. Tale funzionalità consente di creare distribuzioni pianificate per orchestrare l'installazione degli aggiornamenti all'interno di una finestra di manutenzione definita. Se un aggiornamento non deve essere installato in un computer, è possibile usare le funzionalità Gestione aggiornamenti per escluderlo da una distribuzione.
+Automazione di Azure include la funzionalità [Gestione aggiornamenti](update-management/update-mgmt-overview.md) per i sistemi Windows e Linux in ambienti ibridi. Gestione aggiornamenti offre la visibilità della conformità degli aggiornamenti in Azure e nell'ambiente locale e in altri ambienti cloud. Tale funzionalità consente di creare distribuzioni pianificate per orchestrare l'installazione degli aggiornamenti all'interno di una finestra di manutenzione definita. Se un aggiornamento non deve essere installato in un computer, è possibile usare le funzionalità Gestione aggiornamenti per escluderlo da una distribuzione.
 
 ## <a name="shared-capabilities"></a>Funzionalità condivise
 

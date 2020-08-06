@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508318"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448856"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Windows in Azure
 
-Con [Rilevamento modifiche](../../automation/change-tracking.md) e [Gestione aggiornamenti](../../automation/automation-update-management.md) di Azure, è possibile identificare facilmente le modifiche apportate alle macchine virtuali Windows in Azure e gestire gli aggiornamenti del sistema operativo per tali VM.
+Con [Rilevamento modifiche](../../automation/change-tracking.md) e [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md) di Azure, è possibile identificare facilmente le modifiche apportate alle macchine virtuali Windows in Azure e gestire gli aggiornamenti del sistema operativo per tali VM.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -112,10 +112,10 @@ Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtual
 | --- | --- |
 | **Nome** |immettere un nome univoco per identificare la distribuzione di aggiornamenti. |
 |**Sistema operativo**| Selezionare **Linux** o **Windows**.|
-| **Gruppi da aggiornare** |Per le macchine virtuali ospitate in Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag. Questa query crea un gruppo dinamico di macchine virtuali ospitate in Azure da includere nella distribuzione. </br></br>Per le macchine virtuali non ospitate in Azure, selezionare una ricerca salvata esistente. Con questa ricerca, è possibile selezionare un gruppo di queste VM da includere nella distribuzione. </br></br> Per altre informazioni, vedere [Gruppi dinamici](../../automation/automation-update-management-groups.md).|
+| **Gruppi da aggiornare** |Per le macchine virtuali ospitate in Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag. Questa query crea un gruppo dinamico di macchine virtuali ospitate in Azure da includere nella distribuzione. </br></br>Per le macchine virtuali non ospitate in Azure, selezionare una ricerca salvata esistente. Con questa ricerca, è possibile selezionare un gruppo di queste VM da includere nella distribuzione. </br></br> Per altre informazioni, vedere [Gruppi dinamici](../../automation/update-management/update-mgmt-groups.md).|
 | **Computer da aggiornare** |Selezionare **Ricerca salvata**, **Gruppi importati**o **Computer**.<br/><br/>Se si seleziona **Computer**, è possibile scegliere singoli computer nell'elenco a discesa. L'idoneità di ogni computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE** della tabella.</br></br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md) |
 |**Classificazioni aggiornamenti**|Scegliere tutte le classificazioni degli aggiornamenti necessarie.|
-|**Includi/Escludi aggiornamenti**|Selezionare questa opzione per aprire il riquadro **Includi/Escludi**. Gli aggiornamenti da includere e quelli da escludere si trovano in schede separate. Per altre informazioni su come viene gestita l'inclusione, vedere [Pianificare la distribuzione degli aggiornamenti](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
+|**Includi/Escludi aggiornamenti**|Selezionare questa opzione per aprire il riquadro **Includi/Escludi**. Gli aggiornamenti da includere e quelli da escludere si trovano in schede separate. Per altre informazioni su come viene gestita l'inclusione, vedere [Pianificare la distribuzione degli aggiornamenti](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment). |
 |**Impostazioni pianificazione**|Selezionare l'ora di inizio, quindi selezionare **Una sola volta** o **Ricorrente**.|
 | **Pre-script e post-script**|Scegliere gli script da eseguire prima e dopo la distribuzione.|
 | **Finestra di manutenzione** | Immettere il numero di minuti impostato per gli aggiornamenti. I valori validi sono compresi tra 30 e 360 minuti. |

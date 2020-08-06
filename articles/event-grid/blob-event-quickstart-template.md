@@ -3,12 +3,12 @@ title: Inviare eventi di archiviazione BLOB a un endpoint Web - Modello
 description: Usare Griglia di eventi di Azure e un modello di Azure Resource Manager per creare un account di archiviazione BLOB e sottoscrivere i relativi eventi. Inviare eventi a un webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 603d6bf11f2ec6988d52e69817bddf2fd3ccf3b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e1d266f747671542059e0610cfcdd8cd12594e51
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103314"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460440"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Instradare gli eventi di archiviazione BLOB a un endpoint Web usando un modello di Resource Manager
 
@@ -86,7 +86,7 @@ Quando non è più necessario, [eliminare il gruppo di risorse](../azure-resourc
 
 Per altre informazioni sui modelli di Azure Resource Manager, vedere gli articoli seguenti:
 
-* [Documentazione di Azure Resource Manager](/azure/azure-resource-manager)
+* [Documentazione di Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Definire risorse nei modelli di Azure Resource Manager](/azure/templates/)
 * [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/)
 * [Modelli di Griglia di eventi di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

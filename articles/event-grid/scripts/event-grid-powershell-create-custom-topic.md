@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2020
 ms.author: tomfitz
-ms.openlocfilehash: 900f31ff87e6a588fc1d1e3efd854437d2c8c1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 915b8e13adaa440063f5db62b72fa39e1035d576
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76719943"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460780"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Creare un argomento personalizzato di Griglia di eventi con PowerShell
 
@@ -36,9 +36,9 @@ Questo script usa il comando seguente per creare l'argomento personalizzato. Ogn
 
 | Comando | Note |
 |---|---|
-| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Creare un argomento personalizzato di Griglia di eventi. |
+| [New-AzEventGridTopic](/powershell/module/az.eventgrid/new-azeventgridtopic) | Creare un argomento personalizzato di Griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](../overview.md).
-* Per altre informazioni su PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Per altre informazioni su PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/get-started-azureps).
