@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 1f6624c454364ca19c8ce112cb1cbbef134f162d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/04/2020
-ms.locfileid: "87567977"
+ms.locfileid: "87759615"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Configurazione dei dati di utilizzo e diagnostica di Azure SQL Edge
 
@@ -87,7 +87,7 @@ Il componente di controllo locale della raccolta di dati di diagnostica e utiliz
 
 Per abilitare i dati di diagnostica e di utilizzo del controllo locale in Azure SQL Edge
 
-1. Creare una directory di destinazione per il nuovo archivio dei log di controllo locale. Questa directory di destinazione deve essere creata nello stesso volume di montaggio mappato al percorso/var/opt/MSSQL/su SQL Edge.
+1. Creare una directory di destinazione per il nuovo archivio dei log di controllo locale. Questa directory di destinazione può trovarsi nell'host o nel contenitore. Nell'esempio seguente viene creata la directory di destinazione nello stesso volume di montaggio mappato al percorso/var/opt/MSSQL/su SQL Edge.
 
    ```bash
    sudo mkdir <host mount path>/audit
@@ -95,14 +95,14 @@ Per abilitare i dati di diagnostica e di utilizzo del controllo locale in Azure 
 
 2. Configurare il controllo dei dati di utilizzo e di diagnostica usando le variabili di ambiente o il file MSSQL. conf.
 
-   - Uso delle variabili di ambiente: aggiungere la variabile di ambiente seguente alla distribuzione di SQL Edge.
+   - Uso delle variabili di ambiente: aggiungere la variabile di ambiente seguente alla distribuzione di SQL Edge e specificare la directory di destinazione per i file di controllo.
    
-     `*MSSQL_TELEMETRY_DIR = /var/opt/mssql/audit*`
+     `*MSSQL_TELEMETRY_DIR = <host mount path>/audit*`
    
-   - Con il file MSSQL. conf aggiungere le righe seguenti nel file MSSQL. conf.
+   - Con il file MSSQL. conf aggiungere le righe seguenti nel file MSSQL. conf e specificare la directory di destinazione per i file di controllo.
        ```ini
        [telemetry]
-       userrequestedlocalauditdirectory  = /var/opt/mssql/audit
+       userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
 ## <a name="next-steps"></a>Passaggi successivi

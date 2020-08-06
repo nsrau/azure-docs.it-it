@@ -4,14 +4,14 @@ description: Informazioni su come configurare e modificare i criteri di indicizz
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/04/2020
 ms.author: tisande
-ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636326"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760822"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 
@@ -20,7 +20,7 @@ In Azure Cosmos DB, ogni contenitore dispone di un criterio di indicizzazione ch
 In alcune situazioni potrebbe essere necessario eseguire l'override di questo comportamento automatico per soddisfare al meglio le proprie esigenze. È possibile personalizzare i criteri di indicizzazione di un contenitore impostando la *modalità di indicizzazione*e includendo o escludendo i *percorsi delle proprietà*.
 
 > [!NOTE]
-> Il metodo di aggiornamento dei criteri di indicizzazione descritti in questo articolo si applica solo all'API SQL (Core) di Azure Cosmos DB.
+> Il metodo di aggiornamento dei criteri di indicizzazione descritti in questo articolo si applica solo all'API SQL (Core) di Azure Cosmos DB. Informazioni sull'indicizzazione nell' [API Azure Cosmos DB per MongoDB](mongodb-indexing.md)
 
 ## <a name="indexing-mode"></a>Modalità di indicizzazione
 
@@ -36,7 +36,7 @@ Per impostazione predefinita, i criteri di indicizzazione vengono impostati su `
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusione ed esclusione dei percorsi delle proprietà
 
-Un criterio di indicizzazione personalizzato può specificare percorsi di proprietà inclusi o esclusi in modo esplicito dall'indicizzazione. Ottimizzando il numero di percorsi indicizzati, è possibile ridurre la quantità di spazio di archiviazione usato dal contenitore e migliorare la latenza delle operazioni di scrittura. Questi percorsi vengono definiti seguendo [il metodo descritto nella sezione Panoramica dell'indicizzazione](index-overview.md#from-trees-to-property-paths) con le aggiunte seguenti:
+Un criterio di indicizzazione personalizzato può specificare percorsi di proprietà inclusi o esclusi in modo esplicito dall'indicizzazione. Ottimizzando il numero di percorsi indicizzati, è possibile ridurre sostanzialmente la latenza e l'addebito delle unità richiesta per le operazioni di scrittura. Questi percorsi vengono definiti seguendo [il metodo descritto nella sezione Panoramica dell'indicizzazione](index-overview.md#from-trees-to-property-paths) con le aggiunte seguenti:
 
 - un percorso che conduce a un valore scalare (stringa o numero) termina con`/?`
 - gli elementi di una matrice vengono risolti insieme tramite la `/[]` notazione `/0` , anziché e `/1` così via.
@@ -101,7 +101,7 @@ Per esempi di criteri di indicizzazione per l'inclusione e l'esclusione di perco
 
 Se i percorsi inclusi e i percorsi esclusi presentano un conflitto, il percorso più preciso avrà la precedenza.
 
-Ad esempio:
+Ecco un esempio:
 
 **Percorso incluso**:`/food/ingredients/nutrition/*`
 
@@ -129,7 +129,7 @@ Quando si definisce un percorso spaziale nei criteri di indicizzazione, è neces
 
 * LineString
 
-Per impostazione predefinita, Azure Cosmos DB non creerà indici spaziali. Se si desidera utilizzare le funzioni predefinite di SQL spaziali, è necessario creare un indice spaziale sulle proprietà obbligatorie. Vedere [questa sezione](geospatial.md) per esempi di criteri di indicizzazione per l'aggiunta di indici spaziali.
+Per impostazione predefinita, Azure Cosmos DB non creerà indici spaziali. Se si desidera utilizzare le funzioni predefinite di SQL spaziali, è necessario creare un indice spaziale sulle proprietà obbligatorie. Vedere [questa sezione](sql-query-geospatial-index.md) per esempi di criteri di indicizzazione per l'aggiunta di indici spaziali.
 
 ## <a name="composite-indexes"></a>Indici composti
 
@@ -196,7 +196,7 @@ Quando si creano indici compositi per le query con filtri su più proprietà, ve
 - Le proprietà nel filtro della query devono corrispondere a quelle nell'indice composto. Se una proprietà è nell'indice composto ma non è inclusa nella query come filtro, la query non utilizzerà l'indice composto.
 - Se una query include proprietà aggiuntive nel filtro che non sono state definite in un indice composito, per valutare la query verrà utilizzata una combinazione di indici composti e di intervallo. Questa operazione richiederà meno ur rispetto all'uso esclusivo degli indici di intervallo.
 - Se una proprietà ha un filtro di intervallo ( `>` , `<` , `<=` , `>=` o `!=` ), questa proprietà deve essere definita per ultima nell'indice composto. Se una query contiene più di un filtro di intervallo, non utilizzerà l'indice composto.
-- Quando si crea un indice composto per ottimizzare le query con più filtri, l'oggetto `ORDER` dell'indice composto non avrà alcun effetto sui risultati. Questa proprietà è facoltativa.
+- Quando si crea un indice composto per ottimizzare le query con più filtri, l'oggetto `ORDER` dell'indice composto non avrà alcun effetto sui risultati. La proprietà è facoltativa.
 - Se non si definisce un indice composto per una query con filtri su più proprietà, la query avrà comunque esito positivo. Tuttavia, il costo ur della query può essere ridotto con un indice composto.
 
 Si considerino gli esempi seguenti in cui viene definito un indice composito per le proprietà Name, Age e timestamp:
@@ -259,16 +259,23 @@ Quando si creano indici compositi per ottimizzare una query con un filtro e una 
 
 ## <a name="modifying-the-indexing-policy"></a>Modifica dei criteri di indicizzazione
 
-I criteri di indicizzazione di un contenitore possono essere aggiornati in qualsiasi momento [usando il portale di Azure o uno degli SDK supportati](how-to-manage-indexing-policy.md). Un aggiornamento del criterio di indicizzazione attiva una trasformazione dall'indice precedente a quello nuovo, che viene eseguito online e sul posto (pertanto non viene utilizzato alcuno spazio di archiviazione aggiuntivo durante l'operazione). L'indice del criterio precedente viene trasformato in modo efficiente nei nuovi criteri senza influire sulla disponibilità di scrittura o sulla velocità effettiva di cui è stato effettuato il provisioning nel contenitore. La trasformazione dell'indice è un'operazione asincrona e il tempo necessario per il completamento dipende dalla velocità effettiva con provisioning, dal numero di elementi e dalle relative dimensioni.
+I criteri di indicizzazione di un contenitore possono essere aggiornati in qualsiasi momento [usando il portale di Azure o uno degli SDK supportati](how-to-manage-indexing-policy.md). Un aggiornamento ai criteri di indicizzazione attiva una trasformazione dall'indice precedente a quello nuovo, che viene eseguito online e sul posto (pertanto non viene utilizzato alcuno spazio di archiviazione aggiuntivo durante l'operazione). L'indice del criterio precedente viene trasformato in modo efficiente nei nuovi criteri senza influire sulla disponibilità di scrittura, sulla disponibilità in lettura o sulla velocità effettiva di cui è stato effettuato il provisioning nel contenitore. La trasformazione dell'indice è un'operazione asincrona e il tempo necessario per il completamento dipende dalla velocità effettiva con provisioning, dal numero di elementi e dalle relative dimensioni.
 
 > [!NOTE]
-> Durante l'aggiunta di un intervallo o di un indice spaziale, è possibile che le query non restituiscano tutti i risultati corrispondenti, senza restituire alcun errore. Ciò significa che i risultati della query potrebbero non essere coerenti fino al completamento della trasformazione dell'indice. È possibile tenere traccia dello stato di avanzamento della trasformazione dell'indice [usando uno degli SDK](how-to-manage-indexing-policy.md).
+> È possibile tenere traccia dello stato di avanzamento della trasformazione dell'indice [usando uno degli SDK](how-to-manage-indexing-policy.md).
 
-Se la nuova modalità dei criteri di indicizzazione è impostata su coerente, non è possibile applicare altre modifiche ai criteri di indicizzazione mentre è in corso la trasformazione dell'indice. Una trasformazione dell'indice in esecuzione può essere annullata impostando la modalità del criterio di indicizzazione su None (che eliminerà immediatamente l'indice).
+Non vi è alcun effetto sulla disponibilità di scrittura durante le trasformazioni degli indici. La trasformazione dell'indice usa le UR di cui è stato effettuato il provisioning ma con una priorità inferiore rispetto alle operazioni CRUD o alle query.
+
+Non vi è alcun effetto sulla disponibilità di lettura quando si aggiunge un nuovo indice. Quando la trasformazione dell'indice viene completata, le query utilizzeranno solo nuovi indici. Durante la trasformazione dell'indice, il motore di query continuerà a utilizzare gli indici esistenti, pertanto si osserveranno le prestazioni di lettura analoghe durante la trasformazione di indicizzazione rispetto a quanto osservato prima di avviare la modifica dell'indicizzazione. Quando si aggiungono nuovi indici, non esiste alcun rischio di risultati di query incompleti o incoerenti.
+
+Quando si rimuovono gli indici e si eseguono immediatamente query che filtrano gli indici eliminati, non esiste una garanzia di risultati della query coerenti o completi. Se si rimuovono più indici e si esegue questa operazione in un'unica modifica dei criteri di indicizzazione, il motore di query garantisce risultati coerenti e completi durante la trasformazione dell'indice. Tuttavia, se si rimuovono gli indici tramite più modifiche ai criteri di indicizzazione, il motore di query non garantisce risultati coerenti o completi fino al completamento di tutte le trasformazioni degli indici. La maggior parte degli sviluppatori non elimina gli indici e quindi tenta immediatamente di eseguire query che utilizzano questi indici, pertanto, in pratica, questa situazione è improbabile.
+
+> [!NOTE]
+> Laddove possibile, provare sempre a raggruppare più modifiche di indicizzazione in un'unica modifica dei criteri di indicizzazione
 
 ## <a name="indexing-policies-and-ttl"></a>Criteri di indicizzazione e TTL
 
-La [funzionalità TTL (time-to-Live)](time-to-live.md) richiede che l'indicizzazione sia attiva nel contenitore in cui è attivata. Ciò significa che:
+L'uso della [funzionalità di durata (TTL)](time-to-live.md) richiede l'indicizzazione. Ciò significa che:
 
 - non è possibile attivare la durata (TTL) in un contenitore in cui la modalità di indicizzazione è impostata su None,
 - non è possibile impostare la modalità di indicizzazione su None in un contenitore in cui è attivato TTL.

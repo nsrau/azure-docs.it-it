@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 62cabf06c5c0255437324acae43950cd13b96537
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a8503f701a36d7197f85f2c86e37272ccf1cab48
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065127"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760720"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux con Azure NetApp Files per le applicazioni SAP
 
@@ -199,7 +199,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **health.QAS.ASCS**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Scegliere OK
+         1. Fare clic su OK.
       1. Porta 621**01** per ASCS ERS
             * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **health.QAS.ERS**
    1. Regole di bilanciamento del carico
@@ -210,7 +210,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Selezionare **Porte a disponibilità elevata**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Scegliere OK
+         1. Fare clic su OK.
          * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **lb.QAS.ERS**
 1. In alternativa, se lo scenario richiede Load Balancer Basic (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
@@ -233,7 +233,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **health.QAS.ASCS**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Scegliere OK
+         1. Fare clic su OK.
       1. Porta 621**01** per ASCS ERS
             * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **health.QAS.ERS**
    1. Regole di bilanciamento del carico
@@ -589,9 +589,11 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
    Start_Program_01 = local $(_EN) pf=$(_PF)
    
-   # Add the keep alive parameter
+   # Add the keep alive parameter, if using ENSA1
    enque/encni/set_so_keepalive = true
    ```
+
+   Per ENSA1 e ENSA2, assicurarsi che i parametri del `keepalive` sistema operativo siano impostati come descritto nella nota SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
 
    * Profilo ERS
 
@@ -610,8 +612,6 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 1. **[A]**  Configurare keep-alive
 
    Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo problema, è necessario impostare un parametro nel profilo ASC/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
-
-   Il parametro del profilo ASCS/SCS enque/encni/set_so_keepalive è già stato aggiunto nell'ultimo passaggio.
 
    ```
    # Change the Linux system configuration

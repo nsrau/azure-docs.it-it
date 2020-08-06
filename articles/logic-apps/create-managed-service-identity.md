@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: de6311e786065bebe7399ccb3625798866e864df
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f9c5de4fb4e38d3f9ccb79c89be988fe0bbebc3c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533343"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760295"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure
 
@@ -197,7 +197,7 @@ Per automatizzare la creazione e la distribuzione delle risorse di Azure, ad ese
 
 * Un oggetto `identity` con la proprietà `type` impostata su `UserAssigned`
 
-* Un oggetto `userAssignedIdentities` figlio che specifica l'ID risorsa dell'identità, ovvero un altro oggetto figlio con le proprietà `principalId` e `clientId`
+* Oggetto figlio `userAssignedIdentities` che specifica la risorsa e il nome assegnati dall'utente
 
 Questo esempio illustra una definizione di risorsa dell'app per la logica per una richiesta HTTP PUT e include un oggetto `identity` senza parametri. Anche la risposta alla richiesta PUT e l'operazione GET successiva hanno questo oggetto `identity`:
 
@@ -215,10 +215,7 @@ Questo esempio illustra una definizione di risorsa dell'app per la logica per un
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {
-                  "principalId": "<principal-ID>",
-                  "clientId": "<client-ID>"
-               }
+               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {}
             }
          },
          "properties": {
@@ -231,12 +228,6 @@ Questo esempio illustra una definizione di risorsa dell'app per la logica per un
    "outputs": {}
 }
 ```
-
-| Proprietà (JSON) | valore | Descrizione |
-|-----------------|-------|-------------|
-| `principalId` | <*principal-ID*> | L'identificatore univoco globale (GUID) per l'identità gestita assegnata dall'utente nel tenant di Azure AD |
-| `clientId` | <*client-ID*> | Un identificatore univoco globale (GUID) per la nuova identità dell'app per la logica usata per le chiamate durante il runtime |
-||||
 
 Se il modello include anche la definizione di risorsa dell'identità gestita, è possibile parametrizzare l'oggetto `identity`. Questo esempio illustra il modo in cui l'oggetto `userAssignedIdentities` figlio fa riferimento a una variabile `userAssignedIdentity` definita nella sezione `variables` del modello. Questa variabile fa riferimento all'ID risorsa per l'identità assegnata dall'utente.
 
@@ -281,22 +272,11 @@ Se il modello include anche la definizione di risorsa dell'identità gestita, è
          "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
          "name": "[parameters('Template_UserAssignedIdentityName')]",
          "location": "[resourceGroup().location]",
-         "properties": {
-            "tenantId": "<tenant-ID>",
-            "principalId": "<principal-ID>",
-            "clientId": "<client-ID>"
-         }
+         "properties": {}
       }
   ]
 }
 ```
-
-| Proprietà (JSON) | valore | Descrizione |
-|-----------------|-------|-------------|
-| `tenantId` | <*Azure-AD-tenant-ID*> | L'identificatore univoco globale (GUID) che rappresenta il tenant di Azure AD di cui l'identità assegnata dall'utente è ora membro. All'interno del tenant di Azure AD l'entità servizio ha lo stesso nome dell'identità assegnata dall'utente. |
-| `principalId` | <*principal-ID*> | L'identificatore univoco globale (GUID) per l'identità gestita assegnata dall'utente nel tenant di Azure AD |
-| `clientId` | <*client-ID*> | Un identificatore univoco globale (GUID) per la nuova identità dell'app per la logica usata per le chiamate durante il runtime |
-||||
 
 <a name="access-other-resources"></a>
 
@@ -508,7 +488,7 @@ L'identità gestita è ora disabilitata nell'app per la logica.
 
 ### <a name="disable-managed-identity-in-azure-resource-manager-template"></a>Disabilitare l'identità gestita nel modello di Azure Resource Manager
 
-Se l'identità gestita dell'app per la logica è stata creata con un modello di Azure Resource Manager, impostare la proprietà figlio `type` dell'oggetto `identity` su `None`. Per l'identità gestita dal sistema, questa azione elimina anche l'ID entità di sicurezza da Azure AD.
+Se l'identità gestita dell'app per la logica è stata creata con un modello di Azure Resource Manager, impostare la proprietà figlio `type` dell'oggetto `identity` su `None`.
 
 ```json
 "identity": {

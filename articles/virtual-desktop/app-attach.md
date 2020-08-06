@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 328f7bb8c03cb78f4b5375eb4f6e3d9891b83942
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291514"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760669"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurare la connessione all'app MSIX
 
@@ -202,12 +202,12 @@ Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito vie
 
 1. Fare clic con il pulsante destro del mouse sul pacchetto e scegliere **Proprietà**.
 2. Nella finestra visualizzata, selezionare la scheda **Firme digitali**. Nella scheda deve essere presente un solo elemento nell'elenco, come illustrato nella figura seguente. Selezionare l'elemento per evidenziarlo, quindi selezionare **Dettagli**.
-3. Quando viene visualizzata la finestra Dettagli firma digitale, selezionare la scheda **Generale**, quindi scegliere **Installa certificato**.
+3. Quando viene visualizzata la finestra Dettagli firma digitale, selezionare la scheda **generale** , selezionare **Visualizza certificato**, quindi selezionare **Installa certificato**.
 4. Quando si apre il programma di installazione, selezionare **Computer locale** come percorso di archiviazione, quindi selezionare **Avanti**.
 5. Se il programma di installazione chiede se consentire all'app di apportare modifiche al dispositivo, selezionare **Sì**.
 6. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi selezionare **Sfoglia**.
 7. Quando viene visualizzata la finestra Seleziona archivio certificati, selezionare **Persone attendibili**, quindi selezionare **OK**.
-8. Selezionare **Fine**.
+8. Selezionare **Avanti** e **fine**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Preparare uno script di PowerShell per la connessione all'app MSIX
 
