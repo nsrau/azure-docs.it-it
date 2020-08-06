@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080438"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837177"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifiche di manutenzione pianificata per set di scalabilità di macchine virtuali
 
@@ -181,7 +181,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **R:** le macchine virtuali distribuite in un set di disponibilità o nei set di scalabilità di macchine virtuali usano i domini di aggiornamento. Quando si esegue la manutenzione, Azure rispetta il vincolo dei domini di aggiornamento e non riavvia le macchine virtuali da un dominio di aggiornamento diverso (all'interno dello stesso set di disponibilità). Azure attende anche almeno 30 minuti prima di passare al gruppo successivo di macchine virtuali. 
 
-Per altre informazioni sulla disponibilità elevata, vedere [Regions and availability for virtual machines in Azure](../virtual-machines/windows/availability.md) (Aree e disponibilità per le macchine virtuali in Azure).
+Per altre informazioni sulla disponibilità elevata, vedere [Regions and availability for virtual machines in Azure](../virtual-machines/availability.md) (Aree e disponibilità per le macchine virtuali in Azure).
 
 **D: come si possono ottenere notifiche per la manutenzione pianificata?**
 

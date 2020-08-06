@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio di Archiviazione di Azure | Microsoft Docs
-description: Informazioni su come monitorare le prestazioni e la disponibilità di Archiviazione di Azure.
+description: Informazioni su come monitorare le prestazioni e la disponibilità di Archiviazione di Azure. Monitora i dati di archiviazione di Azure, informazioni sulla configurazione e analizza i dati di metrica e di log.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182713"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836667"
 ---
 # <a name="monitor-azure-storage"></a>Monitoraggio di Archiviazione di Azure
 
@@ -27,7 +27,7 @@ Quando si usano applicazioni e processi aziendali critici basati sulle risorse d
 
 La pagina **Panoramica** nel portale di Azure per ogni risorsa di archiviazione include una breve vista dell'utilizzo delle risorse, ad esempio le richieste e la fatturazione oraria. Queste informazioni sono utili, ma è disponibile solo una piccola quantità di dati di monitoraggio. Alcuni di questi dati vengono raccolti automaticamente e sono disponibili per l'analisi appena si crea la risorsa di archiviazione. Con alcune configurazioni è possibile abilitare altri tipi di raccolta dati.
 
-## <a name="what-is-azure-monitor"></a>Che cos'è Monitoraggio di Azure?
+## <a name="what-is-azure-monitor"></a>Informazioni su Monitoraggio di Azure
 Archiviazione di Azure crea i dati di monitoraggio usando [Monitoraggio di Azure](../../azure-monitor/overview.md), un servizio di monitoraggio completo dello stack di Azure. Monitoraggio di Azure offre un set completo di funzionalità per monitorare le risorse e di Azure e le risorse che si trovano in altri cloud e in locale. 
 
 Per altre informazioni su Monitoraggio di Azure, vedere [Monitorare le risorse di Azure con monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md). Questo articolo tratta gli argomenti seguenti:
@@ -86,9 +86,9 @@ Una volta creata l'impostazione di diagnostica nel portale di Azure è possibile
 
 | Category | Descrizione |
 |:---|:---|
-| StorageRead | Operazioni di lettura sui BLOB. |
-| StorageWrite | Operazioni di scrittura sui BLOB. |
-| StorageDelete | Operazioni di eliminazione sui BLOB. |
+| StorageRead | Operazioni di lettura sugli oggetti. |
+| StorageWrite | Operazioni di scrittura su oggetti. |
+| StorageDelete | Operazioni DELETE sugli oggetti. |
 
 ## <a name="analyze-metric-data"></a>Analisi dei dati delle metriche
 

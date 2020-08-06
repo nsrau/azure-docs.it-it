@@ -4,12 +4,12 @@ description: Risposte ad alcune domande comuni sulla soluzione Azure VMware (AVS
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003424"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836582"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Domande frequenti sull'anteprima della soluzione Azure VMware (AVS)
 
@@ -25,7 +25,7 @@ Con la ricerca da parte delle organizzazioni di strategie di modernizzazione IT 
 
 **Dove è attualmente disponibile AVS?**
 
-Durante l'anteprima è disponibile negli Stati Uniti orientali, in America del Nord, e ad Amsterdam, nell'Europa occidentale.
+Il servizio viene continuamente aggiunto alle nuove aree, quindi è possibile visualizzare le [informazioni più recenti sulla disponibilità del servizio](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) per altri dettagli. 
 
 **I carichi di lavoro eseguiti in un'istanza della soluzione Azure VMware (AVS) si integrano con i servizi di Azure o li utilizzano?**
 
@@ -57,7 +57,7 @@ Gli aggiornamenti del servizio seguiranno il processo di gestione delle modifich
 
 **Quali sono le differenze rispetto alla soluzione Azure VMware di CloudSimple?**
 
-Con la nuova soluzione Azure VMware, Microsoft e VMware hanno una partnership diretta di provider di servizi cloud. La nuova soluzione è interamente progettata, realizzata e supportata da Microsoft e approvata da VMware. A livello di architettura, le soluzioni sono coerenti con lo stack di tecnologia VMware eseguito in un'infrastruttura dedicata di Azure.
+Con la nuova soluzione Azure VMware, Microsoft e VMware hanno una partnership diretta di provider di servizi cloud. La nuova soluzione è interamente progettata, compilata e supportata da Microsoft e approvata da VMware. A livello di architettura, le soluzioni sono coerenti con lo stack di tecnologia VMware eseguito in un'infrastruttura dedicata di Azure.
 
 **Che cosa comporta questa anteprima per gli attuali clienti della soluzione Azure VMware?**
 
@@ -65,7 +65,7 @@ Non sono state apportate modifiche alla soluzione Azure VMware di CloudSimple es
 
 **È possibile eseguire la migrazione dalla soluzione Azure VMware di CloudSimple a questa nuova soluzione?**
 
-Sì. La soluzione Azure VMware supporta la migrazione con strumenti VMware noti come HCX. I clienti interessati alla migrazione alla nuova soluzione sono invitati a collaborare con il team dell'account Microsoft per esplorare le opzioni e il supporto disponibile.
+Sì. La soluzione Azure VMware supporta la migrazione con strumenti VMware noti come HCX. Per i clienti interessati alla migrazione alla nuova soluzione, collaborare con il team di account Microsoft per esplorare le opzioni e il supporto disponibile.
 
 
 
@@ -89,7 +89,7 @@ Ogni host ESXi ha due diskgroups rete VSAN con un livello di capacità di 15,2 T
 
 **Quanta larghezza di banda di rete è disponibile in ogni host ESXi?**
 
-Gli host ESXi supportano fino a 25 Gbps di larghezza di banda di connettività.
+Ogni host ESXi è stato configurato con schede NIC da 4 25 Gbps, con due schede di rete di cui è stato effettuato il provisioning per il traffico di sistema ESXi e due NIC di cui è stato effettuato il provisioning 
 
 **I dati archiviati negli archivi dati rete VSAN sono crittografati?**
 
@@ -197,11 +197,11 @@ Durante l'anteprima, la fatturazione per AVS è mensile con pagamento in base al
 
 **Come saranno strutturati i prezzi durante l'anteprima di AVS?**
 
-Per domande generali sui prezzi, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/azure-vmware) della soluzione Azure VMware. I prezzi dell'anteprima sono disponibili su richiesta. Contattare il team dell'account oppure seguire il collegamento nella pagina dei prezzi per contattare il reparto vendite.
+Per domande generali sui prezzi, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/azure-vmware) della soluzione Azure VMware. I prezzi per l'anteprima sono disponibili su richiesta, contatta il team dell'account o Segui il collegamento nella pagina dei prezzi per contattare le vendite.
 
 **Chi supporta AVS?**
 
-Il supporto per AVS è offerto da Microsoft. Si noti che, in base alle linee guida per l'anteprima, verrà fornito supporto nell'orario di ufficio 9-17 PST, dal lunedì al venerdì. È possibile aprire un ticket di supporto da [questo collegamento](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Il supporto per AVS è offerto da Microsoft. Si noti che, in base alle linee guida di anteprima, si fornirà il supporto per i giorni lavorativi PST da 9 a 5 PM dal lunedì al venerdì. È possibile aprire un ticket di supporto da [questo collegamento](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 **Quali account sono necessari per creare un cloud privato AVS?**
 

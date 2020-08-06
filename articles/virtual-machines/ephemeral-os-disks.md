@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4fabaed28ca186f3ca091107e51ed3900168ba41
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387728"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837109"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Dischi del sistema operativo temporaneo per le macchine virtuali di Azure
 
@@ -51,7 +51,7 @@ Differenze principali tra dischi del sistema operativo permanenti e temporanei:
 I dischi temporanei richiedono anche che le dimensioni della VM supportino l'archiviazione Premium. Le dimensioni in genere (ma non sempre) hanno un `s` nel nome, ad esempio DSv2 e EsV3. Per altre informazioni, vedere [dimensioni delle VM di Azure](sizes.md) per informazioni dettagliate su quali dimensioni supportano archiviazione Premium.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Anteprima: i dischi del sistema operativo temporanei possono ora essere archiviati in dischi temporanei
-I dischi del sistema operativo temporaneo possono ora essere archiviati nel disco temporaneo/delle risorse della macchina virtuale, oltre che nella cache VM. Ora è possibile usare dischi del sistema operativo temporanei con una macchina virtuale che non dispone di una cache o che ha una cache insufficiente, ma che dispone di un disco Temp/Resource per archiviare il disco del sistema operativo temporaneo, ad esempio Dav3, Dav4, Eav4 e Eav3. Se una macchina virtuale ha sufficiente spazio di memorizzazione nella cache e Temp, è ora possibile specificare il percorso in cui si vuole archiviare il disco del sistema operativo temporaneo usando una nuova proprietà denominata [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). Questa funzionalità è attualmente in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per iniziare, [richiedere l'accesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+I dischi del sistema operativo temporaneo possono ora essere archiviati nel disco temporaneo/delle risorse della macchina virtuale, oltre che nella cache VM. Ora è possibile usare dischi del sistema operativo temporanei con una macchina virtuale che non dispone di una cache o che ha una cache insufficiente, ma che dispone di un disco Temp/Resource per archiviare il disco del sistema operativo temporaneo, ad esempio Dav3, Dav4, Eav4 e Eav3. Se una macchina virtuale ha sufficiente spazio di memorizzazione nella cache e Temp, è ora possibile specificare il percorso in cui si vuole archiviare il disco del sistema operativo temporaneo usando una nuova proprietà denominata [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Questa funzionalità è attualmente in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per iniziare, [richiedere l'accesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 

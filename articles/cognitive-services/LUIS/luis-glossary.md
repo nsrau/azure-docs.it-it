@@ -3,12 +3,12 @@ title: Glossario-LUIS
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056379"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836412"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il Glossario di Language Understanding (LUIS) illustra i termini che possono verificarsi durante l'utilizzo del servizio LUIS.
@@ -67,12 +67,12 @@ Nei test in batch i punti dati rappresentano espressioni in cui l'app ha erronea
 
 Nei test in batch i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
 
-### <a name="precision"></a>Precision
+### <a name="precision"></a>Precisione
 Nei test in batch, la precisione (denominata anche valore predittivo positivo) è la frazione delle espressioni rilevanti tra le espressioni recuperate.
 
 Un esempio di test batch di animali è il numero di pecore stimate divise per il numero totale di animali (pecore e non pecore).
 
-### <a name="recall"></a>Richiamo
+### <a name="recall"></a>Recall
 
 Nei test in batch il richiamo (anche detto sensibilità) è la capacità di LUIS di generalizzare.
 
@@ -94,11 +94,11 @@ Uno [scopo](#intent) è un esempio di classificatore.
 
 ## <a name="collaborator"></a>Collaboratore
 
-Un collaboratore è concettualmente [uguale a quello](#contributor)di un collaboratore. Un collaboratore può accedere quando un proprietario aggiunge l'indirizzo di posta elettronica del collaboratore a un'app che non è controllata con l'accesso in base al ruolo (RBAC). Se si stanno ancora usando collaboratori, è necessario eseguire la migrazione dell'account LUIS e usare le risorse di authoring LUIS per gestire i collaboratori con RBAC.
+Un collaboratore è concettualmente [uguale a quello](#contributor)di un collaboratore. Un collaboratore può accedere quando un proprietario aggiunge l'indirizzo di posta elettronica del collaboratore a un'app che non è controllata con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Se si stanno ancora usando collaboratori, è necessario eseguire la migrazione dell'account LUIS e usare le risorse di authoring LUIS per gestire i collaboratori con RBAC.
 
 ## <a name="contributor"></a>Collaboratore
 
-Un collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni. Un collaboratore fornisce l'accesso in base al ruolo (RBAC) a un'app LUIS.
+Un collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni. Un collaboratore fornisce il controllo degli accessi in base al ruolo di Azure (RBAC) a un'app LUIS.
 
 Vedere anche la pagina relativa alla
 * [Procedura:](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) aggiungere collaboratori
@@ -228,7 +228,7 @@ Un'entità predefinita è un'entità fornita da LUIS per tipi di informazioni co
 
 Una finalità precompilata è costituita da una finalità che LUIS fornisce per i tipi di informazioni comuni e con le proprie espressioni di esempio con etichetta.
 
-## <a name="prediction"></a>Previsione
+## <a name="prediction"></a>Stima
 
 Una stima è una richiesta REST al servizio di stima di Azure LUIS che accetta i nuovi dati (enunciato dall'utente) e applica l'applicazione sottoposta a training e pubblicata a tali dati per determinare quali Intent ed entità vengono trovati.
 

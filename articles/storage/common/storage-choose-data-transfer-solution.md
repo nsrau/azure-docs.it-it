@@ -1,6 +1,6 @@
 ---
 title: Scegliere una soluzione di Azure per il trasferimento dei dati | Microsoft Docs
-description: Informazioni su come scegliere una soluzione di Azure per il trasferimento dei dati in base alle dimensioni dei dati e alla larghezza di banda di rete disponibile nell'ambiente
+description: Informazioni su come scegliere una soluzione di Azure per il trasferimento dei dati in base alle dimensioni dei dati e alla larghezza di banda di rete disponibile nell'ambiente in uso.
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 123fa86714ae3cefe7de5bebda9e0fccd385ecb4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514439"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836599"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Scegliere una soluzione di Azure per il trasferimento dei dati
 
@@ -74,7 +74,7 @@ Rispondere alle domande seguenti per selezionare una soluzione di trasferimento 
 - [Leggere una panoramica di AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
 - [Avvio rapido: Caricare, scaricare ed elencare BLOB con PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Avvio rapido: Creare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure](../blobs/storage-quickstart-blobs-cli.md)
-- Vengono fornite informazioni su:
+- Informazioni su:
 
     - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy per i trasferimenti offline](https://docs.microsoft.com/azure/databox/).
     - [Azure Data Box gateway e Azure stack Edge per i trasferimenti online](https://docs.microsoft.com/azure/databox-online/).

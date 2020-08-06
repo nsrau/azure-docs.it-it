@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e74dac779fc1eafaf33ffbc63bf997cf26b64954
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037189"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836803"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protezione dalle minacce nel Centro sicurezza di Azure
 
@@ -54,11 +54,15 @@ Il Centro sicurezza di Azure si integra con i servizi di Azure per monitorare e 
 
     Quando Microsoft Defender ATP rileva una minaccia, attiva un avviso. L'avviso viene visualizzato nel dashboard del Centro sicurezza. Dal dashboard è possibile passare alla console di Microsoft Defender ATP ed eseguire un'indagine dettagliata per individuare l'ambito dell'attacco. Per altre informazioni su Microsoft Defender ATP, vedere [Onboard servers to the Microsoft Defender ATP service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints) (Onboarding dei server nel servizio Microsoft Defender ATP).
 
-* **Rilevamento degli attacchi senza file** <a name="windows-fileless"></a> - Gli attacchi senza file mirati agli endpoint sono comuni. Per evitare il rilevamento, gli attacchi senza file inseriscono payload dannosi nella memoria. I payload degli utenti malintenzionati persistono nella memoria dei processi compromessi ed eseguono numerose attività dannose.
+* Rilevamento di attacchi non **file** <a name="windows-fileless"></a> -Gli attacchi senza file inseriscono payload dannosi nella memoria per evitare il rilevamento da parte di tecniche di analisi basate su disco. Il payload del pirata informatico viene quindi mantenuto nella memoria dei processi compromessi ed esegue un'ampia gamma di attività dannose.
 
-    Con il rilevamento degli attacchi senza file, tecnologie automatizzate di analisi forense della memoria identificano i toolkit, le tecniche e i comportamenti degli attacchi senza file. Questa soluzione analizza periodicamente il computer in fase di esecuzione ed estrae informazioni dettagliate direttamente dalla memoria dei processi critici per la sicurezza.
+    Con il rilevamento degli attacchi senza file, tecnologie automatizzate di analisi forense della memoria identificano i toolkit, le tecniche e i comportamenti degli attacchi senza file. Questa soluzione analizza periodicamente il computer in fase di esecuzione ed estrae informazioni dettagliate direttamente dalla memoria dei processi. Informazioni dettagliate specifiche per Linux includono l'identificazione di: 
 
-    Rileva l'evidenza di exploit, inserimento di codice ed esecuzione di payload dannosi. Il rilevamento degli attacchi senza file genera avvisi di sicurezza dettagliati per accelerare la valutazione degli avvisi, la correlazione e il tempo di risposta downstream. Questo approccio integra le soluzioni EDR basate su eventi, offrendo una maggiore copertura del rilevamento.
+    - Toolkit ben noti e software di data mining di crittografia 
+    - Shellcode, ovvero un piccolo frammento di codice usato in genere come payload nell'exploit di una vulnerabilità software.
+    - Eseguibile dannoso inserito nella memoria del processo
+
+    Il rilevamento di attacchi senza file genera avvisi di sicurezza dettagliati contenenti le descrizioni con metadati aggiuntivi del processo, ad esempio l'attività di rete. Questa operazione accelera la valutazione degli avvisi, la correlazione e il tempo di risposta downstream. Questo approccio è complementare alle soluzioni EDR basate su eventi e offre una maggiore copertura del rilevamento.
 
     Per informazioni dettagliate sugli avvisi di rilevamento degli attacchi senza file, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-windows).
 

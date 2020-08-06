@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bd10ab4c98fe2e77332c3cc2566ab2f0c7ad42
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71180055"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841923"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limiti aggiuntivi a livello di condivisione file Premium
 
@@ -25,7 +25,7 @@ ms.locfileid: "71180055"
 
 |Area  |File Premium  |File standard |
 |---------|---------|---------|
-|Dimensione                  |1 TiB         |1 TiB|
+|Dimensione                  |4 TiB         |1 TiB|
 |Numero massimo di IOPS per file     |5\.000         |1\.000|
 |Handle simultanei    |2\.000         |2\.000|
 |Egress  |300 MiB/sec|      Vedere valori di velocità effettiva del file standard|

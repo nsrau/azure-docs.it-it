@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d9b4766b42704da8c81704822f263a6ddf46ce5a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052839"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836446"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET 
 
@@ -282,7 +282,7 @@ Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore d
 Mentre tutti gli esempi precedenti hanno descritto come inviare un'attività di codifica che produce solo immagini, è anche possibile combinare la codifica audio/video con la generazione di anteprime. Il set di impostazioni JSON e XML seguenti indica a **Media Encoder Standard** di generare un'anteprima durante la codifica.
 
 ### <a name="json-preset"></a><a id="json"></a>Set di impostazioni JSON
-Per informazioni sullo schema, vedere [questo](/azure/media-services/previous/media-services-mes-schema) articolo.
+Per informazioni sullo schema, vedere [questo](./media-services-mes-schema.md) articolo.
 
 ```json
     {
@@ -347,7 +347,7 @@ Per informazioni sullo schema, vedere [questo](/azure/media-services/previous/me
 ```
 
 ### <a name="xml-preset"></a><a id="xml"></a>Set di impostazioni XML
-Per informazioni sullo schema, vedere [questo](/azure/media-services/previous/media-services-mes-schema) articolo.
+Per informazioni sullo schema, vedere [questo](./media-services-mes-schema.md) articolo.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
@@ -556,7 +556,7 @@ Si applicano le considerazioni seguenti:
   
   * Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
   * Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
-  * Timestamp se espresso come HH:MM:SS (formato). Ad esempio "Start" : "00:01:00"
+  * Timestamp se espresso come HH:MM:SS . Ad esempio "Start" : "00:01:00"
     
     È possibile combinare e associare le notazioni a piacimento.
     

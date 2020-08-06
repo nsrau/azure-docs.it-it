@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 08/05/2020
 ms.author: juliako
-ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042624"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837310"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -29,6 +29,28 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="july-2020"></a>Luglio 2020
+
+### <a name="ga-for-multi-language-identification"></a>GA per l'identificazione multilingua
+
+L'identificazione a più lingue viene spostata dalla versione di anteprima alla versione GA ed è pronta per l'uso produttivo.
+
+Non vi è alcun effetto sui prezzi correlato alla transizione "da anteprima a GA".
+
+### <a name="video-indexer-website-improvements"></a>Miglioramenti al sito Web Video Indexer
+
+#### <a name="adjustments-in-the-video-gallery"></a>Modifiche nella raccolta video
+
+È stata aggiunta una nuova barra di ricerca per la ricerca deep Insights con funzionalità di filtro aggiuntive. Sono stati inoltre migliorati i risultati della ricerca.
+
+Nuova visualizzazione elenco con la possibilità di ordinare e gestire l'archivio video con più file.
+
+#### <a name="new-panel-for-easy-selection-and-configuration"></a>Nuovo pannello per facilitare la selezione e la configurazione
+
+È stato aggiunto il pannello laterale per semplificare la selezione e la configurazione degli utenti, consentendo la creazione e la condivisione di account semplici e veloci, oltre a impostare la configurazione.
+
+Il pannello laterale viene usato anche per le preferenze utente e la guida.
 
 ## <a name="june-2020"></a>Giugno 2020
 

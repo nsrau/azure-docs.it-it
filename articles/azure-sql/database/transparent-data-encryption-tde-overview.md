@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 06/15/2020
-ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986962"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836684"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent Data Encryption per database SQL, SQL Istanza gestita e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "84986962"
 
 TDE esegue in tempo reale la crittografia e decrittografia dell'I/O dei dati a livello di pagina. Ogni pagina viene decrittografata quando letta in memoria e quindi crittografata prima di essere scritta su disco. Transparent Data Encryption crittografa l'archivio di un intero database utilizzando una chiave simmetrica denominata chiave di crittografia del database. All'avvio del database, la crittografia crittografata viene decrittografata e quindi usata per la decrittografia e la ricrittografia dei file di database nel processo del motore di database SQL Server. La protezione da Transparent Data Encryption è protetta da crittografia. La protezione Transparent Data Encryption è un certificato gestito dal servizio (Transparent Data Encryption gestito dal servizio) o una chiave asimmetrica archiviata nel [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (Transparent Data Encryption gestita dal cliente).
 
-Per il database SQL di Azure e la sinapsi di Azure, la protezione Transparent Data Encryption è impostata a livello di [Server](logical-servers.md) e viene ereditata da tutti i database associati a tale server. Per Istanza gestita SQL di Azure (funzionalità BYOK in anteprima), la protezione Transparent Data Encryption viene impostata a livello di istanza e viene ereditata da tutti i database crittografati in tale istanza. Salvo diversa indicazione, in questo documento il termine *server* fa riferimento sia al server che all'istanza.
+Per il database SQL di Azure e la sinapsi di Azure, la protezione Transparent Data Encryption è impostata a livello di [Server](logical-servers.md) e viene ereditata da tutti i database associati a tale server. Per l'istanza gestita di database SQL di Azure, la protezione TDE è impostata a livello di istanza e viene ereditata da tutti i database crittografati nell'istanza. Salvo diversa indicazione, in questo documento il termine *server* fa riferimento sia al server che all'istanza.
 
 > [!IMPORTANT]
 > Per impostazione predefinita, tutti i nuovi database creati nel database SQL vengono crittografati tramite Transparent Data Encryption gestito dal servizio. Per impostazione predefinita, i database SQL esistenti creati prima del 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia del database non sono crittografati. Per impostazione predefinita, i database di SQL Istanza gestita esistenti creati prima del 2019 febbraio non sono crittografati. I database SQL Istanza gestita creati tramite il ripristino ereditano lo stato di crittografia dall'origine.

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d1ec61bf18248ea56c8ee5e430a671af7f39d732
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9310fd5c9a66fbd39e32c4756c5037567963912d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81458668"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841964"
 ---
 È importante proteggere le macchine virtuali (VM) per le applicazioni in esecuzione. La protezione delle macchine virtuali può includere uno o più servizi o funzionalità di Azure che gestiscono l'accesso sicuro alle macchine virtuali e l'archiviazione sicura dei dati. Questo articolo contiene informazioni che permettono di mantenere sicure le macchine virtuali e le applicazioni.
 
@@ -63,7 +63,7 @@ La funzionalità delle identità gestite per le risorse di Azure in Azure Active
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Usando il [controllo degli accessi in base al ruolo](../articles/role-based-access-control/overview.md), è possibile separare i compiti all'interno del team e concedere agli utenti solo il tipo di accesso di cui hanno bisogno per svolgere il proprio lavoro nella macchina virtuale. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel [portale di Azure](../articles/role-based-access-control/role-assignments-portal.md), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/role) o con [Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../articles/role-based-access-control/overview.md), è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti della macchina virtuale necessaria per svolgere i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel [portale di Azure](../articles/role-based-access-control/role-assignments-portal.md), nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/role) o con [Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

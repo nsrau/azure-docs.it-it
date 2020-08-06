@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 07fde5a8e7e3d542ed3fa3bc54b761d5434ac710
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284864"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836884"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 
@@ -32,7 +32,7 @@ Creare prima un gruppo di risorse. In questo esempio, il gruppo di risorse viene
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Creare la macchina virtuale In questo esempio viene usata la macchina virtuale denominata *myVM* di dimensioni *Standard_D2s_v3*, ma è consigliabile scegliere le [dimensioni di macchina virtuale](sizes.md) più adatte al proprio carico di lavoro.
+Creare la macchina virtuale In questo esempio viene usata la macchina virtuale denominata *myVM* di dimensioni *Standard_D2s_v3*, ma è consigliabile scegliere le [dimensioni di macchina virtuale](../sizes.md) più adatte al proprio carico di lavoro.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -130,7 +130,7 @@ CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 Il punto e virgola (;) alla fine della riga è essenziale per la conclusione del comando.
 
 
-## <a name="create-a-database"></a>Creazione di un database
+## <a name="create-a-database"></a>Creare un database
 
 
 Creare un database e concedere le autorizzazioni all'utente `mysqluser`.
@@ -157,7 +157,3 @@ quit
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su MySQL, vedere la [documentazione di MySQL](https://dev.mysql.com/doc).
-
-
-
-

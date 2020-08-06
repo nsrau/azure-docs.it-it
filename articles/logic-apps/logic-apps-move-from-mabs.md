@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 975dcc357e244469f33385f84f2e15a89997597b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078219"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837381"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Eseguire la migrazione di app e soluzioni da servizi BizTalk in app per la logica di Azure
 
@@ -103,7 +103,7 @@ Nell'elaborazione di Servizi BizTalk la fase di miglioramento aggiunge propriet�
 
 ### <a name="run-custom-code"></a>Eseguire codice personalizzato
 
-Servizi BizTalk permette di [eseguire codice personalizzato](/previous-versions/azure/dn232389(v=azure.100)) caricato negli assembly personali. Questa funzionalità viene implementata dall'interfaccia [IMessageInspector](/azure/logic-apps/logic-apps-move-from-mabs). Ogni fase nel bridge include due proprietà, On Enter Inspector e On Exit Inspector, che indicano il tipo .NET creato che implementa questa interfaccia. Il codice personalizzato permette di eseguire un'elaborazione più complessa sui dati e di riutilizzare il codice esistente negli assembly che eseguono la logica di business comune. 
+Servizi BizTalk permette di [eseguire codice personalizzato](/previous-versions/azure/dn232389(v=azure.100)) caricato negli assembly personali. Questa funzionalità viene implementata dall'interfaccia [IMessageInspector](). Ogni fase nel bridge include due proprietà, On Enter Inspector e On Exit Inspector, che indicano il tipo .NET creato che implementa questa interfaccia. Il codice personalizzato permette di eseguire un'elaborazione più complessa sui dati e di riutilizzare il codice esistente negli assembly che eseguono la logica di business comune. 
 
 App per la logica offre due metodi principali per eseguire il codice personalizzato: Funzioni di Azure e App per le API. È possibile creare le funzioni di Azure e richiamarle dalle app per la logica. Vedere [Aggiungere ed eseguire un codice personalizzato per le app per la logica di Azure tramite Funzioni di Azure](../logic-apps/logic-apps-azure-functions.md). Usare App per le API, parte del Servizio app di Azure per creare i trigger e le azioni. Per altre informazioni, vedere [Creazione di un'API personalizzata da usare con App per la logica](../logic-apps/logic-apps-create-api-app.md). 
 
