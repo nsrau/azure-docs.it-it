@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 88f1c120ac4578e077e1c51f59bcaf53b1de2083
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87538898"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797986"
 ---
 # <a name="enable-infiniband"></a>Abilitare InfiniBand
 
@@ -42,11 +42,12 @@ Per aggiungere l'estensione macchina virtuale a una macchina virtuale, è possib
 [I driver Mellanox OpenFabrics (OFED)](https://www.mellanox.com/products/InfiniBand-VPI-Software) possono essere installati manualmente nelle macchine virtuali serie [H](../../sizes-hpc.md) [abilitate per SR-IOV](../../sizes-hpc.md#rdma-capable-instances) e [serie N](../../sizes-gpu.md) .
 
 ### <a name="linux"></a>Linux
-I [driver OFED per Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) possono essere installati con l'esempio seguente. Sebbene l'esempio sia per RHEL/CentOS, ma i passaggi sono generali e possono essere usati per qualsiasi sistema operativo Linux compatibile, ad esempio Ubuntu (16,04, 18,04 19,04, 20,04) e SLES (12 SP4 e 15). I driver della posta in arrivo funzionano anche, ma i driver Mellanox OFED forniscono altre funzionalità.
+I [driver OFED per Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) possono essere installati con l'esempio seguente. Sebbene l'esempio sia per RHEL/CentOS, ma i passaggi sono generali e possono essere usati per qualsiasi sistema operativo Linux compatibile, ad esempio Ubuntu (16,04, 18,04 19,04, 20,04) e SLES (12 SP4 e 15). Altri esempi per le distribuzioni sono disponibili nel [repository azhpc-images](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). Anche i driver della posta in arrivo funzionano correttamente, ma i driver Mellanox OFED forniscono altre funzionalità.
 
 ```bash
 MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
-# Optinally verify checksum
+# Optionally verify checksum
+wget --retry-connrefused --tries=3 --waitretry=5 $MLNX_OFED_DOWNLOAD_URL
 tar zxvf MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
 
 KERNEL=( $(rpm -q kernel | sed 's/kernel\-//g') )
@@ -58,7 +59,7 @@ yum install -y kernel-devel-${KERNEL}
 ./MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64/mlnxofedinstall --kernel $KERNEL --kernel-sources /usr/src/kernels/${KERNEL} --add-kernel-support --skip-repo
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 Per Windows, scaricare e installare [MELLANOX OFED per i driver di Windows](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2).
 
 ## <a name="enable-ip-over-infiniband-ib"></a>Abilita IP over InfiniBand (IB)

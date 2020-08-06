@@ -2,7 +2,7 @@
 title: Panoramica dell'architettura - Azure Active Directory | Microsoft Docs
 description: Informazioni sul tenant di Azure Active Directory e su come gestire Azure con Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5599ce6f086ca9c3dcbf7ac406306b6198d3080a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77368073"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797615"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Che cos'è l'architettura di Azure Active Directory?
 
@@ -79,7 +79,7 @@ Le operazioni di lettura (che sono più numerose di quelle di scrittura di diver
 
 Una scrittura viene impegnata in modo durevole in almeno due Data Center prima che venga riconosciuta. Questo problema si verifica eseguendo prima il commit della scrittura sul database primario e quindi replicando immediatamente la scrittura in almeno un altro Data Center. Questa azione di scrittura garantisce che una potenziale perdita irreversibile del data center che ospita il database primario non comporti la perdita di dati.
 
-Azure AD ha un [Obiettivo tempo di ripristino ](https://en.wikipedia.org/wiki/Recovery_time_objective) pari a zero per non perdere dati sui failover. Ciò include:
+Azure AD ha un [Obiettivo tempo di ripristino ](https://en.wikipedia.org/wiki/Recovery_time_objective) pari a zero per non perdere dati sui failover. ad esempio:
 
 * Rilascio di token e operazioni di lettura directory
 * Solo circa 5 minuti obiettivo tempo di ripristino concessi per le operazioni di scrittura nella directory

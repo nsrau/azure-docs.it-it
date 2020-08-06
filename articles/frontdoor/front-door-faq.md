@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809471"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760414"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -30,7 +30,7 @@ Questo articolo risponde alle domande più comuni sulle funzionalità e sulle fu
 
 ### <a name="what-is-azure-front-door"></a>Che cos'è il servizio Frontdoor di Azure?
 
-Front-end di Azure è un servizio di Application Delivery Network (ADN), che offre diverse funzionalità di bilanciamento del carico di livello 7 per le applicazioni. Fornisce accelerazione sito dinamico (DSA) insieme al bilanciamento del carico globale con failover quasi in tempo reale. Si tratta di un servizio a disponibilità elevata e scalabile, completamente gestito da Azure.
+Front-end di Azure è un servizio di Application Delivery Network (ADN), che offre diverse funzionalità di bilanciamento del carico di livello 7 per le applicazioni. Offre funzionalità di accelerazione sito dinamico, nonché di bilanciamento del carico globale con failover near real-time. Si tratta di un servizio scalabile e a disponibilità elevata, completamente gestito da Azure.
 
 ### <a name="what-features-does-azure-front-door-support"></a>Quali funzionalità sono supportate da Azure front door?
 
@@ -159,9 +159,12 @@ Per l'opzione del certificato gestito dalla porta anteriore, i certificati vengo
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Quali sono i pacchetti di crittografia attualmente supportati da Azure front door?
 
-Per TLS 1.2 sono supportati i pacchetti di crittografia seguenti
+Per TLS 1.2 sono supportati i pacchetti di crittografia seguenti: 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 Quando si usano domini personalizzati con TLS 1.0/1.1 abilitato, sono supportati i pacchetti di crittografia seguenti:
 

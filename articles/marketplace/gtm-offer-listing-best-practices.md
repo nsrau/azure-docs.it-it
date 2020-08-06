@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 388fb7e36a823d7f6e9ee1d58220d3a1008d8cec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498047"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798121"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -99,7 +99,7 @@ La selezione del settore si applica solo alle offerte pubblicate in AppSource e 
 | **Produzione di risorse &** | & chimico agrochimica <br> Produzione discreta <br> Energia | 
 | **Media & comunicazioni** | Media & Entertainment <br> Telecomunicazioni | 
 | **Altri settori pubblici** | Selvicoltura & pesca <br> No profit | 
-| **Servizi professionali** | Servizi professionali per i partner <br> Note legali | 
+| **Servizi professionali** | Servizi professionali per i partner <br> Legale | 
 | **Immobile** | |
 
 Settore solo per Microsoft AppSource:
@@ -119,9 +119,9 @@ Le parole chiave consentono ai clienti di trovare l'offerta durante la ricerca. 
 ## <a name="storefront-marketing-details"></a>Dettagli di marketing della vetrina
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Logo dell'offerta (formato PNG, 48&nbsp;&times;&nbsp;48): pagina di ricerca | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina di ricerca dell'offerta. |
-| Logo dell'offerta (formato PNG, 216&nbsp;&times;&nbsp;216): pagina dei dettagli dell'app | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina dell'inserzione con i dettagli dell'app dell'offerta. |
-| Documenti "Altre informazioni" | Nella sezione "Altre informazioni" includere risorse di supporto per le vendite e il marketing, ad esempio: <ul> <li> White paper </li> <li> Brochure, </li> <li> Elenchi di controllo </li> <li> Presentazioni di PowerPoint</li> </ul>Salvare tutti i file in formato PDF. L'obiettivo di questi documenti deve essere l'informazione, non la vendita ai clienti. <br><br>Nella pagina di destinazione dell'app inserire un collegamento a tutti i documenti e aggiungere parametri dell'URL per tenere traccia dei visitatori e dell'uso delle versioni di valutazione. |
+| Logo dell'offerta (formato PNG, compreso tra 216 × 216 e 350 x 350 pixel): pagina dei dettagli dell'app | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina dell'inserzione con i dettagli dell'app dell'offerta. Il centro per i partner verrà ridimensionato in modo da configurarne le dimensioni necessarie. |
+| Logo dell'offerta (formato PNG, 48 × 48 pixel): pagina di ricerca | Il centro per i partner genererà questo logo dal logo di grandi dimensioni caricato. Facoltativamente, è possibile sostituirlo con un'immagine diversa. |
+| Documenti "Altre informazioni" | Nella sezione "Altre informazioni" includere risorse di supporto per le vendite e il marketing, ad esempio:<ul><li>White paper</li><li> Brochure</li><li>Elenchi di controllo</li><li> Presentazioni di PowerPoint</li></ul><br>Salvare tutti i file in formato PDF. L'obiettivo di questi documenti deve essere l'informazione, non la vendita ai clienti.<br><br>Nella pagina di destinazione dell'app inserire un collegamento a tutti i documenti e aggiungere parametri dell'URL per tenere traccia dei visitatori e dell'uso delle versioni di valutazione. |
 | Video: solo AppSource, servizi di consulenza e offerte SaaS | I video più efficaci comunicano il valore dell'offerta in forma narrativa:<ul> <li> Il protagonista deve essere il cliente e non la società che presenta l'offerta. </li> <li> Il video deve dare risposte riguardo alle sfide e agli obiettivi fondamentali del cliente a cui ci si rivolge. </li> <li> Lunghezza consigliata: da 60 a 90 secondi.</li> <li> Includere parole chiave di ricerca che usano il nome dei video. </li> <li> Valutare l'opportunità di aggiungere altri video, ad esempio per illustrare procedure, fornire un avvio rapido o presentare la testimonianza di un cliente. </li> </ul> |
 | Screenshot (1280&nbsp;&times;&nbsp;720) | Aggiungere al massimo cinque screenshot:<br>Includere parole chiave di ricerca nei nomi file. |
 

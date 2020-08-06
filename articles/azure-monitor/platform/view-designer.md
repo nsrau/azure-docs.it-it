@@ -5,27 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/10/2019
-ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: f3ae081c8657a3ee6a27b0f9208c3eb4e4e745cc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289101"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759734"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creare visualizzazioni personalizzate usando Progettazione viste in monitoraggio di Azure
 Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
 
 > [!IMPORTANT]
-> Le visualizzazioni in monitoraggio di Azure vengono gradualmente eliminate e sostituite con [cartelle di lavoro](workbooks-overview.md) che forniscono funzionalità aggiuntive. Per informazioni dettagliate sulla conversione delle visualizzazioni esistenti nelle cartelle di lavoro di, vedere la [Guida alla transizione di Progettazione viste di monitoraggio di Azure alla cartella di lavoro](view-designer-conversion-overview.md) . Vedere la tabella seguente per i passaggi che verranno eseguiti nei prossimi mesi.
-> 
-> | Modifica | Cosa significa | Data prevista |
-> |:---|:---|:---|
-> | Disabilitare la creazione di nuove viste create tramite Progettazione viste. | Non sarà più possibile creare e salvare nuove viste personalizzate nel portale di Azure.| 2020 novembre |
-> | Disabilitare la funzione di modifica per le viste esistenti con Progettazione viste. | Non sarà più possibile modificare e salvare le modifiche apportate alle visualizzazioni personalizzate esistenti. | 2020 novembre |
-> | Disabilitare la distribuzione di viste per aree di lavoro Log Analytics | Non sarà più possibile distribuire visualizzazioni personalizzate usando ARM per Log Analytics le aree di lavoro. | 2021 marzo |
-> | Progettazione viste non è più disponibile nella portale di Azure | L'esperienza del portale non supporterà più Progettazione viste. | 2021 giugno |
-> | Visualizzazioni personalizzate rimosse dal riepilogo dell'area di lavoro | Non sarà più possibile accedere ai dati della visualizzazione personalizzata. | 2021 dicembre |
+> Le visualizzazioni in monitoraggio di Azure sono state passate a [cartelle di lavoro](workbooks-overview.md) che forniscono funzionalità aggiuntive. Per informazioni dettagliate sulla conversione delle visualizzazioni esistenti nelle cartelle di lavoro di, vedere la [Guida alla transizione di Progettazione viste di monitoraggio di Azure alla cartella di lavoro](view-designer-conversion-overview.md) .
  
 
 
@@ -48,7 +40,7 @@ Le visualizzazioni create con Progettazione visualizzazioni contengono gli eleme
 | Visualizzazione personalizzata | Viene mostrata quando si seleziona un riquadro. Ciascuna visualizzazione contiene una o più parti della visualizzazione. |
 | Parti della visualizzazione | Presentare una visualizzazione dei dati nell'area di lavoro Log Analytics in base a una o più [query di log](../log-query/log-query-overview.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro Log Analytics. Per eseguire una query di log che fornisce record dettagliati, selezionare gli elementi nella parte. |
 
-## <a name="required-permissions"></a>Autorizzazioni richieste
+## <a name="required-permissions"></a>Autorizzazioni necessarie
 Per creare o modificare le visualizzazioni, è necessario disporre almeno [delle autorizzazioni a livello di collaboratore](manage-access.md#manage-access-using-azure-permissions) nell'area di lavoro log Analytics. Se non si dispone di questa autorizzazione, l'opzione Progettazione viste non verrà visualizzata nel menu.
 
 
@@ -59,7 +51,7 @@ Le visualizzazioni create con Progettazione visualizzazioni mostrano le opzioni 
 
 Le opzioni sono descritte nella tabella seguente:
 
-| Opzione | Description |
+| Opzione | Descrizione |
 |:--|:--|
 | Aggiorna   | Aggiorna la visualizzazione con i dati più recenti. | 
 | Log      | Apre il [log Analytics](../log-query/log-query-overview.md) per analizzare i dati con le query di log. |

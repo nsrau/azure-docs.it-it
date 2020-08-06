@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 08/04/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420652"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761162"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -319,7 +319,12 @@ I dettagli sullo stato dell'indice mostrano la percentuale di avanzamento per l'
 
 Indipendentemente dal valore specificato per la proprietà indice in **background** , gli aggiornamenti dell'indice vengono sempre eseguiti in background. Poiché gli aggiornamenti dell'indice utilizzano le unità richiesta (UR) con una priorità più bassa rispetto ad altre operazioni di database, le modifiche all'indice non comporteranno tempi di inattività per scritture, aggiornamenti o eliminazioni.
 
-Quando si aggiunge un nuovo indice, le query utilizzeranno immediatamente l'indice. Ciò significa che è possibile che le query non restituiscano tutti i risultati corrispondenti senza restituire alcun errore. Quando la trasformazione dell'indice viene completata, i risultati della query saranno coerenti. È possibile [tenere traccia dello stato dell'indice](#track-index-progress).
+Non vi è alcun effetto sulla disponibilità di lettura quando si aggiunge un nuovo indice. Quando la trasformazione dell'indice viene completata, le query utilizzeranno solo nuovi indici. Durante la trasformazione dell'indice, il motore di query continuerà a utilizzare gli indici esistenti, pertanto si osserveranno le prestazioni di lettura analoghe durante la trasformazione di indicizzazione rispetto a quanto osservato prima di avviare la modifica dell'indicizzazione. Quando si aggiungono nuovi indici, non esiste alcun rischio di risultati di query incompleti o incoerenti.
+
+Quando si rimuovono gli indici e si eseguono immediatamente query con filtri sugli indici eliminati, i risultati potrebbero essere incoerenti e incompleti fino al termine della trasformazione dell'indice. Se si rimuovono gli indici, il motore di query non garantisce risultati coerenti o completi quando le query filtrano gli indici appena rimossi. La maggior parte degli sviluppatori non elimina gli indici e quindi tenta immediatamente di eseguire query su di essi in modo che, in pratica, questa situazione sia improbabile.
+
+> [!NOTE]
+> È possibile [tenere traccia dello stato dell'indice](#track-index-progress).
 
 ## <a name="migrate-collections-with-indexes"></a>Eseguire la migrazione di raccolte con indici
 

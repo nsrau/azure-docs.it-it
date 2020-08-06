@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 5e6f241fcf30d4090a1af9a26441a5a10b939972
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 107b1103b5662decd8da0937ac84e0e8bab3f8eb
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307064"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760771"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usare Azure Machine Learning con il pacchetto open source Fairlearn per valutare l'equità dei modelli di Machine Learning (anteprima)
 
@@ -142,7 +142,7 @@ L'esempio seguente illustra come usare il pacchetto di correttezza per caricare 
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
     ```
 
 3. Pre-calcola le metriche di equità.
@@ -152,7 +152,7 @@ L'esempio seguente illustra come usare il pacchetto di correttezza per caricare 
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
     sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
-    ys_pred = unmitigated_predictor.predict(X_test)
+    ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
     dash_dict = _create_group_metric_set(y_true=Y_test,
@@ -207,7 +207,7 @@ L'esempio seguente illustra come usare il pacchetto di correttezza per caricare 
 
     Per altre informazioni sul dashboard di visualizzazione e sul contenuto, vedere il [manuale dell'utente](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard)di Fairlearn.
 
-s # # caricare informazioni sull'equità per più modelli
+## <a name="upload-fairness-insights-for-multiple-models"></a>Caricare informazioni sull'equità per più modelli
 
 Se si è interessati a confrontare più modelli e a capire in che modo le loro valutazioni sull'equità sono diverse, è possibile passare più di un modello al dashboard di visualizzazione ed esplorare i compromessi relativi alle prestazioni.
 

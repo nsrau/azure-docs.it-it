@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/26/2020
+ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 3188900ed04b4ea771e4aaeb5d2b8e3f32863bf4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 01a450c045c996cdcb49b8fbfdf1ce572ee2d1df
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088241"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760601"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver su macchina virtuali di Azure in SUSE Linux Enterprise Server for SAP applications
 
@@ -197,7 +197,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Cre
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-ascs-hp**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Scegliere OK
+         1. Fare clic su OK.
       1. Porta 621**02** per ASCS ERS
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
@@ -208,7 +208,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Cre
          1. Selezionare **Porte a disponibilità elevata**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Scegliere OK
+         1. Fare clic su OK.
          * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **NW1-lb-ERS**
 1. In alternativa, se lo scenario richiede Load Balancer Basic (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
@@ -231,7 +231,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Cre
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-ascs-hp**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Scegliere OK
+         1. Fare clic su OK.
       1. Porta 621**02** per ASCS ERS
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
@@ -525,9 +525,11 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
    
-   # Add the keep alive parameter
+   # Add the keep alive parameter, if using ENSA1
    enque/encni/set_so_keepalive = true
    </code></pre>
+
+   Per ENSA1 e ENSA2, assicurarsi che i parametri del `keepalive` sistema operativo siano impostati come descritto nella nota SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).    
 
    * Profilo ERS
 
@@ -548,8 +550,6 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 1. **[A]**  Configurare keep-alive
 
    Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo comportamento, è necessario impostare un parametro nel profilo ASCS/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
-
-   Il parametro del profilo ASCS/SCS enque/encni/set_so_keepalive è già stato aggiunto nell'ultimo passaggio.
 
    <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120

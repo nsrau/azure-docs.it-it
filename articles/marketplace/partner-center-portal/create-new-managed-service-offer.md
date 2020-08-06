@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405246"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798189"
 ---
 # <a name="create-a-managed-service-offer"></a>Creare un'offerta di servizi gestiti
 
@@ -133,23 +133,17 @@ In questa sezione è possibile specificare logo e immagini che verranno usati qu
 >[!NOTE]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
 
-#### <a name="marketplace-logos"></a>Logo del marketplace
+#### <a name="store-logos"></a>Logo dello store
 
-Specificare il logo dell'offerta in quattro dimensioni in pixel:
+Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel) e un valore **medio** (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse.
+
+Tutte e tre le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
 
 - **Piccola** (48 x 48)
 - **Media** (90 x 90)
-- **Grande** (216 x 216)
-- **Molto grande** (255 X 115)
+- **Grande** (compreso tra 216 x 216 e 350 x 350)
 
-Seguire queste linee guida per i logo:
-
-- La progettazione di Azure ha una tavolozza dei colori semplice. Limitare il numero di colori primari e secondari nel logo.
-- I colori del tema del portale sono il bianco e il nero. Non usare questi colori per lo sfondo del logo. Usare un colore che faccia risaltare il logo nel portale. Si consiglia di usare colori primari semplici.
-- Se si usa uno sfondo trasparente, verificare che i logo e il testo non siano bianchi, neri o blu.
-- L'aspetto del logo deve essere semplice e senza sfumature. Non usare uno sfondo sfumato sul logo.
-- Non inserire testo, nemmeno il nome del marchio o della società, sul logo.
-- Verificare che il logo non venga adattato.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 

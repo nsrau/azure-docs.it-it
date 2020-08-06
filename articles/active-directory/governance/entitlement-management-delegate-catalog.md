@@ -3,7 +3,7 @@ title: Delega della governance di accesso ai creatori di cataloghi in Azure AD g
 description: Informazioni su come delegare la governance degli accessi dagli amministratori IT ai creatori di cataloghi e ai responsabili di progetto in modo da poter gestire l'accesso autonomamente.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02f44543f78789284e7b8d39471d1346ca7b8e74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e41f372cd0105896765d5a267456b6bda767dd4d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078371"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798427"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delega della governance di accesso ai creatori di cataloghi in Azure AD gestione dei diritti
 
@@ -47,7 +47,7 @@ Attenersi alla procedura seguente per assegnare un utente al ruolo di autore del
 
 1. Fare clic su **Seleziona**.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save** (Salva).
 
 ## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Consenti ai ruoli delegati di accedere al portale di Azure
 

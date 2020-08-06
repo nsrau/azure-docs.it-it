@@ -2,7 +2,7 @@
 title: "Aggiungere la personalizzazione alla pagina di accesso dell'organizzazione: Azure AD"
 description: Istruzioni su come aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e1e84fa96b1e6b686d039abedd38e080b5720e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f664f55f2870f4f0e06f3a96a3f2b7ae91e7a378
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603911"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796795"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory
 Usare il logo e combinazioni colori personalizzate dell'azienda per offrire un aspetto coerente per le pagine di accesso di Azure Active Directory (Azure AD). La pagina di accesso viene visualizzata quando si accede alle applicazioni basate sul Web dell'organizzazione, come Office 365, che usano Azure AD come provider di identità.

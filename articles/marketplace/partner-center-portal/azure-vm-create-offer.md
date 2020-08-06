@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 07/28/2020
-ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386436"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798070"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
 
@@ -118,7 +118,7 @@ Quando si pubblica l'offerta nel marketplace commerciale tramite il Centro per i
 
 Nella pagina **Proprietà** è possibile definire le categorie usate per raggruppare l'offerta in Azure Marketplace, la versione dell'applicazione e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Category
+### <a name="category"></a>Categoria
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -245,16 +245,17 @@ Inserire i logo e le immagini da usare con l'offerta. Tutte le immagini devono e
 >[!NOTE]
 >In caso di problemi durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
 
-#### <a name="azure-marketplace-logos"></a>Logo di Azure Marketplace
+#### <a name="store-logos"></a>Logo dello store
 
-Inserire i file PNG del logo dell'offerta con le quattro dimensioni di immagine seguenti:
+Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel) e un valore **medio** (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse.
 
-- **Piccola** (48 &times; 48 pixel)
-- **Media** (90 &times; 90 pixel)
-- **Grande** (216 &times; 216 pixel)
-- **Molto grande** (255 &times; 115 pixel)
+Tutte e tre le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
 
-Sono necessari tutti e quattro i logo, che verranno visualizzati in diverse presentazioni in Azure Marketplace.
+- **Piccola** (48 x 48)
+- **Media** (90 x 90)
+- **Grande** (compreso tra 216 x 216 e 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 

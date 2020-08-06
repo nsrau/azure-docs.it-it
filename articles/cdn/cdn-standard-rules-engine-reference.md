@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559310"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760091"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informazioni di riferimento sul motore regole standard per la rete CDN di Azure
 
@@ -59,15 +59,7 @@ Viene usato un segno di percentuale per indicare la codifica URL (ad esempio, `%
 
 ### <a name="wildcard-values"></a>Valori caratteri jolly
 
-Il testo interpretato come un valore di carattere jolly assegna un significato aggiuntivo ai caratteri speciali. Nella tabella seguente vengono descritte le modalità di interpretazione dei caratteri speciali specifici nel motore regole standard:
-
-Carattere | Descrizione
-----------|------------
-\ | Una barra rovesciata viene utilizzata per eseguire l'escape di ogni carattere specificato in questa tabella. Una barra rovesciata deve essere specificata direttamente prima del carattere speciale che deve essere sottoposto a escape. La sintassi seguente, ad esempio, ignora un asterisco: `\*`
-% | Viene usato un segno di percentuale per indicare la codifica URL (ad esempio, `%20` ).
-\* | L'asterisco è un carattere jolly che rappresenta uno o più caratteri.
-space | Un carattere di spazio indica che una condizione di corrispondenza può essere soddisfatta da uno dei valori o modelli specificati.
-virgolette singole | Una virgoletta singola non ha un significato speciale. Tuttavia, un set di virgolette singole indica che un valore deve essere trattato come valore letterale. È possibile utilizzare le virgolette singole nei modi seguenti:<ul><li>Per consentire la soddisfazione di una condizione di corrispondenza ogni volta che il valore specificato corrisponde a una parte del valore di confronto.  Ad esempio, `'ma'` corrisponde a una qualsiasi delle seguenti stringhe: <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template.**ma**p</li></ul><li>Per consentire a un carattere speciale di essere specificato come carattere letterale. Ad esempio, è possibile specificare un carattere spazio letterale racchiudendo uno spazio in un set di virgolette singole ( `' '` o `'<sample value>'` ).</li><li>Per consentire la specifica di un valore vuoto. Specificare un valore vuoto specificando un set di virgolette singole (**''**).</li></ul>**Importante**:<br /><ul><li>Se il valore specificato non contiene un carattere jolly, il valore viene automaticamente considerato un valore letterale. Non è necessario specificare un set di virgolette singole per un valore letterale.</li><li>Se una barra rovesciata non viene utilizzata per eseguire l'escape di un altro carattere in questa tabella, la barra rovesciata viene ignorata quando viene specificata in un set di virgolette singole.</li><li>Un altro modo per specificare un carattere speciale come carattere letterale consiste nell'eseguire l'escape usando una barra rovesciata ( `\` ).</li></ul>
+Attualmente è supportato il carattere jolly nella **condizione di corrispondenza URLPath** nel motore regole standard. Il \* carattere è un asterisco che rappresenta uno o più caratteri. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

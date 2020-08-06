@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 799206ee08dc3b1cdac46a0e4e79d2c929138c31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d2262017b257e9d7540d8dc640123ab584223d6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718604"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797152"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -32,6 +32,8 @@ Questa esercitazione descrive i passaggi che è necessario eseguire in entrambe 
 > * Rimuovere gli utenti nell'area di lavoro da Facebook quando non richiedono più l'accesso
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e l'area di lavoro di Facebook
 > * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) per l'area di lavoro di Facebook (scelta consigliata)
+
+>[!VIDEO https://www.youtube.com/embed/oF7I0jjCfrY]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -54,7 +56,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e l'area di lavoro di Facebook](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
-## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare l'area di lavoro di Facebook per supportare il provisioning con Azure AD
+## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare l'area di lavoro di Facebook per supportare il provisioning con Azure AD
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app Workplace by Facebook. Dopo aver stabilito questo, è possibile assegnare tali utenti all'app Workplace by Facebook seguendo le istruzioni riportate nell'articolo seguente:
 

@@ -2,7 +2,7 @@
 title: Aggiungere o aggiornare le informazioni sul profilo utente-Azure AD
 description: Vengono fornite istruzioni su come aggiungere informazioni al profilo dell'utente in Azure Active Directory, inclusi i dettagli di un'immagine e del processo.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277f4c7016849fbdbac4b5070c2a4db681cc66a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63b716aa22954af51a9eb53a0d04a8299d348c71
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604013"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797238"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Aggiungere o aggiornare informazioni di un profilo utente con Azure Active Directory
 Aggiungere informazioni sul profilo utente, inclusi un'immagine del profilo, informazioni lavorative specifiche e alcune impostazioni con Azure Active Directory (Azure AD). Per altre informazioni su come aggiungere nuovi utenti, vedere [Procedura: Aggiungere o eliminare utenti in Azure Active Directory](add-users-azure-active-directory.md).

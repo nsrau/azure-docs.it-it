@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 94c5ee53b48aa1e373099614d1637d4b6da0088b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502019"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797815"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Crittografia dei dati per il server singolo di database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 
@@ -93,6 +93,25 @@ Una volta crittografato il server singolo di Database di Azure per PostgreSQL co
 * [Creare un server di replica di lettura](howto-read-replicas-cli.md)
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Dopo il ripristino del server, riconvalida dati crittografia del server ripristinato
+
+*   Assegnare l'identità per il server di replica
+```azurecli-interactive
+az postgres server update --name  <server name>  -g <resoure_group> --assign-identity
+```
+
+*   Ottenere la chiave esistente da usare per il server ripristinato/di replica
+
+```azurecli-interactive
+az postgres server key list --name  '<server_name>'  -g '<resource_group_name>'
+```
+
+*   Impostare i criteri per la nuova identità per il server ripristinato/di replica
+
+```azurecli-interactive
+az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
+```
+
+* Eseguire nuovamente la convalida del server ripristinato/di replica con la chiave di crittografia
 
 ```azurecli-interactive
 az postgres server key create –name  <server name> -g <resource_group> --kid <key url>

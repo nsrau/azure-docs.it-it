@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5d9d7c59244474c76e63271c0be92f835c2ed087
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543351"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760397"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -172,7 +172,7 @@ Potrebbe verificarsi un ritardo di un massimo di 10 secondi prima che le modific
 Esistono ulteriori limitazioni sull'utilizzo di `JOIN` durante l'anteprima.
 * Nessuna sottoquery supportata nell' `FROM` istruzione.
 * `OUTER JOIN`la semantica non è supportata, ovvero se la relazione ha un rango pari a zero, l'intera "riga" viene eliminata dal set di risultati di output.
-* Durante l'anteprima pubblica, la profondità di attraversamento del grafico è limitata: ne `JOIN` è consentita solo una per ogni query.
+* Durante l'anteprima, la profondità di attraversamento del grafico è limitata a cinque `JOIN` livelli per query.
 * L'origine per `JOIN` le operazioni è limitata: la query deve dichiarare i dispositivi gemelli in cui inizia la query.
 
 ## <a name="query-best-practices"></a>Procedure consigliate per le query

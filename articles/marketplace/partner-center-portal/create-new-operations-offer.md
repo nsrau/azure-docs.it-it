@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 657c41fbcda30ffb5af4c5a27d58ef17c02a46bc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001435"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798257"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creare un'offerta Dynamics 365 for Operations
 
@@ -87,7 +87,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 Questa pagina consente di definire le categorie e i settori usati per raggruppare l'offerta nel marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Category
+### <a name="category"></a>Categoria
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -134,7 +134,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 7. Informativa sulla privacy
 8. Nome offerta
 9. Screenshot/video
-10. Description
+10. Descrizione
 
 ### <a name="name"></a>Nome
 
@@ -191,11 +191,14 @@ In questa sezione è possibile specificare logo e immagini che verranno usati qu
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire il logo dell'offerta in due dimensioni di pixel:
+Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel). Facoltativamente, è possibile sostituirlo con un'immagine diversa.
+
+Entrambe le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
 
 - **Piccola** (48 x 48)
-- **Grande** (216 x 216)
+- **Grande** (compreso tra 216 x 216 e 350 x 350)
 
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 

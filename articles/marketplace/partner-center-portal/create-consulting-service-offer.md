@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 11f4091489a8ef8c980ece0589945c8e1c7dc8b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317774"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798223"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creare un'offerta di un servizio di consulenza
 
@@ -207,14 +207,16 @@ Inserire i logo e le immagini da usare per l'offerta. Tutte le immagini devono e
 
 #### <a name="store-logos"></a>Logo dello store
 
-Inserire i file PNG del logo dell'offerta in ognuna delle dimensioni in pixel seguenti:
+Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel). Facoltativamente, è possibile sostituirlo con un'immagine diversa.
 
-- **Piccola (48 x 48)**
-- **Grande (216 x 216)**
+Entrambe le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
 
-Tutti i logo sono obbligatori e sono usati in posizioni diverse nella presentazione del marketplace.
+- **Piccola** (48 x 48)
+- **Grande** (compreso tra 216 x 216 e 350 x 350)
 
-#### <a name="screenshots-optional"></a>Screenshot (facoltativi)
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+
+#### <a name="screenshots-optional"></a>Screenshot (facoltativo)
 
 Aggiungere fino a cinque screenshot che illustrano il funzionamento dell'offerta. Ogni screenshot deve avere dimensioni pari a 1280 x 720 pixel ed essere in formato PNG.
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 08/04/2020
 ms.author: alzam
-ms.openlocfilehash: cf978f9551e5b2db885ca28d14f66586c029d913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97620192fb645dd453d1479d1e755e87cf9afd5c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082223"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761179"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurare un client VPN per le connessioni del protocollo OpenVPN da punto a sito: Autenticazione di Azure AD
 
@@ -88,11 +88,11 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Selezionare i puntini di sospensione accanto al profilo client che si desidera eliminare. Selezionare quindi **Rimuovi**.
 
-    ![eliminazione](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![eliminare](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![eliminazione](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![eliminare](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Creare una connessione
 
@@ -250,6 +250,15 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 </clientconfig>
 </azvpnprofile>
 ```
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>È possibile importare il profilo da un prompt della riga di comando?
+
+È possibile importare il profilo da un prompt della riga di comando inserendo il file di **azurevpnconfig.xml** scaricato nella cartella **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** ed eseguendo il comando seguente:
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+per forzare l'importazione, usare anche l'opzione **-f**
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

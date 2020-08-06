@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280954"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797866"
 ---
 # <a name="consulting-service-offers"></a>Offerte di servizi di consulenza
 
@@ -86,12 +86,12 @@ I partner System-Integrator possono inviare offerte di servizi di consulenza per
 Iniziare [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) le informazioni sulla società nel marketplace. Per un elenco di controllo completo dei requisiti di registrazione, vedere [Diventare un editore nel marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparare la pubblicazione degli elementi
-Prima della registrazione è possibile iniziare a raccogliere e preparare il contenuto che consentirà di specificare chiaramente il valore del servizio e della soluzione per il cliente di destinazione. 
+Prima della registrazione è possibile iniziare a raccogliere e preparare il contenuto che consentirà di specificare chiaramente il valore del servizio e della soluzione per il cliente di destinazione.
 
 |Configurazione per i nuovi editori  |
 |---------|
 |ID MPN     |
-|Logo della società (48 x 48, 216 x 216 pixel)     |
+|Logo della società: 48 x 48 pixel (facoltativo), 216 x 216 pixel-350 x 350 pixel (obbligatorio)  |
 |Clienti potenziali destinatari     |
 ||
 

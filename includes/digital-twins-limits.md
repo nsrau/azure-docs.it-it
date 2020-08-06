@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 64b3bf87df7d0b10f8a69e8303010f64b3e68f79
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507256"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87771139"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
 
@@ -31,7 +31,7 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 | Query | Numero di `AND`  /  `OR` espressioni in una query | 50 | Sì |
 | Query | Numero di elementi di matrice in una `IN`  /  `NOT IN` clausola | 50 | Sì |
 | Query | Numero di caratteri in una query | 8\.000 | Sì |
-| Query | Numero di `JOINS` in una query | 1 | Sì |
+| Query | Numero di `JOINS` in una query | 5 | Sì |
 
 ### <a name="rate-limits"></a>Limiti di velocità
 

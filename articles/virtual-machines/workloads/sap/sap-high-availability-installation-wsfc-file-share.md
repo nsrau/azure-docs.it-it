@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a6d3d4c791cebdee02d7d2c739be3b32b8086ec
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617321"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760890"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e condivisione file per le istanze di SAP ASCS/SCS in Azure
 
@@ -323,6 +323,7 @@ Aggiornare i parametri nel profilo dell'istanza di SAP ASC/SCS \<SID> _ASC \<Nr>
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
+Il parametro `enque/encni/set_so_keepalive` è necessario solo se si utilizza ENSA1.  
 Riavviare l'istanza di SAP ASC/SCS. Impostare `KeepAlive` i parametri in entrambi i nodi del cluster SAP ASC/SCS seguire le istruzioni per [impostare le voci del registro di sistema nei nodi del cluster dell'istanza di SAP ASC/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installare un'istanza di DBMS e i server applicazioni SAP

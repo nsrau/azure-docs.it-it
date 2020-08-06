@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: bc53a243a58522a76be63536aa721f269ed4759a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544048"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87758884"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -185,6 +185,9 @@ cluster_name = 'myexistingcluster'
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
+
+# Wait for the attach process to complete
+aks_target.wait_for_completion(show_output = True)
 ```
 
 Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
@@ -428,7 +431,7 @@ print(token)
 * [Sperimentazione e inferenza sicure in una rete virtuale](how-to-enable-virtual-network.md)
 * [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
-* [Aggiornare il servizio Web](how-to-deploy-update-web-service.md)
+* [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)
 * [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)

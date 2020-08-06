@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97da7428090935daf95ae28a54b8ff10bca2e546
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688892"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760907"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e nel disco condiviso per un'istanza ASCS/SCS di SAP in Azure
 
@@ -225,7 +225,7 @@ Aggiungere prima di tutto un nuovo parametro del profilo. Questo parametro imped
 
 Per modificare il profilo SAP dell'istanza di ASCS/SCS:
 
-1. Aggiungere questo parametro al profilo dell'istanza di SAP ASCS/SCS:
+1. Aggiungere questo parametro del profilo al profilo dell'istanza di SAP ASC/SCS, se si usa ENSA1.
 
    ```
    enque/encni/set_so_keepalive = true
@@ -237,6 +237,8 @@ Per modificare il profilo SAP dell'istanza di ASCS/SCS:
    Ad esempio, al profilo dell'istanza di SAP SCS e al percorso corrispondente:
 
    `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+   
+   Per ENSA1 e ENSA2, assicurarsi che i parametri del `keepalive` sistema operativo siano impostati come descritto nella nota SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
 
 2. Per applicare le modifiche, riavviare l'istanza ASCS/SCS di SAP.
 

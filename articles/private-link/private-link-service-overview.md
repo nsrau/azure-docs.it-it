@@ -7,20 +7,27 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202214"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760949"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
 Il servizio Collegamento privato di Azure è il riferimento a un servizio personalizzato basato su Collegamento privato di Azure. Il servizio in esecuzione dietro [Azure Load Balancer standard](../load-balancer/load-balancer-standard-overview.md) può essere abilitato per l'accesso ai collegamenti privati, in modo che i consumer del servizio possano accedervi privatamente dalla propria reti virtuali. I clienti possono creare un endpoint privato all'interno della VNet ed eseguirne il mapping a questo servizio. Questo articolo illustra i concetti correlati al lato del provider di servizi. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Flusso di lavoro del servizio di collegamento privato" border="true":::
+
+*Figura: servizio di collegamento privato di Azure.*
+
 ## <a name="workflow"></a>Flusso di lavoro
 
 ![Flusso di lavoro del servizio di collegamento privato](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Figura: flusso di lavoro del servizio di collegamento privato di Azure.*
 
 ### <a name="create-your-private-link-service"></a>Creare il servizio di collegamento privato
 

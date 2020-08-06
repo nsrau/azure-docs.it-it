@@ -2,7 +2,7 @@
 title: Ripristinare o rimuovere definitivamente gli utenti eliminati di recente Azure AD
 description: Informazioni su come visualizzare gli utenti ripristinabili, ripristinare un utente eliminato o eliminare definitivamente un utente con Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ad71d75eb80f15c09e0a4dff4edc4a0eaae9e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603928"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796761"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Ripristinare o rimuovere un utente eliminato di recente con Azure Active Directory
 Dopo aver eliminato un utente, l'account rimane in uno stato di sospensione per 30 giorni. Durante tale intervallo di 30 giorni, l'account utente può essere ripristinato, con tutte le relative proprietà. Dopo il superamento di tale periodo di 30 giorni, l'utente viene automaticamente e definitivamente eliminato.

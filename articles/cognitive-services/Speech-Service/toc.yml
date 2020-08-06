@@ -123,7 +123,7 @@
           href: text-to-speech.md
         - name: Nozioni di base sulla sintesi vocale
           href: text-to-speech-basics.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Sintetizzare la voce in un altoparlante
           href: quickstarts/text-to-speech.md
@@ -372,7 +372,7 @@
           items:
             - name: Che cos'è la conversazione per più dispositivi?
               href: multi-device-conversation.md
-        - name: Avvio rapido
+        - name: Guida introduttiva
           items:
             - name: Avviare a una conversazione e parteciparvi
               href: quickstarts/multi-device-conversation.md
@@ -494,10 +494,8 @@
       items:
         - name: Panoramica delle parole chiave personalizzate
           href: custom-keyword-overview.md
-        - name: Linee guida per la denominazione delle parole chiave personalizzate
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Riconoscimento delle parole chiave personalizzate
-          href: speech-devices-sdk-create-kws.md
+        - name: Informazioni di base sulle parole chiave personalizzate
+          href: custom-keyword-basics.md
 - name: Riconoscimento del parlante
   items:
     - name: Panoramica
@@ -607,7 +605,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md

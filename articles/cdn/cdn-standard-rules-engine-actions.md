@@ -5,20 +5,20 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259953"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760125"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azioni nel motore delle regole standard per la rete CDN di Azure
 
 Nel [motore delle regole standard](cdn-standard-rules-engine.md) per la rete per la distribuzione di contenuti di Azure (rete CDN di Azure), una regola è costituita da una o più condizioni di corrispondenza e da un'azione. Questo articolo fornisce descrizioni dettagliate delle azioni che è possibile usare nel motore delle regole standard per la rete CDN di Azure.
 
-La seconda parte di una regola è un'azione. Un'azione definisce il comportamento applicato al tipo di richiesta identificata da una condizione di corrispondenza o da un set di condizioni di corrispondenza.
+La seconda parte di una regola è un'azione. Un'azione definisce il comportamento applicato al tipo di richiesta identificata da una o più condizioni di corrispondenza.
 
 ## <a name="actions"></a>Azioni
 
@@ -30,13 +30,13 @@ Usare questa azione per sovrascrivere il valore TTL (time to Live) dell'endpoint
 
 #### <a name="required-fields"></a>Required fields
 
-Comportamento della cache |  Descrizione              
+Comportamento cache |  Descrizione              
 ---------------|----------------
 Ignora cache | Quando questa opzione è selezionata e la regola corrisponde, il contenuto non viene memorizzato nella cache.
-Sostituisci | Quando questa opzione è selezionata e la regola corrisponde, il valore TTL restituito dall'origine viene sovrascritto con il valore specificato nell'azione.
-Imposta se mancante | Quando questa opzione è selezionata e la regola corrisponde, se non è stato restituito alcun valore TTL dall'origine, la regola imposta la durata (TTL) sul valore specificato nell'azione.
+Sostituisci | Quando questa opzione è selezionata e la regola corrisponde, il valore TTL restituito dall'origine viene sovrascritto con il valore specificato nell'azione. Questo comportamento verrà applicato solo se la risposta è memorizzabile nella cache. Per l'intestazione della risposta Cache-Control con i valori "no-cache", "private", "No-Store", l'azione non sarà applicabile.
+Imposta se mancante | Quando questa opzione è selezionata e la regola corrisponde, se non è stato restituito alcun valore TTL dall'origine, la regola imposta la durata (TTL) sul valore specificato nell'azione. Questo comportamento verrà applicato solo se la risposta è memorizzabile nella cache. Per l'intestazione della risposta Cache-Control con i valori "no-cache", "private", "No-Store", l'azione non sarà applicabile.
 
-#### <a name="additional-fields"></a>Campi aggiuntivi
+#### <a name="additional-fields"></a>Altri campi
 
 Giorni | Ore | Minuti | Secondi
 -----|-------|---------|--------
@@ -55,17 +55,17 @@ Memorizza nella cache tutti gli URL univoci | Quando questa opzione è seleziona
 Escludi | Quando questa opzione è selezionata e la regola corrisponde, le stringhe di query specificate nei parametri vengono escluse quando viene generata la chiave di cache.
 Ignora stringhe di query | Quando questa opzione è selezionata e la regola corrisponde, le stringhe di query non vengono considerate quando viene generata la chiave di cache. 
 
-### <a name="modify-request-header"></a>Modificare l'intestazione della richiesta
+### <a name="modify-request-header"></a>Modifica intestazione richiesta
 
 Usare questa azione per modificare le intestazioni presenti nelle richieste inviate all'origine.
 
 #### <a name="required-fields"></a>Required fields
 
-Action | Nome intestazione HTTP | valore
+Azione | Nome intestazione HTTP | valore
 -------|------------------|------
-Accoda | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore viene aggiunto al valore esistente. | string
-Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore specificato sovrascrive il valore esistente. | string
-Elimina | Quando questa opzione è selezionata, la regola corrisponde a e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla richiesta. | string
+Accoda | Se questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore viene aggiunto a quello esistente. | string
+Overwrite | Se questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore specificato sovrascrive quello esistente. | string
+Delete | Se questa opzione è selezionata, la regola corrisponde e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla richiesta. | string
 
 ### <a name="modify-response-header"></a>Modifica intestazione risposta
 
@@ -73,11 +73,11 @@ Usare questa azione per modificare le intestazioni presenti nelle risposte resti
 
 #### <a name="required-fields"></a>Required fields
 
-Action | Nome intestazione HTTP | valore
+Azione | Nome intestazione HTTP | valore
 -------|------------------|------
-Accoda | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla risposta usando il **valore**specificato. Se l'intestazione è già presente, il **valore** viene aggiunto al valore esistente. | string
-Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla risposta usando il **valore**specificato. Se l'intestazione è già presente, il **valore** sovrascrive il valore esistente. | string
-Elimina | Quando questa opzione è selezionata, la regola corrisponde a e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla risposta. | string
+Accoda | Se questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla risposta con il **valore** specificato. Se l'intestazione è già presente, il **valore** viene aggiunto a quello esistente. | string
+Overwrite | Se questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **Nome intestazione** viene aggiunta alla risposta con il **valore** specificato. Se l'intestazione è già presente, il **valore** sovrascrive quello esistente. | string
+Delete | Se questa opzione è selezionata, la regola corrisponde e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla risposta. | string
 
 ### <a name="url-redirect"></a>Reindirizzamento URL
 
@@ -87,18 +87,18 @@ Usare questa azione per reindirizzare i client a un nuovo URL.
 
 Campo | Descrizione 
 ------|------------
-Type | Selezionare il tipo di risposta da restituire al richiedente: trovato (302), spostato (301), Reindirizzamento temporaneo (307) e Reindirizzamento permanente (308).
-Protocollo | Request match, HTTP, HTTPS.
-nomehost | Selezionare il nome host a cui si desidera reindirizzare la richiesta. Lasciare vuoto per mantenere l'host in ingresso.
-Percorso | Definire il percorso da usare nel reindirizzamento. Lasciare vuoto per conservare il percorso in arrivo.  
-Stringa di query | Definire la stringa di query utilizzata nel reindirizzamento. Lasciare vuoto per mantenere la stringa di query in ingresso. 
-Frammento | Definire il frammento da usare nel reindirizzamento. Lasciare vuoto per conservare il frammento in ingresso. 
+Type | Selezionare il tipo di risposta da restituire al richiedente: Trovato (302), Spostato (301), Reindirizzamento temporaneo (307) e Reindirizzamento permanente (308).
+Protocollo | Corrispondenza richiesta, HTTP, HTTPS.
+nomehost | Selezionare il nome host a cui reindirizzare la richiesta. Lasciare vuoto questo campo per mantenere l'host in ingresso.
+Path | Definire il percorso da usare nel reindirizzamento. Lasciare vuoto questo campo per mantenere il percorso in ingresso.  
+Stringa di query | Definire la stringa di query usata nel reindirizzamento. Lasciare vuoto questo campo per mantenere la stringa di query in ingresso. 
+Frammento | Definire il frammento da usare nel reindirizzamento. Lasciare vuoto questo campo per mantenere il frammento in ingresso. 
 
 Si consiglia vivamente di utilizzare un URL assoluto. L'uso di un URL relativo può reindirizzare gli URL della rete CDN di Azure a un percorso non valido 
 
 ### <a name="url-rewrite"></a>Riscrittura URL
 
-Usare questa azione per riscrivere il percorso di una richiesta che viene indirizzata all'origine.
+Usare questa azione per riscrivere il percorso di una richiesta instradata all'origine.
 
 #### <a name="required-fields"></a>Required fields
 

@@ -118,7 +118,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Stati Uniti centro-occidentali      | 13.78.145.25, 13.78.248.43        |
 | Europa occidentale          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | Stati Uniti occidentali              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| Stati Uniti occidentali 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
+| West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
 ## <a name="next-steps"></a>Passaggi successivi

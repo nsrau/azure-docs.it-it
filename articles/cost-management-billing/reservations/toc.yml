@@ -71,7 +71,7 @@
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Concetti
   items:
-    - name: Come vengono create le raccomandazioni per le prenotazioni
+    - name: Consigli sulle prenotazioni
       href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Modalità di applicazione dello sconto
       items:
@@ -120,9 +120,9 @@
     - name: API REST per le prenotazioni
       href: reservation-apis.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Prenotazioni - Azure PowerShell
-      href: /powershell/module/azurerm.reservations
+      href: /powershell/module/az.reservations
     - name: Prenotazioni - Interfaccia della riga di comando
-      href: /cli/azure/reservations/reservation
+      href: /cli/azure/reservations
     - name: Gestione costi - API REST di dettagli su utilizzo e consumo
       href: /rest/api/consumption/usagedetails
     - name: Gestione costi - API REST di dettagli su prenotazioni e consumo

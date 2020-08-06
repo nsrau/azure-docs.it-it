@@ -1,24 +1,24 @@
 ---
 title: Supporto del file System di rete 3,0 nell'archivio BLOB di Azure (anteprima) | Microsoft Docs
-description: L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto consente ai client Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale.
+description: L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto consente ai client Windows e Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer in esecuzione in locale.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372893"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760924"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)
 
-L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto consente ai client Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. 
+L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto consente ai client Windows o Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. 
 
 > [!NOTE]
 > Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è disponibile in anteprima pubblica ed è disponibile nelle aree seguenti: Stati Uniti orientali, Stati Uniti centrali e Canada centrale.
@@ -41,7 +41,7 @@ Per montare un contenitore dell'account di archiviazione, è necessario eseguire
 
 7. Montare il contenitore.
 
-Per istruzioni dettagliate, vedere [montare l'archiviazione BLOB in Linux usando il protocollo NFS (Network File System) 3,0 (anteprima)](network-file-system-protocol-support-how-to.md).
+Per istruzioni dettagliate, vedere [montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > È importante completare queste attività in ordine. Non è possibile montare i contenitori creati prima di abilitare il protocollo NFS 3,0 nell'account. Inoltre, dopo aver abilitato il protocollo NFS 3,0 nell'account, non è possibile disabilitarlo.
@@ -113,7 +113,7 @@ Una transazione non viene addebitata durante l'anteprima. Il prezzo per le trans
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, vedere [montare l'archiviazione BLOB in Linux usando il protocollo NFS (Network File System) 3,0 (anteprima)](network-file-system-protocol-support-how-to.md).
+Per iniziare, vedere [montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)](network-file-system-protocol-support-how-to.md).
 
 
 

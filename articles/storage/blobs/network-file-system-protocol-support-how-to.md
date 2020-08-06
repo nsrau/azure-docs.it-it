@@ -1,24 +1,24 @@
 ---
-title: Montare l'archiviazione BLOB di Azure in Linux usando il protocollo NFS 3,0 (anteprima) | Microsoft Docs
-description: Informazioni su come montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure basata su Linux o da un sistema Linux eseguito in locale usando il protocollo NFS 3,0.
+title: Montare l'archiviazione BLOB di Azure usando il protocollo NFS 3,0 (anteprima) | Microsoft Docs
+description: Informazioni su come montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un client in esecuzione in locale usando il protocollo NFS 3,0.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372910"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760796"
 ---
-# <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB in Linux usando il protocollo NFS (Network File System) 3,0 (anteprima)
+# <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
-È possibile montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure basata su Linux o da un sistema Linux eseguito in locale usando il protocollo NFS 3,0. Questo articolo fornisce istruzioni dettagliate. Per altre informazioni sul supporto del protocollo NFS 3,0 nell'archivio BLOB, vedere [supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)](network-file-system-protocol-support.md).
+È possibile montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure basata su Windows o Linux o un sistema Windows o Linux eseguito in locale usando il protocollo NFS 3,0. Questo articolo fornisce istruzioni dettagliate. Per altre informazioni sul supporto del protocollo NFS 3,0 nell'archivio BLOB, vedere [supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)](network-file-system-protocol-support.md).
 
 > [!NOTE]
 > Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è disponibile in anteprima pubblica ed è disponibile nelle aree seguenti: Stati Uniti orientali, Stati Uniti centrali e Canada centrale.
@@ -90,9 +90,9 @@ Nella versione di anteprima di questa funzionalità il protocollo NFS 3,0 è sup
 
 Quando si configura l'account, scegliere i valori seguenti:
 
-|Impostazione | valore|
+|Impostazione | Valore|
 |----|---|
-|Location|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali e Canada centrale |
+|Percorso|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali e Canada centrale |
 |Prestazioni|Premium|
 |Tipo di account|BlockBlobStorage|
 |Replica|Archiviazione con ridondanza locale|
@@ -117,6 +117,10 @@ Creare un contenitore nell'account di archiviazione usando uno di questi strumen
 
 ## <a name="step-7-mount-the-container"></a>Passaggio 7: montare il contenitore
 
+Creare una directory nel sistema Windows o Linux e quindi montare un contenitore nell'account di archiviazione.
+
+### <a name="linux"></a>[Linux](#tab/linux)
+
 1. In un sistema Linux creare una directory.
 
    ```
@@ -133,12 +137,31 @@ Creare un contenitore nell'account di archiviazione usando uno di questi strumen
 
    - Sostituire il `<container-name>` segnaposto con il nome del contenitore.
 
+
+### <a name="windows"></a>[Windows](#tab/windows)
+
+1. Aprire la finestra di dialogo **funzionalità Windows** e quindi attivare la funzionalità **client per NFS** . 
+
+   ![Funzionalità client per file System di rete](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
+
+2. Montare un contenitore usando il comando [Mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) .
+
+   ```
+   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
+   ```
+
+   - Sostituire il `<storage-account-name>` segnaposto visualizzato in questo comando con il nome dell'account di archiviazione.  
+
+   - Sostituire il `<container-name>` segnaposto con il nome del contenitore.
+
+---
+
 ## <a name="resolve-common-issues"></a>Risolvere i problemi comuni
 
-|Problema/errore | Soluzione|
+|Problema/errore | Risoluzione|
 |---|---|
 |`Access denied by server while mounting`|Verificare che il client sia in esecuzione all'interno di una subnet supportata. Vedere i [percorsi di rete supportati](network-file-system-protocol-support.md#supported-network-connections).|
-|`No such file or directory`| Verificare che il contenitore che si sta montando sia stato creato dopo aver verificato che la funzionalità sia stata registrata. Vedere [passaggio 2: verificare che la funzionalità sia registrata](#step-2-verify-that-the-feature-is-registered). Assicurarsi anche di digitare il comando di montaggio e i relativi parametri direttamente nel terminale. Se si copiano e si incollano tutte le parti di questo comando nel terminale da un'altra applicazione, i caratteri nascosti nelle informazioni incollate potrebbero causare la visualizzazione di questo errore.|
+|`No such file or directory`| Verificare che il contenitore che si sta montando sia stato creato dopo aver verificato la registrazione della funzionalità. Vedere [passaggio 2: verificare che la funzionalità sia registrata](#step-2-verify-that-the-feature-is-registered). Assicurarsi anche di digitare il comando di montaggio e i relativi parametri direttamente nel terminale. Se si copiano e si incollano tutte le parti di questo comando nel terminale da un'altra applicazione, i caratteri nascosti nelle informazioni incollate potrebbero causare la visualizzazione di questo errore.|
 
 ## <a name="see-also"></a>Vedere anche
 

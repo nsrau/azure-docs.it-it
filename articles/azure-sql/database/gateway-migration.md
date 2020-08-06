@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373488"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759700"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migrazione del traffico del database SQL di Azure ai gateway più recenti
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,19 +29,22 @@ I clienti riceveranno una notifica tramite posta elettronica e in portale di Azu
 # <a name="in-progress"></a>[In corso](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Settembre 2020
 
-Nuovi gateway SQL vengono aggiunti alle aree seguenti:
+Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL dovranno iniziare ad accettare il traffico dei clienti il 10 settembre 2020:
+
+- Stati Uniti centro-occidentali: 13.78.248.43 
+- Sudafrica settentrionale: 102.133.120.2  
+
+Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL inizieranno ad accettare il traffico dei clienti il 1 ° settembre 2020:
 
 - Europa settentrionale: 13.74.104.113 
 - Uniti Ovest: 40.78.248.10 
 - Europa occidentale: 52.236.184.163 
 - Stati Uniti centro-meridionali: 20.45.121.1, 20.49.88.1 
 
-I gateway SQL esistenti inizieranno ad accettare il traffico nelle aree seguenti:
+I gateway SQL esistenti inizieranno ad accettare il traffico nelle aree seguenti. Questi gateway SQL inizieranno ad accettare il traffico dei clienti il 1 ° settembre 2020. :
 - Giappone orientale: 40.79.184.8, 40.79.192.5
 
-Questi gateway SQL inizieranno ad accettare il traffico dei clienti il 1 ° settembre 2020. 
-
-### <a name="august-2020"></a>2020 agosto
+### <a name="august-2020"></a>Agosto 2020
 
 Nuovi gateway SQL vengono aggiunti alle aree seguenti:
 
@@ -82,7 +85,7 @@ La migrazione del traffico può modificare l'indirizzo IP pubblico che DNS risol
 - Usare la [configurazione con ridondanza della zona](high-availability-sla.md#zone-redundant-configuration) per il database
 
 L'utente non avrà alcun effetto sui seguenti effetti:
-
+ 
 - Reindirizzamento come criterio di connessione
 - Connessioni al database SQL dall'interno di Azure e uso dei tag del servizio
 - Le connessioni eseguite utilizzando le versioni supportate del driver JDBC per SQL Server non vedranno alcun effetto. Per le versioni JDBC supportate, vedere [scaricare Microsoft JDBC driver per SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
