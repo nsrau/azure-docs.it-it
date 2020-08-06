@@ -3,12 +3,13 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Pool 
 description: Questo script mostra alcuni dei comandi disponibili nell'interfaccia della riga di comando di Azure per creare e gestire un pool di nodi di calcolo Linux in Azure Batch.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: 21236ef2f314cb1306adc7346e620b80db540034
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7aba6e64fdf39a069eb010ef032fcc5391fd47ee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964057"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494385"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Esempio di interfaccia della riga di comando: creare e gestire un pool Linux in Azure Batch
 

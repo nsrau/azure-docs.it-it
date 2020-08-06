@@ -3,13 +3,13 @@ title: Creare un'app per le funzioni con la distribuzione da DevOps - Interfacci
 description: Creare un'app per le funzioni e distribuire il codice di funzione da Azure DevOps
 ms.date: 07/03/2018
 ms.topic: sample
-ms.custom: mvc
-ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 773a08646f7a69e1ed828621bad48a6c6729eb88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75922652"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498526"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Creare una funzione in Azure distribuita da Azure DevOps
 

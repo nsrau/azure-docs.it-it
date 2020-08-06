@@ -3,12 +3,13 @@ title: "Guida introduttiva: Inviare eventi personalizzati all'Hub eventi - Grigl
 description: "Guida introduttiva: Usare Griglia di eventi di Azure e l'interfaccia della riga di comando di Azure per pubblicare un argomento e sottoscrivere l'evento. Un hub eventi viene usato per l'endpoint."
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 77268dde90959298c76813fb146e972ecfa3685d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0965963e6527e625d0684821b977b05cb9f28657
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104096"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497356"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati a Hub eventi di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -97,8 +98,8 @@ Passare all'hub eventi nel portale e notare che Griglia di eventi ha inviato i t
 
 In genere, si crea un'applicazione che recupera gli eventi dall'hub eventi. Per creare un'applicazione che riceve i messaggi da un hub eventi, vedere:
 
-* [Guida introduttiva alla ricezione di messaggi con Event Processor Host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Ricevere eventi da Hub eventi di Azure usando Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [Guida introduttiva alla ricezione di messaggi con Event Processor Host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Ricevere eventi da Hub eventi di Azure usando Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Ricevere eventi da Hub eventi di Azure usando Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

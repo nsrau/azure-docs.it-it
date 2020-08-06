@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 91910915384aca27ede9f836d7fe8599d4463f58
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: bb20bfcecbf869dfb9b784b02c43c9d50bc922d3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80057680"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495438"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Ridimensionare un'app del servizio app manualmente usando l'interfaccia della riga di comando di Azure
 

@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto FedRAMP High
 description: Procedura di distribuzione per l'esempio di progetto FedRAMP High, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 01/31/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: c4b2915222bc2d1772a2772c719d5d6cc4b59657
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c444d943f1fc72e33cb34a36bd0fa6d97ddf87ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044805"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495880"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Distribuire l'esempio di progetto FedRAMP High
 
