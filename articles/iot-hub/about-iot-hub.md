@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: b5b92de195e4ff4d5b00de041f5b021ee75f9800
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cde9d8614883168c3fbb3ab8219cdbef6087c9d0
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307693"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428974"
 ---
 # <a name="what-is-azure-iot-hub"></a>Che cos'è l'hub IoT di Azure?
 
@@ -68,7 +68,7 @@ La funzionalità di routing dei messaggi incorporati offre flessibilità per con
 
 * [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/) per automatizzare i processi aziendali.
 
-* [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/) per aggiungere la machine learning e tutti i modelli alla soluzione dell'utente.
+* [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) per aggiungere la machine learning e tutti i modelli alla soluzione dell'utente.
 
 * [Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/) per eseguire calcoli di analisi in tempo reale sui dati di streaming dai dispositivi.
 

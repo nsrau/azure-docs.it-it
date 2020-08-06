@@ -4,12 +4,12 @@ description: Questo articolo include un esempio di script di Azure PowerShell ch
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 7540c8eb181e064c5df5372a4bc9b27ebe16bf56
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0aae1d64b789cedab6420ac1f323a2379bff17be
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171245"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460814"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Sottoscrivere eventi per una sottoscrizione di Azure con PowerShell
 
@@ -37,9 +37,9 @@ Questo script usa il comando seguente per creare una sottoscrizione a eventi. Og
 
 | Comando | Note |
 |---|---|
-| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Creare una sottoscrizione di Griglia di eventi. |
+| [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) | Creare una sottoscrizione di Griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](../overview.md).
-* Per altre informazioni su PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Per altre informazioni su PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/get-started-azureps).

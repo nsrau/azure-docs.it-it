@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 07/07/2020
 ms.author: eamono
-ms.openlocfilehash: 79f3d83417a99d40ea0d4bd101a89300bc85a393
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3b9b49a4d38566891f442a3d2d7eac9bf1d36465
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114517"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87462004"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Esercitazione: Integrazione di Automazione di Azure con Griglia di eventi e Microsoft Teams
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-Per completare questa esercitazione, è necessario un [account di Automazione di Azure](../automation/automation-offering-get-started.md) per contenere il runbook che viene attivato dalla sottoscrizione Griglia di eventi di Azure.
+Per completare questa esercitazione, è necessario un [account di Automazione di Azure](../automation/index.yml) per contenere il runbook che viene attivato dalla sottoscrizione Griglia di eventi di Azure.
 
 * Il modulo `AzureRM.Tags` deve essere caricato nell'Account di automazione. Vedere [Come aggiornare i moduli di Azure PowerShell in Automazione di Azure](../automation/automation-update-azure-modules.md) per informazioni su come importare i moduli in Automazione di Azure.
 

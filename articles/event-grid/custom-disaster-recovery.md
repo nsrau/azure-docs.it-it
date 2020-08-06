@@ -3,12 +3,12 @@ title: Ripristino di emergenza per argomenti personalizzati in Griglia di eventi
 description: Questa esercitazione illustrerà come configurare l'architettura di gestione degli eventi per il ripristino se il servizio Griglia di eventi diventa non integro in un'area.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 1ee9c9566a70ba104f6c12866a631061672cb0c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115081"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461681"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creare soluzioni personalizzate di ripristino di emergenza per argomenti personalizzati in Griglia di eventi
 Il ripristino di emergenza consiste nel recupero da una grave perdita di funzionalità delle applicazioni. Questa esercitazione illustrerà come configurare l'architettura di gestione degli eventi per il ripristino se il servizio Griglia di eventi diventa non integro in una determinata area.
@@ -26,7 +26,7 @@ Per semplificare il test, distribuire un'[app Web preesistente](https://github.c
 
 1. Selezionare **Distribuisci in Azure** per distribuire la soluzione nella sottoscrizione. Nel portale di Azure specificare i valori per i parametri.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 
 1. Per il completamento della distribuzione possono essere necessari alcuni minuti. Dopo il completamento della distribuzione, visualizzare l'app Web per assicurarsi che sia in esecuzione. In un Web browser passare a: `https://<your-site-name>.azurewebsites.net`
 Annotare questo URL perché sarà necessario in un secondo momento.
@@ -207,4 +207,4 @@ Analogamente, è possibile implementare la logica di failback in base alle speci
 
 - Informazioni su come [ricevere eventi in un endpoint http](./receive-events.md)
 - Informazioni su come [instradare gli eventi alle Connessioni ibride](./custom-event-to-hybrid-connection.md)
-- Informazioni su come effettuare il [ripristino di emergenza con DNS di Azure e Gestione traffico](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
+- Informazioni su come effettuare il [ripristino di emergenza con DNS di Azure e Gestione traffico](../networking/disaster-recovery-dns-traffic-manager.md)
