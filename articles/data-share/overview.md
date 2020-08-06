@@ -1,17 +1,17 @@
 ---
 title: Che cos'è Condivisione dati di Azure?
 description: Informazioni su come condividere dati in modo semplice e sicuro con più clienti e partner tramite Condivisione dati di Azure.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/10/2019
-ms.openlocfilehash: fa90f272a05b7449981ca5d4ccab161fb1e39e9e
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 07/30/2020
+ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636776"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511922"
 ---
 # <a name="what-is-azure-data-share"></a>Che cos'è Condivisione dati di Azure?
 
