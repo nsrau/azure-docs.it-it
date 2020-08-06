@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: bfc22862bc40679644d7dc9eddedf45fbacccab1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ca2da842d9a2d529cf5ea01211efaff2047a9e9a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292881"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836021"
 ---
 # <a name="playback-with-azure-media-player"></a>Riproduzione con Azure Media Player
 
@@ -47,7 +47,7 @@ Per configurare diverse opzioni di riproduzione (ad esempio, tecnologia, lingua 
 
 ## <a name="set-up-azure-media-player-in-your-html"></a>Configurare Azure Media Player nel codice HTML
 
-Azure Media Player è semplice da configurare. Bastano pochi istanti per ottenere la riproduzione di base di contenuti multimediali dall'account Servizi multimediali. Vedere la [documentazione di Azure Media Player](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) per informazioni dettagliate su come installare e configurare Azure Media Player.
+Azure Media Player è semplice da configurare. Bastano pochi istanti per ottenere la riproduzione di base di contenuti multimediali dall'account Servizi multimediali. Vedere la [documentazione di Azure Media Player](../azure-media-player/azure-media-player-overview.md) per informazioni dettagliate su come installare e configurare Azure Media Player.
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
@@ -55,5 +55,5 @@ Azure Media Player è semplice da configurare. Bastano pochi istanti per ottener
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Documentazione di Azure Media Player](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview)
+* [Documentazione di Azure Media Player](../azure-media-player/azure-media-player-overview.md)
 * [Esempi di Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)

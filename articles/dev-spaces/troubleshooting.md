@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Informazioni su come individuare e risolvere i problemi comuni relativi all'abilitazione e all'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: cd242dc56e4a3215954fbe6703f47e29bd417ea8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1efaa178c2abda316cfad3e375dfdd38b41d75e0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534397"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835698"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -267,7 +267,7 @@ Questo errore si verifica perché Azure Dev Spaces attualmente non supporta le c
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>Il traffico di rete non viene inoltrato al cluster del servizio Azure Kubernetes durante la connessione al computer di sviluppo
 
-Quando si usa [Azure Dev Spaces per connettere il cluster del servizio Azure Kubernetes al computer di sviluppo](how-to/local-process-kubernetes-vs-code.md), è possibile che si verifichi un problema per cui il traffico di rete non viene inoltrato tra il computer di sviluppo e il cluster del servizio Azure Kubernetes.
+Quando si usa [Azure Dev Spaces per connettere il cluster del servizio Azure Kubernetes al computer di sviluppo](https://code.visualstudio.com/docs/containers/local-process-kubernetes), è possibile che si verifichi un problema per cui il traffico di rete non viene inoltrato tra il computer di sviluppo e il cluster del servizio Azure Kubernetes.
 
 Quando si connette il computer di sviluppo al cluster del servizio Azure Kubernetes, Azure Dev Spaces inoltra il traffico di rete tra il cluster del servizio Azure Kubernetes e il computer di sviluppo modificando il file `hosts` del computer di sviluppo. Azure Dev Spaces crea una voce in `hosts` con l'indirizzo del servizio Kubernetes che si prova a sostituire come nome host. Questa voce viene usata con il port forwarding per indirizzare il traffico di rete tra il computer di sviluppo e il cluster del servizio Azure Kubernetes. Se un servizio del computer di sviluppo è in conflitto con la porta del servizio Kubernetes che si prova a sostituire, Azure Dev Spaces non può inoltrare il traffico di rete per il servizio Kubernetes. Ad esempio, il servizio *Windows BranchCache* è in genere associato a *0.0.0.0:80*, che genera un conflitto per la porta 80 in tutti gli indirizzi IP locali.
 

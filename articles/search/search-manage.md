@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421893"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835953"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Amministrazione dei servizi per Azure ricerca cognitiva nel portale di Azure
 
@@ -56,7 +56,7 @@ Per quanto riguarda l'accesso all'endpoint, chiunque disponga dell'accesso all'U
 * L'accesso in sola lettura al servizio è costituito da diritti di query, in genere concessi a un'applicazione client assegnando l'URL e una chiave API di query.
 * L'accesso in lettura/scrittura consente di aggiungere, eliminare o modificare oggetti server, tra cui chiavi API, indici, indicizzatori, origini dati e pianificazioni. L'accesso in lettura/scrittura viene concesso assegnando l'URL, una chiave API di amministrazione.
 
-I diritti per l'apparecchio di provisioning del servizio vengono concessi tramite assegnazioni di ruolo. [L'accesso in base al ruolo (RBAC)](../role-based-access-control/overview.md) è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il provisioning delle risorse di Azure. 
+I diritti per l'apparecchio di provisioning del servizio vengono concessi tramite assegnazioni di ruolo. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il provisioning delle risorse di Azure. 
 
 Nel contesto di Azure ricerca cognitiva le [assegnazioni di ruolo di Azure](search-security-rbac.md) determineranno chi può eseguire attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 

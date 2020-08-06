@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 1714fac465531a2d3a5829e7080132510ccd1ec4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 2f10a6915a3edf673316ae9151b6052442678ef9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407481"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832348"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
@@ -24,7 +24,18 @@ Per poter completare tutti i passaggi descritti in questo articolo, è necessari
 az role assignment list --assignee <your-Azure-email>
 ```
 
-Se si è un proprietario, il `roleDefinitionName` valore nell'output è *owner*:
+> [!NOTE]
+> Se questo comando restituisce un errore che informa che l'interfaccia della riga **di comando non è in grado di trovare l'utente o l'entità servizio nel database Graph**
+>
+> Usare l' *ID oggetto* dell'utente anziché l'indirizzo di posta elettronica per la parte restante di questo articolo. Questo problema può verificarsi per gli utenti di [account Microsoft personali (MSAS)](https://account.microsoft.com/account). 
+>
+> Utilizzare la [pagina portale di Azure di Azure Active Directory utenti](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) per selezionare l'account utente e aprirne i dettagli. Copiare il valore *ObjectID*dell'utente:
+>
+> :::image type="content" source="../articles/digital-twins/media/includes/user-id.png" alt-text="Visualizzazione della pagina utente in portale di Azure evidenziando il GUID nel campo ' ID oggetto '" lightbox="../articles/digital-twins/media/includes/user-id.png":::
+>
+> Quindi, ripetere il comando elenco assegnazione ruolo usando l' *ID oggetto* dell'utente al posto del messaggio di posta elettronica.
+
+Dopo aver eseguito il comando elenco assegnazione ruolo, se si è proprietari, il `roleDefinitionName` valore nell'output è *proprietario*:
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/cloud-shell/owner-role.png" alt-text="Cloud Shell finestra che mostra l'output del comando AZ Role Assignment List":::
 

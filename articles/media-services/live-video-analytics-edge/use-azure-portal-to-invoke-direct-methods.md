@@ -13,28 +13,28 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 763dd82c8263a5e180468f9fbd7f86526295a80d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
-ms.translationtype: HT
+ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279288"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830751"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Come usare il portale di Azure per richiamare metodi diretti
 
-L'hub IoT offre la possibilità di richiamare [metodi diretti](/azure/iot-hub/iot-hub-devguide-direct-methods#method-invocation-for-iot-edge-modules) nei dispositivi perimetrali dal cloud. Il modulo Analisi video live in Azure IoT Edge espone diversi [metodi diretti](/azure/media-services/live-video-analytics-edge/direct-methods) che è possibile usare per definire, distribuire e creare un'istanza di flussi di lavoro diversi per l'analisi di video live.
+L'hub IoT offre la possibilità di richiamare [metodi diretti](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) nei dispositivi perimetrali dal cloud. Il modulo Analisi video live in Azure IoT Edge espone diversi [metodi diretti](./direct-methods.md) che è possibile usare per definire, distribuire e creare un'istanza di flussi di lavoro diversi per l'analisi di video live.
 
 Questo articolo illustra come richiamare chiamate a metodi diretti in Analisi video live per un modulo IoT Edge tramite il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Il modulo Analisi video live in IoT Edge deve essere in esecuzione nel dispositivo perimetrale, usando i metodi descritti in [Avvio rapido: Analisi video live in IoT Edge](/azure/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart) oppure tramite il [portale](/azure/media-services/live-video-analytics-edge/deploy-iot-edge-device).
+* Il modulo Analisi video live in IoT Edge deve essere in esecuzione nel dispositivo perimetrale, usando i metodi descritti in [Avvio rapido: Analisi video live in IoT Edge](./get-started-detect-motion-emit-events-quickstart.md) oppure tramite il [portale](./deploy-iot-edge-device.md).
 
-* Si conosce il funzionamento di [Analisi video live](/azure/media-services/live-video-analytics-edge/overview) e il [concetto di grafico multimediale](/azure/media-services/live-video-analytics-edge/media-graph-concept).
+* Si conosce il funzionamento di [Analisi video live](./overview.md) e il [concetto di grafico multimediale](./media-graph-concept.md).
 
 ## <a name="invoking-direct-methods-via-azure-portal"></a>Richiamo di metodi diretti tramite il portale di Azure
 
-Ognuno dei [metodi diretti](/azure/media-services/live-video-analytics-edge/direct-methods) esposti dal modulo Analisi video live può essere richiamato tramite il portale di Azure. La procedura seguente consente di ottenere i dettagli relativi a un singolo metodo diretto. È possibile richiamare altri metodi diretti usando una procedura analoga. Per ogni metodo diretto è però richiesto un corpo JSON specifico.
+Ognuno dei [metodi diretti](./direct-methods.md) esposti dal modulo Analisi video live può essere richiamato tramite il portale di Azure. La procedura seguente consente di ottenere i dettagli relativi a un singolo metodo diretto. È possibile richiamare altri metodi diretti usando una procedura analoga. Per ogni metodo diretto è però richiesto un corpo JSON specifico.
 
 Usare la chiamata al metodo `GraphTopologyList` per recuperare un elenco di tutte le topologie di grafico attualmente distribuite nel modulo Analisi video live in IoT Edge. Per richiamare questo metodo diretto, seguire questa procedura:
 
@@ -72,9 +72,9 @@ Usare la chiamata al metodo `GraphTopologyList` per recuperare un elenco di tutt
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri metodi diretti, vedere la pagina [Metodi diretti](/azure/media-services/live-video-analytics-edge/direct-methods).
+È possibile trovare più metodi diretti nella pagina dei [metodi diretti](./direct-methods.md) .
 
 > [!NOTE]
 > Con un'istanza del grafico viene creata un'istanza di una topologia specifica. Assicurarsi quindi di avere impostato la topologia corretta prima di creare un'istanza del grafico.
 
-[Avvio rapido: Rilevare gli eventi di generazione del movimento](/azure/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart) include informazioni utili per comprendere la sequenza esatta delle chiamate a metodo diretto da effettuare.
+[Avvio rapido: Rilevare gli eventi di generazione del movimento](./get-started-detect-motion-emit-events-quickstart.md) include informazioni utili per comprendere la sequenza esatta delle chiamate a metodo diretto da effettuare.

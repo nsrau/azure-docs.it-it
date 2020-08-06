@@ -3,12 +3,12 @@ title: Configurare l'analisi delle dipendenze basate su agente in Azure Migrate 
 description: Questo articolo descrive come configurare l'analisi delle dipendenze basate su agente in Azure Migrate server assessment.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c41f8eb82cf912fc566975f833fc73589f17be98
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321208"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829918"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurare la visualizzazione delle dipendenze
 
@@ -76,7 +76,7 @@ Installare MMA in ogni computer Windows o Linux che si vuole analizzare.
 Per installare l'agente in un computer Windows:
 
 1. Fare doppio clic sull'agente scaricato.
-2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **condizioni di licenza** **fare clic su Accetto per** accettare la licenza.
+2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
 3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
@@ -104,7 +104,7 @@ Per installare MMA in un computer Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Altre informazioni](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
+- [Altre informazioni](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
 - [Altre](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) informazioni sui sistemi operativi supportati da Dependency Agent.
 
 
@@ -208,5 +208,3 @@ VMConnection
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Creare una valutazione](how-to-create-assessment.md) per un gruppo.
-
-

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98cad9a359a9a2807b1f1f3f2daba45759471718
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495659"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836344"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -63,7 +63,7 @@ Durante questa fase si pianifica la migrazione del carico di lavoro SAP alla pia
         - In base a RTO e RPO, è necessario definire l'aspetto dell'architettura di disponibilità elevata e ripristino di emergenza.
         - Per una disponibilità elevata all'interno di una zona, controllare il sistema DBMS da offrire in Azure. La maggior parte dei pacchetti DBMS offre metodi sincroni di una hot standby sincrona, consigliata per i sistemi di produzione. Vedere anche la documentazione relativa a SAP per database diversi, a partire dalle [considerazioni per la distribuzione DBMS di macchine virtuali di Azure per carichi di lavoro SAP](./dbms_guide_general.md) e documenti correlati.
            L'uso di Windows Server failover clustering con una configurazione di dischi condivisi per il livello DBMS come, ad esempio, [descritto per SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), non è supportato. Usare invece soluzioni come:
-           - [SQL Server Always On](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+           - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
            - [Replica di sistema HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - Per il ripristino di emergenza tra aree di Azure, esaminare le soluzioni offerte dai diversi fornitori di sistemi DBMS. La maggior parte di essi supporta la replica asincrona o log shipping.
@@ -103,8 +103,8 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
         - Esaminare le risorse nelle note di supporto SAP, nella directory dell'hardware SAP HANA e in SAP PAM. Assicurarsi che non siano state apportate modifiche alle macchine virtuali supportate per Azure, le versioni del sistema operativo supportate per questi tipi di VM e le versioni SAP e DBMS supportate.
         - Verificare nuovamente il dimensionamento dell'applicazione e dell'infrastruttura distribuite in Azure. Se si stanno comportando le applicazioni esistenti, è spesso possibile derivare i succhi necessari dall'infrastruttura usata e dalla [pagina Web di benchmark SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) e confrontarli con i numeri di SAP elencati nella [Nota di supporto SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). Tenere presente anche [questo articolo sulle valutazioni di SAP](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) .
         - Valutare e testare il dimensionamento delle macchine virtuali di Azure in relazione alla massima velocità effettiva di archiviazione e alla velocità effettiva di rete dei tipi di VM scelti durante la fase di pianificazione. Qui è possibile trovare i dati:
-           -  [Dimensioni delle macchine virtuali Windows in Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È importante considerare il *numero massimo di velocità effettiva dei dischi non memorizzati nella cache* per il dimensionamento.
-           -  [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È importante considerare il *numero massimo di velocità effettiva dei dischi non memorizzati nella cache* per il dimensionamento.
+           -  [Dimensioni delle macchine virtuali Windows in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È importante considerare il *numero massimo di velocità effettiva dei dischi non memorizzati nella cache* per il dimensionamento.
+           -  [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È importante considerare il *numero massimo di velocità effettiva dei dischi non memorizzati nella cache* per il dimensionamento.
    2. Archiviazione.
         - Come minimo, usare l' [archiviazione di Azure SDD standard](../../windows/disks-types.md#standard-ssd) per le macchine virtuali che rappresentano i livelli dell'applicazione SAP e per la distribuzione di sistemi DBMS che non sono sensibili alle prestazioni.
         - In generale, non è consigliabile usare i [dischi di Azure HDD standard](../../windows/disks-types.md#standard-hdd).
@@ -207,8 +207,8 @@ Durante questa fase, in genere si distribuiscono sistemi di sviluppo, sistemi di
 11. Assicurarsi che le macchine virtuali vengano distribuite al [gruppo di posizionamento di prossimità di Azure](../../linux/co-location.md)corretto, come descritto in [gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
 11. Eseguire tutti gli altri controlli elencati per la fase di prova prima di applicare il carico di lavoro.
 12. Con l'applicazione del carico di lavoro, registrare il consumo di risorse dei sistemi in Azure. Confrontare questo consumo con i record della piattaforma precedente. Modificare il dimensionamento delle VM per le distribuzioni future se si riscontrano notevoli differenze. Tenere presente che, quando si riducono le dimensioni, lo spazio di archiviazione e le larghezze di banda di rete delle macchine virtuali.
-    - [Dimensioni per le macchine virtuali Windows in Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    - [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+    - [Dimensioni per le macchine virtuali Windows in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    - [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Sperimentare la funzionalità di copia del sistema e i processi. L'obiettivo è semplificare la copia di un sistema di sviluppo o di un sistema di test, in modo che i team del progetto possano ottenere rapidamente nuovi sistemi. Prendere in considerazione l'uso di [SAP lama](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) per queste attività.
 14. Ottimizza e perfeziona l'accesso, le autorizzazioni e i processi in base al ruolo di Azure del team per assicurarti la separazione dei compiti. Allo stesso tempo, assicurarsi che tutti i team possano eseguire le attività nell'infrastruttura di Azure.
 15. Procedure di esercitazione, test e ripristino di emergenza a disponibilità elevata per consentire al personale di eseguire queste attività. Identifica le carenze e adatta le nuove funzionalità di Azure che stai integrando nelle tue distribuzioni.

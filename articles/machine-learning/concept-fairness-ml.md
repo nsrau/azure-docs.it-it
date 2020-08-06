@@ -1,5 +1,5 @@
 ---
-title: Valutare e mitigare i problemi di equità nei modelli di Machine Learning (anteprima)
+title: Attenuare l'equità nei modelli di Machine Learning (anteprima)
 titleSuffix: Azure Machine Learning
 description: Informazioni sull'equità nei modelli di Machine Learning e sul modo in cui il pacchetto Fairlearn Python può aiutare a creare modelli più equi.
 services: machine-learning
@@ -8,22 +8,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207304"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829374"
 ---
-# <a name="build-fairer-machine-learning-models-preview"></a>Creazione di modelli di Machine Learning più giusti (anteprima)
+# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Attenuare l'equità nei modelli di Machine Learning (anteprima)
 
-Informazioni sull'equità nell'apprendimento automatico e sul modo in cui il pacchetto python open source di [Fairlearn](https://fairlearn.github.io/) consente di creare modelli più corretti. Se non si sta tentando di comprendere i problemi di equità e di valutare l'equità quando si creano modelli di apprendimento automatico, è possibile creare modelli che producono risultati non corretti. 
+Informazioni sull'equità nell'apprendimento automatico e sul modo in cui il pacchetto python Open Source [Fairlearn](https://fairlearn.github.io/) consente di attenuare i problemi di equità nei modelli di machine learning. Se non si sta tentando di comprendere i problemi di equità e di valutare l'equità quando si creano modelli di apprendimento automatico, è possibile creare modelli che producono risultati non corretti.
 
 Il seguente riepilogo del [manuale dell'utente](https://fairlearn.github.io/user_guide/index.html) per il pacchetto open source Fairlearn descrive come usarlo per valutare l'equità dei sistemi di intelligenza artificiale che si stanno compilando.  Il pacchetto open source di Fairlearn può anche offrire opzioni che consentono di attenuare o ridurre i problemi di equità osservati.  Vedere le [procedure](how-to-machine-learning-fairness-aml.md) e i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) per abilitare la valutazione dell'equità dei sistemi di intelligenza artificiale durante il training in Azure Machine Learning.
 
 
-## <a name="what-is-fairness-in-machine-learning-systems"></a>Cos'è l'equità nei sistemi di Machine Learning?
+## <a name="what-is-fairness-in-machine-learning-models"></a>Che cosa è l'equità nei modelli di apprendimento automatico?
 
 >[!NOTE]
 > L'equità è una sfida socio-tecnica. Molti aspetti dell'equità, come la giustizia e il processo equo, non vengono monitorati nelle metriche di equità quantitativa. Inoltre, molte metriche di equità quantitativa non possono essere soddisfatte contemporaneamente. L'obiettivo del pacchetto open source Fairlearn è consentire agli utenti di valutare le diverse strategie di riduzione e l'effetto. Infine, spetta agli utenti umani che compilano modelli di intelligenza artificiale e machine learning per creare compromessi appropriati per il proprio scenario.
@@ -38,7 +38,6 @@ Di seguito sono riportati due tipi di problemi comuni causati dall'IA:
 
 Per ridurre i comportamenti iniqui nei sistemi di intelligenza artificiale, è necessario valutare e mitigare questi problemi.
 
-
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Valutazione e mitigazione dell'equità con Fairlearn
 
 Fairlearn è un pacchetto open source di Python che consente agli sviluppatori di sistemi di Machine Learning di valutare l'equità dei propri sistemi e di mitigare i problemi evidenziati.
@@ -50,7 +49,8 @@ Il pacchetto open source di Fairlearn include due componenti:
 
 Insieme, questi componenti consentono a data scientist e leader aziendali di scendere a compromessi tra equità e prestazioni e di scegliere la strategia di mitigazione più adatta alle proprie esigenze.
 
-## <a name="fairness-assessment"></a>Valutazione dell'equità
+## <a name="assess-fairness-in-machine-learning-models"></a>Valutazione dell'equità nei modelli di Machine Learning
+
 Nel pacchetto open source di Fairlearn, l'equità viene concettuale anche se si tratta di un approccio noto come **equità del gruppo**, che chiede: quali gruppi di persone rischiano di subire danni? I gruppi rilevanti, anche noti come sottopopolazioni, vengono definiti tramite **caratteristiche sensibili** o attributi sensibili. Le funzionalità sensibili vengono passate a uno strumento di stima nel pacchetto open source Fairlearn come vettore o matrice denominata `sensitive_features` . Il termine suggerisce che la finestra di progettazione del sistema debba essere sensibile a queste caratteristiche durante la valutazione dell'equità di gruppo. 
 
 Un aspetto da tenere presente è se queste funzionalità contengono implicazioni sulla privacy dovute a dati privati. Tuttavia, la parola "sensibile" non implica che queste caratteristiche non debbano essere usate per realizzare stime.
@@ -72,7 +72,7 @@ Durante la fase di valutazione, l'equità viene quantificata attraverso le metri
 
 - Disparità nel tasso di selezione: questa metrica mostra la differenza nel tasso di selezione tra diversi sottogruppi. Un esempio è rappresentato dalla disparità nel tasso di approvazione dei prestiti. Il tasso di selezione indica la frazione di punti dati in ogni classe classificata come 1 (nella classificazione binaria) o la distribuzione dei valori di stima (nella regressione).
 
-## <a name="unfairness-mitigation"></a>Mitigazione dell'iniquità
+## <a name="mitigate-unfairness-in-machine-learning-models"></a>Attenuare l'ingiustizia nei modelli di Machine Learning
 
 ### <a name="parity-constraints"></a>Vincoli di parità
 

@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507880"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835528"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Riallocazione del mainframe in macchine virtuali di Azure
 
@@ -90,9 +90,9 @@ Con Azure IaaS, ad esempio una macchina virtuale, funzioni di sistema specifiche
 
 ### <a name="scalability"></a>Scalabilità
 
-I mainframe vengono in genere scalati verso l'alto, mentre gli ambienti cloud si ridimensionano. Azure offre una gamma di dimensioni di [Linux](../../linux/sizes.md) e [Windows](../../windows/sizes.md) per soddisfare le tue esigenze. Il cloud viene inoltre ridimensionato in base alle specifiche utente esatte. Calcolo della potenza, dell'archiviazione e dei servizi [scalabile](/azure/architecture/best-practices/auto-scaling) su richiesta con un modello di fatturazione basato sull'utilizzo.
+I mainframe vengono in genere scalati verso l'alto, mentre gli ambienti cloud si ridimensionano. Azure offre una gamma di dimensioni di [Linux](../../sizes.md) e [Windows](../../sizes.md) per soddisfare le tue esigenze. Il cloud viene inoltre ridimensionato in base alle specifiche utente esatte. Calcolo della potenza, dell'archiviazione e dei servizi [scalabile](/azure/architecture/best-practices/auto-scaling) su richiesta con un modello di fatturazione basato sull'utilizzo.
 
-### <a name="storage"></a>Archiviazione
+### <a name="storage"></a>Archiviazione:
 
 Nel cloud è possibile disporre di una gamma di opzioni di archiviazione flessibili e scalabili e si paga solo per gli elementi necessari. [Archiviazione di Azure](../../../storage/common/storage-introduction.md) offre un archivio a scalabilità elevata per oggetti dati, un servizio di file system per il cloud, un archivio di messaggistica affidabile e un archivio NoSQL. Per le macchine virtuali, i dischi gestiti e non gestiti offrono risorse di archiviazione su disco persistenti e sicure.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: ayshak
-ms.openlocfilehash: 7732f83dfd44cbf686e2d076c665c980962b19d5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292365"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831448"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolamento della macchina virtuale in Azure
 
@@ -59,12 +59,12 @@ Poiché le dimensioni delle VM isolate sono dimensioni associate a hardware, Azu
 **R**: verranno forniti promemoria 12 mesi prima della deprecazione ufficiale della dimensione isolata.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>D: sono un cliente di Azure Service Fabric che si basa sui livelli di durabilità Silver o Gold. Questa modifica ha effetto?
-**R**: No. Le garanzie fornite dai livelli di [durabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) di Service Fabric continueranno a funzionare anche dopo questa modifica. Se è necessario un isolamento hardware fisico per altri motivi, potrebbe essere comunque necessario eseguire una delle azioni descritte in precedenza. 
+**R**: No. Le garanzie fornite dai livelli di [durabilità](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) di Service Fabric continueranno a funzionare anche dopo questa modifica. Se è necessario un isolamento hardware fisico per altri motivi, potrebbe essere comunque necessario eseguire una delle azioni descritte in precedenza. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>D: quali sono le attività cardine per D15_v2 o DS15_v2 il ritiro dell'isolamento? 
 **A**: 
  
-| Data | Azione |
+| Data | Action |
 |---|---| 
 | 18 novembre 2019 | Disponibilità di D/DS15i_v2 (PAYG, 1 anno RI) | 
 | 14 maggio 2020 | Ultimo giorno per l'acquisto di D/DS15i_v2 1 anno RI | 

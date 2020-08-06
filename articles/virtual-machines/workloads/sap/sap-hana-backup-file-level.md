@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b9d66dc4f0e2e637ac8512022336f257f5d585a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035741"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833386"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup di SAP HANA di Azure a livello di file
 
@@ -25,7 +25,7 @@ ms.locfileid: "87035741"
 
 Questo articolo è un articolo correlato alla [Guida al backup per SAP Hana in macchine virtuali di Azure](./sap-hana-backup-guide.md), che offre una panoramica e informazioni introduttive e altri dettagli sul servizio backup di Azure e sugli snapshot di archiviazione. 
 
-Diversi tipi di VM in Azure consentono un numero diverso di dischi rigidi virtuali associati. I dettagli esatti sono documentati in [Dimensioni delle macchine virtuali Linux in Azure](../../linux/sizes.md). Per i test a cui si fa riferimento in questa documentazione è stata usata una VM GS5 di Azure, che consente 64 dischi dati collegati. Per sistemi SAP HANA di grandi dimensioni, un numero significativo di dischi potrebbe essere già usato per i file di log e di dati, possibilmente in combinazione con striping di software per la velocità effettiva IO ottimale dei dischi. Per informazioni dettagliate sulle configurazioni del disco suggerite per SAP HANA le distribuzioni in macchine virtuali di Azure, vedere l'articolo [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md). Gli elementi consigliati includono le raccomandazioni di spazio su disco per i backup locali.
+Diversi tipi di VM in Azure consentono un numero diverso di dischi rigidi virtuali associati. I dettagli esatti sono documentati in [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md). Per i test a cui si fa riferimento in questa documentazione è stata usata una VM GS5 di Azure, che consente 64 dischi dati collegati. Per sistemi SAP HANA di grandi dimensioni, un numero significativo di dischi potrebbe essere già usato per i file di log e di dati, possibilmente in combinazione con striping di software per la velocità effettiva IO ottimale dei dischi. Per informazioni dettagliate sulle configurazioni del disco suggerite per SAP HANA le distribuzioni in macchine virtuali di Azure, vedere l'articolo [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md). Gli elementi consigliati includono le raccomandazioni di spazio su disco per i backup locali.
 
 Il metodo standard per gestire il backup e il ripristino a livello di file è attraverso un backup basato su file, usando SAP HANA Studio o le istruzioni SQL SAP HANA. Per ulteriori informazioni, leggere l'articolo [SAP Hana riferimento alle viste di sistema e SQL](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
 

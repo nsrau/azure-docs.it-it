@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: ac9c8b0fe974c0a4dfebf1bcc303a379e2bd07ed
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268034"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831414"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale in Azure
 
@@ -67,7 +67,7 @@ Questa architettura esegue i livelli applicazione, archiviazione e dati sulle ma
 
 -   Un cluster DB2 pureScale. Il tipo di risorse di calcolo necessario in Azure dipende dalla configurazione. È in genere possibile usare due approcci:
 
-    -   Usare una rete HPC (High Performance Computing) a più nodi, dove alcune istanze di piccole e medie dimensioni accedono allo spazio di archiviazione condiviso. Per questa configurazione HPC, le [macchine virtuali](../windows/sizes.md) di Azure della serie E ottimizzata per la memoria o della serie L ottimizzata per l'archiviazione offrono la potenza di calcolo necessaria.
+    -   Usare una rete HPC (High Performance Computing) a più nodi, dove alcune istanze di piccole e medie dimensioni accedono allo spazio di archiviazione condiviso. Per questa configurazione HPC, le [macchine virtuali](../sizes.md) di Azure della serie E ottimizzata per la memoria o della serie L ottimizzata per l'archiviazione offrono la potenza di calcolo necessaria.
 
     -   Usare meno istanze di macchine virtuali di grandi dimensioni per i motori di dati. Per le istanze di grandi dimensioni, le macchine virtuali [serie M](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ottimizzate per la memoria sono ideali per carichi di lavoro con uso intensivo della memoria. Può essere necessaria un'istanza dedicata, a seconda delle dimensioni della partizione logica (LPAR) usata per eseguire DB2.
 

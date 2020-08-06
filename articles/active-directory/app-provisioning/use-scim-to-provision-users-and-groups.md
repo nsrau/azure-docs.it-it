@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051515"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829697"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -745,7 +745,7 @@ Livello minimo dei pacchetti di crittografia TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalli IP
-Il servizio di provisioning Azure AD può attualmente funzionare con qualsiasi intervallo IP di Azure. Il lavoro è in corso per consolidare il set di intervalli IP su cui opera il servizio. Questo documento verrà aggiornato una volta consolidato l'elenco di intervalli di indirizzi IP. 
+Il servizio di provisioning Azure AD attualmente opera negli intervalli IP per AzureActiveDirectory e AzureActiveDirectoryDomainServices, come indicato di [seguito](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Il lavoro è in corso per consolidare solo gli intervalli IP in AzureActiveDirectory. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passaggio 3: Creare un endpoint SCIM
 

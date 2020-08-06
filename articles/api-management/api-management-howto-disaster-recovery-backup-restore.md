@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 4c6f4bbae180184c13041863a85e2a7025f06a6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250448"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830258"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -73,7 +73,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 ### <a name="add-an-application"></a>Aggiungere un'applicazione
 
 1. Una volta creata l'applicazione, fare clic su **autorizzazioni API**.
-2. Fare clic su **Aggiungi un'autorizzazione**.
+2. Fare clic su **+ Aggiungi un'autorizzazione**.
 4. Premere **Seleziona API Microsoft**.
 5. Scegliere **Gestione servizi di Azure**.
 6. Fare clic su **Seleziona**.
@@ -169,19 +169,24 @@ Impostare il valore dell'intestazione della richiesta `Content-Type` su `applica
 
 Il backup è un'operazione a lunga esecuzione che potrebbe richiedere più minuti per essere completata. Se la richiesta viene eseguita correttamente e il processo di backup è iniziato, si riceverà un codice di stato risposta `202 Accepted` con un'intestazione `Location`. Effettuare richieste "GET" all'URL nell'intestazione `Location` per conoscere lo stato dell'operazione. Durante l'esecuzione del backup si continuerà a ricevere il codice di stato "202 - Accettato". Il codice risposta `200 OK` indicherà il completamento dell'operazione di backup.
 
-Quando si esegue una richiesta di backup o ripristino, tenere presenti i vincoli seguenti:
+#### <a name="constraints-when-making-backup-or-restore-request"></a>Vincoli durante l'esecuzione di una richiesta di backup o ripristino
 
 -   Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
 -   Mentre è in corso il backup, **evitare le modifiche di gestione nel servizio** , ad esempio l'aggiornamento o il downgrade dello SKU, la modifica del nome di dominio e altro ancora.
 -   Il ripristino di un **backup è garantito solo per 30 giorni** dal momento della sua creazione.
--   I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l' [API REST di Gestione API di Azure][azure api management rest api] per recuperare periodicamente i report analitici e custodirli al sicuro.
--   Inoltre, gli elementi seguenti non fanno parte dei dati di backup: certificati TLS/SSL del dominio personalizzato e qualsiasi certificato intermedio o radice caricato dal cliente, dal contenuto del portale per sviluppatori e dalle impostazioni di integrazione della rete virtuale.
--   La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche al servizio di Gestione API.
 -   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri e all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero essere escluse dal backup e potrebbero andare perse**.
--   **Consentire** l'accesso dal piano di controllo all'account di archiviazione di Azure, se è abilitato il [Firewall][azure-storage-ip-firewall] . Il cliente deve aprire il set di [indirizzi IP del piano di controllo di gestione API di Azure][control-plane-ip-address] nell'account di archiviazione per il backup o il ripristino da. 
+-   **Consentire** l'accesso dal piano di controllo all'account di archiviazione di Azure, se è abilitato il [Firewall][azure-storage-ip-firewall] . Il cliente deve aprire il set di [indirizzi IP del piano di controllo di gestione API di Azure][control-plane-ip-address] nell'account di archiviazione per il backup o il ripristino da. Ciò è dovuto al fatto che le richieste ad archiviazione di Azure non sono inviato tramite SNAT a un indirizzo IP pubblico dal > di calcolo (piano di controllo di gestione API di Azure). La richiesta di archiviazione tra aree sarà inviato tramite SNAT.
 
-> [!NOTE]
-> Se si tenta di eseguire il backup o il ripristino da/verso un servizio gestione API usando un account di archiviazione con un [Firewall][azure-storage-ip-firewall] abilitato, nella stessa area di Azure, questa operazione non funzionerà. Ciò è dovuto al fatto che le richieste ad archiviazione di Azure non sono inviato tramite SNAT a un indirizzo IP pubblico dal > di calcolo (piano di controllo di gestione API di Azure). La richiesta di archiviazione tra aree sarà inviato tramite SNAT.
+#### <a name="what-is-not-backed-up"></a>Elementi di cui non è stato eseguito il backup
+-   I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l' [API REST di Gestione API di Azure][azure api management rest api] per recuperare periodicamente i report analitici e custodirli al sicuro.
+-   Certificati [TLS/SSL del dominio personalizzato](configure-custom-domain.md)
+-   [Certificato CA personalizzato](api-management-howto-ca-certificates.md) che include certificati intermedi o radice caricati dal cliente
+-   Impostazioni di integrazione della [rete virtuale](api-management-using-with-vnet.md) .
+-   Configurazione dell' [identità gestita](api-management-howto-use-managed-service-identity.md) .
+-   [Diagnostica di monitoraggio di Azure](api-management-howto-use-azure-monitor.md) Configurazione.
+-   [Protocolli e impostazioni di crittografia](api-management-howto-manage-protocols-ciphers.md) .
+
+La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche al servizio di Gestione API.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Ripristino di un servizio di Gestione API
 

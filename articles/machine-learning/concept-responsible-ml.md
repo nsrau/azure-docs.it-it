@@ -1,36 +1,39 @@
 ---
-title: Machine Learning responsabile (ML) Preview
+title: Che cos'è l'apprendimento automatico responsabile (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su che cos'è Machine Learning responsabile e come usarlo in Azure Machine Learning
+description: Informazioni sull'apprendimento automatico responsabile e su come usarlo in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 4f14d4a9207b3bd0ba242973443b8e756527fd70
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201931"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829391"
 ---
-# <a name="responsible-machine-learning-ml-preview"></a>Machine Learning responsabile (ML) Preview
+# <a name="what-is-responsible-machine-learning-preview"></a>Che cos'è l'apprendimento automatico responsabile? (anteprima)
 
-In questo articolo viene spiegato che cos'è Machine Learning responsabile e come sfruttarlo a livello pratico con Azure Machine Learning.
+In questo articolo verranno illustrate le procedure di Machine Learning (ML) responsabili e i modi in cui è possibile metterle in pratica con Azure Machine Learning.
 
-Durante lo sviluppo e l'uso di sistemi di intelligenza artificiale, l'attendibilità deve essere un fattore essenziale. Attendibilità nella piattaforma, nel processo e nei modelli. Per Microsoft, Machine Learning responsabile comprende i valori e i principi seguenti:
+## <a name="responsible-machine-learning-principles"></a>Principi di apprendimento automatico responsabile
+
+Durante lo sviluppo e l'uso di sistemi di intelligenza artificiale, l'attendibilità deve essere un fattore essenziale. Attendibilità nella piattaforma, nel processo e nei modelli. Microsoft, l'apprendimento automatico responsabile comprende i valori e i principi seguenti:
 
 - Comprensione dei modelli di Machine Learning
   - Interpretazione e spiegazione del comportamento dei modelli
   - Valutazione e mitigazione dell'iniquità dei modelli
 - Protezione delle persone e dei loro dati
-  - Prevenzione dell'esposizione dei dati con privacy differenziale  
+  - Prevenzione dell'esposizione dei dati con privacy differenziale
+  - Utilizzare i dati crittografati tramite la crittografia omomorfe
 - Controllo del processo di Machine Learning end-to-end
   - Documentazione del ciclo di vita di Machine Learning con fogli dati
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Concetti fondamentali di Machine Learning responsabile":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Pilastri ML responsabili: interpretabilità, privacy differenziale, crittografia omomorfe, audit trail-Azure Machine Learning":::
 
 Con la crescente integrazione dell'intelligenza artificiale e dei sistemi autonomi nel tessuto della società, è importante impegnarsi in modo proattivo per prevenire e mitigare le conseguenza impreviste di queste tecnologie.
 
@@ -40,7 +43,7 @@ I sistemi difficili da spiegare o opaco possono essere problematici perché rend
 
 Per creare sistemi di intelligenza artificiale interpretabili, è possibile usare [InterpretML](https://github.com/interpretml/interpret), un pacchetto open source realizzato da Microsoft. [InterpretML può essere usato all'interno di Azure Machine Learning](how-to-machine-learning-interpretability.md) per [interpretare e spiegare i modelli di Machine Learning](how-to-machine-learning-interpretability-aml.md), inclusi i [modelli di Machine Learning automatizzati](how-to-machine-learning-interpretability-automl.md).
 
-## <a name="assess-and-mitigate-model-unfairness"></a>Valutazione e mitigazione dell'iniquità dei modelli
+## <a name="mitigate-fairness-in-machine-learning-models"></a>Attenuare l'equità nei modelli di Machine Learning
 
 In un'era in cui i sistemi di intelligenza artificiale sono sempre più coinvolti nei processi decisionali quotidiani della società, è estremamente importante che questi sistemi siano ottimali nel fornire risultati equi per tutti.
 
@@ -64,6 +67,16 @@ L'implementazione di sistemi di privacy differenziale presenta alcune difficolt�
 > [!NOTE]
 > Si noti che il Toolkit viene rinominato e verrà introdotto il nuovo nome nelle prossime settimane. 
 
+## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Usare i dati crittografati con la crittografia omomorfe
+
+Nelle soluzioni di calcolo e archiviazione cloud tradizionali, il cloud deve avere accesso non crittografato ai dati dei clienti per il calcolo. Questo accesso espone i dati agli operatori cloud. La privacy dei dati si basa sui criteri di controllo degli accessi implementati dal cloud e considerati attendibili dal cliente.
+
+La crittografia omomorfica consente di eseguire calcoli su dati crittografati senza richiedere l'accesso a una chiave privata o di decrittografia. I risultati dei calcoli sono crittografati e possono essere resi noti solo dal proprietario della chiave privata. Con la crittografia omomorfe, gli operatori cloud non avranno mai accesso non crittografato ai dati in cui vengono archiviati e calcolati. I calcoli vengono eseguiti direttamente sui dati crittografati. La privacy dei dati si basa sulla crittografia all'avanguardia e il proprietario dei dati controlla tutte le versioni delle informazioni. Per ulteriori informazioni sulla crittografia omomorfe in Microsoft, vedere [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
+
+Per iniziare a usare la crittografia omomorfe in Azure Machine Learning, usare le associazioni Python per [inferenza crittografata](https://pypi.org/project/encrypted-inference/) per [Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL è una libreria open source di crittografia omomorfe che consente di eseguire aggiunte e moltiplicazioni su numeri interi crittografati o numeri reali. Per ulteriori informazioni su Microsoft SEAL, vedere la pagina relativa al [centro architetture di Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) o al [progetto Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+
+Vedere l'esempio seguente per informazioni [su come distribuire un servizio Web di inferenza crittografato in Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Documentazione del ciclo di vita di Machine Learning con fogli dati
 
 La documentazione delle informazioni pertinenti nel processo di Machine Learning è un aspetto chiave per prendere decisioni responsabili in ogni fase. I fogli dati sono uno strumento per documentare gli asset di Machine Learning usati e creati come parte del ciclo di vita di Machine Learning.
@@ -83,5 +96,5 @@ Vedere l'esempio seguente per informazioni su come usare Azure Machine Learning 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- Usare la crittografia omomorfe per [distribuire un servizio Web di inferenza crittografato](how-to-homomorphic-encryption-seal.md).
+- Per ulteriori informazioni sulle procedure consigliate, vedere il [Toolkit responsabile dell'innovazione](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) .
 - Altre informazioni sul set di linee guida [ABOUT ML](https://www.partnershiponai.org/about-ml/) per la documentazione dei sistemi di Machine Learning.

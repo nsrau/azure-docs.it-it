@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4443c92fad2510b6bc4bc1214840aca5553556a5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553462"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831023"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenario: isolamento personalizzato per reti virtuali
 
 Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari disponibili. In uno scenario di isolamento personalizzato per reti virtuali, l'obiettivo è impedire che un set specifico di reti virtuali riesca a raggiungere un altro set specifico di reti virtuali. Tuttavia, reti virtuali sono necessari per raggiungere tutti i rami (VPN/ER/VPN utente). Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md).
 
-## <a name="scenario-design"></a><a name="design"></a>Progettazione dello scenario
+## <a name="design"></a><a name="design"></a>Progettazione
 
 Per determinare il numero di tabelle di route necessarie, è possibile creare una matrice di connettività. Per questo scenario l'aspetto sarà simile al seguente, in cui ogni cella indica se un'origine (riga) può comunicare con una destinazione (colonna):
 
@@ -53,7 +53,7 @@ Il numero di modelli di riga diversi sarà il numero di tabelle di route che sar
 
 Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md).
 
-## <a name="scenario-workflow"></a><a name="architecture"></a>Flusso di lavoro dello scenario
+## <a name="workflow"></a><a name="architecture"></a>Flusso di lavoro
 
 Nella **Figura 1**sono presenti connessioni VNet blu e rosse.
 

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247031"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836395"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Registro Azure Container
 
@@ -254,7 +254,9 @@ La quarantena delle immagini è attualmente una funzionalità di anteprima di Re
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Come si abilita l'accesso pull anonimo?
 
-La configurazione di un registro contenitori di Azure per l'accesso pull anonimo (pubblico) è attualmente una funzionalità di anteprima. Per abilitare l'accesso pubblico, aprire un ticket di supporto all'indirizzo https://aka.ms/acr/support/create-ticket. Per informazioni dettagliate, vedere il [forum di commenti e suggerimenti su Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+La configurazione di un registro contenitori di Azure per l'accesso pull anonimo (pubblico) è attualmente una funzionalità di anteprima. Se nel registro di sistema sono presenti [risorse della mappa dell'ambito (utente) o del token](https://aka.ms/acr/repo-permissions) , eliminarle prima di generare un ticket di supporto (le mappe dell'ambito del sistema possono essere ignorate). Per abilitare l'accesso pubblico, aprire un ticket di supporto all'indirizzo https://aka.ms/acr/support/create-ticket. Per informazioni dettagliate, vedere il [forum di commenti e suggerimenti su Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 
 
 ## <a name="diagnostics-and-health-checks"></a>Controlli di diagnostica e integrità

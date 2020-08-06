@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli
-ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491800"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832638"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VM di Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -40,6 +40,11 @@ Se si desidera che le istanze nel set di scalabilità spot vengano eliminate al 
 
 Gli utenti possono acconsentire esplicitamente a ricevere notifiche nelle macchine virtuali con [Eventi pianificati di Azure](../virtual-machines/linux/scheduled-events.md). In questo modo riceveranno una notifica se le macchine virtuali vengono eliminate e avranno a disposizione 30 secondi per completare i processi ed eseguire le attività di arresto prima dell'eliminazione. 
 
+## <a name="placement-groups"></a>Gruppi di posizionamento
+Il gruppo di posizionamento è un costrutto simile a un set di disponibilità di Azure, con domini di errore e domini di aggiornamento propri. Per impostazione predefinita, un set di scalabilità è costituito da un singolo gruppo di posizionamento con una dimensione massima di 100 VM. Se la proprietà del set di scalabilità denominata `singlePlacementGroup` è impostata su *false*, il set di scalabilità può essere composto da più gruppi di posizionamento e presenta un intervallo di 0-1000 VM. 
+
+> [!IMPORTANT]
+> A meno che non si usi InfiniBand con HPC, si consiglia vivamente di impostare la proprietà del set `singlePlacementGroup` di scalabilità su *false* per abilitare più gruppi di posizionamento per una migliore scalabilità nell'area o nella zona. 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Distribuzione di VM spot nei set di scalabilità
 
@@ -64,6 +69,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -89,14 +95,26 @@ $vmssConfig = New-AzVmssConfig `
 
 Il processo per creare un set di scalabilità che usa le VM spot è identico a quello descritto nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). 
 
-Per le distribuzioni di modelli di spot, usare `"apiVersion": "2019-03-01"` o versione successiva. Aggiungere le `priority` `evictionPolicy` proprietà, e `billingProfile` alla `"virtualMachineProfile":` sezione nel modello: 
+Per le distribuzioni di modelli di spot, usare `"apiVersion": "2019-03-01"` o versione successiva. 
+
+Aggiungere le `priority` `evictionPolicy` proprietà, e `billingProfile` alla sezione `"virtualMachineProfile":` e la `"singlePlacementGroup": false,` proprietà alla `"Microsoft.Compute/virtualMachineScaleSets"` sezione nel modello:
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy` parametro su `Delete` .

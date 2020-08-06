@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319236"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832978"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gestire posta elettronica, contatti e calendari con Outlook di Office 365 usando App per la logica di Azure
 
@@ -48,7 +48,7 @@ Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un even
 1. Se viene richiesto di eseguire l'accesso, fornire le credenziali di Office 365 in modo che l'app per la logica possa connettersi all'account. In caso contrario, se la connessione esiste già, fornire le informazioni per le proprietà del trigger.
 
    > [!NOTE]
-   > La connessione non scade fino alla revoca, anche se si modificano le credenziali di accesso. Per altre informazioni, vedere [Durata dei token configurabili in Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > La connessione non scade fino alla revoca, anche se si modificano le credenziali di accesso. Per altre informazioni, vedere [Durata dei token configurabili in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    Questo esempio Mostra come selezionare il calendario controllato dal trigger, ad esempio:
 
@@ -81,7 +81,7 @@ Un' [azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'oper
 1. Se viene richiesto di eseguire l'accesso, fornire le credenziali di Office 365 in modo che l'app per la logica possa connettersi all'account. In caso contrario, se la connessione esiste già, fornire le informazioni per le proprietà dell'azione.
 
    > [!NOTE]
-   > La connessione non scade fino alla revoca, anche se si modificano le credenziali di accesso. Per altre informazioni, vedere [Durata dei token configurabili in Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > La connessione non scade fino alla revoca, anche se si modificano le credenziali di accesso. Per altre informazioni, vedere [Durata dei token configurabili in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    Questo esempio Mostra come selezionare la cartella contatti in cui l'azione crea il nuovo contatto, ad esempio:
 

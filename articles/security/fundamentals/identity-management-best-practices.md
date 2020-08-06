@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367402"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835902"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -195,7 +195,7 @@ Le organizzazioni che non aggiungono livelli supplementari di protezione delle i
 
 ## <a name="use-role-based-access-control"></a>Usare il controllo degli accessi in base al ruolo
 
-La gestione dell'accesso per le risorse cloud è fondamentale per tutte le organizzazioni che usano il cloud. [Controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) consente la gestione degli utenti autorizzati ad accedere alle risorse di Azure, delle operazioni che possono eseguire su tali risorse e delle aree a cui hanno accesso.
+La gestione dell'accesso per le risorse cloud è fondamentale per tutte le organizzazioni che usano il cloud. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview)consente di gestire gli utenti che hanno accesso alle risorse di Azure, le operazioni che possono eseguire con tali risorse e le aree a cui hanno accesso.
 
 La designazione di gruppi o singoli ruoli responsabili di funzioni specifiche in Azure consente di evitare confusioni che possono causare errori umani e di automazione che creano rischi per la sicurezza. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [riservatezza](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 

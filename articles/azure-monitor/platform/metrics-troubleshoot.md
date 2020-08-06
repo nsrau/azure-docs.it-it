@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318386"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829595"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi dei grafici delle metriche
 
@@ -42,7 +42,7 @@ Per l'esplorazione delle metriche è necessario che nella sottoscrizione sia reg
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Non si dispone dei diritti di accesso sufficienti per la risorsa
 
-In Azure l'accesso alle metriche è controllato dal [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Per esplorare le metriche per qualsiasi risorsa, è necessario disporre del ruolo di [lettore di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader), [collaboratore al monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor).
+In Azure, l'accesso alle metriche è controllato dal [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). Per esplorare le metriche per qualsiasi risorsa, è necessario disporre del ruolo di [lettore di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader), [collaboratore al monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [collaboratore](../../role-based-access-control/built-in-roles.md#contributor).
 
 **Soluzione:** Assicurarsi di disporre di autorizzazioni sufficienti per la risorsa da cui si esplorano le metriche.
 
@@ -118,4 +118,3 @@ Per impostazione predefinita, le metriche del sistema operativo Guest vengono ar
 * [Informazioni sulle funzionalità avanzate di Esplora metriche](metrics-charts.md)
 * [Elenco di metriche disponibili per i servizi di Azure](metrics-supported.md)
 * [Esempi di grafici configurati](metric-chart-samples.md)
-

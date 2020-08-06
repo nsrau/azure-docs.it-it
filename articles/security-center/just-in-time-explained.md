@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420839"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833454"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Informazioni sull'accesso alla VM JIT (just-in-Time)
 
@@ -44,7 +44,7 @@ Quando si Abilita l'accesso just-in-time alle macchine virtuali, è possibile se
 
 Se sono già presenti altre regole per le porte selezionate, le regole esistenti hanno la priorità sulla nuova regola "nega tutto il traffico in ingresso". Se non sono presenti regole esistenti sulle porte selezionate, le nuove regole hanno la priorità più alta in NSG e nel firewall di Azure.
 
-Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza verifica che l'utente disponga delle autorizzazioni di [controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per tale macchina virtuale. Se la richiesta viene approvata, il Centro sicurezza Configura gruppi e il firewall di Azure per consentire il traffico in ingresso alle porte selezionate dall'indirizzo IP (o intervallo) pertinente per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. Le connessioni già stabilite non vengono interrotte.
+Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza verifica che l'utente disponga delle autorizzazioni di [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per tale macchina virtuale. Se la richiesta viene approvata, il Centro sicurezza Configura gruppi e il firewall di Azure per consentire il traffico in ingresso alle porte selezionate dall'indirizzo IP (o intervallo) pertinente per il periodo di tempo specificato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. Le connessioni già stabilite non vengono interrotte.
 
 > [!NOTE]
 > JIT non supporta le macchine virtuali protette dai firewall di Azure controllati da [gestione firewall di Azure](https://docs.microsoft.com/azure/firewall-manager/overview).

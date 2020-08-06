@@ -1,5 +1,5 @@
 ---
-title: Configurare un'istanza e l'autenticazione (CLI)
+title: Configurare un'istanza e l'autenticazione (interfaccia della riga di comando)
 titleSuffix: Azure Digital Twins
 description: Vedere come configurare un'istanza del servizio dispositivi digitali gemelli di Azure usando l'interfaccia della riga di comando
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 287ee62acf3a078c4b47803060f61c9dd4134ab7
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408289"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832349"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (CLI)
 
@@ -46,7 +46,7 @@ Usare questi valori nel comando seguente per creare l'istanza:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### <a name="verify-success"></a>Verificare l'esito positivo
+### <a name="verify-success-and-collect-important-values"></a>Verificare l'esito positivo e raccogliere i valori importanti
 
 Se l'istanza è stata creata correttamente, il risultato in Cloud Shell sarà simile al seguente, in modo da ottenere informazioni sulla risorsa creata:
 
@@ -71,12 +71,16 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Il risultato di questo comando è l'output delle informazioni sull'assegnazione di ruolo creata.
 
-> [!TIP]
-> Se invece si ottiene un errore *400: richiesta non valida* , eseguire il comando seguente per ottenere il valore *ObjectID* per l'utente:
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> Quindi, ripetere il comando di assegnazione di ruolo usando l' *ID oggetto* dell'utente al posto del messaggio di posta elettronica.
+> [!NOTE]
+> Se questo comando restituisce un errore che informa che l'interfaccia della riga **di comando non è in grado di trovare l'utente o l'entità servizio nel database Graph**
+>
+> Usare l' *ID oggetto* dell'utente anziché l'indirizzo di posta elettronica. Questo problema può verificarsi per gli utenti di [account Microsoft personali (MSAS)](https://account.microsoft.com/account). 
+>
+> Utilizzare la [pagina portale di Azure di Azure Active Directory utenti](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) per selezionare l'account utente e aprirne i dettagli. Copiare il valore *ObjectID*dell'utente:
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="Visualizzazione della pagina utente in portale di Azure evidenziando il GUID nel campo ' ID oggetto '" lightbox="media/includes/user-id.png":::
+>
+> Quindi, ripetere il comando elenco assegnazione ruolo usando l' *ID oggetto* dell'utente al posto del messaggio di posta elettronica.
 
 ### <a name="verify-success"></a>Verificare l'esito positivo
 
@@ -117,7 +121,7 @@ Passare almanifest.jsappena creato e fare clic *su* "Apri".
 Eseguire quindi il comando seguente per creare una registrazione dell'app (sostituendo i segnaposto in base alle esigenze):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 Di seguito è riportato un estratto dell'output di questo comando, che mostra le informazioni sulla registrazione creata:

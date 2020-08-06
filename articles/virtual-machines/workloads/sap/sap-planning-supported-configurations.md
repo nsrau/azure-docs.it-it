@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a79db217c5444e59e35d4dfad9fbb98bbccbd251
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079809"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833335"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carico di lavoro SAP negli scenari supportati da macchine virtuali di Azure
 La progettazione di un'architettura di sistemi SAP NetWeaver, Business One `Hybris` o S/4HANA in Azure offre molte opportunità diverse per diverse architetture e strumenti da usare per ottenere una distribuzione scalabile, efficiente e a disponibilità elevata. Tuttavia, a seconda del sistema operativo o del sistema DBMS utilizzato, esistono restrizioni. Inoltre, non tutti gli scenari supportati in locale sono supportati nello stesso modo in Azure. In questo documento vengono illustrate le configurazioni di disponibilità elevata e le configurazioni a disponibilità elevata supportate e le architetture con le macchine virtuali di Azure in modo esclusivo. Per gli scenari supportati con le [istanze large di Hana](./hana-overview-architecture.md), vedere l'articolo [scenari supportati per le istanze large di Hana](./hana-supported-scenario.md). 
@@ -246,7 +246,7 @@ Per il livello DBMS, sono supportate le configurazioni che usano i meccanismi di
 - Il ridimensionamento tra le famiglie di macchine virtuali può costituire un problema quando si raccolgono macchine virtuali diverse in un set di disponibilità di Azure o quando si verifica il ridimensionamento tra la famiglia della serie M e la famiglia di macchine virtuali Mv2
 - Utilizzo della CPU e della memoria per l'istanza del database in grado di ricevere il flusso di modifiche con ritardo minimo e risorse di CPU e memoria sufficienti per applicare queste modifiche con un ritardo minimo ai dati  
 
-Altre informazioni sulle limitazioni delle diverse dimensioni delle macchine virtuali sono disponibili [qui](../../linux/sizes.md) 
+Altre informazioni sulle limitazioni delle diverse dimensioni delle macchine virtuali sono disponibili [qui](../../sizes.md) 
 
 Un altro metodo supportato per la distribuzione di una destinazione di ripristino di emergenza consiste nel disporre di una seconda istanza di DBMS installata in una macchina virtuale che esegue un'istanza DBMS non di produzione di un'istanza SAP non di produzione. Questo può essere un po' più complesso, poiché è necessario capire in che modo la memoria, le risorse della CPU, la larghezza di banda di rete e la larghezza di banda di archiviazione sono necessarie per le istanze di destinazione specifiche che dovrebbero funzionare come istanza principale nello scenario di ripristino di emergenza. In particolare, si consiglia di configurare l'istanza di che funziona come destinazione di ripristino di emergenza in un host condiviso, in modo che i dati non siano pre-caricati nell'istanza di destinazione di ripristino di emergenza.
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077481"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832519"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurare l'autenticazione Azure Active Directory per la VPN utente
 
@@ -23,14 +23,14 @@ Questo tipo di connessione richiede la configurazione di un client nel computer 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
-> * Creare una rete WAN
-> * Creare un hub
-> * Creare una configurazione da punto a sito
-> * Scaricare un profilo client VPN
-> * Applicare la configurazione da punto a sito a un hub
-> * Connettere una rete virtuale a un hub
-> * Scaricare e applicare la configurazione del client VPN
-> * Visualizzare la rete WAN virtuale
+> * Creare una rete WAN virtuale
+> * Creare un hub virtuale
+> * Creare una configurazione VPN utente
+> * Scaricare un profilo VPN utente WAN virtuale
+> * Applicare la configurazione VPN utente a un hub virtuale
+> * Connettere una VNet a un hub virtuale
+> * Scaricare e applicare la configurazione del client VPN utente
+> * Visualizza la rete WAN virtuale
 
 ![Diagramma della rete WAN virtuale](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -81,9 +81,9 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
 3. Fare clic su **Rivedi e crea**.
 4. Nella pagina **convalida superata** fare clic su **Crea**.
 
-## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>Creare una nuova configurazione da punto a sito
+## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a>Creare una nuova configurazione VPN utente
 
-Una configurazione da punto a sito definisce i parametri per la connessione di client remoti.
+Una configurazione VPN utente definisce i parametri per la connessione dei client remoti.
 
 1. Nella sezione della rete WAN virtuale selezionare **Configurazioni VPN utente**.
 
@@ -93,7 +93,16 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
 
    ![nuova configurazione](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. Immettere le informazioni e fare clic su **Crea**
+3. Immettere le informazioni e fare clic su **Crea**.
+
+   * **Nome configurazione** : immettere il nome che si vuole chiamare per la configurazione VPN utente.
+   * **Tipo di tunnel** : selezionare OpenVPN.
+   * **Metodo di autenticazione** : selezionare Azure Active Directory.
+   * **Audience** : digitare l'ID applicazione dell'applicazione aziendale [VPN di Azure](openvpn-azure-ad-tenant.md) registrata nel tenant del Azure ad. 
+   * **Emittente** - `https://sts.windows.net/<your Directory ID>/`
+   * **Tenant AAD** - `https://login.microsoftonline.com/<your Directory ID>`
+  
+
 
    ![nuova configurazione](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
@@ -111,11 +120,11 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
 6. Fare clic su **Conferma**.
 7. Il completamento dell'operazione potrà richiedere fino a 30 minuti.
 
-## <a name="download-vpn-profile"></a><a name="device"></a>Scaricare il profilo VPN
+## <a name="download-user-vpn-profile"></a><a name="device"></a>Scarica profilo VPN utente
 
 Usare il profilo VPN per configurare i client.
 
-1. Nella pagina della rete WAN virtuale fare clic su **Configurazioni VPN utente**.
+1. Nella pagina della rete WAN virtuale fare clic su **configurazioni VPN utente**.
 2. Nella parte superiore della pagina fare clic su **Download user VPN config** (Scarica configurazione VPN utente).
 3. Al termine della creazione del file è possibile fare clic sul collegamento per scaricarlo.
 4. Usare il file del profilo per configurare i client VPN.
@@ -158,11 +167,11 @@ Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview
 
 1. Selezionare i puntini di sospensione (...) accanto al profilo client da eliminare. Selezionare quindi **Rimuovi**.
 
-    ![eliminazione](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![eliminare](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![eliminazione](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![eliminare](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnosticare i problemi di connessione
 
@@ -188,13 +197,12 @@ Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview
 2. Nella pagina Panoramica ogni punto sulla mappa rappresenta un hub.
 3. Nella sezione degli hub e delle connessioni è possibile visualizzare lo stato dell'hub, il sito, l'area, lo stato della connessione VPN e i byte in entrata e in uscita.
 
-
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Pulire le risorse
 
-Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
+Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

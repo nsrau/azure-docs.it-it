@@ -4,34 +4,36 @@ description: Informazioni su come usare il supporto bulk di hub di notifica per 
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 08/04/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a7de1921732328fe4112de9b9171af3e21fe7e3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71212388"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832179"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Esportare e importare in blocco le registrazioni di hub di notifica di Azure
-In alcuni scenari è necessario creare o modificare quantità elevate di registrazioni i in hub di notifica. Alcuni di questi scenari sono costituiti da aggiornamenti di tag successivi a calcoli in batch o alla migrazione di un'implementazione push esistente in modo che usi Hub di notifica.
+
+In alcuni scenari è necessario creare o modificare quantità elevate di registrazioni i in hub di notifica. Alcuni di questi scenari sono gli aggiornamenti dei tag che seguono i calcoli batch o la migrazione di un'implementazione push esistente per l'uso di hub di notifica di Azure.
 
 Questo articolo illustra come eseguire un numero elevato di operazioni in un hub di notifica o di esportare tutte le registrazioni in blocco.
 
 ## <a name="high-level-flow"></a>Flusso di alto livello
+
 Il supporto in batch è stato progettato per supportare processi a lunga esecuzione che coinvolgono milioni di registrazioni. Per ottenere questo livello di scalabilità, il supporto batch Usa archiviazione di Azure per archiviare i dettagli e l'output del processo. Per operazioni di aggiornamento in blocco, l'utente deve creare un file in un contenitore BLOB, che deve includere l'elenco di operazioni di aggiornamento delle registrazioni. Quando avvia il processo, l'utente fornisce un URL per il BLOB di input, oltre a un URL per una directory di output, che si trova in un contenitore BLOB. Dopo l'avvio del processo, l'utente può controllare lo stato eseguendo una query su un percorso URL fornito all'avvio del processo. Un processo specifico può eseguire solo operazioni di un tipo specifico (creazione, aggiornamento o eliminazione). Le operazioni di esportazione sono eseguite in modo analogo.
 
 ## <a name="import"></a>Importa
 
 ### <a name="set-up"></a>Configurazione
+
 In questa sezione si presuppone che siano presenti le entità seguenti:
 
 - Un hub di notifica sottoposto a provisioning.
@@ -39,7 +41,8 @@ In questa sezione si presuppone che siano presenti le entità seguenti:
 - Riferimenti al pacchetto NuGet di [archiviazione di Azure](https://www.nuget.org/packages/windowsazure.storage/) e al pacchetto NuGet di [Hub di notifica](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Creare il file di input e archiviarlo in un BLOB
-Un file di input include un elenco di registrazioni serializzate in XML, una per riga. Usando Azure SDK, l'esempio di codice seguente mostra come serializzare le registrazioni e caricarle nel contenitore BLOB.
+
+Un file di input include un elenco di registrazioni serializzate in XML, una per riga. Con Azure SDK, l'esempio di codice seguente mostra come serializzare le registrazioni e caricarle nel contenitore BLOB:
 
 ```csharp
 private static void SerializeToBlob(CloudBlobContainer container, RegistrationDescription[] descriptions)
@@ -62,6 +65,7 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
 > Il codice precedente serializza le registrazioni in memoria e quindi carica l'intero flusso in un BLOB. Se è stato caricato un file di oltre pochi megabyte, vedere le linee guida per i BLOB di Azure su come eseguire questi passaggi. ad esempio, [BLOB in blocchi](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### <a name="create-url-tokens"></a>Creare token URL
+
 Una volta caricato il file di input, generare gli URL da fornire all'hub di notifica sia per il file di input che per la directory di output. È possibile usare due contenitori BLOB diversi per l'input e l'output.
 
 ```csharp
@@ -90,6 +94,7 @@ static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
 ```
 
 ### <a name="submit-the-job"></a>Inviare il processo
+
 Con i due URL di input e output, è ora possibile avviare il processo batch.
 
 ```csharp
@@ -131,6 +136,7 @@ Al termine del processo è possibile esaminare i risultati, verificando i file s
 Questi file includono l'elenco delle operazioni riuscite e non riuscite del batch. Il formato del file è `.cvs` , in cui ogni riga ha il numero di riga del file di input originale e l'output dell'operazione, in genere la descrizione della registrazione creata o aggiornata.
 
 ### <a name="full-sample-code"></a>Codice di esempio completo
+
 Il codice di esempio seguente importa le registrazioni in un hub di notifica.
 
 ```csharp
@@ -169,7 +175,7 @@ namespace ConsoleApplication1
                 new MpnsRegistrationDescription(@"http://dm2.notify.live.net/throttledthirdparty/01.00/12G9Ed13dLb5RbCii5fWzpFpAgAAAAADAQAAAAQUZm52OkJCMjg1QTg1QkZDMdUxREQFBlVTTkMwMQ"),
             };
 
-            //write to blob store to create an input file
+            // Write to blob store to create an input file
             var blobClient = new CloudBlobClient(STORAGE_ENDPOINT, new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(STORAGE_ACCOUNT, STORAGE_PASSWORD));
             var container = blobClient.GetContainerReference("testjobs");
             container.CreateIfNotExists();
@@ -181,7 +187,7 @@ namespace ConsoleApplication1
             var inputFileSasUri = GetInputFileUrl(container, INPUT_FILE_NAME);
 
 
-            //Lets import this file
+            // Import this file
             NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
             var createTask = client.SubmitNotificationHubJobAsync(
                 new NotificationHubJob {
@@ -221,35 +227,35 @@ namespace ConsoleApplication1
 
         static Uri GetOutputDirectoryUrl(CloudBlobContainer container)
         {
-            //Set the expiry time and permissions for the container.
-            //In this case no start time is specified, so the shared access signature becomes valid immediately.
+            // Set the expiry time and permissions for the container.
+            // In this case no start time is specified, so the shared access signature becomes valid immediately.
             SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
             {
                 SharedAccessExpiryTime = DateTime.UtcNow.AddHours(4),
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read
             };
 
-            //Generate the shared access signature on the container, setting the constraints directly on the signature.
+            // Generate the shared access signature on the container, setting the constraints directly on the signature.
             string sasContainerToken = container.GetSharedAccessSignature(sasConstraints);
 
-            //Return the URI string for the container, including the SAS token.
+            // Return the URI string for the container, including the SAS token.
             return new Uri(container.Uri + sasContainerToken);
         }
 
         static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
         {
-            //Set the expiry time and permissions for the container.
-            //In this case no start time is specified, so the shared access signature becomes valid immediately.
+            // Set the expiry time and permissions for the container.
+            // In this case no start time is specified, so the shared access signature becomes valid immediately.
             SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
             {
                 SharedAccessExpiryTime = DateTime.UtcNow.AddHours(4),
                 Permissions = SharedAccessBlobPermissions.Read
             };
 
-            //Generate the shared access signature on the container, setting the constraints directly on the signature.
+            // Generate the shared access signature on the container, setting the constraints directly on the signature.
             string sasToken = container.GetBlockBlobReference(filePath).GetSharedAccessSignature(sasConstraints);
 
-            //Return the URI string for the container, including the SAS token.
+            // Return the URI string for the container, including the SAS token.
             return new Uri(container.Uri + "/" + filePath + sasToken);
         }
 
@@ -262,22 +268,24 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="export"></a>Esportazione
+
 L'esportazione della registrazione è analoga all'importazione, con le differenze seguenti:
 
 - È necessario solo l'URL di output.
 - Si crea un NotificationHubJob di tipo ExportRegistrations.
 
 ### <a name="sample-code-snippet"></a>Frammento di codice di esempio
-Ecco un frammento di codice di esempio per esportare le registrazioni in Java:
+
+Di seguito è riportato un frammento di codice di esempio per esportare le registrazioni in Java:
 
 ```java
-// submit an export job
+// Submit an export job
 NotificationHubJob job = new NotificationHubJob();
 job.setJobType(NotificationHubJobType.ExportRegistrations);
 job.setOutputContainerUri("container uri with SAS signature");
 job = hub.submitNotificationHubJob(job);
 
-// wait until the job is done
+// Wait until the job is done
 while(true){
     Thread.sleep(1000);
     job = hub.getNotificationHubJob(job.getJobId());
@@ -288,6 +296,7 @@ while(true){
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per ulteriori informazioni sulle registrazioni, vedere gli articoli seguenti:
 
 - [Gestione delle registrazioni](notification-hubs-push-notification-registration-management.md)

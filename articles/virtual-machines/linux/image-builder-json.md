@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 132e547fe2512676e4d8082744489f4719dcc0bf
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543606"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830343"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di Image Builder di Azure 
 
@@ -116,7 +116,7 @@ Questa sezione facoltativa può essere usata per assicurarsi che le dipendenze v
     "dependsOn": [],
 ```
 
-Per altre informazioni, vedere [Definire le dipendenze della risorsa](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+Per altre informazioni, vedere [Definire le dipendenze della risorsa](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
 
 ## <a name="identity"></a>Identità
 
@@ -137,8 +137,8 @@ Supporto di Image Builder per un'identità assegnata dall'utente:
 * Supporta solo una singola identità
 * Non supporta i nomi di dominio personalizzati
 
-Per altre informazioni, vedere [Cosa sono le identità gestite per le risorse di Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-Per altre informazioni sulla distribuzione di questa funzionalità, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Per altre informazioni, vedere [Cosa sono le identità gestite per le risorse di Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
+Per altre informazioni sulla distribuzione di questa funzionalità, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ## <a name="properties-source"></a>Proprietà: source
 
@@ -151,10 +151,10 @@ L'API richiede un "tipo di origine" che definisce l'origine per la compilazione 
 
 
 > [!NOTE]
-> Quando si utilizzano immagini personalizzate di Windows esistenti, è possibile eseguire il comando Sysprep fino a 8 volte in una singola immagine di Windows. per ulteriori informazioni, vedere la documentazione di [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) .
+> Quando si utilizzano immagini personalizzate di Windows esistenti, è possibile eseguire il comando Sysprep fino a 8 volte in una singola immagine di Windows. per ulteriori informazioni, vedere la documentazione di [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) .
 
 ### <a name="platformimage-source"></a>Origine PlatformImage 
-Azure Image Builder supporta le immagini di Windows Server, dei client e di Azure Marketplace in Linux. Vedere [qui](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) per l'elenco completo. 
+Azure Image Builder supporta le immagini di Windows Server, dei client e di Azure Marketplace in Linux. Vedere [qui](../windows/image-builder-overview.md#os-support) per l'elenco completo. 
 
 ```json
         "source": {
@@ -373,7 +373,7 @@ Proprietà customize:
 - **validExitCodes** - codici validi e facoltativi che possono essere restituiti dallo script o dal comando inline. In questo modo si eviterà l'errore segnalato dello script o del comando inline.
 - **runElevated** - valore facoltativo, booleano, supporto per l'esecuzione di comandi e script con autorizzazioni elevate.
 - **sha256Checksum** - valore di checksum sha256 del file, viene generato in locale, quindi Image Builder lo genera e lo verifica.
-    * Per generare sha256Checksum, usare il comando [Get-hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6) di PowerShell in Windows
+    * Per generare sha256Checksum, usare il comando [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6) di PowerShell in Windows
 
 
 ### <a name="file-customizer"></a>Funzione di personalizzazione File
@@ -567,7 +567,7 @@ Raccolta immagini condivise è costituita da:
 - Definizioni di immagini: un raggruppamento concettuale per le immagini. 
 - Versioni delle immagini: tipo di immagine usato per la distribuzione di una macchina virtuale o di un set di scalabilità. Le versioni delle immagini possono essere replicate in altre aree in cui è necessario distribuire le macchine virtuali.
  
-Prima di poter distribuire in Raccolta immagini, è necessario creare una raccolta e una definizione dell'immagine, vedere [Immagini condivise](shared-images.md). 
+Prima di poter distribuire in Raccolta immagini, è necessario creare una raccolta e una definizione dell'immagine, vedere [Immagini condivise](../shared-images-cli.md). 
 
 ```json
 {

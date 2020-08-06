@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: f09d2604a1dbf06caebb604ba2d63a09560fd33b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542892"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835919"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 
@@ -87,7 +87,7 @@ Centro sicurezza aiuta a [proteggere i dati delle macchine virtuali (VM)](/azure
 - Convalida della crittografia del disco
 - Attacchi basati sulla rete.
 
-Centro sicurezza usa il [controllo degli accessi in base al ruolo](/azure/role-based-access-control/role-assignments-portal). Questo tipo di controllo prevede l'utilizzo di [ruoli integrati](../../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
+Il Centro sicurezza usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/role-assignments-portal). Questo tipo di controllo prevede l'utilizzo di [ruoli integrati](../../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
 
 Centro sicurezza consente di valutare la configurazione delle risorse per identificare problemi di sicurezza e vulnerabilità. In Centro sicurezza è possibile visualizzare le informazioni correlate a una risorsa solo quando si dispone del ruolo di proprietario, collaboratore o lettore per la sottoscrizione o il gruppo di risorse a cui appartiene la risorsa.
 

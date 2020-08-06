@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 054838d9e2c6dcc0bb021fdbf818db95922697f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc98a0703cf408194c4c3740938399b57a36d468
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099535"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835613"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Reti virtuali e macchine virtuali in Azure 
 
@@ -118,7 +118,7 @@ Questa tabella elenca i metodi che è possibile usare per creare un gruppo di si
 
 ## <a name="load-balancers"></a>Servizi di bilanciamento del carico
 
-[Azure Load Balancer](../load-balancer/load-balancer-overview.md) offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni. È possibile configurare un servizio di bilanciamento del carico per [bilanciare il traffico Internet in ingresso](../load-balancer/load-balancer-internet-overview.md) nelle VM o [bilanciare il traffico tra VM in una rete virtuale](../load-balancer/load-balancer-internal-overview.md). Un servizio di bilanciamento del carico può anche bilanciare il traffico tra computer locali e VM in una rete virtuale cross-premise oppure inoltrare il traffico esterno a una VM specifica.
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md) offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni. È possibile configurare un servizio di bilanciamento del carico per [bilanciare il traffico Internet in ingresso](../load-balancer/components.md#frontend-ip-configurations) nelle VM o [bilanciare il traffico tra VM in una rete virtuale](../load-balancer/components.md#frontend-ip-configurations). Un servizio di bilanciamento del carico può anche bilanciare il traffico tra computer locali e VM in una rete virtuale cross-premise oppure inoltrare il traffico esterno a una VM specifica.
 
 Il servizio di bilanciamento del carico esegue il mapping del traffico in ingresso e in uscita tra l'indirizzo IP pubblico e la porta del servizio di bilanciamento del carico e l'indirizzo IP privato e la porta della VM.
 
@@ -129,15 +129,15 @@ Quando si crea un servizio di bilanciamento del carico è anche necessario consi
 - **[Port forwarding](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** : definisce il modo in cui il traffico in ingresso attraversa l'IP front-end e viene distribuito all'IP back-end tramite regole NAT in ingresso.
 - **Regole di bilanciamento del carico**: eseguono il mapping di una specifica combinazione di IP e porte front-end a un set di combinazioni di indirizzi IP e porte back-end. Un bilanciamento del carico singolo può avere più regole di bilanciamento del carico. Ogni regola è una combinazione di un IP e una porta front-end e un IP e una porta back-end associata alle VM.
 - **[Probe](../load-balancer/load-balancer-custom-probe-overview.md)** : monitorano l'integrità delle VM. Se un probe non risponde, il servizio di bilanciamento del carico interrompe l'invio di nuove connessioni alla VM non integra. Le connessioni esistenti non sono interessate, mentre quelle nuove vengono inviate alle VM integre.
-- **[Regole in uscita](../load-balancer/load-balancer-outbound-rules-overview.md)** : una regola in uscita configura NAT (Network Address Translation) in uscita per tutte le macchine virtuali o le istanze identificate dal pool back-end del servizio Load Balancer Standard da trasferire nel front-end.
+- **[Regole in uscita](../load-balancer/load-balancer-outbound-connections.md#outboundrules)** : una regola in uscita configura NAT (Network Address Translation) in uscita per tutte le macchine virtuali o le istanze identificate dal pool back-end del servizio Load Balancer Standard da trasferire nel front-end.
 
 Questa tabella elenca i metodi che è possibile usare per creare un servizio di bilanciamento del carico con connessione Internet.
 
 | Metodo | Descrizione |
 | ------ | ----------- |
 | Portale di Azure |  È possibile [bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure](../load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
-| [Azure PowerShell](/azure/load-balancer/load-balancer-get-started-ilb-arm-ps) | Usare [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con il parametro **-PublicIpAddress** per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza. Usare [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) per creare la configurazione del pool di indirizzi back-end. Usare [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) per creare regole NAT in ingresso associate alla configurazione IP front-end creata. Usare [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) per creare i probe necessari. Usare [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) per creare la configurazione del servizio di bilanciamento del carico. Usare [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) per creare il servizio di bilanciamento del carico.|
-| [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md) | Usare [az network lb create](/cli/azure/network/lb) per creare la configurazione del servizio di bilanciamento del carico. Usare [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) per aggiungere l'indirizzo IP pubblico creato in precedenza. Usare [az network lb address-pool create](/cli/azure/network/lb/address-pool) per aggiungere la configurazione del pool di indirizzi back-end. Usare [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) per aggiungere le regole NAT. Usare [az network lb rule create](/cli/azure/network/lb/rule) per aggiungere le regole del servizio di bilanciamento del carico. Usare [az network lb probe create](/cli/azure/network/lb/probe) per aggiungere i probe. |
+| [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Usare [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con il parametro **-PublicIpAddress** per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza. Usare [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) per creare la configurazione del pool di indirizzi back-end. Usare [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) per creare regole NAT in ingresso associate alla configurazione IP front-end creata. Usare [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) per creare i probe necessari. Usare [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) per creare la configurazione del servizio di bilanciamento del carico. Usare [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) per creare il servizio di bilanciamento del carico.|
+| [Interfaccia della riga di comando di Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md) | Usare [az network lb create](/cli/azure/network/lb) per creare la configurazione del servizio di bilanciamento del carico. Usare [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) per aggiungere l'indirizzo IP pubblico creato in precedenza. Usare [az network lb address-pool create](/cli/azure/network/lb/address-pool) per aggiungere la configurazione del pool di indirizzi back-end. Usare [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) per aggiungere le regole NAT. Usare [az network lb rule create](/cli/azure/network/lb/rule) per aggiungere le regole del servizio di bilanciamento del carico. Usare [az network lb probe create](/cli/azure/network/lb/probe) per aggiungere i probe. |
 | [Modello](../load-balancer/quickstart-load-balancer-standard-public-template.md) | Vedere [Creare 2 macchine virtuali in un servizio di bilanciamento del carico e configurare le regole NAT nel servizio di bilanciamento del carico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) per istruzioni sulla distribuzione di un servizio di bilanciamento del carico con un modello. |
     
 Questa tabella elenca i metodi che è possibile usare per creare un servizio di bilanciamento del carico interno.
@@ -151,7 +151,7 @@ Questa tabella elenca i metodi che è possibile usare per creare un servizio di 
 
 ### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 
-Per altre informazioni sul servizio di bilanciamento del carico e sui set di scalabilità di macchine virtuali, vedere [Rete per i set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
+Per altre informazioni sul servizio di bilanciamento del carico e sui set di scalabilità di macchine virtuali, vedere [Rete per i set di scalabilità di macchine virtuali di Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ## <a name="vms"></a>VM
 
@@ -179,4 +179,3 @@ Sono anche disponibili esercitazioni sul bilanciamento del carico delle VM e la 
 - Informazioni sulla configurazione di [connessioni tra reti virtuali](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Informazioni sulla [risoluzione dei problemi relativi alle route](../virtual-network/diagnose-network-routing-problem.md).
 - Altre informazioni sulla [larghezza di banda della rete di macchine virtuali](../virtual-network/virtual-machine-network-throughput.md).
-

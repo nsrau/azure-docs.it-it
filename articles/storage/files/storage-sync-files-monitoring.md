@@ -4,15 +4,15 @@ description: Come monitorare Sincronizzazione file di Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/28/2019
+ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81224e0c055ad4a94bd57ebb3aa7c8a3b30c2dd7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515198"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832621"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -20,7 +20,11 @@ Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell
 
 Questo articolo descrive come monitorare la distribuzione di Sincronizzazione file di Azure usando monitoraggio di Azure, il servizio di sincronizzazione archiviazione e Windows Server.
 
-Sono attualmente disponibili le opzioni di monitoraggio seguenti.
+In questa guida sono trattati gli scenari seguenti: 
+- Visualizzare Sincronizzazione file di Azure metriche in monitoraggio di Azure.
+- Creare avvisi in monitoraggio di Azure per notificare in modo proattivo le condizioni critiche.
+- Monitorare l'integrità della distribuzione di Sincronizzazione file di Azure usando il portale di Azure.
+- Come usare i registri eventi e i contatori delle prestazioni nei server Windows per monitorare l'integrità della distribuzione del Sincronizzazione file di Azure. 
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
@@ -48,7 +52,19 @@ Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in M
 
 ### <a name="alerts"></a>Avvisi
 
-Per configurare gli avvisi in monitoraggio di Azure, selezionare il servizio di sincronizzazione archiviazione, quindi selezionare la [metrica sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) da usare per l'avviso.  
+Gli avvisi notificano in modo proattivo quando vengono riscontrate importanti condizioni nei dati di monitoraggio. Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+**Come creare avvisi per Sincronizzazione file di Azure**
+
+- Passare al **servizio di sincronizzazione archiviazione** nell' **portale di Azure**. 
+- Fare clic su **avvisi** nella sezione monitoraggio e quindi fare clic su **+ nuova regola di avviso**.
+- Fare clic su **Seleziona condizione** e fornire le informazioni seguenti per l'avviso: 
+    - **Metrica**
+    - **Nome dimensione**
+    - **Logica di avviso**
+- Fare clic su **Seleziona gruppo di azioni** e aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+- Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+- Fare clic su **Crea regola di avviso** per creare l'avviso.  
 
 Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e la metrica appropriata da usare per l'avviso:
 
@@ -58,8 +74,6 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 | Impossibile sincronizzare i file in un endpoint server o cloud | File non sincronizzati |
 | Il server registrato non riesce a comunicare con il servizio di sincronizzazione archiviazione | Stato online del server |
 | Le dimensioni di richiamo per la suddivisione in livelli nel cloud hanno superato 500GiB in un giorno  | Cloud tiering recall size (Dimensioni richiamo cloud a livelli) |
-
-Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="storage-sync-service"></a>Servizio di sincronizzazione archiviazione
 
@@ -148,6 +162,6 @@ I contatori delle prestazioni seguenti per Sincronizzazione file di Azure sono d
 ## <a name="next-steps"></a>Passaggi successivi
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
 - [Impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md)
-- [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+- [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 - [Risolvere i problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md)
 - [Domande frequenti su File di Azure](storage-files-faq.md)

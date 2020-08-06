@@ -3,12 +3,12 @@ title: Autorizzare l'accesso con Azure Active Directory
 description: Questo articolo fornisce informazioni su come autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: af9278d801dfd858ce8bba5ec5786d521f72218c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 101e40420493156c7b1a0c3c5b767eda023e62c6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534567"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831839"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory
 Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -26,7 +26,7 @@ Il passaggio di autorizzazione richiede che uno o più ruoli di Azure siano asse
 Le applicazioni native e le applicazioni Web che effettuano richieste a hub eventi possono anche autorizzare con Azure AD. Per informazioni su come richiedere un token di accesso e usarlo per autorizzare le richieste per le risorse di hub eventi, vedere [autenticare l'accesso a hub eventi di Azure con Azure ad da un'applicazione](authenticate-application.md). 
 
 ## <a name="assign-azure-roles-for-access-rights"></a>Assegnare i ruoli di Azure per i diritti di accesso
-Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). Hub eventi di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni usate per accedere ai dati dell'hub eventi ed è anche possibile definire ruoli personalizzati per l'accesso ai dati.
+Azure Active Directory (Azure AD) autorizza i diritti di accesso alle risorse protette tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md). Hub eventi di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni usate per accedere ai dati dell'hub eventi ed è anche possibile definire ruoli personalizzati per l'accesso ai dati.
 
 Quando un ruolo di Azure viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. L'ambito di accesso può essere limitato al livello di sottoscrizione, al gruppo di risorse, allo spazio dei nomi di hub eventi o a qualsiasi risorsa sottostante. Un'entità di sicurezza di Azure AD può essere un utente o un'entità servizio dell'applicazione oppure un'[identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -38,7 +38,7 @@ Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a
 - [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): usare questo ruolo per concedere l'accesso a consumo/ricezione alle risorse di hub eventi.
 
 ## <a name="resource-scope"></a>Ambito risorsa 
-Prima di assegnare un ruolo di Azure a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è sempre preferibile concedere solo l'ambito più ristretto possibile.
+Prima di assegnare un ruolo Controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che dovrà avere. In base alle procedure consigliate, è sempre preferibile concedere solo l'ambito più restrittivo possibile.
 
 L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di accesso alle risorse di hub eventi, a partire dall'ambito più restrittivo:
 

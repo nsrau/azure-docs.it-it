@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050466"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830224"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Proteggere i pod con criteri di Azure (anteprima)
 
@@ -47,7 +47,7 @@ In questo documento si presuppone che siano stati distribuiti i seguenti element
 
 In un cluster AKS viene usato un controller di ammissione per intercettare le richieste al server API quando una risorsa viene creata e aggiornata. Il controller di ammissione può quindi *convalidare* la richiesta di risorse in base a un set di regole sull'eventuale creazione.
 
-In precedenza, i [criteri di sicurezza di Pod funzionalità (anteprima)](use-pod-security-policies.md) venivano abilitati tramite il progetto Kubernetes per limitare i pod che è possibile distribuire. Questa funzionalità non è più in fase di sviluppo attivo dal progetto Kubernetes.
+In precedenza, i [criteri di sicurezza di Pod funzionalità (anteprima)](use-pod-security-policies.md) venivano abilitati tramite il progetto Kubernetes per limitare i pod che è possibile distribuire.
 
 Con il componente aggiuntivo criteri di Azure un cluster AKS può usare criteri di Azure predefiniti che proteggono i pod e altre risorse di Kubernetes in modo analogo ai criteri di sicurezza di Pod. Il componente aggiuntivo criteri di Azure per AKS installa un'istanza gestita di [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), un controller di ammissione per la convalida. Criteri di Azure per Kubernetes si basa sull'agente criteri open source aperto che si basa sul linguaggio dei [criteri di rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 

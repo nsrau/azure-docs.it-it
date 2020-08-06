@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: eca36a2c13fcdc232d4d06ca6e59598fe9a611f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082138"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836123"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP
 
@@ -100,7 +100,7 @@ La configurazione avrà un aspetto simile al seguente:
 2. Creare il pool back-end **MyBackendPoolOfPublicILB** e aggiungere le macchine virtuali.  
    1. Selezionare la rete virtuale  
    1. Selezionare le macchine virtuali e i relativi indirizzi IP e aggiungerli al pool back-end  
-3. [Creare regole in uscita](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule). Attualmente non è possibile creare regole in uscita dal portale di Azure, ma è possibile crearle mediante l'[interfaccia della riga di comando di Azure](../../../cloud-shell/overview.md?view=azure-cli-latest).  
+3. [Creare regole in uscita](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Attualmente non è possibile creare regole in uscita dal portale di Azure, ma è possibile crearle mediante l'[interfaccia della riga di comando di Azure](../../../cloud-shell/overview.md?view=azure-cli-latest).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup

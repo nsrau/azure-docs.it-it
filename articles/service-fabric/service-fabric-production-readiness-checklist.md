@@ -3,12 +3,12 @@ title: Elenco di controllo per l'idoneità per la produzione di Azure Service Fa
 description: Preparare l'applicazione e il cluster di Service Fabric per la produzione seguendo le procedure consigliate.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: cf5245b4b97706703d9f96e047ecb49786ff6266
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a03df40a8ce213c5de9ed7017d47713c4de3449d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282059"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835868"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione
 
@@ -35,7 +35,7 @@ L'applicazione e il cluster sono pronti ad accettare il traffico della produzion
 1. Definire un Obiettivo del punto di ripristino (RPO) per il servizio, configurare un [processo di ripristino di emergenza](service-fabric-disaster-recovery.md) e testarlo.
 1. Pianificare il [ridimensionamento](service-fabric-cluster-scaling.md) del cluster manualmente o a livello di codice.
 1. Pianificare l'[applicazione di patch](service-fabric-patch-orchestration-application.md) ai nodi del cluster. 
-1. Configurare una pipeline di integrazione continua/distribuzione continua (CI/CD) in modo che le modifiche più recenti vengano continuamente testate, Ad esempio, usando [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+1. Configurare una pipeline di integrazione continua/distribuzione continua (CI/CD) in modo che le modifiche più recenti vengano continuamente testate, Ad esempio, usando [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)
 1. Testare i cluster di sviluppo e gestione temporanea in condizioni di carico con il [servizio di analisi degli errori](service-fabric-testability-overview.md) e indurre una condizione di [chaos](service-fabric-controlled-chaos.md) in un ambiente controllato. 
 1. Pianificare il [ridimensionamento](service-fabric-concepts-scalability.md) delle applicazioni. 
 

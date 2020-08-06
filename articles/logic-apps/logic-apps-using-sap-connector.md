@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086609"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833896"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -128,7 +128,7 @@ Questi prerequisiti si applicano quando le app per la logica vengono eseguite in
 
 * Per impostazione predefinita, il programma di installazione di SAP inserisce i file di assembly nella cartella di installazione predefinita. È necessario copiare i file di assembly in un altro percorso, in base allo scenario seguente:
 
-  Per le app per la logica eseguite in un ISE, seguire i passaggi descritti in Prerequisiti per l' [ambiente del servizio di integrazione](#sap-ise). Per le app per la logica eseguite in Azure multi-tenant e usano il gateway dati locale, copiare i file di assembly dalla cartella di installazione predefinita alla cartella di installazione del gateway dati. Se si verificano problemi con il gateway dati, esaminare i problemi seguenti:
+  * Per le app per la logica eseguite in un ISE, seguire i passaggi descritti in Prerequisiti per l' [ambiente del servizio di integrazione](#sap-ise). Per le app per la logica eseguite in Azure multi-tenant e usano il gateway dati locale, copiare i file di assembly dalla cartella di installazione predefinita alla cartella di installazione del gateway dati. Se si verificano problemi con il gateway dati, esaminare i problemi seguenti:
 
   * È necessario installare la versione a 64 bit per la libreria client SAP perché il gateway dati viene eseguito solo su sistemi a 64 bit. In caso contrario, viene visualizzato l'errore "immagine non valida" perché il servizio host del gateway dati non supporta gli assembly a 32 bit.
 
@@ -532,7 +532,7 @@ Per inviare IDocs da SAP all'app per la logica, è necessaria la configurazione 
 
 1. Salvare le modifiche.
 
-1. Per testare la connessione, selezionare **test di connessione** .
+1. Per testare la connessione, selezionare **test di connessione**.
 
 #### <a name="create-receiver-port"></a>Crea porta ricevitore
 
@@ -727,7 +727,10 @@ Nell'esempio seguente viene riportata una chiamata RFC con un parametro table co
 
 ```
 
-Nell'esempio seguente sono inclusi i prefissi per gli spazi dei nomi. È possibile dichiarare tutti i prefissi contemporaneamente oppure è possibile dichiarare qualsiasi quantità di prefissi come attributi di un nodo. L'alias dello spazio dei nomi RFC `ns0` viene usato come radice e parametri per il tipo di base. Si noti che i tipi complessi vengono dichiarati in uno spazio dei nomi diverso per i tipi RFC con l'alias `ns3` invece dello spazio dei nomi RFC normale con l'alias `ns0` .
+Nell'esempio seguente sono inclusi i prefissi per gli spazi dei nomi. È possibile dichiarare tutti i prefissi contemporaneamente oppure è possibile dichiarare un numero qualsiasi di prefissi come attributi di un nodo. L'alias dello spazio dei nomi RFC `ns0` viene usato come radice e parametri per il tipo di base.
+
+> [!NOTE]
+> i tipi complessi vengono dichiarati in uno spazio dei nomi diverso per i tipi RFC con l'alias `ns3` invece dello spazio dei nomi RFC normale con l'alias `ns0` .
 
 ```xml
 
@@ -883,7 +886,7 @@ L'esempio seguente è un record di dati di esempio con segmenti semplici. Questo
 
 ```
 
-Nell'esempio seguente viene riportato un record di dati con segmenti raggruppati. Sono inclusi un nodo padre del gruppo, `E2EDKT1002GRP` , e più nodi figlio, tra cui `E2EDKT1002` e `E2EDKT2001` . 
+Nell'esempio seguente viene riportato un record di dati con segmenti raggruppati. Il record include un nodo padre del gruppo, `E2EDKT1002GRP` , e più nodi figlio, tra cui `E2EDKT1002` e `E2EDKT2001` . 
 
 ```xml
 
@@ -900,7 +903,7 @@ Nell'esempio seguente viene riportato un record di dati con segmenti raggruppati
 
 ```
 
-Il metodo consigliato consiste nel creare un identificatore IDoc per l'uso con tRFC. È possibile impostare questo identificatore di transazione, `tid` , usando l' [operazione Send IDOC](https://docs.microsoft.com/connectors/sap/#send-idoc) nell'API del connettore SAP.
+Il metodo consigliato consiste nel creare un identificatore IDoc per l'uso con tRFC. È possibile impostare questo identificatore di transazione, `tid` , usando l' [operazione Send IDOC](/connectors/sap/#send-idoc) nell'API del connettore SAP.
 
 L'esempio seguente è un metodo alternativo per impostare l'identificatore della transazione o `tid` . In questo esempio, l'ultimo nodo del segmento record di dati e il nodo dati IDoc sono chiusi. Il GUID, `guid` , viene quindi usato come identificatore tRFC per rilevare i duplicati. 
 
@@ -1172,7 +1175,7 @@ Se si verifica un problema con IDocs duplicati inviati a SAP dall'app per la log
 1. Nell'editor per l'azione **conferma ID transazione**configurare le impostazioni seguenti. Salvare quindi le modifiche.
     1. Per **ID transazione**, immettere di nuovo il nome della variabile. Ad esempio: `IDOCtransferID`.
 
-## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
+## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
 Di seguito sono riportati i problemi e le limitazioni attualmente noti per il connettore SAP gestito (non ISE):
 

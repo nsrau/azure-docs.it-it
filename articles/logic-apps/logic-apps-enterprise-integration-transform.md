@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da583a1c884ddcae0815849c43dc0eb335005e53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072429"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832740"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Creare mappe per trasformare i dati XML tra i formati in App per la logica di Azure con Enterprise Integration Pack
 
@@ -36,7 +36,7 @@ Dopo aver caricato il file della trasformazione/mappa nell'account di integrazio
 
 Una volta soddisfatti i requisiti, è ora di creare l'app per la logica:  
 
-1. Creare un'app per la logica e [collegarla all'account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md "Informazioni su come collegare un account di integrazione a un'app per la logica") che contiene la mappa.
+1. Creare un'app per la logica e [collegarla all'account di integrazione](./logic-apps-enterprise-integration-create-integration-account.md "Informazioni su come collegare un account di integrazione a un'app per la logica") che contiene la mappa.
 2. Aggiungere un trigger **Richiesta** all'app per la logica.  
    ![Screenshot dell'elenco a discesa "Mostra API gestite da Microsoft" con il trigger di richiesta selezionato. L'elenco a discesa si trova in un'app per la logica creata con Visual Studio Enterprise Integration SDK.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Aggiungere l'azione **Trasforma XML** selezionando prima **Aggiungi un'azione**   
@@ -136,4 +136,3 @@ Per impostazione predefinita, la risposta ottenuta dalla trasformazione inizia c
 ## <a name="learn-more"></a>Altre informazioni
 * [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack")  
 * [Altre informazioni sulle mappe](../logic-apps/logic-apps-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")  
-

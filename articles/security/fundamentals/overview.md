@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d00b897f41ab00f0e3c23292eeb5f431bf5c070c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543827"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835936"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -138,7 +138,7 @@ In Diagnostica applicazioni è possibile visualizzare gli eventi raggruppandoli 
 -   Errori dell'applicazione (vengono visualizzati gli eventi di eccezione)
 -   Prestazioni (vengono visualizzati gli eventi prestazioni)
 
-## <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione:
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle risorse di archiviazione di Azure e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
@@ -336,7 +336,7 @@ Per gestire le identità e l'accesso, Microsoft usa più procedure e tecnologie 
 
 -   L'[autenticazione basata su token](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) consente l'autenticazione tramite Azure Active Directory.
 
--   Il [controllo degli accessi in base al ruolo](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) consente di concedere l'accesso in base al ruolo assegnato all'utente, garantendo facilmente agli utenti solo il livello di accesso necessario per svolgere le proprie mansioni. È possibile personalizzare il controllo degli accessi in base al ruolo per il modello aziendale e la tolleranza al rischio dell'organizzazione.
+-   Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) consente di concedere l'accesso in base al ruolo assegnato all'utente, semplificando la concessione agli utenti solo della quantità di accesso necessaria per svolgere le proprie mansioni. È possibile personalizzare il controllo degli accessi in base al ruolo per il modello aziendale e la tolleranza al rischio dell'organizzazione.
 
 -   La [soluzione ibrida (integrata) di gestione delle identità](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) consente di mantenere il controllo sull'accesso degli utenti nei data center interni e nelle piattaforme cloud creando una singola identità utente per l'autenticazione e l'autorizzazione in tutte le risorse.
 

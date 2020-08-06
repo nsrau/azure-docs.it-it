@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963207"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835987"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametri del server nel database di Azure per MySQL
 
@@ -197,6 +197,21 @@ Per altre informazioni su questo parametro, esaminare la [documentazione di MySQ
 |Con ottimizzazione per la memoria|8|0|0|134217728|
 |Con ottimizzazione per la memoria|16|0|0|134217728|
 |Con ottimizzazione per la memoria|32|0|0|134217728|
+
+### <a name="lower_case_table_names"></a>lower_case_table_names
+
+Per impostazione predefinita, il lower_case_table_name è impostato su 1 ed è possibile aggiornare questo parametro in MySQL 5,6 e MySQL 5,7
+
+Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
+
+> [!NOTE]
+> In MySQL 8,0 il lower_case_table_name è impostato su 1 per impostazione predefinita e non è possibile modificarlo.
+
+### <a name="innodb_strict_mode"></a>innodb_strict_mode
+
+Se viene visualizzato un errore simile a "dimensioni di riga troppo grandi (> 8126)", potrebbe essere necessario disattivare il parametro **innodb_strict_mode**. Il parametro Server **innodb_strict_mode** non può essere modificato globalmente a livello di server perché le dimensioni dei dati delle righe sono maggiori di 8K, i dati verranno troncati senza errori che comportano una potenziale perdita di dati. Si consiglia di modificare lo schema in modo che corrisponda al limite delle dimensioni della pagina. 
+
+Questo parametro può essere impostato a livello di sessione usando `init_connect` . Per impostare **innodb_strict_mode** a livello di sessione, fare riferimento a [parametro impostazione non elencato](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 

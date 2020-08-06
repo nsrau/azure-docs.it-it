@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 3af4387723f74c1e09597564bc5330183fe1df69
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: a49d1cc47515e698737bf833af09d30da16712a6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439453"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832326"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenzioni di denominazione per le dimensioni delle macchine virtuali di Azure
 
@@ -25,11 +25,10 @@ Questa pagina descrive le convenzioni di denominazione usate per le macchine vir
 
 |valore | Spiegazione|
 |---|---|
-| Standard, di base o sperimentale | "Standard" è il valore predefinito assegnato per tutte le dimensioni delle VM GA | 
 | Famiglia | Indica la serie di famiglie di macchine virtuali| 
 | * Sottofamiglia | Usato solo per differenziazioni specifiche delle macchine virtuali|
 | n. di vCPU| Indica il numero di vCPU della macchina virtuale |
-| Funzionalità additive | Una o più lettere minuscole indicano funzionalità additive, ad esempio: <br> a = processore basato su AMD <br> d = disco (il disco temporaneo locale è presente); per le macchine virtuali di Azure più recenti, vedere [Ddv4 e serie Ddsv4](./ddv4-ddsv4-series.md) <br> h = ibernazione in grado di supportare <br> i = dimensioni isolate <br> l = memoria insufficiente; quantità inferiore di memoria rispetto alle dimensioni a elevato utilizzo di memoria <br> m = elevato utilizzo di memoria; maggiore quantità di memoria in una determinata dimensione <br> t = memoria minima; quantità minima di memoria in una determinata dimensione <br> r = RDMA in grado di supportare <br> s = archiviazione Premium, incluso possibile uso di [ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) (Nota: alcune dimensioni più recenti senza l'attributo s possono comunque supportare l'archiviazione Premium, ad esempio M128, m64 e così via).<br> |
+| Funzionalità additive | Una o più lettere minuscole indicano funzionalità additive, ad esempio: <br> a = processore basato su AMD <br> d = disco (il disco temporaneo locale è presente); per le macchine virtuali di Azure più recenti, vedere [Ddv4 e serie Ddsv4](./ddv4-ddsv4-series.md) <br> h = ibernazione in grado di supportare <br> i = dimensioni isolate <br> l = memoria insufficiente; quantità inferiore di memoria rispetto alle dimensioni a elevato utilizzo di memoria <br> m = elevato utilizzo di memoria; maggiore quantità di memoria in una determinata dimensione <br> t = memoria minima; quantità minima di memoria in una determinata dimensione <br> r = RDMA in grado di supportare <br> s = archiviazione Premium, incluso possibile uso di [ultra SSD](./windows/disks-types.md#ultra-disk) (Nota: alcune dimensioni più recenti senza l'attributo s possono comunque supportare l'archiviazione Premium, ad esempio M128, m64 e così via).<br> |
 | * Tipo di acceleratore | Indica il tipo di acceleratore hardware negli SKU specializzati/GPU. Solo i nuovi SKU specializzati/GPU avviati dal terzo trimestre 2020 avranno il tasto di scelta rapida hardware nel nome. |
 | Versione | Indica la versione della serie della famiglia di VM |
 
@@ -69,4 +68,4 @@ Questa pagina descrive le convenzioni di denominazione usate per le macchine vir
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle [dimensioni delle macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) disponibili in Azure. 
+Altre informazioni sulle [dimensioni delle macchine virtuali](./sizes.md) disponibili in Azure. 

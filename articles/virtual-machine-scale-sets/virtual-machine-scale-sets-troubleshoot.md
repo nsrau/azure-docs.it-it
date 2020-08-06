@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029434"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830683"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Risoluzione dei problemi di scalabilità automatica con set di scalabilità di macchine virtuali
 **Problema**: è stata creata un'infrastruttura per il ridimensionamento automatico in Azure Resource Manager tramite set di scalabilità di macchine virtuali di Azure, ad esempio distribuendo un modello simile al seguente: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. Le regole di scalabilità impostate  funzionano ma, indipendentemente dal carico delle VM, il ridimensionamento automatico non funziona.
@@ -23,7 +23,7 @@ ms.locfileid: "87029434"
 Alcuni aspetti da considerare:
 
 * Quanti vCPU sono presenti in ogni macchina virtuale e viene caricato ogni singolo vCPU?
-  Il modello di avvio rapido di Azure di esempio riportato sopra ha uno script do_work.php, che carica un singolo vCPU. Se si usa una macchina virtuale di dimensioni superiori a quelle di una macchina virtuale a vCPU singolo come Standard_A1 o D1, è necessario eseguire il carico più volte. Per verificare il numero di vCPU delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  Il modello di avvio rapido di Azure di esempio riportato sopra ha uno script do_work.php, che carica un singolo vCPU. Se si usa una macchina virtuale di dimensioni superiori a quelle di una macchina virtuale a vCPU singolo come Standard_A1 o D1, è necessario eseguire il carico più volte. Per verificare il numero di vCPU delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Quante VM sono presenti nel set di scalabilità di macchine virtuali? Vengono eseguite operazioni su ogni VM?
   
     Un aumento del numero di istanze ha luogo unicamente quando l'uso medio della CPU tra **tutte** le macchine virtuali in un set di scalabilità supera il valore di soglia, in base al tempo definito all'interno delle regole di scalabilità automatica.
