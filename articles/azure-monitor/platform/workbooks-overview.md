@@ -8,16 +8,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 044786d6a6aa4f9f3d163090c0edfa3832023b10
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116940"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799566"
 ---
 # <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
 
 Le cartelle di lavoro di forniscono un'area di disegno flessibile per l'analisi dei dati e la creazione di report visivi avanzati all'interno del portale di Azure. Consentono di accedere a più origini dati da Azure e combinarle in esperienze interattive unificate. 
+
+Ecco una procedura dettagliata video sulla creazione di cartelle di lavoro.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
 ## <a name="data-sources"></a>Origini dati
 
@@ -28,7 +32,7 @@ Ma la vera potenza delle cartelle di lavoro è la possibilità di combinare i da
 Le cartelle di lavoro sono attualmente compatibili con le origini dati seguenti:
 
 * [Log](workbooks-data-sources.md#logs)
-* [Metriche](workbooks-data-sources.md#metrics)
+* [Metrics](workbooks-data-sources.md#metrics) (Metriche)
 * [Diagramma delle risorse di Azure](workbooks-data-sources.md#azure-resource-graph)
 * [Avvisi (anteprima)](workbooks-data-sources.md#alerts-preview)
 * [Stato del carico di lavoro](workbooks-data-sources.md#workload-health)
@@ -39,10 +43,10 @@ Le cartelle di lavoro sono attualmente compatibili con le origini dati seguenti:
 
 Le cartelle di lavoro di offrono un set completo di funzionalità per la visualizzazione dei dati. Per esempi dettagliati di ogni tipo di visualizzazione, è possibile consultare i collegamenti di esempio seguenti:
 
-* [Testo](workbooks-visualizations.md#text)
+* [Text](workbooks-visualizations.md#text)
 * [Grafici](workbooks-visualizations.md#charts)
 * [Griglie](workbooks-visualizations.md#grids)
-* [Piastrelle](workbooks-visualizations.md#tiles)
+* [Riquadri](workbooks-visualizations.md#tiles)
 * [Trees](workbooks-visualizations.md#trees)
 * [Grafici](workbooks-visualizations.md#graphs)
 

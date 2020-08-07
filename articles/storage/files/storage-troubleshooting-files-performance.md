@@ -1,18 +1,18 @@
 ---
 title: Guida alla risoluzione dei problemi delle prestazioni File di Azure
-description: Problemi noti relativi alle prestazioni delle condivisioni file di Azure e delle soluzioni alternative associate.
+description: Risolvere i problemi di prestazioni noti con le condivisioni file di Azure. Individuare le possibili cause e le soluzioni alternative associate quando si verificano questi problemi.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511951"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905015"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -30,7 +30,7 @@ Per verificare se la condivisione è stata limitata, è possibile sfruttare le m
 
 1. Selezionare **tutti i servizi** e quindi cercare **metrica**.
 
-1. Selezionare **metrica**.
+1. Selezionare **Metriche**.
 
 1. Selezionare l'account di archiviazione come risorsa.
 

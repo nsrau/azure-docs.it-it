@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
-ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373692"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905497"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -131,7 +131,7 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
 
     In alternativa, è possibile usare gli script init se si continuano a risolvere i problemi di installazione con le librerie di Python. Questo approccio non è ufficialmente supportato. Per altre informazioni, vedere [script init con ambito cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Errore di importazione di databricks: Impossibile importare il nome "timedelta" da "Pandas. _libs. tslibs"**: se viene visualizzato questo errore quando si usa Machine Learning automatico, eseguire le due righe seguenti nel notebook:
+* **Errore `Timedelta` di importazione `pandas._libs.tslibs` di databricks: non è possibile importare il nome da **: se viene visualizzato questo errore quando si usa Machine Learning automatico, eseguire le due righe seguenti nel notebook:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -169,7 +169,7 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
   * Chrome (versione più recente)
   * Firefox (versione più recente)
 
-## <a name="set-up-your-environment"></a>Configurare l'ambiente
+## <a name="set-up-your-environment"></a>Configura il tuo ambiente
 
 * **Problemi di creazione di AmlCompute**: esiste una rara possibilità che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dal portale di Azure prima della versione GA potrebbero non essere in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
 
@@ -196,7 +196,7 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 
 ### <a name="data-labeling-projects"></a>Progetti di assegnazione di etichette ai dati
 
-|Problema  |Soluzione  |
+|Problema  |Risoluzione  |
 |---------|---------|
 |È possibile usare solo i set di dati creati negli archivi dati BLOB.     |  Si tratta di un limite noto della versione corrente.       |
 |Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo.     | Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto.         |
@@ -219,7 +219,7 @@ Limitazioni e problemi noti per i monitoraggi della deriva dei dati:
     | Categorical | String, bool, int, float | Il numero di valori univoci nella funzionalità è minore di 100 e minore del 5% del numero di righe. | Il valore null viene considerato come una categoria specifica. | 
     | Numerico | int, float | I valori nella funzionalità sono di un tipo di dati numerico e non soddisfano la condizione per una funzionalità categorica. | Funzionalità eliminata se >15% dei valori sono null. | 
 
-* Quando è stato [creato un monitoraggio datadrift](how-to-monitor-datasets.md) ma non è possibile visualizzare i dati nella pagina **monitoraggi del set** di dati in Azure Machine Learning Studio, provare a eseguire le operazioni seguenti.
+* Quando è stato [creato un monitoraggio della deriva dei dati](how-to-monitor-datasets.md) , ma non è possibile visualizzare i dati nella pagina **monitoraggi del set** di dati in Azure Machine Learning Studio, provare a eseguire le operazioni seguenti.
 
     1. Controllare se è stato selezionato l'intervallo di date corretto nella parte superiore della pagina.  
     1. Nella scheda **monitoraggi set di dati** selezionare il collegamento esperimento per controllare lo stato dell'esecuzione.  Questo collegamento si trova all'estrema destra della tabella.
@@ -283,7 +283,7 @@ time.sleep(600)
 
 ## <a name="automated-machine-learning"></a>Funzionalità automatizzate di Machine Learning
 
-* **TensorFlow**: a partire dalla versione 1.5.0 dell'SDK, Machine Learning automatico non installa i modelli TensorFlow per impostazione predefinita. Per installare tensorflow e usarlo con gli esperimenti di Machine Learning automatici, installare tensorflow = = 1.12.0 tramite CondaDependecies. 
+* **TensorFlow**: a partire dalla versione 1.5.0 dell'SDK, Machine Learning automatico non installa i modelli TensorFlow per impostazione predefinita. Per installare TensorFlow e usarlo con gli esperimenti di Machine Learning automatici, installare TensorFlow = = 1.12.0 tramite CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -307,7 +307,7 @@ time.sleep(600)
 
 Eseguire queste azioni per gli errori seguenti:
 
-|Errore  | Soluzione  |
+|Errore  | Risoluzione  |
 |---------|---------|
 |Errore di compilazione dell'immagine durante la distribuzione del servizio Web     |  Aggiungere "pynacl = = 1.2.1" come dipendenza pip al file conda per la configurazione dell'immagine       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Modificare lo SKU per le macchine virtuali usate nella distribuzione in uno con una maggiore quantità di memoria. |
@@ -373,7 +373,7 @@ Ad esempio, si riceverà un errore se si prova a creare o collegare una destinaz
 
 Il controllo degli accessi in base al ruolo di Azure può essere usato per limitare le azioni che è possibile eseguire con Azure Machine Learning. Queste restrizioni possono impedire la visualizzazione degli elementi dell'interfaccia utente in Azure Machine Learning Studio. Se ad esempio viene assegnato un ruolo che non è in grado di creare un'istanza di calcolo, l'opzione per creare un'istanza di calcolo non verrà visualizzata in studio.
 
-Per ulteriori informazioni, vedere [Manage Users and Roles](how-to-assign-roles.md).
+Per altre informazioni, vedere [Gestire utenti e ruoli](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -382,5 +382,5 @@ Vedere altri articoli sulla risoluzione dei problemi per Azure Machine Learning:
 * [Risoluzione dei problemi di distribuzione di Docker con Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Debug di pipeline di Machine Learning](how-to-debug-pipelines.md)
 * [Eseguire il debug della classe ParallelRunStep dall'SDK Azure Machine Learning](how-to-debug-parallel-run-step.md)
-* [Debug interattivo di un'istanza di calcolo di Machine Learning con VS Code](how-to-set-up-vs-code-remote.md)
+* [Debug interattivo di un'istanza di calcolo di Machine Learning con VS Code](how-to-debug-visual-studio-code.md)
 * [Usare Application Insights per eseguire il debug di pipeline di Machine Learning](how-to-debug-pipelines-application-insights.md)

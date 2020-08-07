@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cb9c851ca33aa6eeb6d0fe0576f98ecb0693be02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999303"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903324"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modelli di soluzioni di Analisi di flusso di Azure
 
@@ -86,17 +86,12 @@ Per gli utenti avanzati che vogliono incorporare i corsi di formazione online e 
 
 ![App Machine Learning ASA](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
-## <a name="near-real-time-data-warehousing"></a>Data warehousing quasi in tempo reale
+## <a name="real-time-data-warehousing"></a>Data warehousing in tempo reale
 
-Un altro modello comune è il data warehouse in tempo reale, detto anche data warehouse di streaming. Oltre agli eventi che arrivano all'hub eventi e all'hub delle cose dall'applicazione, [analisi di flusso di Azure in esecuzione in IOT Edge](stream-analytics-edge.md) può essere usato per soddisfare la pulizia dei dati, la riduzione dei dati e le esigenze di archiviazione dati e in avanti. Analisi di flusso in esecuzione in IoT Edge può gestire normalmente problemi di connettività e limitazione della larghezza di banda nel sistema. È possibile utilizzare l'adattatore di output SQL per restituire SQL Data Warehouse; Tuttavia, la velocità effettiva massima è limitata a 10 MB/s.
+Un altro modello comune è il data warehouse in tempo reale, detto anche data warehouse di streaming. Oltre agli eventi che arrivano all'hub eventi e all'hub delle cose dall'applicazione, [analisi di flusso di Azure in esecuzione in IOT Edge](stream-analytics-edge.md) può essere usato per soddisfare la pulizia dei dati, la riduzione dei dati e le esigenze di archiviazione dati e in avanti. Analisi di flusso in esecuzione in IoT Edge può gestire normalmente problemi di connettività e limitazione della larghezza di banda nel sistema. Analisi di flusso può supportare velocità effettiva fino a 200 MB/sec durante la scrittura in Azure sinapsi Analytics.
 
 ![Data warehousing ASA](media/stream-analytics-solution-patterns/data-warehousing.png)
 
-Un modo per migliorare la velocità effettiva con un compromesso di latenza consiste nell'archiviare gli eventi nell'archiviazione BLOB di Azure e quindi [importarli in SQL data warehouse con la](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)modalità di base. È necessario unire manualmente l'output dall'analisi di flusso all'archiviazione BLOB e l'input dall'archiviazione BLOB a SQL Data Warehouse [archiviando i dati in base al timestamp](stream-analytics-custom-path-patterns-blob-storage-output.md) e importando periodicamente.
-
-In questo modello di utilizzo, analisi di flusso di Azure viene usato come motore ETL quasi in tempo reale. Gli eventi di nuovo arrivo vengono continuamente trasformati e archiviati per l'utilizzo del servizio di analisi downstream.
-
-![Data warehousing ad alta velocità effettiva ASA](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## <a name="archiving-real-time-data-for-analytics"></a>Archiviazione dei dati in tempo reale per l'analisi
 

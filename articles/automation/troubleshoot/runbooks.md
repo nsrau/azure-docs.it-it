@@ -6,12 +6,12 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9bf04ae6985ac2ce0e20bf70b3d7c003bbddca69
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337297"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904803"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
 
@@ -413,13 +413,13 @@ $job = Start-AzAutomationRunbook -AutomationAccountName $automationAccountName -
 $pollingSeconds = 5
 $maxTimeout = 10800
 $waitTime = 0
-while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+while($false -eq (IsJobTerminalState $job.Status) -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $jobResults = $job | Get-AzAutomationJob
+   $job = $job | Get-AzAutomationJob
 }
 
-$jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+$job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
 ## <a name="scenario-runbook-fails-because-of-deserialized-object"></a><a name="fails-deserialized-object"></a>Scenario: il runbook ha esito negativo a causa di un oggetto deserializzato
@@ -522,7 +522,7 @@ The runbook job failed due to a job stream being larger than 1MB, this is the li
 
 Questo errore si verifica perché il Runbook ha tentato di scrivere una quantità eccessiva di dati di eccezione nel flusso di output.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Il flusso di output del processo prevede un limite di 1 MB. Verificare che il runbook includa le chiamate a un eseguibile o a un sottoprocesso usando i blocchi `try` e `catch`. Se le operazioni generano un'eccezione, fare in modo che il codice scriva il messaggio generato dall'eccezione in una variabile di Automazione. Grazie a questo accorgimento, il messaggio non verrà scritto nel flusso di output del processo. Per i processi di lavoro ibrido per Runbook eseguiti, il flusso di output troncato a 1 MB viene visualizzato senza messaggio di errore.
 
@@ -548,7 +548,7 @@ Questo errore si verifica per uno dei problemi seguenti:
 
 * **Nessuna autenticazione con Active Directory per sandbox**. Il runbook ha tentato di chiamare un eseguibile o un sottoprocesso in esecuzione in una sandbox di Azure. La configurazione dei runbook per l'autenticazione con Azure AD tramite la libreria ADAL (Active Directory Authentication Library) di Azure non è supportata.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 * **Limite di memoria, socket di rete**. Per assicurarsi di rispettare i limiti di memoria, è ad esempio consigliabile dividere il carico di lavoro tra diversi runbook, elaborare una quantità minore di dati in memoria, evitare di scrivere di output non necessari dai runbook, tenere in considerazione il numero di checkpoint scritti nei runbook del flusso di lavoro PowerShell. Usare il metodo di cancellazione, ad esempio `$myVar.clear`, per cancellare la variabile e usare `[GC]::Collect` per eseguire immediatamente Garbage Collection, in modo da ridurre il footprint della memoria durante l'esecuzione dei runbook.
 
@@ -572,7 +572,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 Questo errore può indicare che i runbook in esecuzione in una sandbox di Azure non possono essere eseguiti in [modalità FullLanguage](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 È possibile risolvere questo problema in due modi:
 
@@ -597,7 +597,7 @@ Si tratta di un comportamento predefinito nelle sandbox di Azure, determinato da
 
 Il runbook ha superato il limite di esecuzione di tre ore consentito dalla condivisione equa in una sandbox di Azure.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Una soluzione consigliata consiste nell'eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md). I ruoli di lavoro ibridi non sono vincolati al limite di tre ore che la condivisione equa impone sui runbook nelle sandbox di Azure. I runbook che vengono eseguiti in ruoli di lavoro ibridi dovrebbero essere sviluppati per supportare comportamenti di riavvio nel caso in cui si verifichino problemi imprevisti nell'infrastruttura locale.
 
@@ -630,7 +630,7 @@ At line:16 char:1
 
 Questo errore si è probabilmente verificato perché è stata usata una migrazione incompleta da AzureRM ai moduli Az nel runbook. A causa di questa situazione, è possibile che Automazione di Azure avvii un processo del runbook usando solo moduli AzureRM e quindi un altro processo usando solo moduli Az, con un conseguente arresto anomalo della sandbox.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Non è consigliabile usare i cmdlet AZ e AzureRM nello stesso runbook. Per altre informazioni sull'uso corretto dei moduli, vedere [Eseguire la migrazione a moduli Az](../shared-resources/modules.md#migrate-to-az-modules).
 
@@ -644,7 +644,7 @@ Quando viene tentata l'esecuzione del runbook o dell'applicazione in una sandbox
 
 Questo problema può verificarsi perché le sandbox di Azure impediscono l'accesso a tutti i server COM out-of-process. Un'applicazione o un runbook in modalità sandbox, ad esempio, non può eseguire chiamate né in Strumentazione gestione Windows (WMI) né nel servizio Windows Installer (MSIServer. exe). 
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Per informazioni dettagliate sull'uso delle sandbox di Azure, vedere [Ambiente di esecuzione runbook](../automation-runbook-execution.md#runbook-execution-environment).
 

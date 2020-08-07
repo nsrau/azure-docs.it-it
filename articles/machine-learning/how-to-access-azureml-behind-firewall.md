@@ -10,22 +10,19 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808117"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873637"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro un firewall per Azure Machine Learning
 
-Questo articolo illustra come configurare il firewall di Azure per l'uso con un'area di lavoro Azure Machine Learning.
+Questo articolo illustra come configurare il firewall di Azure per controllare l'accesso all'area di lavoro Azure Machine Learning e alla rete Internet pubblica.   Per ulteriori informazioni sulla protezione di Azure Machine Learning, vedere [sicurezza aziendale per Azure Machine Learning](concept-enterprise-security.md)
 
-> [!IMPORTANT]
-> Mentre le informazioni contenute in questo documento si basano sull'uso del firewall di Azure, è possibile usarle con altri prodotti firewall. Per domande su come consentire la comunicazione attraverso il firewall, consultare la documentazione relativa al firewall in uso.
-
-Il firewall di Azure può essere usato per controllare l'accesso all'area di lavoro Azure Machine Learning e alla rete Internet pubblica. Se non è configurato correttamente, il firewall può causare problemi usando l'area di lavoro. Sono disponibili diversi nomi host usati entrambi dall'area di lavoro Azure Machine Learning, descritti in questo articolo.
+Mentre le informazioni contenute in questo documento si basano sull'uso del [firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md), è possibile usarle con altri prodotti firewall. Per domande su come consentire la comunicazione attraverso il firewall, consultare la documentazione relativa al firewall in uso.
 
 ## <a name="network-rules"></a>Regole di rete
 
@@ -37,6 +34,8 @@ Nel firewall creare una regola di rete che consenta il traffico da e verso gli i
 > Per altre informazioni sulla configurazione del firewall di Azure, vedere [distribuire e configurare il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Host Microsoft
+
+Se non è configurato correttamente, il firewall può causare problemi usando l'area di lavoro. Sono disponibili diversi nomi host usati sia dall'area di lavoro Azure Machine Learning.
 
 Gli host in questa sezione sono di proprietà di Microsoft e forniscono i servizi richiesti per il corretto funzionamento dell'area di lavoro.
 
@@ -58,6 +57,7 @@ Gli host in questa sezione sono di proprietà di Microsoft e forniscono i serviz
 | **mcr.microsoft.com** | Microsoft Container Registry per le immagini Docker di base |
 | **your-acr-server-name.azurecr.io** | È necessario solo se il Container Registry di Azure è dietro la rete virtuale. In questa configurazione, viene creato un collegamento privato dall'ambiente Microsoft all'istanza di ACR nella sottoscrizione. Usare il nome del server ACR per l'area di lavoro Azure Machine Learning. |
 | **\*. notebooks.azure.net** | Necessaria per i notebook in Azure Machine Learning Studio. |
+
 ## <a name="python-hosts"></a>Host Python
 
 Gli host in questa sezione vengono usati per installare i pacchetti Python. Sono necessari durante lo sviluppo, il training e la distribuzione. 
@@ -79,7 +79,7 @@ Gli host in questa sezione vengono usati per installare i pacchetti R. Sono nece
 | ---- | ---- |
 | **cloud.r-project.org** | Usato quando si installano i pacchetti CRAN. |
 
-Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
-* [[Distribuire e configurare il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)]
+* [Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 * [Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure](how-to-enable-virtual-network.md)

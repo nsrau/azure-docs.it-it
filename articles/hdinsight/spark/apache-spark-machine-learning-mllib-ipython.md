@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: fc5b4843d54c4edd8f0a29393fb6b41468d6a595
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2ab996c3f3310656e7b85dded8e57a129b901660
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084597"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873807"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 
@@ -84,7 +84,7 @@ Usare il contesto Spark per eseguire il pull dei dati CSV non elaborati in memor
     inspections.take(1)
     ```
 
-    L'output è:
+    L'output è il seguente:
 
     ```
     [['413707',
@@ -129,7 +129,7 @@ Usare il contesto Spark per eseguire il pull dei dati CSV non elaborati in memor
     df.show(5)
     ```
 
-    L'output è:
+    L'output è il seguente:
 
     ```
     +------+--------------------+-------+--------------------+
@@ -153,7 +153,7 @@ Ora si determinerà il contenuto del set di dati.
     df.select('results').distinct().show()
     ```
 
-    L'output è:
+    L'output è il seguente:
 
     ```
     +--------------------+
@@ -176,7 +176,7 @@ Ora si determinerà il contenuto del set di dati.
 
     Il comando speciale `%%sql` seguito da `-o countResultsdf` assicura che l'output della query venga mantenuto in locale nel server Jupyter, di solito il nodo head del cluster. L'output viene conservato come frame di dati [Pandas](https://pandas.pydata.org/) con il nome specificato **countResultsdf**. Per altre informazioni sul comando Magic `%%sql` e sugli altri comandi Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
-    L'output è:
+    L'output è il seguente:
 
     ![Output della query SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Output della query SQL")
 
@@ -227,7 +227,7 @@ Ora si determinerà il contenuto del set di dati.
     labeledData.take(1)
     ```
 
-    L'output è:
+    L'output è il seguente:
 
     ```
     [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
@@ -349,7 +349,7 @@ model = pipeline.fit(labeledData)
     plt.axis('equal')
     ```
 
-    Dovrebbe venire visualizzato l'output seguente.
+    Verrà visualizzato l'output seguente:
 
     ![Output dell'applicazione di Machine Learning Spark: percentuali dei grafici a torta di ispezioni non riuscite.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Output del risultato di Machine Learning Spark")
 

@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/05/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 333e48ff963ec42dd2ee00956fa046a5a038c099
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203115"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903783"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintassi di $orderby OData in Azure ricerca cognitiva
 
@@ -50,7 +50,9 @@ sortable_function ::= geo_distance_call | 'search.score()'
 > [!NOTE]
 > Per la EBNF completa, vedere informazioni [di riferimento sulla sintassi delle espressioni OData per Azure ricerca cognitiva](search-query-odata-syntax-reference.md) .
 
-Ogni clausola ha criteri di ordinamento, seguiti facoltativamente da una direzione di ordinamento ( `asc` per l'ordine crescente o `desc` decrescente). Se non si specifica una direzione, il valore predefinito è Ascending. I criteri di ordinamento possono essere il percorso di un `sortable` campo o una chiamata alle [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) funzioni o.
+Ogni clausola ha criteri di ordinamento, seguiti facoltativamente da una direzione di ordinamento ( `asc` per l'ordine crescente o `desc` decrescente). Se non si specifica una direzione, il valore predefinito è Ascending. Se sono presenti valori null nel campo, i valori null vengono visualizzati per primi se l'ordinamento è `asc` e l'ultimo se l'ordinamento è `desc` .
+
+I criteri di ordinamento possono essere il percorso di un `sortable` campo o una chiamata alle [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) funzioni o.
 
 Se più documenti hanno gli stessi criteri di ordinamento e la `search.score` funzione non viene usata (ad esempio, se si ordina in base a un `Rating` campo numerico e tre documenti hanno una classificazione pari a 4), i vincoli verranno interrotti dal punteggio del documento in ordine decrescente. Quando i punteggi dei documenti sono uguali, ad esempio quando nella richiesta non è specificata una query di ricerca full-text, l'ordine relativo dei documenti collegati è indeterminato.
 
