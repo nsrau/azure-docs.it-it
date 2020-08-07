@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087759"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926808"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiare i dati dal server HDFS usando Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-hdfs-connector.md)
 > * [Versione corrente](connector-hdfs.md)
@@ -47,7 +48,7 @@ In particolare, il connettore HDFS supporta:
 > [!NOTE]
 > Verificare che il runtime di integrazione possa accedere a *tutti* i [nome server del nodo]: [porta del nodo nome] e [server del nodo dati]: [porta del nodo dati] del cluster Hadoop. Il valore predefinito [porta del nodo dei nomi] è 50070 e il valore predefinito [porta del nodo dati] è 50075.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -253,10 +254,10 @@ Per usare DistCp per copiare i file così come sono da HDFS nell'archivio BLOB d
 
 * I servizi MapReduce e YARN sono abilitati.  
 * La versione di YARN è 2,5 o successiva.  
-* Il server HDFS è integrato con l'archivio dati di destinazione: archiviazione BLOB di Azure o Azure Data Lake Store:  
+* Il server HDFS è integrato con l'archivio dati di destinazione: **archiviazione BLOB di Azure** o **Azure Data Lake Store (ADLS Gen1)**: 
 
     - Il FileSystem di BLOB di Azure è supportato in modo nativo a partire da Hadoop 2.7. È necessario solo specificare il percorso del file JAR nella configurazione dell'ambiente Hadoop.
-    - Il FileSystem di Azure Data Lake Store è disponibile come pacchetto a partire da Hadoop 3.0.0-alpha1. Se la versione del cluster Hadoop è precedente alla versione, è necessario importare manualmente i pacchetti JAR correlati a Azure Data Lake Storage Gen2 (Azure-datalake-Store. jar) nel cluster da [qui](https://hadoop.apache.org/releases.html)e specificare il percorso del file jar nella configurazione dell'ambiente Hadoop.
+    - Il FileSystem di Azure Data Lake Store è disponibile come pacchetto a partire da Hadoop 3.0.0-alpha1. Se la versione del cluster Hadoop è precedente alla versione, è necessario importare manualmente i pacchetti JAR correlati a Azure Data Lake Store (Azure-datalake-Store. jar) nel cluster da [qui](https://hadoop.apache.org/releases.html)e specificare il percorso del file jar nella configurazione dell'ambiente Hadoop.
 
 * Preparare una cartella temporanea in HDFS. Questa cartella temporanea viene usata per archiviare uno script della shell DistCp, quindi occuperà lo spazio a livello di KB.
 * Assicurarsi che l'account utente fornito nel servizio collegato HDFS disponga delle autorizzazioni per:

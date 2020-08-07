@@ -1,17 +1,17 @@
 ---
 title: Esaminare i dati di fatturazione della sottoscrizione di Azure con l'API REST
-description: Informazioni su come usare le API REST di Azure per esaminare i dettagli di fatturazione della sottoscrizione.
+description: Informazioni su come usare le API REST di Azure per esaminare i dettagli di fatturazione della sottoscrizione. È possibile usare i filtri per personalizzare i risultati.
 author: lleonard-msft
 ms.service: cost-management-billing
 ms.topic: article
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 7b80bd57906515ffeb0ff9e8ac52cf7178f5ccd8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ac5bbc1d93347654cea118ea9521d6074a9af7c8
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202808"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461834"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Esaminare la fatturazione della sottoscrizione con le API REST
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 9d49ea99b97411e15d3f264057c865219e4d63c4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7684933a7671f1f3d573cb8195551a56ebc27947
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853501"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925822"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento rete durante il training & inferenza con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* database SQL di Azure
+* Database SQL di Azure
 
 ### <a name="add-resources-to-the-virtual-network"></a>Aggiungere risorse alla rete virtuale 
 
@@ -129,7 +129,7 @@ Per impostare una nuova risorsa di archiviazione predefinita per una pipeline:
 
 È possibile utilizzare gli elenchi di controllo di accesso (ACL) di tipo RBAC e POSIX per controllare l'accesso ai dati all'interno di una rete virtuale.
 
-Per utilizzare il controllo degli accessi in base al ruolo, aggiungere l'identità gestita dell'area di lavoro al ruolo [lettore dati](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+Per utilizzare il controllo degli accessi in base al ruolo, aggiungere l'identità gestita dell'area di lavoro al ruolo [lettore dati](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
 
 Per usare gli ACL, è possibile assegnare l'accesso all'identità gestita dell'area di lavoro in modo analogo a qualsiasi altro principio di sicurezza. Per altre informazioni, vedere [elenchi di controllo di accesso per file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -203,7 +203,7 @@ Per impostazione predefinita, Azure Machine Learning esegue la validità dei dat
 - Archiviazione BLOB di Azure
 - Condivisione file di Azure
 - PostgreSQL
-- database SQL di Azure
+- Database SQL di Azure
 
 L'esempio di codice seguente crea un nuovo archivio dati BLOB di Azure e imposta `skip_validation=True` .
 

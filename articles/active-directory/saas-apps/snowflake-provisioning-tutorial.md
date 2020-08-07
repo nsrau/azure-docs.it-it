@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c43d3dd0c8a0d9f6d31d8e379fd195adfd7873f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016317"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925414"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: configurare fiocco di neve per il provisioning utenti automatico
 
@@ -52,7 +52,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e fiocco di neve](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare fiocco di neve per supportare il provisioning con Azure AD
+## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare fiocco di neve per supportare il provisioning con Azure AD
 
 Prima di configurare il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in fiocco di neve.
 
@@ -111,7 +111,7 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-8. Fare clic su **Salva**.
+8. Fare clic su **Save**.
 
 9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a fiocco di neve**.
 
@@ -120,13 +120,13 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
    |Attributo|Type|
    |---|---|
    |active|Boolean|
-   |displayName|Stringa|
-   |emails[type eq "work"].value|Stringa|
-   |userName|Stringa|
+   |displayName|string|
+   |emails[type eq "work"].value|string|
+   |userName|string|
    |name.givenName|string|
    |name.familyName|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultRole|Stringa|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultWarehouse|Stringa|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultRole|string|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultWarehouse|string|
 
 11. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi a fiocco di neve**.
 
@@ -157,7 +157,7 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315446"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921093"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Log di monitoraggio di Azure per i provider di servizi
 
@@ -40,7 +40,7 @@ Ci sono due modi in cui gli amministratori del provider di servizi possono acced
 
 I vantaggi dell'architettura distribuita sono:
 
-* Il cliente può verificare specifici livelli di autorizzazioni tramite la [gestione delle risorse delegate di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md)o può gestire l'accesso ai log usando il proprio [accesso basato sui ruoli](../../role-based-access-control/overview.md).
+* Il cliente può confermare livelli specifici di autorizzazioni tramite la [gestione delle risorse delegate di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md)oppure può gestire l'accesso ai log usando il proprio [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 * I log possono essere raccolti da tutti i tipi di risorse, non solo dai dati della macchina virtuale basata su agenti. Ad esempio, log di controllo di Azure.
 * Ogni cliente può definire impostazioni diverse per la propria area di lavoro, ad esempio in termini di conservazione e di limitazione sull'uso dei dati.
 * Isolamento tra i clienti in termini di normative e conformità.
@@ -90,4 +90,3 @@ Sono disponibili due opzioni per implementare i log in una posizione centrale:
 * Generare report di riepilogo usando [Power BI](./powerbi.md)
 
 * Caricare i clienti nella [gestione delle risorse delegata di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
-

@@ -3,18 +3,18 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 879a7edab77bad9671bea51e0e496f3eca96ee81
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538718"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926485"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
 Questo articolo fornisce informazioni sulla risoluzione dei problemi per SQL Server database in esecuzione in macchine virtuali di Azure.
 
-Per altre informazioni sul processo di backup e sulle limitazioni, vedere [informazioni su SQL Server backup in macchine virtuali di Azure](sql-support-matrix.md#feature-consideration-and-limitations).
+Per altre informazioni sul processo di backup e sulle limitazioni, vedere [informazioni su SQL Server backup in macchine virtuali di Azure](sql-support-matrix.md#feature-considerations-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Autorizzazioni di SQL Server
 

@@ -1,6 +1,6 @@
 ---
 title: Pagare le sottoscrizioni di Azure tramite fattura
-description: Questo articolo descrive come pagare le sottoscrizioni di Azure tramite fattura.
+description: Informazioni su come pagare le sottoscrizioni di Azure tramite fattura. Vedere le domande frequenti e visualizzare le risorse aggiuntive.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 5fb8a9cd5e00bf3a6ebeddaf44a09ac48b94fe7c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1e5e49cf90fcf69312b1805f2d4186a9e43f3da7
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849082"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460474"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagare la sottoscrizione di Azure tramite fattura
 

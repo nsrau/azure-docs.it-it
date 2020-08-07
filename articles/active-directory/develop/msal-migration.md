@@ -13,12 +13,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f84e479c4780437b09ab463781edbb52d8dfdfaa
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 32a1440bb641f0cbe8e3f3b8ada42e0841d9aa67
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255626"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922490"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Eseguire la migrazione di applicazioni a Microsoft Authentication Library (MSAL)
 
@@ -52,22 +52,22 @@ Gli articoli seguenti possono essere utili per eseguire la migrazione a MSAL:
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
 __D: ADAL è deprecato?__  
-A: Sì. A partire dal 30 giugno 2020, non si aggiungono più nuove funzionalità a ADAL. Si continuerà ad aggiungere correzioni critiche per la sicurezza a ADAL fino al 30 giugno 2022.
+A: Sì. A partire dal 30 giugno 2020, non si aggiungono più nuove funzionalità a ADAL. Si continuerà ad aggiungere correzioni critiche per la sicurezza a ADAL fino al 30 giugno 2022. Dopo questo periodo di tempo, le app che usano ADAL funzioneranno, ma si consiglia di eseguire l'aggiornamento a MSAL per sfruttare i vantaggi delle funzionalità più recenti e rimanere protetti.
 
 __D: Ricerca per categorie informazioni sulle app che usano ADAL?__  
-R: se si dispone del codice sorgente per l'applicazione, è possibile fare riferimento alle guide alla migrazione sopra indicate per determinare la libreria utilizzata dall'app e la relativa modalità di migrazione a MSAL. Se non si ha accesso al codice sorgente dell'applicazione, è possibile [aprire una richiesta di supporto](developer-support-help-options.md#open-a-support-request) per ottenere un elenco delle applicazioni registrate e la libreria utilizzata da ogni applicazione.
+R: se si dispone del codice sorgente per l'applicazione, è possibile fare riferimento alle guide alla migrazione sopra indicate per determinare la libreria utilizzata dall'app e la relativa modalità di migrazione a MSAL. Se collabori con un ISV, ti consigliamo di contattarlo direttamente per comprendere il percorso di migrazione a MSAL. Se non si ha accesso al codice sorgente dell'applicazione, è possibile [aprire una richiesta di supporto](developer-support-help-options.md#open-a-support-request) per ottenere un elenco delle applicazioni registrate e la libreria utilizzata da ogni applicazione.
 
 __D: le app ADAL esistenti continueranno a funzionare?__  
 R: le app esistenti continueranno a funzionare senza alcuna modifica. Se si prevede di mantenerli oltre il 30 giugno 2022, è consigliabile aggiornarli a MSAL per mantenerli protetti, ma non è necessario eseguire la migrazione a MSAL per mantenere la funzionalità esistente.
 
 __D: perché è opportuno investire nel passaggio a MSAL?__  
-R: MSAL contiene nuove funzionalità non incluse in ADAL, tra cui il consenso incrementale, la Single Sign-On e la gestione della cache dei token. Inoltre, a differenza di ADAL, MSAL continuerà a ricevere patch di sicurezza oltre il 30 giugno 2022. [Altre informazioni](msal-overview.md).
+R: MSAL contiene nuove funzionalità non incluse in ADAL, tra cui il consenso incrementale, la Single Sign-On e la gestione della cache dei token. Inoltre, a differenza di ADAL, MSAL continuerà a ricevere patch di sicurezza oltre il 30 giugno 2022. [Altre informazioni](msal-overview.md)
 
 __D: si rilascia uno strumento che consente di spostare le app da ADAL a MSAL?__  
 R: No. Per le differenze tra le librerie è necessario dedicare risorse allo sviluppo e alla manutenzione dello strumento che altrimenti andrebbe a migliorare MSAL. Tuttavia, viene fornito il set di guide alla migrazione precedente per apportare le modifiche necessarie nell'applicazione.
 
 __D: come funziona MSAL con AD FS?__  
-R: MSAL.NET supporta alcuni scenari per l'autenticazione con AD FS 2019. Se l'app deve acquisire i token direttamente dalla versione precedente di AD FS, è necessario rimanere in ADAL. [Altre informazioni](msal-net-adfs-support.md).
+R: MSAL.NET supporta alcuni scenari per l'autenticazione con AD FS 2019. Se l'app deve acquisire i token direttamente dalla versione precedente di AD FS, è necessario rimanere in ADAL. [Altre informazioni](msal-net-adfs-support.md)
 
 __D: Ricerca per categorie ottenere assistenza per la migrazione dell'applicazione?__  
 R: vedere la sezione delle [linee guida](#migration-guidance) per la migrazione di questo articolo. Se, dopo aver letto la guida per la piattaforma dell'app, si hanno domande aggiuntive, è possibile pubblicare un post su Stack Overflow con il tag `[adal-deprecation]` o aprire un problema nel repository GitHub della libreria. Vedere la sezione [linguaggi e Framework](msal-overview.md#languages-and-frameworks) dell'articolo Panoramica di MSAL per i collegamenti al repository di ogni libreria.

@@ -1,19 +1,19 @@
 ---
 title: Configurare un tunnel VPN always on
 titleSuffix: Azure VPN Gateway
-description: Procedura per configurare Always On tunnel VPN per il gateway VPN
+description: Informazioni su come configurare Always On, che mantiene una connessione VPN basata su trigger, ad esempio l'accesso utente, la modifica dello stato della rete o lo schermo del dispositivo attivo.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6db48928ebac115c42c643d669f6541a3654a53a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24043576fca4910631ccddb3924303dd642c6842
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983122"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927062"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurare un tunnel di dispositivo VPN Always On
 

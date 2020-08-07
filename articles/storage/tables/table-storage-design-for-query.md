@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 28a15541b9d706095bcd3d6d361bd7c983f195df
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903205"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926247"
 ---
 # <a name="design-for-querying"></a>Progettazione per le query
 Le soluzioni di servizio tabelle possono eseguire un'intensa attività di lettura, di scrittura o una combinazione di entrambe. Questo articolo è incentrato sugli aspetti da prendere in considerazione quando si progetta un servizio tabelle in grado di supportare in modo efficiente le operazioni di lettura. Una progettazione che supporta in modo efficiente le operazioni di lettura è in genere efficiente anche nelle operazioni di scrittura. Esistono però altri aspetti da considerare per una progettazione che supporti le operazioni di scrittura, come illustrato nell'articolo [Progettazione per la modifica dei dati](table-storage-design-for-modification.md).
@@ -81,14 +81,14 @@ Gli altri aspetti da considerare per la scelta di **PartitionKey** riguardano l'
 ## <a name="optimizing-queries-for-the-table-service"></a>Ottimizzazione delle query per il servizio tabelle
 Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey** in un singolo indice cluster. È per questo che le query di tipo punto sono le più efficienti da usare. Tuttavia, non esistono altri indici oltre a quello nell'indice cluster in **PartitionKey** e **RowKey**.
 
-Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca di entità in base a più criteri, ad esempio trovare le entità dipendente in base a indirizzo di posta elettronica, ID dipendente o cognome. I modelli descritti in [Modelli di progettazione tabelle](table-storage-design-patterns.md) soddisfano questi tipi di requisiti e descrivono come ovviare al fatto che il servizio tabelle non fornisca indici secondari:  
+Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca di entità in base a più criteri, ad esempio individuare le entità dipendente in base a indirizzo di posta elettronica, ID dipendente o cognome. I modelli descritti in [Modelli di progettazione tabelle](table-storage-design-patterns.md) soddisfano questi tipi di requisiti e descrivono come ovviare al fatto che il servizio tabelle non fornisca indici secondari:  
 
 * [Modello di indice secondario intra-Partition](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) : archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
 * [Modello per indice secondario intrapartizione](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
 * [Modello per entità di indice](table-storage-design-patterns.md#index-entities-pattern) - Mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.  
 
 ## <a name="sorting-data-in-the-table-service"></a>Ordinamento dei dati nel servizio tabelle
-Il servizio tabelle restituisce le entità in ordine crescente in base a **PartitionKey** e quindi a **RowKey**. Queste chiavi sono valori stringa e, per essere certi che i valori numerici siano ordinati correttamente, è consigliabile convertirli in una lunghezza fissa aggiungendo degli zeri se necessario. Se, ad esempio, il valore dell'ID dipendente usato come **RowKey** è un valore intero, è consigliabile convertire l'ID dipendente **123** in **00000123**.  
+Il servizio tabelle restituisce le entità in ordine crescente in base a **PartitionKey** e quindi a **RowKey**. Queste chiavi sono valori stringa e, per essere certi che i valori numerici siano ordinati correttamente, è consigliabile convertirli in una lunghezza fissa aggiungendo degli zeri se necessario. Se, ad esempio, il valore ID dipendente usato come **RowKey** è un valore intero, è necessario convertire l'id dipendente **123** in **00000123**.  
 
 In molte applicazioni è necessario usare i dati ordinandoli in modo diverso, ad esempio ordinando i dipendenti per nome o per data di assunzione. I modelli seguenti descrivono come alternare l'ordinamento per le entità:  
 

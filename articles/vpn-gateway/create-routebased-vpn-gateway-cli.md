@@ -1,24 +1,24 @@
 ---
 title: 'Creare un gateway VPN di Azure basato su Route: interfaccia della riga di comando'
-description: Informazioni per imparare rapidamente a creare un gateway VPN tramite l'interfaccia della riga di comando
+description: Informazioni su come creare un gateway VPN di Azure basato su Route usando l'interfaccia della riga di comando di Azure. Usare un gateway VPN per connettersi alla rete locale.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0cb03f827c8174932f235ec8ea327225da76ef4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c207d2c5b2817bacd75ffcd12c9b4c43fe86f55
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987694"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923323"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creare un gateway VPN basato su route usando l'interfaccia della riga di comando
 
 Questo articolo illustra come creare rapidamente un gateway VPN di Azure basato su route usando l'interfaccia della riga di comando di Azure. Il gateway VPN viene usato quando si crea una connessione VPN alla rete locale. È anche possibile usare il gateway VPN per connettere reti virtuali.
 
-Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subnet, una subnet del gateway e un gateway VPN (gateway di rete virtuale) basato su route. La creazione di un gateway di rete virtuale può richiedere almeno 45 minuti. Dopo aver creato il gateway, è possibile configurare le connessioni. Questi passaggi richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subnet, una subnet del gateway e un gateway VPN (gateway di rete virtuale) basato su route. La creazione di un gateway di rete virtuale può richiedere almeno 45 minuti. Dopo aver creato il gateway, è possibile configurare le connessioni. Questi passaggi richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,7 +33,7 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="create-a-virtual-network"></a><a name="vnet"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtuale
 
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
 

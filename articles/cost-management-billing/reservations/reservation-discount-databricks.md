@@ -1,18 +1,18 @@
 ---
 title: Come viene applicato lo sconto di preacquisto di Azure Databricks
-description: Informazioni su come viene applicato lo sconto di preacquisto di Azure Databricks all'utilizzo.
+description: Informazioni su come viene applicato lo sconto di preacquisto di Azure Databricks all'utilizzo. È possibile usare le unità Databricks in qualsiasi momento durante il periodo di validità dell'acquisto.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 69f83fc1d390fcbea77468045b89ee6024e7fe9a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 380c4c7fdcccf45d83adaf355c2cc12da0b327fc
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200317"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460321"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Come viene applicato lo sconto di preacquisto di Azure Databricks
 

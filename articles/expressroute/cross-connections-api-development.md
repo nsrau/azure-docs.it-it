@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459a70c787dfdcd54fb3010655390787022c8f2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77187020"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921623"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Sviluppo e integrazione dell'API CrossConnnections di ExpressRoute
 
@@ -30,7 +30,7 @@ Vantaggi del passaggio alla risorsa expressRouteCrossConnections:
 
 * Eventuali miglioramenti futuri per i partner ExpressRoute verranno resi disponibili sulla risorsa ExpressRouteCrossConnection.
 
-* I partner possono applicare il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) alla risorsa expressRouteCrossConnection. Questi controlli possono definire le autorizzazioni per le quali gli account utente possono modificare la risorsa expressRouteCrossConnection e aggiungere/aggiornare/eliminare le configurazioni del peering.
+* I partner possono applicare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) alla risorsa expressRouteCrossConnection. Questi controlli possono definire le autorizzazioni per le quali gli account utente possono modificare la risorsa expressRouteCrossConnection e aggiungere/aggiornare/eliminare le configurazioni del peering.
 
 * La risorsa expressRouteCrossConnection espone le API che possono essere utili per la risoluzione dei problemi di connessione ExpressRoute. Sono inclusi la tabella ARP, il riepilogo della tabella di route BGP e i dettagli della tabella di route BGP. Questa funzionalità non è supportata dalle API di distribuzione classica.
 

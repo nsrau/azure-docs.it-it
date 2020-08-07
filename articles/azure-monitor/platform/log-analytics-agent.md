@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/04/2020
-ms.openlocfilehash: 36b94f53d3a9113c3980c94c3b8eff0713f11814
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/06/2020
+ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446535"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925788"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente di Log Analytics
 L'agente di Azure Log Analytics è stato sviluppato per la gestione completa di macchine virtuali in qualsiasi cloud, di computer locali e di computer monitorati da [System Center Operations Manager](/system-center/scom/). Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro Log Analytics in Monitoraggio di Azure, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in Monitoraggio di Azure, ad esempio [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), [Centro sicurezza di Azure](../../security-center/index.yml) e [Automazione di Azure](../../automation/automation-intro.md).
@@ -122,11 +122,19 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
  - Ubuntu, Debian:`apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-L'eseguibile di python2 deve essere associato a "Python" usando il comando seguente:
+L'eseguibile di python2 deve essere associato a *Python* usando la procedura seguente:
 
-```
-alternatives --set python `which python2`
-```
+1. Eseguire il comando seguente per visualizzare qualsiasi alias Python corrente, se esistente. In caso contrario, prendere nota della priorità per il passaggio successivo.
+ 
+    ```
+    sudo update-alternatives ––display python
+    ```
+
+2. Eseguire il comando seguente. Sostituire *\<priority\>* con un numero maggiore di qualsiasi priorità del collegamento esistente o 1 se non esiste alcun collegamento.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
+    ```
 
 ### <a name="supported-distros"></a>Distribuzioni supportate
 
@@ -194,7 +202,7 @@ La tabella seguente elenca le informazioni di configurazione del proxy e del fir
 |*.blob.core.windows.net |Porta 443 |In uscita|Sì |
 |*.azure-automation.net |Porta 443 |In uscita|Sì |
 
-Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [Gestione di Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
+Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [Gestione di Azure per enti pubblici](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
 Se si prevede di usare il ruolo di lavoro ibrido per runbook di Automazione di Azure per connettersi e registrarsi al servizio di automazione per usare i runbook o le soluzioni di gestione nell'ambiente in uso, è necessario avere accesso al numero di porta e agli URL descritti in [Configurare la rete per il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
