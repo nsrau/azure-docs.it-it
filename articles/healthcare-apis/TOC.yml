@@ -19,7 +19,7 @@
       href: fhir-oss-powershell-quickstart.md
     - name: Distribuire FHIR Server per Azure - Interfaccia della riga di comando
       href: fhir-oss-cli-quickstart.md
-    - name: Distribuire il connettore IoT - Portale
+    - name: Distribuire il connettore Azure IoT per FHIR (anteprima) - Portale
       href: iot-fhir-portal-quickstart.md
 - name: Esercitazioni
   expanded: false
@@ -86,7 +86,7 @@
       href: enable-diagnostic-logging.md
     - name: Ottenere un token per l'API di Azure per FHIR - Interfaccia della riga di comando
       href: get-healthcare-apis-access-token-cli.md
-    - name: Risolvere gli errori nel connettore IoT
+    - name: Risolvere i problemi del connettore Azure IoT per FHIR (anteprima)
       href: iot-troubleshoot-guide.md
 - name: Concetti
   expanded: false
@@ -97,12 +97,12 @@
       href: azure-ad-hcapi-token-validation.md
     - name: Usare intestazioni HTTP personalizzate per aggiungere dati ai log di controllo
       href: use-custom-headers.md
-    - name: Funzioni del connettore IoT
+    - name: Operazioni del connettore Azure IoT per FHIR (anteprima)
       expanded: false
       items:
-        - name: Flusso di dati del connettore IoT
+        - name: Flusso di dati del connettore Azure IoT per FHIR (anteprima)
           href: iot-data-flow.md
-        - name: Modelli di mapping del connettore IoT
+        - name: Modelli di mapping del connettore Azure IoT per FHIR (anteprima)
           href: iot-mapping-templates.md
 - name: Risorse
   items:

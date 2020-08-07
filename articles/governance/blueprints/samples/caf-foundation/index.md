@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto di definizione della base di Cloud Ad
 description: Panoramica e architettura del progetto di esempio di definizione della base di Cloud Adoption Framework (CAF) per Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901297"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852345"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Panoramica del progetto di esempio di definizione della base di Microsoft Cloud Adoption Framework per Azure
 
@@ -35,7 +35,7 @@ Questa implementazione include diversi servizi di Azure usati per offrire una ba
   - Richiedere la crittografia di trasferimento sicuro dell'account di archiviazione di Azure
   - Rifiutare tipi di risorsa (da scegliere durante la distribuzione)  
 - Iniziative
-  - Abilitare il monitoraggio nel Centro sicurezza di Azure (89 criteri)
+  - Abilitare il monitoraggio nel Centro sicurezza di Azure (più di 100 definizioni di criteri)
 
 Tutti questi elementi sono conformi a procedure comprovate pubblicate in [Centro architetture di Azure - Architetture di riferimento di Azure](/azure/architecture/reference-architectures/).
 

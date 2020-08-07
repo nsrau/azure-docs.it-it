@@ -1,18 +1,18 @@
 ---
 title: Informazioni sui ruoli di amministratore dell'organizzazione in Azure
-description: Informazioni sui ruoli di amministratore per Enterprise in Azure.
+description: Informazioni sui ruoli di amministratore per Enterprise in Azure. È possibile assegnare cinque ruoli amministrativi distinti.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8a4705a68b0b96a8f95cc2356cda454fdef65054
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124341"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531490"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestione dei ruoli Enterprise di Azure
 
@@ -103,9 +103,9 @@ Per altre informazioni sull'aggiunta di un amministratore di reparto, vedere [Cr
 
 Per informazioni su come impostare questi criteri, vedere [Gestire l'accesso alle informazioni di fatturazione per Azure](manage-billing-access.md).
 
-La tabella seguente illustra la relazione tra i ruoli di amministratore del Contratto Enterprise, i criteri per la visualizzazione degli addebiti, il ruolo di controllo degli accessi in base al ruolo nel portale di Azure e il piano tariffario visualizzato nel portale di Azure. L'amministratore dell'organizzazione esamina i dettagli di utilizzo in base ai prezzi per il Contratto Enterprise dell'organizzazione. Tuttavia, l'amministratore di reparto e il proprietario dell'account esaminano visualizzazioni diverse dei prezzi in base ai criteri di visualizzazione degli addebiti e del relativo ruolo di controllo degli accessi in base al ruolo. Il ruolo di amministratore di reparto elencato nella tabella seguente si riferisce sia al ruolo Amministratore di reparto sia al ruolo Amministratore di reparto (sola lettura).
+La tabella seguente illustra la relazione tra i ruoli di amministratore del Contratto Enterprise, i criteri per la visualizzazione degli addebiti, il ruolo di Azure nel portale di Azure e i prezzi visualizzati nel portale di Azure. L'amministratore dell'organizzazione esamina i dettagli di utilizzo in base ai prezzi per il Contratto Enterprise dell'organizzazione. Tuttavia, l'amministratore di reparto e il proprietario dell'account vedono visualizzazioni dei prezzi diverse in base ai criteri di visualizzazione degli addebiti e al ruolo di Azure. Il ruolo di amministratore di reparto elencato nella tabella seguente si riferisce sia al ruolo Amministratore di reparto sia al ruolo Amministratore di reparto (sola lettura).
 
-|Ruolo di amministratore per il Contratto Enterprise|Criteri per la visualizzazione degli addebiti per ruolo|Ruolo di controllo degli accessi in base al ruolo|Visualizzazione dei prezzi|
+|Ruolo di amministratore per il Contratto Enterprise|Criteri per la visualizzazione degli addebiti per ruolo|Ruolo di Azure|Visualizzazione dei prezzi|
 |---|---|---|---|
 |Proprietario dell'account OPPURE Amministratore del reparto|✔ Abilitato|Proprietario|Prezzi per il Contratto Enterprise dell'organizzazione|
 |Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato|Proprietario|Prezzi al dettaglio|
@@ -113,7 +113,7 @@ La tabella seguente illustra la relazione tra i ruoli di amministratore del Cont
 |Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato |none|Nessun prezzo|
 |nessuno|Non applicabile |Proprietario|Prezzi al dettaglio|
 
-Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di controllo degli accessi in base al ruolo può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di Azure può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 

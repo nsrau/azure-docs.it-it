@@ -7,6 +7,8 @@
     - name: Confrontare i servizi di messaggistica
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
+    - name: Usare il bus di servizio con JMS (Java Message Service) 2.0 (anteprima)
+      href: how-to-use-java-message-service-20.md
 - name: Avvi rapidi
   items:
     - name: Code del bus di servizio
@@ -127,6 +129,8 @@
           items:
             - name: 'Code, argomenti e sottoscrizioni del bus di servizio'
               href: service-bus-queues-topics-subscriptions.md
+            - name: Entità di JMS (Java Message Service) 2.0 (anteprima)
+              href: java-message-service-20-entities.md
             - name: 'Messaggi, payload e serializzazione'
               href: service-bus-messages-payloads.md
             - name: 'Trasferimenti, blocchi e finalizzazione dei messaggi'

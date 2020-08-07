@@ -60,7 +60,7 @@
           href: how-tos/create-locate-anchors-cpp-winrt.md
     - name: Usare la rilocalizzazione grossolana per individuare ancoraggi nelle vicinanze
       items:
-        - name: 'In C#/Unity'
+        - name: In C#/Unity
           href: how-tos/set-up-coarse-reloc-unity.md
         - name: In Objective-C
           href: how-tos/set-up-coarse-reloc-objc.md
@@ -72,6 +72,12 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: In C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+    - name: Configurazione del progetto
+      items:
+        - name: C++/WinRT
+          href: how-tos/setup-cpp-winrt-project.md
+        - name: Unity
+          href: how-tos/setup-unity-project.md
 - name: Esempi
   items:
     - name: Esempi di Ancoraggi nello spazio di Azure (GitHub)

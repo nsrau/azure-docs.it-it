@@ -3,16 +3,16 @@ title: Contratti Azure EA e modifiche
 description: Questo articolo illustra l'impatto dei contratti Azure EA e delle relative modifiche su Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4d40ffb04882e9809fc818ab492a4c97260d1ff4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc1749ba8246aa2181890c4c846f9159a0557aff
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537800"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563484"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
@@ -20,7 +20,7 @@ Questo articolo descrive l'impatto che possono avere i contratti Azure EA e le r
 
 ## <a name="enrollment-provisioning-status"></a>Stato di provisioning della registrazione
 
-La data di inizio di un nuovo pagamento anticipato di Azure è definita dalla data in cui è stato elaborato dal centro operativo locale. Poiché gli ordini di pagamento anticipato di Azure tramite Azure EA Portal vengono elaborati nel fuso orario UTC, può verificarsi un ritardo se l'ordine di acquisto è stato elaborato in un'area diversa. La data di inizio della copertura nell'ordine di acquisto in https://www.explore.ms indica l'inizio del pagamento anticipato di Azure. La data di inizio della copertura corrisponde a quella in cui il pagamento anticipato di Azure viene visualizzato in Azure EA Portal.
+La data di inizio di un nuovo pagamento anticipato di Azure è definita dalla data in cui è stato elaborato dal centro operativo locale. Poiché gli ordini di pagamento anticipato di Azure tramite Azure EA Portal vengono elaborati nel fuso orario UTC, può verificarsi un ritardo se l'ordine di acquisto è stato elaborato in un'area diversa. La data di inizio della copertura nell'ordine di acquisto indica l'inizio del pagamento anticipato di Azure. La data di inizio della copertura corrisponde a quella in cui il pagamento anticipato di Azure viene visualizzato in Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Supporto per i clienti aziendali
 
@@ -43,7 +43,7 @@ A una registrazione possono essere associati uno dei valori di stato seguenti. O
 
 **Expired** (Scaduta): la registrazione EA scade quando raggiunge la data di fine del Contratto Enterprise. Il cliente EA è escluso dal periodo di validità esteso e tutti i relativi servizi vengono disabilitati.
 
-A partire dal 1° agosto 2019 i nuovi moduli di rifiuto esplicito non sono accettati per i clienti commerciali di Azure. Tutte le registrazioni passano invece allo stato Indefinite Extended Term (Periodo di validità esteso a tempo indeterminato). Se si vuole interrompere l'uso dei servizi di Azure, chiudere la sottoscrizione nel [portale di Azure](https://portal.azure.com). In alternativa, il partner può inviare una richiesta di terminazione all'indirizzo https://www.explore.ms. Non sono previste modifiche per i clienti con tipi di contratto per enti pubblici.
+A partire dal 1° agosto 2019 i nuovi moduli di rifiuto esplicito non sono accettati per i clienti commerciali di Azure. Tutte le registrazioni passano invece allo stato Indefinite Extended Term (Periodo di validità esteso a tempo indeterminato). Se si vuole interrompere l'uso dei servizi di Azure, chiudere la sottoscrizione nel [portale di Azure](https://portal.azure.com). In alternativa, il partner può inviare una richiesta di interruzione. Non sono previste modifiche per i clienti con tipi di contratto per enti pubblici.
 
 **Transferred** (Trasferita): questo stato viene applicato alle registrazioni i cui account e servizi associati sono trasferiti a una nuova registrazione. Le registrazioni non vengono trasferite automaticamente se viene generato un nuovo numero di registrazione durante il rinnovo. Per il trasferimento automatico il numero di registrazione precedente deve essere incluso nella richiesta di rinnovo del cliente.
 

@@ -6,15 +6,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb7978dfa2c3ded2ae8e8c621bcb679f19620a2c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286598"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553479"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Cambiare le informazioni di contatto per l'account Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra come aggiornare le informazioni di contatto per l'accou
 
 *Indirizzo di fatturazione*: corrisponde all'indirizzo e alle informazioni di contatto dell'organizzazione o della persona responsabile delle fatture generate per un account di fatturazione. Per un account di fatturazione per un Programma Sottoscrizione Microsoft Online è previsto un unico indirizzo di fatturazione, visualizzato in tutte le fatture generate per l'account. Per un account di fatturazione per un Contratto del cliente Microsoft è previsto un indirizzo di fatturazione per ogni profilo di fatturazione, visualizzato nella fattura generata per il profilo di fatturazione.
 
-*Indirizzo di posta elettronica di contatto per i messaggi di marketing e sul servizio*: è possibile specificare un indirizzo di posta elettronica diverso da quello con cui si accede per ricevere importanti notifiche relative a fatturazione, servizio e raccomandazioni sull'account Azure.  
+*Indirizzo di posta elettronica di contatto per i messaggi di marketing e sul servizio*: è possibile specificare un indirizzo di posta elettronica diverso da quello con cui si accede per ricevere importanti notifiche relative a fatturazione, servizio e raccomandazioni sull'account Azure. I messaggi di posta elettronica di notifica del servizio, ad esempio relativi a problemi di sicurezza urgenti, variazioni di prezzo o modifiche che causano un'interruzione dei servizi usati dall'account, vengono sempre inviati all'indirizzo di accesso.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Aggiornare l'indirizzo di un account di fatturazione per un Programma Sottoscrizione Microsoft Online
 

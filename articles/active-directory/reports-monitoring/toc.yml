@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: Eseguire lo streaming dei log in un hub eventi
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Procedura guidata di Log Analytics
+      href: tutorial-log-analytics-wizard.md
 - name: Concetti
   items:
     - name: Pianificare una distribuzione per creazione report e monitoraggio

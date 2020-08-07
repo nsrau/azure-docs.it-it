@@ -3,17 +3,17 @@ title: Introduzione a Gestione costi di Azure per i partner
 description: Questo articolo illustra in che modo i partner usano le funzionalità di Gestione costi di Azure e autorizzano l'accesso alla gestione dei costi da parte dei clienti.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/28/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b5f00ee67803819b4d13cdc630bed3de26ac1be9
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372145"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563943"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -140,7 +140,7 @@ Se il criterio è impostato su **No**, Gestione costi di Azure non è disponibil
 
 Se il criterio relativo ai costi è impostato su **Sì**, gli utenti della sottoscrizione associati al tenant del cliente possono visualizzare gli addebiti per l'utilizzo alle tariffe con pagamento in base al consumo.
 
-Quando i criteri di visibilità dei costi sono abilitati, per tutti i servizi con utilizzo delle sottoscrizioni sono visualizzati i costi calcolati applicando le tariffe con pagamento in base al consumo. Per l'utilizzo della prenotazione gli addebiti sono pari a zero per i costi effettivi e ammortizzati. Gli acquisti e gli entitlement non sono associati a una sottoscrizione specifica. Quindi, gli acquisti non vengono visualizzati nell'ambito della sottoscrizione.
+Quando i criteri di visibilità dei costi sono abilitati, per tutti i servizi con utilizzo delle sottoscrizioni sono visualizzati i costi calcolati applicando le tariffe con pagamento in base al consumo. Per l'utilizzo della prenotazione gli addebiti sono pari a zero per i costi effettivi e ammortizzati. Gli acquisti e gli entitlement non sono associati a una sottoscrizione specifica. Quindi, gli acquisti non vengono visualizzati nell'ambito della sottoscrizione. L'amministratore globale/agente amministratore di un partner diretto o di un provider indiretto può anche usare l'[API di aggiornamento del cliente](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) per impostare i criteri di visibilità dei costi di ogni cliente su larga scala.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>Visualizzare i costi della sottoscrizione nel tenant del cliente
 

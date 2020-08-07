@@ -5,7 +5,7 @@
       items:
         - name: Che cos'è Gestione dei costi e fatturazione?
           href: cost-management-billing-overview.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Avviare l'analisi dei costi
           href: costs/quick-acm-cost-analysis.md
@@ -94,7 +94,7 @@
               href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
             - name: Dati sull'utilizzo per clienti Enterprise
               href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
-        - name: Terminologia della fatturazione
+        - name: Fatturazione
           items:
             - name: Condizioni per l'utilizzo di singole sottoscrizioni
               href: understand/understand-usage.md
@@ -108,6 +108,8 @@
               href: manage/mca-understand-pricesheet.md
             - name: Condizioni della fattura del Contratto Microsoft Partner
               href: understand/mpa-invoice-terms.md
+            - name: Modifiche dell'account di fatturazione individuale aggiornato
+              href: understand/mosp-new-customer-experience.md
             - name: Account di fatturazione del contratto del cliente Microsoft
               href: understand/mca-overview.md
             - name: Account di fatturazione del Contratto Microsoft Partner
@@ -414,7 +416,7 @@
           items:
             - name: Che cos'è Cloudyn?
               href: cloudyn/overview.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: Visualizzare i dati di costo
               href: cloudyn/quick-register-azure-sub.md

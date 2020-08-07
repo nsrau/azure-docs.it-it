@@ -312,9 +312,15 @@
         - name: Elenco delle funzionalità di anteprima
           href: search-api-preview.md
         - name: Sviluppare in .NET
-          href: search-howto-dotnet-sdk.md
+          items:
+            - name: Usare Microsoft.Azure.Search (v10)
+              href: search-howto-dotnet-sdk.md
+            - name: Introduzione (v10)
+              href: search-get-started-dotnet-v10.md
         - name: Aggiornare l'SDK
           items:
+            - name: .NET SDK 11.0
+              href: search-dotnet-sdk-migration-version-11.md
             - name: .NET SDK 10.0
               href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
@@ -349,7 +355,7 @@
           items:
             - name: Filtri di sicurezza
               href: search-security-trimming-for-azure-search.md
-            - name: Filtrare in base alle identità AAD
+            - name: Filtrare in base alle identità degli utenti
               href: search-security-trimming-for-azure-search-with-aad.md
     - name: Gestione
       items:

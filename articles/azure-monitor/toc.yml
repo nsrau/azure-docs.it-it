@@ -171,10 +171,14 @@
         - name: Monitorare le macchine virtuali di Azure
           href: insights/monitor-vm-azure.md
           displayname: VM
+    - name: Distribuire
+      items:
+        - name: Distribuire Monitoraggio di Azure
+          href: deploy.md
+        - name: Distribuire su larga scala
+          href: deploy-scale.md
     - name: Gestire e configurare
       items:
-        - name: Distribuire su larga scala
-          href: platform/deploy-scale.md
         - name: Autorizzazioni e sicurezza dei ruoli
           href: platform/roles-permissions-security.md
         - name: Indirizzi IP
