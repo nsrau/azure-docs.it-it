@@ -4,14 +4,14 @@ description: Panoramica dei concetti chiave relativi a messaggi e connessioni in
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5483e10e817ce8a0a7e7c82d817b7bdbbdd9176b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75392820"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853450"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Messaggi e connessioni in Servizio Azure SignalR
 
@@ -36,7 +36,13 @@ Per la fatturazione, vengono conteggiati solo i messaggi in uscita da Servizio A
 
 I messaggi di dimensioni maggiori di 2 KB vengono conteggiati come più messaggi di 2 KB ognuno. Il grafico del numero di messaggi nel portale di Azure viene aggiornato ogni 100 messaggi per hub.
 
-Si supponga, ad esempio, di avere tre client e un server applicazioni. Un client invia un messaggio di 4 KB che il server dovrà trasmettere a tutti i client. I messaggi in questo caso sono otto: uno inviato dal servizio al server applicazioni e tre dal servizio ai client. Ogni messaggio viene conteggiato come due messaggi di 2 KB.
+Si supponga, ad esempio, di disporre di un server applicazioni e di tre client:
+
+Il server applicazioni trasmette un messaggio da 1 KB a tutti i client connessi. il messaggio dal server app al servizio viene considerato un messaggio in ingresso libero. Solo i tre messaggi inviati dal servizio a ogni client vengono fatturati come messaggi in uscita.
+
+Il client A invia un messaggio da 1 KB a un altro client B, senza passare attraverso il server app. Il messaggio dal client A al servizio è un messaggio in ingresso gratuito. Il messaggio dal servizio al client B viene fatturato come messaggio in uscita.
+
+Se si dispone di tre client e un server applicazioni. Un client invia un messaggio di 4 KB che il server dovrà trasmettere a tutti i client. Il numero di messaggi fatturati è otto: un messaggio dal servizio al server applicazioni e tre messaggi dal servizio ai client. Ogni messaggio viene conteggiato come due messaggi di 2 KB.
 
 ## <a name="how-connections-are-counted"></a>Come vengono conteggiate le connessioni
 
@@ -44,15 +50,15 @@ Sono disponibili connessioni al server e client con il servizio Azure SignalR. P
 
 Il conteggio delle connessioni visualizzato nel portale di Azure include sia le connessioni server che quelle client.
 
-Si supponga, ad esempio, di avere due server applicazioni e di definire cinque hub nel codice. Il numero di connessioni server sarà 50:2 server applicazioni * 5 Hub * 5 connessioni per hub.
+Si supponga, ad esempio, di disporre di due server applicazioni e di definire cinque hub nel codice. Il numero di connessioni server sarà 50:2 server applicazioni * 5 Hub * 5 connessioni per hub.
 
-ASP.NET SignalR il calcola le connessioni server in modo diverso. Include un hub predefinito in aggiunta agli hub definiti dall'utente. Per impostazione predefinita, ogni server applicazioni necessita di altre cinque connessioni server iniziali. Il numero di connessioni iniziale per l'Hub predefinito rimane coerente con quello degli altri hub.
+ASP.NET SignalR il calcola le connessioni server in modo diverso. Include un hub predefinito in aggiunta agli hub definiti dall'utente. Per impostazione predefinita, ogni server applicazioni necessita di altre cinque connessioni server iniziali. Il numero di connessioni iniziale per l'Hub predefinito rimane coerente con altri hub.
 
-Durante il ciclo di vita del server applicazioni, il servizio e il server applicazioni mantengono lo stato della connessione di sincronizzazione e apportano modifiche alle connessioni server per una migliore stabilità dei servizi e delle prestazioni. Per questo motivo è possibile che le modifiche apportate al numero di connessione del server vengano apportate
+Il servizio e il server applicazioni continuano a sincronizzare lo stato della connessione e a eseguire la regolazione delle connessioni server per ottenere prestazioni migliori e una maggiore stabilità dei servizi.  Per questo motivo è possibile che le modifiche apportate al numero di connessione del server vengano apportate
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Come viene conteggiato il traffico in ingresso/in uscita
 
-La distinzione tra traffico in ingresso e traffico in uscita si basa sulla prospettiva di Servizio Azure SignalR. Il traffico viene calcolato in byte.
+Il messaggio inviato al servizio è un messaggio in ingresso. Il messaggio inviato dal servizio è un messaggio in uscita. Il traffico viene calcolato in byte.
 
 ## <a name="related-resources"></a>Risorse correlate
 

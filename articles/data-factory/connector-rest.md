@@ -9,24 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415036"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852294"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da un endpoint REST. L'articolo è basato su [Attività di copia in Azure Data Factory](copy-activity-overview.md), dove viene presentata una panoramica generale dell'attività di copia.
 
-La differenza tra questo connettore REST, il [connettore HTTP](connector-http.md) e il [connettore Tabella Web](connector-web-table.md) è la seguente:
+La differenza tra questo connettore REST, il [connettore http](connector-http.md)e il [connettore della tabella Web](connector-web-table.md) è:
 
 - Il **connettore Rest** supporta specificamente la copia di dati da API RESTful; 
-- Il **connettore HTTP** è un connettore generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare file. Prima che il connettore REST diventi disponibile, può capitare di usare il connettore HTTP per copiare dati dall'API RESTful, operazione supportata ma meno funzionale rispetto all'uso del connettore REST.
+- Il **connettore http** è generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare il file. Prima che il connettore REST diventi disponibile, può capitare di usare il connettore HTTP per copiare dati dall'API RESTful, operazione supportata ma meno funzionale rispetto all'uso del connettore REST.
 - Il **connettore Tabella Web** estrae il contenuto della tabella da una pagina Web HTML.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
@@ -62,7 +62,7 @@ Per il servizio collegato REST sono supportate le proprietà seguenti:
 | type | La proprietà **Type** deve essere impostata su **RestService**. | Sì |
 | url | URL di base del servizio REST. | Sì |
 | enableServerCertificateValidation | Indica se convalidare il certificato TLS/SSL sul lato server per la connessione all'endpoint. | No<br /> (il valore predefinito è **true**) |
-| authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Sì |
+| authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal**e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="use-basic-authentication"></a>Usare l'autenticazione di base
@@ -107,7 +107,8 @@ Impostare la proprietà **authenticationType** su **AadServicePrincipal**. Oltre
 | servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione Azure Active Directory. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
-| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Sì |
+| aadResourceId | Specificare la risorsa AAD richiesta per l'autorizzazione, ad esempio `https://management.core.windows.net` .| Sì |
+| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione AAD. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
 
 **Esempio**
 
@@ -141,7 +142,7 @@ Impostare la proprietà **authenticationType** su **ManagedServiceIdentity**. Ol
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Sì |
+| aadResourceId | Specificare la risorsa AAD richiesta per l'autorizzazione, ad esempio `https://management.core.windows.net` .| Sì |
 
 **Esempio**
 
@@ -305,21 +306,21 @@ Questo connettore REST generico supporta i modelli di paginazione seguenti:
 * Intestazione della richiesta successiva = valore della proprietà nel corpo della risposta corrente
 * Intestazione della richiesta successiva = valore dell'intestazione nelle intestazioni della risposta corrente
 
-**Le regole di impaginazione** sono definite come un dizionario nel set di dati che contiene una o più coppie chiave-valore con distinzione tra maiuscole e minuscole. La configurazione verrà usata per generare la richiesta a partire dalla seconda pagina. Il connettore interrompe l'iterazione quando ottiene il codice di stato HTTP 204 (nessun contenuto) o qualsiasi espressione JSONPath in "paginationRules" restituisce null.
+**Le regole di impaginazione** sono definite come dizionario nel set di dati, che contiene una o più coppie chiave-valore con distinzione tra maiuscole e minuscole. La configurazione verrà usata per generare la richiesta a partire dalla seconda pagina. Il connettore interrompe l'iterazione quando ottiene il codice di stato HTTP 204 (nessun contenuto) o qualsiasi espressione JSONPath in "paginationRules" restituisce null.
 
 **Chiavi supportate** nelle regole di paginazione:
 
 | Chiave | Descrizione |
 |:--- |:--- |
 | AbsoluteUrl | Indica l'URL per l'invio della richiesta successiva. Può essere un URL **assoluto o relativo**. |
-| QueryParameters.*parametro_query_richiesta* o QueryParameters['parametro_query_richiesta'] | Il valore di "parametro_query_richiesta" è definito dall'utente e fa riferimento al nome di un parametro di query nell'URL della richiesta HTTP successiva. |
-| Headers.*intestazione_richiesta* o Headers['intestazione_richiesta'] | Il valore di "intestazione_richiesta" è definito dall'utente e fa riferimento a un nome di intestazione nella richiesta HTTP successiva. |
+| QueryParameters.*parametro_query_richiesta* o QueryParameters['parametro_query_richiesta'] | "request_query_parameter" è definito dall'utente, che fa riferimento a un nome di parametro di query nell'URL della richiesta HTTP successivo. |
+| Headers.*intestazione_richiesta* o Headers['intestazione_richiesta'] | "request_header" è definito dall'utente, che fa riferimento a un nome di intestazione nella richiesta HTTP successiva. |
 
 **Valori supportati** nelle regole di paginazione:
 
 | Valore | Description |
 |:--- |:--- |
-| Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | Il valore di "intestazione_risposta" è definito dall'utente e fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per inviare la richiesta successiva. |
+| Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | "response_header" è definito dall'utente, che fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per emettere la richiesta successiva. |
 | Espressione JSONPath che inizia con "$" (che rappresenta la radice del corpo della risposta) | Il corpo della risposta deve contenere un solo oggetto JSON. L'espressione JSONPath deve restituire un singolo valore primitivo, che verrà usato per inviare la richiesta successiva. |
 
 **Esempio:**
@@ -409,7 +410,7 @@ Il modello definisce due parametri:
 
     | Proprietà | Descrizione |
     |:--- |:--- |:--- |
-    | URL |Specificare l'URL da cui recuperare il bearer token OAuth. ad esempio, nell'esempiohttps://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Specificare l'URL da cui recuperare il bearer token OAuth. Nell'esempio seguente, ad esempio,https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metodo | Metodo HTTP. I valori consentiti sono **post** e **Get**. | 
     | Intestazioni | L'intestazione è definita dall'utente, che fa riferimento a un nome di intestazione nella richiesta HTTP. | 
     | Corpo | Corpo della richiesta HTTP. | 

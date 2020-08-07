@@ -10,7 +10,7 @@
       href: event-hubs-capture-overview.md
     - name: Hub eventi Dedicato
       href: event-hubs-dedicated-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un hub eventi
@@ -75,7 +75,7 @@
     - name: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso
       href: event-hubs-kafka-stream-analytics.md
     - name: Trasmettere dati in Azure Databricks tramite Hub eventi
-      href: ../azure-databricks/databricks-stream-from-eventhubs.md
+      href: /azure/databricks/scenarios/databricks-stream-from-eventhubs
       maintainContext: true
 - name: Esempi
   items:

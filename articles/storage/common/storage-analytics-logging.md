@@ -1,6 +1,6 @@
 ---
 title: Registrazione di Analisi archiviazione di Azure
-description: Informazioni su come registrare i dettagli delle richieste effettuate ad Archiviazione di Azure.
+description: Usare Analisi archiviazione per registrare i dettagli sulle richieste di archiviazione di Azure. Vedere quali richieste vengono registrate, come vengono archiviati i log, come abilitare la registrazione dell'archiviazione e altro ancora.
 author: normesta
 ms.service: storage
 ms.subservice: common
@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 98c8bc07e1f5bb790c2f907bbc3c2125cae383a5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87276789"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903222"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione di Analisi archiviazione di Azure
 

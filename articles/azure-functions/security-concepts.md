@@ -3,12 +3,12 @@ title: Protezione di Funzioni di Azure
 description: Informazioni su come proteggere l'esecuzione del codice funzione in Azure dagli attacchi comuni.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502682"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850713"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
 
@@ -70,6 +70,18 @@ La tabella seguente confronta gli utilizzi per diversi tipi di chiavi di accesso
 <sup>2</sup>Nomi specifici impostati per estensione.
 
 Per altre informazioni sulle chiavi di accesso, vedere l'[articolo sull'associazione di trigger HTTP](functions-bindings-http-webhook-trigger.md#obtaining-keys).
+
+
+#### <a name="secret-repositories"></a>Repository segreti
+
+Per impostazione predefinita, le chiavi vengono archiviate in un contenitore di archiviazione BLOB nell'account fornito dall' `AzureWebJobsStorage` impostazione. È possibile usare impostazioni specifiche dell'applicazione per eseguire l'override di questo comportamento e archiviare le chiavi in un percorso diverso.
+
+|Percorso  |Impostazione | Valore | Description  |
+|---------|---------|---------|---------|
+|Account di archiviazione diverso     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Archivia le chiavi nell'archiviazione BLOB di un secondo account di archiviazione, in base all'URL SAS fornito. Le chiavi vengono crittografate prima di essere archiviate usando un segreto univoco per l'app per le funzioni. |
+|File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Le chiavi vengono salvate in modo permanente nella file system, crittografate prima dell'archiviazione usando un segreto univoco per l'app per le funzioni. |
+|Insieme di credenziali chiave di Azure  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | L'insieme di credenziali deve disporre di un criterio di accesso corrispondente all'identità gestita assegnata dal sistema della risorsa di hosting. I criteri di accesso devono concedere all'identità le autorizzazioni segrete seguenti: `Get` ,, `Set` `List` e `Delete` . <br/>Quando viene eseguito in locale, viene usata l'identità dello sviluppatore e le impostazioni devono trovarsi nella [local.settings.jssu file](functions-run-local.md#local-settings-file). | 
+|Segreti di Kubernetes  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (facoltativo) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Supportato solo quando si esegue il runtime di funzioni in Kubernetes. Quando `AzureWebJobsKubernetesSecretName` non è impostato, il repository viene considerato di sola lettura. In questo caso, i valori devono essere generati prima della distribuzione. Il Azure Functions Core Tools genera automaticamente i valori durante la distribuzione in Kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Autenticazione/autorizzazione
 

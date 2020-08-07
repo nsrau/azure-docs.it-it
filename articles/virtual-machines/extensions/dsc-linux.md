@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494786"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876717"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -29,25 +29,17 @@ DSC (Desired state Configuration) è una piattaforma di gestione che è possibil
 
 L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione installa l'agente OMI e DSC nelle macchine virtuali di Azure. L'estensione DSC può anche eseguire le azioni seguenti:
 
-
 - Registrare la VM Linux in un account di automazione di Azure per effettuare il pull delle configurazioni dal servizio di automazione di Azure (Register ExtensionAction).
 - Eseguire il push delle configurazioni MOF alla VM Linux (push ExtensionAction).
 - Applicare la configurazione meta MOF alla VM Linux per configurare un server di pull per eseguire il pull della configurazione del nodo (pull ExtensionAction).
 - Installare moduli DSC personalizzati nella VM Linux (installare ExtensionAction).
 - Rimuovere i moduli DSC personalizzati dalla VM Linux (rimuovere ExtensionAction).
 
- 
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione DSC Linux supporta tutte le [distribuzioni Linux approvate in Azure](../linux/endorsed-distros.md) tranne:
-
-| Distribuzione | Versione |
-|---|---|
-| Debian | Tutte le versioni |
-| Ubuntu| 18,04 |
+Per i nodi che eseguono Linux, l'estensione DSC per Linux supporta tutte le distribuzioni di Linux elencate nella [documentazione di PowerShell DSC](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
  
 ### <a name="internet-connectivity"></a>Connettività Internet
 

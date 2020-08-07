@@ -1,18 +1,18 @@
 ---
 title: Usare una condivisione file di Azure con Windows | Microsoft Docs
-description: Informazioni su come usare una condivisione file di Azure con Windows e Windows Server.
+description: Informazioni su come usare le condivisioni file di Azure con Windows e Windows Server. Usare condivisioni file di Azure con SMB 3,0 nelle installazioni di Windows in esecuzione in locale o in macchine virtuali di Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcc79a0763d7441a8a3c04723578ccc27cf5fe4e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509779"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905755"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -59,7 +59,7 @@ Per ottenere lo script seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Passare all'account di archiviazione che contiene la condivisione file che si vuole montare.
-1. Selezionare **condivisioni file**.
+1. Selezionare **Condivisioni file**.
 1. Selezionare la condivisione file che si desidera montare.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="esempio":::
@@ -132,10 +132,10 @@ La tabella seguente offre informazioni dettagliate sullo stato di SMB 1 in ogni 
 | Windows Server 2019                       | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows Server versione 1709 e successive            | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows 10 versione 1709 e successive                | Disabled             | Rimuovere con funzionalità di Windows |
-| Windows Server 2016                       | Abilitato              | Rimuovere con funzionalità di Windows |
-| Windows 10 versioni 1507, 1607 e 1703 | Abilitato              | Rimuovere con funzionalità di Windows |
-| Windows Server 2012 R2                    | Abilitato              | Rimuovere con funzionalità di Windows | 
-| Windows 8.1                               | Abilitato              | Rimuovere con funzionalità di Windows | 
+| Windows Server 2016                       | Attivato              | Rimuovere con funzionalità di Windows |
+| Windows 10 versioni 1507, 1607 e 1703 | Attivato              | Rimuovere con funzionalità di Windows |
+| Windows Server 2012 R2                    | Attivato              | Rimuovere con funzionalità di Windows | 
+| Windows 8.1                               | Attivato              | Rimuovere con funzionalità di Windows | 
 | Windows Server 2012                       | Attivato              | Disabilitare con Registro di sistema       | 
 | Windows Server 2008 R2                    | Attivato              | Disabilitare con Registro di sistema       |
 | Windows 7                                 | Attivato              | Disabilitare con Registro di sistema       | 

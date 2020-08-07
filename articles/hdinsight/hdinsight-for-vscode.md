@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-python
+ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087130"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876785"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -331,7 +331,7 @@ Il metodo 2 Invia un file e si noti che la `.vscode` cartella viene aggiunta aut
 
     **Post/Batches** Corpo della richiesta
 
-    | name | description | tipo |
+    | name | description | type |
     | --- | --- | --- |
     | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
     | proxyUser | Utente da rappresentare quando si esegue il processo | string |
@@ -352,7 +352,7 @@ Il metodo 2 Invia un file e si noti che la `.vscode` cartella viene aggiunta aut
 
     Corpo della risposta l'oggetto batch creato.
 
-    | name | description | tipo |
+    | name | description | type |
     | --- | ---| --- |
     | ID | ID sessione | Int |
     | appId | ID applicazione della sessione | string |

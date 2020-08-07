@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6b7453a0100233896e3d01769897ed224a0b2618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03fe71855c43ba831f4b7a4ab746f05bd3bbb4a3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737547"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846854"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
 
@@ -57,7 +57,7 @@ Quando si abilita Network Watcher tramite il portale, il nome dell'istanza di Ne
 
 L'istanza di Network Watcher viene creata automaticamente in un gruppo di risorse denominato *NetworkWatcherRG*. Questo gruppo di risorse viene creato se non esiste già.
 
-Se si vuole personalizzare il nome di un'istanza di Network Watcher e il gruppo di risorse in cui è inserito, è possibile usare PowerShell, l'API REST, l'interfaccia della riga di comando di Azure o i metodi ARMClient descritti nelle sezioni seguenti. Per ogni opzione, il gruppo di risorse deve esistere prima di crearvi un Network Watcher all'interno.  
+Se si vuole personalizzare il nome di un'istanza di Network Watcher e il gruppo di risorse in cui è inserito, è possibile usare PowerShell, l'interfaccia della riga di comando di Azure, l'API REST o i metodi ARMClient descritti nelle sezioni seguenti. Per ogni opzione, il gruppo di risorse deve esistere prima di crearvi un Network Watcher all'interno.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Creare un'istanza di Network Watcher con PowerShell
 
@@ -101,6 +101,10 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
+## <a name="create-a-network-watcher-using-azure-quickstart-template"></a>Creare un Network Watcher usando il modello di avvio rapido di Azure
+
+Per creare un'istanza di Network Watcher fare riferimento a questo [modello di avvio rapido](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)
+
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Eliminare un Network Watcher nel portale
 
 Passare a **tutti i servizi**  >  **Networking**  >  **Network Watcher**di rete.
@@ -127,8 +131,8 @@ Dopo aver creato un'istanza di Network Watcher, è possibile approfondire le fun
 
 * [Topologia](network-watcher-topology-overview.md)
 * [Acquisizione pacchetti](network-watcher-packet-capture-overview.md)
-* [Verifica del flusso IP](network-watcher-ip-flow-verify-overview.md)
+* [Verifica flusso IP](network-watcher-ip-flow-verify-overview.md)
 * [Hop successivo](network-watcher-next-hop-overview.md)
-* [Visualizzazione gruppo di sicurezza](network-watcher-security-group-view-overview.md)
+* [Visualizzazione Gruppo di sicurezza](network-watcher-security-group-view-overview.md)
 * [Registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
 * [Risoluzione dei problemi del gateway di rete virtuale](network-watcher-troubleshoot-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Caricare un certificato di gestione dei servizi di Azure | Microsoft Docs
-description: Informazioni su come caricare il certificato di gestione dei servizi per il portale di Azure.
+description: Informazioni su come caricare il certificato di gestione dei servizi per il portale di Azure. I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classica.
 services: cloud-services
 documentationcenter: .net
 author: georgewallace
@@ -10,15 +10,15 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d2436b524ba6df68b12206bcb545e54a405b731
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78329120"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848554"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Caricare un certificato di gestione dei servizi di Azure
-I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico fornito da Azure. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. 
+I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico fornito da Azure. Numerosi programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. 
 
 > [!WARNING]
 > Fare attenzione. Questi tipi di certificati consentono a chiunque esegua l'autenticazione di gestire la sottoscrizione a cui sono associati.

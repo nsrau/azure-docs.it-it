@@ -3,16 +3,16 @@ title: Connettersi a Hub eventi di Azure
 description: Creare attività e flussi di lavoro automatizzati che monitorano e gestiscono gli eventi tramite hub eventi di Azure e app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 7dab9753334a1f071d85d0d2bccbd88340e37634
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9e3bc4cdab62dd304c5266ff6c9cccf66600fb7b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284099"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848844"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorare, ricevere e inviare eventi con Hub eventi di Azure e App per la logica di Azure
 
@@ -62,6 +62,9 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
 
 Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la logica quando vengono inviati nuovi eventi all'Hub eventi. 
 
+> [!NOTE]
+> Tutti i trigger dell'hub eventi sono trigger con *polling prolungato* , il che significa che il trigger elabora tutti gli eventi e quindi attende 30 secondi per partizione per visualizzare più eventi nell'hub eventi. Quindi, se il trigger è configurato con quattro partizioni, questo ritardo potrebbe richiedere fino a due minuti prima che il trigger completi il polling di tutte le partizioni. Se non viene ricevuto alcun evento entro questo intervallo di tempo, l'esecuzione del trigger viene ignorata. In caso contrario, il trigger continua a leggere gli eventi finché l'hub eventi non è vuoto. Il polling successivo si baserà sull'intervallo di ricorrenza specificato nelle proprietà del trigger.
+
 1. Nel portale di Azure o in Visual Studio creare un'app per la logica vuota, che apre Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
 1. Nella casella di ricerca, immettere "hub eventi" come filtro. Dall'elenco trigger selezionare questo trigger: **quando sono disponibili eventi nell'hub eventi-Hub eventi**
@@ -74,7 +77,7 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 
    ![Proprietà del trigger](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Nome hub eventi** | Sì | Nome dell'hub eventi che si vuole monitorare |
    | **Tipo di contenuto** | No | Tipo di contenuto dell'evento. Il valore predefinito è `application/octet-stream`. |
@@ -86,7 +89,7 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 
    **Proprietà aggiuntive**
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Content schema (Schema contenuto)** | No | Schema del contenuto JSON per gli eventi da leggere dall'hub eventi. Se ad esempio si specifica lo schema del contenuto, è possibile attivare l'app per la logica solo per gli eventi che corrispondono allo schema. |
    | **Minimum partition key (Chiave di partizione minima)** | No | Immettere l'ID di [partizione](../event-hubs/event-hubs-features.md#partitions) minima da leggere. Per impostazione predefinita, vengono lette tutte le partizioni. |
@@ -100,11 +103,6 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 1. Continuare ad aggiungere una o più azioni all'app per la logica per le attività da eseguire con i risultati del trigger. 
 
    Ad esempio, per filtrare gli eventi in base a un valore specifico, ad esempio una categoria, è possibile aggiungere una condizione in modo che l'azione **Invia evento** invii solo gli eventi che soddisfano la condizione. 
-
-> [!NOTE]
-> Tutti i trigger dell'hub eventi sono trigger con *polling prolungato*. Questo significa che, quando un trigger viene attivato, elabora tutti gli eventi e attende 30 secondi che vengano visualizzati altri eventi nell'hub eventi.
-> Se non si ricevono eventi per 30 secondi, l'esecuzione del trigger viene ignorata. In caso contrario, il trigger continua a leggere gli eventi finché l'hub eventi non è vuoto.
-> Il polling successivo si baserà sull'intervallo di ricorrenza specificato nelle proprietà del trigger.
 
 <a name="add-action"></a>
 
@@ -130,7 +128,7 @@ Dall'elenco delle azioni selezionare questa azione: **Invia evento-Hub eventi**
 
    ![Selezionare il nome dell'hub eventi e specificare il contenuto dell'evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Proprietà | Obbligatorio | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Nome hub eventi** | Sì | Hub eventi in cui si vuole inviare l'evento |
    | **Contenuto** | No | Contenuto dell'evento da inviare |

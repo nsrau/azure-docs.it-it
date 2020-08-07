@@ -8,7 +8,7 @@
       href: howto-best-practices.md
     - name: Domande frequenti
       href: faq.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurazione
@@ -75,7 +75,7 @@
       href: ./policy-samples.md
 - name: Concetti
   items:
-    - name: Archivio chiave-valore
+    - name: Chiavi e valori
       href: concept-key-value.md
     - name: Snapshot temporizzato
       href: concept-point-time-snapshot.md
