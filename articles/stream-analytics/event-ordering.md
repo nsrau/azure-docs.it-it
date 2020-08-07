@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/12/2019
-ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/06/2020
+ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044567"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901692"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurazione dei criteri di ordinamento degli eventi per analisi di flusso di Azure
 
@@ -40,7 +40,7 @@ Ecco un esempio di questi criteri in azione.
 <br> **Criteri di arrivo in ritardo:** 15 secondi
 <br> **Criteri non ordinati:** 8 secondi
 
-| N. evento. | Ora evento | Ora di arrivo | System.Timestamp | Spiegazione |
+| N. evento. | Ora dell'evento | Ora di arrivo | System.Timestamp | Spiegazione |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | L'evento è arrivato in ritardo e all'esterno del livello di tolleranza. Il tempo dell'evento viene quindi regolato in modo da ottenere la tolleranza massima per arrivo.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | L'evento è arrivato in ritardo ma entro il livello di tolleranza. L'ora dell'evento non viene modificata.  |
@@ -75,6 +75,11 @@ Quando vengono combinate più partizioni dello stesso flusso di input, la toller
 Questo messaggio indica che almeno una partizione nell'input è vuota e ritarderà l'output in base alla soglia di arrivo in ritardo. Per ovviare a questo problema, è consigliabile effettuare una delle operazioni seguenti:  
 1. Verificare che tutte le partizioni dell'hub eventi/Hub eventi ricevano l'input. 
 2. Usare la clausola PARTITION BY PartitionID nella query. 
+
+## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Perché viene visualizzato un ritardo di 5 secondi anche quando i criteri di arrivo in ritardo sono impostati su 0?
+Questo errore si verifica quando è presente una partizione di input che non ha mai ricevuto input. È possibile verificare la metrica di input in base alla partizione per convalidare questo comportamento. 
+
+Quando una partizione non contiene dati per più della soglia di arrivo in ritardo configurata, analisi di flusso sposta il timestamp dell'applicazione come descritto nella sezione Considerazioni sull'ordinamento degli eventi. Questa operazione richiede l'ora di arrivo stimata. Se la partizione non dispone mai di dati, analisi di flusso stima l'ora di arrivo come *ora locale-5 secondi*. A causa di questa partizione che non aveva mai dati, poteva visualizzare un ritardo della filigrana di 5 secondi.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Considerazioni sulla gestione del tempo](stream-analytics-time-handling.md)

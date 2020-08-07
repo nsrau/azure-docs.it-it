@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345942"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851988"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub di gestione in Azure Data Factory
 
@@ -57,6 +57,12 @@ Per eseguire l'override dei parametri del modello di Gestione risorse generati d
 I trigger determinano quando deve essere avviata l'esecuzione di una pipeline. Attualmente i trigger possono essere in base a una pianificazione del clock del muro, operare su un intervallo periodico o dipendere da un evento. Per ulteriori informazioni, vedere l'articolo relativo all' [esecuzione del trigger](concepts-pipeline-execution-triggers.md#trigger-execution). Nell'hub di gestione è possibile creare, modificare, eliminare o visualizzare lo stato corrente di un trigger.
 
 ![Gestire parametri personalizzati](media/author-management-hub/management-hub-triggers.png)
+
+### <a name="global-parameters"></a>Parametri globali
+
+I parametri globali sono costanti in un data factory che possono essere utilizzati da una pipeline in qualsiasi espressione. Per ulteriori informazioni, vedere informazioni sui [parametri globali](author-global-parameters.md).
+
+![Crea parametri globali](media/author-global-parameters/create-global-parameter-3.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

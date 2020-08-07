@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247778"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904820"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 
@@ -155,7 +155,7 @@ Le esigenze di capacità del cluster verranno determinate in base al carico di l
 
 #### <a name="virtual-machine-sizing"></a>Dimensionamento delle macchine virtuali
 
-**Per i carichi di lavoro di produzione, le dimensioni della VM consigliate (SKU) sono D2_V2 standard (o equivalenti) con un minimo di 50 GB di unità SSD locale.** È consigliabile disporre di un minimo di 50 GB di unità SSD locale, tuttavia alcuni carichi di lavoro, ad esempio quelli che eseguono i contenitori di Windows, richiederanno dischi di dimensioni maggiori. Quando si scelgono altre [dimensioni di VM](../virtual-machines/sizes-general.md) per i carichi di lavoro di produzione, tenere presenti i vincoli seguenti:
+**Per i carichi di lavoro di produzione, le dimensioni della VM consigliate (SKU) sono [D2_V2 standard](../virtual-machines/dv2-dsv2-series.md) (o equivalenti) con un minimo di 50 GB di unità SSD locale, 2 core e 4 GiB di memoria.** È consigliabile disporre di un minimo di 50 GB di unità SSD locale, tuttavia alcuni carichi di lavoro, ad esempio quelli che eseguono i contenitori di Windows, richiederanno dischi di dimensioni maggiori. Quando si scelgono altre [dimensioni di VM](../virtual-machines/sizes-general.md) per i carichi di lavoro di produzione, tenere presenti i vincoli seguenti:
 
 - Le dimensioni delle VM Core parziali, ad esempio a0 standard, non sono supportate.
 - *Serie A* Le dimensioni delle macchine virtuali non sono supportate per motivi di prestazioni.

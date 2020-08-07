@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 82639a19ef728c22a74381d24754992e0f647976
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6dfddd9179569075abdbd94b6c1afa719db9ba1e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562472"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905593"
 ---
 ## <a name="query-language-features"></a>Funzionalità del linguaggio di query
 
@@ -30,7 +30,7 @@ Ottenere i gemelli digitali per...
 
 È possibile migliorare ulteriormente le query con le operazioni seguenti:
 * Ottenere i gemelli su più tipi di relazione ( `JOIN` query). 
-  - Esistono limitazioni sul numero di istanze `JOIN` consentite (un livello per l'anteprima pubblica).
+  - Durante l'anteprima, `JOIN` sono consentiti fino a cinque livelli.
 * Seleziona solo i primi risultati della query ( `Select TOP` operatore)
 * Usare funzioni scalari: `IS_BOOL` , `IS_DEFINED` , `IS_NULL` , `IS_NUMBER` , `IS_OBJECT` , `IS_PRIMITIVE` , `IS_STRING` , `STARTSWITH` , `ENDSWITH` .
 * Utilizzare gli operatori di confronto delle query: `IN` / `NIN` , `=` , `!=` , `<` , `>` , `<=` , `>=` .

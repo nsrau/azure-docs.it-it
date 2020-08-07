@@ -63,6 +63,8 @@
           href: security-center-policy-definitions.md
         - name: Usare le raccomandazioni per migliorare la sicurezza
           href: security-center-using-recommendations.md
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Protezione dalle minacce e avvisi di sicurezza
       items:
         - name: Panoramica della protezione dalle minacce nel Centro sicurezza

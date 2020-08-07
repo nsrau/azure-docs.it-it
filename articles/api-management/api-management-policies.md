@@ -1,6 +1,6 @@
 ---
 title: Criteri di Gestione API di Azure | Documentazione Microsoft
-description: Informazioni sui criteri disponibili per l'uso in Gestione API di Azure.
+description: Informazioni sui criteri disponibili per l'uso in Gestione API di Azure. I criteri consentono al server di pubblicazione di modificare il comportamento dell'API tramite la configurazione.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4cdd9b7ace107d09ec14b23e02c56d2b13f264e6
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252848"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905670"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  

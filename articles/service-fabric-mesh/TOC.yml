@@ -75,18 +75,16 @@
       href: move-across-regions.md
     - name: Trovare esempi
       href: service-fabric-mesh-howto-find-samples.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API REST del provider di risorse di Service Fabric Mesh
       href: /rest/api/servicefabric/sfmeshrp-index
     - name: Informazioni di riferimento sull'interfaccia della riga di comando di mesh Service Fabric
       href: /cli/azure/ext/mesh
     - name: API REST delle risorse client di Service Fabric
-      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
+      href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
     - name: Informazioni di riferimento sull'interfaccia della riga di comando Maven di Service Fabric
       href: service-fabric-mesh-reference-maven.md
-    - name: Modello di Resource Manager
-      href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Risorse
   items:
     - name: Domande frequenti
@@ -101,5 +99,5 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'

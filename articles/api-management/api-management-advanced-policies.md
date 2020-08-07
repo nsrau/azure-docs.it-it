@@ -1,6 +1,6 @@
 ---
 title: Criteri avanzati di Gestione API di Azure | Microsoft Docs
-description: Informazioni sui criteri avanzati disponibili per l'uso in Gestione API di Azure.
+description: Informazioni sui criteri avanzati disponibili per l'uso in Gestione API di Azure. Vedere gli esempi e visualizzare altre risorse disponibili.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3843ff986fdc37c37690bee9616861f16a334c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243733"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851682"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 
@@ -63,7 +63,7 @@ Il criterio `choose` si applica alle istruzioni del criterio incluse in base al 
 
 Il criterio del flusso di controllo deve contenere almeno un elemento `<when/>`. L'elemento `<otherwise/>` è facoltativo. Le condizioni negli elementi `<when/>` vengono valutate in ordine di visualizzazione all'interno del criterio. Si applicano le istruzioni del criterio incluse all'interno del primo elemento `<when/>` con attributo di condizione uguale a `true`. I criteri inclusi all'interno dell'elemento `<otherwise/>`, se presente, vengono applicati se tutti gli attributi di condizione dell'elemento `<when/>` sono `false`.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="example"></a><a name="ChooseExample"></a>Esempio
 
@@ -159,7 +159,7 @@ Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-
 <forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="example"></a>Esempio
 
@@ -257,7 +257,7 @@ Questo criterio a livello di operazione non inoltra le richieste al servizio bac
 | buffer-request-body = "false &#124; true"       | Se impostata su "true", la richiesta viene memorizzata nel buffer e verrà riutilizzata al [nuovo tentativo](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
 | Fail-on-Error-Status-Code = "false &#124; true" | Quando è impostato su true [, la sezione On-Error](api-management-error-handling-policies.md) per i codici di risposta nell'intervallo compreso tra 400 e 599 inclusi.                                                                                                                                                                      | No       | false   |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -276,7 +276,7 @@ Il criterio `limit-concurrency` impedisce ai criteri racchiusi di eseguire un nu
 </limit-concurrency>
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="example"></a>Esempio
 
@@ -304,10 +304,10 @@ Nell'esempio seguente viene illustrato come limitare il numero di richieste inol
 
 | Attributo | Descrizione                                                                                        | Obbligatoria | Predefinito |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| Key       | Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri. | Sì      | N/D     |
-| numero max | Valore intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.           | Sì      | N/D     |
+| chiave       | Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri. | Sì      | N/D     |
+| numero max | Intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.           | Sì      | N/D     |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -361,7 +361,7 @@ Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub ev
 | partition-id  | Specifica l'indice della partizione a cui i messaggi vengono inviati.             | facoltativo. Questo attributo non può essere usato se si usa `partition-key`. |
 | partition-key | Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi. | facoltativo. Questo attributo non può essere usato se si usa `partition-id`.  |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -380,7 +380,7 @@ Il criterio `mock-response`, come implica il nome, viene usato per restituire AP
 
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 ```xml
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
@@ -405,7 +405,7 @@ status code and media type. If no example or schema found, the content is empty.
 | status-code  | Specifica il codice di stato della risposta e viene usato per selezionare l'esempio o lo schema corrispondente.                 | No       | 200     |
 | content-type | Specifica il valore di intestazione della risposta `Content-Type` e viene usato per selezionare l'esempio o lo schema corrispondente. | No       | nessuno    |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -464,8 +464,8 @@ Nella richiesta di esempio seguente l'inoltro viene ripetuto fino a dieci volte 
 | condizione        | Valore letterale booleano o [espressione](api-management-policy-expressions.md) che specifica se i tentativi devono essere interrotti (`false`) o devono continuare (`true`).      | Sì      | N/D     |
 | conteggio            | Numero positivo che specifica il numero massimo di tentativi da eseguire.                                                                                | Sì      | N/D     |
 | interval         | Numero positivo in secondi che specifica l'intervallo di attesa tra i tentativi di ripetizione.                                                                 | Sì      | N/D     |
-| max-interval     | Un numero positivo che specifica l'intervallo di attesa massimo tra i tentativi di ripetizione. Viene usato per implementare un algoritmo di ripetizione esponenziale. | No       | N/A     |
-| delta            | Numero positivo in secondi che specifica l'incremento dell'intervallo di attesa. Viene usato per implementare gli algoritmi di ripetizione lineari ed esponenziali.             | No       | N/A     |
+| max-interval     | Un numero positivo che specifica l'intervallo di attesa massimo tra i tentativi di ripetizione. Viene usato per implementare un algoritmo di ripetizione esponenziale. | No       | N/D     |
+| delta            | Numero positivo in secondi che specifica l'incremento dell'intervallo di attesa. Viene usato per implementare gli algoritmi di ripetizione lineari ed esponenziali.             | No       | N/D     |
 | first-fast-retry | Se impostato su `true` , il primo tentativo viene eseguito immediatamente.                                                                                  | No       | `false` |
 
 > [!NOTE]
@@ -473,7 +473,7 @@ Nella richiesta di esempio seguente l'inoltro viene ripetuto fino a dieci volte 
 > Se vengono specificati solo `interval` e `delta`, viene usato un algoritmo di ripetizione a intervalli **lineari**, in cui il tempo di attesa tra i tentativi viene calcolato secondo la formula seguente: `interval + (count - 1)*delta`.
 > Se vengono specificati `interval`, `max-interval` e `delta`, viene applicato un algoritmo di ripetizione a intervalli **esponenziali**, in cui il tempo di attesa tra i tentativi cresce in modo esponenziale dal valore `interval` al valore `max-interval`, secondo la formula seguente: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti. Si noti che le restrizioni sull'uso dei criteri figlio verranno ereditate da questo criterio.
 
@@ -523,7 +523,7 @@ Il criterio `return-response` interrompe l'esecuzione della pipeline e restituis
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | response-variable-name | Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`. | facoltativo. |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -597,7 +597,7 @@ Questo criterio di esempio illustra come usare il criterio `send-one-way-request
 | name          | Specifica il nome dell'intestazione da impostare.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sì      | N/D      |
 | exists-action | Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -override-sostituisce il valore dell'intestazione esistente.<br />-Skip-non sostituisce il valore dell'intestazione esistente.<br />-Append-aggiunge il valore al valore dell'intestazione esistente.<br />-Delete: rimuove l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati. | No       | override |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -684,7 +684,7 @@ Questo esempio mostra un metodo per verificare un token di riferimento con un se
 | name                            | Specifica il nome dell'intestazione da impostare.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sì      | N/D      |
 | exists-action                   | Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -override-sostituisce il valore dell'intestazione esistente.<br />-Skip-non sostituisce il valore dell'intestazione esistente.<br />-Append-aggiunge il valore al valore dell'intestazione esistente.<br />-Delete: rimuove l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati. | No       | override |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -723,10 +723,10 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 | Attributo         | Descrizione                                            | Obbligatoria | Predefinito |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | URL del proxy nel formato http://host:port.             | Sì      | N/D     |
-| username="string" | Nome utente da usare per l'autenticazione con il proxy. | No       | N/A     |
-| password="string" | Password da usare per l'autenticazione con il proxy. | No       | N/A     |
+| username="string" | Nome utente da usare per l'autenticazione con il proxy. | No       | N/D     |
+| password="string" | Password da usare per l'autenticazione con il proxy. | No       | N/D     |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -781,7 +781,7 @@ Questo criterio di esempio che usa il criterio `set-method` mostra un esempio di
 | ---------- | ----------------------------------------------------------------- | -------- |
 | set-method | Elemento radice. Il valore dell'elemento specifica il metodo HTTP. | Sì      |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -831,7 +831,7 @@ Questo esempio illustra come restituire una risposta 401 se il token di autorizz
 | code="integer"  | Il codice di stato HTTP da restituire.                            | Sì      | N/D     |
 | reason="string" | Descrizione del motivo per la restituzione del codice di stato. | Sì      | N/D     |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -867,9 +867,9 @@ L'esempio seguente illustra un criterio di impostazione della variabile nella se
 | Attributo | Descrizione                                                              | Obbligatoria |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nome della variabile.                                                | Sì      |
-| value     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
+| Valore     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -955,9 +955,9 @@ Il `trace` criterio aggiunge una traccia personalizzata nell'output di controllo
 | source    | Valore letterale della stringa significativo per il visualizzatore di tracce e che specifica l'origine del messaggio.                                   | Sì      | N/D     |
 | severity  | Specifica il livello di gravità della traccia. I valori consentiti sono `verbose` , `information` , `error` (dal più basso al più alto). | No       | Dettagliato |
 | name      | Nome della proprietà.                                                                                                     | Sì      | N/D     |
-| value     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
+| Valore     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -1027,7 +1027,7 @@ L'esempio seguente contiene due criteri `choose` come criteri figlio immediato d
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | for       | Determina se il criterio `wait` attende il completamento di tutti o solo uno dei criteri figlio immediati. I valori consentiti sono i seguenti:<br /><br /> - `all`: consente di attendere il completamento di tutti i criteri figlio immediati<br />-any-attendi il completamento di qualsiasi criterio figlio immediato. Dopo il completamento del primo criterio figlio immediato, il criterio `wait` si completa e l'esecuzione di qualsiasi altro criterio figlio immediato viene arrestata. | No       | all     |
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 

@@ -209,14 +209,14 @@
       items:
         - name: Creare data factory con strumenti visivi
           href: author-visually.md
+        - name: Sviluppo e debug iterativi
+          href: iterative-development-debugging.md
         - name: Hub di gestione
           href: author-management-hub.md
         - name: Controllo del codice sorgente
           href: source-control.md
         - name: Integrazione continua e recapito continuo
           href: continuous-integration-deployment.md
-        - name: Sviluppo e debug iterativi
-          href: iterative-development-debugging.md
     - name: Connettori
       items:
         - name: Panoramica dei connettori
@@ -562,6 +562,8 @@
       items:
         - name: Impostazione dei parametri per i servizi collegati
           href: parameterize-linked-services.md
+        - name: Parametri globali
+          href: author-global-parameters.md
         - name: Linguaggio di espressione
           href: control-flow-expression-language-functions.md
         - name: Variabili di sistema

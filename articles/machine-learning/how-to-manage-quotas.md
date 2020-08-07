@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372944"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846735"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,13 +46,9 @@ Ecco un riepilogo dei limiti di quota per i vari tipi di risorsa all'interno del
 > I limiti sono soggetti a modifiche. I limiti più aggiornati sono sempre disponibili nel [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) sulle quote a livello di servizio per tutti i servizi di Azure.
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-Per ogni sottoscrizione di Azure, è previsto un limite al numero di macchine virtuali che possono essere presenti tra i servizi o in modo autonomo. Questo limite è a livello di area sia per i core totali sia per ogni famiglia.
-
-I core delle macchine virtuali devono rispettare un limite totale per l'area e un limite di serie per dimensione (Dv2, F e così via) per l'area, entrambi applicati separatamente. Si consideri ad esempio una sottoscrizione con limite di core di VM totale per gli Stati Uniti orientali pari a 30, un limite di core di serie A pari a 30 e un limite di core di serie D pari a 30. Questa sottoscrizione sarà autorizzata a distribuire 30 VM A1 o 30 VM D1 o una combinazione delle due che non superi un totale di 30 core, ad esempio 10 VM A1 e 20 VM D1.
+Per ogni sottoscrizione di Azure è previsto un limite al numero di macchine virtuali nei servizi o in autonomia. I core delle macchine virtuali devono rispettare un limite totale per l'area e un limite di serie per dimensione (Dv2, F e così via) per l'area, entrambi applicati separatamente. Si consideri ad esempio una sottoscrizione con limite di core di VM totale per gli Stati Uniti orientali pari a 30, un limite di core di serie A pari a 30 e un limite di core di serie D pari a 30. Questa sottoscrizione sarà autorizzata a distribuire 30 VM A1 o 30 VM D1 o una combinazione delle due che non superi un totale di 30 core, ad esempio 10 VM A1 e 20 VM D1.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-Per un elenco più dettagliato e aggiornato dei limiti di quota, vedere l'[articolo sulle quote a livello di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
 Nell'[ambiente di calcolo di Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) è previsto un limite di quota predefinito per il numero di core e per il numero di risorse di calcolo consentite per ogni area in una sottoscrizione. Questa quota è separata dalla quota di core della VM precedente e i limiti di core non vengono condivisi tra i due tipi di risorse poiché AmlCompute è un servizio gestito che distribuisce le risorse in un modello ospitato.
@@ -84,16 +80,10 @@ Per le [pipeline di Azure Machine Learning](concept-ml-pipelines.md) esiste un l
 - Il numero massimo di passaggi consentiti in una pipeline è 30.000
 - Il numero massimo della somma delle esecuzioni basate su pianificazione e dei pull di BLOB per le pianificazioni attivate tramite blog di pipeline pubblicate per ogni sottoscrizione al mese è 100.000
 
-> [!NOTE]
-> Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
-
 ### <a name="container-instances"></a>Istanze di Container
 
 È anche previsto un limite sul numero di istanze di contenitore che è possibile attivare in un determinato periodo di tempo (su base oraria con ambito) o nell'intera sottoscrizione.
-
-[!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-Per un elenco più dettagliato e aggiornato dei limiti di quota, vedere l'articolo sulle quote a livello di Azure [qui](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Per informazioni sui limiti, vedere [limiti delle istanze del contenitore](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Archiviazione
 È previsto un limite sul numero di account di archiviazione per ogni area, nonché in una sottoscrizione specifica. Il limite predefinito è 250 e include sia l'account di archiviazione Standard sia l'account di archiviazione Premium. Se sono necessari più di 250 account di archiviazione in una determinata area, inviare una richiesta tramite il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione per una determinata area.
@@ -126,7 +116,7 @@ L'ambiente di calcolo di Azure Machine Learning è gestito separatamente dalle a
 1. Selezionare una sottoscrizione per visualizzare i limiti di quota. Ricordare di filtrare i dati in base all'area a cui si è interessati.
 
 1. È ora possibile passare da una vista a livello di sottoscrizione e una vista a livello di area di lavoro:
-    + **Vista sottoscrizioni:** questa vista consente di visualizzare l'utilizzo della quota di core per famiglia di macchine virtuali, espanderlo per area di lavoro ed espanderlo ulteriormente in base ai nomi dei cluster effettivi. Questa vista è ottimale per ottenere rapidamente informazioni dettagliate sull'utilizzo di core per una particolare famiglia di macchine virtuali in modo da visualizzare la suddivisione per aree di lavoro e per cluster sottostanti per ognuna delle aree di lavoro. La convenzione generale in questa vista è (utilizzo/quota) dove l'utilizzo è il numero corrente di core aumentati e la quota è il numero massimo logico di core a cui la risorsa può essere ridimensionata. Per ogni **area di lavoro**, la quota è la quota a livello di area di lavoro (come illustrato sopra) che indica il numero massimo di core del ridimensionamento per una particolare famiglia di macchine virtuali. Analogamente, per un **cluster**, la quota corrisponde ai core corrispondenti al numero massimo di nodi a cui può essere ridimensionato il cluster in base a quanto definito dalla proprietà max_nodes.
+    + **Vista sottoscrizioni:** Visualizza l'utilizzo della quota di core per famiglia di macchine virtuali, espanderlo per area di lavoro ed espanderlo ulteriormente in base ai nomi dei cluster effettivi. È possibile accedere rapidamente ai dettagli dell'utilizzo di base di una particolare famiglia di macchine virtuali per visualizzare le interruzioni delle aree di lavoro e i cluster sottostanti per ognuna di queste aree di lavoro. La convenzione generale in questa vista è (utilizzo/quota) dove l'utilizzo è il numero corrente di core aumentati e la quota è il numero massimo logico di core a cui la risorsa può essere ridimensionata. Per ogni **area di lavoro**, la quota è la quota a livello di area di lavoro (come illustrato sopra) che indica il numero massimo di core del ridimensionamento per una particolare famiglia di macchine virtuali. Analogamente, per un **cluster**, la quota corrisponde ai core corrispondenti al numero massimo di nodi a cui può essere ridimensionato il cluster in base a quanto definito dalla proprietà max_nodes.
 
     + **Vista area di lavoro:** questa vista consente di visualizzare l'utilizzo della quota di core per area di lavoro, espanderlo per famiglia di macchine virtuali ed espanderlo ulteriormente in base ai nomi dei cluster effettivi. Questa vista è ottimale per ottenere rapidamente informazioni dettagliate sull'utilizzo di core per una area di lavoro in modo da visualizzare la suddivisione per famiglie di macchine virtuali e per cluster sottostanti per ognuna delle famiglie.
 
@@ -149,8 +139,4 @@ Quando si richiede un aumento di quota, è necessario selezionare il servizio pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere gli articoli seguenti:
-
 + [Pianificare e gestire i costi per Azure Machine Learning](concept-plan-manage-cost.md)
-
-+ [Come aumentare la quota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).

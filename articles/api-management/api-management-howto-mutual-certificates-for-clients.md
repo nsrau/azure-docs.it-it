@@ -1,7 +1,7 @@
 ---
 title: Proteggere le API usando l'autenticazione con certificati client in gestione API
 titleSuffix: Azure API Management
-description: Informazioni su come proteggere l'accesso alle API usando i certificati client
+description: Informazioni su come proteggere l'accesso alle API usando i certificati client. È possibile utilizzare le espressioni di criteri per convalidare i certificati in ingresso.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 19e0d741d959eba704f26e7e8f7b5d311aa77775
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250074"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904864"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Come proteggere le API usando l'autenticazione con certificati client in Gestione API
 

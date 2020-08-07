@@ -1,6 +1,6 @@
 ---
 title: Criteri in Gestione API di Azure | Microsoft Docs
-description: Informazioni su come creare, modificare e configurare criteri in Gestione API.
+description: Informazioni su come creare, modificare e configurare criteri in Gestione API. Vedere gli esempi di codice e visualizzare altre risorse disponibili.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cc19c5ea7a45f78110818bc6c8cea8fbe25981c0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243444"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905517"
 ---
 # <a name="policies-in-azure-api-management"></a>Criteri in Gestione API di Azure
 
@@ -72,7 +72,7 @@ Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, 
 
 Per altri esempi di codice, vedere [Esempi di criteri](policy-samples.md).
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>Applicare i criteri specificati in ambiti diversi
 
