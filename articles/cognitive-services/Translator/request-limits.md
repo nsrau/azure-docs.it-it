@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561470"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903408"
 ---
 # <a name="request-limits-for-translator"></a>Limiti delle richieste per il traduttore
 
@@ -23,18 +23,18 @@ Questo articolo fornisce limiti di limitazione per il traduttore. I servizi incl
 
 ## <a name="character-and-array-limits-per-request"></a>Limiti di caratteri e matrici per ogni richiesta
 
-Ogni richiesta di conversione è limitata a 5.000 caratteri, in tutte le lingue di destinazione in cui si esegue la conversione. Se ad esempio si invia una richiesta di conversione di 1.500 caratteri per tradurre in 3 lingue diverse, le dimensioni della richiesta sono pari a 1, 500x3 = 4.500 caratteri, che soddisfano il limite di richieste. Sono previsti addebiti in base ai caratteri e non al numero di richieste. È consigliabile inviare richieste più brevi.
+Ogni richiesta di conversione è limitata a 10.000 caratteri, in tutte le lingue di destinazione in cui si esegue la conversione. Se, ad esempio, si invia una richiesta di conversione di 3.000 caratteri per tradurre in 3 lingue diverse, le dimensioni della richiesta sono pari a 3000x3 = 9.000 caratteri, che soddisfano il limite di richieste. Sono previsti addebiti in base ai caratteri e non al numero di richieste. È consigliabile inviare richieste più brevi.
 
 Nella tabella seguente sono elencati i limiti degli elementi e dei caratteri della matrice per ogni operazione del traduttore.
 
 | Operazione | Dimensione massima dell'elemento della matrice |    Numero massimo di elementi di matrice |    Dimensioni massime richiesta (caratteri) |
 |:----|:----|:----|:----|
-| Translate | 5\.000    | 100    | 5\.000 |
-| Transliterate | 5\.000    | 10    | 5\.000 |
-| Detect | 10,000 |    100 |    50.000 |
-| BreakSentence | 10,000    | 100 |    50.000 |
-| Ricerca nel dizionario| 100 |    10    | 1\.000 |
-| Esempi di dizionari | 100 per il testo e 100 per la traduzione (200 totali)| 10|    2\.000 |
+| Translate | 10,000    | 100   | 10,000 |
+| Transliterate | 5\.000 | 10    | 5\.000 |
+| Detect | 10,000 | 100 |   50.000 |
+| BreakSentence | 50.000    | 100 | 50.000 |
+| Ricerca nel dizionario| 100 |  10  | 1\.000 |
+| Esempi di dizionari | 100 per il testo e 100 per la traduzione (200 totali)| 10|   2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Limiti di caratteri all'ora
 

@@ -5,19 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 06/12/2020
+ms.date: 08/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: f22f81d69d746764af43d9167874aabedbd56f51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 475b2aa99296995c3adb51eca2d6bdb53616670e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765324"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903596"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creare ExpressRoute direttamente usando il portale di Azure
 
 Questo articolo illustra come creare ExpressRoute Direct usando il portale di Azure.
 ExpressRoute Direct ti permette di connetterti direttamente alla rete globale di Microsoft nelle località di peering distribuite in modo strategico in tutto il mondo. Per altre informazioni, vedere [Informazioni su ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a><a name="before"></a>Prima di iniziare
+
+Verificare che il provider di risorse **Microsoft. Network** sia registrato nella sottoscrizione. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse.
+
+1. Accedere alle impostazioni della sottoscrizione come descritto in [tipi e provider di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+1. Nella sottoscrizione, per i **provider di risorse**, verificare che il provider **Microsoft. Network** indichi uno stato **registrato** . Se il provider di risorse Microsoft. Network non è presente nell'elenco dei provider registrati, aggiungerlo.
 
 ## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. creare ExpressRoute direttamente
 

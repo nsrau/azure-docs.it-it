@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive, tracking-python
-ms.openlocfilehash: 9bb27d1dd9c7bc5f067fa3d84f451537882150c5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
+ms.openlocfilehash: 2f02e579f7679180cecfd8a48736b3af307ba371
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087674"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874759"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
 
@@ -31,7 +31,7 @@ HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jy
 * **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Per l' `wasb://` archiviazione di Azure, `abfs://` per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è wasbs://.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 * **Possibile modifica della configurazione dell'archiviazione.**  Vedere [configurazione dell'archiviazione](#storage-configuration) se si usa il tipo di account di archiviazione `BlobStorage` .
-* Facoltativa.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sia installato.
+* facoltativo.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sia installato.
 
 > [!NOTE]  
 > L'account di archiviazione usato in questo articolo è stato l'archiviazione di Azure con [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md) abilitato e quindi `wasbs` viene usato in tutto l'articolo.

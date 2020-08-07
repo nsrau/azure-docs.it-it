@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 95756e9951b384c779f61651555482b3c8cb7321
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083373"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874028"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
 
@@ -25,7 +25,7 @@ Il portale di Azure è uno strumento di gestione basato sul Web per servizi e ri
 
 Il portale di Azure espone la maggior parte delle proprietà del cluster. Con i modelli di Azure Resource Manager è possibile nascondere molti dettagli. Per altre informazioni, vedere [Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="create-clusters"></a>Creare i cluster
 
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account g
 
 1. Selezionare **Analytics** > **Azure HDInsight** per passare alla pagina **Crea cluster HDInsight**.
 
-## <a name="basics"></a>Nozioni di base
+## <a name="basics"></a>Operazioni di base
 
 ![HDInsight creare le nozioni di base del cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Creazione di un nuovo cluster nel portale di Azure")
 
@@ -85,6 +85,9 @@ Facoltativo: selezionare **Aggiungi archiviazione di Azure** per l'archiviazione
 ### <a name="metastore-settings"></a>Impostazioni Metastore
 
 Facoltativo: specificare un database SQL esistente per salvare i metadati Apache Hive, Apache oozie, e o Apache Ambari all'esterno del cluster. Il database SQL di Azure usato per il Metastore deve consentire la connettività ad altri servizi di Azure, tra cui Azure HDInsight. Quando si crea un metastore, non usare trattini o segni meno nel nome del database, perché a causa di questi caratteri il processo di creazione del cluster non andrebbe a buon fine.
+
+> [!IMPORTANT]
+> Per le forme cluster che supportano i Metastore, il Metastore predefinito fornisce un database SQL di Azure con un **limite di DTU di livello Basic 5 (non aggiornabile)**. Adatto a scopo di test di base. Per carichi di lavoro di grandi dimensioni o di produzione, è consigliabile eseguire la migrazione a un Metastore esterno.
 
 Fare clic su **Next: Security + networking >>** per passare alla scheda successiva.
 
@@ -142,7 +145,7 @@ Alcune delle icone della finestra sono illustrate di seguito:
 |Panoramica|Fornisce tutte le informazioni essenziali sul cluster. Ad esempio, il nome, il gruppo di risorse a cui appartiene, il percorso, il sistema operativo e l'URL per il dashboard del cluster.|
 |Dashboard del cluster|Indirizza l'utente al portale di Ambari associato al cluster.|
 |Accesso SSH + cluster|Fornisce le informazioni necessarie per accedere al cluster tramite SSH.|
-|Elimina|consente di eliminare il cluster HDInsight.|
+|Delete|consente di eliminare il cluster HDInsight.|
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 

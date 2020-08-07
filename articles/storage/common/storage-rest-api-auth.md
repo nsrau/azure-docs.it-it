@@ -1,6 +1,6 @@
 ---
 title: Chiamare le operazioni dell'API REST con l'autorizzazione della chiave condivisa
-titleSuffix: Azure Storage
+titleSuffix: Discover how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Usare l'API REST di archiviazione di Azure per effettuare una richiesta all'archiviazione BLOB usando l'autorizzazione della chiave condivisa.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d43df68f48273b03fa9bde9633b487d69c0834ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509184"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905381"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chiamare le operazioni dell'API REST con l'autorizzazione della chiave condivisa
 
@@ -563,13 +563,13 @@ Content-Length: 1135
 </EnumerationResults>
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si è appreso come effettuare una richiesta all'API REST di archiviazione BLOB. Con la richiesta è possibile recuperare un elenco di contenitori o un elenco di BLOB in un contenitore. Si è appreso come creare la firma di autorizzazione per la chiamata all'API REST e come usarla nella richiesta REST. Infine, si è appreso come esaminare la risposta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API REST del servizio BLOB)
-- [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API REST del servizio file)
+- [API REST del servizio BLOB](/rest/api/storageservices/blob-service-rest-api)
+- [API REST del servizio file](/rest/api/storageservices/file-service-rest-api)
 - [API REST del servizio di accodamento](/rest/api/storageservices/queue-service-rest-api)
 - [API REST del servizio tabelle](/rest/api/storageservices/table-service-rest-api)

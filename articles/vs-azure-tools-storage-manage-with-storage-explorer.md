@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Storage Explorer | Microsoft Docs
-description: Gestire le risorse di Archiviazione di Azure con Storage Explorer
+description: Iniziare a gestire le risorse di archiviazione di Azure con Storage Explorer. Scaricare e installare Azure Storage Explorer, connettersi a un account di archiviazione o a un servizio e altro ancora.
 services: storage
 author: cawaMS
 ms.service: storage
@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff5480e6b78beda7fe50dc772eae925ccdb80664
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975266"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905347"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 
@@ -133,7 +133,7 @@ Esistono diversi modi per connettersi a una risorsa in Storage Explorer:
 
 Una volta aggiunta la connessione, l'albero delle risorse viene indirizzato al nodo che rappresenta la connessione. La risorsa viene visualizzata in contenitori BLOB di account di archiviazione **associati & locali**  >  **Storage Accounts**  >  **(contenitori collegati)**  >  **Blob Containers**. Se Storage Explorer non è riuscito ad aggiungere la connessione o se non è possibile accedere ai dati dopo aver aggiunto correttamente la connessione, vedere la [Guida alla risoluzione dei problemi Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-connection-string"></a>Usa una stringa di connessione
+#### <a name="use-a-connection-string"></a>Usare una stringa di connessione
 
 1. Selezionare il simbolo **Connetti** per aprire **Connetti ad archiviazione di Azure**.
 
@@ -147,7 +147,7 @@ Una volta aggiunta la connessione, l'albero delle risorse viene indirizzato al n
 
 Una volta aggiunta la connessione, l'albero delle risorse viene indirizzato al nodo che rappresenta la connessione. La risorsa viene visualizzata sotto gli account di archiviazione **locali & collegati**  >  **Storage Accounts**. Se Storage Explorer non è riuscito ad aggiungere la connessione o se non è possibile accedere ai dati dopo aver aggiunto correttamente la connessione, vedere la [Guida alla risoluzione dei problemi Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-shared-access-signature-uri"></a>Usa un URI di firma di accesso condiviso
+#### <a name="use-a-shared-access-signature-uri"></a>Usare un URI di firma di accesso condiviso
 
 1. Selezionare il simbolo **Connetti** per aprire **Connetti ad archiviazione di Azure**.
 
@@ -179,7 +179,7 @@ Una volta aggiunta la connessione, l'albero delle risorse viene indirizzato al n
 
 Una volta aggiunta la connessione, l'albero delle risorse viene indirizzato al nodo che rappresenta la connessione. La risorsa viene visualizzata sotto gli account di archiviazione **locali & collegati**  >  **Storage Accounts**. Se Storage Explorer non è riuscito ad aggiungere la connessione o se non è possibile accedere ai dati dopo aver aggiunto correttamente la connessione, vedere la [Guida alla risoluzione dei problemi Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="attach-to-a-local-emulator"></a>Connettersi a un emulatore locale
+#### <a name="attach-to-a-local-emulator"></a>Collegarsi a un emulatore locale
 
 Storage Explorer supporta attualmente due emulatori di archiviazione ufficiali:
 

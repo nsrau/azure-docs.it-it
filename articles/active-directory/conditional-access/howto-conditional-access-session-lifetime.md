@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552124"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874776"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>È possibile configurare la gestione della sessione di autenticazione con l'Accesso condizionale
 
@@ -92,7 +92,7 @@ L'accesso condizionale è una funzionalità di Azure AD Premium e richiede una l
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Criteri 1: controllo della frequenza di accesso
 
-1. Creare un nuovo criterio
+1. Creare nuovi criteri
 1. Scegliere tutte le condizioni necessarie per l'ambiente del cliente, incluse le app cloud di destinazione.
 
    > [!NOTE]
@@ -107,11 +107,9 @@ L'accesso condizionale è una funzionalità di Azure AD Premium e richiede una l
 
 In Azure AD i dispositivi Windows registrati, l'accesso al dispositivo viene considerato una richiesta. Se ad esempio è stata configurata la frequenza di accesso a 24 ore per le app di Office, gli utenti in Azure AD dispositivi Windows registrati soddisferanno i criteri di frequenza di accesso effettuando l'accesso al dispositivo e non verrà più visualizzata alcuna richiesta all'apertura delle app di Office.
 
-Se è stata configurata una frequenza di accesso diversa per diverse app Web in esecuzione nella stessa sessione del browser, i criteri più severi verranno applicati a entrambe le app perché tutte le app in esecuzione nella stessa sessione del browser condividono un solo token di sessione.
-
 ### <a name="policy-2-persistent-browser-session"></a>Criterio 2: sessione del browser persistente
 
-1. Creare un nuovo criterio
+1. Creare nuovi criteri
 1. Scegliere tutte le condizioni necessarie.
 
    > [!NOTE]

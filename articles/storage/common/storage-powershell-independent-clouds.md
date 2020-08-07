@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0bc8da02a523479c3c543eff28a376136e29098f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ccacef6f9557bdcf683973c2ad5141b6066347b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176210"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904310"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell
 
@@ -60,7 +60,7 @@ Get-AzLocation | select Location, DisplayName
 
 La tabella seguente mostra le località restituite per il cloud per la Germania.
 
-|Posizione | Nome visualizzato |
+|Percorso | Nome visualizzato |
 |----|----|
 | `germanycentral` | Germania centrale|
 | `germanynortheast` | Germania nord-orientale |
@@ -99,7 +99,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 I risultati sono simili ai valori seguenti:
 
-|Nome proprietà|valore|
+|Nome proprietà|Valore|
 |----|----|
 | Nome | `AzureGermanCloud` |
 | EnableAdfsAuthentication | `False` |
@@ -112,6 +112,7 @@ I risultati sono simili ai valori seguenti:
 | SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
 | **StorageEndpointSuffix** | `core.cloudapi.de` |
 | ... | ... |
+
 Per recuperare solo la proprietà suffisso dell'endpoint di archiviazione, recuperare il cloud specifico e richiedere solo tale proprietà.
 
 ```powershell

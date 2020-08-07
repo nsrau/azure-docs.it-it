@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9274e147bcaec4b3e63a6720e369946d64e94628
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ae3e72dc6e79b252c79c78fd5fac27bff8d4740
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809885"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905228"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -104,11 +104,11 @@ Gli esempi in questa sezione usano C# SDK.
 Le route degli eventi vengono definite usando le API del piano dati. 
 
 Una definizione di route può contenere gli elementi seguenti:
-* ID della route che si vuole usare
+* Nome della route che si vuole usare
 * Nome dell'endpoint che si desidera utilizzare
 * Filtro che definisce gli eventi che vengono inviati all'endpoint 
 
-Se non è presente alcun ID di route, nessun messaggio viene instradato all'esterno dei dispositivi gemelli digitali di Azure. Se è presente un ID route e il filtro è `true` , tutti i messaggi vengono instradati all'endpoint. Se è presente un ID di route e viene aggiunto un filtro diverso, i messaggi verranno filtrati in base al filtro.
+Se non è presente alcun nome di route, nessun messaggio viene instradato all'esterno dei dispositivi gemelli digitali di Azure. Se è presente un nome di route e il filtro è `true` , tutti i messaggi vengono instradati all'endpoint. Se è presente un nome di route e viene aggiunto un filtro diverso, i messaggi verranno filtrati in base al filtro.
 
 Una route deve consentire la selezione di più notifiche e tipi di evento. 
 

@@ -5,14 +5,14 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/05/2020
 ms.author: kumud
-ms.openlocfilehash: f0266205ea5ce618793022523ce167cbc6a615c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1898bcf619f1fc9aaf19384968225e35c9589688
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114287"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847440"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Statistiche sulla latenza di round trip di rete di Azure
 
@@ -22,9 +22,9 @@ Azure monitora costantemente la latenza (velocità) delle aree principali della 
 
 Le misurazioni di latenza vengono raccolte dagli agenti ThousandEyes, ospitate in aree del cloud di Azure in tutto il mondo, che inviano continuamente sonde di rete tra loro in intervalli di 1 minuto. Le statistiche relative alla latenza mensile derivano dalla media degli esempi raccolti per il mese.
 
-## <a name="june-2020-round-trip-latency-figures"></a>Cifre della latenza di round trip di giugno 2020
+## <a name="july-2020-round-trip-latency-figures"></a>Le cifre della latenza di round trip di luglio 2020
 
-I tempi di round trip della media mensile tra le aree di Azure per gli ultimi 30 giorni (che terminano il 30 giugno 2020) sono riportati di seguito. Le misurazioni seguenti sono basate su [ThousandEyes](https://thousandeyes.com).
+I tempi di round trip della media mensile tra le aree di Azure per gli ultimi 31 giorni (che termina il 31 luglio 2020) sono riportati di seguito. Le misurazioni seguenti sono basate su [ThousandEyes](https://thousandeyes.com).
 
 [![Statistiche sulla latenza tra aree di Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 
