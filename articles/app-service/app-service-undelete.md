@@ -5,26 +5,25 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20c220bcb44a1a47e308f57d1466aee2773111a4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050296"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985683"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Ripristinare un'app del Servizio app eliminata con PowerShell
 
 Se l'app è stata eliminata per errore nel Servizio app di Azure, è possibile ripristinarla usando i comandi del [modulo Az di PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
-> Le app eliminate vengono rimosse definitivamente dal sistema 30 giorni dopo l'eliminazione iniziale. Una volta che un'app è stata rimossa definitivamente, non è possibile recuperarla.
->
-
-> [!NOTE]
-> La funzionalità di annullamento dell'eliminazione non è supportata per il piano a consumo.
+> - Le app eliminate vengono rimosse definitivamente dal sistema 30 giorni dopo l'eliminazione iniziale. Una volta eliminata, l'app non può essere recuperata.
+> - La funzionalità di annullamento dell'eliminazione non è supportata per il piano a consumo.
+> - Le app del servizio app in esecuzione in un ambiente del servizio app non supportano gli snapshot. Pertanto, le funzionalità di annullamento dell'eliminazione e di clonazione non sono supportate per le app del servizio app in esecuzione in un ambiente del servizio app.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>Ripetere la registrazione del provider di risorse del Servizio app
+
 Alcuni clienti potrebbero riscontrare un problema relativo al recupero non riuscito dell'elenco di app eliminate. Per risolvere il problema, eseguire il comando seguente:
 
 ```powershell
@@ -52,6 +51,7 @@ Le informazioni dettagliate includono:
 - **Ora di eliminazione**: Quando è stata eliminata l'app  
 
 ## <a name="restore-deleted-app"></a>Ripristinare l’app eliminata
+
 >[!NOTE]
 > `Restore-AzDeletedWebApp` non è supportato per le app per le funzioni.
 
@@ -61,7 +61,7 @@ Una volta identificata l'app che si vuole ripristinare, è possibile ripristinar
 Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> Gli slot di distribuzione non vengono ripristinati come parte dell'app. Se è necessario ripristinare uno slot di staging, usare il flag `-Slot <slot-name>`.
+> Gli slot di distribuzione non vengono ripristinati come parte dell'app. Se è necessario ripristinare uno slot di staging, usare il `-Slot <slot-name>` flag.
 >
 
 Gli input per il comando sono:
@@ -73,7 +73,7 @@ Gli input per il comando sono:
 Per impostazione predefinita `Restore-AzDeletedWebApp` ripristina sia la configurazione dell'app che qualsiasi contenuto. Se si desidera ripristinare solo il contenuto, usare il flag `-RestoreContentOnly` con questo cmdlet.
 
 > [!NOTE]
-> Se l'app era in hosting ed è stata successivamente eliminata da un ambiente del servizio app, può essere ripristinata solo se l’ambiente del servizio app corrispondente esiste ancora.
+> Se l'app è stata ospitata in e quindi eliminata da un ambiente del servizio app, può essere ripristinata solo se la ambiente del servizio app corrispondente esiste ancora.
 >
 
 Le informazioni complete di riferimento per i cmdlet sono disponibili qui: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).

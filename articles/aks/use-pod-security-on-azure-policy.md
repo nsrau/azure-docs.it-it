@@ -5,22 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830224"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987359"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Proteggere i pod con criteri di Azure (anteprima)
 
 Per migliorare la sicurezza del cluster AKS, è possibile controllare quali funzioni vengono concesse ai pod e se qualsiasi elemento viene eseguito in base ai criteri aziendali. Questo accesso viene definito tramite criteri predefiniti forniti dal [componente aggiuntivo criteri di Azure per AKS][kubernetes-policy-reference]. Garantendo un ulteriore controllo sugli aspetti di sicurezza della specifica del Pod, ad esempio i privilegi radice, consente una maggiore conformità alla sicurezza e la visibilità di ciò che viene distribuito nel cluster. Se un pod non soddisfa le condizioni specificate nei criteri, i criteri di Azure possono impedire al pod di avviare o contrassegnare una violazione. Questo articolo illustra come usare criteri di Azure per limitare la distribuzione di pod in AKS.
 
-> [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
->
-> * [Criteri di supporto del servizio Azure Kubernetes][aks-support-policies]
-> * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -283,7 +279,7 @@ Di seguito è riportato un riepilogo delle modifiche del comportamento tra i cri
 |Installazione|Abilitare la funzionalità dei criteri di sicurezza Pod |Abilita il componente aggiuntivo criteri di Azure
 |Distribuisci criteri| Distribuire la risorsa criteri di sicurezza Pod| Assegnare i criteri di Azure all'ambito della sottoscrizione o del gruppo di risorse. Il componente aggiuntivo criteri di Azure è necessario per le applicazioni di risorse Kubernetes.
 | Criteri predefiniti | Quando i criteri di sicurezza pod sono abilitati in AKS, vengono applicati i criteri predefiniti con privilegi e senza restrizioni. | Non vengono applicati criteri predefiniti abilitando il componente aggiuntivo criteri di Azure. È necessario abilitare in modo esplicito i criteri in criteri di Azure.
-| Utenti che possono creare e assegnare criteri | Amministrazione cluster crea una risorsa criteri di sicurezza Pod | Gli utenti devono avere un ruolo minimo di autorizzazioni ' proprietario ' o ' collaboratore criteri risorse ' nel gruppo di risorse del cluster AKS. -Tramite l'API, gli utenti possono assegnare i criteri nell'ambito delle risorse del cluster AKS. L'utente deve avere almeno le autorizzazioni "proprietario" o "collaboratore criteri risorse" per la risorsa cluster AKS. -Nel portale di Azure i criteri possono essere assegnati a livello di gruppo di gestione/sottoscrizione/gruppo di risorse.
+| Utenti che possono creare e assegnare criteri | Amministrazione cluster crea una risorsa criteri di sicurezza Pod | Gli utenti devono avere un ruolo minimo di autorizzazioni ' proprietario ' o ' collaboratore criteri risorse ' nel gruppo di risorse del cluster AKS. -Tramite l'API, gli utenti possono assegnare i criteri nell'ambito delle risorse del cluster AKS. L'utente deve avere almeno le autorizzazioni "proprietario" o "collaboratore criteri risorse" per la risorsa cluster AKS. -Nella portale di Azure i criteri possono essere assegnati a livello di gruppo di gestione/sottoscrizione/gruppo di risorse.
 | Autorizzazione di criteri| Gli account utente e del servizio richiedono autorizzazioni esplicite per l'uso di criteri di sicurezza pod. | Per autorizzare i criteri non è necessaria alcuna assegnazione aggiuntiva. Dopo che i criteri sono stati assegnati in Azure, tutti gli utenti del cluster possono usare questi criteri.
 | Applicabilità dei criteri | L'utente amministratore ignora l'applicazione dei criteri di sicurezza pod. | Tutti gli utenti (amministratore & non amministratore) vedono gli stessi criteri. Non sono presenti maiuscole e minuscole specifiche in base agli utenti. L'applicazione di criteri può essere esclusa a livello di spazio dei nomi.
 | Ambito dei criteri | I criteri di sicurezza Pod non sono spazio dei nomi | I modelli di vincolo usati dai criteri di Azure non sono spazio dei nomi.

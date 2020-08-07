@@ -2,24 +2,22 @@
 title: Eliminazioni della cronologia di distribuzione
 description: Viene descritto come Azure Resource Manager Elimina automaticamente le distribuzioni dalla cronologia di distribuzione. Le distribuzioni vengono eliminate quando la cronologia è prossima al superamento del limite di 800.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248983"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986509"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminazioni automatiche dalla cronologia di distribuzione
 
 Ogni volta che si distribuisce un modello, le informazioni sulla distribuzione vengono scritte nella cronologia di distribuzione. Ogni gruppo di risorse è limitato a 800 distribuzioni nella relativa cronologia di distribuzione.
 
-Azure Resource Manager inizierà a breve eliminare automaticamente le distribuzioni dalla cronologia Man seconda del limite. L'eliminazione automatica è una modifica rispetto al comportamento precedente. In precedenza era necessario eliminare manualmente le distribuzioni dalla cronologia di distribuzione per evitare di ricevere un errore. **Questa funzionalità non è stata ancora aggiunta ad Azure. Si sta inviando una notifica a questa modifica imminente, nel caso in cui si desideri rifiutare esplicitamente la richiesta.**
+Azure Resource Manager Elimina automaticamente le distribuzioni dalla cronologia nel modo più vicino al limite. L'eliminazione automatica è una modifica rispetto al comportamento precedente. In precedenza era necessario eliminare manualmente le distribuzioni dalla cronologia di distribuzione per evitare di ricevere un errore. **Questa modifica è stata implementata il 6 agosto 2020.**
 
 > [!NOTE]
 > L'eliminazione di una distribuzione dalla cronologia non influisce sulle risorse distribuite.
->
-> Se si dispone di un [blocco CanNotDelete](../management/lock-resources.md) su un gruppo di risorse, le distribuzioni per tale gruppo di risorse non possono essere eliminate. È necessario rimuovere il blocco per sfruttare i vantaggi delle eliminazioni automatiche nella cronologia di distribuzione.
 
 ## <a name="when-deployments-are-deleted"></a>Quando vengono eliminate le distribuzioni
 
@@ -35,6 +33,24 @@ Le distribuzioni vengono eliminate dalla cronologia quando si raggiungono 775 o 
 Oltre alle distribuzioni, le eliminazioni vengono attivate anche quando si esegue l' [operazione](template-deploy-what-if.md) di simulazione o si convalida una distribuzione.
 
 Quando si assegna a una distribuzione lo stesso nome di uno nella cronologia, è necessario reimpostarne la posizione nella cronologia. La distribuzione viene spostata nella posizione più recente della cronologia. È anche possibile reimpostare la posizione di una distribuzione quando si [esegue il rollback alla distribuzione](rollback-on-error.md) dopo un errore.
+
+## <a name="remove-locks-that-block-deletions"></a>Rimuovi blocchi che bloccano le eliminazioni
+
+Se si dispone di un [blocco CanNotDelete](../management/lock-resources.md) su un gruppo di risorse, le distribuzioni per tale gruppo di risorse non possono essere eliminate. È necessario rimuovere il blocco per sfruttare i vantaggi delle eliminazioni automatiche nella cronologia di distribuzione.
+
+Per usare PowerShell per eliminare un blocco, eseguire i comandi seguenti:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Per usare l'interfaccia della riga di comando di Azure per eliminare un blocco, eseguire i comandi seguenti:
+
+```azurecli-interactive
+lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
+az lock delete --ids $lockid
+```
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rifiutare esplicitamente le eliminazioni automatiche
 

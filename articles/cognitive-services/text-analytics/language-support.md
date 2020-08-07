@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/29/2020
 ms.author: aahi
-ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: b3cec783b43d0169a3d0d56ca040e1397701102e
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413332"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986169"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Supporto del linguaggio API Analisi del testo V3 
 
@@ -54,7 +54,7 @@ ms.locfileid: "85413332"
 | Inglese               |     `en`      |              2020-04-01              |                    |
 
 
-#### <a name="named-entity-recognition-ner"></a>[Riconoscimento delle entità denominate (NER)](#tab/named-entity-recognition)
+#### <a name="named-entity-recognition-ner"></a>[Riconoscimento di entità denominate (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
 > * NER V3 supporta attualmente solo le lingue inglese e spagnola. Se si chiama NER V3 con una lingua diversa, l'API restituirà i risultati v 2.1, purché la lingua sia supportata nella versione 2,1.
@@ -123,6 +123,6 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 
 ---
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Qual è la API Analisi del testo?](overview.md)   

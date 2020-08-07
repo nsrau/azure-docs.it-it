@@ -1,14 +1,14 @@
 ---
 title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
-ms.date: 05/20/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8c0f5d4df640fa29f88b3c4c6c0403ad9de97dea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921691"
+ms.locfileid: "87987104"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -35,8 +35,9 @@ Prima di poter usare Configurazione guest, è necessario registrare il provider 
 Per controllare le impostazioni all'interno di un computer, è abilitata un' [estensione della macchina virtuale](../../../virtual-machines/extensions/overview.md) e il computer deve disporre di un'identità gestita dal sistema. L'estensione scarica l'assegnazione dei criteri applicabile e la configurazione corrispondente. L'identità viene utilizzata per autenticare il computer durante la lettura e la scrittura nel servizio di configurazione Guest. L'estensione non è necessaria per i computer connessi ad Arc perché è inclusa nell'agente del computer connesso ad Arc.
 
 > [!IMPORTANT]
-> Per controllare le macchine virtuali di Azure, è necessaria l'estensione di configurazione Guest e un'identità gestita. Per > l'estensione di configurazione Guest è necessaria per eseguire controlli in macchine virtuali di Azure. Per distribuire l'estensione su larga scala, assegnare la seguente iniziativa per i criteri: > distribuire l'estensione su larga scala, assegnare le definizioni dei criteri seguenti: 
->  - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> Per controllare le macchine virtuali di Azure, è necessaria l'estensione di configurazione Guest e un'identità gestita. Per distribuire l'estensione su larga scala, assegnare la seguente iniziativa per i criteri:
+> 
+> - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Limiti impostati per l'estensione
 
@@ -99,7 +100,7 @@ Per comunicare con il provider di risorse di Configurazione guest in Azure, i co
 
 ## <a name="managed-identity-requirements"></a>Requisiti delle identità gestite
 
-I criteri nell'iniziativa [distribuire i prerequisiti per abilitare i criteri di configurazione Guest nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) abilitano un'identità gestita assegnata dal sistema, se non ne esiste una. Nell'iniziativa sono presenti due definizioni di criteri che gestiscono la creazione di identità. Le condizioni IF nelle definizioni dei criteri garantiscono il comportamento corretto in base allo stato corrente della risorsa del computer in Azure.
+Le definizioni dei criteri nell'iniziativa [Distribuisci prerequisiti per abilitare i criteri di configurazione Guest nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) abilitano un'identità gestita assegnata dal sistema, se non ne esiste una. Nell'iniziativa sono presenti due definizioni di criteri che gestiscono la creazione di identità. Le condizioni IF nelle definizioni dei criteri garantiscono il comportamento corretto in base allo stato corrente della risorsa del computer in Azure.
 
 Se al computer non sono attualmente associate identità gestite, i criteri validi saranno: [ \[ Anteprima \] : aggiungere l'identità gestita assegnata dal sistema per abilitare le assegnazioni di configurazione Guest nelle macchine virtuali senza identità](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
@@ -201,8 +202,8 @@ Gli esempi di criteri predefiniti di Configurazione guest sono disponibili nelle
 
 - Leggere le informazioni su come visualizzare i dettagli di ogni impostazione nella [visualizzazione conformità di Configurazione guest](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md).
-- Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
-- Leggere [Informazioni sugli effetti di Criteri](effects.md).
+- Vedere la [struttura delle definizioni di Criteri di Azure](./definition-structure.md).
+- Leggere [Informazioni sugli effetti di Criteri](./effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
 - Leggere le informazioni su come [ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md).

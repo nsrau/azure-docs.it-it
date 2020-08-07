@@ -4,12 +4,12 @@ description: Informazioni su come abilitare e configurare dischi ultra in un clu
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 540269c7ecf42a7e022aa2efb048df7b11587d1a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926740"
+ms.locfileid: "87986832"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usare i dischi di Azure ultra in Azure Kubernetes Service (anteprima)
 
@@ -49,11 +49,7 @@ Quando si è pronti, aggiornare la registrazione del provider di risorse *Micros
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
->
-> - [Criteri di supporto del servizio Azure Kubernetes](support-policies.md)
-> - [Domande frequenti relative al supporto tecnico Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando aks-preview
 
@@ -95,9 +91,8 @@ Se si desidera creare cluster senza supporto per dischi Ultra, è possibile omet
 
 È possibile abilitare i dischi Ultra nei cluster esistenti aggiungendo un nuovo pool di nodi al cluster che supporta dischi Ultra. Configurare un nuovo pool di nodi per usare la crittografia basata su host usando il `--aks-custom-headers` flag.
 
-
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Se si vuole creare nuovi pool di nodi senza supporto per i dischi Ultra, è possibile omettere il `--aks-custom-headers` parametro personalizzato.

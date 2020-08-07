@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/21/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: c9c598d385768e604d9b42e3ea055629e6ae2866
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b3e8c2c8a5e95cc5c862112410f5073a5e600651
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108550"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986764"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Controllo delle versioni dei modelli nella API Analisi del testo
 
@@ -26,19 +26,19 @@ La versione 3 della API Analisi del testo consente di scegliere la versione del 
 Usare la tabella seguente per trovare le versioni del modello supportate da ogni endpoint.
 
 
-| Endpoint                        | Versioni supportate                       | versione più recente |
-|---------------------------------|------------------------------------------|----------------|
-| `/sentiment`                    | `2019-10-01`, `2020-04-01`               | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`                             | `2019-10-01`   |
-| `/entities/linking`             | `2019-10-01`, `2020-02-01`               | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/keyphrases`                   | `2019-10-01`                             | `2019-10-01`   |
+| Endpoint                        | Versioni supportate                                     | versione più recente |
+|---------------------------------|--------------------------------------------------------|----------------|
+| `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
 Per informazioni dettagliate sugli aggiornamenti per questi [modelli, vedere novità.](../whats-new.md)
 
-## <a name="text-analytics-for-health"></a>Analisi del testo per l'integrità
+## <a name="text-analytics-for-health"></a>Analisi del testo per la sanità
 
 Il [analisi del testo per il contenitore di integrità](../how-tos/text-analytics-for-health.md) usa il controllo delle versioni del modello distinto rispetto agli endpoint API precedenti.  Si noti che è disponibile solo una versione del modello per ogni immagine del contenitore.
 

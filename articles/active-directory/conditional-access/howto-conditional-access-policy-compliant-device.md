@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65b4ede6f4851418bf17d42db5b3215dafa9234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c60c0324b04bca0a8115f4ac884704012e8e1d8c
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995174"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986849"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Accesso condizionale: richiedere i dispositivi conformi
 
@@ -43,8 +43,8 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
    1. Selezionare **Operazione completata**.
 1. In **app Cloud o azioni**  >  **Includi**selezionare **tutte le app Cloud**.
    1. Se è necessario escludere applicazioni specifiche dal criterio, è possibile selezionarle nella scheda **Escludi** in **Seleziona app Cloud escluse** e scegliere **Seleziona**.
-   1. Selezionare **Operazione completata**.
-1. In **Condizioni** > **App client (anteprima)** impostare **Configura** su **Sì** e selezionare **Fine**.
+   1. Selezionare **Fine**.
+1. In **condizioni**  >  **app client (anteprima)**  >  **selezionare le app client a cui si applicherà il criterio**, lasciare selezionate tutte le impostazioni predefinite e selezionare **fine**.
 1. In **Access controls**  >  **concessione**controlli di accesso selezionare **Richiedi che il dispositivo sia contrassegnato come conforme**.
    1. Scegliere **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.

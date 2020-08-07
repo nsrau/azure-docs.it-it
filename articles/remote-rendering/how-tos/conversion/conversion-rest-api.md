@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857799"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985615"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Usare l'API REST per la conversione di modelli
 
@@ -53,6 +53,8 @@ Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper
 
 #### <a name="request-body"></a>Corpo della richiesta
 
+> [!NOTE]
+> Tutte le attività in `input.folderPath` vengono recuperate per eseguire la conversione in Azure. Se `input.folderPath` viene omesso, viene recuperato l'intero contenuto del contenitore. Tutti i BLOB e le cartelle che vengono recuperati devono avere [nomi file Windows validi](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -79,7 +81,7 @@ Se l'account ARR non è collegato all'account di archiviazione, questa interfacc
 |-----------|:-----------|
 | /V1/Accounts/**AccountID**/Conversions/createWithSharedAccessSignature | POST |
 
-Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è "conversionId".
+Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è `conversionId` .
 
 #### <a name="request-body"></a>Corpo della richiesta
 
@@ -88,6 +90,8 @@ Il corpo della richiesta è identico a quello della precedente chiamata REST, ma
 > [!NOTE]
 > Questi token URI SAS sono le stringhe di query e non l'URI completo. 
 
+> [!NOTE]
+> Tutte le attività in `input.folderPath` vengono recuperate per eseguire la conversione in Azure. Se `input.folderPath` viene omesso, viene recuperato l'intero contenuto del contenitore. Tutti i BLOB e le cartelle che vengono recuperati devono avere [nomi file Windows validi](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {

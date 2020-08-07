@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ceadc2d37b9d13502b5ae20605ff083edfd5c51f
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905015"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987002"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -174,35 +174,30 @@ Maggiore della latenza prevista per l'accesso File di Azure per carichi di lavor
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Come creare un avviso se una condivisione file è limitata
 
-1. Nella [portale di Azure](https://portal.azure.com)fare clic su **monitoraggio**. 
-
-2. Fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
-
-3. Fare clic su **Seleziona** per selezionare la risorsa **account di archiviazione/file** che contiene la condivisione file su cui si vuole inviare l'avviso, quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
-
-4. Fare clic su **Aggiungi** per aggiungere una condizione.
-
+1. Passare all' **account di archiviazione** nell' **portale di Azure**.
+2. Nella sezione Monitoraggio fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
+3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
+4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica **transazioni** .
+6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **tipo di risposta**.
+7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
 
-6. Nel pannello **Configura logica** per i segnali passare alla dimensione **tipo di risposta** , fare clic sull'elenco a discesa **valori dimensione** e selezionare **SuccessWithThrottling** (per SMB) o **ClientThrottlingError** (per REST). 
+> [!NOTE]
+> Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, fare clic su **Aggiungi valore personalizzato** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError**, fare clic su **OK** , quindi ripetere il passaggio #7.
 
-  > [!NOTE]
-  > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata.  Per aggiungere il valore della dimensione, fare clic **+** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError**, fare clic su **OK** , quindi ripetere il passaggio #6.
+8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
+9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 
-7. Passare alla dimensione **condivisione file** , fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni di file su cui si vuole inviare l'avviso. 
+> [!NOTE]
+> Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
-  > [!NOTE]
-  > Se la condivisione file è una condivisione file standard, l'elenco a discesa valori dimensione sarà vuoto perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione. 
+10. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine**.
 
-8. Definire i **parametri di avviso** (soglia, operatore, granularità e frequenza dell'aggregazione) usati per valutare la regola di avviso della metrica e fare clic su **fine**.
+> [!TIP]
+> Se si utilizza una soglia statica, il grafico delle metriche consente di determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
 
-  > [!TIP]
-  > Se si usa una soglia statica, il grafico delle metriche può aiutare a determinare una soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
-
-9. Aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-
-10. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
-
-11. Fare clic su **Crea regola di avviso** per creare l'avviso.
+11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+12. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

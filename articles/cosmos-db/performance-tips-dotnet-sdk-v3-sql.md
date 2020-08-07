@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850260"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987257"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -80,7 +80,7 @@ Quando si usa TCP in modalità diretta, oltre alle porte del gateway, è necessa
 |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
 |---------|---------|---------|---------|
 |Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabella (443), Cassandra (10350), Graph (443)    |
-|Connessione diretta    |     TCP    |  .NET SDK    | Quando si usano gli endpoint pubblici/di servizio: porte nell'intervallo da 10000 a 20000<br>Quando si usano endpoint privati: porte nell'intervallo da 0 a 65535 |
+|Direct    |     TCP    |  .NET SDK    | Quando si usano gli endpoint pubblici/di servizio: porte nell'intervallo da 10000 a 20000<br>Quando si usano endpoint privati: porte nell'intervallo da 0 a 65535 |
 
 Azure Cosmos DB offre un modello di programmazione RESTful semplice e aperto su HTTPS. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Il protocollo TCP usa TLS per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
 
@@ -149,7 +149,7 @@ Quando si lavora con funzioni di Azure, le istanze devono seguire anche le [line
 
 **Disabilitare la risposta al contenuto durante le operazioni di scrittura**
 
-Per i carichi di lavoro che hanno payload di creazione, impostare l'opzione di richiesta EnableContentResponseOnWrite su false. Il servizio non restituirà più la risorsa creata o aggiornata all'SDK. In genere l'oggetto viene creato dall'applicazione, quindi non è necessario che il servizio lo restituisca. I valori dell'intestazione sono ancora accessibili, ad esempio addebito della richiesta. Questo può migliorare le prestazioni perché l'SDK non deve più allocare memoria o serializzare il corpo della risposta. In questo modo si riduce anche l'utilizzo della larghezza di banda di rete per migliorare le prestazioni.  
+Per i carichi di lavoro con payload di creazione pesanti, impostare l'opzione di richiesta EnableContentResponseOnWrite su false. Il servizio non restituirà più la risorsa creata o aggiornata all'SDK. In genere l'oggetto viene creato dall'applicazione, quindi non è necessario che il servizio lo restituisca. I valori dell'intestazione sono ancora accessibili, ad esempio addebito della richiesta. Questo può migliorare le prestazioni perché l'SDK non deve più allocare memoria o serializzare il corpo della risposta. In questo modo si riduce anche l'utilizzo della larghezza di banda di rete per migliorare le prestazioni.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };

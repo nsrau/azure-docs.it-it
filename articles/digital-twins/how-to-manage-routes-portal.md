@@ -2,17 +2,17 @@
 title: Gestire endpoint e Route (portale)
 titleSuffix: Azure Digital Twins
 description: Vedere come configurare e gestire gli endpoint e le route di eventi per i dati di Azure Digital gemelli usando il portale di Azure.
-author: v-lakast
-ms.author: v-lakast
+author: baanders
+ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902200"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987308"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
 
@@ -29,7 +29,7 @@ Questo articolo illustra il processo di creazione di endpoint e route usando il 
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-scripted.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
-    - Gruppo di risorse
+    - Resource group
 
 È possibile trovare questi dettagli nell' [portale di Azure](https://portal.azure.com) dopo aver configurato l'istanza di. Accedere al portale e cercare il nome dell'istanza nella barra di ricerca del portale.
  

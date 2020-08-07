@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963955"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987342"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Esercitazione: configurare sincronizzazione dati SQL tra database nel database SQL di Azure e SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Per esempi di PowerShell su come configurare sincronizzazione dati SQL, vedere [
    | ------------------------------ | ------------------------------------------------- |
    | **Nome del gruppo di sincronizzazione** | Immettere un nome per il nuovo gruppo di sincronizzazione. Questo nome è distinto dal nome del database stesso. |
    | **Database dei metadati di sincronizzazione** | Scegliere di creare un database (scelta consigliata) o usare un database esistente.<br/><br/>Se si sceglie **Nuovo database**, selezionare **Crea nuovo database**. Nella pagina **Database SQL**, quindi, specificare un nome per il nuovo database, configurarlo e selezionare **OK**.<br/><br/>Se si sceglie **Usa database esistente**, selezionare il database dall'elenco. |
-   | **Sincronizzazione automatica** | Selezionare **Sì** o **No**.<br/><br/>Se si sceglie **Sì**, immettere un numero e selezionare **Secondi**, **Minuti**, **Ore** o **Giorni** nella sezione **Frequenza sincronizzazione**. |
+   | **Sincronizzazione automatica** | Selezionare **Sì** o **No**.<br/><br/>Se si sceglie **Sì**, immettere un numero e selezionare **Secondi**, **Minuti**, **Ore** o **Giorni** nella sezione **Frequenza sincronizzazione**.<br/> La prima sincronizzazione inizia dopo che il periodo di intervallo selezionato scade dal momento in cui la configurazione viene salvata.|
    | **Risoluzione dei conflitti** | Selezionare **Priorità hub** o **Priorità membro**.<br/><br/>**Priorità hub** significa che, quando si verifica un conflitto, i dati nel database hub sovrascrivono i dati in conflitto nel database membro.<br/><br/>**Priorità membro** significa che, quando si verifica un conflitto, i dati nel database membro sovrascrivono i dati in conflitto nel database hub. |
 
    > [!NOTE]
@@ -233,7 +233,7 @@ Per le domande frequenti sull'agente client, vedere [Domande frequenti sull'agen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è stato creato un gruppo di sincronizzazione che include sia un'istanza di database SQL che un database SQL Server.
+Complimenti. è stato creato un gruppo di sincronizzazione che include sia un'istanza di database SQL che un database SQL Server.
 
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 

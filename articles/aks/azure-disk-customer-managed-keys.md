@@ -4,12 +4,12 @@ description: Bring your own key (BYOK) per crittografare i dischi dati e del sis
 services: container-service
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: f0b96b3f78adf4a7efb1d43626a5aaf82a5b5d43
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d4f7842330862013644cf961f5bd8e079d097069
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499620"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985845"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Usare le chiavi personalizzate (BYOK) con i dischi di Azure in Azure Kubernetes Service (AKS)
 
@@ -23,11 +23,7 @@ Archiviazione di Azure crittografa tutti i dati in un account di archiviazione i
 
 * È necessaria l'interfaccia della riga di comando di Azure versione 2.0.79 o successiva e l'estensione AKS-Preview 0.4.26
 
-> [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
->
-> * [Criteri di supporto del servizio Azure Kubernetes](support-policies.md)
-> * [Domande frequenti relative al supporto tecnico Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="install-latest-aks-cli-preview-extension"></a>Installare la versione di anteprima dell'interfaccia della riga di comando AKS
 

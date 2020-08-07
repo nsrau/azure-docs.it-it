@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374611"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987291"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Anteprima: aggiungere un pool di nodi spot a un cluster di Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ In questo articolo si aggiunge un pool di nodi spot secondario a un cluster del 
 
 Questo articolo presuppone una conoscenza di base dei concetti relativi a Kubernetes e Azure Load Balancer. Per altre informazioni, vedere [Concetti di base relativi a Kubernetes per il servizio Azure Kubernetes][kubernetes-concepts].
 
-Questa funzionalità è attualmente disponibile in anteprima.
+Questa funzionalità è attualmente in anteprima.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -32,11 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Quando si crea un cluster per l'uso di un pool di nodi spot, il cluster deve usare anche set di scalabilità di macchine virtuali per i pool di nodi e il servizio di bilanciamento del carico dello SKU *standard* . È inoltre necessario aggiungere un pool di nodi aggiuntivo dopo aver creato il cluster per l'utilizzo di un pool di nodi spot. L'aggiunta di un pool di nodi aggiuntivo viene analizzata in un passaggio successivo, ma è prima necessario abilitare una funzionalità di anteprima.
 
-> [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono self-service e acconsentino esplicitamente. Sono disponibili per raccogliere commenti e suggerimenti e bug dalla community. In anteprima, queste funzionalità non sono destinate all'uso in produzione. Le funzionalità nella versione di anteprima pubblica rientrano nel supporto "Best Effort". L'assistenza dei team di supporto tecnico AKS è disponibile solo durante l'orario di ufficio Pacific TimeZone (PST). Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
->
-> * [Criteri di supporto del servizio Azure Kubernetes][aks-support-policies]
-> * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Registrare la funzionalità di anteprima di spotpoolpreview
 
@@ -60,7 +56,7 @@ Quando si è pronti, aggiornare la registrazione del provider di risorse *Micros
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
+### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando aks-preview
 
 Per creare un cluster AKS che usa un pool di nodi spot, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* versione 0.4.32 o successiva. Installare l'estensione *aks-preview* dell'interfaccia della riga di comando di Azure usando il comando [az extension add][az-extension-add], quindi verificare la disponibilità di eventuali aggiornamenti usando il comando [az extension update][az-extension-update]:
 
@@ -85,7 +81,7 @@ Quando si creano e si gestiscono i cluster AKS con un pool di nodi spot, si appl
 * Un pool di nodi spot avrà l'etichetta *kubernetes.Azure.com/scalesetpriority:spot*, il Tain *kubernetes.Azure.com/scalesetpriority=spot:NoSchedule*e i pod di sistema avranno l'anti-affinità.
 * È necessario aggiungere una [tolleranza corrispondente][spot-toleration] per pianificare i carichi di lavoro in un pool di nodi spot.
 
-## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Aggiungere un pool di nodi spot a un cluster AKS
+## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Aggiungere un pool di nodi spot a un cluster del servizio Azure Kubernetes
 
 È necessario aggiungere un pool di nodi spot a un cluster esistente in cui sono abilitati più pool di nodi. Altre informazioni sulla creazione di un cluster AKS con più pool di nodi sono disponibili [qui][use-multiple-node-pools].
 

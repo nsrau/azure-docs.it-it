@@ -3,16 +3,16 @@ title: Risolvere i problemi di Azure Cosmos DB HTTP 408 o di timeout della richi
 description: Come diagnosticare e correggere l'eccezione di timeout della richiesta .NET SDK
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a0469feed391025f8dd50a7f8b11b96265b0df29
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417608"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987410"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnosticare e risolvere i problemi Azure Cosmos DB timeout della richiesta .NET SDK
 L'errore HTTP 408 si verifica se l'SDK non è stato in grado di completare la richiesta prima che venga generato il limite di timeout.
@@ -45,9 +45,12 @@ L'applicazione client che usa l'SDK deve essere aumentata/orizzontale.
 Quando è in esecuzione in Azure, i client che usano .NET SDK possono raggiungere l'esaurimento delle porte di Azure SNAT (PAT).
 
 #### <a name="solution-1"></a>Soluzione n. 1:
-Seguire la [Guida all'esaurimento delle porte di SNAT](troubleshoot-dot-net-sdk.md#snat).
+Se si esegue in macchine virtuali di Azure, seguire la [Guida all'esaurimento delle porte di SNAT](troubleshoot-dot-net-sdk.md#snat).
 
 #### <a name="solution-2"></a>Soluzione n. 2:
+Se si esegue il servizio app Azure, seguire la [Guida alla risoluzione dei problemi di connessione](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) e usare la diagnostica del [servizio app](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
+
+#### <a name="solution-3"></a>Soluzione 3:
 Se si usa un proxy HTTP, assicurarsi che possa supportare il numero di connessioni configurate in `ConnectionPolicy` dell'SDK.
 In caso contrario, verranno riscontrati problemi di connessione.
 

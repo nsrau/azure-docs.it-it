@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 07/10/2020
 author: jluk
-ms.openlocfilehash: f6cb370d258a79420b03baf17ec964b091cdebb7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056581"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986713"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Ridurre la latenza con gruppi di posizionamento vicini (anteprima)
 
@@ -26,11 +26,7 @@ Quando si distribuisce l'applicazione in Azure, la distribuzione di istanze di m
 * Un pool di nodi deve usare i set di scalabilità di macchine virtuali per associare un gruppo di posizionamento di prossimità.
 * Un pool di nodi può associare un gruppo di posizionamento vicino al solo tempo di creazione del pool di nodi.
 
-> [!IMPORTANT]
-> Le funzionalità di anteprima del servizio contenitore di servizi sono disponibili in base al consenso esplicito. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico del cliente in base al massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per altre informazioni, vedere gli articoli di supporto seguenti:
->
-> - [Criteri di supporto del servizio Azure Kubernetes](support-policies.md)
-> - [Domande frequenti relative al supporto tecnico Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 06ab819065f96508bcc4ebd26371c743c89b9220
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5ddd4fc368a4e479d3d720698c7447d2b3cdf3cc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87487803"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986563"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -750,6 +750,32 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
+    ```
+
+### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Rete virtuale non collegata alla zona DNS privata
+
+Quando si crea un'area di lavoro con un endpoint privato, il modello crea una zona DNS privato denominata __privatelink.API.azureml.ms__. Un __collegamento di rete virtuale__ viene aggiunto automaticamente a questa zona DNS privata. Il collegamento viene aggiunto solo per la prima area di lavoro e l'endpoint privato creato in un gruppo di risorse. Se si crea un'altra rete virtuale e un'area di lavoro con un endpoint privato nello stesso gruppo di risorse, è possibile che la seconda rete virtuale non venga aggiunta alla zona DNS privata.
+
+Per visualizzare i collegamenti alla rete virtuale già esistenti per la zona DNS privata, usare il comando dell'interfaccia della riga di comando di Azure seguente:
+
+```azurecli
+az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
+```
+
+Per aggiungere la rete virtuale che contiene un'altra area di lavoro e un endpoint privato, attenersi alla procedura seguente:
+
+1. Per trovare l'ID di rete virtuale per la rete che si vuole aggiungere, usare il comando seguente:
+
+    ```azurecli
+    az network vnet show --name myvnet --resource-group myresourcegroup --query id
+    ```
+    
+    Questo comando restituisce un valore simile a' "/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"'. Salvare questo valore e usarlo nel passaggio successivo.
+
+2. Per aggiungere un collegamento di rete virtuale all'area DNS privato privatelink.api.azureml.ms, usare il comando seguente. Per il `--virtual-network` parametro, usare l'output del comando precedente:
+
+    ```azurecli
+    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

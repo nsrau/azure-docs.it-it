@@ -8,24 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371125"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986299"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
 
-## <a name="july-2020"></a>Luglio 2020
+## <a name="august-2020"></a>Agosto 2020
+
+* Versione `2020-07-01` del modello per V3 `/keyphrases` `/pii` ed `/languages` endpoint, che aggiunge:
+    * [Categorie di entità](named-entity-types.md?tabs=personal) governative e specifiche del paese aggiuntive per il riconoscimento delle entità denominate.
+* Verrà ora restituito un errore HTTP 400 per le richieste API V3 che superano i [limiti dei dati](concepts/data-limits.md)pubblicati. 
+
+## <a name="july-2020"></a>Luglio 2020 
 
 ### <a name="text-analytics-for-health-container---public-gated-preview"></a>Analisi del testo per il contenitore di integrità-anteprima pubblica gestita
 
-Il Analisi del testo per il contenitore di integrità è ora disponibile in anteprima pubblicamente gestita, che consente di estrarre informazioni da testo in lingua inglese non strutturato in documenti clinici come moduli di assunzione di pazienti, note mediche, documenti di ricerca e riepiloghi di scaricamento. Attualmente, non verranno addebitati Analisi del testo per l'utilizzo del contenitore di integrità. 
+Il Analisi del testo per il contenitore di integrità è ora disponibile in anteprima pubblicamente gestita, che consente di estrarre informazioni da testo in lingua inglese non strutturato in documenti clinici come moduli di assunzione di pazienti, note mediche, documenti di ricerca e riepiloghi di scaricamento. Attualmente, non verranno addebitati Analisi del testo per l'utilizzo del contenitore di integrità.
 
 Il contenitore offre le funzionalità seguenti:
 
@@ -102,7 +108,7 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
     * Prodotto
-    * Evento
+    * Event
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 

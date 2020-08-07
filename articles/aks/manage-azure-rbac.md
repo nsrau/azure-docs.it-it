@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 064a62b030a1fd9f3c875fce646ad8553b75d513
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799362"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986628"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
 
@@ -25,11 +25,7 @@ Questo documento illustra un nuovo approccio che consente il controllo di access
 
 La possibilità di gestire il controllo degli accessi in base al ruolo per le risorse Kubernetes da Azure consente di gestire il controllo degli accessi in base al ruolo per le risorse del cluster usando i meccanismi Kubernetes nativi Quando questa funzionalità è abilitata, le entità Azure AD verranno convalidate esclusivamente da controllo degli accessi in base al ruolo di Azure, mentre gli utenti Kubernetes e gli account del servizio normali vengono convalidati Per ulteriori informazioni sull'autenticazione, l'autorizzazione e il controllo degli accessi in base al ruolo in AKS vedere [qui](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)
 
-> [!IMPORTANT]
-> Le funzionalità di anteprima del servizio contenitore di servizi sono disponibili in base al consenso esplicito. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico del cliente in base al massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per altre informazioni, vedere gli articoli di supporto seguenti:
->
-> - [Criteri di supporto del servizio Azure Kubernetes](support-policies.md)
-> - [Domande frequenti relative al supporto tecnico Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Prerequisiti 
 - Iscriversi per l'anteprima <https://aka.ms/aad-rbac-sign-up-form> .

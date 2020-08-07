@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c4274292dfbd53abed09dfeae77ec976afe9ebc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3abef3324bee61f2d7eb96c80750ad589b15f342
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282960"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987036"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform e flusso On-Behalf-Of di OAuth 2.0
 
@@ -63,12 +63,12 @@ Quando si usa un segreto condiviso, una richiesta di token di accesso da servizi
 
 | Parametro | Type | Descrizione |
 | --- | --- | --- |
-| `grant_type` | Obbligatorio | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Richiesto | ID dell'applicazione (client) che la pagina [Registrazioni app del portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
-| `client_secret` | Richiesto | Segreto client generato per l'app nella pagina Registrazioni app del portale di Azure. |
-| `assertion` | Richiesto | Il token di accesso inviato all'API di livello intermedio.  Questo token deve avere un' `aud` attestazione audience () dell'app che effettua questa richiesta OBO (l'app indicata dal `client-id` campo). Le applicazioni non possono riscattare un token per un'app diversa, ad esempio se un client invia un'API a un token per MS Graph, l'API non può riscattarla con OBO.  Il token deve invece essere rifiutato.  |
+| `grant_type` | Obbligatoria | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obbligatoria | ID dell'applicazione (client) che la pagina [Registrazioni app del portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
+| `client_secret` | Obbligatoria | Segreto client generato per l'app nella pagina Registrazioni app del portale di Azure. |
+| `assertion` | Obbligatoria | Il token di accesso inviato all'API di livello intermedio.  Questo token deve avere un' `aud` attestazione audience () dell'app che effettua questa richiesta OBO (l'app indicata dal `client-id` campo). Le applicazioni non possono riscattare un token per un'app diversa, ad esempio se un client invia un'API a un token per MS Graph, l'API non può riscattarla con OBO.  Il token deve invece essere rifiutato.  |
 | `scope` | Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes](v2-permissions-and-consent.md) (Ambiti). |
-| `requested_token_use` | Richiesto | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
+| `requested_token_use` | Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
 
 #### <a name="example"></a>Esempio
 
@@ -95,12 +95,12 @@ Una richiesta di token di accesso da servizio a servizio con un certificato cont
 
 | Parametro | Type | Descrizione |
 | --- | --- | --- |
-| `grant_type` | Obbligatorio | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `grant_type` | Obbligatoria | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obbligatoria |  ID dell'applicazione (client) che la pagina [Registrazioni app del portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
-| `client_assertion_type` | Richiesto | Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Richiesto | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione. Per informazioni sulla registrazione del certificato e il formato dell'asserzione, vedere le [credenziali del certificato](active-directory-certificate-credentials.md). |
-| `assertion` | Richiesto |  Il token di accesso inviato all'API di livello intermedio.  Questo token deve avere un' `aud` attestazione audience () dell'app che effettua questa richiesta OBO (l'app indicata dal `client-id` campo). Le applicazioni non possono riscattare un token per un'app diversa, ad esempio se un client invia un'API a un token per MS Graph, l'API non può riscattarla con OBO.  Il token deve invece essere rifiutato.  |
-| `requested_token_use` | Richiesto | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
+| `client_assertion_type` | Obbligatoria | Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obbligatoria | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione. Per informazioni sulla registrazione del certificato e il formato dell'asserzione, vedere le [credenziali del certificato](active-directory-certificate-credentials.md). |
+| `assertion` | Obbligatoria |  Il token di accesso inviato all'API di livello intermedio.  Questo token deve avere un' `aud` attestazione audience () dell'app che effettua questa richiesta OBO (l'app indicata dal `client-id` campo). Le applicazioni non possono riscattare un token per un'app diversa, ad esempio se un client invia un'API a un token per MS Graph, l'API non può riscattarla con OBO.  Il token deve invece essere rifiutato.  |
+| `requested_token_use` | Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
 | `scope` | Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes](v2-permissions-and-consent.md) (Ambiti).|
 
 Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro `client_secret` che viene sostituito da due parametri: `client_assertion_type` e `client_assertion`.
@@ -194,49 +194,6 @@ Alcuni servizi Web di OAuth devono accedere ad altre API di servizi Web che acce
 
 > [!TIP]
 > Se un servizio Web protetto con SAML viene chiamato da un'applicazione Web front-end, è sufficiente chiamare l'API e avviare un flusso di autenticazione interattiva normale con la sessione esistente degli utenti. È necessario usare un flusso OBO quando una chiamata da servizio a servizio richiede un token SAML per fornire il contesto utente.
-
-### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Ottenere un token SAML usando una richiesta OBO con un segreto condiviso
-
-Una richiesta da servizio a servizio per un'asserzione SAML contiene i parametri seguenti:
-
-| Parametro | Type | Description |
-| --- | --- | --- |
-| grant_type |necessario | Il tipo di richiesta del token. Per una richiesta che usa un JWT, il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| assertion |necessarie | Il valore del token di accesso usato nella richiesta.|
-| client_id |necessario | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di Azure, selezionare **Active Directory**, scegliere la directory e quindi selezionare il nome dell'applicazione. |
-| client_secret |necessario | La chiave registrata per il servizio chiamante in Azure AD. È necessario prendere nota di questo valore al momento della registrazione. |
-| risorse |necessarie | L'URI dell'ID app del servizio ricevente (risorsa protetta). Si tratta della risorsa che rappresenta i destinatari del token SAML. Per trovare l'URI ID app nel portale di Azure, selezionare **Active Directory** e scegliere la directory. Selezionare il nome dell'applicazione, scegliere **Tutte le impostazioni**, quindi selezionare **Proprietà**. |
-| requested_token_use |necessarie | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
-| requested_token_type | obbligatorio | Specifica il tipo di token richiesto. Il valore può essere **urn:ietf:params:oauth:token-type:saml2** o **urn:ietf:params:oauth:token-type:saml1**, a seconda dei requisiti della risorsa a cui si accede. |
-
-La risposta contiene un token SAML con codifica UTF8 e Base64url.
-
-- **SubjectConfirmationData per un'asserzione SAML che ha origine da una chiamata OBO**: se l'applicazione di destinazione richiede un valore del destinatario in **SubjectConfirmationData**, nella configurazione dell'applicazione della risorsa deve essere impostato come URL di risposta senza caratteri jolly.
-- **Nodo SubjectConfirmationData**: Il nodo non può contenere un attributo **InResponseTo** perché non fa parte di una risposta SAML. L'applicazione che riceve il token SAML deve essere in grado di accettare l'asserzione SAML senza un attributo **InResponseTo**.
-
-- **Consenso**: per ricevere un token SAML che contiene i dati utente in un flusso OAuth, è necessario aver autorizzato il consenso. Per informazioni sulle autorizzazioni e su come ottenere il consenso dell'amministratore, vedere [Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
-
-### <a name="response-with-saml-assertion"></a>Risposta con asserzione SAML
-
-| Parametro | Descrizione |
-| --- | --- |
-| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
-| scope |Ambito di accesso concesso nel token. |
-| expires_in |Il periodo di validità del token di accesso (in secondi). |
-| expires_on |Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache. |
-| resource |L'URI dell'ID app del servizio ricevente (risorsa protetta). |
-| access_token |Il parametro che restituisce l'asserzione SAML. |
-| refresh_token |Token di aggiornamento. Il servizio chiamante può usare questo token per richiedere un altro token di accesso dopo la scadenza dell'asserzione SAML corrente. |
-
-- token_type: Bearer
-- expires_in: 3296
-- ext_expires_in: 0
-- expires_on: 1529627844
-- risorsa: `https://api.contoso.com`
-- access_token:\<SAML assertion\>
-- issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token:\<Refresh token\>
-
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Ottenere il consenso per l'applicazione di livello intermedio
 

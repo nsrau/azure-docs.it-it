@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 0e660678f33f36b75147c2513c77d3085136127d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8c5c4a6e5d8b2997d80c7263ba17a705d3846ed8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563204"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987393"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare identità gestite in Azure Kubernetes Service
 
@@ -39,12 +39,12 @@ AKS usa diverse identità gestite per i servizi e i componenti aggiuntivi predef
 |----------------------------|-----------|----------|
 | Piano di controllo | non visibile | Usato da AKS per le risorse di rete gestite, inclusi i bilanciamenti del carico in ingresso e gli indirizzi IP pubblici gestiti da AKS | Ruolo Collaboratore per il gruppo di risorse nodo | Anteprima
 | Kubelet | Nome del cluster AKS-agentpool | Autenticazione con Container Registry di Azure (ACR) | Ruolo lettore per il gruppo di risorse nodo | Attualmente non supportato
-| Componente aggiuntivo | AzureNPM | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | Monitoraggio della rete AzureCNI | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | azurepolicy (Gatekeeper) | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | azurepolicy | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | Calico | Non è richiesta alcuna identità | N/D | No
-| Componente aggiuntivo | Dashboard | Non è richiesta alcuna identità | N/D | No
+| Componente aggiuntivo | AzureNPM | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | Monitoraggio della rete AzureCNI | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | azurepolicy (Gatekeeper) | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | azurepolicy | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | Calico | Non è richiesta alcuna identità | ND | No
+| Componente aggiuntivo | Dashboard | Non è richiesta alcuna identità | ND | No
 | Componente aggiuntivo | HTTPApplicationRouting | Gestisce le risorse di rete necessarie | Ruolo Reader per il gruppo di risorse nodo, ruolo Collaboratore per la zona DNS | No
 | Componente aggiuntivo | Gateway applicazione in ingresso | Gestisce le risorse di rete necessarie| Ruolo Collaboratore per il gruppo di risorse nodo | No
 | Componente aggiuntivo | omsagent | Usato per inviare metriche AKS a monitoraggio di Azure | Monitoraggio del ruolo server di pubblicazione metrica | No
@@ -108,11 +108,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Usa il tuo piano di controllo (anteprima)
 Un'identità del piano di controllo personalizzato consente di concedere l'accesso all'identità esistente prima della creazione del cluster. Questo consente scenari come l'uso di un VNET personalizzato o outboundType di UDR con un'identità gestita.
 
-> [!IMPORTANT]
-> Le funzionalità di anteprima del servizio contenitore di servizi sono disponibili in base al consenso esplicito. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico del cliente in base al massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per altre informazioni, vedere gli articoli di supporto seguenti:
->
-> - [Criteri di supporto del servizio Azure Kubernetes](support-policies.md)
-> - [Domande frequenti relative al supporto tecnico Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Devono essere installate le risorse seguenti:
 - INTERFACCIA della riga di comando di Azure, versione 2.9.0 o successiva
