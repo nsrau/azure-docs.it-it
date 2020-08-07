@@ -7,13 +7,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.custom: tracking-python
-ms.openlocfilehash: 02a1db47a194f4604534f0b96eb836a33009be85
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-python
+ms.openlocfilehash: 1e2558074275f9b97bd4a2fd9a3d111c5de02948
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827470"
+ms.locfileid: "87853416"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creare e gestire macchine virtuali Windows in Azure usando Python
 

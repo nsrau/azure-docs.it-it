@@ -4,16 +4,30 @@ description: Informazioni sui diversi modi in cui è possibile distribuire il co
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562940"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905126"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
-È possibile usare alcune tecnologie diverse per distribuire il codice del progetto di funzioni di Azure in Azure. Questo articolo fornisce un elenco completo di queste tecnologie, descrive le tecnologie disponibili per i diversi tipi di funzioni, spiega cosa accade quando si usa ogni metodo e fornisce consigli per il metodo migliore da usare in diversi scenari. I vari strumenti che supportano la distribuzione in funzioni di Azure sono ottimizzati per la tecnologia corretta in base al contesto. In generale, la distribuzione di zip è la tecnologia di distribuzione consigliata per funzioni di Azure.
+È possibile usare alcune tecnologie diverse per distribuire il codice del progetto di funzioni di Azure in Azure. Questo articolo fornisce una panoramica dei metodi di distribuzione disponibili e consigli per il metodo migliore da usare in diversi scenari. Viene inoltre fornito un elenco completo dei dettagli chiave sulle tecnologie di distribuzione underlyng. 
+
+## <a name="deployment-methods"></a>Metodi di distribuzione
+
+La tecnologia di distribuzione usata per pubblicare codice in Azure è in genere determinata dal modo in cui si pubblica l'app. Il metodo di distribuzione appropriato è determinato da esigenze specifiche e dal punto del ciclo di sviluppo. Durante lo sviluppo e il test, ad esempio, è possibile distribuire direttamente dallo strumento di sviluppo, ad esempio Visual Studio Code. Quando l'app è in produzione, è più probabile che la pubblicazione continui dal controllo del codice sorgente o tramite una pipeline di pubblicazione automatica, che include la convalida e il test aggiuntivi.  
+
+Nella tabella seguente vengono descritti i metodi di distribuzione disponibili per il progetto di funzione.
+
+| Tipo di distribuzione &nbsp; | Metodi | Migliore per... |
+| -- | -- | -- |
+| Basati su strumenti | &bull;&nbsp;[Pubblicazione di Visual &nbsp; Studio &nbsp; Code &nbsp;](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Pubblicazione di Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Pubblicazione degli strumenti di base](functions-run-local.md#publish) | Distribuzioni durante lo sviluppo e altre distribuzioni ad. Le distribuzioni vengono gestite localmente dagli strumenti. | 
+| Servizio app-gestito| &bull;&nbsp;[&nbsp;Centro distribuzione &nbsp; (ci/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[&nbsp;Distribuzioni di contenitori](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Distribuzione continua (CI/CD) dal controllo del codice sorgente o da un registro contenitori. Le distribuzioni vengono gestite dalla piattaforma del servizio app (kudu).|
+| Pipeline esterne|&bull;&nbsp;[Pipeline DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Azioni di GitHub](functions-how-to-github-actions.md) | Le pipeline di produzione e DevOps che includono convalida aggiuntiva, test e altre azioni vengono eseguite nell'ambito di una distribuzione automatica. Le distribuzioni vengono gestite dalla pipeline. |
+
+Sebbene le distribuzioni di funzioni specifiche usino la tecnologia migliore in base al contesto, la maggior parte dei metodi di distribuzione si basano sulla [distribuzione zip](#zip-deploy).
 
 ## <a name="deployment-technology-availability"></a>Disponibilità della tecnologia di distribuzione
 

@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto della zona di destinazione per la mig
 description: Panoramica e architettura del progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework (CAF) per Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 45479fd6fa3a49d2639e587d3dba2aaaf567d0b1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044822"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852311"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Panoramica del progetto di esempio della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure
 
@@ -26,7 +26,6 @@ Questo ambiente è costituito da diversi servizi di Azure usati per offrire una 
 
 - Un'istanza di [Azure Key Vault](../../../../key-vault/general/overview.md) usata per ospitare i segreti per i certificati, le chiavi e i segreti distribuiti nell'ambiente dei servizi condivisi
 - [Analisi dei log](../../../../azure-monitor/overview.md), distribuito per garantire la registrazione di tutte le azioni e tutti i servizi in una posizione centrale dal momento in cui viene avviata la migrazione
-- [Centro sicurezza di Azure](../../../../security-center/security-center-intro.md) (versione standard), distribuito per fornire la protezione dalle minacce per i carichi di lavoro di cui è stata eseguita la migrazione
 - [Rete virtuale di Azure](../../../../virtual-network/virtual-networks-overview.md), distribuito per fornire rete e subnet isolate per la macchina virtuale
 - [Progetto Azure Migrate](../../../../migrate/migrate-services-overview.md), distribuito per l'individuazione e la valutazione Verranno aggiunti gli strumenti per la valutazione e la migrazione sia del server che del database.  
 

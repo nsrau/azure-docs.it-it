@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 425ed63238c07ffcf53df10eeddfa0ac95679a2c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797892"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904515"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -57,10 +57,10 @@ Esaminare le risorse seguenti durante la preparazione dell'offerta per un'applic
 Il video [Creazione di modelli di soluzione e applicazioni gestite per Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) offre un'introduzione completa al tipo di offerta applicazione Azure:
 
 * Tipi di offerta disponibili
-* Asset tecnici necessari
+* Quali asset tecnici sono necessari
 * Come creare un modello di Azure Resource Manager
 * Sviluppo e test dell'interfaccia utente dell'app
-* Come pubblicare l'offerta dell'app
+* Come pubblicare l'offerta di app
 * Processo di revisione dell'applicazione
 
 ### <a name="suggested-tools"></a>Strumenti suggeriti
@@ -188,7 +188,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
 7. Riepilogo
-8. Descrizione
+8. Description
 9. Screenshot/video
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
@@ -247,15 +247,14 @@ Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono es
 
 #### <a name="store-logos"></a>Logo per lo Store
 
-Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel) e un valore **medio** (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse.
-
-Tutte e tre le dimensioni dei loghi sono necessarie per l'uso in posizioni diverse nell'elenco:
+Fornire i file PNG del logo dell'offerta nelle dimensioni di pixel seguenti:
 
 - **Piccola** (48 x 48)
 - **Media** (90 x 90)
-- **Grande** (compreso tra 216 x 216 e 350 x 350)
+- **Grande** (216 x 216)
+- **Molto grande** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Tutti i logo sono obbligatori e vengono usati in posizioni diverse nella presentazione.
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 
@@ -283,7 +282,7 @@ Il gruppo di destinatari per l'anteprima è identificato da GUID di ID sottoscri
 Aggiungere almeno un ID sottoscrizione di Azure, singolarmente (fino a 10) o caricando un file CSV (fino a 100). L'aggiunta di questi ID sottoscrizione consente di definire gli utenti che possono visualizzare in anteprima l'offerta prima che venga pubblicata. Se l'offerta è già stata pubblicata, è comunque possibile definire un gruppo di destinatari per l'anteprima che possa testare le modifiche o gli aggiornamenti all'offerta.
 
 > [!NOTE]
-> Un gruppo di destinatari per l'anteprima è diverso da un pubblico privato. Un gruppo di destinatari per l'anteprima può accedere all'offerta _prima_ che l'offerta venga pubblicata nei marketplace. Può infatti visualizzare e convalidare tutti i piani, inclusi quelli che saranno disponibili solo per un gruppo di destinatari privato dopo che l'offerta viene pubblicata completamente nel marketplace. Un gruppo di destinatari privato (definito nella scheda **Prezzi e disponibilità** del piano) ha accesso esclusivo a un piano specifico.
+> Un gruppo di destinatari per l'anteprima è diverso da un pubblico privato. Un gruppo di destinatari per l'anteprima può accedere all'offerta *prima* che l'offerta venga pubblicata nei marketplace. Può infatti visualizzare e convalidare tutti i piani, inclusi quelli che saranno disponibili solo per un gruppo di destinatari privato dopo che l'offerta viene pubblicata completamente nel marketplace. Un gruppo di destinatari privato (definito nella scheda **Prezzi e disponibilità** del piano) ha accesso esclusivo a un piano specifico.
 
 Prima di continuare, selezionare **Salva bozza**.
 
@@ -324,7 +323,7 @@ Le **azioni** disponibili in **Panoramica del piano** variano a seconda dello st
 
 ***ID piano***: creare un ID piano univoco per ogni piano nell'offerta. Questo ID sarà visibile ai clienti nell'URL del prodotto.  Usare solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. Per questo ID piano sono consentiti al massimo 50 caratteri. Questo ID non può essere modificato dopo aver selezionato Crea.
 
-***Nome piano***: i clienti visualizzeranno questo nome per decidere quale piano selezionare nell'offerta. Creare un nome di offerta univoco per ogni piano nell'offerta. Il nome del piano viene usato per distinguere i piani software che possono fare parte della stessa offerta (ad esempio, nome dell'offerta: Windows Server, piani: Windows Server 2016, Windows Server 2019).
+***Nome del piano*** : i clienti visualizzeranno questo nome per decidere quale piano selezionare nell'offerta. Creare un nome di offerta univoco per ogni piano nell'offerta. Il nome del piano viene usato per distinguere i piani software che possono fare parte della stessa offerta (ad esempio, nome dell'offerta: Windows Server, piani: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>Configurazione del piano
 
@@ -335,7 +334,7 @@ Selezionare il tipo di piano per l'offerta. Un piano **Modello di soluzione** vi
 
 #### <a name="re-use-technical-configuration"></a>Riutilizzare la configurazione tecnica
 
-Se è stato creato più di un piano dello stesso tipo e i pacchetti sono identici tra piani, è possibile selezionare **This plan reuses packages from another plan** (Questo piano riutilizza pacchetti di un altro piano).  Quando si seleziona questa opzione, è possibile selezionare uno degli altri piani dello stesso tipo per questa offerta per riutilizzare i pacchetti. 
+Se è stato creato più di un piano dello stesso tipo e i pacchetti sono identici tra piani, è possibile selezionare **This plan reuses packages from another plan** (Questo piano riutilizza pacchetti di un altro piano).  Quando si seleziona questa opzione, è possibile selezionare uno degli altri piani dello stesso tipo per questa offerta per riutilizzare i pacchetti.
 
 >[!Note]
 >Quando si riutilizzano pacchetti di un altro piano, l'intera scheda Configurazione tecnica scomparirà da questo piano. I dettagli relativi alla configurazione tecnica dell'altro piano, inclusi gli eventuali aggiornamenti apportati in futuro, verranno usati anche per questo piano.<br><br>Questa impostazione non può essere modificata dopo la pubblicazione del piano.
@@ -416,9 +415,9 @@ Se i prezzi per il piano sono già stati impostati in dollari statunitensi (USD)
 
 Specificare il prezzo al mese per questo piano.  Questo prezzo è in aggiunta a tutti gli altri costi dell'infrastruttura di Azure o i costi software con pagamento in base al consumo sostenuti dalle risorse distribuite da questa soluzione.
 
-Oltre al prezzo mensile, è anche possibile impostare i prezzi per l'utilizzo di unità non standard tramite la [fatturazione a consumo](./azure-app-metered-billing.md).  È anche possibile impostare il prezzo al mese su zero e addebitare esclusivamente la fatturazione a consumo. 
+Oltre al prezzo mensile, è anche possibile impostare i prezzi per l'utilizzo di unità non standard tramite la [fatturazione a consumo](./azure-app-metered-billing.md).  È anche possibile impostare il prezzo al mese su zero e addebitare esclusivamente la fatturazione a consumo.
 
-I prezzi impostati in USD (USD = dollaro statunitense) vengono convertiti nella valuta locale di tutti i mercati selezionati usando i tassi di cambio correnti quando vengono salvati. Convalidare questi prezzi prima della pubblicazione esportando il foglio di calcolo dei prezzi e controllando il prezzo in ogni mercato. Per impostare prezzi personalizzati in un singolo mercato, modificare e importare il foglio di calcolo dei prezzi. 
+I prezzi impostati in USD (USD = dollaro statunitense) vengono convertiti nella valuta locale di tutti i mercati selezionati usando i tassi di cambio correnti quando vengono salvati. Convalidare questi prezzi prima della pubblicazione esportando il foglio di calcolo dei prezzi e controllando il prezzo in ogni mercato. Per impostare prezzi personalizzati in un singolo mercato, modificare e importare il foglio di calcolo dei prezzi.
 
 >[!Note]
 >Salvare le modifiche apportate ai prezzi per consentire l'esportazione dei dati relativi ai prezzi.
@@ -442,8 +441,7 @@ Se si imposta il piano come privato, immettere un **ID sottoscrizione di Azure**
 >[!Note]
 >Le offerte private non sono supportate con le sottoscrizioni di Azure stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
 
-
-### <a name="technical-configuration"></a>Configurazione tecnica 
+### <a name="technical-configuration"></a>Configurazione tecnica
 
 Questa scheda consente di caricare il pacchetto di distribuzione che consentirà ai clienti di distribuire il piano.
 
@@ -501,15 +499,15 @@ Specificare un endpoint webhook HTTPS facoltativo per ricevere notifiche su tutt
 
 #### <a name="customize-allowed-customer-actions"></a>Personalizza azioni cliente consentite
 
-Selezionare questa opzione per specificare le azioni che i clienti possono eseguire sulle risorse gestite, oltre alle azioni "`*/read`" disponibili per impostazione predefinita. 
+Selezionare questa opzione per specificare le azioni che i clienti possono eseguire sulle risorse gestite, oltre alle azioni "`*/read`" disponibili per impostazione predefinita.
 
-Elencare le azioni aggiuntive di cui consentire l'esecuzione al cliente, separate da punti e virgola.  Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](../../role-based-access-control/deny-assignments.md).  Per informazioni sulle azioni disponibili, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Ad esempio, per consentire agli utenti di riavviare le macchine virtuali, aggiungere `Microsoft.Compute/virtualMachines/restart/action` alle azioni consentite.
+Elencare le azioni aggiuntive di cui consentire l'esecuzione al cliente, separate da punti e virgola.  Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](../../role-based-access-control/deny-assignments.md). Per informazioni sulle azioni disponibili, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Ad esempio, per consentire agli utenti di riavviare le macchine virtuali, aggiungere `Microsoft.Compute/virtualMachines/restart/action` alle azioni consentite.
 
 #### <a name="global-azure--azure-government-cloud"></a>Azure globale/Cloud Azure per enti pubblici
 
-Indicare chi deve avere accesso di gestione a questa applicazione gestita in ogni cloud supportato. Gli utenti, i gruppi o le applicazioni cui si vuole concedere l'autorizzazione per il gruppo di risorse gestite vengono identificati tramite identità di Azure Active Directory (AAD).
+Indicare chi deve avere accesso di gestione a questa applicazione gestita in ogni cloud supportato. Gli utenti, i gruppi o le applicazioni a cui si vuole concedere l'autorizzazione per il gruppo di risorse gestite vengono identificati usando le identità Azure Active Directory (AD).
 
-**ID tenant di Azure Active Directory**: ID tenant di AAD (noto anche come ID directory) contenente le identità degli utenti, dei gruppi o delle applicazioni cui concedere le autorizzazioni. È possibile trovare l'ID tenant di AAD nella portale di Azure, in [Proprietà per Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+**Azure Active Directory ID tenant** : l'id tenant Azure ad (noto anche come ID directory) contenente le identità degli utenti, dei gruppi o delle applicazioni a cui si vogliono concedere le autorizzazioni. È possibile trovare l'ID tenant Azure AD nel portale di Azure, in [proprietà per Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 **Autorizzazioni**: aggiungere l'ID oggetto di Azure Active Directory dell'utente, del gruppo o dell'applicazione cui si vuole concedere l'autorizzazione per il gruppo di risorse gestite. Identificare l'utente tramite l'ID entità di sicurezza, disponibile nel [pannello degli utenti di Azure Active Directory del portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
@@ -579,9 +577,9 @@ Prima di continuare, selezionare **Salva bozza**.
 Dopo aver completato tutte le sezioni obbligatorie dell'offerta, selezionare **Rivedi e pubblica** nell'angolo superiore destro del portale.
 
 Esaminare lo stato di completamento di ogni sezione dell'offerta.
-    - *Non avviata*: indica che la sezione è stata lasciata inalterata e deve essere completata.
-    - *Incompleta*: indica che la sezione contiene errori che devono essere corretti o è necessario fornire altre informazioni. Tornare alla sezione o aggiornarla.
-    - *Completa*: indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completo prima di poter inviare l'offerta.
+    - *Non avviato* : indica che la sezione non è stata toccata e deve essere completata.
+    - *Incompleto* : indica che la sezione contiene errori che devono essere corretti o che sono necessarie altre informazioni. Tornare alla sezione e aggiornarla.
+    - *Completato* : indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completo prima di poter inviare l'offerta.
 
 Se questa è la prima volta che si pubblica questa offerta, è possibile fornire istruzioni di test al team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per la comprensione dell'app.
 

@@ -8,13 +8,13 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.custom: tracking-python
-ms.openlocfilehash: 9a3ffd633fc45f054cf335d91e399204d5dda8e4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 762f616a27338750973e843a999b36a22171fbcd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070751"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847602"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
@@ -336,7 +336,7 @@ def list_directory_contents():
 ## <a name="see-also"></a>Vedere anche
 
 * [Documentazione di riferimento delle API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
-* [Pacchetto (indice pacchetto Python)](https://pypi.org/project/azure-storage-file-datalake/)
+* [Pacchetto (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
 * [Esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Mapping da Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)

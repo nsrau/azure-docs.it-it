@@ -3,12 +3,12 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec0215d3f10aa9f6a20eea7258ec9d5081e8f98
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072824"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901981"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -74,7 +74,26 @@ La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azur
 
 Le immagini di macchine virtuali personalizzate sono supportate dai criteri di Configurazione guest a condizione che il sistema operativo sia uno di quelli indicati nella tabella precedente.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Requisiti di rete dell'estensione Configurazione guest
+## <a name="network-requirements"></a>Requisiti di rete
+
+Le macchine virtuali in Azure possono usare la scheda di rete locale o un collegamento privato per comunicare con il servizio di configurazione Guest.
+
+I computer Azure Arc si connettono usando l'infrastruttura di rete locale per raggiungere i servizi di Azure e segnalare lo stato di conformità.
+
+### <a name="communicate-over-virtual-networks-in-azure"></a>Comunicazione su reti virtuali in Azure
+
+Per le macchine virtuali che usano reti virtuali per la comunicazione è necessario l'accesso in uscita ai Data Center di Azure sulla porta `443` . Se si usa una rete virtuale privata in Azure che non consente il traffico in uscita, configurare le eccezioni con le regole del gruppo di sicurezza di rete. È possibile usare il tag del servizio "GuestAndHybridManagement" per fare riferimento al servizio Configurazione guest.
+
+### <a name="communicate-over-private-link-in-azure"></a>Comunicazione tramite collegamento privato in Azure
+
+Le macchine virtuali possono usare un [collegamento privato](../../../private-link/private-link-overview.md) per la comunicazione con il servizio di configurazione Guest. Applicare il tag con il nome `EnablePrivateNeworkGC` e il valore `TRUE` per abilitare questa funzionalità. Il tag può essere applicato prima o dopo l'applicazione dei criteri di configurazione Guest alla macchina.
+
+Il traffico viene instradato tramite l' [indirizzo IP pubblico virtuale](../../../virtual-network/what-is-ip-address-168-63-129-16.md) di Azure per stabilire un canale protetto e autenticato con le risorse della piattaforma Azure.
+
+### <a name="azure-arc-connected-machines"></a>Computer connessi ad Azure Arc
+
+I nodi che si trovano all'esterno di Azure connessi da Azure Arc richiedono la connettività al servizio di configurazione Guest.
+Informazioni dettagliate sui requisiti di rete e proxy forniti nella [documentazione di Azure Arc](../../../azure-arc/servers/overview.md).
 
 Per comunicare con il provider di risorse di Configurazione guest in Azure, i computer devono disporre di accesso in uscita verso i data center di Azure sulla porta **443**. Se una rete in Azure non consente il traffico in uscita, configurare le eccezioni con le regole del [gruppo di sicurezza di rete](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). È possibile usare il [tag del servizio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" per fare riferimento al servizio Configurazione guest.
 

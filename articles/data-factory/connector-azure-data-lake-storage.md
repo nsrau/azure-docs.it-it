@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 7a17e9b0de3e77b2f6b8bf3c6eb55503d34c359c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/05/2020
+ms.openlocfilehash: 8a6d0a24ef7252e40bb170bd63a76e2bfce8caef
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223721"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852277"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare e trasformare dati in Azure Data Lake Storage Gen2 tramite Azure Data Factory
 
@@ -133,6 +133,7 @@ Queste sono le proprietà supportate dal servizio collegato:
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come `SecureString`, per archiviare la chiave in modo sicuro in Data Factory. In alternativa, [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
+| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione AAD. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted, se l'archivio dati si trova in una rete privata. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
@@ -269,9 +270,9 @@ Le proprietà seguenti sono supportate per Data Lake Storage Gen2 nelle impostaz
 | OPZIONE 1: percorso statico<br> | Copia dal file system o dal percorso della cartella/del file specificato nel set di dati. Se si vogliono copiare tutti i file da una cartella o da un file system, specificare anche `wildcardFileName` come `*`. |  |
 | OPZIONE 2: carattere jolly<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly nel file system specificato configurato nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | OPZIONE 2: carattere jolly<br>- wildcardFileName | Nome file con caratteri jolly nel file system + percorso folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape.  Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
-| OPZIONE 3: elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare il nome del file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |
+| OPZIONE 3: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare il nome del file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |
 | ***Impostazioni aggiuntive:*** |  | |
-| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile alla configurazione di `fileListPath`. |No |
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che quando la proprietà recursive è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono **true** (predefinito) e **false**.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica se i file binari verranno eliminati dall'archivio di origine dopo che è stato eseguito il passaggio all'archivio di destinazione. L'eliminazione del file è per file, pertanto quando l'attività di copia ha esito negativo, si noterà che alcuni file sono già stati copiati nella destinazione ed eliminati dall'origine, mentre altri ancora rimangono nell'archivio di origine. <br/>Questa proprietà è valida solo nello scenario di copia binaria, in cui gli archivi di origini dati sono BLOB, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, file, file di Azure, SFTP o FTP. Valore predefinito: false. |No |
 | modifiedDatetimeStart    | Filtro di file basato sull'attributo: Ultima modifica. <br>I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere NULL, il che significa che al set di dati non verrà applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.<br/>Questa proprietà non è applicabile quando si configura `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                            |

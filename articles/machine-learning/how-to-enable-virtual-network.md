@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: df819f5ff641af014750d6501c8b168e54917318
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: how-to, contperfq4, devx-track-python
+ms.openlocfilehash: 9d49ea99b97411e15d3f264057c865219e4d63c4
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420533"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853501"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento rete durante il training & inferenza con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

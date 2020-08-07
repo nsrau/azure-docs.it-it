@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 2f101226040c6266a53e8c15697dccb7554e70a7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e78044faabfd5ff3dccb1e7ea04149fbef212c01
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321531"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843709"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps per una pipeline di inserimento dati
 
@@ -80,7 +80,7 @@ L'obiettivo finale del processo di integrazione continua consiste nel riunire il
 
 Il processo CI per i notebook di Python ottiene il codice dal ramo collaborazione (ad esempio, ***Master*** o ***develop***) ed esegue le attività seguenti:
 * Pelucchi del codice
-* Testing unità
+* Unit test
 * Salvataggio del codice come artefatto
 
 Il frammento di codice seguente illustra l'implementazione di questi passaggi in una pipeline ***YAML*** di Azure DevOps:

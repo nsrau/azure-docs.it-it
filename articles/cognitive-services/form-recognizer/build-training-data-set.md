@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: c6780d952b9ce6ea58fc6c8a2509a4526add7149
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: da9445b12ce6f35d249fc3af1a4a0ef560ba35de
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028262"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905092"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creazione di un set di dati di training per un modello personalizzato
 
@@ -42,7 +42,7 @@ Verificare anche che il set di dati di training segua i requisiti di input per t
 
 ## <a name="upload-your-training-data"></a>Caricare i dati di training
 
-Dopo aver raccolto il set di documenti del modulo da usare per il training, è necessario caricarlo in un contenitore di archiviazione BLOB di Azure. Se non si conosce la procedura per creare un account di archiviazione di Azure con un contenitore, seguire la [Guida introduttiva di archiviazione di Azure per portale di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Dopo aver raccolto il set di documenti del modulo da usare per il training, è necessario caricarlo in un contenitore di archiviazione BLOB di Azure. Se non si conosce la procedura per creare un account di archiviazione di Azure con un contenitore, seguire la [Guida introduttiva di archiviazione di Azure per portale di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Usare il livello di prestazioni standard.
 
 Se si desidera utilizzare i dati con etichetta manualmente, sarà necessario caricare anche il *.labels.js* e *.ocr.jssu* file che corrispondono ai documenti di training. Per generare questi file, è possibile usare lo [strumento di assegnazione di etichette di esempio](./quickstarts/label-tool.md) (o la propria interfaccia utente).
 

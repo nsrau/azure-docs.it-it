@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 8862de0ba36d0731fff0e47ab51f828ff69af201
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/05/2020
+ms.openlocfilehash: 7296ec52f8bede86b73e7494af3a784526b639c3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220423"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849115"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -237,6 +237,7 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarla passando il mouse sull'angolo superiore destro della portale di Azure. | Sì |
+| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione AAD. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]

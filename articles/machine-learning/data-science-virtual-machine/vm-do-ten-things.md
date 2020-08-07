@@ -5,17 +5,17 @@ description: Eseguire attività di esplorazione e modellazione dei dati nel Data
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.custom: tracking-python
+ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 7d9aced42efefc8651605be44f0091b2f4f2815e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 82e7cd67da6b64788d597e84c723d797138ac608
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959280"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848537"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati di Windows
 
@@ -130,7 +130,7 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>Compilare e rendere operativo i modelli R
-È possibile distribuire modelli R compilati nella Data Science Virtual Machine o altrove in Azure Machine Learning in modo analogo a come avviene per Python. Ecco i passaggi necessari:
+È possibile distribuire modelli R compilati nella Data Science Virtual Machine o altrove in Azure Machine Learning in modo analogo a come avviene per Python. Seguire questa procedura:
 
 1. Creare un settings.jssu file per fornire l'ID dell'area di lavoro e il token di autenticazione. 
 2. Scrivere un wrapper per la funzione Predict del modello.
@@ -528,6 +528,6 @@ Oltre agli esempi basati su Framework, è possibile ottenere un set di procedure
 
 - [Classificazione dei documenti di testo](https://github.com/anargyri/lstm_han): in questa procedura dettagliata viene illustrato come compilare ed eseguire il training di due architetture di rete neurale: rete gerarchica attention Network e Long Short term memory (LSTM). Queste reti neurali usano l'API Keras per l'apprendimento avanzato per classificare i documenti di testo. Keras è un front-end per tre dei framework di apprendimento avanzato più diffusi: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 In questo articolo sono state descritte alcune delle operazioni che è possibile eseguire in Microsoft Data Science Virtual Machine. Per rendere DSVM un ambiente di analisi efficace, è possibile eseguire molte altre operazioni.
 

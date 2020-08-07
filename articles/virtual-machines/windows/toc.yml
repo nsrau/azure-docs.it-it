@@ -173,7 +173,7 @@
     - name: Tipi e dimensioni di VM
       items:
         - name: Dimensioni delle macchine virtuali
-          href: sizes.md
+          href: ../sizes.md
         - name: Macchine virtuali di seconda generazione
           href: generation-2.md
         - name: Scopo generico
@@ -336,7 +336,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: security-policy.md
@@ -385,7 +385,7 @@
             - name: Codici di errore
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Usare C#
-          href: csharp.md
+          href: ../../azure-resource-manager/templates/deploy-rest.md
         - name: Usare un disco specializzato
           items:
             - name: Portale
@@ -393,7 +393,7 @@
             - name: PowerShell
               href: create-vm-specialized.md
         - name: Creare una VM con Chef
-          href: ../../chef/chef-automation.md
+          href: /azure/developer/chef/windows-vm-configure
         - name: Usare Java
           href: java.md
         - name: Usare Python
@@ -707,7 +707,7 @@
                     - name: Cronologia delle versioni
                       href: ../../azure-monitor/platform/diagnostics-extension-versions.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Formato dei log delle risorse di Righe JSON
-                      href: ../../azure-monitor/platform/resource-logs-append-blobs.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
+                      href: ../../azure-monitor/platform/resource-logs-blob-format.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                     - name: Risoluzione dei problemi
                       href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Agente di Log Analytics
@@ -765,13 +765,13 @@
                 - name: Abilitare il monitoraggio - Panoramica
                   href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Eseguire l'abilitazione per una singola macchina virtuale di Azure
-                  href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: Eseguire l'abilitazione con Criteri di Azure
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: Abilitare con Azure PowerShell
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: Eseguire l'abilitazione per l'ambiente ibrido
-                  href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Eseguire il mapping delle dipendenze
               href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Monitorare le prestazioni
@@ -809,7 +809,7 @@
         - name: Dati personalizzati
           href: ../custom-data.md
         - name: Chef
-          href: chef-automation.md
+          href: /azure/developer/chef/windows-vm-configure
         - name: Pubblicare un'app Web da Visual Studio
           href: publish-web-app-from-visual-studio.md
     - name: Eseguire le applicazioni

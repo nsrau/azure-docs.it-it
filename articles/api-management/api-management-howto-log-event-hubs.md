@@ -1,6 +1,6 @@
 ---
 title: Come registrare gli eventi in Hub eventi di Azure in Gestione API di Azure | Microsoft Docs
-description: Informazioni su come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure.
+description: Informazioni su come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure. Hub eventi è un servizio di ingresso dati a scalabilità elevata.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: e2bf63558b4bbd55262aa16f70bfba934a42c3ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4909dde8efd7125a60509bb86b28f069bf6dbb24
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024963"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903392"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
 Hub di eventi di Azure è un servizio di ingresso dati altamente scalabile che può inserire milioni di eventi al secondo in modo che è possibile elaborare e analizzare enormi quantità di dati generati per i dispositivi connessi e le applicazioni. Gli hub di eventi fungono da "porta principale" per una pipeline di eventi e una volta che i dati vengono raccolti in un hub di eventi, possono essere trasformati e archiviati con qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Gli hub di eventi separano la produzione di un flusso di eventi dal consumo di questi eventi, in modo che i consumer di eventi può accedere agli eventi in base a una pianificazione.

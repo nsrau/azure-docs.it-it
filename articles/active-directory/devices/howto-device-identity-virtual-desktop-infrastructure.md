@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43538ec7fa17764e8d9d53aad305480bd3ab4f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dde9d8b50233c3c4033daf618e0e626c0174b0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419802"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903154"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identità del dispositivo e virtualizzazione desktop
 
@@ -77,7 +77,7 @@ Se si utilizza l'utilità preparazione sistema (sysprep.exe) e si utilizza un'im
 
 Se si utilizza uno snapshot di macchina virtuale (VM) per creare altre macchine virtuali, assicurarsi che lo snapshot non venga da una macchina virtuale già registrata con Azure AD come Azure AD ibrido join.
 
-Quando si distribuisce un'infrastruttura VDI non persistente, gli amministratori IT devono prestare particolare attenzione alla gestione dei dispositivi non aggiornati in Azure AD. Microsoft consiglia agli amministratori IT di implementare le linee guida riportate di seguito. In caso contrario, la directory contiene molti dispositivi Azure AD ibrido aggiunti non aggiornati che sono stati registrati dalla piattaforma VDI non persistente.
+Azure AD ibrido join per VDI non persistente non è supportato nelle versioni correnti di Windows. Quando si distribuisce un'infrastruttura VDI non persistente per Windows, gli amministratori IT devono prestare particolare attenzione alla gestione dei dispositivi non aggiornati in Azure AD. Microsoft consiglia agli amministratori IT di implementare le linee guida riportate di seguito. In caso contrario, la directory contiene molti dispositivi Azure AD ibrido aggiunti non aggiornati che sono stati registrati dalla piattaforma VDI non persistente.
 
 - Creare e utilizzare un prefisso per il nome visualizzato del computer che indica il desktop come basato su VDI.
 - Implementare il comando seguente come parte dello script di disconnessione. Questo comando attiverà una chiamata al massimo sforzo per Azure AD eliminare il dispositivo.

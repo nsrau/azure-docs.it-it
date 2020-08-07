@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 8773f2f17ec632bbefee6b3bdfeb66e494ad7a54
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 5ac7f5819f07309c319d290f4869707eabb688f9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088037"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848469"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Binding di output Azure Cosmos DB per funzioni di Azure 2. x e versioni successive
 
@@ -580,7 +580,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 Per impostazione predefinita, quando si scrive nel parametro di output della funzione, viene creato un documento nel database. L'ID di questo documento è un GUID generato automaticamente. È possibile specificare l'ID del documento di output specificando la proprietà `id` nell'oggetto JSON passato al parametro di output.
 
@@ -589,7 +589,7 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding | Riferimento |
+| Binding | Informazioni di riferimento |
 |---|---|
 | Cosmos DB | [Codici di errore di CosmosDB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 

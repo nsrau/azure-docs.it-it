@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027393"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842910"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creare un contenitore di profili con File di Azure e servizi di dominio Active Directory
 
@@ -35,7 +35,7 @@ Per configurare un account di archiviazione:
 
 2. Cercare l' **account di archiviazione** nella barra di ricerca.
 
-3. Selezionare **+ Aggiungi**.
+3. Selezionare **+Aggiungi**.
 
 4. Immettere le informazioni seguenti nella pagina **Crea account di archiviazione** :
 
@@ -189,8 +189,6 @@ Per configurare le autorizzazioni NTFS:
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
-
-5. Selezionare **Applica**.
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Configurare FSLogix nelle VM host sessione
 

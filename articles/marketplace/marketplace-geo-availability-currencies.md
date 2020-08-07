@@ -6,17 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 01/29/2020
-ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 07/29/2020
+ms.openlocfilehash: bf6215bd9225292f7b85ed6d4c4566cd4ee860b7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387439"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902100"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilità geografica e valute supportate per il marketplace commerciale
 
-Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geografiche, in base all'indirizzo di fatturazione del cliente, e possono essere completate in 17 valute. La tabella seguente contiene tutte le aree geografiche supportate, tramite il [codice alfa a due cifre ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), e la valuta assegnata.
+## <a name="supported-geographic-locations"></a>Posizioni geografiche supportate
+
+Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geografiche, in base all'indirizzo di fatturazione del cliente, e possono essere completate in 17 valute. Nella tabella seguente sono elencate tutte le posizioni geografiche supportate, il [codice alfa ISO 3166 2-digit](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
 
 |   Nome paese/area               |   ISO-2   |   Valuta   |
 |-------------------------------------|-----------|--------------|
@@ -167,3 +169,34 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 \* Per i clienti in Brasile, il marketplace tramite Cloud Solution Provider (CSP) usa USD.
 
 \** Solo immagini di macchine virtuali BYOL e gratuite.
+
+## <a name="how-we-convert-currency"></a>Conversione della valuta
+
+Per tutti i tipi di offerta a pagamento, gli ISV hanno la possibilità di immettere i prezzi in USD o di caricare i prezzi nella valuta locale. I prezzi immessi in USD vengono convertiti automaticamente in valuta locale quando la pagina viene salvata. Le tariffe utilizzate dal centro per i partner vengono aggiornate ogni giorno. Gli ISV possono esportare i prezzi ed esaminare gli equivalenti convertiti.
+
+Per modificare il prezzo prima della pubblicazione, è sufficiente esportare il foglio di calcolo dei prezzi, modificarlo e caricarlo con le modifiche.
+
+> [!NOTE]
+> In seguito alla pubblicazione, non sarà più possibile modificare il prezzo per un mercato del piano. Per assicurarsi che i prezzi siano corretti prima di procedere con la pubblicazione, esportare il foglio di calcolo dei prezzi ed esaminare i prezzi per ogni mercato.
+
+## <a name="rate-changes"></a>Modificare le tariffe
+
+Le tariffe utilizzate per calcolare i prezzi locali vengono aggiornate ogni giorno. Questo calcolo viene eseguito quando l'ISV salva la pagina e può esaminare tutte le tariffe esportando e rivedendo i prezzi prima della pubblicazione.
+
+### <a name="retrieving-currency-information-by-api"></a>Recupero delle informazioni sulla valuta per API
+
+I prezzi individuali (che, a seconda del modo in cui sono stati impostati, potrebbero essere stati influenzati dai tassi di cambio del giorno in cui sono stati salvati), possono essere recuperati usando un'API. non è possibile ottenere informazioni sulla valuta.
+
+Per informazioni dettagliate su come immettere il prezzo per i tipi di offerta specifici, vedere questi articoli:
+
+- [Creare un'offerta di applicazione Azure](partner-center-portal/create-new-azure-apps-offer.md)
+- [Creare un'offerta di contenitore di Azure](partner-center-portal/create-azure-container-offer.md)
+- [Creare un'offerta per macchine virtuali di Azure](partner-center-portal/azure-vm-create-offer.md)
+- [Creare un'offerta di un servizio di consulenza](partner-center-portal/create-consulting-service-offer.md)
+- [Creare un'offerta di Dynamics 365 per Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Creare un'offerta Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
+- [Creare un'offerta Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
+- [Creare un'offerta di moduli IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Creare un'offerta di servizi gestiti](partner-center-portal/create-new-managed-service-offer.md)
+- [Creare un'app di Power BI](partner-center-portal/create-power-bi-app-offer.md)
+- [Creare un'offerta SaaS](partner-center-portal/create-new-saas-offer.md)

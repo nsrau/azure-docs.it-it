@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9d73492110703e64df5f948ad8a2a1ed8d2c63b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489878"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904539"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,6 +36,9 @@ Indipendentemente dal tipo di autenticazione usato, il controllo degli accessi i
 * [Configurare l'ambiente di sviluppo](how-to-configure-environment.md) per installare l'SDK Azure Machine Learning o usare una [macchina virtuale con notebook Azure Machine Learning](concept-azure-machine-learning-architecture.md#compute-instance) con l'SDK già installato.
 
 ## <a name="interactive-authentication"></a>Autenticazione interattiva
+
+> [!IMPORTANT]
+> L'autenticazione interattiva usa il browser e richiede cookie, inclusi i cookie di terze parti. Se i cookie sono stati disabilitati, è possibile che venga visualizzato un errore, ad esempio "non è stato possibile accedere". Questo errore può verificarsi anche se è stata abilitata [l'autenticazione a più fattori di Azure](/azure/active-directory/authentication/concept-mfa-howitworks).
 
 Per la maggior parte degli esempi nella documentazione e negli esempi viene usata l'autenticazione interattiva. Ad esempio, quando si usa l'SDK sono presenti due chiamate di funzione che richiederanno automaticamente un flusso di autenticazione basato sull'interfaccia utente:
 

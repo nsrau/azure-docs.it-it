@@ -3,13 +3,13 @@ title: Creare un'applicazione contenitore di Service Fabric di Azure
 description: Creare la prima applicazione contenitore Windows in Azure Service Fabric. Creare un'immagine Docker con un'applicazione Python, effettuare il push dell'immagine in un registro contenitori, quindi compilare e distribuire il contenitore in Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.custom: tracking-python
-ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-python
+ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247405"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844440"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 
@@ -321,7 +321,7 @@ Se si vuole disabilitare l'integrazione di **HEALTHCHECK** per l'intero cluster 
 ## <a name="deploy-the-container-application"></a>Distribuire l'applicazione del contenitore
 Salvare tutte le modifiche e compilare l'applicazione. Per pubblicare l'applicazione, fare clic con il pulsante destro del mouse su **MyFirstContainer** in Esplora soluzioni e scegliere **Pubblica**.
 
-In **Endpoint connessione** immettere l'endpoint di gestione per il cluster, Ad esempio, `containercluster.westus2.cloudapp.azure.com:19000` L'endpoint di connessione del client è disponibile nella scheda Panoramica del cluster nel [portale di Azure](https://portal.azure.com).
+In **Endpoint connessione** immettere l'endpoint di gestione per il cluster, Ad esempio: `containercluster.westus2.cloudapp.azure.com:19000`. L'endpoint di connessione del client è disponibile nella scheda Panoramica del cluster nel [portale di Azure](https://portal.azure.com).
 
 Fare clic su **Pubblica**.
 
@@ -344,7 +344,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilità tra il sistema operativo del contenitore di Windows Server e il sistema operativo dell'host
 
-I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. ad esempio:
+I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Ad esempio:
  
 - I contenitori di Windows Server creati tramite Windows Server versione 1709 non funzionano in un host che esegue Windows Server 2016. 
 - I contenitori di Windows Server compilati con Windows Server 2016 funzionano in modalità di isolamento Hyper-V solo in un host che esegue Windows Server versione 1709. 
@@ -352,7 +352,7 @@ I contenitori di Windows Server non sono compatibili con tutte le versioni del s
  
 Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considerare la compatibilità del sistema operativo host e del sistema operativo del contenitore durante la creazione e la distribuzione dei contenitori nel cluster di Service Fabric. ad esempio:
+Considerare la compatibilità del sistema operativo host e del sistema operativo del contenitore durante la creazione e la distribuzione dei contenitori nel cluster di Service Fabric. Ad esempio:
 
 - Assicurarsi di distribuire i contenitori con un sistema operativo compatibile con il sistema operativo nei nodi del cluster.
 - Assicurarsi che la modalità di isolamento specificata per l'app contenitore sia coerente con il supporto per il sistema operativo del contenitore nel nodo in cui viene distribuito.

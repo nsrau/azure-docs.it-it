@@ -3,12 +3,12 @@ title: Indirizzi IP in Funzioni di Azure
 description: Informazioni su come trovare gli indirizzi IP in ingresso e in uscita per le app per le funzioni e sugli elementi che ne causano la modifica.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656776"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874079"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 
@@ -49,12 +49,13 @@ Un modo alternativo per trovare gli indirizzi IP in uscita disponibili consiste 
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+
 > [!NOTE]
-> Quando un'app per le funzioni eseguita nell'ambito del [piano A consumo](functions-scale.md#consumption-plan) viene ridimensionata, può venire assegnato un nuovo intervallo di indirizzi IP in uscita. Quando si usa il piano A consumo, può essere necessario inserire nell'elenco elementi consentiti l'intero data center.
+> Quando un'app per le funzioni eseguita nell'ambito del [piano A consumo](functions-scale.md#consumption-plan) viene ridimensionata, può venire assegnato un nuovo intervallo di indirizzi IP in uscita. Quando si esegue il piano a consumo, potrebbe essere necessario aggiungere l'intero data center a un elenco Consenti.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Indirizzi IP in uscita del data center
 
-Se è necessario aggiungere all'elenco degli elementi consentiti gli indirizzi IP in uscita usati dall'app per le funzioni, un'altra opzione è aggiungere all'elenco degli elementi consentiti il data center delle app per le funzioni (area di Azure). È possibile [scaricare un file JSON che elenca gli indirizzi IP per tutti i data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Trovare quindi l'elemento JSON applicabile per l'area in cui viene eseguita l'app per le funzioni.
+Se è necessario aggiungere gli indirizzi IP in uscita usati dalle app per le funzioni a un elenco consentiti, un'altra opzione consiste nell'aggiungere il data center delle app per le funzioni (area di Azure) a un elenco consentiti. È possibile [scaricare un file JSON che elenca gli indirizzi IP per tutti i data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Trovare quindi l'elemento JSON applicabile per l'area in cui viene eseguita l'app per le funzioni.
 
 Ad esempio, l'elemento JSON per l'Europa occidentale è simile al seguente:
 
