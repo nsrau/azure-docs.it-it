@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87427998"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902474"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -261,13 +261,15 @@ Per controllare quali attestazioni vengono generate e da quali origini provengon
 **Tipo di dati:** BLOB JSON con una o più voci dello schema di attestazioni
 
 **Riepilogo:** questa proprietà definisce quali attestazioni sono presenti nei token interessati dai criteri, oltre al set di attestazioni di base e al set di attestazioni core.
-Per ogni voce di schema di attestazioni definita in questa proprietà sono necessarie alcune informazioni. Specificare la provenienza dei dati (**Value** o **Coppia Source/ID**) e con quale attestazione vengono emessi i dati (**Tipo di attestazione**).
+Per ogni voce di schema di attestazioni definita in questa proprietà sono necessarie alcune informazioni. Consente di specificare la provenienza dei dati (**valore**, **coppia di origine/ID**o **coppia source/ExtensionID**) e l'attestazione in cui vengono emessi i dati (**tipo di attestazione**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementi di voci dello schema di attestazioni
 
 **Value:** l'elemento Value definisce un valore statico come dati da generare nell'attestazione.
 
-**Coppia Source/ID:** gli elementi Source e ID definiscono l'origine da cui verranno ricavati i dati nell'attestazione. 
+**Coppia Source/ID:** gli elementi Source e ID definiscono l'origine da cui verranno ricavati i dati nell'attestazione.  
+
+**Coppia origine/ExtensionID:** Gli elementi source e ExtensionID definiscono l'attributo dell'estensione dello schema di directory da cui vengono originati i dati nell'attestazione. Per ulteriori informazioni, vedere [utilizzo degli attributi delle estensioni dello schema di directory nelle attestazioni](active-directory-schema-extensions.md).
 
 Impostare l'elemento Source su uno dei valori seguenti: 
 

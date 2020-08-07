@@ -1,6 +1,6 @@
 ---
 title: Espressioni di criteri di Gestione API di Azure | Microsoft Docs
-description: Informazioni sulle espressioni di criteri in Gestione API di Azure.
+description: Informazioni sulle espressioni di criteri in Gestione API di Azure. Vedere gli esempi e visualizzare altre risorse disponibili.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249819"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844241"
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 Questo articolo illustra la sintassi delle espressioni di criteri in C# 7. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita esplicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) consentito di tipi .NET Framework.
@@ -33,7 +33,7 @@ Per altre informazioni:
 - Per scaricare le istruzioni dei criteri, vedere il repository GitHub [API-Management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) .
 
 
-## <a name="syntax"></a><a name="Syntax"></a>Sintassi
+## <a name="syntax"></a><a name="Syntax"></a> Sintassi
 Le espressioni a istruzione singola sono racchiuse tra `@(expression)`, dove `expression` è un'istruzione di espressione C# ben formata.
 
 Le espressioni a più istruzioni sono racchiuse tra `@{expression}`. Tutti i percorsi di codice all'interno di espressioni a più istruzioni devono terminare con un'istruzione `return`.
@@ -65,7 +65,7 @@ Le espressioni a più istruzioni sono racchiuse tra `@{expression}`. Tutti i per
 }
 ```
 
-## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>Utilizzo
+## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>Uso
 Le espressioni possono essere usate come valori di attributo o valori di testo in tutti i [criteri](api-management-policies.md) di Gestione API, salvo diversamente specificato nella documentazione di riferimento.
 
 > [!IMPORTANT]
@@ -74,7 +74,7 @@ Le espressioni possono essere usate come valori di attributo o valori di testo i
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Tipi di .NET Framework consentiti nelle espressioni di criteri
 Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membri consentiti nelle espressioni di criteri.
 
-|Tipo|Membri supportati|
+|Type|Membri supportati|
 |--------------|-----------------------|
 |Newtonsoft.Js. Formattazione|Tutti|
 |Newtonsoft.Json.Jsonconvert|Per SerializeObject è, DeserializeObject|
@@ -205,7 +205,7 @@ Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membr
 |System.Xml.Linq.XText|Tutti|
 |System.Xml.XmlNodeType|Tutti|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a> Variabile di contesto
+## <a name="context-variable"></a><a name="ContextVariables"></a>Variabile di contesto
 Una variabile denominata `context` è implicitamente disponibile in qualunque [espressione](api-management-policy-expressions.md#Syntax) di criteri. I suoi membri forniscono informazioni riguardanti `\request`. Tutti i membri di `context` sono di sola lettura.
 
 |Variabile di contesto|Metodi, proprietà e valori di parametro consentiti|

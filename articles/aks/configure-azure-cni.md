@@ -4,12 +4,12 @@ description: Informazioni su come configurare le funzionalità di rete avanzate 
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416852"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872430"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -87,7 +87,7 @@ Un valore minimo per il numero massimo di pod per nodo viene applicato per garan
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurare il valore massimo - cluster esistenti
 
-È possibile definire l'impostazione maxPod per nodo quando si crea un nuovo pool di nodi. Se è necessario aumentare l'impostazione di maxPod per nodo in un cluster esistente, aggiungere un nuovo pool di nodi con il nuovo numero di maxPod desiderato. Dopo aver eseguito la migrazione dei pod al nuovo pool, eliminare il pool precedente. Per eliminare un pool precedente in un cluster, assicurarsi di impostare le modalità del pool di nodi come definito nel [documento del pool di nodi di sistema[-nodo-]pool.
+È possibile definire l'impostazione maxPod per nodo quando si crea un nuovo pool di nodi. Se è necessario aumentare l'impostazione di maxPod per nodo in un cluster esistente, aggiungere un nuovo pool di nodi con il nuovo numero di maxPod desiderato. Dopo aver eseguito la migrazione dei pod al nuovo pool, eliminare il pool precedente. Per eliminare un pool precedente in un cluster, assicurarsi di impostare le modalità del pool di nodi come definito nel [documento pool di nodi di sistema][system-node-pools].
 
 ## <a name="deployment-parameters"></a>Parametri di distribuzione
 
@@ -106,7 +106,7 @@ Quando si crea un cluster servizio Azure Kubernetes, per la rete Azure CNI i par
 
 Sebbene sia tecnicamente possibile specificare un intervallo di indirizzi del servizio all'interno della stessa rete virtuale del cluster, tale operazione non è consigliata. Se vengono usati intervalli IP che si sovrappongono, si può verificare un comportamento imprevedibile. Per altre informazioni, vedere la sezione [Domande frequenti](#frequently-asked-questions) di questo articolo. Per altre informazioni sui servizi Kubernetes, vedere [Services][services] (Servizi) nella documentazione di Kubernetes.
 
-**Kubernetes DNS service IP address** (Indirizzo IP del servizio DNS Kubernetes): indirizzo IP per il servizio DNS del cluster. Questo indirizzo deve essere compreso nell'*intervallo di indirizzi del servizio Kubernetes*. Non usare il primo indirizzo IP nell'intervallo di indirizzi, ad esempio .1. Il primo indirizzo nell'intervallo della subnet è usato per l'indirizzo *kubernetes.default.svc.cluster.local*.
+**Kubernetes DNS service IP address** (Indirizzo IP del servizio DNS Kubernetes): indirizzo IP per il servizio DNS del cluster. Questo indirizzo deve essere compreso nell'*intervallo degli indirizzi del servizio Kubernetes*. Non usare il primo indirizzo IP nell'intervallo di indirizzi, ad esempio .1. Il primo indirizzo nell'intervallo della subnet è usato per l'indirizzo *kubernetes.default.svc.cluster.local*.
 
 **Indirizzo Bridge Docker**: l'indirizzo di rete del Bridge Docker rappresenta l'indirizzo di rete del Bridge *docker0* predefinito presente in tutte le installazioni di Docker. Sebbene *docker0* Bridge non venga usato dai cluster AKS o dai pod stessi, è necessario impostare questo indirizzo per continuare a supportare scenari come la *compilazione di Docker* nel cluster AKS. È necessario selezionare un CIDR per l'indirizzo di rete del Bridge Docker perché, in caso contrario, Docker selezionerà automaticamente una subnet che potrebbe essere in conflitto con altri CIDRs. È necessario selezionare uno spazio di indirizzi che non entri in conflitto con il resto del CIDRs nelle reti, tra cui la CIDR del servizio del cluster e il CIDR del Pod.
 
@@ -214,4 +214,4 @@ I cluster Kubernetes creati con Azure Kubernetes Engine supportano entrambi i pl
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
-[System-node-pool]: use-system-pools.md
+[system-node-pools]: use-system-pools.md

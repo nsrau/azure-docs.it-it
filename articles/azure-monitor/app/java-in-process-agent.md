@@ -3,12 +3,12 @@ title: 'Monitorare le applicazioni Java in qualsiasi ambiente: monitoraggio di A
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: c719f7f0310a6894d2289bdb0ac8fc64170df307
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e1442d1b1fb1bf8fbef82354b8aa1d2354640aa9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824852"
+ms.locfileid: "87902083"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights-anteprima pubblica
 
@@ -130,16 +130,15 @@ Sono supportati il micrometro, l'API OpenTelemetry e i Framework di registrazion
 
 La tabella seguente rappresenta i tipi di telemetria personalizzati attualmente supportati che è possibile abilitare per integrare l'agente Java 3,0. Per riepilogare, le metriche personalizzate sono supportate tramite il micrometro, le eccezioni personalizzate e le tracce possono essere abilitate tramite i Framework di registrazione e tutti i tipi di dati di telemetria personalizzati sono supportati tramite il [Application Insights Java 2. x SDK](#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
 
-
-|                 | Micrometer | Log4j, logback, JUL | 2. x SDK |
-|-----------------|------------|---------------------|---------|
-| Eventi personalizzati   |            |                     |  Sì    |
-| Metriche personalizzate  |  Sì       |                     |  Sì    |
-| Dipendenze    |            |                     |  Sì    |
-| Eccezioni      |            |  Sì                |  Sì    |   
-| Visualizzazioni pagina      |            |                     |  Sì    |
-| Requests        |            |                     |  Sì    |
-| Tracce          |            |  Sì                |  Sì    |
+|                     | Micrometer | Log4j, logback, JUL | 2. x SDK |
+|---------------------|------------|---------------------|---------|
+| **Eventi personalizzati**   |            |                     |  Sì    |
+| **Metriche personalizzate**  |  Sì       |                     |  Sì    |
+| **Dipendenze**    |            |                     |  Sì    |
+| **Eccezioni**      |            |  Sì                |  Sì    |
+| **Visualizzazioni pagina**      |            |                     |  Sì    |
+| **Richieste**        |            |                     |  Sì    |
+| **Tracce**          |            |  Sì                |  Sì    |
 
 Al momento non si prevede di rilasciare un SDK con Application Insights 3,0.
 

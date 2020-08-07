@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 2c292ee601114a58e38b9e509efa53be2d3c93d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328245"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799803"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Abilitare Monitoraggio di Azure per le macchine virtuali con Criteri di Azure
 Questo articolo illustra come abilitare Monitoraggio di Azure per le macchine virtuali per macchine virtuali di Azure o macchine virtuali ibride connesse con Azure Arc (anteprima) usando criteri di Azure. Criteri di Azure consente di assegnare le definizioni dei criteri che installano gli agenti necessari per Monitoraggio di Azure per le macchine virtuali nell'ambiente Azure e abilitano automaticamente il monitoraggio per le macchine virtuali durante la creazione di ogni macchina virtuale. Monitoraggio di Azure per le macchine virtuali offre una funzionalità che consente di individuare e correggere le macchine virtuali non conformi nell'ambiente in uso. Usare questa funzionalità anziché lavorare direttamente con criteri di Azure.
 
-Se non si ha familiarità con i criteri di Azure, è possibile ottenere una breve introduzione alla [distribuzione di monitoraggio di Azure su larga scala usando criteri di Azure](../platform/deploy-scale.md).
+Se non si ha familiarità con i criteri di Azure, è possibile ottenere una breve introduzione alla [distribuzione di monitoraggio di Azure su larga scala usando criteri di Azure](../deploy-scale.md).
 
 > [!NOTE]
-> Per usare i criteri di Azure con i set di scalabilità di macchine virtuali di Azure o per usare direttamente i criteri di Azure per abilitare le macchine virtuali di Azure, vedere [distribuire monitoraggio di Azure su larga scala con criteri di Azure](../platform/deploy-scale.md#azure-monitor-for-vms-and-virtual-machine-agents).
+> Per usare i criteri di Azure con i set di scalabilità di macchine virtuali di Azure o per usare direttamente i criteri di Azure per abilitare le macchine virtuali di Azure, vedere [distribuire monitoraggio di Azure su larga scala con criteri di Azure](../deploy-scale.md#azure-monitor-for-vms).
 
 ## <a name="prerequisites"></a>Prerequisiti
 - [Creare e configurare un'area di lavoro log Analytics](vminsights-configure-workspace.md).

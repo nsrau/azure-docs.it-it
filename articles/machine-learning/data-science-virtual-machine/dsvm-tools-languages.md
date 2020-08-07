@@ -6,17 +6,17 @@ keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'ana
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.custom: tracking-python
+ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 7d3ab058d76186f73fa1a985d7e8af38dbd7a6f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a73336ba0a324c65ee0de764d81a8e69ab6079c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536182"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843267"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguaggi supportati dalla macchina virtuali per data science 
 
@@ -24,7 +24,7 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 
 ## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 Edition)
 
-| Category | valore |
+| Category | Valore |
 | ------------- | ------------- |
 | Versioni del linguaggio supportate | Python 2,7 e 3,7 |
 | Edizioni DSVM supportate      | Windows Server 2016     |
@@ -68,7 +68,7 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 
 ## <a name="python-linux-edition"></a>Python (edizione Linux)
 
-| Category | valore |
+| Category | Valore |
 | ------------- | ------------- |
 | Versioni del linguaggio supportate | Python 2,7 e 3,5 |
 | Edizioni DSVM supportate      | Linux   |
@@ -107,7 +107,7 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 
 ## <a name="r"></a>R
 
-| Category | valore |
+| Category | Valore |
 | ------------- | ------------- |
 | Versioni del linguaggio supportate | Microsoft R Open 3. x (100% compatibile con CRAN-R)<br /> Microsoft R Server 9. x Developer Edition (piattaforma R scalabile per l'azienda)|
 | Edizioni DSVM supportate      | Linux, Windows     |
@@ -156,7 +156,7 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 
 ## <a name="julia"></a>Julia
 
-| Category | valore |
+| Category | Valore |
 | ------------- | ------------- |
 | Versioni del linguaggio supportate | 0,6 |
 | Edizioni DSVM supportate      | Linux, Windows     |

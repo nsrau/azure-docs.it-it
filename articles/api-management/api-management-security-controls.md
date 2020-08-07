@@ -1,18 +1,18 @@
 ---
 title: Controlli di sicurezza per gestione API di Azure
-description: Elenco di controllo dei controlli di sicurezza per la valutazione di gestione API
+description: Esaminare un elenco di controllo dei controlli di sicurezza per la valutazione di gestione API. Sono inclusi i controlli di rete, identità e protezione dei dati.
 services: api-management
 author: vladvino
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
-ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751133"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902576"
 ---
 # <a name="security-controls-for-api-management"></a>Controlli di sicurezza per gestione API
 
@@ -66,7 +66,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in gestione API.
 
 Questa sezione documenta le vulnerabilità comuni che non influiscono sulla gestione API di Azure.
 
-| Vulnerabilità               | Descrizione                                                                                                                                                                                                                                                                                                               |
+| Vulnerabilità               | Description                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed è una vulnerabilità nell'implementazione dell'estensione TLS SessionTicket presente in alcuni prodotti F5. Consente la perdita ("emorragia") di un massimo di 31 byte di dati dalla memoria non inizializzata. Questo problema si verifica perché lo stack TLS riempie un ID di sessione, passato dal client, con dati per renderlo 32 bit. |
 

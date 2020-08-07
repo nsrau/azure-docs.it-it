@@ -7,12 +7,12 @@ ms.author: v-lakast
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7786f970f612d2856948e2286ed234e2b0895072
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836964"
+ms.locfileid: "87902200"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
 
@@ -129,44 +129,49 @@ Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un
 
 ### <a name="create-an-event-route"></a>Creare una route di eventi 
 
-Una definizione di route dell'evento può contenere gli elementi seguenti:
-* ID della route che si vuole usare
+Una definizione di route dell'evento contiene gli elementi seguenti:
+* Nome della route che si vuole usare
 * Nome dell'endpoint che si desidera utilizzare
 * Filtro che definisce gli eventi che vengono inviati all'endpoint
+    - Per disabilitare la route in modo che non venga inviato alcun evento, usare un valore di filtro`false`
+    - Per abilitare una route senza filtri specifici, usare un valore di filtro`true`
+    - Per informazioni dettagliate su qualsiasi altro tipo di filtro, vedere la sezione relativa [*agli eventi di filtro*](#filter-events) riportata di seguito.
 
-Se non è presente alcun ID di route, nessun messaggio viene instradato all'esterno dei dispositivi gemelli digitali di Azure.
-Se è presente un ID route e il filtro è `true` , tutti i messaggi vengono instradati all'endpoint.
-Se è presente un ID di route e viene aggiunto un filtro diverso, i messaggi verranno filtrati in base al filtro.
-
-Una route deve consentire la selezione di più notifiche e tipi di evento.
+Una singola route può consentire la selezione di più notifiche e tipi di evento.
 
 Per creare una route di eventi, passare alla pagina dei dettagli per l'istanza di Azure Digital Twins nel [portale di Azure](https://portal.azure.com) (è possibile trovare l'istanza inserendo il nome nella barra di ricerca del portale).
 
 Scegliere _Route eventi_dal menu istanza. Dalla pagina *Route eventi* seguente selezionare *+ Crea una route*per gli eventi. 
 
-Nella pagina *Crea una route di evento* visualizzata, scegliere almeno un nome per la route nel campo _nome_ e selezionare l' _endpoint_ che si vuole usare per creare la route dall'elenco a discesa.
+Nella pagina *Crea una route di evento* visualizzata, scegliere almeno:
+* Nome della route nel campo del _nome_
+* L' _endpoint_ che si vuole usare per creare la route 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot della creazione della route dell'evento per l'istanza.":::
+Per abilitare la route, è necessario **aggiungere anche un filtro di route di un evento** almeno `true` . Se si lascia il valore predefinito `false` , verrà creata la route, ma non verrà inviato alcun evento. A tale scopo, attivare l'opzione _Editor avanzato_ per abilitarla e scrivere `true` nella casella *filtro* .
+
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot della creazione della route dell'evento per l'istanza." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Al termine, fare clic sul pulsante _Salva_ per creare la route dell'evento.
 
 ### <a name="filter-events"></a>Filtrare gli eventi
 
-Senza filtro, gli endpoint ricevono una serie di eventi da dispositivi gemelli digitali di Azure:
+Come descritto in precedenza, le route includono un campo di **filtro** . Se il valore del filtro nella route è `false` , nessun evento verrà inviato all'endpoint. 
+
+Dopo aver abilitato il filtro minimo di `true` , gli endpoint riceveranno una serie di eventi da dispositivi gemelli digitali di Azure:
 * Telemetria generata dai dispositivi [gemelli digitali](concepts-twins-graph.md) con l'API del servizio di dispositivi digitali gemelli di Azure
 * Notifiche delle modifiche delle proprietà dei dispositivi gemelli, attivate per le modifiche delle proprietà per qualsiasi dispositivo gemello nell'istanza di Azure
 * Eventi del ciclo di vita, generati quando vengono creati o eliminati gemelli o relazioni
 * Eventi di modifica del modello, generati quando i [modelli](concepts-models.md) configurati in un'istanza di Azure Digital Twins vengono aggiunti o eliminati
 
-È possibile limitare gli eventi inviati aggiungendo un **filtro** per un endpoint alla route dell'evento.
+È possibile limitare i tipi di eventi inviati definendo un filtro più specifico.
 
-Per aggiungere un filtro durante la creazione di una route di eventi, usare la sezione _aggiungere un filtro di route_ per gli eventi della pagina *creare una route* di evento. 
+Per aggiungere un filtro eventi durante la creazione di una route dell'evento, usare la sezione _aggiungere un filtro di route_ per gli eventi della pagina *creare una route* di evento. 
 
 È possibile scegliere tra le opzioni di filtro comuni di base oppure usare le opzioni di filtro avanzate per scrivere filtri personalizzati.
 
 #### <a name="use-the-basic-filters"></a>Usare i filtri di base
 
-Per usare i filtri di base, espandere l'opzione _tipi di evento_ e selezionare le caselle di controllo corrispondenti agli eventi su cui si vuole applicare il filtro. 
+Per usare i filtri di base, espandere l'opzione _tipi di evento_ e selezionare le caselle di controllo corrispondenti agli eventi che si desidera inviare all'endpoint. 
 
 :::row:::
     :::column:::

@@ -3,12 +3,12 @@ title: Matrice di supporto per l'agente MARS
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538650"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872413"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -44,7 +44,7 @@ Quando si usa l'agente MARS per eseguire il backup dei dati, l'agente acquisisce
 **Cache** | **Dettagli**
 --- | ---
 Dimensione |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
-Location | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
+Percorso | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
 Cartella | La cartella della cache non deve essere crittografata in un volume deduplicato o in una cartella compressa, di tipo sparse o con un punto di analisi.
 Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di backup ( `net stop bengine` ) e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
 
@@ -54,7 +54,7 @@ Modifiche alla posizione | È possibile modificare il percorso della cache arres
 
 L'agente di Servizi di ripristino di Microsoft Azure deve poter accedere a questi URL:
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.windowsazure.com
 - *. MicrosoftOnline.com
@@ -79,7 +79,7 @@ Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
 - `.microsoftonline.com`
 - `.windows.net`
 
-Con il peering Microsoft, selezionare i seguenti servizi/aree e i valori della community pertinenti:
+Con il peering Microsoft selezionare i servizi/le aree e i valori della community pertinenti seguenti:
 
 - Azure Active Directory (12076:5060)
 - Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
@@ -89,6 +89,16 @@ Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](../e
 
 >[!NOTE]
 >Il peering pubblico è deprecato per i nuovi circuiti.
+
+### <a name="private-endpoint-support"></a>Supporto per endpoint privati
+
+È ora possibile usare endpoint privati per eseguire il backup dei dati in modo sicuro dai server all'insieme di credenziali dei servizi di ripristino. Poiché Azure Active Directory attualmente non supporta endpoint privati, è necessario consentire l'accesso in uscita separatamente per gli indirizzi IP e FQDN necessari per Azure Active Directory.
+
+Quando si usa l'agente MARS per eseguire il backup delle risorse locali, assicurarsi che la rete locale (contenente le risorse di cui eseguire il backup) sia associata alla VNet di Azure che contiene un endpoint privato per l'insieme di credenziali. È quindi possibile continuare a installare l'agente MARS e configurare il backup. Tuttavia, è necessario assicurarsi che tutte le comunicazioni per il backup avvengano solo tramite la rete con peering.
+
+Se si rimuovono endpoint privati per l'insieme di credenziali dopo la registrazione di un agente MARS, sarà necessario registrare di nuovo il contenitore con l'insieme di credenziali. Non è necessario arrestare la protezione dati.
+
+Scopri di più sugli [endpoint privati per backup di Azure](private-endpoints.md).
 
 ### <a name="throttling-support"></a>Supporto della limitazione della larghezza di banda della rete
 
@@ -162,13 +172,13 @@ Crittografati<sup>*</sup>| Supportata.
 Compresso | Supportata.
 Sparse | Supportata.
 Compresso e sparse |Supportata.
-Collegamenti reali| Non supportato. Ignorato.
-Reparse point| Non supportato. Ignorato.
-Crittografato e sparse |Non supportato. Ignorato.
-Flusso compresso| Non supportato. Ignorato.
-Flusso di tipo sparse| Non supportato. Ignorato.
-OneDrive (i file sincronizzati sono flussi sparse)| Non supportato.
-Cartelle con Replica DFS abilitata | Non supportato.
+Collegamenti reali| Non supportata. Ignorato.
+Reparse point| Non supportata. Ignorato.
+Crittografato e sparse |Non supportata. Ignorato.
+Flusso compresso| Non supportata. Ignorato.
+Flusso di tipo sparse| Non supportata. Ignorato.
+OneDrive (i file sincronizzati sono flussi sparse)| Non supportata.
+Cartelle con Replica DFS abilitata | Non supportata.
 
 \*Verificare che l'agente MARS abbia accesso ai certificati richiesti per accedere ai file crittografati. I file inaccessibili verranno ignorati.
 
@@ -176,12 +186,12 @@ Cartelle con Replica DFS abilitata | Non supportato.
 
 **Unità/volume** | **Supporto** | **Dettagli**
 --- | --- | ---
-Volumi di sola lettura| Non supportato | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
-Volumi offline| Non supportato |VSS funziona solo se il volume è online.
-Condivisione di rete| Non supportato |Il volume deve essere locale nel server.
-Volumi bloccati da BitLocker| Non supportato |Il volume deve essere sbloccato prima dell'avvio del backup.
-Identificazione del file System| Non supportato |È supportato solo NTFS.
-Supporti rimovibili| Non supportato |Lo stato di tutte le origini degli elementi di backup deve essere *fisso* .
+Volumi di sola lettura| Non supportate | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
+Volumi offline| Non supportate |VSS funziona solo se il volume è online.
+Condivisione di rete| Non supportate |Il volume deve essere locale nel server.
+Volumi bloccati da BitLocker| Non supportate |Il volume deve essere sbloccato prima dell'avvio del backup.
+Identificazione del file System| Non supportate |È supportato solo NTFS.
+Supporti rimovibili| Non supportate |Lo stato di tutte le origini degli elementi di backup deve essere *fisso* .
 Unità deduplicate | Supportato | Il servizio Backup di Azure converte i dati deduplicati in dati normali. Consente di ottimizzare, crittografare, archiviare e inviare i dati all'insieme di credenziali.
 
 ## <a name="support-for-initial-offline-backup"></a>Supporto per il backup offline iniziale

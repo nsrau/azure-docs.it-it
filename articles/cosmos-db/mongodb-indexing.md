@@ -1,20 +1,20 @@
 ---
 title: Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
-description: Questo articolo presenta una panoramica delle funzionalità di indicizzazione Azure Cosmos DB usando l'API MongoDB.
+description: Questo articolo presenta una panoramica delle funzionalità di indicizzazione Azure Cosmos DB usando l'API Azure Cosmos DB per MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761162"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843811"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -315,7 +315,7 @@ I dettagli sullo stato dell'indice mostrano la percentuale di avanzamento per l'
    }
    ```
 
-### <a name="background-index-updates"></a>Aggiornamenti degli indici in background
+## <a name="background-index-updates"></a>Aggiornamenti degli indici in background
 
 Indipendentemente dal valore specificato per la proprietà indice in **background** , gli aggiornamenti dell'indice vengono sempre eseguiti in background. Poiché gli aggiornamenti dell'indice utilizzano le unità richiesta (UR) con una priorità più bassa rispetto ad altre operazioni di database, le modifiche all'indice non comporteranno tempi di inattività per scritture, aggiornamenti o eliminazioni.
 
