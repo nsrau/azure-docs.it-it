@@ -1,6 +1,6 @@
 ---
 title: Informazioni sull'utilizzo dettagliato e sugli addebiti | Microsoft Docs
-description: Informazioni su come leggere e comprendere l'utilizzo dettagliato e gli addebiti
+description: Informazioni su come leggere e comprendere il file dettagliato relativo all'utilizzo e agli addebiti. Consente di visualizzare un elenco di termini e descrizioni usati nel file.
 author: bandersmsft
 ms.reviewer: micflan
 tags: billing
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1b53869c9ef90dd0edf3ab9a3120e65db8f16e8a
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065649"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460287"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini nel file dei dati di utilizzo e addebiti di Azure
 

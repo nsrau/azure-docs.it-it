@@ -1,17 +1,17 @@
 ---
 title: Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
-description: Informazioni su come scambiare le prenotazioni di Azure o chiederne il rimborso.
+description: Informazioni su come scambiare le prenotazioni di Azure o chiederne il rimborso. Per richiedere lo scambio o il rimborso delle prenotazioni, è necessario avere l'accesso come proprietario all'ordine di prenotazione.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 3f41f26e6934e156ab38340a74e2c070b26cefb4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f1323d21ee59386220a35cc31b17cab3441f0e0d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287654"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457635"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 

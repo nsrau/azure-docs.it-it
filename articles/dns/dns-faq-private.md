@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 0945f89e3c18ab20ece0b493a49ec9f7f31e4e13
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6faf5bd42c90ea1510d454a2ab7939f121b3d0d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529195"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925006"
 ---
 # <a name="azure-private-dns-faq"></a>Domande frequenti su DNS privato di Azure
 
@@ -38,7 +38,7 @@ Sì. È possibile collegare una zona DNS privata a migliaia di reti virtuali. Pe
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Una rete virtuale appartenente a una sottoscrizione diversa può essere collegata a una zona privata?
 
-Sì. L'utente deve disporre dell'autorizzazione per le operazioni di scrittura sia nelle reti virtuali che nella zona DNS privata. L'autorizzazione di scrittura può essere concessa a diversi ruoli di Azure. Ad esempio, il ruolo di Azure collaboratore rete classico dispone delle autorizzazioni di scrittura per le reti virtuali e il ruolo di collaboratore zone DNS privato dispone di autorizzazioni di scrittura per le zone DNS private. Per altre informazioni sui ruoli di Azure, vedere [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
+Sì. L'utente deve disporre dell'autorizzazione per le operazioni di scrittura sia nelle reti virtuali che nella zona DNS privata. L'autorizzazione di scrittura può essere concessa a diversi ruoli di Azure. Ad esempio, il ruolo di Azure collaboratore rete classico dispone delle autorizzazioni di scrittura per le reti virtuali e il ruolo di collaboratore zone DNS privato dispone di autorizzazioni di scrittura per le zone DNS private. Per altre informazioni sui ruoli di Azure, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>I record DNS della macchina virtuale registrati automaticamente in una zona privata verranno eliminati automaticamente quando si elimina la macchina virtuale?
 

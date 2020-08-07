@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: 173ff8b638c40773ca2c4bdac5021f2ea4b84549
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555536"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927420"
 ---
 # <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Edizioni Enterprise e Basic di Azure Machine Learning 
 
@@ -112,7 +112,7 @@ Vedere le informazioni su come [aggiornare un'area di lavoro dell'edizione Basic
 
 | Funzionalità     | Edizione                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Supporto del [controllo degli accessi in base al ruolo](how-to-assign-roles.md) (RBAC)                                           | Tutti                     |
+| Supporto per il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](how-to-assign-roles.md)                                           | Tutti                     |
 | Supporto della [rete virtuale (VNet)](how-to-enable-virtual-network.md) per il calcolo                                         | Tutti                     |
 | Assegnazione di punteggi all'autenticazione dell'endpoint                                                    | Tutti                     |
 | [Collegamento privato area di lavoro](how-to-configure-private-link.md)                                                            | Tutti                     |

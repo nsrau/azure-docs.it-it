@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 1ff366e24adb82a0d7d4660d4afaffa0bbca0b3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328312"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921267"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Creazione della pagina di destinazione per l'offerta SaaS transazionale nel Marketplace commerciale
 
@@ -56,7 +56,7 @@ Per iniziare, seguire le istruzioni per la [registrazione di una nuova applicazi
 
 Se si intende eseguire una query sull'API Microsoft Graph, [configurare la nuova applicazione per accedere alle API Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Quando si selezionano le autorizzazioni API per l'applicazione, il valore predefinito di **User. Read** è sufficiente per raccogliere informazioni di base sull'acquirente per rendere il processo di onboarding uniforme e automatico. Non richiedere alcuna autorizzazione dell'API con etichetta **richiede il consenso dell'amministratore**, poiché in questo modo tutti gli utenti non amministratori non possono visitare la pagina di destinazione.
 
-Se è necessario disporre di autorizzazioni elevate come parte del processo di caricamento o provisioning, provare a usare la funzionalità di [consenso incrementale](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis) di Azure ad in modo che tutti gli acquirenti inviati dal Marketplace possano interagire inizialmente con la pagina di destinazione.
+Se è necessario disporre di autorizzazioni elevate come parte del processo di caricamento o provisioning, provare a usare la funzionalità di [consenso incrementale](https://aka.ms/incremental-consent) di Azure ad in modo che tutti gli acquirenti inviati dal Marketplace possano interagire inizialmente con la pagina di destinazione.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Usare un esempio di codice come punto di partenza
 
@@ -90,22 +90,13 @@ Per autenticare l'applicazione con le API di evasione SaaS, è necessario un tok
 
 ### <a name="call-the-resolve-endpoint"></a>Chiamare l'endpoint di risoluzione
 
-Le API di evasione SaaS implementano l'endpoint di [risoluzione](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) che può essere chiamato per confermare la validità del token del Marketplace e per restituire informazioni sulla sottoscrizione, inclusi i valori mostrati in questa tabella.
-
-| valore | Descrizione |
-| ------------ | ------------- |
-| ID | Identificatore univoco (GUID) per questa sottoscrizione. Questo valore sarà necessario nelle future chiamate alle API di evasione SaaS. |
-| subscriptionName | Nome della sottoscrizione, che è stato impostato quando l'offerta è stata aggiunta al centro per i partner. |
-| offerId | Identificatore per l'offerta specifica, impostata quando l'offerta è stata aggiunta. |
-| planId | Identificatore del piano specifico per l'offerta (impostato quando l'offerta è stata aggiunta). |
-| Quantità | Quantità di input da parte del buyer durante l'acquisto. |
-|||
+Le API di evasione SaaS implementano l'endpoint di [risoluzione](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) che può essere chiamato per confermare la validità del token del Marketplace e per restituire informazioni sulla sottoscrizione.
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Leggere le informazioni dalle attestazioni codificate nel token ID
 
 Come parte del flusso di [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) , Azure ad aggiunge un [token ID](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) alla richiesta quando l'acquirente viene inviato alla pagina di destinazione. Questo token contiene più elementi di informazioni di base che potrebbero essere utili nel processo di attivazione, incluse le informazioni riportate in questa tabella.
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | ------------ | ------------- |
 | aud | Destinatari per questo token. In questo caso, deve corrispondere all'ID dell'applicazione ed essere convalidato. |
 | preferred_username | Nome utente principale dell'utente visitato. Potrebbe trattarsi di un indirizzo di posta elettronica, un numero di telefono o un altro identificatore. |
@@ -120,7 +111,7 @@ Come parte del flusso di [OpenID Connect](https://docs.microsoft.com/azure/activ
 
 Il token ID contiene informazioni di base per identificare l'acquirente, ma il processo di attivazione potrebbe richiedere dettagli aggiuntivi, ad esempio la società dell'acquirente, per completare il processo di onboarding. Usare l' [API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) per richiedere queste informazioni per evitare di imporre all'utente di immettere nuovamente i dettagli. Per impostazione predefinita, le autorizzazioni **utente standard. Read** includono le informazioni seguenti.
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | ------------ | ------------- |
 | displayName | Nome visualizzato nella rubrica per l'utente. |
 | givenName | Nome dell'utente. |

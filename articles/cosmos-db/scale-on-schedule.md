@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ec5c98d90facf9458769f235880f17d14708e425
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503736"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923656"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Ridimensionare la velocità effettiva Azure Cosmos DB usando il trigger timer di funzioni di Azure
 
@@ -23,7 +23,7 @@ Le prestazioni di un account Azure Cosmos si basano sulla quantità di velocità
 
 Per semplificare il processo di scalabilità Azure Cosmos DB in base a una pianificazione, è stato creato un progetto di esempio denominato [utilità di pianificazione della velocità effettiva di Azure Cosmos](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Questo progetto è un'app funzioni di Azure con due trigger timer, ovvero "ScaleUpTrigger" e "ScaleDownTrigger". I trigger eseguono uno script di PowerShell che imposta la velocità effettiva per ogni risorsa come definito nel `resources.json` file in ogni trigger. ScaleUpTrigger è configurato per l'esecuzione alle 8.00 UTC e il ScaleDownTrigger è configurato per l'esecuzione alle 18.00 UTC e tali orari possono essere facilmente aggiornati all'interno del `function.json` file per ogni trigger.
 
-È possibile clonare questo progetto in locale, modificarlo per specificare le risorse di Azure Cosmos DB per la scalabilità verticale e orizzontale e la pianificazione per l'esecuzione. In seguito sarà possibile distribuirlo in una sottoscrizione di Azure e proteggerlo usando l'identità del servizio gestito con le autorizzazioni di [controllo degli accessi in base al ruolo](role-based-access-control.md) (RBAC) con il ruolo "operatore Azure Cosmos DB" per impostare la velocità effettiva negli account Azure Cosmos.
+È possibile clonare questo progetto in locale, modificarlo per specificare le risorse di Azure Cosmos DB per la scalabilità verticale e orizzontale e la pianificazione per l'esecuzione. In seguito sarà possibile distribuirlo in una sottoscrizione di Azure e proteggerlo usando l'identità del servizio gestito con le autorizzazioni di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](role-based-access-control.md) con il ruolo "operatore Azure Cosmos DB" per impostare la velocità effettiva negli account Azure Cosmos.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

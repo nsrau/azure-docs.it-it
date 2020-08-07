@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84025812"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921215"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84025812"
 
 ## <a name="viewing-recommendations"></a>Visualizzazione delle raccomandazioni
 
-Per visualizzare e applicare le raccomandazioni, sono necessarie le autorizzazioni di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) corrette in Azure. Le autorizzazioni **Lettore** e **Collaboratore Database SQL** sono necessarie per visualizzare le raccomandazioni, mentre le autorizzazioni **Proprietario** e **Collaboratore Database SQL** sono necessarie per eseguire qualsiasi operazione, creare o eliminare indici e annullare la creazione di un indice.
+Per visualizzare e applicare le raccomandazioni sulle prestazioni, è necessario disporre delle autorizzazioni corrette per il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) di Azure in Azure. Le autorizzazioni **Lettore** e **Collaboratore Database SQL** sono necessarie per visualizzare le raccomandazioni, mentre le autorizzazioni **Proprietario** e **Collaboratore Database SQL** sono necessarie per eseguire qualsiasi operazione, creare o eliminare indici e annullare la creazione di un indice.
 
 Usare la procedura seguente per trovare le raccomandazioni sulle prestazioni nel portale di Azure:
 
@@ -43,7 +43,7 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 |:--- |:--- |
 | Alta |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
 | Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
-| Basso |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
+| Bassa |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
 > [!NOTE]
 > Il database SQL di Azure deve monitorare le attività almeno per un giorno per poter individuare alcune raccomandazioni. Il database SQL di Azure può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari casuali di attività. Se non sono disponibili raccomandazioni, nella pagina **Performance recommendation** (Raccomandazione prestazioni) viene visualizzato un messaggio che ne spiega il motivo.
@@ -156,7 +156,7 @@ Dopo aver implementato correttamente le raccomandazioni, attualmente, solo racco
 
 ![Monitorare l'impatto sulle prestazioni](./media/database-advisor-find-recommendations-portal/query-insights.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Il database SQL di Azure offre consigli per migliorare le prestazioni del database. Questa funzionalità offre script T-SQL e consente di ottimizzare il database e quindi di migliorare le prestazioni delle query.
 
@@ -172,4 +172,4 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 
 * [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)
+* [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md)

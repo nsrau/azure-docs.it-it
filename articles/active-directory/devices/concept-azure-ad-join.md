@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058099"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923731"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD
 
@@ -28,8 +28,8 @@ L'aggiunta ad Azure AD è destinata alle organizzazioni che vogliono essere basa
 | **Destinatari principali** | Adatto a organizzazioni ibride e basate solo sul cloud. |
 |   | Applicabile a tutti gli utenti di un'organizzazione |
 | **Proprietà del dispositivo** | Organization |
-| **Sistemi operativi** | Tutti i dispositivi Windows 10 |
-|   | [Macchine virtuali Windows server 2019 in esecuzione in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core non è supportato) |
+| **Sistemi operativi** | Tutti i dispositivi Windows 10 ad eccezione di Windows 10 Home |
+|   | [Macchine virtuali Windows Server 2019 in esecuzione in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core non è supportato) |
 | **Provisioning** | Self-service: Configurazione guidata o impostazioni di Windows |
 |   | Registrazione in blocco |
 |   | Windows Autopilot |
@@ -62,7 +62,7 @@ Anche se l'aggiunta ad Azure AD è destinata soprattutto alle organizzazioni pri
 - Si vuole gestire un gruppo di utenti in Azure AD invece che in Active Directory, ad esempio lavoratori stagionali, terzisti o studenti.
 - Si vogliono fornire funzionalità di join ai lavoratori in succursali remote con un'infrastruttura locale limitata.
 
-È possibile configurare dispositivi aggiunti ad Azure AD per dispositivi Windows 10.
+È possibile configurare Azure AD dispositivi aggiunti a tutti i dispositivi Windows 10 ad eccezione di Windows 10 Home.
 
 L'obiettivo dei dispositivi aggiunti ad Azure AD è di semplificare:
 

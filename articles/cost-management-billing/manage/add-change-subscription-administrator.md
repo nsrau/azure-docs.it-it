@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126126"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530011"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
@@ -33,7 +33,7 @@ Per altre informazioni, vedere [Distribuzione Azure Resource Manager o distribuz
 
 ## <a name="assign-a-subscription-administrator"></a>Assegnare un amministratore della sottoscrizione
 
-Per designare un utente come amministratore di una sottoscrizione di Azure, un amministratore esistente dovrà assegnargli il ruolo di [Proprietario](../../role-based-access-control/built-in-roles.md#owner) (un ruolo Controllo degli accessi in base al ruolo) nell'ambito della sottoscrizione. Questo ruolo garantisce all'utente l'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. Questi passaggi sono gli stessi di qualsiasi altra assegnazione di ruoli.
+Per designare un utente come amministratore di una sottoscrizione di Azure, un amministratore esistente dovrà assegnargli il ruolo di [Proprietario](../../role-based-access-control/built-in-roles.md#owner) (un ruolo di Azure) nell'ambito della sottoscrizione. Questo ruolo garantisce all'utente l'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. Questi passaggi sono gli stessi di qualsiasi altra assegnazione di ruoli.
 
 Se non si conosce l'amministratore account per una sottoscrizione, seguire questa procedura per individuarlo.
 

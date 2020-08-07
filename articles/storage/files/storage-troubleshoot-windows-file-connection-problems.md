@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ecd7b0bc34d532e7d748bc9468d3a155b9aa2ad2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901743"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927216"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -305,27 +305,27 @@ Per risolvere questo problema, modificare il valore del Registro di sistema **Di
  
 È ad esempio possibile impostare questo valore su 0x100000 e verificare se si riscontra un miglioramento delle prestazioni.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Errore AadDsTenantNotFound durante l'abilitazione dell'autenticazione del servizio Azure Active Directory dominio (AAD DS) per File di Azure "Impossibile individuare i tenant attivi con ID tenant AAD-Tenant-ID"
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Errore AadDsTenantNotFound durante l'abilitazione dell'autenticazione del servizio Azure Active Directory dominio (Azure AD DS) per File di Azure "Impossibile individuare i tenant attivi con ID tenant AAD-Tenant-ID"
 
 ### <a name="cause"></a>Causa
 
-L'errore AadDsTenantNotFound si verifica quando si prova ad [abilitare l'autenticazione Azure Active Directory Domain Services (Azure AD DS) in file di Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) in un account di archiviazione in cui il [servizio di dominio AAD (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) non viene creato nel tenant di AAD della sottoscrizione associata.  
+L'errore AadDsTenantNotFound si verifica quando si tenta di [abilitare l'autenticazione Azure Active Directory Domain Services (Azure AD DS) in file di Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) in un account di archiviazione in cui [Azure ad servizio del dominio (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) non viene creato nel tenant Azure ad della sottoscrizione associata.  
 
 ### <a name="solution"></a>Soluzione
 
-Abilitare AAD DS nel tenant della sottoscrizione in cui è stato distribuito l'account di archiviazione. Sono necessari privilegi di amministratore del tenant di AAD per creare un dominio gestito. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Abilitare Azure AD DS nel tenant Azure AD della sottoscrizione in cui è distribuito l'account di archiviazione. Per creare un dominio gestito, è necessario disporre dei privilegi di amministratore del tenant Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>Si è verificato l'errore di sistema 1359. Errore interno "ricevuto sull'accesso SMB alle condivisioni file con l'autenticazione di Azure Active Directory Domain Service (AAD DS) abilitata
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>Si è verificato l'errore di sistema 1359. Errore interno "ricevuto sull'accesso SMB alle condivisioni file con Azure Active Directory autenticazione del servizio del dominio (Azure AD DS) abilitata
 
 ### <a name="cause"></a>Causa
 
-Si è verificato l'errore di sistema 1359. Si verifica un errore interno quando si tenta di connettersi alla condivisione file con l'autenticazione di AAD DS abilitata per un dominio AAD DS con un nome DNS di dominio che inizia con un carattere numerico. Ad esempio, se il nome DNS del dominio di AAD DS è "1domain", questo errore si verifica quando si tenta di montare la condivisione file usando le credenziali di AAD. 
+Si è verificato l'errore di sistema 1359. Si verifica un errore interno quando si tenta di connettersi alla condivisione file con Azure AD autenticazione DS abilitata rispetto a una Azure AD DS con il nome DNS di dominio che inizia con un carattere numerico. Se, ad esempio, il nome DNS del dominio Azure AD DS è "1domain", si otterrà questo errore quando si tenta di montare la condivisione file con Azure AD credenziali. 
 
 ### <a name="solution"></a>Soluzione
 
-Attualmente, è possibile prendere in considerazione la ridistribuzione di AAD DS usando un nuovo nome DNS del dominio che si applica alle regole seguenti:
+Attualmente, è possibile provare a ridistribuire il Azure AD DS usando un nuovo nome DNS del dominio che si applica alle regole seguenti:
 - I nomi non possono iniziare con un carattere numerico.
 - I nomi devono avere una lunghezza compreso tra 3 e 63 caratteri.
 

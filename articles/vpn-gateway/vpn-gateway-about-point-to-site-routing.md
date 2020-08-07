@@ -1,18 +1,18 @@
 ---
 title: 'Gateway VPN di Azure: informazioni sul routing P2S'
-description: Questo articolo illustra il comportamento del routing VPN da punto a sito.
+description: Informazioni sul comportamento del routing VPN da punto a sito di Azure, che dipende dal sistema operativo client, dal protocollo usato per la connessione e dal modo in cui le reti virtuali si connettono.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: kumud
-ms.openlocfilehash: 536e1e57af16a87fba85323e9448bfb904d56384
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8ee75f80ea2e1ee379561b743c2b4add4ef1d7b9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027870"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926910"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Informazioni sul routing VPN da punto a sito
 
@@ -44,7 +44,7 @@ La connessione gateway VPN da punto a sito in questo esempio fa riferimento a un
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accesso
+### <a name="access"></a>Access
 
 * I client Windows possono accedere a VNet1
 
@@ -74,7 +74,7 @@ I client che usano Windows possono accedere direttamente alle reti virtuali con 
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accesso
+### <a name="access"></a>Access
 
 * I client Windows possono accedere a VNet1, VNet2 e VNet4, ma il client VPN deve essere scaricato nuovamente affinché le modifiche apportate alla topologia risultino effettive
 
@@ -102,7 +102,7 @@ I client che usano Windows, o un altro sistema operativo supportato, possono acc
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accesso
+### <a name="access"></a>Access
 
 * I client Windows possono accedere solo a VNet1
 
@@ -130,7 +130,7 @@ I client che usano Windows, o un altro sistema operativo supportato, possono acc
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accesso
+### <a name="access"></a>Access
 
 * I client Windows possono accedere a VNet1, VNet2 e VNet3, ma le route a VNet2 e VNet3 devono essere aggiunte manualmente
 
@@ -156,7 +156,7 @@ I client Windows e non Windows possono accedere solo a VNet1.
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accesso
+### <a name="access"></a>Access
 
 * I client Windows possono accedere solo a VNet1
 
@@ -182,7 +182,7 @@ I client Windows possono accedere alla rete virtuale e alla succursale (Site1), 
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accesso
+### <a name="access"></a>Access
 
 * I client Windows possono accedere a VNet1 e Site1, ma le route a Site1 devono essere aggiunte manualmente
 
@@ -213,7 +213,7 @@ Tutti i client possono accedere solo a VNet1.
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accesso
+### <a name="access"></a>Access
 
 * I client Windows possono accedere solo a VNet1
 
@@ -243,7 +243,7 @@ I client che usano Windows possono accedere alle reti virtuali e ai siti conness
 
 * Route aggiunte a client non Windows: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Accesso
+### <a name="access"></a>Access
 
 * I client Windows possono accedere a VNet1, VNet2, VNet3 e Site1, ma le route a VNet2, VNet3 e Site1 devono essere aggiunte manualmente al client.
 

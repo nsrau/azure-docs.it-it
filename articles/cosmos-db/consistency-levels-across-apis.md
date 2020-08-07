@@ -5,22 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 08/6/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2398e95d9a119fe24c97f3887d16aa5b86c6ac76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af777efda769315019ecee41d4053f5ab82f3047
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119308"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920433"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Livelli di coerenza e API di Azure Cosmos DB
 
-Azure Cosmos DB fornisce il supporto nativo per le API compatibili con il protocollo wire per i database più diffusi. Sono inclusi MongoDB, Apache Cassandra, Gremlin e archiviazione tabelle di Azure. Questi database non offrono modelli di coerenza definiti in modo accurato o garanzie basate sul contratto di contratto per i livelli di coerenza. In genere forniscono solo un subset dei cinque modelli di coerenza offerti da Cosmos DB. 
+Azure Cosmos DB fornisce il supporto nativo per le API compatibili con il protocollo wire per i database più diffusi. Sono inclusi MongoDB, Apache Cassandra, Gremlin e archiviazione tabelle di Azure. Questi database non offrono modelli di coerenza definiti in modo accurato o garanzie basate sul contratto di contratto per i livelli di coerenza. In genere forniscono solo un subset dei cinque modelli di coerenza offerti da Cosmos DB.
 
 Quando si usa l'API SQL, l'API Gremlin e API Tabella, viene usato il livello di coerenza predefinito configurato nell'account Azure Cosmos. 
 
 Quando si usa API Cassandra o l'API Azure Cosmos DB per MongoDB, le applicazioni ottengono un set completo di livelli di coerenza offerti rispettivamente da Apache Cassandra e MongoDB, con garanzie di coerenza e durabilità ancora più solide. Questo documento illustra i livelli di coerenza Azure Cosmos DB corrispondenti per i livelli di coerenza Apache Cassandra e MongoDB.
+
+> [!NOTE]
+> Il modello di coerenza predefinito per Azure Cosmos DB è Session. Session è un modello di coerenza incentrato sul client che non è supportato in modo nativo da Cassandra o MongoDB. Per ulteriori informazioni sul modello di coerenza da scegliere, vedere [livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
 
 ## <a name="mapping-between-apache-cassandra-and-azure-cosmos-db-consistency-levels"></a><a id="cassandra-mapping"></a>Eseguire il mapping tra i livelli di coerenza di Azure Cosmos DB e Apache Cassandra
 
@@ -36,14 +39,14 @@ La tabella seguente illustra come viene eseguito il mapping dei livelli di coere
 
 ## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Mapping tra MongoDB e livelli di coerenza Azure Cosmos DB
 
-A differenza Azure Cosmos DB, MongoDB nativo non fornisce garanzie di coerenza definite in modo accurato. Al contrario, MongoDB nativo consente agli utenti di configurare le garanzie di coerenza seguenti: un problema di scrittura, un problema di lettura e la direttiva Master per indirizzare le operazioni di lettura alle repliche primarie o secondarie per ottenere il livello di coerenza desiderato. 
+A differenza Azure Cosmos DB, MongoDB nativo non fornisce garanzie di coerenza definite in modo accurato. Al contrario, MongoDB nativo consente agli utenti di configurare le garanzie di coerenza seguenti: un problema di scrittura, un problema di lettura e la direttiva Master per indirizzare le operazioni di lettura alle repliche primarie o secondarie per ottenere il livello di coerenza desiderato.
 
 Quando si usa l'API di Azure Cosmos DB per MongoDB, il Driver MongoDB considera l'area di scrittura come replica primaria e tutte le altre aree sono in lettura replica. È possibile scegliere l'area associata all'account Azure Cosmos come replica primaria. 
 
 Quando si usa l'API di Azure Cosmos DB per MongoDB:
 
 * Il problema di scrittura viene mappato al livello di coerenza predefinito configurato nell'account Azure Cosmos.
- 
+
 * Azure Cosmos DB eseguirà il mapping dinamico del problema di lettura specificato dal driver client MongoDB a uno dei livelli di coerenza Azure Cosmos DB configurati in modo dinamico in una richiesta di lettura.  
 
 * È possibile aggiungere annotazioni a un'area specifica associata all'account Azure Cosmos come "Master" rendendo la regione come prima area scrivibile. 

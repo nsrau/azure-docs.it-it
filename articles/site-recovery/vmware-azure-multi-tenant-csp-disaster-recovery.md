@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292835"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924581"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurare il ripristino di emergenza di VMware in un ambiente multi-tenancy con il programma Cloud Solution Provider (CSP)
 
@@ -98,7 +98,7 @@ Esistono tre modelli multi-tenant principali:
 Impostando le sottoscrizioni di tenant come descritto in questo articolo, è possibile iniziare rapidamente ad abilitare i clienti in uno dei relativi modelli multi-tenant. Altre informazioni sui diversi modelli multi-tenant e l'abilitazione di controlli di accesso locali [qui](vmware-azure-multi-tenant-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Altre informazioni](site-recovery-role-based-linked-access-control.md) sul controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery.
+- Altre informazioni sul [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](site-recovery-role-based-linked-access-control.md) per gestire le distribuzioni Azure Site Recovery.
 - Altre informazioni sull' [architettura della replica](vmware-azure-architecture.md)da VMware ad Azure.
 - [Esaminare l'esercitazione](vmware-azure-tutorial.md) per la replica di macchine virtuali VMware in Azure.
 Altre informazioni sugli [ambienti multi-tenant](vmware-azure-multi-tenant-overview.md) per la replica di macchine virtuali VMware in Azure.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361490"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926179"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticazione e autorizzazioni utente
 
@@ -68,7 +68,7 @@ Gli **utenti del database** si connettono ai database modello tramite applicazio
 
 ![Controllo di accesso nel portale di Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-I ruoli di questo livello si applicano agli utenti o agli account che devono eseguire attività completabili nel portale o tramite i modelli di Azure Resource Manager. Per altre informazioni, vedere l'articolo relativo al [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). 
+I ruoli di questo livello si applicano agli utenti o agli account che devono eseguire attività completabili nel portale o tramite i modelli di Azure Resource Manager. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md). 
 
 ## <a name="database-roles"></a>Ruoli del database
 
@@ -81,4 +81,4 @@ I ruoli di questo livello si applicano agli utenti o agli account che devono ese
 [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gestire ruoli e utenti del database](analysis-services-database-users.md)  
 [Gestire gli amministratori di server](analysis-services-server-admins.md)  
-[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)  
+[Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md)  

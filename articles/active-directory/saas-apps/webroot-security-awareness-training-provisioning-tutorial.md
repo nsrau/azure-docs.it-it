@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0bed20dfd087783e865dd2e68897870ad56507c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b9792ce25541917bfde3291b3864f58d70d6d03
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294405"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924020"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Esercitazione: configurare Webroot Security Awareness Training per il provisioning utenti automatico
 
@@ -65,7 +65,7 @@ Per connettere il sito a Azure AD, sarà necessario ottenere un **token segreto*
 
 4. Copiare e salvare il **token Secret**. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione Webroot Security Awareness Training nel portale di Azure.
 
-5. Fare clic su **Done**.
+5. Fare clic su **Fine**.
 
     ![Copia token segreto](./media/webroot-security-awareness-training-provisioning-tutorial/copy-secret-token.png)
 
@@ -120,10 +120,10 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
    |Attributo|Type|Supportato per il filtro|
    |---|---|---|
-   |externalId|Stringa|&check;|
-   |name.givenName|Stringa|
+   |externalId|string|&check;|
+   |name.givenName|string|
    |name.familyName|string|
-   |emails[type eq "work"].value|Stringa|
+   |emails[type eq "work"].value|string|
 
 10. Nella sezione **mapping** selezionare **provisioning Azure Active Directory groups**.
 
@@ -133,7 +133,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
       |---|---|---|
       |displayName|string|&check;|
       |Membri di|Informazioni di riferimento|
-      |externalId|Stringa|
+      |externalId|string|
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -155,7 +155,7 @@ L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

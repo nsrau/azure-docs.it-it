@@ -3,12 +3,12 @@ title: Ripristinare i database di SQL Server in una macchina virtuale di Azure
 description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97cf8a7d7fcae0e31dde14e045b222c5899dbb02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054584"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921147"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -30,6 +30,7 @@ Prima di ripristinare un database, tenere presente quanto segue:
 - È possibile ripristinare il database in un'istanza di SQL Server nella stessa area di Azure.
 - Il server di destinazione deve essere registrato nello stesso insieme di credenziali dell'origine.
 - Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+- È necessario ripristinare i database abilitati per [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) utilizzando l'opzione [Ripristina come file](#restore-as-files) .
 - Prima di ripristinare il database "Master", avviare l'istanza di SQL Server in modalità utente singolo usando l'opzione di avvio **-m AzureWorkloadBackup**.
   - Il valore per **-m** è il nome del client.
   - La connessione può essere aperta solo dal nome client specificato.

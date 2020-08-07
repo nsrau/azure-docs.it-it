@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 699eb37176d6737744fb0ba01f9f3f4a2d4e55b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c23c57e77f69cd7043e09ff5e2809d8329d62da3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318748"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925508"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Esercitazione: configurare Smartsheet per il provisioning utenti automatico
 
@@ -51,7 +51,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Smartsheet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Smartsheet per supportare il provisioning con Azure AD
+## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Smartsheet per supportare il provisioning con Azure AD
 
 Prima di configurare Smartsheet per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM su Smartsheet.
 
@@ -135,7 +135,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Smartsheet**.
 
@@ -155,7 +155,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |ruoli [Primary EQ "true"]. display|string|
    |ruoli [Primary EQ "true"]. Type|string|
    |ruoli [Primary EQ "true"]. Value|string|
-   |roles|string|
+   |Ruoli|string|
    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
@@ -182,7 +182,7 @@ L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori

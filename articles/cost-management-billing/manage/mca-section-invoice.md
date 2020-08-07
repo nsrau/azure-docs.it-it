@@ -1,18 +1,18 @@
 ---
 title: Organizzare la fattura in base alle esigenze - Azure
-description: Informazioni su come organizzare i costi nella fattura.
+description: Informazioni su come organizzare i costi nella fattura. È possibile personalizzare l'account di fatturazione creando profili di fatturazione e sezioni di fattura.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 553263ebac3c64e27a7711b4407a7d4ba573998c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200745"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460032"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organizzare i costi personalizzando l'account di fatturazione
 
@@ -88,7 +88,7 @@ Per creare una sezione della fattura, è necessario essere un **proprietario del
 
    [![Screenshot che illustra la pagina di creazione della sezione della fattura](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
 
-6. Selezionare **Create** (Crea).
+6. Selezionare **Crea**.
 
 ## <a name="create-a-new-billing-profile"></a>Creare un nuovo profilo di fatturazione
 
@@ -123,7 +123,7 @@ Per creare un profilo di fatturazione, è necessario essere **proprietario dell'
     |Indirizzo di fatturazione   | L'indirizzo di fatturazione verrà visualizzato nelle fatture generate per il profilo di fatturazione. |
     |Fattura tramite posta elettronica   | Per ricevere le fatture relative a questo profilo di fatturazione tramite posta elettronica, selezionare la casella Fattura tramite posta elettronica. Se non si seleziona esplicitamente questa casella, è possibile visualizzare e scaricare le fatture nel portale di Azure.|
 
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 
 ## <a name="link-charges-to-invoice-sections-and-billing-profiles"></a>Collegare gli addebiti alle sezioni della fattura e ai profili di fatturazione
 

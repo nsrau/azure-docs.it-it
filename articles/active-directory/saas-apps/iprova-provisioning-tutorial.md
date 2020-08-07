@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 799713c237d8a528b7e458da1e26695484ca1080
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448834"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923170"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Esercitazione: configurare iProva per il provisioning utenti automatico
 
@@ -114,7 +114,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a iProva**.
 
@@ -123,33 +123,33 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |Attributo|Type|
    |---|---|
    |active|Boolean|
-   |displayName|Stringa|
-   |title|Stringa|
+   |displayName|string|
+   |title|string|
    |emails[type eq "work"].value|string|
-   |preferredLanguage|Stringa|
-   |userName|Stringa|
+   |preferredLanguage|string|
+   |userName|string|
    |addresses[type eq "work"].country|string|
-   |addresses[type eq "work"].locality|Stringa|
-   |addresses[type eq "work"].postalCode|Stringa|
-   |addresses[type eq "work"].formatted|Stringa|
-   |addresses[type eq "work"].region|Stringa|
-   |addresses[type eq "work"].streetAddress|Stringa|
-   |indirizzi [tipo EQ "other"]. formattato|Stringa|
-   |name.givenName|Stringa|
-   |name.familyName|Stringa|
-   |name.formatted|Stringa|
-   |phoneNumbers[type eq "fax"].value|Stringa|
-   |phoneNumbers[type eq "mobile"].value|Stringa|
-   |phoneNumbers[type eq "work"].value|Stringa|
-   |externalId|Stringa|
-   |ruoli [Primary EQ "true"]. display|Stringa|
-   |ruoli [Primary EQ "true"]. Type|Stringa|
-   |ruoli [Primary EQ "true"]. Value|Stringa|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Stringa|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Stringa|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Stringa|
+   |addresses[type eq "work"].locality|string|
+   |addresses[type eq "work"].postalCode|string|
+   |addresses[type eq "work"].formatted|string|
+   |addresses[type eq "work"].region|string|
+   |addresses[type eq "work"].streetAddress|string|
+   |indirizzi [tipo EQ "other"]. formattato|string|
+   |name.givenName|string|
+   |name.familyName|string|
+   |name.formatted|string|
+   |phoneNumbers[type eq "fax"].value|string|
+   |phoneNumbers[type eq "mobile"].value|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |externalId|string|
+   |ruoli [Primary EQ "true"]. display|string|
+   |ruoli [Primary EQ "true"]. Type|string|
+   |ruoli [Primary EQ "true"]. Value|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Stringa|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|string|
 
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to iProva**.
@@ -182,7 +182,7 @@ L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="change-log"></a>Registro delle modifiche

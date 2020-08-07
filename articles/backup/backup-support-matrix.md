@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531881"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922317"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -32,8 +32,8 @@ Nella tabella seguente vengono descritte le funzioni dell'insieme di credenziali
 **Funzionalità** | **Dettagli**
 --- | ---
 **Insiemi di credenziali nella sottoscrizione** | Fino a 500 insiemi di credenziali di Servizi di ripristino in una sottoscrizione singola.
-**Computer in un insieme di credenziali** | Fino a 1.000 VM di Azure in un singolo insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
-**Origini dei dati** | La dimensione massima di una singola [origine dati](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) è 54.400 GB. Questo limite non si applica ai backup delle VM di Azure. Alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali non è applicato alcun limite.
+**Computer in un insieme di credenziali** | Fino a 2000 origini dati in tutti i carichi di lavoro, ad esempio macchine virtuali di Azure, SQL Server VM, server MAB e così via, possono essere protette in un unico insieme di credenziali.<br><br>Fino a 1.000 VM di Azure in un singolo insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
+**Origini dei dati** | La dimensione massima di una singola [origine dati](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) è 54.400 GB. Questo limite non si applica ai backup di VM di Azure. Alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali non è applicato alcun limite.
 **Backup in un insieme di credenziali** | **VM di Azure:** una volta al giorno.<br/><br/>**Computer protetti da DPM/MABS:** due volte al giorno.<br/><br/> **Computer sottoposti a backup direttamente usando l'agente MARS:** tre volte al giorno.
 **Backup tra insiemi di credenziali** | Il backup avviene all'interno di un'area.<br/><br/> È necessario un insieme di credenziali in ogni area di Azure che contiene macchine virtuali di cui si vuole eseguire il backup. Non è possibile eseguire il backup in un'altra area.
 **Spostamento di insiemi di credenziali** | È possibile [spostare insiemi di credenziali](./backup-azure-move-recovery-services-vault.md) fra sottoscrizioni o fra gruppi di risorse nella stessa sottoscrizione. Tuttavia, lo spostamento di insiemi di credenziali tra aree non è supportato.
@@ -85,7 +85,7 @@ Se si vuole eseguire il backup di computer Linux, sono supportati gli scenari se
 
 ## <a name="daylight-saving-time-support"></a>Ora legale supportata
 
-Backup di Azure non supporta la regolazione automatica dell'orologio in base all'ora legale per i backup delle VM di Azure. Non sposta in avanti o indietro l'ora del backup. Per assicurarsi che il backup venga eseguito all'ora desiderata, modificare manualmente i criteri di backup in base alle proprie necessità.
+Backup di Azure non supporta la regolazione automatica dell'orologio in base all'ora legale per i backup delle VM di Azure. Non sposta l'ora del backup avanti o indietro. Per assicurarsi che il backup venga eseguito all'ora desiderata, modificare manualmente i criteri di backup in base alle proprie necessità.
 
 ## <a name="disk-deduplication-support"></a>Supporto per la deduplicazione dei dischi
 
@@ -113,10 +113,10 @@ Backup di Azure supporta la crittografia per i dati in movimento e inattivi.
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-**Computer Windows locali senza DPM/MABS** | ![sì][green] | ![sì][green]
-**Macchine virtuali di Azure** | ![sì][green] | ![Sì][green]
-**Computer Windows locali o VM di Azure con DPM** | ![sì][green] | ![Sì][green]
-**Computer Windows locali o VM di Azure con MAB** | ![sì][green] | ![Sì][green]
+**Computer Windows locali senza DPM/MABS** | ![Sì][green] | ![Sì][green]
+**Macchine virtuali di Azure** | ![Sì][green] | ![Sì][green]
+**Computer Windows locali o VM di Azure con DPM** | ![Sì][green] | ![Sì][green]
+**Computer Windows locali o VM di Azure con MAB** | ![Sì][green] | ![Sì][green]
 
 ## <a name="compression-support"></a>Supporto della compressione
 
@@ -128,7 +128,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Compressione in insieme di credenziali (HTTPS)**
 --- | --- | ---
 **Backup diretto di computer Windows locali** | ND | ![Sì][green]
-**Backup di VM di Azure tramite l'estensione della VM** | N/D | ND
+**Backup di VM di Azure tramite l'estensione della VM** | ND | ND
 **Backup in computer locali/macchine virtuali di Azure usando MABS/DPM** | ![Sì][green] | ![Sì][green]
 
 ## <a name="retention-limits"></a>Limiti di conservazione

@@ -12,17 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ee481067a3904c208061607b7109fcba0f3faaa7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504068"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920127"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replica transazionale con Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-La replica transazionale è una funzionalità di Azure SQL Istanza gestita e SQL Server che consente di replicare i dati da una tabella in Istanza gestita SQL di Azure o da un'istanza di SQL Server a tabelle posizionate nei database remoti. Questa funzionalità consente di sincronizzare più tabelle in database diversi.
+La replica transazionale è una funzionalità di Azure SQL Istanza gestita e SQL Server che consente di replicare i dati da una tabella in Istanza gestita SQL di Azure o da un'istanza di SQL Server a tabelle posizionate nei database remoti. Questa funzionalità consente di sincronizzare più tabelle in database diversi. 
+
+La replica transazionale è attualmente disponibile in anteprima pubblica per SQL Istanza gestita. 
 
 ## <a name="overview"></a>Panoramica
 
@@ -41,7 +43,7 @@ I componenti principali della replica transazionale sono **server di pubblicazio
 
 ![Replica con database SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Ruolo | database SQL di Azure | Istanza gestita di SQL di Azure |
+| Ruolo | Database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | **Autore** | No | Sì |
 | **Database di distribuzione** | No | Sì|
@@ -70,7 +72,7 @@ Istanza gestita SQL di Azure può supportare l'esecuzione di un Sottoscrittore d
 
 Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
-| Replica | database SQL di Azure | Istanza gestita di SQL di Azure |
+| Replica | Database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | [**Transazionale standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì |
 | [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
@@ -104,7 +106,7 @@ La replica transazionale è utile negli scenari seguenti:
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Confrontare la sincronizzazione dati con la replica transazionale
 
-| Category | Sincronizzazione dei dati | Replica transazionale |
+| Categoria | Sincronizzazione dei dati | Replica transazionale |
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
 | Svantaggi | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | -Non è possibile pubblicare dal database SQL di Azure <br/>- Alti costi di manutenzione |

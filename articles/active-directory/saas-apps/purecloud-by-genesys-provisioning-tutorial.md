@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d80502480e0536cb85ad9bd08344c8082f59d85
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77370675"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926995"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Esercitazione: configurare PureCloud by Genesys per il provisioning utenti automatico
 
@@ -49,7 +49,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e PureCloud da Genesys](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-purecloud-by-genesys-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare PureCloud by Genesys per supportare il provisioning con Azure AD
+## <a name="step-2-configure-purecloud-by-genesys-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare PureCloud by Genesys per supportare il provisioning con Azure AD
 
 1. Creare un [client OAuth](https://help.mypurecloud.com/?p=188023) configurato nell'organizzazione PureCloud.
 2. Genera un token [con il client OAuth](https://developer.mypurecloud.com/api/rest/authorization/use-client-credentials.html).
@@ -146,7 +146,7 @@ L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 * Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-* Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+* Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 * Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

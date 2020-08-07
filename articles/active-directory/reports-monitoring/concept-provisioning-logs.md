@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113360"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924031"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -130,8 +130,8 @@ Il filtro **azione** consente di filtrare:
 - Create 
 - Aggiornamento
 - Delete
-- Disabilitato
-- Altro
+- Disabilita
+- Altri
 
 Inoltre, per i filtri della visualizzazione predefinita, è anche possibile impostare i filtri seguenti:
 
@@ -172,7 +172,7 @@ I dettagli sono raggruppati in base alle categorie seguenti:
 
 - Proprietà modificate
 
-- Summary
+- Riepilogo
 
 
 ![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Schede")
@@ -204,11 +204,11 @@ La scheda **risoluzione dei problemi e indicazioni** fornisce il codice e il mot
 Le **proprietà modificate** visualizzano il valore precedente e il nuovo valore. Nei casi in cui non è presente alcun valore precedente, la colonna del valore precedente è vuota. 
 
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degli identificatori per l'oggetto nel sistema di origine e di destinazione. 
 
-## <a name="what-you-should-know"></a>Informazioni utili
+## <a name="what-you-should-know"></a>Informazioni importanti
 
 - Il portale di Azure archivia i dati di provisioning segnalati per 30 giorni se si dispone di un'edizione Premium e di 7 giorni se si dispone di un'edizione gratuita.
 
@@ -245,7 +245,7 @@ Usare la tabella seguente per comprendere meglio come risolvere gli errori che s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Verificare lo stato del provisioning utenti](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Verificare lo stato del provisioning utenti](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
 * [Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
 
 

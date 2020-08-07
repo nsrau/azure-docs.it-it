@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9a4e4a30c5a84baf5a78d0a90f7302e2b31a5946
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1d7b29bbd508223888c6f205e25008c0b29fecea
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903528"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922935"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -40,7 +40,7 @@ Le metriche per Sincronizzazione file di Azure sono abilitate per impostazione p
 
 Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in Monitoraggio di Azure:
 
-| Nome metrica | Description |
+| Nome metrica | Descrizione |
 |-|-|
 | Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento).<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 | Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>**Nota**: questa metrica verrà rimossa in futuro. Usare la metrica dimensione di richiamo di suddivisione in livelli nel cloud per monitorare le dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server |
@@ -72,10 +72,12 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
 | Scenario | Metrica da usare per l'avviso |
 |-|-|
-| Integrità endpoint server nel portale = errore | Risultato della sessione di sincronizzazione |
+| Integrità endpoint server Visualizza un errore nel portale | Risultato della sessione di sincronizzazione |
 | Impossibile sincronizzare i file in un endpoint server o cloud | File non sincronizzati |
 | Il server registrato non riesce a comunicare con il servizio di sincronizzazione archiviazione | Stato online del server |
 | Le dimensioni di richiamo per la suddivisione in livelli nel cloud hanno superato 500GiB in un giorno  | Cloud tiering recall size (Dimensioni richiamo cloud a livelli) |
+
+Per istruzioni su come creare avvisi per questi scenari, vedere la sezione relativa agli [esempi di avviso](#alert-examples) .
 
 ## <a name="storage-sync-service"></a>Servizio di sincronizzazione archiviazione
 
@@ -95,7 +97,7 @@ Per visualizzare l'integrità del server registrato, l'integrità dell'endpoint 
 
 - I grafici delle metriche seguenti sono visualizzabili nel portale del servizio di sincronizzazione archiviazione:
 
-  | Nome metrica | Description | Nome pannello |
+  | Nome metrica | Descrizione | Nome pannello |
   |-|-|-|
   | Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento) | Gruppo di sincronizzazione, Endpoint server |
   | Richiamo cloud a livelli | Dimensione dei dati richiamati | Server registrati |
@@ -110,7 +112,7 @@ Per visualizzare l'integrità del server registrato, l'integrità dell'endpoint 
 
 ## <a name="windows-server"></a>Windows Server
 
-In Windows Server è possibile visualizzare la suddivisione in livelli nel cloud, il server registrato e l'integrità della sincronizzazione.
+Nel server Windows in cui è installato l'agente Sincronizzazione file di Azure è possibile visualizzare la suddivisione in livelli cloud, il server registrato e l'integrità della sincronizzazione.
 
 ### <a name="event-logs"></a>Log eventi
 
@@ -154,7 +156,7 @@ Per visualizzare Sincronizzazione file di Azure contatori delle prestazioni nel 
 
 I contatori delle prestazioni seguenti per Sincronizzazione file di Azure sono disponibili in Monitoraggio delle prestazioni:
 
-| Oggetto prestazioni\Nome contatore | Description |
+| Oggetto prestazioni\Nome contatore | Descrizione |
 |-|-|
 | Byte AFS trasferiti\Byte scaricati/sec | Numero di byte scaricati al secondo. |
 | Byte AFS trasferiti\Byte caricati/sec | Numero di byte caricati al secondo. |
@@ -162,6 +164,100 @@ I contatori delle prestazioni seguenti per Sincronizzazione file di Azure sono d
 | Operazioni di sincronizzazione AFS\file scaricati per la sincronizzazione/sec | Numero di file scaricati al secondo. |
 | Operazioni di sincronizzazione AFS\file caricati per la sincronizzazione/sec | Numero di file caricati al secondo. |
 | Operazioni di sincronizzazione AFS\operazioni di sincronizzazione file totali/sec | Numero totale di file sincronizzati (caricamento e download). |
+
+## <a name="alert-examples"></a>Esempi di avviso
+In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione file di Azure.
+
+  > [!Note]  
+  > Se si crea un avviso ed è troppo rumoroso, modificare il valore di soglia e la logica di avviso.
+  
+### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>Come creare un avviso se l'integrità dell'endpoint server Visualizza un errore nel portale
+
+1. Nella **portale di Azure**passare al rispettivo **servizio di sincronizzazione archiviazione**. 
+2. Passare alla sezione **monitoraggio** e fare clic su **avvisi**. 
+3. Fare clic su **+ nuova regola di avviso** per creare una nuova regola di avviso. 
+4. Configurare la condizione facendo clic su **Seleziona condizione**.
+5. Nel pannello **Configura logica di segnalazione** fare clic su **risultato sessione di sincronizzazione** in nome segnale.  
+6. Selezionare la configurazione della dimensione seguente: 
+    - Nome Dimensione: **nome endpoint server**  
+    - Operatore**=** 
+    - Valori Dimensione: **tutti i valori correnti e futuri**  
+7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
+    - Soglia impostata su **statica** 
+    - Operatore: **minore di** 
+    - Tipo di aggregazione: **massimo**  
+    - Valore soglia: **1** 
+    - Valutato in base a: granularità di aggregazione = **24 ore** | Frequenza di valutazione = **ogni ora** 
+    - Fare clic su **fine.** 
+8. Fare clic su **Seleziona gruppo di azioni** per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+9. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+10. Fare clic su **Crea regola di avviso**. 
+
+### <a name="how-to-create-an-alert-if-files-are-failing-to-sync-to-a-server-or-cloud-endpoint"></a>Come creare un avviso in caso di errore di sincronizzazione dei file in un endpoint server o cloud
+
+1. Nella **portale di Azure**passare al rispettivo **servizio di sincronizzazione archiviazione**. 
+2. Passare alla sezione **monitoraggio** e fare clic su **avvisi**. 
+3. Fare clic su **+ nuova regola di avviso** per creare una nuova regola di avviso. 
+4. Configurare la condizione facendo clic su **Seleziona condizione**.
+5. Nel pannello **Configura logica di segnalazione** , fare clic su **file non sincronizzati** in nome segnale.  
+6. Selezionare la configurazione della dimensione seguente: 
+     - Nome Dimensione: **nome endpoint server**  
+     - Operatore**=** 
+     - Valori Dimensione: **tutti i valori correnti e futuri**  
+7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
+     - Soglia impostata su **statica** 
+     - Operatore: **maggiore di** 
+     - Tipo di aggregazione: **totale**  
+     - Valore soglia: **100** 
+     - Valutato in base a: granularità di aggregazione = **5 minuti** | Frequenza di valutazione = **ogni 5 minuti** 
+     - Fare clic su **fine.** 
+8. Fare clic su **Seleziona gruppo di azioni** per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+9. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+10. Fare clic su **Crea regola di avviso**. 
+
+### <a name="how-to-create-an-alert-if-a-registered-server-is-failing-to-communicate-with-the-storage-sync-service"></a>Come creare un avviso se un server registrato non riesce a comunicare con il servizio di sincronizzazione archiviazione
+
+1. Nella **portale di Azure**passare al rispettivo **servizio di sincronizzazione archiviazione**. 
+2. Passare alla sezione **monitoraggio** e fare clic su **avvisi**. 
+3. Fare clic su **+ nuova regola di avviso** per creare una nuova regola di avviso. 
+4. Configurare la condizione facendo clic su **Seleziona condizione**.
+5. Nel pannello **Configura logica di segnalazione** fare clic su **stato online server** in nome segnale.  
+6. Selezionare la configurazione della dimensione seguente: 
+     - Nome Dimensione: **nome server**  
+     - Operatore**=** 
+     - Valori Dimensione: **tutti i valori correnti e futuri**  
+7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
+     - Soglia impostata su **statica** 
+     - Operatore: **minore di** 
+     - Tipo di aggregazione: **massimo**  
+     - Valore soglia (in byte): **1** 
+     - Valutato in base a: granularità di aggregazione = **1 ora** | Frequenza di valutazione = **ogni 30 minuti** 
+     - Fare clic su **fine.** 
+8. Fare clic su **Seleziona gruppo di azioni** per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+9. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+10. Fare clic su **Crea regola di avviso**. 
+
+### <a name="how-to-create-an-alert-if-the-cloud-tiering-recall-size-has-exceeded-500gib-in-a-day"></a>Come creare un avviso se la dimensione del richiamo di suddivisione in livelli nel cloud ha superato il valore di 500GiB in un giorno
+
+1. Nella **portale di Azure**passare al rispettivo **servizio di sincronizzazione archiviazione**. 
+2. Passare alla sezione **monitoraggio** e fare clic su **avvisi**. 
+3. Fare clic su **+ nuova regola di avviso** per creare una nuova regola di avviso. 
+4. Configurare la condizione facendo clic su **Seleziona condizione**.
+5. Nel pannello **Configura logica di segnalazione** fare clic su dimensioni di richiamo suddivisione in **livelli cloud** in nome segnale.  
+6. Selezionare la configurazione della dimensione seguente: 
+     - Nome Dimensione: **nome server**  
+     - Operatore**=** 
+     - Valori Dimensione: **tutti i valori correnti e futuri**  
+7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
+     - Soglia impostata su **statica** 
+     - Operatore: **maggiore di** 
+     - Tipo di aggregazione: **totale**  
+     - Valore soglia (in byte): **67108864000** 
+     - Valutato in base a: granularità di aggregazione = **24 ore** | Frequenza di valutazione = **ogni ora** 
+    - Fare clic su **fine.** 
+8. Fare clic su **Seleziona gruppo di azioni** per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+9. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+10. Fare clic su **Crea regola di avviso**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

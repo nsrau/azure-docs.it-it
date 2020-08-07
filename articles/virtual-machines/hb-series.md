@@ -5,14 +5,15 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
-ms.openlocfilehash: 34fbc0683ac39429193f488f3ade289996a67fb4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/06/2020
+ms.author: amverma
+ms.reviewer: jushiman
+ms.openlocfilehash: e735b389b5e223e558736f5eaa3c393f8bc29004
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291150"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926264"
 ---
 # <a name="hb-series"></a>Serie HB
 
@@ -44,5 +45,7 @@ Manutenzione con mantenimento della memoria: Non supportato
 - [Generazioni precedenti](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+- Altre informazioni sulla [configurazione delle macchine virtuali](./workloads/hpc/configure.md), sull' [Abilitazione di InfiniBand](./workloads/hpc/enable-infiniband.md), sulla configurazione di [MPI](./workloads/hpc/setup-mpi.md)e sull'ottimizzazione di applicazioni HPC per Azure in [carichi di lavoro HPC](./workloads/hpc/overview.md).
+- Per informazioni sugli annunci più recenti e su alcuni esempi e risultati HPC, vedere i [Blog della community tecnica di calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Per una visualizzazione architettonica di livello superiore dell'esecuzione di carichi di lavoro HPC, vedere [High Performance Computing (HPC) in Azure](/azure/architecture/topics/high-performance-computing/).
+- Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.

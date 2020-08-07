@@ -3,16 +3,16 @@ title: Ruoli e autorizzazioni di Azure
 description: Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e la gestione delle identità e degli accessi (IAM) per fornire autorizzazioni specifiche per le risorse in un registro contenitori di Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533309"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920076"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Ruoli e autorizzazioni di Registro Azure Container
 
-Il servizio Azure Container Registry supporta un set di [ruoli di Azure predefiniti](../role-based-access-control/built-in-roles.md) che forniscono diversi livelli di autorizzazioni per un registro contenitori di Azure. Usare il [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) (RBAC) di Azure per assegnare autorizzazioni specifiche a utenti, entità servizio o altre identità che devono interagire con un registro. 
+Il servizio Azure Container Registry supporta un set di [ruoli di Azure predefiniti](../role-based-access-control/built-in-roles.md) che forniscono diversi livelli di autorizzazioni per un registro contenitori di Azure. Usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/index.yml) per assegnare autorizzazioni specifiche a utenti, entità servizio o altre identità che devono interagire con un registro. 
 
 | Ruolo/autorizzazione       | [Accedere ad Azure Resource Manager](#access-resource-manager) | [Creare/eliminaliminare registro di sistema](#create-and-delete-registry) | [Immagine di push](#push-image) | [Eseguire il pull dell'immagine](#pull-image) | [Eliminare i dati di immagini](#delete-image-data) | [Modificare i criteri](#change-policies) |   [Firma delle immagini](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |

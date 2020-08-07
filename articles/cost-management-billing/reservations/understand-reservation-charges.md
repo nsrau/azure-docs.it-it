@@ -1,18 +1,18 @@
 ---
 title: Informazioni sullo sconto per le prenotazioni per Database SQL di Azure | Microsoft Docs
-description: Informazioni su come viene applicato lo sconto per le prenotazioni all'esecuzione di database SQL di Azure.
+description: Informazioni su come viene applicato lo sconto per le prenotazioni all'esecuzione di database SQL di Azure. Lo sconto viene applicato a questi database su base oraria.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 736e046b5254de9aa18c898994d7df11efc98a9a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9398a68d384eb7acba15fb64e27d7a2672006bc6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037988"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461290"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Come viene applicato lo sconto per le prenotazioni a Database SQL di Azure
 

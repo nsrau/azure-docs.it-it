@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418032"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926893"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiare dati da Teradata Vantage usando Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 >
 > * [Versione 1](v1/data-factory-onprem-teradata-connector.md)
@@ -71,6 +72,7 @@ Ulteriori proprietà di connessione che è possibile impostare nella stringa di 
 
 | Proprietà | Descrizione | Valore predefinito |
 |:--- |:--- |:--- |
+| UseDataEncryption | Specifica se crittografare tutte le comunicazioni con il database Teradata. I valori consentiti sono 0 o 1.<br><br/>- **0 (disabilitato, predefinito)**: Crittografa solo le informazioni di autenticazione.<br/>- **1 (abilitato)**: consente di crittografare tutti i dati passati tra il driver e il database. | No |
 | CharacterSet | Set di caratteri da utilizzare per la sessione. Ad esempio, `CharacterSet=UTF16` .<br><br/>Questo valore può essere un set di caratteri definito dall'utente o uno dei set di caratteri predefiniti seguenti: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, compatibile con DOS, KANJISJIS_0S)<br/>-EUC (compatibile con UNIX, KANJIEC_0U)<br/>-Mainframe IBM (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Il valore predefinito è `ASCII`. |
 | MaxRespSize |Dimensioni massime del buffer di risposta per le richieste SQL, in kilobyte (KB). Ad esempio, `MaxRespSize=‭10485760‬` .<br/><br/>Per il database Teradata versione 16,00 o successiva, il valore massimo è 7361536. Per le connessioni che usano versioni precedenti, il valore massimo è 1048576. | Il valore predefinito è `65536`. |
 

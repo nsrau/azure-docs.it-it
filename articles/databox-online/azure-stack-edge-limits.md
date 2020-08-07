@@ -1,6 +1,6 @@
 ---
 title: Limiti di Azure Stack Edge | Microsoft Docs
-description: Vengono descritti i limiti di sistema e le dimensioni consigliate per il Azure Stack Edge.
+description: Informazioni sui limiti e le dimensioni consigliate per la distribuzione e l'uso di Azure Stack Edge, inclusi i limiti del servizio, i limiti dei dispositivi e i limiti di archiviazione.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f7800efb5d4382e8d73c819d950fdfafd10f296
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bbcf3f61121813b91cb951809992d10977a640c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569836"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922711"
 ---
 # <a name="azure-stack-edge-limits"></a>Limiti di Azure Stack Edge
 
@@ -27,7 +27,7 @@ Considerare questi limiti quando si distribuisce e si utilizza la soluzione Micr
 
 La tabella seguente descrive i limiti per il dispositivo Azure Stack Edge. 
 
-| Descrizione | valore |
+| Descrizione | Valore |
 |---|---|
 |No. di file per dispositivo |100 milioni |
 |No. di condivisioni per dispositivo |24 |

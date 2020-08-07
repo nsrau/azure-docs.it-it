@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 26dba14baa95a91c12e9ccd277731b91207b4a4c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f9995b82c1dc437cdaa2f9f987abba3e9681454a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533258"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926757"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -130,7 +130,7 @@ Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli
 | --- | --- | --- |
 | Team responsabile della sicurezza | Collaboratore di Key Vault | Chiavi: backup, create, delete, get, import, list, restore<br>Segreti: tutte le operazioni |
 | Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno |
-| Revisori | Nessuno | Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. |
+| Revisori | nessuno | Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. |
 | Applicazione | nessuno | Chiavi: sign<br>Segreti: get |
 
 Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità App Web di Servizio app di Azure), sviluppatori e operatori necessitano dell'accesso `Contributor` a tali tipi di risorse. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.
@@ -197,7 +197,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 
 ## <a name="resources"></a>Risorse
 
-* [Controllo degli accessi in base al ruolo di Azure AD](../../role-based-access-control/role-assignments-portal.md)
+* [Controllo degli accessi in base al ruolo Azure](../../role-based-access-control/role-assignments-portal.md)
 
 * [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md)
 

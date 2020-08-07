@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2de7bb81726bcb4aa1943b3f1816d6171f6ac97d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a778675bade3b381907a823e74f07ab4e7f96581
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554621"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926876"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Esercitazione: configurare IDEO per il provisioning utenti automatico
 
@@ -53,7 +53,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e IDEO](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-ideo-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare IDEO per supportare il provisioning con Azure AD
+## <a name="step-2-configure-ideo-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare IDEO per supportare il provisioning con Azure AD
 
 Prima di configurare IDEO per il provisioning utenti automatico con Azure AD, sarà necessario recuperare alcune informazioni di provisioning da IDEO.
 
@@ -102,7 +102,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a IDEO**.
 
@@ -145,7 +145,7 @@ L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="change-log"></a>Registro delle modifiche

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: 28453af7eb38f4195774d70c5960eacc8467dedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a3293cac15636ddf29df24cc1eff471aee25ec1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417005"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926536"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -306,7 +306,7 @@ La determinazione dei prezzi di Visualizzazione traffico è basata sul numero di
 
 L'uso di endpoint di più sottoscrizioni non è possibile con app Web di Azure. Per le app Web di Azure è necessario che ogni nome di dominio personalizzato usato con app Web venga usato solo all'interno di una singola sottoscrizione. Non è possibile usare app Web da più sottoscrizioni con lo stesso nome di dominio.
 
-Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse tramite il [controllo di accesso in base al ruolo di Azure Resource Manager](../role-based-access-control/role-assignments-portal.md). Gli endpoint di altre sottoscrizioni possono essere aggiunti usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md). Gli endpoint di altre sottoscrizioni possono essere aggiunti usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>È possibile usare Gestione traffico con slot di "staging" del servizio cloud?
 
@@ -386,7 +386,7 @@ Per i profili con metodo di routing diverso da Multivalore:
 |--|--|--|
 |ANY |    A / AAAA / CNAME |    Endpoint di destinazione| 
 |Una |    A / CNAME |    Endpoint di destinazione|
-|Una |    AAAA |    NODATA |
+|A |    AAAA |    NODATA |
 |AAAA |    AAAA / CNAME |    Endpoint di destinazione|
 |AAAA |    Una |    NODATA |
 |CNAME |    CNAME |    Endpoint di destinazione|

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5aa33529a1957b6e7728b3a87bacf6bb91d987ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94f5be93d95cc1c524e6db464cac68879ed0b0e7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81378951"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926791"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Esercitazione: configurare Oracle Cloud Infrastructure console per il provisioning utenti automatico
 
@@ -49,7 +49,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e la console dell'infrastruttura cloud di Oracle](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Oracle Cloud Infrastructure console per supportare il provisioning con Azure AD
+## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Oracle Cloud Infrastructure console per supportare il provisioning con Azure AD
 
 1. Accedere al portale di amministrazione di Oracle Cloud Infrastructure console. Nell'angolo superiore sinistro della schermata passare a **identità > Federazione**.
 
@@ -110,7 +110,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant** nel formato `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Ad esempio `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi alla console di infrastruttura cloud Oracle. Se la connessione non riesce, verificare che l'account di Oracle Cloud Infrastructure Console disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant** nel formato `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Ad esempio, `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi alla console di infrastruttura cloud Oracle. Se la connessione non riesce, verificare che l'account di Oracle Cloud Infrastructure Console disponga delle autorizzazioni di amministratore e riprovare.
 
     ![provisioning](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
@@ -144,7 +144,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Riferimento|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|string|
       |urn: IETF: params: SCIM: schemas: Oracle: IDC: Extension: utente: utente: bypassNotification|Boolean|
       |urn: IETF: params: SCIM: schemas: Oracle: IDC: Extension: utente: utente: isFederatedUser|Boolean|
@@ -179,7 +179,7 @@ L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 * Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-* Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+* Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 * Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

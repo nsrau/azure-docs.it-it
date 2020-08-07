@@ -7,28 +7,28 @@ ms.author: banders
 ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.openlocfilehash: 343db06ba658f31c258d2a63c4a52aa86993c1cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5f50c63fa95018c13c48e9769f9e4049b2a81021
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281787"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529912"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
 I partner Microsoft offrono servizi che aiutano i clienti a raggiungere i loro obiettivi in termini di business e mission usando i prodotti Microsoft. Per occuparsi per conto del cliente delle attività di gestione, configurazione e supporto dei servizi di Azure, gli utenti del partner dovranno avere accesso all'ambiente del cliente. Tramite il collegamento amministratore partner, i partner possono associare l'ID Partner Network alle credenziali usate per la fornitura dei servizi.
 
-Il collegamento amministratore partner consente a Microsoft di identificare e riconoscere i partner che contribuiscono al successo dei clienti di Azure. Microsoft può attribuire all'organizzazione fattori di influenza e ricavi per l'utilizzo di Azure a seconda delle autorizzazioni dell'account (ruolo di controllo degli accessi in base al ruolo) e all'ambito (sottoscrizione, gruppo di risorse, risorsa).
+Il collegamento amministrazione partner consente a Microsoft di identificare e riconoscere i partner che contribuiscono al successo dei clienti di Azure. Microsoft può attribuire all'organizzazione un determinato livello di influenza e proventi per l'utilizzo di Azure a seconda delle autorizzazioni dell'account (ruolo di Azure) e dell'ambito (sottoscrizione, gruppo di risorse, risorsa).
 
 ## <a name="get-access-from-your-customer"></a>Ottenere l'accesso dal cliente
 
 Prima di collegare l'ID partner, il cliente deve consentire l'accesso alle risorse di Azure tramite una delle opzioni seguenti:
 
-- **Utente guest**: il cliente può consentire l'accesso come utente guest e assegnare uno dei ruoli Controllo degli accessi in base al ruolo. Per altre informazioni, vedere [Aggiungere utenti guest da un'altra directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Utente guest**: il cliente può aggiungere il partner come utente guest e assegnare tutti i ruoli di Azure. Per altre informazioni, vedere [Aggiungere utenti guest da un'altra directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Account directory**: il cliente può creare un account utente nella propria directory e assegnare ruoli RBAC.
+- **Account directory**: il cliente può creare nella propria directory un account utente per il partner e assegnare qualsiasi ruolo di Azure.
 
-- **Entità servizio**: il cliente può aggiungere un'app o uno script dell'organizzazione nella propria directory e assegnare uno dei ruoli RBAC. L'identità dell'app o dello script viene definita entità servizio.
+- **Entità servizio**: il cliente può aggiungere nella propria directory un'app o uno script dell'organizzazione del partner e assegnare qualsiasi ruolo di Azure. L'identità dell'app o dello script viene definita entità servizio.
 
 - **Azure Lighthouse**: il cliente può delegare una sottoscrizione (o un gruppo di risorse) in modo che gli utenti possano usarla all'interno del tenant. Per altre informazioni, vedere [Gestione delle risorse delegata di Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
 
@@ -168,9 +168,8 @@ Il collegamento amministrazione partner consente a Microsoft di identificare e r
 
 **Quali dati vengono raccolti dal collegamento amministrazione partner?**
 
-L'associazione del collegamento amministrazione partner alle credenziali esistenti non fornisce alcun nuovo dato del cliente a Microsoft. Fornisce semplicemente a Microsoft i dati di telemetria per cui un partner è attivamente coinvolto nell'ambiente di Azure di un cliente. Microsoft può attribuire fattori di influenza e ricavi per l'utilizzo di Azure dall'ambiente del cliente all'organizzazione del partner in base alle autorizzazioni dell'account (ruolo del Controllo degli accessi in base al ruolo) e all'ambito (gruppo di gestione, sottoscrizione, gruppo di risorse, risorsa) fornito al partner dal cliente. 
+L'associazione del collegamento amministrazione partner alle credenziali esistenti non fornisce alcun nuovo dato del cliente a Microsoft. Fornisce semplicemente a Microsoft i dati di telemetria per cui un partner è attivamente coinvolto nell'ambiente di Azure di un cliente. Microsoft può attribuire un determinato livello di influenza e proventi per l'utilizzo di Azure dall'ambiente del cliente all'organizzazione del partner in base alle autorizzazioni dell'account (ruolo di Azure) e all'ambito (gruppo di gestione, sottoscrizione, gruppo di risorse, risorsa) fornito al partner dal cliente. 
 
 **Questo approccio influisce sulla sicurezza dell'ambiente di Azure di un cliente?**
 
-L'associazione del collegamento amministrazione partner aggiunge solo l'ID MPN del partner alle credenziali già sottoposte a provisioning e non altera alcuna autorizzazione (ruolo del Controllo degli accessi in base al ruolo) o fornisce dati aggiuntivi sui servizi di Azure a un partner o a Microsoft. 
-
+L'associazione del collegamento amministrazione partner aggiunge solo l'ID MPN del partner alle credenziali già sottoposte a provisioning e non modifica alcuna autorizzazione (ruolo di Azure) né fornisce dati aggiuntivi sui servizi di Azure al partner o a Microsoft. 

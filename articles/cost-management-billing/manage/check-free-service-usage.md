@@ -1,18 +1,18 @@
 ---
 title: Monitorare e tenere traccia dell'utilizzo dei servizi gratuiti di Azure
-description: Informazioni su come controllare l'utilizzo dei servizi gratuiti nel portale di Azure.
+description: Informazioni su come controllare l'utilizzo dei servizi gratuiti nel portale di Azure. Non sono previsti addebiti per i servizi inclusi in un account gratuito, a meno che non vengano superati i limiti del servizio.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0a62deecc6f70bb21059ae3ddda9eea173de65fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03efb7e4d0aa06e4c33a94f15621d58330e52e50
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199807"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461868"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Controllare l'uso dei servizi gratuiti inclusi con l'account gratuito di Azure
 
@@ -38,9 +38,9 @@ I costi dei servizi inclusi gratuitamente in un account Azure gratuito non vengo
 * **Utilizzo/Limite:** utilizzo e limite del mese attuale per il misuratore.
 * **Stato:** stato di utilizzo del servizio. In base all'utilizzo, sarà mostrato uno degli stati seguenti:
   * **Non in uso:** il misuratore non è stato usato o l'uso del misuratore non ha raggiunto il sistema di fatturazione.
-  * **Il limite è stato superato il giorno \<Data>:** il limite per il misuratore è stato superato il giorno \<Data>.
+  * **Il limite è stato superato il giorno \<Date>:** il limite del contatore è stato superato il giorno \<Date>.
   * **Il superamento è improbabile:** è improbabile che il limite per il misuratore verrà superato.
-  * **Data del superamento \<Data>:** è improbabile che il limite per il misuratore verrà superato il giorno \<Data>.
+  * **Data del superamento \<Date>:** è probabile che il limite del contatore venga superato il giorno \<Date>.
 
 > [!IMPORTANT]
 >

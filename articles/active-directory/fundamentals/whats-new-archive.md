@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b09293f80b5aee2dd76abba3f165a50a5eeee5
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4fd7ce0229d5e26bc4bf3b05f7b97d20d2a23dff
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799141"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927199"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -1106,7 +1106,7 @@ Per altre informazioni su come migliorare la sicurezza dell'organizzazione usand
 
 L'esperienza di provisioning Azure AD è stata aggiornata per includere una nuova barra di stato che mostra l'avanzamento del processo di provisioning utenti. L'esperienza aggiornata fornisce anche informazioni sul numero di utenti sottoposti a provisioning durante il ciclo corrente, oltre al numero di utenti sottoposti a provisioning fino a oggi.
 
-Per altre informazioni, vedere [Controllare lo stato del provisioning utenti](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+Per altre informazioni, vedere [Controllare lo stato del provisioning utenti](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ---
 

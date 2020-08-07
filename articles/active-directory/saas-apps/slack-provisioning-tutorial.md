@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9aa97595f9a6ab2a866a8c8ebccde7e53854dbd1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016319"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924547"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Esercitazione: Configurare Slack per il provisioning utenti automatico
 
@@ -50,7 +50,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e slack](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-add-slack-from-the-azure-ad-application-gallery"></a>Passaggio 2: Aggiungere Slack dalla raccolta di applicazioni Azure AD
+## <a name="step-2-add-slack-from-the-azure-ad-application-gallery"></a>Passaggio 2. Aggiungere Slack dalla raccolta di applicazioni Azure AD
 
 Aggiungere Slack dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in slack. Se in precedenza è stato configurato slack per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
@@ -108,34 +108,34 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
    |Attributo|Type|
    |---|---|
    |active|Boolean|
-   |externalId|Stringa|
-   |displayName|Stringa|
+   |externalId|string|
+   |displayName|string|
    |name.familyName|string|
-   |name.givenName|Stringa|
-   |title|Stringa|
-   |emails[type eq "work"].value|Stringa|
-   |userName|Stringa|
-   |nickName|Stringa|
-   |indirizzi [tipo EQ "non tipizzato"]. streetAddress|Stringa|
-   |indirizzi [tipo EQ "non tipizzato"]. località|Stringa|
-   |indirizzi [tipo EQ "non tipizzato"]. Region|Stringa|
-   |indirizzi [tipo EQ "non tipizzato"]. postalCode|Stringa|
+   |name.givenName|string|
+   |title|string|
+   |emails[type eq "work"].value|string|
+   |userName|string|
+   |nickName|string|
+   |indirizzi [tipo EQ "non tipizzato"]. streetAddress|string|
+   |indirizzi [tipo EQ "non tipizzato"]. località|string|
+   |indirizzi [tipo EQ "non tipizzato"]. Region|string|
+   |indirizzi [tipo EQ "non tipizzato"]. postalCode|string|
    |indirizzi [tipo EQ "non tipizzato"]. Country|string|
-   |phoneNumbers[type eq "mobile"].value|Stringa|
-   |phoneNumbers[type eq "work"].value|Stringa|
-   |ruoli [Primary EQ "true"]. Value|Stringa|
+   |phoneNumbers[type eq "mobile"].value|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |ruoli [Primary EQ "true"]. Value|string|
    |locale|string|
-   |nome. honorificPrefix|Stringa|
-   |Foto [digitare EQ "Photo"]. valore|Stringa|
-   |profileUrl|Stringa|
-   |timezone|Stringa|
-   |userType|Stringa|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Department|Stringa|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Manager|Riferimento|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. employeeNumber|Stringa|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. costCenter|Stringa|
-   |urn: SCIM: schemas: estensione: Enterprise: 1.0. Organization|Stringa|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Division|Stringa|
+   |nome. honorificPrefix|string|
+   |Foto [digitare EQ "Photo"]. valore|string|
+   |profileUrl|string|
+   |timezone|string|
+   |userType|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Department|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Manager|Informazioni di riferimento|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. employeeNumber|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. costCenter|string|
+   |urn: SCIM: schemas: estensione: Enterprise: 1.0. Organization|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Division|string|
 
 12. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Slack**.
 
@@ -166,7 +166,7 @@ L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169613"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927437"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
@@ -25,7 +25,7 @@ ms.locfileid: "86169613"
 
 ## <a name="configure-registry-authentication"></a>Configurare l'autenticazione del registro
 
-In uno scenario di produzione in cui si fornisce l'accesso a servizi e applicazioni "Head", è consigliabile configurare l'accesso al registro di sistema tramite un' [entità servizio](../container-registry/container-registry-auth-service-principal.md). Un'entità servizio consente di fornire il [controllo degli accessi in base al ruolo](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
+In uno scenario di produzione in cui si fornisce l'accesso a servizi e applicazioni "Head", è consigliabile configurare l'accesso al registro di sistema tramite un' [entità servizio](../container-registry/container-registry-auth-service-principal.md). Un'entità servizio consente di fornire il [controllo degli accessi in base al ruolo di Azure (RBAC)](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
 
 Azure Container Registry offre [Opzioni di autenticazione](../container-registry/container-registry-authentication.md)aggiuntive.
 

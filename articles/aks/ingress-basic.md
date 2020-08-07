@@ -5,12 +5,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: d96118e8f9de37432874a9864fc5c35faeb95a5a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c75d41d827ad1838898736ba8ff41aaef0b6f13
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057220"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927052"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso del servizio Azure Kubernetes
 
@@ -182,7 +182,7 @@ spec:
       - backend:
           serviceName: aks-helloworld-one
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: aks-helloworld-two
           servicePort: 80
@@ -226,7 +226,7 @@ Aggiungere ora il percorso */Hello-World-Two* all'indirizzo IP, ad esempio *EXTE
 
 ![Seconda app in esecuzione dietro al controller di ingresso](media/ingress-basic/app-two.png)
 
-## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Questo articolo ha usato Helm per installare i componenti di ingresso e le app di esempio. Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire queste risorse, è possibile eliminare l'intero spazio dei nomi di esempio o le singole risorse.
 

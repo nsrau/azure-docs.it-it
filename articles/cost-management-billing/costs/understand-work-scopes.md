@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ecc442049ba63b64f951335940c312dc71985453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077159"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501526"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -93,8 +93,8 @@ Gli ambiti di governance sono associati a una singola directory, mentre gli ambi
 
 Gli ambiti di fatturazione EA supportano i ruoli seguenti:
 
-- **Amministratore aziendale**: può gestire le impostazioni e l'accesso degli account di fatturazione, può visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione EA è identico a quello del [ruolo Controllo degli accessi in base al ruolo di Azure del Collaboratore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Utente aziendale con accesso in sola lettura** : può visualizzare le impostazioni dell'account di fatturazione, i dati sui costi e la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione EA è identico a quello del [ruolo Controllo degli accessi in base al ruolo di Azure del Lettore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Amministratore aziendale**: può gestire le impostazioni e l'accesso degli account di fatturazione, può visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione EA è identico a quello del [ruolo di Azure di collaboratore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Utente aziendale con accesso in sola lettura** : può visualizzare le impostazioni dell'account di fatturazione, i dati sui costi e la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione EA è identico a quello del [ruolo di Azure di lettore per Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Amministratore del reparto**: può gestire le impostazioni del reparto, ad esempio il centro di costo, accedere, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni.  L'impostazione **DA view charges** (Visualizzazione addebiti per amministratori di reparto) deve essere abilitata perché gli amministratori del reparto e gli utenti con accesso in sola lettura possano visualizzare i costi. Se l'impostazione **DA view charges** (Visualizzazione addebiti per amministratori di reparto) è disabilitata, gli utenti del reparto non possono visualizzare i costi a nessun livello, anche se sono proprietari di un account o di una sottoscrizione.
 - **Utente del reparto con accesso in sola lettura**: può visualizzare le impostazioni del reparto, i dati sui costi e la configurazione dei costi, ad esempio i budget e le esportazioni. Se l'impostazione **DA view charges** (Visualizzazione addebiti per amministratori di reparto) è disabilitata, gli utenti del reparto non possono visualizzare i costi a nessun livello, anche se sono proprietari di un account o di una sottoscrizione.
 - **Proprietario dell'account**: può gestire le impostazioni dell'account di registrazione, ad esempio il centro di costo, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni, per l'account di registrazione. L'impostazione **OA view charges** (Visualizzazione addebiti per proprietari dell'account) deve essere abilitata perché i proprietari dell'account e gli utenti del controllo degli accessi in base al ruolo possano visualizzare i costi.
@@ -141,10 +141,10 @@ Gli ambiti di fatturazione del Contratto del cliente non si applicano ai partner
 
 Gli ambiti di fatturazione del Contratto del cliente supportano i ruoli seguenti:
 
-- **Proprietario**: può gestire le impostazioni di fatturazione e l'accesso, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del [ruolo Controllo degli accessi in base al ruolo di Azure del Collaboratore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Collaboratore**: può gestire le impostazioni di fatturazione ad eccezione dell'accesso, può visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del [ruolo Controllo degli accessi in base al ruolo di Azure del Collaboratore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Lettore**: può visualizzare le impostazioni di fatturazione, i dati sui costi e la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del [ruolo Controllo degli accessi in base al ruolo di Azure del Lettore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Gestione fatture**: può visualizzare e pagare le fatture e può visualizzare i dati sui costi e la configurazione, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del [ruolo Controllo degli accessi in base al ruolo di Azure del Lettore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Proprietario**: può gestire le impostazioni di fatturazione e l'accesso, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del [ruolo di Azure di collaboratore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Collaboratore**: può gestire le impostazioni di fatturazione ad eccezione dell'accesso, può visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del [ruolo di Azure di collaboratore di Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Lettore**: può visualizzare le impostazioni di fatturazione, i dati sui costi e la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del [ruolo di Azure di lettore per Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Gestione fatture**: può visualizzare e pagare le fatture e può visualizzare i dati sui costi e la configurazione, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del [ruolo di Azure di lettore per Gestione costi](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Autore di sottoscrizioni di Azure**: può creare sottoscrizioni di Azure, visualizzare i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni. In funzione l'ambito di fatturazione del Contratto del cliente è identico a quello del ruolo Proprietario dell'account di registrazione EA.
 
 Le sottoscrizioni di Azure sono annidate nelle sezioni della fattura, come lo sono negli account di registrazione EA. Gli utenti di fatturazione hanno accesso ai dati sui costi per le sottoscrizioni e i gruppi di risorse che si trovano nei rispettivi ambiti. Non possono tuttavia accedere per visualizzare o gestire le risorse nella portale di Azure. Gli utenti di fatturazione possono visualizzare i costi passando a **Gestione dei costi e fatturazione** nell'elenco dei servizi del portale di Azure. Possono quindi filtrare i costi per le sottoscrizioni e i gruppi di risorse specifici per i quali è necessario creare un report.

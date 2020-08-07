@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810275"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921946"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -111,7 +111,7 @@ L'utilizzo dell'archiviazione di backup fino alle dimensioni massime dei dati pe
 
 - Ridurre il [periodo di conservazione dei backup](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) al minimo possibile in base alle esigenze.
 - Evitare di eseguire operazioni di scrittura di grandi dimensioni, ad esempio ricompilazioni di indici, più frequentemente di quanto necessario.
-- Per operazioni di caricamento di dati di grandi dimensioni, è consigliabile utilizzare [indici columnstore cluster](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) e le [procedure consigliate](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)correlate e/o ridurre il numero di indici non cluster.
+- Per operazioni di caricamento di dati di grandi dimensioni, è consigliabile utilizzare [indici columnstore cluster](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) e le [procedure consigliate](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)correlate e/o ridurre il numero di indici non cluster.
 - Nel livello di servizio per utilizzo generico, l'archiviazione dei dati di cui è stato effettuato il provisioning è meno costosa del prezzo dell'archiviazione di backup. Se i costi di archiviazione di backup sono costantemente elevati, è possibile considerare l'aumento dell'archiviazione dei dati per il salvataggio nell'archivio di backup.
 - Utilizzare TempDB anziché le tabelle permanenti nella logica dell'applicazione per archiviare i risultati temporanei e/o i dati temporanei.
 - Usare l'archiviazione di backup con ridondanza locale quando possibile (ad esempio, ambienti di sviluppo/test)

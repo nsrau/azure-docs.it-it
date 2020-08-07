@@ -1,6 +1,6 @@
 ---
 title: Iscriversi a Microsoft 365 con l'account Azure
-description: Informazioni su come creare una sottoscrizione di Microsoft 365 con un account Azure
+description: Informazioni su come creare una sottoscrizione di Microsoft 365 con un account Azure. È anche possibile associare gli account esistenti di Azure e Microsoft 365.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
@@ -8,14 +8,14 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: banders
-ms.openlocfilehash: 006f8edc81ec19647ff6173a4c786c6d7e93fadc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 050bd9c420ccecdb91a6c438782d9be1c6c23b88
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810381"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461885"
 ---
-# <a name="sign-up-for-a-microsoft--365-subscription-with-your-azure-account"></a>Iscriversi a una sottoscrizione di Microsoft 365 con il proprio account Azure
+# <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Iscriversi a una sottoscrizione di Microsoft 365 con l'account Azure
 
 Se si è un sottoscrittore di Azure, è possibile usare l'account Azure per iscriversi a una sottoscrizione di Microsoft 365. Se si fa parte di un'organizzazione che ha una sottoscrizione di Azure, è possibile creare sottoscrizioni di Microsoft 365 per gli utenti nell'istanza esistente di Azure Active Directory (Azure AD). Iscriversi a Microsoft 365 tramite un account che ha l'autorizzazione Amministratore globale o Amministratore fatturazione nel tenant di Azure Active Directory. Per altre informazioni, vedere [Controllare le autorizzazioni dell'account in Azure AD](#RoleInAzureAD) e [Assegnazione dei ruoli di amministratore in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

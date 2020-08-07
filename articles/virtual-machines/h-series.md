@@ -5,15 +5,15 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 08/06/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 797a036b9cf2e77dfbcdf8dc7596179c4673e6a6
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e9f876f3d20af01867283f550590b3af23dec662
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513741"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926621"
 ---
 # <a name="h-series"></a>Serie H
 
@@ -42,51 +42,8 @@ Manutenzione con mantenimento della memoria: Non supportato
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-
-## <a name="supported-os-images-linux"></a>Immagini del sistema operativo supportate (Linux)
- 
-Azure Marketplace include molte distribuzioni Linux che supportano la connettività RDMA:
-  
-* **HPC basato su CentOS** : per le macchine virtuali non SR-IOV abilitate, la versione 6,5 HPC basata su CentOS o una versione successiva, sono adatti fino a 7,5. Per le macchine virtuali della serie H, sono consigliate le versioni da 7,1 a 7,5. I driver RDMA e Intel MPI 5.1 vengono installati nella VM.
-  Per le macchine virtuali SR-IOV, CentOS-HPC 7,6 viene ottimizzato e precaricato con i driver RDMA e diversi pacchetti MPI installati.
-  Per altre immagini di macchina virtuale RHEL/CentOS, aggiungere l'estensione InfiniBandLinux per abilitare InfiniBand. Questa estensione VM Linux installa i driver Mellanox OFED (nelle VM SR-IOV) per la connettività RDMA. Il cmdlet di PowerShell seguente installa la versione più recente (versione 1,0) dell'estensione InfiniBandDriverLinux in una macchina virtuale con supporto per RDMA esistente. La VM con supporto per RDMA è denominata *myVM* e viene distribuita nel gruppo di risorse denominato *myResourceGroup* nell'area *Stati Uniti occidentali* come indicato di seguito:
-
-  ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
-  ```
-  In alternativa, le estensioni della macchina virtuale possono essere incluse nei modelli di Azure Resource Manager per semplificare la distribuzione con l'elemento JSON seguente:
-  ```json
-  "properties":{
-  "publisher": "Microsoft.HpcCompute",
-  "type": "InfiniBandDriverLinux",
-  "typeHandlerVersion": "1.0",
-  } 
-  ```
-  
-  Il comando seguente installa la versione più recente dell'estensione InfiniBandDriverLinux 1,0 in tutte le VM con supporto per RDMA in un set di scalabilità di macchine virtuali esistente denominato *myVMSS* distribuito nel gruppo di risorse denominato *myResourceGroup*:
-  ```powershell
-  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
-  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
-  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
-  ```
-  
-  > [!NOTE]
-  > Nelle immagini HPC basate su CentOS gli aggiornamenti del kernel sono disabilitati nel file di configurazione **yum** . Ciò è dovuto al fatto che i driver RDMA Linux vengono distribuiti come un pacchetto RPM e gli aggiornamenti dei driver potrebbero non funzionare se il kernel viene aggiornato.
-  >
-  
-
-* **SUSE Linux Enterprise Server** -SLES 12 SP3 per HPC, SLES 12 SP3 per HPC (Premium), SLES 12 SP1 per HPC, SLES 12 SP1 per HPC (Premium), SLES 12 SP4 e SLES 15. I driver RDMA vengono installati e i pacchetti Intel MPI vengono distribuiti nella VM. Installare MPI con questo comando:
-
-  ```bash
-  sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-  ```
-  
-* **Ubuntu** -ubuntu server 16,04 lts, 18,04 LTS. Configurare i driver RDMA nella VM ed eseguire la registrazione con Intel per scaricare Intel MPI:
-
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../includes/virtual-machines-common-ubuntu-rdma.md)]  
-
-  Per ulteriori informazioni sull'abilitazione di InfiniBand, sulla configurazione di MPI, vedere [Enable InfiniBand](./workloads/hpc/enable-infiniband.md).
+> [!NOTE]
+> Tra le [macchine virtuali](sizes-hpc.md#rdma-capable-instances)con supporto per RDMA, la serie H non è-SR-IOV abilitata. Pertanto, le [Immagini di VM](./workloads/hpc/configure.md#vm-images)supportate, i requisiti dei [driver InfiniBand](./workloads/hpc/enable-infiniband.md) e le [librerie MPI](./workloads/hpc/setup-mpi.md) supportate sono diverse dalle macchine virtuali abilitate per SR-IOV.
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
@@ -99,7 +56,7 @@ Azure Marketplace include molte distribuzioni Linux che supportano la connettivi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sull'ottimizzazione delle applicazioni HPC per Azure e alcuni esempi di [carichi di lavoro HPC](./workloads/hpc/overview.md).
+- Altre informazioni sulla [configurazione delle macchine virtuali](./workloads/hpc/configure.md), sull' [Abilitazione di InfiniBand](./workloads/hpc/enable-infiniband.md), sulla configurazione di [MPI](./workloads/hpc/setup-mpi.md) e sull'ottimizzazione di applicazioni HPC per Azure in [carichi di lavoro HPC](./workloads/hpc/overview.md).
 - Per informazioni sugli annunci più recenti e su alcuni esempi e risultati HPC, vedere i [Blog della community tecnica di calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Per una visualizzazione architettonica di livello superiore dell'esecuzione di carichi di lavoro HPC, vedere [High Performance Computing (HPC) in Azure](/azure/architecture/topics/high-performance-computing/).
 - Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: d360b890023c1a14f80d9fc8efc703abd7544710
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328328"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921385"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Crea la pagina di destinazione per l'offerta SaaS gratuita o di valutazione nel Marketplace commerciale
 
@@ -53,7 +53,7 @@ Per iniziare, seguire le istruzioni per la [registrazione di una nuova applicazi
 
 Se si intende eseguire una query sull'API Microsoft Graph, [configurare la nuova applicazione per accedere alle API Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Quando si selezionano le autorizzazioni API per l'applicazione, il valore predefinito di **User. Read** è sufficiente per raccogliere le informazioni di base sull'utente per rendere il processo di onboarding semplice e automatico. Non richiedere alcuna autorizzazione dell'API con etichetta **richiede il consenso dell'amministratore**, poiché in questo modo tutti gli utenti non amministratori non possono visitare la pagina di destinazione.
 
-Se è necessario disporre di autorizzazioni elevate come parte del processo di caricamento o provisioning, provare a usare la funzionalità di [consenso incrementale](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) di Azure ad in modo che tutti gli utenti inviati dal Marketplace possano interagire inizialmente con la pagina di destinazione.
+Se è necessario disporre di autorizzazioni elevate come parte del processo di caricamento o provisioning, provare a usare la funzionalità di [consenso incrementale](https://aka.ms/incremental-consent) di Azure ad in modo che tutti gli utenti inviati dal Marketplace possano interagire inizialmente con la pagina di destinazione.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Usare un esempio di codice come punto di partenza
 
@@ -69,7 +69,7 @@ Dopo aver scaricato il codice e configurato l'ambiente di sviluppo, modificare l
 
 Come parte del flusso di [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) , Azure ad aggiunge un [token ID](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) alla richiesta quando l'utente viene inviato alla pagina di destinazione. Questo token contiene più elementi di informazioni di base che potrebbero essere utili nel processo di attivazione, incluse le informazioni riportate in questa tabella.
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | ------------ | ------------- |
 | aud | Destinatari per questo token. In questo caso, deve corrispondere all'ID dell'applicazione ed essere convalidato. |
 | preferred_username | Nome utente principale dell'utente visitato. Potrebbe trattarsi di un indirizzo di posta elettronica, un numero di telefono o un altro identificatore. |
@@ -84,7 +84,7 @@ Come parte del flusso di [OpenID Connect](https://docs.microsoft.com/azure/activ
 
 Il token ID contiene informazioni di base per identificare l'utente, ma il processo di attivazione potrebbe richiedere dettagli aggiuntivi, ad esempio la società dell'utente, per completare il processo di onboarding. Usare l' [API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) per richiedere queste informazioni per evitare di imporre all'utente di immettere nuovamente i dettagli. Per impostazione predefinita, le autorizzazioni **utente standard. Read** includono le seguenti informazioni:
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | ------------ | ------------- |
 | displayName | Nome visualizzato nella rubrica per l'utente. |
 | givenName | Nome dell'utente. |
