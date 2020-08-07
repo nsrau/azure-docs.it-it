@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 01/21/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588633"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904004"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3,0: BreakSentence
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 I parametri della richiesta inviati a una stringa di query sono:
 
-| Parametro della query | Descrizione |
+| Parametro della query | Description |
 | -------| ----------- |
 | api-version <img width=200/>   | **Parametro di query obbligatorio**.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`. |
 | Linguaggio | **Parametro di query facoltativo**.<br/>Tag di lingua che identifica la lingua del testo di input. Se non viene specificato un codice, verrà applicato il rilevamento automatico della lingua. |
@@ -41,14 +41,14 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 Le intestazioni della richiesta includono:
 
-| Intestazioni | Descrizione |
+| Intestazioni | Description |
 | ------- | ----------- |
 | Intestazione/e di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
 | Content-Type | **Intestazione della richiesta obbligatoria**.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`. |
 | Content-Length    | **Intestazione della richiesta obbligatoria**.<br/>Lunghezza del corpo della richiesta.  | 
 | X-ClientTraceId   | **Facoltativo**.<br/>GUID generato dal client che identifica in modo univoco la richiesta. Si noti che è possibile omettere questa intestazione se nella stringa della query si include l'ID traccia con un parametro di query denominato `ClientTraceId`.  | 
 
-## <a name="request-body"></a>Testo della richiesta
+## <a name="request-body"></a>Corpo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un oggetto JSON con una proprietà stringa denominata `Text`. I delimitatori di frase vengono calcolati per il valore della proprietà `Text`. Di seguito è riportato un esempio di corpo della richiesta con una porzione di testo:
 
@@ -61,7 +61,7 @@ Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un 
 Si applicano le limitazioni seguenti:
 
 * La matrice deve essere composta al massimo da 100 elementi.
-* Il valore di testo di un elemento della matrice non può superare 10.000 caratteri spazi inclusi.
+* Il valore di testo di un elemento di matrice non può superare i 50.000 caratteri, inclusi gli spazi.
 * L'intero testo incluso nella richiesta non può superare 50.000 caratteri spazi inclusi.
 * Se viene specificato il parametro di query `language`, tutti gli elementi di matrice devono essere nella stessa lingua. In caso contrario, verrà applicato il rilevamento automatico della lingua a ogni elemento della matrice in modo indipendente.
 
@@ -93,11 +93,11 @@ Una risposta JSON di esempio è:
 ]
 ```
 
-## <a name="response-headers"></a>Intestazioni della risposta
+## <a name="response-headers"></a>Intestazioni di risposta
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>Descrizione</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -143,7 +143,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 L'esempio seguente mostra come ottenere i delimitatori di frase per una singola frase. La lingua della frase viene rilevata automaticamente dal servizio.
 

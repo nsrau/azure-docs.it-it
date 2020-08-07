@@ -1,44 +1,33 @@
 ---
-title: Informazioni sugli strumenti di migrazione per gli avvisi di monitoraggio di Azure
-description: Informazioni sul funzionamento dello strumento di migrazione degli avvisi e sulla risoluzione dei problemi.
+title: Informazioni sulla migrazione per gli avvisi di monitoraggio di Azure
+description: Informazioni sul funzionamento della migrazione degli avvisi e sulla risoluzione dei problemi.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564096"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852396"
 ---
-# <a name="understand-how-the-migration-tool-works"></a>Informazioni sul funzionamento dello strumento di migrazione
+# <a name="understand-migration-options-to-newer-alerts"></a>Informazioni sulle opzioni di migrazione per gli avvisi più recenti
 
-Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici in monitoraggio di Azure verranno ritirati entro il 31 agosto 2019 (originariamente il 30 giugno 2019). Uno strumento di migrazione è disponibile nel portale di Azure ai clienti che utilizzano le regole di avviso classiche e che desiderano attivare la migrazione autonomamente.
+Gli avvisi classici vengono [ritirati](./monitoring-classic-retirement.md), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Una nuova data verrà annunciata a breve per la migrazione degli avvisi rimanenti, il [cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md)e [Azure Cina 21ViaNet](https://docs.azure.cn/).
 
-Questo articolo spiega come funziona lo strumento di migrazione volontaria. Vengono inoltre descritte le soluzioni per alcuni problemi comuni.
-
-> [!NOTE]
-> A causa del ritardo nell'implementazione dello strumento di migrazione, la data di ritiro per la migrazione degli avvisi classica è stata [estesa al 31 agosto 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) dalla data di annuncio iniziale del 30 giugno 2019.
-
-## <a name="classic-alert-rules-that-will-not-be-migrated"></a>Regole di avviso classiche di cui non verrà eseguita la migrazione
+Questo articolo illustra come funziona lo strumento migrazione manuale e migrazione volontaria, che verrà usato per eseguire la migrazione delle regole di avviso rimanenti. Vengono inoltre descritte le soluzioni per alcuni problemi comuni.
 
 > [!IMPORTANT]
 > Gli avvisi del log attività (inclusi gli avvisi di integrità del servizio) e gli avvisi del log non sono interessati dalla migrazione. La migrazione si applica solo alle regole di avviso classiche descritte di [seguito](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
-Sebbene lo strumento possa eseguire la migrazione di quasi tutte le [regole di avviso classiche](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform), esistono alcune eccezioni. Non verrà eseguita la migrazione delle seguenti regole di avviso tramite lo strumento (o durante la migrazione automatica a partire dal 2019 settembre):
-
-- Regole di avviso classiche sulle metriche Guest della macchina virtuale (sia Windows che Linux). Vedere le [linee guida per la ricreazione di tali regole di avviso in nuovi avvisi delle metriche](#guest-metrics-on-virtual-machines) più avanti in questo articolo.
-- Regole di avviso classiche sulle metriche di archiviazione classiche. Vedere le [linee guida per il monitoraggio degli account di archiviazione classici](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
-- Regole di avviso classiche per alcune metriche dell'account di archiviazione. Vedere [i dettagli](#storage-account-metrics) più avanti in questo articolo.
-- Regole di avviso classiche in alcune Cosmos DB metriche. Vedere [i dettagli](#cosmos-db-metrics) più avanti in questo articolo.
-- Regole di avviso classiche per tutte le macchine virtuali classiche e le metriche dei servizi cloud (Microsoft. ClassicCompute/virtualMachines e Microsoft. ClassicCompute/domainNames/Slots/Roles). Vedere [i dettagli](#classic-compute-metrics) più avanti in questo articolo.
-
-Se la sottoscrizione include regole classiche di questo tipo, è necessario eseguirne la migrazione manualmente. Dal momento che non è possibile fornire una migrazione automatica, eventuali avvisi di metrica esistenti e classici di questi tipi continueranno a funzionare fino al 2020 giugno. Questa estensione consente di passare ai nuovi avvisi. È anche possibile continuare a creare nuovi avvisi classici sulle eccezioni elencate sopra fino al 2020 giugno. Tuttavia, per tutti gli altri, non è possibile creare nuovi avvisi classici dopo il 2019 agosto.
-
 > [!NOTE]
-> Oltre alle eccezioni elencate in precedenza, se le regole di avviso classiche non sono valide, ad esempio se si tratta di [metriche deprecate](#classic-alert-rules-on-deprecated-metrics) o di risorse eliminate, non verranno migrate e non saranno disponibili dopo il ritiro del servizio.
+> Se le regole di avviso classiche non sono valide, vale a dire che si trovano su metriche o risorse [deprecate](#classic-alert-rules-on-deprecated-metrics) che sono state eliminate, non verranno migrate e non saranno disponibili dopo il ritiro del servizio.
+
+## <a name="manually-migrating-classic-alerts-to-newer-alerts"></a>Migrazione manuale di avvisi classici a avvisi più recenti
+
+I clienti interessati alla migrazione manuale dei rimanenti avvisi possono già farlo usando le sezioni seguenti. Queste sezioni definiscono anche le metriche che vengono ritirate dal provider di risorse e attualmente non possono essere migrate direttamente.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Metriche Guest nelle macchine virtuali
 

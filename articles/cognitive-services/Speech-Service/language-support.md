@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554057"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902046"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -128,7 +128,7 @@ Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.m
 |Impostazioni locali  | Linguaggio            | Sesso | Nome della voce | Supporto dello stile |
 |--|--|--|--|--|
 | `ar-EG` | Arabo (Egitto)                  | Female | `ar-EG-SalmaNeural`      | Generale |
-| `ar-SA` | Arabo (Arabia Saudita)           | Female | `ar-SA-ZariyahNeura`     | Generale |
+| `ar-SA` | Arabo (Arabia Saudita)           | Female | `ar-SA-ZariyahNeural`    | Generale |
 | `ca-ES` | Catalano (Spagna)                 | Female | `ca-ES-AlbaNeural`       | Generale |
 | `da-DK` | Danese (Danimarca)                | Female | `da-DK-ChristelNeural`   | Generale |
 | `de-DE` | Tedesco (Germania)                | Female | `de-DE-KatjaNeural`      | Generale |
@@ -360,7 +360,7 @@ Vedere la tabella seguente per le lingue supportate per le diverse API di Ricono
 
 | Impostazioni locali | Linguaggio | Verifica dipendente dal testo | Verifica indipendente dal testo | Identificazione indipendente dal testo |
 |----|----|----|----|----|
-| it-IT | Inglese (Stati Uniti) | Sì | sì | sì |
+| it-IT | Inglese (Stati Uniti) | sì | sì | sì |
 |zh-CN  |Cinese (mandarino, semplificato)|    n/d|    sì|    sì|
 |de-DE  |Tedesco (Germania)   |n/d    |sì    |sì|
 |en-GB  |Inglese (Regno Unito)   |n/d    |sì    |sì|
@@ -369,10 +369,10 @@ Vedere la tabella seguente per le lingue supportate per le diverse API di Ricono
 |en-CA  |Inglese (Canada)   |n/d|   sì|    sì|
 |fr-CA  |Francese (Canada)    |n/d    |sì|   sì|
 |it-IT  |Italiano|   n/d |sì|   sì|
-|es-ES| Spagnolo (Spagna) |n/d    |sì|   Sì|
-|es-MX  |Spagnolo (Messico)   |n/d|   sì|    Sì|
+|es-ES| Spagnolo (Spagna) |n/d    |sì|   sì|
+|es-MX  |Spagnolo (Messico)   |n/d|   sì|    sì|
 |ja-JP| Giapponese    |n/d    |sì    |sì|
-|pt-BR| Portoghese (Brasile)|    n/d|    sì|    Sì|
+|pt-BR| Portoghese (Brasile)|    n/d|    sì|    sì|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

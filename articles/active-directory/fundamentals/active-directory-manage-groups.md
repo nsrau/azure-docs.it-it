@@ -2,7 +2,7 @@
 title: Gestire l'accesso alle risorse & app usando i gruppi-Azure AD
 description: Informazioni su come gestire l'accesso alle app basate sul cloud, alle app locali e alle risorse dell'organizzazione con i gruppi di Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25dace3ad7d467d6add236782c5e39f85d6462a6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982600"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797308"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gestire le app e l'accesso alle risorse tramite i gruppi di Azure Active Directory
 Azure Active Directory (Azure AD) consente di usare i gruppi per gestire l'accesso alle app basate sul cloud, alle app locali e alle risorse. Le risorse possono far parte dell'organizzazione Azure AD, ad esempio le autorizzazioni per gestire oggetti tramite i ruoli in Azure AD o esterni all'organizzazione, ad esempio per le app SaaS (software as a Service), i servizi di Azure, i siti di SharePoint e le risorse locali.
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) consente di usare i gruppi per gestire l'acces
 
 ## <a name="how-access-management-in-azure-ad-works"></a>Funzionamento della gestione dell'accesso in Azure AD
 
-Azure AD consente di concedere l'accesso alle risorse dell'organizzazione fornendo i diritti di accesso a un singolo utente o a un intero gruppo di Azure AD. L'uso dei gruppi consente al proprietario delle risorse (o al proprietario della directory di Azure AD) di assegnare un set di autorizzazioni di accesso a tutti i membri del gruppo, invece di dover fornire i diritti singolarmente. Il proprietario delle risorse o della directory può anche concedere i diritti di gestione per l'elenco dei membri a qualcun altro, ad esempio al responsabile di un reparto o a un amministratore del supporto tecnico, consentendo a tale persona di aggiungere e rimuovere i membri, in base alle esigenze. Per altre informazioni su come gestire i proprietari dei gruppi, vedere [Gestire i proprietari dei gruppi](active-directory-accessmanagement-managing-group-owners.md)
+Azure AD consente di concedere l'accesso alle risorse dell'organizzazione fornendo i diritti di accesso a un singolo utente o a un intero gruppo di Azure AD. L'uso dei gruppi consente al proprietario delle risorse (o al proprietario della directory di Azure AD) di assegnare un set di autorizzazioni di accesso a tutti i membri del gruppo, invece di dover specificare i diritti singolarmente. Il proprietario delle risorse o della directory può anche concedere i diritti di gestione per l'elenco dei membri a qualcun altro, ad esempio al responsabile di un reparto o a un amministratore del supporto tecnico, consentendo a tale persona di aggiungere e rimuovere i membri, in base alle esigenze. Per altre informazioni su come gestire i proprietari dei gruppi, vedere [Gestire i proprietari dei gruppi](active-directory-accessmanagement-managing-group-owners.md)
 
 ![Diagramma di gestione dell’accesso di Azure Active Directory](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 

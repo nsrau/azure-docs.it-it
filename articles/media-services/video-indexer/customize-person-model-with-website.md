@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/06/2020
 ms.author: kumud
-ms.openlocfilehash: 28cb73df2df91fc96d7ac19e25d7bd13f47df41e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6894eb783b990ebe98f9ebe5eb2fe112a59309a4
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047296"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904497"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalizzare un modello delle persone con il sito Web di Video Indexer
 
@@ -126,9 +126,20 @@ Per esaminare il contenuto dei modelli di persona, selezionare la freccia accant
 
 ### <a name="manage-a-person"></a>Gestire una persona
 
-Se si seleziona **Gestisci**, vengono visualizzati tutti i visi da cui viene eseguito il training del modello di persona. Questi visi provengono da occorrenze di tale persona nei video che usano questo modello di persona o dalle immagini caricate manualmente.
+Se si seleziona **Gestisci**, viene visualizzata la finestra dei **Dettagli della persona** con tutti i visi da cui viene eseguito il training del modello di persona. Questi visi provengono da occorrenze di tale persona nei video che usano questo modello di persona o dalle immagini caricate manualmente.
+
+> [!TIP]
+> È possibile visualizzare la finestra dei **Dettagli della persona** facendo clic sul nome della persona oppure facendo clic su **Gestisci**, come illustrato in precedenza.
+
+#### <a name="add-a-face"></a>Aggiungi un volto
 
 È possibile aggiungere più visi alla persona selezionando **Aggiungi immagini**.
+
+#### <a name="delete-a-face"></a>Eliminare un viso
+
+Selezionare l'immagine che si desidera eliminare e fare clic su **Elimina**.
+
+#### <a name="rename-and-delete-the-person"></a>Rinominare ed eliminare la persona 
 
 È possibile utilizzare il riquadro Gestisci per rinominare la persona ed eliminare la persona dal modello person.
 

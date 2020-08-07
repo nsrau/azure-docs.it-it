@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808712"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876632"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -199,15 +199,14 @@ Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono es
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel) e un valore **medio** (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse.
+Inserire file PNG del logo dell'offerta in tutte e quattro le dimensioni in pixel seguenti:
 
-Tutte e tre le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
+- **Piccola (48 x 48)**
+- **Media (90 X 90)**
+- **Grande (216 x 216)**
+- **Molto grande (255 X 115)**
 
-- **Piccola** (48 x 48)
-- **Media** (90 x 90)
-- **Grande** (compreso tra 216 x 216 e 350 x 350)
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Tutti e quattro i logo sono obbligatori e vengono usati in posizioni diverse nella presentazione del marketplace.
 
 #### <a name="screenshots-optional"></a>Screenshot (facoltativo)
 
@@ -232,7 +231,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Indirizzo privacy policy (collegamento)
 6. Nome
 7. Riepilogo
-8. Descrizione
+8. Description
 9. Collegamenti utili
 10. Screenshot/video
 
@@ -253,7 +252,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Nome
-2. Descrizione
+2. Description
 3. Collegamenti utili
 4. Schermate
 

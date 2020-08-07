@@ -1,6 +1,6 @@
 ---
 title: Visualizzare lo stato dei processi di Importazione/Esportazione di Azure | Microsoft Docs
-description: Informazioni su come visualizzare lo stato dei processi di Importazione/Esportazione e delle unità usate.
+description: Informazioni su come visualizzare lo stato dei processi di importazione/esportazione di Azure e delle unità usate. Comprendere i fattori che influiscono sul tempo necessario per l'elaborazione di un processo.
 author: alkohli
 services: storage
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7a000ab4a465e3b19efe6f2853bcd19dca47e440
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c75c9a2d0b491cc00d0fc58054b9bb1e58a364b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514132"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905721"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualizzare lo stato dei processi di Importazione/Esportazione di Azure
 
@@ -28,15 +28,15 @@ Questo articolo fornisce informazioni su come visualizzare lo stato delle unità
 
 Viene visualizzato uno degli stati di processo seguenti, in base al punto in cui si trova l'unità nel processo.
 
-| Stato processo | Descrizione |
+| Stato processo | Description |
 |:--- |:--- |
 | Creating | Dopo la creazione di un processo, lo stato è impostato su **Creazione**. Mentre il processo si trova nello stato **Creazione**, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere in questo stato per un massimo di due settimane; trascorse le quali viene automaticamente eliminato dal servizio. |
 | Spedizione | Dopo aver spedito il pacchetto, è consigliabile aggiornare le informazioni di tracciabilità nel portale di Azure.  Lo stato del processo viene modificato in **Spedizione**. Il processo rimane nello stato **Spedizione** per un massimo di due settimane. 
 | Ricevuto | Dopo che tutte le unità sono state ricevute nel data center, lo stato del processo viene impostato su **Ricevuto**. |
 | Transferring | Dopo l'avvio dell'elaborazione per almeno un'unità, lo stato del processo viene impostato su **Trasferimento**. Per altre informazioni, vedere [Visualizzare lo stato dell'unità](#view-drive-status). |
 | Packaging | Una volta completata l'elaborazione di tutte le unità, lo stato del processo viene impostato su **Imballaggio** fino a quando le unità non vengono rispedite all'utente. |
-| Completed | Dopo che tutte le unità sono state rispedite, se il processo è stato completato senza errori, il suo stato viene impostato su **Completato**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Completato**. |
-| Chiuso | Dopo che tutte le unità sono state rispedite, se si sono verificati errori durante l'elaborazione del processo, il suo stato viene impostato su **Chiuso**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Chiuso**. |
+| Completi | Dopo che tutte le unità sono state rispedite, se il processo è stato completato senza errori, il suo stato viene impostato su **Completato**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Completato**. |
+| Chiusa | Dopo che tutte le unità sono state rispedite, se si sono verificati errori durante l'elaborazione del processo, il suo stato viene impostato su **Chiuso**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Chiuso**. |
 
 ## <a name="view-drive-status"></a>Visualizzare lo stato dell'unità
 
@@ -44,13 +44,13 @@ La tabella di seguito descrive il ciclo di vita di una singola unità attraverso
 
 La tabella seguente descrive ogni stato in cui può trovarsi un'unità in un processo.
 
-| Stato dell'unità | Descrizione |
+| Stato dell'unità | Description |
 |:--- |:--- |
 | Specificata | Per un processo di importazione, quando il processo viene creato dal portale di Azure, lo stato iniziale di un'unità è **Specificata**. Per un processo di esportazione, lo stato iniziale dell'unità è **Ricevuta**, perché non è stata specificata alcuna unità al momento della creazione del processo. |
 | Ricevuto | Le unità passano allo stato **Ricevuta** quando il servizio Importazione/Esportazione ha elaborato le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è **Ricevuta**. |
 | MaiRicevuta | L'unità passa allo stato **MaiRicevuta** se il pacchetto di un processo viene ricevuto, ma non contiene l'unità. Un'unità può anche passare a questo stato se sono trascorse due settimane da quando il servizio ha ricevuto le informazioni sulla spedizione, ma il pacchetto non è ancora stato ricevuto nel data center. |
 | Transferring | Un'unità passa allo stato **Trasferimento** quando il servizio inizia a trasferire i dati dall'unità ad Archiviazione di Azure. |
-| Completed | Un'unità passa allo stato **Completata** se il servizio ha trasferito correttamente tutti i dati senza errori.
+| Completi | Un'unità passa allo stato **Completata** se il servizio ha trasferito correttamente tutti i dati senza errori.
 | CompletataPiùInformazioni | Un'unità passa allo stato **CompletataPiùInformazioni** se il servizio ha riscontrato problemi durante la copia dei dati da o verso l'unità. Le informazioni possono includere errori, avvisi o messaggi informativi sulla sovrascrittura dei BLOB.
 | Rispedita | Un'unità passa allo stato **Rispedita** quando viene spedita dal data center all'indirizzo mittente. |
 
@@ -60,7 +60,7 @@ Questa immagine dal portale di Azure consente di visualizzare lo stato dell'unit
 
 La tabella seguente descrive gli stati di errore delle unità e le azioni intraprese corrispondenti.
 
-| Stato dell'unità | Event | Risoluzione/Passaggio successivo |
+| Stato dell'unità | event | Risoluzione/Passaggio successivo |
 |:--- |:--- |:--- |
 | MaiRicevuta | Un'unità contrassegnata come **MaiRicevuta** (perché non è stata ricevuta come parte della spedizione del processo) viene ricevuta con un'altra spedizione. | Il team delle operazioni modifica lo stato in **Ricevuta**. |
 | N/D | Un'unità che non fa parte di alcun processo arriva al data center come parte di un altro processo. | L'unità viene contrassegnata come unità aggiuntiva e viene restituita al cliente una volta completato il processo associato al pacchetto originale. |

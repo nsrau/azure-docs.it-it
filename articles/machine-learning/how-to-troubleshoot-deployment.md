@@ -8,15 +8,15 @@ ms.subservice: core
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 03/05/2020
+ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: troubleshooting, contperfq4, tracking-python
-ms.openlocfilehash: 4741c6348c2a4077776d2d79bee56de26f62e2d1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: troubleshooting, contperfq4, devx-track-python
+ms.openlocfilehash: 3f8a3c705878e212e6a26670e20b5a81a3f2a6ba
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540938"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904378"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Risolvere i problemi di distribuzione Docker dei modelli con il servizio Azure Kubernetes e le istanze di contenitore di Azure 
 
@@ -286,175 +286,7 @@ Un codice di stato 504 indica che si è verificato il timeout della richiesta. I
 
 ## <a name="advanced-debugging"></a>Debug avanzato
 
-In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando Visual Studio Code e Python Tools for Visual Studio (PTVSD), è possibile connettersi al codice in esecuzione all'interno del contenitore Docker.
-
-> [!IMPORTANT]
-> Questo metodo di debug non funziona quando si usano `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. Al contrario, è necessario creare un'immagine usando il metodo [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-).
-
-Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker funzionante nel sistema locale. Per altre informazioni sull'uso di Docker, vedere la [Documentazione di Docker](https://docs.docker.com/).
-
-### <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
-
-1. Per installare Python Tools for Visual Studio (PTVSD) nell'ambiente di sviluppo VS Code locale, usare il comando seguente:
-
-    ```
-    python -m pip install --upgrade ptvsd
-    ```
-
-    Per altre informazioni sull'uso di PTVSD con VS Code, vedere [Debug remoto](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
-
-1. Per configurare VS Code per la comunicazione con l'immagine Docker, creare una nuova configurazione di debug:
-
-    1. Da VS Code selezionare il menu __Debug__, quindi selezionare __Apri configurazioni__. Viene aperto un file denominato __launch.json__.
-
-    1. Nel file __launch.json__ trovare la riga che contiene `"configurations": [` e inserire il testo seguente dopo di essa:
-
-        ```json
-        {
-            "name": "Azure Machine Learning: Docker Debug",
-            "type": "python",
-            "request": "attach",
-            "port": 5678,
-            "host": "localhost",
-            "pathMappings": [
-                {
-                    "localRoot": "${workspaceFolder}",
-                    "remoteRoot": "/var/azureml-app"
-                }
-            ]
-        }
-        ```
-
-        > [!IMPORTANT]
-        > Se nella sezione Configurazioni sono già presenti altre voci, aggiungere una virgola (,) dopo il codice inserito.
-
-        Questa sezione si connette al contenitore Docker usando la porta 5678.
-
-    1. Salvare il file __launch.json__.
-
-### <a name="create-an-image-that-includes-ptvsd"></a>Creare un'immagine che includa PTVSD
-
-1. Modificare l'ambiente Conda per la distribuzione, in modo che includa PTVSD. L'esempio seguente illustra come aggiungerlo usando il parametro `pip_packages`:
-
-    ```python
-    from azureml.core.conda_dependencies import CondaDependencies 
-
-
-    # Usually a good idea to choose specific version numbers
-    # so training is made on same packages as scoring
-    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
-                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
-                                 pip_packages = ['azureml-defaults==1.0.45', 'ptvsd'])
-
-    with open("myenv.yml","w") as f:
-        f.write(myenv.serialize_to_string())
-    ```
-
-1. Per avviare PTVSD e attendere la connessione all'avvio del servizio, aggiungere quanto segue all'inizio del file `score.py`:
-
-    ```python
-    import ptvsd
-    # Allows other computers to attach to ptvsd on this IP address and port.
-    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
-    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
-    ptvsd.wait_for_attach(timeout = 30)
-    print("Debugger attached...")
-    ```
-
-1. Creare un'immagine in base alla definizione dell'ambiente ed eseguire il pull dell'immagine nel Registro di sistema locale. Durante il debug, potrebbe essere necessario apportare modifiche ai file dell'immagine senza doverla ricreare. Per installare un editor di testo (Vim) nell'immagine Docker, usare le proprietà `Environment.docker.base_image` e `Environment.docker.base_dockerfile`:
-
-    > [!NOTE]
-    > In questo esempio si presuppone che `ws` punti all'area di lavoro di Azure Machine Learning e che `model` sia il modello distribuito. Il file `myenv.yml` contiene le dipendenze Conda create nel passaggio 1.
-
-    ```python
-    from azureml.core.conda_dependencies import CondaDependencies
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
-
-
-    myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-    myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04\nRUN apt-get update && apt-get install vim -y"
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    package = Model.package(ws, [model], inference_config)
-    package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
-    package.pull()
-    ```
-
-    Una volta che l'immagine è stata creata e scaricata, il percorso dell'immagine (inclusi repository, nome e tag, che in questo caso è anche il codice hash) viene visualizzato in un messaggio simile al seguente:
-
-    ```text
-    Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
-    ```
-
-1. Per semplificare le operazioni con l'immagine, usare il comando seguente per aggiungere un tag. Sostituire `myimagepath` con il valore della posizione del passaggio precedente.
-
-    ```bash
-    docker tag myimagepath debug:1
-    ```
-
-    Per i passaggi rimanenti, è possibile fare riferimento all'immagine locale come `debug:1` anziché al valore del percorso dell'immagine completa.
-
-### <a name="debug-the-service"></a>Eseguire il debug del servizio
-
-> [!TIP]
-> Se si imposta un timeout per la connessione PTVSD nel file `score.py`, è necessario connettere VS Code alla sessione di debug prima della scadenza del timeout. Avviare VS Code, aprire la copia locale di `score.py`, impostare un punto di interruzione e fare in modo che sia pronto prima di usare i passaggi descritti in questa sezione.
->
-> Per altre informazioni sul debug e sull'impostazione di punti di interruzione, vedere [Debug](https://code.visualstudio.com/Docs/editor/debugging).
-
-1. Per avviare un contenitore Docker usando l'immagine, usare il comando seguente:
-
-    ```bash
-    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
-    ```
-
-1. Per aggiungere VS Code a PTVSD all'interno del contenitore, aprire VS Code e premere il tasto F5 oppure selezionare __Debug__. Quando richiesto, selezionare la configurazione __Azure Machine Learning: Debug di Docker__. È anche possibile selezionare l'icona Debug dalla barra laterale, la voce __Azure Machine Learning: Debug di Docker__ dal menu a discesa Debug, quindi usare la freccia verde per collegare il debugger.
-
-    ![Icona Debug, pulsante Avvia debug e selettore della configurazione](./media/how-to-troubleshoot-deployment/start-debugging.png)
-
-A questo punto, VS Code si connette a PTVSD all'interno del contenitore Docker e si arresta in corrispondenza del punto di interruzione impostato in precedenza. È ora possibile scorrere il codice durante l'esecuzione, visualizzare le variabili e così via.
-
-Per altre informazioni sull'uso di VS Code per eseguire il debug di Python, vedere [Eseguire il debug del codice Python](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
-
-<a id="editfiles"></a>
-### <a name="modify-the-container-files"></a>Modificare i file contenitore
-
-Per apportare modifiche ai file nell'immagine, è possibile connettersi al contenitore in esecuzione ed eseguire una shell Bash. Da qui è possibile usare Vim per modificare i file:
-
-1. Per connettersi al contenitore in esecuzione e avviare una shell Bash nel contenitore, usare il comando seguente:
-
-    ```bash
-    docker exec -it debug /bin/bash
-    ```
-
-1. Per trovare i file usati dal servizio, usare il comando seguente dalla shell Bash nel contenitore se la directory predefinita è diversa da `/var/azureml-app`:
-
-    ```bash
-    cd /var/azureml-app
-    ```
-
-    Da qui è possibile usare Vim per modificare il file `score.py`. Per altre informazioni sull'uso di Vim, vedere [Using the Vim editor](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html) (Uso dell'editor Vim).
-
-1. Le modifiche apportate a un contenitore in genere non vengono rese persistenti. Per salvare le modifiche apportate, usare il comando seguente prima di uscire dalla shell avviata nel passaggio precedente, ovvero in un'altra shell:
-
-    ```bash
-    docker commit debug debug:2
-    ```
-
-    Questo comando crea una nuova immagine denominata `debug:2`, che contiene le modifiche.
-
-    > [!TIP]
-    > Per rendere effettive le modifiche, sarà necessario arrestare il contenitore corrente e iniziare a usare la nuova versione.
-
-1. Assicurarsi di mantenere le modifiche apportate ai file nel contenitore sincronizzate con i file locali usati da VS Code. In caso contrario, il debugger non funzionerà come previsto.
-
-### <a name="stop-the-container"></a>Arrestare il contenitore
-
-Per arrestare il contenitore, usare il comando seguente:
-
-```bash
-docker stop debug
-```
+In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando Visual Studio Code e debugpy, è possibile connettersi al codice in esecuzione all'interno del contenitore docker. Per ulteriori informazioni, vedere il [debug interattivo in vs Code Guida](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

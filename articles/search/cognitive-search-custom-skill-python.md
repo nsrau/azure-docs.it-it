@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: aac184b9dc7eae8afcf796376d2f7dca684b4367
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604695"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852787"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Esempio: creare una competenza personalizzata usando Python
 
@@ -32,7 +32,7 @@ L'abilità personalizzata è semplice in base alla progettazione (concatena due 
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
-  + [Estensione di funzioni di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+  + [Estensione Funzioni di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Creare una funzione di Azure
 
@@ -208,7 +208,7 @@ Ora che si dispone della chiave host predefinita, testare la funzione come segue
 POST [Function URL you copied above]
 ```
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Request Body
 ```json
 {
     "values": [

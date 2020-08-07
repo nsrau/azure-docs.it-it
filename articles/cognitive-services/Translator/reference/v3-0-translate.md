@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/17/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 512632faae453ebdf7cb7b279fe2d29b25d23d6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090859"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903987"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: Traduci
 
@@ -104,7 +104,7 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>Descrizione</th>
+  <th>Description</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -136,7 +136,7 @@ Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un ogg
 Si applicano le limitazioni seguenti:
 
 * La matrice deve essere composta al massimo da 100 elementi.
-* L'intero testo incluso nella richiesta non può superare 5.000 caratteri inclusi gli spazi.
+* L'intero testo incluso nella richiesta non può superare i 10.000 caratteri, inclusi gli spazi.
 
 ## <a name="response-body"></a>Corpo della risposta
 
@@ -182,7 +182,7 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>Descrizione</th>
+  <th>Description</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -364,7 +364,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Operazione</th>
+  <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>

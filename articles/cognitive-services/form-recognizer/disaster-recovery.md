@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ff2c7c0d72dff318c7582d9ae5339682bc95
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028220"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903341"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Eseguire il backup e il ripristino dei modelli di riconoscimento moduli
 
@@ -54,7 +54,7 @@ Si otterrà una `201\Created` risposta con un `modelId` valore nel corpo. Questa
 ```
 HTTP/1.1 201 Created
 Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
-{"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+{"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 ```
 
 ## <a name="start-copy-operation"></a>Avvia operazione di copia
@@ -62,7 +62,7 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0
 La richiesta HTTP seguente avvia l'operazione di copia sulla risorsa di origine. È necessario immettere l'endpoint e la chiave della risorsa di origine come intestazioni. Si noti che l'URL della richiesta contiene l'ID del modello di origine che si vuole copiare.
 
 ```
-POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copy HTTP/1.1
+POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/<your model ID>/copy HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -72,7 +72,7 @@ Il corpo della richiesta deve avere il formato seguente. È necessario immettere
 {
    "targetResourceId": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}",  
    "targetResourceRegion": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}",
-   "copyAuthorization": {"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+   "copyAuthorization": {"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 }
 ```
 
@@ -88,7 +88,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Errori comuni
 
-|Errore|Soluzione|
+|Errore|Risoluzione|
 |:--|:--|
 | 400/richiesta non valida con`"code:" "1002"` | Indica un errore di convalida o una richiesta di copia non formattata correttamente. I problemi comuni includono: a) payload non valido o modificato `copyAuthorization` . b) valore scaduto per il `expirationDateTimeTicks` token (il `copyAuhtorization` payload è valido per 24 ore). c) non valido o non supportato `targetResourceRegion` . d) stringa non valida o con formato non valido `targetResourceId` .
 |
@@ -112,7 +112,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Errori comuni
 
-|Errore|Soluzione|
+|Errore|Risoluzione|
 |:--|:--|
 |"Errors": [{"code": "AuthorizationError",<br>"message": "errore di autorizzazione a causa di <br>attestazioni di autorizzazione mancanti o non valide. "}]   | Si verifica quando il `copyAuthorization` payload o il contenuto viene modificato rispetto a quello restituito dall' `copyAuthorization` API. Verificare che il payload corrisponda esattamente al contenuto restituito dalla `copyAuthorization` chiamata precedente.|
 |"Errors": [{"code": "AuthorizationError",<br>"messaggio": "Impossibile recuperare l'autorizzazione <br>metadati. Se il problema persiste, usare un'altra <br>modello di destinazione in cui eseguire la copia. "}] | Indica che il `copyAuthorization` payload viene riutilizzato con una richiesta di copia. Una richiesta di copia che ha esito positivo non consentirà altre richieste che utilizzano lo stesso `copyAuthorization` payload. Se si genera un errore separato, ad esempio quelli indicati di seguito, e successivamente si ritenta la copia con lo stesso payload di autorizzazione, viene generato questo errore. La risoluzione consiste nel generare un nuovo `copyAuthorization` payload, quindi eseguire nuovamente la richiesta di copia.|

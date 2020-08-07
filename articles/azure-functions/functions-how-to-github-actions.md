@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 3fcf26670ec03b1d3a496574e58ae706acdf5c53
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559097"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853292"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Recapito continuo tramite l'azione GitHub
 
@@ -198,14 +198,14 @@ Nell'esempio seguente viene illustrata la parte del flusso di lavoro che compila
 ```
 ---
 
-## <a name="deploy-the-function-app"></a>Distribuire il codice della funzione
+## <a name="deploy-the-function-app"></a>Distribuire l'app per le funzioni
 
 Per distribuire il codice in un'app per le funzioni, sarà necessario usare l' `Azure/functions-action` azione. Questa azione è costituita da due parametri:
 
 |Parametro |Spiegazione  |
 |---------|---------|
-|**_app-name_** | Obbligatorio Nome dell'app per le funzioni. |
-|_**slot-name**_ | Opzionale Nome dello slot di [distribuzione](functions-deployment-slots.md) in cui si desidera eseguire la distribuzione. Lo slot deve essere già definito nell'app per le funzioni. |
+|**_Nome app_** | Obbligatorio Nome dell'app per le funzioni. |
+|_**nome slot**_ | Opzionale Nome dello slot di [distribuzione](functions-deployment-slots.md) in cui si desidera eseguire la distribuzione. Lo slot deve essere già definito nell'app per le funzioni. |
 
 
 Nell'esempio seguente viene utilizzata la versione 1 di `functions-action` :
@@ -223,4 +223,4 @@ Nell'esempio seguente viene utilizzata la versione 1 di `functions-action` :
 Per visualizzare un file con estensione YAML completo del flusso di lavoro, vedere uno dei file nel [repository di esempi del flusso di lavoro azioni di GitHub di Azure](https://aka.ms/functions-actions-samples) `functionapp` con il nome. È possibile usare questi esempi come punto di partenza per il flusso di lavoro.
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sulle azioni di GitHub](https://help.github.com/en/articles/about-github-actions)
+> [Altre informazioni su GitHub Actions](https://help.github.com/en/articles/about-github-actions)
