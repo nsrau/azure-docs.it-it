@@ -1,19 +1,19 @@
 ---
 title: Risolvere i problemi di connessione da punto a sito di Azure
 titleSuffix: Azure VPN Gateway
-description: Informazioni su come risolvere i problemi di connessione da punto a sito.
+description: Informazioni su come risolvere i problemi di connessione da punto a sito comuni che possono verificarsi in Azure, inclusi diversi errori del client VPN.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: b997942fd8d8a90b4bd395c2afa7d99b64a97ad8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8fd32cb99db115484c913e1a0f00b038b62367e9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037750"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920654"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 

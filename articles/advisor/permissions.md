@@ -3,16 +3,16 @@ title: Autorizzazioni in Azure Advisor
 description: Le autorizzazioni di Advisor e il modo in cui possono bloccare la possibilità di configurare le sottoscrizioni o posticipare o ignorare le raccomandazioni.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057585"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927386"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorizzazioni in Azure Advisor
 
-Azure Advisor fornisce consigli basati sull'utilizzo e la configurazione delle risorse e delle sottoscrizioni di Azure. Advisor utilizza i [ruoli predefiniti](../role-based-access-control/built-in-roles.md) forniti dal controllo degli [accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) per gestire l'accesso ai consigli e alle funzionalità di Advisor. 
+Azure Advisor fornisce consigli basati sull'utilizzo e la configurazione delle risorse e delle sottoscrizioni di Azure. Advisor usa i [ruoli predefiniti](../role-based-access-control/built-in-roles.md) forniti dal controllo degli [accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) per gestire l'accesso ai consigli e alle funzionalità di Advisor. 
 
 ## <a name="roles-and-their-access"></a>Ruoli e relativo accesso
 

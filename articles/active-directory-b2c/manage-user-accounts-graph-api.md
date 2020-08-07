@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d523aeff87b95aaea91df9ad5d3f44c73c871b71
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528600"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921402"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gestire gli account utente Azure AD B2C con Microsoft Graph
 
@@ -60,7 +60,7 @@ Un utente con un account cliente può accedere con più identità. Ad esempio no
 
 Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity][graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
 
-| Proprietà   | Type |Description|
+| Proprietà   | Type |Descrizione|
 |:---------------|:--------|:----------|
 |signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale: `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` , `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su `federated` .|
 |autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è `federated` ), il valore è il nome dell'autorità emittente, ad esempio`facebook.com`|
@@ -123,7 +123,7 @@ L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con a
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-## <a name="code-sample"></a>Esempio di codice
+## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Esempio di codice: come gestire gli account utente a livello di codice
 
 Questo esempio di codice è un'applicazione console .NET Core che usa l' [SDK Microsoft Graph](https://docs.microsoft.com/graph/sdks/sdks-overview) per interagire con Microsoft Graph API. Il codice illustra come chiamare l'API per gestire gli utenti a livello di codice in un tenant Azure AD B2C.
 È possibile [scaricare l'archivio di esempio](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*. zip), [esplorare il repository](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) in GitHub o clonare il repository:

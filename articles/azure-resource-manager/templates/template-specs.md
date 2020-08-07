@@ -2,15 +2,15 @@
 title: Cenni preliminari sulle specifiche del modello
 description: Viene descritto come creare specifiche di modello e condividerle con altri utenti nell'organizzazione.
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/06/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f5151550b9f23ba63380688f53325f8976f14a51
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497801"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921879"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifiche del modello di Azure Resource Manager (anteprima)
 
@@ -18,10 +18,10 @@ Una specifica del modello è un nuovo tipo di risorsa per l'archiviazione di un 
 
 **Microsoft. resources/templateSpecs** è il nuovo tipo di risorsa per le specifiche del modello. È costituito da un modello principale e da un numero qualsiasi di modelli collegati. Azure archivia in modo sicuro le specifiche del modello nei gruppi di risorse. Le specifiche del modello supportano il [controllo delle versioni](#versioning).
 
-Per distribuire la specifica del modello, si usano strumenti standard di Azure come PowerShell, l'interfaccia della riga di comando di Azure, portale di Azure, REST e altri SDK e client supportati. Si utilizzano gli stessi comandi e si passano gli stessi parametri per il modello.
+Per distribuire la specifica del modello, si usano strumenti standard di Azure come PowerShell, l'interfaccia della riga di comando di Azure, portale di Azure, REST e altri SDK e client supportati. Usare gli stessi comandi come per il modello.
 
 > [!NOTE]
-> Le specifiche del modello sono attualmente in anteprima. Per usarlo, è necessario [iscriversi all'elenco di attesa](https://aka.ms/templateSpecOnboarding).
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarla, è necessario [iscriversi alla lista di attesa](https://aka.ms/templateSpecOnboarding).
 
 ## <a name="why-use-template-specs"></a>Perché usare le specifiche del modello?
 
@@ -31,27 +31,38 @@ Il vantaggio di usare le specifiche dei modelli è che è possibile creare model
 
 I modelli inclusi in una specifica del modello devono essere verificati dagli amministratori dell'organizzazione per seguire i requisiti e le linee guida dell'organizzazione.
 
-## <a name="create-template-spec"></a>Crea specifica modello
+## <a name="create-template-spec"></a>Creare la specifica di modello
 
 L'esempio seguente illustra un modello semplice per la creazione di un account di archiviazione in Azure.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
-      "location": "[resourceGroup().location]",
-      "kind": "StorageV2",
-      "sku": {
-        "name": "Premium_LRS",
-        "tier": "Premium"
-      }
-    }
-  ]
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_ZRS",
+                "Premium_LRS"
+            ]
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[concat('store', uniquestring(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "[parameters('storageAccountType')]"
+            }
+        }
+    ]
 }
 ```
 
@@ -75,7 +86,7 @@ Get-AzTemplateSpec
 Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 ```
 
-## <a name="deploy-template-spec"></a>Distribuisci specifiche modello
+## <a name="deploy-template-spec"></a>Distribuire la specifica di modello
 
 Dopo aver creato la specifica del modello, gli utenti con accesso in **lettura** alla specifica del modello possono distribuirla. Per informazioni sulla concessione dell'accesso, vedere [esercitazione: concedere a un gruppo l'accesso alle risorse di Azure usando Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
 
@@ -105,6 +116,42 @@ $id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG
+```
+
+## <a name="parameters"></a>Parametri
+
+Il passaggio di parametri alla specifica del modello è esattamente come passare parametri a un modello ARM. Aggiungere i valori dei parametri inline o in un file di parametri.
+
+Per passare un parametro inline, usare:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName demoRG `
+  -StorageAccountType Standard_GRS
+```
+
+Per creare un file di parametri locale, usare:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "StorageAccountType": {
+      "value": "Standard_GRS"
+    }
+  }
+}
+```
+
+Passare quindi il file dei parametri con:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName demoRG `
+  -TemplateParameterFile ./mainTemplate.parameters.json
 ```
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>Creare una specifica di modello con i modelli collegati

@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: df6de62eefc0971ece0e0035299425689af5f784
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c11de5daacfd0d0b3d12c38064dac704c98ce60b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307625"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924190"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -49,7 +49,7 @@ Quando un dispositivo è connesso a un hub IoT, gli SDK per dispositivi fornisco
 
 La tabella seguente contiene collegamenti a esempi di codice per ogni linguaggio supportato e specifica il parametro da usare per stabilire una connessione all'hub IoT con il protocollo MQTT o MQTT su Web Socket.
 
-| Lingua | Parametro del protocollo MQTT | Parametro del protocollo MQTT su Web Socket
+| Linguaggio | Parametro del protocollo MQTT | Parametro del protocollo MQTT su Web Socket
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
@@ -437,7 +437,7 @@ Come considerazione finale, se è necessario personalizzare il comportamento del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul protocollo MQTT, vedere la [documentazione di MQTT](https://mqtt.org/documentation).
+Per altre informazioni sul protocollo MQTT, vedere la [documentazione di MQTT](https://mqtt.org/).
 
 Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, vedere:
 

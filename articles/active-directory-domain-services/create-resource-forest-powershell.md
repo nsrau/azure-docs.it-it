@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505770"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921997"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Creare una foresta di risorse Azure Active Directory Domain Services e un trust tra foreste in uscita per un dominio locale usando Azure PowerShell
 
@@ -148,8 +148,8 @@ Prima di iniziare, assicurarsi di comprendere le [considerazioni e le raccomanda
 
 1. Creare la connettività ibrida alla rete locale in Azure usando una connessione VPN di Azure o Azure ExpressRoute. La configurazione di rete ibrida esula dall'ambito di questa documentazione e potrebbe essere già presente nell'ambiente in uso. Per informazioni dettagliate su scenari specifici, vedere gli articoli seguenti:
 
-    * [VPN da sito a sito di Azure](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Panoramica di Azure ExpressRoute](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [VPN da sito a sito di Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Panoramica di Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > Se si crea la connessione direttamente alla rete virtuale del dominio gestito, usare una subnet del gateway separata. Non creare il gateway nella subnet del dominio gestito.

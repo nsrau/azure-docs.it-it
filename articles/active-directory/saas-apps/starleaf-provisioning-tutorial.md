@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74e37bda28bed3ecd2c842c4659bcff3cb86eb6a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064292"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920688"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Esercitazione: configurare StarLeaf per il provisioning utenti automatico
 
@@ -36,7 +36,7 @@ Questa esercitazione descrive i passaggi da eseguire in StarLeaf e Azure Active 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * Un tenant di Azure AD.
-* [Tenant di StarLeaf](https://www.starleaf.com/solutions/).
+* [Tenant di StarLeaf](https://starleaf.com/).
 * Un account utente in StarLeaf con autorizzazioni di amministratore.
 
 ## <a name="assign-users-to-starleaf"></a>Assegnare gli utenti a StarLeaf
@@ -58,7 +58,7 @@ Prima di configurare StarLeaf per il provisioning utenti automatico con Azure AD
 
     ![StarLeaf aggiungere SCIM](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Consente di selezionare il **tipo** da Microsoft Azure Active Directory. Immettere un nome appropriato nel **nome**. Fare clic su **Apply**.
+2. Consente di selezionare il **tipo** da Microsoft Azure Active Directory. Immettere un nome appropriato nel **nome**. Fare clic su **Applica**.
 
     ![StarLeaf aggiungere SCIM](media/starleaf-provisioning-tutorial/image01.png)
 
@@ -115,7 +115,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a StarLeaf**.
 

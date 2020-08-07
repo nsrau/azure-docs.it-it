@@ -1,6 +1,6 @@
 ---
 title: Guida dell'amministratore del portale per Azure Data Box Disk | Microsoft Docs
-description: Descrive come usare il portale di Azure per amministrare Azure Data Box.
+description: Informazioni su come gestire l'Data Box Disk usando il portale di Azure. Gestire gli ordini, gestire i dischi e tenere traccia dello stato di un ordine durante l'avanzamento.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707736"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924754"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usare il portale di Azure per amministrare Azure Data Box
 
@@ -128,7 +128,7 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 |Ritirato     |La spedizione di ritorno è stata ritirata. <br> Dopo che la spedizione è stata ricevuta dal data center di Azure, i dati vengono caricati automaticamente in Azure.         |
 |Ricevuto     | I dischi sono stati ricevuti nel data center di Azure. La copia dei dati inizierà a breve.        |
 |Dati copiati     |La copia dei dati è in corso.<br> Attendere il completamento della copia dei dati.         |
-|Completed       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
+|Completato       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
 |Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori. <br> Esaminare i log degli errori per il caricamento usando il percorso specificato nella **Panoramica**. Per altre informazioni, passare a [Scaricare i log di errori di caricamento](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine.     |
 

@@ -3,12 +3,12 @@ title: Opzioni di autenticazione del registro
 description: Opzioni di autenticazione per un registro contenitori di Azure privato, incluso l'accesso con un'identità di Azure Active Directory, l'uso di entità servizio e l'uso di credenziali di amministratore facoltative.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 0d44a97e01eef709dff47342e4503d1e0263a225
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760584"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926321"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Eseguire l'autenticazione con un Registro Azure Container
 
@@ -44,7 +44,7 @@ Quando si accede con `az acr login`, l'interfaccia della riga di comando usa il 
 
 Per l'accesso al registro di sistema, il token usato da `az acr login` è valido per **3 ore**, quindi è consigliabile accedere sempre al registro di sistema prima di eseguire un `docker` comando. In caso di scadenza del token, è possibile aggiornarlo usando di nuovo il comando `az acr login` per eseguire nuovamente l'autenticazione. 
 
-L'uso di `az acr login` con le identità di Azure offre l'[accesso in base al ruolo](../role-based-access-control/role-assignments-portal.md). Per alcuni scenari, potrebbe essere necessario accedere a un registro con la propria identità personale in Azure AD o configurare altri utenti di Azure con [ruoli e autorizzazioni](container-registry-roles.md)specifici per RBAC. Per gli scenari tra servizi o per gestire le esigenze di un gruppo di lavoro o di un flusso di lavoro di sviluppo in cui non si vuole gestire l'accesso singolo, è anche possibile accedere con un' [identità gestita per le risorse di Azure](container-registry-authentication-managed-identity.md).
+`az acr login`L'uso di con le identità di Azure fornisce il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md). Per alcuni scenari, potrebbe essere necessario accedere a un registro con la propria identità personale in Azure AD o configurare altri utenti di Azure con [autorizzazioni e ruoli di Azure](container-registry-roles.md)specifici. Per gli scenari tra servizi o per gestire le esigenze di un gruppo di lavoro o di un flusso di lavoro di sviluppo in cui non si vuole gestire l'accesso singolo, è anche possibile accedere con un' [identità gestita per le risorse di Azure](container-registry-authentication-managed-identity.md).
 
 ### <a name="az-acr-login-with---expose-token"></a>AZ ACR login con--Expose-token
 
@@ -73,7 +73,7 @@ docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-0000000000
 
 ## <a name="service-principal"></a>Entità servizio
 
-Se si assegna un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) al registro, l'applicazione o il servizio può usarla per eseguire l'autenticazione headless. Le entità servizio consentono di eseguire l'[accesso in base al ruolo](../role-based-access-control/role-assignments-portal.md) a un registro. È possibile assegnare più entità servizio a un registro. L'uso di più entità servizio consente di definire un accesso diverso per applicazioni diverse.
+Se si assegna un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) al registro, l'applicazione o il servizio può usarla per eseguire l'autenticazione headless. Le entità servizio consentono il [controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/role-assignments-portal.md) a un registro ed è possibile assegnare più entità servizio a un registro. L'uso di più entità servizio consente di definire un accesso diverso per applicazioni diverse.
 
 I ruoli disponibili per un registro contenitori includono:
 

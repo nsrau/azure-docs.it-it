@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/20/2020
-ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003209"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926706"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS tramite l'attività Esegui pacchetto SSIS in Azure Data Factory
 
@@ -97,7 +97,7 @@ Nella scheda **Impostazioni** dell'attività Esegui pacchetto SSIS completare i 
 
 **SSISDB** quando il percorso del pacchetto viene selezionato automaticamente se è stato effettuato il provisioning del Azure-SSIS IR con un catalogo SSIS (SSISDB) ospitato dal server di database SQL di Azure/istanza gestita oppure è possibile selezionarlo autonomamente. Se questa opzione è selezionata, completare i passaggi seguenti.
 
-   1. Se la Azure-SSIS IR è in esecuzione e la casella di controllo **voci manuali** è deselezionata, esplorare e selezionare le cartelle, i progetti, i pacchetti e gli ambienti esistenti da SSISDB. Selezionare **Aggiorna** per recuperare le cartelle, i progetti, i pacchetti o gli ambienti appena aggiunti da SSISDB, in modo che siano disponibili per l'esplorazione e la selezione. Per individuare e selezionare gli ambienti per le esecuzioni del pacchetto, è necessario configurare i progetti in anticipo per aggiungere tali ambienti come riferimenti dalle stesse cartelle in SSISDB. Per altre informazioni, vedere [creare ed eseguire il mapping di ambienti SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   1. Se la Azure-SSIS IR è in esecuzione e la casella di controllo **voci manuali** è deselezionata, esplorare e selezionare le cartelle, i progetti, i pacchetti e gli ambienti esistenti da SSISDB. Selezionare **Aggiorna** per recuperare le cartelle, i progetti, i pacchetti o gli ambienti appena aggiunti da SSISDB, in modo che siano disponibili per l'esplorazione e la selezione. Per individuare e selezionare gli ambienti per le esecuzioni del pacchetto, è necessario configurare i progetti in anticipo per aggiungere tali ambienti come riferimenti dalle stesse cartelle in SSISDB. Per altre informazioni, vedere [creare ed eseguire il mapping di ambienti SSIS](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
    1. Per **Livello di registrazione** selezionare un ambito predefinito di registrazione per l'esecuzione del pacchetto. Selezionare la casella di controllo **personalizzata** se si desidera immettere invece il nome di registrazione personalizzato. 
 
@@ -269,7 +269,7 @@ Nella scheda **override proprietà** dell'attività Esegui pacchetto SSIS comple
 
    1. Immettere i percorsi delle proprietà esistenti nel pacchetto selezionato uno alla volta per assegnarvi i valori manualmente. Assicurarsi che esistano e siano stati immessi correttamente affinché l'esecuzione del pacchetto abbia esito positivo. Ad esempio, per eseguire l'override del valore della variabile utente, immettere il percorso nel formato seguente: `\Package.Variables[User::<variable name>].Value` . 
 
-      È possibile ottenere il **percorso della proprietà** corretto per qualsiasi proprietà del pacchetto aprendo il pacchetto che lo contiene in SSDT. Dopo aver aperto il pacchetto, selezionarne il flusso di controllo e la proprietà **configurazioni** nella finestra **Proprietà** di SSDT. A questo punto, selezionare il pulsante con i puntini di sospensione (**...**) accanto alla proprietà **configurazioni** per aprire la **libreria di configurazioni** dei pacchetti utilizzata normalmente per [creare configurazioni di pacchetto nel modello di distribuzione del pacchetto](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+      È possibile ottenere il **percorso della proprietà** corretto per qualsiasi proprietà del pacchetto aprendo il pacchetto che lo contiene in SSDT. Dopo aver aperto il pacchetto, selezionarne il flusso di controllo e la proprietà **configurazioni** nella finestra **Proprietà** di SSDT. A questo punto, selezionare il pulsante con i puntini di sospensione (**...**) accanto alla proprietà **configurazioni** per aprire la **libreria di configurazioni** dei pacchetti utilizzata normalmente per [creare configurazioni di pacchetto nel modello di distribuzione del pacchetto](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
       ![Ottenere le proprietà del pacchetto dalla proprietà SSDT-Configurations](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 

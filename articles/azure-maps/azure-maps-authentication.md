@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4aaa729ffd272c886bf5c545574d99c9de5842f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285833"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922252"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
@@ -59,7 +59,7 @@ Le applicazioni eseguiranno l'autenticazione con il tenant di Azure AD usando un
 
 Quando l'applicazione riceve un token di accesso, l'SDK e/o l'applicazione invia una richiesta HTTPS con il seguente set di intestazioni HTTP obbligatorie oltre ad altre intestazioni HTTP dell'API REST:
 
-| Nome dell'intestazione    | valore               |
+| Nome dell'intestazione    | Valore               |
 | :------------- | :------------------ |
 | x-ms-client-id | 30d7cc….9f55        |
 | Autorizzazione  | Bearer eyJ0e….HNIVN |
@@ -80,7 +80,7 @@ Per informazioni sulla visualizzazione dell'ID client, vedere [Visualizzare i de
 
 ## <a name="authorization-with-role-based-access-control"></a>Autorizzazione con il controllo degli accessi in base al ruolo
 
-Azure Maps supporta l'accesso a tutti i tipi di entità per il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) di Azure, tra cui singoli Azure ad utenti, gruppi, applicazioni, risorse di Azure e identità gestite di Azure. Ai tipi di entità viene concesso un set di autorizzazioni, noto anche come definizione di ruolo. Una definizione di ruolo fornisce le autorizzazioni per le azioni dell'API REST. L'applicazione dell'accesso a uno o più account di Azure Maps è nota come ambito. Quando si applica un'entità, una definizione di ruolo e un ambito, viene creata un'assegnazione di ruolo. 
+Azure Maps supporta l'accesso a tutti i tipi di entità per il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) , tra cui singoli Azure ad utenti, gruppi, applicazioni, risorse di Azure e identità gestite di Azure. Ai tipi di entità viene concesso un set di autorizzazioni, noto anche come definizione di ruolo. Una definizione di ruolo fornisce le autorizzazioni per le azioni dell'API REST. L'applicazione dell'accesso a uno o più account di Azure Maps è nota come ambito. Quando si applica un'entità, una definizione di ruolo e un ambito, viene creata un'assegnazione di ruolo. 
 
 Le sezioni successive illustrano i concetti e i componenti dell'integrazione di Azure Maps con Azure AD controllo degli accessi in base al ruolo. Nell'ambito del processo di configurazione dell'account Azure Maps, una directory Azure AD viene associata alla sottoscrizione di Azure in cui risiede l'account Azure maps. 
 

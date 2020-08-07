@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94b581f677e370911a60db08276ff7dd0eb45486
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414334"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927080"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Eseguire pacchetti di SQL Server Integration Services con l'utilità dtexec abilitata per Azure
 
@@ -87,7 +87,7 @@ La chiamata di AzureDTExec offre opzioni simili a quelle richiamando dtexec. Per
 - **/F [ile]**: carica un pacchetto archiviato in file System, condivisione file o file di Azure. Come valore per questa opzione, è possibile specificare il percorso UNC per il file del pacchetto in file system, condivisione file o File di Azure con la relativa estensione dtsx. Se il percorso UNC specificato contiene spazi, racchiudere l'intero percorso tra virgolette.
 - **/Conf [igFile]**: specifica un file di configurazione da cui estrarre i valori. Utilizzando questa opzione, è possibile impostare una configurazione della fase di esecuzione per il pacchetto che differisce da quella specificata in fase di progettazione. È possibile archiviare impostazioni diverse in un file di configurazione XML e quindi caricarle prima dell'esecuzione del pacchetto. Per altre informazioni, vedere [configurazioni di pacchetti SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Per specificare il valore per questa opzione, usare il percorso UNC del file di configurazione in file system, condivisione file o File di Azure con l'estensione dtsConfig. Se il percorso UNC specificato contiene spazi, racchiudere l'intero percorso tra virgolette.
 - **/Conn [ection]**: specifica le stringhe di connessione per le gestioni connessioni esistenti nel pacchetto. Utilizzando questa opzione, è possibile impostare le stringhe di connessione di run-time per le gestioni connessioni esistenti nel pacchetto che differiscono da quelle specificate in fase di progettazione. Specificare il valore per questa opzione come segue: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]` .
-- **/Set**: esegue l'override della configurazione di un parametro, una variabile, una proprietà, un contenitore, un provider di log, un enumeratore Foreach o una connessione nel pacchetto. Questa opzione può essere specificata più volte. Specificare il valore per questa opzione come segue: `property_path;value` . Ad esempio, `\package.variables[counter].Value;1` esegue l'override del valore della `counter` variabile come 1. È possibile utilizzare la **Configurazione guidata pacchetto** per trovare, copiare e incollare il valore di `property_path` per gli elementi del pacchetto di cui si desidera eseguire l'override. Per ulteriori informazioni, vedere [Configurazione guidata pacchetto](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/Set**: esegue l'override della configurazione di un parametro, una variabile, una proprietà, un contenitore, un provider di log, un enumeratore Foreach o una connessione nel pacchetto. Questa opzione può essere specificata più volte. Specificare il valore per questa opzione come segue: `property_path;value` . Ad esempio, `\package.variables[counter].Value;1` esegue l'override del valore della `counter` variabile come 1. È possibile utilizzare la **Configurazione guidata pacchetto** per trovare, copiare e incollare il valore di `property_path` per gli elementi del pacchetto di cui si desidera eseguire l'override. Per ulteriori informazioni, vedere [Configurazione guidata pacchetto](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De [crypt]**: imposta la password di decrittografia per il pacchetto configurato con il livello di protezione **EncryptAllWithPassword** / **EncryptSensitiveWithPassword** .
 
 > [!NOTE]

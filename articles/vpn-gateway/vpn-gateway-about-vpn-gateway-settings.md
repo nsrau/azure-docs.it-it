@@ -1,18 +1,18 @@
 ---
 title: 'Gateway VPN di Azure: impostazioni di configurazione'
-description: Informazioni sulle impostazioni del gateway VPN per i gateway di rete virtuale di Azure.
+description: Informazioni sulla configurazione di una connessione gateway VPN in Azure, che si basa su più risorse, ognuna delle quali contiene impostazioni configurabili.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fef54e4fff442f1c9eae523d7d278f193b84171
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708145"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926927"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
 
@@ -91,7 +91,7 @@ Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le
 
 [!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
-## <a name="connection-types"></a><a name="connectiontype"></a>Tipi di connessione
+## <a name="connection-types"></a><a name="connectiontype"></a>Tipi di connessioni
 
 Nel modello di distribuzione Resource Manager ogni configurazione richiede un tipo di connessione di gateway di rete virtuale specifico. I valori di PowerShell per Resource Manager disponibili per `-ConnectionType` sono:
 
@@ -114,7 +114,7 @@ Quando si crea il gateway di rete virtuale per una configurazione di gateway VPN
 
 Il tipo di VPN selezionato deve soddisfare tutti i requisiti di connessione per la soluzione da creare. Ad esempio, per creare una connessione di gateway VPN S2S, una connessione di gateway VPN P2S sulla stessa rete virtuale, usare il tipo *RouteBased* poiché P2S richiede questo tipo specifico. È inoltre necessario verificare che il dispositivo VPN supporti una connessione VPN di tipo RouteBased. 
 
-Dopo avere creato un gateway di rete virtuale, non è possibile modificare il tipo di VPN. È necessario eliminare il gateway di rete virtuale e crearne uno nuovo. Sono disponibili due tipi di VPN:
+Dopo avere creato un gateway di rete virtuale, non è possibile modificare il tipo di VPN. È necessario eliminare il gateway di rete virtuale e crearne uno nuovo. Esistono due tipi di VPN:
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
@@ -130,7 +130,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-## <a name="gateway-subnet"></a><a name="gwsub"></a>Subnet del gateway
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Subnet gateway
 
 Prima di creare un gateway VPN, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni del gateway VPN necessarie. Non distribuire mai nient'altro (ad esempio, altre VM) alla subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
 
@@ -169,11 +169,11 @@ Talvolta è necessario modificare le impostazioni di gateway di rete locale. Ad 
 
 Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le API REST, i cmdlet PowerShell o l'interfaccia della riga di comando di Azure per le configurazioni di Gateway VPN, vedere le pagine seguenti:
 
-| **Classico** | **Gestione risorse** |
+| **Classico** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| Non supportato | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
+| Non supportate | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

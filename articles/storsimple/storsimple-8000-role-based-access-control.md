@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535111"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920416"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controllo degli accessi in base al ruolo per StorSimple
 
@@ -163,7 +163,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 ## <a name="add-users-to-the-custom-role"></a>Aggiungere utenti al ruolo personalizzato
 
-Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione che costituisce l'ambito dell'assegnazione di ruolo. Quando si concede l'accesso, tenere presente che l'accesso concesso al nodo padre viene ereditato dal figlio. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
+Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione che costituisce l'ambito dell'assegnazione di ruolo. Quando si concede l'accesso, tenere presente che l'accesso concesso al nodo padre viene ereditato dal figlio. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 
 1. Passare a **controllo di accesso (IAM)**. Fare clic su **+Aggiungi** nel pannello Controllo di accesso.
 

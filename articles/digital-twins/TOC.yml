@@ -92,6 +92,8 @@
           href: troubleshoot-metrics.md
         - name: Abilitare la registrazione diagnostica
           href: troubleshoot-diagnostics.md
+        - name: Attivare gli avvisi
+          href: troubleshoot-alerts.md
         - name: Problemi noti
           href: troubleshoot-known-issues.md
         - name: Risoluzione dei problemi

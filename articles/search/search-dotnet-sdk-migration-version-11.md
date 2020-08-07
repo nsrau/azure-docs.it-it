@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 644184f5bb51d049d890655ada5be5ebd4c11bf7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 03d40dcaeaefe01fecbc201cf28dc20c8634af9d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909919"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926672"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Eseguire l'aggiornamento ad Azure ricerca cognitiva .NET SDK versione 11
 
@@ -48,7 +48,7 @@ Se applicabile, nella tabella seguente viene eseguito il mapping delle librerie 
 | Client usato per gli indicizzatori, le origini dati, skillsets | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**nuovo**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
-> La versione 11 Rinomina la versione 10 `SearchIndexClient` in `SearchClient` , quindi riutilizza il nome di un client che funziona con gli oggetti di mapping index, Analyzer e Synonym. Quando si aggiornano i riferimenti client, seguire la sequenza di passaggi in [passaggi per](#UpgradeSteps) eseguire l'aggiornamento per evitare confusione durante la ricerca e la sostituzione.
+> `SearchIndexClient`esiste in entrambe le versioni, ma supporta elementi diversi. Nella versione 10 `SearchIndexClient` creare indici e altri oggetti. Nella versione 11, `SearchIndexClient` funziona con gli indici esistenti. Per evitare confusione durante l'aggiornamento del codice, tenere presente l'ordine in cui i riferimenti client vengono aggiornati. Per attenuare eventuali problemi di sostituzione delle stringhe, seguire la sequenza [descritta nella procedura di aggiornamento](#UpgradeSteps) .
 
 <a name="naming-differences"></a>
 
@@ -125,7 +125,7 @@ La versione 11 supporta completamente gli oggetti e le operazioni seguenti:
 
 Le seguenti funzionalità della versione 10 non sono ancora disponibili nella versione 11. Se si usano queste funzionalità, disattivare la migrazione fino a quando non sono supportate.
 
-+ [tipi geospaziali](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.serialization.geojsonextensions)
++ tipi geospaziali
 + [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (anche se è possibile usare [questa soluzione alternativa](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)).
 + [Knowledge store](knowledge-store-concept-intro.md)
 

@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 1fdfe57c2995628855ea8e068c4f8eb2f2ac466a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500429"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927284"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
-In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione si apprenderà come:
+In questa esercitazione viene illustrato come configurare il ripristino di emergenza per server Windows e Linux fisici locali in Azure. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare i prerequisiti locali e di Azure
@@ -59,7 +59,7 @@ Ottenere un [account Microsoft Azure](https://azure.microsoft.com/).
 Verificare che l'account di Azure disponga delle autorizzazioni per la replica di macchine virtuali in Azure.
 
 - Verificare le [autorizzazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necessarie per replicare i computer in Azure.
-- Verificare e modificare le autorizzazioni per gli [accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md). 
+- Verificare e modificare le autorizzazioni di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md) . 
 
 
 
@@ -150,7 +150,7 @@ Selezionare e verificare le risorse di destinazione.
 
 ## <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
-1. Per creare un nuovo criterio di replica, fare clic su **Site Recovery infrastruttura**criteri di replica  >  **Replication Policies**  >  **+ criteri di replica**.
+1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** >  **+Criteri di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
 3. In **Soglia RPO**, specificare il limite dell'obiettivo del punto di ripristino (RPO). Questo valore specifica la frequenza con cui vengono creati punti di ripristino dei dati. Se la replica continua supera questo limite, viene generato un avviso.
 4. In **Conservazione del punto di recupero**, specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo. È supportata la conservazione fino a 24 ore per le macchine replicate in Archiviazione Premium e fino a 72 ore per Archiviazione Standard.

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ead7eb19e49574073f038648ca1d247b2dab98f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131702"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923884"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Condividere i dashboard di Azure tramite il Controllo degli accessi in base al ruolo
 
-Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il dashboard usando il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) (RBAC) di Azure. Assegnare un utente o un gruppo di utenti a un ruolo. Tale ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato.
+Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il dashboard usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md). Assegnare un utente o un gruppo di utenti a un ruolo. Tale ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato.
 
 Tutti i dashboard pubblicati vengono implementati come risorse di Azure. Esistono come elementi gestibili all'interno della sottoscrizione e sono contenuti in un gruppo di risorse. Dal punto di vista del controllo di accesso, i dashboard non sono diversi da altre risorse, ad esempio una macchina virtuale o un account di archiviazione.
 

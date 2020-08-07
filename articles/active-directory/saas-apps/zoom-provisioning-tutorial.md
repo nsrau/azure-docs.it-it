@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a2e4bbff1274a2473ac961b8355ca4193dcc69f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016264"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924904"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Esercitazione: configurare lo zoom per il provisioning utenti automatico
 
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e lo zoom](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare lo zoom per supportare il provisioning con Azure AD
+## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare lo zoom per supportare il provisioning con Azure AD
 
 1. Accedere alla console di [amministrazione dello zoom](https://zoom.us/signin). Passare a **Advanced > zoom for Developers** nel riquadro di spostamento a sinistra.
 
@@ -121,11 +121,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
    |Attributo|Type|
    |---|---|
-   |userName|Stringa|
+   |userName|string|
    |active|Boolean|
-   |name.givenName|Stringa|
-   |name.familyName|Stringa|
-   |messaggi di posta elettronica [digitare EQ "Work"]|Stringa|
+   |name.givenName|string|
+   |name.familyName|string|
+   |messaggi di posta elettronica [digitare EQ "Work"]|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -148,7 +148,7 @@ L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori

@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: ba490a1e88a242f19daf1a74fe38f02e659571da
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb536b27fe283170626ca6ffa2d21749d511f244
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026748"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923510"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto dell'app Azure Active Directory
 
@@ -532,6 +532,7 @@ Questa proprietà multivalore contiene l'elenco dei valori redirect_uri registra
 
 - `Web`
 - `InstalledClient`
+- `Spa`
 
 Per altre informazioni, vedere [Restrizioni e limitazioni di replyUrl](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 

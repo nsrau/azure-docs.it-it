@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224707"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921929"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi, le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio la [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -66,7 +66,7 @@ Il consolidamento delle risorse di accesso e l'eliminazione degli endpoint non g
 ### <a name="providing-security-for-azure-remote-management"></a>Sicurezza per la gestione remota di Azure
 Azure offre meccanismi di sicurezza utili per gli amministratori che gestiscono servizi cloud e macchine virtuali di Azure, ad esempio:
 
-* Autenticazione e [controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md).
+* Autenticazione e [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md).
 * Monitoraggio, registrazione e controllo.
 * Certificati e comunicazioni crittografate.
 * Portale di gestione Web.
@@ -118,7 +118,7 @@ Un Gateway Desktop remoto è un servizio proxy RDP basato su criteri che applica
 ## <a name="security-guidelines"></a>Linee guida sulla sicurezza
 In genere, la configurazione della sicurezza delle workstation dell'amministratore per l'uso con il cloud è simile alle procedure usate per qualsiasi workstation locale, ad esempio compilazione ridotta al minimo e autorizzazioni restrittive. Alcuni aspetti unici della gestione cloud sono più simili alla gestione remota o alla gestione aziendale fuori banda, ad esempio l'uso e il controllo delle credenziali, l'accesso remoto con sicurezza avanzata e il rilevamento e la risposta alle minacce.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 È possibile usare le restrizioni di accesso di Azure per impedire agli indirizzi IP di origine di accedere agli strumenti amministrativi e controllare le richieste di accesso. Per consentire ad Azure di identificare i client di gestione (workstation e/o applicazioni), è possibile configurare entrambi SMAPI (tramite strumenti sviluppati dal cliente, ad esempio i cmdlet di Windows PowerShell) e il portale di Azure per richiedere l'installazione di certificati di gestione lato client, oltre ai certificati TLS/SSL. È anche consigliabile che l'accesso amministratore richieda l'autenticazione a più fattori.
 
 Alcune applicazioni o alcuni servizi distribuiti in Azure possono avere meccanismi di autenticazione specifici per l'accesso degli utenti finali e degli amministratori, mentre altri sfruttano tutte le funzionalità di Azure AD. Indipendentemente dalla federazione di credenziali tramite Active Directory Federation Services (AD FS), dall'uso della sincronizzazione delle directory o dalla gestione degli account utente esclusivamente nel cloud, l'uso di [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx), incluso in Azure AD Premium, semplifica la gestione dei cicli di vita delle identità tra le risorse.

@@ -1,18 +1,18 @@
 ---
 title: Configurare gli avvisi per le metriche del gateway VPN di Azure
-description: Procedura per configurare gli avvisi per le metriche del gateway VPN
+description: Informazioni su come configurare gli avvisi per le metriche del gateway VPN di Azure. Usare monitoraggio di Azure per impostare gli avvisi per i gateway di rete virtuale del tipo di VPN.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: c2c44720853500ad6a9a4af1c8d93d6c8bc3eea2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3819f653cba80854a65a08f92a10f82057abb0fd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075523"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923068"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurare gli avvisi per le metriche del gateway VPN
 
@@ -46,7 +46,7 @@ L'esempio seguente illustra come creare un avviso su un gateway per:
 
 1. Passare alla risorsa gateway di rete virtuale e selezionare **avvisi** dalla scheda **monitoraggio** . Creare quindi una nuova regola di avviso o modificare una regola di avviso esistente.
 
-   ![Selezioni per la creazione di una regola di avviso](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "Creare")
+   ![Selezioni per la creazione di una regola di avviso](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "Create")
 
 2. Selezionare il gateway VPN come risorsa.
 

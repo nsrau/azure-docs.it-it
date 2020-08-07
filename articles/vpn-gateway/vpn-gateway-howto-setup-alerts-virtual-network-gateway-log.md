@@ -1,18 +1,18 @@
 ---
 title: 'Gateway VPN di Azure: configurare gli avvisi sugli eventi del log delle risorse di diagnostica'
-description: Procedura per configurare gli avvisi sugli eventi del log delle risorse di diagnostica del gateway VPN
+description: Informazioni su come configurare gli avvisi in base agli eventi del log delle risorse dal gateway VPN di Azure usando il Log Analytics di monitoraggio di Azure e i log delle risorse disponibili in Azure.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 21fcebf6667eb1bc7741dfb4ba268af42567d58e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d79bdc669ab2c3785b1cde569cfce3021e4d924f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075593"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923187"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurare gli avvisi per gli eventi del log delle risorse dal gateway VPN
 
@@ -35,7 +35,7 @@ La procedura di esempio seguente crea un avviso per un evento di disconnessione 
 
 1. Nella portale di Azure cercare **log Analytics** in **tutti i servizi** e selezionare aree di **lavoro log Analytics**.
 
-   ![Selezioni per passare ad aree di lavoro Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Creare")
+   ![Selezioni per passare ad aree di lavoro Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
 
 2. Selezionare **Crea** nella pagina **log Analytics** .
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 76be966d8202bb56a6762a261be5adeaf2d58d6b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042884"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926400"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Informazioni dettagliate prestazioni query per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' 
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Sono necessarie le autorizzazioni di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) seguenti per usare Informazioni dettagliate prestazioni query:
+Sono necessarie le seguenti autorizzazioni di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) per usare informazioni dettagliate prestazioni query:
 
 * Le autorizzazioni **Lettore**, **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali a livello di uso delle risorse e i grafici.
 * Le autorizzazioni **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare il testo della query.
@@ -86,7 +86,7 @@ Per impostazione predefinita, alla prima apertura Informazioni dettagliate prest
    > Per un confronto più preciso (fino a 1 minuto), è consigliabile creare un grafico dell'uso DTU personalizzato:
    >
    > 1. Nella portale di Azure selezionare monitoraggio del **database SQL di Azure**  >  **Monitoring**.
-   > 2. Selezionare **metrica**.
+   > 2. Selezionare **Metriche**.
    > 3. Selezionare **+Aggiungi grafico**.
    > 4. Selezionare la percentuale DTU nel grafico.
    > 5. Inoltre, selezionare **Ultime 24 ore** nel menu superiore sinistro e impostare l'opzione su un minuto.
@@ -178,7 +178,7 @@ Per identificare le query con esecuzione prolungata:
    > Per comprendere più in dettaglio il consumo di DTU del database (fino a 1 minuto), è consigliabile creare un grafico personalizzato nel portale di Azure:
    >
    > 1. Selezionare monitoraggio del **database SQL di Azure**  >  **Monitoring**.
-   > 2. Selezionare **metrica**.
+   > 2. Selezionare **Metriche**.
    > 3. Selezionare **+Aggiungi grafico**.
    > 4. Selezionare la percentuale DTU nel grafico.
    > 5. Inoltre, selezionare **Ultime 24 ore** nel menu superiore sinistro e impostare l'opzione su un minuto.

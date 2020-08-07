@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489453"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925635"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure
 
@@ -102,7 +102,7 @@ Per configurare la modalità di accesso in un modello di Azure Resource Manager,
 
 ## <a name="manage-access-using-workspace-permissions"></a>Gestire l'accesso con le autorizzazioni dell'area di lavoro
 
-A ogni area di lavoro possono essere associati più account, ognuno dei quali può avere accesso a diverse aree di lavoro. L'accesso viene gestito usando [l'accesso in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md).
+A ogni area di lavoro possono essere associati più account, ognuno dei quali può avere accesso a diverse aree di lavoro. L'accesso viene gestito tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md).
 
 Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
@@ -134,7 +134,7 @@ I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni
 
 Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
-| Tipo    | Autorizzazione | Descrizione |
+| Type    | Autorizzazione | Descrizione |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
 | Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |

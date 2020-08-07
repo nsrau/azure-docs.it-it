@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9f517eb5bd113d8d54714b75bea4c8436882d0f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836344"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924428"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -74,7 +74,7 @@ Durante questa fase si pianifica la migrazione del carico di lavoro SAP alla pia
 4.  Progettazione dei servizi di base. Questa progettazione deve includere gli elementi seguenti:
     - Progettazione Active Directory e DNS.
     - Topologia di rete in Azure e assegnazione di sistemi SAP diversi.
-    - Struttura di [accesso basata sui ruoli](../../../role-based-access-control/overview.md) per i team che gestiscono l'infrastruttura e le applicazioni SAP in Azure.
+    - Struttura di [controllo degli accessi in base al ruolo](../../../role-based-access-control/overview.md) di Azure per i team che gestiscono l'infrastruttura e le applicazioni SAP in Azure.
     - Topologia del gruppo di risorse.
     - [Strategia di assegnazione di tag](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Convenzioni di denominazione per le macchine virtuali e altri componenti dell'infrastruttura e/o nomi logici.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8367ec2ece59ca8794bc1eeb2027eb6c14db12a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461766"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925346"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -30,7 +30,7 @@ Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività d
 
 Se si dispone di un ambiente di Active Directory (AD) locale e si desidera aggiungere i computer aggiunti a un dominio ad Azure AD, è possibile eseguire questa operazione eseguendo il join di Azure AD ibrido. Questo articolo fornisce i passaggi correlati per implementare un'aggiunta ad Azure AD ibrido nell'ambiente. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
@@ -123,7 +123,7 @@ Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'ha
 Questi scenari non richiedono la configurazione di un server federativo per l'autenticazione.
 
 > [!NOTE]
-> [L'autenticazione cloud con implementazione temporanea](/hybrid/how-to-connect-staged-rollout) è supportata solo l'avvio dell'aggiornamento di Windows 10 1903
+> [L'autenticazione cloud con implementazione temporanea](/azure/active-directory/hybrid/how-to-connect-staged-rollout) è supportata solo l'avvio dell'aggiornamento di Windows 10 1903
 
 ### <a name="federated-environment"></a>Ambiente federato
 

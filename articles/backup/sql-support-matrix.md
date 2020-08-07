@@ -4,12 +4,12 @@ description: Fornisce un riepilogo delle impostazioni e delle limitazioni di sup
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513184"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926451"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matrice di supporto per il backup SQL Server in macchine virtuali di Azure
 
@@ -25,21 +25,26 @@ ms.locfileid: "86513184"
 **Versioni di SQL Server supportate** | SQL Server 2019, SQL Server 2017 come indicato nella [pagina Ricerca nel ciclo di vita del supporto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SP come indicato nella [pagina Ricerca nel ciclo di vita del supporto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versioni di .NET supportate** | .NET Framework 4.5.2 o versioni successive installato nella macchina virtuale
 
-## <a name="feature-consideration-and-limitations"></a>Considerazioni e limitazioni della funzionalità
+## <a name="feature-considerations-and-limitations"></a>Considerazioni sulle funzionalità e limitazioni
 
-* Il backup di SQL Server può essere configurato nel portale di Azure o in **PowerShell**. L'interfaccia della riga di comando non è supportata.
+|Impostazione  |Limite massimo |
+|---------|---------|
+|Numero di database che possono essere protetti in un server e in un insieme di credenziali    |   2000      |
+|Dimensioni del database supportate (oltre a questo, è possibile che si verifichino problemi di prestazioni)   |   2 TB      |
+|Numero di file supportati in un database    |   1000      |
+
+>[!NOTE]
+> [Scaricare il pianificatore di risorse dettagliato](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) per calcolare il numero approssimativo di database protetti consigliati per ogni server in base alle risorse della macchina virtuale, alla larghezza di banda e ai criteri di backup.
+
+* Il backup di SQL Server può essere configurato nel portale di Azure o in **PowerShell**. CLI non è supportato.
 * La soluzione è supportata in entrambe le tipologie di [distribuzione](../azure-resource-manager/management/deployment-models.md): macchine virtuali di Azure Resource Manager e macchine virtuali classiche.
-* La macchina virtuale che esegue SQL Server richiede la connettività Internet per accedere agli indirizzi IP pubblici di Azure.
-* SQL Server **istanza del cluster di failover (FCI)** non è supportata.
+* Sono supportati tutti i tipi di backup (completo/differenziale/log) e i modelli di recupero (semplice/completo/con registrazione minima delle operazioni bulk).
+* Per i database di sola **lettura** sono supportati i tipi di backup completo completi e di sola copia.
+* La compressione SQL nativa è supportata se l'utente è abilitato in modo esplicito nel criterio di backup. Backup di Azure esegue l'override delle impostazioni predefinite a livello di istanza con la clausola COMPRESSION/NO_COMPRESSION, a seconda del valore di questo controllo impostato dall'utente.
+* Il backup del database abilitato per Transparent Data Encryption è supportato. Per ripristinare un database crittografato con Transparent Data Encryption in un altro SQL Server, è necessario innanzitutto [ripristinare il certificato nel server di destinazione](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). È disponibile la compressione dei backup per i database abilitati per Transparent Data Encryption per SQL Server 2016 e versioni successive, ma con una dimensione di trasferimento inferiore, come illustrato [qui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Le operazioni di backup e ripristino per i database mirror e gli snapshot di database non sono supportate.
-* L'uso di più soluzioni per eseguire il backup dell'istanza di SQL Server autonoma o del gruppo di disponibilità AlwaysOn di SQL potrebbe generare un errore di backup. Evitare questo approccio.
-* Anche il backup di due nodi di un gruppo di disponibilità singolarmente con soluzioni uguali o differenti potrebbe generare errori.
-* Backup di Azure supporta solo i tipi di backup completo e completo solo copia per i database di **sola lettura**
-* Non è possibile proteggere i database con un numero elevato di file. Il numero massimo di file supportato è **~1000**.  
-* È possibile eseguire il backup su **~ 2000** SQL Server database in un insieme di credenziali. Nel caso di un numero elevato di database, è possibile creare più insiemi di credenziali.
-* È possibile configurare il backup per un totale di **50** database alla volta. Questa restrizione contribuisce a ottimizzare i carichi di backup.
-* Sono supportati database di dimensioni fino a **2 TB** ; per le dimensioni maggiori di questi problemi di prestazioni possono essere rilevati.
-* Per avere un'idea di come il numero di database che è possibile proteggere per ogni server, prendere in considerazione fattori quali larghezza di banda, dimensioni della macchina virtuale, frequenza di backup, dimensioni del database e così via. [Scaricare](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) Resource Planner per calcolare il numero approssimativo di database che è possibile avere per ogni server in base alle risorse della macchina virtuale e ai criteri di backup.
+* SQL Server **istanza del cluster di failover (FCI)** non è supportata.
+* L'uso di più soluzioni di backup per eseguire il backup dell'istanza di SQL Server autonoma o del gruppo di disponibilità SQL always on può causare un errore di backup. Evitare di eseguire questa operazione. Anche il backup di due nodi di un gruppo di disponibilità singolarmente con soluzioni uguali o differenti potrebbe generare errori.
 * Quando i gruppi di disponibilità sono configurati, i backup vengono eseguiti dai diversi nodi in base a alcuni fattori. Il comportamento di backup per un gruppo di disponibilità è riepilogato di seguito.
 
 ### <a name="back-up-behavior-with-always-on-availability-groups"></a>Comportamento di backup con i gruppi di disponibilità AlwaysOn
@@ -55,7 +60,7 @@ In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo
 
 #### <a name="backup-preference-primary"></a>Preferenza di backup: primario
 
-**Tipo di backup** | **Nodo**
+**Tipo di backup** | **Node**
 --- | ---
 Full | Principale
 Differenziale | Principale
@@ -64,7 +69,7 @@ Completo solo copia |  Principale
 
 #### <a name="backup-preference-secondary-only"></a>Preferenza di backup: solo secondario
 
-**Tipo di backup** | **Nodo**
+**Tipo di backup** | **Node**
 --- | ---
 Full | Principale
 Differenziale | Principale
@@ -73,7 +78,7 @@ Completo solo copia |  Secondari
 
 #### <a name="backup-preference-secondary"></a>Preferenza di backup: secondaria
 
-**Tipo di backup** | **Nodo**
+**Tipo di backup** | **Node**
 --- | ---
 Full | Principale
 Differenziale | Principale
@@ -82,7 +87,7 @@ Completo solo copia |  Secondari
 
 #### <a name="no-backup-preference"></a>Nessuna preferenza di backup
 
-**Tipo di backup** | **Nodo**
+**Tipo di backup** | **Node**
 --- | ---
 Full | Principale
 Differenziale | Principale

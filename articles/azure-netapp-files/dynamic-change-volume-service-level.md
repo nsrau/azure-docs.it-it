@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/06/2020
 ms.author: b-juche
-ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e974fb51ac36083e6ed8934afaa7a3e36ab8c08e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533052"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923867"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Modificare dinamicamente il livello di servizio di un volume
 
@@ -33,8 +33,7 @@ Il pool di capacità in cui si desidera spostare il volume deve essere già esis
 
 * Dopo che il volume è stato spostato in un altro pool di capacità, non sarà più possibile accedere ai log attività e alle metriche del volume precedenti. Il volume inizierà con i nuovi log attività e le metriche nel nuovo pool di capacità.
 
-* Se si sposta un volume in un pool di capacità di un livello di servizio superiore (ad esempio, passando dal livello *standard* al livello *Premium* o *ultra* ), è necessario attendere almeno sette giorni prima che sia possibile spostare di nuovo il volume in un pool di capacità di un livello di servizio inferiore (ad esempio, passando da *ultra* a *Premium* o *standard*).  
-Questo periodo di attesa non si applica se si sposta il volume in un pool di capacità con lo stesso livello di servizio o un livello di servizio inferiore.
+* Se si sposta un volume in un pool di capacità di un livello di servizio superiore (ad esempio, passando da *standard* a *Premium* o livello di servizio *ultra* ), è necessario attendere almeno sette giorni prima di poter spostare *nuovamente* il volume in un pool di capacità di un livello di servizio inferiore (ad esempio, passando da *ultra* a *Premium* o *standard*).  
 
 ## <a name="register-the-feature"></a>Registrare la funzionalità
 

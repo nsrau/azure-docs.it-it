@@ -3,12 +3,12 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: bec0215d3f10aa9f6a20eea7258ec9d5081e8f98
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8c0f5d4df640fa29f88b3c4c6c0403ad9de97dea
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901981"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921691"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -69,7 +69,7 @@ La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azur
 |Microsoft|Windows Server|2012 e versioni successive|
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3 e versioni successive|
-|Red Hat|Red Hat Enterprise Linux|7,4-7,8, 9,0 e versioni successive|
+|Red Hat|Red Hat Enterprise Linux|7,4-7,8|
 |SUSE|SLES|12 SP3 e versioni successive|
 
 Le immagini di macchine virtuali personalizzate sono supportate dai criteri di Configurazione guest a condizione che il sistema operativo sia uno di quelli indicati nella tabella precedente.
