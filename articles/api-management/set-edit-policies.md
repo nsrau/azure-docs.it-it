@@ -1,6 +1,6 @@
 ---
 title: Come impostare o modificare i criteri di Gestione API di Azure | Microsoft Docs
-description: Questo argomento illustra come impostare o modificare i criteri di Gestione API di Azure.
+description: Informazioni su come impostare o modificare i criteri di gestione API di Azure. Questi criteri sono documenti XML che descrivono una sequenza di istruzioni in ingresso e in uscita.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 9249cb1ac64bf61b405bc3537523cc85bca3f00c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3a8d3309cdc5ddb0ae75ed6fcf0376118275b835
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252794"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848010"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Come impostare o modificare i criteri di Gestione API di Azure
 

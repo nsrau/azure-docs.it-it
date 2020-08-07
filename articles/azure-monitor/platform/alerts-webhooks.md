@@ -6,14 +6,18 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 5561dfee3ede72f9cd28adbd47caf2db4e634360
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47ed723ecfc544673ac8aa6374c27ae5a7cf166b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073584"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852107"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chiamare un webhook con un avviso di metrica classico in Monitoraggio di Azure
+
+> [!WARNING]
+> Questo articolo descrive come usare gli avvisi delle metriche classiche precedenti. Monitoraggio di Azure supporta ora [avvisi delle metriche near Real time più recenti e una nuova esperienza di avvisi](./alerts-overview.md). Gli avvisi classici vengono [ritirati](./monitoring-classic-retirement.md), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi.
+>
 
 È possibile usare i webhook per instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite chat o servizi di messaggistica oppure per varie altre azioni. 
 

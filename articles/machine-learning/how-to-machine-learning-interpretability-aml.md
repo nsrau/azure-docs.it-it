@@ -10,13 +10,13 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7f2ca2a84123d3bb7dd92a797d517a2490544efa
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 8682342d23c37d527528de0b525dbdd49a52676e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307013"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853399"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python (anteprima)
 
@@ -86,7 +86,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                  classes=classes)
     ```
 
-    o
+    oppure
 
     ```python
 
@@ -112,7 +112,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                classes=classes)
     ```
 
-    o
+    oppure
 
     ```python
     from interpret.ext.blackbox import PFIExplainer
@@ -304,7 +304,7 @@ Dopo aver scaricato le spiegazioni nel notebook di Jupyter locale, è possibile 
 
 I tracciati seguenti forniscono una visualizzazione complessiva del modello sottoposto a training insieme alle relative stime e spiegazioni.
 
-|Grafico|Descrizione|
+|Grafico|Description|
 |----|-----------|
 |Esplorazione dei dati| Visualizza una panoramica del set di dati insieme ai valori di stima.|
 |Importanza globale|Consente di aggregare i valori di importanza dei singoli punti di riferimento per visualizzare le principali funzionalità importanti della K (configurabile K) del modello. Consente di comprendere il comportamento generale del modello sottostante.|
@@ -318,7 +318,7 @@ I tracciati seguenti forniscono una visualizzazione complessiva del modello sott
 
 È possibile caricare il tracciato dell'importanza della singola funzione per qualsiasi punto dati facendo clic su uno dei singoli punti dati in uno qualsiasi dei tracciati complessivi.
 
-|Grafico|Descrizione|
+|Grafico|Description|
 |----|-----------|
 |Importanza locale|Mostra le principali funzionalità principali K (configurabili K) per una singola stima. Consente di illustrare il comportamento locale del modello sottostante in un punto dati specifico.|
 |Esplorazione della perturbazione (analisi di simulazione)|Consente di modificare i valori delle funzionalità del punto dati selezionato e osservare le modifiche risultanti al valore di stima.|

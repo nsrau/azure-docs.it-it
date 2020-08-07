@@ -1,18 +1,18 @@
 ---
 title: Configurare il controllo degli accessi in base al ruolo locale (RBAC locale) per l'API di Azure per FHIR
 description: Questo articolo descrive come configurare l'API di Azure per FHIR per usare un tenant di Azure AD esterno per il piano dati
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
-ms.author: mihansen
-ms.openlocfilehash: 11e7d31385140206070e3b415224ccca725d110f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.author: matjazl
+ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446901"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847007"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurare RBAC locale per FHIR 
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: tracking-python
-ms.openlocfilehash: f3ec80b5d71bbdbf0f1b89606859dcc734d037e5
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-python
+ms.openlocfilehash: a33a739014b33303389b4f880da3687db852633e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542213"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850271"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -326,7 +326,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 > | Nome parametro    | In ingresso     | Descrizione                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | Risorsa          | Query  | URI della risorsa Azure AD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.    |
+> | resource          | Query  | URI della risorsa Azure AD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.    |
 > | api-version       | Query  | Versione dell'API del token da usare. Usare "2019-08-01" o versione successiva (a meno che non si usi il consumo di Linux, che attualmente offre solo "2017-09-01", vedere la nota precedente).                                                                                                                                                                                                                                                                 |
 > | X-IDENTITY-HEADER | Intestazione | Valore della variabile di ambiente IDENTITY_HEADER. Questa intestazione viene usata per mitigare gli attacchi SSRF (Server Side Request Forgery).                                                                                                                                                                                                    |
 > | client_id         | Query  | (Facoltativo) ID client dell'identità assegnata dall'utente da usare. Non può essere usato in una richiesta che include `principal_id`, `mi_res_id` o `object_id`. Se vengono omessi tutti i parametri ID (`client_id`, `principal_id`, `object_id` e `mi_res_id`), viene usata l'identità assegnata dal sistema.                                             |
@@ -338,7 +338,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
-> | Nome proprietà | Description                                                                                                                                                                                                                                        |
+> | Nome proprietà | Descrizione                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.                                                                                                                               |
 > | client_id     | ID client dell'identità usata.                                                                                                                                                                                                       |

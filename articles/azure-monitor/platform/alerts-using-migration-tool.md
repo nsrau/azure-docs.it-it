@@ -6,19 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: ab5c16995a2d2bad6e44f0f9d1187ca3d66be1b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114260"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852124"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Usare lo strumento di migrazione volontaria per eseguire la migrazione delle regole di avviso classiche
 
-Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici in monitoraggio di Azure verranno ritirati a settembre 2019 (in origine il 2019 luglio). Uno strumento di migrazione è disponibile nel portale di Azure ai clienti che utilizzano le regole di avviso classiche e che desiderano attivare la migrazione autonomamente. Questo articolo illustra come usare lo strumento di migrazione per eseguire la migrazione volontaria delle regole di avviso classiche prima che la migrazione automatica venga avviata nel 2019 settembre.
-
-> [!NOTE]
-> A causa del ritardo nell'implementazione dello strumento di migrazione, la data di ritiro per la migrazione degli avvisi classica è stata [estesa al 31 agosto 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) dalla data di annuncio iniziale del 30 giugno 2019.
+Come [annunciato in precedenza](monitoring-classic-retirement.md), gli avvisi classici in monitoraggio di Azure vengono ritirati, anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. Uno strumento di migrazione è disponibile nel portale di Azure ai clienti che hanno utilizzato le regole di avviso classiche e che desiderano attivare la migrazione. Questo articolo illustra come usare lo strumento di migrazione, che verrà usato anche per gli avvisi restanti in attesa di un ulteriore annuncio.
 
 ## <a name="benefits-of-new-alerts"></a>Vantaggi dei nuovi avvisi
 
@@ -37,7 +34,7 @@ Il processo di migrazione converte le regole di avviso classiche in nuove regole
 
 - Il formato del payload delle notifiche e le API per creare e gestire le nuove regole di avviso sono diverse da quelle delle regole di avviso classiche perché supportano più funzionalità. [Informazioni su come prepararsi per la migrazione](alerts-prepare-migration.md).
 
-- Non è possibile eseguire la migrazione di alcune regole di avviso classiche utilizzando lo strumento. [Informazioni sulle regole di cui non è possibile eseguire la migrazione e sulle operazioni da eseguire con esse](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+- Non è possibile eseguire la migrazione di alcune regole di avviso classiche utilizzando lo strumento. [Informazioni sulle regole di cui non è possibile eseguire la migrazione e sulle operazioni da eseguire con esse](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
     > [!NOTE]
     > Il processo di migrazione non influirà sulla valutazione delle regole di avviso classiche. Continueranno a essere eseguiti e invieranno avvisi fino a quando non verranno migrati e le nuove regole di avviso avranno effetto.

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.custom: tracking-python
-ms.openlocfilehash: 193dc7a953bc746ec7211433f846343969176c96
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-python
+ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243699"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851715"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
 
@@ -90,7 +90,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|Descrizione|  
+|Proprietà|Type|Description|  
 |--------------|----------|-----------------|  
 |`apis`|Raccolta di entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|Le API visibili all'utente corrente.|  
   

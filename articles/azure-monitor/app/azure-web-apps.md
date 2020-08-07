@@ -2,14 +2,14 @@
 title: Monitorare le prestazioni dei servizi app di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Tempo di caricamento e di risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373165"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876394"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -94,7 +94,7 @@ La definizione del Framework completo da .NET Core, la distribuzione autonoma e 
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Dall'interno dell'app Web del servizio app in **Impostazioni**  >  **selezionare Application Insights**  >  **Abilita**. Il monitoraggio basato su agente Node.js è attualmente in fase di anteprima.
 
@@ -144,7 +144,7 @@ Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
 
 ![Screenshot dell'interfaccia utente delle impostazioni dell'applicazione](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Per abilitare il monitoraggio lato client per l'applicazione Node.js, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](./javascript.md).
 
@@ -166,7 +166,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | valore |
+|Nome impostazione app |  Definizione | Valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
@@ -377,7 +377,7 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
 
 La tabella seguente fornisce una spiegazione più dettagliata del significato di questi valori, delle cause sottostanti e delle correzioni consigliate:
 
-|Valore problema|Spiegazione|Fix
+|Valore problema|Spiegazione|Correzione
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e che verrà eseguito il backup. Può essere dovuto a un riferimento a `System.Diagnostics.DiagnosticSource` , `Microsoft.AspNet.TelemetryCorrelation` o`Microsoft.ApplicationInsights`  | Rimuovere i riferimenti. Alcuni di questi riferimenti vengono aggiunti per impostazione predefinita da determinati modelli di Visual Studio e le versioni precedenti di Visual Studio possono aggiungere riferimenti a `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Se l'applicazione è destinata a .NET Core 2,1 o 2,2 e si riferisce al metapacchetto [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) , la porta Application Insights e l'estensione verrà riattivata. | Per i clienti di .NET Core 2.1, 2.2 è [consigliabile](https://github.com/aspnet/Announcements/issues/287) usare invece il meta pacchetto Microsoft. AspNetCore. app.|
@@ -396,6 +396,12 @@ Se si usa APPINSIGHTS_JAVASCRIPT_ENABLED = true nei casi in cui il contenuto è 
 Ciò è dovuto al fatto che l'impostazione dell'applicazione APPINSIGHTS_JAVASCRIPT_ENABLED è impostata su true e la codifica del contenuto è presente nello stesso momento. Questo scenario non è ancora supportato. La soluzione alternativa consiste nel rimuovere APPINSIGHTS_JAVASCRIPT_ENABLED dalle impostazioni dell'applicazione. Sfortunatamente questo significa che se la strumentazione JavaScript lato client/browser è ancora richiesta, per le pagine Web sono necessarie le indicazioni manuali SDK. Seguire le [istruzioni](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) per la strumentazione manuale con JavaScript SDK.
 
 Per informazioni aggiornate sull'Application Insights o sull'agente, vedere le [Note sulla versione](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+
+### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Il sito Web predefinito distribuito con le app Web non supporta il monitoraggio automatico lato client
+
+Quando si crea un'app Web con i `ASP.NET` `.NET Core` runtime di o in app Azure Services distribuisce una singola pagina HTML statica come sito Web iniziale. La pagina Web statica carica inoltre una Web part gestita .NET in IIS. Questo consente di testare il monitoraggio lato server senza codice, ma non supporta il monitoraggio automatico lato client.
+
+Se si vuole testare il monitoraggio lato client e server senza codice per ASP.NET o ASP.NET Core in un'app Web di app Azure Services, si consiglia di seguire le guide ufficiali per la [creazione di un'app Web di ASP.NET Core](../../app-service/app-service-web-get-started-dotnet.md) e la [creazione di un'app Web ASP.NET Framework](../../app-service/app-service-web-get-started-dotnet-framework.md) e quindi usare le istruzioni nell'articolo corrente per abilitare il monitoraggio.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP e WordPress non sono supportati
 

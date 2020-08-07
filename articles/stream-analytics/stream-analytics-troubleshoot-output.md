@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: fc35e6a723afab3f230aa91e4b6895aead35e141
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037070"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903188"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
@@ -24,7 +24,7 @@ Questo articolo descrive i problemi comuni relativi alle connessioni di output d
 1. Verificare la connettività agli output con il pulsante **Verifica connessione** per ogni output.
 1. Esaminare le [metriche di monitoraggio](stream-analytics-monitoring.md) nella scheda **Monitoraggio**. Poiché i valori sono aggregati, le metriche sono posticipate di alcuni minuti.
 
-   * Se il valore di **Eventi di input** è maggiore di zero, il processo può leggere i dati di input. Se il valore di **Eventi di input** è minore di zero, l'input del processo presenta un problema. Per altre informazioni, vedere [Risolvere i problemi delle connessioni di input](stream-analytics-troubleshoot-input.md).
+   * Se il valore di **Eventi di input** è maggiore di zero, il processo può leggere i dati di input. Se il valore di **Eventi di input** è minore di zero, l'input del processo presenta un problema. Per altre informazioni, vedere [Risolvere i problemi delle connessioni di input](stream-analytics-troubleshoot-input.md). Se il processo ha input di dati di riferimento, applicare la suddivisione in base al nome logico quando si esamina la metrica **degli eventi di input** . Se non sono presenti eventi di input solo dai dati di riferimento, probabilmente significa che questa origine di input non è configurata correttamente per recuperare il set di dati di riferimento a destra.
    * Se il valore di **Errori di conversione dati** è maggiore di zero e in aumento, vedere [Errori dei dati di Analisi di flusso di Azure](data-errors.md) per informazioni dettagliate sugli errori di conversione dei dati.
    * Se il valore di **Errori di runtime** è maggiore di zero, il processo riceve i dati ma genera errori durante l'elaborazione della query. Per trovare gli errori, andare ai [log di controllo](../azure-resource-manager/management/view-activity-logs.md) e applicare il filtro in base allo stato **Non riuscito**.
    * Se il valore di **Eventi di input** è maggiore di zero e il valore di **Eventi di output** è uguale a zero, una delle condizioni seguenti è vera:
