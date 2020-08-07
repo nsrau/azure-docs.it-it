@@ -7,18 +7,18 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: e938e7a8595b6d6b5b94dd265cb466b3e8719230
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: d2f2e01bda22c348d53ce2a1dd25d8d11e86ff3e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432493"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843539"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Eseguire script di Python Machine Learning in Azure Machine Learning Studio (versione classica)
 
-**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Python è uno strumento prezioso nello strumento di molti data scientist. Viene usato in ogni fase dei flussi di lavoro di apprendimento automatico tipici, tra cui esplorazione dei dati, estrazione di funzionalità, training e convalida del modello e distribuzione.

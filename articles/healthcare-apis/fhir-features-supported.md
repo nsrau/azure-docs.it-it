@@ -2,18 +2,18 @@
 title: Funzionalità di FHIR supportate in Azure-API di Azure per FHIR
 description: Questo articolo illustra le funzionalità della specifica FHIR implementate nell'API di Azure per FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85808030"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843505"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -29,7 +29,7 @@ Le versioni precedenti sono attualmente supportate anche:`3.0.2`
 
 | API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| leggere                           | Sì       | Sì       | Sì       |                                                     |
+| read                           | Sì       | Sì       | Sì       |                                                     |
 | VREAD                          | Sì       | Sì       | Sì       |                                                     |
 | update                         | Sì       | Sì       | Sì       |                                                     |
 | aggiornamento con blocco ottimistico | Sì       | Sì       | Sì       |                                                     |
@@ -39,14 +39,14 @@ Le versioni precedenti sono attualmente supportate anche:`3.0.2`
 | Elimina (condizionale)           | No        | No        | No        |                                                     |
 | create                         | Sì       | Sì       | Sì       | Supporto per POST/PUT                               |
 | Crea (condizionale)           | Sì       | Sì       | Sì       |                                                     |
-| cerca                         | Partial   | Partial   | Partial   | Vedere di seguito                                           |
+| cerca                         | Parziale   | Parziale   | Parziale   | Vedere di seguito                                           |
 | ricerca concatenata                 | No        | Sì       | No        |                                           |
 | ricerca inversa concatenata         | No        | No        | No        |                                            |
 | capabilities                   | Sì       | Sì       | Sì       |                                                     |
 | o batch                          | Sì       | Sì       | Sì       |                                                     |
 | transaction                    | No        | Sì       | No        |                                                     |
 | history                        | Sì       | Sì       | Sì       |                                                     |
-| paging                         | Partial   | Partial   | Partial   | `self`e `next` sono supportati                     |
+| paging                         | Parziale   | Parziale   | Parziale   | `self`e `next` sono supportati                     |
 | intermediari                 | No        | No        | No        |                                                     |
 
 ## <a name="search"></a>Ricerca
@@ -101,7 +101,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | `_sort`                 | No        | No        | No        |         |
 | `_score`                | No        | No        | No        |         |
 | `_count`                | Sì       | Sì       | Sì       |         |
-| `_summary`              | Parziale   | Partial   | Partial   | `_summary=count` è supportato |
+| `_summary`              | Parziale   | Parziale   | Parziale   | `_summary=count` è supportato |
 | `_include`              | No        | Sì       | No        |         |
 | `_revinclude`           | No        | No        | No        |         |
 | `_contained`            | No        | No        | No        |         |

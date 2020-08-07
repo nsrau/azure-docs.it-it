@@ -1,6 +1,6 @@
 ---
 title: Progettare l'archiviazione tabelle di Azure per le query | Microsoft Docs
-description: Progettare tabelle per le query nell'archivio tabelle di Azure.
+description: Progettare tabelle per le query nell'archivio tabelle di Azure. Scegliere una chiave di partizione appropriata, ottimizzare le query e ordinare i dati per il servizio tabelle.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457635"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903205"
 ---
 # <a name="design-for-querying"></a>Progettazione per le query
 Le soluzioni di servizio tabelle possono eseguire un'intensa attività di lettura, di scrittura o una combinazione di entrambe. Questo articolo è incentrato sugli aspetti da prendere in considerazione quando si progetta un servizio tabelle in grado di supportare in modo efficiente le operazioni di lettura. Una progettazione che supporta in modo efficiente le operazioni di lettura è in genere efficiente anche nelle operazioni di scrittura. Esistono però altri aspetti da considerare per una progettazione che supporti le operazioni di scrittura, come illustrato nell'articolo [Progettazione per la modifica dei dati](table-storage-design-for-modification.md).

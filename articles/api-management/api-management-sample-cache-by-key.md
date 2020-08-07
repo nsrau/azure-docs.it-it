@@ -1,6 +1,6 @@
 ---
 title: Memorizzazione nella cache personalizzata in Gestione API di Azure
-description: Informazioni su come memorizzare elementi nella cache in base alla chiave in Gestione API di Azure
+description: Informazioni su come memorizzare nella cache gli elementi in base alla chiave in gestione API di Azure. È possibile modificare la chiave usando le intestazioni della richiesta.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7b87244b4df155768e815bdba5226fc784866f6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a366cf6d4e17e83fd89ae21631ad5b40e8971c1b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249717"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903443"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Memorizzazione nella cache personalizzata in Gestione API di Azure
-Il servizio Gestione API di Azure prevede il supporto incorporato per la [memorizzazione nella cache delle risposte HTTP](api-management-howto-cache.md) usando l'URL della risorsa come chiave. La chiave può essere modificata dalle intestazioni della richiesta usando le proprietà `vary-by` . Questo risulta utile per la memorizzazione nella cache di intere risposte HTTP (note anche come rappresentazioni), ma talvolta è utile memorizzare nella cache anche solo una parte di una rappresentazione. I nuovi criteri [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) e [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) consentono di archiviare e recuperare singoli dati arbitrari all'interno di definizioni dei criteri. Questa possibilità migliora anche il criterio [send-request](./api-management-advanced-policies.md#SendRequest) introdotto in precedenza, dal momento che ora è possibile memorizzare nella cache le risposte provenienti da servizi esterni.
+Il servizio Gestione API di Azure prevede il supporto incorporato per la [memorizzazione nella cache delle risposte HTTP](api-management-howto-cache.md) usando l'URL della risorsa come chiave. La chiave può essere modificata dalle intestazioni della richiesta usando le proprietà `vary-by` . Questa operazione è utile per la memorizzazione nella cache di intere risposte HTTP (note anche come rappresentazioni), ma a volte è utile memorizzare solo una parte di una rappresentazione. I nuovi criteri [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) e [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) consentono di archiviare e recuperare singoli dati arbitrari all'interno di definizioni dei criteri. Questa possibilità migliora anche il criterio [send-request](./api-management-advanced-policies.md#SendRequest) introdotto in precedenza, dal momento che ora è possibile memorizzare nella cache le risposte provenienti da servizi esterni.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 Il servizio Gestione API usa una cache di dati condivisa per tenant. In questo modo, man mano che aumenta il numero di unità, è sempre possibile accedere agli stessi dati memorizzati nella cache. Quando si adotta una distribuzione in più aree, tuttavia, sono presenti cache indipendenti all'interno di ogni area. È importante non considerare la cache come un archivio dati e l'unica fonte di alcune informazioni. Così facendo, se successivamente si decide di usare la distribuzione in più aree, i clienti con utenti che viaggiano posso perdere l'accesso ai dati memorizzati nella cache.
 
 ## <a name="fragment-caching"></a>Memorizzazione di frammenti

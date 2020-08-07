@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f91e130bfa83c6a9b116c05d7293aa70945e2dc2
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259867"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903545"
 ---
 # <a name="linux-support"></a>Supporto di Linux
 
-I partner possono usare Linux SDK per desktop virtuale Windows per compilare un client desktop virtuale Windows autonomo. È anche possibile usarlo per abilitare il supporto per desktop virtuali Windows nell'applicazione client. Questa guida rapida spiega cosa è Linux SDK e come iniziare a usarlo.
+È possibile accedere alle risorse di desktop virtuali Windows dai dispositivi Linux con i client supportati seguenti, forniti dai partner thin client Linux. Microsoft collabora con diversi partner per abilitare i client desktop virtuali Windows supportati in più sistemi operativi e dispositivi basati su Linux. Se si desidera il supporto per desktop virtuali Windows in una piattaforma Linux non elencata qui, inviare una notifica nella [pagina UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Connettersi con il dispositivo Linux
 
@@ -29,14 +29,7 @@ I seguenti partner hanno approvato i client desktop virtuali Windows per i dispo
 
 ## <a name="what-is-the-linux-sdk"></a>Che cos'è Linux SDK?
 
-È possibile utilizzare le API SDK per recuperare i feed di risorse, connettersi a sessioni di applicazioni desktop o remote e utilizzare molti dei reindirizzamenti supportati dai client di prima entità.
-
-> [!NOTE]
-> L'SDK è attualmente in fase di sviluppo. Questo documento verrà aggiornato con le istruzioni per accedere all'SDK quando è disponibile a livello generale.
-
-### <a name="supported-linux-distributions"></a>Distribuzioni Linux supportate
-
-L'SDK è compatibile con la maggior parte dei sistemi operativi basati su Ubuntu 18,04 o versioni successive. Se si dispone di una distribuzione Linux diversa, è possibile collaborare con l'utente per scoprire come supportare al meglio le proprie esigenze.
+I partner thin client Linux possono usare le API di Linux SDK per desktop virtuali di Windows per recuperare i feed di risorse, connettersi a sessioni di applicazioni desktop o remote e usare molti dei reindirizzamenti supportati dai client della prima parte. L'SDK è compatibile con la maggior parte dei sistemi operativi basati su Ubuntu 18,04 o versioni successive.
 
 ### <a name="feature-support"></a>Supporto funzionalità
 
@@ -57,13 +50,6 @@ L'SDK supporta più connessioni a sessioni di applicazioni desktop e remote. Son
 L'SDK supporta inoltre più configurazioni di visualizzazione monitor, purché i monitoraggi selezionati per la sessione siano contigui.
 
 Questo documento verrà aggiornato quando si aggiunge il supporto per le nuove funzionalità e i reindirizzamenti. Se si desidera suggerire nuove funzionalità e altri miglioramenti, visitare la [pagina UserVoice](https://go.microsoft.com/fwlink/?linkid=2116523).
-
-## <a name="get-started-with-the-linux-sdk"></a>Introduzione a Linux SDK
-
-Prima di poter sviluppare un client Linux per desktop virtuale Windows, è necessario eseguire le operazioni seguenti:
-
-1. Creare e distribuire un ambiente desktop virtuale Windows per l'uso di test o di produzione.
-2. Testare i client di terze parti disponibili per acquisire familiarità con l'esperienza utente di desktop virtuali Windows.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079724"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844083"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Binding di output del bus di servizio di Azure per funzioni di Azure
 
@@ -287,12 +287,12 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**nome** | n/d | Nome della variabile che rappresenta il messaggio della coda o dell'argomento nel codice della funzione. Impostare su "$return" per fare riferimento al valore restituito della funzione. |
 |**queueName**|**QueueName**|Nome della coda.  Impostare questa proprietà solo se si inviano messaggi della coda, non dell'argomento.
 |**topicName**|**TopicName**|Nome dell'argomento. Impostare questa proprietà solo se si inviano messaggi dell'argomento, non della coda.|
-|**connection**|**Connessione**|Nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo la parte restante del nome. Se ad esempio si imposta `connection` su "MyServiceBus", il runtime di funzioni Cerca un'impostazione dell'app denominata "AzureWebJobsMyServiceBus". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione del bus di servizio predefinita nell'impostazione dell'app denominata "AzureWebJobsServiceBus".<br><br>Per ottenere una stringa di connessione, seguire i passaggi indicati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico.|
+|**connection**|**Connection**|Nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo la parte restante del nome. Se ad esempio si imposta `connection` su "MyServiceBus", il runtime di funzioni Cerca un'impostazione dell'app denominata "AzureWebJobsMyServiceBus". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione del bus di servizio predefinita nell'impostazione dell'app denominata "AzureWebJobsServiceBus".<br><br>Per ottenere una stringa di connessione, seguire i passaggi indicati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico.|
 |**accessRights** (solo V1)|**Accesso**|Diritti di accesso per la stringa di connessione. I valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione priva dell'autorizzazione **Gestisci**, impostare `accessRights` su "listen". In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione. In funzioni di Azure versione 2. x e successive questa proprietà non è disponibile perché la versione più recente dell'SDK del bus di servizio non supporta le operazioni di gestione.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 In Funzioni di Azure 1.x il runtime crea la coda se inesistente e se il parametro `accessRights` è stato impostato su `manage`. Nelle funzioni versione 2. x e successive la coda o l'argomento deve esistere già. Se si specifica una coda o un argomento che non esiste, la funzione avrà esito negativo. 
 
@@ -346,7 +346,7 @@ Usare [Azure Service Bus SDK](../service-bus-messaging/index.yml) anziché l'ass
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding | Riferimento |
+| Binding | Informazioni di riferimento |
 |---|---|
 | Bus di servizio | [Codici di errore del bus di servizio](../service-bus-messaging/service-bus-messaging-exceptions.md) |
 | Bus di servizio | [Limiti del bus di servizio](../service-bus-messaging/service-bus-quotas.md) |
