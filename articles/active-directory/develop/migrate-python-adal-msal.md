@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 0cf711f9a295abaf20cd284e819cf062c462c668
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 4737b2ef701f643ff5bec47be29b3139e27fb146
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558699"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845154"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guida alla migrazione da ADAL a MSAL per Python
 

@@ -2,18 +2,18 @@
 title: Domande frequenti sui servizi FHIR in Azure-API di Azure per FHIR
 description: Risposte alle domande frequenti sull'API di Azure per FHIR, ad esempio la posizione di archiviazione dei dati dietro le API FHIR e il supporto della versione.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
-ms.author: mihansen
-ms.openlocfilehash: b3838c46dcd5515cca81f41a4b8ac55bc68ffe69
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.author: matjazl
+ms.openlocfilehash: 252abcac6e9e39930593c1b110bf6d55ffdfc33f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552935"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843522"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Domande frequenti sull'API di Azure per FHIR
 

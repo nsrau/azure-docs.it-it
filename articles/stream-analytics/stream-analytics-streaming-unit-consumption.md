@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/06/2020
+ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704183"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903562"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -27,7 +27,7 @@ La metrica di utilizzo in percentuale delle unità di streaming, da 0% a 100%, d
 
 2. Nell'elenco delle risorse trovare il processo di Analisi di flusso da ridimensionare e aprirlo. 
 
-3. Nell'intestazione **Configura** della pagina del processo selezionare **Ridimensiona**. 
+3. Nell'intestazione **Configura** della pagina del processo selezionare **Ridimensiona**.Il numero predefinito di SUs è 3 durante la creazione di un processo.
 
     ![Configurazione del processo di Analisi di flusso nel portale di Azure][img.stream.analytics.preview.portal.settings.scale]
     

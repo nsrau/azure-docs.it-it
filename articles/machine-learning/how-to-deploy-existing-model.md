@@ -10,13 +10,13 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: e9177fdbac6173040145ff6d84dda8a579ee1d9e
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: fc3c03fa3368d87857ed91c720a92aacecf6eb89
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429416"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843165"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Distribuire il modello esistente con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -216,7 +216,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
+Per altre informazioni sugli script di immissione, vedere [Distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="define-deployment"></a>Definire la distribuzione
 

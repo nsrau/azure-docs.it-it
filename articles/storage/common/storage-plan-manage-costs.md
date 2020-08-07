@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 90aa2b9504008783649662019179a5998d534746
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543096"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760737"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Pianificare e gestire i costi per l'archiviazione BLOB di Azure
 
 Questo articolo consente di pianificare e gestire i costi per l'archiviazione BLOB di Azure. Per prima cosa, è necessario stimare i costi usando il calcolatore dei prezzi di Azure. Dopo aver creato l'account di archiviazione, ottimizzare l'account in modo da pagare solo le informazioni necessarie. Usare le funzionalità di gestione dei costi per impostare i budget e monitorare i costi. È anche possibile esaminare i costi previsti e monitorare le tendenze di spesa per identificare le aree in cui si vuole agire.
 
-Tenere presente che i costi per archiviazione di Azure sono solo una parte dei costi mensili nella fattura di Azure. Sebbene questo articolo spieghi come stimare e gestire i costi per archiviazione di Azure, verranno addebitati tutti i servizi e le risorse di Azure usati per la sottoscrizione di Azure, inclusi i servizi di terze parti. Dopo aver acquisito familiarità con la gestione dei costi per archiviazione di Azure, è possibile applicare metodi simili per gestire i costi per tutti i servizi di Azure usati nella sottoscrizione.
+Tenere presente che i costi per l'archiviazione BLOB sono solo una parte dei costi mensili nella fattura di Azure. Sebbene questo articolo spieghi come stimare e gestire i costi per l'archiviazione BLOB, verranno addebitati tutti i servizi e le risorse di Azure usati per la sottoscrizione di Azure, inclusi i servizi di terze parti. Dopo aver acquisito familiarità con la gestione dei costi per l'archiviazione BLOB, è possibile applicare metodi simili per gestire i costi per tutti i servizi di Azure usati nella sottoscrizione.
 
 ## <a name="estimate-costs"></a>Stimare i costi
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e17edacf45583283d53c5484417f6a2dd7c6e012
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327396"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799923"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Elenco di controllo per la creazione di un'offerta SaaS nel centro
 
@@ -57,8 +57,8 @@ Nella pagina di configurazione dell'offerta è possibile acconsentire esplicitam
 | Come si vuole che i potenziali clienti interagiscano con questa offerta? (Invito all'azione)  | Obbligatorio se non si vende tramite Microsoft. Predefinito: Versione di prova gratuita. Opzioni: "Scarica ora", "Versione di prova gratuita", "Contatta". |
 | URL della versione di valutazione  | Obbligatorio se è selezionata l'opzione "Versione di prova gratuita" come modo in cui i clienti devono interagire con la presentazione dell'offerta. |
 | URL dell'offerta  | Obbligatorio se è selezionata l'opzione "Scarica ora" come modo in cui i clienti devono interagire con la presentazione dell'offerta. |
-| Canali  | facoltativo. Predefinito: nessun consenso esplicito per il canale CSP (rivenditore).  |
-| Test drive | facoltativo. Predefinito: nessun test drive abilitato.  |
+| Canali  | Facoltativa. Predefinito: nessun consenso esplicito per il canale CSP (rivenditore).  |
+| Test drive | Facoltativa. Predefinito: nessun test drive abilitato.  |
 | Tipo di test drive | Obbligatorio se è abilitato un test drive. Predefinito: nessuna selezione. Opzioni: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, App per la logica, Power BI.  |
 | Customer leads - connect to a CRM system (Lead cliente - connessione a un sistema CRM) | Obbligatorio se si vende tramite Microsoft o se la presentazione dell'offerta prevede l'opzione "Contatta". Impostazione predefinita: nessun sistema CRM connesso. Opzioni CRM: Tabella di Azure, BLOB di Azure, Dynamics CRM Online, Endpoint HTTPS, Marketo, Salesforce  |
 
@@ -69,8 +69,8 @@ La pagina Proprietà consente di definire le categorie e i settori usati per rag
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
 | Categoria e sottocategoria | Obbligatorio, minimo 1 valore e massimo 3. Predefinito: nessuna selezione. |
-| Industries and subindustries (Settori e sottosettori) | facoltativo. Massimo 2 settori di livello 1 e 2 sottosettori in ogni settore di livello 1. Impostazione predefinita: nessuna selezione. |
-| Versione dell'app  | facoltativo. Predefinito: No. |
+| Industries and subindustries (Settori e sottosettori) | Facoltativa. Massimo 2 settori di livello 1 e 2 sottosettori in ogni settore di livello 1. Impostazione predefinita: nessuna selezione. |
+| Versione dell'app  | Facoltativa. Predefinito: No. |
 | Use Standard Contract (Usa contratto standard)  | Facoltativa. Impostazione predefinita: nessuna selezione.  | |
 | Condizioni per l'utilizzo  | Obbligatorio se non è selezionato il contratto standard.  |
 
@@ -79,19 +79,19 @@ La pagina Proprietà consente di definire le categorie e i settori usati per rag
 Nella pagina di presentazione dell'offerta è possibile fornire il testo e le immagini che i clienti vedranno quando visualizzano la presentazione dell'offerta nel marketplace. 
 
 | **Nome campo**    | **Note**   |
-| :---------------- | :-----------| 
+| :---------------- | :-----------|
 | Nome  | Obbligatorio, massimo 50 caratteri. |
-| Summary  | Obbligatorio, massimo 100 caratteri. | 
+| Summary  | Obbligatorio, massimo 100 caratteri. |
 | Descrizione  | Obbligatorio, massimo 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
 | Search Keywords (Parole chiave di ricerca)  | Facoltativo, consigliato, massimo 3 parole chiave. |
 | URL dell'informativa sulla privacy  | Obbligatorio. |
-| URL Materiale marketing del programma CSP  | facoltativo. |
-| Collegamenti utili (titolo + URL)  | facoltativo. |
+| URL Materiale marketing del programma CSP  | Facoltativa. |
+| Collegamenti utili (titolo + URL)  | Facoltativa. |
 | Documenti di supporto (titolo + file)  | Obbligatorio, minimo 1 e massimo 3. Il formato di file deve essere PDF. |
 | Screenshots (Schermate)  | Obbligatorio, minimo 1 screenshot e massimo 5, consigliati quattro o più. Il formato deve essere PNG con dimensioni 1280 x 720. |
-| Logo dello Store (piccolo, medio, grande, largo)  | Small (48 X 48) e Large (216 X 216) obbligatorio; altre dimensioni facoltative ma consigliate: media (90 x 90), Wide (255 x 115). Deve essere in. Formato PNG. |
+| Logo dello Store (Small, medium, large)  | È necessario il logo di grandi dimensioni (216 x 216). Il centro per i partner lo utilizzerà per creare un logo di dimensioni ridotte (48 x 48 pixel) e un valore medio (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse. Il formato del logo deve essere PNG. |
 | Video (nome + URL + anteprima)  | Facoltativo, consigliato, massimo 4 video. L'anteprima deve essere in formato PNG con dimensioni 1280 x 720. Il video deve essere ospitato in YouTube o Vimeo. |
 | Contatti (programma CSP, tecnico, supporto)  | Contatti tecnico e di supporto obbligatori (nome, indirizzo di posta elettronica e numero di telefono), contatto del programma CSP facoltativo ma consigliato. |
 | URL del supporto  | Obbligatorio. |
@@ -100,11 +100,11 @@ Nella pagina di presentazione dell'offerta è possibile fornire il testo e le im
 
 La pagina di anteprima consente di specificare i destinatari che possono accedere all'anteprima dell'offerta, al fine di verificare che l'offerta soddisfi tutti i requisiti prima di pubblicarla. 
 
-| **Nome campo**    | **Note**   | 
-| :---------------- | :-----------| 
+| **Nome campo**    | **Note**   |
+| :---------------- | :-----------|
 | AAD/account del servizio gestito (indirizzo di posta elettronica + descrizione) | Obbligatorio, minimo 1 e massimo 10 in caso di immissione manuale o fino a 20 se si carica un file CSV. |
 
-## <a name="technical-configuration-page"></a>Pagina Configurazione tecnica 
+## <a name="technical-configuration-page"></a>Pagina Configurazione tecnica
 
 Nella pagina relativa alla configurazione tecnica è possibile specificare i dettagli tecnici usati da Microsoft per connettersi all'offerta. Questa pagina non è visibile se si è deciso di non vendere tramite Microsoft.
 

@@ -4,12 +4,12 @@ description: Risposte ad alcune domande comuni sulla soluzione Azure VMware (AVS
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836582"
+ms.locfileid: "87872328"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Domande frequenti sull'anteprima della soluzione Azure VMware (AVS)
 
@@ -45,7 +45,7 @@ Potranno essere valutati caso per caso integrazioni e casi d'uso specifici.
 
 **È possibile eseguire la migrazione di VM vSphere da ambienti locali a cloud privati AVS?**
 
-Sì. È possibile usare la migrazione di VM e vMotion per spostare le macchine virtuali in un cloud privato se vengono soddisfatti i requisiti standard di Cross vCenter [vMotion] [https://kb.vmware.com/s/article/210695 ].
+Sì. È possibile usare la migrazione di VM e vMotion per spostare le macchine virtuali in un cloud privato, se sono soddisfatti i [requisiti](https://kb.vmware.com/s/article/210695) standard per la virtualizzazione Cross vCenter.
 
 **È necessaria una versione specifica di vSphere negli ambienti locali?**
 

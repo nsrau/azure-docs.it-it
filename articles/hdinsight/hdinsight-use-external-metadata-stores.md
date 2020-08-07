@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
-ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085906"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873093"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -38,10 +38,10 @@ Per impostazione predefinita, HDInsight crea un metastore con ogni tipo di clust
 
 * Non è possibile condividere il Metastore predefinito con altri cluster.
 
-* Il Metastore predefinito usa il database SQL di Azure di base, che ha un limite di cinque DTU (unità di transazione di database).
-Questo Metastore predefinito viene usato in genere per carichi di lavoro relativamente semplici. Carichi di lavoro che non richiedono più cluster e che non necessitano di metadati conservati oltre il ciclo di vita del cluster.
+* Il Metastore predefinito è consigliato solo per i carichi di lavoro semplici. Carichi di lavoro che non richiedono più cluster e che non necessitano di metadati conservati oltre il ciclo di vita del cluster.
 
-* Per i carichi di lavoro di produzione, è consigliabile eseguire la migrazione a un Metastore esterno. Per ulteriori informazioni, vedere la sezione seguente.
+> [!IMPORTANT]
+> Il Metastore predefinito fornisce un database SQL di Azure con un **limite di DTU di livello Basic 5 (non aggiornabile)**. Adatto a scopo di test di base. Per carichi di lavoro di grandi dimensioni o di produzione, è consigliabile eseguire la migrazione a un Metastore esterno.
 
 ## <a name="custom-metastore"></a>Metastore personalizzato
 
@@ -81,9 +81,8 @@ Gli endpoint privati per gli archivi SQL non sono supportati.
 
 ## <a name="hive-metastore-guidelines"></a>Linee guida per metastore Hive
 
-* Usare un metastore personalizzato quando possibile per separare le risorse di calcolo (il cluster in esecuzione) e i metadati (archiviati nel metastore).
-
-* Iniziare con un livello S2, che fornisce 50 DTU e 250 GB di spazio di archiviazione. Se viene visualizzato un collo di bottiglia, è possibile aumentare il database.
+> [!NOTE]
+> Usare un metastore personalizzato quando possibile per separare le risorse di calcolo (il cluster in esecuzione) e i metadati (archiviati nel metastore). Iniziare con il livello S2, che fornisce 50 DTU e 250 GB di spazio di archiviazione. Se viene visualizzato un collo di bottiglia, è possibile aumentare il database.
 
 * Se si prevede l'accesso di più cluster HDInsight a dati separati, usare un database separato per il metastore in ogni cluster. Se un metastore è condiviso da più cluster HDInsight, significa che i cluster usano gli stessi metadati e file di dati utente sottostanti.
 

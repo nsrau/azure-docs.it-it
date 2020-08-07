@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052481"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904259"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -58,6 +58,13 @@ Questo articolo illustra come caricare e indicizzare i video con queste opzioni:
 
 Per un elenco dei formati di file che è possibile usare con Video Indexer, vedere l'articolo [Contenitore di input/formati di file](../latest/media-encoder-standard-formats.md#input-containerfile-formats).
 
+## <a name="video-files-storage"></a>Archiviazione file video
+
+- Con un account di Video Indexer a pagamento, viene creato un account di Video Indexer connesso alla sottoscrizione di Azure e a un account di servizi multimediali di Azure. Per altre informazioni, vedere [creare un account video Indexer connesso ad Azure](connect-to-azure.md).
+- I file video vengono archiviati in archiviazione di Azure da servizi multimediali di Azure. Non esiste alcun limite di tempo.
+- È sempre possibile eliminare i file audio e video, nonché tutti i metadati e le informazioni dettagliate estratti da tali file per Video Indexer. Dopo aver eliminato un file da Video Indexer, il file, i metadati e le informazioni dettagliate vengono rimossi definitivamente da Video Indexer. Se tuttavia è stata implementata la propria soluzione di backup in Archiviazione di Azure, il file rimane nella risorsa di archiviazione di Azure.
+- Il persistenza di un video è identico, indipendentemente dal fatto che il caricamento venga eseguito dal sito Web Video Indexer o tramite l'API di caricamento.
+   
 ## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Caricare e indicizzare un video tramite il sito Web Video Indexer
 
 > [!NOTE]
@@ -142,6 +149,9 @@ Una volta caricato il video, facoltativamente Video Indexer lo codifica. Procede
 
 Quando si usano le API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) o [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), uno dei parametri facoltativi è `streamingPreset`. Se si imposta `streamingPreset` su `Default`, `SingleBitrate` o `AdaptiveBitrate`, viene attivato il processo di codifica. Dopo il completamento dei processi di indicizzazione e codifica, il video viene pubblicato in modo che sia possibile eseguirne lo streaming. L'endpoint di streaming da cui si vuole trasmettere il video deve essere nello stato **In esecuzione**.
 
+Per SingleBitrate, viene applicato il costo del codificatore standard per l'output. Se l'altezza del video è maggiore o uguale a 720, Video Indexer lo codifica come 1280x720. In caso contrario, come 640x468.
+L'impostazione predefinita è [codifica compatibile](../latest/content-aware-encoding.md)con il contenuto.
+
 Per poter eseguire i processi di indicizzazione e codifica, l'[account di Servizi multimediali di Microsoft Azure connesso al proprio account di Video Indexer](connect-to-azure.md) richiede unità riservate. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). Poiché si tratta di processi a elevato utilizzo di calcolo, è consigliabile il tipo di unità S3. Il numero di unità riservate definisce il numero massimo di processi che è possibile eseguire in parallelo. In linea generale è consigliabile usare 10 unità riservate S3. 
 
 Se si vuole solo indicizzare il video, ma non codificarlo, impostare `streamingPreset` su `NoStreaming`.
@@ -165,7 +175,7 @@ Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario 
     Per ottenere la chiave API, passare a questo flusso:
 
     * Passare a https://api-portal.videoindexer.ai/
-    * Login
+    * Accedi
     * Passa alla **Products**  ->  **Authorization**  ->  **sottoscrizione di autorizzazione** per i prodotti
     * Copiare la **chiave primaria**
 * URL video: URL del file video/audio da indicizzare. L'URL deve puntare a un file multimediale; le pagine HTML non sono supportate. Il file può essere protetto da un token di accesso fornito come parte dell'URI e l'endpoint che gestisce il file deve essere protetto con il protocollo TLS 1.2 o versione successiva. L'URL deve essere codificato.
@@ -348,7 +358,7 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice di stato|ErrorType (nel corpo della risposta)|Descrizione|
+|Codice di stato|ErrorType (nel corpo della risposta)|Description|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|
