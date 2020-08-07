@@ -94,7 +94,7 @@
   items:
     - name: Panoramica delle procedure consigliate per Service Fabric
       href: service-fabric-best-practices-overview.md
-    - name: Security
+    - name: Sicurezza
       href: service-fabric-best-practices-security.md
     - name: Rete
       href: service-fabric-best-practices-networking.md
@@ -635,7 +635,7 @@
             - name: Configurare l'integrazione continua con Azure Pipelines
               href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
             - name: Distribuire applicazioni Linux usando Jenkins
-              href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+              href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
     - name: Installare e configurare il proxy inverso
       items:
         - name: Installare e configurare il proxy inverso
