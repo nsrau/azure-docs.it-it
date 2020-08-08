@@ -7,14 +7,14 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Configurare i log dei flussi dei gruppi di sicurezza di rete con un modello di Azure Resource Manager
-      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
     - name: Diagnosticare un problema di filtro del traffico di una VM - Portale
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnosticare un problema di filtro del traffico di una VM - PowerShell
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnosticare un problema di filtro del traffico di una VM - Interfaccia della riga di comando di Azure
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
+    - name: Configurare i log dei flussi dei gruppi di sicurezza di rete con un modello di Azure Resource Manager
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Esercitazioni
   items:
     - name: Diagnosticare un problema di routing di una VM

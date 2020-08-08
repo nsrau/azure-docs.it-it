@@ -671,7 +671,7 @@
                 - name: Aumentare le prestazioni a livello di programmazione
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Ridimensionare il tipo di nodo primario
-                  href: service-fabric-scale-up-node-type.md
+                  href: service-fabric-scale-up-primary-node-type.md
                 - name: Aggiungere un tipo di nodo
                   href: virtual-machine-scale-set-scale-node-type-scale-out.md
                 - name: Rimuovere un tipo di nodo

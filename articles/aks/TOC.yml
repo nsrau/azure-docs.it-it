@@ -10,7 +10,7 @@
     - name: Creare un cluster del servizio Azure Kubernetes
       expanded: true
       items:
-        - name: Utilizzare l’interfaccia della riga di comando di Azure
+        - name: Usare l'interfaccia della riga di comando di Azure
           href: kubernetes-walkthrough.md
         - name: Usare Azure PowerShell
           href: kubernetes-walkthrough-powershell.md
@@ -290,8 +290,8 @@
           href: windows-container-powershell.md
         - name: Connettersi in remoto
           href: rdp.md
-        - name: Limitazioni note
-          href: windows-node-limitations.md
+        - name: Domande frequenti sui contenitori di Windows Server
+          href: windows-faq.md
         - name: Usare il dashboard di Kubernetes
           href: kubernetes-dashboard.md
         - name: Creare file Docker per i contenitori di Windows Server

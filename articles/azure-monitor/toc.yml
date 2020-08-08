@@ -85,6 +85,10 @@
           items:
             - name: Creare una risorsa
               href: samples/resource-manager-app-resource.md
+            - name: Servizio app di Azure
+              href: samples/resource-manager-web-app.md
+            - name: Funzioni di Azure
+              href: samples/resource-manager-function-app.md
         - name: Impostazioni di diagnostica
           href: samples/resource-manager-diagnostic-settings.md
         - name: Aree di lavoro di Log Analytics

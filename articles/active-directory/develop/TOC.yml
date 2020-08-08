@@ -298,6 +298,9 @@
               displayName: 'firstline worker, frontline worker, flw'
             - name: App client pubbliche per uno o più account
               href: single-multi-account.md
+            - name: Gestire errori ed eccezioni
+              href: msal-android-handling-exceptions.md
+              displayName: 'android, mobile'
             - name: Registrazione
               href: msal-logging.md?tabs=android
         - name: iOS e macOS
