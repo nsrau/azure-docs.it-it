@@ -1,26 +1,24 @@
 ---
 title: Connettersi a desktop virtuale Windows (classico) Windows 10 o 7-Azure
 description: Come connettersi a desktop virtuale Windows (classico) utilizzando il client desktop di Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270329"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008359"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Connettersi con il client Windows Desktop (classico)
 
 > Si applica a: Windows 7, Windows 10 e Windows 10 le aziende
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../connect-windows-7-10.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../connect-windows-7-10.md).
 
 È possibile accedere alle risorse del desktop virtuale di Windows nei dispositivi con Windows 7, Windows 10 e Windows 10, Enterprise usando il client desktop di Windows. Il client non supporta Windows 8 o Windows 8.1.
 

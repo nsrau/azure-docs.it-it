@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9bd0f1cbe1f4797a0187952b94ca48077bb3134c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0809c9eb1f64dc6a505ef50e25f973aa041d186d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854412"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004488"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Baseline della sicurezza di Azure per il Centro sicurezza
 
@@ -190,7 +190,7 @@ In alternativa, è possibile abilitare e caricare i dati correlati e prodotti da
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: il controllo degli accessi in base al ruolo di Azure consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure. Il Centro sicurezza di Azure dispone di ruoli predefiniti per "Security Reader" o "Security admin" che consente agli utenti di leggere o aggiornare i criteri di sicurezza e di ignorare gli avvisi e le raccomandazioni.
+**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure. Il Centro sicurezza di Azure dispone di ruoli predefiniti per "Security Reader" o "Security admin" che consente agli utenti di leggere o aggiornare i criteri di sicurezza e di ignorare gli avvisi e le raccomandazioni.
 
 - [Autorizzazioni nel Centro sicurezza di Azure](security-center-permissions.md)
 
@@ -344,7 +344,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite Azure Active Directory RBAC.
+**Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite RBAC di Azure.
 
 Per impostazione predefinita, i dati del Centro sicurezza di Azure vengono archiviati nel servizio back-end del Centro sicurezza. Se l'organizzazione ha aggiunto requisiti per archiviare questi dati nelle proprie risorse, è possibile configurare un'area di lavoro di Log Analytics per archiviare i dati del Centro sicurezza, gli avvisi e le raccomandazioni. Quando si usa un'area di lavoro personalizzata, è possibile aggiungere un'ulteriore separazione configurando aree di lavoro diverse in base all'ambiente in cui sono stati originati i dati.
 
@@ -376,15 +376,15 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 **Responsabilità**: Condiviso
 
-### <a name="46-use-role-based-access-controls-to-control-access-to-resources"></a>4,6: usare i controlli degli accessi in base al ruolo per controllare l'accesso alle risorse 
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse 
 
-**Linee guida**: usare i controlli degli accessi in base al ruolo di Azure per gestire l'accesso ai dati e alle risorse del Centro sicurezza di Azure. Il Centro sicurezza di Azure dispone di ruoli predefiniti per "Security Reader" o "Security admin" che consente agli utenti di leggere o aggiornare i criteri di sicurezza e di ignorare gli avvisi e le raccomandazioni. L'area di lavoro Log Analytics che archivia i dati raccolti dal centro sicurezza dispone anche di ruoli predefiniti che è possibile assegnare, ad esempio ' Log Analytics Reader ',' Log Analytics Contributor ' e altri. Assegnare il ruolo meno permissivo necessario per consentire agli utenti di completare le attività necessarie. Assegnare ad esempio il ruolo di lettore agli utenti che devono visualizzare solo le informazioni sull'integrità della sicurezza di una risorsa, ma non eseguono alcuna azione, come l'applicazione di consigli e la modifica di criteri.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso ai dati e alle risorse correlati al centro sicurezza di Azure. Il Centro sicurezza di Azure dispone di ruoli predefiniti per "Security Reader" o "Security admin" che consente agli utenti di leggere o aggiornare i criteri di sicurezza e di ignorare gli avvisi e le raccomandazioni. L'area di lavoro Log Analytics che archivia i dati raccolti dal centro sicurezza dispone anche di ruoli predefiniti che è possibile assegnare, ad esempio ' Log Analytics Reader ',' Log Analytics Contributor ' e altri. Assegnare il ruolo meno permissivo necessario per consentire agli utenti di completare le attività necessarie. Assegnare ad esempio il ruolo di lettore agli utenti che devono visualizzare solo le informazioni sull'integrità della sicurezza di una risorsa, ma non eseguono alcuna azione, come l'applicazione di consigli e la modifica di criteri.
 
 - [Autorizzazioni per l'area di lavoro di Azure Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-reader)
 
 - [Autorizzazioni nel Centro sicurezza di Azure](security-center-permissions.md)
 
-- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

@@ -1,24 +1,22 @@
 ---
 title: Accesso delegato in desktop virtuale Windows (classico)-Azure
 description: Come delegare le funzionalità amministrative in una distribuzione desktop virtuale Windows (classica), inclusi esempi.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbb8c6e100a9f72c20bcfaba7049b6724ee458b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0152dc5102fd3f77418448234cab1234d25b97c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292524"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008152"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Accesso delegato in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../delegated-access-virtual-desktop.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../delegated-access-virtual-desktop.md).
 
 Desktop virtuale di Windows dispone di un modello di accesso delegato che consente di definire la quantità di accesso consentito a un determinato utente assegnando loro un ruolo. Un'assegnazione di ruolo dispone di tre componenti: entità di sicurezza, definizione del ruolo e ambito. Il modello di accesso delegato di desktop virtuale Windows è basato sul modello di controllo degli accessi in base al ruolo di Azure Per altre informazioni sulle assegnazioni di ruolo specifiche e sui relativi componenti, vedere [Panoramica del controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/built-in-roles.md).
 

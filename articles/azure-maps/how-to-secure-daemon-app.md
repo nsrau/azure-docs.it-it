@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531372"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006639"
 ---
 # <a name="secure-a-daemon-application"></a>Proteggere un'applicazione daemon
 
 La guida seguente è relativa ai processi in background, ai timer e ai processi ospitati in un ambiente attendibile e protetto. Alcuni esempi sono i processi Web di Azure, le app per le funzioni di Azure, i servizi Windows e qualsiasi altro servizio in background affidabile.
 
 > [!Tip]
-> Microsoft consiglia di implementare Azure Active Directory (Azure AD) e il controllo degli accessi in base al ruolo (RBAC) per le applicazioni di produzione. Per una panoramica dei concetti, vedere [autenticazione di Azure Maps](./azure-maps-authentication.md).
+> Microsoft consiglia di implementare Azure Active Directory (Azure AD) e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per le applicazioni di produzione. Per una panoramica dei concetti, vedere [autenticazione di Azure Maps](./azure-maps-authentication.md).
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
@@ -46,7 +46,7 @@ I passaggi seguenti illustrano questo processo:
 > [!Tip]
 > Se l'app è ospitata in un ambiente Azure, è necessario implementare un'identità gestita per ridurre i costi e la complessità della gestione di un segreto per l'autenticazione Azure Key Vault. [Per la connessione tramite identità gestita](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app), vedere l'esercitazione seguente Azure Key Vault.
 
-L'applicazione daemon è responsabile del recupero della chiave condivisa da un archivio protetto. Per l'implementazione con Azure Key Vault è necessaria l'autenticazione tramite Azure AD per accedere al segreto. Al contrario, viene incoraggiata l'autenticazione Azure AD diretta del controllo degli accessi in base al ruolo per le mappe di Azure, a causa dei requisiti di complessità e operativi aggiuntivi per l'uso dell'autenticazione
+L'applicazione daemon è responsabile del recupero della chiave condivisa da un archivio protetto. Per l'implementazione con Azure Key Vault è necessaria l'autenticazione tramite Azure AD per accedere al segreto. Viene invece incoraggiata l'autenticazione Azure AD diretta per le mappe di Azure in seguito ai requisiti operativi e di complessità aggiuntivi dell'utilizzo dell'autenticazione con chiave condivisa.
 
 > [!IMPORTANT]
 > Per semplificare la rigenerazione delle chiavi, è consigliabile usare una chiave alla volta per le applicazioni. Le applicazioni possono quindi rigenerare la chiave inutilizzata e distribuire la nuova chiave rigenerata in un archivio segreto protetto, ad esempio Azure Key Vault.
@@ -109,7 +109,7 @@ Quando è in esecuzione in un ambiente non Azure, le identità gestite non sono 
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Concedere l'accesso in base al ruolo per l'applicazione daemon ad Azure Maps
 
-Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identità gestita creata o l'entità servizio a una o più definizioni di ruolo di controllo di accesso di Azure maps. Per visualizzare le definizioni dei ruoli di Azure disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**. Selezionare **Roles (ruoli**) e quindi cercare i ruoli che iniziano con *Maps di Azure*. Questi ruoli di Azure Maps sono i ruoli a cui è possibile concedere l'accesso.
+Si concede il *controllo degli accessi in base al ruolo di Azure (RBAC di Azure)* assegnando l'identità gestita creata o l'entità servizio a una o più definizioni di ruolo di Azure maps. Per visualizzare le definizioni dei ruoli di Azure disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**. Selezionare **Roles (ruoli**) e quindi cercare i ruoli che iniziano con *Maps di Azure*. Questi ruoli di Azure Maps sono i ruoli a cui è possibile concedere l'accesso.
 
 > [!div class="mx-imgBorder"]
 > ![Visualizzare i ruoli disponibili](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -117,14 +117,14 @@ Il *controllo degli accessi in base al ruolo* viene concesso assegnando l'identi
 1. Passare all' **account Azure Maps**. Selezionare **Controllo di accesso (IAM)** > **Assegnazioni di ruolo**.
 
     > [!div class="mx-imgBorder"]
-    > ![Concedere il controllo degli accessi in base al ruolo](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Concedi l'accesso con RBAC di Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. Nella scheda **assegnazioni di ruolo** **aggiungere** un'assegnazione di ruolo. 
     
     > [!div class="mx-imgBorder"]
     > ![Aggiungere un'assegnazione di ruolo](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Selezionare una definizione di ruolo di Azure Maps predefinita, ad esempio **lettore dati** di Azure Maps o **collaboratore dati di Azure Maps**. In **assegna accesso a**selezionare **Azure ad utente, un gruppo o un'entità servizio** o un'identità gestita con identità gestita assegnata dal sistema di identità gestito assegnato **dall'utente**  /  **System assigned Managed identity**. Selezionare l'entità. Selezionare **Salva**.
+3. Selezionare una definizione di ruolo di Azure Maps predefinita, ad esempio **lettore dati** di Azure Maps o **collaboratore dati di Azure Maps**. In **assegna accesso a**selezionare **Azure ad utente, un gruppo o un'entità servizio** o un'identità gestita con identità gestita assegnata dal sistema di identità gestito assegnato **dall'utente**  /  **System assigned Managed identity**. Selezionare l'entità. Selezionare quindi **Salva**.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungere un'assegnazione di ruolo](./media/how-to-manage-authentication/how-to-add-role-assignment.png)

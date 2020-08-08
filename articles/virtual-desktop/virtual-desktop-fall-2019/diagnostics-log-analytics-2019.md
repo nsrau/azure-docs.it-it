@@ -1,24 +1,22 @@
 ---
 title: Log Analytics di diagnostica di Windows Virtual Desktop (classico)-Azure
 description: Come usare log Analytics con la funzionalità di diagnostica desktop virtuale di Windows (classica).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a7a7a6681be78c2777130ca540319eb829d8f9d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285068"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002351"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Usare Log Analytics per la funzionalità di diagnostica in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../diagnostics-log-analytics.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../diagnostics-log-analytics.md).
 
 Desktop virtuale Windows offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi usando un'unica interfaccia. Questa funzionalità registra le informazioni di diagnostica ogni volta che un utente assegna un ruolo desktop virtuale Windows utilizza il servizio. Ogni log contiene informazioni sul ruolo di desktop virtuale di Windows incluso nell'attività, i messaggi di errore visualizzati durante la sessione, le informazioni sul tenant e le informazioni sull'utente. La funzionalità di diagnostica crea log attività per le azioni utente e amministrative. Ogni log attività rientra in tre categorie principali:
 

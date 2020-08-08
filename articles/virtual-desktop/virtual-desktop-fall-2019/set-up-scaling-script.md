@@ -1,24 +1,22 @@
 ---
 title: La sessione di ridimensionamento ospita il desktop virtuale Windows di automazione di Azure (versione classica)-Azure
 description: Come ridimensionare automaticamente gli host di sessione desktop virtuale (classica) di Windows con automazione di Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4092b9d5ee7453533561f5921781fee4d1823eb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288643"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005585"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Ridimensionare gli host di sessione desktop virtuali Windows (classico) usando automazione di Azure
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 È possibile ridurre il costo totale di distribuzione di Desktop virtuale Windows dimensionando le macchine virtuali (VM). Ciò significa arrestare e deallocare le VM host di sessioni nelle ore non di punta, quindi riattivarle e riallocarle nelle ore di punta.
 
@@ -94,7 +92,7 @@ Per prima cosa, è necessario un account di Automazione di Azure per eseguire il
     ```powershell
     Login-AzAccount
     ```
-    
+
     >[!NOTE]
     >L'account deve disporre dei diritti di collaboratore per la sottoscrizione di Azure in cui si vuole distribuire lo strumento di scalabilità.
 
@@ -119,7 +117,7 @@ Per prima cosa, è necessario un account di Automazione di Azure per eseguire il
          "Location"              = "<Azure_region_for_deployment>"
          "WorkspaceName"         = "<Log_analytics_workspace_name>"       # Optional. If specified, Log Analytics will be used to configure the custom log table that the runbook PowerShell script can send logs to
     }
-    
+
     .\CreateOrUpdateAzAutoAccount.ps1 @Params
     ```
 
@@ -208,23 +206,23 @@ Infine, è necessario creare l'app per la logica di Azure e configurare una pian
     # Set-RdsContext -TenantGroupName "<Tenant_Group_Name>"
     ```
 
-5. Eseguire lo script di PowerShell seguente per creare l'app per la logica di Azure e la pianificazione di esecuzione per il pool host 
+5. Eseguire lo script di PowerShell seguente per creare l'app per la logica di Azure e la pianificazione di esecuzione per il pool host
 
     >[!NOTE]
     >È necessario eseguire questo script per ogni pool host di cui si vuole applicare la scalabilità automatica, ma è necessario un solo account di automazione di Azure.
 
     ```powershell
     $AADTenantId = (Get-AzContext).Tenant.Id
-    
+
     $AzSubscription = Get-AzSubscription | Out-GridView -OutputMode:Single -Title "Select your Azure Subscription"
     Select-AzSubscription -Subscription $AzSubscription.Id
-    
+
     $ResourceGroup = Get-AzResourceGroup | Out-GridView -OutputMode:Single -Title "Select the resource group for the new Azure Logic App"
-    
+
     $RDBrokerURL = (Get-RdsContext).DeploymentUrl
     $WVDTenant = Get-RdsTenant | Out-GridView -OutputMode:Single -Title "Select your WVD tenant"
     $WVDHostPool = Get-RdsHostPool -TenantName $WVDTenant.TenantName | Out-GridView -OutputMode:Single -Title "Select the host pool you'd like to scale"
-    
+
     $LogAnalyticsWorkspaceId = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Workspace ID returned by when you created the Azure Automation account, otherwise leave it blank"
     $LogAnalyticsPrimaryKey = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Primary Key returned by when you created the Azure Automation account, otherwise leave it blank"
     $RecurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
@@ -237,12 +235,12 @@ Infine, è necessario creare l'app per la logica di Azure e configurare una pian
     $LimitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, any session host VM that has user sessions, will be left untouched"
     $LogOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
     $LogOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-    
+
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
-    
+
     $WebhookURIAutoVar = Get-AzAutomationVariable -Name 'WebhookURI' -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName
-    
+
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
          "SubscriptionID"                = $AzSubscription.Id                       # Optional. If not specified, it will use the current Azure context
@@ -267,7 +265,7 @@ Infine, è necessario creare l'app per la logica di Azure e configurare una pian
          "LogOffMessageBody"             = $LogOffMessageBody                       # Optional. Default: "Your session will be logged off. Please save and close everything."
          "WebhookURI"                    = $WebhookURIAutoVar.Value
     }
-    
+
     .\CreateOrUpdateAzLogicApp.ps1 @Params
     ```
 

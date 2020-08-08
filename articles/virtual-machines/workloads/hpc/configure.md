@@ -10,15 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/01/2020
+ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: dfa1c790dc0f2e229b3bfa19616e5760c3d3d02e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825141"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006605"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurare e ottimizzare le macchine virtuali
 
@@ -27,9 +27,18 @@ Questo articolo condivide le tecniche note per configurare e ottimizzare le macc
 ## <a name="vm-images"></a>Immagini di macchine virtuali
 Nelle VM con InfiniBand abilitata, i driver appropriati sono necessari per abilitare RDMA. In Linux, le immagini di VM CentOS-HPC nel Marketplace sono preconfigurate con i driver appropriati. Le immagini di macchine virtuali Ubuntu possono essere configurate con i driver appropriati seguendo le istruzioni riportate [qui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). È inoltre consigliabile creare immagini di [VM personalizzate](../../linux/tutorial-custom-images.md) con i driver e la configurazione appropriati e riutilizzarle in modo ricorrente.
 
+> [!NOTE]
+> Nelle macchine virtuali [serie N](../../sizes-gpu.md) abilitate per la GPU sono necessari anche i driver GPU appropriati che possono essere aggiunti tramite le [estensioni della macchina virtuale](../../extensions/hpccompute-gpu-linux.md) o [manualmente](../../linux/n-series-driver-setup.md). Alcune immagini di VM nel Marketplace sono preinstallate anche con i driver GPU NVIDIA.
+
 ### <a name="centos-hpc-vm-images"></a>Immagini di VM CentOS-HPC
+
+#### <a name="non-sr-iov-enabled-vms"></a>VM non abilitate per SR-IOV
 Per le VM con supporto di [RDMA](../../sizes-hpc.md#rdma-capable-instances)non SR-IOV abilitate, CentOS-HPC versione 6,5 o successiva, fino a 7,5 nel Marketplace sono adatte. Ad esempio, per le [macchine virtuali della serie H16](../../h-series.md), sono consigliate le versioni 7,1 e 7,5. Queste immagini di macchina virtuale vengono precaricate con i driver diretti di rete per RDMA e Intel MPI versione 5,1.
 
+> [!NOTE]
+> In queste immagini HPC basate su CentOS per le macchine virtuali abilitate per non SR-IOV, gli aggiornamenti del kernel sono disabilitati nel file di configurazione **yum** . Ciò è dovuto al fatto che i driver RDMA di NetworkDirect Linux sono distribuiti come un pacchetto RPM e gli aggiornamenti dei driver potrebbero non funzionare se il kernel viene aggiornato.
+
+#### <a name="sr-iov-enabled-vms"></a>VM abilitate per SR-IOV
   Per le [macchine virtuali](../../sizes-hpc.md#rdma-capable-instances)abilitate per SR-IOV abilitate per RDMA, [CentOS-HPC versione 7,6 o una versione successiva](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) le immagini di VM nel Marketplace sono adatte. Queste immagini di VM vengono ottimizzate e precaricate con i driver OFED per RDMA e le librerie MPI e i pacchetti di calcolo scientifici usati comunemente e rappresentano il modo più semplice per iniziare.
 
   Esempio di script usati per la creazione di immagini di VM CentOS-HPC versione 7,6 e successive da un'immagine di base di CentOS Marketplace si trovano nel [repository azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).

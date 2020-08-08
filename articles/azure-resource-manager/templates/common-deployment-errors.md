@@ -3,13 +3,13 @@ title: Risolvere gli errori di distribuzione comuni
 description: Descrive come risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/07/2020
+ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446604"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008169"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -17,11 +17,9 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 
 Se si cercano informazioni su un codice di errore non riportato in questo articolo, è possibile segnalarlo lasciando un feedback nella parte inferiore della pagina. Il feedback viene registrato insieme ai problemi di GitHub.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="error-codes"></a>Codici di errore
 
-| Codice di errore | Strategia di riduzione del rischio | Altre informazioni |
+| Codice di errore | Strategia di riduzione del rischio | Ulteriori informazioni |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Seguire le limitazioni relative all'assegnazione dei nomi per gli account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Controllare le proprietà dell'account di archiviazione disponibili. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -76,6 +74,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | StorageAccountAlreadyTaken | Fornire un nome univoco per l'account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](error-storage-account-name.md) |
 | StorageAccountNotFound | Controllare la sottoscrizione, il gruppo di risorse e il nome dell'account di archiviazione che si sta tentando di usare. | |
 | SubnetsNotInSameVnet | Una macchina virtuale può avere solo una rete virtuale. Quando si distribuiscono più schede di interfaccia di rete, assicurarsi che appartengano alla stessa rete virtuale. | [Più schede di interfaccia di rete](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriptionNotFound | Non è possibile accedere a una sottoscrizione specificata per la distribuzione. È possibile che l'ID sottoscrizione sia errato, che l'utente che distribuisce il modello non disponga di autorizzazioni adeguate per la distribuzione nella sottoscrizione oppure che il formato dell'ID sottoscrizione sia errato. Quando si utilizzano distribuzioni nidificate per la [distribuzione tra ambiti](cross-scope-deployment.md), fornire il GUID per la sottoscrizione. | |
 | SubscriptionNotRegistered | Quando si distribuiscono le risorse di rete, il provider di risorse Microsoft. Network viene registrato automaticamente nella sottoscrizione. In alcuni casi, la registrazione automatica non viene completata nel tempo. Per evitare questo errore intermittente, registrare il provider di risorse Microsoft. Network prima della distribuzione. | [Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Rimuovere le dipendenze non necessarie. | [Risolvere le dipendenze circolari](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Ridurre il numero di gruppi di risorse per una distribuzione singola. | [Distribuzione con ambito incrociato](cross-scope-deployment.md) |

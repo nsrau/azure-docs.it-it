@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6db83d17a9e6f3df6d691d6de616ead5407e3f5f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 89da86d753f746774737c248ee318c7a377dd7a0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133045"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007098"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Baseline della sicurezza di Azure per i set di scalabilità di macchine virtuali
 
@@ -170,7 +170,7 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
@@ -306,7 +306,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
 
@@ -496,7 +496,7 @@ Per le macchine virtuali Linux, è possibile configurare manualmente la registra
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
@@ -576,11 +576,11 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Responsabilità**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: uso del controllo degli accessi in base al ruolo (RBAC), è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti nella macchina virtuale (VM) necessari per eseguire i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel portale di Azure, usando l'interfaccia della riga di comando di Azure o Azure PowerShell.
+**Linee guida**: uso del controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti della macchina virtuale (VM) necessari per eseguire i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel portale di Azure, usando l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
-* [Controllo degli accessi in base al ruolo per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Controllo degli accessi in base al ruolo Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Ruoli predefiniti di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
 
@@ -686,7 +686,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: gestire i metadati degli asset
 
@@ -852,7 +852,7 @@ I controlli delle applicazioni adattivi non sono attualmente disponibili per i s
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: definire configurazioni sicure del sistema operativo
 
@@ -916,11 +916,11 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
-**Linee guida**: se si usano immagini personalizzate, ad esempio un disco rigido virtuale, usare i controlli degli accessi in base al ruolo di Azure per garantire che solo gli utenti autorizzati possano accedere alle immagini.
+**Linee guida**: se si usano immagini personalizzate, ad esempio un disco rigido virtuale, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per garantire che solo gli utenti autorizzati possano accedere alle immagini.
 
-* [Informazioni sul RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Come configurare RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -990,7 +990,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
@@ -1166,7 +1166,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 

@@ -1,6 +1,6 @@
 ---
 title: Modelli di immagine in Azure Maps Web SDK | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come usare i modelli di immagine con marcatori HTML e diversi livelli nel Microsoft Azure Maps Web SDK.
+description: Informazioni su come aggiungere icone di immagini e poligoni riempiti da pattern a Maps usando Azure Maps Web SDK. Visualizzare i modelli di modello di riempimento e immagine disponibili.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ae3fa4684e4e71115d2d4ddce3c34ccb4f1cb703
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285680"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004649"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
 
@@ -122,7 +122,7 @@ Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un m
 | Nome | Tipo restituito | Descrizione | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Aggiunge un modello di immagine SVG personalizzato allo spazio dei nomi dell'Atlante. |
-|  `getImageTemplate(templateName: string, scale?: number)`| Stringa | Recupera un modello SVG in base al nome. |
+|  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera un modello SVG in base al nome. |
 | `getAllImageTemplateNames()` | string[] |  Recupera un modello SVG in base al nome. |
 
 I modelli di immagine SVG supportano i seguenti valori segnaposto:

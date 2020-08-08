@@ -1,19 +1,17 @@
 ---
 title: Domande frequenti sul desktop virtuale Windows-Azure
 description: Domande frequenti e procedure consigliate per desktop virtuale di Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504416"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007489"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Domande frequenti su Desktop virtuale Windows
 
@@ -25,7 +23,7 @@ Se si desidera creare pool host e altri oggetti, è necessario disporre del ruol
 
 È necessario disporre del ruolo amministratore accesso utenti per un gruppo di app per pubblicare gruppi di app per utenti o gruppi di utenti.
 
-Per impedire a un amministratore di gestire solo le sessioni utente, ad esempio l'invio di messaggi agli utenti, la disconnessione degli utenti e così via, è possibile creare ruoli personalizzati. Ad esempio: 
+Per impedire a un amministratore di gestire solo le sessioni utente, ad esempio l'invio di messaggi agli utenti, la disconnessione degli utenti e così via, è possibile creare ruoli personalizzati. Ad esempio:
 
 ```powershell
 "actions": [
@@ -116,7 +114,7 @@ Dopo aver creato un pool di host, non è possibile modificarne il tipo. Tuttavia
 
 Limitazioni o quote in FSLogix dipendono dall'infrastruttura di archiviazione usata per archiviare i file VHD del profilo utente (X).
 
-La tabella seguente fornisce un esempio di come le risorse di un profilo FSLogix devono supportare ogni utente. I requisiti possono variare notevolmente a seconda dell'utente, delle applicazioni e dell'attività per ogni profilo. 
+La tabella seguente fornisce un esempio di come le risorse di un profilo FSLogix devono supportare ogni utente. I requisiti possono variare notevolmente a seconda dell'utente, delle applicazioni e dell'attività per ogni profilo.
 
 | Risorsa | Requisito |
 |---|---|

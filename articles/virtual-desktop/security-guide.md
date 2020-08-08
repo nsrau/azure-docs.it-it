@@ -1,19 +1,17 @@
 ---
 title: Procedure consigliate per la sicurezza del Desktop virtuale Windows - Azure
 description: Procedure consigliate per garantire la sicurezza dell'ambiente Desktop virtuale Windows.
-services: virtual-desktop
 author: heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736673"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002289"
 ---
 # <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
@@ -103,7 +101,7 @@ Gli host di sessione sono macchine virtuali che vengono eseguite all'interno di 
 
 ### <a name="enable-endpoint-protection"></a>Abilita la protezione dell'endpoint
 
-Per proteggere la distribuzione da software dannosi noti, è consigliabile abilitare la protezione dell'endpoint in tutti gli host di sessione. È possibile usare Windows Defender antivirus o un programma di terze parti. Per altre informazioni, vedere [Guida alla distribuzione per Windows Defender Antivirus in un ambiente VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+Per proteggere la distribuzione da software dannosi noti, è consigliabile abilitare la protezione dell'endpoint in tutti gli host di sessione. È possibile usare Windows Defender antivirus o un programma di terze parti. Per altre informazioni, vedere [Guida alla distribuzione per Windows Defender Antivirus in un ambiente VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 Per le soluzioni di profili come FSLogix o altre soluzioni che montano file VHD, è consigliabile escludere le estensioni di file VHD.
 

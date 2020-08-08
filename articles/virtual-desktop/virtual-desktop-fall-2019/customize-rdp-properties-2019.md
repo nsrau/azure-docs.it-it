@@ -1,24 +1,22 @@
 ---
 title: Personalizzare le proprietà RDP con il desktop virtuale di Windows PowerShell (versione classica)-Azure
 description: Come personalizzare le proprietà RDP per desktop virtuale Windows (classico) con i cmdlet di PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3ed7e8b8348ae87e676ec4585bce42a1ac389e23
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1df576e3316a529ec38c4a53960ff817d129ffd8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291267"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002249"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool di host di desktop virtuali Windows (classico)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../customize-rdp-properties.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../customize-rdp-properties.md).
 
 La personalizzazione delle proprietà di Remote Desktop Protocol (RDP) di un pool host, ad esempio l'esperienza a più monitor e il reindirizzamento audio, ti permette di offrire un'esperienza ottimale agli utenti in base alle esigenze. È possibile personalizzare le proprietà RDP nel desktop virtuale di Windows usando il parametro **-CustomRdpProperty** nel cmdlet **set-RdsHostPool** .
 
@@ -36,7 +34,7 @@ Per impostazione predefinita, i file RDP pubblicati contengono le proprietà seg
 
 |Proprietà di RDP | Desktop | RemoteApps |
 |---|---| --- |
-| Modalità multimonitor | Attivato | N/D |
+| Modalità multimonitor | Abilitato | N/D |
 | Reindirizzamento unità abilitati | Unità, appunti, stampanti, porte COM, dispositivi USB e smart card| Unità, appunti e stampanti |
 | Modalità audio remoto | Riproduci localmente | Riproduci localmente |
 

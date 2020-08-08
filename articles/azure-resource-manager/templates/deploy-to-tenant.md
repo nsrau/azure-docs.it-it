@@ -3,16 +3,16 @@ title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 3fbf869e371f385a335e4a154bc811a6fc8cab97
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922524"
+ms.locfileid: "88002771"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
 
-Con la maturità dell'organizzazione, potrebbe essere necessario definire e assegnare [criteri](../../governance/policy/overview.md) o [controlli degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel tenant di Azure AD. Con i modelli a livello di tenant, è possibile applicare i criteri in modo dichiarativo e assegnare ruoli a livello globale.
+Con la maturità dell'organizzazione, potrebbe essere necessario definire e assegnare [criteri](../../governance/policy/overview.md) o il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) nel tenant Azure ad. Con i modelli a livello di tenant, è possibile applicare i criteri in modo dichiarativo e assegnare ruoli a livello globale.
 
 ## <a name="supported-resources"></a>Risorse supportate
 
@@ -251,5 +251,5 @@ Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sull'assegnazione di ruoli, vedere [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Per informazioni sull'assegnazione dei ruoli, vedere [aggiungere assegnazioni di ruolo di Azure usando modelli di Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * È anche possibile distribuire modelli a [livello di sottoscrizione](deploy-to-subscription.md) e a [livello di gruppo di gestione](deploy-to-management-group.md).

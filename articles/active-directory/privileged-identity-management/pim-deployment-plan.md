@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c0fbb62f411ccc3056d782518c6c3b570106d2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828626"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008092"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -27,9 +27,9 @@ Questa guida dettagliata descrive come pianificare la distribuzione di Privilege
 
 > [!TIP]
 > In questo articolo vengono visualizzati gli elementi contrassegnati come:
-> 
+>
 > : heavy_check_mark: **Microsoft consiglia**
-> 
+>
 > Si tratta di indicazioni di carattere generale che è opportuno implementare solo se sono applicabili alle specifiche esigenze aziendali.
 
 ## <a name="learn-about-privileged-identity-management"></a>Informazioni sulle Privileged Identity Management
@@ -142,9 +142,9 @@ Per applicare il principio di accesso con privilegi minimi per i ruoli di Azure 
 
 1. Comprendere le caratteristiche specifiche dei ruoli leggendo le informazioni sui [ruoli di amministratore disponibili in Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). È inoltre utile fare riferimento al documento sui [ruoli di amministratore per attività di identità in Azure AD](../users-groups-roles/roles-delegate-by-task.md), che presenta il ruolo con privilegi minimi da usare per ogni attività specifica.
 
-1. Visualizzare l'elenco degli utenti che dispongono di ruoli con privilegi all'interno dell'organizzazione. È possibile utilizzare la [procedura guidata Privileged Identity Management](pim-security-wizard.md#run-the-wizard) per ottenere una pagina simile alla seguente.
+1. Visualizzare l'elenco degli utenti che dispongono di ruoli con privilegi all'interno dell'organizzazione. È possibile usare l' [individuazione Privileged Identity Management e le informazioni dettagliate (anteprima)](pim-security-wizard.md) per visualizzare una pagina simile alla seguente.
 
-    ![Riquadro individua ruoli con privilegi che mostra i ruoli con privilegi](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Pagina Discovery and Insights (anteprima) per ridurre l'esposizione tramite ruoli con privilegi](./media/pim-deployment-plan/new-preview-page.png)
 
 1. Per tutti gli amministratori globali all'interno dell'organizzazione, individuare il motivo per cui devono avere tale ruolo. In base alla lettura della documentazione precedente, se il processo della persona può essere eseguito da uno o più ruoli di amministratore granulari, è necessario rimuoverli dal ruolo di amministratore globale ed effettuare le assegnazioni di conseguenza all'interno Azure Active Directory (come riferimento: Microsoft dispone attualmente di circa 10 amministratori con il ruolo di amministratore globale. Altre informazioni [sull'uso di Privileged Identity Management da Microsoft](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access).
 
@@ -244,16 +244,16 @@ Prima di implementare la soluzione di Privileged Identity Management, è consigl
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Amministratore globale | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri amministratori globali | 1 ora | Account di accesso di emergenza |
-| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nessuno | 2 ore | Nessuno |
-| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | Nessuno | 8 ore | Nessuno |
+| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | nessuno | 2 ore | nessuno |
+| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | nessuno | 8 ore | nessuno |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Impostazioni Privileged Identity Management per i ruoli delle risorse di Azure
 
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | Nessuno | n/d | 3 mesi |
-| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | Nessuno | 1 ora | Nessuno | n/d | 3 mesi |
-| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | Nessuno | 3 ore | Nessuno | n/d | 6 mesi |
+| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | nessuno | n/d | 3 mesi |
+| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | nessuno | 1 ora | nessuno | n/d | 3 mesi |
+| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | nessuno | 3 ore | nessuno | n/d | 6 mesi |
 
 La tabella seguente include le descrizioni per ciascuna delle impostazioni.
 

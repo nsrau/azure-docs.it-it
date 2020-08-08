@@ -1,6 +1,6 @@
 ---
 title: Controllo degli accessi di monitoraggio remoto - Azure | Microsoft Docs
-description: Questo articolo illustra come configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
+description: Questo articolo fornisce informazioni su come configurare il controllo degli accessi in base al ruolo (RBAC) in Remote Monitoring Solution Accelerator
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,16 +9,16 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 397e7cfbc2599d2a259f55a5f465d51cd1fe54a8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920709"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008985"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
+# <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo in Remote Monitoring Solution Accelerator
 
-Questo articolo illustra come configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto. Il controllo degli accessi in base al ruolo consente di limitare l'accesso dei singoli utenti a funzionalità specifiche della soluzione.
+Questo articolo fornisce informazioni su come configurare il controllo degli accessi in base al ruolo in Remote Monitoring Solution Accelerator. Il controllo degli accessi in base al ruolo consente di limitare l'accesso per singoli utenti a funzionalità specifiche della soluzione.
 
 ## <a name="default-settings"></a>Impostazioni predefinite
 
@@ -244,7 +244,7 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come viene implementato il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto.
+In questo articolo è stato illustrato il modo in cui il controllo degli accessi in base al ruolo viene implementato in Remote Monitoring Solution Accelerator.
 
 Vedere [Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-rbac-tsi.md) per ottenere informazioni su come gestire l'accesso a Time Series Insights Explorer nell'acceleratore di soluzioni di monitoraggio remoto.
 

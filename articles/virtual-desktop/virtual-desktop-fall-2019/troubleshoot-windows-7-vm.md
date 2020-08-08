@@ -1,24 +1,22 @@
 ---
 title: Macchine virtuali Windows 7-desktop virtuale Windows (classico)-Azure
 description: Come risolvere i problemi per le macchine virtuali (VM) Windows 7 in un ambiente desktop virtuale Windows (classico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e7f433668c34fb5edc35889adcd604023202ada4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d71b4472b16372927db56b20eca4fcbde0cc625
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286343"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005415"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop-classic"></a>Risolvere i problemi relativi alle macchine virtuali Windows 7 in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
@@ -47,7 +45,7 @@ Per correggere l'errore, aggiungere l'utente al gruppo di utenti Desktop remoto:
 2. Selezionare la macchina virtuale in cui è stato visualizzato il messaggio di errore.
 3. Selezionare **Esegui un comando**.
 4. Eseguire il comando seguente con `<username>` sostituito dal nome dell'utente che si desidera aggiungere:
-   
+
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add
    ```

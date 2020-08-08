@@ -1,24 +1,22 @@
 ---
 title: Tipo di assegnazione desktop personale di Desktop virtuale Windows - Azure
 description: Come configurare l'assegnazione automatica o diretta per un pool host desktop personale desktop virtuale di Windows.
-services: virtual-desktop
-author: HeidiLohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 17df23a16bec91e5c333bc760143eac250b62699
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 446dae3c064f5f23d35cb12b2b24bdfea9e27012
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292626"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007812"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurare il tipo di assegnazione del pool di host di desktop personale
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
 È possibile configurare il tipo di assegnazione del pool di host di desktop personali nell’ambiente Desktop virtuale Windows per soddisfare al meglio le proprie esigenze. Questo argomento illustra come configurare l'assegnazione automatica o diretta per gli utenti.
 

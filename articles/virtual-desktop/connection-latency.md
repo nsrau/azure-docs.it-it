@@ -1,25 +1,23 @@
 ---
 title: Latenza connessione utente desktop virtuale Windows-Azure
 description: Latenza di connessione per gli utenti di desktop virtuali Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a60779fb045aa612a6ba0988c4635752f973f60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 403cf584c79bc0a166054ae36c9d2ea50e4b9d9e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82607402"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008730"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinare la latenza della connessione utente nel desktop virtuale di Windows
 
-Desktop virtuale di Windows è disponibile a livello globale. Gli amministratori possono creare macchine virtuali (VM) in tutte le aree di Azure desiderate. La latenza della connessione può variare a seconda della posizione degli utenti e delle macchine virtuali. I servizi desktop virtuali Windows vengono continuamente implementati in nuove aree geografiche per migliorare la latenza. 
- 
-Lo [strumento Windows Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) può aiutarti a determinare la posizione migliore per ottimizzare la latenza delle macchine virtuali. Si consiglia di utilizzare lo strumento ogni due o tre mesi per assicurarsi che la posizione ottimale non sia cambiata perché il desktop virtuale di Windows viene sottoposto a nuove aree. 
+Desktop virtuale di Windows è disponibile a livello globale. Gli amministratori possono creare macchine virtuali (VM) in tutte le aree di Azure desiderate. La latenza della connessione può variare a seconda della posizione degli utenti e delle macchine virtuali. I servizi desktop virtuali Windows vengono continuamente implementati in nuove aree geografiche per migliorare la latenza.
+
+Lo [strumento Windows Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) può aiutarti a determinare la posizione migliore per ottimizzare la latenza delle macchine virtuali. Si consiglia di utilizzare lo strumento ogni due o tre mesi per assicurarsi che la posizione ottimale non sia cambiata perché il desktop virtuale di Windows viene sottoposto a nuove aree.
 
 ## <a name="azure-traffic-manager"></a>Gestione traffico di Azure
 

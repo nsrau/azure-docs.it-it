@@ -8,16 +8,17 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1428df124272816927c6bbbc4a242170c7f46c00
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483925"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008526"
 ---
-# <a name="export-iot-data-to-destinations-in-azure"></a>Esportare i dati delle cose nelle destinazioni in Azure
+# <a name="export-iot-data-to-destinations-in-azure-using-data-export-legacy"></a>Esportare i dati delle cose in destinazioni in Azure usando l'esportazione dei dati (legacy)
 
-*Questo argomento riguarda gli amministratori.*
+> [!Note]
+> È disponibile un nuovo modo per esportare i dati in IoT Central. È possibile usare la nuova esportazione dei dati per filtrare e arricchire i dati esportati ed esportarli in nuove destinazioni come gli endpoint del webhook. [Qui](./howto-use-data-export.md)è possibile ottenere informazioni sulla nuova esportazione dei dati. Per informazioni sulle differenze tra la nuova esportazione dei dati e l'esportazione dei dati legacy, vedere la [tabella di confronto](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
 
 Questo articolo descrive come usare la funzionalità di esportazione dei dati in Azure IoT Central. Questa funzionalità consente di esportare i dati in modo continuo in **Hub eventi**di Azure, nel **bus di servizio di Azure**o nelle istanze di **archiviazione BLOB di Azure** . L'esportazione dei dati usa il formato JSON e può includere dati di telemetria, informazioni sul dispositivo e informazioni sul modello di dispositivo. Usare i dati esportati per:
 

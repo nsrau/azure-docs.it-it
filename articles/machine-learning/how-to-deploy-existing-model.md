@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fc3c03fa3368d87857ed91c720a92aacecf6eb89
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 04442ad2c6f12960a6c27cc96b52eae20b046851
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843165"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008203"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Distribuire il modello esistente con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Per altre informazioni sui concetti e i termini in questo articolo, vedere [gest
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md)
-  + Negli esempi di Python si presuppone che la `ws` variabile sia impostata sull'area di lavoro Azure Machine Learning.
+  + Negli esempi di Python si presuppone che la `ws` variabile sia impostata sull'area di lavoro Azure Machine Learning. Per ulteriori informazioni su come connettersi all'area di lavoro, consultare la [documentazione di Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#workspace).
   
   + Gli esempi dell'interfaccia della riga di comando usano i segnaposto di `myworkspace` e `myresourcegroup` , che è necessario sostituire con il nome dell'area di lavoro e il gruppo di risorse che lo contiene.
 

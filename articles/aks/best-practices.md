@@ -4,12 +4,12 @@ description: Raccolta delle procedure consigliate per sviluppatori e operatori d
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77596318"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008781"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Procedure consigliate per sviluppatori e operatori del cluster per la creazione e la gestione di applicazioni nel servizio Azure Kubernetes
 
@@ -30,7 +30,7 @@ Si consiglia agli operatori di cluster di collaborare con i proprietari di appli
 * [Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione](operator-best-practices-advanced-scheduler.md)
     * Uso di taint e tolleranze, selettori di nodi e affinità, affinità fra pod e anti-affinità.
 * [Procedure consigliate per autenticazione e autorizzazione](operator-best-practices-identity.md)
-    * Integrazione con Azure Active Directory, uso del controllo degli accessi in base al ruolo e identità dei pod.
+    * Include l'integrazione con Azure Active Directory, usando il controllo degli accessi in base al ruolo (RBAC) e le identità dei pod.
 
 **Sicurezza**
 

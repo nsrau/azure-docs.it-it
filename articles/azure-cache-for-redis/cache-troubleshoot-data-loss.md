@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: ba0430461df5ce1a2d615b819dbe5e8a36ae52b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184532"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008951"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Risolvere i problemi di perdita di dati in Cache Redis di Azure
 
@@ -119,6 +119,6 @@ Prendere in considerazione l'uso della [persistenza dei dati Redis](https://redi
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
 - [Risolvere i problemi del lato server di cache di Azure per Redis](cache-troubleshoot-server.md)
-- [Quali offerte e dimensioni di Cache Redis di Azure è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Scelta del livello appropriato](cache-overview.md#choosing-the-right-tier)
 - [Come monitorare Cache Redis di Azure](cache-how-to-monitor.md)
-- [Come si eseguono i comandi Redis?](cache-faq.md#how-can-i-run-redis-commands)
+- [Come si eseguono i comandi Redis?](cache-development-faq.md#how-can-i-run-redis-commands)

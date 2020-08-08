@@ -3,15 +3,15 @@ title: Autenticare un'applicazione per accedere alle entità del bus di servizio
 description: Questo articolo fornisce informazioni sull'autenticazione di un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure (code, argomenti e così via)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f5142e59e1711d9bf63a7badc2d0947fd86f49f4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1d18772dfa9cf444dc55d5e4cef6f31dd6c0d669
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835970"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006265"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure
-Il bus di servizio di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle entità del bus di servizio (code, argomenti, sottoscrizioni o filtri). Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
+Il bus di servizio di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle entità del bus di servizio (code, argomenti, sottoscrizioni o filtri). Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Panoramica
 Quando un'entità di sicurezza (un utente, un gruppo o un'applicazione) tenta di accedere a un'entità del bus di servizio, la richiesta deve essere autorizzata. Con Azure AD, l'accesso a una risorsa è un processo in due passaggi. 
@@ -27,12 +27,12 @@ Le applicazioni native e le applicazioni Web che effettuano richieste al bus di 
 
 
 ## <a name="assigning-azure-roles-for-access-rights"></a>Assegnazione dei ruoli di Azure per i diritti di accesso
-Azure Active Directory (Azure AD) autorizza i diritti di accesso alle risorse protette tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md). Il bus di servizio di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni usati per accedere alle entità del bus di servizio ed è anche possibile definire ruoli personalizzati per l'accesso ai dati.
+Azure Active Directory (Azure AD) autorizza i diritti di accesso alle risorse protette tramite [RBAC di Azure](../role-based-access-control/overview.md). Il bus di servizio di Azure definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni usati per accedere alle entità del bus di servizio ed è anche possibile definire ruoli personalizzati per l'accesso ai dati.
 
 Quando un ruolo di Azure viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. L'ambito di accesso può essere limitato al livello di sottoscrizione, al gruppo di risorse o allo spazio dei nomi del bus di servizio. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Ruoli predefiniti di Azure per il bus di servizio di Azure
-Per il bus di servizio di Azure, la gestione degli spazi dei nomi e di tutte le risorse correlate tramite il portale di Azure e l'API Gestione risorse di Azure è già protetto mediante il modello di *Controllo degli accessi in base al ruolo*. Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a uno spazio dei nomi del bus di servizio:
+Per il bus di servizio di Azure, la gestione degli spazi dei nomi e di tutte le risorse correlate tramite il portale di Azure e l'API di gestione risorse di Azure è già protetta usando il modello RBAC di Azure. Azure fornisce i seguenti ruoli predefiniti di Azure per autorizzare l'accesso a uno spazio dei nomi del bus di servizio:
 
 - [Proprietario dati del bus di servizio di Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): consente l'accesso ai dati allo spazio dei nomi del bus di servizio e alle relative entità (code, argomenti, sottoscrizioni e filtri)
 - [Mittente dati del bus di servizio di Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): usare questo ruolo per concedere l'accesso di trasmissione allo spazio dei nomi del bus di servizio e alle relative entità.
@@ -55,7 +55,7 @@ Per ulteriori informazioni sulla definizione dei ruoli predefiniti, vedere infor
 
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Assegnare i ruoli di Azure usando il portale di Azure  
-Per altre informazioni sulla gestione dell'accesso alle risorse di Azure con RBAC e la portale di Azure, vedere [questo articolo](..//role-based-access-control/role-assignments-portal.md). 
+Per altre informazioni sulla gestione dell'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e la portale di Azure, vedere [questo articolo](..//role-based-access-control/role-assignments-portal.md). 
 
 Dopo aver determinato l'ambito appropriato per un'assegnazione di ruolo, passare a tale risorsa nel portale di Azure. Visualizzare le impostazioni di controllo di accesso (IAM) per la risorsa e seguire queste istruzioni per gestire le assegnazioni di ruolo:
 
@@ -150,16 +150,16 @@ Quando si esegue l'applicazione console, viene richiesto di selezionare uno scen
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni su RBAC, vedere informazioni sul [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
+- Per altre informazioni su RBAC di Azure, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md)?
 - Per informazioni su come assegnare e gestire le assegnazioni di ruolo di Azure con Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST, vedere questi articoli:
-    - [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
-    - [Gestire il controllo degli accessi in base al ruolo con l'API REST](../role-based-access-control/role-assignments-rest.md)
-    - [Gestire il controllo degli accessi in base al ruolo (RBAC) con modelli di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+    - [Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando](../role-based-access-control/role-assignments-cli.md)
+    - [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](../role-based-access-control/role-assignments-rest.md)
+    - [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando modelli di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti.
 
-- [Esempi RBAC del bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
+- [Esempi RBAC di Azure del bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
 - [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 - [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 - [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)

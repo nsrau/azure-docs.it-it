@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008320"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007914"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedure consigliate per Cache di Azure per Redis 
 Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e l'uso conveniente della cache di Azure per l'istanza di Redis.
@@ -55,7 +55,7 @@ Ci sono diversi aspetti relativi all'utilizzo della memoria all'interno dell'ist
  * [JEDIS (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
- * [Provider di stato della sessione Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+ * [Provider di stato della sessione ASP.NET](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## <a name="when-is-it-safe-to-retry"></a>Quando è sicuro riprovare?
@@ -73,13 +73,13 @@ Se si desidera testare il funzionamento del codice in condizioni di errore, è c
  * La macchina virtuale client usata per il test deve trovarsi **nella stessa area** dell'istanza di cache Redis.
  * **È consigliabile usare la serie di macchine virtuali dv2** per il client poiché dispongono di hardware migliore e offriranno risultati ottimali.
  * Assicurarsi che la macchina virtuale client utilizzata includa **almeno la quantità di calcolo e larghezza di banda* della cache sottoposta a test. 
- * **Abilitare VRSS** nel computer client se si è in Windows.  [Per informazioni dettagliate, vedere qui](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Esempio di script di PowerShell:
+ * **Abilitare VRSS** nel computer client se si è in Windows.  [Per informazioni dettagliate, vedere qui](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Script PowerShell di esempio:
      >PowerShell-ExecutionPolicy unstricted Enable-NetAdapterRSS-Name (Get-NetAdapter). Nome 
      
  * **Prendere in considerazione l'uso delle istanze di redis del livello Premium**.  Queste dimensioni della cache avranno una migliore latenza di rete e velocità effettiva, perché sono in esecuzione su hardware migliore per CPU e rete.
  
      > [!NOTE]
-     > I risultati delle prestazioni osservati sono [pubblicati qui](cache-faq.md#azure-cache-for-redis-performance) per informazioni di riferimento.   Tenere inoltre presente che SSL/TLS aggiunge un overhead, pertanto è possibile ottenere latenze e/o velocità effettiva diverse se si utilizza la crittografia del trasporto.
+     > I risultati delle prestazioni osservati sono [pubblicati qui](cache-planning-faq.md#azure-cache-for-redis-performance) per informazioni di riferimento.   Tenere inoltre presente che SSL/TLS aggiunge un overhead, pertanto è possibile ottenere latenze e/o velocità effettiva diverse se si utilizza la crittografia del trasporto.
  
 ### <a name="redis-benchmark-examples"></a>Redis-esempi di benchmark
 **Installazione preliminare del test**: preparare l'istanza della cache con i dati necessari per i comandi di latenza e di test della velocità effettiva elencati di seguito.

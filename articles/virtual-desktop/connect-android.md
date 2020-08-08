@@ -1,26 +1,24 @@
 ---
 title: Connettersi a desktop virtuale Windows da Android-Azure
 description: Come connettersi al desktop virtuale di Windows tramite il client Android.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1d0aebffa5f3d27a77928c2a1c7461384bf99ce8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 79d88d218d04d00def19bdd2aa98f76d2f128de1
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387881"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007761"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Connettersi al desktop virtuale Windows con il client Android
 
 > Si applica a: Android 4,1 e versioni successive, Chromebook con ChromeOS 53 e versioni successive.
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/connect-android-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/connect-android-2019.md).
 
 È possibile accedere alle risorse di desktop virtuali Windows dal dispositivo Android con il client scaricabile. È anche possibile usare il client Android sui dispositivi Chromebook che supportano il Google Play Store. Questa guida illustra come configurare il client Android.
 

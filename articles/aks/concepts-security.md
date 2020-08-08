@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e5f137808bb5e4c6876206bca7950117edb85aab
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287459"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005670"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -36,7 +36,7 @@ Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del 
 
 Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP pubblico e un nome di dominio completo (FQDN). È possibile limitare l'accesso all'endpoint del server dell'API usando [intervalli IP autorizzati][authorized-ip-ranges]. È anche possibile creare un [cluster completamente privato][private-clusters] per limitare l'accesso del server dell'API alla rete virtuale.
 
-È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per altre informazioni, vedere [Integrazione di Azure Active Directory con il servizio Azure Kubernetes][aks-aad].
+È possibile controllare l'accesso al server API usando il controllo degli accessi in base al ruolo Kubernetes (RBAC) e Azure Active Directory. Per altre informazioni, vedere [Integrazione di Azure Active Directory con il servizio Azure Kubernetes][aks-aad].
 
 ## <a name="node-security"></a>Sicurezza dei nodi
 
@@ -50,7 +50,7 @@ I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indiriz
 
 Per fornire spazio di archiviazione, i nodi usano Azure Managed Disks. Per la maggior parte delle dimensioni dei nodi delle macchine virtuali, si tratta di dischi Premium supportati da unità SSD a prestazioni elevate. I dati inattivi archiviati nei dischi gestiti vengono automaticamente crittografati all'interno della piattaforma Azure. Per migliorare la ridondanza, questi dischi vengono anche replicati in modo sicuro nel data center di Azure.
 
-Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive, ad esempio i *criteri di sicurezza Pod*o controlli degli accessi in base al ruolo più specifici (RBAC) per i nodi, rendono più complessi gli exploit. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati. Per altre informazioni sui modi per isolare i carichi di lavoro, vedere [procedure consigliate per l'isolamento del cluster in AKS][cluster-isolation].
+Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive, ad esempio i *criteri di sicurezza Pod*, o il controllo degli accessi in base al ruolo con granularità fine per i nodi, rendono più complessi gli exploit. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati. Per altre informazioni sui modi per isolare i carichi di lavoro, vedere [procedure consigliate per l'isolamento del cluster in AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Isolamento del calcolo
 

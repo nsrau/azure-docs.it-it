@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per la gestione d
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c4f56cf4e04b9df31c8c4204d396ead8073ec526
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244209"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003048"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e gli aggiornamenti dei cluster nel servizio Azure Kubernetes
 
@@ -19,7 +19,7 @@ La sicurezza dei carichi di lavoro e dei dati è un fattore fondamentale da tene
 Questo articolo illustra in particolare come proteggere il cluster del servizio Azure Kubernetes (AKS). Si apprenderà come:
 
 > [!div class="checklist"]
-> * Usare Azure Active Directory e i controlli degli accessi in base al ruolo per proteggere l'accesso al server API
+> * Usare Azure Active Directory e il controllo degli accessi in base al ruolo (RBAC) per proteggere l'accesso al server API
 > * Proteggere l'accesso del contenitore alle risorse dei nodi
 > * Aggiornare un cluster del servizio Azure Kubernetes alla versione più recente di Kubernetes
 > * Mantieni i nodi aggiornati e applica automaticamente le patch di sicurezza
@@ -53,7 +53,7 @@ Così come è opportuno concedere a utenti o gruppi il minor numero di privilegi
 Per un controllo più granulare delle azioni dei contenitori, è anche possibile usare funzionalità di sicurezza predefinite di Linux, come *AppArmor* e *seccomp*. Queste funzionalità vengono definite a livello di nodo e quindi implementate tramite un manifesto pod. Le funzionalità di sicurezza Linux predefinite sono disponibili solo nei nodi e nei Pod Linux.
 
 > [!NOTE]
-> Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive quali *AppArmor*, *seccomp*, i *criteri di sicurezza pod* o altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
+> Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive, ad esempio *AppArmor*, *Seccomp*, i *criteri di sicurezza Pod*o il controllo degli accessi in base al ruolo con granularità fine per i nodi, rendono più complessi gli exploit. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
 
 ### <a name="app-armor"></a>AppArmor
 

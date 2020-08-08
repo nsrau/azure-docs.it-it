@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/30/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2349c92fb74b546eaa929752f3d2343b9c97e6d1
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108499"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011004"
 ---
 > [!NOTE]
 > Per rilevare `PHI` (informazioni sull'integrità protetta), usare il `domain=phi` parametro e la versione del modello `2020-04-01` o versioni successive.
@@ -22,32 +22,30 @@ ms.locfileid: "86108499"
  
 Quando si inviano richieste all'endpoint, vengono restituite le categorie di entità seguenti `/v3.1-preview.1/entities/recognition/pii` .
 
-| Category   | Sottocategoria | Description                          | Versione modello di avvio | Note |
+| Categoria   | Subcategory | Descrizione                          | Versione modello di avvio | Note |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Persona     | N/D         | Nomi delle persone.  | `2019-10-01`  | Restituito anche con `domain=phi` . |
 | PersonType | N/D         | Tipi di processo o ruoli contenuti da una persona. | `2020-02-01` | |
 | PhoneNumber | N/D | Numeri di telefono (solo numeri di telefono US e UE). | `2019-10-01` | Restituito anche con`domain=phi` |
-|Organization  | N/D | Società, gruppi politici, bande musicali, sport clubs, enti governativi e organizzazioni pubbliche.  | `2019-10-01` | Le nazionalità e le religioni non sono incluse in questo tipo di entità.  |
-|Organization | Medicina | Società e gruppi medicali. | `2020-04-01` | Restituito anche con `domain=phi` . |
-|Organization | Scambio scorte | Gruppi di scambio azionario. | `2020-04-01` | Restituito anche con `domain=phi` . |
-| Organization | Sport | Organizzazioni correlate allo sport. | `2020-04-01` | Restituito anche con `domain=phi` . |
+|Organizzazione  | N/D | Società, gruppi politici, bande musicali, sport clubs, enti governativi e organizzazioni pubbliche.  | `2019-10-01` | Le nazionalità e le religioni non sono incluse in questo tipo di entità.  |
+|Organizzazione | Medicina | Società e gruppi medicali. | `2020-04-01` |  |
+|Organizzazione | Scambio scorte | Gruppi di scambio azionario. | `2020-04-01` |  |
+| Organizzazione | Sport | Organizzazioni correlate allo sport. | `2020-04-01` |  |
 | Indirizzo | N/D | Indirizzi di posta elettronica completi.  | `2020-04-01` | Restituito anche con `domain=phi` . |
 | Coordinate GPS EU | N/D | Coordinate GPS per le località all'interno dell'Unione europea.  | `2019-10-01` |  |
 | E-mail | N/D | Indirizzi di posta elettronica. | `2019-10-01` | Restituito anche con `domain=phi` .   |
 | URL | N/D | URL per siti Web. | `2019-10-01` | Restituito anche con `domain=phi` . |
-| IP | N/D | Indirizzi IP di rete. | `2019-10-01` | |
+| IP | N/D | Indirizzi IP di rete. | `2019-10-01` | Restituito anche con `domain=phi` . |
 | Datetime | N/D | Date e ore del giorno. | `2019-10-01` |  | 
 | Datetime | Data | Date calendario. | `2019-10-01` | Restituito anche con `domain=phi` . |
 | Quantità | N/D | Numeri e quantità numeriche. | `2019-10-01` |  |
-| Quantità | Age | Età. | `2019-10-01` | | |
-| Classificazione internazionale delle malattie (ICD-9-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, nona revisione.   | `2020-04-01` | |
-| Classificazione internazionale delle malattie (ICD-10-CM) | N/D | Entità correlate alla classificazione internazionale delle malattie, decima revisione.    | `2020-04-01` | |
+| Quantità | Età | Età. | `2019-10-01` | | |
 
 ## <a name="azure-information"></a>Informazioni su Azure
 
 Questa categoria di entità include informazioni di Azure identificabili, incluse le informazioni di autenticazione e le stringhe di connessione. Disponibile a partire dalla versione del modello `2019-10-01` . Non restituito con il `domain=phi` parametro.
 
-| Sottocategoria                           | Description                                                                 |
+| Subcategory                           | Descrizione                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chiave di autenticazione di Azure DocumentDB             | Chiave di autorizzazione per un server DocumentDB di Azure.                           |
 | Stringa di connessione del database IaaS di Azure e stringa di connessione di SQL di Azure | Stringa di connessione per un database di infrastruttura distribuita come servizio (IaaS) di Azure e una stringa di connessione SQL. |

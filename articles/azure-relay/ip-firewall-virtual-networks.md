@@ -3,12 +3,12 @@ title: Configurare un firewall per gli indirizzi IP per gli spazi dei nomi di In
 description: Questo articolo descrive come usare regole del firewall per consentire le connessioni da indirizzi IP specifici a spazi dei nomi di Inoltro di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cd788475ebe54c0316b8c37bd00aa186123fbf1
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2b8d1adef30eea0af9efdb51c31390c33a14b62e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533056"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009019"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurare un firewall per gli indirizzi IP per uno spazio dei nomi di Inoltro di Azure
 Per impostazione predefinita, gli spazi dei nomi di Inoltro sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -33,7 +33,6 @@ Questa sezione illustra come usare il portale di Azure per creare regole del fir
 1. Per limitare l'accesso a reti e indirizzi IP specifici, selezionare l'opzione **Reti selezionate**. Nella sezione **Firewall** seguire questa procedura:
     1. Selezionare l'opzione **Aggiungere l'indirizzo IP client** per concedere all'IP del client corrente l'accesso allo spazio dei nomi. 
     2. Per **Intervallo di indirizzi** immettere un indirizzo IPv4 specifico o un intervallo di indirizzi IPv4 in notazione CIDR. 
-    3. Specificare se si vuole **consentire ai servizi Microsoft attendibili di ignorare il firewall**. 
 
         ![Opzione Firewall - Tutte le reti selezionata](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
 3. Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni. Attendere qualche minuto la visualizzazione della conferma tra le notifiche del portale.

@@ -1,24 +1,22 @@
 ---
 title: Log Analytics di diagnostica desktop virtuale di Windows-Azure
 description: Come usare log Analytics con la funzionalità diagnostica desktop virtuali di Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85cd94c9ba0cf8909e2013a49d43a473a313db8b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4b1207f85f87755c8c0f2b8e9935f7e88118df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292598"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005116"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usare Log Analytics per la funzionalità di diagnostica
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
 Desktop virtuale di Windows USA monitoraggio di [Azure](../azure-monitor/overview.md) per il monitoraggio e gli avvisi come molti altri servizi di Azure. Ciò consente agli amministratori di identificare i problemi tramite un'unica interfaccia. Il servizio crea log attività per le azioni utente e amministrative. Ogni log attività rientra nelle categorie seguenti:
 
@@ -134,7 +132,7 @@ Accedere a query di esempio tramite il monitoraggio di Azure Log Analytics inter
 1. Passare all'area di lavoro Log Analytics, quindi selezionare **log**. L'interfaccia utente di query di esempio viene mostrata automaticamente.
 1. Modificare il filtro in **Category**.
 1. Selezionare **desktop virtuale Windows** per esaminare le query disponibili.
-1. Selezionare **Esegui** per eseguire la query selezionata. 
+1. Selezionare **Esegui** per eseguire la query selezionata.
 
 Per altre informazioni sull'interfaccia di query di esempio, vedere [query salvate in monitoraggio di Azure log Analytics](../azure-monitor/log-query/saved-queries.md).
 

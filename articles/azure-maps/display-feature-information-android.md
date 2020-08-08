@@ -1,6 +1,6 @@
 ---
 title: Visualizzare le informazioni sulle funzionalità nell'Android SDK mappe di Azure | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come visualizzare le informazioni sulle funzionalità su una mappa usando il Android SDK Microsoft Azure maps.
+description: Informazioni su come visualizzare le informazioni quando gli utenti interagiscono con le funzionalità della mappa. Usare il Android SDK mappe di Azure per visualizzare i messaggi di tipo avviso popup e altri tipi di messaggi.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 26f41a7fd88a3c2018592e89ae95e3b962c1a9e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44c5f9f1a7c0d014d101ad45a80e1e53c42f69a3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75911683"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009036"
 ---
 # <a name="display-feature-information"></a>Visualizzare informazioni sulle funzionalità
 

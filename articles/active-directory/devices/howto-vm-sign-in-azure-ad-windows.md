@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529110"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005019"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -174,7 +174,7 @@ Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'a
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Uso dell'esperienza Azure Cloud Shell
 
-L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo Accesso amministratore alle macchine virtuali alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'ambito per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). È anche possibile assegnare l'ambito a livello di gruppo di risorse o di sottoscrizione e applicare le normali autorizzazioni di ereditarietà del controllo degli accessi in base al ruolo. Per altre informazioni, vedere [controlli degli accessi in base al ruolo](../../virtual-machines/linux/login-using-aad.md).
+L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo Accesso amministratore alle macchine virtuali alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'ambito per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). L'ambito può essere assegnato anche a livello di gruppo di risorse o di sottoscrizione e si applicano le normali autorizzazioni di ereditarietà RBAC di Azure. Per altre informazioni, vedere [accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -189,11 +189,11 @@ az role assignment create \
 > [!NOTE]
 > Se il dominio di AAD e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con `--assignee-object-id` , non solo il nome utente per `--assignee` . È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere gli articoli seguenti:
+Per altre informazioni su come usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere gli articoli seguenti:
 
-- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure](/azure/role-based-access-control/role-assignments-cli)
-- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Gestire l'accesso alle risorse di Azure usando RBAC e Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando](/azure/role-based-access-control/role-assignments-cli)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
 
