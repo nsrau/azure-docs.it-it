@@ -1,24 +1,22 @@
 ---
 title: Pubblicare app predefinite in desktop virtuale di Windows (versione classica)-Azure
 description: Come pubblicare app predefinite in desktop virtuale di Windows (versione classica).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5f204bc6d2595e7f18e59bae15ff35d49e1801e0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 80cd1a4c92441fb17ce0a66814ff0a39a92fb287
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284932"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005568"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Pubblicare app predefinite in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../publish-apps.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../publish-apps.md).
 
 Questo articolo descrive come pubblicare app nell'ambiente desktop virtuale di Windows.
 

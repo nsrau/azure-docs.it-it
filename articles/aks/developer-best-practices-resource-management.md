@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281566"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005313"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedure consigliate per gli sviluppatori di applicazioni per la gestione delle risorse nel servizio Azure Kubernetes (AKS)
 
@@ -74,7 +74,7 @@ Per altre informazioni sulle misure e le assegnazioni delle risorse, vedere [Man
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Sviluppare ed eseguire il debug di applicazioni in un cluster servizio Azure Kubernetes
 
-**Indicazioni sulle procedure consigliate**. I team di sviluppo devono eseguire la distribuzione e il debug in un cluster servizio Azure Kubernetes usando Dev Spaces. Questo modello di sviluppo garantisce che le esigenze a livello di archiviazione, rete o controlli degli accessi in base al ruolo vengano implementate prima della distribuzione dell'app nell'ambiente di produzione.
+**Indicazioni sulle procedure consigliate**. I team di sviluppo devono eseguire la distribuzione e il debug in un cluster servizio Azure Kubernetes usando Dev Spaces. Questo modello di sviluppo garantisce che le esigenze di controllo degli accessi in base al ruolo, di rete o di archiviazione vengano implementate prima che l'app venga distribuita nell'ambiente di produzione.
 
 Con Azure Dev Spaces, le applicazioni vengono sviluppate e sottoposte a debug e test direttamente in un cluster servizio Azure Kubernetes. Gli sviluppatori all'interno di un team collaborano per compilare ed eseguire test durante il ciclo di vita dell'applicazione. È possibile continuare a usare gli strumenti esistenti come Visual Studio o Visual Studio Code. Viene installata un'estensione per gli spazi di sviluppo che offre un'opzione per l'esecuzione e il debug dell'applicazione in un cluster AKS.
 

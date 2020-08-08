@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3a8b271a030de2ddd3aa40b5bb0af871319c0e1f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d2ef76a054642807f0d72a758ae084a19557caf8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171806"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009002"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Baseline della sicurezza di Azure Resource Graph per il benchmark di sicurezza di Azure
 
-Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure](../../../security/benchmarks/overview.md) al grafico delle risorse di Azure. Il benchmark di sicurezza di Azure offre consigli su come proteggere le soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili al grafico delle risorse di Azure. I **controlli** non applicabili al grafico delle risorse di Azure sono stati esclusi. Per informazioni sul mapping completo di Azure Resource Graph al benchmark di sicurezza di Azure, vedere il file di mapping di base per la [sicurezza della rete virtuale](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)di Azure.
+Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure](../../../security/benchmarks/overview.md) al grafico delle risorse di Azure. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili al grafico delle risorse di Azure. I **controlli** non applicabili al grafico delle risorse di Azure sono stati esclusi. Per informazioni sul mapping completo di Azure Resource Graph al benchmark di sicurezza di Azure, vedere il file di mapping di base per la [sicurezza della rete virtuale](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)di Azure.
 
 
 
@@ -26,7 +26,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 
-**Linee guida**: Azure Resource Graph fornisce l'accesso a proprietà e tipi di risorse in base ai controlli degli accessi in base al ruolo (RBAC). Controllare e verificare l'accesso concesso alle entità di sicurezza (utenti, gruppi e account del servizio) a intervalli regolari per assicurarsi che le query restituiscano risultati per le risorse appropriate.
+**Linee guida**: Azure Resource Graph fornisce l'accesso ai tipi di risorse e alle proprietà basate sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Controllare e verificare l'accesso concesso alle entità di sicurezza (utenti, gruppi e account del servizio) a intervalli regolari per assicurarsi che le query restituiscano risultati per le risorse appropriate.
 
 * [Autorizzazioni in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
@@ -82,7 +82,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorare la presenza di risorse di Azure non approvate
 

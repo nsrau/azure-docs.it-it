@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 113808a3e2bab6c4cb9d2ea5f155a027abf1b5bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086337"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006792"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel Marketplace commerciale
 
@@ -43,7 +43,7 @@ Per aggiungere un nuovo piano all'interno di un'offerta esistente già pubblicat
 
 1. Con la pagina della **Panoramica** dell'offerta esistente aperta, passare alla pagina **Panoramica del piano** e quindi selezionare **Crea nuovo piano**.
 1. Creare un nuovo piano in base alle [linee guida](./create-new-saas-offer.md#plan-overview) utilizzando il **modello di prezzi dei piani esistenti**.
-1. Selezionare **Salva bozza** dopo aver modificato il nome del piano. 
+1. Selezionare **Salva bozza** dopo aver modificato il nome del piano.
 1. Selezionare **pubblica** quando si è pronti per pubblicare gli aggiornamenti. Viene visualizzata la pagina **[revisione e pubblicazione](#review-and-publish-an-updated-offer)** in cui è disponibile lo stato di completamento degli aggiornamenti.
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Aggiornare un piano in un'offerta esistente
@@ -55,6 +55,24 @@ Per apportare modifiche a un piano all'interno di un'offerta esistente già pubb
 1. Selezionare **Salva bozza** dopo avere apportato modifiche al nome, alla descrizione o alla disponibilità dei destinatari del piano.
 1. Selezionare **Verifica e pubblica** quando si è pronti per pubblicare gli aggiornamenti. Viene visualizzata la pagina **[revisione e pubblicazione](#review-and-publish-an-updated-offer)** in cui è disponibile lo stato di completamento degli aggiornamenti.
 1. Inviare il piano aggiornato per la pubblicazione selezionando **pubblica**. Si riceverà un messaggio di posta elettronica quando sarà disponibile una versione di anteprima dell'offerta aggiornata per la revisione e la disconnessione.
+
+## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>Offerta di un piano di macchina virtuale a un nuovo prezzo
+
+Dopo la pubblicazione di un piano di macchina virtuale, il relativo prezzo non può essere modificato. Per offrire lo stesso piano a un prezzo diverso, è necessario nascondere il piano e crearne uno nuovo con il prezzo aggiornato. Prima di tutto, Nascondi il piano con il prezzo che vuoi modificare:
+
+1. Con la pagina **Panoramica** dell'offerta aperta, scegliere il piano che si desidera modificare. Se il piano non è accessibile dall'elenco **panoramica piano** , selezionare **Visualizza tutti i piani**.
+1. Selezionare la casella di controllo **Nascondi piano** . Salvare la bozza prima di continuare.
+
+Ora che è stato nascosto il piano con il prezzo precedente, creare una copia del piano con il prezzo aggiornato:
+
+1. Nel centro per i partner tornare alla **Panoramica del piano**.
+2. Selezionare **Crea nuovo piano**. Immettere un **ID piano** e un **nome piano**, quindi selezionare **Crea**.
+1. Per riutilizzare la configurazione tecnica dal piano nascosto, selezionare la casella di controllo **Riutilizza configurazione tecnica** . Per altre informazioni, vedere [Panoramica del piano](azure-vm-create-offer.md#plan-overview) .
+    > [!IMPORTANT]
+    > Se si seleziona **questo piano riutilizza la configurazione tecnica da un altro piano**, non sarà più possibile smettere di vendere il piano padre in un secondo momento. Non usare questa opzione se si vuole interrompere la vendita del piano padre.
+3. Completare tutte le sezioni necessarie per il nuovo piano, incluso il nuovo prezzo.
+1. Selezionare **Salva bozza**.
+1. Dopo aver completato tutte le sezioni necessarie per il nuovo piano, selezionare **revisione e pubblicazione**. Questa operazione invierà l'offerta per la revisione e la pubblicazione. Per informazioni dettagliate, leggere [la recensione e pubblicare un'offerta nel Marketplace commerciale](../review-publish-offer.md) .
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Confrontare le modifiche alle offerte del Marketplace
 

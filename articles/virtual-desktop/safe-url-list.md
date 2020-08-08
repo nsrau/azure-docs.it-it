@@ -1,19 +1,17 @@
 ---
 title: Elenco di URL safe per desktop virtuali Windows-Azure
 description: Elenco di URL che è necessario sbloccare per assicurarsi che la distribuzione del desktop virtuale di Windows funzioni come previsto.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075614"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009478"
 ---
 # <a name="safe-url-list"></a>Elenco degli URL sicuri
 
@@ -44,13 +42,13 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 
 |Indirizzo|Porta TCP in uscita|Scopo|Tag del servizio|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autenticazione a Microsoft Online Services|Nessuna|
-|*.events.data.microsoft.com|443|Servizio di telemetria|Nessuna|
-|www.msftconnecttest.com|443|Rileva se il sistema operativo è connesso a Internet|Nessuna|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nessuna|
+|*.microsoftonline.com|443|Autenticazione a Microsoft Online Services|nessuno|
+|*.events.data.microsoft.com|443|Servizio di telemetria|nessuno|
+|www.msftconnecttest.com|443|Rileva se il sistema operativo è connesso a Internet|nessuno|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|nessuno|
 |login.windows.net|443|Accedere a Microsoft Online Services, Microsoft 365|nessuno|
 |*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|nessuno|
-|*.digicert.com|443|Verifica della revoca del certificato|Nessuna|
+|*.digicert.com|443|Verifica della revoca del certificato|nessuno|
 
 >[!NOTE]
 >Desktop virtuale di Windows attualmente non dispone di un elenco di intervalli di indirizzi IP che è possibile sbloccare per consentire il traffico di rete. Al momento è supportato solo l'sblocco di URL specifici.

@@ -1,23 +1,21 @@
 ---
 title: Contenitore di profili di archiviazione FSLogix desktop virtuale Windows-Azure
 description: Opzioni per l'archiviazione del profilo FSLogix di desktop virtuale Windows in archiviazione di Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808523"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009410"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opzioni di archiviazione per i contenitori del profilo FSLogix in desktop virtuale di Windows
 
-Azure offre più soluzioni di archiviazione che è possibile usare per archiviare il contenitore del profilo FSLogix. Questo articolo confronta le soluzioni di archiviazione offerte da Azure per i contenitori di profili utente FSLogix per desktop virtuale di Windows. Per la maggior parte dei clienti, è consigliabile archiviare i contenitori del profilo FSLogix in File di Azure. 
+Azure offre più soluzioni di archiviazione che è possibile usare per archiviare il contenitore del profilo FSLogix. Questo articolo confronta le soluzioni di archiviazione offerte da Azure per i contenitori di profili utente FSLogix per desktop virtuale di Windows. Per la maggior parte dei clienti, è consigliabile archiviare i contenitori del profilo FSLogix in File di Azure.
 
 Desktop virtuale di Windows offre i contenitori del profilo FSLogix come soluzione di profilo utente consigliata. FSLogix è progettato per eseguire il roaming dei profili in ambienti di elaborazione remoti, ad esempio Desktop virtuale Windows. Al momento dell'accesso, questo contenitore viene collegato dinamicamente all'ambiente di elaborazione usando un disco rigido virtuale (VHD) supportato in modo nativo e un disco rigido virtuale Hyper-V (VHDX). Il profilo utente è immediatamente disponibile e viene visualizzato nel sistema esattamente come un profilo utente nativo.
 

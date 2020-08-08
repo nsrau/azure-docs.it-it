@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8cff5ec6886c0aceff5270418f9feeb145f6fd17
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836548"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002225"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -66,7 +66,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Operazioni di Azure Machine Learning
 
-Azure Machine Learning azioni predefinite per molte operazioni e attività. Per un elenco completo, vedere [operazioni di provider di risorse di Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning azioni predefinite per molte operazioni e attività. Per un elenco completo, vedere [operazioni del provider di risorse di Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="create-custom-role"></a>Creare un ruolo personalizzato
 
@@ -382,9 +382,9 @@ Di seguito sono riportate alcune considerazioni da tenere presente quando si usa
 Per assegnare un'identità assegnata all'utente nei cluster Amlcompute, è necessario disporre delle autorizzazioni di scrittura per creare il calcolo e avere un [ruolo di operatore di identità gestito](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Per altre informazioni sul controllo degli accessi in base al ruolo con le identità gestite, vedere [come gestire l'identità assegnata dall'utente](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
-### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>Q. Sono supportati i controlli degli accessi in base al ruolo nel portale di studio?
+### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>Q. È supportato il controllo degli accessi in base al ruolo nel portale di studio?
 
-Azure Machine Learning Studio supporta i controlli degli accessi in base al ruolo. 
+Azure Machine Learning Studio supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). 
 
 > [!IMPORTANT]
 > Dopo aver assegnato un ruolo personalizzato con autorizzazioni specifiche a un data scientist nell'area di lavoro, le azioni corrispondenti, ad esempio l'aggiunta di un pulsante di calcolo, vengono automaticamente nascoste agli utenti. Nascondendo questi elementi si evitano confusione nella visualizzazione dei controlli che restituiscono una notifica di accesso non autorizzato dal servizio quando vengono utilizzati.

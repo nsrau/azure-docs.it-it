@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6902d1420090b81c933f07f7e929aa86c052404
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609351"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009240"
 ---
 # <a name="ocr-cognitive-skill"></a>Competenza cognitiva OCR
 
-Il **riconoscimento ottico dei caratteri (OCR)** riconosce il testo stampato e scritto a mano nei file di immagine. Questa competenza usa i modelli di Machine Learning forniti da [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Servizi cognitivi. La competenza **OCR** corrisponde alle funzionalità seguenti:
+Il **riconoscimento ottico dei caratteri (OCR)** riconosce il testo stampato e scritto a mano nei file di immagine. Questa competenza usa i modelli di apprendimento automatico forniti da [visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) in Servizi cognitivi. La competenza **OCR** corrisponde alle funzionalità seguenti:
 
-+ L'API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) viene usata per lingue diverse dall'inglese. 
-+ Per l'inglese, viene usata la nuova API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) .
++ Per inglese, spagnolo, tedesco, francese, italiano, portoghese e olandese, viene usata la nuova API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) .
++ Per tutti gli altri linguaggi, viene usata l'API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) .
 
 La competenza **OCR** estrae il testo dai file di immagine. I formati di file supportati comprendono:
 

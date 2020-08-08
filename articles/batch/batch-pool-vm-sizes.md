@@ -2,14 +2,14 @@
 title: Scegliere le dimensioni delle macchine virtuali per i pool
 description: Come scegliere tra le dimensioni delle macchine virtuali disponibili per i nodi di calcolo nei pool di Azure Batch
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e56632ce66cb25bf023813f2b98be6141f651465
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143523"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005139"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -35,12 +35,12 @@ I pool di Azure Batch in configurazione macchina virtuale supportano quasi tutte
 | DC | nessuno |
 | Dv2, DSv2 | Tutte le dimensioni |
 | Dv3, Dsv3 | Tutte le dimensioni |
-| Dav4<sup>1</sup> | Nessuna - non ancora disponibile |
-| Dasv4<sup>1</sup> | Tutte le dimensioni, ad eccezione di Standard_D48as_v4, Standard_D64as_v4, Standard_D96as_v4 |
+| Dav4<sup>1</sup> | Tutte le dimensioni |
+| Dasv4<sup>1</sup> | Tutte le dimensioni |
 | Ddv4, Ddsv4 |  Nessuna - non ancora disponibile |
 | Ev3, Esv3 | Tutte le dimensioni, ad eccezione di E64is_v3 e E64i_v3 |
-| Eav4<sup>1</sup> | Tutte le dimensioni, ad eccezione di Standard_E48a_v4, Standard_E64a_v4, Standard_E96a_v4 |
-| Easv4<sup>1</sup> | Tutte le dimensioni, ad eccezione di Standard_E48as_v4, Standard_E64as_v4, Standard_E96as_v4 |
+| Eav4<sup>1</sup> | Tutte le dimensioni |
+| Easv4<sup>1</sup> | Tutte le dimensioni |
 | Edv4, Edsv4 |  Nessuna - non ancora disponibile |
 | F, Fs | Tutte le dimensioni |
 | Fsv2 | Tutte le dimensioni |
@@ -60,7 +60,7 @@ I pool di Azure Batch in configurazione macchina virtuale supportano quasi tutte
 | NDv2<sup>1</sup> | Nessuna - non ancora disponibile |
 | NV | Tutte le dimensioni |
 | NVv3<sup>1</sup> | Tutte le dimensioni |
-| NVv4 | Nessuno |
+| NVv4 | nessuno |
 | SAP HANA | nessuno |
 
 <sup>1</sup> queste dimensioni delle macchine virtuali possono essere allocate nei pool di Azure Batch nella configurazione della macchina virtuale, ma è necessario creare un nuovo account Batch e richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota) specifico. Questa limitazione verrà rimossa quando la quota di vCPU per ogni serie di macchine virtuali sarà completamente supportata per gli account Batch.

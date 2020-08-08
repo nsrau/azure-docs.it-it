@@ -1,19 +1,17 @@
 ---
 title: Installare Office in un'immagine del disco rigido virtuale Master-Azure
 description: Come installare e personalizzare Office in un'immagine master di un desktop virtuale Windows in Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e213ac7a4d0436cf904a8104cea7e76eabaece4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e53d8bf8f7cb024b468983f596d3d1bd5c91ee7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200529"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007302"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installare Office in un'immagine master di disco rigido virtuale
 
@@ -32,7 +30,7 @@ Con l'attivazione di computer condivisi è possibile distribuire Microsoft 365 a
 
 Usare lo [strumento di distribuzione di Office](https://www.microsoft.com/download/details.aspx?id=49117) per installare Office. Windows 10 Enterprise multisessione supporta solo le seguenti versioni di Office:
 
-   - App di Microsoft 365 per grandi imprese
+   - Microsoft 365 Apps for enterprise
    - Microsoft 365 app for business fornita con una sottoscrizione Microsoft 365 Business Premium
 
 Per lo strumento di distribuzione di Office è necessario un file XML di configurazione. Per personalizzare l'esempio seguente, vedere le [Opzioni di configurazione per lo strumento di distribuzione di Office](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).

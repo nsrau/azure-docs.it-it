@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534737"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002317"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -35,7 +35,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
   - Per aumentare la sicurezza dell'accesso alle macchine virtuali Azure, è possibile configurare l'autenticazione a più fattori.
   - Possono accedere alle macchine virtuali Linux con Azure Active Directory anche gli utenti che usano [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Collaborazione semplificata:** con il controllo degli accessi in base al ruolo è possibile specificare chi può accedere a una determinata macchina virtuale come utente normale o con privilegi di amministratore. Quando gli utenti si uniscono o abbandonano il team, è possibile aggiornare i criteri del controllo degli accessi in base al ruolo per la macchina virtuale per concedere l'accesso in base alle esigenze. Questa esperienza è molto più semplice rispetto alla necessità di eseguire lo scrubbing delle macchine virtuali per rimuovere le chiavi pubbliche SSH non necessarie. Quando i dipendenti lasciano l'organizzazione e l'account utente viene disabilitato o rimosso da Azure AD, non hanno più accesso alle risorse.
+- **Perfetta collaborazione:** Con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile specificare chi può accedere a una determinata macchina virtuale come utente normale o con privilegi di amministratore. Quando gli utenti si uniscono o lasciano il team, è possibile aggiornare i criteri RBAC di Azure per la macchina virtuale per concedere l'accesso in base alle esigenze. Questa esperienza è molto più semplice rispetto alla necessità di eseguire lo scrubbing delle macchine virtuali per rimuovere le chiavi pubbliche SSH non necessarie. Quando i dipendenti lasciano l'organizzazione e l'account utente viene disabilitato o rimosso da Azure AD, non hanno più accesso alle risorse.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Aree di Azure e distribuzioni di Linux supportate
 
@@ -121,7 +121,7 @@ I criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) d
 > [!NOTE]
 > Per consentire all'utente di accedere alla macchina virtuale su SSH, è necessario assegnare il ruolo *Accesso amministratore alle macchine virtuali* oppure *Accesso utente alle macchine virtuali*. Un utente di Azure a cui è stato assegnato il ruolo *Proprietario* oppure *Collaboratore* per una macchina virtuale non dispone automaticamente dei privilegi per accedere alla macchina virtuale su SSH.
 
-L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo *Accesso amministratore alle macchine virtuali* alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'*ambito* per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). È anche possibile assegnare l'ambito a livello di gruppo di risorse o di sottoscrizione e applicare le normali autorizzazioni di ereditarietà del controllo degli accessi in base al ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)
+L'esempio seguente usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo *Accesso amministratore alle macchine virtuali* alla macchina virtuale per l'utente di Azure corrente. Il nome utente dell'account di Azure attivo si ottiene con [az account show](/cli/azure/account#az-account-show) e viene impostato l'*ambito* per la macchina virtuale creata in un passaggio precedente con [az vm show](/cli/azure/vm#az-vm-show). L'ambito può essere assegnato anche a livello di gruppo di risorse o di sottoscrizione e si applicano le normali autorizzazioni di ereditarietà RBAC di Azure. Per altre informazioni, vedere [RBAC di Azure](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -136,7 +136,7 @@ az role assignment create \
 > [!NOTE]
 > Se il dominio di Azure Active Directory e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con *--id-oggetto-assegnatario* e non solo il nome utente per *--assegnatario*. È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere come usare l'[interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md), il [portale di Azure](../../role-based-access-control/role-assignments-portal.md) o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere uso dell'interfaccia della riga di comando di [Azure](../../role-based-access-control/role-assignments-cli.md), [portale di Azure](../../role-based-access-control/role-assignments-portal.md)o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 È anche possibile configurare Azure AD per richiedere l'autenticazione a più fattori per un utente specifico per eseguire l'accesso alla macchina virtuale Linux. Per altre informazioni, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
 
@@ -185,7 +185,7 @@ Alcuni errori comuni quando si tenta di eseguire SSH con Azure AD credenziali no
 
 ### <a name="access-denied-azure-role-not-assigned"></a>Accesso negato: ruolo di Azure non assegnato
 
-Se viene visualizzato l'errore seguente nel prompt SSH, verificare di aver configurato i criteri di controllo degli accessi in base al ruolo per la macchina virtuale che concede all'utente il ruolo *Accesso amministratore alle macchine virtuali* o *Accesso utente alle macchine virtuali*:
+Se viene visualizzato l'errore seguente nel prompt SSH, verificare di aver configurato i criteri di controllo degli accessi in base al ruolo di Azure per la macchina virtuale che concede all'utente l' *account di accesso dell'amministratore della macchina virtuale* o l' *accesso utente della macchina virtuale* :
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com

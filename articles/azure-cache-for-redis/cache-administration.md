@@ -6,30 +6,30 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 224436c155f1133621abede21878b49ebc9b3331
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c9da97607961a7d701851c6892393cdf537b9a32
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185211"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008033"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reboot"></a>Riavviare
+## <a name="reboot"></a>Riavvio
 Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
 
-![Riavviare](./media/cache-administration/redis-cache-administration-reboot.png)
+![Riavvio](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Selezionare i nodi per il riavvio e fare clic su **Riavvia**.
 
-![Riavviare](./media/cache-administration/redis-cache-reboot.png)
+![Riavvio](./media/cache-administration/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Riavviare](./media/cache-administration/redis-cache-reboot-cluster.png)
+![Riavvio](./media/cache-administration/redis-cache-reboot-cluster.png)
 
 Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni desiderate per riavviare il computer e quindi fare clic su **Reboot**(Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
@@ -98,5 +98,7 @@ Sì, è possibile gestire gli aggiornamenti pianificati con i cmdlet di PowerShe
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Esplorare altre funzionalità del [piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
+Altre informazioni sulle funzionalità di cache di Azure per Redis.
+
+* [Cache di Azure per i livelli di servizio Redis](cache-overview.md#service-tiers)
 

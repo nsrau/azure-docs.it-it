@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 01/10/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d931206e99516e0320d0cbedd0812389ee41aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74c9cd1c55f1b0dde173a7ffbeac92e5518db81e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742165"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005804"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisiti di licenza per usare Privileged Identity Management
 
@@ -32,19 +32,19 @@ Per usare Azure Active Directory (Azure AD) e Privileged Identity Management (PI
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-## <a name="how-many-licenses-must-you-have"></a>Quante licenze è necessario avere?
+## <a name="licenses-you-must-have"></a>Licenze che è necessario avere
 
 Assicurarsi che la directory includa un numero di licenze Azure AD Premium P2 almeno uguale al numero di dipendenti che eseguiranno le attività seguenti:
 
-- Utenti assegnati come idonei ai ruoli di Azure AD gestiti mediante PIM
+- Utenti assegnati come idonei a Azure AD o ruoli di Azure gestiti con PIM
+- Utenti assegnati come membri idonei o proprietari dei gruppi di accesso con privilegi
 - Utenti in grado di approvare o rifiutare le richieste di attivazione in PIM
-- Utenti assegnati a un ruolo di risorse di Azure con assegnazioni Just-In-Time o dirette (basate sul tempo)  
 - Utenti assegnati a una verifica di accesso
 - Utenti che eseguono verifiche di accesso
 
 Le licenze di Azure AD Premium P2 **non** sono necessarie per le attività seguenti:
 
-- Non sono necessarie licenze per gli utenti con ruoli di amministratore globale o amministratore del ruolo con privilegi che configurano PIM, configurano criteri, ricevono avvisi e configurano le verifiche di accesso.
+- Non sono necessarie licenze per gli utenti che hanno configurato PIM, configurare criteri, ricevere avvisi e configurare le verifiche di accesso.
 
 Per altre informazioni sulle licenze, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
 
@@ -58,7 +58,7 @@ Ecco alcuni esempi di scenari che consentono di determinare il numero di licenze
 | Graphic Design Institute dispone di 25 amministratori per i quali 14 vengono gestiti tramite PIM. L'attivazione del ruolo richiede l'approvazione e sono presenti tre utenti diversi nell'organizzazione che possono approvare le attivazioni. | 14 licenze per i ruoli idonei + tre responsabili approvazione | 17 |
 | Contoso ha 50 amministratori di cui 42 sono gestiti tramite PIM. L'attivazione del ruolo richiede l'approvazione e sono presenti cinque utenti diversi nell'organizzazione che possono approvare le attivazioni. Contoso esegue anche le verifiche mensili degli utenti assegnati ai ruoli di amministratore e i revisori sono i responsabili degli utenti di cui sei in ruoli di amministratore gestiti da PIM. | 42 licenze per i ruoli idonei + cinque responsabili approvazione + sei revisori | 53 |
 
-## <a name="what-happens-when-a-license-expires"></a>Che cosa accade quando una licenza scade?
+## <a name="when-a-license-expires"></a>Scadenza di una licenza
 
 Se un Azure AD Premium P2, EMS E5 o una licenza di valutazione scade, Privileged Identity Management funzionalità non saranno più disponibili nella directory:
 

@@ -1,24 +1,22 @@
 ---
 title: Distribuire lo strumento di diagnostica per desktop virtuale Windows (classico)-Azure
 description: Come distribuire lo strumento di diagnostica UX per desktop virtuale di Windows (versione classica).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285102"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009189"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuire lo strumento di diagnostica desktop virtuale di Windows (classico)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 >[!IMPORTANT]
 >A partire dal 16 marzo 2020, sono state disabilitate temporaneamente le query di diagnostica che hanno interessato l'esperienza utente a causa di un aumento della domanda sul servizio. In questo modo lo strumento smette di funzionare perché si basa su tali query per funzionare. Questo articolo verrà aggiornato quando le query di diagnostica sono nuovamente disponibili.

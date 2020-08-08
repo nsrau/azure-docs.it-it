@@ -1,31 +1,29 @@
 ---
 title: Problemi di diagnostica di Windows Virtual Desktop (classico)-Azure
 description: Come usare la funzionalità di diagnostica desktop virtuale di Windows (classica) per diagnosticare i problemi.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7e652f04b42b132e7c1307503b1764dda7b2036b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285051"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009342"
 ---
 # <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificare e diagnosticare i problemi in desktop virtuale di Windows (versione classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../diagnostics-role-service.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../diagnostics-role-service.md).
 
 Desktop virtuale Windows offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi usando un'unica interfaccia. I ruoli di Desktop virtuale Windows registrano un'attività di diagnostica ogni volta che un utente interagisce con il sistema. Ogni log contiene informazioni rilevanti, ad esempio i ruoli di Desktop virtuale Windows coinvolti nella transazione, i messaggi di errore, le informazioni sul tenant e le informazioni sull'utente. Le attività di diagnostica vengono create sia da azioni dell'utente finale sia da azioni amministrative e possono essere raggruppate in tre categorie principali:
 
 * Attività di sottoscrizione a feed: l'utente finale attiva queste attività ogni volta che prova a connettersi al proprio feed tramite applicazioni Desktop remoto Microsoft.
 * Attività di connessione: l'utente finale attiva queste attività ogni volta che prova a connettersi a un desktop o a RemoteApp tramite applicazioni Desktop remoto Microsoft.
 * Attività di gestione: l'amministratore attiva queste attività ogni volta che esegue operazioni di gestione nel sistema, ad esempio la creazione di pool di host, l'assegnazione di utenti ai gruppi di app e la creazione di assegnazioni di ruolo.
-  
+
 Le connessioni che non raggiungono Desktop virtuale Windows non vengono visualizzate nei risultati della diagnostica perché il servizio dei ruoli di diagnostica fa parte del servizio Desktop virtuale Windows. Quando l'utente finale riscontra problemi di connettività di rete, possono verificarsi problemi di connessione di Desktop virtuale Windows.
 
 Per iniziare, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](/powershell/windows-virtual-desktop/overview/) da usare nella sessione di PowerShell, se non è già stato fatto. Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
@@ -39,7 +37,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 La funzionalità di diagnostica di Desktop virtuale Windows usa un solo cmdlet di PowerShell, ma contiene molti parametri facoltativi che consentono di limitare e isolare i problemi. Le sezioni seguenti elencano i cmdlet che è possibile eseguire per diagnosticare i problemi. Quasi tutti i filtri possono essere applicati contemporaneamente. I valori riportati tra parentesi, ad esempio `<tenantName>`, devono essere sostituiti con i valori applicabili alla situazione specifica.
 
 >[!IMPORTANT]
->La funzionalità di diagnostica consente la risoluzione dei problemi per singolo utente. Tutte le query che usano PowerShell devono includere i parametri *-UserName* o *-ActivityID*. Per le funzionalità di monitoraggio, usare Log Analytics. Per altre informazioni su come inviare i dati di diagnostica all'area di lavoro, vedere [Usare Log Analytics per la funzionalità di diagnostica](diagnostics-log-analytics-2019.md). 
+>La funzionalità di diagnostica consente la risoluzione dei problemi per singolo utente. Tutte le query che usano PowerShell devono includere i parametri *-UserName* o *-ActivityID*. Per le funzionalità di monitoraggio, usare Log Analytics. Per altre informazioni su come inviare i dati di diagnostica all'area di lavoro, vedere [Usare Log Analytics per la funzionalità di diagnostica](diagnostics-log-analytics-2019.md).
 
 ### <a name="filter-diagnostic-activities-by-user"></a>Filtrare le attività di diagnostica in base all'utente
 

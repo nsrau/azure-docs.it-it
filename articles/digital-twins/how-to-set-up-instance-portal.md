@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836939"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009658"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (portale)
 
@@ -24,27 +24,13 @@ Questa versione di questo articolo descrive manualmente questa procedura, una al
 * Per eseguire questa procedura manualmente usando l'interfaccia della riga di comando, vedere la versione dell'interfaccia della riga di comando di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (CLI)*](how-to-set-up-instance-cli.md).
 * Per eseguire un'installazione automatica usando uno script di distribuzione di esempio, vedere la versione con script di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (con script)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-Accedere quindi al [portale di Azure](https://ms.portal.azure.com/) con le proprie credenziali.
-
-## <a name="prerequisites-permission-requirements"></a>Prerequisiti: requisiti di autorizzazione
-
-Per poter completare tutti i passaggi descritti in questo articolo, è necessario essere classificati come un proprietario nella sottoscrizione di Azure. 
-
-È possibile controllare il livello di autorizzazione nella [pagina Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) del portale di Azure (è possibile usare questo collegamento o cercare le *sottoscrizioni* con la barra di ricerca del portale). Cercare il nome della sottoscrizione in uso e visualizzare il ruolo nella colonna *My Role* . Se si è un proprietario, questo valore è *proprietario*:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="Visualizzazione della pagina sottoscrizioni nella portale di Azure, che mostra l'utente come proprietario" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
-
-Se si rileva che il valore è *collaboratore* o non è *proprietario*, è possibile procedere in uno dei modi seguenti:
-* Contattare il proprietario della sottoscrizione e richiedere al proprietario di completare i passaggi descritti in questo articolo per conto dell'utente
-* Contattare il proprietario della sottoscrizione o un utente con il ruolo amministratore accesso utenti per la sottoscrizione e richiedere che venga innalzato al proprietario della sottoscrizione, in modo da avere le autorizzazioni necessarie per procedere manualmente. Il fatto che sia appropriato dipende dall'organizzazione e dal ruolo al suo interno.
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Creare l'istanza di Azure Digital Twins
 
-In questa sezione si creerà **una nuova istanza di Azure Digital Twins** usando il portale di Azure.
+In questa sezione si creerà **una nuova istanza di Azure Digital Twins** usando il [portale di Azure](https://ms.portal.azure.com/). Passare al portale e accedere con le proprie credenziali.
 
-Dopo aver effettuato l'accesso [portale di Azure](https://ms.portal.azure.com/), iniziare selezionando _Crea una risorsa_ nel menu Home page dei servizi di Azure.
+Una volta nel portale, iniziare selezionando _Crea una risorsa_ nel menu di Home page dei servizi di Azure.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
@@ -87,7 +73,7 @@ Prima di tutto, aprire la pagina per l'istanza di Azure Digital Twins nell'porta
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selezione per aggiungere un'assegnazione di ruolo dalla pagina "controllo di accesso (IAM)"":::
 
-Nella pagina *Aggiungi assegnazione ruolo* specificare i valori (che devono essere completati da un proprietario della sottoscrizione di Azure):
+Nella pagina *Aggiungi assegnazione ruolo* , inserire i valori (che devono essere completati da un utente con [autorizzazioni sufficienti](#prerequisites-permission-requirements) nella sottoscrizione di Azure):
 * **Ruolo**: selezionare il *proprietario di Azure Digital gemelli (anteprima)* dal menu a discesa
 * **Assegnare l'accesso a**: selezionare *Azure ad utente, gruppo o entità servizio* dal menu a discesa
 * **Select**: consente di cercare il nome o l'indirizzo di posta elettronica dell'utente da assegnare. Quando si seleziona il risultato, l'utente viene visualizzato nella sezione *membri selezionati* .

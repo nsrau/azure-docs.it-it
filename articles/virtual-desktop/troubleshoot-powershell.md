@@ -1,24 +1,22 @@
 ---
 title: PowerShell per desktop virtuale Windows-Azure
 description: Come risolvere i problemi relativi a PowerShell quando si configura un ambiente desktop virtuale di Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd34fa2bc4c1083d4bd4dda7d118e0348a1a7fd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288726"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002266"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell con Desktop virtuale Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
 
 Usare questo articolo per risolvere errori e problemi quando si usa PowerShell con desktop virtuale di Windows. Per ulteriori informazioni su Servizi Desktop remoto PowerShell, vedere la pagina relativa al [desktop virtuale di Windows PowerShell](/powershell/module/windowsvirtualdesktop/).
 
@@ -33,10 +31,10 @@ Questa sezione elenca i comandi di PowerShell che vengono in genere utilizzati d
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Errore: New-AzRoleAssignment: le informazioni fornite non sono mappate a un ID oggetto AD
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Motivo:** L'utente specificato dal parametro *-SignInName* non è stato trovato nel Azure Active Directory associato all'ambiente di desktop virtuale di Windows. 
+**Motivo:** L'utente specificato dal parametro *-SignInName* non è stato trovato nel Azure Active Directory associato all'ambiente di desktop virtuale di Windows.
 
 **Correzione:** Assicurarsi degli elementi seguenti.
 
@@ -46,7 +44,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Errore: New-AzRoleAssignment: "il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione sull'ambito (codice: AuthorizationFailed)"
 
-**Cause 1:** L'account utilizzato non dispone delle autorizzazioni di proprietario per la sottoscrizione. 
+**Cause 1:** L'account utilizzato non dispone delle autorizzazioni di proprietario per la sottoscrizione.
 
 **Correzione 1:** Un utente con autorizzazioni proprietario deve eseguire l'assegnazione di ruolo. In alternativa, l'utente deve essere assegnato al ruolo amministratore accesso utenti per assegnare un utente a un gruppo di applicazioni.
 
@@ -57,7 +55,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Errore: New-AzWvdHostPool--la località non è disponibile per il tipo di risorsa
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 Motivo: desktop virtuale Windows supporta la selezione della posizione dei pool host, dei gruppi di applicazioni e delle aree di lavoro per archiviare i metadati del servizio in determinati percorsi. Le opzioni disponibili sono limitate a quelle disponibili per la funzionalità. Questo errore indica che la funzionalità non è disponibile nella località selezionata.

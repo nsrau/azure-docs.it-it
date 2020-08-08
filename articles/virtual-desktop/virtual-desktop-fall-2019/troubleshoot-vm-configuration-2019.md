@@ -1,24 +1,22 @@
 ---
 title: Risolvere i problemi relativi a host sessione desktop virtuale di Windows (versione classica)-Azure
 description: Come risolvere i problemi durante la configurazione di macchine virtuali host sessione desktop virtuale di Windows (classica).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291255"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008628"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configurazione macchina virtuale host sessione desktop virtuale di Windows (classica)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../troubleshoot-vm-configuration.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../troubleshoot-vm-configuration.md).
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
@@ -311,7 +309,7 @@ Se si accede a una multisessione Enterprise di Windows 10 con un account amminis
 
 Se il limite di tempo scade, verrà visualizzato un messaggio di errore che indica che la sessione remota è stata disconnessa perché non sono disponibili Desktop remoto licenze di accesso client per questo computer.
 
-Se viene visualizzato uno di questi messaggi, significa che nell'immagine non sono installati gli aggiornamenti di Windows più recenti o che si sta impostando la modalità di gestione licenze Desktop remoto tramite criteri di gruppo. Seguire i passaggi nelle sezioni successive per verificare l'impostazione di criteri di gruppo, identificare la versione di Windows 10 Enterprise Multisession e installare l'aggiornamento corrispondente.  
+Se viene visualizzato uno di questi messaggi, significa che nell'immagine non sono installati gli aggiornamenti di Windows più recenti o che si sta impostando la modalità di gestione licenze Desktop remoto tramite criteri di gruppo. Seguire i passaggi nelle sezioni successive per verificare l'impostazione di criteri di gruppo, identificare la versione di Windows 10 Enterprise Multisession e installare l'aggiornamento corrispondente.
 
 >[!NOTE]
 >Desktop virtuale Windows richiede solo una licenza CAL (Client Access License) RDS quando il pool host contiene host sessione Windows Server. Per informazioni su come configurare una licenza CAL Servizi Desktop remoto, vedere [concedere in licenza la distribuzione di Servizi Desktop remoto con licenze di accesso client](/windows-server/remote/remote-desktop-services/rds-client-access-license/).

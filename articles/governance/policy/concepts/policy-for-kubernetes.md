@@ -1,14 +1,14 @@
 ---
 title: Anteprima - Informazioni su Criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale. Questa è una funzionalità in anteprima.
-ms.date: 06/12/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373760"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003508"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendere i criteri di Azure per i cluster Kubernetes (anteprima)
 
@@ -130,10 +130,16 @@ Una volta completati i passaggi dei prerequisiti, installare il componente aggiu
 
   1. Nella pagina principale selezionare il pulsante **Abilita componente aggiuntivo**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Abilitare il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Abilitare il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes":::
 
+     <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Se il pulsante **Abilita componente aggiuntivo** è disattivato, significa che la sottoscrizione non è ancora stata aggiunta all'anteprima. Se il pulsante **Disabilita componente aggiuntivo** è abilitato e viene visualizzato un messaggio di avviso di migrazione alla versione 2, significa che Gatekeepver v2 è ancora installato e deve essere rimosso.
+     > Se il pulsante **Abilita componente aggiuntivo** è disattivato, significa che la sottoscrizione non è ancora stata aggiunta all'anteprima. Se il pulsante **Disabilita componente aggiuntivo** è abilitato e viene visualizzato un messaggio di avviso di migrazione V2, il componente aggiuntivo V1 è installato e deve essere rimosso prima di assegnare le definizioni dei criteri V2. Il componente aggiuntivo _deprecato_ V1 verrà automaticamente sostituito con il componente aggiuntivo V2 a partire dal 24 agosto 2020. Sarà quindi necessario assegnare le nuove versioni V2 delle definizioni dei criteri. Per eseguire l'aggiornamento ora, attenersi alla seguente procedura:
+     > 
+     > 1. Verificare che nel cluster del servizio contenitore di Azure sia installato il componente aggiuntivo V1 visitando la pagina **criteri (anteprima)** nel cluster del servizio contenitore di Azure e che il cluster corrente usi il componente aggiuntivo criteri di Azure V1... Messaggio.
+     > 1. [Rimuovere il componente aggiuntivo](#remove-the-add-on-from-aks).
+     > 1. Selezionare il pulsante **Abilita componente** aggiuntivo per installare la versione V2 del componente aggiuntivo.
+     > 1. [Assegnare le versioni V2 delle definizioni dei criteri predefiniti V1](#assign-a-built-in-policy-definition)
 
 - Interfaccia della riga di comando di Azure
 

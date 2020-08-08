@@ -1,24 +1,22 @@
 ---
 title: Ambiente desktop virtuale Windows-Azure
 description: Informazioni sugli elementi di base di un ambiente desktop virtuale Windows, ad esempio pool di host e gruppi di app.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e382c1d52130d44479e94378da895c6add7ba3ee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99a07dd1791b539ea44fcbab250aa9c227ee1705
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283419"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002615"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente di Desktop virtuale Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/environment-setup-2019.md).
 
 Desktop virtuale di Windows è un servizio che consente agli utenti di accedere in modo semplice e sicuro ai propri desktop e RemoteApp virtualizzati. In questo argomento viene illustrata la struttura generale dell'ambiente desktop virtuale di Windows.
 
@@ -49,7 +47,7 @@ Per pubblicare le risorse per gli utenti, è necessario assegnarle ai gruppi di 
 
 ## <a name="workspaces"></a>Aree di lavoro
 
-Un'area di lavoro è un raggruppamento logico di gruppi di applicazioni nel desktop virtuale di Windows. Ogni gruppo di applicazioni desktop virtuali Windows deve essere associato a un'area di lavoro per consentire agli utenti di visualizzare le app Remote e i desktop pubblicati.  
+Un'area di lavoro è un raggruppamento logico di gruppi di applicazioni nel desktop virtuale di Windows. Ogni gruppo di applicazioni desktop virtuali Windows deve essere associato a un'area di lavoro per consentire agli utenti di visualizzare le app Remote e i desktop pubblicati.
 
 ## <a name="end-users"></a>Utenti finali
 

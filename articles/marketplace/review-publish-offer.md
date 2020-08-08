@@ -8,18 +8,18 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2020
-ms.openlocfilehash: 34e56e5d92526cbf46408c670127e87781e342cd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9c05753b44b0c644b121eb3ccd3316633f9e5964
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119736"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009529"
 ---
-# <a name="review-and-publish-an-offer-to-commercial-marketplace"></a>Rivedere e pubblicare un'offerta nel Marketplace commerciale
+# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Esaminare e pubblicare un'offerta nel Marketplace commerciale
 
-Questo articolo illustra come usare il centro per i partner per inviare l'offerta all'anteprima, visualizzare un'anteprima dell'offerta e quindi pubblicarla nel Marketplace commerciale Microsoft. Viene inoltre illustrato come controllare lo stato di pubblicazione durante la procedura di pubblicazione. È necessario avere già creato un'offerta che si desidera pubblicare.
+Questo articolo illustra come usare il centro per i partner per inviare l'offerta all'anteprima, visualizzare un'anteprima dell'offerta e quindi pubblicarla in Microsoft Commercial Marketplace. Viene inoltre illustrato come controllare lo stato di pubblicazione durante la procedura di pubblicazione. È necessario avere già creato un'offerta che si desidera pubblicare.
 
-## <a name="go-to-your-offer-in-commercial-marketplace"></a>Vai alla tua offerta nel Marketplace commerciale
+## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Vai alla tua offerta nel Marketplace commerciale
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
 1. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
@@ -27,7 +27,7 @@ Questo articolo illustra come usare il centro per i partner per inviare l'offert
  
     | Stato | Descrizione |
     | ------------ | ------------- |
-    | Draft | L'offerta è stata creata, ma non è in fase di pubblicazione. |
+    | Bozza | L'offerta è stata creata, ma non è in fase di pubblicazione. |
     | Pubblicazione in corso | L'offerta sta funzionando nel processo di pubblicazione. |
     | Intervento necessario | È stato rilevato un problema critico durante la certificazione o durante un'altra fase di pubblicazione. |
     | Anteprima | L'offerta è stata certificata, che ora attende una verifica finale da parte del server di pubblicazione. Selezionare **Go Live** per pubblicare l'offerta in tempo reale. |
@@ -53,7 +53,7 @@ Questo articolo illustra come usare il centro per i partner per inviare l'offert
 
 Dopo aver selezionato **pubblica**, i processi di convalida e pubblicazione procedono in ordine. In questa tabella viene illustrato il processo di pubblicazione più comune:
 
-| Fase | Cosa accade | 
+| Fase | Risultato finale | 
 | ------------ | ------------- | ------------- |
 | Convalida automatica | Viene elaborato un set di convalide automatiche. | 
 | Certificazione | Si conducono le convalide manuali. | 

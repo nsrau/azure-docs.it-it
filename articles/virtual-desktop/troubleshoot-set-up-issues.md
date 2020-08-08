@@ -1,24 +1,22 @@
 ---
 title: Creazione del pool host dell'ambiente desktop virtuale Windows-Azure
 description: Come risolvere i problemi e risolvere i problemi relativi ai pool di tenant e host durante l'installazione di un ambiente desktop virtuale di Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a36e21d346e08ebe09f8c4b34f6af529d2a0f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292560"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006163"
 ---
 # <a name="host-pool-creation"></a>Creazione di pool di host
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
@@ -37,13 +35,13 @@ Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Mar
 > [!div class="mx-imgBorder"]
 > ![Immagine che mostra la portale di Azure che Visualizza il messaggio "crea un account gratuito"](media/create-new-account.png)
 
-**Causa**: non sono presenti sottoscrizioni attive nell'account con cui è stato effettuato l'accesso ad Azure oppure l'account non dispone delle autorizzazioni per visualizzare le sottoscrizioni. 
+**Causa**: non sono presenti sottoscrizioni attive nell'account con cui è stato effettuato l'accesso ad Azure oppure l'account non dispone delle autorizzazioni per visualizzare le sottoscrizioni.
 
 **Correzione**: accedere alla sottoscrizione in cui verranno distribuite le macchine virtuali (VM) host della sessione con un account che dispone almeno dell'accesso a livello di collaboratore.
 
 ### <a name="error-exceeding-quota-limit"></a>Errore: "superamento del limite di quota"
 
-Se l'operazione supera il limite di quota, è possibile eseguire una delle operazioni seguenti: 
+Se l'operazione supera il limite di quota, è possibile eseguire una delle operazioni seguenti:
 
 - Creare un nuovo pool di host con gli stessi parametri, ma un minor numero di VM e Core VM.
 
@@ -119,9 +117,9 @@ Per risolvere il problema, eseguire le operazioni seguenti:
 Esempio di errore non elaborato:
 
 ```Error
- { …{ "provisioningOperation": 
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ { …{ "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
@@ -138,10 +136,10 @@ Esempio di errore non elaborato:
 
 ```Error
 { … "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
@@ -162,7 +160,7 @@ Esempio di errore non elaborato:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

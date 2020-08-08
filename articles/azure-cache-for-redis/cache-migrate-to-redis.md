@@ -6,12 +6,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: yegu
-ms.openlocfilehash: 3f5cfccd1f85f68c619192496c62bf80ea8d4785
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4e867f28209230cf33b0f94e7cc8ca12d015ff15
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170184"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008560"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis-deprecated"></a>Eseguire la migrazione dal servizio cache gestita alla cache di Azure per Redis (deprecato)
 La migrazione di un'applicazione che usa Servizio cache gestita di Azure a Cache Redis di Azure può essere eseguita con modifiche minime all'applicazione, a seconda delle funzionalità di Servizio cache gestita usate dall'applicazione di memorizzazione nella cache. Le API non sono identiche, ma sono simili e gran parte del codice esistente che usa il Servizio cache gestita per accedere a una cache può essere riutilizzata con modifiche minime. Questo articolo illustra come apportare le modifiche necessarie alla configurazione e all'applicazione per eseguire la migrazione delle applicazioni che usano Servizio cache gestita a Cache Redis di Azure e mostra come alcune delle funzioni di Cache Redis di Azure possono essere usate per implementare la funzionalità di una cache di Servizio cache gestita.
@@ -39,7 +40,7 @@ Servizio cache gestita di Azure e Cache Redis di Azure sono simili, ma implement
 
 | Funzionalità del Servizio cache gestita | Supporto del Servizio cache gestita | Supporto di Cache Redis di Azure |
 | --- | --- | --- |
-| Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Cache Redis di Azure ha un numero configurabile di database (16 come impostazione predefinita) che possono essere usati per implementare una funzione simile nelle cache denominate. Per altre informazioni, vedere [Informazioni sui database Redis](cache-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
+| Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Cache Redis di Azure ha un numero configurabile di database (16 come impostazione predefinita) che possono essere usati per implementare una funzione simile nelle cache denominate. Per altre informazioni, vedere [Informazioni sui database Redis](cache-development-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
 | Disponibilità elevata |Fornisce disponibilità elevata per gli elementi nella cache nelle offerte cache Standard e Premium. Se gli elementi vengono persi a causa di un errore, sono ancora disponibili le copie di backup degli elementi nella cache. Le Scritture nella cache di replica vengono eseguite in modo sincrono. |La disponibilità elevata è disponibile nelle offerte cache Standard e Premium, che hanno una configurazione primaria/di replica a due nodi (ogni condivisione in una cache Premium ha una coppia primaria/ di replica). Le scritture nella replica vengono eseguite in modo asincrono. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/). |
 | Notifiche |Consente ai client di ricevere notifiche asincrone quando in una cache denominata si verificano svariate operazioni della cache. |Le applicazioni client possono usare la pubblicazione/sottoscrizione di Redis o le [notifiche dello spazio delle chiavi](cache-configure.md#keyspace-notifications-advanced-settings) per ottenere una funzionalità simile alle notifiche. |
 | Cache locale |Archivia una copia degli oggetti memorizzati nella cache in locale nel client per un accesso velocissimo. |Le applicazioni client dovrebbero implementare questa funzionalità usando un dizionario o una struttura di dati simile. |
@@ -47,7 +48,7 @@ Servizio cache gestita di Azure e Cache Redis di Azure sono simili, ma implement
 | Criteri di scadenza |Il criterio di scadenza predefinito è Assoluto e l'intervallo di scadenza predefinito è di 10 minuti. Sono disponibili anche i criteri Scorrevole e Mai. |Per impostazione predefinita, gli elementi nella cache non scadono, ma è possibile impostare una scadenza per ogni scrittura usando gli overload impostati della cache. |
 | Aree e aggiunta di tag |Le aree sono sottogruppi degli elementi memorizzati nella cache. Le aree supportano anche l'annotazione degli elementi memorizzati nella cache con stringhe descrittive aggiuntive chiamate tag. Le aree supportano l'esecuzione di operazioni di ricerca in tutti gli elementi con tag di tale area. Tutti gli elementi in un'area si trovano in un singolo nodo del cluster di cache. |Un'istanza di Cache Redis di Azure è costituita da un singolo nodo (a meno che non sia abilitato il cluster Redis), di conseguenza il concetto di aree di Servizio cache gestita non è applicabile. Poiché Redis supporta le operazioni di ricerca e con caratteri jolly quando si recuperano le chiavi, i tag descrittivi possono essere incorporati nei nomi delle chiavi e usati per recuperare gli elementi in seguito. Per un esempio di implementazione di una soluzione di aggiunta di tag con Redis, vedere la pagina relativa all' [implementazione dell'aggiunta di tag della cache con Redis](https://stackify.com/implementing-cache-tagging-redis/). |
 | Serializzazione |La cache gestita supporta NetDataContractSerializer, BinaryFormatter e l'uso di serializzatori personalizzati. Il valore predefinito è NetDataContractSerializer. |È responsabilità dell'applicazione client serializzare gli oggetti .NET prima di inserirli nella cache, con il serializzatore scelto dallo sviluppatore dell'applicazione client. Per altre informazioni e per il codice di esempio, vedere [Gestire gli oggetti .NET nella cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
-| Emulatore di cache |Il servizio Cache gestita offre un emulatore di cache locale. |Cache Redis di Azure non include un emulatore, ma per ottenere un'esperienza di emulazione è possibile [eseguire la build MSOpenTech di redis-server.exe in locale](cache-faq.md#cache-emulator). |
+| Emulatore di cache |Il servizio Cache gestita offre un emulatore di cache locale. |Cache di Azure per Redis non dispone di un emulatore, ma è possibile [eseguire Redis localmente](cache-development-faq.md#is-there-a-local-emulator-for-azure-cache-for-redis) per offrire un'esperienza dell'emulatore. |
 
 ## <a name="choose-a-cache-offering"></a>Scegliere un'offerta per il servizio cache
 Cache Redis di Microsoft Azure è disponibile nei livelli seguenti:
@@ -58,7 +59,7 @@ Cache Redis di Microsoft Azure è disponibile nei livelli seguenti:
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](https://azure.microsoft.com/pricing/details/cache/).
 
-Per iniziare la migrazione, scegliere la dimensione corrispondente a quella della cache del Servizio cache gestita precedente e quindi aumentarla o ridurla a seconda dei requisiti dell'applicazione. Per altre informazioni sulla scelta dell'offerta appropriata per Cache Redis di Azure, vedere [Quali offerte e dimensioni di Cache Redis di Azure è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
+Per iniziare la migrazione, scegliere la dimensione corrispondente a quella della cache del Servizio cache gestita precedente e quindi aumentarla o ridurla a seconda dei requisiti dell'applicazione. Per altre informazioni sulla scelta della cache di Azure appropriata per l'offerta Redis, vedere [scelta del livello corretto](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="create-a-cache"></a>Creare una cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

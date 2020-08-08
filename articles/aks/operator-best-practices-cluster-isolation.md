@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'isolamento 
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cdeecabf569e3c6f9b280e6b0179e5378f5b1c95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077765"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003104"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'isolamento cluster nel servizio Azure Kubernetes (AKS)
 
@@ -42,7 +42,7 @@ Con l'isolamento logico, un singolo cluster servizio Azure Kubernetes può esser
 
 La separazione logica dei cluster fornisce in genere una maggiore densità del pod rispetto ai cluster isolati fisicamente. Il risultato è una minore capacità di calcolo in eccesso che resta inattiva nel cluster. Se combinato con il ridimensionamento automatico del cluster Kubernetes, è possibile aumentare o ridurre il numero dei nodi in base alle esigenze. Questa procedura consigliata per il ridimensionamento automatico consente di eseguire solo il numero di nodi richiesti e riduce al minimo i costi.
 
-Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. In un ambiente multi-tenant, più tenant lavorano su un'infrastruttura condivisa comune. Di conseguenza, se tutti i tenant non possono essere considerati attendibili, è necessario eseguire una pianificazione aggiuntiva per evitare che un tenant influisca sulla sicurezza e sul servizio di un altro tenant. Funzionalità di sicurezza aggiuntive quali i *criteri di sicurezza pod* e altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
+Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. In un ambiente multi-tenant, più tenant lavorano su un'infrastruttura condivisa comune. Di conseguenza, se tutti i tenant non possono essere considerati attendibili, è necessario eseguire una pianificazione aggiuntiva per evitare che un tenant influisca sulla sicurezza e sul servizio di un altro tenant. Funzionalità di sicurezza aggiuntive, ad esempio i *criteri di sicurezza di Pod* e il controllo degli accessi in base al ruolo con granularità più fine per i nodi, rendono più complessi gli exploit. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
 
 ## <a name="physically-isolate-clusters"></a>Isolare i cluster in modo fisico
 

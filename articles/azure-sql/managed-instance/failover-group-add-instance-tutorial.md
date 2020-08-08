@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024194"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002989"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Esercitazione: aggiungere Istanza gestita SQL a un gruppo di failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Aggiungere istanze gestite di Istanza gestita SQL di Azure a un gruppo di failov
   > [!NOTE]
   > - Quando si esegue questa esercitazione, assicurarsi di configurare le risorse con i [prerequisiti per la configurazione di gruppi di failover per SQL istanza gestita](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La creazione di un'istanza gestita può richiedere una quantità di tempo significativa. Di conseguenza, per il completamento di questa esercitazione potrebbero essere necessarie diverse ore. Per altre informazioni sui tempi di provisioning, vedere [operazioni di gestione di SQL istanza gestita](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Le istanze gestite che fanno parte di un gruppo di failover richiedono [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o due gateway VPN connessi. Questa esercitazione illustra la procedura per creare e connettere i gateway VPN. Se ExpressRoute è già configurato, ignorare questa procedura. 
+  > - Le istanze gestite che fanno parte di un gruppo di failover richiedono [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o due gateway VPN connessi. Il peering di reti virtuali globale non è supportato. Questa esercitazione illustra la procedura per creare e connettere i gateway VPN. Se ExpressRoute è già configurato, ignorare questa procedura. 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -1080,7 +1080,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
 
 
-## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 Pulire le risorse eliminando prima di tutto le istanze gestite, il cluster virtuale, le eventuali risorse rimanenti e infine il gruppo di risorse. 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)

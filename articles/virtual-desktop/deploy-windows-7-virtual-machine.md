@@ -1,30 +1,28 @@
 ---
 title: Distribuire Windows 7 macchina virtuale desktop virtuale Windows-Azure
 description: Come configurare e distribuire una macchina virtuale Windows 7 su desktop virtuale di Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6cb4a31e3360f3f9f8c9ed4684c30295489d27d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285154"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007574"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
 Il processo di distribuzione di una macchina virtuale (VM) Windows 7 in un desktop virtuale Windows è leggermente diverso rispetto a quello delle macchine virtuali che eseguono versioni successive di Windows. Questa guida illustra come distribuire Windows 7.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, seguire le istruzioni riportate in [creare un pool di host con PowerShell](create-host-pools-powershell.md) per creare un pool di host. Se si usa il portale, seguire le istruzioni riportate nei passaggi da 1 a 9 di [creare un pool host usando il portale di Azure](create-host-pools-azure-marketplace.md). Successivamente, selezionare **Verifica + crea** per creare un pool host vuoto. 
+Prima di iniziare, seguire le istruzioni riportate in [creare un pool di host con PowerShell](create-host-pools-powershell.md) per creare un pool di host. Se si usa il portale, seguire le istruzioni riportate nei passaggi da 1 a 9 di [creare un pool host usando il portale di Azure](create-host-pools-azure-marketplace.md). Successivamente, selezionare **Verifica + crea** per creare un pool host vuoto.
 
 ## <a name="configure-a-windows-7-virtual-machine"></a>Configurare una macchina virtuale Windows 7
 
@@ -49,9 +47,9 @@ Per configurare una macchina virtuale Windows 7 in un desktop virtuale Windows:
      ```
 
 12. Seguire le istruzioni riportate [qui](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) per ottenere un token di registrazione.
-      
+
       - Se si preferisce usare la portale di Azure, è anche possibile passare alla pagina Panoramica del pool di host a cui si vuole aggiungere la macchina virtuale e creare un token.
-  
+
 13. [Scaricare l'agente desktop virtuale Windows per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Scaricare il desktop virtuale windows Agent Manager per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Aprire il programma di installazione dell'agente desktop virtuale di Windows e seguire le istruzioni. Quando richiesto, fornire la chiave di registrazione creata nel passaggio 12.
