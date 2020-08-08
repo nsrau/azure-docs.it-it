@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 6bbdd3eb62229c3f8f180d2618dd25062ff0c1e9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 235b7946fbcfc2322878428cce72e77ecceb9cfc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86062660"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011062"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Eseguire l'autenticazione con Azure Active Directory
 
@@ -17,7 +17,7 @@ ms.locfileid: "86062660"
 > 1. Attualmente, **solo** il API Visione artificiale, API Viso, API analisi del testo, il lettore immersivo, il riconoscitore del modulo, il rilevatore di anomalie e tutti i servizi Bing tranne ricerca personalizzata Bing supportano l'autenticazione con Azure Active Directory (AAD).
 > 2. L'autenticazione di AAD deve essere sempre usata insieme al nome del sottodominio personalizzato della risorsa di Azure. Gli [endpoint internazionali](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) non supportano l'autenticazione AAD.
 
-Nelle sezioni precedenti è stato illustrato come eseguire l'autenticazione in Servizi cognitivi di Azure usando una chiave di sottoscrizione a servizio singolo o multiservizio. Sebbene queste chiavi forniscano un percorso rapido e semplice per iniziare lo sviluppo, si riferiscono a scenari più complessi che richiedono controlli degli accessi in base al ruolo. Verranno ora esaminati gli elementi necessari per l'autenticazione con Azure Active Directory (AAD).
+Nelle sezioni precedenti è stato illustrato come eseguire l'autenticazione in Servizi cognitivi di Azure usando una chiave di sottoscrizione a servizio singolo o multiservizio. Sebbene queste chiavi forniscano un percorso rapido e semplice per iniziare lo sviluppo, non rientreranno in scenari più complessi che richiedono il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Verranno ora esaminati gli elementi necessari per l'autenticazione con Azure Active Directory (AAD).
 
 Nelle sezioni seguenti verrà usato l'ambiente Azure Cloud Shell o l'interfaccia della riga di comando di Azure per creare un sottodominio, assegnare i ruoli e ottenere un bearer token per chiamare i servizi cognitivi di Azure. Se ci si blocca, i collegamenti vengono forniti in ogni sezione con tutte le opzioni disponibili per ogni comando nell'interfaccia della riga di comando Azure Cloud Shell/Azure.
 
@@ -45,7 +45,7 @@ Il primo passaggio consiste nel creare un sottodominio personalizzato. Se si vuo
 Ora che è stato associato un sottodominio personalizzato alla risorsa, sarà necessario assegnare un ruolo a un'entità servizio.
 
 > [!NOTE]
-> Tenere presente che le assegnazioni di ruolo AAD possono richiedere fino a cinque minuti per la propagazione.
+> Tenere presente che le assegnazioni di ruolo di Azure possono richiedere fino a cinque minuti per la propagazione.
 
 1. Prima di tutto, registrare un' [applicazione AAD](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 

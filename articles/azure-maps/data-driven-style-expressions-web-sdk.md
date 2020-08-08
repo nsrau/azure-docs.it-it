@@ -1,6 +1,6 @@
 ---
 title: Espressioni di stile basate sui dati in Azure Maps Web SDK | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come usare le espressioni di stile basate sui dati in Microsoft Azure Maps Web SDK.
+description: Informazioni sulle espressioni di stile basate sui dati. Per modificare gli stili nelle mappe, vedere come usare queste espressioni in Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285714"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009138"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
 
@@ -84,12 +84,12 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà di una fu
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera un elemento da una matrice. |
-| `['geometry-type']` | Stringa | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | value | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
-| `['get', string, object]` | value | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
+| `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['get', string]` | Valore | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
+| `['get', string, object]` | Valore | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità dispongono della proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto dispongono della proprietà specificata. |
-| `['id']` | value | Ottiene l'ID della funzionalità se ne è presente uno. |
+| `['id']` | Valore | Ottiene l'ID della funzionalità se ne è presente uno. |
 | `['length', string | array]` | Numero | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['in', boolean | string | number, array]` | boolean | Determina se un elemento esiste in una matrice |
 | `['in', substring, string]` | boolean | Determina se una sottostringa esiste in una stringa |
@@ -402,12 +402,12 @@ Le espressioni di tipo forniscono strumenti per il test e la conversione di tipi
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | \|oggetto Array | Restituisce una matrice di valori letterali o un valore dell'oggetto. Utilizzare questa espressione per impedire la valutazione di una matrice o di un oggetto come espressione. Questa operazione è necessaria quando un'espressione deve restituire una matrice o un oggetto. |
-| `['image', string]` | Stringa | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
+| `['image', string]` | string | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
 | `['to-boolean', value]` | boolean | Converte il valore di input in un valore booleano. Il risultato è `false` quando l'input è una stringa vuota,,, `0` `false` `null` o `NaN` ; in caso contrario, `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte il valore di input in un colore. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | Numero | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false` , il risultato è 0. Se l'input è `true` , il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
-| `['to-string', value]` | Stringa | Converte il valore di input in una stringa. Se l'input è `null` , il risultato è `""` . Se l'input è un valore booleano, il risultato è `"true"` o `"false"` . Se l'input è un numero, viene convertito in una stringa utilizzando la funzione numero [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) della specifica del linguaggio ECMAScript. Se l'input è un colore, viene convertito nella stringa CSS RGBA color `"rgba(r,g,b,a)"` . In caso contrario, l'input viene convertito in una stringa utilizzando la funzione [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) della specifica del linguaggio ECMAScript. |
-| `['typeof', value]` | Stringa | Restituisce una stringa che descrive il tipo del valore specificato. |
+| `['to-string', value]` | string | Converte il valore di input in una stringa. Se l'input è `null` , il risultato è `""` . Se l'input è un valore booleano, il risultato è `"true"` o `"false"` . Se l'input è un numero, viene convertito in una stringa utilizzando la funzione numero [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) della specifica del linguaggio ECMAScript. Se l'input è un colore, viene convertito nella stringa CSS RGBA color `"rgba(r,g,b,a)"` . In caso contrario, l'input viene convertito in una stringa utilizzando la funzione [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) della specifica del linguaggio ECMAScript. |
+| `['typeof', value]` | string | Restituisce una stringa che descrive il tipo del valore specificato. |
 
 > [!TIP]
 > Se `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` nella console del browser viene visualizzato un messaggio di errore simile a, significa che nel codice è presente un'espressione che contiene una matrice che non dispone di una stringa per il primo valore. Se si desidera che l'espressione restituisca una matrice, eseguire il wrapping della matrice con l' `literal` espressione. Nell'esempio seguente viene impostata l' `offset` opzione Icon di un livello Symbol, che deve essere una matrice contenente due numeri, usando un' `match` espressione per scegliere tra due valori di offset in base al valore della `entityType` proprietà della funzionalità punto.
@@ -466,8 +466,8 @@ Le espressioni dell'operatore String eseguono operazioni di conversione su strin
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatena più stringhe insieme. Ogni valore deve essere una stringa. `to-string`Se necessario, utilizzare l'espressione di tipo per convertire altri tipi valore in stringa. |
-| `['downcase', string]` | Stringa | Converte la stringa specificata in minuscolo. |
-| `['upcase', string]` | Stringa | Converte la stringa specificata in maiuscolo. |
+| `['downcase', string]` | string | Converte la stringa specificata in minuscolo. |
+| `['upcase', string]` | string | Converte la stringa specificata in maiuscolo. |
 
 **Esempio**
 

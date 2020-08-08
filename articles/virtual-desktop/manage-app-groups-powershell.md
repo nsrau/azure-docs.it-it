@@ -1,24 +1,22 @@
 ---
 title: Gestire i gruppi di app per il desktop virtuale Windows PowerShell-Azure
 description: Come gestire i gruppi di app desktop virtuali Windows con PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 186c6e455fa4d2ab578d6ab2a37f8f8f0d038e02
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a6f24dea00a174aa0276a9b30add0854c3694056
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291433"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008645"
 ---
 # <a name="manage-app-groups-using-powershell"></a>Gestire i gruppi di app con PowerShell
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
 Il gruppo di app predefinito creato per un nuovo pool di host di Desktop virtuale Windows pubblica anche il desktop completo. È inoltre possibile creare uno o più gruppi di applicazioni RemoteApp per il pool di host. Seguire questa esercitazione per creare un gruppo di app RemoteApp e pubblicare singole app nel menu **Start**.
 

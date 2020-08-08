@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: axayjo
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52569f3cec26432970606b31fe831bb6459839d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507348"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010998"
 ---
 Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l' `--debug` opzione con l'interfaccia della riga di comando e l' `-Debug` opzione con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
 
@@ -88,7 +88,7 @@ Verificare che il **OSType** della versione dell'immagine che si sta tentando di
 
 ## <a name="unable-to-share-resources"></a>Impossibile condividere le risorse
 
-Il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC) consente di condividere le risorse della raccolta di immagini condivise, della definizione dell'immagine e della versione di immagine tra le sottoscrizioni. 
+La condivisione delle risorse della raccolta di immagini condivise, della definizione di immagini e della versione immagine tra le sottoscrizioni viene abilitata usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 ## <a name="replication-is-slow"></a>La replica è lenta
 

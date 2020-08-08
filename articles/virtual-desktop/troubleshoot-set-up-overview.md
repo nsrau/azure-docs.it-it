@@ -1,24 +1,22 @@
 ---
 title: Panoramica sulla risoluzione dei problemi di desktop virtuale Windows-Azure
 description: Panoramica per la risoluzione dei problemi durante la configurazione di un ambiente desktop virtuale di Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292554"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009359"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto per desktop virtuale di Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 In questo articolo viene fornita una panoramica dei problemi che possono verificarsi durante la configurazione di un ambiente di desktop virtuale Windows e vengono fornite le modalità di risoluzione dei problemi.
 

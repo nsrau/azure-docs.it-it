@@ -1,24 +1,22 @@
 ---
 title: Bilanciamento del carico del pool host del desktop virtuale Windows-Azure
 description: Informazioni sui metodi di bilanciamento del carico del pool host per un ambiente desktop virtuale di Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00870de007d590de33881809c57107997b531d8c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285136"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007438"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Metodo di bilanciamento del carico per i pool di host
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
 
 Il desktop virtuale Windows supporta due metodi di bilanciamento del carico. Ogni metodo determina quale host sessione ospiterà la sessione di un utente quando si connetteranno a una risorsa in un pool host.
 

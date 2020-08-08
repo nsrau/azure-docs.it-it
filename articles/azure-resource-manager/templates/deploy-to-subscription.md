@@ -3,16 +3,16 @@ title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321769"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002780"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
-Per semplificare la gestione delle risorse, è possibile usare un modello di Azure Resource Manager (modello ARM) per distribuire le risorse al livello della sottoscrizione di Azure. È ad esempio possibile distribuire i [criteri](../../governance/policy/overview.md) e i [controlli degli accessi in base al ruolo](../../role-based-access-control/overview.md) nella sottoscrizione, che li applica all'intera sottoscrizione. È anche possibile creare gruppi di risorse all'interno della sottoscrizione e distribuire le risorse ai gruppi di risorse nella sottoscrizione.
+Per semplificare la gestione delle risorse, è possibile usare un modello di Azure Resource Manager (modello ARM) per distribuire le risorse al livello della sottoscrizione di Azure. Ad esempio, è possibile distribuire i [criteri](../../governance/policy/overview.md) e il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) alla sottoscrizione, che li applica all'intera sottoscrizione. È anche possibile creare gruppi di risorse all'interno della sottoscrizione e distribuire le risorse ai gruppi di risorse nella sottoscrizione.
 
 > [!NOTE]
 > È possibile eseguire una distribuzione a livello di sottoscrizione in un massimo di 800 gruppi di risorse diversi.
@@ -473,7 +473,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Controllo di accesso
 
-Per informazioni sull'assegnazione di ruoli, vedere [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+Per informazioni sull'assegnazione dei ruoli, vedere [aggiungere assegnazioni di ruolo di Azure usando modelli di Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 
 Nell'esempio seguente viene creato un gruppo di risorse, viene applicato un blocco e viene assegnato un ruolo a un'entità.
 

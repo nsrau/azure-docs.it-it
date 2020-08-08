@@ -1,24 +1,22 @@
 ---
 title: Distribuire uno strumento di gestione per desktop virtuale Windows (classico) con l'entità servizio-Azure
 description: Come distribuire lo strumento di gestione per desktop virtuale Windows (classico) con PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6947e5ebf91ee65145c7a5042fb1ee6968c19c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 08366735308e8b3c6fb79efd1adca469272dd053
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284966"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005772"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Distribuire uno strumento di gestione di desktop virtuali Windows (classico) con PowerShell
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 In questo articolo viene illustrato come distribuire lo strumento di gestione tramite PowerShell.
 

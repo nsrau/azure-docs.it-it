@@ -1,19 +1,17 @@
 ---
 title: File di contenitori del profilo FSLogix di desktop virtuali Windows-Azure
 description: Questo articolo descrive i contenitori di profili FSLogix all'interno di un desktop virtuale di Windows e di file di Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611977"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002384"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -57,7 +55,7 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 #### <a name="performance"></a>Prestazioni
 
-UPD richiede [spazi di archiviazione diretta (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) per soddisfare i requisiti di prestazioni. UPD usa il protocollo SMB (Server Message Block). Il profilo viene copiato nella macchina virtuale in cui viene registrato l'utente. UPD con S2D è la soluzione consigliata per desktop virtuale di Windows.  
+UPD richiede [spazi di archiviazione diretta (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) per soddisfare i requisiti di prestazioni. UPD usa il protocollo SMB (Server Message Block). Il profilo viene copiato nella macchina virtuale in cui viene registrato l'utente. UPD con S2D è la soluzione consigliata per desktop virtuale di Windows.
 
 #### <a name="cost"></a>Costi
 

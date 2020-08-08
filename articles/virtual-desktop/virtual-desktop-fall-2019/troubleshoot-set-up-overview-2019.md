@@ -1,24 +1,22 @@
 ---
 title: Panoramica sulla risoluzione dei problemi di desktop virtuale di Windows (classica)-Azure
 description: Panoramica per la risoluzione dei problemi durante la configurazione di un ambiente tenant desktop virtuale di Windows (classico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: efcdc203884a5aaff3b02e730f1dddb7fff66e95
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7b2220ffe92446338e1b9db9b329847d93830334
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289826"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005432"
 ---
 #  <a name="windows-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Panoramica sulla risoluzione dei problemi di desktop virtuale Windows (classico), commenti e suggerimenti e supporto
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../troubleshoot-set-up-overview.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../troubleshoot-set-up-overview.md).
 
 Questo articolo fornisce una panoramica dei problemi che possono verificarsi durante la configurazione di un ambiente tenant di desktop virtuali Windows e fornisce modi per risolvere i problemi.
 

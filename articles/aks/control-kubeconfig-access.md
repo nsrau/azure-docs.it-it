@@ -4,16 +4,16 @@ description: Informazioni su come controllare l'accesso al file di configurazion
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501628"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009291"
 ---
-# <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usare il controllo degli accessi in base al ruolo di Azure per definire l'accesso al file di configurazione di Kubernetes nel servizio Azure Kubernetes
+# <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usare il controllo degli accessi in base al ruolo di Azure per definire l'accesso al file di configurazione Kubernetes in Azure Kubernetes Service (AKS)
 
-È possibile interagire con i cluster Kubernetes tramite lo strumento `kubectl`. L'interfaccia della riga di comando di Azure offre un modo semplice per ottenere le credenziali di accesso e le informazioni di configurazione per la connessione ai cluster del servizio Azure Kubernetes tramite `kubectl`. Per limitare gli utenti che possono ottenere tali informazioni di configurazione di Kubernetes (*kubeconfig*) e le autorizzazioni assegnate, è possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC).
+È possibile interagire con i cluster Kubernetes tramite lo strumento `kubectl`. L'interfaccia della riga di comando di Azure offre un modo semplice per ottenere le credenziali di accesso e le informazioni di configurazione per la connessione ai cluster del servizio Azure Kubernetes tramite `kubectl`. Per limitare gli utenti che possono ottenere le informazioni sulla configurazione Kubernetes (*kubeconfig*) e per limitare le autorizzazioni che hanno a disposizione, è possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 Questo articolo illustra come assegnare ruoli di controllo degli accessi in base al ruolo che limitano gli utenti in grado di ottenere le informazioni di configurazione per un cluster del servizio Azure Kubernetes.
 
@@ -27,7 +27,7 @@ Questo articolo richiede anche l'esecuzione dell'interfaccia della riga di coman
 
 Quando si interagisce con un cluster del servizio Azure Kubernetes tramite lo strumento `kubectl`, viene usato un file di configurazione che definisce le informazioni di connessione del cluster. Questo file di configurazione viene in genere archiviato in *~/.Kube/config*. È possibile definire più cluster in questo file *kubeconfig* . Per passare da un cluster a un altro, si usa il comando [kubectl config use-context][kubectl-config-use-context].
 
-Il comando [az aks get-credentials][az-aks-get-credentials] consente di ottenere le credenziali di accesso per un cluster del servizio Azure Kubernetes e di unirle nel file *kubeconfig*. È possibile usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso a queste credenziali. Questi ruoli di Azure consentono di definire chi può recuperare il file *kubeconfig* e quali autorizzazioni hanno quindi all'interno del cluster.
+Il comando [az aks get-credentials][az-aks-get-credentials] consente di ottenere le credenziali di accesso per un cluster del servizio Azure Kubernetes e di unirle nel file *kubeconfig*. Per controllare l'accesso a queste credenziali, è possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Questi ruoli di Azure consentono di definire chi può recuperare il file *kubeconfig* e quali autorizzazioni hanno quindi all'interno del cluster.
 
 I due ruoli predefiniti sono:
 

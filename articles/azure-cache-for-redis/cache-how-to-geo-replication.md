@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184974"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003697"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Come configurare la replica geografica per cache di Azure per Redis
 
@@ -24,7 +24,7 @@ La replica geografica fornisce un meccanismo per il collegamento di due istanze 
 
 Per configurare la replica geografica tra due cache, è necessario soddisfare i prerequisiti seguenti:
 
-- Entrambe le cache sono cache di [livello Premium](cache-premium-tier-intro.md) .
+- Entrambe le cache sono cache di [livello Premium](cache-overview.md#service-tiers) .
 - Entrambe le cache si trovano nella stessa sottoscrizione di Azure.
 - La cache collegata secondaria ha la stessa dimensione della cache o una dimensione della cache maggiore rispetto alla cache collegata primaria.
 - Entrambe le cache vengono create e in stato di esecuzione.
@@ -186,5 +186,6 @@ Il failover automatico tra le aree di Azure non è supportato per le cache con r
 Per avviare un failover avviato dal cliente, scollegare innanzitutto le cache. Modificare quindi il client Redis in modo da usare l'endpoint di connessione della cache secondaria (in precedenza collegata). Quando le due cache sono scollegate, la cache secondaria diventa di nuovo una normale cache di lettura e scrittura e accetta le richieste direttamente dai client Redis.
 
 ## <a name="next-steps"></a>Passaggi successivi
+Altre informazioni sulle funzionalità di cache di Azure per Redis.
 
-Altre informazioni sul [livello Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
+* [Cache di Azure per i livelli di servizio Redis](cache-overview.md#service-tiers)

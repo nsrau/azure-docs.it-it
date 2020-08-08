@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e8fd08a22d5d243f404a12ff96c1a8797b97f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1cf4af12b9ef912d37014215e422d5b9c73903f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485584"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007880"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Baseline della sicurezza di Azure per Customer Lockbox per Microsoft Azure
 
@@ -206,7 +206,7 @@ Eseguire l'onboarding dei log attività generati da Customer Lockbox in Sentinel
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: abilitare la registrazione di controllo da riga di comando
 
@@ -222,13 +222,13 @@ Eseguire l'onboarding dei log attività generati da Customer Lockbox in Sentinel
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: gestire un inventario degli account utente con accesso amministrativo alle richieste di Customer Lockbox. Per configurare il controllo degli accessi in base al ruolo (RBAC), è possibile usare il riquadro di controllo delle identità e dell'accesso (IAM) nella portale di Azure per la sottoscrizione. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Azure Active Directory.
+**Linee guida**: gestire un inventario degli account utente con accesso amministrativo alle richieste di Customer Lockbox. Per configurare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile usare il riquadro di controllo delle identità e dell'accesso (IAM) nella portale di Azure per la sottoscrizione. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Azure Active Directory.
 
 Presso l'organizzazione del cliente, l'utente che ha il ruolo di proprietario per la sottoscrizione di Azure riceve un messaggio di posta elettronica da Microsoft per notificare le richieste di accesso in sospeso. Per Customer Lockbox richieste, questa persona è il responsabile approvazione designato.
 
 * [Informazioni sui ruoli personalizzati](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Come configurare RBAC per le cartelle di lavoro](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Come configurare RBAC di Azure per le cartelle di lavoro](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Informazioni sulle autorizzazioni di richiesta di accesso in Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -487,7 +487,7 @@ Inoltre, utilizzare Azure Active Directory i rilevamenti dei rischi per visualiz
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: distribuire una soluzione di gestione delle patch automatizzata per il software di terze parti
 
@@ -495,7 +495,7 @@ Inoltre, utilizzare Azure Active Directory i rilevamenti dei rischi per visualiz
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: confrontare le analisi di vulnerabilità back-to-back
 
@@ -527,11 +527,11 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Azure R
 
 * [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Informazioni sui controlli degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: gestire i metadati degli asset
 
@@ -587,7 +587,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
@@ -595,7 +595,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
 
@@ -603,7 +603,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
@@ -671,7 +671,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
@@ -687,7 +687,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
@@ -703,7 +703,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: distribuire strumenti di gestione della configurazione di sistema
 
@@ -891,7 +891,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 

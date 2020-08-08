@@ -1,24 +1,24 @@
 ---
-title: Come creare immagini di macchine virtuali Windows con Packer
-description: Informazioni su come usare Packer per creare immagini di macchine virtuali di Windows in Azure
+title: PowerShell-come creare immagini di VM con Packer
+description: Informazioni su come usare Packer e PowerShell per creare immagini di macchine virtuali in Azure
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/22/2019
+ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 1597d249899756ac0d43d2dcd90019179b81bb3b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 176aa925e4662731342ec3269e61ce9c7f71cf30
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284660"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003836"
 ---
-# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Come usare Packer per creare immagini di macchine virtuali di Windows in Azure
+# <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: come usare Packer per creare immagini di macchine virtuali in Azure
 Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da un'immagine che ne definisce la distribuzione di Windows e la versione del sistema operativo. Le immagini possono includere applicazioni e configurazioni preinstallate. In Microsoft Azure Marketplace sono disponibili molte prime immagini e immagini di terze parti per i sistemi operativi e gli ambienti applicativi più diffusi. In alternativa, è possibile creare immagini personalizzate su misura per le proprie esigenze. Questo articolo illustra in dettaglio come definire e compilare immagini personalizzate in Azure tramite lo strumento open source [Packer](https://www.packer.io/).
 
-Questo articolo è stato testato l'ultima volta il 21/02/2019 con il [modulo Az PowerShell](/powershell/azure/install-az-ps) versione 1.3.0 e [Packer](https://www.packer.io/docs/install) versione 1.3.4.
+Questo articolo è stato testato per l'ultima volta il 8/5/2020 usando [Packer](https://www.packer.io/docs/install) versione 1.6.1.
 
 > [!NOTE]
 > Azure include ora Azure Image Builder, un servizio disponibile in anteprima per la definizione e la creazione di immagini personalizzate. Azure Image Builder è basato su Packer, di conseguenza può essere usato persino con gli script di provisioning della shell Packer esistenti. Per iniziare a usare Azure Image Builder, vedere [Creare una macchina virtuale Windows con Azure Image Builder](image-builder.md).
@@ -26,10 +26,10 @@ Questo articolo è stato testato l'ultima volta il 21/02/2019 con il [modulo Az 
 ## <a name="create-azure-resource-group"></a>Creare un gruppo di risorse di Azure
 Durante il processo di compilazione della macchina virtuale di origine Packer crea risorse di Azure temporanee. Per acquisire la macchina virtuale di origine per usarla come immagine, è necessario definire un gruppo di risorse, nel quale verrà archiviato l'output del processo di compilazione di Packer.
 
-Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Nell'esempio seguente viene creato un gruppo di risorse denominato *myPackerGroup* nella posizione *eastus* :
 
 ```azurepowershell
-$rgName = "myResourceGroup"
+$rgName = "myPackerGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -37,13 +37,12 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Creare credenziali di Azure
 Per eseguire l'autenticazione con Azure, Packer usa un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come Packer. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente.
 
-Creare un'entità servizio con [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) e assegnare le autorizzazioni per consentire all'entità servizio di creare e gestire risorse con [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Il valore di `-DisplayName` deve essere univoco. Se necessario, sostituirlo con uno personalizzato.  
+Creare un'entità servizio con [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). Il valore di `-DisplayName` deve essere univoco. Se necessario, sostituirlo con uno personalizzato.  
 
 ```azurepowershell
-$sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
+$sp = New-AzADServicePrincipal -DisplayName "PackerSP$(Get-Random)"
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
 $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
 Vengono quindi visualizzati la password e l'ID applicazione.
@@ -112,7 +111,6 @@ Creare un file con nome *windows.json* e incollare al suo interno il contenuto s
     "inline": [
       "Add-WindowsFeature Web-Server",
       "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
-      "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
       "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"

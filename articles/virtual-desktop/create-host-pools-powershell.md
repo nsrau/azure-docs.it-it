@@ -1,24 +1,22 @@
 ---
 title: Creare un pool di host in Desktop virtuale Windows con PowerShell - Azure
 description: Come creare un pool di host in Desktop virtuale Windows con i cmdlet di PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2a4ba5494cb65738f5443915c013571b98854a91
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: a3e4b326b5a78f4b14bdd87e842d8ca485f56831
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543419"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002571"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Creare un pool host di desktop virtuali Windows con PowerShell
 
 >[!IMPORTANT]
->Questo contenuto si applica al desktop virtuale di Windows con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa desktop virtuale di Windows (classico) senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
+>Questo contenuto si applica a Desktop virtuale Windows con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa Desktop virtuale Windows (versione classica) senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 
 I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può essere associato a più gruppi RemoteApp, a un gruppo di app desktop e a più host di sessione.
 

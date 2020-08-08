@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542077"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002685"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
@@ -41,7 +41,7 @@ Questo articolo è incentrato sulle seguenti funzionalità principali di gestion
 * Single sign-on
 * Proxy inverso
 * Multi-Factor Authentication
-* Controllo degli accessi in base al ruolo (RBAC)
+* Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
 * Monitoraggio della sicurezza, avvisi e report basati su Machine Learning
 * Gestione delle identità e dell'accesso degli utenti
 * Registrazione del dispositivo
@@ -87,9 +87,9 @@ Altre informazioni:
 * [Informazioni su Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)
 * [Come funziona Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="rbac"></a>Controllo degli accessi in base al ruolo
+## <a name="azure-rbac"></a>Controllo degli accessi in base al ruolo Azure
 
-Il controllo degli accessi in base al ruolo è un sistema di autorizzazione basato su Azure Resource Manager che garantisce una gestione con granularità fine degli accessi alle risorse in Azure. Il controllo degli accessi in base al ruolo consente di controllare in modo granulare il livello di accesso da parte degli utenti. Ad esempio, è possibile definire che un utente può gestire solo le reti virtuali mentre un altro utente può gestire tutte le risorse di un gruppo. Azure include diversi ruoli predefiniti che è possibile usare. Di seguito sono elencati quattro fondamentali ruoli predefiniti. I primi tre si applicano a tutti i tipi di risorse.
+Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzazione basato su Azure Resource Manager che offre una gestione delle risorse con granularità fine in Azure. Il controllo degli accessi in base al ruolo di Azure consente di controllare in modo granulare il livello di accesso. Ad esempio, è possibile definire che un utente può gestire solo le reti virtuali mentre un altro utente può gestire tutte le risorse di un gruppo. Azure include diversi ruoli predefiniti che è possibile usare. Di seguito sono elencati quattro fondamentali ruoli predefiniti. I primi tre si applicano a tutti i tipi di risorse.
 
 - [Proprietario](/azure/role-based-access-control/built-in-roles#owner): ha accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. 
 - [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor): può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri.

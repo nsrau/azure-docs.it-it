@@ -1,6 +1,6 @@
 ---
 title: Browser supportati da Web SDK | Mappe Microsoft Azure
-description: In questo articolo vengono fornite informazioni sui browser supportati per Microsoft Azure Maps Web SDK e su come verificare se un browser è un browser supportato.
+description: Informazioni su come verificare se Azure Maps Web SDK supporta un browser. Visualizzare un elenco dei browser supportati. Informazioni su come usare i servizi map con i browser legacy.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6d4ea19e5547adb7bee25f4bdce295eb9a76d44
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988788"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002931"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browser supportati dall'SDK Web
 
@@ -63,7 +63,7 @@ In Node.js sono supportati anche i moduli Web SDK seguenti:
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Browser legacy di destinazione
 
-È possibile scegliere come destinazione browser meno recenti che non supportano WebGL o con supporto limitato. In questi casi, è consigliabile usare i servizi di Azure Maps insieme a un controllo mappa open source, ad esempio un [opuscolo](https://leafletjs.com/). Ad esempio:
+È possibile scegliere come destinazione browser meno recenti che non supportano WebGL o con supporto limitato. In questi casi, è consigliabile usare i servizi di Azure Maps insieme a un controllo mappa open source, ad esempio un [opuscolo](https://leafletjs.com/). Ecco un esempio:
 
 <br/>
 

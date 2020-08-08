@@ -1,24 +1,22 @@
 ---
 title: Risolvere i problemi di connessione al servizio desktop virtuale Windows (classico)-Azure
 description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di desktop virtuale Windows (classico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 213f7843e4896f8c7c9234e2c94433afbed1d565
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a034cb8371972c2c7908cdba4dd491c17d8cc9f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292522"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008543"
 ---
 # <a name="windows-virtual-desktop-classic-service-connections"></a>Connessioni al servizio desktop virtuale Windows (classico)
 
 >[!IMPORTANT]
->Questo contenuto si applica a desktop virtuale Windows (classico), che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali di Windows, vedere [questo articolo](../troubleshoot-service-connection.md).
+>Questo contenuto si applica a Desktop virtuale Windows (versione classica), che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se occorre gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows, vedere [questo articolo](../troubleshoot-service-connection.md).
 
 Usare questo articolo per risolvere i problemi relativi alle connessioni client di Desktop virtuale Windows.
 

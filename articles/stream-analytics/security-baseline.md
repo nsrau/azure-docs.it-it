@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9d085ba494ea6bb6e9e80490d85e50f100fc0908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03b1d43eeaffe4449d85d384e669ba0950442ab9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485554"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003374"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Baseline della sicurezza di Azure per analisi di flusso
 
@@ -202,7 +202,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
 
@@ -248,7 +248,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Linee guida**: analisi di flusso non ha il concetto di password predefinite perché l'autenticazione viene fornita con Azure Active Directory e protetta da controlli di accesso in base al ruolo (RBAC) per gestire il servizio. A seconda dei servizi di flusso di inserimento e di output, è necessario ruotare le credenziali configurate nei processi.
+**Linee guida**: analisi di flusso non ha il concetto di password predefinite perché l'autenticazione viene fornita con Azure Active Directory e protetta dal controllo degli accessi in base al ruolo (RBAC) per gestire il servizio. A seconda dei servizi di flusso di inserimento e di output, è necessario ruotare le credenziali configurate nei processi.
 
 * [Ruotare le credenziali di accesso per gli input e gli output di un processo di analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -260,7 +260,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Indicazioni**: creare un piano di sicurezza per la gestione delle identità e i ruoli, seguendo le procedure consigliate, incluso il principio dell'accesso con privilegi minimi per i ruoli di amministratore. Usare Azure Privileged Identity Management (PIM) per fornire accesso con privilegi JIT per Azure AD e risorse di Azure. Usare gli avvisi e la cronologia di controllo di Azure PIM per monitorare l'attività degli account amministrativi. Utilizzare Azure AD report di sicurezza per identificare gli account amministrativi che potrebbero essere stati compromessi.
 
-* [Altre informazioni](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+* [Scopri di più](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -366,7 +366,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
@@ -442,11 +442,11 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Responsabilità**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Indicazioni**: usare il controllo degli accessi in base al ruolo (RBAC) per controllare la modalità di interazione degli utenti con il servizio.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare la modalità di interazione degli utenti con il servizio.
 
-* [Come configurare RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -558,7 +558,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
@@ -730,7 +730,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
@@ -800,7 +800,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
@@ -968,7 +968,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 
