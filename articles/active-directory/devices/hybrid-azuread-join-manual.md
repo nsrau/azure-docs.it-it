@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 007763d65021b0730c6e4e81ada33790d3cf4c02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025779"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428388"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -59,6 +59,9 @@ Verificare che gli URL seguenti siano accessibili dall'interno della rete aziend
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com`
 * Il servizio token di sicurezza dell'organizzazione (per i domini federati), che deve essere incluso nelle impostazioni locali della Intranet dell'utente.
+
+> [!WARNING]
+> Se l'organizzazione usa server proxy che intercettano il traffico SSL per scenari come la prevenzione della perdita dei dati o restrizioni del tenant di Azure AD, assicurarsi che il traffico verso https://device.login.microsoftonline.com sia escluso dall'interruzione e dall'ispezione di TLS. La mancata esclusione di https://device.login.microsoftonline.com può determinare interferenze con l'autenticazione dei certificati client, causando problemi con la registrazione dei dispositivi e l'accesso condizionale basato su dispositivo.
 
 Se l'organizzazione prevede di usare l'accesso Seamless SSO, è necessario che l'URL seguente sia raggiungibile dai computer all'interno dell'organizzazione. Deve anche essere aggiunto nell'area Intranet locale dell'utente.
 

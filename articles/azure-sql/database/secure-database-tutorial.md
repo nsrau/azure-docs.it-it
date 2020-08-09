@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092933"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496917"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Esercitazione: Proteggere un database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -190,7 +190,7 @@ Per aggiungere un utente con l'autenticazione di SQL:
 Per l'autenticazione di Azure Active Directory, è necessario che gli utenti del database vengano creati come utenti di database indipendente. L'utente di un database indipendente viene mappato a un'identità nella directory di Azure AD associata al database e non ha un account di accesso nel database *master*. L'identità di Azure AD può essere relativa un singolo utente o a un gruppo. Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable) e consultare l'[esercitazione di Azure AD](authentication-aad-configure.md) sull'autenticazione tramite Azure AD.
 
 > [!NOTE]
-> Gli utenti del database, ad eccezione degli amministratori, non possono essere creati tramite il portale di Azure. I ruoli Controllo degli accessi in base al ruolo non vengono propagati in SQL Server, database o data warehouse. Vengono usati solo per la gestione delle risorse di Azure e non si applicano alle autorizzazioni per il database.
+> Gli utenti del database, ad eccezione degli amministratori, non possono essere creati tramite il portale di Azure. I ruoli di Azure non vengono propagati in SQL Server, database o data warehouse. Vengono usati solo per la gestione delle risorse di Azure e non si applicano alle autorizzazioni per il database.
 >
 > Ad esempio, il ruolo *Collaboratore SQL Server* non concede l'accesso per connettersi a un database o a un data warehouse. Questa autorizzazione deve essere concessa all'interno del database tramite istruzioni T-SQL.
 

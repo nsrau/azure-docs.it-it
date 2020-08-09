@@ -3,12 +3,13 @@ title: "Esercitazione: Attivare la compilazione di immagini all'aggiornamento de
 description: Questa esercitazione illustra come configurare un'attività del Registro Azure Container per attivare automaticamente le compilazioni delle immagini dei contenitori nel cloud quando viene aggiornata un'immagine di base in un altro Registro Azure Container privato.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e28dc65f44f3d9997a59e6204451cc84b0e41e40
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77617684"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407133"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Esercitazione: Automatizzare le compilazioni di immagini dei contenitori quando viene aggiornata un'immagine di base in un altro registro contenitori privato 
 
@@ -162,7 +163,7 @@ Prima di tutto, eseguire l'autenticazione nel registro contenitori con [az acr l
 az acr login --name $ACR_NAME
 ```
 
-Eseguire quindi il contenitore in locale con `docker run`. Sostituire **\<run-id\>** con il valore di "ID esecuzione" riportato nell'output del passaggio precedente (ad esempio, "da6"). Questo esempio assegna al contenitore il nome `myapp` e include il parametro `--rm` per rimuovere il contenitore quando viene arrestato.
+Eseguire quindi il contenitore in locale con `docker run`. Sostituire **\<run-id\>** con l'ID esecuzione riportato nell'output del passaggio precedente (ad esempio, "da6"). Questo esempio assegna al contenitore il nome `myapp` e include il parametro `--rm` per rimuovere il contenitore quando viene arrestato.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>

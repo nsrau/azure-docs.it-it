@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518488"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419649"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Esercitazione: Abilitare il writeback della reimpostazione della password self-service di Azure Active Directory in un ambiente locale
 
@@ -40,7 +40,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
-* Un tenant di Azure AD funzionante con almeno una licenza di valutazione P1 Premium di Azure AD abilitata.
+* Un tenant di Azure AD funzionante con almeno una licenza di valutazione o di Azure AD Premium P1 abilitata.
     * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Per altre informazioni, vedere [Requisiti di licenza per la reimpostazione della password self-service di Azure AD](concept-sspr-licensing.md).
 * Un account con privilegi di *amministratore globale*.
@@ -81,7 +81,7 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
     * **Scrittura di lockoutTime**
     * **Scrittura di pwdLastSet**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [ ![Impostare le autorizzazioni appropriate in Utenti e computer di Active Directory per l'account usato da Azure AD Connect](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. Quando si è pronti, selezionare **Applica/OK** per applicare le modifiche e chiudere le finestre di dialogo aperte.
 

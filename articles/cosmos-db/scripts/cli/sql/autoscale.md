@@ -1,30 +1,28 @@
 ---
-title: Aggiornare il valore di UR/s per una tabella dell'API Tabella per Azure Cosmos DB
-description: Aggiornare il valore di UR/s per una tabella dell'API Tabella per Azure Cosmos DB
+title: Creare un database e un contenitore con scalabilità automatica dell'API Core (SQL) per Azure Cosmos DB
+description: Creare un database e un contenitore con scalabilità automatica dell'API Core (SQL) per Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 3f3a39e546c83620ded539180197f6fda760260f
+ms.openlocfilehash: da2a66f80e40107de5774bbcb42f44a85c72512c
 ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431536"
+ms.locfileid: "87433415"
 ---
-# <a name="update-rus-for-a-table-api-table-for-azure-cosmos-db-azure-cli"></a>Aggiornare il valore di UR/s per una tabella dell'API Tabella per Azure Cosmos DB tramite l'interfaccia della riga di comando di Azure
+# <a name="create-an-azure-cosmos-core-sql-api-account-database-and-container-with-autoscale-using-azure-cli"></a>Creare un account, un database e un contenitore con scalabilità automatica dell'API Core (SQL) di Azure Cosmos con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.9.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento è necessario eseguire la versione 2.0.73 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo script crea una tabella dell'API Tabella quindi aggiorna le unità elaborate.
-
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/table/throughput.sh "Update RU/s for a Table API table.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/autoscale.sh "Create an Azure Cosmos DB Core (SQL) API account, database, and container with autoscale.")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -42,8 +40,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea un account Azure Cosmos DB. |
-| [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Crea una tabella dell'API Tabella di Azure Cosmos. |
-| [az cosmosdb table throughput update](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Aggiorna il valore di UR/s per una tabella dell'API Tabella di Azure Cosmos. |
+| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Crea un database SQL (Core) di Azure Cosmos. |
+| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Crea un contenitore SQL (Core) di Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi

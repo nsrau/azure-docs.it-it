@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e9d6f31674db0744e220a9cd88033a32bb5c1e17
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024690"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491783"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Esercitazione: Abilitare la sincronizzazione delle password in Azure Active Directory Domain Services per ambienti ibridi
 
@@ -22,7 +22,7 @@ Per gli ambienti ibridi è possibile usare Azure AD Connect per configurare un t
 
 Per usare Azure Active Directory Domain Services con account sincronizzati da un ambiente Active Directory Domain Services locale, è necessario configurare Azure AD Connect in modo da sincronizzare gli hash delle password necessari per l'autenticazione NTLM e Kerberos. Dopo la configurazione di Azure AD Connect, in seguito a un evento di creazione o modifica della password di un account locale verranno sincronizzati anche gli hash delle password legacy per Azure AD.
 
-Non è necessario eseguire questa procedura se si usano account solo cloud senza un ambiente Active Directory Domain Services locale.
+Non è necessario eseguire questa procedura se si usano account solo cloud senza un ambiente Active Directory Domain Services locale o se si usa una *foresta di risorse*. Per i domini gestiti che usano una foresta di risorse, gli hash delle password locali non vengono mai sincronizzati. L'autenticazione per gli account locali usa i trust tra foreste per i controller di dominio di Active Directory Domain Services.
 
 In questa esercitazione si apprenderà:
 

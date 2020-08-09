@@ -3,12 +3,12 @@ title: Esempi di query avanzate
 description: Usare Azure Resource Graph per eseguire alcune query avanzate, ad esempio per usare le colonne, elencare i tag usati e cercare la corrispondenza di risorse con espressioni regolari.
 ms.date: 07/14/2020
 ms.topic: sample
-ms.openlocfilehash: 38013be583c74e968160cb7ec3a4dd32ede213b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3277d904ebf955c9f924e60dbf6df12eac138a15
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087493"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534788"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Esempi di query di Resource Graph
 
@@ -322,7 +322,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ## <a name="list-virtual-machines-with-their-network-interface-and-public-ip"></a><a name="join-vmpip"></a>Visualizzare le macchine virtuali con relative interfacce di rete e IP pubblici
 
-Questa query usa due comandi **leftouter** `join` per raggruppare le macchine virtuali, le relative interfacce di rete e qualsiasi indirizzo IP pubblico correlato a tali interfacce di rete.
+Questa query usa due comandi **leftouter** `join` per raggruppare le macchine virtuali create con il modello di distribuzione Resource Manager, le relative interfacce di rete e qualsiasi indirizzo IP pubblico correlato a tali interfacce di rete.
 
 ```kusto
 Resources

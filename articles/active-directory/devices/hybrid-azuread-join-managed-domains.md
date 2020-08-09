@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4a128d46ca1b3f84981f9732f86ff49f72cc18
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a4f30202b08328854296b45e0279fc51b25b0a7c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025830"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428471"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti
 
@@ -69,6 +69,9 @@ Per l'aggiunta ad Azure AD ibrido i dispositivi devono avere accesso alle risors
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (se si usa o si prevede di usare Seamless SSO)
+
+> [!WARNING]
+> Se l'organizzazione usa server proxy che intercettano il traffico SSL per scenari come la prevenzione della perdita dei dati o restrizioni del tenant di Azure AD, assicurarsi che il traffico verso https://device.login.microsoftonline.com sia escluso dall'interruzione e dall'ispezione di TLS. La mancata esclusione di https://device.login.microsoftonline.com può determinare interferenze con l'autenticazione dei certificati client, causando problemi con la registrazione dei dispositivi e l'accesso condizionale basato su dispositivo.
 
 Se l'organizzazione deve accedere a Internet tramite un proxy in uscita, è consigliabile [implementare WPAD (Web Proxy Auto-Discovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) per consentire ai computer Windows 10 di eseguire la registrazione di dispositivi con Azure AD. Per risolvere i problemi durante la configurazione e la gestione di WPAD, vedere [Risoluzione dei problemi relativi al rilevamento automatico](/previous-versions/tn-archive/cc302643(v=technet.10)). Nei dispositivi Windows 10 precedenti all'aggiornamento 1709, WPAD è l'unica opzione disponibile per configurare un proxy da usare con l'aggiunta ad Azure AD ibrido. 
 

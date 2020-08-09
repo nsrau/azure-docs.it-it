@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ead20713752b4eb28700541b4314241d86b6cc27
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8b48cfa29555cf0ca15428758208df27a52a84f7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87278549"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491138"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Esercitazione: Creare e configurare un dominio gestito di Azure Active Directory Domain Services con opzioni di configurazione avanzate
 
@@ -100,7 +100,7 @@ Completare i campi della finestra *Informazioni di base* del portale di Azure pe
     Per questa esercitazione, selezionare lo SKU *Standard*.
 1. Una *foresta* è un costrutto logico usato da Active Directory Domain Services per raggruppare uno o più domini. Per impostazione predefinita, un dominio gestito viene creato come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale.
 
-    Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].
+    Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Quando si crea una foresta di risorse, gli hash delle password per gli utenti locali non vengono mai sincronizzati in un dominio gestito. Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].
 
     Per questa esercitazione, scegliere di creare una foresta *Utente*.
 

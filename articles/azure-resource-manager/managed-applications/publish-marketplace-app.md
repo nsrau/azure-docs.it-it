@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a5e2a3569c70404d64d24ecfc35a8258ea864a4f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054492"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480425"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Esercitazione: Pubblicare un'applicazione gestita di Azure nel Marketplace
 
@@ -98,7 +98,7 @@ Uno SKU viene visualizzato sotto l'offerta padre nel marketplace e come entità 
 
      Per informazioni sulle azioni disponibili, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Ad esempio, per consentire agli utenti di riavviare le macchine virtuali, aggiungere `Microsoft.Compute/virtualMachines/restart/action` alle azioni consentite. L'azione `*/read` viene automaticamente consentita, quindi non è necessario includere tale impostazione.
    * **PrincipalId**: questa proprietà è l'identificatore Azure Active Directory (Azure AD) di un utente, di un gruppo di utenti o di un'applicazione a cui è stato concesso l'accesso alle risorse nella sottoscrizione del cliente. La definizione del ruolo descrive le autorizzazioni.
-   * **Role Definition** (Definizione ruolo): questa proprietà è un elenco di tutti i ruoli di controllo degli accessi in base al ruolo forniti da Azure AD. È possibile selezionare il ruolo più appropriato da usare per gestire le risorse per conto del cliente.
+   * **Role Definition** (Definizione ruolo): questa proprietà è un elenco di tutti i ruoli predefiniti di Azure forniti da Azure AD. È possibile selezionare il ruolo più appropriato da usare per gestire le risorse per conto del cliente.
    * **Policy Settings** (Impostazioni dei criteri): applicare un [criterio di Azure](../../governance/policy/overview.md) all'applicazione gestita per specificare i requisiti di conformità per le soluzioni distribuite. Selezionare i criteri da applicare tra le opzioni disponibili. In **Policy Parameters** (Parametri dei criteri) specificare una stringa JSON con i valori dei parametri. Per le definizioni dei criteri e il formato dei valori dei parametri, vedere [Esempi di criteri di Azure](../../governance/policy/samples/index.md).
 
 È possibile aggiungere varie autorizzazioni. È consigliabile creare un gruppo di utenti di AD e specificare il relativo ID in **PrincipalId**. In questo modo è possibile aggiungere più utenti al gruppo di utenti senza che sia necessario aggiornare lo SKU.

@@ -6,26 +6,26 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
-ms.openlocfilehash: ff700739e2f8c6330ea151dbe489332acea3238c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/29/2020
+ms.openlocfilehash: 4d1a56c80cab58e98121ae35c98a086d16dfe02b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71274908"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432246"
 ---
 # <a name="create-an-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>Creare un account Azure Cosmos con endpoint servizio di rete virtuale tramite l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento è necessario eseguire la versione 2.0.73 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo comando è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.9.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo esempio crea una nuova rete virtuale con una subnet front-end e back-end e abilita gli endpoint di servizio per `Microsoft.AzureCosmosDB`. Recupera quindi l'ID risorsa per questa subnet e la applica all'account Azure Cosmos, quindi abilita gli endpoint di servizio per l'account.
+Questo esempio crea una nuova rete virtuale con una subnet front-end e back-end e abilita gli endpoint di servizio per `Microsoft.AzureCosmosDB`. Recupera quindi l'ID risorsa per questa subnet, lo applica all'account Azure Cosmos e quindi abilita gli endpoint di servizio per l'account.
 
 > [!NOTE]
-> Questo esempio dimostra l'uso di un account dell'API SQL (Core). Per usare questo esempio per altre API, applicare i parametri `enable-virtual-network` e `virtual-network-rules` dello script seguente allo script specifico dell'API.
+> Questo esempio mostra l'uso di un account API Core (SQL). Per usare questo esempio per altre API, applicare i parametri `enable-virtual-network` e `virtual-network-rules` dello script seguente allo script specifico dell'API.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/service-endpoints.sh "Create an Azure Cosmos account with service endpoints.")]
 

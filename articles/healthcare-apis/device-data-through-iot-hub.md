@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 06/27/2020
 ms.author: punagpal
-ms.openlocfilehash: aeed0c90eeecd59e23a1d87a3ebc1e1a836a84ec
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d606cd4f5c4b901c060c97d73524997b94eaf225
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116835"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446301"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Esercitazione: Ricevere i dati dei dispositivi tramite l'hub IoT di Azure
 
@@ -96,7 +96,7 @@ Usare il dispositivo (reale o simulato) per inviare il messaggio di esempio sull
 Per visualizzare la risorsa o le risorse di osservazione FHIR create dal connettore IoT nell'API di Azure per FHIR è possibile usare Postman. Configurare [Postman per accedere all'API di Azure per FHIR](access-fhir-postman-tutorial.md) e inviare una richiesta `GET` a `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` per visualizzare le risorse di osservazione FHIR con il valore di frequenza cardiaca inviato nel messaggio di esempio precedente.
 
 > [!TIP]
-> Verificare che l'utente disponga dell'accesso appropriato al piano dati dell'API di Azure per FHIR. Usare [Controllo degli accessi in base al ruolo di Azure](configure-azure-rbac.md) per assegnare i ruoli del piano dati necessari.
+> Verificare che l'utente disponga dell'accesso appropriato al piano dati dell'API di Azure per FHIR. Usare il [controllo degli accessi in base al ruolo di Azure](configure-azure-rbac.md) per assegnare i ruoli del piano dati necessari.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -114,4 +114,3 @@ Informazioni su come configurare il connettore IoT usando un dispositivo e i mod
 >[Modelli di mapping del connettore IoT](iot-mapping-templates.md)
 
 FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.
-

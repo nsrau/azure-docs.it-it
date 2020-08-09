@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084705"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420822"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Esercitazione: Proteggere l'hub virtuale con Gestione firewall di Azure
 
@@ -108,7 +108,7 @@ Ripetere la connessione alla rete virtuale **Spoke-02**: nome connessione - **hu
 
 ### <a name="configure-the-hub-and-spoke-routing"></a>Configurare il routing hub-spoke
 
-Nel portale di Azure aprire un'istanza di Cloud Shell ed eseguire il comando di Azure PowerShell seguente per configurare il routing hub-spoke necessario.
+Nel portale di Azure aprire un'istanza di Cloud Shell ed eseguire il comando di Azure PowerShell seguente per configurare il routing hub-spoke necessario. La propagazione delle connessioni di spoke/succursali con peering deve essere impostata su **NONE**. In questo modo si impedisce la comunicazione any-to-any tra gli spoke e si indirizza invece il traffico al firewall usando la route predefinita.
 
 ```azurepowershell
 $noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
@@ -136,7 +136,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**.
 3. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |valore  |
+   |Impostazione  |Valore  |
    |---------|---------|
    |Resource group     |**fw-manager**|
    |Nome macchina virtuale     |**Srv-workload-01**|

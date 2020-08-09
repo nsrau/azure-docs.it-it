@@ -10,12 +10,13 @@ ms.custom:
 - seo-python-october2019
 - cli-validate
 - tracking-python
-ms.openlocfilehash: 718c9a62cc867e5d65cc3c79e78ce3282f1037c7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+- devx-track-azurecli
+ms.openlocfilehash: 0ab19e538d2ffb97f9bb80c47f9ce5471bdb87a9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285850"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799465"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Distribuire un'app Web Django con PostgreSQL nel Servizio app di Azure
 
@@ -30,6 +31,9 @@ In questa esercitazione verrà usata l'interfaccia della riga di comando di Azur
 > * Aggiornare il codice e ridistribuire
 > * Visualizzare i log di diagnostica
 > * Gestire l'app Web nel portale di Azure
+
+È anche possibile usare la [versione di questa esercitazione per il portale di Azure](/azure/developer/python/tutorial-python-postgresql-app-portal).
+
 
 ## <a name="set-up-your-initial-environment"></a>Configurare l'ambiente iniziale
 

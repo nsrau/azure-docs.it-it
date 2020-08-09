@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a594a754f33ae60d151215deb5a5ed57f87126c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050644"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543563"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -95,7 +95,12 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 
 ## <a name="get-domain-verification-id"></a>Ottenere l'ID verifica del dominio
 
-Per aggiungere un dominio personalizzato all'app, è necessario verificare la proprietà del dominio aggiungendo un ID verifica come record TXT al provider di dominio. Nel riquadro di spostamento a sinistra della pagina dell'app, fare clic su **Domini personalizzati** in **Impostazioni**. Copiare il valore dell'ID di verifica dominio personalizzato da qui. Questo ID verifica è necessario per il passaggio successivo.
+Per aggiungere un dominio personalizzato all'app, è necessario verificare la proprietà del dominio aggiungendo un ID verifica come record TXT al provider di dominio. Nel riquadro di spostamento a sinistra della pagina dell'app fare clic su **Domini personalizzati**. Nella pagina **Domini personalizzati** copiare il valore di **ID di verifica dominio personalizzato** per il passaggio successivo.
+
+![Ottenere l'ID di verifica del dominio personalizzato](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
+
+> [!WARNING]
+> L'aggiunta dell'ID di verifica al dominio personalizzato può impedire voci DNS inesatte ed evitare l'acquisizione della proprietà dei sottodomini. Per altre informazioni su questa minaccia comune con gravità elevata, vedere [Acquisizione della proprietà dei sottodomini](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Eseguire il mapping del dominio
 

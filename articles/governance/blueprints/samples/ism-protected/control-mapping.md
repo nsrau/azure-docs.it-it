@@ -1,14 +1,14 @@
 ---
 title: Panoramica di esempio del progetto Australian Government ISM PROTECTED
 description: Panoramica dell'esempio di progetto Australian Government ISM PROTECTED. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISM PROTECTED.
-ms.date: 03/10/2020
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517100"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760431"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Australian Government ISM PROTECTED
 
@@ -106,10 +106,10 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - I cluster di Service Fabric deve usare solo Azure Active Directory per l'autenticazione client
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
-- \[Anteprima\]:  Distribuisci prerequisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
+- Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
+- Distribuisci prerequisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
+- Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
+- Distribuisci i prerequisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
 
 ### <a name="0974-multi-factor-authentication-is-used-to-authenticate-standard-users"></a>0974 Per autenticare gli utenti standard viene usata l'autenticazione a più fattori
 
@@ -122,8 +122,8 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 Le passphrase usate per l'autenticazione a fattore singolo sono costituite da un minimo di 14 caratteri con complessità, idealmente come 4 parole casuali
 
-- \[Anteprima\]: Mostra i risultati del controllo dalle configurazioni delle macchine virtuali Windows in 'Impostazioni di sicurezza - Criteri account'
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le configurazioni delle macchine virtuali Windows in 'Impostazioni di sicurezza - Criteri account'
+- Mostra i risultati del controllo dalle configurazioni delle macchine virtuali Windows in 'Impostazioni di sicurezza - Criteri account'
+- Distribuisci i prerequisiti per controllare le configurazioni delle macchine virtuali Windows in 'Impostazioni di sicurezza - Criteri account'
 
 ## <a name="guidelines-for-system-management---system-administration"></a>Linee guida per la gestione di sistemi - Amministrazione dei sistemi
 
@@ -147,7 +147,7 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 - Le vulnerabilità dei database SQL devono essere risolte
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
 - La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
-- \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
+- La valutazione delle vulnerabilità deve essere abilitata nei computer
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
@@ -159,7 +159,7 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 - Le vulnerabilità dei database SQL devono essere risolte
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
 - La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
-- \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
+- La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
@@ -171,7 +171,7 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 - Le vulnerabilità dei database SQL devono essere risolte
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
 - La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
-- \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
+- La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
@@ -183,7 +183,7 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 - Le vulnerabilità dei database SQL devono essere risolte
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
 - La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
-- \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
+- La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
@@ -195,7 +195,7 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 - Le vulnerabilità dei database SQL devono essere risolte
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
 - La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
-- \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
+- La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
@@ -207,7 +207,7 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 - Le vulnerabilità dei database SQL devono essere risolte
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
 - La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
-- \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
+- La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
@@ -229,8 +229,8 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 ### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 Per i sistemi operativi vengono registrati gli eventi seguenti: accesso a dati e processi importanti, arresti anomali delle applicazioni ed eventuali messaggi di errore, tentativi di usare privilegi speciali, modifiche degli account, modifiche dei criteri di sicurezza, modifiche delle configurazioni dei sistemi, richieste DNS (Domain Name System) e HTTP (Hypertext Transfer Protocol), tentativi non riusciti di accedere a dati e risorse di sistema, errori e riavvi dei servizi, avvio e arresto dei sistemi, trasferimento di dati a supporti esterni, gestione di utenti o gruppi, uso di privilegi speciali
 
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Controlla area di lavoro Log Analytics per la macchina virtuale - Segnala mancata corrispondenza
+- Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- Controlla area di lavoro Log Analytics per la macchina virtuale - Segnala mancata corrispondenza
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 
 ### <a name="1537-the-following-events-are-logged-for-databases-access-to-particularly-important-information-addition-of-new-users-especially-privileged-users-any-query-containing-comments-any-query-containing-multiple-embedded-queries-any-query-or-database-alerts-or-failures-attempts-to-elevate-privileges-attempted-access-that-is-successful-or-unsuccessful-changes-to-the-database-structure-changes-to-user-roles-or-database-permissions-database-administrator-actions-database-logons-and-logoffs-modifications-to-data-use-of-executable-commands"></a>1537 Per i database vengono registrati gli eventi seguenti: accesso a informazioni particolarmente importanti, aggiunta di nuovi utenti, in particolare utenti con privilegi, qualsiasi query contenente commenti, qualsiasi query contenente più query incorporate, eventuali avvisi o errori di query o database, tentativi di elevare i privilegi, tentativi di accesso riusciti o non riusciti, modifiche della struttura del database, modifiche di ruoli utente o autorizzazioni per il database, azioni dell'amministratore del database, accessi e disconnessioni dal database, modifiche dei dati, usi di comandi eseguibili
@@ -246,7 +246,7 @@ Questo progetto consente di limitare la località per la distribuzione di tutte 
 - Le vulnerabilità dei database SQL devono essere risolte
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
 - La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
-- \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
+- La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034997"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419632"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Esercitazione: Usare i rilevamenti dei rischi negli accessi utente per attivare Azure Multi-Factor Authentication o modifiche della password
 
@@ -39,7 +39,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
-* Un tenant di Azure AD funzionante con almeno una licenza di valutazione di Azure AD Premium P2 abilitata.
+* Un tenant di Azure AD funzionante con almeno una licenza di valutazione o di Azure AD Premium P2 abilitata.
     * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un account con privilegi di *amministratore globale*.
 * Azure AD, configurato per la reimpostazione della password self-service e Azure Multi-Factor Authentication.

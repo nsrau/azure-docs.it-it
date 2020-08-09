@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 2d291af3cc6175b371f71fb63402ecb45afcba34
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9c2345c93a163464ea735400c9269e2e3fc27ecf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223449"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488177"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Abilitare Azure Active Directory Domain Services con PowerShell
 
@@ -154,9 +154,9 @@ Quando il portale di Azure indica che il provisioning del dominio gestito è sta
 
 * Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
     * Per configurare il DNS, selezionare il dominio gestito nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
-* Se è stato creato un dominio gestito in un'area che supporta le zone di disponibilità, creare un gruppo di sicurezza di rete per limitare il traffico nella rete virtuale per il dominio gestito. Viene creato un servizio di bilanciamento del carico Standard di Azure che richiede la definizione di queste regole. Questo gruppo di sicurezza di rete protegge Azure AD Domain Services ed è necessario affinché il dominio gestito funzioni correttamente.
-    * Per creare il gruppo di sicurezza di rete e le regole necessarie, selezionare il dominio gestito nel portale. Nella finestra **Panoramica** viene richiesto di creare e configurare automaticamente il gruppo di sicurezza di rete.
-* [Abilitare la sincronizzazione password in Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds), affinché gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
+* Creare un gruppo di sicurezza di rete per limitare il traffico nella rete virtuale per il dominio gestito. Viene creato un servizio di bilanciamento del carico Standard di Azure che richiede la definizione di queste regole. Questo gruppo di sicurezza di rete protegge Azure AD Domain Services ed è necessario affinché il dominio gestito funzioni correttamente.
+    * Per creare il gruppo di sicurezza di rete e le regole necessarie, installare prima di tutto lo script `New-AzureAddsNetworkSecurityGroup` con il comando `Install-Script -Name New-AaddsNetworkSecurityGroup` e quindi eseguire `New-AaddsNetworkSecurityGroup`. Le regole necessarie per il dominio gestito vengono create automaticamente.
+* [Abilitare la sincronizzazione password in Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
 
 ## <a name="complete-powershell-script"></a>Script di PowerShell completo
 
@@ -241,9 +241,9 @@ Quando il portale di Azure indica che il provisioning del dominio gestito è sta
 
 * Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
     * Per configurare il DNS, selezionare il dominio gestito nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
-* Se è stato creato un dominio gestito in un'area che supporta le zone di disponibilità, creare un gruppo di sicurezza di rete per limitare il traffico nella rete virtuale per il dominio gestito. Viene creato un servizio di bilanciamento del carico Standard di Azure che richiede la definizione di queste regole. Questo gruppo di sicurezza di rete protegge Azure AD Domain Services ed è necessario affinché il dominio gestito funzioni correttamente.
-    * Per creare il gruppo di sicurezza di rete e le regole necessarie, selezionare il dominio gestito nel portale. Nella finestra **Panoramica** viene richiesto di creare e configurare automaticamente il gruppo di sicurezza di rete.
-* [Abilitare la sincronizzazione password in Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds), affinché gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
+* Creare un gruppo di sicurezza di rete per limitare il traffico nella rete virtuale per il dominio gestito. Viene creato un servizio di bilanciamento del carico Standard di Azure che richiede la definizione di queste regole. Questo gruppo di sicurezza di rete protegge Azure AD Domain Services ed è necessario affinché il dominio gestito funzioni correttamente.
+    * Per creare il gruppo di sicurezza di rete e le regole necessarie, installare prima di tutto lo script `New-AzureAddsNetworkSecurityGroup` con il comando `Install-Script -Name New-AaddsNetworkSecurityGroup` e quindi eseguire `New-AaddsNetworkSecurityGroup`. Le regole necessarie per il dominio gestito vengono create automaticamente.
+* [Abilitare la sincronizzazione password in Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

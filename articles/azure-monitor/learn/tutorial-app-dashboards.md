@@ -7,16 +7,18 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318420"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553275"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
-È possibile creare più dashboard nel portale di Azure, ognuno dei quali include riquadri per la visualizzazione dei dati di più risorse di Azure tra i diversi gruppi di risorse e le sottoscrizioni.  È possibile aggiungere diversi grafici e visualizzazioni da Azure Application Insights per creare dashboard personalizzati in grado di offrire un quadro completo dell'integrità e delle prestazioni dell'applicazione. Questa esercitazione illustra la creazione di un dashboard personalizzato che include più tipi di dati e visualizzazioni da Azure Application Insights.  Si apprenderà come:
+È possibile creare più dashboard nel portale di Azure, ognuno dei quali include riquadri per la visualizzazione dei dati di più risorse di Azure tra i diversi gruppi di risorse e le sottoscrizioni.  È possibile aggiungere diversi grafici e visualizzazioni da Azure Application Insights per creare dashboard personalizzati in grado di offrire un quadro completo dell'integrità e delle prestazioni dell'applicazione. Questa esercitazione illustra la creazione di un dashboard personalizzato che include più tipi di dati e visualizzazioni da Azure Application Insights.
+
+ Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un dashboard personalizzato in Azure
@@ -25,13 +27,14 @@ ms.locfileid: "87318420"
 > * Aggiungere un grafico della metrica personalizzato in Application Insights al dashboard
 > * Aggiungere i risultati di una query di Log (Analisi) al dashboard
 
-
-
 ## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
 - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../app/asp-net.md).
+
+> [!NOTE]
+> Le autorizzazioni necessarie per usare i dashboard sono descritte in [Informazioni sul controllo di accesso per i dashboard](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).

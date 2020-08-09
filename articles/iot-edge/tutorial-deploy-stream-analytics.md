@@ -3,16 +3,16 @@ title: 'Esercitazione: Analisi di flusso nei dispositivi perimetrali con Azure I
 description: In questa esercitazione Analisi di flusso di Azure viene distribuito come modulo in un dispositivo IoT Edge
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220276"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439398"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
 
@@ -134,7 +134,7 @@ Usando i tre elementi di input, di output e di query, questa sezione crea un pro
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Selezionare **Salva**.
+1. Selezionare **Salva query**.
 
 ### <a name="configure-iot-edge-settings"></a>Configurare le impostazioni di IoT Edge
 
@@ -189,7 +189,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **SimulatedT
 
 1. Selezionare **Aggiorna** o **Annulla**.
 
-1. Prendere nota del nome del modulo di Analisi di flusso perché sarà necessario nel passaggio successivo, quindi selezionare **Avanti: Route** per continuare.
+1. Prendere nota del nome del modulo di Analisi di flusso perché sarà necessario nel passaggio successivo. Selezionare quindi **Avanti: Route** per continuare.
 
 1. Nella scheda **Route** è possibile definire come vengono passati i messaggi tra i moduli e l'hub IoT. I messaggi vengono costruiti mediante coppie nome/valore. Sostituire il nome e i valori predefiniti di `route` e `upstream` con le coppie mostrate nella tabella seguente, le coppie nome/valore seguenti, sostituendo le istanze di _{ModuleName}_ con il nome del modulo di Analisi di flusso di Azure.
 

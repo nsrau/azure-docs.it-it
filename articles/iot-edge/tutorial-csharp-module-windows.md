@@ -11,12 +11,12 @@ ms.service: iot-edge
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: b71db71ac61e0dcd65a2546b2164610e618dab18
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 105dbed66b67f16b305cea74b9761abbef64d5fd
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81733501"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439772"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Windows
 
@@ -83,7 +83,7 @@ Azure IoT Edge Tools offre modelli di progetto per tutti i linguaggi dei moduli 
    | ----- | ----- |
    | Selezionare un modello: | Selezionare **C# Module** (Modulo C#). |
    | Module project name (Nome progetto modulo) | Assegnare al modulo il nome **CSharpModule**. |
-   | Docker image repository (Repository immagini Docker) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/csharpmodule. |
+   | Docker image repository (Repository immagini Docker) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore di **Server di accesso** del registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<registry name\>.azurecr.io/csharpmodule. |
 
    ![Configurare il progetto per il dispositivo di destinazione, il tipo di modulo e il registro contenitori](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
@@ -309,9 +309,11 @@ Nella sezione precedente è creata una soluzione IoT Edge ed è stato aggiunto a
 
    Il comando di creazione e push avvia tre operazioni. Prima di tutto, crea una nuova cartella nella soluzione denominata **config** che contiene il manifesto completo della distribuzione, basato sulle informazioni del modello di distribuzione e di altri file della soluzione. In secondo luogo, esegue `docker build` per creare l'immagine del contenitore in base al documento dockerfile appropriato per l'architettura di destinazione. Infine, esegue `docker push` per eseguire il push del repository di immagini nel registro contenitori.
 
+   Questo processo può richiedere alcuni minuti quando viene eseguito per la prima volta, ma alla successiva esecuzione dei comandi avviene più rapidamente.
+
 ## <a name="deploy-modules-to-device"></a>Distribuire i moduli nel dispositivo
 
-Usare Cloud Explorer di Visual Studio e l'estensione Azure IoT Edge Tools per distribuire il progetto di modulo nel dispositivo IoT Edge. Il manifesto della distribuzione, il file **deployment.json**, è già disponibile per questo scenario nella cartella config. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
+Usare Cloud Explorer di Visual Studio e l'estensione Azure IoT Edge Tools per distribuire il progetto di modulo nel dispositivo IoT Edge. Per questo scenario è già disponibile un manifesto della distribuzione, il file **deployment.windows-amd64.json** nella cartella config. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
 
 Assicurarsi che il dispositivo IoT Edge sia in esecuzione.
 
@@ -321,7 +323,7 @@ Assicurarsi che il dispositivo IoT Edge sia in esecuzione.
 
 3. Scegliere **Crea distribuzione**.
 
-4. In Esplora file selezionare il file **deployment.windows-amd64** nella cartella di configurazione della soluzione.
+4. In Esplora file selezionare il file **deployment.windows-amd64.json** nella cartella config della soluzione.
 
 5. Aggiornare Cloud Explorer per visualizzare i moduli distribuiti elencati sotto il dispositivo.
 

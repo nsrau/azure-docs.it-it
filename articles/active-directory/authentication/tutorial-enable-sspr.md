@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035027"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419479"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Esercitazione: Consentire agli utenti di sbloccare l'account o reimpostare le password con la reimpostazione della password self-service di Azure Active Directory
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
-* Un tenant di Azure AD funzionante, con almeno una licenza di valutazione abilitata.
+* Un tenant di Azure AD funzionante con almeno una licenza di valutazione o di Azure AD Premium P1 abilitata.
     * Se necessario, [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un account con privilegi di *amministratore globale*.
 * Un utente non amministratore con una password conosciuta, ad esempio *testuser*. In questa esercitazione sarà possibile testare l'esperienza di reimpostazione della password self-service dell'utente finale usando questo account.
@@ -60,7 +60,7 @@ In questa esercitazione verrà configurata la reimpostazione della password self
 1. Nella pagina **Proprietà** scegliere *Seleziona gruppo* nell'opzione **Reimpostazione password self-service abilitata**
 1. Cercare e selezionare il gruppo di Azure AD, ad esempio *SSPR-Test-Group*, quindi scegliere *Seleziona*.
 
-    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+    [ ![Selezionare un gruppo nel portale di Azure da abilitare per la reimpostazione della password self-service](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) ](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
 1. Per abilitare la reimpostazione della password self-service per gli utenti selezionati, selezionare **Salva**.
 

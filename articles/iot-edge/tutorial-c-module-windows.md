@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 09d039801107a44df4f3bf3745a1e074e6d708b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2da31944a58fb3e5834938b7de32348f30ed7e25
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76760965"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439819"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Windows
 
@@ -89,7 +89,7 @@ Creare un modello di soluzione C che è possibile personalizzare con il proprio 
    | ----- | ----- |
    | Selezionare un modello: | Selezionare **C Module** (Modulo C). |
    | Module project name (Nome progetto modulo) | Assegnare al modulo il nome **CModule**. |
-   | Docker image repository (Repository immagini Docker) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/cmodule. |
+   | Docker image repository (Repository immagini Docker) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore di **Server di accesso** del registro contenitori di Azure. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<registry name\>.azurecr.io/cmodule. |
 
    ![Configurare il progetto per il dispositivo di destinazione, il tipo di modulo e il registro contenitori](./media/tutorial-c-module-windows/add-application-and-module.png)
 
@@ -316,7 +316,13 @@ Il codice del modulo predefinito riceve i messaggi in una coda di input e li pas
 
 Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggiunto codice a **CModule** per filtrare i messaggi in cui la temperatura segnalata del computer è inferiore alla soglia accettabile. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori.
 
-1. Usare il comando seguente per accedere a Docker nel computer di sviluppo. Accedere con il nome utente, la password e il server di accesso del Registro Azure Container. È possibile recuperare questi valori dalla sezione **Chiavi di accesso** del registro nel portale di Azure.
+### <a name="sign-in-to-docker"></a>Accedere a Docker
+
+Specificare le credenziali del registro contenitori in Docker nel computer di sviluppo per consentire il push dell'immagine del contenitore da archiviare nel registro.
+
+1. Aprire PowerShell o un prompt dei comandi.
+
+2. Accedere a Docker con le credenziali del Registro Azure Container di cui è stato eseguito il salvataggio dopo la creazione del registro.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -324,15 +330,21 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
 
    Potrebbe venire visualizzato un avviso di sicurezza in cui si consiglia l'uso di `--password-stdin`. Sebbene si tratti di una procedura consigliata per gli scenari di produzione, esula dell'ambito di questa esercitazione. Per altri dettagli, vedere le informazioni di riferimento sull'[accesso a docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
-2. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul nome del progetto da creare. Il nome predefinito è **AzureIotEdgeApp1** e poiché si sta creando un modulo Windows l'estensione dovrà essere **Windows.Amd64**.
+### <a name="build-and-push"></a>Compilazione ed esecuzione del push
 
-3. Selezionare **Build and push IoT Edge modules** (Compila moduli IoT Edge ed esegui il push).
+Il computer di sviluppo può ora accedere al Registro Container, come pure possono fare i dispositivi IoT Edge. A questo punto, è possibile trasformare il codice del progetto in un'immagine del contenitore.
+
+1. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul nome del progetto da creare. Il nome predefinito è **AzureIotEdgeApp1**. Per questa esercitazione è stato scelto il nome **CTutorialApp**. Dato che si sta creando un modulo Windows, l'estensione dovrà essere **Windows.Amd64**.
+
+2. Selezionare **Build and push IoT Edge modules** (Compila moduli IoT Edge ed esegui il push).
 
    Il comando di creazione e push avvia tre operazioni. Prima di tutto, crea una nuova cartella nella soluzione denominata **config** che contiene il manifesto completo della distribuzione, basato sulle informazioni del modello di distribuzione e di altri file della soluzione. In secondo luogo, esegue `docker build` per creare l'immagine del contenitore in base al documento dockerfile appropriato per l'architettura di destinazione. Infine, esegue `docker push` per eseguire il push del repository di immagini nel registro contenitori.
 
+   Questo processo può richiedere alcuni minuti quando viene eseguito per la prima volta, ma alla successiva esecuzione dei comandi avviene più rapidamente.
+
 ## <a name="deploy-modules-to-device"></a>Distribuire i moduli nel dispositivo
 
-Usare Cloud Explorer di Visual Studio e l'estensione Azure IoT Edge Tools per distribuire il progetto di modulo nel dispositivo IoT Edge. Il manifesto della distribuzione, il file **deployment.json**, è già disponibile per questo scenario nella cartella config. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
+Usare Cloud Explorer di Visual Studio e l'estensione Azure IoT Edge Tools per distribuire il progetto di modulo nel dispositivo IoT Edge. Per questo scenario è già disponibile un manifesto della distribuzione, il file **deployment.windows-amd64.json** nella cartella config. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
 
 Assicurarsi che il dispositivo IoT Edge sia in esecuzione.
 
