@@ -1,19 +1,19 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: app-service
 author: ggailey777
 ms.service: app-service
 ms.topic: include
-ms.date: 02/19/2019
+ms.date: 06/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 82e5221daefaecb687ad9feb79305e546d4ec17e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: c255be53a1809bf5dd3fc6b184852767dfec9c66
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68424147"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009773"
 ---
 > [!NOTE]
-> Un'app Web può raggiungere il timeout dopo 20 minuti di inattività. Solo le richieste all'app Web effettiva comportano la reimpostazione del timer. La visualizzazione della configurazione dell'app nel portale di Azure o l'esecuzione di richieste al sito degli strumenti avanzati ( `https://<app_name>.scm.azurewebsites.net` ) non reimposta il timer. Se l'app esegue processi Web continui o pianificati (trigger timer), abilitare **Always on** per assicurarsi che i processi Web vengano eseguiti in modo affidabile. Questa funzionalità è disponibile solo nei [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Basic, Standard e Premium.
+> Un'app Web può raggiungere il timeout dopo 20 minuti di inattività. Solo le richieste all'app Web effettiva possono reimpostare il timer. Se si visualizza la configurazione dell'app nel portale di Azure o si effettuano richieste al sito degli strumenti avanzati (`https://<app_name>.scm.azurewebsites.net`), il timer non verrà reimpostato. Se si imposta l'app Web per l'esecuzione di processi Web continui o pianificati (timer-trigger), abilitare l'impostazione **Always On** nella pagina **Configurazione** di Azure dell'app Web per garantire l'esecuzione affidabile dei processi Web. Questa funzionalità è disponibile solo nei [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Basic, Standard e Premium.

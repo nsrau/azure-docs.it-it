@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto Servizi condivisi ISO 27001
 description: Panoramica e architettura del progetto di esempio Servizi condivisi ISO 27001. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 0ef39a4e409320d08529904239dc17fc563c2044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072872"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927352"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Panoramica del progetto di esempio Servizi condivisi ISO 27001
 
@@ -25,7 +25,7 @@ Per data center virtuale si intende è un set consolidato di architetture di rif
 
 Questo ambiente è costituito da diversi servizi di Azure usati per offrire un'infrastruttura di servizi condivisi di livello aziendale sicura e completamente monitorata, basata sugli standard ISO 27001. L'ambiente è costituito da:
 
-- Ruoli [Controllo degli accessi in base al ruolo](../../../../role-based-access-control/overview.md) usati per la separazione dei compiti dal punto di vista del piano di controllo. Prima della distribuzione di qualsiasi infrastruttura vengono definiti tre ruoli:
+- [Ruoli di Azure](../../../../role-based-access-control/overview.md) usati per la separazione dei compiti dal punto di vista del piano di controllo. Prima della distribuzione di qualsiasi infrastruttura vengono definiti tre ruoli:
   - Il ruolo NetOps include i diritti per gestire l'ambiente di rete, tra cui le impostazioni del firewall, le impostazioni del gruppo di sicurezza di rete, il routing e altre funzionalità di rete
   - Il ruolo SecOps include i diritti necessari per distribuire e gestire [Centro sicurezza di Azure](../../../../security-center/security-center-intro.md), definire [criteri di Azure](../../../policy/overview.md) e altri diritti correlati alla sicurezza
   - Il ruolo SysOps include i diritti necessari per definire i [criteri di Azure](../../../policy/overview.md) all'interno della sottoscrizione, gestire [Log Analytics](../../../../azure-monitor/overview.md) per l'intero ambiente, oltre ad altri diritti operativi

@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto Carico di lavoro dell'ambiente del se
 description: Panoramica e architettura del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 71044ae1754cf4bdfc42be7b6585a1905dce426c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536834"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926094"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Panoramica del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 
@@ -28,7 +28,7 @@ Il progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 270
 
 Questo ambiente è costituito da diversi servizi di Azure usati per offrire un'infrastruttura di carico di lavoro di livello aziendale sicura e completamente monitorata, basata sugli standard ISO 27001. L'ambiente è costituito da:
 
-- Ruolo [Controllo degli accessi in base al ruolo](../../../../role-based-access-control/overview.md) denominato DevOps che dispone dei diritti per distribuire e gestire le risorse in un [ambiente del servizio app di Azure](../../../../app-service/environment/intro.md) distribuito dal progetto di esempio
+- [Ruolo di Azure](../../../../role-based-access-control/overview.md) denominato DevOps che dispone dei diritti per distribuire e gestire le risorse in un [ambiente del servizio app di Azure](../../../../app-service/environment/intro.md) distribuito dal progetto di esempio
 - [Criteri di Azure](../../../policy/overview.md) per bloccare i servizi che è possibile distribuire nell'ambiente e impedire la creazione di qualsiasi risorsa di indirizzo IP pubblico
 - Una rete virtuale che contiene una singola subnet e di cui è stato eseguito il peering a un ambiente di [servizi condivisi](../iso27001-shared/index.md) preesistente e che forza tutto il traffico a passare attraverso il firewall dei [servizi condivisi](../iso27001-shared/index.md). La rete virtuale ospita le risorse seguenti:
   - Un [ambiente del servizio app di Azure](../../../../app-service/environment/intro.md) che può essere usato per ospitare una o più applicazioni Web, API Web o funzioni
