@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340824"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531813"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Avvio rapido: Creare e gestire una condivisione file di Azure con Azure PowerShell 
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con PowerShell. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
@@ -88,7 +88,7 @@ Nella maggior parte dei casi si userà la condivisione file di Azure tramite il 
 - Si sfruttano risorse serverless, ad esempio [Funzioni di Azure](../../azure-functions/functions-overview.md). 
 - Si crea un servizio a valore aggiunto che interagisce con molte condivisioni file di Azure, ad esempio l'esecuzione di backup o analisi antivirus.
 
-Gli esempi seguenti mostrano come usare il modulo di Azure PowerShell per modificare la condivisione file di Azure con il protocollo REST File. Il parametro `-Context` consente di recuperare la chiave dell'account di archiviazione per eseguire le azioni indicate nella condivisione file. Per recuperare la chiave dell'account di archiviazione, è necessario avere il ruolo Controllo degli accessi in base al ruolo di `Owner` nell'account di archiviazione.
+Gli esempi seguenti mostrano come usare il modulo di Azure PowerShell per modificare la condivisione file di Azure con il protocollo REST File. Il parametro `-Context` consente di recuperare la chiave dell'account di archiviazione per eseguire le azioni indicate nella condivisione file. Per recuperare la chiave dell'account di archiviazione, è necessario avere il ruolo di Azure `Owner` nell'account di archiviazione.
 
 #### <a name="create-directory"></a>Creare la directory
 Per creare una nuova directory denominata *myDirectory* nella radice della condivisione file di Azure, usare il cmdlet [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).

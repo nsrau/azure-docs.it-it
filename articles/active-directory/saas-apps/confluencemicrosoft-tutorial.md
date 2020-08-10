@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7460a3c4a942194a66e585fed2b65be77b46b33e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 607148bcbc0078b5e430eea1fe38a56ea6663777
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034144"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420703"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -68,7 +68,7 @@ A tutt'oggi sono supportate le versioni seguenti di Confluence:
 
 - Confluence: da 5.0 a 5.10
 - Confluence: da 6.0.1 a 6.15.9
-- Confluence: da 7.0.1 a 7.4.0
+- Confluence: da 7.0.1 a 7.6.1
 
 > [!NOTE]
 > Si noti che il plug-in Confluence funziona anche in Ubuntu versione 16.04

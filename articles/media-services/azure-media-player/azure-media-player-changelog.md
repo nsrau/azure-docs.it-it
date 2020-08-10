@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 07/27/2020
-ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281345"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432657"
 ---
 # <a name="changelog"></a>Log delle modifiche #
 
@@ -57,13 +57,13 @@ ms.locfileid: "87281345"
 
 ### <a name="changes-234"></a>Modifiche 2.3.4
 
-- Rimozione di etichette di sottotitolo/tracce vuote durante la riproduzione di HLS in iOS e MacOS Safari
+- Rimozione delle etichette di sottotitolo/tracce vuote durante la riproduzione di HLS in iOS e macOS Safari
 - Riduzione del numero di errori 412 per i sottotitoli IMSC1
 - Restituzione come output di un avviso nella console per 10 risposte di sottotitoli IMSC1 vuote per contribuire al debug in tempo reale
 
 ## <a name="232-official-update-october-9-2019"></a>2.3.2 (aggiornamento ufficiale del 9 ottobre 2019)
 
-### <a name="features"></a>Funzionalità
+### <a name="features-232"></a>Funzionalità 2.3.2
 
 \- Aggiunta di supporto di PlayReady per la riproduzione DASH per il browser Microsoft Edge basato su Chromium
 
@@ -228,7 +228,7 @@ ms.locfileid: "87281345"
 
 ### <a name="changes-218"></a>Modifiche 2.1.8 ###
 
-- [Modifica] Aggiornamento dell'errore 0x0600001 da visualizzare quando il contenuto AES viene riprodotto con Flash 30, che non è supportato al momento. Per altri dettagli, vedere [Problemi noti](azure-media-player-known-issues.md)
+- [Modifica] Aggiornamento dell'errore 0x0600001 da visualizzare quando contenuto AES viene riprodotto con Flash 30, che non è supportato al momento. Per altri dettagli, vedere [Problemi noti](azure-media-player-known-issues.md)
 - [Modifica] Aggiunta di altri tentativi di ripetizione per gli scenari live quando le richieste di manifesto restituiscono 404 oppure manifesti vuoti.
 
 ## <a name="217-official-update"></a>2.1.7 (aggiornamento ufficiale) ##

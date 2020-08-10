@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052415"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503923"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regole del firewall IP di Azure Synapse Analytics (anteprima)
 
@@ -35,7 +35,7 @@ Le regole del firewall IP consentono di concedere o negare l'accesso all'area di
 
 ![Configurazione IP dell'area di lavoro di Azure Synapse nel portale di Azure.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## <a name="connecting-to-synapse-from-your-own-network"></a>Connessione a Synapse dalla propria rete
+## <a name="connect-to-synapse-from-your-own-network"></a>Connettersi a Synapse dalla propria rete
 
 Per connettersi all'area di lavoro di Synapse, usare Synapse Studio. È anche possibile usare SQL Server Management Studio (SSMS) per connettersi alle risorse SQL (pool SQL e SQL su richiesta) nell'area di lavoro.
 

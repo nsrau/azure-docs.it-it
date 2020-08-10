@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 07/31/2020
 ms.author: juliako
-ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090111"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489776"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -33,6 +33,8 @@ In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Per preparare i file di origine per la distribuzione
 
 Per sfruttare la creazione dinamica dei pacchetti, è necessario [codificare](encoding-concept.md) il file mezzanine (origine) in un set di file MP4 (ISO Base Media 14496-12) a bitrate multiplo. È necessario avere un [asset](assets-concept.md) con i file MP4 codificati e i file di configurazione di streaming richiesti dalla creazione dinamica dei pacchetti di Servizi multimediali. Da questo set di file MP4, è possibile usare la creazione dinamica dei pacchetti per distribuire video tramite i protocolli di streaming multimediale seguenti.
+
+La creazione dinamica dei pacchetti di Servizi multimediali di Azure supporta solo i file video e audio nel formato contenitore MP4. I file audio devono essere codificati in un contenitore MP4 anche quando si usano codec alternativi come Dolby.  
 
 > [!TIP]
 > Un modo per ottenere i file di configurazione di streaming e MP4 consiste nel [codificare il file mezzanine con Servizi multimediali](#encode-to-adaptive-bitrate-mp4s). 
@@ -87,7 +89,7 @@ Il diagramma seguente illustra il flusso di lavoro per lo streaming on demand co
 
 ![Diagramma di un flusso di lavoro per lo streaming on demand con creazione dinamica dei pacchetti](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-Il percorso di download è presente nell'immagine precedente solo per mostrare che è possibile scaricare un file MP4 direttamente tramite l'*endpoint di streaming* (origine). I [criteri di streaming](streaming-policy-concept.md) scaricabili si specificano nel localizzatore di streaming.<br/>Lo strumento per la creazione dinamica di pacchetti non altera il file. 
+Il percorso di download è presente nell'immagine precedente solo per mostrare che è possibile scaricare un file MP4 direttamente tramite l'*endpoint di streaming* (origine). I [criteri di streaming](streaming-policy-concept.md) scaricabili si specificano nel localizzatore di streaming.<br/>Lo strumento per la creazione dinamica di pacchetti non altera il file. Se si vuole, è possibile usare le API di archiviazione BLOB di Azure per accedere a un MP4 direttamente per il download progressivo in modo da ignorare le funzionalità di *endpoint di streaming* (origine). 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Eseguire la codifica in MP4 a velocità in bit adattiva
 
@@ -123,17 +125,17 @@ Per informazioni sullo streaming live in Servizi multimediali v3, vedere [Panora
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codec video supportati dalla creazione dinamica dei pacchetti
 
-La creazione dinamica dei pacchetti supporta file MP4 contenenti video codificati con [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1) oppure [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
+La creazione dinamica dei pacchetti supporta file video nel formato di file contenitore MP4 che contengono video codificati con [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1) o [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
 
 > [!NOTE]
 > Con la *creazione dinamica dei pacchetti* sono state testate risoluzioni fino a 4K e frequenze dei fotogrammi fino a 60 fotogrammi al secondo. Il [codificatore Premium](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) supporta la codifica in H.265 tramite le API v2 legacy.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codec audio supportati dalla creazione dinamica dei pacchetti
 
-La creazione dinamica dei pacchetti supporta l'audio codificato con i protocolli seguenti:
+La creazione dinamica dei pacchetti supporta anche i file audio archiviati nel formato contenitore di file MP4 che contengono il flusso audio codificato in uno dei codec seguenti:
 
-* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 o HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 o E-AC3)
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 o HE-AAC v2). 
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 o E-AC3).  Per essere supportato dalla creazione dinamica dei pacchetti, l'audio codificato deve essere archiviato nel formato contenitore MP4.
 * Dolby Atmos
 
    Lo streaming di contenuti Atmos Dolby è supportato per gli standard come il protocollo MPEG-DASH con MP4 frammentato CSF (Common Streaming Format) o CMAF (Common Media Application Format) e tramite HTTP Live Streaming (HLS) con CMAF.
@@ -146,6 +148,10 @@ La creazione dinamica dei pacchetti supporta l'audio codificato con i protocolli
     * DTS-HD Lossless (senza core) (dtsl)
 
 La creazione dinamica dei pacchetti supporta più tracce audio con DASH o HLS (versione 4 o successive) per lo streaming di asset che hanno diverse tracce audio con più codec e linguaggi.
+
+Per tutti i codec audio elencati sopra, l'audio codificato deve essere archiviato nel formato contenitore MP4 per essere supportato dalla creazione dinamica dei pacchetti. Il servizio non supporta i formati di file di flusso elementare non elaborato nell'archiviazione BLOB (ad esempio, il formato seguente non è supportato - .dts, .ac3). 
+
+Per la creazione di pacchetti audio sono supportati solo i file con estensione mp4 o mp4a. 
 
 ### <a name="limitations"></a>Limitazioni
 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c27a50f823dcda74d735e6314c9004ec36769d4
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 8a7bb300bb634b342b1141d175b0046c7d2d7e2b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870890"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810310"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android in Xamarin con Ancoraggi nello spazio di Azure
 
@@ -63,9 +63,7 @@ Individuare il campo `SpatialAnchorsAccountKey` e sostituire `Set me` con la chi
 
 Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'identificatore dell'account.
 
-Aprire `Xamarin/SampleXamarin.Android/AzureSpatialAnchorsManager.cs`.
-
-Individuare `AzureSpatialAnchorsManager(Session arCoreSession)` e aggiungere la riga seguente, sostituendo il dominio account definito in precedenza: `this.spatialAnchorsSession.Configuration.AccountDomain = "MyAccountDomain";`.
+Individuare il campo `SpatialAnchorsAccountDomain` e sostituire `Set me` con il dominio dell'account.
 
 ## <a name="deploy-the-app-to-your-android-device"></a>Distribuire l'app nel dispositivo Android
 

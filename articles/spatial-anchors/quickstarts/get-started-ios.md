@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Creare un'app iOS"
-description: In questa guida introduttiva si apprenderà come compilare un'app iOS usando Ancoraggi nello spazio.
+description: Informazioni su come creare un'app iOS usando Ancoraggi nello spazio di Azure a livello di codice in Swift o Objective-C.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,12 +9,12 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 542b5168bb70d876d91f8a747a230f2b754568e9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 2df66979d1e8f400f2630f5e531cd201244fdc6d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873114"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809987"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Guida introduttiva: Creare un'app iOS con Ancoraggi nello spazio di Azure, in Swift o Objective-C
 
@@ -101,7 +101,7 @@ Individuare il campo `spatialAnchorsAccountKey` e sostituire `Set me` con la chi
 
 Individuare il campo `spatialAnchorsAccountId` e sostituire `Set me` con l'identificatore dell'account.
 
-Individuare `startSession()` e aggiungere la riga seguente, sostituendo il dominio account definito in precedenza: `cloudSession!.configuration.accountDomain = "MyAccountDomain";`.
+Individuare il campo `spatialAnchorsAccountDomain` e sostituire `Set me` con il dominio dell'account.
 
 # <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
@@ -111,7 +111,7 @@ Individuare il campo `SpatialAnchorsAccountKey` e sostituire `Set me` con la chi
 
 Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'identificatore dell'account.
 
-Individuare `startSession()` e aggiungere la riga seguente, sostituendo il dominio account definito in precedenza: `_cloudSession.configuration.accountDomain = @"MyAccountDomain";`.
+Individuare il campo `SpatialAnchorsAccountDomain` e sostituire `Set me` con il dominio dell'account.
 
 ---
 

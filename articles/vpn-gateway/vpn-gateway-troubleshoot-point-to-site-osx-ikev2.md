@@ -1,18 +1,18 @@
 ---
 title: 'Gateway VPN di Azure: risolvere i problemi relativi alle connessioni da punto a sito: Mac OS X client'
-description: 'Risolvere i problemi di connettività da punto a sito da Mac OS X. controllare le impostazioni seguenti: indirizzo del server, ID remoto, ID locale, impostazioni di autenticazione e versione del sistema operativo.'
+description: Informazioni su come risolvere i problemi di connettività da punto a sito da Mac OS X usando il client VPN nativo e IKEv2.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: ae7ca9ad69bc5bea20fc959f86e41439bd01cd5c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 58250980081388b78ebb32fb01b84beb8d86c1c2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920756"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030663"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Risolvere i problemi di connessione VPN da punto a sito dai client Mac OS X
 

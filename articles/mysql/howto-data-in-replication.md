@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: d1012a2afa84270089ae44b1c5d224e65a2e01ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 8/7/2020
+ms.openlocfilehash: dbf3a13ed5a544406950dbcfb5ea8796eceb03c1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118563"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030553"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
@@ -37,11 +37,11 @@ Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitat
    > Il server di Database di Azure per MySQL deve essere creato con il piano tariffario per utilizzo generico o ottimizzato per la memoria.
    > 
 
-2. Creare gli stessi account utente e i privilegi corrispondenti
+1. Creare gli stessi account utente e i privilegi corrispondenti
 
    Gli account utente non vengono replicati dal server master al server di replica. Se si prevede di specificare gli utenti con accesso al server di replica, è necessario creare manualmente tutti gli account e i privilegi corrispondenti sul nuovo server di Database di Azure per MySQL.
 
-3. Aggiungere l'indirizzo IP del server master alle regole del firewall della replica. 
+1. Aggiungere l'indirizzo IP del server master alle regole del firewall della replica. 
 
    Aggiornare le regole firewall usando il [portale di Azure](howto-manage-firewall-using-portal.md) o l'[interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
 
@@ -55,7 +55,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    
    Testare la connettività al server master provando a connettersi da uno strumento come la riga di comando MySQL ospitata in un altro computer o dalla [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponibile nel portale di Azure.
 
-2. Attivare la registrazione binaria
+1. Attivare la registrazione binaria
 
    Verificare se la registrazione binaria è stata abilitata sul server master eseguendo questo comando: 
 
@@ -67,7 +67,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    Se `log_bin` viene restituito con il valore "off", attivare la registrazione binaria modificando il file My. cnf in modo che `log_bin=ON` e riavviare il server per rendere effettive le modifiche.
 
-3. Impostazioni del server master
+1. Impostazioni del server master
 
    Per la Replica dei dati in ingresso è necessario che il parametro `lower_case_table_names` sia coerente tra il server master e quello di replica. Per impostazione predefinita, in Database di Azure per MySQL questo parametro è impostato su 1. 
 
@@ -75,7 +75,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-4. Creare un nuovo ruolo di replica e configurare le autorizzazioni
+1. Creare un nuovo ruolo di replica e configurare le autorizzazioni
 
    Sul server master creare un account utente configurato con i privilegi di replica. Questa operazione può essere eseguita tramite comandi SQL o uno strumento come MySQL Workbench. Valutare se si prevede di eseguire la replica con SSL, poiché è necessario specificare questa impostazione quando si crea l'utente. Per istruzioni su come [aggiungere account utente](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) sul server master, vedere la documentazione di MySQL. 
 
@@ -115,8 +115,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    ![Slave di replica](./media/howto-data-in-replication/replicationslave.png)
 
-
-5. Impostare il server master in modalità di sola lettura
+1. Impostare il server master in modalità di sola lettura
 
    Prima di avviare il dump del database, il server deve essere impostato in modalità di sola lettura. In questa modalità, il server master non sarà in grado di elaborare alcuna transazione di scrittura. Valutare l'impatto che questa impostazione può avere sulle attività aziendali e pianificare l'intervallo di impostazione in sola lettura in un orario di minore attività, se necessario.
 
@@ -125,7 +124,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    SET GLOBAL read_only = ON;
    ```
 
-6. Ottenere l'offset e il nome del file di log binario
+1. Ottenere l'offset e il nome del file di log binario
 
    Eseguire il [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando per determinare il nome e l'offset del file di log binario corrente.
     
@@ -138,11 +137,11 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
  
 ## <a name="dump-and-restore-master-server"></a>Eseguire il dump e il ripristino del server master
 
-1. Eseguire il dump di tutti i database dal server master
+1. Determinare quali database e tabelle si vuole replicare nel database di Azure per MySQL ed eseguire il dump dal server master.
+ 
+    Per eseguire il dump dei database dal server master è possibile usare mysqldump. Per informazioni dettagliate, vedere [Dump e ripristino](concepts-migrate-dump-restore.md). Non è necessario eseguire il dump della libreria MySQL e della libreria di test.
 
-   Per eseguire il dump dei database dal server master è possibile usare mysqldump. Per informazioni dettagliate, vedere [Dump e ripristino](concepts-migrate-dump-restore.md). Non è necessario eseguire il dump della libreria MySQL e della libreria di test.
-
-2. Impostare il server master in modalità di lettura/scrittura
+1. Impostare il server master in modalità di lettura/scrittura
 
    Dopo avere eseguito il dump del database, ripristinare la modalità di lettura/scrittura sul server MySQL master.
 
@@ -151,7 +150,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    UNLOCK TABLES;
    ```
 
-3. Ripristinare il file di dump nel nuovo server
+1. Ripristinare il file di dump nel nuovo server
 
    Ripristinare il file di dump nel server creato nel servizio Database di Azure per MySQL. Per informazioni su come ripristinare un file di dump in un server MySQL, vedere [Dump e ripristino](concepts-migrate-dump-restore.md). Se il file di dump ha grandi dimensioni, caricarlo in una macchina virtuale in Azure nella stessa area del server di replica. Ripristinare quindi il file nel server di Database di Azure per MySQL dalla macchina virtuale.
 
@@ -175,33 +174,39 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    - master_ssl_ca: contesto del certificato della CA. Se non si usa SSL, passare una stringa vuota.
        - È consigliabile passare questo parametro sotto forma di variabile. Per altre informazioni, vedere gli esempi seguenti.
 
-> [!NOTE]
-> Se il server master è ospitato in una macchina virtuale di Azure, attivare l'opzione che consente di accedere ai servizi di Azure in modo che il server master e i server di replica possano comunicare tra loro. Questa impostazione può essere modificata dalle opzioni di **sicurezza delle connessioni**. Per altre informazioni, vedere l'articolo sulla [gestione delle regole del firewall con il portale](howto-manage-firewall-using-portal.md).
-
+   > [!NOTE]
+   > Se il server master è ospitato in una macchina virtuale di Azure, attivare l'opzione che consente di accedere ai servizi di Azure in modo che il server master e i server di replica possano comunicare tra loro. Questa impostazione può essere modificata dalle opzioni di **sicurezza delle connessioni**. Per altre informazioni, vedere l'articolo sulla [gestione delle regole del firewall con il portale](howto-manage-firewall-using-portal.md).
+      
    **esempi**
-
+   
    *Replica con SSL*
-
+   
    La variabile `@cert` viene creata eseguendo i comandi MySQL seguenti: 
-
-   ```sql
-   SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
-   -----END CERTIFICATE-----'
-   ```
-
+   
+      ```sql
+      SET @cert = '-----BEGIN CERTIFICATE-----
+      PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
+      -----END CERTIFICATE-----'
+      ```
+   
    La replica con SSL è configurata tra un server master ospitato nel dominio "companya.com" e un server di replica ospitato nel database di Azure per MySQL. Sulla replica viene eseguita questa stored procedure. 
-
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
-   ```
+   
+      ```sql
+      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+      ```
    *Replica senza SSL*
-
+   
    La replica senza SSL è configurata tra un server master ospitato nel dominio "companya.com" e un server di replica ospitato nel database di Azure per MySQL. Sulla replica viene eseguita questa stored procedure.
+   
+      ```sql
+      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+      ```
 
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
-   ```
+1. Filtro 
+ 
+   Se si vuole ignorare la replica di alcune tabelle dal database master, aggiornare il `replicate_wild_ignore_table` parametro Server nel server di replica. Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table).
+    
+    Per aggiornare il parametro, è possibile usare l' [portale di Azure](howto-server-parameters.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
 
 1. Avviare la replica
 

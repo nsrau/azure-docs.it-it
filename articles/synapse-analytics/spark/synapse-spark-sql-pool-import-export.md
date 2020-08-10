@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ca13cbd8bdba911882f7452e34c45cbc7918dd7f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7b02296d5d9aed5866c0efcdf85fa1c9946617d0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077700"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501900"
 ---
 # <a name="introduction"></a>Introduzione
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 Le istruzioni di importazione non sono necessarie, ma sono pre-importate per l'esperienza del notebook.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Trasferimento di dati in o da un pool SQL collegato all'area di lavoro
+### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Trasferire dati in o da un pool SQL collegato all'area di lavoro
 
 > [!NOTE]
 > **Importazioni non necessarie nell'esperienza del notebook**
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Se si trasferiscono dati in o da un database o un pool SQL esterno all'area di lavoro
+### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Se si trasferiscono dati in o da un database o un pool SQL esterno all'area di lavoro
 
 > [!NOTE]
 > Importazioni non necessarie nell'esperienza del notebook
@@ -160,7 +160,7 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="using-sql-auth-instead-of-aad"></a>Uso dell'autenticazione SQL invece di quella di AAD
+### <a name="use-sql-auth-instead-of-aad"></a>Usare l'autenticazione SQL invece di quella di AAD
 
 #### <a name="read-api"></a>API di lettura
 
@@ -184,7 +184,7 @@ option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="using-the-pyspark-connector"></a>Uso del connettore PySpark
+### <a name="use-the-pyspark-connector"></a>Usare il connettore PySpark
 
 > [!NOTE]
 > Questo esempio è valido solo per l'esperienza del notebook.
@@ -208,7 +208,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 Allo stesso modo, nello scenario di lettura leggere i dati usando Scala e scriverli in una tabella temporanea, quindi usare Spark SQL in PySpark per eseguire query sulla tabella temporanea in un dataframe.
 
-## <a name="allowing-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Consentire ad altri utenti di usare il connettore Azure Synapse Apache Spark a Synapse SQL nell'area di lavoro
+## <a name="allow-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Consentire ad altri utenti di usare il connettore Azure Synapse da Apache Spark a Synapse SQL nell'area di lavoro
 
 Per modificare le autorizzazioni mancanti per altri utenti, è necessario essere proprietario dei dati BLOB di archiviazione nell'account di archiviazione ADLS Gen2 connesso all'area di lavoro. Verificare che l'utente disponga dell'accesso all'area di lavoro e delle autorizzazioni per eseguire i notebook.
 

@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843811"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030504"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 
@@ -40,7 +40,7 @@ Una query usa più indici dei campi singoli, se disponibili. È possibile creare
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Indici composti (server MongoDB versione 3,6)
 
-L'API di Azure Cosmos DB per MongoDB supporta gli indici composti per gli account che usano il protocollo wire versione 3,6. È possibile includere fino a otto campi in un indice composto. Diversamente da MongoDB, è necessario creare un indice composto solo se la query deve essere ordinata in modo efficiente su più campi in una sola volta. Per le query con più filtri che non devono essere ordinati, creare più indici di campi singoli anziché un singolo indice composto.
+L'API di Azure Cosmos DB per MongoDB supporta gli indici composti per gli account che usano il protocollo wire versione 3,6. È possibile includere fino a otto campi in un indice composto. **Diversamente da MongoDB, è necessario creare un indice composto solo se la query deve essere ordinata in modo efficiente su più campi in una sola volta.** Per le query con più filtri che non devono essere ordinati, creare più indici di campi singoli anziché un singolo indice composto.
 
 Il comando che segue crea un indice composto sui campi `name` e `age` :
 
@@ -50,13 +50,16 @@ Il comando che segue crea un indice composto sui campi `name` e `age` :
 
 `db.coll.find().sort({name:1,age:1})`
 
-È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ecco un esempio:
+È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ad esempio:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
 Tuttavia, la sequenza dei percorsi nell'indice composto deve corrispondere esattamente alla query. Di seguito è riportato un esempio di query che richiederebbe un indice composto aggiuntivo:
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> Non è possibile creare indici composti in proprietà o matrici annidate.
 
 ### <a name="multikey-indexes"></a>Indici join
 

@@ -3,12 +3,12 @@ title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 787658cebcb8345edd616bcdde485883ea43e8dc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132926"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529348"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -38,7 +38,7 @@ Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli u
 
 ## <a name="root-management-group-for-each-directory"></a>Gruppo di gestione radice per ogni directory
 
-A ogni directory viene assegnato un gruppo di gestione principale denominato gruppo di gestione "radice". Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice permette l'applicazione di criteri globali e assegnazioni di Controllo degli accessi in base al ruolo a livello di directory. Inizialmente l'[Amministratore globale di Azure AD deve elevare se stesso](../../role-based-access-control/elevate-access-global-admin.md) al ruolo Amministratore Accesso utenti di questo gruppo radice. Dopo aver elevato l'accesso, l'amministratore può assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo ad altri utenti della directory o gruppi per gestire la gerarchia. Gli amministratori possono assegnare il proprio account come proprietario del gruppo di gestione radice.
+A ogni directory viene assegnato un gruppo di gestione principale denominato gruppo di gestione "radice". Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice permette l'applicazione di criteri globali e assegnazioni di ruolo di Azure a livello di directory. Inizialmente l'[Amministratore globale di Azure AD deve elevare se stesso](../../role-based-access-control/elevate-access-global-admin.md) al ruolo Amministratore Accesso utenti di questo gruppo radice. Dopo aver elevato l'accesso, l'amministratore può assegnare qualsiasi ruolo di Azure ad altri utenti o gruppi della directory per gestire la gerarchia. Gli amministratori possono assegnare il proprio account come proprietario del gruppo di gestione radice.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Informazioni importanti sul gruppo di gestione radice
 
@@ -50,7 +50,7 @@ A ogni directory viene assegnato un gruppo di gestione principale denominato gru
   - Le nuove sottoscrizioni vengono inserite automaticamente nel gruppo di gestione radice al momento della creazione.
 - Tutti i clienti di Azure possono vedere il gruppo di gestione radice, ma non tutti i clienti dispongono dell'accesso per gestire il gruppo di gestione radice.
   - Chiunque abbia accesso a una sottoscrizione può vedere il contesto in cui tale sottoscrizione si trova nella gerarchia.  
-  - A nessun utente viene assegnato l'accesso predefinito al gruppo di gestione radice. Gli amministratori globali di Azure AD sono gli unici utenti che possono elevare i propri privilegi per ottenere l'accesso. Dopo avere ottenuto l'accesso al gruppo di gestione radice, gli amministratori globali possono assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo agli altri utenti per la  
+  - A nessun utente viene assegnato l'accesso predefinito al gruppo di gestione radice. Gli amministratori globali di Azure AD sono gli unici utenti che possono elevare i propri privilegi per ottenere l'accesso. Dopo avere ottenuto l'accesso al gruppo di gestione radice, gli amministratori globali possono assegnare qualsiasi ruolo di Azure agli altri utenti per la  
     gestione.
 - In SDK il gruppo di gestione radice, o 'radice del tenant', funge da gruppo di gestione.
 
@@ -82,12 +82,12 @@ Per eventuali domande su questo processo di backfill, contattare `managementgrou
   
 ## <a name="management-group-access"></a>Accesso ai gruppi di gestione
 
-I gruppi di gestione di Azure supportano il [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) per tutte le definizioni di ruoli e gli accessi alle risorse.
-Queste autorizzazioni vengono ereditate dalle risorse figlio presenti nella gerarchia. È possibile assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo a un gruppo di gestione che verrà ereditato fino alle risorse. Ad esempio, il ruolo Controllo degli accessi in base al ruolo Collaboratore Macchina virtuale può essere assegnato a un gruppo di gestione. Questo ruolo non dispone di alcuna azione sul gruppo di gestione, ma verrà ereditato da tutte le macchine virtuali in tale gruppo.
+I gruppi di gestione di Azure supportano il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) per tutte le definizioni di ruoli e gli accessi alle risorse.
+Queste autorizzazioni vengono ereditate dalle risorse figlio presenti nella gerarchia. È possibile assegnare a un gruppo di gestione qualsiasi ruolo di Azure, che verrà ereditato lungo tutta la gerarchia fino alle risorse. Ad esempio, il ruolo di Azure Collaboratore Macchina virtuale può essere assegnato a un gruppo di gestione. Questo ruolo non dispone di alcuna azione sul gruppo di gestione, ma verrà ereditato da tutte le macchine virtuali in tale gruppo.
 
 Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gruppi di gestione.
 
-| Nome del ruolo Controllo degli accessi in base al ruolo             | Create | Rinominare | Spostamento\*\* | Delete | Assegnare l'accesso | Assegnare un criterio | Lettura  |
+| Nome del ruolo di Azure             | Create | Rinominare | Spostamento\*\* | Delete | Assegnare l'accesso | Assegnare un criterio | Lettura  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietario                       | X      | X      | X        | X      | X             | X             | X     |
 |Collaboratore                 | X      | X      | X        | X      |               |               | X     |

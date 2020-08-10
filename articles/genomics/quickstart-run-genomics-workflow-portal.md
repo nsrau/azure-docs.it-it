@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 167bcf4364b88529256b79574c6b8c03098fed02
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: cd0cf3bb7df8efc944fabb8e236f32adb38749d4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607126"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424130"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guida introduttiva: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
 
@@ -48,18 +48,18 @@ Per altre informazioni su Genomica di Microsoft, vedere [Informazioni su Genomic
 
 ## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Configurazione: installare il client Python per Genomica di Microsoft
 
-È necessario installare sia Python e che il client Python per Genomica di Microsoft nell'ambiente locale. 
+È necessario installare sia Python e che il client Python per Genomica di Microsoft `msgen` nell'ambiente locale. 
 
 ### <a name="install-python"></a>Installare Python
 
 Il client Python per Genomica di Microsoft è compatibile con Python 2.7.12 o una versione 2.7.xx successiva. 2.7.14 è la versione consigliata. Il download è disponibile [qui](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
-> Python 3.x non è compatibile con Python 2.7.xx.  MSGen è un'applicazione Python 2.7. Quando si esegue MSGen, assicurarsi che l'ambiente Python attivo usi una versione 2.7.xx di Python. È possibile che si verifichino errori quando si tenta di usare MSGen con una versione 3.x di Python.
+> Python 3.x non è compatibile con Python 2.7.xx.  `msgen` è un'applicazione Python 2.7. Quando si esegue `msgen`, assicurarsi che l'ambiente Python attivo usi una versione 2.7.xx di Python. Se si prova a usare `msgen` con una versione 3.x di Python potrebbero verificarsi errori.
 
-### <a name="install-the-microsoft-genomics-client"></a>Installare il client di Genomica di Microsoft
+### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Installare il client Python per Genomica di Microsoft `msgen`
 
-Usare `pip` di Python per installare il client `msgen` per Genomica di Microsoft. Le istruzioni seguenti presuppongono che Python sia già disponibile nel percorso di sistema. In caso di problemi dovuti al mancato riconoscimento dell'installazione tramite `pip`, è necessario aggiungere Python e la sottocartella degli script al percorso di sistema.
+Usare `pip` di Python per installare il client `msgen` per Genomica di Microsoft. Le istruzioni seguenti presuppongono che Python2.x sia già disponibile nel percorso di sistema. In caso di problemi dovuti al mancato riconoscimento dell'installazione di `pip`, è necessario aggiungere Python e la sottocartella degli script al percorso di sistema.
 
 ```
 pip install --upgrade --no-deps msgen
@@ -67,14 +67,9 @@ pip install msgen
 ```
 
 Se non si vuole installare `msgen` come file binario a livello di sistema e modificare i pacchetti Python a livello di sistema, usare il flag `–-user` con `pip`.
-Se si usa l'installazione basata su pacchetti o il file setup.py, vengono installati tutti i pacchetti necessari. In caso contrario, i pacchetti necessari di base per `msgen` sono 
+Quando si usa l'installazione basata su pacchetto o il file setup.py, vengono installati tutti i pacchetti necessari.
 
- * [Azure-storage](https://pypi.python.org/pypi/azure-storage). 
- * [Requests](https://pypi.python.org/pypi/requests). 
-
-È possibile installare questi pacchetti usando `pip`, `easy_install` o tramite procedure `setup.py` standard. 
-
-### <a name="test-the-microsoft-genomics-client"></a>Eseguire test del client di Genomica di Microsoft
+### <a name="test-msgen-python-client"></a>Testare il client Python `msgen`
 Per testare il client di Genomica di Microsoft, scaricare il file di configurazione dall'account di Genomica. Nel portale di Azure passare all'account Genomica facendo clic su **Tutti i servizi** in alto a sinistra, quindi cercare e selezionare gli account Genomica.
 
 ![Trovare Genomica di Microsoft nel portale di Azure](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Trovare Genomica di Microsoft nel portale di Azure")
@@ -119,18 +114,20 @@ Il servizio Genomica di Microsoft prevede letture di estremità abbinate (file f
 
 Nell'account di archiviazione è necessario creare un contenitore BLOB per i dati di input e un secondo contenitore BLOB per i dati di output.  Caricare i dati di input nel contenitore BLOB di input. È possibile usare diversi strumenti per questa procedura, tra cui [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) o [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
-## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft con il client Python 
+## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft con il client Python `msgen`
 
 Per eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft, modificare il file *config.txt* per specificare il contenitore di archiviazione di input e di output per i dati.
 Aprire il file *config.txt* scaricato dall'account Genomica. Le sezioni da specificare riguardano la chiave di sottoscrizione e i sei elementi nella parte inferiore, il nome dell'account di archiviazione, la chiave e il nome del contenitore per input e output. Queste informazioni sono disponibili nella sezione **Chiavi di accesso** del portale di Azure per l'account di archiviazione o direttamente da Azure Storage Explorer.  
 
-![Configurazione di Genomica](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Configurazione di Genomica")
+![Configurazione di Genomica](./media/quickstart-run-genomics-workflow-portal/genomics-config.PNG "Configurazione di Genomica")
 
 Se si vuole eseguire GATK4, impostare il parametro `process_name` su `gatk4`.
 
-Per impostazione predefinita, il servizio Genomica genera file VCF. Se si vuole ottenere un file gVCF anziché VCF come output (equivalente a `-emitRefConfidence` in GATK 3.x e `emit-ref-confidence` in GATK 4.x), aggiungere il parametro `emit_ref_confidence` al file *config.txt* e impostarlo su `gvcf`, come illustrato nella figura qui sopra.  Per tornare all'output VCF, rimuoverlo dal file *config.txt* o impostare il parametro `emit_ref_confidence` su `none`. 
+Per impostazione predefinita, il servizio Genomica genera file VCF. Se si vuole ottenere un file gVCF anziché VCF come output (equivalente a `-emitRefConfidence` in GATK 3.x e a `emit-ref-confidence` in GATK 4.x), aggiungere il parametro `emit_ref_confidence` al file *config.txt* e impostarlo su `gvcf`, come illustrato nella figura qui sopra.  Per tornare all'output VCF, rimuoverlo dal file *config.txt* o impostare il parametro `emit_ref_confidence` su `none`. 
 
-### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>Inviare il flusso di lavoro al servizio Genomica di Microsoft tramite il client di Genomica di Microsoft
+`bgzip` è uno strumento che comprime il file VCF o GVCF, mentre `tabix` crea un indice per il file compresso. Per impostazione predefinita, il servizio Genomica esegue `bgzip` seguito da `tabix` nell'output ".g.vcf", ma per impostazione predefinita non esegue questi strumenti per l'output ".vcf". Quando viene eseguito, il servizio produce file con estensione "gz" (output bgzip) e "tbi" (output tabix). L'argomento è un valore booleano, che per impostazione predefinita è impostato su false per l'output ".vcf" e su true per l'output ".g.vcf". Per usarlo nella riga di comando, specificare `-bz` o `--bgzip-output` come `true` (eseguire bgzip e tabix) oppure `false`. Per usare questo argomento nel file *config.txt*, aggiungere `bgzip_output: true` o `bgzip_output: false` al file.
+
+### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Inviare il flusso di lavoro al servizio Genomica di Microsoft con il client Python `msgen`
 
 Usare il client Python di Genomica di Microsoft per inviare il flusso di lavoro con il comando seguente:
 
@@ -146,4 +143,5 @@ msgen list -f c:\temp\config.txt
 Al termine del flusso di lavoro, è possibile visualizzare i file di output nell'account di archiviazione di Azure nel contenitore di output configurato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo sono stati caricati dati di input di esempio in Archiviazione di Azure ed è stato inviato un flusso di lavoro al servizio Genomica di Microsoft tramite il client `msgen` Python. Per altre informazioni su altri tipi di file di input che possono essere usati con il servizio Genomica di Microsoft, vedere le pagine seguenti: [paired FASTQ](quickstart-input-pair-FASTQ.md) (FASTQ abbinato)  | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) (Più FASTQ o BAM) È anche possibile esplorare questa esercitazione usando l'[esercitazione sui notebook di Azure](https://aka.ms/genomicsnotebook).
+
+In questo articolo sono stati caricati dati di input di esempio in Archiviazione di Azure ed è stato inviato un flusso di lavoro al servizio Genomica di Microsoft tramite il client `msgen` Python. Per altre informazioni su altri tipi di file di input che possono essere usati con il servizio Genomica di Microsoft, vedere le pagine seguenti: [paired FASTQ](quickstart-input-pair-FASTQ.md) (FASTQ abbinato)  | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) (Più FASTQ o BAM) È anche possibile esplorare questa esercitazione con l'[esempio di notebook di Azure](https://aka.ms/genomicsnotebook) scaricando il file "Genomics Tutorial.ipynb" e usando un lettore di notebook come [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) per aprire il file ed eseguirlo.

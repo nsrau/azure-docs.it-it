@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667316"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439556"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Panoramica di Azure FarmBeats (anteprima)
 
 Azure FarmBeats è un'offerta business-to-business disponibile in Azure Marketplace. Consente l'aggregazione di set di dati di agricoltura tra i provider. Azure FarmBeats consente di creare modelli di intelligenza artificiale (AI) o di Machine Learning (ML) basati su set di dati combinati. Con Azure FarmBeats, le aziende agricole possono concentrarsi sul valore aggiunto principale, anziché sulle attività più complesse indifferenziate dell'ingegneria dei dati.
 
 > [!NOTE]
-> Azure FarmBeats è attualmente disponibile in anteprima pubblica. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats è disponibile senza un contratto di servizio. Per ricevere supporto, usare il [forum su Azure FarmBeats](https://aka.ms/FarmBeatsMSDN ).
+> Azure FarmBeats è attualmente disponibile in anteprima pubblica. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats è disponibile senza un contratto di servizio. Per assistenza, usare il [forum di supporto su Azure FarmBeats](https://aka.ms/farmbeatssupport).
 
 ![Progetto FarmBeats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 

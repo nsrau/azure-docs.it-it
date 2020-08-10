@@ -1,7 +1,7 @@
 ---
 title: Gestione della concorrenza
 titleSuffix: Azure Storage
-description: Informazioni su come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file.
+description: Informazioni su come gestire la concorrenza in archiviazione di Azure per i servizi BLOB, di Accodamento, tabelle e file. Comprendere le tre strategie principali di concorrenza dei dati utilizzate.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1ec7661bc2823932328bd994ec7bc7f6167f13a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504288"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030385"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
 

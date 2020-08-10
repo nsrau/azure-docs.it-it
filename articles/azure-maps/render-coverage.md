@@ -1,6 +1,6 @@
 ---
 title: Copertura rendering | Mappe Microsoft Azure
-description: In questo articolo vengono fornite informazioni sulle aree con Microsoft Azure mapping di rendering con mapping insieme al relativo livello di dettagli di rendering.
+description: Scopri se mappe di Azure esegue il rendering di diverse aree con dati dettagliati o semplificati. Vedere il livello usato per le mappe raster e del riquadro vettoriale in tali aree.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 47dd619b4853e7167ae1b141c5741511075325c2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127911"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030929"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 

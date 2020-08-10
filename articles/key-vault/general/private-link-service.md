@@ -7,12 +7,13 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 95a999f38104e0bb3cfd6a510bd8f9e3d5440562
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 70a0620369792c1aaf2c11867fd468f42d6bb9ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521089"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494690"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrare Key Vault con Collegamento privato di Azure
 
@@ -233,6 +234,38 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-key-vault-name>.vault.azure.net
           <your-key-vault-name>.privatelink.vaultcore.azure.net
 ```
+
+## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
+
+* Verificare che l'endpoint privato sia nello stato approvato. 
+    1. È possibile controllare lo stato ed eventualmente correggerlo nel portale di Azure. Aprire la risorsa Key Vault e fare clic sull'opzione Rete. 
+    2. Selezionare quindi la scheda Connessioni endpoint privato. 
+    3. Verificare che lo stato della connessione sia Approvato e che lo stato del provisioning sia Riuscito. 
+    4. È anche possibile verificare le stesse proprietà nella risorsa endpoint privato e controllare che la rete virtuale corrisponda a quella in uso.
+
+* Verificare che sia presente una risorsa Zona DNS privato. 
+    1. Deve essere presente una risorsa Zona DNS privato con il nome esatto privatelink.vaultcore.azure.net. 
+    2. Per informazioni su come configurare questa risorsa, vedere il collegamento seguente. [Zone DNS privato](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    
+* Verificare che la zona DNS privato non sia collegata alla rete virtuale. Se continua a essere restituito l'indirizzo IP pubblico, la causa potrebbe essere questa. 
+    1. Se il DNS della zona privata non è collegato alla rete virtuale, la query DNS originata dalla rete virtuale restituirà l'indirizzo IP pubblico dell'insieme di credenziali delle chiavi. 
+    2. Passare alla risorsa Zona DNS privato nel portale di Azure e fare clic sull'opzione Collegamenti di rete virtuale. 
+    4. La rete virtuale che effettuerà le chiamate all'insieme di credenziali delle chiavi deve essere elencata. 
+    5. Se non lo è, aggiungerla. 
+    6. Per la procedura dettagliata, vedere [Collegare la rete virtuale alla zona DNS privato](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
+
+* Verificare che nella zona DNS privato non manchi un record A per l'insieme di credenziali delle chiavi. 
+    1. Passare alla pagina Zona DNS privato. 
+    2. Fare clic su Panoramica e controllare se è presente un record A con il semplice nome dell'insieme di credenziali delle chiavi (ad esempio fabrikam). Non specificare alcun suffisso.
+    3. Controllare l'ortografia e creare o correggere il record A. È possibile usare un valore TTL pari a 3600 (1 ora). 
+    4. Assicurarsi di specificare l'indirizzo IP privato corretto. 
+    
+* Verificare che l'indirizzo IP del record A sia corretto. 
+    1. È possibile verificare l'indirizzo IP aprendo la risorsa Endpoint privato nel portale di Azure. 
+    2. Nel portale di Azure passare alla risorsa Microsoft.Network/privateEndpoints (non alla risorsa Key Vault).
+    3. Nella pagina di panoramica cercare Interfaccia di rete e fare clic su tale collegamento. 
+    4. Il collegamento visualizzerà la panoramica della risorsa Scheda di interfaccia di rete, che contiene la proprietà Indirizzo IP privato. 
+    5. Verificare che sia l'indirizzo IP corretto specificato nel record A.
 
 ## <a name="limitations-and-design-considerations"></a>Limitazioni e considerazioni di progettazione
 

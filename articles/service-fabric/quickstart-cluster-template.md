@@ -6,13 +6,13 @@ ms.service: service-fabric
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
-ms.date: 04/24/2020
-ms.openlocfilehash: 70b5387e5e58bd30aa61feefc1bf4e5e98af9b1d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/29/2020
+ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259342"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460304"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Avvio rapido: Configurare un cluster di Service Fabric mediante un modello di Resource Manager
 
@@ -42,7 +42,7 @@ Per completare questa guida di avvio rapido, è necessario:
 
 Clonare o scaricare il repository dei [Modelli di avvio rapido di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). In alternativa, copiare localmente i file seguenti, che verranno usati dalla cartella *service-fabric-secure-cluster-5-node-1-nodetype*:
 
-* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
 * [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
 * [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
@@ -68,10 +68,10 @@ $keyVaultName = "SFQuickstartKV"
 New-AzResourceGroup -Name $resourceGroupName -Location SouthCentralUS
 
 # Create a Key Vault enabled for deployment
-New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $resourceGroupName -Location SouthCentralUS -EnabledForDeployment
+New-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $resourceGroupName -Location SouthCentralUS -EnabledForDeployment
 
 # Generate a certificate and upload it to Key Vault
-.\New-ServiceFabricClusterCertificate.ps1
+.\scripts\New-ServiceFabricClusterCertificate.ps1
 ```
 
 Lo script richiederà di eseguire le operazioni seguenti (assicurarsi di modificare *CertDNSName* e *KeyVaultName* in base ai valori di esempio seguenti):
@@ -178,6 +178,18 @@ Quando non è più necessario, eliminare il gruppo di risorse per eliminare tutt
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
+```
+
+Quindi, rimuovere il certificato del cluster dall'archivio locale. Visualizzare l'elenco dei certificati installati per trovare l'identificazione personale del cluster:
+
+```powershell
+Get-ChildItem Cert:\CurrentUser\My\
+```
+
+Quindi, rimuovere il certificato:
+
+```powershell
+Get-ChildItem Cert:\CurrentUser\My\{THUMBPRINT} | Remove-Item
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

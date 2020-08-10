@@ -9,19 +9,19 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 6dc0bb08e3d824c1d3fea155d1b3d4c52e1af4a6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765081"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499841"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gestire l'accesso ad aree di lavoro, dati e pipeline
 
 Informazioni su come gestire il controllo di accesso ad aree di lavoro, dati e pipeline in un'area di lavoro di Azure Synapse Analytics (anteprima).
 
 > [!NOTE]
-> Per la disponibilità generale, il controllo degli accessi in base al ruolo verrà sviluppato ulteriormente con l'introduzione di ruoli di Azure specifici di Synapse
+> Per la disponibilità generale, il controllo degli accessi in base al ruolo verrà ulteriormente sviluppato con l'introduzione di ruoli di Azure specifici di Synapse
 
 ## <a name="access-control-for-workspace"></a>Controllo di accesso per l'area di lavoro
 

@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e44b58335bf90dbc0e97b58de7f878bc94c91c7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371958"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528464"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Caricare i dati in modo sicuro tramite Synapse SQL
 
@@ -88,13 +88,13 @@ L'autenticazione dell'identità gestita è obbligatoria quando l'account di arch
    > [!NOTE]
    > Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo **Proprietario, collaboratore o lettore dei dati dei BLOB di archiviazione** per il controllo degli accessi in base al ruolo al server SQL.
+3. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di Azure **Proprietario, collaboratore o lettore dei dati dei BLOB di archiviazione** al server SQL.
 
    > [!NOTE]
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per informazioni sui diversi ruoli predefiniti di Azure, vedere questa [guida](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
     > [!IMPORTANT]
-    > Specificare il ruolo Proprietario, collaboratore o lettore dei **dati dei BLOB** **di archiviazione** per il controllo degli accessi in base al ruolo. Questi ruoli sono diversi da quelli predefiniti di Azure di proprietario, collaboratore e lettore. 
+    > Specificare il ruolo di Azure Proprietario, collaboratore o lettore dei **dati dei BLOB** **di archiviazione**. Questi ruoli sono diversi da quelli predefiniti di Azure di proprietario, collaboratore e lettore. 
 
     ![Concessione dell'autorizzazione del controllo degli accessi in base al ruolo per il caricamento](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
@@ -112,10 +112,10 @@ L'autenticazione dell'identità gestita è obbligatoria quando l'account di arch
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticazione di Azure Active Directory (AAD)
 #### <a name="steps"></a>Passaggi
 
-1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo **Proprietario, collaboratore o lettore dei dati dei BLOB di archiviazione** per il controllo degli accessi in base al ruolo all'utente AAD. 
+1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di Azure **Proprietario, collaboratore o lettore dei dati dei BLOB di archiviazione** all'utente di AAD. 
 
     > [!IMPORTANT]
-    > Specificare il ruolo Proprietario, collaboratore o lettore dei **dati dei BLOB** **di archiviazione** per il controllo degli accessi in base al ruolo. Questi ruoli sono diversi da quelli predefiniti di Azure di proprietario, collaboratore e lettore.
+    > Specificare il ruolo di Azure Proprietario, collaboratore o lettore dei **dati dei BLOB** **di archiviazione**. Questi ruoli sono diversi da quelli predefiniti di Azure di proprietario, collaboratore e lettore.
 
     ![Concessione dell'autorizzazione del controllo degli accessi in base al ruolo per il caricamento](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 

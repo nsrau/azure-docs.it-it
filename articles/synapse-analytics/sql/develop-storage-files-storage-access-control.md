@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283453"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534771"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controllare l'accesso agli account di archiviazione per SQL su richiesta (anteprima)
 
@@ -89,7 +89,7 @@ Nella tabella seguente è possibile trovare i tipi di autorizzazione disponibili
 
 
 > [!IMPORTANT]
-> Quando si accede a uno spazio di archiviazione protetto da firewall, è possibile usare solo l'identità gestita. È necessario usare l'impostazione [Consenti servizi Microsoft attendibili](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [assegnare esplicitamente un ruolo di controllo degli accessi in base al ruolo](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) all'[identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per tale istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di controllo degli accessi in base al ruolo assegnato all'identità gestita.
+> Quando si accede a uno spazio di archiviazione protetto da firewall, è possibile usare solo l'identità gestita. È necessario usare l'impostazione [Consenti servizi Microsoft attendibili](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [assegnare un ruolo di Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) in modo esplicito all'[identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per tale istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
 >
 
 ## <a name="credentials"></a>Credenziali
@@ -219,7 +219,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>Esempi
 
-**Accesso a un'origine dati disponibile pubblicamente**
+### <a name="access-a-publicly-available-data-source"></a>**Accedere a un'origine dati disponibile pubblicamente**
 
 Usare lo script seguente per creare una tabella che accede all'origine dati disponibile pubblicamente.
 
@@ -248,7 +248,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**Accesso a un'origine dati tramite credenziali**
+### <a name="access-a-data-source-using-credentials"></a>**Accedere a un'origine dati tramite credenziali**
 
 Modificare lo script seguente per creare una tabella esterna che accede ad Archiviazione di Azure tramite il token di firma di accesso condiviso, l'identità di Azure AD dell'utente o l'identità gestita dell'area di lavoro.
 

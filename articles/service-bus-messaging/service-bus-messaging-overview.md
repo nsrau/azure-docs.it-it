@@ -3,12 +3,12 @@ title: Panoramica della messaggistica del bus di servizio di Azure | Microsoft D
 description: Questo articolo fornisce una panoramica di alto livello del bus di servizio di Azure, un broker di messaggi di integrazione aziendale completamente gestito.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341665"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501475"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
@@ -92,7 +92,7 @@ Un errore può causare nel cliente un dubbio sul risultato di un'operazione di i
 ### <a name="security-protocols"></a>Protocolli di sicurezza
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-Il bus di servizio supporta i protocolli di sicurezza, ad esempio [firme di accesso condiviso](service-bus-sas.md), [controllo degli accessi in base al ruolo](authenticate-application.md) e [identità gestite per risorse di Azure](service-bus-managed-service-identity.md).
+Il bus di servizio supporta protocolli di sicurezza come le [firme di accesso condiviso](service-bus-sas.md), il [controllo degli accessi in base al ruolo di Azure](authenticate-application.md) e le [identità gestite per risorse di Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Ripristino di emergenza geografico
 

@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/09/2020
-ms.openlocfilehash: aabb42dc8d86e500875819cbfc169bcc86733219
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/30/2020
+ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100959"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499552"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Avvio rapido: Creare e gestire app per la logica usando l'interfaccia della riga di comando di Azure
 
@@ -271,3 +271,11 @@ Con i comandi `az logic` è possibile usare i parametri facoltativi globali dell
 | Debug | `--debug` | Mostra tutti i log di debug. |
 | Messaggio di aiuto | `--help -h` | Visualizza la finestra della Guida. |
 | Query | `--query` | Imposta una stringa di query JMESPath per l'output JSON. |
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/?view=azure-cli-latest).
+
+Per un esempio di come creare un'app per la logica di base tramite l'interfaccia della riga di comando, vedere lo [script di esempio e la definizione di flusso di lavoro](sample-logic-apps-cli-script.md).
+
+Per altri esempi di script dell'interfaccia della riga di comando di App per la logica, vedere [Esplora gli esempi di codice](/samples/browse/?products=azure-logic-apps).

@@ -1,18 +1,18 @@
 ---
 title: Pianificazione per la distribuzione di Sincronizzazione file di Azure | Microsoft Docs
-description: Informazioni sugli aspetti da considerare quando si pianifica una distribuzione di File di Azure.
+description: Pianificare una distribuzione con Sincronizzazione file di Azure, un servizio che consente di memorizzare nella cache un numero di condivisioni file di Azure in una VM Windows Server o cloud locale.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036795"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030671"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -326,14 +326,14 @@ Sincronizzazione file di Azure è disponibile nelle aree seguenti:
 | Pubblico | Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | `uaenorth` |
 | Pubblico | Regno Unito | Regno Unito meridionale | `uksouth` |
 | Pubblico | Regno Unito | Regno Unito occidentale | `ukwest` |
-| Pubblico | US | Stati Uniti centrali | `centralus` |
-| Pubblico | US | Stati Uniti orientali | `eastus` |
-| Pubblico | US | Stati Uniti orientali 2 | `eastus2` |
-| Pubblico | US | Stati Uniti centro-settentrionali | `northcentralus` |
-| Pubblico | US | Stati Uniti centro-meridionali | `southcentralus` |
-| Pubblico | US | Stati Uniti centro-occidentali | `westcentralus` |
-| Pubblico | US | Stati Uniti occidentali | `westus` |
-| Pubblico | US | Stati Uniti occidentali 2 | `westus2` |
+| Pubblico | Stati Uniti | Stati Uniti centrali | `centralus` |
+| Pubblico | Stati Uniti | Stati Uniti orientali | `eastus` |
+| Pubblico | Stati Uniti | Stati Uniti orientali 2 | `eastus2` |
+| Pubblico | Stati Uniti | Stati Uniti centro-settentrionali | `northcentralus` |
+| Pubblico | Stati Uniti | Stati Uniti centro-meridionali | `southcentralus` |
+| Pubblico | Stati Uniti | Stati Uniti centro-occidentali | `westcentralus` |
+| Pubblico | Stati Uniti | Stati Uniti occidentali | `westus` |
+| Pubblico | Stati Uniti | Stati Uniti occidentali 2 | `westus2` |
 | US Gov | Stati Uniti | US Gov Arizona | `usgovarizona` |
 | US Gov | Stati Uniti | US Gov Texas | `usgovtexas` |
 | US Gov | Stati Uniti | US Gov Virginia | `usgovvirginia` |

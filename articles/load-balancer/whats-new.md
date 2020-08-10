@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 8b44dc230dbee1b29b9889a1b81e35ebe25f6b97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c5133b9c012b628e43e956c56d5112e1ad4649
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078694"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447020"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Novità di Azure Load Balancer
 
@@ -34,6 +34,16 @@ Azure Load Balancer viene aggiornato regolarmente. Restare aggiornati con gli ul
 | Convalida | Aggiunta della convalida per le porte a disponibilità elevata | È stata aggiunta una convalida per garantire che le regole delle porta a disponibilità elevata e non a disponibilità elevata siano configurabili solo quando è abilitata l'opzione IP mobile. In precedenza, questa configurazione era accettata, ma non funzionava come previsto. Non è stata apportata alcuna modifica alla funzionalità. Per altre informazioni, fare clic [qui](load-balancer-ha-ports-overview.md#limitations)| Giugno 2020 |
 | Funzionalità| Supporto di IPv6 per Azure Load Balancer (disponibile a livello generale) | È possibile avere indirizzi IPv6 come front-end per Azure Load Balancer. Vedere come [creare un'applicazione dual stack](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |Aprile 2020|
 | Funzionalità| Reimpostazioni di TCP al timeout di inattività (disponibile a livello generale)| Usare le reimpostazioni di TCP per creare un comportamento più prevedibile dell'applicazione. [Altre informazioni](load-balancer-tcp-reset.md)| Febbraio 2020 |
+
+## <a name="known-issues"></a>Problemi noti
+
+Il gruppo responsabile dei prodotti sta lavorando attivamente alla risoluzione dei seguenti problemi noti:
+
+|Problema |Descrizione  |Strategia di riduzione del rischio  |
+| ---------- |---------|---------|
+| Esportazione in Log Analytics | Log Analytics non è in grado di esportare le metriche per Load Balancer Standard né i log di stato del probe di integrità per Load Balancer Basic  | [Usare Monitoraggio di Azure per le metriche multidimensionali per Load Balancer Standard](load-balancer-standard-diagnostics.md). Mentre non è possibile usare Log Analytics per il monitoraggio, Monitoraggio di Azure consente di visualizzare un set completo di metriche multidimensionali. È possibile sfruttare il dashboard delle metriche preconfigurate tramite il sottopannello Informazioni dettagliate di Load Balancer. Se si usa Load Balancer Basic, [eseguire l'aggiornamento alla versione Standard](upgrade-basic-standard.md) per il monitoraggio delle metriche a livello di produzione.
+
+  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

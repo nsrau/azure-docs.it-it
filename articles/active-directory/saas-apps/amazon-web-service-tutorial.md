@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b6ba110264ae3826093222e9cd3c4073bc17f0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0e16fdaed8ce7e73718569652e88e66844850175
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683586"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416570"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Amazon Web Services (AWS)
 
@@ -105,7 +105,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** l'applicazione è preconfigurata e gli URL necessari sono già prepopolati con Azure. L'utente deve salvare la configurazione selezionando **Salva**.
+1. Nella sezione **Configurazione SAML di base** aggiornare **Identificatore (ID entità)** e **URL di risposta** con lo stesso valore predefinito: `https://signin.aws.amazon.com/saml`. Per salvare le modifiche alla configurazione, è necessario selezionare **Salva**.
 
 1. Quando si configura più di un'istanza, specificare un valore per l'identificatore. Dalla seconda istanza in poi, usare il formato seguente, che include una firma **#** per specificare un valore SPN univoco.
 
@@ -123,7 +123,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | Ruolo            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessionDuration             | "inserire un valore compreso tra 900 secondi (15 minuti) e 43200 secondi (12 ore)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** nella finestra di dialogo **Certificato di firma SAML** (Passaggio 3) selezionare **Aggiungi un certificato**.
+
+    ![Creare un nuovo certificato SAML](common/add-saml-certificate.png)
+
+1. Generare un nuovo certificato di firma SAML e quindi selezionare **Nuovo certificato**. Immettere un indirizzo di posta elettronica per le notifiche relative ai certificati.
+   
+    ![Nuovo certificato SAML](common/new-saml-certificate.png) 
+
+1. Nella sezione **Certificato di firma SAML** trovare **XML metadati federazione** e quindi selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 

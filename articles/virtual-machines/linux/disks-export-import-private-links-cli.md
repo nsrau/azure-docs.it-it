@@ -8,12 +8,12 @@ ms.date: 07/15/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9184dc78f0f9f8d7997e0bb64bc4521e19364cfe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5df11e704987098d61ced7afbff5e6234d4d5f04
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535592"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420286"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Interfaccia della riga di comando di Azure - Limitare l'accesso dell'importazione/esportazione per i dischi gestiti con collegamenti privati (anteprima)
 
@@ -31,17 +31,13 @@ Per usare i Collegamenti privati per esportare/importare i dischi gestiti, crear
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../../includes/virtual-machines-disks-private-links-regions.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
-
-Per usare endpoint privati per l'esportazione e l'importazione di dischi gestiti, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a mdprivatelinks@microsoft.com con gli ID sottoscrizione per abilitare la funzionalità per le sottoscrizioni.
-
 ## <a name="log-in-into-your-subscription-and-set-your-variables"></a>Accedere alla sottoscrizione e impostare le variabili
 
 ```azurecli-interactive
 
 subscriptionId=yourSubscriptionId
 resourceGroupName=yourResourceGroupName
-region=CentralUSEUAP
+region=northcentralus
 diskAccessName=yourDiskAccessForPrivateLinks
 vnetName=yourVNETForPrivateLinks
 subnetName=yourSubnetForPrivateLinks
@@ -63,7 +59,7 @@ az account set --subscription $subscriptionId
 ## <a name="create-a-disk-access-using-azure-cli"></a>Creare un accesso al disco usando l'interfaccia della riga di comando
 ```azurecli-interactive
 az group deployment create -g $resourceGroupName \
---template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddisksprivatelinks/master/CreateDiskAccess.json" \
+--template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDiskAccess.json" \
 --parameters "region=$region" "diskAccessName=$diskAccessName"
 
 diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
@@ -121,13 +117,43 @@ az network private-endpoint dns-zone-group create \
    --private-dns-zone "privatelink.blob.core.windows.net" \
    --zone-name disks
 ```
+
+## <a name="create-a-disk-protected-with-private-links"></a>Creare un disco protetto con i collegamenti privati
+  ```cli
+    resourceGroupName=yourResourceGroupName
+    region=northcentralus
+    diskAccessName=yourDiskAccessName
+    diskName=yourDiskName
+    diskSkuName=Standard_LRS
+    diskSizeGB=128
+
+    diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+
+    az group deployment create -g $resourceGroupName \
+       --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDisksWithExportViaPrivateLink.json" \
+       --parameters "diskName=$diskName" \
+       "diskSkuName=$diskSkuName" \
+       "diskSizeGB=$diskSizeGB" \
+       "diskAccessId=$diskAccessId" \
+       "region=$region" \
+       "networkAccessPolicy=AllowPrivate"
+```
+
 ## <a name="create-a-snapshot-of-a-disk-protected-with-private-links"></a>Creare uno snapshot di un disco protetto con i collegamenti privati
    ```cli
-   diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o tsv)
+    resourceGroupName=yourResourceGroupName
+    region=northcentralus
+    diskAccessName=yourDiskAccessName
+    sourceDiskName=yourSourceDiskForSnapshot
+    snapshotNameSecuredWithPL=yourSnapshotName
+
+    diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o tsv)
    
-   az group deployment create -g $resourceGroupName \
-      --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddisksprivatelinks/master/CreateSnapshotWithExportViaPrivateLink.json" \
-      --parameters "snapshotNameSecuredWithPL=$snapshotNameSecuredWithPL" \
+    diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+   
+    az group deployment create -g $resourceGroupName \
+      --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateSnapshotWithExportViaPrivateLink.json" \
+      --parameters "snapshotName=$snapshotNameSecuredWithPL" \
       "sourceResourceId=$diskId" \
       "diskAccessId=$diskAccessId" \
       "region=$region" \
@@ -137,4 +163,4 @@ az network private-endpoint dns-zone-group create \
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Domande frequenti sui collegamenti privati](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Esportare/copiare snapshot gestiti come disco rigido virtuale in un account di archiviazione di un'area diversa con PowerShell](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Esportare/copiare snapshot gestiti come disco rigido virtuale in un account di archiviazione di un'area diversa con l'interfaccia della riga di comando](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md)

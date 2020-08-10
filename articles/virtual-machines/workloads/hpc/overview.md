@@ -1,54 +1,50 @@
 ---
-title: High Performance Computing in macchine virtuali serie H - Macchine virtuali di Azure
-description: Informazioni sulle funzionalità e le caratteristiche delle macchine virtuali serie H ottimizzate per HPC.
+title: High Performance Computing in macchine virtuali serie H e serie N abilitate per InfiniBand - Macchine virtuali di Azure
+description: Informazioni sulle funzionalità e le caratteristiche delle VM serie H e serie N abilitate per InfiniBand e ottimizzate per HPC.
 author: vermagit
 ms.author: amverma
-tags: azure-resource-manager
 ms.service: virtual-machines
+ms-subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: overview
-ms.date: 07/02/2019
-ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/29/2020
+ms.openlocfilehash: f9a672777fbc8a75cb6af10ba25232f8a274c894
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083430"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543725"
 ---
-# <a name="high-performance-computing-on-h-series-vms"></a>High Performance Computing in macchine virtuali serie H
+# <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>High Performance Computing in macchine virtuali serie H e serie N abilitate per InfiniBand
 
-La funzionalità High Performance Computing (HPC) nelle macchine virtuali serie HB e HC offre la massima ottimizzazione delle prestazioni di HPC di qualsiasi macchina virtuale in Azure. Le macchine virtuali ottimizzate per HPC vengono usate per risolvere alcuni dei più complessi problemi matematici, come la fluidodinamica, la simulazione di petrolio e gas e la creazione di modelli meteorologici.
+Le macchine virtuali serie H e serie N abilitate per InfiniBand di Azure sono progettate per offrire prestazioni senza confronti, scalabilità MPI (Message Passing Interface) e convenienza per una varietà di carichi di lavoro HPC reali e di intelligenza artificiale. Queste VM ottimizzate per HPC (High Performance Computing) vengono usate per risolvere alcuni problemi che comportano un utilizzo elevato delle risorse di calcolo nel campo delle scienze e dell'ingegneria, come la fluidodinamica, la modellazione geologica, le simulazioni meteorologiche e così via.
 
-Questo articolo descrive alcune delle funzionalità principali delle macchine virtuali serie HB e HC, spiega il motivo per cui queste macchine virtuali sono ideali in scenari HPC e illustra come iniziare a usarle.
+Questi articoli forniscono informazioni introduttive sulle macchine virtuali serie H e serie N abilitate per InfiniBand in Azure e sulla configurazione ottimale dei carichi di lavoro HPC e di intelligenza artificiale nelle VM ai fini della scalabilità.
 
 ## <a name="features-and-capabilities"></a>Funzionalità e caratteristiche
 
-Le macchine virtuali serie HB e HC sono progettate per offrire le migliori prestazioni in termini di HPC, scalabilità MPI (Message Passing Interface) ed economicità per i carichi di lavoro HPC.
-
-### <a name="message-passing-interface"></a>Message Passing Interface
-
-Le serie HB e HC supportano quasi tutti i tipi e le versioni di MPI. Alcuni dei più comuni tipi MPI supportati sono: OpenMPI, MVAPICH2, Platform MPI, Intel MPI e tutti i verbi di Accesso diretto a memoria remota (RDMA). Per altre informazioni, vedere [Configurare Message Passing Interface per HPC](setup-mpi.md).
+Le macchine virtuali serie H e serie N abilitate per InfiniBand sono progettate per offrire le migliori prestazioni in termini di HPC, scalabilità MPI (Message Passing Interface) ed economicità per i carichi di lavoro HPC. Vedere gli articoli sulle VM [serie H](../../sizes-hpc.md) e [serie N](../../sizes-gpu.md) per altre informazioni sulle funzionalità e caratteristiche di queste VM.
 
 ### <a name="rdma-and-infiniband"></a>RDMA e InfiniBand
 
-L'interfaccia RDMA è standard nelle macchine virtuali serie HB e HC. Le istanze con supporto per RDMA comunicano attraverso una rete InfiniBand che opera a velocità dati avanzate (EDR) per le macchine virtuali serie HB e HC. Le istanze con supporto per RDMA possono migliorare la scalabilità e le prestazioni di alcune applicazioni MPI.
+Le macchine virtuali [serie H](../../sizes-hpc.md) e [serie N](../../sizes-gpu.md) [con supporto RDMA](../../sizes-hpc.md#rdma-capable-instances) comunicano attraverso la rete InfiniBand a bassa latenza e larghezza di banda elevata. La funzionalità RDMA su un'interconnessione di questo tipo è fondamentale per migliorare la scalabilità e le prestazioni dei carichi di lavoro HPC e di intelligenza artificiale su nodi distribuiti. Le macchine virtuali serie H e serie N abilitate per InfiniBand sono connesse in strutture Fat Tree non bloccanti a diametro ridotto per prestazioni RDMA ottimizzate e coerenti.
+Per altre informazioni sulla configurazione di InfiniBand nelle macchine virtuali abilitate per Infiniband, vedere [Abilitare InfiniBand](enable-infiniband.md).
 
-La configurazione InfiniBand che supporta le macchine virtuali serie HB e HC è costituita da strutture Fat Tree non bloccanti a diametro ridotto per prestazioni RDMA coerenti.
+### <a name="message-passing-interface"></a>Message Passing Interface
 
-Per altre informazioni sulla configurazione di InfiniBand nelle macchine virtuali serie HB e HC, vedere [Abilitare InfiniBand](enable-infiniband.md).
+Le serie H e N abilitate per SR-IOV supportano quasi tutte le librerie e le versioni MPI. Alcune delle più comuni librerie MPI supportate sono: Intel MPI, OpenMPI, MPICH, MVAPICH2, Platform MPI e tutti i verbi di Accesso diretto a memoria remota (RDMA).
+Per altre informazioni sull'installazione delle varie librerie MPI supportate e sulla relativa configurazione ottimale, vedere [Configurare MPI](setup-mpi.md).
 
 ## <a name="get-started"></a>Introduzione
 
-Innanzitutto, decidere quale macchina virtuale serie H si intende usare. Per informazioni dettagliate sulle macchine virtuali ottimizzate per HPC, vedere la [panoramica sulla serie HB](hb-series-overview.md) e la [panoramica sulla serie HC](hc-series-overview.md). Per le specifiche, vedere l'articolo sulle [dimensioni delle macchine virtuali HPC](../../sizes-hpc.md).
-
-Dopo aver selezionato e creato una macchina virtuale per l'applicazione, è necessario configurarla abilitando InfiniBand. Per informazioni su come abilitare InfiniBand in macchine virtuali Windows e Linux, vedere [Abilitare InfiniBand](enable-infiniband.md).
-
-MPI è un componente essenziale dei carichi di lavoro HPC. Le serie HB e HC supportano quasi tutti i tipi e le versioni di MPI. Per altre informazioni, vedere [Configurare Message Passing Interface per HPC](setup-mpi.md).
-
-Dopo aver scelto la serie di macchine virtuali, configurare Infiniband e MPI per iniziare a creare carichi di lavoro HPC.
+Il primo passaggio consiste nel selezionare il tipo di VM [serie H](../../sizes-hpc.md) e [serie N](../../sizes-gpu.md) ottimale per il carico di lavoro in base alle specifiche delle VM e alla [funzionalità RDMA](../../sizes-hpc.md#rdma-capable-instances).
+Occorre poi configurare la VM abilitando InfiniBand. A questo scopo sono disponibili vari metodi, tra cui l'uso di immagini di VM ottimizzate con driver incorporati. Per altre informazioni, vedere [Ottimizzazione per Linux](configure.md) e [Abilitare InfiniBand](enable-infiniband.md).
+Il terzo passaggio consiste nella scelta e nella configurazione di MPI, fondamentale per i carichi di lavoro nei nodi distribuiti. Per altre informazioni, vedere [Configurare MPI](setup-mpi.md).
+Come quarto passaggio, ai fini delle prestazioni e della scalabilità, occorre configurare in modo ottimale i carichi di lavoro seguendo le indicazioni specifiche della famiglia di VM, ad esempio la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulle differenze principali e le specifiche, vedere la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md).
-
+- Informazioni sulla [configurazione e l'ottimizzazione](configure.md) delle VM [serie H](../../sizes-hpc.md) e [serie N](../../sizes-gpu.md) abilitate per InfiniBand.
+- Esaminare la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md) per informazioni su come configurare in modo ottimale i carichi di lavoro ai fini delle prestazioni e della scalabilità.
+- Leggere gli ultimi annunci e alcuni esempi HPC e risultati nei [blog della community tecnica di Calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Per un quadro generale sull'architettura per l'esecuzione di carichi di lavoro HPC, vedere [HPC (High Performance Computing) in Azure](/azure/architecture/topics/high-performance-computing/).
