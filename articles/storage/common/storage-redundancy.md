@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827844"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034465"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -51,11 +51,13 @@ L'archiviazione con ridondanza locale è una scelta ottimale per gli scenari seg
 
 L'archiviazione con ridondanza della zona (ZRS) replica i dati di Archiviazione di Azure in modo sincrono in tre zone di disponibilità di Azure nell'area primaria. Ogni zona di disponibilità è una posizione fisica separata con alimentazione, raffreddamento e rete indipendenti. L'archiviazione con ridondanza della zona offre almeno il 99,9999999999% (12 nove) di durabilità degli oggetti di Archiviazione di Azure nell'arco di un anno specifico.
 
-Con l'archiviazione con ridondanza della zona i dati sono ancora accessibili per le operazioni di lettura e scrittura anche se una zona non è più disponibile. Quando una zona non è disponibile, Azure avvia gli aggiornamenti di rete, ad esempio la modifica del puntamento DNS. Questi aggiornamenti possono interessare l'applicazione se l'utente accede ai dati prima che gli aggiornamenti siano stati completati. Quando si progettano le applicazioni per l'archiviazione con ridondanza della zona, è consigliabile seguire le procedure per la gestione degli errori temporanei, tra cui l'implementazione dei criteri di ripetizione con backoff esponenziale.
+Con l'archiviazione con ridondanza della zona i dati sono ancora accessibili per le operazioni di lettura e scrittura anche se una zona non è più disponibile. Se una zona non è più disponibile, Azure sottomette gli aggiornamenti di rete, ad esempio il reindirizzamento DNS. Questi aggiornamenti possono interessare l'applicazione se l'utente accede ai dati prima che gli aggiornamenti siano stati completati. Quando si progettano le applicazioni per l'archiviazione con ridondanza della zona, è consigliabile seguire le procedure per la gestione degli errori temporanei, tra cui l'implementazione dei criteri di ripetizione con backoff esponenziale.
 
 Una richiesta di scrittura in un account di archiviazione che usa l'archiviazione con ridondanza della zona viene eseguita in modo sincrono. L'operazione di scrittura viene restituita correttamente solo dopo che i dati sono stati scritti in tutte le repliche nelle tre zone di disponibilità.
 
-È consigliabile usare l'archiviazione con ridondanza della zona nell'area primaria per scenari che richiedono coerenza, durabilità e disponibilità elevata. L'archiviazione con ridondanza della zona offre prestazioni ottimali, bassa latenza e resilienza per i dati in caso di temporanea indisponibilità. Tuttavia, l'archiviazione con ridondanza della zona in sé potrebbe non proteggere i dati in caso di un'emergenza a livello di area in cui più zone sono interessate in modo permanente. Per la protezione da emergenze a livello di area, Microsoft consiglia di usare l'[archiviazione con ridondanza geografica della zona](#geo-zone-redundant-storage) (GZRS), che usa l'archiviazione con ridondanza della zona nell'area primaria ed esegue la replica geografica dei dati in un'area secondaria.
+È consigliabile usare l'archiviazione con ridondanza della zona nell'area primaria per scenari che richiedono coerenza, durabilità e disponibilità elevata. Si consiglia inoltre di usare ZRS se si vuole limitare un'applicazione per la replica dei dati solo all'interno di un paese o di un'area a causa dei requisiti di governance dei dati.
+
+L'archiviazione con ridondanza della zona offre prestazioni ottimali, bassa latenza e resilienza per i dati in caso di temporanea indisponibilità. Tuttavia, l'archiviazione con ridondanza della zona in sé potrebbe non proteggere i dati in caso di un'emergenza a livello di area in cui più zone sono interessate in modo permanente. Per la protezione da emergenze a livello di area, Microsoft consiglia di usare l'[archiviazione con ridondanza geografica della zona](#geo-zone-redundant-storage) (GZRS), che usa l'archiviazione con ridondanza della zona nell'area primaria ed esegue la replica geografica dei dati in un'area secondaria.
 
 La tabella seguente illustra i tipi di account di archiviazione che supportano l'archiviazione con ridondanza della zona e le relative aree:
 

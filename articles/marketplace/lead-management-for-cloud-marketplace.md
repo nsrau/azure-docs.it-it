@@ -1,5 +1,5 @@
 ---
-title: Gestione dei lead per il marketplace commerciale | Azure Marketplace e AppSource
+title: Gestione dei lead per il Marketplace commerciale | Azure Marketplace e AppSource
 description: Panoramica dei vari argomenti relativi alla pubblicazione di offerte ed elementi tecnici in Azure Marketplace e AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119447"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035179"
 ---
-# <a name="lead-management-for-commercial-marketplace"></a>Gestione dei lead per il marketplace commerciale
+# <a name="lead-management-for-the-commercial-marketplace"></a>Gestione dei lead per il Marketplace commerciale
 
 I clienti costituiscono il fulcro di qualsiasi attività valida. Nella trasformazione odierna delle acquisizioni di prodotti, gli addetti al marketing devono concentrarsi sulla connessione diretta con i clienti e la creazione di una relazione. Ecco perché la generazione di lead di alta qualità è uno strumento fondamentale per il ciclo di vendita. Dopo la presentazione dell'offerta nel [Centro per i partner](https://partner.microsoft.com/), sono disponibili strumenti che consentono di ricevere le informazioni di contatto del cliente a livello di codice immediatamente dopo che il cliente esprime interesse o distribuisce il prodotto nel marketplace. 
 

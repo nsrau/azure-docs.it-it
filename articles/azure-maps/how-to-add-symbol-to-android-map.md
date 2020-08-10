@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un livello di simbolo ad Android Maps | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come eseguire il rendering dei dati di un punto su una mappa aggiungendovi un livello di simbolo usando il Android SDK Microsoft Azure maps.
+description: Informazioni su come aggiungere un marcatore a una mappa. Vedere un esempio che usa le mappe di Azure Android SDK per aggiungere un livello di simboli che contiene dati basati su punti da un'origine dati.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 528c5a5ba4314e44334548334e312d1111768cf5
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 99a4f69a814314b233a3129ed31d18ffa1682d8d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127078"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037389"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Aggiungere un livello di simbolo a una mappa usando Azure Maps Android SDK
 

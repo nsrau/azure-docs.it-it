@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: c1e1d26418410bea9ecdb9827bf347a2c585ab3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 757f729caa7ea8a038a29f8e0a56465848b774ad
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520171"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035111"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -24,7 +24,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 |:--- |:--- |:--- |:--- |
 | 1 | Clienti potenziali destinatari | Clienti potenziali destinatari configurati.| Il catalogo One Commercial Partner (OCP) contiene le informazioni CRM relative ai clienti potenziali destinatari presenti anche nella scheda della soluzione partner. |
 | 2 | Titolo dell'offerta | Descrive in modo sintetico la soluzione offerta. Corrisponde alla promozione online della soluzione nel sito Web del partner. | Contiene parole chiave di ricerca. |
-| 3 | Logo | Il logo viene visualizzato correttamente. | Il logo viene visualizzato correttamente e include un'immagine del banner, corrispondente all'immagine in formato di grandi dimensioni nel portale di Azure. |
+| 3 | Logo | Il logo viene visualizzato correttamente. | Il logo viene visualizzato correttamente. |
 | 4 |  Descrizione dell'offerta | <ul><li> Comprende 2-3 paragrafi.</li><li>La soluzione offerta è immediatamente comprensibile.</li><li>Non contiene errori di ortografia e grammatica.</li><li>È completa e contiene destinatari, tipo di utente e proposta di valore.</li><li>È in formato descrittivo e suddivisa in paragrafi, con frasi brevi e facili da comprendere.</li></ul> | <ul><li> È indicato il settore di destinazione, se pertinente.</li><li>Lo stile di formattazione è corretto: l'intestazione di ogni paragrafo è costituita da una frase di riepilogo del contenuto che segue, nel quale i vantaggi chiave sono evidenziati dall'uso di punti elenco, se appropriato. L'obiettivo è consentire una comprensione immediata dell'offerta da parte del lettore, grazie a un formato di visualizzazione chiaro che non richiede la lettura di lunghi paragrafi.</li><li>Tra un paragrafo e l'altro è presente una spaziatura sufficiente. Lo stile è simile a quello dei depliant delle automobili. In altre parole, l'offerta viene descritta in modo completo e semplice, senza l'uso di tecnicismi. | 
 | 5 | Categorie e settori | <ul><li>Le categorie e le sottocategorie devono corrispondere alle funzionalità dell'offerta </li><li>Non selezionare categorie/sottocategorie che non rientrano nelle funzionalità dell'offerta. </li></ul> | <ul><li>Selezionare un massimo di due categorie, tra cui una categoria primaria e una secondaria (facoltativo).</li><li>Selezionare fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile nella categoria selezionata.</li></ul> |
 | 6 | Immagini | <ul><li>I requisiti di immagine sono elencati nel centro per i partner.</li><li>Il testo incluso nello screenshot è leggibile e l'immagine è chiara. | La soluzione offerta è immediatamente comprensibile. |
@@ -53,7 +53,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 | 4 | Dati da visualizzare nella vetrina: Riepilogo offerta | Viene visualizzato nella pagina di ricerca dell'app e contiene un massimo di 100 caratteri. | |
 | 5 | Dati da visualizzare nella vetrina: Settori | Settori (max 2): selezionare i settori ai quali l'app è più allineata e applicabile. | |
 | 6 | Descrizione dell'offerta | <ul><li>È consentito il codice HTML semplice, inclusi i \<p> tag di intestazione,,, \<em> \<ul> \<li> , \<ol> e. Max. 3000 caratteri.</li><li>Comprende 2-3 paragrafi.</li><li>La soluzione offerta è immediatamente comprensibile.</li><li>La descrizione è completa e contiene destinatari, tipo di utente e proposta di valore.</li><li>È in formato descrittivo e suddivisa in paragrafi, con frasi brevi e facili da comprendere. | <ul><li>È indicato il settore di destinazione, se pertinente.</li><li>Lo stile di formattazione è corretto: l'intestazione di ogni paragrafo è costituita da una frase di riepilogo del contenuto che segue, nel quale i vantaggi chiave sono evidenziati dall'uso di punti elenco, se appropriato. L'obiettivo è consentire una comprensione immediata dell'offerta da parte del lettore, grazie a un formato di visualizzazione chiaro che non richiede la lettura di paragrafi.</li><li>Tra un paragrafo e l'altro è presente una spaziatura sufficiente. Lo stile è simile a quello dei depliant delle automobili. In altre parole, l'offerta viene descritta in modo completo e semplice, senza l'uso di tecnicismi. | 
-| 7 | Artefatti di marketing | I logo vengono visualizzati correttamente. | <ul><li>Logos: Small (48x48 pixels) e Large (216x216 pixels) sono obbligatori.</li><li>Screenshot (max. 5): richiede un. Immagine PNG con risoluzione di 1280x720 pixel. |
+| 7 | Artefatti di marketing | I logo vengono visualizzati correttamente. | <ul><li>Logo: Small (48 x 48 pixel), Medium (90 x 90 pixel) e Large (tra 216 x 216 e 350 x 350 pixel) sono obbligatori.</li><li>Screenshot (max. 5): richiede un. Immagine PNG con risoluzione di 1280x720 pixel. |
 | 8 | Categorie e settori | <ul><li>Le categorie corrispondono alle caratteristiche della soluzione offerta.</li><li>Selezionare almeno un elemento nella finestra popup.</li><li>Non selezionare le categorie non adatte alla soluzione.</li><li>È stato selezionato il settore ottimale oppure sono stati selezionati tutti i settori appropriati (se non esiste un settore ottimale). | Max. 3 categorie selezionate, se applicabili. |
 | 9 | Lead management (Gestione di clienti potenziali) | Selezionare il sistema nel quale archiviare i clienti potenziali. Per connettere il sistema CRM, vedere le informazioni per [ottenere clienti potenziali](./partner-center-portal/commercial-marketplace-get-customer-leads.md). |  |
 | 10 | Contatti: Supporto per la soluzione e guida | <ul><li>Nome contatto del reparto tecnico: nome del contatto del reparto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.</li><li>E-mail contatto del reparto tecnico: indirizzo e-mail del contatto del reparto tecnico per l'app.</li><li>Telefono contatto del reparto tecnico: numero di telefono del contatto del reparto tecnico. Sono supportate le [notazioni ISO dei numeri di telefono](https://en.wikipedia.org/wiki/E.123).</li><li>Nome contatto del supporto: nome del contatto del supporto per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.</li><li>E-mail contatto del supporto: indirizzo e-mail del contatto del supporto per l'app.</li><li>Telefono contatto del supporto: numero di telefono del contatto del supporto. Sono supportate le [notazioni ISO dei numeri di telefono](https://en.wikipedia.org/wiki/E.123).</li><li>URL del supporto tecnico: URL della pagina del supporto. | <ul><li>Tutti i metodi di supporto devono essere elencati.</li><li>Il supporto a pagamento viene offerto gratuitamente durante il periodo di *prova* o *test drive*. |
@@ -66,7 +66,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 |:--- |:--- |:--- |:--- |
 |1 |Impostazioni dell'offerta | <ul><li>ID offerta: Max. 50 caratteri.</li><li>ID autore: selezionare l'ID nell'elenco a discesa.</li><li>Nome: Max. 50 caratteri. | Rispecchia lo stile del titolo già disponibile nella descrizione. Evitare l'uso di titoli lunghi. |
 | 2 | Plans | Il partner seleziona nuovi piani.| Il titolo rispecchia lo stile del titolo già disponibile nella descrizione. Evitare l'uso di titoli lunghi.  |
-| 3 | Artefatti di Marketplace | I logo vengono visualizzati correttamente. |<ul><li>Logos: Small (48 x 48 pixel) e Large (216x216 pixels) sono obbligatori.</li><li>Screenshot (max. 5): richiede un. Immagine PNG con una risoluzione di 1280 x 720 pixel.|
+| 3 | Artefatti di Marketplace | I logo vengono visualizzati correttamente. |<ul><li>Logo: Small (48 x 48 pixel), Medium (90 x 90 pixel) e Large (tra 216 x 216 e 350 x 350 pixel) sono obbligatori.</li><li>Screenshot (max. 5): richiede un. Immagine PNG con una risoluzione di 1280 x 720 pixel.|
 | 4 | Lead management (Gestione di clienti potenziali) |<ul><li>Gestione dei lead: Selezionare il sistema nel quale archiviare i clienti potenziali.</li><li>Per connettere il sistema CRM, vedere le informazioni per [ottenere clienti potenziali](./partner-center-portal/commercial-marketplace-get-customer-leads.md). | |
 |||
 

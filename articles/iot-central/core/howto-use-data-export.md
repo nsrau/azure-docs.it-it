@@ -8,12 +8,12 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 737fe4b334e60f1b51e8f60f39e8821588a6841c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f51630154b77233aeb2587ac3a2d603c1da6fa4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010312"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036556"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati (anteprima)
 
@@ -33,7 +33,7 @@ Questo articolo descrive come usare le nuove funzionalità di anteprima di espor
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario essere un amministratore dell'applicazione IoT Central o disporre delle autorizzazioni di esportazione dei dati.
+Per usare l'esportazione dei dati (anteprima), è necessario disporre di un'applicazione V3 ed è necessario disporre delle autorizzazioni di esportazione dei dati.
 
 ## <a name="set-up-export-destination"></a>Configurare la destinazione di esportazione
 
@@ -150,15 +150,22 @@ Creare una nuova destinazione o aggiungere una destinazione già creata.
 
 ## <a name="export-contents-and-format"></a>Esporta contenuto e formato
 
-Per gli hub eventi e le destinazioni del bus di servizio, i dati vengono esportati in tempo quasi reale. I dati sono nel corpo del messaggio ed è in formato JSON codificato come UTF-8. Per esempi, vedere di seguito.
+### <a name="azure-blob-storage-destination"></a>Destinazione di archiviazione BLOB di Azure
 
-Per l'archiviazione BLOB, i dati vengono esportati una volta al minuto, con ogni file contenente il batch di modifiche apportate dall'ultimo file esportato. I dati esportati vengono inseriti in tre cartelle in formato JSON. I percorsi predefiniti nell'account di archiviazione sono:
+I dati vengono esportati una volta al minuto, con ogni file contenente il batch di modifiche apportate dall'ultimo file esportato. I dati esportati vengono inseriti in tre cartelle in formato JSON. I percorsi predefiniti nell'account di archiviazione sono:
 
 - Telemetria: _{container}/{app-id}/{partition_id}/{yyyy}/{mm}/{dd}/{hh}/{mm}/{filename}_
 - Modifiche alle proprietà: _{container}/{app-id}/{partition_id}/{yyyy}/{mm}/{dd}/{hh}/{mm}/{filename}_
 
 Per esplorare i file esportati nella portale di Azure, passare al file e selezionare la scheda **modifica BLOB** .
 
+### <a name="azure-event-hubs-and-azure-service-bus-destinations"></a>Hub eventi di Azure e destinazioni del bus di servizio di Azure
+
+I dati vengono esportati in tempo quasi reale. I dati sono nel corpo del messaggio ed è in formato JSON codificato come UTF-8. 
+
+Nel contenitore delle annotazioni o delle proprietà di sistema del messaggio è possibile trovare `iotcentral-device-id` ,, `iotcentral-application-id` `iotcentral-message-source` e `iotcentral-message-type` che hanno gli stessi valori dei campi corrispondenti nel corpo del messaggio.
+
+### <a name="webhook-destination"></a>Destinazione webhook
 Per le destinazioni webhook, i dati vengono esportati anche in tempo quasi reale. Il formato dei dati nel corpo del messaggio è identico a quello degli hub eventi e del bus di servizio.
 
 
@@ -254,6 +261,7 @@ Si tratta di una tabella in cui vengono evidenziate le differenze tra l'esportaz
 | Filtro | nessuno | Dipende dal tipo di dati esportato. Per la telemetria, filtra per telemetria, proprietà del messaggio, valori delle proprietà |
 | Arricchimenti | nessuno | Arricchire con una stringa personalizzata o un valore di proprietà nel dispositivo |
 | Destinations | Hub eventi di Azure, code e argomenti del bus di servizio di Azure, archiviazione BLOB di Azure | Come per i webhook e l'esportazione di dati legacy| 
+| App supportate | V2, V3 | Solo V3 |
 | Limiti rilevanti | 5 esportazioni per app, 1 destinazione per esportazione | 10 esportazioni-connessioni di destinazione per app | 
 
 ## <a name="next-steps"></a>Passaggi successivi

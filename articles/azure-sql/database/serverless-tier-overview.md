@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
-ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/7/2020
+ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206941"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037304"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Il livello di calcolo senza server per database singoli nel database SQL di Azur
 - Il valore **minimo di Vcore** e il **numero massimo di Vcore** sono parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
 - Il **ritardo di sospensione** automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare l'autosospensione.
 
-### <a name="cost"></a>Costo
+### <a name="cost"></a>Costi
 
 - Il costo di un database senza server è la somma del costo di calcolo e dei costi di archiviazione.
 - Quando l'utilizzo delle risorse di calcolo è compreso tra i limiti minimo e massimo configurati, il costo di calcolo è basato su vCore e sulla memoria usata.
@@ -88,7 +88,7 @@ La memoria per i database senza server viene recuperata più frequentemente risp
 
 #### <a name="cache-reclamation"></a>Recupero della cache
 
-A differenza dei database di calcolo con provisioning, la memoria della cache SQL viene recuperata da un database senza server quando l'utilizzo della CPU o della cache attiva è basso.  Si noti che quando l'utilizzo della CPU è basso, l'utilizzo della cache attiva può rimanere elevato a seconda del modello di utilizzo e impedire il recupero di memoria.
+A differenza dei database di calcolo con provisioning, la memoria della cache SQL viene recuperata da un database senza server quando l'utilizzo della CPU o della cache attiva è basso.
 
 - L'utilizzo della cache attiva è considerato basso quando la dimensione totale delle voci della cache utilizzate più di recente scende al di sotto di una soglia per un determinato periodo di tempo.
 - Quando viene attivato il recupero della cache, le dimensioni della cache di destinazione vengono ridotte in modo incrementale a una frazione della dimensione precedente e il recupero continua solo se l'utilizzo rimane ridotto.
@@ -96,6 +96,8 @@ A differenza dei database di calcolo con provisioning, la memoria della cache SQ
 - Le dimensioni della cache non vengono mai ridotte al di sotto del limite di memoria minimo come definito da min Vcore, che può essere configurato.
 
 Nei database di calcolo senza server e con provisioning, le voci della cache possono essere eliminate se viene utilizzata tutta la memoria disponibile.
+
+Si noti che quando l'utilizzo della CPU è basso, l'utilizzo della cache attiva può rimanere elevato a seconda del modello di utilizzo e impedire il recupero di memoria.  Inoltre, dopo l'arresto dell'attività dell'utente, è possibile che si verifichi un ulteriore ritardo prima che il recupero della memoria avvenga a causa di processi in background periodici che rispondono all'attività  Ad esempio, le operazioni di eliminazione generano record fantasma contrassegnati per l'eliminazione, ma non vengono eliminate fisicamente fino a quando non viene eseguito il processo di pulizia fantasma che può comportare la lettura di pagine di dati nella cache.
 
 #### <a name="cache-hydration"></a>Idratazione della cache
 
@@ -127,7 +129,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Accesso|
+|Autenticazione e autorizzazione|Accedi|
 |Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
@@ -249,7 +251,7 @@ La procedura per spostare un database serverless in un livello di calcolo con pr
 
 Per modificare il valore massimo o minimo per Vcore e il ritardo di sospensione, viene eseguita usando il comando [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando gli `MaxVcore` `MinVcore` argomenti, e `AutoPauseDelayInMinutes` .
 
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
 
 Per modificare il vcore massimo o minimo e il ritardo di sospensione, è necessario usare il comando [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) nell'interfaccia della riga di comando di Azure usando gli `capacity` `min-capacity` argomenti, e `auto-pause-delay` .
 
@@ -272,7 +274,7 @@ Il pool di risorse utente è il limite più interno di gestione delle risorse pe
 
 Nella tabella seguente sono elencate le metriche per il monitoraggio dell'utilizzo delle risorse del pacchetto dell'app e del pool di utenti di un database senza server.
 
-|Entità|Metrica|Descrizione|Units|
+|Entità|Metrica|Descrizione|Unità|
 |---|---|---|---|
 |Pacchetto dell'app|app_cpu_percent|Percentuale del numero di vCore usati dall'app rispetto al numero massimo di vCore consentito per l'app.|Percentuale|
 |Pacchetto dell'app|app_cpu_billed|Quantità di risorse di calcolo fatturata per l'app durante il periodo di riferimento. L'importo pagato durante questo periodo è dato dal prodotto di questa metrica per il prezzo unitario dei vCore. <br><br>I valori di questa metrica sono determinati dall'aggregazione nel tempo del numero massimo di CPU usate e dalla memoria usata al secondo. Se la quantità usata è inferiore a quella minima di cui è stato effettuato il provisioning in base al valore impostato per il numero minimo di vCore e la quantità minima di memoria, viene fatturata la quantità minima di cui è stato effettuato il provisioning.Per confrontare la quantità di CPU e di memoria ai fini della fatturazione, la memoria viene normalizzata in unità di vCore ridimensionando la quantità di memoria in GB in base a 3 GB per vCore.|Secondi per vCore|

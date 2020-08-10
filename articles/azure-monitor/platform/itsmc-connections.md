@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 2df7d8273b2b25cd0171b38e5cc0ada557ea9a2d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325356"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035026"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -179,13 +179,14 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 ### <a name="prerequisites"></a>Prerequisiti
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versioni supportate di ServiceNow: New York, Madrid, Londra, Kingston, Giacarta, Istanbul, Helsinki, Ginevra.
+- Versioni supportate di ServiceNow: Orlando, New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki, Ginevra.
 > [!NOTE]
 > Attualmente Gestione dei servizi IT supporta solo l'offerta SaaS ufficiale di ServiceNow. Le distribuzioni private di ServiceNow non sono attualmente supportate. 
 
 **ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
 - Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere gli articoli seguenti:
 
+    - [Configurare OAuth per Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per New York)
     - [Set up OAuth for Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Madrid)
     - [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Londra)

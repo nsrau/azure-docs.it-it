@@ -1,17 +1,17 @@
 ---
 title: Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 description: Informazioni su come abilitare Collegamento a Synapse per account Azure Cosmos, creare un contenitore con l'archivio analitico abilitato, connettere il database Azure Cosmos all'area di lavoro di Synapse ed eseguire query.
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: d2a10d064bed3e2e2e798d16ce72ccf55c965f8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 9499fe2140f4a345d48bce6ef010989cfc22c58e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262039"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037083"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 

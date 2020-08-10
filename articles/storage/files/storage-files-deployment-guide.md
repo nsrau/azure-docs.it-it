@@ -1,18 +1,18 @@
 ---
 title: Procedura per distribuire File di Azure | Microsoft Docs
-description: Informazioni su come distribuire di File di Azure dall'inizio alla fine.
+description: Informazioni su come distribuire di File di Azure dall'inizio alla fine. Trasferire i dati in File di Azure. Montaggio automatico nei computer o nei server necessari.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510797"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034499"
 ---
 # <a name="how-to-deploy-azure-files"></a>Come distribuire i file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite il protocollo SMB standard di settore. Questo articolo illustra come distribuire praticamente File di Azure all'interno dell'organizzazione.

@@ -1,18 +1,18 @@
 ---
 title: Pianificazione per la distribuzione dei File di Azure | Microsoft Docs
-description: Informazioni sugli aspetti da considerare quando si pianifica una distribuzione di File di Azure.
+description: Comprendere la pianificazione di una distribuzione di File di Azure. È possibile montare direttamente una condivisione file di Azure o memorizzare nella cache una condivisione file di Azure locale con Sincronizzazione file di Azure.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4e39ec197b0bbce5d963650abd5dc7811647fa01
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2e8a2030acd4297ab3032e8f1e3bde5b6df66659
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370360"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037168"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 

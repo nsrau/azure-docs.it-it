@@ -1,6 +1,6 @@
 ---
 title: Formato dati GeoJSON per Geofence | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come preparare i dati di georecinzione che possono essere usati nell'API Microsoft Azure Maps GET e POST geofence.
+description: Informazioni sui dati Geofence di Azure maps. Vedere come usare le API GET geofence e POST Geofence durante il recupero della posizione delle coordinate rispetto a una barriera georecinzione.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131306"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037406"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing dei dati GeoJSON
 

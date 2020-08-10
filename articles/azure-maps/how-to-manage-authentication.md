@@ -1,7 +1,7 @@
 ---
 title: Gestire l'autenticazione
 titleSuffix: Azure Maps
-description: Usare il portale di Azure per gestire l'autenticazione in mappe Microsoft Azure.
+description: Acquisire familiarità con l'autenticazione di Azure maps. Vedere quale approccio funziona meglio nello scenario. Informazioni su come usare il portale per visualizzare le impostazioni di autenticazione.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 870ecb8bda9f07c9270724002d381a4f58bc4d13
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8fc27ea4de7e81f1279f68d2e4a1a7fde1fcf41f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531729"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037338"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -46,7 +46,7 @@ La tabella seguente descrive gli scenari di autenticazione e autorizzazione comu
 | Scenario                                                                                    | Authentication | Autorizzazione | Lavoro di sviluppo | Lavoro operativo |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
 | [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Chiave condivisa     | N/D           | Media             | Alta               |
-| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Azure AD       | Alta          | Basso                | Media             |
+| [Daemon attendibile/applicazione client non interattiva](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Basso                | Media             |
 | [Applicazione Web a pagina singola con accesso Single Sign-on interattivo](./how-to-secure-spa-users.md) | Azure AD       | Alto          | Medio             | Livello medio             |
 | [Applicazione Web a pagina singola con accesso non interattivo](./how-to-secure-spa-app.md)      | Azure AD       | Alto          | Medio             | Livello medio             |
 | [Applicazione Web con accesso Single Sign-on interattivo](./how-to-secure-webapp-users.md)          | Azure AD       | Alta          | Alto               | Medio             |

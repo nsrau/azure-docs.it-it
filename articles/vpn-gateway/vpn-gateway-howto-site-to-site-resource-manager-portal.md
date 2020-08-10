@@ -1,6 +1,6 @@
 ---
 title: 'Connettere la rete locale alla rete virtuale di Azure: VPN da sito a sito: portale'
-description: Passaggi per creare una connessione IPsec dalla rete locale a una rete virtuale di Azure tramite Internet pubblico. Questa procedura consentirà di creare una connessione gateway VPN da sito a sito cross-premise usando il portale.
+description: Creare una connessione gateway VPN da sito a sito IPsec dalla rete locale a una rete virtuale di Azure tramite la rete Internet pubblica usando il portale.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 601e31cde22942abd6d2bc7c5bdcbc5d97f5a591
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebfd03935f5189a544f11e5b8bbdd4b46e2aa989
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987667"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037066"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creare una connessione da sito a sito nel portale di Azure
 

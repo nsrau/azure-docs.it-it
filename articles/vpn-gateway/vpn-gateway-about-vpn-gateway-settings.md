@@ -1,18 +1,18 @@
 ---
 title: 'Gateway VPN di Azure: impostazioni di configurazione'
-description: Informazioni sulla configurazione di una connessione gateway VPN in Azure, che si basa su più risorse, ognuna delle quali contiene impostazioni configurabili.
+description: Informazioni sulle risorse e le impostazioni del gateway VPN per una rete virtuale creata nel modello di distribuzione Gestione risorse.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5fef54e4fff442f1c9eae523d7d278f193b84171
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6f801b94a16ae6fcee6896dd70510469c5e20098
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926927"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036913"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
 

@@ -1,7 +1,7 @@
 ---
 title: Eseguire ricerche nel contenuto di archiviazione BLOB di Azure
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come indicizzare l'archivio BLOB di Azure ed estrarre il testo dai documenti con ricerca cognitiva di Azure.
+description: Informazioni su come indicizzare i documenti nell'archivio BLOB di Azure ed estrarre il testo dai documenti con ricerca cognitiva di Azure.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 29e123666b35e4659e68a1a925047267f8519940
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6295dfbbee2d44b61b5dc832163adc8d643ab0f1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496452"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036148"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Come indicizzare i documenti nell'archivio BLOB di Azure con Azure ricerca cognitiva
 
@@ -147,7 +147,7 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
 * Le proprietà dei metadati BLOB standard vengono estratte nei campi seguenti:
 
   * **metadata\_storage\_name** (Edm.String): nome file del BLOB. Se, ad esempio, è presente un BLOB /my-container/my-folder/subfolder/resume.pdf, il valore di questo campo è `resume.pdf`.
-  * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio, usare `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio: `application/octet-stream`.
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): ultimo timestamp modificato per il BLOB. Azure ricerca cognitiva usa questo timestamp per identificare i BLOB modificati, in modo da evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
   * **metadata\_storage\_size** (Edm.Int64): dimensioni del BLOB in byte.
@@ -270,7 +270,7 @@ Il parametro di configurazione `dataToExtract` permette di controllare quali par
 
 * `storageMetadata`: specifica che vengono indicizzati solo [i metadati specificati dall'utente e le proprietà BLOB standard](../storage/blobs/storage-properties-metadata.md).
 * `allMetadata`: specifica che vengono indicizzati i metadati di archiviazione e i [metadati specifici del tipo di contenuto](#ContentSpecificMetadata) estratti dal contenuto BLOB.
-* `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Si tratta del valore predefinito.
+* `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Rappresenta il valore predefinito.
 
 Ad esempio, per indicizzare solo i metadati di archiviazione, usare:
 

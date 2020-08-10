@@ -1,6 +1,6 @@
 ---
 title: Panoramica dei servizi di rete di Azure
-description: Informazioni sui servizi di rete in Azure, inclusi i servizi di connettività, i servizi di protezione delle applicazioni, i servizi di distribuzione delle applicazioni e il monitoraggio della rete.
+description: Informazioni sui servizi di rete in Azure, tra cui connettività, protezione delle applicazioni, distribuzione di applicazioni e servizi di monitoraggio di rete.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 5b32f6b368af62bad13a505472a9ddd4709c032c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282161"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037253"
 ---
 # <a name="azure-networking-services-overview"></a>Panoramica dei servizi di rete di Azure
 
@@ -148,7 +148,7 @@ Questa sezione descrive i servizi di rete in Azure che consentono di fornire app
 |[Gateway applicazione](#applicationgateway)|Il gateway applicazione di Azure è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico verso le applicazioni Web.|<p>[Indirizzare il traffico Web con un gateway applicazione Azure](../application-gateway/quick-create-portal.md)</p><p>[Esercitazione: Configurare un gateway applicazione con la terminazione TLS tramite il portale di Azure](../application-gateway/create-ssl-portal.md)</p><p>[Creare un gateway applicazione con reindirizzamento basato su percorsi URL](../application-gateway/create-url-route-portal.md) </p>|
 |
 
-### <a name="content-delivery-network"></a><a name="cdn"></a>Rete per la distribuzione di contenuti (CDN)
+### <a name="content-delivery-network"></a><a name="cdn"></a>Rete CDN
 La rete per la distribuzione di contenuti (rete CDN) offre agli sviluppatori una soluzione globale per distribuire rapidamente contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione di tale contenuto nella cache in nodi fisici strategici ubicati in tutto il mondo. Per altre informazioni sulla rete CDN di Azure, vedere rete per la [distribuzione di contenuti di Azure](../cdn/cdn-overview.md)
 
 ![Rete CDN di Azure](./media/networking-overview/cdn-overview.png)

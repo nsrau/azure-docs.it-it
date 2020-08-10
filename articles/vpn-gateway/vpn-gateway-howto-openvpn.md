@@ -1,18 +1,18 @@
 ---
 title: 'Come configurare OpenVPN nel gateway VPN di Azure: PowerShell'
-description: Informazioni su come configurare il protocollo OpenVPN nel gateway VPN di Azure per un ambiente da punto a sito funzionante. Se necessario, è possibile creare una VPN da punto a sito.
+description: Informazioni su come usare PowerShell per abilitare il protocollo OpenVPN nel gateway VPN di Azure per un ambiente da punto a sito.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6c1c97bb0e4909bafe2d5ee9012190264b326e6c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c13d14ad2d06cbc43d80c05258bdbd3303da4838
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926149"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036828"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurare OpenVPN per il gateway VPN da punto a sito di Azure
 

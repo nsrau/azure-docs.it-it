@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263246"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036352"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
 
@@ -26,21 +26,21 @@ Questo articolo descrive i ruoli necessari per creare e gestire le risorse di Az
 
 ## <a name="roles-and-requirements"></a>Ruoli e requisiti
 
-Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro del ruolo *collaboratore* o *proprietario* oppure un *amministratore* della sottoscrizione di Azure. Per visualizzare le autorizzazioni disponibili nella sottoscrizione, nel portale di Azure selezionare il nome utente nell'angolo in alto a destra e quindi selezionare **Autorizzazioni**. Se si accede a più sottoscrizioni, selezionare quella appropriata. 
+Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro del ruolo *collaboratore* , il ruolo *proprietario* o un *amministratore* della sottoscrizione di Azure. Per visualizzare le autorizzazioni disponibili nella sottoscrizione, nel portale di Azure selezionare il nome utente nell'angolo in alto a destra e quindi selezionare **Autorizzazioni**. Se si accede a più sottoscrizioni, selezionare quella appropriata. 
 
 Per creare e gestire le risorse figlio per Data Factory, inclusi i set di dati, i servizi collegati, le pipeline, i trigger e i runtime di integrazione, sono applicabili i requisiti seguenti:
-- Per creare e gestire le risorse figlio nel portale di Azure, è necessario appartenere al ruolo **Collaboratore Data Factory** a livello di gruppo di risorse o superiore.
+- Per creare e gestire le risorse figlio nella portale di Azure, è necessario appartenere al ruolo **collaboratore Data Factory** a livello di **gruppo di risorse** o superiore.
 - Per creare e gestire le risorse figlio con PowerShell o l'SDK, è sufficiente il ruolo di **collaboratore** a livello di risorsa o superiore.
 
 Per istruzioni di esempio su come aggiungere un utente a un ruolo, vedere l'articolo [Aggiungere i ruoli](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="set-up-permissions"></a>Impostare le autorizzazioni
 
-Dopo aver creato una data factory è possibile consentire ad altri utenti di lavorare con essa. Per concedere l'accesso ad altri utenti, è necessario aggiungerli al ruolo **Collaboratore Data factory** predefinito sul gruppo di risorse che contiene la data factory.
+Dopo aver creato una data factory è possibile consentire ad altri utenti di lavorare con essa. Per consentire l'accesso ad altri utenti, è necessario aggiungerli al ruolo di **collaboratore Data Factory** incorporato nel **gruppo di risorse** che contiene l'data factory.
 
 ### <a name="scope-of-the-data-factory-contributor-role"></a>Ambito del ruolo Collaboratore Data factory
 
-L'appartenenza al ruolo **Collaboratore Data factory** consente agli utenti di eseguire le operazioni seguenti:
+L'appartenenza al ruolo **Data Factory collaboratore** consente agli utenti di eseguire le operazioni seguenti:
 - Creare, modificare ed eliminare le data factory e le risorse figlio, inclusi i set di dati, i servizi collegati, le pipeline, i trigger e i runtime di integrazione.
 - Distribuire i modelli di Resource Manager. La distribuzione di Resource Manager è il metodo di distribuzione usato da Data Factory nel portale di Azure.
 - Gestire gli avvisi di Application Insights per una data factory.
@@ -50,7 +50,7 @@ Per altre informazioni su questo ruolo, vedere il [ruolo Collaboratore Data fact
 
 ### <a name="resource-manager-template-deployment"></a>Distribuzione del modello di Resource Manager
 
-Il ruolo **Collaboratore Data factory**, a livello di gruppo di risorse o superiore, consente agli utenti di distribuire i modelli di Resource Manager. Di conseguenza, i membri del ruolo possono usare i modelli di Resource Manager per distribuire le data factory e le relative risorse figlio, inclusi i set di dati, i servizi collegati, le pipeline, i trigger e i runtime di integrazione. L'appartenenza a questo ruolo non consente tuttavia all'utente di creare altre risorse.
+Il ruolo **Collaboratore Data factory**, a livello di gruppo di risorse o superiore, consente agli utenti di distribuire i modelli di Resource Manager. Di conseguenza, i membri del ruolo possono usare i modelli di Resource Manager per distribuire le data factory e le relative risorse figlio, inclusi i set di dati, i servizi collegati, le pipeline, i trigger e i runtime di integrazione. L'appartenenza a questo ruolo non consente all'utente di creare altre risorse.
 
 Le autorizzazioni per Azure Repos e GitHub sono indipendenti dalle autorizzazioni di Data Factory. Di conseguenza, un utente con autorizzazioni di repository che è solo un membro del ruolo lettore può modificare le risorse figlio di Data Factory ed eseguire il commit delle modifiche nel repository, ma non può pubblicare tali modifiche.
 

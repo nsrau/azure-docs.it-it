@@ -1,6 +1,6 @@
 ---
 title: Linee guida per la progettazione di tabelle di archiviazione di Azure | Microsoft Docs
-description: Progettare il servizio tabelle di Azure per supportare le operazioni di lettura in modo efficiente.
+description: Informazioni sulle linee guida per la progettazione del servizio tabelle di archiviazione di Azure per supportare in modo efficiente le operazioni di lettura e scrittura.
 services: storage
 author: SnehaGunda
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: d056d29469ad9a60fceeee307aca3c0e1319283c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5671cc71683061becbdbbce5d855e55cbaa7c595
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61269848"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035400"
 ---
 # <a name="guidelines-for-table-design"></a>Linee guida per la progettazione di tabelle
 

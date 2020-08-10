@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090162"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035805"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Ottenere le credenziali per accedere all'API Servizi multimediali  
 
@@ -45,7 +45,7 @@ Questo articolo descrive i passaggi per ottenere le credenziali per accedere all
 La pagina di **accesso all'API** consente di selezionare il metodo di autenticazione che si vuole usare per connettersi all'API. La pagina fornisce anche i valori necessari per la connessione all'API.
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali.
-2. Scegliere come connettersi all'API Servizi multimediali.
+2. Selezionare il pannello **accesso all'API (nuovo)** sulla barra di spostamento a sinistra.
 3. In **Connettersi all'API di Servizi multimediali**selezionare la versione dell'API di Servizi multimediali a cui si vuole connettersi (v3 è la versione più recente del servizio).
 
 ### <a name="service-principal-authentication--recommended"></a>Autenticazione basata su entità servizio (opzione consigliata)

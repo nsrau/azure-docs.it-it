@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 650210ab965936de6e48b2ace3f2042857760053
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 000413267d09f5f51ffdb50ccc5aeaab78a18b5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800008"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036658"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creare un'offerta Dynamics 365 for Customer Engagement e PowerApps
 
@@ -89,7 +89,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 Questa pagina consente di definire le categorie e i settori usati per raggruppare l'offerta nel marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -190,19 +190,19 @@ Fornire qui almeno un documento di marketing correlato (e fino a un massimo di t
 
 Fornire logo e immagini per l'offerta. Tutte le immagini devono essere in formato PNG.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel). Facoltativamente, è possibile sostituirlo con un'immagine diversa.
+Fornire il logo dell'offerta in tre dimensioni di pixel:
+- **Piccolo** (obbligatorio; 48 x 48)
+- **Grande** (obbligatorio; 216 x 216)
+- **Molto grande** (facoltativo; 255 x 115)
 
-Entrambe le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
-
-- **Piccola** (48 x 48)
-- **Grande** (compreso tra 216 x 216 e 350 x 350)
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 

@@ -7,14 +7,14 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: c8d5c9365e2cedce7a6ed877bcf93ecd17ff220b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0920bec160874f27c8b1b6f2132951b57719b31c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287879"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035281"
 ---
-# <a name="api-considerations"></a>Considerazioni sulle API
+# <a name="api-considerations"></a>Considerazioni sull'API
 
 <a name="api-versioning"></a>Controllo delle versioni API
 --------------
@@ -37,7 +37,7 @@ La risposta a una richiesta con una versione API sconosciuta o non valida è un 
     }
 ```            
 
-<a name="errors"></a>Errori
+<a name="errors"></a>Errors
 ------
 
 L'API risponde agli errori con i codici di stato HTTP corrispondenti ed eventualmente altre informazioni nella risposta serializzata in formato JSON.

@@ -1,6 +1,6 @@
 ---
 title: Visualizzare le metriche di utilizzo dell'API Maps di Azure | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come visualizzare le metriche per le chiamate API di Microsoft Azure Maps nell'portale di Azure.
+description: Informazioni su come visualizzare le metriche di utilizzo dell'API di Azure Maps, ad esempio richieste totali, errori totali e disponibilità. Vedere come filtrare i dati e suddividere i risultati.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57fb699a7225a53af1f093520855e8e2ef132f42
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 766bb2eaf6878a8d7261472ba11ea7acd46de92e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130733"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036488"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Visualizzare le metriche di utilizzo dell'API Mappe di Azure
 

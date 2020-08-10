@@ -1,18 +1,18 @@
 ---
 title: 'Creare un gateway VPN di Azure basato su Route: interfaccia della riga di comando'
-description: Informazioni su come creare un gateway VPN di Azure basato su Route usando l'interfaccia della riga di comando di Azure. Usare un gateway VPN per connettersi alla rete locale.
+description: Creare rapidamente un gateway VPN di Azure basato su Route usando l'interfaccia della riga di comando di Azure per una connessione VPN a una rete locale o per la connessione di reti virtuali.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c207d2c5b2817bacd75ffcd12c9b4c43fe86f55
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 81f451ace7ec3f032dc7752829d12a0a3598811b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923323"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036114"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creare un gateway VPN basato su route usando l'interfaccia della riga di comando
 

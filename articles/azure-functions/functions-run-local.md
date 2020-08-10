@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449140"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037032"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -39,7 +39,7 @@ Sono disponibili tre versioni di Azure Functions Core Tools. La versione in uso 
 
 Se non specificato diversamente, gli esempi in questo articolo sono per la versione 3. x.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Azure Functions Core Tools attualmente dipende dall'interfaccia della riga di comando di Azure per l'autenticazione con l'account Azure. Ciò significa che è necessario [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure localmente per poter eseguire la [pubblicazione in Azure](#publish) da Azure Functions Core Tools. 
 
@@ -205,7 +205,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Per impostazione predefinita, la versione 2. x e le versioni successive degli strumenti di base creano progetti di app per le funzioni per il Runtime .NET come [progetti di classe C#](functions-dotnet-class-library.md) (csproj). Tali progetti C#, che possono essere usati con Visual Studio o Visual Studio Code, vengono compilati durante la fase di test e alla pubblicazione in Azure. Se invece si prevede di creare e usare gli stessi file di script C# (con estensione csx) creati nella versione 1.x e nel portale, è necessario includere il parametro `--csx` quando si creano e si distribuiscono funzioni.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>Registrare le estensioni
+
+Fatta eccezione per i trigger HTTP e timer, le associazioni di funzioni in Runtime versione 2. x e successive vengono implementate come pacchetti di estensione. Le associazioni HTTP e i trigger timer non richiedono estensioni. 
+
+Per ridurre le incompatibilità tra i vari pacchetti di estensione, funzioni consente di fare riferimento a un bundle di estensione nel host.jsfile di progetto. Se si sceglie di non usare i bundle di estensione, è anche necessario installare .NET Core 2. x SDK localmente e mantenere un estensione csproj con il progetto funzioni.  
+
+Nella versione 2. x e oltre al runtime di funzioni di Azure, è necessario registrare in modo esplicito le estensioni per i tipi di binding usati nelle funzioni. È possibile scegliere di installare le estensioni di binding singolarmente oppure è possibile aggiungere un riferimento al bundle di estensione all'host.jsnel file di progetto. I bundle di estensione rimuovono la possibilità di problemi di compatibilità dei pacchetti quando si usano più tipi di binding. Si tratta dell'approccio consigliato per la registrazione delle estensioni di binding. I bundle di estensione eliminano anche il requisito di installazione di .NET Core 2. x SDK. 
+
+### <a name="use-extension-bundles"></a>Usare bundle di estensione
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+Per altre informazioni, vedere [registrare le estensioni di binding di funzioni di Azure](functions-bindings-register.md#extension-bundles). Prima di aggiungere binding al function.jssu file, è necessario aggiungere i bundle di estensione al host.js.
+
+### <a name="explicitly-install-extensions"></a>Installare le estensioni in modo esplicito
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -472,7 +488,7 @@ Ad esempio, per chiamare una funzione attivata da HTTP e passare il corpo del co
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-## <a name="publish-to-azure"></a><a name="publish"></a>Pubblicazione in Azure
+## <a name="publish-to-azure"></a><a name="publish"></a>Eseguire la pubblicazione in Azure
 
 Il Azure Functions Core Tools supporta due tipi di distribuzione: la distribuzione di file di progetto di funzione direttamente nell'app per le funzioni tramite la distribuzione [zip](functions-deployment-technologies.md#zip-deploy) e [la distribuzione di un contenitore Docker personalizzato](functions-deployment-technologies.md#docker-container). È necessario avere già [creato un'app per le funzioni nella sottoscrizione di Azure](functions-cli-samples.md#create)in cui verrà distribuito il codice. I progetti che richiedono la compilazione devono essere compilati in modo che i file binari possano essere distribuiti.
 

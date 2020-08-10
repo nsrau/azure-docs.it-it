@@ -1,7 +1,7 @@
 ---
 title: Autenticazione con Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: In questo articolo si apprenderà come Azure Active Directory e l'autenticazione con chiave condivisa.
+description: 'Informazioni su due modi per autenticare le richieste in Maps di Azure: autenticazione con chiave condivisa e autenticazione Azure Active Directory (Azure AD).'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4aaa729ffd272c886bf5c545574d99c9de5842f9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922252"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036845"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 

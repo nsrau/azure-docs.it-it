@@ -1,6 +1,6 @@
 ---
 title: Introduzione al controllo mappa Web di Microsoft Azure Maps
-description: Informazioni su come usare la libreria JavaScript lato client del controllo mappa Web di Microsoft Azure Maps per eseguire il rendering delle mappe e della funzionalità embedded di Azure Maps nell'applicazione Web o per dispositivi mobili.
+description: Informazioni su come aggiungere mappe alle applicazioni Web e per dispositivi mobili usando la libreria JavaScript lato client controllo mappa in mappe di Azure. Vedere come localizzare le mappe.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 40ae1492084430f7dbca331d1439b4ded099c866
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e4309b3fdda1296aade19de2874e7f3423b9fc0f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287066"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035959"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di Mappe di Azure
 
@@ -34,22 +34,22 @@ Per utilizzare il controllo mappa in una pagina Web, è necessario disporre di u
 
 1. Creare un nuovo file HTML.
 
-2. Caricare Azure Maps Web SDK. È possibile scegliere una delle due opzioni seguenti:
+2. Caricare Azure Maps Web SDK. È possibile scegliere una delle due opzioni:
 
     * Usare la versione CDN ospitata a livello globale di Azure Maps Web SDK aggiungendo riferimenti a JavaScript e al foglio di stile nell' `<head>` elemento del file HTML:
 
-        ```HTML
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-        ```
+      ```html
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      ```
 
     * Caricare il codice sorgente di Azure Maps Web SDK in locale usando il pacchetto NPM di [Azure-Maps-Control](https://www.npmjs.com/package/azure-maps-control) e ospitarlo con l'app. Questo pacchetto include anche le definizioni TypeScript.
 
-    > **npm install azure-maps-control**
+      > **npm install azure-maps-control**
 
     Aggiungere quindi i riferimenti al foglio di stile Maps di Azure all' `<head>` elemento del file:
 
-    ```HTML
+    ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
      ```
 

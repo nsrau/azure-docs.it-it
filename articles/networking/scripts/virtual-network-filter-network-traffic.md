@@ -1,6 +1,6 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Filtrare il traffico di rete della VM | Documentazione Microsoft
-description: Usare uno script dell'interfaccia della riga di comando di Azure per filtrare il traffico di rete delle macchine virtuali (VM) in ingresso e in uscita.
+description: Usare uno script dell'interfaccia della riga di comando di Azure per filtrare il traffico di rete delle macchine virtuali in entrata e in uscita con subnet front-end e back-end.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: d685da261a917b2d7b6432da65d1c1600ca07961
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61f2441d68954a167b9887a4dfd4b99a53c14166
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281651"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037219"
 ---
 # <a name="use-an-azure-cli-script-to-filter-inbound-and-outbound-vm-network-traffic"></a>Usare uno script dell'interfaccia della riga di comando di Azure per filtrare il traffico di rete VM in ingresso e in uscita
 

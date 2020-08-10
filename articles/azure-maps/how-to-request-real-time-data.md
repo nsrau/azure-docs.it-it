@@ -1,6 +1,6 @@
 ---
 title: Richiedere dati di transito pubblico in tempo reale | Mappe Microsoft Azure
-description: Richiedere dati di transito pubblico in tempo reale usando il servizio Mobility di Microsoft Azure maps.
+description: Informazioni su come richiedere dati di transito pubblico in tempo reale, ad esempio arrivi a un arresto di transito. Per questo scopo, vedere come usare il servizio Mobility di Azure maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/06/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 784d6a94562e8b5a709d65abdadef46ca71de395
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 71dc67d4c142f6fb84458cd6cd0b33452f2217b3
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505959"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037287"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Richiedere dati di transito pubblico in tempo reale usando il servizio Mobility di Azure Maps
 

@@ -3,12 +3,12 @@ title: Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 description: Questo articolo offre una matrice di supporto che elenca tutti i carichi di lavoro, i tipi di dati e le installazioni che vengono protetti dal server di Backup di Azure.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 974820389e84f727a9aab284716b3be9020c6dd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdbe874baf45d9858acbf891af3c0aae4bd0c2d2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032596"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036726"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 
@@ -23,6 +23,9 @@ Usare la matrice seguente per la UR1 di MAB V3:
 * Installazione di MAB: il computer o la posizione in cui si vuole installare MAB.
 
 * Protezione e ripristino - Informazioni dettagliate sui carichi di lavoro, ad esempio il contenitore di archiviazione supportato o la distribuzione supportata.
+
+>[!NOTE]
+>Il supporto per l'agente protezione a 32 bit è deprecato con MAB V3 UR1. Vedere [deprecazione dell'agente protezione 32 bit](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation).
 
 ## <a name="protection-support-matrix"></a>Matrice di supporto della protezione
 

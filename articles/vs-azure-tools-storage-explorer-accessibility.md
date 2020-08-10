@@ -1,6 +1,6 @@
 ---
-title: Accessibilità di Azure Storage Explorer (anteprima) | Microsoft Docs
-description: Accessibilità di Azure Storage Explorer (anteprima)
+title: Accessibilità Azure Storage Explorer | Microsoft Docs
+description: Informazioni sull'accessibilità in Azure Storage Explorer. Esaminare le utilità per la lettura dello schermo disponibili, la funzionalità di zoom, i temi a contrasto elevato e i tasti di scelta rapida.
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60457267"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035486"
 ---
 # <a name="storage-explorer-accessibility"></a>Accessibilità di Storage Explorer
 
@@ -55,15 +55,15 @@ L'impostazione del tema cambia il colore della maggior parte degli elementi dell
 
 ### <a name="window-commands"></a>Comandi della finestra
 
-Comando       | Tasti di scelta rapida
+Comando       | Tasto di scelta rapida
 --------------|--------------------
 Nuova finestra    | **CTRL+MAIUSC+N**
 Chiudi editor  | **CTRL+F4**
-Esci          | **CTRL+MAIUSC+W**
+Uscire          | **CTRL+MAIUSC+W**
 
 ### <a name="navigation-commands"></a>Comandi di spostamento
 
-Comando                | Tasti di scelta rapida
+Comando                | Tasto di scelta rapida
 -----------------------|----------------------
 Sposta stato attivo sul pannello successivo       | **F6**
 Sposta stato attivo sul pannello precedente   | **MAIUSC+F6**
@@ -78,14 +78,14 @@ Editor precedente        | **CTRL+PGSU**
 
 ### <a name="zoom-commands"></a>Comandi zoom
 
-Comando  | Tasti di scelta rapida
+Comando  | Tasto di scelta rapida
 ---------|------------------
 Zoom avanti  | **CTRL + =**
 Zoom indietro | **CTRL +-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Comandi dell'editor per BLOB e condivisione file
 
-Comando | Tasti di scelta rapida
+Comando | Tasto di scelta rapida
 --------|--------------------
 Indietro    | **ALT + freccia sinistra**
 Avanti | **ALT + freccia destra**
@@ -93,7 +93,7 @@ Su      | **ALT+freccia SU**
 
 ### <a name="editor-commands"></a>Comandi dell'editor
 
-Comando | Tasti di scelta rapida
+Comando | Tasto di scelta rapida
 --------|------------------
 Copia    | **CTRL+C**
 Taglia     | **CTRL+X**
@@ -102,7 +102,7 @@ Aggiorna  | **CTRL+R**
 
 ### <a name="other-commands"></a>Altri comandi
 
-Comando                | Tasti di scelta rapida
+Comando                | Tasto di scelta rapida
 -----------------------|------------------
 Attiva/Disattiva strumenti di sviluppo | **F12**
 Ricarica                 | **ALT + CTRL + R**

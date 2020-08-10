@@ -1,6 +1,6 @@
 ---
 title: Configurare, ottimizzare e risolvere i problemi relativi a AzCopy con archiviazione di Azure | Microsoft Docs
-description: Configurare, ottimizzare e risolvere i problemi relativi a AzCopy.
+description: Configurare, ottimizzare e risolvere i problemi relativi a AzCopy con archiviazione di Azure. Modificare il percorso o rimuovere i file di registro e di piano. Modificare il livello di registrazione predefinito.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282433"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037185"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -42,7 +42,7 @@ Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTL
 
 Se si esegue AzCopy in Windows e si vuole indicare che non deve usare _alcun_ proxy (anziché rilevare automaticamente le impostazioni), usare questi comandi. Con queste impostazioni, AzCopy non cercherà o tenterà di usare un proxy.
 
-| Sistema operativo | Environment | Comandi:  |
+| Sistema operativo | Environment | Comandi  |
 |--------|-----------|----------|
 | **Windows** | Prompt dei comandi (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
 | **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|

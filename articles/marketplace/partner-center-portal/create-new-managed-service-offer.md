@@ -3,16 +3,16 @@ title: Creare un'offerta di servizio gestito nel marketplace commerciale Microso
 description: Come creare una nuova offerta di servizio gestito per l'inserimento in Azure Marketplace usando il portale del marketplace commerciale nel Centro per i partner.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
-ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: f58ec53d1c4f3ad95993fd2faff44f7164c4beeb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798189"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036607"
 ---
 # <a name="create-a-managed-service-offer"></a>Creare un'offerta di servizi gestiti
 
@@ -130,20 +130,23 @@ Se si hanno siti Web di supporto per i **clienti globali di Azure** e/o i **clie
 
 In questa sezione è possibile specificare logo e immagini che verranno usati quando si mostra l'offerta al cliente. Tutte le immagini devono essere in formato PNG.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
 
-#### <a name="store-logos"></a>Logo dello store
+#### <a name="marketplace-logos"></a>Logo del marketplace
 
-Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel) e un valore **medio** (90 x 90 pixel). Facoltativamente, è possibile sostituirli con immagini diverse.
-
-Tutte e tre le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
+Specificare il logo dell'offerta in quattro dimensioni in pixel:
 
 - **Piccola** (48 x 48)
 - **Media** (90 x 90)
-- **Grande** (compreso tra 216 x 216 e 350 x 350)
+- **Grande** (216 x 216)
+- **Molto grande** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Questi logo vengono usati in posizioni diverse in Azure Marketplace:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 

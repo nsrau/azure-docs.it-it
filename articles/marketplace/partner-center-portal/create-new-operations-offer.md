@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 657c41fbcda30ffb5af4c5a27d58ef17c02a46bc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 553fd4e49d274fcf4c25356764182d54b91149e4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798257"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036641"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creare un'offerta Dynamics 365 for Operations
 
@@ -87,7 +87,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 Questa pagina consente di definire le categorie e i settori usati per raggruppare l'offerta nel marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -186,19 +186,19 @@ Specificare qui almeno un documento di marketing correlato (e fino a un massimo 
 
 In questa sezione è possibile specificare logo e immagini che verranno usati quando si mostra l'offerta al cliente. Tutte le immagini devono essere in formato PNG.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel). Facoltativamente, è possibile sostituirlo con un'immagine diversa.
-
-Entrambe le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
+Fornire il logo dell'offerta in due dimensioni di pixel:
 
 - **Piccola** (48 x 48)
-- **Grande** (compreso tra 216 x 216 e 350 x 350)
+- **Grande** (216 x 216)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 
