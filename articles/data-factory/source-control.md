@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f2f5a8a87d4ac4936f25e7ece2a34b518c09a063
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674585"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037627"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -211,11 +211,11 @@ Si apre un riquadro laterale in cui l'utente conferma che il ramo di pubblicazio
 
 ### <a name="permissions"></a>Autorizzazioni
 
-In genere è preferibile che non tutti i membri del team dispongano delle autorizzazioni per aggiornare la factory. Sono consigliate le impostazioni di autorizzazione seguenti:
+In genere, non è necessario che ogni membro del team disponga delle autorizzazioni per aggiornare la Data Factory. Sono consigliate le impostazioni di autorizzazione seguenti:
 
-*   Tutti i membri del team devono avere le autorizzazioni di accesso in lettura alla data factory.
-*   Solo un gruppo selezionato di persone dovrebbe essere autorizzato a pubblicare nella factory. A tale scopo, è necessario che dispongano del ruolo di **collaboratore di Data Factory** nel gruppo di risorse in cui si trova la factory. Per altre informazioni sulle autorizzazioni, vedere [Ruoli e autorizzazioni per Azure Data Factory](concepts-roles-permissions.md).
-   
+*   Tutti i membri del team devono disporre delle autorizzazioni di lettura per la Data Factory.
+*   È necessario consentire la pubblicazione nel Data Factory solo di un set di utenti selezionato. A tale scopo, devono avere il ruolo **collaboratore Data Factory** per il **gruppo di risorse** che contiene l'data factory. Per altre informazioni sulle autorizzazioni, vedere [Ruoli e autorizzazioni per Azure Data Factory](concepts-roles-permissions.md).
+
 Si consiglia di non consentire le archiviazioni dirette nel ramo collaborazione. Questa limitazione può aiutare a prevenire i bug in quanto ogni archiviazione passa attraverso un processo di revisione delle richieste pull descritto in [Creazione di rami di funzionalità](source-control.md#creating-feature-branches).
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Uso di password da Azure Key Vault

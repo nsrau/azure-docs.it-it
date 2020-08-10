@@ -1,6 +1,6 @@
 ---
 title: Richiedere dati di transito con Microsoft Azure Maps Mobility Service
-description: In questo articolo si apprenderà come richiedere i dati di transito pubblici usando il servizio Mobility di Microsoft Azure maps.
+description: Informazioni su come usare il servizio Mobility di Azure Maps per richiedere dati di transito pubblici, ad esempio gli ID area metro, le interruzioni di transito, le route e gli itinerari di route.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/22/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 38fc6f213cbd58fc829a6605bdbed7d25e99bb8d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0aad822f0433a161e20c520296ce9fb9eb296f7e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319015"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037746"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Richiedere i dati di transito pubblici usando il servizio Mobility di Azure Maps
 

@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 18eecdfeca58bc04c77dd0e39658a51fe56d0e68
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b2252a70aea6df755bb8b37c36b77b08db819ba9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513095"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037542"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
@@ -25,17 +25,15 @@ ms.locfileid: "87513095"
 
 Questo articolo illustra come creare set di dati di Azure Machine Learning per accedere ai dati per gli esperimenti locali o remoti. Per informazioni sul modo in cui i set di dati si adattano al flusso di lavoro di accesso ai dati complessivo di Azure Machine Learning, vedere l'articolo relativo ai [dati](concept-data.md#data-workflow) di
 
-Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nella posizione esistente, non viene addebitato alcun costo aggiuntivo per l'archiviazione e l'integrità delle origini dati non è rischiosa. Inoltre, i set di impostazioni sono valutati in modo differito, che facilitano le prestazioni del flusso di lavoro
+Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nella posizione esistente, non viene addebitato alcun costo aggiuntivo per l'archiviazione e l'integrità delle origini dati non è rischiosa. Inoltre, i set di impostazioni vengono valutati in modo differito, che facilitano le prestazioni del flusso È possibile creare set di dati da archivi dati, URL pubblici e set di dati [aperti di Azure](../open-datasets/how-to-create-dataset-from-open-dataset.md).
 
 Con Azure Machine Learning set di impostazioni è possibile:
 
 * Conservare una sola copia dei dati nella risorsa di archiviazione, a cui fanno riferimento i set di dati.
 
-* Accesso facile ai dati durante il training del modello senza doversi preoccupare di stringhe di connessione o percorsi di dati.
+* Accesso facile ai dati durante il training del modello senza doversi preoccupare di stringhe di connessione o percorsi di dati. [Altre informazioni su come eseguire il training con i set di impostazioni](how-to-train-with-datasets.md).
 
 * Condividere i dati e collaborare con altri utenti.
-
-[Vedere altre informazioni su come eseguire il training con i set di dati](how-to-train-with-datasets.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,6 +44,12 @@ Per creare e usare i set di impostazioni, è necessario:
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
 * [SDK Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), che include il pacchetto azureml-DataSets.
+
+    * Creare un' [istanza di calcolo di Azure Machine Learning](concept-compute-instance.md#managing-a-compute-instance), ovvero un ambiente di sviluppo completamente configurato e gestito che includa notebook integrati e SDK già installato.
+
+    **OR**
+
+    * Usare il notebook di Jupyter e installare l'SDK manualmente con [queste istruzioni](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 > [!NOTE]
 > Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , che è compatibile solo con Python a 64 bit. Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) e CentOS (7).
@@ -224,50 +228,15 @@ Per creare un set di dati in studio:
 1. Selezionare **Avanti** per esaminare il modulo **Conferma dettagli** . Controllare le selezioni e creare un profilo dati facoltativo per il set di dati. Altre informazioni sulla [profilatura dei dati](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Selezionare **Crea** per completare la creazione del set di dati.
 
+## <a name="create-datasets-with-azure-open-datasets"></a>Creare set di impostazioni con i set di impostazioni di Azure Open
+
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. I set di dati includono dati di pubblico dominio relativi a meteo, censimento, festività, sicurezza pubblica e posizione, che consentono di eseguire il training di modelli di Machine Learning e arricchire le soluzioni predittive. I set di impostazioni aperti si trovano nel cloud in Microsoft Azure e sono inclusi sia nell'SDK che in studio.
+
+Informazioni su come creare [set di impostazioni di Azure Machine Learning da Azure Open DataSets](../open-datasets/how-to-create-dataset-from-open-dataset.md). 
+
 ## <a name="train-with-datasets"></a>Eseguire il training con set di dati
 
 Usare i set di impostazioni negli esperimenti di machine learning per il training dei modelli ML. [Altre informazioni su come eseguire il training con DataSet](how-to-train-with-datasets.md)
-
-## <a name="create-datasets-with-azure-open-datasets"></a>Creare set di impostazioni con i set di impostazioni di Azure Open
-
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. I set di dati includono dati di pubblico dominio relativi a meteo, censimento, festività, sicurezza pubblica e posizione, che consentono di eseguire il training di modelli di Machine Learning e arricchire le soluzioni predittive. I set di impostazioni aperti si trovano nel cloud in Microsoft Azure e sono inclusi sia nell'SDK che nell'interfaccia utente dell'area di lavoro.
-
-### <a name="use-the-sdk"></a>Usare l'SDK
-
-Per creare set di impostazioni con Azure Open DataSets dall'SDK, verificare che il pacchetto sia stato installato con `pip install azureml-opendatasets` . Ogni set di dati discreto è rappresentato dalla propria classe nell'SDK e alcune classi sono disponibili come `TabularDataset` , `FileDataset` o. Per un elenco completo delle classi, vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) .
-
-È possibile recuperare determinate classi come `TabularDataset` o `FileDataset` , che consente di modificare e/o scaricare direttamente i file. Altre classi possono ottenere un set di dati **solo** usando una `get_tabular_dataset()` delle `get_file_dataset()` funzioni o. Nell'esempio di codice riportato di seguito vengono illustrati alcuni esempi di questi tipi di classi.
-
-```python
-from azureml.opendatasets import MNIST
-
-# MNIST class can return either TabularDataset or FileDataset
-tabular_dataset = MNIST.get_tabular_dataset()
-file_dataset = MNIST.get_file_dataset()
-
-from azureml.opendatasets import Diabetes
-
-# Diabetes class can return ONLY TabularDataset and must be called from the static function
-diabetes_tabular = Diabetes.get_tabular_dataset()
-```
-
-Quando si registra un set di dati creato da set di dati aperti, non vengono scaricati immediatamente dati, ma i dati saranno accessibili in un secondo momento, quando richiesto (durante il training, ad esempio) da una posizione di archiviazione centrale.
-
-### <a name="use-the-ui"></a>Usare l'interfaccia utente
-
-È anche possibile creare set di impostazioni da classi Open DataSets tramite l'interfaccia utente. Nell'area di lavoro selezionare la scheda **set** di **elementi in asset**. Nel menu a discesa **Crea set di dati** selezionare **da set di dati aperti**.
-
-![Aprire il set di dati con l'interfaccia utente](./media/how-to-create-register-datasets/open-datasets-1.png)
-
-Selezionare un set di dati selezionando il relativo riquadro. È possibile filtrare usando la barra di ricerca. Selezionare **Avanti**.
-
-![Scegliere il set di dati](./media/how-to-create-register-datasets/open-datasets-2.png)
-
-Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati Public Holidays è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Selezionare **Crea**.
-
-![Imposta parametri set di dati e crea set di dati](./media/how-to-create-register-datasets/open-datasets-3.png)
-
-Il set di dati è ora disponibile nell'area di lavoro in **set**di dati. È possibile usarlo nello stesso modo degli altri set di impostazioni creati.
 
 ## <a name="version-datasets"></a>Set di impostazioni di versione
 

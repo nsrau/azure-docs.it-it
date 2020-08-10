@@ -1,6 +1,6 @@
 ---
 title: Cercare un percorso usando i servizi di ricerca di Azure Maps
-description: In questo articolo si apprenderà come cercare un percorso usando le API di ricerca di Microsoft Azure Maps per la geocodifica, la geocodifica inversa, la ricerca fuzzy e la ricerca inversa tra le strade.
+description: Informazioni sul servizio ricerca di Azure maps. Vedere come usare questo set di API per la geocodifica, la geocodifica inversa, le ricerche fuzzy e le ricerche inverse tra le strade.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 51ee2bb66adedc310f65b2d3b430023ae7767df6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126627"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037780"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Cercare un percorso usando i servizi di ricerca di Azure Maps
 
@@ -31,7 +31,7 @@ In questo articolo si apprenderà come:
 1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
 
-Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), tuttavia è possibile scegliere un ambiente di sviluppo API diverso.
+Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), ma è possibile scegliere un ambiente di sviluppo API diverso.
 
 ## <a name="request-latitude-and-longitude-for-an-address-geocoding"></a>Richiedere Latitudine e Longitudine per un indirizzo (geocodifica)
 
@@ -110,7 +110,7 @@ In questo esempio verrà usata la ricerca fuzzy per cercare nell'intero mondo `p
     | radius | 400 |
     | limit | 5|
 
-6. Fare clic su **Invia**. La risposta include i risultati per i ristoranti della pizza in prossimità dell'ago dello spazio di Seattle.
+6. Fare clic su **Send**. La risposta include i risultati per i ristoranti della pizza in prossimità dell'ago dello spazio di Seattle.
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>Cercare un indirizzo tramite la ricerca di indirizzi inversa
 
@@ -138,7 +138,7 @@ In questo esempio verranno eseguite ricerche inverse utilizzando alcuni dei para
 
     | Chiave | Valore | Restituisce
     |-----|------------|------|
-    | d'acquisto | 1 |La risposta può includere il lato della strada (sinistra/destra) e anche una posizione di offset per il numero.|
+    | Numero | 1 |La risposta può includere il lato della strada (sinistra/destra) e anche una posizione di offset per il numero.|
     | returnSpeedLimit | true | Restituisce il limite di velocità in corrispondenza dell'indirizzo.|
     | returnRoadUse | true | Restituisce i tipi di utilizzo delle strade in corrispondenza dell'indirizzo. Per tutti i possibili tipi di utilizzo stradali, vedere [tipi di utilizzo delle strade](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Restituisce il tipo di corrispondenza. Per tutti i valori possibili, vedere [Risultati della ricerca di indirizzi inversi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
@@ -151,7 +151,7 @@ In questo esempio verranno eseguite ricerche inverse utilizzando alcuni dei para
 
     :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Cerca entityType inverso.":::
 
-7. Fare clic su **Invia**. Confrontare i risultati con i risultati restituiti nel passaggio 5.  Poiché il tipo di entità richiesto è ora `municipality` , la risposta non include le informazioni sull'indirizzo via. Inoltre, l'oggetto restituito `geometryId` può essere usato per richiedere il poligono di limite tramite le mappe di Azure Get [API poligono di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
+7. Fare clic su **Send**. Confrontare i risultati con i risultati restituiti nel passaggio 5.  Poiché il tipo di entità richiesto è ora `municipality` , la risposta non include le informazioni sull'indirizzo via. Inoltre, l'oggetto restituito `geometryId` può essere usato per richiedere il poligono di limite tramite le mappe di Azure Get [API poligono di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
 >[!TIP]
 >Per ottenere altre informazioni su questi parametri e per altre informazioni su altri, vedere la [sezione parametri di ricerca inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).

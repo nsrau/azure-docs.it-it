@@ -1,6 +1,6 @@
 ---
 title: Crittografare i dati delle tabelle di archiviazione di Azure | Microsoft Docs
-description: Informazioni sulla crittografia dei dati delle tabelle nell'archiviazione di Azure.
+description: Informazioni sulla crittografia dei dati delle tabelle nell'archiviazione di Azure. La libreria client di archiviazione di Azure .NET consente di crittografare le entità stringa per le operazioni di inserimento e sostituzione.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: f56946702011968a0fcb31f6fbecbaacdc89ea42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec213b9d7429714beb948f061445fd37d698624
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60326004"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037491"
 ---
 # <a name="encrypt-table-data"></a>Crittografare i dati delle tabelle
 La libreria client di Archiviazione di Azure per .NET supporta la crittografia di proprietà di entità stringa per le operazioni di inserimento e sostituzione. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe dopo la decrittografia.    

@@ -1,6 +1,6 @@
 ---
 title: Supporto della localizzazione | Mappe di Microsoft Azure
-description: Questo articolo illustra le lingue supportate per i servizi in Mappe di Microsoft Azure.
+description: Scopri le aree supportate da Azure Maps con servizi quali mappe, ricerca, routing, meteo e incidenti di traffico. Informazioni su come configurare il parametro di visualizzazione.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127894"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037695"
 ---
 # <a name="localization-support-in-azure-maps"></a>Supporto della localizzazione in Mappe di Azure
 
@@ -110,37 +110,37 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 > Dopo il 1° agosto 2019, il parametro **View** definirà il contenuto delle mappe restituite per la nuova area geografica/il nuovo paese elencato in precedenza. Il parametro **View** di Mappe di Azure (anche noto come "parametro dell’area geografica dell’utente") è un codice paese ISO-3166 a due lettere che mostrerà le mappe corrette per il paese/l’area geografica specificando quale set di contenuti geopoliticamente contestati verrà restituito tramite i servizio di Mappe di Azure, compresi i confini e le etichette visualizzati sulla mappa. 
 
 Assicurarsi di impostare il parametro **View** come richiesto per le API REST e gli SDK, che vengono usati dai servizi.
->  
->
->  **API REST:**
->  
->  Assicurarsi di aver configurato il parametro View come richiesto. Il parametro View specifica il set di contenuto geopoliticamente contestato che viene restituito tramite i servizi di Mappe di Azure. 
->
->  Servizi REST di Mappe di Azure interessati:
->    
->    * Get Map Tile
->    * Get Map Image 
->    * Get Search Fuzzy
->    * Get Search POI
->    * Get Search POI Category
->    * Get Search Nearby
->    * Get Search Address
->    * Get Search Address Structured
->    * Get Search Address Reverse
->    * Get Search Address Reverse Cross Street
->    * Post Search Inside Geometry
->    * Post Search Address Batch Preview
->    * Post Search Address Reverse Batch Preview
->    * Post Search Along Route
->    * Post Search Fuzzy Batch Preview
->
->    
->  **SDK:**
->
->  Assicurarsi di aver configurato il parametro **View** come richiesto e di disporre della versione più recente di Web SDK e Android SDK. SDK interessati:
->
->    * Azure Maps Web SDK
->    * Azure Maps Android SDK
+  
+
+### <a name="rest-apis"></a>API REST
+  
+Assicurarsi di aver configurato il parametro View come richiesto. Il parametro View specifica il set di contenuto geopoliticamente contestato che viene restituito tramite i servizi di Mappe di Azure. 
+
+Servizi REST di Mappe di Azure interessati:
+    
+ * Get Map Tile
+ * Get Map Image 
+ * Get Search Fuzzy
+ * Get Search POI
+ * Get Search POI Category
+ * Get Search Nearby
+ * Get Search Address
+ * Get Search Address Structured
+ * Get Search Address Reverse
+ * Get Search Address Reverse Cross Street
+ * Post Search Inside Geometry
+ * Post Search Address Batch Preview
+ * Post Search Address Reverse Batch Preview
+ * Post Search Along Route
+ * Post Search Fuzzy Batch Preview
+
+ 
+### <a name="sdks"></a>SDK
+
+Assicurarsi di aver configurato il parametro **View** come richiesto e di disporre della versione più recente di Web SDK e Android SDK. SDK interessati:
+
+ * Azure Maps Web SDK
+ * Azure Maps Android SDK
 
 Per impostazione predefinita, il parametro View è impostato su **Unified**, anche se non è stato definito nella richiesta. Determinare la posizione degli utenti. Quindi, impostare il parametro **View** correttamente per tale posizione. In alternativa, è possibile impostare "View = auto", che restituirà i dati della mappa in base all'indirizzo IP della richiesta.  Il parametro **View** parametro in Mappe di Azure deve essere usato in conformità alle leggi applicabili, incluse le leggi sul mapping del paese/area geografica in cui sono disponibili mappe, immagini e altri dati e contenuti di terze parti a cui si è autorizzati ad accedere tramite Mappe di Azure.
 

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304140"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037525"
 ---
-# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API di evasione SaaS in Microsoft Commercial Marketplace
+# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>API di evasione SaaS in Microsoft Commercial Marketplace
 
 Le API di evasione SaaS consentono agli editori, noti anche come fornitori di software indipendenti (ISV), di pubblicare e vendere le proprie applicazioni SaaS in Microsoft AppSource, Azure Marketplace e portale di Azure. Queste API consentono alle applicazioni ISV di partecipare a tutti i canali abilitati per il commercio: diretto, partner-LED (rivenditore) e LED di campo.  L'integrazione con queste API è un requisito per la creazione e la pubblicazione di un'offerta SaaS transazionale nel centro per i partner.
 
