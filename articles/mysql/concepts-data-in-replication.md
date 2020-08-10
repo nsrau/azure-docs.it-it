@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/7/2020
+ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79533233"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031218"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -29,6 +29,11 @@ Per gli scenari di migrazione, usare il [servizio migrazione del database di Azu
 
 ### <a name="data-not-replicated"></a>Dati non replicati
 Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) sul server master non viene replicato. Le modifiche agli account e alle autorizzazioni sul server master non vengono replicate. Se si crea un account sul server master e questo deve accedere al server di replica, creare manualmente lo stesso account sul lato del server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
+
+### <a name="filtering"></a>Filtro
+Per ignorare le tabelle di replica dal server master (ospitato in locale, in macchine virtuali o in un servizio di database ospitato da altri provider di servizi cloud), il `replicate_wild_ignore_table` parametro è supportato. Facoltativamente, aggiornare questo parametro nel server di replica ospitato in Azure usando il [portale di Azure](howto-server-parameters.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
+
+Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table).
 
 ### <a name="requirements"></a>Requisiti
 - Nel server master deve essere installata almeno la versione 5.6 di MySQL. 

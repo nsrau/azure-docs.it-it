@@ -1,5 +1,5 @@
 ---
-title: Attribuzione dell'utilizzo da parte dei clienti e dei partner del marketplace commerciale
+title: Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 description: Panoramica su come tenere traccia dell'utilizzo da parte dei clienti per le soluzioni di Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,14 +8,14 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/14/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ab729d34219c05ee76a2a14832f41342d29eab21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065792"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031286"
 ---
-# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Attribuzione dell'utilizzo da parte dei clienti e dei partner del marketplace commerciale
+# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 
 L'attribuzione dell'utilizzo da parte dei clienti è un metodo per associare le risorse di Azure in esecuzione nelle sottoscrizioni dei clienti, distribuite per eseguire la soluzione, con l'utente come partner. La creazione di queste associazioni nei sistemi Microsoft interni offre maggiore visibilità sul footprint di Azure che esegue il proprio software. Adottando questa funzionalità di monitoraggio, è possibile allinearsi con i team di vendita Microsoft e ottenere credito per i programmi per partner Microsoft.
 
@@ -45,7 +45,7 @@ Un GUID è un identificatore di riferimento univoco con 32 cifre esadecimali. Pe
 
 Si consiglia di creare un GUID univoco per ogni canale di offerta e distribuzione per ogni prodotto. È possibile scegliere di usare un unico GUID per i vari canali di distribuzione del prodotto se non si vuole suddividere la creazione di report.
 
-Se si usa un modello per distribuire un prodotto disponibile su Azure Marketplace e su GitHub, è possibile creare e registrare due GUID distinti:
+Se si distribuisce un prodotto usando un modello ed è disponibile sia in Azure Marketplace che in GitHub, è possibile creare e registrare due GUID distinti:
 
 - Prodotto A su Azure Marketplace
 - Prodotto A su GitHub
@@ -82,13 +82,13 @@ Dopo avere aggiunto il GUID al modello o nell'agente utente e avere registrato i
 1. Selezionare **Salva**.
 
 ## <a name="use-resource-manager-templates"></a>Usare i modelli di Resource Manager
-Molte soluzioni dei partner vengono distribuite usando i modelli di Azure Resource Manager. Se si ha un modello di Resource Manager disponibile in Azure Marketplace, in GitHub o come avvio rapido, il processo di modifica del modello per abilitare l'attribuzione dell'utilizzo da parte dei clienti è semplice.
+Molte soluzioni dei partner vengono distribuite usando i modelli di Azure Resource Manager. Se si dispone di un modello di Gestione risorse disponibile in Azure Marketplace, su GitHub o come guida introduttiva, il processo di modifica del modello per consentire l'attribuzione dell'utilizzo dei clienti è semplice.
 
 > [!NOTE]
 > Per altre informazioni sulla creazione e sulla pubblicazione di modelli di soluzione, vedere
 > * [Creare e distribuire il primo modello di Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Offerta di applicazione Azure](./partner-center-portal/create-new-azure-apps-offer.md).
->* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creazione di modelli di soluzione e applicazioni gestite per Azure Marketplace).
+>* Video: [creazione di modelli di soluzioni e applicazioni gestite per Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 Per aggiungere un identificatore univoco globale (GUID), si apporta una sola modifica nel file di modello principale:
@@ -269,7 +269,7 @@ Se è necessaria assistenza per l'onboarding nel marketplace e/o l'attribuzione 
 1. Scegliere la **categoria** del problema:
 
    - Per problemi di associazione dell'utilizzo, selezionare **Altro**.
-   - Per problemi di accesso con Azure Marketplace, selezionare **Problema di accesso**.
+   - Per problemi di accesso con Azure Marketplace, selezionare **problema di accesso**.
 
      ![Scegliere la categoria di problema](media/marketplace-publishers-guide/lu-article-incident.png)
 

@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275004"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032127"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: condizioni
 
 All'interno di un criterio di accesso condizionale, un amministratore può usare i segnali provenienti da condizioni come il rischio, la piattaforma del dispositivo o la località per migliorare le decisioni relative ai criteri. 
 
-![Definire un criterio di accesso condizionale e specificare le condizioni](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
+[![Definire un criterio di accesso condizionale e specificare le condizioni](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 È possibile combinare più condizioni per creare criteri specifici per l'accesso condizionale e con granularità fine.
 
@@ -60,21 +60,28 @@ Ad esempio, alcune organizzazioni possono scegliere di non richiedere l'autentic
 
 Altre informazioni sulle località sono disponibili nell'articolo, [Qual è la condizione della posizione in Azure Active Directory accesso condizionale](location-condition.md).
 
-## <a name="client-apps-preview"></a>App client (anteprima)
+## <a name="client-apps"></a>App client
 
-Per impostazione predefinita, i criteri di accesso condizionale si applicano alle applicazioni basate su browser e alle applicazioni che utilizzano protocolli di autenticazione moderni. Oltre a queste applicazioni, gli amministratori possono scegliere di includere i client di Exchange ActiveSync e altri client che usano protocolli legacy.
+Per impostazione predefinita, tutti i criteri di accesso condizionale appena creati verranno applicati a tutti i tipi di app client anche se la condizione delle app client non è configurata. 
 
 > [!NOTE]
-> L'interruttore configura sì/no nella condizione app client è stato rimosso per semplificare la visualizzazione delle app client selezionate. Ciò non influisca sulle app client a cui si applica un criterio esistente.
+> Il comportamento della condizione delle app client è stato aggiornato nel 2020 agosto. Se sono presenti criteri di accesso condizionale, questi rimarranno invariati. Tuttavia, se si fa clic su un criterio esistente, l'interruttore Configura è stato rimosso e le app client a cui si applica il criterio sono selezionate.
 
-- Browser
-   - Sono incluse le applicazioni basate sul Web che usano protocolli quali SAML, WS-Federation, OpenID Connect o i servizi registrati come client Confidential OAuth.
-- App per dispositivi mobili e client desktop
-   - Client di autenticazione moderni
-      - Questa opzione include applicazioni come le applicazioni desktop e per telefoni di Office.
+> [!IMPORTANT]
+> Gli accessi dai client di autenticazione legacy non supportano l'autenticazione a più fattori e non passano le informazioni sullo stato del dispositivo a Azure AD, quindi verranno bloccate dai controlli di concessione dell'accesso condizionale, ad esempio richiedere l'autenticazione a più fattori o dispositivi conformi Se sono presenti account che devono usare l'autenticazione legacy, è possibile escludere tali account dal criterio o configurare i criteri in modo che vengano applicati solo ai client di autenticazione moderni.
+
+L'interruttore **Configura** quando impostato su **Sì** si applica agli elementi selezionati, quando è impostato su **No** , si applica a tutte le app client, inclusi i client di autenticazione moderni e legacy. Questo interruttore non viene visualizzato nei criteri creati prima del 2020 agosto.
+
+- Client di autenticazione moderni
+   - Browser
+      - Sono incluse le applicazioni basate sul Web che usano protocolli quali SAML, WS-Federation, OpenID Connect o i servizi registrati come client Confidential OAuth.
+   - App per dispositivi mobili e client desktop
+      -  Questa opzione include applicazioni come le applicazioni desktop e per telefoni di Office.
+- Client di autenticazione legacy
    - Client Exchange ActiveSync
-      - Per impostazione predefinita, è incluso l'uso del protocollo EAS (Exchange ActiveSync). La scelta di **applica i criteri solo alle piattaforme supportate** limiterà le piattaforme supportate come iOS, Android e Windows.
+      - Sono inclusi tutti gli utilizzi del protocollo Exchange ActiveSync (EAS).
       - Quando i criteri bloccano l'uso di Exchange ActiveSync, l'utente interessato riceverà un messaggio di posta elettronica di quarantena singolo. Questo messaggio di posta elettronica con fornisce informazioni sul motivo del blocco e include le istruzioni per la correzione, se possibile.
+      - Gli amministratori possono applicare i criteri solo alle piattaforme supportate (ad esempio iOS, Android e Windows) tramite l'API Graph MS di accesso condizionale.
    - Altri client
       - Questa opzione include i client che usano i protocolli di autenticazione di base/legacy che non supportano l'autenticazione moderna.
          - SMTP autenticato: usato dai client POP e IMAP per inviare messaggi di posta elettronica.
@@ -95,7 +102,7 @@ Queste condizioni vengono comunemente usate quando si richiede un dispositivo ge
 
 Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un criterio dei dispositivi, ad esempio un requisito di un dispositivo conforme, sono supportati i sistemi operativi e browser seguenti:
 
-| Sistema operativo | Browser |
+| OS | Browser |
 | :-- | :-- |
 | Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows 8/8.1 | Internet Explorer, Chrome |
@@ -106,7 +113,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
-| Windows Server 2008 R2 | Internet Explorer |
+| Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Perché viene visualizzata una richiesta di certificato nel browser

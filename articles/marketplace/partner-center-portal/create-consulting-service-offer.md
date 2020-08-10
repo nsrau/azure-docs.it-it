@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f020d3e98a5c13848a67ed4d8c9ded485b2f9450
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798223"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032595"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creare un'offerta di un servizio di consulenza
 
@@ -98,7 +98,7 @@ Questa pagina consente di impostare il prodotto primario offerto dal servizio di
 
 3. Se è stato selezionato **Azure** come prodotto primario, selezionare fino a tre **aree della soluzione**. Le aree semplificano la ricerca dell'offerta da parte dei clienti in Azure Marketplace. Se non è stato scelto Azure, ignorare questo passaggio.
 
-    - Analytics
+    - Analisi
     - Modernizzazione delle app
     - Archiviazione
     - Intelligenza artificiale e Machine Learning
@@ -202,19 +202,22 @@ Aggiungere almeno uno fino a un massimo di tre documenti PDF di supporto per l'o
 
 Inserire i logo e le immagini da usare per l'offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfuocate verranno rifiutate.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel). Facoltativamente, è possibile sostituirlo con un'immagine diversa.
+Inserire i file PNG del logo dell'offerta in ognuna delle dimensioni in pixel seguenti:
 
-Entrambe le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
+- **Piccola (48 x 48)**
+- **Grande (216 x 216)**
 
-- **Piccola** (48 x 48)
-- **Grande** (compreso tra 216 x 216 e 350 x 350)
+Tutti i logo sono obbligatori e sono usati in posizioni diverse nella presentazione del marketplace.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+-   Il logo piccolo (48 x 48 pixel) viene visualizzato nei risultati della ricerca di Azure Marketplace e nella pagina principale Microsoft AppSource e nei risultati della ricerca. 
+-   Il logo di grandi dimensioni (compreso tra 216 x 216 e 350 x 350 pixel) viene visualizzato nella pagina di inserzione dell'offerta in Azure Marketplace e Microsoft AppSource.
 
 #### <a name="screenshots-optional"></a>Screenshot (facoltativo)
 

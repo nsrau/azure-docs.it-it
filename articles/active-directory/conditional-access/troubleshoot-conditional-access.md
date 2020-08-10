@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610515"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032969"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Risoluzione dei problemi di accesso con l'accesso condizionale
 
@@ -55,11 +55,16 @@ Per individuare i criteri di accesso condizionale o i criteri applicati e perch�
    1. Le informazioni nella scheda **risoluzione dei problemi e supporto tecnico** possono indicare un motivo chiaro per cui un accesso non è riuscito, ad esempio un dispositivo che non soddisfa i requisiti di conformità.
    1. Per esaminare ulteriormente, eseguire il drill-down nella configurazione dei criteri facendo clic sul **nome del criterio**. Facendo clic sul **nome del criterio** , viene visualizzata l'interfaccia utente di configurazione dei criteri per il criterio selezionato per la revisione e la modifica.
    1. I **dettagli relativi** all' **utente** e al dispositivo client usati per la valutazione dei criteri di accesso condizionale sono disponibili anche nelle schede **informazioni di base**, **località**, **informazioni sul dispositivo**, **Dettagli autenticazione**e **dettagli aggiuntivi** dell'evento di accesso.
-   1. La selezione dei puntini di sospensione sul lato destro del criterio Visualizza i dettagli dei criteri. Che fornisce agli amministratori informazioni aggiuntive sui motivi per cui un criterio è stato applicato o meno.
+
+### <a name="policy-details"></a>Dettagli criteri
+
+La selezione dei puntini di sospensione sul lato destro del criterio in un evento di accesso Visualizza i dettagli dei criteri. Che fornisce agli amministratori informazioni aggiuntive sui motivi per cui un criterio è stato applicato o meno.
 
    ![Scheda accesso condizionale evento di accesso](./media/troubleshoot-conditional-access/image5.png)
 
    ![Dettagli dei criteri (anteprima)](./media/troubleshoot-conditional-access/policy-details.png)
+
+Il lato sinistro fornisce i dettagli raccolti al momento dell'accesso e il lato destro fornisce informazioni dettagliate sull'eventuale conformità dei dettagli ai requisiti dei criteri di accesso condizionale applicati. I criteri di accesso condizionale vengono applicati solo quando tutte le condizioni sono soddisfatte o non configurate.
 
 Se le informazioni nell'evento non sono sufficienti per comprendere i risultati di accesso o modificare i criteri per ottenere i risultati desiderati, è possibile che venga aperta una richiesta di supporto. Passare alla scheda **risoluzione dei problemi e supporto** dell'evento di accesso e selezionare **Crea una nuova richiesta di supporto**.
 

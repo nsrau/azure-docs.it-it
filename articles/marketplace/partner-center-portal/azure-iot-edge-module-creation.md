@@ -3,16 +3,16 @@ title: Creare un'offerta del modulo Azure IoT Edge con il Centro per i partner i
 description: Informazioni su come creare, configurare e pubblicare un'offerta di modulo IoT Edge in Azure Marketplace tramite il centro per i partner.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/07/2020
+ms.openlocfilehash: a44e7835b90ca88460d2045a5494420c6d47921b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876632"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032833"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -194,6 +194,8 @@ Per altre informazioni sulla creazione della presentazione dell'offerta, vedere 
 
 Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfuocate verranno rifiutate.
 
+[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
 
@@ -207,6 +209,8 @@ Inserire file PNG del logo dell'offerta in tutte e quattro le dimensioni in pixe
 - **Molto grande (255 X 115)**
 
 Tutti e quattro i logo sono obbligatori e vengono usati in posizioni diverse nella presentazione del marketplace.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>Screenshot (facoltativo)
 
@@ -231,7 +235,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Indirizzo privacy policy (collegamento)
 6. Nome
 7. Riepilogo
-8. Description
+8. Descrizione
 9. Collegamenti utili
 10. Screenshot/video
 
@@ -252,7 +256,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Nome
-2. Description
+2. Descrizione
 3. Collegamenti utili
 4. Schermate
 
@@ -445,14 +449,14 @@ Ad esempio, se il modulo ContosoModule è in ascolto di dati di input in Contoso
 - Nome 2: FromContosoModuleToCloud
 - Valore 2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Proprietà desiderate predefinite del modulo gemello**. Un modulo gemello è un documento Json contenuto nell'hub IoT in cui vengono archiviate le informazioni di stato relative a un'istanza del modulo, incluse le proprietà desiderate. Le proprietà desiderate vengono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del modulo. Il back-end della soluzione è in grado di impostare le proprietà desiderate e il modulo è in grado di leggerle. Il modulo può anche ricevere notifiche relative alle modifiche apportate alle proprietà desiderate. Le proprietà desiderate vengono create usando fino a cinque coppie nome/valore e ogni valore predefinito deve essere costituito da meno di 512 caratteri. È possibile definire fino a cinque proprietà nome/valore desiderate del dispositivo gemello. I valori delle proprietà desiderate del dispositivo gemello devono essere un JSON valido, non preceduto da carattere di escape, senza matrici e con una gerarchia annidata massima pari a quattro livelli. In uno scenario in cui un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito. Per altre informazioni sulle proprietà desiderate del dispositivo gemello, vedere [definire o aggiornare le proprietà desiderate](../../iot-edge/module-composition.md#define-or-update-desired-properties).
+**Proprietà desiderate predefinite del modulo gemello**. Un modulo gemello è un documento Json contenuto nell'hub IoT in cui vengono archiviate le informazioni di stato relative a un'istanza del modulo, incluse le proprietà desiderate. Le proprietà desiderate vengono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del modulo. Il back-end della soluzione è in grado di impostare le proprietà desiderate e il modulo è in grado di leggerle. Il modulo può anche ricevere notifiche relative alle modifiche apportate alle proprietà desiderate. Le proprietà desiderate vengono create usando fino a cinque coppie nome/valore e ogni valore predefinito deve essere composto da meno di 512 caratteri. È possibile definire fino a cinque proprietà nome/valore desiderate del dispositivo gemello. I valori delle proprietà desiderate del dispositivo gemello devono essere un JSON valido, non preceduto da carattere di escape, senza matrici e con una gerarchia annidata massima pari a quattro livelli. In uno scenario in cui un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito. Per altre informazioni sulle proprietà desiderate del dispositivo gemello, vedere [definire o aggiornare le proprietà desiderate](../../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 Se, ad esempio, un modulo supporta una frequenza di aggiornamento configurabile in modo dinamico tramite le proprietà desiderate del dispositivo gemello, è opportuno definire le proprietà desiderate del dispositivo gemello predefinite seguenti:
 
 - Nome 1: RefreshRate
 - Valore 1: 60
 
-**Variabili di ambiente predefinite**. Le variabili di ambiente forniscono a un modulo informazioni aggiuntive che semplificano il processo di configurazione. Le variabili di ambiente vengono create usando le coppie nome/valore. Ogni nome e valore della variabile di ambiente predefinita deve essere composto da meno di 512 caratteri ed è possibile definirne fino a cinque. Quando un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito.
+**Variabili di ambiente predefinite**. Le variabili di ambiente forniscono a un modulo informazioni aggiuntive che semplificano il processo di configurazione. Le variabili di ambiente vengono create usando le coppie nome/valore. Ogni nome e valore predefinito della variabile di ambiente deve essere composto da meno di 512 caratteri ed è possibile definirne fino a cinque. Quando un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito.
 
 Se ad esempio un modulo richiede di accettare le condizioni d'uso prima dell'avvio, è possibile definire la variabile di ambiente seguente:
 

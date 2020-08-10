@@ -1,18 +1,18 @@
 ---
 title: Creare un'offerta Dynamics 365 Business Central - Marketplace commerciale Microsoft
-description: Procedure e considerazioni per la creazione di una nuova offerta Dynamics 365 Business Central nel portale del marketplace commerciale nel Centro per i partner. È possibile presentare o vendere un'offerta in Azure Marketplace o tramite il programma Cloud Solution Provider (CSP).
+description: Informazioni sui passaggi e le considerazioni per la creazione di una nuova offerta di Dynamics 365 business Central in Microsoft Commercial Marketplace nel centro per i partner. È possibile presentare o vendere un'offerta in Azure Marketplace o tramite il programma Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 06/17/2020
-ms.openlocfilehash: 5ec8949d1ba614ca947f9848182ae2c94e044fc3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: ff93a336b50ceac1106b31726d865ed3e0b41108
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800399"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031473"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creare un'offerta Dynamics 365 Business Central
 
@@ -87,7 +87,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 Questa pagina consente di definire le categorie e i settori usati per raggruppare l'offerta nel marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -131,7 +131,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 6. Informativa sulla privacy
 7. Nome offerta
 8. Riepilogo
-9. Description
+9. Descrizione
 10. Screenshot/video
 
 ### <a name="name"></a>Nome
@@ -180,19 +180,21 @@ Nella sezione **Contatto di supporto** è necessario fornire anche un valore per
 
 Fornire qui almeno un documento di marketing correlato (e fino a un massimo di tre), ad esempio white paper, brochure, elenchi di controllo o presentazioni. Questi documenti devono essere in formato PDF.
 
-### <a name="store-logos"></a>Logo dello store
+### <a name="marketplace-images"></a>Immagini del Marketplace
 
-Fornire un file PNG per il logo di **grandi** dimensioni (compreso tra 216 x 216 e 350 x 350 pixel). Il centro per i partner lo utilizzerà per creare un logo di dimensioni **ridotte** (48 x 48 pixel). Facoltativamente, è possibile sostituirlo con un'immagine diversa.
+Fornire logo e immagini per l'offerta. Tutte le immagini devono essere in formato PNG. 
 
-Entrambe le dimensioni del logo sono necessarie per l'uso in posizioni diverse nell'elenco:
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
-- **Piccola** (48 x 48)
-- **Grande** (compreso tra 216 x 216 e 350 x 350)
+Caricare il logo dell'offerta in due dimensioni:
+
+* **Small** (48 x 48 pixel)
+* **Large** (216 x 216 pixel)
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 >[!NOTE]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio `https://upload.xboxlive.com` usato dal Centro per i partner.
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 
@@ -200,7 +202,7 @@ Aggiungere screenshot che mostrano il funzionamento dell'offerta. Sono necessari
 
 #### <a name="videos"></a>Video
 
-Facoltativamente, è possibile aggiungere fino a cinque video che descrivono l'offerta. Questi video devono essere ospitati in YouTube e/o Vimeo. Per ogni video, immettere il nome, l'URL e un'immagine di anteprima (1280 x 720 pixel).
+Se si vuole, è possibile aggiungere fino a cinque video che descrivono l'offerta. Questi video devono essere ospitati in YouTube e/o Vimeo. Per ogni video, immettere il nome, l'URL e un'immagine di anteprima (1280 x 720 pixel).
 
 #### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per la presentazione nel marketplace
 
@@ -227,7 +229,7 @@ Tenere presente che anche se si selezionano tutti i mercati, le leggi locali, le
 
 ### <a name="preview-audience"></a>Visualizza in anteprima gruppo di destinatari
 
-Prima di pubblicare l'offerta live all'interno della più ampia offerta del marketplace, è necessario renderla disponibile a un **gruppo di destinatari dell'anteprima** limitato. Immettere qui un valore in **Nascondi chiave** (qualsiasi stringa che usa solo lettere minuscole e/o numeri). I membri del gruppo di destinatari in anteprima possono usare questa chiave come token per visualizzare un'anteprima dell'offerta nel marketplace.
+Prima di pubblicare l'offerta live all'interno della più ampia offerta del marketplace, è necessario renderla disponibile **in anteprima a un numero di destinatari** limitato. Immettere qui un valore in **Nascondi chiave** (qualsiasi stringa che usa solo lettere minuscole e/o numeri). I membri del gruppo di destinatari in anteprima possono usare questa chiave come token per visualizzare un'anteprima dell'offerta nel marketplace.
 
 Quindi, quando si è pronti a rendere disponibile l'offerta e a rimuovere la restrizione, sarà necessario rimuovere la chiave specificata in **Nascondi chiave** e ripubblicare l'offerta.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 425ed63238c07ffcf53df10eeddfa0ac95679a2c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c5d52a78dec31dd796929b141556d6da10044099
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904515"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031496"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -153,7 +153,7 @@ Prima di continuare, selezionare **Salva bozza**.
 
 La pagina delle **Proprietà** consente di definire le categorie usate per raggruppare l'offerta nel Marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -188,7 +188,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
 7. Riepilogo
-8. Description
+8. Descrizione
 9. Screenshot/video
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
@@ -242,6 +242,8 @@ Fornire il nome, l'indirizzo di posta elettronica e il numero di telefono per **
 
 Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfocate verranno rifiutate.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio https://upload.xboxlive.com usato dal Centro per i partner.
 
@@ -255,6 +257,8 @@ Fornire i file PNG del logo dell'offerta nelle dimensioni di pixel seguenti:
 - **Molto grande** (255 x 115)
 
 Tutti i logo sono obbligatori e vengono usati in posizioni diverse nella presentazione.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 

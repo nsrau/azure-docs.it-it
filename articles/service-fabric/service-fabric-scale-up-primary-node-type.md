@@ -4,12 +4,12 @@ description: Informazioni su come ridimensionare un cluster di Service Fabric ag
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: 01f6c90f9f7d7679f5b108138e2d2318eb6b9e18
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5cabe7e377c29812252074336d7c5e9c9d3ba259
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010833"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031982"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Aumentare le prestazioni di un tipo di nodo primario di un cluster di Service Fabric
 Questo articolo descrive come aumentare la scalabilità verticale di un Service Fabric tipo di nodo primario del cluster aggiungendo un tipo di nodo aggiuntivo al cluster. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente.
@@ -62,9 +62,6 @@ New-AzResourceGroupDeployment `
 ### <a name="add-a-new-primary-node-type-to-the-cluster"></a>Aggiungere un nuovo tipo di nodo primario al cluster
 > [!Note]
 > Le risorse create nei passaggi seguenti diventeranno il nuovo tipo di nodo primario nel cluster al termine dell'operazione di ridimensionamento. Assicurarsi di usare nomi univoci dalla subnet iniziale, dall'IP pubblico, da Load Balancer, dal set di scalabilità di macchine virtuali e dal tipo di nodo. 
-
-> [!Note]
-> Se si usa già un IP pubblico con SKU standard e lo SKU standard LB, potrebbe non essere necessario creare nuove risorse di rete. 
 
 È possibile trovare un modello con tutti i passaggi seguenti completati qui: [Service Fabric-nuovo cluster di tipi di nodo](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-2.json). La procedura seguente contiene frammenti di risorse parziali che evidenziano le modifiche nelle nuove risorse.  
 
@@ -162,7 +159,40 @@ Al termine della distribuzione, il cluster Service Fabric avrà ora due tipi di 
 ### <a name="remove-the-existing-node-type"></a>Rimuovere il tipo di nodo esistente 
 Una volta terminata la distribuzione delle risorse, è possibile iniziare a disabilitare i nodi nel tipo di nodo primario originale. Quando i nodi sono disabilitati, viene eseguita la migrazione dei servizi di sistema al nuovo tipo di nodo primario distribuito nel passaggio precedente.
 
-1. Disabilitare i nodi nel tipo di nodo 0. 
+1. Impostare la proprietà del tipo di nodo primario nella risorsa del cluster Service Fabric su false. 
+```json
+{
+    "name": "[variables('vmNodeType0Name')]",
+    "applicationPorts": {
+        "endPort": "[variables('nt0applicationEndPort')]",
+        "startPort": "[variables('nt0applicationStartPort')]"
+    },
+    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
+    "durabilityLevel": "Bronze",
+    "ephemeralPorts": {
+        "endPort": "[variables('nt0ephemeralEndPort')]",
+        "startPort": "[variables('nt0ephemeralStartPort')]"
+    },
+    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+    "isPrimary": false,
+    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
+    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+}
+```
+2. Distribuire il modello con la proprietà unprimary aggiornata nel tipo di nodo originale. È possibile trovare un modello con il flag primario impostato su false nel tipo di nodo originale qui: [Service Fabric-tipo di nodo primario false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
+
+```powershell
+# deploy the updated template files to the existing resource group
+$templateFilePath = "C:\AzureDeploy-3.json"
+$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+```
+
+3. Disabilitare i nodi nel tipo di nodo 0. 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
     -KeepAliveIntervalInSec 10 `
@@ -196,7 +226,7 @@ foreach($node in $nodes)
 > [!Note]
 > Il completamento di questo passaggio può richiedere alcuni minuti. 
 
-2. Arrestare i dati sul tipo di nodo 0. 
+4. Arrestare i dati sul tipo di nodo 0. 
 ```powershell
 foreach($node in $nodes)
 {
@@ -208,62 +238,18 @@ foreach($node in $nodes)
   }
 }
 ```
-3. Deallocare i nodi nel set di scalabilità di macchine virtuali originale 
+5. Deallocare i nodi nel set di scalabilità di macchine virtuali originale 
 ```powershell
 $scaleSetName="nt1vm"
 $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
 
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
+> [!Note]
+> I passaggi 6 e 7 sono facoltativi se si usa già un IP pubblico con SKU standard e il servizio di bilanciamento del carico dello SKU standard. In questo caso, è possibile avere più tipi di nodo/set di scalabilità di macchine virtuali nello stesso servizio di bilanciamento del carico. 
 
-4. Rimuovere lo stato del nodo dal tipo di nodo 0.
-```powershell
-foreach($node in $nodes)
-{
-  if ($node.NodeType -eq $nodeType)
-  {
-    $node.NodeName
+6. È ora possibile eliminare l'indirizzo IP originale e Load Balancer risorse. In questo passaggio verrà aggiornato anche il nome DNS. 
 
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
-  }
-}
-```
-5. Impostare la proprietà del tipo di nodo primario nella risorsa del cluster Service Fabric su false. 
-
-```json
-{
-    "name": "[variables('vmNodeType0Name')]",
-    "applicationPorts": {
-        "endPort": "[variables('nt0applicationEndPort')]",
-        "startPort": "[variables('nt0applicationStartPort')]"
-    },
-    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
-    "durabilityLevel": "Bronze",
-    "ephemeralPorts": {
-        "endPort": "[variables('nt0ephemeralEndPort')]",
-        "startPort": "[variables('nt0ephemeralStartPort')]"
-    },
-    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
-    "isPrimary": false,
-    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
-    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-}
-```
-
-5. Distribuire il modello con la proprietà unprimary aggiornata nel tipo di nodo originale. È possibile trovare un modello con il flag primario impostato su false nel tipo di nodo originale qui: [Service Fabric-tipo di nodo primario false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
-
-```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-3.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
-
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
-```
-
-7. È ora possibile eliminare l'indirizzo IP originale e Load Balancer risorse. In questo passaggio verrà aggiornato anche il nome DNS. 
 ```powershell
 $lbname="LB-cluster-name-nt1vm"
 $lbResourceType="Microsoft.Network/loadBalancers"
@@ -283,11 +269,24 @@ $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ``` 
-6. Aggiornare l'endpoint di gestione nel cluster per fare riferimento al nuovo indirizzo IP. 
+
+7. Aggiornare l'endpoint di gestione nel cluster per fare riferimento al nuovo indirizzo IP. 
 ```json
   "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-7. Rimuovere il riferimento al tipo di nodo originale dalla risorsa Service Fabric nel modello ARM. 
+8. Rimuovere lo stato del nodo dal tipo di nodo 0.
+```powershell
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+  }
+}
+```
+9. Rimuovere il riferimento al tipo di nodo originale dalla risorsa Service Fabric nel modello ARM. 
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -338,13 +337,10 @@ Solo per i cluster di durabilità Silver e versioni successive, aggiornare la ri
  } 
 }
 ```
+10. Rimuovere tutte le altre risorse correlate al tipo di nodo originale dal modello ARM. Vedere [Service Fabric-nuovo cluster di tipi di nodo](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) per un modello con tutte queste risorse originali rimosse.
 
-8. Rimuovere tutte le altre risorse correlate al tipo di nodo originale dal modello ARM. Vedere [Service Fabric-nuovo cluster di tipi di nodo](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) per un modello con tutte queste risorse originali rimosse.
-
-9. Distribuire il modello di Azure Resource Manager modificato. * * Questa operazione richiederà un po' di tempo, in genere fino a due ore. Con questo aggiornamento le impostazioni vengono modificate in InfrastructureService, pertanto è necessario riavviare il nodo. In questo caso forceRestart viene ignorato. Il parametro upgradeReplicaSetCheckTimeout specifica il tempo massimo che Service Fabric attende che una partizione sia in uno stato sicuro, se non è già in uno stato sicuro. Una volta superati i controlli di sicurezza per tutte le partizioni in un nodo, Service Fabric procede con l'aggiornamento su tale nodo. Il valore del parametro upgradeTimeout può essere ridotto a 6 ore, ma è consigliabile usare per la massima sicurezza 12 ore.
-Verificare quindi quanto segue:
-
-* Service Fabric risorsa nel portale Visualizza pronto.
+11. Distribuire il modello di Azure Resource Manager modificato. * * Questa operazione richiederà un po' di tempo, in genere fino a due ore. Con questo aggiornamento le impostazioni vengono modificate in InfrastructureService, pertanto è necessario riavviare il nodo. In questo caso forceRestart viene ignorato. Il parametro upgradeReplicaSetCheckTimeout specifica il tempo massimo che Service Fabric attende che una partizione sia in uno stato sicuro, se non è già in uno stato sicuro. Una volta superati i controlli di sicurezza per tutte le partizioni in un nodo, Service Fabric procede con l'aggiornamento su tale nodo. Il valore del parametro upgradeTimeout può essere ridotto a 6 ore, ma è consigliabile usare per la massima sicurezza 12 ore.
+Quindi verificare che la risorsa Service Fabric nel portale sia visualizzata come pronta. 
 
 ```powershell
 # deploy the updated template files to the existing resource group

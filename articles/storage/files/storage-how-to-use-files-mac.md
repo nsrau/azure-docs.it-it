@@ -1,18 +1,18 @@
 ---
 title: Montare una condivisione file di Azure tramite SMB con macOS | Microsoft Docs
-description: Informazioni su come montare una condivisione file di Azure tramite SMB con macOS.
+description: Informazioni su come montare una condivisione file di Azure su SMB con macOS usando il Finder o il terminale. File di Azure è il file system cloud facile da usare di Microsoft.
 author: RenaShahMSFT
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 87271cfc602ff81a65a63426360f3bc0a8a8f030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cddf8a7d3dbc7abcc25fb76aba8a0af1790fe4d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509830"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034448"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montare una condivisione file di Azure tramite SMB con macOS
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate con il protocollo SMB 3 standard di settore tramite macOS El Capitan 10.11 e versioni successive. Questo articolo descrive due diversi modi di montare una condivisione file di Azure in macOS: con l'interfaccia utente del Finder e usando il terminale.

@@ -1,6 +1,6 @@
 ---
 title: Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer | Microsoft Docs
-description: Gestire contenitori BLOB e BLOB di Azure con Storage Explorer
+description: Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer. Creare un contenitore BLOB, visualizzare il contenuto del contenitore BLOB, eliminare o copiare un contenitore BLOB e altro ancora.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298124"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033615"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer
 

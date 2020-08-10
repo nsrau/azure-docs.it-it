@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283011"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032085"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accesso condizionale: Bloccare l'autenticazione legacy
 
@@ -36,8 +36,8 @@ I passaggi seguenti consentono di creare un criterio di accesso condizionale per
    1. Selezionare **Operazione completata**.
 1. In **App Cloud o azioni** selezionare **Tutte le app Cloud**.
    1. Selezionare **Operazione completata**.
-1. In **condizioni**  >  **app client (anteprima)**, in **selezionare le app client a cui verranno applicati i criteri**:
-   1. Controllare solo le caselle **App per dispositivi mobili e client desktop** > **Altri client**.
+1. In **condizioni**  >  **app client**impostare **Configura** su **Sì**.
+   1. Controllare solo le caselle **client di Exchange ActiveSync** e **altri client**.
    1. Selezionare **Operazione completata**.
 1. In **Controlli di accesso** > **Concedi** selezionare **Blocca accesso**.
    1. Scegliere **Seleziona**.

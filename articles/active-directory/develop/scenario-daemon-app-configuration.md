@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 08/08/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 567bd0a34c1989403f29ea5a52fad258c2ffe825
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 2e7a0657949a2addbf895666682feee7fd0eb595
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846157"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033360"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App daemon che chiama API Web-configurazione del codice
 
@@ -54,6 +54,9 @@ Il file di configurazione definisce:
 - L'autorità o l'istanza cloud e l'ID tenant.
 - ID client ottenuto dalla registrazione dell'applicazione.
 - Un segreto client o un certificato.
+
+> [!NOTE]
+> I frammenti di codice .NET nella parte restante dell'articolo riferimento alla [configurazione](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) dall'esempio [Active-Directory-dotnetcore-Daemon-V2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -286,7 +289,7 @@ X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithAuthority(new Uri(config.Authority))
                                           .WithClientClaims(certificate, claims)
-                                          .Build();```
+                                          .Build();
 ```
 
 Per informazioni dettagliate, vedere [asserzioni client](msal-net-client-assertions.md).

@@ -1,6 +1,6 @@
 ---
 title: Strutture dei dati del servizio Mobility nelle mappe di Azure | Mappe Microsoft Azure
-description: In questo articolo vengono fornite informazioni sui campi comuni e sulle strutture di dati restituiti tramite il Microsoft Azure Maps Mobility Services.
+description: Informazioni sul modo in cui i dati vengono organizzati in aree metro nei servizi di mobilità di Azure maps. Vedere i campi che archiviano le informazioni sulle linee e le interruzioni di transito pubbliche.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5c2033557d14a25c786f3f6b08dc5bd54956f7e1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131277"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033224"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Strutture di dati nel servizio Mobility di Azure Maps
 

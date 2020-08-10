@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 9e3bc4cdab62dd304c5266ff6c9cccf66600fb7b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 198a5da63ed90937c53f7f12f3559f15100e8f19
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848844"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031432"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorare, ricevere e inviare eventi con Hub eventi di Azure e App per la logica di Azure
 
@@ -20,7 +20,7 @@ Questo articolo illustra come monitorare e gestire gli eventi inviati ad [Hub ev
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
 * Uno [spazio dei nomi di hub eventi di Azure e un hub eventi](../event-hubs/event-hubs-create.md)
 
@@ -77,7 +77,7 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 
    ![Proprietà del trigger](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Proprietà | Obbligatoria | Description |
+   | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome hub eventi** | Sì | Nome dell'hub eventi che si vuole monitorare |
    | **Tipo di contenuto** | No | Tipo di contenuto dell'evento. Il valore predefinito è `application/octet-stream`. |
@@ -89,7 +89,7 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 
    **Proprietà aggiuntive**
 
-   | Proprietà | Obbligatoria | Description |
+   | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Content schema (Schema contenuto)** | No | Schema del contenuto JSON per gli eventi da leggere dall'hub eventi. Se ad esempio si specifica lo schema del contenuto, è possibile attivare l'app per la logica solo per gli eventi che corrispondono allo schema. |
    | **Minimum partition key (Chiave di partizione minima)** | No | Immettere l'ID di [partizione](../event-hubs/event-hubs-features.md#partitions) minima da leggere. Per impostazione predefinita, vengono lette tutte le partizioni. |
@@ -128,7 +128,7 @@ Dall'elenco delle azioni selezionare questa azione: **Invia evento-Hub eventi**
 
    ![Selezionare il nome dell'hub eventi e specificare il contenuto dell'evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Proprietà | Obbligatoria | Description |
+   | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome hub eventi** | Sì | Hub eventi in cui si vuole inviare l'evento |
    | **Contenuto** | No | Contenuto dell'evento da inviare |

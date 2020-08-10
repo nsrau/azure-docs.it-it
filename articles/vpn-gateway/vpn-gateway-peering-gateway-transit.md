@@ -1,6 +1,6 @@
 ---
 title: Configurare il transito nel gateway VPN per il peering di rete virtuale
-description: Informazioni su come configurare il transito del gateway per il peering di rete virtuale, che connette facilmente due reti virtuali di Azure.
+description: Configurare il transito del gateway per il peering di rete virtuale per connettere in modo uniforme due reti virtuali di Azure a uno per finalità di connettività.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: yushwang
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 66380fb7c8b9e3d88fe1c814042b51323ff3160a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b5649c804cb21a221ca287711380c91846f55306
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925890"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031695"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurare il transito nel gateway VPN per il peering di rete virtuale
 

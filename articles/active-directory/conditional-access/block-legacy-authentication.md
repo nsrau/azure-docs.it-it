@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275480"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032190"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l'autenticazione legacy ad Azure AD con l'accesso condizionale   
 
@@ -49,7 +49,7 @@ Azure AD supporta diversi dei protocolli di autenticazione e autorizzazione più
 - App Microsoft Office meno recenti
 - App che usano protocolli di posta elettronica quali POP, IMAP e SMTP
 
-Al giorno d’oggi, l'autenticazione a fattore singolo (ad esempio, nome utente e password) non è più sufficiente. Le password non sono sicure perché sono facili da indovinare e le persone non sanno scegliere password efficaci. Le password sono anche vulnerabili a numerosi attacchi, ad esempio il phishing e lo spray password. Una delle operazioni più semplici da effettuare per proteggersi dalle minacce relative alle password è implementare la MFA. Con la MFA, anche se un utente malintenzionato entra in possesso di una password utente, la sola password non è sufficiente per l’autenticazione e l’accesso ai dati.
+Al giorno d’oggi, l'autenticazione a fattore singolo (ad esempio, nome utente e password) non è più sufficiente. Le password non sono sicure perché sono facili da indovinare e le persone non sanno scegliere password efficaci. Le password sono anche vulnerabili a numerosi attacchi, ad esempio il phishing e lo spray password. Una delle operazioni più semplici da eseguire per la protezione da minacce per le password consiste nell'implementare multi-factor authentication. Con la MFA, anche se un utente malintenzionato entra in possesso di una password utente, la sola password non è sufficiente per l’autenticazione e l’accesso ai dati.
 
 Come si può impedire alle app che usano l'autenticazione legacy di accedere alle risorse dei tenant? È consigliabile bloccarle con criteri di accesso condizionale. Se necessario, è possibile autorizzare solo determinati utenti e percorsi di rete specifici per l’uso delle app basate sull’autenticazione legacy.
 
@@ -91,46 +91,24 @@ Applicando il filtro verranno visualizzati solo i tentativi di accesso eseguiti 
 
 Questi log indicano quali utenti ancora dipendono dall'autenticazione legacy e quali applicazioni usano protocolli legacy per eseguire le richieste di autenticazione. Per gli utenti che non sono riportati in questi log e per i quali è confermato che non usano l'autenticazione legacy, implementare criteri di accesso condizionale specifici.
 
-### <a name="block-legacy-authentication"></a>Bloccare l'autenticazione legacy 
+## <a name="block-legacy-authentication"></a>Bloccare l'autenticazione legacy 
 
-Nei criteri di accesso condizionale è possibile impostare una condizione collegata alle app client usate per accedere alle risorse. La condizione relativa alle app client consente di restringere l'ambito alle app che usano l'autenticazione legacy, selezionando **Client Exchange ActiveSync** e **Altri client** in **App per dispositivi mobili e client desktop**.
+Esistono due modi per usare i criteri di accesso condizionale per bloccare l'autenticazione legacy.
 
-![Altri client](./media/block-legacy-authentication/01.png)
-
-Per bloccare l'accesso per queste App, è necessario selezionare **Blocca accesso**.
-
-![Blocca accesso](./media/block-legacy-authentication/02.png)
-
-### <a name="select-users-and-cloud-apps"></a>Selezionare utenti e app cloud
-
-Di solito si pensa che, per bloccare l'autenticazione legacy per la propria organizzazione, sia necessario selezionare:
-
-- tutti gli utenti
-- Tutte le app cloud
-- Blocca accesso
-
-![Assegnazioni](./media/block-legacy-authentication/03.png)
-
-Azure offre una funzionalità di sicurezza che impedisce la creazione di criteri di questo tipo, perché questa configurazione viola le [procedure consigliate](best-practices.md) per i criteri di accesso condizionale.
+- [Blocco diretto dell'autenticazione legacy](#directly-blocking-legacy-authentication)
+- [Blocco indiretto dell'autenticazione legacy](#indirectly-blocking-legacy-authentication)
  
-![Configurazione di criteri non supportata](./media/block-legacy-authentication/04.png)
+### <a name="directly-blocking-legacy-authentication"></a>Blocco diretto dell'autenticazione legacy
 
-La funzionalità di protezione è necessaria perché *Blocca tutti gli utenti e tutte le app cloud* ha la possibilità di impedire l’accesso ai tenant da parte dell'intera organizzazione. È necessario escludere almeno un utente per soddisfare il requisito minimo della procedura consigliata. È anche possibile escludere un ruolo della directory.
+Il modo più semplice per bloccare l'autenticazione legacy nell'intera organizzazione consiste nel configurare criteri di accesso condizionale che si applicano in modo specifico ai client di autenticazione legacy e blocca l'accesso. Quando si assegnano utenti e applicazioni ai criteri, assicurarsi di escludere gli utenti e gli account di servizio che devono ancora accedere usando l'autenticazione legacy. Configurare la condizione delle app client selezionando **client di Exchange ActiveSync** e **altri client**. Per bloccare l'accesso per queste app client, configurare i controlli di accesso per bloccare l'accesso.
 
-![Configurazione di criteri non supportata](./media/block-legacy-authentication/05.png)
+![Condizione delle app client configurata per bloccare l'autenticazione legacy](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
-È possibile soddisfare questa funzionalità di protezione escludendo un utente dal criterio. In teoria, è necessario definire alcuni [account amministrativi di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md) ed escluderli dal criterio.
+### <a name="indirectly-blocking-legacy-authentication"></a>Blocco indiretto dell'autenticazione legacy
 
-Usando la [modalità solo report](concept-conditional-access-report-only.md) quando vengono abilitati i criteri per bloccare l'autenticazione legacy, l'organizzazione potrà monitorare l'impatto dei criteri.
+Anche se l'organizzazione non è pronta a bloccare l'autenticazione legacy nell'intera organizzazione, è necessario assicurarsi che gli accessi che usano l'autenticazione legacy non ignorino i criteri che richiedono controlli di concessione, ad esempio la richiesta di autenticazione a più fattori o i dispositivi conformi/ibridi Azure AD aggiunti. Durante l'autenticazione, i client di autenticazione legacy non supportano l'invio di informazioni su autenticazione a più fattori, conformità del dispositivo o stato di join a Azure AD. Pertanto, applicare i criteri con i controlli di concessione a tutte le applicazioni client in modo che gli accessi basati sull'autenticazione legacy che non possono soddisfare i controlli di concessione siano bloccati. Con la disponibilità generale della condizione delle app client nel 2020 agosto, i criteri di accesso condizionale appena creati si applicano a tutte le app client per impostazione predefinita.
 
-## <a name="policy-deployment"></a>Distribuzione dei criteri
-
-Prima di inserire i criteri nell'ambiente di produzione, occuparsi di:
- 
-- **Account del servizio**: identificare gli account utente utilizzati come account del servizio o da dispositivi, ad esempio i telefoni della sala conferenze. Assicurarsi che per questi account siano impostate password complesse e aggiungerli a un gruppo di esclusione.
-- **Report sugli accessi**: esaminare il report sugli accessi e cercare il traffico di **altri client**. Identificare i principali utilizzi e determinare perché si verificano. In genere, il traffico viene generato da client Office meno recenti che non usano l'autenticazione moderna o da alcune app di posta elettronica di terze parti. Creare un piano per abbandonare queste app oppure, se l'impatto è ridotto, avvisare gli utenti che non è più possibile usare queste app.
- 
-Per altre informazioni, vedere [Come distribuire un nuovo criterio](best-practices.md#how-should-you-deploy-a-new-policy).
+![Configurazione predefinita della condizione delle app client](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
 ## <a name="what-you-should-know"></a>Informazioni utili
 
@@ -141,14 +119,6 @@ La configurazione di un criterio per **Altri client** blocca l'intera organizzaz
 Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore.
 
 È possibile selezionare tutti i controlli di concessione disponibili per la condizione **Altri client**, ma l'esperienza dell'utente finale sarà sempre la stessa: l'accesso è bloccato.
-
-Se si blocca l'autenticazione legacy con la condizione **Altri client**, è anche possibile impostare la condizione della piattaforma e del percorso del dispositivo. Ad esempio, se si vuole bloccare solo l'autenticazione legacy per i dispositivi mobili, impostare la condizione **Piattaforma del dispositivo** selezionando:
-
-- Android
-- iOS
-- Windows Phone
-
-![Configurazione di criteri non supportata](./media/block-legacy-authentication/06.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
