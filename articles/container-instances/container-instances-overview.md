@@ -2,14 +2,14 @@
 title: Contenitori serverless in Azure
 description: Il servizio Istanze di Azure Container rappresenta il modo più semplice e rapido per eseguire contenitori isolati in Azure, senza dover gestire macchine virtuali né adottare un agente di orchestrazione di livello superiore.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/28/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259499"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498685"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -20,6 +20,11 @@ Istanze di Azure Container è un'ottima soluzione per qualsiasi scenario e funzi
 ## <a name="fast-startup-times"></a>Tempi di avvio rapidi
 
 I contenitori offrono notevoli vantaggi in termini di avvio rispetto alle macchine virtuali. Istanze di Azure Container consente di avviare contenitori in Azure in pochi secondi, senza dover gestire VM né doverne effettuare il provisioning.
+
+È possibile inserire immagini di contenitori Linux o Windows da Docker Hub, un [registro contenitori di Azure](../container-registry/index.yml) privato o un altro registro Docker basato sul cloud. Istanze di Azure Container memorizza nella cache diverse immagini comuni dei sistemi operativi di base, accelerando la distribuzione di immagini di applicazioni personalizzate.
+
+> [!NOTE]
+> Attualmente non è possibile distribuire un'immagine da un registro locale a Istanze di Azure Container.
 
 ## <a name="container-access"></a>Accesso ai contenitori
 
@@ -68,7 +73,7 @@ Istanze di Azure Container supporta la pianificazione di [gruppi multi-contenito
 
 ## <a name="virtual-network-deployment"></a>Distribuzione della rete virtuale
 
-Questa funzionalità di Istanze di Azure Container, attualmente disponibile per i carichi di lavoro in uno sottoinsieme di are di Azure, consente [la distribuzione di istanze di contenitore in una rete virtuale di Azure](container-instances-vnet.md). Quando sono distribuite in una subnet all'interno della rete virtuale, le istanze di contenitore possono comunicare in modo sicuro con altre risorse nella rete virtuale, incluse le risorse in locale (tramite [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
+Istanze di Azure Container consente la [distribuzione di istanze di contenitori in una rete virtuale di Azure](container-instances-vnet.md). Quando vengono distribuite in una subnet all'interno della rete virtuale, le istanze di contenitori possono comunicare in modo sicuro con altre risorse della rete virtuale, incluse quelle locali (tramite [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

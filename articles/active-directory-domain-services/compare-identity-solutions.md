@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555135"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489589"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Confrontare soluzioni Active Directory Domain Services autogestite, Azure Active Directory e Azure Active Directory Domain Services gestite
 
@@ -47,7 +47,7 @@ Se si usano applicazioni e servizi che devono accedere a meccanismi di autentica
 
 Con Azure AD DS, i componenti di base del servizio vengono distribuiti e gestiti da Microsoft in un'esperienza di *dominio gestito*. Non si devono eseguire la distribuzione, la gestione, l'applicazione di patch e la protezione dell'infrastruttura di Active Directory Domain Services per componenti come le VM, il sistema operativo Windows Server o i controller di dominio.
 
-Azure AD DS offre un subset ridotto di funzionalità rispetto a un ambiente Active Directory Domain Services autogestito tradizionale, eliminando così parte della complessità di progettazione e di gestione. Non è ad esempio necessario progettare e gestire foreste, domini, siti e collegamenti di replica di Active Directory. È comunque possibile [creare trust tra foreste tra Azure Active Directory Domain Services e gli ambienti locali (attualmente disponibile in anteprima)][create-forest-trust].
+Azure AD DS offre un subset ridotto di funzionalità rispetto a un ambiente Active Directory Domain Services autogestito tradizionale, eliminando così parte della complessità di progettazione e di gestione. Non è ad esempio necessario progettare e gestire foreste, domini, siti e collegamenti di replica di Active Directory. È comunque possibile [creare trust tra foreste tra Azure Active Directory Domain Services e gli ambienti locali][create-forest-trust].
 
 Per le applicazioni e i servizi eseguiti nel cloud che devono accedere a meccanismi di autenticazione tradizionali come Kerberos o NTLM, Azure AD DS offre un'esperienza di dominio gestito con carico amministrativo minimo. Per altre informazioni, vedere [Concetti relativi alla gestione di account utente, password e amministrazione in Azure Active Directory Domain Services][administration-concepts].
 

@@ -4,12 +4,12 @@ description: Informazioni su come preparare la valutazione e la migrazione di se
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113252"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420788"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure
 
@@ -138,7 +138,7 @@ Prima di configurare l'appliance di Azure Migrate e iniziare la valutazione nell
 
 Azure Migrate necessita delle autorizzazioni per individuare i server locali.
 
-- **Windows:** è necessario essere un amministratore di dominio o un amministratore locale in tutti i server Windows da individuare. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users.
+- **Windows:** Per individuare i server aggiunti al dominio, è necessario un account di dominio, mentre per individuare i computer non aggiunti al dominio, è necessario un account locale. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users.
 - **Linux:** È necessario un account radice nei server Linux che si desidera individuare.
 
 ## <a name="prepare-for-physical-server-migration"></a>Preparare i server fisici per la migrazione

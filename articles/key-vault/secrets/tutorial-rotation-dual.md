@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: ba9ff0ead1131b091aa1a5ece2ecf94d2319a968
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 0d2ee8fbcb71d8703702f2c72e0bf629563667b9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800698"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542196"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizzare la rotazione di un segreto per le risorse con due set di credenziali di autenticazione
 
@@ -41,9 +41,8 @@ Nella soluzione precedente Azure Key Vault archivia le chiavi di accesso individ
 * Due account di archiviazione di Azure
 
 Se non si hanno a disposizione un insieme di credenziali delle chiavi e gli account di archiviazione esistenti, è possibile usare il collegamento alla distribuzione seguente:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+
+[![Immagine che mostra il pulsante "Distribuisci in Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. In **Gruppo di risorse** selezionare **Crea nuovo**. Assegnare al gruppo il nome **akvrotation** e fare clic su **OK**.
 1. Selezionare **Rivedi+Crea**.
@@ -79,10 +78,9 @@ Le funzioni di rotazione dell'app per le funzioni richiedono i componenti e la c
 - Funzioni di rotazione delle chiavi dell'account di archiviazione con trigger di eventi e trigger http (rotazione su richiesta)
 - Sottoscrizione di EventGrid per l'evento **SecretNearExpiry**
 
-1. Selezionare il collegamento alla distribuzione modelli di Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+1. Selezionare il collegamento alla distribuzione modelli di Azure: 
+
+   [![Immagine che mostra il pulsante "Distribuisci in Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. Nell'elenco **Gruppo di risorse** selezionare **akvrotation**.
 1. In **Nome account di archiviazione** digitare il nome dell'account di archiviazione con le chiavi di accesso da ruotare
@@ -154,10 +152,9 @@ Per aggiungere altre chiavi dell'account di archiviazione per la rotazione alla 
 - Assegnare il ruolo del servizio dell'operatore della chiave dell'account di archiviazione all'app per le funzioni per l'accesso alle chiavi di accesso dell'account di archiviazione
 - Sottoscrizione di EventGrid per l'evento **SecretNearExpiry**
 
-1. Selezionare il collegamento alla distribuzione modelli di Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+1. Selezionare il collegamento alla distribuzione modelli di Azure: 
+
+   [![Immagine che mostra il pulsante "Distribuisci in Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
 
 1. Nell'elenco **Gruppo di risorse** selezionare **akvrotation**.
 1. In **Nome account di archiviazione** digitare il nome dell'account di archiviazione con le chiavi di accesso da ruotare

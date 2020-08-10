@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0b3ef559abe1c65872d8ecf87f63e6ff3ed4b0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223908"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808236"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Eliminare un'applicazione dal tenant di Azure Active Directory (Azure AD)
 
@@ -44,9 +43,15 @@ Per eliminare un'applicazione dal tenant di Azure AD:
 1. Nella sezione **Gestisci** nel riquadro sinistro selezionare **Proprietà**.
 1. Selezionare **Elimina** e quindi fare clic su **Sì** per confermare che si vuole eliminare l'app dal tenant di Azure AD.
 
+> [!TIP]
+> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Al termine di questa serie di argomenti di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è stata descritta in questo argomento di avvio rapido.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedure consigliate per la gestione delle applicazioni](application-management-fundamentals.md)
-- [Scenari comuni di gestione delle applicazioni](common-scenarios.md)
-- [Visibilità e controllo della gestione delle applicazioni](cloud-app-security.md)
+La serie di argomenti di avvio rapido è stata completata. Come passaggio successivo, vedere le procedure consigliate per la gestione delle app.
+> [!div class="nextstepaction"]
+> [Procedure consigliate per la gestione delle applicazioni](application-management-fundamentals.md)

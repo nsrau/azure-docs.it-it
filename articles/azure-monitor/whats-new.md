@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b36469a89c7bae39ae3c2d62792c2ccde0fcfda9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498509"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799328"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 
@@ -20,7 +20,7 @@ Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati 
 ## <a name="june-2020"></a>Giugno 2020
 
 ### <a name="general"></a>Generale
-- [Distribuire Monitoraggio di Azure](platform/deploy-scale.md) - Nuovo articolo.
+- [Distribuire Monitoraggio di Azure](deploy-scale.md) - Nuovo articolo.
 - [Chiave gestita dal cliente di Monitoraggio di Azure](platform/customer-managed-keys.md) - Aggiornata la proprietà billingtype. Aggiunti i comandi di PowerShell.
 
 ### <a name="agents"></a>Agenti

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ca3c7d6bc6621c4b82a44431ae313384c1653f79
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0ae304763718f649d7895394d67c2aec307f14af
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324234"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799991"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Avvio rapido: Creare un'app Java in Servizio app di Azure in Windows
 
@@ -49,13 +49,19 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configurare il plug-in Maven
 
-Il processo di distribuzione in Servizio app di Azure può prelevare automaticamente le credenziali dall'interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è installata, il plug-in Maven consentirà di accedere tramite OAuth o credenziali del dispositivo. Controllare i dettagli sull'[autenticazione con i plug-in Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) se necessario.
+Il processo di distribuzione nel servizio app di Azure può prelevare automaticamente le credenziali dall'interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è installata in locale, il plug-in Maven consentirà di accedere tramite OAuth o con le credenziali del dispositivo. Controllare i dettagli sull'[autenticazione con i plug-in Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) se necessario.
 
-È possibile eseguire il comando maven seguente nel prompt dei comandi per configurare la distribuzione, scegliere **'2'** per il sistema operativo **Windows** nel primo passaggio, accettare le configurazioni predefinite premendo **INVIO** finché non viene visualizzato il prompt **Confirm (Y/N)** , quindi premere **'y'** per completare la configurazione. 
-
+È possibile eseguire il comando Maven seguente per configurare la distribuzione
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
+
+Verrà richiesto di effettuare queste selezioni 
+* **Sistema operativo (impostazione predefinita: `linux`)**
+* **Versione di Java (impostazione predefinita: `1.8`)**
+* **Contenitore Web (impostazione predefinita: `tomcat 8.5`)** 
+
+Prestare attenzione a inserire **`2`** per scegliere il sistema operativo **windows** nel primo passaggio. Per le altre opzioni di configurazione è possibile lasciare le impostazioni predefinite premendo **INVIO**. Infine, premere **`Y`** nella richiesta **Conferma (S/N)** per completare la configurazione.
 
 Un processo di esempio ha un aspetto simile al seguente:
 
@@ -135,7 +141,7 @@ Confirm (Y/N)? :
 > [!NOTE]
 > In questo articolo vengono usate solo app Java in pacchetto con file WAR. Il plug-in supporta anche le applicazioni Web JAR. Vedere [Distribuire un file JAR Java SE nel servizio app di Azure in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per provarlo.
 
-Aprire `pom.xml` per visualizzare la configurazione aggiornata.
+Aprire `pom.xml` per vedere la configurazione aggiornata.
 
 ```bash
 code pom.xml
@@ -153,8 +159,11 @@ code pom.xml
 `<runtime>` | true | Configurazione dell'ambiente di runtime. I dettagli sono disponibili [qui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 `<deployment>` | true | Configurazione della distribuzione. I dettagli sono disponibili [qui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
+Prestare attenzione ai valori di `<appName>` e `<resourceGroup>`(`helloworld-1590394316693` e `helloworld-1590394316693-rg` nella demo), perché verranno usati in seguito.
+
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+
 
 ## <a name="deploy-the-app"></a>Distribuire l'app
 
@@ -169,13 +178,14 @@ Quindi è possibile distribuire l'app Java in Azure con il comando seguente:
 mvn package azure-webapp:deploy
 ```
 
-Al termine della distribuzione, passare all'applicazione distribuita usando l'URL seguente nel Web browser, ad esempio `http://<webapp>.azurewebsites.net/`.
+Al termine della distribuzione, l'applicazione sarà pronta all'indirizzo `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` nella demo). Aprire l'URL con il Web browser locale. Si dovrebbe vedere
 
 ![App di esempio in esecuzione nel Servizio app di Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Congratulazioni** La distribuzione della prima app Java nel servizio app in Windows è stata completata.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

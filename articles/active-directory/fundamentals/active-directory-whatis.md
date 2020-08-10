@@ -2,7 +2,7 @@
 title: Informazioni su Azure Active Directory - Azure Active Directory | Microsoft Docs
 description: Panoramica e informazioni concettuali su Azure Active Directory, come terminologia, licenze disponibili e un elenco di funzionalità associate con i collegamenti per altre informazioni.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6b7d40512fe3537610efa42ccc33c9f8e80212
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: bd63e82788856624c3babe078de52e698f190ce0
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484379"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796626"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -90,9 +90,9 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, è 
 |Identità| Una cosa che può essere autenticata. Un'identità può essere un utente con un nome utente e password. Le identità includono anche le applicazioni o altri server che potrebbero richiedere l'autenticazione tramite certificati o chiavi private.|
 |Account| Un'identità che contiene dati associati. Non è possibile avere un account senza un'identità.|
 |Account Azure AD| Identità creata tramite Azure AD o un altro servizio cloud Microsoft, ad esempio Office 365. Le identità vengono archiviate in Azure AD e sono accessibili alle sottoscrizioni dei servizi cloud dell'organizzazione. Questo account viene a volte definito account aziendale o dell'istituto di istruzione.|
-|Amministratore dell'account|Il ruolo Amministratore della sottoscrizione classica corrisponde concettualmente al proprietario di fatturazione di una sottoscrizione. Questo ruolo può accedere al [Centro account di Azure](https://account.azure.com/Subscriptions) e consente di gestire tutte le sottoscrizioni di un account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Amministratore del servizio|Il ruolo Amministratore della sottoscrizione classica consente di gestire tutte le risorse di Azure, incluso l'accesso. Questo ruolo ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Proprietario|Questo ruolo consente di gestire tutte le risorse di Azure, incluso l'accesso. Si tratta di un ruolo basato su un sistema di autorizzazione più recente definito controllo degli accessi in base al ruolo, che fornisce una gestione con granularità fine dell'accesso alle risorse di Azure. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Amministratore dell'account|Il ruolo Amministratore della sottoscrizione classica corrisponde concettualmente al proprietario di fatturazione di una sottoscrizione. Questo ruolo può accedere al [Centro account di Azure](https://account.azure.com/Subscriptions) e consente di gestire tutte le sottoscrizioni di un account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Amministratore del servizio|Il ruolo Amministratore della sottoscrizione classica consente di gestire tutte le risorse di Azure, incluso l'accesso. Questo ruolo ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Proprietario|Questo ruolo consente di gestire tutte le risorse di Azure, incluso l'accesso. Si tratta di un ruolo basato su un sistema di autorizzazione più recente definito controllo degli accessi in base al ruolo, che fornisce una gestione con granularità fine dell'accesso alle risorse di Azure. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Amministrazione globale di Azure AD|Questo ruolo di amministratore viene assegnato automaticamente a chiunque abbia creato il tenant di Azure AD. Gli amministratori globali possono eseguire tutte le funzioni amministrative per Azure AD ed eventuali servizi federati con Azure AD, come Exchange Online, SharePoint Online e Skype for Business Online. È possibile avere più amministratori globali ma solo gli amministratori globali possono assegnare ruoli di amministratore, inclusi altri ruoli di amministratore globale, agli utenti. Si noti che questo ruolo di amministratore è definito amministratore globale nel portale di Azure, ma corrisponde all'**Amministratore società** nell'API Microsoft Graph e in Azure AD PowerShell. Per altre informazioni sui diversi ruoli di amministratore, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Sottoscrizione di Azure| Usata per pagare i servizi cloud di Azure. È possibile avere più sottoscrizioni, collegate a una carta di credito.|
 |Tenant di Azure| Istanza attendibile e dedicata di Azure AD che viene creata automaticamente quando l'organizzazione si registra a una sottoscrizione di un servizio cloud Microsoft, ad esempio Microsoft Azure, Microsoft Intune oppure Office 365. Un tenant di Azure rappresenta una singola organizzazione.|

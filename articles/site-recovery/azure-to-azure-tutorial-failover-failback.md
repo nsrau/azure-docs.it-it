@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68782600"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502393"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Eseguire il failover e riproteggere le VM di Azure tra aree
 
@@ -38,7 +38,7 @@ Questa esercitazione descrive come effettuare il failover di una macchina virtua
 
 1. In **Elementi replicati** selezionare la macchina virtuale di cui si vuole eseguire il failover e scegliere **Failover**
 
-   ![Failover](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Screenshot che mostra le opzioni di failover per una VM.](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
 
@@ -58,7 +58,7 @@ Questa esercitazione descrive come effettuare il failover di una macchina virtua
 > [!NOTE]
 > Quando si effettua il failover di una macchina virtuale a cui si aggiunge un disco, i punti di replica visualizzeranno i dischi disponibili per il ripristino dopo aver abilitato la replica per la macchina virtuale. Ad esempio, se una macchina virtuale ha un singolo disco e ne viene aggiunto uno nuovo, i punti di replica creati prima di aggiungerlo mostreranno che il punto di replica è costituito da "1 di 2 dischi".
 
-![Effettuare il failover con un disco aggiunto](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+![Screenshot che mostra il failover con un disco aggiunto.](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Riproteggere la macchina virtuale secondaria
 
@@ -67,7 +67,7 @@ Dopo aver eseguito il failover della macchina virtuale, è necessario proteggerl
 1. Assicurarsi che lo stato della macchina virtuale sia **Commit del failover eseguito** e verificare che l'area primaria sia disponibile e che sia possibile creare e accedere alle nuove risorse presenti al suo interno.
 2. In **Insieme di credenziali** > **Elementi replicati**, fare clic con il pulsante destro del mouse sulla macchina virtuale di cui è stato eseguito il failover e quindi scegliere **Riproteggi**.
 
-   ![Fare clic con il pulsante destro del mouse per riproteggere](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Screenshot dell'opzione di riprotezione per una VM.](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Verificare che la direzione di protezione, dall'area secondaria a quella primaria, sia già selezionata.
 3. Rivedere le informazioni contenute in **Gruppo di risorse, Rete, Archiviazione e Set di disponibilità**. Eventuali risorse contrassegnate come nuove verranno create nell'ambito dell'operazione di riprotezione.

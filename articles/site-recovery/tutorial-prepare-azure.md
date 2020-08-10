@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130911"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498974"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparare Azure per il ripristino di emergenza in locale in Azure
 
@@ -62,7 +62,7 @@ Per completare queste attività, è necessario che all'account sia assegnato il 
 6. In **Area** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Viene usato **Europa occidentale**.
 7. Selezionare **Rivedi e crea**.
 
-   ![Creare un nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Screenshot della pagina di creazione dell'insieme di credenziali di Servizi di ripristino.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    Il nuovo insieme di credenziali risulterà ora elencato in **Dashboard** > **Tutte le risorse** e nella pagina **Insiemi di credenziali dei servizi di ripristino** principale.
 
@@ -81,7 +81,7 @@ I computer locali vengono replicati in dischi gestiti di Azure. Quando si verifi
 9. Lasciare le opzioni predefinite per la protezione DDoS di base, senza firewall o endpoint di servizio in rete.
 9. Selezionare **Create** (Crea).
 
-   ![Crea rete virtuale](media/tutorial-prepare-azure/create-network.png)
+   ![Screenshot delle opzioni per la creazione di una rete virtuale.](media/tutorial-prepare-azure/create-network.png)
 
 La creazione della rete virtuale richiede qualche secondo. La rete creata verrà visualizzata nel dashboard del portale di Azure.
 

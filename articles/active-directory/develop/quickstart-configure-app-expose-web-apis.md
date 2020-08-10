@@ -12,12 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 263eb531466e26ed6069dc889c17e2632aa9ed20
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76704222"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799413"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web
 
@@ -75,6 +75,13 @@ Per esporre un nuovo ambito tramite l'interfaccia utente:
 
 1. Impostare **Stato** e al termine selezionare **Aggiungi l'ambito**.
 
+1. (Facoltativo) Per rimuovere la richiesta del consenso degli utenti dell'app per gli ambiti definiti, è possibile "pre-autorizzare" l'accesso dell'applicazione client all'API Web. È consigliabile pre-autorizzare *solo* le applicazioni client attendibili, perché gli utenti non hanno la possibilità di rifiutare il consenso.
+    1. In **Applicazioni client autorizzate** selezionare **Aggiungi applicazione client**
+    1. Immettere il valore di **ID applicazione (client)** dell'applicazione client da pre-autorizzare, ad esempio quello di un'applicazione Web già registrata.
+    1. In **Ambiti autorizzati**selezionare gli ambiti per cui rimuovere la richiesta di consenso, quindi selezionare **Aggiungi applicazione**.
+
+    L'app client è ora un'app client pre-autorizzata e agli utenti non verrà richiesto il consenso per l'accesso.
+
 1. Seguire la procedura per [verificare che l'API Web sia esposta ad altre applicazioni](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Esporre un nuovo ambito o ruolo tramite il manifesto dell'applicazione
@@ -84,7 +91,7 @@ Per esporre un nuovo ambito tramite l'interfaccia utente:
 Per esporre un nuovo ambito tramite il manifesto dell'applicazione:
 
 1. Nella pagina **Panoramica** dell'app selezionare la sezione **Manifesto**. Si apre un editor di manifesto basato sul Web che consente di **modificare** il manifesto all'interno del portale. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione.
-    
+
     L'esempio seguente illustra come esporre un nuovo ambito denominato `Employees.Read.All` nella risorsa/API aggiungendo l'elemento JSON seguente alla raccolta `oauth2Permissions`.
 
       ```json
@@ -110,14 +117,17 @@ Per esporre un nuovo ambito tramite il manifesto dell'applicazione:
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificare che l'API Web sia esposta ad altre applicazioni
 
-1. Tornare al tenant di Azure AD, selezionare nuovamente **Registrazioni app** e quindi trovare e selezionare l'applicazione client che si vuole configurare.
+1. Tornare nel tenant di Azure AD, selezionare **Registrazioni app** e quindi trovare e selezionare l'applicazione client da configurare.
 1. Ripetere la procedura illustrata in [Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md).
-1. Quando si arriva al passaggio per [selezionare un'API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
-), selezionare la risorsa. Dovrebbe essere visualizzato il nuovo ambito, disponibile per le richieste di autorizzazioni dei client.
+1. Quando si arriva al passaggio per [selezionare un'API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), selezionare la risorsa, ovvero la registrazione dell'app per l'API Web.
+    * Se la registrazione dell'app per l'API Web è stata creata con il portale di Azure, la risorsa API è riportata nella scheda **Le mie API**.
+    * Se la registrazione dell'app per l'API Web è stata creata in Visual Studio durante la creazione del progetto, la risorsa API è riportata nella scheda **API usate dall'organizzazione**.
+
+Dopo aver selezionato la risorsa API Web, il nuovo ambito sarà disponibile per le richieste di autorizzazioni dei client.
 
 ## <a name="more-on-the-application-manifest"></a>Altre informazioni sul manifesto dell'applicazione
 
-Il manifesto dell'applicazione funge da meccanismo per l'aggiornamento dell'entità applicazione e definisce tutti gli attributi della configurazione dell'identità di un'applicazione Azure AD. Per altre informazioni sull'entità applicazione e il relativo schema, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), che include informazioni di riferimento complete sui membri dell'entità applicazione utilizzati per specificare le autorizzazioni per l'API, fra cui:  
+Il manifesto dell'applicazione funge da meccanismo per l'aggiornamento dell'entità applicazione e definisce tutti gli attributi della configurazione dell'identità di un'applicazione Azure AD. Per altre informazioni sull'entità applicazione e il relativo schema, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), che include informazioni di riferimento complete sui membri dell'entità applicazione utilizzati per specificare le autorizzazioni per l'API, fra cui:
 
 * Il membro appRoles, che è una raccolta di entità [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) utilizzate per definire le [Autorizzazioni applicazione](developer-glossary.md#permissions) per un'API Web.
 * Il membro oauth2Permissions, che è una raccolta di entità [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) utilizzate per definire le [Autorizzazioni delegate](developer-glossary.md#permissions) per un'API Web.

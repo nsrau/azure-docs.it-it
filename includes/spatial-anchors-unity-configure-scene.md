@@ -4,15 +4,19 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 7e7825e8247e78cbc0c0e9e22bdbd9326939e0a8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 43e64dadc5e339d174d08788cc7a98506841ee88
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83998087"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810173"
 ---
-Il passaggio successivo consiste nel configurare l'app in modo da usare l'identificatore e la chiave dell'account. Questi dati sono stati copiati in un editor di testo durante la [configurazione della risorsa Ancoraggi nello spazio](#create-a-spatial-anchors-resource).
+## <a name="configure-the-account-information"></a>Configurare le informazioni sull'account
 
-Nel riquadro **Progetto** passare a `Assets\AzureSpatialAnchors.SDK\Resources`. Selezionare `SpatialAnchorConfig`. Nel riquadro **Inspector** (Controllo) immettere `Account Key` come valore per `Spatial Anchors Account Key` e `Account ID` come valore per `Spatial Anchors Account Id`.
+Nel riquadro **Progetto** passare a `Assets/AzureSpatialAnchors.Examples/Scenes` e aprire il file della scena `AzureSpatialAnchorsBasicDemo.unity`.
 
-Aprire quindi `SpatialAnchorManager.cs`. Individuare `CreateSessionAsync()` e aggiungere la riga seguente, sostituendo il dominio account definito in precedenza: `session.Configuration.AccountDomain = "MyAccountDomain";`. È possibile aggiungere questa riga direttamente prima di questo commento `// Configure authentication`.
+Il passaggio successivo consiste nel configurare l'app per l'uso delle informazioni sull'account. Questi dati sono stati copiati in un editor di testo durante la [configurazione della risorsa Ancoraggi nello spazio](#create-a-spatial-anchors-resource).
+
+Nel riquadro **Progetto** passare a `Assets\AzureSpatialAnchors.SDK\Resources`. Selezionare `SpatialAnchorConfig`. Quindi nel riquadro **Inspector** (Controllo) immettere `Account Key` come valore per `Spatial Anchors Account Key`, `Account ID` co me valore per `Spatial Anchors Account Id` e `Account Domain` come valore per `Spatial Anchors Account Domain`.
+
+Salvare la scena selezionando **File** > **Salva**.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130975"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498991"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparare le risorse di Azure per il ripristino di emergenza di Hyper-V
 
@@ -63,7 +63,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 9. In **Località** scegliere la posizione geografica dell'account di archiviazione. Per questa esercitazione usare **Europa occidentale**.
 10. Selezionare **Crea** per creare l'account di archiviazione.
 
-   ![Creare un account di archiviazione](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Screenshot delle opzioni per la creazione di un account di archiviazione.](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
 
@@ -74,7 +74,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 3. In **Località** selezionare l'area geografica in cui dovrà essere collocato l'insieme di credenziali. Per questa esercitazione usare **Europa occidentale**.
 4. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard** > **Crea**.
 
-![Creare un nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Screenshot della pagina di creazione dell'insieme di credenziali di Servizi di ripristino.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 Il nuovo insieme di credenziali viene visualizzato in **Dashboard** > **Tutte le risorse** e nella pagina principale **Insiemi di credenziali dei servizi di ripristino**.
 
@@ -91,7 +91,7 @@ Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono
 7. Lasciare le opzioni predefinite per la protezione di base DDoS, senza endpoint di servizio nella rete.
 8. Selezionare **Create** (Crea).
 
-![Crea rete virtuale](media/tutorial-prepare-azure/create-network.png)
+![Screenshot delle opzioni per la creazione di una rete virtuale.](media/tutorial-prepare-azure/create-network.png)
 
 La creazione della rete virtuale richiede qualche secondo. La rete creata verrà visualizzata nel dashboard del portale di Azure.
 

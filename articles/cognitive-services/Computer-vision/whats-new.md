@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb9e731b1052d47131dfbc6754e1cb921a8f585
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280835"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759207"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
@@ -23,15 +23,15 @@ Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versi
 
 ## <a name="july-2020"></a>Luglio 2020
 
-### <a name="read-api-v31-preview1-adds-support-for-simplified-chinese"></a>L'API di lettura v3.1-preview.1 aggiunge il supporto per il cinese semplificato
-L'API di lettura v3.1-preview.1 di Visione artificiale aggiunge il supporto per il cinese semplificato.
+### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>Aggiunta del supporto per il cinese semplificato nell'API di lettura v3.1 (anteprima pubblica)
+Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale è stato aggiunto il supporto per il cinese semplificato.
 
 * Questa versione di anteprima dell'API di lettura supporta le lingue inglese, olandese, francese, tedesco, italiano, portoghese, cinese semplificato e spagnolo.
 
 Per altre informazioni, vedere la [panoramica dell'API di lettura](concept-recognizing-text.md).
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sull'API di lettura v3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Altre informazioni sull'API di lettura v3.1 (anteprima pubblica)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maggio 2020
 API Visione artificiale v3.0 è ora in stato di disponibilità generale, con aggiornamenti per [API di lettura](concept-recognizing-text.md):

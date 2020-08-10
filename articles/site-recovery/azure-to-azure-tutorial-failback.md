@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 432c92bcfa8a2e0df26adf1516f5bdc9ee73d267
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289302"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502376"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Eseguire il failback di una VM di Azure tra aree di Azure
 
@@ -42,7 +42,7 @@ Dopo la riprotezione delle VM, è possibile eseguire il failback nell'area prima
 
 1. Nell'insieme di credenziali selezionare **Elementi replicati** e selezionare la VM che è stata riprotetta.
 
-    ![Failback nell'area primaria](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Screenshot che mostra il failback all'area primaria nel portale di Azure.](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
 2. In **Elementi replicati** selezionare la VM e quindi **Failover**.
 3. In **Failover** selezionare un punto di ripristino in cui eseguire il failover:
@@ -55,7 +55,7 @@ Dopo la riprotezione delle VM, è possibile eseguire il failback nell'area prima
 7. Dopo aver verificato il failover, selezionare per eseguirne il **commit**. Con il commit vengono eliminati tutti i punti di ripristino disponibili. L'opzione di modifica del punto di ripristino non è più disponibile.
 8. La VM risulterà sottoposta a failover e a failback.
 
-    ![VM nell'area primaria e in quella secondaria](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+    ![Screenshot che mostra la VM nelle aree primaria e secondaria.](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
 > Per le VM che usano i dischi gestiti ed eseguono la versione dell'estensione Site Recovery 9.28.x.x o successiva, [aggiornamento cumulativo 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery pulisce le VM nell'area di ripristino di emergenza secondaria, al termine del failback e quando le VM sono nuovamente protette. Non è necessario eliminare manualmente le macchine virtuali e le schede di interfaccia di rete nell'area secondaria. Tenere presente che le macchine virtuali con dischi non gestiti non vengono pulite. Se si disabilita completamente la replica dopo il failback, Site Recovery pulisce anche i dischi nell'area secondaria, oltre alle VM e alle schede di interfaccia di rete.

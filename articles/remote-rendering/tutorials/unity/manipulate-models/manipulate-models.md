@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367631"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449056"
 ---
 # <a name="tutorial-manipulating-models"></a>Esercitazione: Manipolazione dei modelli
 
@@ -332,18 +332,14 @@ Al termine di un raycast in **RemoteRayCastPointerHandler**, il risultato `Entit
 
 2. Nel GameObject **TestModel** creato in precedenza, aggiungere il componente **RemoteRayCastPointerHandler** e il componente **RemoteEntityHelper**.
 1. Assegnare il metodo `EntityToDebugLog` all'evento `OnRemoteEntityClicked`. Quando il tipo di output dell'evento e il tipo di input del metodo corrispondono, è possibile usare il collegamento di eventi dinamici di Unity, che passerà automaticamente il valore dell'evento al metodo.
-    1. Crea un nuovo campo di callback\
-    ![Aggiungere il callback](./media/add-callback-remote-entity-clicked.png)
-    1. Trascinare il componente **Remote Entity Helper** nel campo dell'oggetto per fare riferimento al GameObject padre\
-    ![Assegnare l'oggetto](./media/assign-object.png)
-    1. Assegnare `EntityToDebugLog` come callback\
-    ![Assegnare il callback](./media/remote-entity-event.png)
+    1. Creare un nuovo campo di callback ![Aggiungere il callback](./media/add-callback-remote-entity-clicked.png)
+    1. Trascinare il componente **Remote Entity Helper** nel campo dell'oggetto per fare riferimento al GameObject padre ![Assegnare l'oggetto](./media/assign-object.png)
+    1. Assegnare `EntityToDebugLog` come callback ![Assegnare il callback](./media/remote-entity-event.png)
 1. Premere Play nell'editor di Unity per avviare la scena, connettersi a una sessione remota e caricare il modello di test.
 1. Usando la simulazione della mano di MRTK, tenere premuto MAIUSC sinistro.
 1. Spostare la mano simulata in modo che il raggio punti al modello di test.
 1. Fare un clic lungo per simulare il tocco, eseguendo l'evento `OnPointerClicked`.
-1. Cercare nella console di Unity un messaggio di log con il nome dell'entità figlio selezionato. Ad esempio:\
-![Esempio di entità figlio](./media/child-entity-example.png)
+1. Cercare nella console di Unity un messaggio di log con il nome dell'entità figlio selezionato. Ad esempio: ![Esempio di entità figlio](./media/child-entity-example.png)
 
 ## <a name="synchronizing-the-remote-object-graph-into-the-unity-hierarchy"></a>Sincronizzazione del grafico di oggetti remoto nella gerarchia di Unity
 
@@ -351,9 +347,9 @@ Fino a questo punto, abbiamo visto solo un singolo GameObject locale che rappres
 
 1. Avviare la scena e caricare il modello di test.
 1. Espandere gli elementi figlio del GameObject **TestModel** nella gerarchia di Unity e selezionare l'elemento GameObject **TestModel_Entity**.
-1. Nella finestra di controllo fare clic sul pulsante *Show Children* (Mostra elementi figlio).\
+1. Nella finestra di controllo fare clic sul pulsante *Show Children* (Mostra elementi figlio).
 ![Mostrare gli elementi figlio](./media/show-remote-children.png)
-1. Continuare ad espandere gli elementi figlio nella gerarchia e fare clic su *Show Children* (Mostra elementi figlio) finché non viene visualizzato un elenco di elementi figlio.\
+1. Continuare a espandere gli elementi figlio nella gerarchia e fare clic su *Show Children* (Mostra elementi figlio) finché non viene visualizzato un elenco di elementi figlio.
 ![Tutti gli elementi figlio](./media/test-model-children.png)
 
 Un elenco di decine di entità ora popola la gerarchia. Selezionandone una, nella finestra di controllo verranno visualizzati i componenti `Transform` e `RemoteEntitySyncObject`. Per impostazione predefinita, ogni entità non viene sincronizzata automaticamente con ogni fotogramma, quindi le modifiche locali apportate a `Transform` non vengono sincronizzate con il server. È possibile selezionare *Sync Every Frame* (Sincronizza ogni fotogramma) e quindi spostare, dimensionare o ruotare la trasformazione nella visualizzazione scena, Il modello sottoposto a rendering non verrà visualizzato nella visualizzazione scena. Per visualizzare l'aggiornamento visivo della posizione e della rotazione del modello, guardare la visualizzazione gioco.
@@ -371,13 +367,13 @@ Lo stesso processo può essere eseguito a livello di codice ed è il primo passa
     }
     ```
 
-1. Aggiungere un callback aggiuntivo all'evento **RemoteRayCastPointerHandler** `OnRemoteEntityClicked`, impostandolo su `MakeSyncedGameObject`.\
+1. Aggiungere un callback aggiuntivo all'evento **RemoteRayCastPointerHandler** `OnRemoteEntityClicked`, impostandolo su `MakeSyncedGameObject`.
 ![Callback aggiuntivo](./media/additional-callback.png)
 1. Usando la simulazione della mano di MRTK, tenere premuto MAIUSC sinistro.
 1. Spostare la mano simulata in modo che il raggio punti al modello di test.
 1. Fare un clic lungo per simulare il tocco, eseguendo l'evento `OnPointerClicked`.
-1. Controllare ed espandere la gerarchia per visualizzare un nuovo oggetto figlio, che rappresenta l'entità selezionata.\
-![Rappresentazione di GameObject](./media/gameobject-representing-entity.png)\
+1. Controllare ed espandere la gerarchia per visualizzare un nuovo oggetto figlio, che rappresenta l'entità selezionata.
+![Rappresentazione di GameObject](./media/gameobject-representing-entity.png)
 1. Dopo il test, rimuovere il callback per `MakeSyncedGameObject`, dal momento che verrà incorporato con altri effetti in seguito.
 
 > [!NOTE]

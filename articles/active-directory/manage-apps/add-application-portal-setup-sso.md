@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f8f19e6b98143bb48430decdd51f5626e72d422
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387286"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808389"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -61,6 +61,16 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot che mostra l'opzione Single Sign-On nella sottoscrizione aziendale della pagina di prezzi di GitHub.":::
 
 
-## <a name="next-step"></a>Passaggio successivo
+> [!TIP]
+> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-- [Eliminare un'app](delete-application-portal.md)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Al termine di questa serie di argomenti di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è illustrata nell'ultimo argomento di avvio rapido di questa serie. Vedere [Eliminare un'app](delete-application-portal.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Passare all'articolo successivo per informazioni su come eliminare un'app.
+> [!div class="nextstepaction"]
+> [Eliminare un'app](delete-application-portal.md)

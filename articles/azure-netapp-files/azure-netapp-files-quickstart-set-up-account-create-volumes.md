@@ -7,12 +7,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
-ms.openlocfilehash: 1281f5c3355a09659f2f45c4cf944271936f50d8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c2ef52669a0bc5cd29bdcebf920beb1f409e65d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636355"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533105"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Guida introduttiva: Configurare Azure NetApp Files e creare un volume NFS 
 
@@ -411,4 +412,6 @@ Al termine, se si vuole, è possibile eliminare il gruppo di risorse. L'azione d
 ## <a name="next-steps"></a>Passaggi successivi  
 
 > [!div class="nextstepaction"]
-> [Gestione dei volumi tramite Azure NetApp Files](azure-netapp-files-manage-volumes.md)  
+> [Gerarchia di archiviazione di Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
+> [Livelli di servizio per Azure NetApp Files](azure-netapp-files-service-levels.md)   
+> [Creare un volume NFS](azure-netapp-files-create-volumes.md)   

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: e0d0804ce1f43d246dc4e87e222cbfbaf7db58aa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100967"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534091"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Creare un'assegnazione e allocare credito
 
@@ -31,7 +31,7 @@ L'hub di Education di Azure accetta qualsiasi indirizzo di posta elettronica nel
 > [!IMPORTANT]
 > Gli account aziendali e degli istituti di istruzione sono soggetti a criteri specifici, tra cui se è consentito o meno l'uso di un indirizzo di posta elettronica di un dominio diverso dall'organizzazione (ad esempio, l'aggiunta di student2@outlook.com al dominio @school.edu). Assicurarsi di controllare questi criteri prima di aggiungere nuovi utenti.
 
-Quando un account aziendale o dell'istituto di istruzione (ad esempio student1@school.edu) viene aggiunto come controllo degli accessi in base al ruolo nel portale Educator Sponsor o nel [portale di Azure](https://portal.azure.com), Azure invia automaticamente un messaggio di posta elettronica al destinatario. Questo messaggio richiede all'utente di accettare il nuovo account e il ruolo Controllo degli accessi in base al ruolo prima di ricevere l'accesso alla sottoscrizione. Gli assistenti docenti o i professori dei corsi dovranno assicurarsi di informare gli studenti di questa regola in modo che la loro sottoscrizione venga visualizzata nel portale di Azure come previsto. Il messaggio di posta elettronica sarà simile al seguente:
+Quando un account aziendale o dell'istituto di istruzione (ad esempio student1@school.edu) viene aggiunto come controllo degli accessi in base al ruolo nel portale Educator Sponsor o nel [portale di Azure](https://portal.azure.com), Azure invia automaticamente un messaggio di posta elettronica al destinatario. Questo messaggio richiede all'utente di accettare il nuovo account e il ruolo di Azure prima di ricevere l'accesso alla sottoscrizione. Gli assistenti docenti o i professori dei corsi dovranno assicurarsi di informare gli studenti di questa regola in modo che la loro sottoscrizione venga visualizzata nel portale di Azure come previsto. Il messaggio di posta elettronica sarà simile al seguente:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Introduzione ad Azure Active Directory" border="false":::
 

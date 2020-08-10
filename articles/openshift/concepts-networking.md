@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fa39fe3e065c230f7e06ee443d2aa56227dc6f31
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965322"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419972"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Funzionalità di rete di Azure Red Hat su OpenShift 4
 
@@ -102,7 +102,7 @@ Le impostazioni di rete seguenti sono disponibili in Azure Red Hat OpenShift 4:
     * Per impostazione predefinita, le route private vengono indirizzate al servizio di bilanciamento del carico interno (questa impostazione può essere modificata).
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
-I gruppi di sicurezza di rete verranno creati nel gruppo di risorse dei nodi, che è bloccato. I gruppi di sicurezza di rete vengono assegnati direttamente alle subnet non presenti nelle schede di interfaccia di rete del nodo. I gruppi di sicurezza di rete non sono modificabili, ossia non si dispone delle autorizzazioni per modificarli. 
+I gruppi di sicurezza di rete verranno creati nel gruppo di risorse del nodo, che è bloccato. I gruppi di sicurezza di rete vengono assegnati direttamente alle subnet, non nelle schede di interfaccia di rete del nodo. I gruppi di sicurezza di rete non sono modificabili, ossia non si dispone delle autorizzazioni per modificarli. 
 
 Tuttavia, con un server API visibile pubblicamente non è possibile creare gruppi di sicurezza di rete e assegnarli alle schede di interfaccia di rete.
 

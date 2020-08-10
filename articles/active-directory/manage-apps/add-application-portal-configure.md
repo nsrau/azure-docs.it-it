@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338045"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808406"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare le proprietà per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -95,9 +95,17 @@ Per usare un logo personalizzato:
    > [!NOTE]
    > L'anteprima visualizzata in questo riquadro **Proprietà** non viene aggiornata immediatamente. Per visualizzare l'icona aggiornata, è possibile chiudere e riaprire il riquadro **Proprietà**.
 
+
+> [!TIP]
+> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se non si intende continuare con questa serie di argomenti di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è illustrata nell'ultimo argomento di avvio rapido di questa serie. Vedere [Eliminare un'app](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto, dopo aver configurato le proprietà di un'applicazione, è possibile continuare con la configurazione dell'accesso Single Sign-On.
-
-- [Configurare Single Sign-On](add-application-portal-setup-sso.md)
-- [Eliminare un'app](delete-application-portal.md)
+Per informazioni su come configurare l'accesso Single Sign-On per un'app, passare all'articolo successivo.
+> [!div class="nextstepaction"]
+> [Configurare Single Sign-On](add-application-portal-setup-sso.md)

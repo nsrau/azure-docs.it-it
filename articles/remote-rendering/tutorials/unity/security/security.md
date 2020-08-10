@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207811"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445912"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Esercitazione: Protezione di Rendering remoto di Azure e dello spazio di archiviazione dei modelli
 
@@ -143,7 +143,7 @@ Modificare **RemoteRenderingCoordinator** per caricare un modello personalizzato
     }
     ```
 
-    Questo codice aggiunge tre variabili stringa aggiuntive al componente **RemoteRenderingCoordinator**.\
+    Questo codice aggiunge tre variabili stringa aggiuntive al componente **RemoteRenderingCoordinator**.
     ![Modello collegato](./media/storage-account-linked-model.png)
 
 1. Aggiungere i valori al componente **RemoteRenderingCoordinator**. Dopo aver seguito l'argomento di [avvio rapido per la conversione del modello](../../../quickstarts/convert-model.md), i valori saranno:
@@ -156,7 +156,7 @@ Modificare **RemoteRenderingCoordinator** per caricare un modello personalizzato
     > Se si [esegue lo script **Conversion. ps1**](../../../quickstarts/convert-model.md#run-the-conversion), senza l'argomento "-UseContainerSas", verranno restituiti tutti i valori indicati sopra invece del token di firma di accesso condiviso. ![Modello collegato](./media/converted-output.png)
 1. Per il momento, rimuovere o disabilitare il GameObject **TestModel** per consentire il caricamento del modello personalizzato.
 1. Riprodurre la scena e connettersi a una sessione remota.
-1. Fare clic con il pulsante destro del mouse su **RemoteRenderingCoordinator** e scegliere **Load Linked Custom Model** (Carica il modello personalizzato collegato).\
+1. Fare clic con il pulsante destro del mouse su **RemoteRenderingCoordinator** e scegliere **Load Linked Custom Model** (Carica il modello personalizzato collegato).
     ![Caricare il modello collegato](./media/load-linked-model.png)
 
 Questa procedura ha aumentato la sicurezza dell'applicazione rimuovendo il token di firma di accesso condiviso dall'applicazione locale.
@@ -176,16 +176,13 @@ Lo script **RemoteRenderingCoordinator** include un delegato denominato **ARRCre
 1. Seguire l'argomento [Procedura: Configurare l'autenticazione - Autenticazione per le applicazioni distribuite](../../../how-tos/authentication.md#authentication-for-deployed-applications), in particolare seguire le istruzioni riportate nella sezione [Autenticazione degli utenti di Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) nella documentazione di Ancoraggi nello spazio di Azure. Ciò comporta la registrazione di una nuova applicazione di Azure Active Directory e la configurazione dell'accesso all'istanza di Rendering remoto di Azure.
 1. Dopo aver configurato la nuova applicazione di AAD, controllare che l'applicazione corrisponda alle immagini seguenti:
 
-    **Applicazione di AAD -> Autenticazione**\
-    ![Autenticazione delle app](./media/app-authentication-public.png)
+    **Applicazione AAD -> Autenticazione** ![Autenticazione dell'app](./media/app-authentication-public.png)
 
-    **Applicazione di AAD -> Autorizzazioni delle API**\
-    ![API delle app](./media/request-api-permissions-step-five.png)
+    **Applicazione AAD -> Autorizzazioni delle API** ![API di app](./media/request-api-permissions-step-five.png)
 
 1. Dopo aver configurato l'account di Rendering remoto, verificare che la configurazione corrisponda all'immagine seguente:
 
-    **Rendering remoto di Azure -> Controllo di accesso (IAM)** \
-    ![Ruolo di Rendering remoto di Azure](./media/azure-remote-rendering-role-assignment-complete.png)
+    **Rendering remoto di Azure -> Controllo di accesso (IAM)** ![Ruolo di Rendering remoto di Azure](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > Un ruolo di *Proprietario* non è sufficiente per gestire le sessioni tramite l'applicazione client. A ogni utente a cui si vuole concedere la possibilità di gestire le sessioni è necessario fornire il ruolo di **client di Rendering remoto**. A ogni utente che dovrà gestire le sessioni e convertire i modelli è necessario fornire il ruolo di **amministratore di Rendering remoto**.
@@ -356,10 +353,8 @@ Nell'editor di Unity, se l'autenticazione di AAD è attiva, sarà necessario ese
 
 1. Premere Play nell'editor di Unity e fornire il consenso per l'esecuzione di una sessione.
     Poiché il componente **AADAuthentication** include un controller di visualizzazione, viene collegato automaticamente per visualizzare una richiesta dopo il pannello modale di autorizzazione della sessione.
-1. Seguire le istruzioni disponibili nel pannello a destra di **AppMenu**.\
-    Dovrebbe essere visualizzata una schermata simile alla seguente:\
-    ![Componente di autenticazione di AAD](./media/device-flow-instructions.png)\
-    Dopo aver immesso il codice fornito nel dispositivo secondario (o nel browser sullo stesso dispositivo) e aver eseguito l'accesso con le credenziali, all'applicazione richiedente, in questo caso l'editor di Unity, verrà restituito un token di accesso.
+1. Seguire le istruzioni disponibili nel pannello a destra di **AppMenu**.
+    Dovrebbe essere visualizzata una schermata simile alla seguente: ![Componente di autenticazione di AAD](./media/device-flow-instructions.png) Dopo aver immesso il codice fornito nel dispositivo secondario (o nel browser sullo stesso dispositivo) e aver eseguito l'accesso con le credenziali, all'applicazione richiedente, in questo caso l'editor di Unity, verrà restituito un token di accesso.
 1. A questo punto, tutti gli elementi dell'applicazione dovrebbero procedere normalmente. Se non si procede attraverso le fasi come previsto, verificare la presenza di eventuali errori nella console di Unity.
 
 ## <a name="build-to-device"></a>Compilare nel dispositivo

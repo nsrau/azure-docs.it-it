@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 04/30/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f4b42f2ed43da68daabb3bd334a362071202be42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 619b5f16f5a913a4ec9bb1ebe2e7060fcac28d7d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073720"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421808"
 ---
 # <a name="app-service-overview"></a>Panoramica del Servizio app di Azure
 
@@ -31,11 +31,11 @@ Ecco alcune delle funzionalità principali del servizio app:
 * **Connessioni a piattaforme SaaS e dati locali**: è possibile scegliere tra oltre 50 [connettori](../connectors/apis-list.md) per sistemi aziendali (come SAP), servizi SaaS (come Salesforce) e servizi Internet (come Facebook), nonché accedere ai dati locali con [connessioni ibride](app-service-hybrid-connections.md) e [reti virtuali di Azure](web-sites-integrate-with-vnet.md).
 * **Sicurezza e conformità** : il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autenticare gli utenti con [Azure Active Directory](configure-authentication-provider-aad.md) o con l'account di accesso ai social, ad esempio [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) o [ Microsoft](configure-authentication-provider-microsoft.md). Creare [restrizioni per gli indirizzi IP](app-service-ip-restrictions.md) e [gestire le identità del servizio](overview-managed-identity.md).
 * **Modelli di applicazione**: in [Azure Marketplace](https://azure.microsoft.com/marketplace/) è possibile scegliere da un esteso elenco di modelli di applicazione, come WordPress, Joomla e Drupal.
-* **Integrazione con Visual Studio** : gli strumenti dedicati di Visual Studio semplificano il processo di creazione, distribuzione e debug.
+* **Integrazione con Visual Studio e Visual Studio Code**: gli strumenti dedicati di Visual Studio e Visual Studio Code semplificano il processo di creazione, distribuzione e debug.
 * **API e funzionalità mobili**: il servizio app offre un supporto CORS pronto all'uso per gli scenari API RESTful. Inoltre, semplifica gli scenari di app per dispositivi mobili consentendo l'autenticazione, la sincronizzazione dei dati offline, le notifiche push e altro ancora.
 * **Codice senza server**:è possibile eseguire un frammento di codice o uno script su richiesta senza dover eseguire il provisioning esplicito o la gestione dell'infrastruttura e pagare solo il tempo di calcolo usato effettivamente dal codice. Vedere in proposito [Funzioni di Azure](/azure/azure-functions/).
 
-Oltre al servizio app, Azure offre altri servizi che possono essere usati per l'hosting di siti e applicazioni Web. Per la maggior parte degli scenari il servizio app è la scelta migliore.  Per un'architettura di microservizi, prendere in considerazione l'uso di [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Se è necessario un maggiore controllo sulle VM in cui viene eseguito il codice, prendere in considerazione l'uso delle [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Per altre informazioni su come scegliere uno di questi servizi di Azure, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](overview-compare.md).
+Oltre al servizio app, Azure offre altri servizi che possono essere usati per l'hosting di siti e applicazioni Web. Per la maggior parte degli scenari il servizio app è la scelta migliore.  Per un'architettura di microservizi, valutare se usare il [servizio Azure Spring Cloud](/azure/spring-cloud/) o [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Se è necessario un maggior controllo sulle VM in cui viene eseguito il codice, prendere in considerazione l'uso di [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Per altre informazioni su come scegliere uno di questi servizi di Azure, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](overview-compare.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

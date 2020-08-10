@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290659"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501202"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -87,7 +87,7 @@ Tutti questi componenti vengono installati insieme nei singoli computer locali n
 1. Accedere al server VMware vCenter o all'host vSphere ESXi con il client VMware vSphere.
 2. Nel menu **File** scegliere **Deploy OVF Template** (Distribuire il modello OVF) **per avviare la relativa procedura**guidata.
 
-     ![Modello OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
+     ![Screenshot del comando Deploy OVF Template nel client VMware vSphere.](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. In **Select source** (Selezionare l'origine) immettere il percorso del modello OVF scaricato.
 4. In **Review details** (Verifica dettagli) selezionare **Next** (Avanti).
@@ -153,7 +153,7 @@ Selezionare e verificare le risorse di destinazione.
 1. Selezionare **Preparare l'infrastruttura** > **Destinazione**. Selezionare la sottoscrizione di Azure da usare. Si usa un modello di Resource Manager.
 2. Site Recovery verifica la disponibilità di una o più reti virtuali. Questi elementi devono essere disponibili quando si configurano i componenti di Azure nella [prima esercitazione](tutorial-prepare-azure.md) in questa serie di esercitazioni.
 
-   ![Scheda Destinazione](./media/vmware-azure-tutorial/storage-network.png)
+   ![Screenshot delle opzioni per la preparazione dell'infrastruttura e della destinazione.](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
@@ -165,7 +165,7 @@ Selezionare e verificare le risorse di destinazione.
 6. In **Conservazione del punto di ripristino** specificare per quanto tempo viene conservato ogni punto di ripristino. Per questa esercitazione, selezionare 72 ore. Le macchine virtuali replicate possono essere ripristinate in qualsiasi punto all'interno dell'intervallo di conservazione.
 7. In **Frequenza snapshot coerenti con l'app** specificare la frequenza di snapshot coerenti con l'applicazione. Viene usato il valore predefinito di 60 minuti. Fare clic su **OK** per creare i criteri.
 
-   ![Creare criteri di replica](./media/vmware-azure-tutorial/replication-policy.png)
+   ![Screenshot delle opzioni per la creazione di criteri di replica.](./media/vmware-azure-tutorial/replication-policy.png)
 
 - I criteri vengono automaticamente associati al server di configurazione.
 - Per impostazione predefinita, vengono creati automaticamente i criteri corrispondenti per il failback. Se, ad esempio, il criterio di replica è **rep-policy**, il criterio di failback sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281277"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503821"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Eseguire la migrazione di server con Windows Server 2008 in Azure
 
@@ -104,7 +104,7 @@ Eseguire le attività riportate di seguito per preparare la sottoscrizione di Az
 5. Specificare un'area di Azure. Per verificare le aree supportate, vedere la sezione relativa alla disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Per accedere rapidamente all'insieme di credenziali dal dashboard, fare clic su **Aggiungi al dashboard** e quindi su **Crea**.
 
-   ![Nuovo insieme di credenziali](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![Screenshot che mostra le opzioni per la creazione dell'insieme di credenziali.](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 Il nuovo insieme di credenziali viene aggiunto al **Dashboard**, nella sezione **Tutte le risorse**, e nella pagina **Insiemi di credenziali dei servizi di ripristino** principale.
 
@@ -136,15 +136,15 @@ I criteri vengono automaticamente associati al server di configurazione.
 > [!WARNING]
 > Assicurarsi di specificare **Disattivata** nell'impostazione della frequenza snapshot coerenti con l'app dei criteri di replica. Sono supportati solo i punti di recupero coerenti con l'arresto anomalo del sistema quando si replicano i server con Windows Server 2008. Se si specificano altri valori per la frequenza snapshot coerenti con l'app, verranno generati falsi avvisi perché lo stato dell'integrità della replica del server diventa critico a causa della mancanza di punti di recupero coerenti con l'app.
 
-   ![Creare criteri di replica](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![Screenshot che mostra le opzioni per la creazione di criteri di replica.](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### <a name="enable-replication"></a>Abilitare la replica
 
 [Abilitare la replica](physical-azure-disaster-recovery.md#enable-replication) per il server Windows Server 2008 SP2 o Windows Server 2008 R2 SP1 da sottoporre a migrazione.
    
-   ![Aggiungere un server fisico](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Screenshot che mostra le opzioni per l'aggiunta di computer fisici.](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Abilitare la replica](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Screenshot che mostra le opzioni per abilitare la replica.](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### <a name="run-a-test-migration"></a>Eseguire una migrazione di test
 
@@ -152,7 +152,7 @@ I criteri vengono automaticamente associati al server di configurazione.
 
 Eseguire un [failover di test](tutorial-dr-drill-azure.md) in Azure per verificare che tutto funzioni correttamente.
 
-   ![Failover di test](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Screenshot che mostra il comando di failover di test.](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### <a name="migrate-to-azure"></a>Eseguire la migrazione ad Azure
@@ -168,7 +168,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
     - Il processo di migrazione viene completato, la replica del server viene arrestata e la fatturazione di Site Recovery per il server viene interrotta.
     - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione.
 
-   ![Completare la migrazione](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Screenshot che mostra il comando per completare la migrazione.](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
