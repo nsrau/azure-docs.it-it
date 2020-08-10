@@ -6,12 +6,12 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 7feb49266a10b7423121dc5362b0bd6bda4d0e08
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aef9c6781c87ff4e84e46de711308319755e4630
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824495"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042072"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concedere l'accesso per creare sottoscrizioni di Azure Enterprise (anteprima)
 
@@ -180,7 +180,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
 
 Per monitorare le sottoscrizioni create tramite questa API, usare l'[API del log attività del tenant](/rest/api/monitor/tenantactivitylogs). Attualmente non è possibile usare PowerShell, l'interfaccia della riga di comando o il portale di Azure per monitorare la creazione delle sottoscrizioni.
 
-1. Come amministratore del tenant di Azure AD [elevare l'accesso](../../role-based-access-control/elevate-access-global-admin.md) quindi assegnare un ruolo di lettore all'utente di controllo sull'ambito `/providers/microsoft.insights/eventtypes/management`.
+1. Come amministratore del tenant di Azure AD [elevare l'accesso](../../role-based-access-control/elevate-access-global-admin.md) quindi assegnare un ruolo di lettore all'utente di controllo sull'ambito `/providers/microsoft.insights/eventtypes/management`. Questo accesso è disponibile nel ruolo [Reader](../../role-based-access-control/built-in-roles.md#reader) , nel ruolo [collaboratore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o in un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 1. Come utente di controllo, chiamare l'[API del log attività del tenant](/rest/api/monitor/tenantactivitylogs) per visualizzare le attività di creazione della sottoscrizione. Esempio:
 
     ```

@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058619"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041460"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -74,7 +74,7 @@ L'esempio seguente mostra gli `appRoles` che è possibile assegnare agli `users`
 ```
 
 > [!NOTE]
->Il nome `displayName` non può contenere spazi.
+>`displayName`Può contenere spazi.
 
 È possibile definire i ruoli dell'app nei confronti di `users`, `applications` o di entrambi. Se disponibile per `applications` , i ruoli dell'app vengono visualizzati come autorizzazioni dell'applicazione nella sezione **gestisci** > **le autorizzazioni API > aggiungere un'autorizzazione > API personali > scegliere un'API > le autorizzazioni dell'applicazione**. L'esempio seguente mostra un ruolo dell'app destinato a un'`Application`.
 

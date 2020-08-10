@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562413"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042106"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -31,6 +31,9 @@ In questa pagina vengono fornite le risposte alle domande frequenti sul proxy di
 ### <a name="what-license-is-required-to-use-azure-ad-application-proxy"></a>Quale licenza è necessaria per usare Azure AD proxy di applicazione?
 
 Per usare Azure AD proxy di applicazione, è necessario disporre di una licenza Azure AD Premium P1 o P2. Per ulteriori informazioni sulle licenze, vedere [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory/)
+
+### <a name="what-happens-to-azure-ad-application-proxy-in-my-tenant-if-my-license-expires"></a>Cosa accade al proxy di applicazione Azure AD nel tenant, se la licenza scade?
+Se la licenza scade, il proxy di applicazione verrà disabilitato automaticamente. Le informazioni dell'applicazione verranno salvate per un massimo di un anno.
 
 ### <a name="why-is-the-enable-application-proxy-button-grayed-out"></a>Perché il pulsante di abilitazione del proxy di applicazione è disattivato?
 

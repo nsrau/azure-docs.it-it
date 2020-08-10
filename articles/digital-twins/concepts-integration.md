@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca500401a6bff8a00dd9c51eecb29aa93fdbc82b
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800484"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042650"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrare i dispositivi gemelli digitali di Azure con altri servizi
 
-I dispositivi gemelli digitali di Azure vengono in genere usati insieme ad altri servizi. Usando le [**route degli eventi**](concepts-route-events.md), i dispositivi gemelli digitali di Azure ricevono i dati dai servizi upstream, ad esempio l' [Hub](../iot-hub/about-iot-hub.md)Internet, che viene usato per fornire telemetria e notifiche. I dispositivi gemelli digitali di Azure possono anche indirizzare i dati ai servizi downstream per l'archiviazione, l'integrazione del flusso di lavoro, l'analisi e altri usi 
+I dispositivi gemelli digitali di Azure vengono in genere usati insieme ad altri servizi. Usando le [**route degli eventi**](concepts-route-events.md), i dispositivi gemelli digitali di Azure ricevono i dati dai servizi upstream, ad esempio l' [Hub](../iot-hub/about-iot-hub.md)Internet, che viene usato per fornire telemetria e notifiche. 
+
+I dispositivi gemelli digitali di Azure possono anche instradare i dati ai servizi downstream, ad esempio mappe di Azure ([*procedura: usare i dispositivi gemelli di Azure per aggiornare una mappa interna di Azure Maps*](how-to-integrate-maps.md)) e Time Series Insights ([*procedura: integrazione con Time Series Insights*](how-to-integrate-time-series-insights.md)), per archiviazione, integrazione dei flussi di lavoro, analisi e altro ancora. 
 
 ## <a name="data-ingress"></a>Ingresso dei dati
 

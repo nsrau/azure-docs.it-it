@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 8ca3d7475472c6980be85299046624bdcf8cae11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81fdb404b99dc5456e9e544b6ff45dff73a7940d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254459"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042837"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato testo delimitato in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Seguire questo articolo quando si desidera **analizzare i file di testo delimitati o scrivere i dati in un formato di testo delimitato**. 
@@ -31,7 +32,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La proprietà Type del set di dati deve essere impostata su **DelimitedText**. | Sì      |
 | posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location` .  | Sì      |
-| columnDelimiter  | Carattere o caratteri utilizzati per separare le colonne in un file. <br>Il valore predefinito è **virgola `,` **. Quando il delimitatore di colonna è definito come una stringa vuota che indica nessun delimitatore, l'intera riga viene considerata come una singola colonna.<br>Attualmente, il delimitatore di colonna come stringa vuota o multicarattere è supportato solo per il mapping del flusso di dati ma non per l'attività di copia.  | No       |
+| columnDelimiter  | Carattere o caratteri utilizzati per separare le colonne in un file. <br>Il valore predefinito è **virgola `,` **. Quando il delimitatore di colonna viene definito come una stringa vuota, ovvero nessun delimitatore, l'intera riga viene considerata come una colonna singola.<br>Attualmente, il delimitatore di colonna come stringa vuota o multicarattere è supportato solo per il mapping del flusso di dati ma non per l'attività di copia.  | No       |
 | rowDelimiter     | Singolo carattere o "\r\n" usato per separare le righe in un file. <br>Il valore predefinito è uno dei seguenti valori **in lettura: ["\r\n", ",", "\n"]** e **"\n" o "\r\n" in scrittura** mediante mapping del flusso di dati e dell'attività di copia rispettivamente. <br>Quando il delimitatore di riga è impostato su nessun delimitatore (stringa vuota), il delimitatore di colonna deve essere impostato come nessun delimitatore (stringa vuota), ovvero trattare l'intero contenuto come valore singolo.<br>Attualmente, il delimitatore di riga come stringa vuota è supportato solo per il mapping del flusso di dati, ma non per l'attività di copia. | No       |
 | quoteChar        | Carattere singolo per citare i valori di colonna se contiene un delimitatore di colonna. <br>Il valore predefinito è **virgolette doppie** `"` . <br>Per il mapping del flusso di dati, `quoteChar` non può essere una stringa vuota. <br>Per l'attività di copia, quando `quoteChar` viene definito come una stringa vuota, significa che non sono presenti virgolette e il valore della colonna non è racchiuso tra virgolette e `escapeChar` viene usato per eseguire l'escape del delimitatore di colonna e di se stesso. | No       |
 | escapeChar       | Carattere singolo per l'escape delle virgolette all'interno di un valore racchiuso tra virgolette.<br>Il valore predefinito è **la `\` barra rovesciata **. <br>Per il mapping del flusso di dati, `escapeChar` non può essere una stringa vuota. <br/>Per l'attività di copia, quando `escapeChar` viene definito come stringa vuota, è `quoteChar` necessario impostare anche come stringa vuota, nel qual caso assicurarsi che tutti i valori di colonna non contengano delimitatori. | No       |
@@ -90,7 +91,7 @@ Nella sezione *** \* origine \* *** dell'attività di copia sono supportate le p
 | type          | Il tipo di formatSettings deve essere impostato su **DelimitedTextReadSettings**. | Sì      |
 | skipLineCount | Indica il numero di righe **non vuote** da ignorare durante la lettura di dati da file di input. <br>Se vengono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e quindi le informazioni dell'intestazione vengono lette dal file di input. | No       |
 | compressionProperties | Gruppo di proprietà su come decomprimere i dati per un determinato codec di compressione. | No       |
-| preserveZipFileNameAsFolder<br>(*in `compressionProperties` *) | Si applica quando il set di dati di input viene configurato con la compressione **ZipDeflate** . Indica se mantenere il nome del file zip di origine come struttura di cartelle durante la copia. Se è impostato su true (impostazione predefinita), Data Factory scrive file decompressi in `<path specified in dataset>/<folder named as source zip file>/` ; se è impostato su false, Data Factory scrive i file decompressi direttamente in `<path specified in dataset>` .  | No |
+| preserveZipFileNameAsFolder<br>(*in `compressionProperties` *) | Si applica quando il set di dati di input viene configurato con la compressione **ZipDeflate** . Indica se mantenere il nome del file zip di origine come struttura di cartelle durante la copia.<br>-Se impostato su **true (impostazione predefinita)**, Data Factory scrive file decompressi in `<path specified in dataset>/<folder named as source zip file>/` .<br>-Se impostato su **false**, Data Factory scrive i file decompressi direttamente in `<path specified in dataset>` . Assicurarsi che non siano presenti nomi di file duplicati in file zip di origine diversi per evitare la competizione o un comportamento imprevisto.  | No |
 
 ```json
 "activities": [
@@ -135,7 +136,7 @@ Nella sezione *** \* sink \* *** dell'attività di copia sono supportate le prop
 | Proprietà      | Descrizione                                                  | Obbligatoria                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | Il tipo di formatSettings deve essere impostato su **DelimitedTextWriteSettings**. | Sì                                                   |
-| fileExtension | Estensione di file utilizzata per assegnare un nome ai file di output, ad `.csv` esempio. `.txt` Deve essere specificato quando l'oggetto `fileName` non è specificato nel set di dati DelimitedText di output. Quando il nome del file viene configurato nel set di dati di output, verrà usato come nome del file di sink e l'impostazione dell'estensione di file verrà ignorata.  | Sì quando il nome file non è specificato nel set di dati di output |
+| fileExtension | Estensione di file utilizzata per assegnare un nome ai file di output, ad esempio, `.csv` `.txt` . Deve essere specificato quando l'oggetto `fileName` non è specificato nel set di dati DelimitedText di output. Quando il nome del file viene configurato nel set di dati di output, verrà usato come nome del file di sink e l'impostazione dell'estensione di file verrà ignorata.  | Sì quando il nome file non è specificato nel set di dati di output |
 
 ## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
 
@@ -147,13 +148,13 @@ Nella tabella seguente sono elencate le proprietà supportate da un'origine test
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no | String[] | wildcardPaths |
-| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no | string | partitionRootPath |
-| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | no | `true` o `false` | fileList |
+| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | No | String[] | wildcardPaths |
+| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | No | string | partitionRootPath |
+| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | No | `true` o `false` | fileList |
 | Righe su più righe | Il file di origine contiene righe che si estendono su più righe. I valori multiriga devono essere racchiusi tra virgolette. | No `true` o`false` | multiLineRow |
-| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | no | string | rowUrlColumn |
-| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | no | Elimina: `true` o`false` <br> Spostare`['<from>', '<to>']` | purgeFiles <br> moveFiles |
-| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | No | string | rowUrlColumn |
+| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | No | Elimina: `true` o`false` <br> Spostare`['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | No | Timestamp | modifiedAfter <br> modifiedBefore |
 
 ### <a name="source-example"></a>Esempio di origine
 
@@ -177,9 +178,9 @@ Nella tabella seguente sono elencate le proprietà supportate da un sink di test
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
-| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato`part-#####-tid-<guid>` | no | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
-| Virgolette tutte | Racchiudere tutti i valori tra virgolette | no | `true` o `false` | quoteAll |
+| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | No | `true` o `false` | truncate |
+| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato`part-#####-tid-<guid>` | No | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Virgolette tutte | Racchiudere tutti i valori tra virgolette | No | `true` o `false` | quoteAll |
 
 ### <a name="sink-example"></a>Esempio di sink
 

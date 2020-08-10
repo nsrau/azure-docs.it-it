@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9d1854b459e799d5cbb401de9ac717dd7d0fde1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71961249"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042752"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qual è la funzionalità di registrazione autoregistrazione delle zone private di DNS di Azure
 
@@ -29,7 +29,8 @@ Quando si elimina una macchina virtuale, i record DNS per la macchina virtuale v
 
 * La registrazione automatici funziona solo per le macchine virtuali. Per tutte le altre risorse, ad esempio i bilanciamento del carico interno e così via, è possibile creare manualmente i record DNS nella zona DNS privata collegata alla rete virtuale.
 * I record DNS vengono creati automaticamente solo per la scheda di interfaccia di rete primaria della macchina virtuale. Se le macchine virtuali hanno più di una scheda di interfaccia di rete, è possibile creare manualmente i record DNS per altre interfacce di rete.
-* la registrazione autoregistrazione per IPv6 (record AAAA) non è supportata.
+* I record DNS vengono creati automaticamente solo se la scheda di interfaccia di rete primaria della macchina virtuale utilizza DHCP. Se sono configurati indirizzi IP statici, ad esempio per usare [più indirizzi IP in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config), la registrazione automatica non crea record per tale macchina virtuale.
+* La registrazione autoregistrazione per IPv6 (record AAAA) non è supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

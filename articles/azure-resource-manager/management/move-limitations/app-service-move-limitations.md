@@ -2,13 +2,13 @@
 title: Spostare le risorse del servizio app Azure
 description: Usare Azure Resource Manager per spostare le risorse del servizio app in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655778"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042059"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Spostare le linee guida per le risorse del servizio app
 
@@ -23,7 +23,8 @@ Quando si trasferisce un'app Web tra sottoscrizioni, si applicano le indicazioni
     - Piani di servizio app
     - Certificati TLS/SSL caricati o importati
     - Ambienti del servizio app
-- Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme. Si noti che gli ambienti del servizio app non possono essere spostati in un nuovo gruppo di risorse o in una nuova sottoscrizione.
+- Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
+- Gli ambienti del servizio app non possono essere spostati in un nuovo gruppo di risorse o in una nuova sottoscrizione. Tuttavia, è possibile spostare un'app Web e un piano di servizio app in una nuova sottoscrizione senza spostare il ambiente del servizio app. Dopo lo spostamento, l'app Web non è più ospitata nel ambiente del servizio app.
 - È possibile spostare un certificato associato a un Web senza eliminare i binding TLS, purché il certificato venga spostato con tutte le altre risorse nel gruppo di risorse.
 - Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, spostarla di nuovo nel gruppo di risorse originale. Spostare quindi la risorsa tra le sottoscrizioni.
 

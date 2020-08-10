@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 767ad928779743ec28dbe3da8be6154a1fe0b0ab
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534669"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042314"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Analisi delle immagini del Container Registry di Azure per Centro sicurezza
 
@@ -27,17 +27,16 @@ Se si usa il livello standard del Centro sicurezza di Azure, è possibile aggiun
 
 ## <a name="availability"></a>Disponibilità
 
-- Stato versione: **disponibilità generale**
-- Ruoli necessari: **Reader di sicurezza** e [ruolo di lettore di container Registry di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Registri e immagini supportati:
-    - ✔ Registri ACR ospitati da Linux accessibili dalla rete Internet pubblica e offrono l'accesso alla Shell.
-    - ✘ Registri ACR ospitati da Windows.
-    - Registri "privati" di ✘: il Centro sicurezza richiede che i registri siano accessibili dalla rete Internet pubblica. Il Centro sicurezza non è attualmente in grado di connettersi o analizzare i registri con accesso limitato con un firewall, un endpoint del servizio o endpoint privati come il collegamento privato di Azure.
-    - ✘ Immagini estremamente minimaliste come immagini di [Scratch Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo un'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo.
-- Cloud: 
-    - ✔ Cloud commerciali
-    - Cloud ✘ US Government
-    - ✘ Cina per enti pubblici, altri cloud per enti pubblici
+|Aspetto|Dettagli|
+|----|:----|
+|Stato versione:|Disponibilità generale|
+|Prezzi|Livello Standard|
+|Registri e immagini supportati:|![Sì ](./media/icons/yes-icon.png) registri ACR ospitati da Linux accessibili dalla rete Internet pubblica e offrono l'accesso alla Shell.<br>![Nessun ](./media/icons/yes-icon.png) Registro ACR ospitato da Windows.<br>![Nessun ](./media/icons/yes-icon.png) registro ' privato '-il Centro sicurezza richiede che i registri siano accessibili dalla rete Internet pubblica. Il Centro sicurezza non è attualmente in grado di connettersi o analizzare i registri con accesso limitato con un firewall, un endpoint del servizio o endpoint privati come il collegamento privato di Azure.<br>![Non ci sono ](./media/icons/yes-icon.png) Immagini con minimalista, ad esempio immagini [Scratch di Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo un'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo.|
+|Ruoli e autorizzazioni necessari:|Ruolo lettore di **sicurezza** e [lettore di container Registry di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|||
+
+
 
 
 ## <a name="when-are-images-scanned"></a>Quando vengono analizzate le immagini?

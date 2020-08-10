@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519698"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042324"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Esportare avvisi e raccomandazioni di sicurezza
 
@@ -31,12 +31,14 @@ Con questi strumenti è possibile:
 
 ## <a name="availability"></a>Disponibilità
 
-- Stato della versione: **Disponibile a livello generale**
-- Ruoli e autorizzazioni necessari:
-    - **Reader** nella sottoscrizione che contiene la configurazione di esportazione
-    - **Ruolo di amministratore della sicurezza** nel gruppo di risorse (o **proprietario**)
-    - Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione
-- Cloud: ✔ cloud commerciali ✔ US Gov ✘ Cina gov, altri gov
+|Aspetto|Dettagli|
+|----|:----|
+|Stato versione:|Disponibile a livello generale|
+|Prezzi|Livello gratuito|
+|Ruoli e autorizzazioni necessari:|**Reader** nella sottoscrizione che contiene la configurazione di esportazione<br>**Ruolo di amministratore della sicurezza** nel gruppo di risorse (o **proprietario**)<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
+|||
+
 
 
 ## <a name="setting-up-a-continuous-export"></a>Impostazione di un'esportazione continua

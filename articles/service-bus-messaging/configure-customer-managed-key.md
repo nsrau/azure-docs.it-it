@@ -3,12 +3,12 @@ title: Configurare la propria chiave per la crittografia dei dati del bus di ser
 description: Questo articolo fornisce informazioni su come configurare una chiave personalizzata per la crittografia di REST di dati del bus di servizio di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4eef0965f585291c31a3698d1d37abf67c6295c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85475986"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041564"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure
 Azure Service Bus Premium offre la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (SSE di Azure). Il bus di servizio Premium si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati con le chiavi gestite da Microsoft. 
@@ -21,7 +21,7 @@ L'abilitazione della funzionalità BYOK è un processo di configurazione una vol
 > [!NOTE]
 > Ci sono alcune avvertenze per la chiave gestita dal cliente per la crittografia lato servizio. 
 >   * Questa funzionalità è supportata dal livello [Premium del bus di servizio di Azure](service-bus-premium-messaging.md) . Non può essere abilitata per gli spazi dei nomi del bus di servizio di livello standard.
->   * La crittografia può essere abilitata solo per gli spazi dei nomi nuovi o vuoti. Se lo spazio dei nomi contiene dati, l'operazione di crittografia avrà esito negativo.
+>   * La crittografia può essere abilitata solo per gli spazi dei nomi nuovi o vuoti. Se lo spazio dei nomi contiene code o argomenti, l'operazione di crittografia avrà esito negativo.
 
 È possibile usare Azure Key Vault per gestire le chiavi e controllare l'utilizzo della chiave. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](../key-vault/general/overview.md)
 

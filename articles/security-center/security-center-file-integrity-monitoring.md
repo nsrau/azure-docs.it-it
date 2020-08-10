@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68d3646b4ebc3fc5dd5943186afdb75307dfd5ed
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519338"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042667"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -26,12 +26,16 @@ Questa procedura dettagliata fornisce informazioni su come configurare il monito
 
 ## <a name="availability"></a>Disponibilità
 
-- Stato della versione: **Disponibile a livello generale**
-- Ruoli necessari: il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). Il **lettore** può visualizzare i risultati.
-- Cloud:
-    - ✔ Cloud commerciali
-    - ✔ US Gov cloud
-    - ✘ Cina gov/altro gov
+|Aspetto|Dettagli|
+|----|:----|
+|Stato versione:|Disponibile a livello generale|
+|Prezzi|Livello Standard|
+|Ruoli e autorizzazioni necessari:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
+|||
+
+
+
 
 
 ## <a name="what-is-fim-in-security-center"></a>Cos'è il monitoraggio dell'integrità dei file nel Centro sicurezza?

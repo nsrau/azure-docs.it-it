@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089941"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042501"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Non visualizzare gli avvisi dalla protezione dalle minacce del Centro sicurezza di Azure
 
@@ -21,9 +21,15 @@ Questo articolo illustra come usare le regole di eliminazione avvisi per elimina
 
 ## <a name="availability"></a>Disponibilità
 
-- Data di rilascio: **Anteprima**
-- Ruoli richiesti: **amministratore della sicurezza** e **proprietario** possono creare/eliminare regole. **amministratore che legge i dati di sicurezza** e **lettore** possono visualizzare le regole.
-- Cloud: ✔ cloud commerciali ✔ nazionale/sovrano (US Gov, Cina gov, altri gov)
+|Aspetto|Dettagli|
+|----|:----|
+|Stato versione:|Anteprima|
+|Prezzi|Livello gratuito<br>(La maggior parte degli avvisi di sicurezza è solo per il livello standard)|
+|Ruoli e autorizzazioni necessari:|Il **proprietario** e l' **amministratore della sicurezza** possono creare o eliminare regole.<br>**amministratore che legge i dati di sicurezza** e **lettore** possono visualizzare le regole.|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|||
+
+
 
 
 ## <a name="what-are-suppression-rules"></a>Che cosa sono le regole di eliminazione?
@@ -32,9 +38,9 @@ I componenti di protezione dalle minacce del Centro sicurezza di Azure rilevano 
 
 Quando un singolo avviso non è interessante o pertinente, è possibile ignorarlo manualmente. In alternativa, usare la funzionalità delle regole di eliminazione per ignorare automaticamente gli avvisi simili in futuro. In genere, si usa una regola di eliminazione per:
 
-- eliminare gli avvisi identificati come falsi positivi
+- Non visualizzare gli avvisi identificati come falsi positivi
 
-- eliminare gli avvisi che vengono attivati troppo spesso per essere utili
+- Non visualizzare gli avvisi che vengono attivati troppo spesso per essere utili
 
 Le regole di eliminazione definiscono i criteri per cui gli avvisi devono essere automaticamente ignorati.
 

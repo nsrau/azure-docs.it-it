@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0eac72832d75c0c26addaef283015155c09b3935
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19fcefdfd163bcbd9cd2adfcba6bf6711b9bee18
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529370"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041673"
 ---
 # <a name="workflow-automation"></a>Automazione del flusso di lavoro
 
@@ -28,19 +28,14 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
 ## <a name="availability"></a>Disponibilità
 
-- Stato della versione: **Disponibile a livello generale**
-- Ruoli e autorizzazioni necessari:
-    - **Reader** nella sottoscrizione che contiene la configurazione di esportazione
-    - **Ruolo di amministratore della sicurezza** nel gruppo di risorse (o **proprietario**)
-    - Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione
-    - Per lavorare con i flussi di lavoro di app per la logica di Azure, è inoltre necessario disporre dei seguenti ruoli/autorizzazioni per le app per la logica:
-        - Le autorizzazioni dell'operatore per l'app per la [logica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.
-        - Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor)
-        - Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)
-- Cloud: 
-    - ✔ Cloud commerciali
-    - ✔ Cloud per enti pubblici degli Stati Uniti
-    - Cloud ✘ Cina per enti pubblici, altri cloud gov
+|Aspetto|Dettagli|
+|----|:----|
+|Stato versione:|Disponibile a livello generale|
+|Prezzi|Livello gratuito|
+|Ruoli e autorizzazioni necessari:|**Reader** nella sottoscrizione che contiene la configurazione di esportazione<br>**Ruolo** o **proprietario** amministratore della sicurezza nel gruppo di risorse<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione<br><br>Per usare i flussi di lavoro di app per la logica di Azure, è necessario disporre anche dei seguenti ruoli/autorizzazioni per le app per la logica:<br> - Le autorizzazioni dell'operatore per l'app per la [logica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.<br> - Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor)<br>Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
+|||
+
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Creare un'app per la logica e definire quando deve essere eseguita automaticamente 

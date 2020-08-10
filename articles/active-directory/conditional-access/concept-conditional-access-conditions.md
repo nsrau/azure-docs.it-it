@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032127"
+ms.locfileid: "88042480"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: condizioni
 
@@ -68,7 +68,7 @@ Per impostazione predefinita, tutti i criteri di accesso condizionale appena cre
 > Il comportamento della condizione delle app client è stato aggiornato nel 2020 agosto. Se sono presenti criteri di accesso condizionale, questi rimarranno invariati. Tuttavia, se si fa clic su un criterio esistente, l'interruttore Configura è stato rimosso e le app client a cui si applica il criterio sono selezionate.
 
 > [!IMPORTANT]
-> Gli accessi dai client di autenticazione legacy non supportano l'autenticazione a più fattori e non passano le informazioni sullo stato del dispositivo a Azure AD, quindi verranno bloccate dai controlli di concessione dell'accesso condizionale, ad esempio richiedere l'autenticazione a più fattori o dispositivi conformi Se sono presenti account che devono usare l'autenticazione legacy, è possibile escludere tali account dal criterio o configurare i criteri in modo che vengano applicati solo ai client di autenticazione moderni.
+> Gli accessi dai client di autenticazione legacy non supportano l'autenticazione a più fattori e non passano le informazioni sullo stato del dispositivo a Azure AD, quindi verranno bloccate dai controlli di concessione dell'accesso condizionale, ad esempio richiedere l'autenticazione a più fattori o dispositivi conformi Se sono presenti account che devono usare l'autenticazione legacy, è necessario escludere tali account dal criterio o configurare i criteri in modo che vengano applicati solo ai client di autenticazione moderni.
 
 L'interruttore **Configura** quando impostato su **Sì** si applica agli elementi selezionati, quando è impostato su **No** , si applica a tutte le app client, inclusi i client di autenticazione moderni e legacy. Questo interruttore non viene visualizzato nei criteri creati prima del 2020 agosto.
 

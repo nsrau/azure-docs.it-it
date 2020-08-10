@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 38a2dd42c010e5b213fd89aa046c7c5b1e1d0a7f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758942"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041785"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
@@ -38,6 +38,7 @@ Il bot di chat abilitato per la voce eseguita in questa esercitazione segue ques
 1. Il testo riconosciuto viene passato al bot Echo come attività di bot Framework.
 1. Il testo della risposta viene trasformato in audio dal servizio di sintesi vocale (TTS) e trasmesso nuovamente all'applicazione client per la riproduzione.
 
+<!-- svg src in User Story 1754106 -->
 ![diagramma-Tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "Flusso del canale vocale")
 
 > [!NOTE]
@@ -106,7 +107,7 @@ Seguire queste istruzioni per creare una risorsa vocale:
 
 A questo punto, verificare che il gruppo di risorse (**SpeechEchoBotTutorial-ResourceGroup**) disponga di una risorsa vocale:
 
-| Nome | Type  | Percorso |
+| Nome | Type  | Località |
 |------|-------|----------|
 | SpeechEchoBotTutorial-sintesi vocale | Servizi cognitivi | Stati Uniti occidentali |
 
@@ -127,7 +128,7 @@ Il passaggio successivo consiste nel creare un piano di servizio app. Un piano d
 
 A questo punto, verificare che il gruppo di risorse (**SpeechEchoBotTutorial-ResourceGroup**) disponga di due risorse:
 
-| Nome | Type  | Percorso |
+| Nome | Type  | Località |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-sintesi vocale | Servizi cognitivi | Stati Uniti occidentali |
@@ -212,7 +213,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
 1. Il browser predefinito dovrebbe aprirsi e visualizzare una pagina che legge: "il bot è pronto!".
 1. A questo punto, controllare il gruppo di risorse **SpeechEchoBotTutorial-ResourceGroup** nel portale di Azure e confermare le tre risorse seguenti:
 
-| Nome | Type  | Percorso |
+| Nome | Type  | Località |
 |------|-------|----------|
 | EchoBot20190805125647 | Servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
@@ -226,7 +227,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
 2. Nel riquadro di spostamento a sinistra, in **Impostazioni**, fare clic su **configurazione**.
 3. Selezionare la scheda **Impostazioni generali** .
 4. Individuare l'interruttore per i **socket Web** e impostarlo **su on**.
-5. Fare clic su **Save** (Salva).
+5. Fare clic su **Salva**.
 
 > [!TIP]
 > È possibile utilizzare i controlli nella parte superiore della pagina del servizio app Azure per arrestare o riavviare il servizio. Questo potrebbe essere utile per la risoluzione dei problemi.
@@ -249,7 +250,7 @@ Ora che è stato creato un servizio di app Azure per ospitare il bot, il passagg
 
 A questo punto, controllare il gruppo di risorse **SpeechEchoBotTutorial-ResourceGroup** nel portale di Azure. A questo punto dovrebbero essere visualizzate almeno quattro risorse:
 
-| Nome | Type  | Percorso |
+| Nome | Type  | Località |
 |------|-------|----------|
 | EchoBot20190805125647 | Servizio app | Stati Uniti occidentali |
 | SpeechEchoBotTutorial-AppServicePlan | Piano di servizio app | Stati Uniti occidentali |
@@ -290,11 +291,11 @@ A questo punto è giunto il momento di registrare il bot con il canale di sintes
    * Esaminare il testo nella pagina denominata **Configure Direct Line Speech**, quindi espandere il menu a discesa **account cognitive Service** .
    * Selezionare la risorsa vocale creata in precedenza (ad esempio, **SpeechEchoBotTutorial-Speech**) dal menu per associare il bot alla chiave di sottoscrizione vocale.
    * Ignorare gli altri campi facoltativi.
-   * Fare clic su **Save** (Salva).
+   * Fare clic su **Salva**.
 
 1. Dallo spostamento **gestione bot** fare clic su **Impostazioni**.
    * Selezionare la casella **Abilita endpoint di streaming**. Questa operazione è necessaria per creare un protocollo di comunicazione basato su Web socket tra il bot e il canale di riconoscimento vocale diretto.
-   * Fare clic su **Save** (Salva).
+   * Fare clic su **Salva**.
 
 > [!TIP]
 > Per altre informazioni, vedere [connettere un bot alla linea vocale diretta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Questa pagina include informazioni aggiuntive e problemi noti.
