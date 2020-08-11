@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357767"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061507"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
@@ -47,7 +47,7 @@ Poiché il filtro può rimuovere molti oggetti contemporaneamente, prima di iniz
 
 Per evitare di eliminare molti oggetti per errore, la funzionalità "[Impedisci eliminazioni accidentali](how-to-connect-sync-feature-prevent-accidental-deletes.md)" è attiva per impostazione predefinita. Se si eliminano molti oggetti a causa del filtro (500, per impostazione predefinita), è necessario seguire i passaggi di questo articolo per consentire alle eliminazioni di giungere ad Azure AD.
 
-Se si usa una build precedente a quella di novembre 2015 ([1.0.9125](reference-connect-version-history.md#1091250)), si apporta una modifica a una configurazione di filtro e si usa il servizio di sincronizzazione dell'hash delle password, è necessario attivare una sincronizzazione completa di tutte le password al termine della configurazione. Per istruzioni su come attivare una sincronizzazione completa delle password, vedere [attivare una sincronizzazione completa di tutte le password](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se si usa la build 1.0.9125 o versione successiva, la normale azione di **sincronizzazione completa** consente anche di stabilire se le password devono essere sincronizzate e se questo passaggio aggiuntivo non è più necessario.
+Se si usa una build precedente a quella di novembre 2015 ([1.0.9125](reference-connect-version-history.md)), si apporta una modifica a una configurazione di filtro e si usa il servizio di sincronizzazione dell'hash delle password, è necessario attivare una sincronizzazione completa di tutte le password al termine della configurazione. Per istruzioni su come attivare una sincronizzazione completa delle password, vedere [attivare una sincronizzazione completa di tutte le password](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se si usa la build 1.0.9125 o versione successiva, la normale azione di **sincronizzazione completa** consente anche di stabilire se le password devono essere sincronizzate e se questo passaggio aggiuntivo non è più necessario.
 
 Se in Azure AD sono stati eliminati inavvertitamente oggetti **utente** a causa di un errore di filtro, è possibile ricrearli in Azure AD rimuovendo le configurazioni di filtro e successivamente sincronizzare nuovamente le directory. Questa azione ripristina gli utenti dal Cestino in Azure AD. Non è tuttavia possibile annullare l'eliminazione di altri tipi di oggetto. Se ad esempio si elimina accidentalmente un gruppo di sicurezza usato per inserire una risorsa in un elenco di controllo di accesso, il gruppo e gli elenchi di controllo di accesso relativi non possono essere ripristinati.
 
@@ -144,7 +144,7 @@ Se il filtro basato su domini è stato aggiornato, è necessario aggiornare anch
 3. Per ogni profilo modificare i domini **aggiunti** e **rimossi**.
     1. Per ognuno dei cinque profili, seguire questa procedura per ogni dominio **aggiunto**:
         1. Selezionare il profilo di esecuzione e fare clic su **New Step**.
-        2. Nel menu a discesa **Type** (Tipo) della pagina **Configure Step** (Configura passaggio) selezionare il tipo di passaggio con lo stesso nome del profilo da configurare. Fare quindi clic su **Avanti**.  
+        2. Nel menu a discesa **Type** (Tipo) della pagina **Configure Step** (Configura passaggio) selezionare il tipo di passaggio con lo stesso nome del profilo da configurare. Quindi fare clic su **Next**.  
         ![Profili di esecuzione del connettore 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. Nell'elenco a discesa **Partition** (Partizione) della pagina **Connector Configuration** (Configurazione connettore) selezionare il nome del dominio aggiunto al filtro basato su domini.  
         ![Profili di esecuzione del connettore 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -202,7 +202,7 @@ L'installazione guidata di Azure AD Connect crea sempre questa configurazione.
 In questa configurazione una nuova unità organizzativa creata in ManagedObjects non è sincronizzata.
 
 ## <a name="attribute-based-filtering"></a>Filtro basato su attributo
-Per il funzionamento corretto di questi passaggi, verificare di usare la build di novembre 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) o versione successiva.
+Per il funzionamento corretto di questi passaggi, verificare di usare la build di novembre 2015 ([1.0.9125](reference-connect-version-history.md)) o versione successiva.
 
 > [!IMPORTANT]
 >Microsoft consiglia di non modificare le regole predefinite create da **Azure AD Connect**. Se si vuole modificare la regola, clonarla e disabilitare la regola originale. Apportare le modifiche necessarie alla regola clonata. Si noti che in questo modo (disabilitando la regola originale) si perderanno alcune correzioni di bug o funzionalità abilitate tramite quella regola.
