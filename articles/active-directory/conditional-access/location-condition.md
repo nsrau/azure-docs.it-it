@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518437"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055378"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso della condizione location in un criterio di accesso condizionale 
 
@@ -165,7 +165,7 @@ Per individuare il traffico IPv6 nel tenant, è possibile passare ai [report del
 
 È anche possibile trovare l'indirizzo IP del client facendo clic su una riga nel report, quindi passando alla scheda "posizione" nei dettagli dell'attività di accesso. 
 
-## <a name="what-you-should-know"></a>Informazioni utili
+## <a name="what-you-should-know"></a>Informazioni importanti
 
 ### <a name="when-is-a-location-evaluated"></a>Quando viene valutata una posizione?
 
@@ -190,7 +190,7 @@ Quando si creano o si aggiornano le posizioni specifiche, per gli aggiornamenti 
 
 Quando si usa un proxy ospitato nel cloud o una soluzione VPN, l'indirizzo IP usato da Azure AD durante la valutazione dei criteri è l'indirizzo IP del proxy. L'intestazione X-Forwarded-For (XFF) che contiene l'indirizzo IP pubblico dell'utente non viene usata perché non è certo che provenga da un'origine attendibile, pertanto potrebbe essere un metodo per falsificare un indirizzo IP.
 
-Quando è presente un proxy cloud, è possibile usare criteri che richiedono un dispositivo aggiunto al dominio o l'attestazione della rete aziendale intera di AD FS.
+Quando è presente un proxy cloud, è possibile usare un criterio usato per richiedere un dispositivo ibrido Azure AD aggiunto o l'attestazione corpnet interna da AD FS.
 
 ### <a name="api-support-and-powershell"></a>Supporto dell'API e PowerShell
 

@@ -1,18 +1,18 @@
 ---
 title: Come proteggere la gerarchia di risorse - Governance di Azure
 description: Informazioni su come proteggere la gerarchia di risorse con le impostazioni di gerarchia che includono l'impostazione del gruppo di gestione predefinito.
-ms.date: 05/21/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422828"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056619"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Come proteggere la gerarchia di risorse
 
-Le risorse, i gruppi di risorse, le sottoscrizioni, i gruppi di gestione e il tenant costituiscono collettivamente la gerarchia di risorse. Le impostazioni del gruppo di gestione radice, ad esempio i ruoli personalizzati di Azure o le assegnazioni dei criteri di criteri di Azure, possono avere un effetto sulle singole risorse della gerarchia delle risorse. È importante proteggere la gerarchia di risorse da modifiche che potrebbero influire negativamente su tutte le risorse.
+Le risorse, i gruppi di risorse, le sottoscrizioni, i gruppi di gestione e il tenant costituiscono collettivamente la gerarchia di risorse. Le impostazioni del gruppo di gestione radice, ad esempio i ruoli personalizzati di Azure o le assegnazioni dei criteri di criteri di Azure, possono avere un effetto su tutte le risorse nella gerarchia delle risorse. È importante proteggere la gerarchia di risorse da modifiche che potrebbero influire negativamente su tutte le risorse.
 
 I gruppi di gestione dispongono ora di impostazioni di gerarchia che consentono all'amministratore tenant di controllare questi comportamenti. Questo articolo illustra tutte le impostazioni di gerarchia disponibili e spiega come impostarle.
 

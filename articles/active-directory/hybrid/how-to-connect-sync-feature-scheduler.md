@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146994"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053049"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione
 In questo argomento viene descritta l'utilità di pianificazione predefinita in Azure AD Connect Sync (motore di sincronizzazione).
@@ -171,7 +171,7 @@ Quando un ciclo di sincronizzazione è in esecuzione, non è possibile modificar
 L'utilità di pianificazione è ancora attiva e viene riavviata alla successiva opportunità.
 
 ## <a name="custom-scheduler"></a>Utilità di pianificazione personalizzata
-I cmdlet illustrati in questa sezione sono disponibili solo nella build [1.1.130.0](reference-connect-version-history.md#111300) e successive.
+I cmdlet illustrati in questa sezione sono disponibili solo nella build [1.1.130.0](reference-connect-version-history.md) e successive.
 
 Se l'utilità di pianificazione predefinita non soddisfa i requisiti, è possibile pianificare i connettori con PowerShell.
 

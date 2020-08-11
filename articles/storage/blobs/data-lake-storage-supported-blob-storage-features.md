@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 0e7cedaea89e2ed3d998df6ffe0ecaa06115e265
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 0d915c0b293e9f3deadbfb2a5fb0ff7f379e1717
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513792"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053474"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
 
@@ -42,15 +42,17 @@ In questa tabella sono elencate le funzionalità di archiviazione BLOB che è po
 |Livello di accesso archivio|Disponibile a livello generale|Non supportate|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
 |Criteri di gestione del ciclo di vita|Disponibile a livello generale|Non ancora supportato|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
 |Registrazione in Monitoraggio di Azure|Anteprima |Non ancora supportato|[Monitoraggio di archiviazione di Azure](../common/monitor-storage.md)|
-|Snapshot|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Non ancora supportato|[Snapshot BLOB](snapshots-overview.md)|
-|Siti Web statici|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Non ancora supportato|[Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)|
-|Archiviazione non modificabile|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Non ancora supportato|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
+|Snapshot|Anteprima|Non ancora supportato|[Snapshot BLOB](snapshots-overview.md)|
+|Siti Web statici|Anteprima|Non ancora supportato|[Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)|
+|Archiviazione non modificabile|Anteprima|Non ancora supportato|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
+|Criteri di gestione del ciclo di vita|Anteprima|Non ancora supportato|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
+|Eliminazione temporanea del contenitore|Anteprima|Anteprima|[Eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md)|
+|Eliminazione temporanea BLOB|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB](storage-blob-soft-delete.md)|
 |Blobfuse|Anteprima|Non ancora supportato|[Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md)|
 |Feed delle modifiche|Non ancora supportato|Non ancora supportato|[Supporto del feed di modifiche in Archiviazione BLOB di Azure](storage-blob-change-feed.md)|
 |Failover dell'account|Non ancora supportato|Non ancora supportato|[Ripristino di emergenza e failover dell'account](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Elenco di controllo di accesso del contenitore BLOB|Non ancora supportato<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Non ancora supportato<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Domini personalizzati|Non ancora supportato|Non ancora supportato|[Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure](storage-custom-domain-name.md)|
-|Eliminazione temporanea|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB di Archiviazione di Azure ](storage-blob-soft-delete.md)|
 
 <div id="diagnostic-logging"><sup>1</sup> per gli account di archiviazione BLOB in blocchi Premium, i log di diagnostica (versione classica) non possono essere abilitati tramite il portale di Azure. È possibile abilitarli tramite PowerShell.</div><br>
 

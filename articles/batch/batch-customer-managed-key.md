@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062532"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053746"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurare chiavi gestite dal cliente per l'account Azure Batch con Azure Key Vault e identità gestite
 
@@ -82,7 +82,7 @@ Nel campo **Seleziona** in **principale**, compilare il `principalId` precedente
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Generare una chiave in Azure Key Vault
 
-Nel portale di Azure passare all'istanza di Key Vault nella sezione **chiave** , selezionare **genera/importa**. Selezionare il **tipo di chiave** `RSA` e la **dimensione della chiave** `2048` .
+Nel portale di Azure passare all'istanza di Key Vault nella sezione **chiave** , selezionare **genera/importa**. Selezionare il **tipo di chiave** `RSA` e la **dimensione della chiave RSA** come almeno `2048` bit. `EC`i tipi di chiave non sono attualmente supportati come chiave gestita dal cliente in un account batch.
 
 ![Creare una chiave](./media/batch-customer-managed-key/create-key.png)
 
@@ -110,7 +110,7 @@ az batch account set \
 
 ## <a name="update-the-customer-managed-key-version"></a>Aggiornare la versione della chiave gestita dal cliente
 
-Quando si crea una nuova versione di una chiave, aggiornare l'account batch per usare la nuova versione. Seguire questa procedura:
+Quando si crea una nuova versione di una chiave, aggiornare l'account batch per usare la nuova versione. A tale scopo, seguire questa procedura:
 
 1. Passare all'account batch in portale di Azure e visualizzare le impostazioni di crittografia.
 2. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
@@ -142,6 +142,7 @@ az batch account set \
 ```
 ## <a name="frequently-asked-questions"></a>Domande frequenti
   * **Le chiavi gestite dal cliente sono supportate per gli account batch esistenti?** No. Le chiavi gestite dal cliente sono supportate solo per i nuovi account batch.
+  * **È possibile selezionare dimensioni della chiave RSA maggiori di 2048 bit?** Sì, sono supportate anche le dimensioni delle chiavi RSA di `3072` e `4096` BITS.
   * **Quali operazioni sono disponibili dopo la revoca di una chiave gestita dal cliente?** L'unica operazione consentita è l'eliminazione dell'account se il batch perde l'accesso alla chiave gestita dal cliente.
   * **Come si ripristina l'accesso all'account batch se si elimina accidentalmente la chiave di Key Vault?** Poiché sono abilitate la protezione dall'eliminazione e l'eliminazione temporanea, è possibile ripristinare le chiavi esistenti. Per ulteriori informazioni, vedere la pagina relativa al [ripristino di un Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
   * **È possibile disabilitare le chiavi gestite dal cliente?** È possibile impostare di nuovo il tipo di crittografia dell'account batch su "Microsoft Managed Key" in qualsiasi momento. Successivamente, è possibile eliminare o modificare la chiave.

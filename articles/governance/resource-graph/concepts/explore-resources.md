@@ -1,14 +1,14 @@
 ---
 title: Esplora le tue risorse di Azure
 description: Informazioni su come usare il linguaggio di query di Resource Graph per esplorare le risorse e comprendere come sono connesse.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654496"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056585"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Esplorare le risorse di Azure con Resource Graph
 
@@ -207,8 +207,8 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Prima di eseguire la query, come facciamo a sapere di che **tipo** dovrebbe ora essere **Microsoft.Compute/disks**?
-Se si esamina l'ID completo, si noterà **/providers/Microsoft.Compute/disks/** come parte della stringa. Questo frammento di stringa fornisce un hint per il tipo da cercare. Un metodo alternativo potrebbe essere quello di rimuovere il limite per tipo ed effettuare invece la ricerca solo per il campo ID. Poiché l'ID è univoco, verrebbe restituito un solo record e la proprietà **tipo** fornisce i dettagli.
+Prima di eseguire la query, come facciamo a sapere di che **tipo** dovrebbe ora essere **Microsoft.Compute/disks**? Se si esamina l'ID completo, si noterà **/providers/Microsoft.Compute/disks/** come parte della stringa.
+Questo frammento di stringa fornisce un hint per il tipo da cercare. Un metodo alternativo potrebbe essere quello di rimuovere il limite per tipo ed effettuare invece la ricerca solo per il campo ID. Poiché l'ID è univoco, verrebbe restituito un solo record e la proprietà **tipo** fornisce i dettagli.
 
 > [!NOTE]
 > Affinché questo esempio funzioni, è necessario sostituire il campo ID con un risultato dal proprio ambiente.

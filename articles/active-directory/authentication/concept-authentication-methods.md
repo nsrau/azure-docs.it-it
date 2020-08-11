@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 05283c02c2e5f95e22beb6fbeaad7a99e42ee6aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b6111529d1a3d37f08b29fb5c0751fb6a49acea5
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540836"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054069"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -39,7 +39,7 @@ La tabella seguente delinea i metodi disponibili per l'autenticazione primaria o
 | [App Microsoft Authenticator](#microsoft-authenticator-app) | Sì (anteprima) | Autenticazione a più fattori e SSPR |
 | [Chiavi di sicurezza FIDO2 (anteprima)](#fido2-security-keys) | Sì | Solo MFA |
 | [Token software OATH](#oath-software-tokens) | No | MFA |
-| [Token hardware OATH (anteprima)](#oath-hardware-tokens-preview) | Sì | MFA |
+| [Token hardware OATH (anteprima)](#oath-hardware-tokens-preview) | No | MFA |
 | [SMS](#phone-options) | Sì (anteprima) | Autenticazione a più fattori e SSPR |
 | [Chiamata vocale](#phone-options) | No | Autenticazione a più fattori e SSPR |
 | [Domande di sicurezza](#security-questions) | No | Solo reimpostazione della password self-service |

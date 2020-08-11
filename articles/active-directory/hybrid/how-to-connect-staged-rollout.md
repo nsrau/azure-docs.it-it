@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460610"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053222"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
 
@@ -84,7 +84,7 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
 
 - Quando un gruppo di sicurezza viene aggiunto per l'implementazione a fasi per la prima volta, il limite di utenti è 200 per evitare che si verifichi un timeout nell'esperienza utente. Dopo aver aggiunto il gruppo, è possibile aggiungervi altri utenti direttamente, se necessario.
 
-- Mentre gli utenti sono in fase di implementazione temporanea, i criteri di scadenza delle password sono impostati su 90 giorni senza alcuna opzione per personalizzarli. 
+- Mentre gli utenti sono in fase di implementazione temporanea, quando EnforceCloudPasswordPolicyForPasswordSyncedUsers è abilitato, i criteri di scadenza delle password sono impostati su 90 giorni senza alcuna opzione per personalizzarli. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Introduzione all'implementazione a fasi

@@ -5,49 +5,71 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
-ms.topic: conceptual
-ms.date: 08/03/2020
+ms.topic: troubleshooting
+ms.date: 08/07/2020
 ms.author: jasteppe
-ms.openlocfilehash: b404fa5322d3afa8cbf71741382d44dd0433d49c
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 088d1e409f14fdba02311d1ff17eb655f6e41ad3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553683"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053457"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del connettore Azure per FHIR (anteprima)
 
 Questo articolo illustra la procedura per la risoluzione dei problemi relativi al connettore comune di Azure per i messaggi di errore e le condizioni di FHIR *.  
 
-Si apprenderà anche come creare copie del connettore Azure per i file di mapping JSON FHIR per la modifica e l'archiviazione all'esterno del portale di Azure o per fornire al supporto tecnico di Azure l'apertura di un ticket di supporto. 
+Si apprenderà anche come creare copie del connettore Azure per i mapping della conversione FHIR JSON (ad esempio, Device e FHIR).  
 
-## <a name="error-messages-and-fixes"></a>Messaggi di errore e correzioni
+È possibile usare le copie JSON del mapping di conversione per la modifica e l'archiviazione all'esterno del portale di Azure.  
 
-|Message   |Condizione  |Fix         |
-|----------|-----------|------------|
-|Nome mapping non valido. il nome del mapping deve essere Device o FHIR|Il tipo di mapping specificato non è Device o FHIR|Usare uno dei due tipi di mapping supportati (ad esempio, Device o FHIR)|
-|Rigenera parametri chiave non definiti|Rigenera richiesta chiave|Includere i parametri nella richiesta di rigenerazione della chiave|
-|È stato raggiunto il numero massimo di istanze del connettore di Internet delle cose di cui è possibile eseguire il provisioning in questa sottoscrizione|È stato raggiunto il connettore Azure per la quota di sottoscrizioni FHIR (il valore predefinito è (2) per sottoscrizione)|Eliminare una delle istanze esistenti del connettore Azure per FHIR, usare una sottoscrizione diversa che non ha raggiunto la quota di sottoscrizione o richiedere un aumento della quota della sottoscrizione|
-|Lo spostamento della risorsa non è supportato per la risorsa API di Azure abilitata per il connettore Internet|Tentativo di eseguire un'operazione di spostamento su un'API di Azure per la risorsa FHIR con una o più istanze del connettore Azure per FHIR|Elimina le istanze esistenti del connettore Azure per FHIR per eseguire e completare l'operazione di spostamento|
-|Il provisioning del connettore Internet non è stato eseguito|Tentativo di usare i servizi figlio (connessioni & mapping) quando non è stato eseguito il provisioning dell'elemento padre (connettore Azure FHIR per Azure)|Effettuare il provisioning di un connettore Azure per FHIR|
-|La richiesta non è supportata|La richiesta API specifica non è supportata|Usa la richiesta API corretta|
-|L'account non esiste|Il tentativo di aggiungere un connettore Azure per FHIR e l'API di Azure per la risorsa FHIR non esiste|Creare la risorsa API di Azure per FHIR e quindi ripetere l'operazione|
-|La versione FHIR della risorsa API di Azure per FHIR non è supportata per il connettore Internet|Tentativo di usare un connettore Azure per FHIR con una versione non compatibile dell'API di Azure per la risorsa FHIR|Creare una nuova risorsa API di Azure per FHIR (versione R4) o usare un'API di Azure esistente per la risorsa FHIR (versione R4)
+> [!TIP]
+> Se si apre un ticket di [supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/) per il connettore Azure per FHIR, assicurarsi di includere copie del mapping di conversione JSON per facilitare il processo di risoluzione dei problemi.
 
-## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-mapping-files"></a>Creazione di copie del connettore Azure per i file di mapping FHIR (anteprima)
-La copia del connettore Azure per i file di mapping di FHIR può essere utile per la modifica e l'archiviazione all'esterno del sito Web di portale di Azure e per fornire supporto tecnico di Azure all'apertura di un ticket di supporto.
+## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>Messaggi di errore e correzioni per il connettore Azure per FHIR (anteprima)
+
+|Messaggio|Visualizzato|Condizione|Correzione| 
+|-------|---------|---------|---|
+|Nome mapping non valido. il nome del mapping deve essere Device o FHIR.|API|Il tipo di mapping specificato non è Device o FHIR.|Usare uno dei due tipi di mapping supportati (ad esempio, Device o FHIR).|
+|Convalida non riuscita. Informazioni obbligatorie mancanti o non valide.|API e portale di Azure|Se si tenta di salvare un mapping di conversione, mancano le informazioni necessarie o l'elemento.|Aggiungere l'elemento o le informazioni sul mapping di conversione mancanti e tentare di salvare di nuovo il mapping di conversione.|
+|Rigenera parametri chiave non definiti.|API|Rigenera la richiesta di chiave.|Includere i parametri nella richiesta di rigenerazione della chiave.|
+|È stato raggiunto il numero massimo di istanze del connettore Internet per cui è possibile eseguire il provisioning in questa sottoscrizione.|API e portale di Azure|È stato raggiunto il connettore Azure per la quota di sottoscrizioni FHIR (il valore predefinito è (2) per sottoscrizione).|Eliminare una delle istanze esistenti del connettore Azure per FHIR.  Usare una sottoscrizione diversa che non ha raggiunto la quota di sottoscrizione.  Richiedere un aumento della quota della sottoscrizione.|
+|Lo spostamento della risorsa non è supportato per la risorsa API di Azure abilitata per il connettore Internet.|API e portale di Azure|Tentativo di eseguire un'operazione di spostamento su un'API di Azure per la risorsa FHIR con una o più istanze del connettore Azure per FHIR.|Eliminare le istanze esistenti del connettore Azure per FHIR per eseguire l'operazione di spostamento.|
+|Il provisioning del connettore Internet non è stato eseguito.|API|Il tentativo di usare i servizi figlio (connessioni & mapping) quando non è stato eseguito il provisioning dell'elemento padre (connettore Azure per FHIR).|Eseguire il provisioning di un connettore Azure per FHIR.|
+|La richiesta non è supportata.|API|La richiesta API specifica non è supportata.|Usare la richiesta API corretta.|
+|L'account non esiste.|API|Il tentativo di aggiungere un connettore Azure per FHIR e l'API di Azure per la risorsa FHIR non esiste.|Creare la risorsa API di Azure per FHIR, quindi ripetere l'operazione.|
+|La versione FHIR della risorsa API di Azure per FHIR non è supportata per il connettore Internet.|API|Tentativo di usare un connettore Azure per FHIR con una versione incompatibile della risorsa API di Azure per FHIR.|Creare una nuova risorsa API di Azure per FHIR (versione R4) o usare un'API di Azure esistente per la risorsa FHIR (versione R4).
+
+##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Perché il connettore Azure per i dati FHIR (anteprima) non viene visualizzato nell'API di Azure per FHIR?
+
+|Potenziali problemi  |Correzioni            |
+|------------------|-----------------|
+|È ancora in corso l'elaborazione dei dati.|I dati vengono uscita all'API di Azure per FHIR in batch (ogni ~ 15 minuti).  È possibile che i dati vengano ancora elaborati e che siano necessari altri tempi per la persistenza dei dati nell'API di Azure per FHIR.|
+|Il mapping di conversione del dispositivo JSON non è stato configurato.|Configurare e salvare il mapping di conversione dei dispositivi JSON.|
+|Il mapping di conversione FHIR JSON non è stato configurato.|Configurare e salvare in modo conforme il mapping di conversione FHIR JSON.|
+|Il messaggio del dispositivo non contiene un'espressione prevista definita nel mapping del dispositivo.|Verificare le espressioni JsonPath definite nei token di corrispondenza del mapping dei dispositivi definiti nel messaggio del dispositivo.|
+|Non è stata creata una risorsa del dispositivo nell'API di Azure per FHIR (tipo di risoluzione: solo ricerca) *.|Creare una risorsa dispositivo valida nell'API di Azure per FHIR. Assicurarsi che la risorsa del dispositivo contenga un identificatore che corrisponda all'identificatore del dispositivo fornito nel messaggio in arrivo.|
+|Non è stata creata una risorsa paziente nell'API di Azure per FHIR (tipo di risoluzione: solo ricerca) *.|Creare una risorsa paziente valida nell'API di Azure per FHIR.|
+|Il riferimento del dispositivo. patient non è impostato oppure il riferimento non è valido (tipo di risoluzione: solo ricerca) *.|Verificare che la risorsa del dispositivo contenga un [riferimento](https://www.hl7.org/fhir/device-definitions.html#Device.patient) valido a una risorsa del paziente.| 
+
+* [Guida introduttiva di riferimento: distribuire il connettore Azure Internet (anteprima) usando portale di Azure](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) per una descrizione funzionale del connettore Azure per i tipi di risoluzione FHIR (ad esempio, Lookup o create).
+
+## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>Creazione di copie del connettore Azure per la conversione di FHIR (anteprima) JSON
+La copia del connettore Azure per i file di mapping di FHIR può essere utile per la modifica e l'archiviazione all'esterno del sito Web portale di Azure.
+
+Le copie dei file di mapping devono essere fornite al supporto tecnico di Azure quando si apre un ticket di supporto per facilitare la risoluzione dei problemi.
 
 > [!NOTE]
 > JSON è l'unico formato supportato per i file di mapping del dispositivo e del FHIR in questo momento.
 
 > [!TIP]
-> Scopri di più sul connettore Azure Internet per il [dispositivo FHIR e i file JSON di mapping FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> Altre informazioni sul connettore Azure per i dispositivi FHIR [e sul mapping della conversione FHIR JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
 
 1. Per il Dashboard delle risorse di Azure per FHIR nella sezione **"componenti aggiuntivi"** , selezionare **"connettore Internet (anteprima)"** in basso a sinistra.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="Connettore Internet" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
-2. Selezionare il **"connettore"** da cui verranno copiati i file di mapping.
+2. Selezionare il **"connettore"** da cui verrà copiato il mapping di conversione JSON.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connettore Internet" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
@@ -65,7 +87,7 @@ La copia del connettore Azure per i file di mapping di FHIR può essere utile pe
 5. Eseguire un'operazione Incolla (ad esempio, selezionare Ctrl + v) in un nuovo file all'interno di un editor, ad esempio Visual Studio Code, blocco note, e salvare il file con estensione JSON.
 
 > [!TIP]
-> Se si apre un ticket di [supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/) per il connettore Azure per FHIR, assicurarsi di includere copie dei file di mapping per facilitare il processo di risoluzione dei problemi.
+> Se si apre un ticket di [supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/) per il connettore Azure per FHIR, assicurarsi di includere copie del mapping di conversione JSON per facilitare il processo di risoluzione dei problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -74,6 +96,6 @@ Vedere le domande frequenti sul connettore Azure per FHIR.
 >[!div class="nextstepaction"]
 >[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
-* Nel portale di Azure, il connettore Azure per FHIR viene indicato come connettore Internet (anteprima).
+*Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
 
 FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.

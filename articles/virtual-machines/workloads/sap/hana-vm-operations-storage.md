@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/30/2020
+ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074037"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053440"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -305,7 +305,7 @@ I [limiti di velocità effettiva di Azure NetApp Files](../../../azure-netapp-fi
 
 Per soddisfare i requisiti di velocità effettiva minima SAP per dati e log e in base alle linee guida per `/hana/shared`, le dimensioni consigliate sono le seguenti:
 
-| Volume | Dimensioni<br /> Livello Archiviazione Premium | Dimensione<br /> Livello Archiviazione Ultra | Protocollo NFS supportato |
+| Volume | Dimensione<br /> Livello Archiviazione Premium | Dimensione<br /> Livello Archiviazione Ultra | Protocollo NFS supportato |
 | --- | --- | --- |
 | /hana/log/ | 4 TiB | 2 TiB | v4.1 |
 | /hana/data | 6,3 TiB | 3,2 TiB | v4.1 |
@@ -321,6 +321,44 @@ Per soddisfare i requisiti di velocità effettiva minima SAP per dati e log e in
 > È possibile ridimensionare i volumi Azure NetApp Files in modo dinamico, senza dover eseguire l'operazione `unmount` per i volumi, arrestare le macchine virtuali o SAP HANA. Questo consente la flessibilità di soddisfare le esigenze di velocità effettiva previste e non previste per le applicazioni.
 
 La documentazione su come distribuire una configurazione con scalabilità orizzontale SAP HANA con un nodo standby usando i volumi NFS v4.1 ospitati in Azure NetApp Files è pubblicata in [Distribuire un sistema di SAP HANA con scalabilità orizzontale con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
+
+
+## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Soluzione di costo cosciente con archiviazione Premium di Azure
+Fino ad ora, la soluzione di archiviazione Premium di Azure descritta in questo documento nella sezione [soluzioni con archiviazione Premium e azure acceleratore di scrittura per le macchine virtuali della serie M](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) di Azure è stata concepita per SAP Hana scenari di produzione supportati. Una delle caratteristiche delle configurazioni supportate per l'ambiente di produzione è la separazione dei volumi per i dati SAP HANA e il rollforward log in due volumi diversi. Il motivo di tale separazione è che le caratteristiche del carico di lavoro sui volumi sono diverse. Con le configurazioni di produzione suggerite, potrebbe essere necessario un tipo diverso di memorizzazione nella cache o anche tipi diversi di archiviazione a blocchi di Azure. Le configurazioni supportate per la produzione che usano la destinazione di archiviazione blocchi di Azure devono essere conformi al [contratto di Service VM singolo per le macchine virtuali di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) .  Per gli scenari non di produzione, alcune considerazioni adottate per i sistemi di produzione potrebbero non essere valide per i sistemi non di produzione più bassi. Di conseguenza, è possibile combinare i dati e il volume di log di HANA. Anche se alla fine con alcuni colpevoli, come alla fine non soddisfano determinati indicatori KPI di velocità effettiva o latenza richiesti per i sistemi di produzione. Un altro aspetto per ridurre i costi in questi ambienti può essere l'utilizzo dell' [archiviazione di Azure SDD standard](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). Tuttavia, si tratta di una scelta che invalida il [contratto di Service per macchina virtuale di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+
+Un'alternativa meno costosa per queste configurazioni potrebbe essere simile alla seguente:
+
+
+| SKU di VM | RAM | Max. velocità effettiva<br /> Velocità effettiva | /hana/data and /hana/log<br /> con striping con LVM o MDADM | /hana/shared | volume /root | /usr/sap | comments |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Non otterrà una latenza di archiviazione inferiore a 1 MS<sup>1</sup> |
+| E16v3 | 128 GiB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Tipo di VM non certificato HANA <br /> Non otterrà una latenza di archiviazione inferiore a 1 MS<sup>1</sup> |
+| M32ts | 192 GiB | 500 MB/s | 3 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 5.000<sup>2</sup> |
+| E20ds_v4 | GiB 160 | 480 MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | Non otterrà una latenza di archiviazione inferiore a 1 MS<sup>1</sup> |
+| E32v3 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Tipo di VM non certificato HANA <br /> Non otterrà una latenza di archiviazione inferiore a 1 MS<sup>1</sup> |
+| E32ds_v4 | 256 GiB | 768 MBps | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Non otterrà una latenza di archiviazione inferiore a 1 MS<sup>1</sup> |
+| M32ls | 256 GiB | 500 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 5.000<sup>2</sup> |
+| E48ds_v4 | GiB 384 | 1.152 MBps | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Non otterrà una latenza di archiviazione inferiore a 1 MS<sup>1</sup> |
+| E64v3 | 432 GiB | 1\.200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Non otterrà una latenza di archiviazione inferiore a 1 MS<sup>1</sup> |
+| E64ds_v4 | GiB 504 | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Non otterrà una latenza di archiviazione inferiore a 1 MS<sup>1</sup> |
+| M64ls | 512 GiB | 1\.000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 10.000<sup>2</sup> |
+| M64s | 1\.000 GiB | 1\.000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 10.000<sup>2</sup> |
+| M64ms | 1\.750 GiB | 1\.000 MB/s | P20 6 x | 1 x E30 | 1 x E6 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 10.000<sup>2</sup> |
+| M128s | 2\.000 GiB | 2\.000 MB/s |P20 6 x | 1 x E30 | 1 x E10 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 20.000<sup>2</sup> |
+| M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 10.000<sup>2</sup> |
+| M128ms | 3\.800 GiB | 2\.000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 20.000<sup>2</sup> |
+| M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 10.000<sup>2</sup> |
+| M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 20.000<sup>2</sup> |
+| M416ms_v2 | 11.400 GiB | 2\.000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Se si usa acceleratore di scrittura per i dati combinati e il volume di log, la velocità IOPS viene limitata a 20.000<sup>2</sup> |
+
+
+<sup>1</sup> [acceleratore di scrittura di Azure](../../linux/how-to-enable-write-accelerator.md) non può essere usato con le famiglie di macchine virtuali Ev4 e Ev4. In seguito all'uso di archiviazione Premium di Azure, la latenza di I/O non sarà inferiore a 1 ms
+
+<sup>2</sup> la famiglia di VM supporta [Azure acceleratore di scrittura](../../linux/how-to-enable-write-accelerator.md), ma è possibile che il limite di IOPS dell'acceleratore di scrittura limiti le funzionalità di IOPS delle configurazioni del disco
+
+Se si combinano i dati e il volume di log per SAP HANA, i dischi che compilano il volume con striping non devono avere la cache di lettura o di lettura/scrittura abilitata.
+
+Sono elencati i tipi di macchine virtuali che non sono certificati con SAP e che non sono elencati nella cosiddetta [directory hardware SAP Hana](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Il feedback dei clienti era che i tipi di VM non elencati venivano usati correttamente per alcune attività non di produzione.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

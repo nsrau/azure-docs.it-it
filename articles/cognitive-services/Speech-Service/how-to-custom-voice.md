@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 2aacf8881a57f0677177cd341a0ddc63224b26b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402045"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056687"
 ---
 # <a name="get-started-with-custom-voice"></a>Introduzione a Voce personalizzata
 
@@ -56,7 +56,7 @@ Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, sarà
 4. Se si vuole passare a un'altra sottoscrizione vocale, usare l'icona a cremagliera che si trova nella parte superiore dello spostamento.
 
 > [!NOTE]
-> Il servizio Voice personalizzato non supporta la chiave di valutazione gratuita di 30 giorni. Prima di poter usare il servizio, è necessario disporre di una chiave F0 o S0 creata in Azure.
+> Prima di poter usare il servizio, è necessario disporre di una chiave F0 o S0 creata in Azure.
 
 ## <a name="how-to-create-a-project"></a>Come creare un progetto
 

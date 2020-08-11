@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322312"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056432"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoraggio di metriche e log in front-end di Azure
 
@@ -50,7 +50,7 @@ I log attività forniscono informazioni sulle operazioni eseguite sull'anta ante
 Accedere ai log attività nel front-end o a tutti i log delle risorse di Azure in monitoraggio di Azure. Per visualizzare i log di attività:
 
 1. Selezionare l'istanza della porta anteriore.
-2. Selezionare **log attività**.
+2. Selezionare **Log attività**.
 
     ![Log attività](./media/front-door-diagnostics/activity-log.png)
 
@@ -91,7 +91,7 @@ La porta anteriore fornisce attualmente log di diagnostica (in batch ogni ora). 
 | RulesEngineMatchNames | Nomi delle regole corrispondenti alla richiesta. |
 | SecurityProtocol | Versione del protocollo TLS/SSL usata dalla richiesta o Null se non è stato usato alcun tipo di crittografia. |
 | SentToOriginShield | Campo booleano che rappresenta se si è verificato un mancato riscontro nella cache sul primo ambiente e la richiesta è stata inviata alla cache regionale. Ignorare questo campo se la regola di routing è un reindirizzamento o quando la memorizzazione nella cache non è abilitata. |
-| TimeTaken | Durata dell'azione, in millisecondi. |
+| TimeTaken | Intervallo di tempo dal primo byte della richiesta alla porta anteriore all'ultimo byte di risposta, in secondi. |
 | TrackingReference | Stringa di riferimento univoca che identifica una richiesta fornita da Frontdoor, inviata anche come intestazione X-Azure-Ref al client. Obbligatoria per la ricerca di dettagli nei log di accesso per una richiesta specifica. |
 | UserAgent | Tipo di browser usato dal client. |
 
@@ -99,8 +99,8 @@ La porta anteriore fornisce attualmente log di diagnostica (in batch ogni ora). 
 
 | Scenari | Numero di voci di log | POP | BackendHostname | SentToOriginShield | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Regola di routing senza caching abilitato | 1 | Codice POP perimetrale | Back-end in cui la richiesta è stata trasmessa | False | CONFIG_NOCACHE |
-| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Vuoto | False | COLPITO |
+| Regola di routing senza caching abilitato | 1 | Codice POP perimetrale | Back-end in cui la richiesta è stata trasmessa | Falso | CONFIG_NOCACHE |
+| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Empty | Falso | COLPITO |
 | Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache al POP perimetrale, ma riscontro nella cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. vuoto | 1. true</br>2. false | 1. MISS</br>2. PARTIAL_HIT |
 | Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache dei bordi e della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. back-end che consente di popolare la cache | 1. true</br>2. false | 1. MISS</br>2. MISS |
 

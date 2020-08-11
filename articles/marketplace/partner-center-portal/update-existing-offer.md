@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006792"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056143"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel Marketplace commerciale
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel marketplace commerciale
 
 È possibile visualizzare le offerte esistenti nella scheda **Panoramica** del portale del [Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) nel centro per i partner.
 
-Per aggiornare un'offerta esistente attualmente disponibile nel Marketplace:
+Per aggiornare un'offerta esistente attualmente disponibile nel Marketplace commerciale:
 
 1. Selezionare il nome dell'offerta che si desidera aggiornare. Lo stato dell'offerta può essere elencato come **Anteprima**, in **tempo reale**, **pubblicazione in corso**, **bozza**, **attenzione necessaria**o **non disponibile** (se si è scelto in precedenza di interrompere la vendita dell'offerta). Una volta selezionata, viene visualizzata la pagina di **Panoramica dell'offerta** per l'offerta.
 2. Selezionare **Aggiorna** dalla scheda nella pagina Panoramica dell'offerta oppure la voce di menu nel riquadro di spostamento a sinistra per l'area che si vuole aggiornare. Potrebbe essere necessario aggiornare la **configurazione dell'offerta**, le **Proprietà**, l' **elenco di offerte**, l' **Anteprima**, la **configurazione tecnica**, la **Panoramica del piano**o la **test drive**.
@@ -74,7 +74,7 @@ Ora che è stato nascosto il piano con il prezzo precedente, creare una copia de
 1. Selezionare **Salva bozza**.
 1. Dopo aver completato tutte le sezioni necessarie per il nuovo piano, selezionare **revisione e pubblicazione**. Questa operazione invierà l'offerta per la revisione e la pubblicazione. Per informazioni dettagliate, leggere [la recensione e pubblicare un'offerta nel Marketplace commerciale](../review-publish-offer.md) .
 
-## <a name="compare-changes-to-marketplace-offers"></a>Confrontare le modifiche alle offerte del Marketplace
+## <a name="compare-changes-to-commercial-marketplace-offers"></a>Confrontare le modifiche alle offerte del Marketplace commerciale
 
 È possibile controllare le modifiche apportate a un'offerta [pubblicata](#compare-changes-to-published-offer) o in [Anteprima](#compare-changes-to-a-preview-offer) prima di renderle attive usando il **confronto**.
 
@@ -161,11 +161,13 @@ Se si vuole pubblicare l'offerta in un secondo momento, è necessario avviare il
 
 ## <a name="stop-selling-an-offer-or-plan"></a>Interrompi la vendita di un'offerta o di un piano
 
+Per diversi motivi, è possibile decidere di rimuovere l'elenco di offerte da Microsoft Commercial Marketplace. La rimozione dell'offerta garantisce che i nuovi clienti non possano più acquistare o distribuire l'offerta, ma non hanno alcun effetto sui clienti esistenti.
+
 Per interrompere la vendita di un'offerta dopo la pubblicazione, selezionare **Interrompi la vendita** dalla pagina **Panoramica dell'offerta** .
 
-Quando si conferma che si desidera interrompere la vendita dell'offerta, entro poche ore non sarà più visibile nel Marketplace e nessun nuovo cliente sarà in grado di scaricarlo.
+Dopo aver confermato che si desidera interrompere la vendita dell'offerta, entro poche ore non sarà più visibile nel Marketplace commerciale e nessun nuovo cliente sarà in grado di scaricarlo.
 
-Per interrompere la vendita di un piano, selezionare **Interrompi la vendita** dalla pagina **Panoramica del piano** . L'opzione per interrompere la vendita di un piano è disponibile solo se nell'offerta è presente più di un piano. È possibile scegliere di interrompere la vendita di un piano senza influito sugli altri piani nell'offerta. Dopo aver verificato che si desidera interrompere la vendita del piano, è necessario ripubblicare l'offerta per rendere effettive le modifiche. Dopo che l'offerta è stata ripubblicata, il piano non sarà più visibile nel Marketplace e nessun nuovo cliente sarà in grado di scaricarlo.
+Per interrompere la vendita di un piano, selezionare **Interrompi la vendita** dalla pagina **Panoramica del piano** . L'opzione per interrompere la vendita di un piano è disponibile solo se nell'offerta è presente più di un piano. È possibile scegliere di interrompere la vendita di un piano senza influito sugli altri piani nell'offerta. Dopo aver verificato che si desidera interrompere la vendita del piano, è necessario ripubblicare l'offerta per rendere effettive le modifiche. Una volta ripubblicata l'offerta, il piano non sarà più visibile nel Marketplace commerciale e nessun nuovo cliente sarà in grado di scaricarlo.
 
 Tutti i clienti che hanno precedentemente acquisito l'offerta o il piano possono comunque utilizzarlo. Possono scaricarlo di nuovo, ma non gli aggiornamenti se si aggiorna e si ripubblica l'offerta o il piano in un secondo momento.
 

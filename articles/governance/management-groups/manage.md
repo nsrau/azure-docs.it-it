@@ -1,14 +1,14 @@
 ---
 title: Come lavorare con i gruppi di gestione - Governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535009"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055140"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -65,9 +65,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requisiti seguenti:
 
-1. Nel gruppo di gestione non esistono gruppi di gestione o sottoscrizioni figlio.
-
-   - Per spostare una sottoscrizione o un gruppo di gestione in un altro gruppo di gestione, vedere [Spostare gruppi di gestione e sottoscrizioni nella gerarchia](#moving-management-groups-and-subscriptions).
+1. Nel gruppo di gestione non esistono gruppi di gestione o sottoscrizioni figlio. Per spostare una sottoscrizione o un gruppo di gestione in un altro gruppo di gestione, vedere Spostamento di gruppi di gestione [e sottoscrizioni nella gerarchia](#moving-management-groups-and-subscriptions).
 
 1. Sono necessarie autorizzazioni di scrittura per il gruppo di gestione ("Proprietario" o "Collaboratore" o "Collaboratore del gruppo di gestione"). Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per ulteriori informazioni sui ruoli di Azure, vedere  
    [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
@@ -200,7 +198,7 @@ az account management-group show --name 'Contoso' -e -r
 
 Uno dei motivi per creare un gruppo di gestione è l'accorpamento delle sottoscrizioni. Solo i gruppi di gestione e le sottoscrizioni possono essere resi elementi figlio di un altro gruppo di gestione. Una sottoscrizione che viene spostata in un gruppo di gestione eredita tutti i criteri e le autorizzazioni di accesso utente dal gruppo di gestione padre
 
-Quando si sposta un gruppo di gestione o una sottoscrizione in modo da essere un elemento figlio di un altro gruppo di gestione, è necessario che siano soddisfatte tre regole.
+Quando si trasferisce un gruppo di gestione o una sottoscrizione come elemento figlio di un altro gruppo di gestione, è necessario valutare come true tre regole.
 
 Per eseguire l'azione di spostamento, è necessario avere: 
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: da5103317a2215aca68cec14ba8a0951258c9b89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6be6ca00b2bc5d7b35fb71437809754f129df96
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456432"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054636"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Come tenere traccia dell'utilizzo della memoria dell'SDK vocale
 
@@ -40,7 +40,7 @@ Di seguito è riportato un esempio di log:
 
 È possibile scegliere di creare una soglia di avviso e se tale soglia viene superata (presupponendo che la registrazione sia abilitata), viene registrato un messaggio di avviso. Il messaggio di avviso contiene un dump di tutti gli oggetti esistenti insieme al relativo conteggio. Queste informazioni possono essere usate per comprendere meglio i problemi. 
 
-Per abilitare una soglia di avviso, è necessario specificarla in `SpeechConfig` un oggetto. Questo oggetto viene verificato quando viene creato un nuovo riconoscimento. Negli esempi seguenti si presuppone che sia stata creata un'istanza di `SpeechConfig` denominata: `config`
+Per abilitare una soglia di avviso, è necessario specificarla in un `SpeechConfig` oggetto. Questo oggetto viene verificato quando viene creato un nuovo riconoscimento. Negli esempi seguenti si presuppone che sia stata creata un'istanza di `SpeechConfig` denominata `config` :
 
 ::: zone pivot="programming-language-csharp"
 
@@ -69,7 +69,7 @@ config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -102,7 +102,7 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
 ```
 
-Per abilitare una soglia di errore, è necessario specificarla in `SpeechConfig` un oggetto. Questo oggetto viene verificato quando viene creato un nuovo riconoscimento. Negli esempi seguenti si presuppone che sia stata creata un'istanza di `SpeechConfig` denominata: `config`
+Per abilitare una soglia di errore, è necessario specificarla in un `SpeechConfig` oggetto. Questo oggetto viene verificato quando viene creato un nuovo riconoscimento. Negli esempi seguenti si presuppone che sia stata creata un'istanza di `SpeechConfig` denominata `config` :
 
 ::: zone pivot="programming-language-csharp"
 
@@ -131,7 +131,7 @@ config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -149,5 +149,4 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ricevi la tua sottoscrizione di valutazione del servizio vocale](get-started.md)
-* [Informazioni su come riconoscere il riconoscimento vocale usando un microfono](quickstarts/speech-to-text-from-microphone.md)
+* [Altre informazioni sull'SDK di riconoscimento vocale](speech-sdk.md)

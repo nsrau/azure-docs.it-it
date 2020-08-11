@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073344"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055216"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Che cos'è Istanza gestita SQL di Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Parte della famiglia di prodotti SQL di Azure, Azure SQL Istanza gestita è il servizio di database cloud intelligente e scalabile che combina la più ampia SQL Server compatibilità del motore di database con tutti i vantaggi di una piattaforma distribuita come servizio completamente gestita e sempreverde. SQL Istanza gestita ha una compatibilità quasi al 100% con il motore di database di SQL Server (Enterprise Edition) più recente, offrendo un'implementazione di [rete virtuale nativa (VNet)](../../virtual-network/virtual-networks-overview.md) che risolve i problemi di sicurezza più comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti esistenti di SQL Server. SQL Istanza gestita consente ai clienti SQL Server esistenti di trasferire e spostare le applicazioni locali nel cloud con modifiche minime all'applicazione e al database. Allo stesso tempo, SQL Istanza gestita conserva tutte le funzionalità di PaaS (applicazione automatica di patch e aggiornamenti della versione, [backup automatici](../database/automated-backups-overview.md), [disponibilità elevata](../database/high-availability-sla.md)) che riducono drasticamente il sovraccarico di gestione e il TCO.
+Azure SQL Istanza gestita è il servizio di database cloud intelligente e scalabile che combina la più ampia compatibilità del motore di database SQL Server con tutti i vantaggi di una piattaforma distribuita come servizio completamente gestita e sempreverde. SQL Istanza gestita ha una compatibilità quasi al 100% con il motore di database di SQL Server (Enterprise Edition) più recente, offrendo un'implementazione di [rete virtuale nativa (VNet)](../../virtual-network/virtual-networks-overview.md) che risolve i problemi di sicurezza più comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti esistenti di SQL Server. SQL Istanza gestita consente ai clienti SQL Server esistenti di trasferire e spostare le applicazioni locali nel cloud con modifiche minime all'applicazione e al database. Allo stesso tempo, SQL Istanza gestita conserva tutte le funzionalità di PaaS (applicazione automatica di patch e aggiornamenti della versione, [backup automatici](../database/automated-backups-overview.md), [disponibilità elevata](../database/high-availability-sla.md)) che riducono drasticamente il sovraccarico di gestione e il TCO.
 
 > [!IMPORTANT]
 > Per un elenco delle aree in cui sono attualmente disponibili SQL Istanza gestita, vedere [aree supportate](resource-limits.md#supported-regions).
@@ -192,7 +192,7 @@ L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Az
 
 ### <a name="database-migration-service"></a>Servizio Migrazione del database
 
-Il servizio migrazione del database di Azure è un servizio completamente gestito progettato per consentire migrazioni senza interruzioni da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare i database esistenti di terze parti e di SQL Server nel database SQL di Azure, in Azure SQL Istanza gestita e SQL Server in una macchina virtuale di Azure. Vedere [come eseguire la migrazione del database locale a SQL istanza gestita usando il servizio migrazione del database](https://aka.ms/migratetoMIusingDMS).
+Il Servizio Migrazione del database di Azure è un servizio completamente gestito, progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare i database esistenti di terze parti e di SQL Server nel database SQL di Azure, in Azure SQL Istanza gestita e SQL Server in una macchina virtuale di Azure. Vedere [come eseguire la migrazione del database locale a SQL istanza gestita usando il servizio migrazione del database](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>Funzionalità di SQL supportate
 
@@ -227,7 +227,7 @@ Per ulteriori informazioni, vedere [l'elenco delle funzionalità di sql istanza 
 
 La tabella seguente illustra diverse proprietà, accessibili tramite Transact-SQL, che è possibile usare per rilevare che l'applicazione funziona con SQL Istanza gestita e recuperare le proprietà importanti.
 
-|Proprietà|Valore|Commento|
+|Proprietà|Valore|Comment|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL. Questa operazione **non** indica il motore SQL versione 12 (SQL Server 2014). SQL Istanza gestita esegue sempre la versione più recente del motore SQL stabile, che è uguale o superiore alla versione RTM più recente disponibile di SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

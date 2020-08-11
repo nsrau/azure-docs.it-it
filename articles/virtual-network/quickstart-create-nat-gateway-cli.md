@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare un gateway NAT - Interfaccia della riga di comando di Azure'
+title: Creare un gateway NAT - Interfaccia della riga di comando di Azure
 titlesuffix: Azure Virtual Network NAT
 description: Questa guida di avvio rapido mostra come creare un gateway NAT usando l'interfaccia della riga di comando di Azure
 services: virtual-network
@@ -10,19 +10,19 @@ Customer intent: I want to create a NAT gateway for outbound connectivity for my
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e0fcf4a973be1fe2c753e7606c6628eaeefaae8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486783"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054023"
 ---
-# <a name="tutorial-create-a-nat-gateway-using-azure-cli"></a>Esercitazione: Creare un gateway NAT usando l'interfaccia della riga di comando di Azure
+# <a name="create-a-nat-gateway-using-azure-cli"></a>Creare un gateway NAT usando l'interfaccia della riga di comando di Azure
 
 Questa esercitazione illustra come usare il servizio NAT di rete virtuale di Azure. Verrà creato un gateway NAT per fornire connettività in uscita per una macchina virtuale in Azure. 
 

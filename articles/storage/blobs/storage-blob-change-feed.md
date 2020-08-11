@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518742"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055424"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)
 
 Lo scopo del feed delle modifiche è fornire i log delle transazioni di tutte le modifiche apportate ai BLOB e ai metadati del BLOB nell'account di archiviazione. Il feed di modifiche fornisce un registro **ordinato**, **garantito**, **durevole**, non **modificabile**e di sola **lettura** di queste modifiche. Le applicazioni client possono leggere questi log in qualsiasi momento, in streaming o in modalità batch. Il feed delle modifiche consente di creare soluzioni efficienti e scalabili che elaborano gli eventi di modifica che si verificano nell'account di archiviazione BLOB a un costo ridotto.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 Il feed delle modifiche viene archiviato come [BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in un contenitore speciale nell'account di archiviazione al costo dei [prezzi di BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) standard. È possibile controllare il periodo di conservazione di questi file in base ai requisiti (vedere le [condizioni](#conditions) della versione corrente). Gli eventi di modifica vengono aggiunti al feed delle modifiche come record nella specifica del formato [Apache avro](https://avro.apache.org/docs/1.8.2/spec.html) : un formato compatto, rapido e binario che fornisce strutture di dati avanzate con lo schema inline. Questo formato è largamente usato nell'ecosistema Hadoop, dall'analisi di flusso e da Azure Data Factory.
 
@@ -71,7 +71,7 @@ Abilitare il feed delle modifiche nell'account di archiviazione usando portale d
 
 4. Scegliere il pulsante **Salva** per confermare le impostazioni di **protezione dati** .
 
-    ![Screenshot che mostra le impostazioni di protezione dati.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Screenshot che mostra le impostazioni di protezione dati.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

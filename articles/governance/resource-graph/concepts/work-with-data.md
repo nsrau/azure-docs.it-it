@@ -1,14 +1,14 @@
 ---
 title: Usare set di dati di grandi dimensioni
 description: Informazioni su come ottenere i record, formattarli, restituirli in pagine e ignorarli in set di dati di grandi dimensioni durante l'uso di Azure Resource Graph.
-ms.date: 03/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4b45a28a5dbd2ebc233bcf9a6808cb7d7cd6d8c8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 77ec7cc342672becddcbca7e6173eb1968519f02
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681078"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056407"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -63,10 +63,10 @@ Nell'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/r
 
 ## <a name="paging-results"></a>Risultati di paging
 
-Se è necessario suddividere un set di risultati in set di record più piccoli ai fini dell'elaborazione o per evitare di superare il valore massimo consentito di _1000_ record restituiti, usare la paginazione. L'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** offre i valori **resultTruncated** e **$skipToken** per indicare se un set di risultati è stato suddiviso.
-**resultTruncated** è un valore booleano che informa il consumer se sono presenti record aggiuntivi non restituiti nella risposta. Questa condizione può essere identificata anche quando il valore della proprietà **count** è inferiore a quello della proprietà **totalRecords**. **totalRecords** definisce il numero di record che soddisfano la query.
+Se è necessario suddividere un set di risultati in set di record più piccoli ai fini dell'elaborazione o per evitare di superare il valore massimo consentito di _1000_ record restituiti, usare la paginazione. L' [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) 
+ **QueryResponse** fornisce valori per indicare che un set di risultati è stato suddiviso: **resultTruncated** e **$skipToken**. **resultTruncated** è un valore booleano che informa il consumer se sono presenti record aggiuntivi non restituiti nella risposta. Questa condizione può essere identificata anche quando il valore della proprietà **count** è inferiore a quello della proprietà **totalRecords**. **totalRecords** definisce il numero di record che soddisfano la query.
 
- **resultTruncated** è **true** se la paginazione è disabilitata o risulta impossibile a causa dell'assenza della colonna `id` o quando le risorse disponibili sono inferiori a quelle richieste da una query. Quando **resultTruncated** è **true**, la proprietà **$skipToken** non è impostata.
+ **resultTruncated** è **true** quando il paging è disabilitato o non è possibile perché nessuna `id` colonna o quando sono disponibili meno risorse rispetto a una query richiesta. Quando **resultTruncated** è **true**, la proprietà **$skipToken** non è impostata.
 
 Gli esempi seguenti illustrano come **ignorare** i primi 3000 record e restituire i **primi** 1000 record dopo i record ignorati con l'interfaccia della riga di comando di Azure e Azure PowerShell:
 

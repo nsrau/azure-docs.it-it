@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 611124a113a0cce3ab1fb8db5969a6ab6f5f6658
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 88f1924f69aed350b39f953cb7503a0dde9ca9ad
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041952"
+ms.locfileid: "88056313"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteggere le porte di gestione con accesso just-in-Time
 
@@ -35,7 +35,7 @@ Questa pagina illustra come includere JIT nel programma di sicurezza. Si apprend
 |----|:----|
 |Stato versione:|Disponibilità generale|
 |Prezzi|Livello Standard|
-|Macchine virtuali supportate:|![Sì ](./media/icons/yes-icon.png) macchine virtuali distribuite tramite Azure Resource Manager.<br>![Non sono state ](./media/icons/yes-icon.png) distribuite VM con i modelli di distribuzione classica. [Altre informazioni su questi modelli di distribuzione](../azure-resource-manager/management/deployment-models.md).<br>![Nessuna macchina ](./media/icons/yes-icon.png) virtuale protetta da firewall di Azure controllata da [gestione firewall di Azure](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Macchine virtuali supportate:|![Sì ](./media/icons/yes-icon.png) macchine virtuali distribuite tramite Azure Resource Manager.<br>![Non sono state ](./media/icons/no-icon.png) distribuite VM con i modelli di distribuzione classica. [Altre informazioni su questi modelli di distribuzione](../azure-resource-manager/management/deployment-models.md).<br>![Nessuna macchina ](./media/icons/no-icon.png) virtuale protetta da firewall di Azure controllata da [gestione firewall di Azure](https://docs.microsoft.com/azure/firewall-manager/overview)|
 |Ruoli e autorizzazioni necessari:|I ruoli **Reader** e **SecurityReader** possono visualizzare lo stato e i parametri JIT.<br>Per creare ruoli personalizzati che possono funzionare con JIT, vedere [quali sono le autorizzazioni necessarie per configurare e usare JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Per creare un ruolo con privilegi minimi per gli utenti che devono richiedere l'accesso JIT a una macchina virtuale e non eseguire altre operazioni JIT, usare lo [script set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) delle pagine della community di GitHub del Centro sicurezza.|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
 |||

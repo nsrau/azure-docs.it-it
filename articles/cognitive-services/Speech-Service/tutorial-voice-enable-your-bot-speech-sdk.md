@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 47448a97c89b1feddfc43da300cb53fd65eaff05
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041785"
+ms.locfileid: "88056653"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
@@ -60,7 +60,7 @@ Per completare questa esercitazione, è necessario eseguire le operazioni seguen
 - Un PC Windows 10 con un microfono funzionante e altoparlanti (o cuffie)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o versione successiva, con il carico di lavoro di **sviluppo ASP.NET e Web** installato
 - [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) o versione successiva
-- Un account Azure. [Iscriviti](https://azure.microsoft.com/free/ai/)gratuitamente.
+- Un account Azure. [Iscriviti gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 - Un account [GitHub](https://github.com/)
 - [Git per Windows](https://git-scm.com/download/win)
 
@@ -83,7 +83,6 @@ Se si vuole usare un'area diversa per questa esercitazione, questi fattori posso
 
 * Assicurarsi di usare un' [area di Azure supportata](regions.md#voice-assistants).
 * Il canale di riconoscimento vocale della linea diretta usa il servizio di sintesi vocale, che include voci standard e neurali. Le voci neurali sono [limitate a specifiche aree di Azure](regions.md#standard-and-neural-voices).
-* Le chiavi di valutazione gratuite possono essere limitate a un'area specifica.
 
 Per altre informazioni sulle aree, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 

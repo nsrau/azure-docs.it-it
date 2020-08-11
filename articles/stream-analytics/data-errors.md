@@ -5,17 +5,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/27/2020
-ms.openlocfilehash: 725d1cf38a0c7f6de02addc62577e397a935af94
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/07/2020
+ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041048"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053151"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errori dei dati di Analisi di flusso di Azure
 
-Gli errori relativi ai dati sono errori che si verificano durante l'elaborazione dei dati.  Questi errori si verificano più spesso durante le operazioni di deserializzazione, serializzazione e scrittura dei dati.  Quando si verificano errori di dati, analisi di flusso scrive informazioni dettagliate ed eventi di esempio nei log delle risorse.  In alcuni casi, il riepilogo di queste informazioni viene fornito anche tramite le notifiche del portale.
+Gli errori relativi ai dati sono errori che si verificano durante l'elaborazione dei dati.  Questi errori si verificano più spesso durante le operazioni di deserializzazione, serializzazione e scrittura dei dati.  Quando si verificano errori di dati, analisi di flusso scrive informazioni dettagliate ed eventi di esempio nei log delle risorse. Per ottenere questi dettagli aggiuntivi, abilitare i log di diagnostica nel processo. In alcuni casi, un riepilogo di queste informazioni viene fornito anche tramite le notifiche del portale.
 
 Questo articolo descrive i diversi tipi di errore, le cause e i dettagli del log delle risorse per gli errori relativi ai dati di input e di output.
 

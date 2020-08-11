@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087851"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056517"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -142,11 +142,11 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
 
 **livello 1,1:** CREATE TABLE consente di specificare uno schema sicuro. Il motore di Analisi di flusso convalida la conformità dei dati a questo schema e, con questo modello, il comando può filtrare anche eventi contrassegnati con valori NaN.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Disabilitare il multicast automatico per le stringhe DateTime in JSON
+### <a name="disable-automatic-conversion-of-datetime-strings-to-datetime-type-at-ingress-for-json"></a>Disabilitare la conversione automatica di stringhe DateTime in un tipo DateTime in ingresso per JSON
 
-**livello 1,0:** Il parser JSON esegue automaticamente il cast dei valori stringa con le informazioni di data/ora/fuso orario nel tipo DateTime e quindi lo converte in formato UTC. Questo comportamento ha causato la perdita delle informazioni sul fuso orario.
+**livello 1,0:** Il parser JSON convertirà automaticamente i valori stringa con le informazioni di data/ora/fuso orario nel tipo DATETIME in ingresso, in modo che il valore perda immediatamente le informazioni originali sulla formattazione e sul fuso orario. Poiché questa operazione viene eseguita in ingresso, anche se tale campo non è stato utilizzato nella query, viene convertito in DateTime UTC.
 
-**livello 1,1:** Non viene eseguito alcun cast automatico dei valori stringa con le informazioni di data/ora/fuso orario nel tipo DateTime. Le informazioni sul fuso orario vengono quindi mantenute.
+**livello 1,1:** Non viene eseguita alcuna conversione automatica dei valori stringa con le informazioni di data/ora/fuso orario nel tipo DATETIME. Di conseguenza, le informazioni sul fuso orario e la formattazione originale vengono mantenute. Tuttavia, se il campo NVARCHAR (MAX) viene usato nella query come parte di un'espressione DATETIME (ad esempio, la funzione DATEADD), viene convertito nel tipo DATETIME per eseguire il calcolo e perde il formato originale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

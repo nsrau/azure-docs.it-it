@@ -10,18 +10,21 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c6999b67a5c0a0f4ca7cb943ae8de3afd8b6a11e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098277"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056279"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Informazioni sul rinnovo del certificato Azure Key Vault
 
 Azure Key Vault consente di effettuare facilmente il provisioning, la gestione e la distribuzione di certificati digitali per la rete e di abilitare comunicazioni sicure per le applicazioni. Per informazioni più generali sui certificati, vedere [Azure Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) .
 
 La presenza di un certificato di breve durata o l'aumento della frequenza della rotazione del certificato limita l'ambito dell'avversario per danni.
+
+## <a name="certificate-expiration-notifications"></a>Notifiche di scadenza del certificato
+Assicurarsi prima di tutto di aggiungere il contatto del certificato al Key Vault per ricevere una notifica quando i certificati stanno per scadere, ad esempio con PowerShell [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)) in secondo luogo, configurare quando si desidera ricevere una notifica sulla scadenza del certificato. Per configurare l'azione in tempo reale, seguire [questa](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate) procedura
 
 Sono presenti tre categorie di creazione di certificati in Key Vault. Questa guida consente di comprendere il modo in cui è possibile ottenere il rinnovo dei certificati.
 -   Certificati creati con CA integrata (DigiCert o GlobalSign)
@@ -53,8 +56,12 @@ I passaggi sono simili alla creazione di un nuovo certificato e sono documentati
 
 Novità. Azure Key Vault si occuperà anche del rinnovo automatico dei certificati autofirmati per gli utenti. Per altre informazioni sulla modifica dei criteri di rilascio e sull'aggiornamento degli attributi dell'azione di durata del certificato, vedere [qui](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 Se il certificato emesso è nello stato "disabilitato" nella portale di Azure, continuare a visualizzare l'operazione relativa al certificato per visualizzare il messaggio di errore relativo al certificato.
+
+### <a name="frequently-asked-questions"></a>Domande frequenti
+I tag verranno replicati dopo il rinnovo automatico del certificato?
+No, i tag non vengono replicati, a meno che l'utente non copi manualmente i tag stessi.
 
 ### <a name="see-also"></a>Vedere anche
 *   [Integrazione di Key Vault con l'autorità di certificazione DigiCert](how-to-integrate-certificate-authority.md)

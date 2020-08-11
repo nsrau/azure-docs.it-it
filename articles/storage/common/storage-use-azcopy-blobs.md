@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4bf3974cd561626c280dc65aa5fc78d0c9a159b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282450"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056500"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
 
@@ -283,7 +283,7 @@ Questi esempi funzionano anche con gli account che hanno uno spazio dei nomi ger
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copia i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
+> |Copiare i BLOB come blocchi, pagine o BLOB di Accodamento.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
 > |Copiare in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
 > |Decomprime automaticamente i file.|**--Decomprimi** = \[ \|deflate gzip\]|
 > 

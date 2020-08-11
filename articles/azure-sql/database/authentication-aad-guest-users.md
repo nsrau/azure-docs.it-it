@@ -9,19 +9,19 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: b3abda9787654734b24cc27987921ef40d8070fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2c8aa39b6819e135181e2d153825e89686359538
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294204"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053763"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Creare utenti guest di Azure AD e impostarli come amministratore di Azure AD
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Questo articolo è in **anteprima pubblica**.
+> Questo articolo è disponibile in **anteprima pubblica**.
 
 Gli utenti guest in Azure Active Directory (Azure AD) sono utenti che sono stati importati nella Azure AD corrente da altre directory di Azure Active Directory o all'esterno di esso. Ad esempio, gli utenti guest possono includere utenti di altre directory di Azure Active Directory o da account come * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*o * \@ gmail.com*. In questo articolo viene illustrato come creare un Azure AD utente Guest e impostare tale utente come amministratore Azure AD per il server logico SQL di Azure, senza che sia necessario che l'utente Guest faccia parte di un gruppo all'interno Azure AD.
 
@@ -103,7 +103,7 @@ Per impostare un utente Guest Azure AD come amministratore Azure AD per il serve
 1. Eseguire il comando di PowerShell seguente per aggiungere l'utente guest come amministratore Azure AD per il server logico SQL di Azure:
 
     - Sostituire `<ResourceGroupName>` con il nome del gruppo di risorse di Azure che contiene il server logico SQL di Azure.
-    - Sostituire `<ServerName>` con il nome del server logico SQL di Azure. Se il nome del server è `myserver.database.windows.net` , sostituire `<Server Name>` con `myserver` .
+    - Sostituire `<ServerName>` con il nome del server logico SQL di Azure. Se il nome del server è `myserver.database.windows.net`, sostituire `<Server Name>` con `myserver`.
     - Sostituire `<DisplayNameOfGuestUser>` con il nome utente Guest.
 
     ```powershell
@@ -133,9 +133,9 @@ Per impostare un utente Guest Azure AD come amministratore Azure AD per il serve
 
 ## <a name="limitations"></a>Limitazioni
 
-Esiste una limitazione per la portale di Azure che impedisce la selezione di un utente Guest Azure AD come amministratore Azure AD per database SQL, Istanza gestita SQL e sinapsi di Azure. Per gli account Guest esterni all'Azure ad come * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*o * \@ gmail.com*, il selettore di amministrazione di Active Directory Mostra questi account, ma sono disabilitati e non possono essere selezionati. Usare i comandi di [PowerShell o dell'interfaccia](#setting-a-guest-user-as-an-azure-ad-admin) della riga di comando elencati sopra per impostare l'amministratore Azure ad. In alternativa, è possibile impostare un gruppo di Azure AD contenente l'utente guest come amministratore Azure AD per il server logico SQL.
+Esiste una limitazione per la portale di Azure che impedisce la selezione di un utente Guest Azure AD come amministratore Azure AD per Istanza gestita SQL. Per gli account Guest esterni all'Azure ad come * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*o * \@ gmail.com*, il selettore di amministrazione di Active Directory Mostra questi account, ma sono disabilitati e non possono essere selezionati. Usare i comandi di [PowerShell o dell'interfaccia](#setting-a-guest-user-as-an-azure-ad-admin) della riga di comando elencati sopra per impostare l'amministratore Azure ad. In alternativa, è possibile impostare un gruppo di Azure AD contenente l'utente guest come amministratore Azure AD per il Istanza gestita SQL.
 
-Questa funzionalità verrà abilitata per il database SQL e le sinapsi di Azure prima della disponibilità generale di questa funzionalità.
+Questa funzionalità verrà abilitata per SQL Istanza gestita prima della disponibilità generale di questa funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

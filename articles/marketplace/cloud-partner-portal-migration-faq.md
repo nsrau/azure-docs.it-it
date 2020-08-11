@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fe909ba25191aa21e8a5bfa51c72690fd9c402eb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279305"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056551"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Domande frequenti sulla transizione dalla portale Cloud Partner al centro per i partner
 
@@ -30,7 +30,7 @@ Il portale Cloud Partner è passato al centro per i partner. Il centro per i par
 | Nuovi acquisti e distribuzioni | Nessuna modifica. I clienti possono continuare l'acquisto e la distribuzione delle offerte senza interruzioni. |
 | Proventi | Eventuali acquisti e distribuzioni continueranno a essere pagati come di consueto. Scopri di più su [come ricevere pagamenti nel Marketplace commerciale](partner-center-portal/get-paid.md). |
 | Integrazioni di API con [API del portale Cloud Partner esistenti](cloud-partner-portal-api-overview.md) | Le API di portale Cloud Partner esistenti sono ancora supportate e le integrazioni esistenti continuano a funzionare. Per altre informazioni, vedere l'articolo relativo alle [API REST di portale cloud partner.](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
+| Analisi | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>È necessario creare un nuovo account per gestire le offerte nel centro per i partner?
@@ -143,7 +143,7 @@ Gli aggiornamenti che non vengono pubblicati vengono salvati come bozze. Continu
 
 ### <a name="enhanced-preview-options"></a>Opzioni di anteprima ottimizzate
 
-Il Centro per i partner include una [funzionalità di confronto](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) con opzioni di filtro ottimizzate. Questo consente di confrontare le versioni di anteprima e live dell'offerta.
+Il Centro per i partner include una [funzionalità di confronto](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) con opzioni di filtro ottimizzate. Questo consente di confrontare le versioni di anteprima e live dell'offerta.
 
 [![Screenshot mostra la funzionalità di confronto del centro per i partner.](media/cpp-pc-faq/compare.png "Mostra la funzionalità di confronto del centro per i partner")](media/cpp-pc-faq/compare.png#lightbox)
 

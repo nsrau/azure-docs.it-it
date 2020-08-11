@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 19e02012c31246b3b6b4636ef61154fbade347ce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 48e3f895fb123429f1bedd106bd92113533c84ae
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494622"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055803"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architetture di soluzioni con Azure NetApp Files
 Questo articolo fornisce i riferimenti alle procedure consigliate che consentono di comprendere le architetture della soluzione per l'uso di Azure NetApp Files.  
@@ -44,8 +44,8 @@ In questa sezione vengono forniti i riferimenti per le applicazioni Windows e le
 
 ### <a name="file-sharing-and-global-file-caching"></a>Condivisione di file e memorizzazione nella cache di file globali
 
-* [Distribuzione di Talon/Azure NetApp Files](https://youtu.be/91LKb1qsLIM)
 * [Creare il proprio NFS di Azure? Wrestling di condivisioni file Linux nel cloud](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
+* [Distribuzione Azure NetApp Files/cache di file globali](https://youtu.be/91LKb1qsLIM)
 
 ### <a name="sql-server"></a>SQL Server
 
@@ -109,7 +109,7 @@ In questa sezione vengono forniti i riferimenti per le soluzioni HPC (High Perfo
 * [Vantaggi dell'uso di Azure NetApp Files per l'automazione della progettazione elettronica](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab con Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analisi
 
 * [Azure NetApp Files: nuova file system condivisa da usare con la griglia SAS in Microsoft Azure](https://communities.sas.com/t5/Architecture/Azure-NetApp-Files-A-new-shared-file-system-to-use-with-SAS-Grid/m-p/606978)
 

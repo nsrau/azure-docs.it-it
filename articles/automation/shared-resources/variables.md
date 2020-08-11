@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9658175b0d42db9acfc94d39e4ab226bfe2cfc4b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ee49ae905622b4b76d782f6a31e0c2333b6d54be
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187320"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055293"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gestire variabili in Automazione di Azure
 
@@ -30,10 +30,10 @@ Le variabili di automazione sono utili per gli scenari seguenti:
 
 Automazione di Azure salva in modo permanente le variabili e le rende disponibili anche in caso di errore per un runbook o una configurazione DSC. Questo comportamento consente a un runbook o a una configurazione DSC di impostare un valore che viene quindi usato da un altro runbook o dallo stesso runbook o dalla stessa configurazione DSC alla successiva esecuzione.
 
-Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificare che venga crittografata e archiviata da Automazione di Azure come asset sicuro. 
+Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Dopo aver creato la variabile, non è possibile modificarne lo stato di crittografia senza ricreare la variabile. Una raccomandazione del Centro sicurezza di Azure consiste nel crittografare tutte le variabili di automazione di Azure, come descritto in [automazione delle variabili dell'account di automazione](../../security-center/recommendations-reference.md#recs-computeapp). 
 
 >[!NOTE]
->Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di Automazione. Automazione di Azure archivia la chiave nel Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, Automazione carica la chiave da Key Vault e quindi la usa per crittografare l'asset. 
+>Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Tali asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di Automazione. Automazione di Azure memorizza la chiave nel Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, Automazione carica la chiave da Key Vault e quindi la usa per crittografare l'asset. 
 
 ## <a name="variable-types"></a>Tipi di variabile
 
@@ -69,7 +69,7 @@ I cmdlet nella tabella seguente vengono usati per creare e gestire le variabili 
 
 I cmdlet interni nella tabella seguente vengono usati per accedere alle variabili nei runbook e nelle configurazioni DSC. Questi cmdlet sono inclusi nel modulo globale `Orchestrator.AssetManagement.Cmdlets`. Per altre informazioni, vedere [Cmdlet interni](modules.md#internal-cmdlets).
 
-| Cmdlet interno | Descrizione |
+| Cmdlet interni | Descrizione |
 |:---|:---|
 |`Get-AutomationVariable`|Recupera il valore di una variabile esistente.|
 |`Set-AutomationVariable`|Imposta il valore di una variabile esistente.|

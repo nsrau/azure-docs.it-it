@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550963"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055769"
 ---
 # <a name="blob-snapshots"></a>Snapshot BLOB
 
@@ -33,7 +33,7 @@ Uno snapshot di un BLOB è identico al relativo BLOB di base, ad eccezione del f
 > Tutti gli snapshot condividono l'URI del BLOB di base. L'unica distinzione tra il BLOB di base e lo snapshot è il valore **DateTime** aggiunto.
 >
 
-Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenuti fino a quando non vengono eliminati in modo esplicito, ovvero uno snapshot non può sopravvivere al relativo BLOB di base. È possibile enumerare gli snapshot associati al BLOB di base per tenere traccia degli snapshot correnti.
+Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenuti fino a quando non vengono eliminati in modo esplicito, in modo indipendente o come parte dell'operazione Delete Blob per il BLOB di base. È possibile enumerare gli snapshot associati al BLOB di base per tenere traccia degli snapshot correnti.
 
 Quando si crea uno snapshot di un BLOB, le proprietà di sistema del BLOB vengono copiate nello snapshot con gli stessi valori. Anche i metadati del BLOB di base vengono copiati nello snapshot, se non si specificano metadati separati per lo snapshot durante la creazione. Dopo aver creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 

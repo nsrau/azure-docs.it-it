@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902046"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053576"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -361,20 +361,20 @@ Vedere la tabella seguente per le lingue supportate per le diverse API di Ricono
 | Impostazioni locali | Linguaggio | Verifica dipendente dal testo | Verifica indipendente dal testo | Identificazione indipendente dal testo |
 |----|----|----|----|----|
 | it-IT | Inglese (Stati Uniti) | sì | sì | sì |
-|zh-CN  |Cinese (mandarino, semplificato)|    n/d|    sì|    sì|
-|de-DE  |Tedesco (Germania)   |n/d    |sì    |sì|
-|en-GB  |Inglese (Regno Unito)   |n/d    |sì    |sì|
-|fr-FR  |Francese (Francia)    |n/d    |sì    |sì|
-|en-AU  |Inglese (Australia)    |n/d    |sì    |sì|
-|en-CA  |Inglese (Canada)   |n/d|   sì|    sì|
-|fr-CA  |Francese (Canada)    |n/d    |sì|   sì|
-|it-IT  |Italiano|   n/d |sì|   sì|
-|es-ES| Spagnolo (Spagna) |n/d    |sì|   sì|
-|es-MX  |Spagnolo (Messico)   |n/d|   sì|    sì|
-|ja-JP| Giapponese    |n/d    |sì    |sì|
-|pt-BR| Portoghese (Brasile)|    n/d|    sì|    sì|
+|zh-CN    |Cinese (mandarino, semplificato)|    n/d|    sì|    sì|
+|de-DE    |Tedesco (Germania)    |n/d    |sì    |sì|
+|en-GB    |Inglese (Regno Unito)    |n/d    |sì    |sì|
+|fr-FR    |Francese (Francia)    |n/d    |sì    |sì|
+|en-AU    |Inglese (Australia)    |n/d    |sì    |sì|
+|en-CA    |Inglese (Canada)    |n/d|    sì|    sì|
+|fr-CA    |Francese (Canada)    |n/d    |sì|    sì|
+|it-IT    |Italiano|    n/d    |sì|    sì|
+|es-ES|    Spagnolo (Spagna)    |n/d    |sì|    sì|
+|es-MX    |Spagnolo (Messico)    |n/d|    sì|    sì|
+|ja-JP|    Giapponese    |n/d    |sì    |sì|
+|pt-BR|    Portoghese (Brasile)|    n/d|    sì|    sì|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di prova al servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+* [Creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * [Informazioni sul riconoscimento vocale in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
