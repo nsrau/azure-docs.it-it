@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 3806135b7ed212e6eb5ea458c015ebc5810e0e80
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034867"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067495"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Crittografia doppia dell'infrastruttura del database di Azure per PostgreSQL
 
@@ -36,7 +36,7 @@ Anche l'implementazione a livello di infrastruttura supporta una varietà di chi
 
 La crittografia a doppia infrastruttura per database di Azure per PostgreSQL offre i vantaggi seguenti:
 
-1. **Diversità aggiuntiva dell'implementazione della** crittografia: lo spostamento pianificato per la crittografia basata su hardware produrrà ulteriormente le implementazioni fornendo un'implementazione basata su hardware oltre all'implementazione basata su software.
+1. **Diversità aggiuntiva di implementazione della** crittografia: lo spostamento pianificato per la crittografia basata su hardware produrrà ulteriormente le implementazioni fornendo un'implementazione basata su hardware oltre all'implementazione basata su software.
 2. **Errori di implementazione** : due livelli di crittografia a livello di infrastruttura proteggono da eventuali errori di memorizzazione nella cache o di gestione della memoria nei livelli superiori che espongono i dati in testo non crittografato. Inoltre, i due livelli assicurano anche gli errori di implementazione della crittografia in generale.
 
 La combinazione di queste funzionalità garantisce una protezione avanzata contro le minacce e i punti deboli comuni usati per attaccare la crittografia.
@@ -45,7 +45,7 @@ La combinazione di queste funzionalità garantisce una protezione avanzata contr
 
 Le funzionalità di crittografia fornite da database di Azure per PostgreSQL possono essere usate insieme. Di seguito è riportato un riepilogo dei vari scenari che è possibile usare:
 
-|  ##   | Crittografia predefinita | Crittografia doppia infrastruttura | Crittografia dei dati tramite chiavi gestite dal cliente  |
+|  ##   | Crittografia predefinita | Crittografia doppia dell'infrastruttura | Crittografia dei dati tramite chiavi gestite dal cliente  |
 |:------|:------------------:|:--------------------------------:|:--------------------------------------------:|
 | 1     | *Sì*              | *No*                             | *No*                                         |
 | 2     | *Sì*              | *Sì*                            | *No*                                         |
@@ -54,7 +54,7 @@ Le funzionalità di crittografia fornite da database di Azure per PostgreSQL pos
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Gli scenari 2 e 4 avranno un impatto significativo sulle prestazioni nel database di Azure per il server PostgreSQL a causa del livello aggiuntivo di crittografia dell'infrastruttura.
+> - Gli scenari 2 e 4 avranno un effetto sulle prestazioni nel database di Azure per il server PostgreSQL a causa del livello aggiuntivo di crittografia dell'infrastruttura.
 > - La configurazione della crittografia doppia dell'infrastruttura per database di Azure per PostgreSQL è consentita solo durante la creazione del server. Una volta eseguito il provisioning del server, non è possibile modificare la crittografia di archiviazione. Tuttavia, è comunque possibile abilitare la crittografia dei dati usando chiavi gestite dal cliente per il server creato con/senza crittografia a doppia infrastruttura.
 
 ## <a name="limitations"></a>Limitazioni

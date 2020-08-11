@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca164b6ad6b5333c662a6632b27f658ab479231c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023994"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067631"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -224,7 +224,7 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 | Istanza gestita di SQL | Il Istanza gestita SQL di Azure non è attualmente supportato con i database con iperscalabilità. |
 | Pool elastici |  I pool elastici non sono attualmente supportati con iperscalabilità.|
 | La migrazione al livello di servizio Hyperscale è attualmente un'operazione unidirezionale | Una volta eseguita la migrazione di un database a iperscalabilità, non è possibile eseguirne la migrazione direttamente a un livello di servizio non iperscalabile. Attualmente, l'unico modo per eseguire la migrazione di un database da iperscalabilità a non iperscalare consiste nell'esportare/importare utilizzando un file BACPAC o altre tecnologie di spostamento dei dati (copia bulk, Azure Data Factory, Azure Databricks, SSIS e così via). Esportazione/importazione di BACPAC da portale di Azure, da PowerShell con [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AZSQLDATABASEIMPORT](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), dall'interfaccia della riga di comando di Azure con il comando [AZ SQL DB Export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) e [AZ SQL DB Import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)e dall' [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) non è supportata. L'importazione/esportazione di BACPAC per database con iperscala più piccoli (fino a 200 GB) è supportata con SSMS e [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) versione 18,4 e versioni successive. Per i database di dimensioni maggiori, l'esportazione/importazione BACPAC può richiedere molto tempo e potrebbe non riuscire per vari motivi.|
-| Migrazione di database con oggetti OLTP in memoria persistenti | L'iperscalabilità supporta solo oggetti OLTP in memoria non permanenti (tipi di tabella, SPs e funzioni native).  Le tabelle di OLTP in memoria persistenti e gli altri oggetti devono essere eliminati e ricreati come oggetti basati su disco prima di eseguire la migrazione di un database al livello di servizio con iperscalabilità.|
+| Migrazione di database con oggetti OLTP in memoria | L'iperscalabilità supporta un subset di oggetti OLTP in memoria, inclusi i tipi di tabella ottimizzata per la memoria, le variabili di tabella e i moduli compilati in modo nativo. Tuttavia, quando nel database di cui viene eseguita la migrazione sono presenti oggetti OLTP in memoria, la migrazione dai livelli di servizio Premium e business critical a iperscalare non è supportata. Per eseguire la migrazione di un database di questo tipo a iperscalabilità, è necessario eliminare tutti gli oggetti OLTP in memoria e le relative dipendenze. Dopo la migrazione del database, è possibile ricreare questi oggetti. Le tabelle ottimizzate per la memoria durevoli e non durevoli non sono attualmente supportate in iperscalabilità e devono essere ricreate come tabelle disco.|
 | Replica geografica  | Non è ancora possibile configurare la replica geografica per l'iperscalabilità del database SQL di Azure. |
 | Copia del database | Non è ancora possibile usare la copia del database per creare un nuovo database in Azure SQL iperscalabile. |
 | Integrazione di Transparent Data Encryption/AKV | La crittografia trasparente del database con Azure Key Vault, comunemente definita Bring-your-own-key o BYOK, è attualmente in fase di anteprima. |

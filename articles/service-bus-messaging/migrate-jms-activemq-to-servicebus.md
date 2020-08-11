@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 35e2e86f68e1f53febabc75fcc537dbdd4481882
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369034"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067155"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Eseguire la migrazione di applicazioni Java Message Service (JMS) 2,0 esistenti da Apache ActiveMQ al bus di servizio di Azure
 
@@ -35,7 +35,7 @@ Il bus di servizio di Azure e Apache ActiveMQ sono entrambi broker di messaggi, 
 
 Anche in questo caso, esistono alcune differenze tra le due, come illustrato nella tabella seguente:
 
-| Categoria | ActiveMQ | Bus di servizio di Azure |
+| Category | ActiveMQ | Bus di servizio di Azure |
 | --- | --- | --- |
 | Suddivisione in livelli dell'applicazione | Monolith cluster | A due livelli <br> (gateway + back-end) |
 | Supporto dei protocolli | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
@@ -134,7 +134,7 @@ Per garantire che le applicazioni client possano connettersi senza problemi con 
 > [!NOTE]
 > Per le applicazioni JMS, è possibile creare code, argomenti e sottoscrizioni come operazione di Runtime. La maggior parte dei provider JMS (broker di messaggi) fornisce la possibilità di crearli in fase di esecuzione. Ecco perché questo passaggio di esportazione è considerato facoltativo. Per assicurarsi che l'applicazione disponga delle autorizzazioni per creare la topologia in fase di esecuzione, usare la stringa di connessione con le `Manage` autorizzazioni SAS.
 
-A tale scopo, effettuare l'operazione seguente:
+A tale scopo, effettuare le seguenti operazioni:
 
 1. Usare gli [strumenti da riga di comando ActiveMQ](https://activemq.apache.org/activemq-command-line-tools-reference) per esportare la topologia.
 1. Ricreare la stessa topologia usando un [modello di Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
@@ -272,7 +272,7 @@ Ora che l'applicazione è stata modificata per avviare l'invio e la ricezione di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'utilità [di avvio Spring boot per il bus di servizio di Azure JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) per una perfetta integrazione con il bus di servizio.
+Usare l'utilità [di avvio Spring boot per il bus di servizio di Azure JMS](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) per una perfetta integrazione con il bus di servizio.
 
 Per ulteriori informazioni sulla messaggistica del bus di servizio e JMS, vedere:
 

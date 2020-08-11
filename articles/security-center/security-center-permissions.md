@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 3f7d08e2290291dfcd931ed5609e30d5fec9f973
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e5728b220f12c3305aa896e64010fc7e5828d6fb
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835647"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067223"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -45,7 +45,7 @@ La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 |Modificare i criteri di sicurezza|-|✔|-|-|✔|
 |Aggiungere/assegnare iniziative (inclusi) standard di conformità alle normative|-|-|-|-|✔|
 |Modificare il piano tariffario della sottoscrizione|-|✔|-|-|✔|
-|Abilitare/disabilitare il provisioning automatico|-|✔|✔|-|✔|
+|Abilitare/disabilitare il provisioning automatico|-|✔|-|✔|✔|
 |Applicare i suggerimenti per la sicurezza per una risorsa</br> e usare la [correzione rapida.](security-center-remediate-recommendations.md#quick-fix-remediation)|-|-|✔|✔|✔|
 |Ignora avvisi|-|✔|-|✔|✔|
 |Visualizzare gli avvisi e le raccomandazioni|✔|✔|✔|✔|✔|

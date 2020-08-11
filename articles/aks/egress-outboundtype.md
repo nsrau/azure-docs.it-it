@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244447"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067359"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizzare l'uscita del cluster con una route definita dall'utente
 
@@ -60,7 +60,7 @@ Di seguito è illustrata una topologia di rete distribuita nei cluster del servi
 
 Se `userDefinedRouting` è impostato, AKS non configurerà automaticamente i percorsi in uscita. La configurazione in uscita deve essere eseguita dall'utente.
 
-Il cluster AKS deve essere distribuito in una rete virtuale esistente con una subnet configurata in precedenza perché quando si usa l'architettura Load Balancer standard (SLB), è necessario stabilire l'uscita esplicita. Per questo tipo di architettura è necessario inviare in modo esplicito il traffico in uscita a un dispositivo, ad esempio un firewall, un gateway, un proxy o consentire a Network Address Translation (NAT) di essere eseguito da un IP pubblico assegnato al servizio di bilanciamento del carico standard o al dispositivo.
+Il cluster AKS deve essere distribuito in una rete virtuale esistente con una subnet configurata in precedenza perché, quando non si usa l'architettura di Load Balancer standard (SLB), è necessario stabilire una uscita esplicita. Per questo tipo di architettura è necessario inviare in modo esplicito il traffico in uscita a un dispositivo, ad esempio un firewall, un gateway, un proxy o consentire a Network Address Translation (NAT) di essere eseguito da un IP pubblico assegnato al servizio di bilanciamento del carico standard o al dispositivo.
 
 Il provider di risorse del servizio Azure Kubernetes distribuirà un'istanza di Load Balancer Standard. Il servizio di bilanciamento del carico non è configurato con alcuna regola e non comporta alcun [addebito fino a quando non viene inserita una regola](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **non** esegue automaticamente il provisioning di un indirizzo IP pubblico per il front-end SLB né configura automaticamente il pool back-end di bilanciamento del carico.
 

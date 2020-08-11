@@ -3,12 +3,12 @@ title: Bus di servizio di Azure con .NET e AMQP 1.0 | Microsoft Docs
 description: Questo articolo descrive come usare il bus di servizio di Azure da un'applicazione .NET usando AMQP (Advanced Messaging Queuing Protocol).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340178"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067104"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usare il bus di servizio da .NET con AMQP 1.0
 
@@ -75,7 +75,7 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | Uri |Stringa descritta (vedere la tabella seguente) |Valore AMQP |
 | DateTimeOffset |Elemento Long descritto (vedere la tabella seguente) |Valore AMQP |
 | TimeSpan |Elemento Long descritto (vedere la tabella seguente) |Valore AMQP |
-| STREAM |BINARY |Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
+| Flusso |BINARY |Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
 | Altro oggetto |BINARY |Dati AMQP (possono essere multipli). Contiene i dati binari serializzati dell'oggetto che usa DataContractSerializer o un serializzatore fornito dall'applicazione. |
 
 | Tipo di .NET | Tipo descritto AMQP mappato | Note |
@@ -109,7 +109,7 @@ Per altre informazioni, vedere i collegamenti seguenti:
 * [Guida al protocollo AMQP 1.0]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
-[DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
+[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
@@ -117,4 +117,3 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [Azure portal]: https://portal.azure.com
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 [Guida al protocollo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-

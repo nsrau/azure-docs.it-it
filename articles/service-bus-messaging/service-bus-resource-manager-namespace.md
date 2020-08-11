@@ -7,16 +7,16 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336831"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067393"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio usando un modello di Azure Resource Manager
 
-Informazioni su come distribuire un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per ulteriori informazioni sulla creazione di modelli, vedere [Azure Resource Manager documentazione](/azure/azure-resource-manager/).
+Informazioni su come distribuire un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per ulteriori informazioni sulla creazione di modelli, vedere [Azure Resource Manager documentazione](../azure-resource-manager/index.yml).
 
 Per la creazione di spazi dei nomi del bus di servizio sono disponibili anche i modelli seguenti:
 
@@ -39,7 +39,7 @@ Per altri esempi di modello, vedere [Modelli di avvio rapido di Azure](https://a
 
 Per creare uno spazio dei nomi del bus di servizio distribuendo un modello:
 
-1. Selezionare **Prova** nel blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure Cloud Shell.
+1. Selezionare **prova** dal blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure cloud Shell.
 
     ```azurepowershell-interactive
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"

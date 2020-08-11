@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03e906d448790be8c7494e8172d02b3fc0603673
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655705"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067954"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
 
@@ -155,7 +155,7 @@ La risposta contiene la chiave di autenticazione per il runtime di integrazione 
 #### <a name="create-another-data-factory"></a>Creare un'altra data factory
 
 > [!NOTE]  
-> Questo passaggio è facoltativo. Se è già presente la data factory per la condivisione, ignorare questo passaggio.
+> Questo passaggio è facoltativo. Se è già presente la data factory per la condivisione, ignorare questo passaggio. Tuttavia, in oder per aggiungere o rimuovere assegnazioni di ruolo ad altri data factory, è necessario disporre `Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` delle autorizzazioni e, ad esempio [amministratore accesso utenti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) o [proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

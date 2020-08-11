@@ -3,15 +3,15 @@ title: Elenco di URL safe per desktop virtuali Windows-Azure
 description: Elenco di URL che è necessario sbloccare per assicurarsi che la distribuzione del desktop virtuale di Windows funzioni come previsto.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009478"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067206"
 ---
 # <a name="safe-url-list"></a>Elenco degli URL sicuri
 
@@ -76,4 +76,6 @@ Tutti i client Desktop remoto utilizzati devono avere accesso agli URL seguenti:
 |query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|
 
 >[!IMPORTANT]
->L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse del client e non includono gli URL di altri servizi come Azure Active Directory.
+>L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio.
+>
+>Questi URL corrispondono solo a siti e risorse client. Questo elenco non include gli URL per altri servizi come Azure Active Directory. Gli URL di Azure Active Directory sono disponibili in ID 56 negli [URL e negli intervalli di indirizzi IP di Office 365](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

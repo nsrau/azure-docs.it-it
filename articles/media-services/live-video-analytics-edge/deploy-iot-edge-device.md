@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074458"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067905"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -86,8 +86,8 @@ Il video live Analytics in IoT Edge espone le proprietà del modulo gemello docu
 
 ### <a name="deploy-using-the-azure-portal"></a>Distribuire tramite il portale di Azure
 
-Il portale di Azure illustra la creazione di un manifesto di distribuzione e il push della distribuzione in un dispositivo IoT Edge.
-Selezionare il dispositivo
+Il portale di Azure illustra la creazione di un manifesto di distribuzione e il push della distribuzione in un dispositivo IoT Edge.  
+#### <a name="select-your-device-and-set-modules"></a>Selezionare il dispositivo e impostare i moduli
 
 1. Accedere al [portale di Azure](https://ms.portal.azure.com/) e passare all'hub IoT.
 1. Selezionare **IoT Edge** dal menu.
@@ -112,23 +112,12 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     > [!TIP]
     > Non selezionare **Aggiungi** fino a quando non sono stati specificati i valori nelle schede **Impostazioni modulo**, **Opzioni di creazione contenitori**e **modulo gemello** , come descritto in questa procedura.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > Azure IoT Edge distingue tra maiuscole e minuscole quando si effettuano chiamate ai moduli. Prendere nota della stringa esatta usata come nome del modulo.
 
 1. Aprire la scheda **variabili di ambiente** .
    
-   Copiare e incollare il codice JSON seguente nella casella, per specificare l'ID utente e l'ID del gruppo da usare per salvare i dati dell'applicazione e gli output del video.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Aggiungere i valori seguenti nelle caselle di input in cui vengono visualizzate le ![ variabili di ambiente](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Aprire la scheda **Opzioni di creazione del contenitore** .
 
@@ -201,8 +190,8 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   La proprietà del dispositivo gemello **allowUnsecuredEndpoints** è impostata su true per lo scopo delle esercitazioni e delle guide introduttive.   
+   > [!Note]
+   > La proprietà del dispositivo gemello **allowUnsecuredEndpoints** è impostata su true per lo scopo delle esercitazioni e delle guide introduttive.   
    È necessario impostare questa proprietà su **false** durante l'esecuzione nell'ambiente di produzione. In questo modo, l'applicazione bloccherà tutti gli endpoint non protetti e per eseguire le topologie del grafico saranno necessarie le credenziali di connessione valide.  
    
     Selezionare Aggiungi per aggiungere le proprietà del modulo gemello.
@@ -239,7 +228,7 @@ Successivamente, è possibile testare l'esempio richiamando un metodo diretto. L
 1. Fare clic sull'opzione di menu Metodo diretto.
 
     > [!NOTE] 
-    > È necessario aggiungere un valore nelle sezioni della stringa di connessione, come si può vedere nella pagina corrente. Non è necessario nascondere o modificare alcun elemento nella sezione **Nome impostazione** . È accettabile lasciarlo pubblico.
+    > È necessario aggiungere un valore nelle sezioni della stringa di connessione, come si può vedere nella pagina corrente. Non è necessario nascondere o modificare alcun elemento nella sezione **Nome impostazione** . È accettabile lasciarlo impostato su pubblico.
 
     ![Metodo diretto](./media/deploy-iot-edge-device/module-details.png)
 1. Immettere quindi "GraphTopologyList" nella casella nome metodo.
@@ -258,5 +247,7 @@ Successivamente, è possibile testare l'esempio richiamando un metodo diretto. L
     ![Messaggio di stato 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
+Esercitazione [introduttiva: introduzione ad analisi video in tempo reale su IOT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
-[Avvio rapido: Introduzione: analisi di video live in IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+> [!TIP]
+> Nel comando verrà eseguito il comando `device-id` anziché il valore predefinito `lva-sample-device` .

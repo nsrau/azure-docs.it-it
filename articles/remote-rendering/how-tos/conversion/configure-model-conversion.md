@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432023"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067172"
 ---
 # <a name="configure-the-model-conversion"></a>Configurare la conversione di modelli
 
@@ -49,6 +49,12 @@ Il contenuto del file dovrà soddisfare lo schema JSON seguente:
             },
             "minItems": 3,
             "maxItems": 3
+        },
+        "metadataKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "additionalProperties" : false
@@ -130,6 +136,12 @@ La modalità `none` comporta il sovraccarico minore in fase di esecuzione e temp
 ### <a name="coordinate-system-overriding"></a>Sostituzione del sistema di coordinate
 
 * `axis` - Per sostituire i vettori unitari del sistema di coordinate. I valori predefiniti sono `["+x", "+y", "+z"]`. In teoria, il formato FBX ha un'intestazione in cui vengono definiti questi vettori e la conversione usa tali informazioni per trasformare la scena. Il formato glTF definisce anche un sistema di coordinate fisso. Nella pratica, alcune risorse contengono informazioni non corrette nell'intestazione oppure sono state salvate con una diversa convenzione del sistema di coordinate. Questa opzione consente di sostituire il sistema di coordinate per compensare. Ad esempio, `"axis" : ["+x", "+z", "-y"]` scambierà l'asse Z e l'asse Y e manterrà la regola della mano del sistema di coordinate invertendo la direzione dell'asse Y.
+
+### <a name="node-meta-data"></a>Meta dati del nodo
+
+* `metadataKeys`: Consente di specificare le chiavi delle proprietà dei metadati del nodo che si desidera memorizzare nel risultato della conversione. È possibile specificare chiavi esatte o chiavi con caratteri jolly. Le chiavi con caratteri jolly sono nel formato "ABC *" e corrispondono a qualsiasi chiave che inizia con "ABC". I tipi di valore di metadati supportati sono `bool` ,, `int` `float` e `string` .
+
+    Per i file GLTF questi dati provengono dall' [oggetto extra nei nodi](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Per i file FBX i dati provengono dai `Properties70` dati in `Model nodes` . Per ulteriori informazioni, vedere la documentazione dello strumento asset 3D.
 
 ### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formato
 

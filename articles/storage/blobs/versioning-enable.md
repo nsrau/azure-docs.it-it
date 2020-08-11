@@ -1,24 +1,28 @@
 ---
 title: Abilitare e gestire il controllo delle versioni dei BLOB (anteprima)
 titleSuffix: Azure Storage
-description: Informazioni su come abilitare il controllo delle versioni dei BLOB nel portale di Azure o usando un modello di Azure Resource Manager.
+description: Informazioni su come abilitare il controllo delle versioni dei BLOB (anteprima) nel portale di Azure o usando un modello di Azure Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086048"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067274"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Abilitare e gestire il controllo delle versioni dei BLOB
+# <a name="enable-and-manage-blob-versioning-preview"></a>Abilitare e gestire il controllo delle versioni dei BLOB (anteprima)
 
-È possibile abilitare o disabilitare il controllo delle versioni dei BLOB (anteprima) per l'account di archiviazione in qualsiasi momento usando il portale di Azure o un modello di Azure Resource Manager.
+È possibile abilitare il controllo delle versioni dell'archiviazione BLOB (anteprima) per mantenere automaticamente le versioni precedenti di un oggetto.  Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
+
+Questo articolo illustra come abilitare o disabilitare il controllo delle versioni dei BLOB per l'account di archiviazione usando il portale di Azure o un modello di Azure Resource Manager.
+
+Prima di abilitare il controllo delle versioni dei BLOB, è necessario registrarsi per l'anteprima. Per altre informazioni sul controllo delle versioni dei BLOB, inclusa la registrazione per l'anteprima, vedere [controllo delle versioni dei BLOB (anteprima)](versioning-overview.md).
 
 ## <a name="enable-blob-versioning"></a>Abilitare il controllo delle versioni dei BLOB
 

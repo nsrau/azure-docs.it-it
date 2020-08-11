@@ -3,12 +3,12 @@ title: Riferimento YAML-attività ACR
 description: Riferimento per la definizione di attività in YAML per Attività di Registro Azure Container, incluse le proprietà delle attività, i tipi e le proprietà dei passaggi e le variabili predefinite.
 ms.topic: article
 ms.date: 07/08/2020
-ms.openlocfilehash: 4710afe0d10a81f2a84437a335d3a012f3bac326
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479779"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067584"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Riferimenti ad Attività di Registro Azure Container: YAML
 
@@ -79,8 +79,8 @@ Le proprietà delle attività vengono in genere visualizzate all'inizio di un `a
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sì | Versione del file `acr-task.yaml` come analizzato dal servizio Attività di Registro Azure Container. Attività di Registro Azure Container cerca di mantenere la compatibilità con le versioni precedenti e questo valore consente di mantenere la compatibilità in una versione definita. Se non è specificato, l'impostazione predefinita è la versione più recente. | No | nessuno |
 | `stepTimeout` | intero (secondi) | Sì | Numero massimo di secondi per l'esecuzione di un passaggio. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `timeout` di tutti i passaggi. Se la `timeout` proprietà viene specificata in un passaggio, esegue l'override della proprietà fornita dall'attività. | Sì | 600 (10 minuti) |
-| `workingDirectory` | string | Sì | Directory di lavoro del contenitore durante la fase di esecuzione. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `workingDirectory` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override della proprietà fornita dall'attività. | Sì | `/workspace` |
-| `env` | [stringa, stringa, ...] | Sì |  Matrice di stringhe in `key=value` formato che definiscono le variabili di ambiente per l'attività. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `env` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override di tutte le variabili di ambiente ereditate dall'attività. | Sì | nessuno |
+| `workingDirectory` | string | Sì | Directory di lavoro del contenitore durante la fase di esecuzione. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `workingDirectory` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override della proprietà fornita dall'attività. | Sì | `c:\workspace`in Windows o `/workspace` in Linux |
+| `env` | [stringa, stringa, ...] | Sì |  Matrice di stringhe in `key=value` formato che definiscono le variabili di ambiente per l'attività. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `env` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override di tutte le variabili di ambiente ereditate dall'attività. | Sì | Nessuno |
 | `secrets` | [segreto, segreto,...] | Sì | Matrice di oggetti [Secret](#secret) . | No | nessuno |
 | `networks` | [rete, rete,...] | Sì | Matrice di oggetti di [rete](#network) . | No | nessuno |
 | `volumes` | [volume, volume,...] | Sì | Matrice di oggetti [volume](#volume) . Specifica i volumi con contenuto di origine da montare in un passaggio. | No | nessuno |
@@ -91,9 +91,9 @@ L'oggetto Secret presenta le proprietà seguenti.
 
 | Proprietà | Type | Facoltativo | Descrizione | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | stringa | No | Identificatore del segreto. | nessuno |
-| `keyvault` | string | Sì | URL del segreto Azure Key Vault. | nessuno |
-| `clientID` | string | Sì | ID client dell' [identità gestita assegnata dall'utente](container-registry-tasks-authentication-managed-identity.md) per le risorse di Azure. | nessuno |
+| `id` | stringa | No | Identificatore del segreto. | Nessuno |
+| `keyvault` | string | Sì | URL del segreto Azure Key Vault. | Nessuno |
+| `clientID` | string | Sì | ID client dell' [identità gestita assegnata dall'utente](container-registry-tasks-authentication-managed-identity.md) per le risorse di Azure. | Nessuno |
 
 ### <a name="network"></a>network
 
@@ -101,8 +101,8 @@ L'oggetto di rete dispone delle proprietà seguenti.
 
 | Proprietà | Type | Facoltativo | Descrizione | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | stringa | No | Nome della rete. | nessuno |
-| `driver` | string | Sì | Driver per gestire la rete. | nessuno |
+| `name` | stringa | No | Nome della rete. | Nessuno |
+| `driver` | string | Sì | Driver per gestire la rete. | Nessuno |
 | `ipv6` | bool | Sì | Indica se la rete IPv6 è abilitata. | `false` |
 | `skipCreation` | bool | Sì | Indica se ignorare la creazione della rete. | `false` |
 | `isDefault` | bool | Sì | Indica se la rete è una rete predefinita fornita con Container Registry di Azure. | `false` |
@@ -113,8 +113,8 @@ L'oggetto volume dispone delle proprietà seguenti.
 
 | Proprietà | Type | Facoltativo | Descrizione | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | stringa | No | Nome del volume da montare. Può contenere solo caratteri alfanumerici,'-' è _'. | nessuno |
-| `secret` | Map [String] stringa | No | Ogni chiave della mappa è il nome di un file creato e popolato nel volume. Ogni valore è la versione in formato stringa del segreto. I valori dei segreti devono essere codificati in base 64. | nessuno |
+| `name` | stringa | No | Nome del volume da montare. Può contenere solo caratteri alfanumerici,'-' è _'. | Nessuno |
+| `secret` | Map [String] stringa | No | Ogni chiave della mappa è il nome di un file creato e popolato nel volume. Ogni valore è la versione in formato stringa del segreto. I valori dei segreti devono essere codificati in base 64. | Nessuno |
 
 ## <a name="task-step-types"></a>Tipi di passaggi delle attività
 
@@ -151,7 +151,7 @@ Il tipo di passaggio `build` supporta i parametri nella tabella seguente. Il tip
 
 Il tipo di passaggio `build` supporta le proprietà seguenti. Per informazioni dettagliate su queste proprietà, vedere la sezione relativa alle [proprietà del passaggio attività](#task-step-properties) di questo articolo.
 
-| Proprietà | Tipo | Necessario |
+| Proprietà | Type | Obbligatoria |
 | -------- | ---- | -------- |
 | `detach` | bool | Facoltativo |
 | `disableWorkingDirectoryOverride` | bool | Facoltativo |
@@ -224,7 +224,7 @@ steps:
 
 Il tipo di passaggio `push` supporta le proprietà seguenti. Per informazioni dettagliate su queste proprietà, vedere la sezione relativa alle [proprietà del passaggio attività](#task-step-properties) di questo articolo.
 
-| Proprietà | Type | Necessario |
+| Proprietà | Type | Obbligatoria |
 | -------- | ---- | -------- |
 | `env` | [stringa, stringa, ...] | Facoltativo |
 | `id` | string | Facoltativo |
@@ -269,7 +269,7 @@ steps:
 
 Il tipo di passaggio `cmd` supporta le proprietà seguenti:
 
-| Proprietà | Type | Necessario |
+| Proprietà | Type | Obbligatoria |
 | -------- | ---- | -------- |
 | `detach` | bool | Facoltativo |
 | `disableWorkingDirectoryOverride` | bool | Facoltativo |
@@ -375,26 +375,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 ```
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
-<!-- [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
-
-```yml
-# This template demonstrates mounting a custom volume into a container at a CMD step
-secrets:
-  - id: sampleSecret
-    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
-
-volumes:
-  - name: mysecrets
-    secret:
-      mysecret1: {{.Secrets.sampleSecret | b64enc}}
-      mysecret2: {{.Values.mysecret | b64enc}}
-
-steps:
-  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
-    volumeMounts:
-      - name: mysecrets
-        mountPath: /run/test
-```
+[!code-yml[task](~/acr-tasks/mounts-secrets.yaml)]
 
 ## <a name="task-step-properties"></a>Proprietà dei passaggi delle attività
 
@@ -404,27 +385,26 @@ Ogni tipo di passaggio supporta diverse proprietà appropriate per il tipo stess
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Sì | Indica se il contenitore deve essere disconnesso durante l'esecuzione. | `false` |
 | `disableWorkingDirectoryOverride` | bool | Sì | Indica se disabilitare la `workingDirectory` funzionalità di sostituzione. Utilizzare questo insieme a `workingDirectory` per avere il controllo completo sulla directory di lavoro del contenitore. | `false` |
-| `entryPoint` | string | Sì | Esegue l'override dell'elemento `[ENTRYPOINT]` di un contenitore del passaggio. | nessuno |
-| `env` | [stringa, stringa, ...] | Sì | Matrice di stringhe in formato `key=value` che definiscono le variabili di ambiente per il passaggio. | nessuno |
-| `expose` | [stringa, stringa, ...] | Sì | Matrice di porte esposte dal contenitore. |  nessuno |
+| `entryPoint` | string | Sì | Esegue l'override dell'elemento `[ENTRYPOINT]` di un contenitore del passaggio. | Nessuno |
+| `env` | [stringa, stringa, ...] | Sì | Matrice di stringhe in formato `key=value` che definiscono le variabili di ambiente per il passaggio. | Nessuno |
+| `expose` | [stringa, stringa, ...] | Sì | Matrice di porte esposte dal contenitore. |  Nessuno |
 | [`id`](#example-id) | string | Sì | Identifica in modo univoco il passaggio nell'attività. Altri passaggi nell'attività possono fare riferimento all'elemento `id` del passaggio, ad esempio per il controllo delle dipendenze con `when`.<br /><br />`id` è anche il nome del contenitore in esecuzione. I processi in esecuzione in altri contenitori nell'attività, ad esempio, possono fare riferimento all'elemento `id` come nome host DNS o per accedervi con l'elemento [id] dei log di Docker. | `acb_step_%d`, dove `%d` è l'indice in base zero del passaggio dall'alto verso il basso nel file YAML |
 | `ignoreErrors` | bool | Sì | Indica se contrassegnare il passaggio come completato, indipendentemente dal fatto che si sia verificato un errore durante l'esecuzione del contenitore. | `false` |
 | `isolation` | string | Sì | Livello di isolamento del contenitore. | `default` |
 | `keep` | bool | Sì | Indica se il contenitore del passaggio deve essere mantenuto dopo l'esecuzione. | `false` |
-| `network` | object | Sì | Identifica una rete in cui viene eseguito il contenitore. | nessuno |
-| `ports` | [stringa, stringa, ...] | Sì | Matrice di porte pubblicate dal contenitore nell'host. |  nessuno |
+| `network` | object | Sì | Identifica una rete in cui viene eseguito il contenitore. | Nessuno |
+| `ports` | [stringa, stringa, ...] | Sì | Matrice di porte pubblicate dal contenitore nell'host. |  Nessuno |
 | `pull` | bool | Sì | Indica se forzare un pull del contenitore prima di eseguirlo per evitare qualsiasi comportamento di memorizzazione nella cache. | `false` |
 | `privileged` | bool | Sì | Indica se eseguire il contenitore in modalità privilegiata. | `false` |
 | `repeat` | INT | Sì | Numero di tentativi di ripetizione dell'esecuzione di un contenitore. | 0 |
 | `retries` | INT | Sì | Numero di tentativi di tentativo di esecuzione di un contenitore con esito negativo. Un nuovo tentativo viene eseguito solo se il codice di uscita di un contenitore è diverso da zero. | 0 |
 | `retryDelay` | intero (secondi) | Sì | Ritardo in secondi tra i tentativi di esecuzione di un contenitore. | 0 |
-| `secret` | object | Sì | Identifica un segreto Azure Key Vault o un' [identità gestita per le risorse di Azure](container-registry-tasks-authentication-managed-identity.md). | nessuno |
+| `secret` | object | Sì | Identifica un segreto Azure Key Vault o un' [identità gestita per le risorse di Azure](container-registry-tasks-authentication-managed-identity.md). | Nessuno |
 | `startDelay` | intero (secondi) | Sì | Numero di secondi per ritardare l'esecuzione di un contenitore. | 0 |
 | `timeout` | intero (secondi) | Sì | Numero massimo di secondi per l'esecuzione di un passaggio prima che venga terminato. | 600 |
-| [`when`](#example-when) | [stringa, stringa, ...] | Sì | Configura la dipendenza di un passaggio in uno o più passaggi nell'attività. | nessuno |
-| `user` | string | Sì | Nome utente o UID di un contenitore | nessuno |
-| `volumeMounts` | object | No | Matrice di oggetti [volumeMount](#volumemount) . | nessuno |
-| `workingDirectory` | string | Sì | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività di Registro Azure Container crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. | `/workspace` |
+| [`when`](#example-when) | [stringa, stringa, ...] | Sì | Configura la dipendenza di un passaggio in uno o più passaggi nell'attività. | Nessuno |
+| `user` | string | Sì | Nome utente o UID di un contenitore | Nessuno |
+| `workingDirectory` | string | Sì | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività di Registro Azure Container crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. | `c:\workspace`in Windows o `/workspace` in Linux |
 
 ### <a name="volumemount"></a>volumeMount
 
@@ -432,8 +412,8 @@ L'oggetto volumeMount presenta le seguenti proprietà.
 
 | Proprietà | Type | Facoltativo | Descrizione | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | stringa | No | Nome del volume da montare. Deve corrispondere esattamente al nome di una `volumes` Proprietà. | nessuno |
-| `mountPath`   | string | no | Percorso assoluto di montaggio dei file nel contenitore.  | nessuno |
+| `name` | stringa | No | Nome del volume da montare. Deve corrispondere esattamente al nome di una `volumes` Proprietà. | Nessuno |
+| `mountPath`   | string | No | Percorso assoluto di montaggio dei file nel contenitore.  | Nessuno |
 
 ### <a name="examples-task-step-properties"></a>Esempi: proprietà dei passaggi delle attività
 
@@ -521,6 +501,10 @@ version: v1.1.0
 steps:
     - build: -t $Registry/hello-world:$ID .
 ```
+
+### <a name="runsharedvolume"></a>Esegui. SharedVolume
+
+Identificatore univoco per un volume condiviso accessibile da tutti i passaggi dell'attività. Il volume viene montato `c:\workspace` in Windows o `/workspace` in Linux. 
 
 ### <a name="runregistry"></a>Run.Registry
 
