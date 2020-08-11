@@ -30,6 +30,20 @@
       items:
         - name: Creare un'applicazione per il centro di micro-adempimenti
           href: tutorial-micro-fulfillment-center.md
+    - name: Analisi video - rilevamento movimento e oggetti
+      items:
+        - name: 1 - Creare un'applicazione di analisi video
+          href: tutorial-video-analytics-create-app.md
+        - name: 2 - Configurare un dispositivo IoT Edge
+          items:
+            - name: Creare un dispositivo di analisi video nella rete perimetrale (macchina virtuale Linux)
+              href: tutorial-video-analytics-iot-edge-vm.md
+            - name: Creare un dispositivo di analisi video nella rete perimetrale (Intel NUC)
+              href: tutorial-video-analytics-iot-edge-nuc.md
+        - name: 3 - Monitorare e gestire un'applicazione di analisi video
+          href: tutorial-video-analytics-manage.md
+        - name: 4 - Modificare e creare i moduli del gateway di analisi video live
+          href: tutorial-video-analytics-build-module.md
 - name: Concetti
   items:
     - name: Architettura del modello di app per la logistica connessa
@@ -42,12 +56,16 @@
       href: store-analytics-architecture.md
     - name: Architettura del modello di app per il centro di micro-adempimenti
       href: architecture-micro-fulfillment-center.md
+    - name: Architettura del modello di app di analisi video
+      href: architecture-video-analytics.md
     - name: Connettività
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Che cosa i modelli di applicazione?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Guide pratiche
   items:
+    - name: Distribuire un'applicazione di rilevamento movimento e oggetti
+      href: howto-deploy-video-analytics-template.md
     - name: Connettere dispositivi
       items:
         - name: Preparare e connettere un componente Rigado Cascade 500

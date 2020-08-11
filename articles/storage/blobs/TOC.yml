@@ -158,8 +158,10 @@
           items:
             - name: Controllo delle versioni
               href: versioning-overview.md
-            - name: Eliminazione temporanea
-              href: soft-delete-overview.md
+            - name: Eliminazione temporanea per i BLOB
+              href: soft-delete-blob-overview.md
+            - name: Eliminazione temporanea per i contenitori
+              href: soft-delete-container-overview.md
             - name: Snapshot
               href: snapshots-overview.md
             - name: Feed delle modifiche
@@ -423,8 +425,10 @@
           items:
             - name: Abilitare il controllo delle versioni dei BLOB
               href: versioning-enable.md
-            - name: Abilitare l'eliminazione temporanea
-              href: soft-delete-enable.md
+            - name: Abilitare l'eliminazione temporanea per i BLOB
+              href: soft-delete-blob-enable.md
+            - name: Abilitare l'eliminazione temporanea per i contenitori
+              href: soft-delete-container-enable.md
             - name: Creare snapshot (.NET)
               href: snapshots-manage-dotnet.md
             - name: Elaborare i log del feed di modifiche
