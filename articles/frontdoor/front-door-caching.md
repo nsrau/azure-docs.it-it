@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471745"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056959"
 ---
 # <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di Azure
 Il documento seguente specifica il comportamento di Frontdoor di Azure con regole di routing che hanno abilitato la memorizzazione nella cache. La porta anteriore è una rete per la distribuzione di contenuti (CDN) moderna e, insieme a bilanciamento del carico e accelerazione sito dinamico, supporta anche i comportamenti di memorizzazione nella cache come qualsiasi altra rete CDN.
@@ -111,6 +111,12 @@ Intestazioni di risposta Cache-Control che indicano che la risposta non verrà m
 Le intestazioni della richiesta seguenti non verranno inoltrate a un back-end quando si usa la memorizzazione nella cache.
 - Content-Length
 - Transfer-encoding
+
+## <a name="cache-duration"></a>Durata cache
+
+La durata della cache può essere configurata sia nella finestra di progettazione front door che nel motore regole. La durata della cache impostata in frontdoor designer è la durata minima della cache. Questo override non funzionerà se l'intestazione di controllo della cache dall'origine ha un valore TTL maggiore di quello di sostituzione. 
+
+La durata della cache impostata tramite il motore regole è un vero e proprio override della cache, vale a dire che utilizzerà il valore di sostituzione indipendentemente dall'intestazione della risposta di origine.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

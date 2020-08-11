@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c0ab2b2f61c4aa7a83d82b0300bb28cae91992d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856374"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056891"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 
@@ -132,6 +132,9 @@ Gli hub WAN virtuali di Azure interconnettono tutti gli endpoint di rete attrave
 ![hub virtuale protetto con il firewall di Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **Figura 5: hub virtuale protetto con il firewall di Azure**
+
+> [!NOTE]
+> L'Interhub con firewall attualmente non è supportato. Il traffico tra hub passerà direttamente al bypass del firewall di Azure in ogni hub.
 
 Il firewall di Azure per la rete WAN virtuale supporta i seguenti percorsi di connettività di transito protetti globali. Le lettere tra parentesi vengono mappate alla figura 5.
 

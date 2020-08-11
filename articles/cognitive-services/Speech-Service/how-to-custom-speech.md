@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b9ac473c3864b4be06c978e7d6a3555bb4550d2a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725534"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056840"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è Riconoscimento vocale personalizzato?
 
@@ -48,7 +48,7 @@ In questo diagramma vengono evidenziati i componenti che costituiscono il [porta
 Prima di poter usare il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) per creare un modello personalizzato, è necessaria una sottoscrizione al servizio di riconoscimento vocale. Seguire queste istruzioni per creare una sottoscrizione del servizio vocale standard: [creare una sottoscrizione vocale](get-started.md#new-resource).
 
 > [!NOTE]
-> Assicurarsi di creare sottoscrizioni standard (S0), le sottoscrizioni della versione di valutazione gratuita (F0) non sono supportate.
+> Assicurarsi di creare sottoscrizioni standard (S0), le sottoscrizioni gratuite (F0) non sono supportate.
 
 Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, è necessario accedere al [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) e connettere la sottoscrizione.
 

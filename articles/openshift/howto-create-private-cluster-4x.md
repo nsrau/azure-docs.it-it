@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727439"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056772"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creare un cluster privato di Azure Red Hat OpenShift 4
 
@@ -23,24 +23,9 @@ Questo articolo descrive come preparare l'ambiente per creare cluster privati di
 > * Configurare i prerequisiti e creare la rete virtuale e la subnet obbligatorie
 > * Distribuire un cluster con un endpoint server API privato e un controller di ingresso privato
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.75 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.6.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-
-### <a name="install-the-az-aro-extension"></a>Installare l'estensione "az aro"
-L'estensione `az aro` consente di creare ed eliminare i cluster di Azure Red Hat OpenShift, nonché accedervi direttamente dalla riga di comando usando l'interfaccia della riga di comando di Azure.
-
-Per installare l'estensione `az aro`, eseguire il comando seguente.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Se l'estensione è già installata, eseguire il comando seguente per aggiornarla.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
 
 ### <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 
@@ -48,21 +33,6 @@ Successivamente, è necessario registrare il provider di risorse `Microsoft.RedH
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Verificare che l'estensione sia stata registrata.
-
-```azurecli-interactive
-az -v
-```
-
-  L'output dovrebbe essere simile al seguente.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Ottenere un segreto pull di Red Hat (facoltativo)

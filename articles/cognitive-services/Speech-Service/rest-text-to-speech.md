@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079223"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056806"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
@@ -41,7 +41,7 @@ L' `voices/list` endpoint consente di ottenere un elenco completo delle voci per
 
 ### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
-| Area | Endpoint |
+| Region | Endpoint |
 |--------|----------|
 | Australia orientale | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Brasile meridionale | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -241,6 +241,6 @@ Se lo stato HTTP è `200 OK`, il corpo della risposta contiene un file audio nel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services)
+- [Creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/)
 - [Sintesi asincrona per audio a lungo termine](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Introduzione a Voce personalizzata](how-to-custom-voice.md)

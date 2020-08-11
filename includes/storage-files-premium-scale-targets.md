@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: c2bd10ab4c98fe2e77332c3cc2566ab2f0c7ad42
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841923"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057824"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limiti aggiuntivi a livello di condivisione file Premium
 
@@ -23,11 +23,11 @@ ms.locfileid: "87841923"
 
 #### <a name="file-level-limits"></a>Limiti a livello di file
 
-|Area  |File Premium  |File standard |
+|Area  |File standard  |File Premium  |
 |---------|---------|---------|
-|Dimensione                  |4 TiB         |1 TiB|
-|Numero massimo di IOPS per file     |5\.000         |1\.000|
-|Handle simultanei    |2\.000         |2\.000|
-|Egress  |300 MiB/sec|      Vedere valori di velocità effettiva del file standard|
-|Dati in ingresso  |200 MiB/sec| Vedere valori di velocità effettiva del file standard|
-|Velocità effettiva| Vedere valori in ingresso/uscita file Premium| Fino a 60 MiB/sec|
+|Dimensione     |1 TiB         |4 TiB         |
+|Numero massimo di IOPS per file      |1\.000         |5\.000         |
+|Handle simultanei     |2\.000         |2\.000         |
+|Egress     |Vedere valori di velocità effettiva del file standard         |300 MiB/sec         |
+|Dati in ingresso     |Vedere valori di velocità effettiva del file standard         |200 MiB/sec         |
+|Velocità effettiva     |Fino a 60 MiB/sec         |Vedere valori in ingresso/uscita file Premium         |
