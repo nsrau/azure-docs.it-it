@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 65aed14ec7f644f2792aaecde5c8bccfffdd8081
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530147"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078445"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usare i gruppi di cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)
 
@@ -53,7 +53,7 @@ Azure AD consente di proteggere un gruppo assegnato a un ruolo utilizzando una n
 Gli scenari seguenti non sono supportati in questo momento:  
 
 - Assegnare gruppi di cloud a Azure AD ruoli personalizzati
-- Assegnare i gruppi di cloud ai ruoli Azure AD (incorporati o personalizzati) su un'unità amministrativa.
+- Assegnare i gruppi di cloud ai ruoli Azure AD (incorporati o personalizzati) su un'unità amministrativa o un ambito di applicazione.
 - Assegnare gruppi locali a ruoli di Azure AD (incorporati o personalizzati)
 
 ## <a name="known-issues"></a>Problemi noti

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: a3601010eae614049b4af5aa2ddbcdc6acda21cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444880"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079023"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Configurare un Lab per la gestione e lo sviluppo con SQL Server
 
@@ -20,7 +20,7 @@ Questo articolo illustra come configurare un modello di macchina virtuale in un 
 
 ## <a name="lab-configuration"></a>Configurazione del lab
 
-Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/). Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere [esercitazione per la configurazione di un account Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). È anche possibile usare un account lab esistente.
+Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere [esercitazione per la configurazione di un account Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). È anche possibile usare un account lab esistente.
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
@@ -50,7 +50,7 @@ Ora che il lato rete di elementi è gestito, consente di creare un database SQL 
 9. Scegliere Region (area) per la **località**.  Se possibile, immettere la stessa località dell'account Lab e di VNET con peering per ridurre al minimo la latenza.
 10. Fare clic su **OK** per tornare al modulo **Crea database SQL** .
 11. Fare clic su **Configura collegamento database** nell'impostazione **calcolo e archiviazione** .
-12. Modificare le impostazioni del database in base alle esigenze della classe.  È possibile scegliere tra le opzioni di provisioning e senza server.  Per questo esempio, si userà l'opzione senza server con scalabilità automatica con numero massimo di vcore di 4, Vcore min di 1. Si manterrà l'impostazione di sospensione di autopause almeno un'ora. Fare clic su **Apply**.
+12. Modificare le impostazioni del database in base alle esigenze della classe.  È possibile scegliere tra le opzioni di provisioning e senza server.  Per questo esempio, si userà l'opzione senza server con scalabilità automatica con numero massimo di vcore di 4, Vcore min di 1. Si manterrà l'impostazione di sospensione di autopause almeno un'ora. Fare clic su **Applica**.
 13. Fare clic su **Avanti: pulsante rete** .
 14. Nella scheda rete scegliere endpoint privato per il metodo di **connettività**.
 15. Nella sezione **endpoint privati** fare clic su **Aggiungi endpoint privato**.
@@ -86,7 +86,7 @@ L'immagine scelta sopra include [Visual Studio 2019 community](https://visualstu
 
 Visual Studio include il set di strumenti di **elaborazione e archiviazione dati** , che include SQL Server Data Tools (SSDT).  Per ulteriori informazioni sulle funzionalità di SSDT, vedere [Panoramica di SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  Per verificare che la connessione al SQL Server condiviso per la classe venga completata correttamente, vedere [connettersi a un database e visualizzare gli oggetti esistenti](https://docs.microsoft.com/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). Se richiesto, aggiungere l'indirizzo IP del computer modello all' [elenco dei computer consentiti](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure) in grado di connettersi all'istanza di SQL Server.
 
-Visual Studio supporta diversi carichi di lavoro, inclusi i carichi di lavoro **Web & cloud** e **Desktop & per dispositivi mobili** .  Entrambi i carichi di lavoro supportano SQL Server come origine dati. Per altre informazioni sull'uso di ASP.NET Core per SQL Server, vedere [creare un'app del ASP.NET Core e del database SQL nel servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb) .  Usare la libreria [System. Data. SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) per connettersi a un database SQL da un'app [Novell](https://docs.microsoft.com/xamarin) .
+Visual Studio supporta diversi carichi di lavoro, inclusi i carichi di lavoro **Web & cloud** e **Desktop & per dispositivi mobili** .  Entrambi i carichi di lavoro supportano SQL Server come origine dati. Per altre informazioni sull'uso di ASP.NET Core per SQL Server, vedere [creare un'app del ASP.NET Core e del database SQL nel servizio app Azure](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app) .  Usare la libreria [System. Data. SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) per connettersi a un database SQL da un'app [Novell](https://docs.microsoft.com/xamarin) .
 
 ## <a name="install-azure-data-studio"></a>Installare Azure Data Studio
 

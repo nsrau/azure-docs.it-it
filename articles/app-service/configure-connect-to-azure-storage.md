@@ -1,31 +1,49 @@
 ---
-title: Aggiungere archiviazione personalizzata (contenitore di Windows)
-description: Informazioni su come aggiungere una condivisione di rete personalizzata in un contenitore Windows personalizzato nel servizio app Azure. Condividi i file tra le app, Gestisci il contenuto statico in remoto e accedi localmente e così via.
+title: Aggiungere archiviazione di Azure (contenitore)
+description: Informazioni su come alleghi una condivisione di rete personalizzata in un'app in contenitori nel servizio app Azure. Condividi i file tra le app, Gestisci il contenuto statico in remoto e accedi localmente e così via.
 author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+zone_pivot_groups: app-service-containers-windows-linux
+ms.openlocfilehash: 8ced35f30966a96061792ad2171afe19599ed22c
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77120678"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077255"
 ---
-# <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configurare File di Azure in un contenitore di Windows nel servizio app
+# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad archiviazione di Azure come una condivisione di rete da un contenitore nel servizio app
 
-> [!NOTE]
-> Questo articolo si applica ai contenitori di Windows personalizzati. Per eseguire la distribuzione nel servizio app in _Linux_, vedere [gestire il contenuto da archiviazione di Azure](./containers/how-to-serve-content-from-azure-storage.md).
->
+::: zone pivot="container-windows"
 
-Questa guida illustra come accedere ad archiviazione di Azure nei contenitori di Windows. Sono supportate solo le condivisioni [file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) e [i file Premium](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) . Usare le condivisioni di File di Azure in questa procedura. I vantaggi includono la protezione e la portabilità del contenuto, l'accesso a più app e molteplici metodi di trasferimento.
+Questa guida illustra come aggiungere i file di archiviazione di Azure come condivisione di rete a un contenitore di Windows nel servizio app. Sono supportate solo le condivisioni [file di Azure](../storage/files/storage-how-to-use-files-cli.md) e [i file Premium](../storage/files/storage-how-to-create-premium-fileshare.md) . I vantaggi includono la protezione e la portabilità del contenuto, l'accesso a più app e molteplici metodi di trasferimento.
+
+::: zone-end
+
+::: zone pivot="container-linux"
+
+Questa guida illustra come aggiungere archiviazione di Azure a un servizio app contenitore Linux. I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.46 o successiva)
-- [Un'app contenitore di Windows esistente nel servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)
-- [Creare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli)
-- [Caricare file in una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)
+::: zone pivot="container-windows"
+
+- [Un'app contenitore di Windows esistente nel servizio app Azure](quickstart-custom-container.md)
+- [Creare una condivisione file di Azure](../storage/files/storage-how-to-use-files-cli.md)
+- [Caricare file in una condivisione file di Azure](../storage/files/storage-files-deployment-guide.md)
+
+::: zone-end
+
+::: zone pivot="container-linux"
+
+- Un [servizio app esistente nell'app Linux](index.yml).
+- Un [account di archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-cli)
+- Una [condivisione file e una directory di Azure](../storage/files/storage-how-to-use-files-cli.md).
+
+::: zone-end
 
 > [!NOTE]
 > File di Azure è un archivio non predefinito e fatturato separatamente, non incluso nell'app Web. Non supporta l'uso della configurazione del firewall a causa delle limitazioni dell'infrastruttura.
@@ -33,32 +51,79 @@ Questa guida illustra come accedere ad archiviazione di Azure nei contenitori di
 
 ## <a name="limitations"></a>Limitazioni
 
-- Archiviazione di Azure nei contenitori di Windows è **in anteprima** e **non è supportata** per gli **scenari di produzione**.
-- Archiviazione di Azure nei contenitori di Windows supporta il montaggio di **contenitori di file di Azure** (lettura/scrittura).
-- Archiviazione di Azure nei contenitori di Windows **non** è attualmente supportata per gli scenari di Bring your own code nei piani di servizio app di Windows.
-- Archiviazione di Azure nei contenitori di Windows **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
-- Archiviazione di Azure nei contenitori di Windows consente **di specificare fino a cinque punti di** montaggio per ogni app.
+::: zone pivot="container-windows"
+
+- Archiviazione di Azure nel servizio app è **in anteprima** e **non è supportata** per gli scenari di **produzione**.
+- Archiviazione di Azure nel servizio app non è attualmente **supportata** per scenari Bring your own code (app di Windows non in contenitori).
+- Archiviazione di Azure nel servizio app **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
+- Archiviazione di Azure con il servizio app consente **di specificare fino a cinque punti di** montaggio per ogni app.
 - L'archiviazione di Azure montata in un'app non è accessibile tramite gli endpoint FTP/FTPs del servizio app. Usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-- Archiviazione di Azure viene fatturato in modo indipendente e **non incluso** nell'app Web. Scopri di più sui [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage).
 
-## <a name="link-storage-to-your-web-app-preview"></a>Collegare la risorsa di archiviazione all'app Web (anteprima)
+::: zone-end
 
- Per montare una condivisione File di Azure in una directory nell'app del servizio app, usare il [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Il tipo di archiviazione deve essere risorsa.
+::: zone pivot="container-linux"
+
+- Archiviazione di Azure nel servizio app è **in anteprima** per il servizio app in Linux e app Web per contenitori. Non è **supportata** per gli **scenari di produzione**.
+- Archiviazione di Azure nel servizio app supporta il montaggio di **contenitori di file di Azure** (lettura/scrittura) e **contenitori BLOB di Azure** (sola lettura)
+- Archiviazione di Azure nel servizio app **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
+- Archiviazione di Azure nel servizio app consente **di specificare fino a cinque punti di** montaggio per ogni app.
+- L'archiviazione di Azure montata in un'app non è accessibile tramite gli endpoint FTP/FTPs del servizio app. Usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+
+::: zone-end
+
+## <a name="link-storage-to-your-app"></a>Collegare lo spazio di archiviazione all'app
+
+::: zone pivot="container-windows"
+
+Dopo aver creato l' [account di archiviazione di Azure, la condivisione file e la directory](#prerequisites), è ora possibile configurare l'app con archiviazione di Azure.
+
+Per montare una condivisione File di Azure in una directory nell'app del servizio app, usare il [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Il tipo di archiviazione deve essere risorsa.
 
 ```azurecli
-az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory of form c:<directory name> >
+az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
 ```
 
 È consigliabile eseguire questa operazione per tutte le altre directory che si desidera collegare a una condivisione File di Azure.
 
-## <a name="verify"></a>Verifica
+::: zone-end
 
-Una volta che una condivisione di File di Azure è collegata a un'app Web, è possibile verificarla eseguendo il comando seguente:
+::: zone pivot="container-linux"
+
+Dopo aver creato l' [account di archiviazione di Azure, la condivisione file e la directory](#prerequisites), è ora possibile configurare l'app con archiviazione di Azure.
+
+Per montare un account di archiviazione in una directory nell'app del servizio app, usare il [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Il tipo di archiviazione può essere AzureBlob o AzureFiles. In questo esempio viene usato risorsa. L'impostazione del percorso di montaggio corrisponde alla cartella che si desidera montare dall'archiviazione di Azure. Impostando il valore su'/', viene montato l'intero spazio di archiviazione di Azure.
+
+
+> [!CAUTION]
+> La directory specificata come percorso di montaggio nell'app Web deve essere vuota. Eventuali contenuti archiviati in questa directory verranno eliminati quando verrà aggiunto un montaggio esterno. Se si esegue la migrazione dei file di un'app esistente, creare un copia di backup dell'app e del relativo contenuto prima di iniziare.
+>
 
 ```azurecli
-az webapp config storage-account list --resource-group <resource_group> --name <app_name>
+az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>
+```
+
+È consigliabile eseguire questa operazione per tutte le altre directory che si vogliono collegare a un account di archiviazione.
+
+::: zone-end
+
+## <a name="verify-linked-storage"></a>Verifica archiviazione collegata
+
+Una volta collegata la condivisione all'app, è possibile verificarla eseguendo il comando seguente:
+
+```azurecli
+az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire la migrazione di un'app ASP.NET al servizio app Azure usando un contenitore Windows (anteprima)](app-service-web-tutorial-windows-containers-custom-fonts.md).
+::: zone pivot="container-windows"
+
+- [Eseguire la migrazione del software personalizzato al servizio app Azure usando un contenitore personalizzato](tutorial-custom-container.md?pivots=container-windows).
+
+::: zone-end
+
+::: zone pivot="container-linux"
+
+- [Configurare un contenitore personalizzato](configure-custom-container.md?pivots=platform-linux).
+
+::: zone-end

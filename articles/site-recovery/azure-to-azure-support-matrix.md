@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 09b7fe1cc4f871d1f94844a8551479fabc0e22ff
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c8890afcdab1b6247fe072f2e34437d790185e58
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008849"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076929"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -163,7 +163,9 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Per impostazione predefinita, 
 
 * File system: ext3, ext4, XFS, BTRFS
 * Gestore volumi: LVM2
-* Software con percorsi multipli: Mapper dispositivi
+
+> [!NOTE]
+> Il software a percorsi multipli non è supportato. 
 
 
 ## <a name="replicated-machines---compute-settings"></a>Computer replicati - Impostazioni di calcolo

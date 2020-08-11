@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Informazioni su come individuare e risolvere i problemi comuni relativi all'abilitazione e all'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 1efaa178c2abda316cfad3e375dfdd38b41d75e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835698"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077034"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -284,7 +284,7 @@ Ad esempio, per arrestare e disabilitare il servizio *Windows BranchCache*:
 
 Quando si esegue un servizio con Azure Dev Spaces in un cluster AKS con un' [identità gestita](../aks/use-managed-identity.md) e le [identità gestite del Pod](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) installate, il processo potrebbe smettere di rispondere dopo il passaggio di *installazione del grafico* . Se si esamina *azds-injector-webhook* nello spazio dei nomi *azds*, è possibile che venga visualizzato questo errore.
 
-I servizi che Azure Dev Spaces esegue nel cluster utilizzano l'identità gestita del cluster per comunicare con i servizi back-end di Azure Dev Spaces all'esterno del cluster. Quando l'identità gestita del pod è installata, nei nodi del cluster vengono configurate regole di rete per reindirizzare tutte le richieste di credenziali di identità gestite a un [DaemonSet NMI (identità gestita del nodo) installato nel cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Questo DaemonSet NMI identifica il pod chiamante e assicura che sia stato etichettato correttamente per l'accesso all'identità gestita richiesta. Azure Dev Spaces non può rilevare se in un cluster è installata un'identità gestita del pod e non può eseguire la configurazione necessaria per consentire ai servizi di Azure Dev Spaces di accedere all'identità gestita del cluster. Poiché i servizi di Azure Dev Spaces non sono stati configurati per accedere all'identità gestita del cluster, il DaemonSet NMI non consentirà a tali servizi di ottenere un token di AAD per l'identità gestita e non sarà in grado di comunicare con i servizi back-end di Azure Dev Spaces.
+I servizi che Azure Dev Spaces esegue nel cluster utilizzano l'identità gestita del cluster per comunicare con i servizi back-end di Azure Dev Spaces all'esterno del cluster. Quando l'identità gestita del pod è installata, nei nodi del cluster vengono configurate regole di rete per reindirizzare tutte le richieste di credenziali di identità gestite a un [DaemonSet NMI (identità gestita del nodo) installato nel cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Questo DaemonSet NMI identifica il pod chiamante e assicura che sia stato etichettato correttamente per l'accesso all'identità gestita richiesta. Azure Dev Spaces non può rilevare se in un cluster è installata un'identità gestita del pod e non può eseguire la configurazione necessaria per consentire ai servizi di Azure Dev Spaces di accedere all'identità gestita del cluster. Poiché i servizi di Azure Dev Spaces non sono stati configurati per accedere all'identità gestita del cluster, DaemonSet non consentirà loro di ottenere un token Azure AD per l'identità gestita e non comunicherà con Azure Dev Spaces servizi back-end.
 
 Per risolvere questo problema, applicare [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) per *azds-injector-webhook* e aggiornare i pod instrumentati da Azure Dev Spaces per accedere all'identità gestita.
 
@@ -416,7 +416,7 @@ Per risolvere questo problema, installare l'[estensione di Visual Studio Code pe
 
 Questo errore può essere visualizzato durante l'esecuzione del debugger di Visual Studio Code. È possibile che nel computer di sviluppo non sia installata l'estensione di VS Code per Azure Dev Spaces.
 
-Per risolvere questo problema, installare l'[estensione di VS Code per Azure Dev Spaces](get-started-netcore.md).
+Per risolvere questo problema, installare l'estensione di VS Code per Azure Dev Spaces.
 
 ### <a name="error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Messaggio di errore analogo a "Valore '/src' di 'cwd' non valido. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato) o "launch: program '/src/[path to project binary]' does not exist" (launch: program '/src/[percorso file binario di progetto]' non esiste)
 

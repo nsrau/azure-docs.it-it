@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042616"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078394"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -17,8 +17,7 @@ Questo articolo illustra come personalizzare i processi predefiniti di [autentic
 
 Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
 
-* [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure per Linux](containers/tutorial-auth-aad.md)
+* [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure](tutorial-auth-aad.md)
 * [Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory](configure-authentication-provider-aad.md)
 * [Come configurare un'applicazione per usare l'account di accesso di Facebook](configure-authentication-provider-facebook.md)
 * [Come configurare un'applicazione per usare l'account di accesso di Google](configure-authentication-provider-google.md)
@@ -533,5 +532,4 @@ Sostituire `<my_app_name>` con il nome dell'app. Sostituire anche `<my_resource_
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: autenticare e autorizzare gli utenti end-to-end (Windows)](app-service-web-tutorial-auth-aad.md) 
->  [Esercitazione: autenticare e autorizzare gli utenti end-to-end (Linux)](containers/tutorial-auth-aad.md)
+> [Esercitazione: Autenticare e autorizzare gli utenti end-to-end](tutorial-auth-aad.md)

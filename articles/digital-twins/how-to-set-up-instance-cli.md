@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 50a7fe866d236a7edb30b3cae5ef076d3ebbca56
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009716"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078513"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (CLI)
 
@@ -63,10 +63,10 @@ A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso. Success
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Usare il comando seguente per assegnare il ruolo (deve essere eseguito da un utente con [autorizzazioni sufficienti](#prerequisites-permission-requirements) nella sottoscrizione di Azure):
+Usare il comando seguente per assegnare il ruolo (deve essere eseguito da un utente con [autorizzazioni sufficienti](#prerequisites-permission-requirements) nella sottoscrizione di Azure). Per il comando è necessario passare il *nome dell'entità utente* nell'account Azure ad per l'utente a cui deve essere assegnato il ruolo. Nella maggior parte dei casi, corrisponderà alla posta elettronica dell'utente nell'account Azure AD.
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 Il risultato di questo comando è l'output delle informazioni sull'assegnazione di ruolo creata.
@@ -74,13 +74,13 @@ Il risultato di questo comando è l'output delle informazioni sull'assegnazione 
 > [!NOTE]
 > Se questo comando restituisce un errore che informa che l'interfaccia della riga **di comando non è in grado di trovare l'utente o l'entità servizio nel database Graph**
 >
-> Usare l' *ID oggetto* dell'utente anziché l'indirizzo di posta elettronica. Questo problema può verificarsi per gli utenti di [account Microsoft personali (MSAS)](https://account.microsoft.com/account). 
+> Assegnare il ruolo usando invece l' *ID oggetto* dell'utente. Questo problema può verificarsi per gli utenti di [account Microsoft personali (MSAS)](https://account.microsoft.com/account). 
 >
 > Utilizzare la [pagina portale di Azure di Azure Active Directory utenti](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) per selezionare l'account utente e aprirne i dettagli. Copiare il valore *ObjectID*dell'utente:
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="Visualizzazione della pagina utente in portale di Azure evidenziando il GUID nel campo ' ID oggetto '" lightbox="media/includes/user-id.png":::
 >
-> Quindi, ripetere il comando elenco assegnazione ruolo usando l' *ID oggetto* dell'utente al posto del messaggio di posta elettronica.
+> Quindi, ripetere il comando elenco assegnazione ruolo usando l' *ID oggetto* dell'utente per il `assignee` parametro precedente.
 
 ### <a name="verify-success"></a>Verificare l'esito positivo
 

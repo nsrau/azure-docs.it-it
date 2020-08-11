@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760797"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078938"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Eseguire l'integrazione con Azure AD proxy di applicazione in un server del servizio Registrazione dispositivi di rete (registrazione dispositivi)
 
@@ -89,10 +89,10 @@ Azure AD proxy di applicazione si basa su Azure. Offre una notevole quantità di
 
 1. Dovrebbe essere visualizzato un **errore HTTP 403 – accesso negato** .
 
-1. Modificare l'URL di registrazione dispositivi fornito (tramite Microsoft Intune) ai dispositivi. questa modifica può essere in Microsoft endpoint Configuration Center o nel cloud di Intune.
+1. Modificare l'URL di registrazione dispositivi fornito (tramite Microsoft Intune) nei dispositivi. Questa modifica può essere in Microsoft endpoint Configuration Manager o nell'interfaccia di amministrazione di Microsoft Endpoint Manager.
 
-   * Per Centro configurazione, passare al punto di registrazione certificati (CRP) e modificare l'URL. Questo URL è quello che i dispositivi chiamano e presentano la loro richiesta.
-   * Solo per il cloud Intune, noto anche come Intune autonomo, è possibile modificare o creare un nuovo criterio SCEP e aggiungere il nuovo URL.
+   * Per Configuration Manager, passare al punto di registrazione certificati e modificare l'URL. Questo URL è quello che i dispositivi chiamano e presentano la loro richiesta.
+   * Per Intune autonomo, modificare o creare un nuovo criterio SCEP e aggiungere il nuovo URL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Vengono descritti i processi di Power Azure Dev Spaces e il funzionamento del routing
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512470"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077666"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Funzionamento del routing con Azure Dev Spaces
 
@@ -49,7 +49,7 @@ Tutto il resto del traffico TCP che non è HTTP passa attraverso il controller d
 
 ## <a name="sharing-a-dev-space"></a>Condivisione di uno spazio di sviluppo
 
-Quando si lavora con un team, è possibile [condividere uno spazio di sviluppo in un intero team](how-to/share-dev-spaces.md) e creare spazi di sviluppo derivati. Uno spazio di sviluppo può essere usato da chiunque disponga dell'accesso come collaboratore al gruppo di risorse dello spazio di sviluppo.
+Quando si lavora con un team, è possibile condividere uno spazio di sviluppo in un intero team e creare spazi di sviluppo derivati. Uno spazio di sviluppo può essere usato da chiunque disponga dell'accesso come collaboratore al gruppo di risorse dello spazio di sviluppo.
 
 È anche possibile creare un nuovo spazio di sviluppo derivato da un altro spazio di sviluppo. Quando si crea uno spazio di sviluppo derivato, l'etichetta *azds.io/Parent-Space=Parent-Space-Name* viene aggiunta allo spazio dei nomi dello spazio di sviluppo derivato. Inoltre, tutte le applicazioni dallo spazio di sviluppo padre vengono condivise con lo spazio di sviluppo derivato. Se si distribuisce una versione aggiornata di un'applicazione nello spazio di sviluppo derivato, questa sarà presente solo nello spazio di sviluppo derivato e lo spazio dev padre rimarrà inalterato. È possibile disporre di un massimo di tre livelli di spazi di sviluppo o di spazi *padre* derivati.
 

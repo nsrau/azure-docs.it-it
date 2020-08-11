@@ -4,12 +4,12 @@ description: Usare il comando AZ ACR Pack Build per compilare un'immagine del co
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 1892f4c20eb75e5e95140c829c49a708a81c2184
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408017"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077221"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilare ed eseguire il push di un'immagine da un'app usando una Buildpack nativa cloud
 
@@ -96,7 +96,7 @@ Passare a `localhost:8080` nel browser preferito per visualizzare l'app Web di e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver compilato ed eseguito il push di un'immagine del contenitore con `az acr pack build` , è possibile distribuirla come qualsiasi immagine a una destinazione di propria scelta. Le opzioni di distribuzione di Azure includono l'esecuzione nel servizio [app](../app-service/containers/tutorial-custom-docker-image.md) o nel [servizio Azure Kubernetes](../aks/tutorial-kubernetes-deploy-cluster.md), tra gli altri.
+Dopo aver compilato ed eseguito il push di un'immagine del contenitore con `az acr pack build` , è possibile distribuirla come qualsiasi immagine a una destinazione di propria scelta. Le opzioni di distribuzione di Azure includono l'esecuzione nel servizio [app](../app-service/tutorial-custom-container.md) o nel [servizio Azure Kubernetes](../aks/tutorial-kubernetes-deploy-cluster.md), tra gli altri.
 
 Per altre informazioni sulle funzionalità delle attività di ACR, vedere [automatizzare le compilazioni di immagini del contenitore e la manutenzione con le attività di ACR](container-registry-tasks-overview.md).
 
