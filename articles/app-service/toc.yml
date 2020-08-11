@@ -66,6 +66,8 @@
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
+    - name: Terraform
+      href: samples-terraform.md
 - name: Concetti
   items:
     - name: Piani di servizio app
@@ -74,7 +76,7 @@
       href: operating-system-functionality.md
     - name: Procedura consigliate per la distribuzione
       href: deploy-best-practices.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Consigli
           href: security-recommendations.md

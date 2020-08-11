@@ -1,10 +1,10 @@
-- name: Documentazione sulla rete virtuale
+- name: Documentazione di Rete virtuale
   href: index.yml
 - name: Panoramica
   items:
     - name: Informazioni su Rete virtuale
       href: virtual-networks-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare una rete virtuale - Portale
       href: quick-create-portal.md

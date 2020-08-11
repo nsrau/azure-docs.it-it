@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Registrare le estensioni delle associazioni
           href: functions-bindings-register.md
+          displayName: 'bundles, extension bundles'
         - name: Modelli di espressioni di associazione
           href: functions-bindings-expressions-patterns.md
         - name: Usare i valori restituiti delle associazioni
@@ -272,8 +273,6 @@
           displayName: 'app setting, application setting'
         - name: Configurare la versione di runtime
           href: set-runtime-version.md
-        - name: Registrare manualmente un'estensione
-          href: install-update-binding-extensions-manual.md
         - name: Disabilitare una funzione
           href: disable-function.md
         - name: Ripristino di emergenza geografico
