@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/3/2020
+ms.date: 8/10/2020
 ms.author: yohaddad
-ms.openlocfilehash: 2d4e6054b1e5626b42bb662ac57fc0323d190aa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2073db1855f569c7f3f0a4a83d84ed43d1da87b3
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343966"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066917"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -41,6 +41,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="august-10-2020"></a>**10 agosto 2020**
+È stato rilasciato il sistema operativo guest di giugno. 
 
 ###### <a name="june-2-2020"></a>**2 giugno 2020**
 È stato rilasciato il sistema operativo guest di maggio. 
@@ -108,7 +111,7 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 ###### <a name="october-12-2018"></a>**12 ottobre 2018**
 È stato rilasciato il sistema operativo guest di settembre.
 
-## <a name="releases"></a>Versioni
+## <a name="releases"></a>Rilasci
 
 ## <a name="family-6-releases"></a>Versioni della famiglia 6
 **Windows Server 2019**
@@ -131,8 +134,9 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.20 _202006-02  |  10 agosto 2020  |  Post 6,22  |  
 |  WA-GUEST-OS-6.19 _202005-02  |  2 giugno 2020  |  Post 6,21  |  
-|  WA-GUEST-OS-6.18 _202004-01  |  4 maggio 2020  |  Post 6,20  |  
+|~~WA-GUEST-OS-6.18 _202004-01~~|  4 maggio 2020  |  10 agosto 2020  |  
 |~~WA-GUEST-OS-6.17 _202003-01~~|  2 aprile 2020  |  2 giugno 2020  |  
 |~~WA-GUEST-OS-6.16 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-6.15 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
@@ -163,8 +167,9 @@ Versione .NET Framework installata: 3.5, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.44 _202006-02  |  10 agosto 2020  |  Post 5,46  |  
 |  WA-GUEST-OS-5.43 _202005-02  |  2 giugno 2020  |  Post 5,45  |  
-|  WA-GUEST-OS-5.42 _202004-01  |  4 maggio 2020  |  Post 5,44  |  
+|~~WA-GUEST-OS-5.42 _202004-01~~|  4 maggio 2020  |  10 agosto 2020  |  
 |~~WA-GUEST-OS-5.41 _202003-01~~|  2 aprile 2020  |  2 giugno 2020  |  
 |~~WA-GUEST-OS-5.40 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-5.39 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
@@ -192,8 +197,9 @@ Versione .NET Framework installata: 3.5, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.79 _202006-02  |  10 agosto 2020  |  Post 4,81  | 
 |  WA-GUEST-OS-4.78 _202005-02  |  2 giugno 2020  |  Post 4,80  |  
-|  WA-GUEST-OS-4.77 _202004-01  |  4 maggio 2020  |  Post 4,79  |  
+|~~WA-GUEST-OS-4.77 _202004-01~~|  4 maggio 2020  |  10 agosto 2020  |  
 |~~WA-GUEST-OS-4.76 _202003-01~~|  2 aprile 2020  |  2 giugno 2020  |  
 |~~WA-GUEST-OS-4.75 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-4.74 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
@@ -221,8 +227,9 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.86 _202006-02  |  10 agosto 2020  |  Post 3,88  |  
 |  WA-GUEST-OS-3.85 _202005-02  |  2 giugno 2020  |  Post 3,87  |  
-|  WA-GUEST-OS-3.84 _202004-01  |  4 maggio 2020  |  Post 3,86  |  
+|~~WA-GUEST-OS-3.84 _202004-01~~|  4 maggio 2020  |  10 agosto 2020  |  
 |~~WA-GUEST-OS-3.83 _202003-01~~|  2 aprile 2020  |  2 giugno 2020  |  
 |~~WA-GUEST-OS-3.82 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-3.81 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
@@ -250,8 +257,9 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-2,99 _202006-02  |  10 agosto 2020  |  Post 2,101  |  
 |  WA-GUEST-OS-2.98 _202005-02  |  2 giugno 2020  |  Post 2,100  |  
-|  WA-GUEST-OS-2.97 _202004-01  |  4 maggio 2020  |  Post 2,99  |  
+|~~WA-GUEST-OS-2.97 _202004-01~~|  4 maggio 2020  |  10 agosto 2020  |  
 |~~WA-GUEST-OS-2.96 _202003-01~~|  2 aprile 2020  |  2 giugno 2020  |  
 |~~WA-GUEST-OS-2.95 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-2.94 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
@@ -275,7 +283,7 @@ Versione .NET Framework installata: 3.5, 4.5
 ## <a name="msrc-patch-updates"></a>Patch di aggiornamento MSRC
 L'elenco di patch incluse con il rilascio del sistema operativo guest di ogni mese è disponibile [qui][patches].
 
-## <a name="sdk-support"></a>Supporto SDK
+## <a name="sdk-support"></a>SDK supportati
 Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l'SDK più recente supportato.
 
 | Famiglia del sistema operativo guest | Versioni SDK compatibili |

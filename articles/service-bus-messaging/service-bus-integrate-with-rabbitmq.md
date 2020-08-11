@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071632"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064554"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Come integrare RabbitMQ con il bus di servizio di Azure
 
@@ -20,7 +20,7 @@ In questa guida si apprenderà come inviare messaggi da RabbitMQ al bus di servi
 
 Ecco alcuni scenari in cui è possibile usare queste funzionalità:
 
-- **Configurazioni di Edge**: è presente una configurazione perimetrale in cui si inviano messaggi a RabbitMQ, ma si vuole inoltrare tali messaggi al [bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) per un'ulteriore elaborazione, quindi è possibile usare molte delle funzionalità di [Big Data di Azure](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data).
+- **Configurazioni di Edge**: è presente una configurazione perimetrale in cui si inviano messaggi a RabbitMQ, ma si vuole inoltrare tali messaggi al [bus di servizio di Azure](./service-bus-messaging-overview.md) per un'ulteriore elaborazione, quindi è possibile usare molte delle funzionalità di [Big Data di Azure](/azure/architecture/guide/architecture-styles/big-data).
 - **Cloud ibrido**: la tua azienda ha appena acquisito una terza parte che usa RabbitMQ per le proprie esigenze di messaggistica. Si trovano in un cloud diverso. Durante la transizione ad Azure è già possibile iniziare a condividere i dati mediante il bridging di RabbitMQ con il bus di servizio di Azure.
 - **Integrazione di terze parti**: una terza parte USA RabbitMQ come broker e vuole inviare i propri dati a Microsoft, ma sono esterni all'organizzazione. È possibile fornire loro una chiave di firma di accesso condiviso per consentire l'accesso a un set limitato di code del bus di servizio di Azure in cui è possibile inviare i messaggi a.
 
@@ -28,7 +28,7 @@ L'elenco viene eseguito, ma è possibile risolvere la maggior parte di questi ca
 
 Per prima cosa è necessario creare un account Azure gratuito iscrivendosi [qui](https://azure.microsoft.com/free/)
 
-Dopo aver eseguito l'accesso al proprio account, passare alla [portale di Azure](https://portal.azure.com/) e creare un nuovo [spazio dei nomi](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)del bus di servizio di Azure. Gli spazi dei nomi sono i contenitori di ambito in cui i componenti di messaggistica saranno attivi, ad esempio code e argomenti.
+Dopo aver eseguito l'accesso al proprio account, passare alla [portale di Azure](https://portal.azure.com/) e creare un nuovo [spazio dei nomi](./service-bus-create-namespace-portal.md)del bus di servizio di Azure. Gli spazi dei nomi sono i contenitori di ambito in cui i componenti di messaggistica saranno attivi, ad esempio code e argomenti.
 
 ## <a name="adding-a-new-azure-service-bus-namespace"></a>Aggiunta di un nuovo spazio dei nomi del bus di servizio
 
@@ -40,7 +40,7 @@ Quindi selezionare integrazione e fare clic su bus di servizio di Azure per crea
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Selezionare il bus di servizio di Azure":::
 
-Verrà richiesto di immettere le informazioni sullo spazio dei nomi. Selezionare la sottoscrizione di Azure da usare. Se non si dispone di un [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), è possibile crearne uno nuovo.
+Verrà richiesto di immettere le informazioni sullo spazio dei nomi. Selezionare la sottoscrizione di Azure da usare. Se non si dispone di un [gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md), è possibile crearne uno nuovo.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Crea spazio dei nomi":::
 
@@ -76,7 +76,7 @@ rabbitmq-plugins enable rabbitmq_shovel_management
 
 ## <a name="connecting-rabbitmq-to-azure-service-bus"></a>Connessione di RabbitMQ al bus di servizio di Azure
 
-È necessario creare un criterio di [accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) (SAS) per la coda, in modo che RabbitMQ possa pubblicare messaggi. Un criterio di firma di accesso condiviso consente di specificare quale entità esterna è autorizzata a eseguire con la risorsa. Il concetto è che RabbitMQ è in grado di inviare messaggi, ma non di ascoltare o gestire la coda.
+È necessario creare un criterio di [accesso condiviso](../storage/common/storage-sas-overview.md) (SAS) per la coda, in modo che RabbitMQ possa pubblicare messaggi. Un criterio di firma di accesso condiviso consente di specificare quale entità esterna è autorizzata a eseguire con la risorsa. Il concetto è che RabbitMQ è in grado di inviare messaggi, ma non di ascoltare o gestire la coda.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Aggiungi criteri SAS":::
 

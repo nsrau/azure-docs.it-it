@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790480"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065455"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
 
@@ -28,6 +28,9 @@ Un nuovo servizio gestione API di Azure contiene inizialmente una sola [unità][
 
 > [!NOTE]
 > Solo il componente gateway di gestione API viene distribuito in tutte le aree. Il componente di gestione dei servizi e il portale per sviluppatori sono ospitati solo nell'area primaria. Pertanto, in caso di interruzione dell'area primaria, l'accesso al portale per sviluppatori e la possibilità di modificare la configurazione, ad esempio l'aggiunta di API, l'applicazione di criteri, saranno compromessi fino a quando l'area primaria non tornerà online. Mentre l'area primaria è disponibile offline, le aree secondarie continueranno a gestire il traffico API usando la configurazione più recente disponibile.
+
+>[!IMPORTANT]
+> La funzionalità che consente di archiviare i dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sudorientale (Singapore) del Asia Pacifico Geo. Per tutte le altre aree, i dati dei clienti vengono archiviati in geografico.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 

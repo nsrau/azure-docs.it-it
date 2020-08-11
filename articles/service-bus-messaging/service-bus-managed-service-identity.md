@@ -3,12 +3,12 @@ title: Identità gestite per le risorse di Azure con il bus di servizio
 description: Questo articolo descrive come usare le identità gestite per accedere alle entità del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a3458d7d160317e383da6217252e3dd7ed52e90f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b33f4e9b38d55ef3ed709df8d09f1ffd62a8bca8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008900"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066288"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure
 Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) offrono una funzionalità per l'intera piattaforma Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare l'identità ai ruoli di controllo di accesso che concedono autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
@@ -65,7 +65,7 @@ Per ulteriori informazioni sulla definizione dei ruoli predefiniti, vedere infor
 ## <a name="enable-managed-identities-on-a-vm"></a>Abilitare le identità gestite su una macchina virtuale
 Prima di poter usare le identità gestite per le risorse di Azure per autorizzare le risorse del bus di servizio dalla VM, è necessario innanzitutto abilitare le identità gestite per le risorse di Azure nella macchina virtuale. Per informazioni su come abilitare identità gestite per le risorse di Azure, vedere uno di questi articoli:
 
-- [Azure portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modello di Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)

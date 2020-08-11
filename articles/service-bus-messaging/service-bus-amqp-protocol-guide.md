@@ -3,12 +3,12 @@ title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511314"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064537"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -73,7 +73,7 @@ Le connessioni, le sessioni e i canali sono temporanei. In caso di interruzione 
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisiti delle porte in uscita AMQP
 
-I client che usano connessioni AMQP su TCP richiedono che le porte 5671 e 5672 siano aperte nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se la funzionalità [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) è abilitata. `EnableLinkRedirect`è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, contribuendo così a migliorare la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end sull'intervallo di porte 104XX, come illustrato nella figura seguente. 
+I client che usano connessioni AMQP su TCP richiedono che le porte 5671 e 5672 siano aperte nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se la funzionalità [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) è abilitata. `EnableLinkRedirect`è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, contribuendo così a migliorare la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end sull'intervallo di porte 104XX, come illustrato nella figura seguente. 
 
 ![Elenco di porte di destinazione][4]
 
@@ -212,7 +212,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |Durata di questo messaggio |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |Durata di questo messaggio |[timeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,8 +222,8 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 | --- | --- | --- |
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
-| to |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| in |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Etichetta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicatore del percorso di risposta definito dall'applicazione, non interpretato dal bus di servizio. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Indicatore del tipo di contenuto definito dall'applicazione per il corpo, non interpretato dal bus di servizio. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -264,7 +264,7 @@ Ogni connessione deve avviare il proprio collegamento di controllo per poter ini
 
 Per avviare attività transazionali. il controller deve ricevere un `txn-id` dal coordinatore. Ciò avviene mediante l'invio di un messaggio di tipo `declare`. Se la dichiarazione ha esito positivo, il coordinatore risponde con un risultato di disposizione che esegue l'oggetto assegnato `txn-id`.
 
-| Client (controller) | Direzione | Bus di servizio (coordinatore) |
+| Client (controller) | Direction | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
 | attach(<br/>name={nome collegamento},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={nome collegamento},<br/>... ,<br/>target=Coordinator()<br/>) |
@@ -277,7 +277,7 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 > Nota: esito negativo=vero intende l’esecuzione di rollback di una transazione ed esito negativo=falso fa riferimento all’esecuzione del commit.
 
-| Client (controller) | Direzione | Bus di servizio (coordinatore) |
+| Client (controller) | Direction | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
@@ -289,7 +289,7 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 Tutte le operazioni transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che contiene transazione-ID. Nel caso di invio di messaggi, lo stato transazionale viene portato dal frame di trasferimento del messaggio. 
 
-| Client (controller) | Direzione | Bus di servizio (coordinatore) |
+| Client (controller) | Direction | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
@@ -300,7 +300,7 @@ Tutte le operazioni transazionali vengono eseguite con lo stato di recapito tran
 
 L’eliminazione del messaggio include operazioni come `Complete` / `Abandon` / `DeadLetter` / `Defer`. Per eseguire queste operazioni all'interno di una transazione, trasmettere `transactional-state` con la disposizione.
 
-| Client (controller) | Direzione | Bus di servizio (coordinatore) |
+| Client (controller) | Direction | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
@@ -378,7 +378,7 @@ Il messaggio di risposta ha i valori *application-properties* seguenti:
 
 | Chiave | Facoltativo | Tipo valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| status-code |No |int |Codice di risposta HTTP **[RFC2616]**. |
+| status-code |No |INT |Codice di risposta HTTP **[RFC2616]**. |
 | status-description |Sì |string |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
@@ -399,7 +399,7 @@ Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a 
 
 > Nota: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
 
-| Client | Direzione | Bus di servizio |
+| Client | Direction | Bus di servizio |
 | :--- | :---: | :--- |
 | attach(<br/>name={nome collegamento},<br/>role=sender,<br/>source={ID collegamento client},<br/>target =**{via-entità}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )]** ) | ------> | |
 | | <------ | attach(<br/>name={nome collegamento},<br/>role=receiver,<br/>source={ID collegamento client},<br/>target={tramite entità},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )] ) |
@@ -419,5 +419,5 @@ Per altre informazioni su AMQP, visitare i collegamenti seguenti:
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
-[Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 07/03/2020
-ms.openlocfilehash: b20cb074a21196467c0264247e8f5d885d7956a0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 08/11/2020
+ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423304"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066730"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -110,45 +110,9 @@ Nel corpo includere la proprietà `KeyType` come `Primary` o `Secondary`. Questa
 
 ### <a name="enable-azure-active-directory-oauth"></a>Abilitare Azure Active Directory OAuth
 
-Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure ad OAuth) creando un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta. Prima di abilitare questa autenticazione, considerare quanto segue:
+Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure ad OAuth) definendo o aggiungendo un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta. Quando l'app per la logica riceve una richiesta in ingresso che include un token di autenticazione, app per la logica di Azure Confronta le attestazioni del token con le attestazioni in ogni criterio di autorizzazione. Se esiste una corrispondenza tra le attestazioni del token e tutte le attestazioni in almeno un criterio, l'autorizzazione ha esito positivo per la richiesta in ingresso. Il token può avere più attestazioni rispetto al numero specificato dal criterio di autorizzazione.
 
-* Una chiamata in ingresso all'app per la logica può usare un solo schema di autorizzazione, Azure AD OAuth o le [firme di accesso condiviso (SAS)](#sas). Per i token OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request.
-
-* L'app per la logica è limitata a un numero massimo di criteri di autorizzazione. Ogni criterio di autorizzazione ha anche un numero massimo di [attestazioni](../active-directory/develop/developer-glossary.md#claim). Per altre informazioni, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* Un criterio di autorizzazione deve includere almeno l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth v2) come ID autorità di certificazione Azure ad. Per altre informazioni sui token di accesso, vedere [token di accesso della piattaforma Microsoft Identity](../active-directory/develop/access-tokens.md).
-
-Per abilitare Azure AD OAuth, seguire questa procedura per aggiungere uno o più criteri di autorizzazione all'app per la logica.
-
-1. Nel [portale di Azure](https://portal.microsoft.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
-
-1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Autorizzazione**. Dopo l'apertura del riquadro Autorizzazione, selezionare **Aggiungi criteri**.
-
-   ![Selezionare "Autorizzazione" > "Aggiungi criteri"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
-
-1. Fornire le informazioni sui criteri di autorizzazione specificando [i tipi di attestazione](../active-directory/develop/developer-glossary.md#claim) e i valori previsti dall'app per la logica nel token di autenticazione presentato da ogni chiamata in ingresso al trigger di richiesta:
-
-   ![Fornire le informazioni per i criteri di autorizzazione](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
-
-   | Proprietà | Obbligatoria | Descrizione |
-   |----------|----------|-------------|
-   | **Nome del criterio** | Sì | Il nome da usare per il criterio di autorizzazione |
-   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, è necessario che l'elenco di **attestazioni** includa l'attestazione **Issuer** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID emittente Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
-   |||
-
-1. Per aggiungere un'altra attestazione, selezionare una delle opzioni seguenti:
-
-   * Per aggiungere un altro tipo di attestazione, selezionare **Aggiungi attestazione standard**, selezionare il tipo di attestazione e specificare il valore dell'attestazione.
-
-   * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata**, quindi specificare il valore dell'attestazione personalizzata.
-
-1. Per aggiungere un altro criterio di autorizzazione, selezionare **Aggiungi criteri**. Ripetere i passaggi precedenti per configurare i criteri.
-
-1. Al termine, selezionare **Salva**.
-
-L'app per la logica è ora configurata per usare Azure AD OAuth per l'autorizzazione delle richieste in ingresso. Quando l'app per la logica riceve una richiesta in ingresso che include un token di autenticazione, app per la logica di Azure Confronta le attestazioni del token con le attestazioni in ogni criterio di autorizzazione. Se esiste una corrispondenza tra le attestazioni del token e tutte le attestazioni in almeno un criterio, l'autorizzazione ha esito positivo per la richiesta in ingresso. Il token può avere più attestazioni rispetto al numero specificato dal criterio di autorizzazione.
-
-Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione: Autorità di certificazione e Destinatari. Questo [token di accesso](../active-directory/develop/access-tokens.md) decodificato di esempio include entrambi i tipi di attestazione:
+Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione, **autorità emittente** e **destinatari**. Questo [token di accesso](../active-directory/develop/access-tokens.md) decodificato di esempio include entrambi i tipi di attestazione:
 
 ```json
 {
@@ -191,6 +155,93 @@ Si supponga, ad esempio, che l'app per la logica disponga di un criterio di auto
 }
 ```
 
+#### <a name="considerations-for-enabling-azure-oauth"></a>Considerazioni per l'abilitazione di OAuth di Azure
+
+Prima di abilitare questa autenticazione, considerare quanto segue:
+
+* Una chiamata in ingresso all'app per la logica può usare un solo schema di autorizzazione, Azure AD OAuth o le [firme di accesso condiviso (SAS)](#sas). Per i token OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request.
+
+* L'app per la logica è limitata a un numero massimo di criteri di autorizzazione. Ogni criterio di autorizzazione ha anche un numero massimo di [attestazioni](../active-directory/develop/developer-glossary.md#claim). Per altre informazioni, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Un criterio di autorizzazione deve includere almeno l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth v2) come ID autorità di certificazione Azure ad. Per altre informazioni sui token di accesso, vedere [token di accesso della piattaforma Microsoft Identity](../active-directory/develop/access-tokens.md).
+
+<a name="define-authorization-policy-portal"></a>
+
+#### <a name="define-authorization-policy-in-azure-portal"></a>Definire i criteri di autorizzazione in portale di Azure
+
+Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, seguire questa procedura per aggiungere uno o più criteri di autorizzazione all'app per la logica:
+
+1. Nel [portale di Azure](https://portal.microsoft.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
+
+1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Autorizzazione**. Dopo l'apertura del riquadro Autorizzazione, selezionare **Aggiungi criteri**.
+
+   ![Selezionare "Autorizzazione" > "Aggiungi criteri"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Fornire le informazioni sui criteri di autorizzazione specificando [i tipi di attestazione](../active-directory/develop/developer-glossary.md#claim) e i valori previsti dall'app per la logica nel token di autenticazione presentato da ogni chiamata in ingresso al trigger di richiesta:
+
+   ![Fornire le informazioni per i criteri di autorizzazione](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Proprietà | Obbligatoria | Descrizione |
+   |----------|----------|-------------|
+   | **Nome del criterio** | Sì | Il nome da usare per il criterio di autorizzazione |
+   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, è necessario che l'elenco di **attestazioni** includa l'attestazione **Issuer** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID emittente Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
+   |||
+
+1. Per aggiungere un'altra attestazione, selezionare una delle opzioni seguenti:
+
+   * Per aggiungere un altro tipo di attestazione, selezionare **Aggiungi attestazione standard**, selezionare il tipo di attestazione e specificare il valore dell'attestazione.
+
+   * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata**, quindi specificare il valore dell'attestazione personalizzata.
+
+1. Per aggiungere un altro criterio di autorizzazione, selezionare **Aggiungi criteri**. Ripetere i passaggi precedenti per configurare i criteri.
+
+1. Al termine, selezionare **Salva**.
+
+<a name="define-authorization-policy-template"></a>
+
+#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definire i criteri di autorizzazione nel modello di Azure Resource Manager
+
+Per abilitare Azure AD OAuth nel modello ARM per la distribuzione dell'app per la logica, nella `properties` sezione relativa alla [definizione di risorsa dell'app](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)per la logica aggiungere un `accessControl` oggetto, se non ne esiste alcuno, che contiene un `triggers` oggetto. Nell' `triggers` oggetto aggiungere un oggetto in `openAuthenticationPolicies` cui definire uno o più criteri di autorizzazione seguendo questa sintassi:
+
+```json
+"resources": [
+   {
+      // Start logic app resource definition
+      "properties": {
+         "state": "<Enabled-or-Disabled>",
+         "definition": {<workflow-definition>},
+         "parameters": {<workflow-definition-parameter-values>},
+         "accessControl": {
+            "triggers": {
+               "openAuthenticationPolicies": {
+                  "policies": {
+                     "<policy-name>": {
+                        "type": "AAD",
+                        "claims": [
+                           {
+                              "name": "<claim-name>",
+                              "values": "<claim-value>"
+                           }
+                        ]
+                     }
+                  }
+               }
+            },
+         },
+      },
+      "name": "[parameters('LogicAppName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[parameters('LogicAppLocation')]",
+      "apiVersion": "2016-06-01",
+      "dependsOn": [
+      ]
+   }
+   // End logic app resource definition
+],
+```
+
+Per altre informazioni sulla `accessControl` sezione, vedere [limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager](#restrict-inbound-ip-template) e [riferimenti ai modelli di flussi di lavoro Microsoft. logici](/templates/microsoft.logic/2019-05-01/workflows).
+
 <a name="restrict-inbound-ip"></a>
 
 ### <a name="restrict-inbound-ip-addresses"></a>Limitare gli indirizzi IP in ingresso
@@ -213,6 +264,8 @@ Se si vuole che l'app per la logica venga attivata solo come app per la logica a
 
 > [!NOTE]
 > Indipendentemente dall'indirizzo IP, è comunque possibile eseguire un'app per la logica con un trigger basato su richiesta usando l' [API REST di app per la logica: trigger del flusso di lavoro-](/rest/api/logic/workflowtriggers/run) richiesta di esecuzione o tramite gestione API. Tuttavia, in questo caso potrebbe essere richiesta [l'autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
+
+<a name="restrict-inbound-ip-template"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager
 
@@ -825,7 +878,7 @@ Nei trigger di richiesta è possibile usare [Azure Active Directory Open Authent
 | **Tenant** | `tenant` | Sì | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
 | **Destinatari** | `audience` | Sì | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
 | **ID client** | `clientId` | Sì | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |
-| **Tipo di credenziali** | `credentialType` | Sì | Certificato <br>oppure <br>Segreto | Il tipo di credenziale che il client usa per la richiesta di autorizzazione. Questa proprietà e questo valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà che vengono visualizzate per il tipo di credenziale selezionato. |
+| **Tipo di credenziali** | `credentialType` | Sì | Certificato <br>o <br>Segreto | Il tipo di credenziale che il client usa per la richiesta di autorizzazione. Questa proprietà e questo valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà che vengono visualizzate per il tipo di credenziale selezionato. |
 | **Segreto** | `secret` | Sì, ma solo per il tipo di credenziale "Segreto" | <*client-secret*> | Il segreto client per la richiesta dell'autorizzazione |
 | **Pfx** | `pfx` | Sì, ma solo per il tipo di credenziale "Certificato" | <*encoded-pfx-file-content*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
 | **Password** | `password` | Sì, ma solo per il tipo di credenziale "Certificato" | <*password-for-pfx-file*> | Password per accedere al file PFX. |
@@ -909,7 +962,7 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
 
    | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
    |---------------------|-----------------|----------|-------|-------------|
-   | **autenticazione** | `type` | Sì | **Identità gestita** <br>oppure <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
+   | **autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
    | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>* <*user-assigned-identity-name*> | L'identità gestita da usare |
    | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota**: la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari**. <p><p>**Importante**: assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
@@ -946,7 +999,7 @@ Se l'organizzazione non consente la connessione a risorse specifiche usando i co
 
 * Per eseguire il proprio codice o eseguire la trasformazione XML, [creare e chiamare una funzione di Azure](../logic-apps/logic-apps-azure-functions.md), anziché usare la [funzionalità di codice inline](../logic-apps/logic-apps-add-run-inline-code.md) o fornire gli [assembly da usare rispettivamente come Maps](../logic-apps/logic-apps-enterprise-integration-maps.md). Inoltre, configurare l'ambiente host per l'app per le funzioni in modo che soddisfi i requisiti di isolamento.
 
-  Ad esempio, per soddisfare i requisiti del livello di influenza 5, creare l'app per le funzioni con il [piano di servizio app](../azure-functions/functions-scale.md#app-service-plan) usando il piano [tariffario **isolato** ](../app-service/overview-hosting-plans.md) insieme a un [ambiente del servizio app (ASE)](../app-service/environment/intro.md) che usa anche il piano tariffario **isolato** . In questo ambiente, le app per le funzioni vengono eseguite in macchine virtuali di Azure dedicate e in reti virtuali di Azure dedicate, che fornisce l'isolamento di rete oltre l'isolamento di calcolo per le app e le funzionalità di scalabilità orizzontale. Per altre informazioni, vedere [linee guida sull'isolamento di Azure Government Impact Level 5-funzioni di Azure](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  Ad esempio, per soddisfare i requisiti del livello di influenza 5, creare l'app per le funzioni con il [piano di servizio app](../azure-functions/functions-scale.md#app-service-plan) usando il piano [tariffario **isolato** ](../app-service/overview-hosting-plans.md) insieme a un [ambiente del servizio app (ASE)](../app-service/environment/intro.md) che usa anche il piano tariffario **isolato** . In questo ambiente, le app per le funzioni vengono eseguite in macchine virtuali di Azure dedicate e in reti virtuali di Azure dedicate, che garantiscono l'isolamento della rete oltre l'isolamento di calcolo per le app e le funzionalità di scalabilità orizzontale. Per altre informazioni, vedere [linee guida sull'isolamento di Azure Government Impact Level 5-funzioni di Azure](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
   Per altre informazioni, vedere gli argomenti seguenti:<p>
 

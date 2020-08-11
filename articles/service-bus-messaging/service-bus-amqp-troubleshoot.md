@@ -3,12 +3,12 @@ title: Risolvere gli errori di AMQP nel bus di servizio di Azure | Microsoft Doc
 description: Fornisce un elenco di errori di AMQP che possono essere visualizzati quando si usa il bus di servizio di Azure e si verificano tali errori.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9680e930dd8c1cb8cbd062f029af9d674d62c0e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88b10940e0b910f50e6ccf7f8c53134fa7f0ba2f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337826"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064350"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Errori di AMQP nel bus di servizio di Azure
 Questo articolo fornisce alcuni degli errori ricevuti quando si usa AMQP con il bus di servizio di Azure. Sono tutti comportamenti standard del servizio. È possibile evitarli effettuando chiamate di invio/ricezione sulla connessione o sul collegamento, che ricrea automaticamente la connessione o il collegamento.
@@ -44,4 +44,4 @@ Per altre informazioni su AMQP e sul bus di servizio, visitare i collegamenti se
 
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 [Guida al protocollo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP nel bus di servizio per Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP nel bus di servizio per Windows Server]: /previous-versions/service-bus-archive/dn282144(v=azure.100)

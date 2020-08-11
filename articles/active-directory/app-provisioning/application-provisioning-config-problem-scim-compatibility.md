@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: da458b8aaf1ace7b87e98ded59a4bf90e4158e0f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054087"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065489"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
@@ -43,14 +43,14 @@ Nella tabella seguente, qualsiasi elemento contrassegnato come Fixed significa c
 | Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Sì  | 18 dicembre 2018  | effettuare il downgrade a customappSSO |
 | Le richieste di patch per gli attributi multivalore contengono una sintassi del filtro del percorso non valida | Sì  |  18 dicembre 2018  | effettuare il downgrade a customappSSO |
 | Le richieste di creazione dei gruppi contengono un URI di schema non valido | Sì  |  18 dicembre 2018  |  effettuare il downgrade a customappSSO |
-| Aggiornare il comportamento della PATCH per garantire la conformità | No | TBD| USA flag di anteprima |
+| Aggiornare il comportamento della PATCH per garantire la conformità (ad esempio, Active come valore booleano e le rimozioni di appartenenza a gruppi appropriate) | No | TBD| USA flag di anteprima |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Flag per modificare il comportamento di SCIM
 Usare i flag seguenti nell'URL del tenant dell'applicazione per modificare il comportamento predefinito del client SCIM.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM contrassegna il comportamento successivo.":::
 
-* Usare l'URL seguente per aggiornare il comportamento della PATCH e garantire la conformità di SCIM. Questo comportamento è attualmente disponibile solo quando si usa il flag, ma diventerà il comportamento predefinito nei prossimi mesi.
+* Usare l'URL seguente per aggiornare il comportamento della PATCH e assicurare la conformità di SCIM (ad esempio, Active come booleana e le rimozioni di appartenenza a gruppi appropriate). Questo comportamento è attualmente disponibile solo quando si usa il flag, ma diventerà il comportamento predefinito nei prossimi mesi.
   * **URL (conforme a SCIM):** AzureAdScimPatch062020
   * **Riferimenti RFC SCIM:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2

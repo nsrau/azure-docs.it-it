@@ -3,12 +3,12 @@ title: Procedure consigliate per migliorare le prestazioni con il bus di servizi
 description: Descrive come usare il bus di servizio per ottimizzare le prestazioni durante gli scambi di messaggi negoziati.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e0a6e54c1e941d7b7ff244ac40066a564e2ebbc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a81e6fa1c6097f46bbfa3016beb1b7780ad3c351
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341102"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065302"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
@@ -40,7 +40,7 @@ Sono supportati due SDK .NET del bus di servizio di Azure. Le API sono molto sim
 | <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft. Azure. ServiceBus<span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Piattaforma UWP (Universal Windows Platform) 10.0.16299 | AMQP<br>HTTP |
 | <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure. ServiceBus<span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
-Per ulteriori informazioni sul supporto della piattaforma .NET Standard minima, vedere [supporto dell'implementazione di .NET](https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support).
+Per ulteriori informazioni sul supporto della piattaforma .NET Standard minima, vedere [supporto dell'implementazione di .NET](/dotnet/standard/net-standard#net-implementation-support).
 
 ## <a name="reusing-factories-and-clients"></a>Riutilizzo di factory e client
 

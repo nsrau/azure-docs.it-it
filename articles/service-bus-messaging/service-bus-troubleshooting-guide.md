@@ -3,12 +3,12 @@ title: Guida alla risoluzione dei problemi del bus di servizio di Azure | Micros
 description: Questo articolo fornisce un elenco delle eccezioni di messaggistica del bus di servizio di Azure e le azioni consigliate da intraprendere quando si verifica l'eccezione.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071314"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067053"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guida alla risoluzione dei problemi del bus di servizio di Azure
 Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi che possono verificarsi quando si usa il bus di servizio di Azure. 
@@ -80,7 +80,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 L'identità non dispone delle autorizzazioni per accedere all'argomento del bus di servizio. 
 
 ### <a name="resolution"></a>Risoluzione
-Per correggere l'errore, installare la libreria [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Per ulteriori informazioni, vedere [autenticazione di sviluppo locale](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
+Per correggere l'errore, installare la libreria [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Per ulteriori informazioni, vedere [autenticazione di sviluppo locale](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
 
 Per informazioni su come assegnare le autorizzazioni ai ruoli, vedere [autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure](service-bus-managed-service-identity.md).
 
@@ -101,5 +101,4 @@ Aprire una nuova connessione allo spazio dei nomi del bus di servizio per inviar
 Vedere gli articoli seguenti: 
 
 - [Azure Resource Manager eccezioni](service-bus-resource-manager-exceptions.md). Elenca le eccezioni generate durante l'interazione con il bus di servizio di Azure usando Azure Resource Manager (tramite modelli o chiamate dirette).
-- [Eccezioni di messaggistica](service-bus-messaging-exceptions.md). Fornisce un elenco di eccezioni generate da .NET Framework per il bus di servizio di Azure. 
-
+- [Eccezioni di messaggistica](service-bus-messaging-exceptions.md). Fornisce un elenco di eccezioni generate da .NET Framework per il bus di servizio di Azure.

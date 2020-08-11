@@ -3,12 +3,12 @@ title: Controllo di accesso del bus di servizio di Azure con firme di accesso co
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460695"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066186"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -27,7 +27,7 @@ La firma di accesso condiviso consente inoltre l'accesso al bus di servizio in b
 
 Le firme di accesso condiviso (SAS) sono un meccanismo di autorizzazione basato sulle attestazioni che usa token semplici. Quando si usano le firme di accesso, le chiavi non vengono mai passate durante il transito. Le chiavi vengono usate per firmare crittograficamente informazioni che possono essere verificate in un secondo momento dal servizio. L'uso delle firme di accesso condiviso è paragonabile a quello della combinazione di nome utente e password in cui il client entra immediatamente in possesso di un nome di regola di autorizzazione e una chiave corrispondente. È paragonabile anche a un modello di sicurezza federata, in cui il client riceve un token di accesso firmato per un tempo limitato da un servizio token di sicurezza senza mai entrare in possesso della chiave di firma.
 
-L'autenticazione SAS nel bus di servizio è configurata con il nome [Regole di autorizzazione di accesso condiviso](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) e a essa sono associati diritti di accesso e una coppia di chiavi di crittografia primaria e secondaria. Le chiavi sono valori a 256 bit nella rappresentazione Base64. È possibile configurare le regole a livello di spazio dei nomi nel bus di servizio [inoltri](../service-bus-relay/relay-what-is-it.md), [code](service-bus-messaging-overview.md#queues) e [argomenti](service-bus-messaging-overview.md#topics).
+L'autenticazione SAS nel bus di servizio è configurata con il nome [Regole di autorizzazione di accesso condiviso](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) e a essa sono associati diritti di accesso e una coppia di chiavi di crittografia primaria e secondaria. Le chiavi sono valori a 256 bit nella rappresentazione Base64. È possibile configurare le regole a livello di spazio dei nomi nel bus di servizio [inoltri](../azure-relay/relay-what-is-it.md), [code](service-bus-messaging-overview.md#queues) e [argomenti](service-bus-messaging-overview.md#topics).
 
 Il token [Firma di accesso condiviso](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) include il nome della regola di autorizzazione scelta, l'URI della risorsa alla quale si avrà accesso, un'istante di scadenza e una firma crittografica HMAC-SHA256 calcolata in base a questi campi mediante la chiave crittografica primaria o secondaria della regola di autorizzazione scelta.
 
@@ -84,7 +84,7 @@ Il token contiene i valori non hash in modo che il destinatario possa ricalcolar
 
 L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si richiede l'accesso. Ad esempio `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`, ovvero `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**L'URI deve essere [codificato in percentuale](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**L'URI deve essere [codificato in percentuale](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
 
 La regola di autorizzazione di accesso condiviso usata per la firma deve essere configurata nell'entità specificata da questo URI o in un elemento padre nella gerarchia. Ad esempio `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` nell'esempio precedente.
 

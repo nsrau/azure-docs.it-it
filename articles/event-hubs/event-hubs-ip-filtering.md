@@ -3,12 +3,12 @@ title: Regole del firewall per Hub eventi di Azure | Microsoft Docs
 description: Usare le regole del firewall per consentire le connessioni da indirizzi IP specifici ad Hub eventi di Azure.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: b59c34e80fb08e35a9ed8b1b3e406e2e63517877
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7870260b77785af59f4f186274775067f2292ef6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836820"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066050"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da intervalli o indirizzi IP specifici
 Per impostazione predefinita, gli spazi dei nomi di Hub eventi sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -18,9 +18,9 @@ Questa funzionalità è utile negli scenari in cui Hub eventi di Azure deve esse
 >[!WARNING]
 > L'abilitazione di filtri IP può impedire ad altri servizi di Azure di interagire con Hub eventi.
 >
-> I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
+> I servizi Microsoft attendibili non sono supportati quando vengono implementati i filtri IP.
 >
-> Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
+> Scenari comuni di Azure che non funzionano con il filtro IP (si noti che l'elenco **non** è esaustivo)-
 > - Analisi di flusso di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer

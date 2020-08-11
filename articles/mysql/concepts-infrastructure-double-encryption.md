@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 6532ec33d930ab42a9aa04a92d84ab795f32ebd6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034870"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066407"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Crittografia doppia dell'infrastruttura del database di Azure per MySQL
 
@@ -36,7 +36,7 @@ Anche l'implementazione a livello di infrastruttura supporta una varietà di chi
 
 La crittografia a doppia infrastruttura per database di Azure per MySQL offre i vantaggi seguenti:
 
-1. **Diversità aggiuntiva dell'implementazione della** crittografia: lo spostamento pianificato per la crittografia basata su hardware produrrà ulteriormente le implementazioni fornendo un'implementazione basata su hardware oltre all'implementazione basata su software.
+1. **Diversità aggiuntiva di implementazione della** crittografia: lo spostamento pianificato per la crittografia basata su hardware produrrà ulteriormente le implementazioni fornendo un'implementazione basata su hardware oltre all'implementazione basata su software.
 2. **Errori di implementazione** : due livelli di crittografia a livello di infrastruttura proteggono da eventuali errori di memorizzazione nella cache o di gestione della memoria nei livelli superiori che espongono i dati in testo non crittografato. Inoltre, i due livelli assicurano anche gli errori di implementazione della crittografia in generale.
 
 La combinazione di queste funzionalità garantisce una protezione avanzata contro le minacce e i punti deboli comuni usati per attaccare la crittografia.
@@ -45,7 +45,7 @@ La combinazione di queste funzionalità garantisce una protezione avanzata contr
 
 Le funzionalità di crittografia fornite da database di Azure per MySQL possono essere usate insieme. Di seguito è riportato un riepilogo dei vari scenari che è possibile usare:
 
-|  ##   | Crittografia predefinita | Crittografia doppia infrastruttura | Crittografia dei dati tramite chiavi gestite dal cliente  |
+|  ##   | Crittografia predefinita | Crittografia doppia dell'infrastruttura | Crittografia dei dati tramite chiavi gestite dal cliente  |
 |:------|:------------------:|:--------------------------------:|:--------------------------------------------:|
 | 1     | *Sì*              | *No*                             | *No*                                         |
 | 2     | *Sì*              | *Sì*                            | *No*                                         |
@@ -54,7 +54,7 @@ Le funzionalità di crittografia fornite da database di Azure per MySQL possono 
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Gli scenari 2 e 4 avranno un impatto significativo sulle prestazioni nel database di Azure per il server MySQL a causa del livello aggiuntivo di crittografia dell'infrastruttura.
+> - Lo scenario 2 e 4 può introdurre il calo del 5-10% della velocità effettiva in base al tipo di carico di lavoro per il server di database di Azure per MySQL a causa del livello aggiuntivo di crittografia dell'infrastruttura.
 > - La configurazione della crittografia doppia dell'infrastruttura per database di Azure per MySQL è consentita solo durante la creazione del server. Una volta eseguito il provisioning del server, non è possibile modificare la crittografia di archiviazione. Tuttavia, è comunque possibile abilitare la crittografia dei dati usando chiavi gestite dal cliente per il server creato con/senza crittografia a doppia infrastruttura.
 
 ## <a name="limitations"></a>Limitazioni

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 965118345a003aface0373bda7496243bcab8429
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290172"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064792"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati per server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente
 
@@ -26,7 +26,7 @@ Key Vault è un sistema esterno di gestione delle chiavi basato sul cloud. Offre
 
 ## <a name="benefits"></a>Vantaggi
 
-La crittografia dei dati per il server singolo di Database di Azure per PostgreSQL offre i vantaggi seguenti:
+La crittografia dei dati con chiavi gestite dal cliente per il server singolo di database di Azure per PostgreSQL offre i vantaggi seguenti:
 
 * Accesso ai dati completamente controllato dall'utente, grazie alla possibilità di rimuovere la chiave e rendere inaccessibile il database 
 *    Controllo completo del ciclo di vita della chiave, inclusa la rotazione della chiave per soddisfare i criteri aziendali
@@ -48,8 +48,8 @@ Le chiavi DEK, crittografate con chiavi KEK, vengono archiviate separatamente. S
 Affinché un server PostgreSQL usi chiavi gestite dal cliente archiviate in Key Vault per la crittografia della chiave DEK, un amministratore di Key Vault concede al server i diritti di accesso seguenti:
 
 * **get**: per recuperare la parte pubblica e le proprietà della chiave nell'insieme di credenziali delle chiavi.
-* **wrapKey**: per poter crittografare la chiave DEK.
-* **unwrapKey**: per poter decrittografare la chiave DEK.
+* **wrapKey**: per poter crittografare la chiave DEK. La crittografia crittografata è archiviata nel database di Azure per PostgreSQL.
+* **unwrapKey**: per essere in grado di decrittografare la chiave DEK. Per crittografare/decrittografare i dati, il database di Azure per PostgreSQL necessita della crittografia decrittografata
 
 L'amministratore dell'insieme di credenziali delle chiavi può anche [abilitare la registrazione degli eventi di controllo di Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), in modo che possano essere controllati in un secondo momento.
 
@@ -59,16 +59,16 @@ Se il server è configurato per l'uso della chiave gestita dal cliente archiviat
 
 Di seguito sono riportati i requisiti per la configurazione di Key Vault:
 
-* Key Vault e il server singolo di Database di Azure per PostgreSQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Lo spostamento successivo di risorse richiede la riconfigurazione della crittografia dei dati.
+* Key Vault e il server singolo di Database di Azure per PostgreSQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Per lo stato di trasferimento della risorsa Key Vault successivamente è necessario riconfigurare la crittografia dei dati.
 * Abilitare la funzionalità di eliminazione temporanea nell'insieme di credenziali delle chiavi per evitare la perdita di dati in caso di eliminazione accidentale della chiave (o di Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che nel frattempo non vengano recuperate o rimosse definitivamente dall'utente. Alle azioni di recupero e rimozione definitiva sono associate autorizzazioni specifiche nei criteri di accesso di Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o con l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure).
-* Concedere al server singolo di Database di Azure per PostgreSQL l'accesso all'insieme di credenziali delle chiavi con le autorizzazioni get, wrapKey e unwrapKey usando l'identità gestita univoca. Nel portale di Azure l'identità univoca viene creata automaticamente quando la crittografia dei dati è abilitata nel server singolo di PostgreSQL. Per le istruzioni dettagliate nel caso si usi il portale di Azure, vedere [Crittografia dei dati per server singolo di Database di Azure per PostgreSQL tramite il portale di Azure](howto-data-encryption-portal.md).
+* Concedere al server singolo di Database di Azure per PostgreSQL l'accesso all'insieme di credenziali delle chiavi con le autorizzazioni get, wrapKey e unwrapKey usando l'identità gestita univoca. Nel portale di Azure, l'identità' servizio ' univoca viene creata automaticamente quando la crittografia dei dati è abilitata nel server singolo PostgreSQL. Per le istruzioni dettagliate nel caso si usi il portale di Azure, vedere [Crittografia dei dati per server singolo di Database di Azure per PostgreSQL tramite il portale di Azure](howto-data-encryption-portal.md).
 
 Di seguito sono riportati i requisiti per la configurazione della chiave gestita dal cliente:
 
 * La chiave gestita dal cliente da usare per la crittografia della chiave DEK può essere solo di tipo RSA 2048 e asimmetrica.
 * La data di attivazione della chiave (se impostata) deve essere una data/ora nel passato. La data di scadenza (se impostata) deve essere una data/ora nel futuro.
 * La chiave deve avere lo stato *Abilitato*.
-* Se si importa una chiave esistente nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati (`.pfx`, `.byok` o `.backup`).
+* Se si sta [importando una chiave esistente](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Consigli
 

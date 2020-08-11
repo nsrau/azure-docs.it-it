@@ -4,12 +4,12 @@ description: Come usare JMS (Java Message Service ) con il bus di servizio di Az
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 935579bdcb142969d9baf7ca24cf03268620bf46
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: be6b5de7946fc54ab58087fccabed9f5ed09251d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799685"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065778"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Usare Java Message Service (JMS) con il bus di servizio di Azure e AMQP 1,0
 
@@ -29,7 +29,7 @@ Il supporto per AMQP 1,0 nel bus di servizio di Azure significa che è possibile
 Questa guida presuppone che sia già presente uno spazio dei nomi del bus di servizio contenente una coda denominata `basicqueue` . In caso contrario, è possibile [creare lo spazio dei nomi e la coda](service-bus-create-namespace-portal.md) usando il [portale di Azure](https://portal.azure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
-> Le code e gli argomenti partizionati supportano anche AMQP. Per altre informazioni, vedere le [entità di messaggistica partizionate](service-bus-partitioning.md) e [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio](service-bus-partitioned-queues-and-topics-amqp-overview.md).
+> Le code e gli argomenti partizionati supportano anche AMQP. Per altre informazioni, vedere le [entità di messaggistica partizionate](service-bus-partitioning.md) e [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio](./service-bus-amqp-protocol-guide.md).
 > 
 > 
 
@@ -373,14 +373,14 @@ Inoltre, il bus di servizio di Azure separa il piano di controllo dal piano dati
 | createTemporaryQueue        | Creare una coda tramite portale/strumenti/API di gestione con *AutoDeleteOnIdle* impostato su un periodo di scadenza |
 | receiveNoWait               | usare il metodo Receive () fornito da Service Bus SDK e specificare un timeout molto basso o zero |
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Questa guida dettagliata ha illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) del bus di servizio da Java usando la diffusa API JMS e AMQP 1.0.
 
 È anche possibile utilizzare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui .NET, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà grazie al supporto per AMQP 1.0 nel bus di servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Supporto per il protocollo AMQP 1.0 nel bus di servizio di Azure](service-bus-amqp-overview.md)
-* [Come usare AMQP 1.0 con l'API .NET del bus di servizio](service-bus-dotnet-advanced-message-queuing.md)
+* [Come usare AMQP 1.0 con l'API .NET del bus di servizio](./service-bus-amqp-dotnet.md)
 * [Guida per sviluppatori di AMQP 1.0 per il bus di servizio](service-bus-amqp-dotnet.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Centro per sviluppatori Java](https://azure.microsoft.com/develop/java/)

@@ -3,12 +3,12 @@ title: Autenticare un'applicazione per accedere alle entità del bus di servizio
 description: Questo articolo fornisce informazioni sull'autenticazione di un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure (code, argomenti e così via)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1d18772dfa9cf444dc55d5e4cef6f31dd6c0d669
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006265"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064826"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure
 Il bus di servizio di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle entità del bus di servizio (code, argomenti, sottoscrizioni o filtri). Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -102,7 +102,7 @@ Dopo aver registrato l'applicazione, l' **ID applicazione (client)** verrà visu
 
 ![ID applicazione dell'applicazione registrata](./media/authenticate-application/application-id.png)
 
-Per altre informazioni sulla registrazione di un'applicazione in Azure AD, vedere [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+Per altre informazioni sulla registrazione di un'applicazione in Azure AD, vedere [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 > [!IMPORTANT]
 > Prendere nota di **TenantId** e **ApplicationID**. Questi valori sono necessari per eseguire l'applicazione.

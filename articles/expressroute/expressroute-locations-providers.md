@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: e066f810dca9c1b824c5eb30bb9f938df856a819
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 6fb065e48b744a31bcce2ca3249d0d6bd0216049
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002702"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066424"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -88,7 +88,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale 2| 10 G, 100 G | CDC |
 | **Città del Capo** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Sudafrica occidentale | 10 G | BCX, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | 2 | India meridionale | 10 G | Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chennai2** | Airtel | 2 | India meridionale | n/d | Airtel |
+| **Chennai2** | Airtel | 2 | India meridionale | 10 G | Airtel |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | Stati Uniti centro-settentrionali | 10 G, 100 G | Aryaka Networks, AT&T NetBond, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
 | **Copenhagen** | [Interxion CPH1](https://www.interxion.com/Locations/copenhagen/) | 1 | n/d | 10 G | Interxion |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 1 | n/d | 10 G, 100 G | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
@@ -115,7 +115,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Minneapolis** | [MIN1 Cologix](https://www.cologix.com/data-centers/minneapolis/min1/) | 1 | n/d | 10 G, 100 G | Cologix |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/d | 10 G, 100 G | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **Mumbai** | Tata Communications | 2 | India occidentale | 10 G | DE-CIX, Global CloudXchange (GCX), Reliance jio, Sify, Tata Communications, Verizon |
-| **Mumbai2** | Airtel | 2 | India occidentale | n/d | Airtel, Sify, Vodafone Idea |
+| **Mumbai2** | Airtel | 2 | India occidentale | 10 G | Airtel, Sify, Vodafone Idea |
 | **Monaco** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | n/d | 10 G | DE-CIX |
 | **New York** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | n/d | 10 G, 100 G | CenturyLink Cloud Connect, Colt, Coresite, DE-CIX, Equinix, intercloud, Megaport, Packet, Zayo |
 | **Newport(Wales)** | [Dati di nuova generazione](https://www.nextgenerationdata.co.uk) | 1 | Regno Unito occidentale | n/d | British Telecom, Colt, Level 3 Communications, Next Generation Data |

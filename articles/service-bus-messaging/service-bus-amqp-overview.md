@@ -3,15 +3,15 @@ title: Panoramica di AMQP 1,0 nel bus di servizio di Azure
 description: Informazioni su come il bus di servizio di Azure supporta Advance Message Queueing Protocol (AMQP), un protocollo standard aperto.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083872"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066339"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Supporto per il protocollo AMQP 1.0 nel bus di servizio
-Il protocollo AMQP (Advanced Message Queueing Protocol) 1.0 è supportato sia nel servizio cloud del bus di servizio di Azure sia nel [bus di servizio per Windows Server (Bus di servizio 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) locale. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard. È possibile creare applicazioni usando componenti creati in linguaggi e framework diversi e in esecuzione su sistemi operativi diversi. Tutti questi componenti possono connettersi al bus di servizio e scambiare in modo lineare ed efficiente messaggi di business strutturati con assoluta fedeltà.
+Il protocollo AMQP (Advanced Message Queueing Protocol) 1.0 è supportato sia nel servizio cloud del bus di servizio di Azure sia nel [bus di servizio per Windows Server (Bus di servizio 1.1)](/previous-versions/service-bus-archive/dn282144(v=azure.100)) locale. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard. È possibile creare applicazioni usando componenti creati in linguaggi e framework diversi e in esecuzione su sistemi operativi diversi. Tutti questi componenti possono connettersi al bus di servizio e scambiare in modo lineare ed efficiente messaggi di business strutturati con assoluta fedeltà.
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Introduzione: informazioni sul protocollo AMQP 1.0 e sulla sua rilevanza
 I prodotti middleware orientati ai messaggi hanno tradizionalmente usato protocolli proprietari per le comunicazioni tra applicazioni client e broker. Dopo la selezione di un broker di messaggistica di un fornitore specifico, è pertanto necessario utilizzare le librerie di tale fornitore per connettere le applicazioni client a tale broker. Ne risulta un livello di dipendenza rispetto a tale fornitore, poiché il trasferimento di un'applicazione a un prodotto diverso richiede la modifica del codice per tutte le applicazioni connesse. 
@@ -70,7 +70,7 @@ La figura riportata di seguito illustra una distribuzione di esempio, in cui i c
 
 **Figura 2: Tabella delle librerie client del protocollo AMQP 1.0**
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 * AMQP 1.0 è un protocollo di messaggistica aperto e affidabile, che può essere utilizzato per creare applicazioni ibride multipiattaforma. AMQP 1.0 è uno standard OASIS.
 * Il supporto per il protocollo AMQP 1.0 è ora disponibile nel bus di servizio di Azure e nel bus di servizio per Windows Server (Service Bus 1.1). La determinazione dei prezzi è analoga a quella dei protocolli esistenti.
 
@@ -84,6 +84,6 @@ Per altre informazioni, vedere i collegamenti seguenti:
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Uso del bus di servizio da .NET con AMQP]: service-bus-amqp-dotnet.md
-[Uso del bus di servizio da Java con AMQP]: service-bus-amqp-java.md
-[Installazione di Apache Qpid Proton-C in una macchina virtuale Linux di Azure]: service-bus-amqp-apache.md
-[AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Uso del bus di servizio da Java con AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
+[Installazione di Apache Qpid Proton-C in una macchina virtuale Linux di Azure]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

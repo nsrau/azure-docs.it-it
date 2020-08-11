@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ffbd23dccd7bac03e849241866416ac07af4a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5734cb76e4ed018778c6858597ec8efe3019bf9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035418"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065982"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteggere gli account utente da attacchi con Azure Active Directory blocco intelligente
 
@@ -24,7 +24,7 @@ Il blocco intelligente consente di bloccare gli attori malintenzionati che tenta
 
 ## <a name="how-smart-lockout-works"></a>Funzionamento del blocco intelligente
 
-Per impostazione predefinita, dopo dieci tentativi non riusciti la funzione di blocco intelligente blocca l'account da nuovi tentativi di accesso per un minuto. Dopo ogni successivo tentativo di accesso non riuscito, l'account viene nuovamente bloccato prima per un minuto e quindi per intervalli più lunghi.
+Per impostazione predefinita, dopo dieci tentativi non riusciti la funzione di blocco intelligente blocca l'account da nuovi tentativi di accesso per un minuto. Dopo ogni successivo tentativo di accesso non riuscito, l'account viene nuovamente bloccato prima per un minuto e quindi per intervalli più lunghi. Per ridurre al minimo le modalità in cui un utente malintenzionato può aggirare questo comportamento, non viene divulgata la velocità con cui il periodo di blocco aumenta rispetto ai tentativi di accesso non riusciti.
 
 Il blocco intelligente tiene traccia degli ultimi tre hash delle password non validi per evitare l'incremento del contatore dei blocchi per la stessa password. Se un utente immette la stessa password errata più volte, questo comportamento non comporta il blocco dell'account.
 

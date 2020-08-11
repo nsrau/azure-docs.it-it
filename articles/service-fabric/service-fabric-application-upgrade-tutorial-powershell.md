@@ -2,13 +2,13 @@
 title: Aggiornamento dell'app Service Fabric tramite PowerShell
 description: In questo articolo vengono esaminati l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite PowerShell.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/5/2020
+ms.openlocfilehash: 2bd74d071d5dfb3385d4203704eacd5ba685917e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195885"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064588"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Aggiornamento di un'applicazione di Service Fabric mediante PowerShell
 > [!div class="op_single_selector"]
@@ -24,6 +24,21 @@ Il metodo di aggiornamento consigliato usato più frequentemente è l'aggiorname
 L'aggiornamento di un'applicazione in modalità monitorata può essere eseguito usando le API gestite o native, PowerShell, l'interfaccia della riga di comando di Azure, Java o REST. Per istruzioni su come eseguire un aggiornamento usando Visual Studio, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. Inoltre, l'amministratore può configurare l'azione da intraprendere quando la valutazione dell'integrità ha esito negativo, ad esempio eseguendo un rollback automatico. Questa sezione illustra un aggiornamento monitorato per uno degli esempi di SDK che usano PowerShell. 
+
+> [!NOTE]
+> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s non vengono mantenuti durante l'aggiornamento di un'applicazione. Per mantenere i parametri dell'applicazione correnti, l'utente deve prima ottenere i parametri e passarli alla chiamata API di aggiornamento come riportato di seguito:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Passaggio 1: creare e distribuire l'esempio di oggetti visivi
 Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjectsApplication**, e selezionando il comando **Pubblica**.  Per altre informazioni, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).  In alternativa, è possibile usare PowerShell per distribuire l'applicazione.

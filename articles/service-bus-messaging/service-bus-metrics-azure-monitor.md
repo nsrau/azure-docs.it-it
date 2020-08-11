@@ -3,18 +3,18 @@ title: Metriche del bus di sevizio di Azure in Monitoraggio di Azure| Microsoft 
 description: Questo articolo illustra come usare Monitoraggio di Azure per monitorare le entità del bus di servizio (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089686"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065013"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in Monitoraggio di Azure
 
 Le metriche del bus di servizio indicano lo stato delle risorse nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse del bus di servizio non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti perché consentono di monitorare lo stato del bus di servizio. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
 
-Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di diversi servizi di Azure. Per altre informazioni, vedere [Panoramica sul monitoraggio in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e l'esempio che descrive come [recuperare le metriche di Monitoraggio di Azure con .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) in GitHub.
+Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di diversi servizi di Azure. Per altre informazioni, vedere [Panoramica sul monitoraggio in Microsoft Azure](../azure-monitor/overview.md) e l'esempio che descrive come [recuperare le metriche di Monitoraggio di Azure con .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) in GitHub.
 
 > [!IMPORTANT]
 > Nel caso in cui non si verifichi alcuna interazione con un'entità per 2 ore, fino a quando l'entità resterà inattiva le metriche mostreranno il valore "0".
@@ -80,7 +80,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 | Messaggi attivi| Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Dimensione: nome entità |
 | Messaggi non recapitabili| Numero di messaggi non recapitabili in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/>Dimensione: nome entità |
 | Messaggi pianificati| Numero di messaggi pianificati in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media  <br/> Dimensione: nome entità |
-| Dimensioni | Dimensioni in byte di un'entità (coda o argomento). <br/><br/>Unità: Conteggio <br/>Tipo di aggregazione: Media <br/>Dimensione: nome entità | 
+| Dimensione | Dimensioni in byte di un'entità (coda o argomento). <br/><br/>Unità: Conteggio <br/>Tipo di aggregazione: Media <br/>Dimensione: nome entità | 
 
 > [!NOTE]
 > I valori per le metriche seguenti sono valori temporizzati. I messaggi in arrivo usati immediatamente dopo tale temporizzazione potrebbero non essere riportati in queste metriche. 
@@ -128,7 +128,7 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
     1. Selezionare **Spazio dei nomi del bus di servizio** per il campo **Filtra per tipo di risorsa**. 
     2. Selezionare la sottoscrizione di Azure per il campo **Filtra per sottoscrizione**.
     3. Selezionare lo **spazio dei nomi del bus di servizio** nell'elenco. 
-    4. Selezionare **Fine**. 
+    4. Selezionare **Operazione completata**. 
     
         ![Selezionare lo spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selezionare **Aggiungi criteri** ed eseguire le azioni seguenti nella pagina **Configura logica dei segnali**:
@@ -169,9 +169,7 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [Panoramica di Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Vedere [Panoramica di Monitoraggio di Azure](../azure-monitor/overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png
-
-

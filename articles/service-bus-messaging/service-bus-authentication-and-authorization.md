@@ -3,12 +3,12 @@ title: Autenticazione e autorizzazione del bus di servizio di Azure | Documentaz
 description: Autenticare le app sul bus di servizio usando l'autenticazione con firma di accesso condiviso (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337720"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066862"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticazione e autorizzazione del bus di servizio
 Esistono due modi per autenticare e autorizzare l'accesso alle risorse del bus di servizio di Azure: Azure Activity directory (Azure AD) e le firme di accesso condiviso (SAS). Questo articolo fornisce informazioni dettagliate sull'uso di questi due tipi di meccanismi di sicurezza. 
@@ -30,7 +30,7 @@ Per ulteriori informazioni sull'autenticazione con Azure AD, vedere gli articoli
 ## <a name="shared-access-signature"></a>Firma di accesso condiviso
 L'[autenticazione della firma di accesso condiviso](service-bus-sas.md) garantisce l'accesso dell'utente alle risorse del bus di servizio con diritti specifici. Nel bus di servizio, l'autenticazione della firma di accesso condiviso implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa del bus di servizio. I client possono quindi ottenere l'accesso a questa risorsa presentando un token di firma di accesso condiviso composto dall'URI della risorsa a cui si vuole accedere e da una scadenza firmata con la chiave configurata.
 
-È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi del bus di servizio. La chiave si applica a tutte le entità di messaggistica nello spazio dei nomi. È anche possibile configurare le chiavi nelle code e negli argomenti del bus di servizio. SAS è anche supportato in [Inoltro di Azure](../service-bus-relay/relay-authentication-and-authorization.md).
+È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi del bus di servizio. La chiave si applica a tutte le entità di messaggistica nello spazio dei nomi. È anche possibile configurare le chiavi nelle code e negli argomenti del bus di servizio. SAS è anche supportato in [Inoltro di Azure](../azure-relay/relay-authentication-and-authorization.md).
 
 Per usare la firma di accesso condiviso, è possibile configurare un oggetto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in uno spazio dei nomi, una coda o un argomento. Questa regola include gli elementi seguenti:
 
@@ -46,7 +46,7 @@ Per accedere a un'entità, è necessario un token di firma di accesso condiviso 
 Il supporto per l'autenticazione della firma di accesso condiviso per il bus di servizio è incluso in Azure .NET SDK 2.0 e versioni successive. Nella firma di accesso condiviso è incluso il supporto per un oggetto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Tutte le API che accettano una stringa di connessione come parametro includono il supporto per le stringhe di connessione della firma di accesso condiviso.
 
 > [!IMPORTANT]
-> Se si usa Azure Active Directory controllo di accesso (noto anche come servizio di controllo di accesso o ACS) con il bus di servizio, si noti che il supporto per questo metodo è ora limitato ed è necessario [eseguire la migrazione dell'applicazione per usare la firma di](service-bus-migrate-acs-sas.md) accesso condiviso o usare l'autenticazione OAuth 2,0 con Azure ad (scelta consigliata). Per ulteriori informazioni sulla deprecazione di ACS, vedere [questo post di Blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> Se si usa Azure Active Directory controllo di accesso (noto anche come servizio di controllo di accesso o ACS) con il bus di servizio, si noti che il supporto per questo metodo è ora limitato ed è necessario [eseguire la migrazione dell'applicazione per usare la firma di](service-bus-migrate-acs-sas.md) accesso condiviso o usare l'autenticazione OAuth 2,0 con Azure ad (scelta consigliata). Per ulteriori informazioni sulla deprecazione di ACS, vedere [questo post di Blog](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sull'autenticazione con Azure AD, vedere gli articoli seguenti:

@@ -1,15 +1,15 @@
 ---
 title: Tipi di risorse Azure Resource Manager supportati
 description: Fornire un elenco dei tipi di risorse Azure Resource Manager supportati da Azure Resource Graph e la cronologia delle modifiche.
-ms.date: 07/16/2020
+ms.date: 08/10/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 8ea8dff157437dd37ad178b1580eddb9d218559d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 91b8a88fd056db2fd8495c85dccbcc08f4a94fda
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087527"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065999"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabella di Azure Resource Graph e riferimenti sui tipi di risorsa
 
@@ -185,7 +185,6 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.desktopvirtualization/applicationgroups
 - microsoft.desktopvirtualization/hostpools
 - microsoft.desktopvirtualization/workspaces
-- microsoft.detonationservice/detonationinstances
 - microsoft.devices/elasticpools
 - microsoft.devices/elasticpools/iothubtenants
 - microsoft.devices/iothubs

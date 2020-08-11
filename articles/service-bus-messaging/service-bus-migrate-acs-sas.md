@@ -3,16 +3,16 @@ title: "Bus di servizio di Azure: eseguire la migrazione a un'autorizzazione di 
 description: Informazioni sulla migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340115"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064622"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Bus di servizio: eseguire la migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso
 
-Per le applicazioni del bus di servizio è sempre stato possibile scegliere tra due diversi modelli di autorizzazione: il modello token con [firma di accesso condiviso (SAS)](service-bus-sas.md) fornito direttamente dal bus di servizio e un modello federato in cui la gestione delle regole di autorizzazione viene eseguita all'interno del Servizio di controllo di accesso di [Azure Active Directory](/azure/active-directory/); i token ottenuti dal Servizio di controllo di accesso vengono passati al bus di servizio per autorizzare l'accesso alle funzionalità desiderate.
+Per le applicazioni del bus di servizio è sempre stato possibile scegliere tra due diversi modelli di autorizzazione: il modello token con [firma di accesso condiviso (SAS)](service-bus-sas.md) fornito direttamente dal bus di servizio e un modello federato in cui la gestione delle regole di autorizzazione viene eseguita all'interno del Servizio di controllo di accesso di [Azure Active Directory](../active-directory/index.yml); i token ottenuti dal Servizio di controllo di accesso vengono passati al bus di servizio per autorizzare l'accesso alle funzionalità desiderate.
 
 Il modello di autorizzazione del Servizio di controllo di accesso è stato sostituito da tempo dall'[autorizzazione con firma di accesso condiviso](service-bus-authentication-and-authorization.md) come modello preferito e attualmente la documentazione, il materiale sussidiario e gli esempi usano l'autorizzazione con firma di accesso condiviso. Inoltre non è più possibile creare nuovi spazi dei nomi del bus di servizio associati al Servizio di controllo di accesso.
 
@@ -56,4 +56,3 @@ Per altre informazioni sull'autenticazione del bus di servizio, vedere gli argom
 
 * [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md)
 * [Autenticazione del bus di servizio con firme di accesso condiviso](service-bus-sas.md)
-

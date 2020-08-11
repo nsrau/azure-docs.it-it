@@ -4,12 +4,12 @@ description: Questo articolo illustra come usare le librerie di gestione del bus
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341719"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066169"
 ---
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
 
@@ -26,11 +26,11 @@ Le librerie di gestione del bus di servizio di Azure possono eseguire il provisi
 
 Per iniziare a usare le librerie di gestione del bus di servizio, è necessario eseguire l'autenticazione con il servizio Azure Active Directory (Azure AD). Azure AD richiede l'autenticazione come entità servizio, che fornisce l'accesso alle risorse di Azure in uso. Per informazioni su come creare un'entità servizio, vedere uno di questi articoli:  
 
-* [Usare il portale di Azure per creare Active Directory applicazione e un'entità servizio che possano accedere alle risorse](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Usare il portale di Azure per creare Active Directory applicazione e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-Nel corso di queste esercitazioni vengono forniti un `AppId` (ID client), un `TenantId` e un `ClientSecret` (chiave di autenticazione) che sono usati per l'autenticazione da parte delle librerie di gestione. Per il gruppo di risorse in cui si desidera eseguire, è necessario disporre almeno delle autorizzazioni di proprietario o [**collaboratore**](/azure/role-based-access-control/built-in-roles#contributor) [**dei dati del bus di servizio di Azure**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) .
+Nel corso di queste esercitazioni vengono forniti un `AppId` (ID client), un `TenantId` e un `ClientSecret` (chiave di autenticazione) che sono usati per l'autenticazione da parte delle librerie di gestione. Per il gruppo di risorse in cui si desidera eseguire, è necessario disporre almeno delle autorizzazioni di proprietario o [**collaboratore**](../role-based-access-control/built-in-roles.md#contributor) [**dei dati del bus di servizio di Azure**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) .
 
 ## <a name="programming-pattern"></a>Modello di programmazione
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031972"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064945"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -173,6 +173,9 @@ Determinare l'endpoint Web del servizio di divisione e unione. È possibile trov
 ### <a name="test-with-powershell-scripts"></a>Eseguire i test con gli script di PowerShell
 
 È possibile testare la distribuzione e l'ambiente eseguendo gli script di PowerShell di esempio inclusi.
+
+> [!IMPORTANT]
+> Gli script di esempio vengono eseguiti in PowerShell 5,1. Attualmente non vengono eseguiti in PowerShell 6 o versioni successive.
 
 I file di script inclusi sono i seguenti:
 

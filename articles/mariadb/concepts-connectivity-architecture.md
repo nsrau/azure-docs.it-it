@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: d082417fc5b4df7540973d5f6e146030aaad5380
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107190"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065353"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architettura di connettività nel database di Azure per MariaDB
 Questo articolo illustra l'architettura di connettività del database di Azure per MariaDB e il modo in cui il traffico viene indirizzato al database di Azure per l'istanza di MariaDB dai client all'interno e all'esterno di Azure.
@@ -67,8 +67,8 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | Regno Unito meridionale | 51.140.184.11   |
 | Regno Unito occidentale | 51.141.8.11  |
 | Stati Uniti centro-occidentali | 13.78.145.25     |
-| Europa occidentale | 40.68.37.158, 191.237.232.75, 13.69.105.208  |
-| Stati Uniti occidentali | 104.42.238.205, 23.99.34.75  |
+| Europa occidentale | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
+| Stati Uniti occidentali | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
 | Stati Uniti occidentali 2 | 13.66.226.202  |
 ||||
 

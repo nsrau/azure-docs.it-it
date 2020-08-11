@@ -3,12 +3,12 @@ title: Log di diagnostica del bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica di tutti i log operativi e di diagnostica disponibili per il bus di servizio di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337526"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064435"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Abilitare i log di diagnostica per il bus di servizio
 
@@ -101,7 +101,7 @@ Per impostazione predefinita, i log operativi sono disabilitati. Per abilitare i
 
 Le nuove impostazioni diventano effettive entro 10 minuti circa. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**.
 
-Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

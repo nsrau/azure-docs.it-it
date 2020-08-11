@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 234156186d045e21cc01cc4b407408f98268c790
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827623"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065472"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Dimensioni delle macchine virtuali in Azure
 
@@ -25,7 +25,7 @@ Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine 
 | [Ottimizzate per il calcolo](sizes-compute.md) | F, FS, Fsv2 | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. |
 | [Ottimizzate per la memoria](sizes-memory.md) | Esv3, EV3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, dv2 | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
 | [Ottimizzate per l'archiviazione](sizes-storage.md) | Lsv2 | I/O e velocità effettiva del disco elevati ideali per i database NoSQL, SQL e Big Data, data warehousing e database transazionali di grandi dimensioni.  |
-| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (anteprima), NV, NVv3, NVv4 | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, nonché per il training e l'inferenza dei modelli (ND) con apprendimento profondo. disponibili con GPU singole o più GPU. |
+| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3 (anteprima), ND, NDv2 (anteprima), NV, NVv3, NVv4 | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, nonché per il training e l'inferenza dei modelli (ND) con apprendimento profondo. disponibili con GPU singole o più GPU. |
 | [High Performance Computing (HPC)](sizes-hpc.md) | HB, HBv2, HC, H | Le nostre macchine virtuali con CPU più veloci e potenti, con interfacce di rete ad alta velocità effettiva facoltative (RDMA). |
 
 - Per informazioni sui prezzi delle varie dimensioni, vedere le pagine relative ai prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae598fb9e4018369230de5fadcf173a3df9fb4c
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551694"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066067"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -414,7 +414,7 @@ Gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le fu
 
 In ingresso | Operazione consentita
 --- | ---
-[Centro sicurezza Microsoft 365](https://protection.office.com) | Monitorare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Gestire gli avvisi e le minacce alla sicurezza<br>Visualizzare i report
+[Centro sicurezza Microsoft 365](https://protection.office.com) | Monitorare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Gestire gli avvisi e le minacce alla sicurezza<br>Visualizzazione di report
 Centro di Identity Protection | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Inoltre, eseguire tutte le operazioni di Identity Protection Center, tranne la reimpostazione delle password
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>**Non è consentito** gestire le assegnazioni di ruolo o le impostazioni di Azure AD
 [Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gestire i criteri di sicurezza<br>Visualizzare, analizzare e rispondere alle minacce alla sicurezza<br>Visualizzazione di report
@@ -448,7 +448,7 @@ gli utenti con questo ruolo hanno accesso globale di sola lettura alle funzional
 
 In ingresso | Operazione consentita
 --- | ---
-[Centro sicurezza Microsoft 365](https://protection.office.com) | Visualizzare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Visualizzare gli avvisi e le minacce alla sicurezza<br>Visualizzare i report
+[Centro sicurezza Microsoft 365](https://protection.office.com) | Visualizzare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Visualizzare gli avvisi e le minacce alla sicurezza<br>Visualizzazione di report
 Centro di Identity Protection | Leggere tutte le informazioni sulle impostazioni e sui report di sicurezza per le funzionalità di sicurezza<br><ul><li>Filtro posta indesiderata<li>Crittografia<li>Prevenzione della perdita dei dati<li>Antimalware<li>Protezione avanzata dalle minacce<li>Anti-phishing<li>Regole del flusso di posta
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Ha accesso in sola lettura a tutte le informazioni presentate in Azure AD Privileged Identity Management: Criteri e report per le assegnazioni di ruolo e le verifiche della sicurezza di Azure AD.<br>**Non è possibile** iscriversi per Azure AD Privileged Identity Management o apportare modifiche. Nel portale di Privileged Identity Management o tramite PowerShell, un utente con questo ruolo può attivare altri ruoli, ad esempio Amministratore globale o Amministratore di ruoli con privilegi, se è idoneo per questi ruoli.
 [Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Visualizzare i criteri di sicurezza<br>Visualizzare e analizzare le minacce alla sicurezza<br>Visualizzazione di report
@@ -545,11 +545,11 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 | microsoft.directory/appRoleAssignments/update | Aggiornare appRoleAssignments in Azure Active Directory. |
 | microsoft.directory/appRoleAssignments/delete | Eliminare appRoleAssignments in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per auditLogs in Azure Active Directory. |
-| microsoft.directory/connectorGroups/everything/read | Leggere le proprietà del gruppo di connettori del proxy applicazione in Azure Active Directory. |
-| microsoft.directory/connectorGroups/everything/update | Aggiornare tutte le proprietà del gruppo di connettori del proxy applicazione in Azure Active Directory. |
+| Microsoft. directory/connectorGroups/allProperties/Read | Leggere le proprietà del gruppo di connettori del proxy applicazione in Azure Active Directory. |
+| Microsoft. directory/connectorGroups/allProperties/Update | Aggiornare tutte le proprietà del gruppo di connettori del proxy applicazione in Azure Active Directory. |
 | microsoft.directory/connectorGroups/create | Creare gruppi di connettori del proxy applicazione in Azure Active Directory. |
 | microsoft.directory/connectorGroups/delete | Eliminare gruppi di connettori del proxy applicazione in Azure Active Directory. |
-| microsoft.directory/connectors/everything/read | Leggere tutte le proprietà dei connettori del proxy applicazione in Azure Active Directory. |
+| Microsoft. directory/connettori/allProperties/lettura | Leggere tutte le proprietà dei connettori del proxy applicazione in Azure Active Directory. |
 | microsoft.directory/connectors/create | Creare connettori del proxy applicazione in Azure Active Directory. |
 | microsoft.directory/policies/applicationConfiguration/basic/read | Eseguire la lettura della proprietà policies.applicationConfiguration in Azure Active Directory. |
 | microsoft.directory/policies/applicationConfiguration/basic/update | Aggiornare la proprietà policies.applicationConfiguration in Azure Active Directory. |
@@ -1426,7 +1426,6 @@ Può gestire servizi cloud per app di Office, inclusa la gestione di criteri e i
 | microsoft.office365.messageCenter/messages/read | Leggere i messaggi in microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
-| microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
 | microsoft.office365.userCommunication/allEntities/allTasks | Leggere e aggiornare la visibilità dei messaggi relativi alle novità. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 

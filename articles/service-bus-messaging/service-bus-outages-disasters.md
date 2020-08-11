@@ -3,12 +3,12 @@ title: Isolare le applicazioni del bus di servizio di Azure da interruzioni ed e
 description: Questo articolo fornisce le tecniche per proteggere le applicazioni da una potenziale interruzione del bus di servizio di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339662"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065625"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 
@@ -72,7 +72,7 @@ Quando si usa la replica passiva, negli scenari seguenti è possibile che i mess
 L'esempio relativo alla [replica geografica con il livello standard del bus di servizio][Geo-replication with Service Bus Standard Tier] illustra la replica passiva delle entità di messaggistica.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protezione degli endpoint di inoltro da interruzioni o emergenze dei data center
-La replica geografica degli endpoint di [inoltro di Azure](../service-bus-relay/relay-what-is-it.md) consente a un servizio che espone un endpoint di inoltro di essere raggiungibile in presenza di interruzioni del bus di servizio. Per ottenere la replica geografica, il servizio deve creare due endpoint di inoltro in diverse istanze di spazio dei nomi servizio. Le due istanze di spazio dei nomi servizio devono trovarsi in data center diversi e i due endpoint devono avere nomi differenti. Ad esempio, un endpoint primario può essere raggiunto in **contosoPrimary.servicebus.windows.net/myPrimaryService**, mentre il corrispettivo endpoint secondario può essere raggiunto in **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+La replica geografica degli endpoint di [inoltro di Azure](../azure-relay/relay-what-is-it.md) consente a un servizio che espone un endpoint di inoltro di essere raggiungibile in presenza di interruzioni del bus di servizio. Per ottenere la replica geografica, il servizio deve creare due endpoint di inoltro in diverse istanze di spazio dei nomi servizio. Le due istanze di spazio dei nomi servizio devono trovarsi in data center diversi e i due endpoint devono avere nomi differenti. Ad esempio, un endpoint primario può essere raggiunto in **contosoPrimary.servicebus.windows.net/myPrimaryService**, mentre il corrispettivo endpoint secondario può essere raggiunto in **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Il servizio rimane quindi in ascolto su entrambi gli endpoint e un client può richiamare il servizio tramite l'uno o l'altro. Un'applicazione client seleziona casualmente uno degli inoltri come endpoint primario e invia la richiesta all'endpoint attivo. Se l'operazione ha esito negativo e viene visualizzato un codice di errore, significa che l'endpoint di inoltro non è disponibile. L'applicazione apre un canale per l'endpoint di backup e invia nuovamente la richiesta. A quel punto, l'endpoint attivo e quello di backup si scambiano i ruoli: l'applicazione client considera l'endpoint attivo precedente come nuovo endpoint di backup e l'endpoint di backup precedente come nuovo endpoint attivo. Se entrambe le operazioni di invio hanno esito negativo, i ruoli delle due entità rimangono invariati e viene restituito un errore.
 

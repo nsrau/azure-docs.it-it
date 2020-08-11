@@ -3,12 +3,12 @@ title: Filtri per gli argomenti del bus di servizio di Azure | Microsoft Docs
 description: Questo articolo illustra in che modo i sottoscrittori possono definire i messaggi che vogliono ricevere da un argomento specificando filtri.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b722c040248c199782f6c8dea020ae582762e102
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339962"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066747"
 ---
 # <a name="topic-filters-and-actions"></a>Filtri e azioni per gli argomenti
 
@@ -25,7 +25,7 @@ Il bus di servizio supporta tre condizioni di filtro.
 -   *Filtri di correlazione*: un **CorrelationFilter** contiene un set di condizioni che vengono confrontate con una o più proprietà utente e di sistema di un messaggio in arrivo. Un uso comune è la corrispondenza con la proprietà **CorrelationId** , ma l'applicazione può anche scegliere di confrontare le proprietà seguenti:
 
     - **ContentType**
-     - **Label**
+     - **Etichetta**
      - **MessageId**
      - **ReplyTo**
      - **ReplyToSessionId**
@@ -62,6 +62,4 @@ Vedere gli esempi seguenti:
 
 - [Esercitazione di invio e ricezione .NET-Basic con filtri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
 - [Filtri di argomento .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [Modello di Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
-
-
+- [Modello di Azure Resource Manager](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)

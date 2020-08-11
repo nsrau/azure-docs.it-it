@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8d8b558ebc49a009548afe9a8527985b9e4f5c75
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057275"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066662"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Abilitare e gestire l'eliminazione temporanea per i contenitori (anteprima)
 
 L'eliminazione temporanea del contenitore (anteprima) impedisce che i dati vengano modificati o eliminati accidentalmente o in modo errato. Quando l'eliminazione temporanea del contenitore è abilitata per un account di archiviazione, è possibile recuperare un contenitore e il relativo contenuto dopo che è stato eliminato, entro il periodo di memorizzazione specificato.
 
-Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, Microsoft consiglia di attivare l'eliminazione temporanea del contenitore. Questo articolo illustra come abilitare l'eliminazione temporanea per i contenitori. Per altri dettagli sull'eliminazione temporanea dei contenitori, vedere [eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
+Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, Microsoft consiglia di attivare l'eliminazione temporanea del contenitore. Questo articolo illustra come abilitare l'eliminazione temporanea per i contenitori. Per altri dettagli sull'eliminazione temporanea dei contenitori, inclusa la registrazione per l'anteprima, vedere [eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
 
 Per la protezione dei dati end-to-end, Microsoft consiglia di abilitare anche l'eliminazione temporanea per i BLOB e il controllo delle versioni dei BLOB (anteprima). Per informazioni su come abilitare anche l'eliminazione temporanea per i BLOB, vedere [Enable and Manage soft delete for Blobs](soft-delete-blob-enable.md). Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [controllo delle versioni dei BLOB (anteprima)](versioning-overview.md).
 

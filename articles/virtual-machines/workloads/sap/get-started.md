@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6151bb915298cc4f771b6d49628f39c8d27b62b4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800349"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064367"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -45,6 +45,7 @@ In caso di domande specifiche, in questa sezione della pagina iniziale verrà fa
     - [Scenari supportati nelle istanze Large di HANA](./hana-supported-scenario.md)
 - Per sapere quali servizi, tipi di VM e servizi di archiviazione di Azure sono disponibili nelle diverse aree, controllare il sito [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) 
 - Sono supportati i frame a disponibilità elevata di terze parti, oltre a Windows e pacemaker supportati? Controllare la parte inferiore della [Nota di supporto SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- Quale archiviazione di Azure è migliore per lo scenario? Leggere [i tipi di archiviazione di Azure per carichi di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
@@ -59,23 +60,7 @@ Questa sezione della documentazione presenta diversi aspetti relativi a SAP HANA
  
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP NetWeaver distribuito in macchine virtuali di Azure
-Questa sezione include la documentazione relativa alla pianificazione e alla distribuzione di SAP NetWeaver e Business One in Azure. La documentazione è incentrata sulle nozioni di base e sull'uso di database non HANA con un carico di lavoro SAP in Azure. I documenti e gli articoli relativi alla disponibilità elevata offrono informazioni di base anche per la disponibilità elevata di HANA in Azure, ad es:
-
-- [Guida alla pianificazione di Azure](./planning-guide.md). 
-- [SAP Business One nelle macchine virtuali di Azure](./business-one-azure.md)
-- [Proteggere una distribuzione di applicazioni SAP NetWeaver multilivello usando Site Recovery](../../../site-recovery/site-recovery-sap.md)
-- [Connettore SAP LaMa per Azure](./lama-installation.md)
-
-Per informazioni sui database non HANA in un carico di lavoro SAP in Azure, vedere:
-
-- [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](./dbms_guide_general.md)
-- [Distribuzione DBMS per SQL Server di macchine virtuali di Azure per SAP NetWeaver](./dbms_guide_sqlserver.md)
-- [Distribuzione DBMS per Oracle di Macchine virtuali di Azure per un carico di lavoro SAP](./dbms_guide_oracle.md)
-- [Distribuzione DBMS per IBM DB2 di Macchine virtuali di Azure per un carico di lavoro SAP](./dbms_guide_ibm.md)
-- [Distribuzione DBMS per SAP ASE di Macchine virtuali di Azure per un carico di lavoro SAP](./dbms_guide_sapase.md)
-- [Distribuzione di SAP MaxDB, SAP liveCache e SAP Content Server in macchine virtuali di Azure](./dbms_guide_maxdb.md)
-
-Per informazioni sui database SAP HANA in Azure, vedere la sezione "SAP HANA nelle macchine virtuali di Azure".
+Questa sezione include la documentazione relativa alla pianificazione e alla distribuzione di SAP NetWeaver e Business One in Azure. La documentazione è incentrata sulle nozioni di base e sull'uso di database non HANA con un carico di lavoro SAP in Azure. I documenti e gli articoli per la disponibilità elevata sono anche le fondamenta per la disponibilità elevata di HANA in Azure
 
 Per informazioni sulla disponibilità elevata di un carico di lavoro SAP su Azure vedere:
 
@@ -104,6 +89,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 ## <a name="change-log"></a>Registro modifiche
 
+- 08/10/2020: Introduzione alla configurazione di archiviazione SAP HANA di costo cosciente in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e aggiornamento dei [carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: modificare la [configurazione di pacemaker in SLES in Azure](./high-availability-guide-suse-pacemaker.md) e [configurare pacemaker in RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) per evidenziare l'importanza della risoluzione dei nomi affidabile per i cluster Pacemaker
 - 08/04/2020: modificare la [disponibilità elevata di SAP NW in WFCS con la condivisione file](./sap-high-availability-installation-wsfc-file-share.md), la [disponibilità elevata di SAP NW in WFCS con dischi condivisi](./sap-high-availability-installation-wsfc-shared-disk.md), [disponibilità elevata per SAP NW in macchine virtuali di Azure](./high-availability-guide.md), [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES](./high-availability-guide-suse.md), [ha per SAP NW in macchine virtuali di Azure in SLES con e](./high-availability-guide-suse-netapp-files.md), [ha per SAP NW in macchine virtuali di Azure in SLES guida](./high-availability-guide-suse-multi-sid.md)a più SID, [disponibilità elevata per SAP NETWEAVER in macchine virtuali di Azure in RHEL, disponibilità elevata](./high-availability-guide-rhel.md)per SAP NW in macchine virtuali di Azure in RHEL [con e](./high-availability-guide-rhel-netapp-files.md) e disponibilità elevata per SAP [NW in macchine virtuali di Azure nella Guida](./high-availability-guide-rhel-multi-sid.md) a più SID per semplificare l'uso del parametro`enque/encni/set_so_keepalive`
 - 07/23/2020: è stato aggiunto il [salvataggio SAP Hana in istanze large con un articolo di prenotazione di Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) che spiega cosa è necessario sapere prima di acquistare una prenotazione SAP Hana in istanze large e come effettuare l'acquisto
