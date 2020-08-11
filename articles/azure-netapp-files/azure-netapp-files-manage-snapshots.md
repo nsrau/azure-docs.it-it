@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 85990aee5143c9ccc0362a00597a748763977204
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533292"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080216"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -60,7 +60,7 @@ La funzionalità per i **criteri di snapshot** è attualmente in anteprima. Se s
 2. Verificare lo stato della registrazione della funzionalità: 
 
     > [!NOTE]
-    > Il **RegistrationState** potrebbe trovarsi nello `Registering` stato per alcuni minuti prima di modificare in `Registered` . Prima di continuare, attendere che lo stato sia **registrato** .
+    > Il **RegistrationState** potrebbe trovarsi nello `Registering` stato per un massimo di 60 minuti prima di modificare in `Registered` . Prima di continuare, attendere che lo stato sia **registrato** .
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
@@ -160,7 +160,7 @@ Attualmente, è possibile ripristinare uno snapshot solo in un nuovo volume.
 
     ![Ripristino in un nuovo volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Fare clic su **Verifica + crea**.  Scegliere **Crea**.   
+4. Fare clic su **Verifica + crea**.  Fare clic su **Crea**.   
     Il nuovo volume usa lo stesso protocollo usato dallo snapshot.   
     Il nuovo volume in cui viene ripristinato lo snapshot viene visualizzato nel pannello Volumi.
 

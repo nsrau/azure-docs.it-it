@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74980062"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080933"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integrazione del gateway applicazione con gli endpoint di servizio
 Sono disponibili tre varianti di servizio app che richiedono una configurazione leggermente diversa dell'integrazione con applicazione Azure gateway. Le varianti includono il servizio app normale, noto anche come ambiente del servizio app (ASE) multi-tenant, Internal Load Balancer (ILB) e ambiente del servizio app esterno. Questo articolo illustra come configurarlo con il servizio app (multi-tenant) e come discutere le considerazioni su ILB e l'ambiente del servizio app esterno.
@@ -33,7 +33,7 @@ Questa configurazione è costituita da due parti, oltre alla creazione del servi
 
 ## <a name="using-azure-portal"></a>Uso del portale di Azure
 Con portale di Azure, seguire quattro passaggi per eseguire il provisioning e configurare la configurazione. Se si dispone di risorse esistenti, è possibile ignorare i primi passaggi.
-1. Creare un servizio app usando una delle guide introduttive nella documentazione del servizio app, ad esempio [.NET Core avvio rapido](../../app-service/app-service-web-get-started-dotnet.md)
+1. Creare un servizio app usando una delle guide introduttive nella documentazione del servizio app, ad esempio [.NET Core avvio rapido](../quickstart-dotnetcore.md)
 2. Creare un gateway applicazione usando la [Guida introduttiva del portale](../../application-gateway/quick-create-portal.md), ma ignorare la sezione Aggiungi destinazioni backend.
 3. Configurare il [servizio app come back-end nel gateway applicazione](../../application-gateway/configure-web-app-portal.md), ma ignorare la sezione limita accesso.
 4. Infine, creare la [restrizione di accesso usando gli endpoint di servizio](../../app-service/app-service-ip-restrictions.md#service-endpoints).

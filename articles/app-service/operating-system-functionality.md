@@ -5,18 +5,18 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74671616"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080199"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base comuni del sistema operativo disponibili in tutte le app Windows in esecuzione in [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
 
 > [!NOTE] 
-> Le [app Linux](containers/app-service-linux-intro.md) in Servizio app vengono eseguite in contenitori propri. Non è consentito l'accesso al sistema operativo host ed è disponibile l'accesso come root al contenitore. Analogamente, per le [app in esecuzione in contenitori Windows](app-service-web-get-started-windows-container.md), è disponibile l'accesso amministrativo al contenitore ma non è consentito l'accesso al sistema operativo host. 
+> Le [app Linux](overview.md#app-service-on-linux) in Servizio app vengono eseguite in contenitori propri. Non è consentito l'accesso al sistema operativo host ed è disponibile l'accesso come root al contenitore. Analogamente, per le [app in esecuzione in contenitori Windows](quickstart-custom-container.md?pivots=container-windows), è disponibile l'accesso amministrativo al contenitore ma non è consentito l'accesso al sistema operativo host. 
 >
 
 <a id="tiers"></a>
@@ -45,7 +45,7 @@ Nel servizio app sono presenti varie unità, tra cui unità locali e unità di r
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unità locali
-Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. Ciò include:
+Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. ad esempio:
 
 - Un'unità del sistema operativo (l'unità D:\)
 - Un'unità di applicazione che contiene file cspkg del pacchetto di Azure usata esclusivamente da Servizio app (e inaccessibile ai clienti)
@@ -60,7 +60,7 @@ Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura 
 
 <a id="NetworkDrives"></a>
 
-### <a name="network-drives-aka-unc-shares"></a>Unità di rete (note anche come condivisioni UNC)
+### <a name="network-drives-unc-shares"></a>Unità di rete (condivisioni UNC)
 Uno degli aspetti esclusivi del servizio app che rende immediata la distribuzione e la manutenzione delle app è rappresentato dal fatto che l'intero contenuto utente è archiviato in un set di condivisioni UNC. Questo modello corrisponde perfettamente al modello comune di archiviazione di contenuto usato dagli ambienti host Web locali che dispongono di più server con carico bilanciato. 
 
 In Servizio app sono presenti numerose condivisioni UNC create in ogni data center. A ciascuna condivisione UNC è allocata una percentuale del contenuto utente per tutti i clienti di ciascun data center. Inoltre, l'intero contenuto dei file per una sottoscrizione di un singolo cliente è sempre posizionato nella stessa condivisione UNC. 

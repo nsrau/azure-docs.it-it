@@ -3,12 +3,12 @@ title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371244"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080814"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
@@ -57,7 +57,7 @@ Per trovare gli indirizzi IP corretti da aggiungere all'elenco Consenti per le c
 1. Al prompt dei comandi eseguire il comando seguente: 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
 2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico caso che prevede una modifica è il ripristino dello spazio dei nomi in un cluster diverso.
 
@@ -66,7 +66,7 @@ Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguir
 1. Per prima cosa, eseguire nslookup nello spazio dei nomi.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. Annotare il nome nella sezione di **risposta non autorevole**, presente in uno dei formati seguenti: 
 

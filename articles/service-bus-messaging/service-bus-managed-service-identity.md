@@ -3,12 +3,12 @@ title: Identità gestite per le risorse di Azure con il bus di servizio
 description: Questo articolo descrive come usare le identità gestite per accedere alle entità del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b33f4e9b38d55ef3ed709df8d09f1ffd62a8bca8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066288"
+ms.locfileid: "88079859"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure
 Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) offrono una funzionalità per l'intera piattaforma Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare l'identità ai ruoli di controllo di accesso che concedono autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
@@ -79,7 +79,7 @@ Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [eseguire l'a
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Usare il bus di servizio con le identità gestite per le risorse di Azure
 Per usare il bus di servizio con le identità gestite, è necessario assegnare all'identità il ruolo e l'ambito appropriato. La procedura descritta in questa sezione usa un'applicazione semplice che viene eseguita con un'identità gestita e accede alle risorse del bus di servizio.
 
-Qui viene usata un'applicazione Web di esempio ospitata nel [servizio app Azure](https://azure.microsoft.com/services/app-service/). Per istruzioni dettagliate per la creazione di un'applicazione Web, vedere [creare un'app web ASP.NET Core in Azure](../app-service/app-service-web-get-started-dotnet.md)
+Qui viene usata un'applicazione Web di esempio ospitata nel [servizio app Azure](https://azure.microsoft.com/services/app-service/). Per istruzioni dettagliate per la creazione di un'applicazione Web, vedere [creare un'app web ASP.NET Core in Azure](../app-service/quickstart-dotnetcore.md)
 
 Una volta creata l'applicazione, attenersi alla procedura seguente: 
 

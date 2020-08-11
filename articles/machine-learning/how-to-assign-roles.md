@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056925"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079587"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ La tabella seguente è un riepilogo delle attività Azure Machine Learning e del
 | Invio di qualsiasi tipo di esecuzione | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | Pubblicazione di un endpoint della pipeline | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Distribuzione di un modello registrato su una risorsa AKS/ACI | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Assegnazione dei punteggi a un endpoint AKS distribuito | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando non si usa l'autenticazione AAD) o `"/workspaces/read"` (quando si usa l'autenticazione del token) |
+| Assegnazione dei punteggi a un endpoint AKS distribuito | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (se non si usa l'autenticazione Azure Active Directory) o `"/workspaces/read"` (quando si usa l'autenticazione del token) |
 | Accesso all'archiviazione tramite notebook interattivi | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Crea nuovo ruolo personalizzato | Proprietario, collaboratore o ruolo personalizzato che consente`Microsoft.Authorization/roleDefinitions/write` | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/computes/write` |
 
@@ -374,10 +374,14 @@ Sono disponibili anche nell'elenco delle [operazioni del provider di risorse](/a
 Di seguito sono riportate alcune considerazioni da tenere presente quando si usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure):
 
 - Quando si crea una risorsa in Azure, ad indicare un'area di lavoro, non si è direttamente il proprietario dell'area di lavoro. Il ruolo viene ereditato dal ruolo con ambito più elevato su cui si è autorizzati in tale sottoscrizione. Ad esempio, se si è un amministratore di rete e si dispone delle autorizzazioni per creare un'area di lavoro Machine Learning, a tale area di lavoro verrà assegnato il ruolo di amministratore di rete e non il ruolo proprietario.
-- Quando sono presenti due assegnazioni di ruolo per lo stesso utente di AAD con sezioni in conflitto di azioni o notact, le operazioni elencate in notacts da un ruolo potrebbero non essere effettive se sono anche elencate come azioni in un altro ruolo. Per altre informazioni su come Azure analizza le assegnazioni di ruolo, vedere in [che modo RBAC di Azure determina se un utente ha accesso a una risorsa](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-- Per distribuire le risorse di calcolo all'interno di una VNet, è necessario avere esplicitamente le autorizzazioni per "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa VNet.
-- A volte può essere necessaria fino a un'ora prima che le nuove assegnazioni di ruolo abbiano effetto sulle autorizzazioni memorizzate nella cache dello stack.
+- Quando sono presenti due assegnazioni di ruolo per lo stesso utente Azure Active Directory con sezioni in conflitto di azioni o notact, le operazioni elencate in notacts da un ruolo potrebbero non essere effettive se sono anche elencate come azioni in un altro ruolo. Per altre informazioni su come Azure analizza le assegnazioni di ruolo, vedere in [che modo RBAC di Azure determina se un utente ha accesso a una risorsa](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Per distribuire le risorse di calcolo all'interno di una VNet, è necessario disporre esplicitamente delle autorizzazioni per le azioni seguenti:
+    - "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa VNet.
+    - "Microsoft. Network/virtualNetworks/subnet/join/Action" sulla risorsa della subnet.
+    
+    Per ulteriori informazioni sul controllo degli accessi in base al ruolo con la rete, vedere [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking).
 
+- A volte può essere necessaria fino a un'ora prima che le nuove assegnazioni di ruolo abbiano effetto sulle autorizzazioni memorizzate nella cache dello stack.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. Quali autorizzazioni sono necessarie per usare un'identità gestita assegnata dall'utente con i cluster Amlcompute?
 

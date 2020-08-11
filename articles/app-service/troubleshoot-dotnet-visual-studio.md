@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857214"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079808"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -29,7 +29,7 @@ Si apprenderà come:
 Se si dispone di Visual Studio Ultimate, è possibile usare anche [IntelliTrace](/visualstudio/debugger/intellitrace) per il debug. IntelliTrace non è illustrato in questa esercitazione.
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>Prerequisiti
-Per questa esercitazione si presuppone che siano stati configurati l'ambiente di sviluppo, il progetto Web e l'app del Servizio app come descritto in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure). Per le sezioni sui processi Web, sarà necessaria l'applicazione creata in [Introduzione ad Azure WebJobs SDK][GetStartedWJ].
+Per questa esercitazione si presuppone che siano stati configurati l'ambiente di sviluppo, il progetto Web e l'app del Servizio app come descritto in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure). Per le sezioni sui processi Web, sarà necessaria l'applicazione creata in [Introduzione ad Azure WebJobs SDK][GetStartedWJ].
 
 Gli esempi di codice illustrati nell'esercitazione sono relativi ad applicazioni Web MVC scritte in C#, ma le procedure di risoluzione dei problemi sono identiche per le applicazioni di Visual Basic e Web Form.
 
@@ -51,7 +51,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
     Per altre informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. In **Esplora server** espandere **Azure** e quindi **Servizio app**.
-3. Espandere il gruppo di risorse che include l'app creata in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure), quindi fare clic con il pulsante destro del mouse sul nodo dell'app e selezionare **Visualizza impostazioni**.
+3. Espandere il gruppo di risorse che include l'app creata in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure), quindi fare clic con il pulsante destro del mouse sul nodo dell'app e selezionare **Visualizza impostazioni**.
 
     ![Visualizza impostazioni in Esplora server](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -108,9 +108,9 @@ Se il messaggio di errore dettagliato non fornisce una quantità sufficiente di 
 
 Il debug remoto non funziona nelle edizioni Express di Visual Studio.
 
-Questa sezione illustra come eseguire il debug in modalità remota usando il progetto creato in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure).
+Questa sezione illustra come eseguire il debug in modalità remota usando il progetto creato in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure).
 
-1. Aprire il progetto Web creato in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure).
+1. Aprire il progetto Web creato in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure).
 
 1. Aprire il file *Controllers\HomeController.cs*.
 
@@ -129,7 +129,7 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
 1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **pubblica**.
 
-1. Nell'elenco a discesa del **Profilo** selezionare lo stesso profilo usato in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure). Quindi fare clic su Impostazioni.
+1. Nell'elenco a discesa del **Profilo** selezionare lo stesso profilo usato in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure). Quindi fare clic su Impostazioni.
 
 1. Nella finestra di dialogo **Pubblica** fare clic sulla scheda **Impostazioni**, sostituire **Configurazione** con **Debug** e quindi fare clic su **Salva**.
 
@@ -264,7 +264,7 @@ I log vengono scritti nei file della cartella *LogFiles* nel file system dell'ap
 ## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Creazione e visualizzazione dei log di traccia dell'applicazione
 In questa sezione vengono eseguite le attività seguenti:
 
-* Aggiungere le istruzioni di traccia al progetto Web creato in [Introduzione ad Azure e ASP.NET](app-service-web-get-started-dotnet-framework.md).
+* Aggiungere le istruzioni di traccia al progetto Web creato in [Introduzione ad Azure e ASP.NET](quickstart-dotnet-framework.md).
 * Visualizzazione dei log quando si esegue il progetto in locale.
 * Visualizzazione dei log mentre vengono generati dall'applicazione in esecuzione in Azure.
 
@@ -686,5 +686,5 @@ Per ulteriori informazioni sull'analisi dei log del server Web, vedere le risors
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisi dei log di traccia delle richieste non riuscite
 Il sito Web Microsoft TechNet include la sezione [Uso della traccia delle richieste non riuscite](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing), che potrebbe risultare utile per informazioni su come usare questi log. Tuttavia, questa documentazione è incentrata principalmente sulla configurazione della traccia delle richieste non riuscite in IIS, che non è possibile eseguire nel Servizio app di Azure.
 
-[GetStarted]: app-service-web-get-started-dotnet.md
+[GetStarted]: quickstart-dotnetcore.md?pivots=platform-windows
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

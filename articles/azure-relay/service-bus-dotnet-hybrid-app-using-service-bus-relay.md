@@ -3,12 +3,12 @@ title: Azure Windows Communication Foundation (WCF) inoltro di applicazioni ibri
 description: Informazioni su come esporre un servizio WCF locale a un'applicazione Web nel cloud usando Inoltro di Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9ac01beb28b1246122f437bcf1c7a7be7a1dfd9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314410"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079961"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Esporre un servizio WCF locale a un'applicazione Web nel cloud usando Inoltro di Azure
 
@@ -244,7 +244,7 @@ In questa sezione viene creata una semplice applicazione ASP.NET per visualizzar
     ![Specificare l'autenticazione][18]
 
 1. Tornare a **creare una nuova applicazione Web ASP.NET**e selezionare **Crea** per creare l'app MVC.
-1. Configurare le risorse di Azure per una nuova app Web. Seguire i passaggi in [pubblicare l'app Web](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Tornare quindi a questa esercitazione e continuare con il passaggio successivo.
+1. Configurare le risorse di Azure per una nuova app Web. Seguire i passaggi in [pubblicare l'app Web](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Tornare quindi a questa esercitazione e continuare con il passaggio successivo.
 1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse su **modelli** , quindi scegliere **Aggiungi**  >  **classe**.
 1. Assegnare alla classe il nome *Product.cs*, quindi selezionare **Aggiungi**.
 
@@ -427,7 +427,7 @@ Chiudere entrambe le applicazioni prima di procedere alla sezione successiva.
 
 Il passaggio successivo consiste nel ripubblicare il front-end **ProductsPortal** dell'app Web di Azure:
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto **ProductsPortal** e scegliere **pubblica**. Nella pagina **pubblica** selezionare **pubblica**.
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto **ProductsPortal** e scegliere **pubblica**. Nella pagina **Pubblica** selezionare **Pubblica**.
 
    > [!NOTE]
    > È possibile che nella finestra del browser venga visualizzato un messaggio di errore quando il progetto Web **ProductsPortal** viene avviato automaticamente dopo la distribuzione. Si tratta di un comportamento previsto che si verifica perché l'applicazione **ProductsServer** non è ancora in esecuzione.

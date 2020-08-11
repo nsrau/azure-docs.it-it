@@ -4,12 +4,12 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876394"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079706"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -94,7 +94,7 @@ La definizione del Framework completo da .NET Core, la distribuzione autonoma e 
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Dall'interno dell'app Web del servizio app in **Impostazioni**  >  **selezionare Application Insights**  >  **Abilita**. Il monitoraggio basato su agente Node.js è attualmente in fase di anteprima.
 
@@ -144,7 +144,7 @@ Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
 
 ![Screenshot dell'interfaccia utente delle impostazioni dell'applicazione](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Per abilitare il monitoraggio lato client per l'applicazione Node.js, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](./javascript.md).
 
@@ -166,7 +166,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | Valore |
+|Nome impostazione app |  Definizione | valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
@@ -401,7 +401,7 @@ Per informazioni aggiornate sull'Application Insights o sull'agente, vedere le [
 
 Quando si crea un'app Web con i `ASP.NET` `.NET Core` runtime di o in app Azure Services distribuisce una singola pagina HTML statica come sito Web iniziale. La pagina Web statica carica inoltre una Web part gestita .NET in IIS. Questo consente di testare il monitoraggio lato server senza codice, ma non supporta il monitoraggio automatico lato client.
 
-Se si vuole testare il monitoraggio lato client e server senza codice per ASP.NET o ASP.NET Core in un'app Web di app Azure Services, si consiglia di seguire le guide ufficiali per la [creazione di un'app Web di ASP.NET Core](../../app-service/app-service-web-get-started-dotnet.md) e la [creazione di un'app Web ASP.NET Framework](../../app-service/app-service-web-get-started-dotnet-framework.md) e quindi usare le istruzioni nell'articolo corrente per abilitare il monitoraggio.
+Se si vuole testare il monitoraggio lato client e server senza codice per ASP.NET o ASP.NET Core in un'app Web di app Azure Services, si consiglia di seguire le guide ufficiali per la [creazione di un'app Web di ASP.NET Core](../../app-service/quickstart-dotnetcore.md) e la [creazione di un'app Web ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md) e quindi usare le istruzioni nell'articolo corrente per abilitare il monitoraggio.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP e WordPress non sono supportati
 

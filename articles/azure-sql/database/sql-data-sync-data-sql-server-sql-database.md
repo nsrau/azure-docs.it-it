@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386844"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080695"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -68,7 +68,7 @@ La sincronizzazione dati non è la soluzione preferita per gli scenari seguenti:
 
 
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 - **Rilevamento delle modifiche ai dati:** sincronizzazione dati tiene traccia delle modifiche tramite trigger di inserimento, aggiornamento ed eliminazione. Le modifiche vengono registrate in una tabella laterale nel database utente. Si noti che BULK INSERT non attiva i trigger per impostazione predefinita. Se FIRE_TRIGGERS non è specificato, non viene eseguito alcun trigger di inserimento. Aggiungere l'opzione FIRE_TRIGGERS in modo che la sincronizzazione dei dati possa tenere traccia di tali inserimenti. 
 - **Sincronizzazione dei dati:** La sincronizzazione dei dati è progettata in un modello hub e spoke. L'hub viene sincronizzato con ogni membro singolarmente. Le modifiche dall'hub vengono scaricate nel membro e le modifiche apportate dal membro vengono caricate nell'hub.
@@ -131,6 +131,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 ### <a name="general-limitations"></a>Limitazioni generali
 
 - Una tabella non può contenere una colonna Identity che non è la chiave primaria.
+- Per utilizzare la sincronizzazione dati, una tabella deve disporre di un indice cluster.
 - Una chiave primaria non può contenere i tipi di dati seguenti: sql_variant, Binary, varbinary, image, XML.
 - Usare i tipi di dati che seguono come chiave primaria con la massima cautela, perché supportano solo la precisione al secondo: time, datetime, datetime2, datetimeoffset.
 - I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
@@ -249,7 +250,7 @@ La funzionalità Bring your own database di Dynamics 365 consente agli amministr
 - [Automatizzare la replica delle modifiche dello schema con sincronizzazione dati SQL in Azure](../../sql-database/sql-database-update-sync-schema.md)
 - [Usare PowerShell per aggiornare lo schema di sincronizzazione in un gruppo di sincronizzazione esistente](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Monitorare e risolvere i problemi
+### <a name="monitor-and-troubleshoot"></a>Monitoraggio e risoluzione dei problemi
 
 Il sincronizzazione dati SQL è come previsto? Per monitorare l'attività e risolvere i problemi, vedere gli articoli seguenti:
 

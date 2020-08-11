@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Informazioni su come configurare l'integrazione continua/distribuzione continua con Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229330"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080267"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 
@@ -24,7 +24,7 @@ Questo articolo illustra la configurazione di integrazione continua/distribuzion
 Anche se questo articolo usa Azure DevOps, gli stessi concetti si applicano a sistemi CI/CD come Jenkins, TeamCity e così via.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [Cluster del servizio Azure Kubernetes con Azure Dev Spaces abilitato](../get-started-netcore.md)
+* Cluster del servizio Azure Kubernetes con Azure Dev Spaces abilitato
 * [Interfaccia della riga di comando di Azure Dev Spaces installata](upgrade-tools.md)
 * [Organizzazione di Azure DevOps con un progetto](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Registro Azure Container](../../container-registry/container-registry-get-started-azure-cli.md)
@@ -41,7 +41,7 @@ Creare un nuovo spazio denominato _dev_ usando il comando `azds space select`. L
 azds space select -n dev
 ```
 
-Quando viene richiesto di selezionare uno spazio di sviluppo padre, selezionare _\<none\>_ .
+Quando viene chiesto di selezionare uno spazio Dev Spaces padre, selezionare _\<none\>_ .
 
 Dopo aver creato lo spazio di sviluppo, è necessario determinare il suffisso host. Usare il `azds show-context` comando per visualizzare il suffisso host del controller di ingresso Azure Dev Spaces.
 
@@ -77,7 +77,7 @@ Per creare una pipeline da questo file:
 1. Selezionare l'opzione per creare una **nuova** pipeline di compilazione.
 1. Selezionare **GitHub** come origine, autorizzare con l'account github, se necessario, e selezionare il ramo _azds_updates_ dalla versione con fork del repository dell'applicazione di esempio _dev-Spaces_ .
 1. Selezionare **configurazione come codice**o **YAML**come modello.
-1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico della lingua per il **percorso del file YAML** usando il pulsante **..** .. Ad esempio, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`
+1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico della lingua per il **percorso del file YAML** usando il pulsante **..** .. Ad esempio: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Passare alla scheda **variabili** .
 1. Aggiungere manualmente _dockerId_ come variabile, corrispondente al nome utente dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account) (indicato nei prerequisiti dell'articolo).
 1. Aggiungere manualmente _dockerPassword_ come variabile, corrispondente alla password dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account). Assicurarsi di specificare _dockerPassword_ come segreto (selezionando l'icona a forma di lucchetto) per motivi di sicurezza.
@@ -99,7 +99,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Per la **versione predefinita**, scegliere **più recente dal ramo predefinito della pipeline di compilazione con i tag**.
 1. Lasciare i **tag** vuoti.
 1. Impostare **Alias di origine** su `drop`. Il valore dell' **alias di origine** viene usato dalle attività di rilascio predefinite, quindi deve essere impostato.
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. Fare ora clic sull'icona del fulmine sull'origine dell'elemento `drop` appena creato, come illustrato sotto:
 
     ![Configurazione della distribuzione continua dell'elemento della versione](../media/common/release-artifact-cd-setup.png)
@@ -185,5 +185,7 @@ Ecco una struttura di spazi dei nomi di esempio che supporta lo sviluppo di funz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+Altre informazioni sul funzionamento di Azure Dev Spaces.
+
 > [!div class="nextstepaction"]
-> [Informazioni sullo sviluppo in team tramite Azure Dev Spaces](../team-development-netcore.md)
+> [Funzionamento di Azure Dev Spaces](../how-dev-spaces-works.md)

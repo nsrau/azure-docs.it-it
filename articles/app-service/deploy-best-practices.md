@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770663"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88081052"
 ---
 # <a name="deployment-best-practices"></a>Procedure consigliate per la distribuzione
 
@@ -69,7 +69,7 @@ Il servizio app offre un [recapito continuo integrato](deploy-continuous-deploym
 
 ### <a name="use-github-actions"></a>Usare le azioni di GitHub
 
-È anche possibile automatizzare la distribuzione del contenitore [con le azioni di GitHub](containers/deploy-container-github-action.md).  Il file del flusso di lavoro seguente consente di compilare e contrassegnare il contenitore con l'ID commit, eseguirne il push in un registro contenitori e aggiornare lo slot del sito specificato con il nuovo tag di immagine.
+È anche possibile automatizzare la distribuzione del contenitore [con le azioni di GitHub](deploy-container-github-action.md).  Il file del flusso di lavoro seguente consente di compilare e contrassegnare il contenitore con l'ID commit, eseguirne il push in un registro contenitori e aggiornare lo slot del sito specificato con il nuovo tag di immagine.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps

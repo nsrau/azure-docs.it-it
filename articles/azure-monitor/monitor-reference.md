@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447314"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080865"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le applicazioni e i servizi monitorati da Monitoraggio di Azure. 
@@ -141,27 +141,27 @@ La tabella seguente elenca i servizi di Azure e i dati che raccolgono in Monitor
 |Collegamento privato | No | No | No |  |
 |Piattaforma di comunicazione spooling del progetto | No | No | No |  |
 |Red Hat OpenShift | No | No | No |  |
-|Cache Redis | sì | Sì | [Sì](insights/redis-cache-insights-overview.md) | |
+|Cache Redis | Sì | Sì | [Sì](insights/redis-cache-insights-overview.md) | |
 |Resource Graph | No | No | No |  |
 |Gestione risorse | No | No | No |  |
 |Ricerca al dettaglio: Bing | No | No | No |  |
-|Ricerca | sì | sì | No |  |
+|Ricerca | Sì | Sì | No |  |
 |Bus di servizio | Sì | Sì | No |  |
 |Service Fabric | No | Sì | No | Agente necessario per monitorare i flussi di lavoro e il sistema operativo guest.  |
 |Portale di iscrizione | No | No | No |  |
 |Site Recovery | No | Sì | No |  |
 |Spring Cloud Service | No | No | No |  |
-|SQL Data Warehouse | sì | sì | No |  |
+|SQL Data Warehouse | Sì | Sì | No |  |
 |Database SQL | Sì | Sì | No |  |
 |SQL Server Stretch Database | Sì | Sì | No |  |
 |Stack | No | No | No |  |
 |Archiviazione | Sì | No | [Sì](insights/storage-insights-overview.md) |  |
 |Cache di archiviazione | No | No | No |  |
 |Servizi di sincronizzazione archiviazione | No | No | No |  |
-|Analisi di flusso | sì | sì | No |  |
+|Analisi di flusso | Sì | Sì | No |  |
 |Time Series Insights | Sì | Sì | No |  |
 |TINA | No | No | No |  |
-|Gestione traffico | sì | sì | No |  |
+|Gestione traffico | Sì | Sì | No |  |
 |Stampa universale | No | No | No |  |
 |Set di scalabilità di macchine virtuali | No | Sì | [Sì](insights/vminsights-overview.md) | Agente necessario per monitorare i flussi di lavoro e il sistema operativo guest. |
 |Macchine virtuali | Sì | Sì | [Sì](insights/vminsights-overview.md) | Agente necessario per monitorare i flussi di lavoro e il sistema operativo guest. |
@@ -220,7 +220,7 @@ Monitoraggio di Azure può raccogliere dati da risorse esterne ad Azure usando i
 | Risorsa | Metodo |
 |:---|:---|
 | APPLICAZIONI | Consente di monitorare le applicazioni Web all'esterno di Azure usando Application Insights. Vedere [Informazioni su Application Insights](./app/app-insights-overview.md). |
-| Macchine virtuali | Usa l'agente di Log Analytics per raccogliere dati dal sistema operativo guest di macchine virtuali in altri ambienti cloud o in locale. Vedere [Raccogliere dati di log con l'agente di Log Analytics](platform/log-analytics-agent.md). |
+| Macchine virtuali | Usare gli agenti per raccogliere dati dal sistema operativo guest di macchine virtuali in altri ambienti cloud o in locale. Vedere [Panoramica degli agenti di monitoraggio di Azure](platform/agents-overview.md). |
 | Client dell'API REST | Sono disponibili API separate per la scrittura di dati nei log e nelle metriche di Monitoraggio di Azure da qualsiasi client API REST. Vedere [Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP](platform/data-collector-api.md) per i log e [Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST](platform/metrics-store-custom-rest-api.md) per le metriche. |
 
 

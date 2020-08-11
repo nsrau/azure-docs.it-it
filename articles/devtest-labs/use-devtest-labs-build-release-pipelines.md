@@ -3,12 +3,12 @@ title: Usare DevTest Labs nelle pipeline di compilazione e versione di Azure Pip
 description: Informazioni su come usare Azure DevTest Labs in Azure Pipelines le pipeline di compilazione e rilascio.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 71af1e0dfe205fe1028f7b82b41f3ed38ebefd3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483075"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080335"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usare DevTest Labs nelle pipeline di compilazione e versione di Azure Pipelines
 Questo articolo fornisce informazioni sul modo in cui è possibile usare DevTest Labs in Azure Pipelines pipeline di compilazione e rilascio. 
@@ -26,7 +26,7 @@ Una volta completata la compilazione, la pipeline di **rilascio** utilizzerà gl
 
 Una delle sedi necessarie è che tutte le informazioni necessarie per ricreare l'ecosistema testato sono disponibili negli elementi di compilazione, inclusa la configurazione delle risorse di Azure. Poiché le risorse di Azure comportano un costo quando vengono usate, le aziende vogliono controllare o tenere traccia dell'uso di queste risorse. In alcune situazioni, i modelli di Azure Resource Manager usati per creare e configurare le risorse possono essere gestiti da un altro reparto, ad esempio. Questi modelli possono essere archiviati in un repository diverso. Ciò comporta una situazione interessante in cui verrà creata e testata una compilazione e il codice e la configurazione devono essere archiviati all'interno degli elementi di compilazione per ricreare correttamente il sistema in produzione. 
 
-Utilizzando DevTest Labs durante la fase di compilazione/test, è possibile aggiungere Azure Resource Manager modelli e i file di supporto alle origini di compilazione in modo che durante la fase di rilascio la configurazione esatta utilizzata per il test di venga distribuita nell'ambiente di produzione. L'attività **crea Azure DevTest Labs ambiente** con la configurazione corretta salverà i modelli di gestione risorse all'interno degli elementi di compilazione. Per questo esempio verrà usato il codice dell' [esercitazione: compilare un'app Web .NET Core e database SQL nel servizio app Azure](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)per distribuire e testare l'app Web in Azure.
+Utilizzando DevTest Labs durante la fase di compilazione/test, è possibile aggiungere Azure Resource Manager modelli e i file di supporto alle origini di compilazione in modo che durante la fase di rilascio la configurazione esatta utilizzata per il test di venga distribuita nell'ambiente di produzione. L'attività **crea Azure DevTest Labs ambiente** con la configurazione corretta salverà i modelli di gestione risorse all'interno degli elementi di compilazione. Per questo esempio verrà usato il codice dell' [esercitazione: compilare un'app Web .NET Core e database SQL nel servizio app Azure](../app-service/tutorial-dotnetcore-sqldb-app.md)per distribuire e testare l'app Web in Azure.
 
 ![Flusso generale](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ Utilizzando DevTest Labs durante la fase di compilazione/test, è possibile aggi
 La pipeline di compilazione creerà un ambiente DevTest Labs e distribuirà il codice per il test.
 
 ## <a name="set-up-a-build-pipeline"></a>Configurare una pipeline di compilazione
-In Azure Pipelines creare una pipeline di compilazione usando il codice dell' [esercitazione: compilare un'app Web .NET Core e database SQL nel servizio app Azure](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Usare il modello di **ASP.NET Core** , che consente di popolare l'attività necessaria per compilare, testare e pubblicare il codice.
+In Azure Pipelines creare una pipeline di compilazione usando il codice dell' [esercitazione: compilare un'app Web .NET Core e database SQL nel servizio app Azure](../app-service/tutorial-dotnetcore-sqldb-app.md). Usare il modello di **ASP.NET Core** , che consente di popolare l'attività necessaria per compilare, testare e pubblicare il codice.
 
 ![Selezionare il modello ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 

@@ -4,12 +4,12 @@ description: Informazioni su come configurare un'app ASP.NET nel servizio app Az
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1aeb243b3ff4a1e6bd2ae984510d2ec709776fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907930"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080148"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configurare un'app ASP.NET per il servizio app Azure
 
@@ -18,7 +18,7 @@ ms.locfileid: "84907930"
 
 Le app ASP.NET devono essere distribuite nel servizio app Azure come file binari compilati. Lo strumento di pubblicazione di Visual Studio compila la soluzione e quindi distribuisce direttamente i file binari compilati, mentre il motore di distribuzione del servizio app distribuisce innanzitutto il repository di codice e quindi compila i file binari.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori ASP.NET. Se non si è mai usato app Azure servizio, seguire prima l'esercitazione [introduttiva di ASP.NET](app-service-web-get-started-dotnet-framework.md) e [ASP.NET con il database SQL](app-service-web-tutorial-dotnet-sqldatabase.md) .
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori ASP.NET. Se non si è mai usato app Azure servizio, seguire prima l'esercitazione [introduttiva di ASP.NET](quickstart-dotnet-framework.md) e [ASP.NET con il database SQL](app-service-web-tutorial-dotnet-sqldatabase.md) .
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>Mostra versioni di Runtime .NET Framework supportate
 

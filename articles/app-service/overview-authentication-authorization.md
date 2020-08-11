@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562379"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080729"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
 
@@ -56,7 +56,7 @@ Il modulo di autenticazione e autorizzazione viene eseguito in un contenitore se
 
 ### <a name="userapplication-claims"></a>Attestazioni utente/applicazione
 
-Per tutti i Framework di linguaggio, il servizio app rende disponibili al codice le attestazioni nel token in ingresso, sia che si tratti di un utente finale autenticato o di un'applicazione client, inserendole nelle intestazioni della richiesta. Per le app ASP.NET 4.6, il servizio app popola [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con le attestazioni dell'utente autenticato, quindi è possibile seguire il modello di codice .NET standard, incluso l'attributo `[Authorize]`. Analogamente, per le app PHP, il servizio app popola la variabile `_SERVER['REMOTE_USER']`. Per le app Java, le attestazioni sono [accessibili dal servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+Per tutti i Framework di linguaggio, il servizio app rende disponibili al codice le attestazioni nel token in ingresso, sia che si tratti di un utente finale autenticato o di un'applicazione client, inserendole nelle intestazioni della richiesta. Per le app ASP.NET 4.6, il servizio app popola [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con le attestazioni dell'utente autenticato, quindi è possibile seguire il modello di codice .NET standard, incluso l'attributo `[Authorize]`. Analogamente, per le app PHP, il servizio app popola la variabile `_SERVER['REMOTE_USER']`. Per le app Java, le attestazioni sono [accessibili dal servlet Tomcat](configure-language-java.md#authenticate-users-easy-auth).
 
 Per [funzioni di Azure](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` non viene popolato per il codice .NET, ma è comunque possibile trovare le attestazioni utente nelle intestazioni della richiesta o ottenere l' `ClaimsPrincipal` oggetto dal contesto della richiesta o anche tramite un parametro di associazione. Per ulteriori informazioni, vedere [utilizzo delle identità client](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
 
@@ -149,7 +149,7 @@ Con questa opzione non è necessario scrivere codice di autenticazione nell'app.
 
 ## <a name="more-resources"></a>Altre risorse
 
-[Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](tutorial-auth-aad.md)  
 [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure per Linux](containers/tutorial-auth-aad.md)  
 [Personalizzare l'autenticazione e l'autorizzazione nel servizio app](app-service-authentication-how-to.md) 
  [Integrazione di .NET Core di Azure AppService EasyAuth (terze parti)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
