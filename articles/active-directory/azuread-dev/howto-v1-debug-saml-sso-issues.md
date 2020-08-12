@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383581"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116139"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Eseguire il debug dell'accesso Single Sign-On basato su SAML su applicazioni in Azure Active Directory
 
@@ -104,4 +104,4 @@ Per risolvere l'errore, attenersi alla procedura seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che Single Sign-On sta funzionando con l'applicazione, è possibile [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS](../manage-apps/user-provisioning.md) o iniziare a [usare l'accesso condizionale](../conditional-access/app-based-conditional-access.md).
+Ora che Single Sign-On sta funzionando con l'applicazione, è possibile [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS](../app-provisioning/user-provisioning.md) o iniziare a [usare l'accesso condizionale](../conditional-access/app-based-conditional-access.md).

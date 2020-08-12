@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696522"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119879"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usare MSAL per Android con B2C
 
-Microsoft Authentication Library (MSAL) permette agli sviluppatori di applicazioni di autenticare gli utenti con identità di social networking e locali usando [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C è un servizio di gestione delle identità, È possibile usarlo per personalizzare e controllare la modalità di iscrizione, accesso e gestione dei profili dei clienti quando usano le applicazioni.
+Microsoft Authentication Library (MSAL) permette agli sviluppatori di applicazioni di autenticare gli utenti con identità di social networking e locali usando [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C è un servizio di gestione delle identità, È possibile usarlo per personalizzare e controllare la modalità di iscrizione, accesso e gestione dei profili dei clienti quando usano le applicazioni.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configurare le autorità note e l'URI di Reindirizzamento
 
@@ -54,7 +54,7 @@ Il file di configurazione per l'app dichiarerebbe due `authorities` . Uno per og
 }
 ```
 
-Il `redirect_uri` deve essere registrato nella configurazione dell'app e anche in `AndroidManifest.xml` per supportare il reindirizzamento durante il flusso di [concessione del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+Il `redirect_uri` deve essere registrato nella configurazione dell'app e anche in `AndroidManifest.xml` per supportare il reindirizzamento durante il flusso di [concessione del codice di autorizzazione](../../active-directory-b2c/authorization-code-flow.md).
 
 ## <a name="initialize-ipublicclientapplication"></a>Inizializzare IPublicClientApplication
 
@@ -153,7 +153,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Gestire i criteri di modifica della password
 
-Il flusso dell'utente per l'iscrizione o l'accesso all'account locale Visualizza una**password dimenticata?** collegamento. Facendo clic su questo collegamento non viene attivato automaticamente un flusso utente di reimpostazione della password.
+Il flusso dell'utente per l'iscrizione o l'accesso all'account locale Visualizza una**password dimenticata?** la creazione. Facendo clic su questo collegamento non viene attivato automaticamente un flusso utente di reimpostazione della password.
 
 Viene invece restituito il codice di errore `AADB2C90118` all'app. L'app deve gestire questo codice di errore eseguendo un flusso utente specifico che reimposta la password.
 
@@ -227,7 +227,7 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>Attestazioni IdToken
 
-Le attestazioni restituite in IdToken vengono popolate dal servizio token di sicurezza (STS), non da MSAL. A seconda del provider di identità (IdP) usato, alcune attestazioni potrebbero essere assenti. Alcuni IDP attualmente non forniscono l' `preferred_username` attestazione. Poiché questa attestazione viene utilizzata da MSAL per la memorizzazione nella cache, `MISSING FROM THE TOKEN RESPONSE` al suo posto viene utilizzato un valore segnaposto. Per altre informazioni sulle attestazioni IdToken B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Le attestazioni restituite in IdToken vengono popolate dal servizio token di sicurezza (STS), non da MSAL. A seconda del provider di identità (IdP) usato, alcune attestazioni potrebbero essere assenti. Alcuni IDP attualmente non forniscono l' `preferred_username` attestazione. Poiché questa attestazione viene utilizzata da MSAL per la memorizzazione nella cache, `MISSING FROM THE TOKEN RESPONSE` al suo posto viene utilizzato un valore segnaposto. Per altre informazioni sulle attestazioni IdToken B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](../../active-directory-b2c/tokens-overview.md#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Gestione di account e criteri
 
@@ -239,4 +239,4 @@ Quando si rinnovano i token per un criterio con `acquireTokenSilent` , specifica
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle Azure Active Directory B2C (Azure AD B2C) in [che cosa sono Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+Altre informazioni sulle Azure Active Directory B2C (Azure AD B2C) in [che cosa sono Azure Active Directory B2C?](../../active-directory-b2c/overview.md)

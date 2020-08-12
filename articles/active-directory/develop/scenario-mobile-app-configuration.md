@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe084d931ee735f9eaecc58ca5445ae56a951cc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904797"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121052"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurare un'app per dispositivi mobili che chiama API Web
 
@@ -102,9 +102,9 @@ var pca = PublicClientApplicationBuilder
 
 ##### <a name="find-more-app-building-parameters"></a>Trova altri parametri per la compilazione di app
 
-Per un elenco di tutti i metodi disponibili in `PublicClientApplicationBuilder` , vedere l' [elenco dei metodi](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+Per un elenco di tutti i metodi disponibili in `PublicClientApplicationBuilder` , vedere l' [elenco dei metodi](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
 
-Per una descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions` , vedere la [documentazione di riferimento](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
+Per una descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions` , vedere la [documentazione di riferimento](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
 
 ## <a name="tasks-for-xamarin-ios"></a>Attività per Novell iOS
 
@@ -218,7 +218,7 @@ Per impostare la finestra oggetto, attenersi alla seguente procedura:
 
     `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker."`
 
-1. Nella `AcquireTokenInteractive` chiamata usare `.WithParentActivityOrWindow(App.RootViewController)` . Passare il riferimento alla finestra oggetto che verrà utilizzata. Ad esempio:
+1. Nella `AcquireTokenInteractive` chiamata usare `.WithParentActivityOrWindow(App.RootViewController)` . Passare il riferimento alla finestra oggetto che verrà utilizzata. Ecco un esempio:
 
     In `App.cs`:
     ```csharp

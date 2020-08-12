@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 5c598807f36000a18211e32eba53220bfbeea2f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1a8ce0bc94c61a0cfe6cdad11375763ba954957d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108712"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122492"
 ---
 ### <a name="verify-that-a-container-is-running"></a>Verificare che sia in esecuzione un contenitore
 
@@ -31,10 +31,10 @@ Sono disponibili diversi URL che è possibile usare anche per verificare che il 
 
 |Richiesta|Scopo|
 |--|--|
-|`http://localhost:5000/`|Il contenitore fornisce una home page.|
+|`http://localhost:5000/`|Il contenitore fornisce un home page.|
 |`http://localhost:5000/ready`|Richiesto con GET, in questo modo viene verificata la disponibilità del contenitore per l'accettazione di una query sul modello. Questa richiesta può essere usata per i [probe di attività e di idoneità](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) di Kubernetes.|
 |`http://localhost:5000/status`|Richiesto con GET, ad esempio l'endpoint/Ready, in questo modo viene convalidato l'esecuzione del contenitore senza incorrere in una query sul modello. Questa richiesta può essere usata per i [probe di attività e di idoneità](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) di Kubernetes.|
 |`http://localhost:5000/swagger`|Tramite questo URL, il contenitore fornisce un set completo di documentazione per gli endpoint e una `Try it now` funzionalità. Con questa funzionalità, è possibile immettere le impostazioni in un modulo HTML basato sul Web ed eseguire la query senza scrivere codice. Dopo che la query restituisce il risultato, viene fornito un comando CURL di esempio per illustrare il formato richiesto per il corpo e le intestazioni HTTP. |
 |`http://localhost:5000/demo`| Richiesta tramite un browser, questa funzionalità fornisce una visualizzazione interattiva dei risultati delle query degli esempi di testo di input o di uno fornito dall'utente.  |
 
-Usare questo URL della richiesta: `http://localhost:5000/text/analytics/v3.0-preview.1/domains/health` per inviare una query al contenitore.
+Usare questo URL della richiesta: `http://localhost:5000/text/analytics/v3.2-preview.1/entities/health` per inviare una query al contenitore.

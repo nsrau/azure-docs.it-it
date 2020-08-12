@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828932"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117227"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -178,7 +178,7 @@ Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto 
    ![Copiare il valore del segreto perché non sarà possibile recuperarlo in seguito](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configurare i criteri di accesso per le risorse
-Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiuntive per le risorse a cui l'applicazione deve accedere. Ad esempio, è necessario aggiornare anche i [criteri di accesso](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) dell'insieme di credenziali delle chiavi per consentire all'applicazione di accedere a chiavi, segreti o certificati.  
+Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiuntive per le risorse a cui l'applicazione deve accedere. Ad esempio, è necessario aggiornare anche i [criteri di accesso](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) dell'insieme di credenziali delle chiavi per consentire all'applicazione di accedere a chiavi, segreti o certificati.  
 
 1. Nella [portale di Azure](https://portal.azure.com)passare all'insieme di credenziali delle chiavi e selezionare **criteri di accesso**.  
 1. Selezionare **Aggiungi criteri di accesso**, quindi selezionare la chiave, il segreto e le autorizzazioni per i certificati per cui si vuole concedere l'applicazione.  Selezionare l'entità servizio creata in precedenza.

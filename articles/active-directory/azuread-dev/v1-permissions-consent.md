@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154475"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117618"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
 
@@ -33,8 +33,8 @@ Le *autorizzazioni*, note anche come *ambiti*, semplificano l'autorizzazione per
 
 Azure AD definisce due tipi di autorizzazioni:
 
-* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di acconsentire direttamente all'API e [richiederebbe invece a un amministratore di fornire il consenso dell'amministratore](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere [consentite solo dagli amministratori](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati attraverso i limiti utente o ai dati che altrimenti sarebbero limitati agli amministratori. Gli utenti definiti come proprietari dell'applicazione della risorsa (ad esempio, l'API che pubblica le autorizzazioni) possono concedere anche le autorizzazioni dell'applicazione per le API di loro proprietà.
+* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di acconsentire direttamente all'API e [richiederebbe invece a un amministratore di fornire il consenso dell'amministratore](../develop/howto-convert-app-to-be-multi-tenant.md).
+* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere [consentite solo dagli amministratori](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati attraverso i limiti utente o ai dati che altrimenti sarebbero limitati agli amministratori. Gli utenti definiti come proprietari dell'applicazione della risorsa (ad esempio, l'API che pubblica le autorizzazioni) possono concedere anche le autorizzazioni dell'applicazione per le API di loro proprietà.
 
 Le autorizzazioni valide sono le autorizzazioni che l'app avrà quando effettuerà le richieste a un'API. 
 
@@ -75,12 +75,12 @@ Le applicazioni in Azure AD si basano sul consenso per ottenere l'accesso alle A
 * **Consenso dell'utente statico**: si verifica automaticamente durante il [flusso di autorizzazione OAuth 2.0](v1-protocols-oauth-code.md#request-an-authorization-code) quando si specifica la risorsa con cui l'app vuole interagire. Nello scenario di consenso dell'utente statico, l'app deve avere già specificato tutte le autorizzazioni necessarie nella configurazione dell'app nel portale di Azure. Se l'utente (o l'amministratore, a seconda dei casi) non ha fornito il consenso per l'app, Azure AD chiederà all'utente di fornire il consenso in questo momento. 
 
     Leggere altre informazioni sulla registrazione di un'app Azure AD che richiede l'accesso a un set statico di API.
-* **Consenso dell'utente dinamico**: si tratta di una funzionalità del modello di app Azure AD v2. In questo scenario l'app richiede un set di autorizzazioni necessarie nel [flusso di autorizzazione OAuth 2.0 per le app v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Se l'utente non ha già fornito il consenso, verrà chiesto di fornirlo in questo momento. [Altre informazioni sul consenso dinamico](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **Consenso dell'utente dinamico**: si tratta di una funzionalità del modello di app Azure AD v2. In questo scenario l'app richiede un set di autorizzazioni necessarie nel [flusso di autorizzazione OAuth 2.0 per le app v2](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent). Se l'utente non ha già fornito il consenso, verrà chiesto di fornirlo in questo momento. [Altre informazioni sul consenso dinamico](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
     > Il consenso dinamico può risultare comodo, ma presenta un'importante sfida per le autorizzazioni che richiedono il consenso dell'amministratore, perché nell'esperienza di consenso dell'amministratore tali autorizzazioni non sono note al momento del consenso. Se sono necessarie le autorizzazioni con privilegio di amministratore o se l'app usa il consenso dinamico, è necessario registrare tutte le autorizzazioni nel portale di Azure (non solo il sottoinsieme delle autorizzazioni che richiedono il consenso dell'amministratore). Ciò consente agli amministratori del tenant di fornire il consenso per conto di tutti gli utenti.
   
-* **Consenso dell'amministratore**: è necessario quando l'app richiede l'accesso a determinate autorizzazioni con privilegi elevati. Il consenso dell'amministratore garantisce che gli amministratori dispongano di ulteriori controlli prima di autorizzare le app o gli utenti ad accedere a dati dell'organizzazione che richiedono privilegi elevati. [Altre informazioni su come fornire il consenso dell'amministratore](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **Consenso dell'amministratore**: è necessario quando l'app richiede l'accesso a determinate autorizzazioni con privilegi elevati. Il consenso dell'amministratore garantisce che gli amministratori dispongano di ulteriori controlli prima di autorizzare le app o gli utenti ad accedere a dati dell'organizzazione che richiedono privilegi elevati. [Altre informazioni su come fornire il consenso dell'amministratore](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="best-practices"></a>Procedure consigliate
 

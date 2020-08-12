@@ -1,19 +1,14 @@
 ---
 title: Gestione dell'agente di Azure Arc per server (anteprima)
 description: Questo articolo descrive le diverse attività di gestione che si eseguono in genere durante il ciclo di vita dell'agente Azure Connected Machine di Azure Arc per server.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73ece3f1bc8d5e88d4c1c37e1040f2494230e4ee
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b7fcaca2188ef0e1e3c8c65226f8b383576082ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809596"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121290"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente Azure Connected Machine
 

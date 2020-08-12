@@ -3,15 +3,15 @@ title: Creare un pool di host in Desktop virtuale Windows con PowerShell - Azure
 description: Come creare un pool di host in Desktop virtuale Windows con i cmdlet di PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3e4b326b5a78f4b14bdd87e842d8ca485f56831
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002571"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121154"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Creare un pool host di desktop virtuali Windows con PowerShell
 
@@ -116,6 +116,32 @@ Per registrare gli agenti Desktop virtuale Windows, eseguire le operazioni segue
 
 >[!IMPORTANT]
 >Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](../security-center/security-center-just-in-time.md). È anche consigliabile non assegnare le macchine virtuali a un indirizzo IP pubblico.
+
+## <a name="update-the-agent"></a>Aggiornare l'agente
+
+Se ci si trova in una delle situazioni seguenti, è necessario aggiornare l'agente:
+
+- Si desidera eseguire la migrazione di una sessione registrata in precedenza a un nuovo pool di host
+- L'host sessione non viene visualizzato nel pool host dopo un aggiornamento
+
+Per aggiornare l'agente:
+
+1. Accedere alla macchina virtuale come amministratore.
+2. Passare a **Servizi**, quindi arrestare i processi **RDAgent** e **Desktop remoto Loader Agent** .
+3. Individuare quindi l'agente e il bootloader MSI. Si trovano nella cartella **C:\DeployAgent** o in qualsiasi percorso in cui è stato salvato al momento dell'installazione.
+4. Individuare i file seguenti e disinstallarli:
+     
+     - Microsoft. RDInfra. RDAgent. Installer-x64-verx. x. x
+     - Microsoft. RDInfra. RDAgentBootLoader. Installer-x64
+
+   Per disinstallare questi file, fare clic con il pulsante destro del mouse su ogni nome file, quindi scegliere **Disinstalla**.
+5. Facoltativamente, è anche possibile rimuovere le impostazioni del registro di sistema seguenti:
+     
+     - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
+     - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
+
+6. Una volta disinstallati questi elementi, è necessario rimuovere tutte le associazioni con il vecchio pool host. Se si desidera registrare nuovamente l'host nel servizio, seguire le istruzioni in [registrare le macchine virtuali nel pool host del desktop virtuale di Windows](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

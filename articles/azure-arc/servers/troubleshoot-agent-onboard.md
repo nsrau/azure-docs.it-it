@@ -1,19 +1,14 @@
 ---
 title: Risolvere i problemi di connessione dell'agente di Azure Arc per i server
 description: Questo articolo illustra come risolvere i problemi relativi all'agente del computer connesso che si verifica con Azure Arc per i server (anteprima) quando si tenta di connettersi al servizio.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a6f51f1c6901eaa18c1de9c1fc788ed583b7394
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809443"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118009"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Risolvere i problemi di connessione dell'agente computer connesso
 
@@ -23,7 +18,7 @@ Questo articolo fornisce informazioni sulla risoluzione dei problemi e sulla ris
 
 Prima di seguire i passaggi di risoluzione dei problemi descritti più avanti in questo articolo, le informazioni minime necessarie sono il log dettagliato. Contiene l'output dei comandi dello strumento **azcmagent** , quando si usa l'argomento Verbose (-v). I file di log vengono scritti in `%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log` per Windows e Linux in `/var/opt/azcmagent/log/azcmagent.log` .
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 Di seguito è riportato un esempio del comando per abilitare la registrazione dettagliata con l'agente computer connesso per Windows durante l'esecuzione di un'installazione interattiva.
 
@@ -72,7 +67,7 @@ azcmagent connect \
 
 Nella tabella seguente sono elencati alcuni degli errori noti e i suggerimenti su come risolverli e risolverli.
 
-|Message |Errore |Possibile causa |Soluzione |
+|Messaggio |Errore |Possibile causa |Soluzione |
 |--------|------|---------------|---------|
 |Non è stato possibile acquisire il flusso del dispositivo token di autorizzazione |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Impossibile raggiungere l' `login.windows.net` endpoint | Verificare la connettività all'endpoint. |
 |Non è stato possibile acquisire il flusso del dispositivo token di autorizzazione |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Il proxy o il firewall blocca l'accesso all' `login.windows.net` endpoint. | Verificare la connettività all'endpoint e non è bloccata da un firewall o un server proxy. |

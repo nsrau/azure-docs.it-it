@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7654de8bf26c3eaa3c93c8efcf99577fe88e6f24
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 85c4488c4e8e1e2f9591b7d734c522c34ea4ba2d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540343"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116324"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 
@@ -47,7 +47,7 @@ Per altre informazioni sulla multi-tenancy, vedere [Come consentire l'accesso a 
 
 Un'*applicazione a singolo tenant* è un'appliczione che accetta solo l'accesso degli utenti di un'istanza di Azure AD. Gli utenti esterni, inclusi gli account aziendali o degli istituti di istruzione di altre organizzazioni o gli account personali, possono accedere a un'applicazione a tenant singolo dopo l'aggiunta di ogni utente come account guest all'istanza di AD a cui l'applicazione è registrata. 
 
-È possibile aggiungere utenti come account guest in Azure AD tramite la [collaborazione B2B di Azure AD](../b2b/what-is-b2b.md) e l'operazione può essere eseguita [a livello di codice](../../active-directory-b2c/code-samples.md). Quando si usano B2B, gli utenti possono creare un portale self-service che non richiede un invito per accedere. Per altre informazioni, consulta [Portale self-service per l'iscrizione a Collaborazione B2B di Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+È possibile aggiungere utenti come account guest in Azure AD tramite la [collaborazione B2B di Azure AD](../external-identities/what-is-b2b.md) e l'operazione può essere eseguita [a livello di codice](../../active-directory-b2c/code-samples.md). Quando si usano B2B, gli utenti possono creare un portale self-service che non richiede un invito per accedere. Per altre informazioni, consulta [Portale self-service per l'iscrizione a Collaborazione B2B di Azure AD](../external-identities/self-service-portal.md).
 
 Le applicazioni a tenant singolo possono consentire l'esperienza *Desidero essere contattato*, ma per abilitare l'esperienza di valutazione gratuita/singolo clic consigliata da AppSource è necessario abilitare la multi-tenancy per l'applicazione.
 
@@ -108,7 +108,7 @@ Per altre informazioni sull'esperienza di valutazione di AppSource, vedere [ques
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla creazione di applicazioni che supportano gli accessi di Azure AD, vedere [Scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/v1-authentication-scenarios).
+- Per altre informazioni sulla creazione di applicazioni che supportano gli accessi di Azure AD, vedere [Scenari di autenticazione per Azure AD](./v1-authentication-scenarios.md).
 - Per informazioni su come inserire un'app SaaS in AppSource, vedere le [informazioni per i partner di AppSource](https://appsource.microsoft.com/partners)
 
 ## <a name="get-support"></a>Ottenere supporto

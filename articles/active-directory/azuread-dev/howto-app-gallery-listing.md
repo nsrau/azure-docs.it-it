@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383870"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116343"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -99,7 +99,7 @@ Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto 
     * Per aggiungere l'applicazione all'elenco nella raccolta usando OpenID Connect, selezionare **OpenID connect & OAuth 2,0** come illustrato.
     * In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **Saml 2,0** o **WS-Fed**: se l'app supporta SAML 2,0, è possibile integrarla direttamente con un tenant di Azure ad seguendo le [istruzioni per l'aggiunta di un'applicazione personalizzata](../active-directory-saas-custom-apps.md).
+- **Saml 2,0** o **WS-Fed**: se l'app supporta SAML 2,0, è possibile integrarla direttamente con un tenant di Azure ad seguendo le [istruzioni per l'aggiunta di un'applicazione personalizzata](../manage-apps/view-applications-portal.md).
 
   ![Elenco di un'applicazione SAML 2,0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
 

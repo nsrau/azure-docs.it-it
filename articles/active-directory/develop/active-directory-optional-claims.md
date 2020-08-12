@@ -12,12 +12,12 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552867"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115731"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -31,7 +31,7 @@ Le attestazioni facoltative possono essere usate per:
 
 Per gli elenchi di attestazioni standard, vedere la documentazione relativa alle attestazioni [token di accesso](access-tokens.md) e [id_token](id-tokens.md).
 
-Mentre le attestazioni facoltative sono supportate sia nei token di formato v1.0 e v2.0, oltre che nei token SAML, l'utilizzo risulta particolarmente vantaggioso passando dalla versione 1.0 alla versione 2.0. Uno degli obiettivi dell'[endpoint Microsoft Identity Platform v2.0](active-directory-appmodel-v2-overview.md) è quello di ottenere token di dimensioni minori in modo da garantire prestazioni ottimali da parte dei client. Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.
+Mentre le attestazioni facoltative sono supportate sia nei token di formato v1.0 e v2.0, oltre che nei token SAML, l'utilizzo risulta particolarmente vantaggioso passando dalla versione 1.0 alla versione 2.0. Uno degli obiettivi dell'[endpoint Microsoft Identity Platform v2.0](./v2-overview.md) è quello di ottenere token di dimensioni minori in modo da garantire prestazioni ottimali da parte dei client. Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.
 
 **Tabella 1: applicabilità**
 
@@ -61,10 +61,10 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `fwd`                      | Indirizzo IP.| Token JSON Web    |   | Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale). |
 | `ctry`                     | Paese/Area geografica dell'utente | Token JSON Web |  | Azure AD restituisce l'attestazione facoltativa `ctry` se presente e il valore dell'attestazione è un codice paese/area geografica a due lettere standard, ad esempio FR, JP, SZ e così via. |
 | `tenant_ctry`              | Paese/Area geografica del tenant della risorsa | Token JSON Web | | |
-| `xms_pdl`             | Posizione dei dati preferita   | Token JSON Web | | Per i tenant multi-geografici, la posizione dei dati preferita è il codice a tre lettere che mostra l'area geografica in cui si trova l'utente. Per altre informazioni, vedere la [documentazione di Azure AD Connect sulla posizione dei dati preferita](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Ad esempio: `APC` per Asia Pacifico. |
+| `xms_pdl`             | Posizione dei dati preferita   | Token JSON Web | | Per i tenant multi-geografici, la posizione dei dati preferita è il codice a tre lettere che mostra l'area geografica in cui si trova l'utente. Per altre informazioni, vedere la [documentazione di Azure AD Connect sulla posizione dei dati preferita](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Ad esempio: `APC` per Asia Pacifico. |
 | `xms_pl`                   | Lingua preferita dell'utente  | Token JSON Web ||Lingua preferita dell'utente, se impostata. Originato dal proprio tenant principale, negli scenari di accesso guest. Nel formato LL-PP ("it-it"). |
 | `xms_tpl`                  | Lingua preferita del tenant| Token JSON Web | | Lingua preferita del tenant delle risorse, se impostata. Nel formato LL ("it"). |
-| `ztdid`                    | ID distribuzione completamente automatico | Token JSON Web | | L'identità del dispositivo usata per [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `ztdid`                    | ID distribuzione completamente automatico | Token JSON Web | | L'identità del dispositivo usata per [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Indirizzo di posta elettronica di riferimento, se l'utente ne ha uno.  | JWT, SAML | Account del servizio gestito, Azure AD | Questo valore è incluso per impostazione predefinita se l'utente è un ospite nel tenant.  Per gli utenti gestiti (gli utenti all'interno del tenant) deve essere richiesto tramite questa attestazione facoltativa oppure, solo per la versione 2.0, con l'ambito OpenID.  Per gli utenti gestiti, l'indirizzo di posta elettronica deve essere impostato nel [portale di amministrazione di Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Stato dell'account utente nel tenant | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`. Se si tratta di un utente guest, il valore è `1`. |
 | `groups`| Formattazione facoltativa per le attestazioni di gruppo |JWT, SAML| |Usato in combinazione con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che deve anch'esso essere impostato. Per informazioni dettagliate, vedere [Attestazioni di gruppo](#configuring-groups-optional-claims). Per altre informazioni sulle attestazioni di gruppo, vedere [Come configurare le attestazioni di gruppo](../hybrid/how-to-connect-fed-group-claims.md)
@@ -191,7 +191,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 ### <a name="optionalclaim-type"></a>Tipo OptionalClaim
 
-Contiene un'attestazione facoltativa associata a un'applicazione o a un'entità servizio. Le proprietà idToken, accessToken e saml2Token del tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) sono una raccolta di OptionalClaim.
+Contiene un'attestazione facoltativa associata a un'applicazione o a un'entità servizio. Le proprietà idToken, accessToken e saml2Token del tipo [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) sono una raccolta di OptionalClaim.
 Se supportato da un'attestazione specifica, è inoltre possibile modificare il comportamento di OptionalClaim usando il campo AdditionalProperties.
 
 **Tabella 6: proprietà del tipo OptionalClaim**
@@ -205,7 +205,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurazione delle attestazioni facoltative dell'estensione della directory
 
-Oltre al set di attestazioni facoltative standard, è anche possibile configurare i token per includere le estensioni. Per altre informazioni, vedere la [documentazione di extensionProperty di Microsoft Graph](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0).
+Oltre al set di attestazioni facoltative standard, è anche possibile configurare i token per includere le estensioni. Per altre informazioni, vedere la [documentazione di extensionProperty di Microsoft Graph](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
 
 Le estensioni aperte e dello schema non sono supportate dalle attestazioni facoltative, ma solo dalle estensioni della directory di tipo AAD-Graph. Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. Per un esempio, vedere la parte inferiore di questa pagina.
 
@@ -362,8 +362,8 @@ In questa sezione è riportato uno scenario che mostra come usare la funzionalit
 Sono disponibili più opzioni per l'aggiornamento delle proprietà in una configurazione di identità dell'applicazione per abilitare e configurare le attestazioni facoltative:
 
 - È possibile usare l'interfaccia utente di **Configurazione del token** (vedere l'esempio sotto)
-- È possibile usare il **Manifesto** (vedere l'esempio sotto). Leggere prima il documento [Informazioni sul manifesto dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) per un'introduzione al manifesto.
-- È anche possibile scrivere un'applicazione che usa l'[API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) per aggiornare l'applicazione. Il tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) nella guida di riferimento sull'API Microsoft Graph consente di configurare le attestazioni facoltative.
+- È possibile usare il **Manifesto** (vedere l'esempio sotto). Leggere prima il documento [Informazioni sul manifesto dell'applicazione di Azure AD](./reference-app-manifest.md) per un'introduzione al manifesto.
+- È anche possibile scrivere un'applicazione che usa l'[API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0) per aggiornare l'applicazione. Il tipo [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) nella guida di riferimento sull'API Microsoft Graph consente di configurare le attestazioni facoltative.
 
 **Esempio:**
 
@@ -404,7 +404,7 @@ Nell'esempio seguente si userà l'interfaccia utente di **Configurazione del tok
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. Trovare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco e selezionarla.
 1. Nella sezione **Gestisci** selezionare **Manifesto** per aprire l'editor manifesto incorporato.
-1. È possibile modificare direttamente il manifesto usando l'editor. Il manifesto segue lo schema per l'[entità applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) e viene automaticamente formattato dopo essere stato salvato. Alla proprietà `OptionalClaims` verranno aggiunti nuovi elementi.
+1. È possibile modificare direttamente il manifesto usando l'editor. Il manifesto segue lo schema per l'[entità applicazione](./reference-app-manifest.md) e viene automaticamente formattato dopo essere stato salvato. Alla proprietà `OptionalClaims` verranno aggiunti nuovi elementi.
 
     ```json
     "optionalClaims": {

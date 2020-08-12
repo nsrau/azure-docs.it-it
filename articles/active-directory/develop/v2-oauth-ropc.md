@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bfc6b6fa6a2af8750c868aaacb289d39306ce06e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770977"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118621"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft Identity Platform e credenziali di tipo password del proprietario della risorsa OAuth 2.0
 
@@ -33,7 +33,7 @@ Microsoft Identity Platform supporta la [concessione di credenziali di tipo pass
 > * Gli account personali che sono invitati in un tenant di Azure AD non possono usare ROPC.
 > * Gli account che non dispongono di password non possono accedere tramite ROPC. Per questo scenario, è consigliabile utilizzare un flusso diverso per l'app.
 > * Se gli utenti devono usare [Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) per accedere all'applicazione, saranno invece bloccati.
-> * ROPC non è supportato negli scenari di [federazione delle identità ibride](/azure/active-directory/hybrid/whatis-fed) (ad esempio, Azure AD e il file system distribuito di Azure usati per autenticare gli account locali). Se gli utenti vengono reindirizzati con l'intera pagina a un provider di identità locale, Azure AD non riesce a verificare il nome utente e la password con tale provider di identità. L'[autenticazione pass-through](/azure/active-directory/hybrid/how-to-connect-pta) è tuttavia supportata con ROPC.
+> * ROPC non è supportato negli scenari di [federazione delle identità ibride](../hybrid/whatis-fed.md) (ad esempio, Azure AD e il file system distribuito di Azure usati per autenticare gli account locali). Se gli utenti vengono reindirizzati con l'intera pagina a un provider di identità locale, Azure AD non riesce a verificare il nome utente e la password con tale provider di identità. L'[autenticazione pass-through](../hybrid/how-to-connect-pta.md) è tuttavia supportata con ROPC.
 
 ## <a name="protocol-diagram"></a>Diagramma di protocollo
 
@@ -113,4 +113,4 @@ Se l'utente non ha fornito il nome utente o la password corretti, o il client no
 ## <a name="learn-more"></a>Altre informazioni
 
 * È possibile provare ROPC grazie all'[applicazione console di esempio](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Per determinare se è necessario usare l'endpoint 2.0, vedere le [limitazioni di Microsoft Identity Platform](active-directory-v2-limitations.md).
+* Per determinare se è necessario usare l'endpoint 2.0, vedere le [limitazioni di Microsoft Identity Platform](../azuread-dev/azure-ad-endpoint-comparison.md).

@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 9b76dac0734985b01a4a73ad4fc7f2a5f35838db
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 71cbf03a36dd95eb66c3dcbaffbf4b63d889f507
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986900"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121579"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedura: usare Analisi del testo per l'integrità (anteprima)
+
+> [!NOTE]
+> Il contenitore Analisi del testo per l'integrità è stato aggiornato di recente. Per ulteriori informazioni sulle modifiche recenti [, vedere Novità](../whats-new.md) . Ricordarsi di eseguire il pull del contenitore più recente per usare gli aggiornamenti elencati.
 
 > [!IMPORTANT] 
 > Analisi del testo per l'integrità è una funzionalità di anteprima fornita "così com'è" e "con tutti gli errori". Di conseguenza, **analisi del testo per Health (Preview) non devono essere implementate o distribuite in alcun uso in produzione.** Analisi del testo per l'integrità non è intenzionale o reso disponibile per l'utilizzo come dispositivo medico, supporto clinico, strumento di diagnostica o altra tecnologia da utilizzare per la diagnosi, la cura, la mitigazione, il trattamento o la prevenzione di patologie o altre condizioni, né la concessione di alcuna licenza o diritto da parte di Microsoft di utilizzare questa funzionalità per tali scopi. Questa funzionalità non è progettata o progettata per essere implementata o distribuita come sostituto di consigli medici professionali o di opinione sanitaria, diagnosi, trattamento o giudizio clinico di un professionista sanitario e non deve essere usato come tali. Il cliente è esclusivamente responsabile dell'utilizzo di Analisi del testo per l'integrità. Microsoft non garantisce che Analisi del testo per l'integrità o i materiali forniti in relazione alla funzionalità saranno sufficienti per qualsiasi scopo medico o per soddisfare i requisiti sanitari o medici di qualsiasi persona. 
@@ -229,7 +232,7 @@ Il contenitore fornisce le API dell'endpoint di stima della query basata su REST
 Usare la richiesta cURL di esempio riportata di seguito per inviare una query al contenitore distribuito sostituendo la `serverURL` variabile con il valore appropriato.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -269,8 +272,8 @@ Il codice JSON seguente è un esempio di Analisi del testo per il corpo della ri
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.97,
+                    "category": "SymptomOrSign",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -283,8 +286,8 @@ Il codice JSON seguente è un esempio di Analisi del testo per il corpo della ri
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
-                    "score": 1.0,
+                    "category": "Dosage",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -292,8 +295,8 @@ Il codice JSON seguente è un esempio di Analisi del testo per il corpo della ri
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
-                    "score": 0.99,
+                    "category": "MedicationName",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -339,50 +342,35 @@ Il codice JSON seguente è un esempio di Analisi del testo per il corpo della ri
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
-                    "score": 1.0,
+                    "category": "Frequency",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> Con il rilevamento della negazione, in alcuni casi un singolo termine di negazione può indirizzare più termini in una sola volta. La negazione di un'entità riconosciuta viene rappresentata nell'output JSON dal valore booleano del `isNegated` flag:
+### <a name="negation-detection-output"></a>Output rilevamento negazione
+
+Quando si usa il rilevamento delle negazioni, in alcuni casi un singolo termine di negazione può indirizzare più termini in una sola volta. La negazione di un'entità riconosciuta viene rappresentata nell'output JSON dal valore booleano del `isNegated` flag:
 
 ```json
 {
@@ -390,7 +378,7 @@ Il codice JSON seguente è un esempio di Analisi del testo per il corpo della ri
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -403,6 +391,33 @@ Il codice JSON seguente è un esempio di Analisi del testo per il corpo della ri
       "id": "0000023593"
     },
     ...
+```
+
+### <a name="relation-extraction-output"></a>Output estrazione relazione
+
+L'output dell'estrazione della relazione contiene riferimenti URI all' *origine* della relazione e alla relativa *destinazione*. Le entità con ruolo relazione di `ENTITY` vengono assegnate al `target` campo. Le entità con ruolo relazione di `ATTRIBUTE` vengono assegnate al `source` campo. Le relazioni di abbreviazione contengono bidirezionali `source` e `target` campi e `bidirectional` verranno impostate su `true` . 
+
+```json
+"relations": [
+  {
+      "relationType": "DosageOfMedication",
+      "score": 1.0,
+      "bidirectional": false,
+      "source": "#/documents/2/entities/0",
+      "target": "#/documents/2/entities/1",
+      "entities": [
+          {
+              "id": "0",
+              "role": "ATTRIBUTE"
+          },
+          {
+              "id": "1",
+              "role": "ENTITY"
+          }
+      ]
+  },
+...
+]
 ```
 
 ## <a name="see-also"></a>Vedere anche

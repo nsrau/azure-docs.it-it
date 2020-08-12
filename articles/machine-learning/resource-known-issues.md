@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/06/2020
-ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905497"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120763"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -169,7 +169,7 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
   * Chrome (versione più recente)
   * Firefox (versione più recente)
 
-## <a name="set-up-your-environment"></a>Configura il tuo ambiente
+## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
 * **Problemi di creazione di AmlCompute**: esiste una rara possibilità che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dal portale di Azure prima della versione GA potrebbero non essere in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
 
@@ -302,6 +302,47 @@ time.sleep(600)
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
+* **automl_setup ha esito negativo**: 
+    * In Windows eseguire automl_setup da un prompt Anaconda. Per installare Miniconda, fare clic [qui](https://docs.conda.io/en/latest/miniconda.html).
+    * Verificare che sia installato conda 64 bit, anziché 32 bit eseguendo il `conda info` comando. `platform`Deve essere `win-64` per Windows o `osx-64` per Mac.
+    * Verificare che sia installato conda 4.4.10 o versione successiva. È possibile controllare la versione con il comando `conda -V` . Se è installata una versione precedente, è possibile aggiornarla usando il comando: `conda update conda` .
+    * Linux`gcc: error trying to exec 'cc1plus'`
+      *  Se `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` viene rilevato l'errore, installare build Essentials usando il comando ther `sudo apt-get install build-essential` .
+      * Passare un nuovo nome come primo parametro per automl_setup per creare un nuovo ambiente conda. Visualizzare gli ambienti conda esistenti usando `conda env list` e rimuoverli con `conda env remove -n <environmentname>` .
+      
+* **automl_setup_linux. sh ha esito negativo**: se automl_setup_linus. sh non riesce in Ubuntu Linux con l'errore:`unable to execute 'gcc': No such file or directory`-
+  1. Verificare che siano abilitate le porte in uscita 53 e 80. In una macchina virtuale di Azure è possibile eseguire questa operazione dal portale di Azure selezionando la macchina virtuale e facendo clic su rete.
+  2. Eseguire il comando `sudo apt-get update`
+  3. Eseguire il comando `sudo apt-get install build-essential --fix-missing`
+  4. Esegui di `automl_setup_linux.sh` nuovo
+
+* **Configuration. ipynb ha esito negativo**:
+  * Per conda locale, assicurarsi prima di tutto che automl_setup sia in esecuzione susccessfully.
+  * Verificare che il subscription_id sia corretto. Trovare i subscription_id nel portale di Azure selezionando tutti i servizi e quindi sottoscrizioni. I caratteri "<" e ">" non devono essere inclusi nel valore di subscription_id. Ad esempio, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` ha il formato valido.
+  * Assicurarsi che collaboratore o proprietario acceda alla sottoscrizione.
+  * Verificare che l'area sia una delle aree supportate: `eastus2` , `eastus` , `westcentralus` , `southeastasia` , `westeurope` , `australiaeast` , `westus2` , `southcentralus` .
+  * Assicurarsi di accedere all'area usando il portale di Azure.
+  
+* **importazione AutoMLConfig non riuscita**: sono state apportate modifiche al pacchetto nella versione automatizzata di Machine Learning 1.0.76, che richiedono la disinstallazione della versione precedente prima dell'aggiornamento alla nuova versione. Se si verifica l' `ImportError: cannot import name AutoMLConfig` errore dopo l'aggiornamento da una versione di SDK precedente a v 1.0.76 a v 1.0.76 o versioni successive, risolvere l'errore eseguendo: `pip uninstall azureml-train automl` e quindi `pip install azureml-train-auotml` . Questa operazione viene eseguita automaticamente dallo script automl_setup. cmd. 
+
+* **area di lavoro. from_config ha esito negativo**: se chiama WS = workspace. from_config ()' ha esito negativo-
+  1. Verificare che il notebook Configuration. ipynb sia stato eseguito correttamente.
+  2. Se il notebook è in esecuzione da una cartella che non si trova sotto la cartella in cui è `configuration.ipynb` stato eseguito, copiare la cartella aml_config e il file config.jsin cui è contenuto nella nuova cartella. Area di lavoro. from_config legge il config.jsper la cartella del notebook o la relativa cartella padre.
+  3. Se è in uso una nuova sottoscrizione, un gruppo di risorse, un'area di lavoro o un'area, assicurarsi di eseguire di `configuration.ipynb` nuovo il notebook. La modifica di config.jsdirettamente funzionerà solo se l'area di lavoro esiste già nel gruppo di risorse specificato nella sottoscrizione specificata.
+  4. Per modificare l'area, modificare l'area di lavoro, il gruppo di risorse o la sottoscrizione. `Workspace.create`non creerà o aggiornerà un'area di lavoro, se esiste già, anche se l'area specificata è diversa.
+  
+* Errore del **notebook di esempio**: se un notebook di esempio ha esito negativo e si verifica un errore, il metodo o la libreria non esiste:
+  * Verificare che il kernel correctcorrect sia stato selezionato in jupyter notebook. Il kernel viene visualizzato nella parte superiore destra della pagina del notebook. Il valore predefinito è azure_automl. Si noti che il kernel viene salvato come parte del notebook. Se quindi si passa a un nuovo ambiente conda, sarà necessario selezionare il nuovo kernel nel notebook.
+      * Ad Azure Notebooks, deve essere Python 3,6. 
+      * Per gli ambienti conda locali, deve corrispondere al nome conda envioronment specificato in automl_setup.
+  * Verificare che il notebook sia per la versione dell'SDK in uso. È possibile controllare la versione dell'SDK eseguendo `azureml.core.VERSION` in una cella del notebook di jupyter. È possibile scaricare la versione precedente dei notebook di esempio da GitHub facendo clic sul `Branch` pulsante, selezionando la `Tags` scheda e quindi selezionando la versione.
+
+* L' **importazione numpy non riesce in Windows**: alcuni ambienti Windows visualizzano un errore durante il caricamento di numpy con la versione più recente di Python 3.6.8 tramite. Se viene visualizzato questo problema, provare con Python versione 3.6.7.
+
+* **Importazione numpy non riuscita**: controllare la versione di tensorflow nell'ambiente automatico ML conda. Le versioni supportate sono < 1,13. Disinstallare tensorflow dall'ambiente se la versione è >= 1,13 è possibile verificare la versione di tensorflow e disinstallarla come segue:
+  1. Avviare una shell dei comandi, attivare l'ambiente conda in cui sono installati i pacchetti di Machine Learning automatici.
+  2. Immettere `pip freeze` e cercare `tensorflow` , se presente, la versione elencata deve essere < 1,13
+  3. Se la versione elencata non è supportata, `pip uninstall tensorflow` nella shell dei comandi e immettere y per la conferma.
 
 ## <a name="deploy--serve-models"></a>Distribuire e gestire modelli
 

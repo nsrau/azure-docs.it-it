@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868675"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119607"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consenso dell'amministratore sulla piattaforma di identità Microsoft
 
@@ -45,13 +45,13 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| Parametro     | Condizione     | Description                                                                               |
+| Parametro     | Condizione     | Descrizione                                                                               |
 |--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
-| `tenant` | Necessario | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `organizations` come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
+| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `organizations` come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
 | `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Implementazione consigliata | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope`        | Necessario      | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di un ambito statico (con/.default) o di ambiti dinamici.  Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). |
+|`scope`        | Richiesto      | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di un ambito statico (con/.default) o di ambiti dinamici.  Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). |
 
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte le autorizzazioni richieste nel `scope` parametro.  Se è stato usato un valore statico ( `/.default` ), funzionerà come l'endpoint di consenso dell'amministratore della versione 1.0 e richiederà il consenso per tutti gli ambiti presenti nelle autorizzazioni necessarie per l'app.
@@ -88,5 +88,5 @@ Aggiunta ai parametri visualizzati in una risposta con esito positivo, i paramet
 ## <a name="next-steps"></a>Passaggi successivi
 - Vedere [come convertire un'app multi-tenant](howto-convert-app-to-be-multi-tenant.md)
 - Informazioni [su come il consenso è supportato a livello di protocollo OAuth 2,0 durante il flusso di concessione del codice di autorizzazione](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
-- Informazioni su [come un'applicazione multi-tenant può utilizzare il Framework di consenso](active-directory-devhowto-multi-tenant-overview.md) per implementare il consenso "utente" e "amministratore", supportando modelli di applicazione multilivello più avanzati.
+- Informazioni su [come un'applicazione multi-tenant può utilizzare il Framework di consenso](./howto-convert-app-to-be-multi-tenant.md) per implementare il consenso "utente" e "amministratore", supportando modelli di applicazione multilivello più avanzati.
 - Informazioni sulle [esperienze di consenso dell'applicazione Azure ad](application-consent-experience.md)

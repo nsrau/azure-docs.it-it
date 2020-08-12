@@ -3,15 +3,15 @@ title: Problemi di diagnostica di Desktop virtuale Windows - Azure
 description: Come utilizzare la funzionalità di diagnostica di Desktop virtuale Windows per diagnosticare i problemi.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a985ce4f93b04e4065b5189b2a406b54729720c3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005096"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121409"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificare e diagnosticare i problemi relativi al desktop virtuale Windows
 
@@ -60,6 +60,14 @@ La tabella seguente elenca gli errori comuni che possono essere riscontrati dagl
 |8|ConnectionBroken|La connessione tra il client e il gateway o il server si è interrotta. Non è necessaria alcuna azione a meno che l'interruzione sia avvenuta in modo imprevisto.|
 |14|UnexpectedNetworkDisconnect|La connessione alla rete si è interrotta. Chiedere all'utente di connettersi di nuovo.|
 |24|ReverseConnectFailed|La macchina virtuale host non comunica direttamente con Gateway Desktop remoto. Verificare che l'indirizzo IP del gateway possa essere risolto.|
+
+## <a name="error-cant-add-user-assignments-to-an-app-group"></a>Errore: non è possibile aggiungere assegnazioni utente a un gruppo di app
+
+Dopo l'assegnazione di un utente a un gruppo di app, nella portale di Azure viene visualizzato un avviso con il messaggio "terminazione sessione" o "problemi di autenticazione-Microsoft_Azure_WVD estensione". La pagina di assegnazione non viene caricata e, successivamente, le pagine interrompono il caricamento nel portale di Azure (ad esempio, monitoraggio di Azure, Log Analytics, integrità del servizio e così via).
+
+**Motivo:** Si è verificato un problema con i criteri di accesso condizionale. Il portale di Azure sta tentando di ottenere un token per Microsoft Graph, che dipende da SharePoint Online. Il cliente dispone di un criterio di accesso condizionale denominato "Microsoft Office 365 condizioni di archiviazione dati per l'utilizzo" che richiede agli utenti di accettare le condizioni per l'utilizzo per accedere all'archiviazione dei dati. Tuttavia, non hanno ancora eseguito l'accesso, quindi il portale di Azure non è in grado di ottenere il token.
+
+**Correzione:** Prima di accedere al portale di Azure, l'amministratore deve prima accedere a SharePoint e accettare le condizioni per l'utilizzo. Successivamente, dovrebbero essere in grado di accedere al portale di Azure come di consueto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

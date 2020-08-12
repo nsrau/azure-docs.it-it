@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 20a158aac6a03dfe0bd8929de9fa66ea215aa29c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 9d703eab97b087ed6b3e4d9c3519a7e3ee7489cd
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194125"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117414"
 ---
 # <a name="national-clouds"></a>Cloud nazionali
 
@@ -78,7 +78,7 @@ Per informazioni su come creare un'applicazione usando Microsoft Identity Platfo
 
 Altre informazioni su:
 
-- [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/)
-- [Azure Cina (21Vianet)](https://docs.microsoft.com/azure/china/)
-- [Azure Germania](https://docs.microsoft.com/azure/germany/)
-- [Nozioni di base sull'autenticazione di Azure AD](authentication-scenarios.md)
+- [Azure per enti pubblici](../../azure-government/index.yml)
+- [Azure Cina (21Vianet)](/azure/china/)
+- [Azure Germania](../../germany/index.yml)
+- [Nozioni di base sull'autenticazione di Azure AD](./authentication-vs-authorization.md)

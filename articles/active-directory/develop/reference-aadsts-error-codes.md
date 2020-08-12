@@ -12,19 +12,19 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026765"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115102"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure AD
 
 Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servizio token di sicurezza di Azure Active Directory (Azure AD), consultare questo documento per trovare le descrizioni degli errori AADSTS, le correzioni e alcune soluzioni alternative consigliate.
 
 > [!NOTE]
-> Queste informazioni sono preliminari e soggette a modifiche. In caso di domande o se non è possibile trovare le informazioni necessarie, creare un problema in GitHub oppure fare riferimento alle [opzioni di supporto e assistenza per sviluppatori](active-directory-develop-help-support.md) per informazioni su come ottenere supporto.
+> Queste informazioni sono preliminari e soggette a modifiche. In caso di domande o se non è possibile trovare le informazioni necessarie, creare un problema in GitHub oppure fare riferimento alle [opzioni di supporto e assistenza per sviluppatori](./developer-support-help-options.md) per informazioni su come ottenere supporto.
 >
 > Questa documentazione è fornita per istruzioni per sviluppatori e amministratori, ma non deve mai essere usata dal client stesso. I codici di errore sono soggetti a modifiche in qualsiasi momento per fornire messaggi di errore più granulari destinati a aiutare lo sviluppatore durante la compilazione dell'applicazione. Le app che accettano una dipendenza da numeri di codice di errore o di testo verranno interrotte nel tempo.
 
@@ -48,7 +48,7 @@ Ecco una risposta di errore di esempio:
 }
 ```
 
-| Parametro         | Description    |
+| Parametro         | Descrizione    |
 |-------------------|----------------|
 | `error`       | Stringa di codice di errore che può essere utilizzata per classificare i tipi di errori che si verificano e che devono essere utilizzati per rispondere agli errori. |
 | `error_description` | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. Non usare mai questo campo per rispondere a un errore nel codice. |
@@ -95,7 +95,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50000 | TokenIssuanceError: si è verificato un problema relativo al servizio di accesso. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) per risolvere il problema. |
 | AADSTS50001 | InvalidResource: la risorsa è disabilitata o non esiste. Controllare il codice dell'app per verificare di avere specificato l'URL della risorsa esatta cui si sta tentando di accedere.  |
 | AADSTS50002 | NotAllowedTenant: accesso non riuscito a causa di limitazioni di accesso al proxy nel tenant. Se questo errore è dovuto ai propri criteri per il tenant, è possibile modificare le impostazioni di limitazione per il tenant per correggerlo. |
-| AADSTS50003 | MissingSigningKey: accesso non riuscito a causa di una chiave o un certificato di firma mancante. Questo errore può essere dovuto al fatto che non è stata configurata alcuna chiave di firma nell'app. Vedere le soluzioni descritte in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . Se il problema persiste, contattare il proprietario o l'amministratore dell'app. |
+| AADSTS50003 | MissingSigningKey: accesso non riuscito a causa di una chiave o un certificato di firma mancante. Questo errore può essere dovuto al fatto che non è stata configurata alcuna chiave di firma nell'app. Vedere le soluzioni descritte in [. /Manage-apps/application-Sign-in-problem-Federated-SSO-Gallery.MD # certificate-or-Key-non configurata](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Se il problema persiste, contattare il proprietario o l'amministratore dell'app. |
 | AADSTS50005 | DevicePolicyError-l'utente ha tentato di accedere a un dispositivo da una piattaforma che attualmente non è supportata tramite i criteri di accesso condizionale. |
 | AADSTS50006 | InvalidSignature: la verifica della firma non è riuscita a causa di una firma non valida. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing: non è stato trovato il certificato di crittografia del partner per l'app. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) presso Microsoft per richiedere la risoluzione del problema. |
@@ -139,7 +139,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50089 | Il token di flusso è scaduto. L'autenticazione non è riuscita. Chiedere all'utente di provare a eseguire di nuovo l'accesso con nome utente e password. |
 | AADSTS50097 | DeviceAuthenticationRequired: l'autenticazione del dispositivo è obbligatoria. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized: la firma del token JWT non è valida. |
-| AADSTS50105 | EntitlementGrantsNotFound: all'utente che ha eseguito l'accesso non è assegnato alcun ruolo per l'app connessa. Assegnare l'utente all'app. Per ulteriori informazioni: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role) . |
+| AADSTS50105 | EntitlementGrantsNotFound: all'utente che ha eseguito l'accesso non è assegnato alcun ruolo per l'app connessa. Assegnare l'utente all'app. Per ulteriori informazioni:[.. /Manage-apps/application-Sign-in-problem-Federated-SSO-Gallery.MD # utente-non assegnato-a-Role](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#user-not-assigned-a-role). |
 | AADSTS50107 | InvalidRealmUri: l'oggetto dell'area di autenticazione della federazione richiesto non esiste. Contattare l'amministratore del tenant. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat: problema relativo all'intestazione JWT. Contattare l'amministratore del tenant. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter: la trasformazione delle attestazioni contiene un parametro di input non valido. Contattare l'amministratore del tenant per aggiornare i criteri. |
@@ -177,7 +177,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS51000 | RequiredFeatureNotEnabled: la funzionalità è disabilitata. |
 | AADSTS51001 | DomainHintMustbePresent: deve essere presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale. |
 | AADSTS51004 | UserAccountNotInDirectory: l'account utente non è presente nella directory. |
-| AADSTS51005 | TemporaryRedirect: equivale allo stato HTTP 307, che indica che le informazioni richieste si trovano nell'URI specificato nell'intestazione location. Quando viene restituito questo stato, seguire l'intestazione location associata alla risposta. Quando il metodo di richiesta originale è POST, anche la richiesta reindirizzata userà il metodo POST. |
+| AADSTS51005 | TemporaryRedirect: equivale allo stato HTTP 307, che indica che le informazioni richieste si trovano nell'URI specificato nell'intestazione location. Quando viene restituito questo stato, seguire l'intestazione location associata alla risposta. Quando il metodo di richiesta originale è POST, anche la richiesta reindirizzata utilizza il metodo POST. |
 | AADSTS51006 | ForceReauthDueToInsufficientAuth: è necessaria l'autenticazione integrata di Windows. L'utente ha eseguito l'accesso con un token di sessione in cui manca l'attestazione di autenticazione integrata di Windows. Chiedere all'utente di ripetere l'accesso. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn: l'utente non ha fornito il proprio consenso per l'accesso a risorse di LinkedIn. |
 | AADSTS53000 | DeviceNotCompliant: i criteri di accesso condizionale richiedono un dispositivo conforme e il dispositivo non è conforme. L'utente deve registrare il dispositivo con un provider MDM approvato, come Intune. |
@@ -188,7 +188,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist: l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. |
 | AADSTS65004 | UserDeclinedConsent: l'utente ha rifiutato il consenso per l'accesso all'app. Chiedere all'utente di riprovare ad accedere e fornire il consenso per l'app.|
-| AADSTS65005 | MisconfiguredApplication: l'elenco di accesso alle risorse necessarie per l'applicazione non contiene app individuabili dalla risorsa, l'app client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o di risorsa non trovata. Se l'app supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la risoluzione elencata per SAML usando il collegamento seguente:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | MisconfiguredApplication: l'elenco di accesso alle risorse necessarie per l'applicazione non contiene app individuabili dalla risorsa, l'app client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o di risorsa non trovata. Se l'app supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la risoluzione elencata per SAML usando il collegamento seguente:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS650052 | L'app deve accedere a un servizio `(\"{name}\")` che l'organizzazione `\"{organization}\"` non ha sottoscritto o abilitato. Contattare l'amministratore IT per verificare la configurazione delle sottoscrizioni del servizio. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant: autenticazione non riuscita. Il token di aggiornamento non è valido. Errore dovuto ai motivi seguenti:<ul><li>L'intestazione di associazione di token è vuota</li><li>L'hash di associazione di token non corrisponde</li></ul> |
@@ -250,7 +250,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS90043 | NationalCloudAuthCodeRedirection: la funzionalità è disabilitata. |
 | AADSTS90051 | InvalidNationalCloudId: l'identificatore del cloud nazionale contiene un identificatore del cloud non valido. |
 | AADSTS90055 | TenantThrottlingError: sono presenti troppe richieste in ingresso. Questa eccezione viene generata per i tenant bloccati. |
-| AADSTS90056 | BadResourceRequest: per riscattare il codice per un token di accesso, l'app deve inviare una richiesta POST all'endpoint `/token`. Prima di questa operazione, inoltre, è necessario fornire un codice di autorizzazione e inviarlo nella richiesta POST all'endpoint `/token`. Per una panoramica del flusso del codice di autorizzazione OAuth 2,0, fare riferimento a questo articolo [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) . Reindirizzare l'utente all'endpoint `/authorize`, che restituirà un elemento authorization_code. Inviando una richiesta all'endpoint `/token`, l'utente ottiene il token di accesso. Accedere al portale di Azure e controllare **Registrazioni per l'app > Endpoint** per verificare che i due endpoint siano stati configurati correttamente. |
+| AADSTS90056 | BadResourceRequest: per riscattare il codice per un token di accesso, l'app deve inviare una richiesta POST all'endpoint `/token`. Prima di questa operazione, inoltre, è necessario fornire un codice di autorizzazione e inviarlo nella richiesta POST all'endpoint `/token`. Per una panoramica del flusso del codice di autorizzazione OAuth 2,0, fare riferimento a questo articolo [... /azuread-dev/V1-Protocols-OAuth-code.MD](../azuread-dev/v1-protocols-oauth-code.md). Reindirizzare l'utente all'endpoint `/authorize`, che restituirà un elemento authorization_code. Inviando una richiesta all'endpoint `/token`, l'utente ottiene il token di accesso. Accedere al portale di Azure e controllare **Registrazioni per l'app > Endpoint** per verificare che i due endpoint siano stati configurati correttamente. |
 | AADSTS90072 | PassThroughUserMfaError: l'account esterno usato dall'utente per accedere non esiste nel tenant in cui l'utente ha effettuato l'accesso. Di conseguenza, l'utente non può soddisfare i requisiti di MFA per il tenant. L'account deve essere prima di tutto aggiunto come utente esterno nel tenant. Disconnettersi e accedere con un account utente di Azure AD diverso. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid: si è verificato un errore quando il servizio ha tentato di elaborare un messaggio WS-Federation. Il messaggio non è valido. |
 | AADSTS90082 | OrgIdWsFederationNotSupported: il criterio di autenticazione selezionato per la richiesta non è attualmente supportato. |
@@ -324,4 +324,4 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* In caso di domande o se non è possibile trovare le informazioni necessarie, creare un problema in GitHub oppure fare riferimento alle [opzioni di supporto e assistenza per sviluppatori](active-directory-develop-help-support.md) per informazioni su come ottenere supporto.
+* In caso di domande o se non è possibile trovare le informazioni necessarie, creare un problema in GitHub oppure fare riferimento alle [opzioni di supporto e assistenza per sviluppatori](./developer-support-help-options.md) per informazioni su come ottenere supporto.

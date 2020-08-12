@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: c44575ca43063388d5c65855542cf15700d2cb5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1469fcfa68b10353b78d31ccc758c61bf7746692
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883169"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120695"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campi di registrazione del portale di Azure per app personalizzate
 
@@ -38,7 +38,7 @@ Questo articolo include una breve descrizione di tutti i campi disponibili nel m
 |------------------|------------------------------------------------------------------------------------------|
 | Nome             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
 | Tipi di account supportati| Consente di selezionare gli account che l'applicazione deve supportare: solo gli account in questa directory dell'organizzazione, gli account in qualsiasi directory organizzativa o gli account in qualsiasi directory organizzativa e account Microsoft personali.  |
-| URI di reindirizzamento (facoltativo) | Selezionare il tipo di app che si sta compilando, il client **Web** o **pubblico (mobile & desktop)** e quindi immettere l'URI di reindirizzamento (o URL di risposta) per l'applicazione. Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, http://localhost:31544 potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web. Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio myapp://auth. Per visualizzare esempi specifici per le applicazioni Web o native, consultare le [guide introduttive](https://docs.microsoft.com/azure/active-directory/develop).|
+| URI di reindirizzamento (facoltativo) | Selezionare il tipo di app che si sta compilando, il client **Web** o **pubblico (mobile & desktop)** e quindi immettere l'URI di reindirizzamento (o URL di risposta) per l'applicazione. Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, http://localhost:31544 potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web. Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio myapp://auth. Per visualizzare esempi specifici per le applicazioni Web o native, consultare le [guide introduttive](./index.yml).|
 
 Dopo aver compilato i campi sopra indicati, l'applicazione viene registrata nella portale di Azure e si viene reindirizzati alla pagina Panoramica dell'applicazione. Le pagine di impostazioni nel riquadro sinistro in **Gestisci** hanno più campi per personalizzare l'applicazione. Le tabelle seguenti descrivono tutti i campi. Verrà visualizzato solo un subset di questi campi, a seconda che sia stata creata un'applicazione Web o un'applicazione client pubblica.
 
@@ -60,7 +60,7 @@ Dopo aver compilato i campi sopra indicati, l'applicazione viene registrata nell
 
 | Campo           | Descrizione        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| URL di chiusura sessione      | Si tratta dell'URL di disconnessione Single Sign-out. Azure AD invia una richiesta di disconnessione a questo URL quando l'utente cancella la sessione di Azure AD usando qualsiasi altra applicazione registrata.|
+| URL di disconnessione      | Si tratta dell'URL di disconnessione Single Sign-out. Azure AD invia una richiesta di disconnessione a questo URL quando l'utente cancella la sessione di Azure AD usando qualsiasi altra applicazione registrata.|
 | Tipi di account supportati  | Questa opzione specifica se l'applicazione può essere usata da più tenant. In genere, ciò significa che le organizzazioni esterne possono usare l'applicazione registrandola nel proprio tenant e concedendo accesso ai dati dell'organizzazione.|
 | URL di reindirizzamento      | Gli URL di reindirizzamento, o risposta, sono gli endpoint in cui Azure AD restituisce i token richiesti dall'applicazione. Per le applicazioni native, questo è il punto in cui l'utente deve essere inviato in seguito a un'autorizzazione riuscita. Azure AD verifica che l'URI di reindirizzamento fornito dall'applicazione nella richiesta OAuth 2,0 corrisponda a uno dei valori registrati nel portale.|
 

@@ -13,12 +13,12 @@ ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d244bbbe96bcea45da5c0860e4af52409123fb7f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652679"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118689"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerazioni sull'uso di Novell Android con MSAL.NET
 Questo articolo illustra le considerazioni da tenere presenti quando si usa Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
@@ -56,7 +56,7 @@ var pca = PublicClientApplicationBuilder
 ## <a name="ensure-that-control-returns-to-msal"></a>Verificare che il controllo torni a MSAL 
 Quando viene terminata la parte interattiva del flusso di autenticazione, assicurarsi che il controllo torni a MSAL. In Android eseguire l'override del `OnActivityResult` metodo di `Activity` . Chiamare quindi il `SetAuthenticationContinuationEventArgs` metodo della `AuthenticationContinuationHelper` classe MSAL. 
 
-Ad esempio:
+Ecco un esempio:
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -92,7 +92,7 @@ Il file di *AndroidManifest.xml* deve contenere i valori seguenti:
 
 Sostituire il nome del pacchetto registrato nell'portale di Azure per il `android:host=` valore. Sostituire l'hash della chiave registrato nell'portale di Azure per il `android:path=` valore. L'hash della firma *non* deve essere codificato in URL. Assicurarsi che una barra iniziale ( `/` ) venga visualizzata all'inizio dell'hash della firma.
 
-In alternativa, [creare l'attività nel codice](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) anziché modificare manualmente *AndroidManifest.xml*. Per creare l'attività nel codice, creare prima una classe che includa l' `Activity` attributo e l' `IntentFilter` attributo. 
+In alternativa, [creare l'attività nel codice](/xamarin/android/platform/android-manifest#the-basics) anziché modificare manualmente *AndroidManifest.xml*. Per creare l'attività nel codice, creare prima una classe che includa l' `Activity` attributo e l' `IntentFilter` attributo. 
 
 Di seguito è riportato un esempio di una classe che rappresenta i valori del file XML:
 
@@ -129,7 +129,7 @@ var authResult = AcquireTokenInteractive(scopes)
 Per altre informazioni, vedere [usare i Web browser per](msal-net-web-browsers.md) le [considerazioni sul browser di sistema](msal-net-system-browser-android-considerations.md)di MSAL.NET e Novell Android.
 
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 È possibile creare una nuova applicazione Novell. Forms e aggiungere un riferimento al pacchetto NuGet MSAL.NET.
 Tuttavia, se si aggiorna un'applicazione Novell. Forms esistente a MSAL.NET Preview 1.1.2 o successiva, potrebbero verificarsi problemi di compilazione.
 

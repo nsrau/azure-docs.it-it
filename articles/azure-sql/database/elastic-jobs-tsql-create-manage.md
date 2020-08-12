@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire processi di database elastici con Transact-SQL (T-SQL)
+title: Creare e gestire processi di database elastici (anteprima) con Transact-SQL (T-SQL)
 description: Eseguire script in più database con l'agente di processo di database elastico tramite Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c91f96afefe924856b7416844d37c4d7a13c794b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031102"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119114"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastici (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questo articolo fornisce numerosi scenari di esempio per iniziare a usare i processi elastici tramite T-SQL.
@@ -1029,7 +1029,7 @@ Specifica se il membro del gruppo di destinazione deve essere incluso o escluso.
 Tipo di database o raccolta di database di destinazione, inclusi tutti i database in un server, tutti i database in un pool elastico, tutti i database in una mappa partizioni o un singolo database. target_type è di tipo nvarchar(128), senza alcun valore predefinito. I valori validi per target_type sono "SqlServer", "SqlElasticPool", "SqlDatabase" o "SqlShardMap".
 
 [ ** \@ refresh_credential_name =** ]' refresh_credential_name '  
-Nome del server refresh_credential_name è di tipo nvarchar(128), senza alcun valore predefinito.
+Nome del server. refresh_credential_name è di tipo nvarchar(128), senza alcun valore predefinito.
 
 [ ** \@ server_name =** ]' server_name '  
 Nome del server che deve essere aggiunto al gruppo di destinazione specificato. È necessario specificare server_name se target_type è "SqlServer". server_name è di tipo nvarchar(128), senza alcun valore predefinito.
@@ -1204,7 +1204,7 @@ GO
 
 Le viste seguenti sono disponibili nel [database dei processi](job-automation-overview.md#job-database).
 
-|Visualizza  |Descrizione  |
+|Visualizzazione  |Descrizione  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Mostra la cronologia di esecuzione dei processi.      |
 |[processi](#jobs-view)     |   Mostra tutti i processi.      |
@@ -1252,7 +1252,7 @@ Mostra tutti i processi.
 |**job_name** | nvarchar(128) | Nome del processo.|
 |**job_id**| UNIQUEIDENTIFIER |ID univoco del processo.|
 |**job_version** |INT |Versione del processo aggiornata automaticamente in corrispondenza di ogni modifica del processo.|
-|**Descrizione** |nvarchar(512)| Descrizione del processo. Enabled bit: indica se il processo è abilitato o disabilitato. 1 indica i processi abilitati, mentre 0 indica processi disabilitati.|
+|**description** |nvarchar(512)| Descrizione del processo. Enabled bit: indica se il processo è abilitato o disabilitato. 1 indica i processi abilitati, mentre 0 indica processi disabilitati.|
 |**schedule_interval_type**|nvarchar(50) |Valore che indica quando deve essere eseguito il processo: "Once", "Minutes", "Hours", "Days", "Weeks", "Months"
 |**schedule_interval_count**|INT|Numero di periodi schedule_interval_type tra ogni esecuzione del processo.|
 |**schedule_start_time**|datetime2(7)|Data e ora di avvio dell'ultima esecuzione del processo.|

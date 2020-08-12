@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 005fb194a5c1539b70ccb8e8ac7d938b190ee4f5
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 204bc7dd8cc31f48fdc09eae6b00247023de64f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563313"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120967"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API Web protetta: verificare ambiti e ruoli app
 
@@ -88,7 +88,7 @@ Il metodo `VerifyUserHasAnyAcceptedScope` consente di eseguire questi passaggi:
 
 #### <a name="verify-the-scopes-more-globally"></a>Verificare gli ambiti in modo più globale
 
-La definizione degli ambiti granulari per l'API Web e la verifica degli ambiti in ogni azione del controller è l'approccio consigliato. Tuttavia, è anche possibile verificare gli ambiti a livello dell'applicazione o di un controller usando ASP.NET Core. Per informazioni dettagliate, vedere [autorizzazione basata sulle attestazioni](https://docs.microsoft.com/aspnet/core/security/authorization/claims) nella documentazione di ASP.NET Core.
+La definizione degli ambiti granulari per l'API Web e la verifica degli ambiti in ogni azione del controller è l'approccio consigliato. Tuttavia, è anche possibile verificare gli ambiti a livello dell'applicazione o di un controller usando ASP.NET Core. Per informazioni dettagliate, vedere [autorizzazione basata sulle attestazioni](/aspnet/core/security/authorization/claims) nella documentazione di ASP.NET Core.
 
 ### <a name="net-mvc"></a>MVC .NET
 
@@ -96,7 +96,7 @@ Per ASP.NET, è sufficiente sostituire `HttpContext.User` con `ClaimsPrincipal.C
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>Verificare i ruoli app nelle API chiamate da app daemon
 
-Se l'API Web viene chiamata da un'[app daemon](scenario-daemon-overview.md), tale app dovrà richiedere un'autorizzazione dell'applicazione all'API Web. Come illustrato in [Esposizione delle autorizzazioni dell'applicazione (ruoli app)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles), l'API espone tali autorizzazioni. Un esempio è il ruolo app `access_as_application`.
+Se l'API Web viene chiamata da un'[app daemon](scenario-daemon-overview.md), tale app dovrà richiedere un'autorizzazione dell'applicazione all'API Web. Come illustrato in [Esposizione delle autorizzazioni dell'applicazione (ruoli app)](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles), l'API espone tali autorizzazioni. Un esempio è il ruolo app `access_as_application`.
 
 A questo punto è necessario fare in modo che l'API verifichi che il token ricevuto contenga l'attestazione `roles` e che questa attestazione abbia il valore previsto. Il codice di verifica è simile al codice che verifica le autorizzazioni delegate, tranne per il fatto che l'azione del controller verifica i ruoli invece degli ambiti:
 

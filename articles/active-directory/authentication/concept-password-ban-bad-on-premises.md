@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb7c4a4417d64e039793bd96141c965f6437414
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050932"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116649"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Applicare la protezione Azure AD password locale per Active Directory Domain Services
 
@@ -87,6 +87,9 @@ I componenti di protezione Azure AD password locali funzionano come segue:
 La distribuzione di Azure AD la protezione delle password in una foresta di Active Directory Domain Services richiede la registrazione di tale foresta con Azure AD. Ogni servizio proxy distribuito deve anche essere registrato con Azure AD. Queste registrazioni di foreste e proxy sono associate a un tenant di Azure AD specifico, che viene identificato in modo implicito dalle credenziali utilizzate durante la registrazione.
 
 La foresta di servizi di dominio Active Directory e tutti i servizi proxy distribuiti in una foresta devono essere registrati con lo stesso tenant. Non è supportata la presenza di una foresta di servizi di dominio Active Directory o di qualsiasi servizio proxy nella foresta registrata in tenant Azure AD diversi. I sintomi di tale distribuzione configurata in modo errato includono l'impossibilità di scaricare i criteri password.
+
+> [!NOTE]
+> I clienti che hanno più tenant di Azure AD devono quindi scegliere un tenant distinto per registrare ogni foresta per Azure AD la protezione con password.
 
 ## <a name="download"></a>Scarica
 

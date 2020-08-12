@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81533990"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119439"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usare MSAL in un ambiente cloud nazionale
 
@@ -40,7 +40,7 @@ Prima di iniziare, verificare che siano soddisfatti questi prerequisiti.
 
 ### <a name="choose-the-appropriate-identities"></a>Scegliere le identità appropriate
 
-Le applicazioni di [Azure per enti](https://docs.microsoft.com/azure/azure-government/) pubblici possono usare Azure ad identità governative e Azure ad identità pubbliche per autenticare gli utenti. Poiché è possibile usare una di queste identità, è necessario decidere quale endpoint dell'autorità scegliere per lo scenario:
+Le applicazioni di [Azure per enti](../../azure-government/index.yml) pubblici possono usare Azure ad identità governative e Azure ad identità pubbliche per autenticare gli utenti. Poiché è possibile usare una di queste identità, è necessario decidere quale endpoint dell'autorità scegliere per lo scenario:
 
 - Azure AD public: comunemente usato se l'organizzazione dispone già di un Azure AD tenant pubblico per supportare Office 365 (pubblico o GCC) o un'altra applicazione.
 - Azure AD Government: comunemente usato se l'organizzazione dispone già di un tenant di Azure AD Government per supportare Office 365 (GCC High o DoD) o sta creando un nuovo tenant in Azure AD Government.
@@ -49,7 +49,7 @@ Una volta deciso, una particolare considerazione è la posizione in cui si esegu
 
 ### <a name="get-an-azure-government-subscription"></a>Ottenere una sottoscrizione di Azure per enti pubblici
 
-Per ottenere una sottoscrizione di Azure per enti pubblici, vedere [gestione e connessione alla sottoscrizione in Azure per enti](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions)pubblici.
+Per ottenere una sottoscrizione di Azure per enti pubblici, vedere [gestione e connessione alla sottoscrizione in Azure per enti](../../azure-government/documentation-government-manage-subscriptions.md)pubblici.
 
 Se non si ha una sottoscrizione di Azure per enti pubblici, creare un [account gratuito](https://azure.microsoft.com/global-infrastructure/government/request/) prima di iniziare.
 
@@ -127,14 +127,14 @@ Nel codice:
     - Se l'applicazione supporta gli **account in questa directory aziendale**, sostituire questo valore con l'ID tenant o il nome del tenant (ad esempio, contoso.Microsoft.com).
     - Se l'applicazione supporta gli **account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations` .
 
-    Per trovare gli endpoint di autenticazione per tutti i cloud nazionali, vedere [Azure ad endpoint di autenticazione](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+    Per trovare gli endpoint di autenticazione per tutti i cloud nazionali, vedere [Azure ad endpoint di autenticazione](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > Gli account Microsoft personali non sono supportati nei cloud nazionali.
 
 - `graphEndpoint`è l'endpoint Microsoft Graph per Microsoft Cloud per il governo degli Stati Uniti.
 
-   Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere [Microsoft Graph endpoint nei cloud nazionali](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+   Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere [Microsoft Graph endpoint nei cloud nazionali](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 ## <a name="python"></a>[Python](#tab/python)
 
@@ -150,7 +150,7 @@ Per abilitare l'applicazione MSAL Python per i cloud sovrani:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Per chiamare Microsoft Graph è necessario un URL dell'endpoint grafico specifico che dipende dal cloud in uso. Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere gli [endpoint radice del servizio Microsoft Graph e Graph Explorer](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Per chiamare Microsoft Graph è necessario un URL dell'endpoint grafico specifico che dipende dal cloud in uso. Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere gli [endpoint radice del servizio Microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     Di seguito è riportato un esempio di un endpoint Graph con ambito:
 
@@ -173,7 +173,7 @@ Ecco un'autorità di esempio:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Per chiamare Microsoft Graph è necessario un URL dell'endpoint grafico specifico che dipende dal cloud in uso. Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere gli [endpoint radice del servizio Microsoft Graph e Graph Explorer](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Per chiamare Microsoft Graph è necessario un URL dell'endpoint grafico specifico che dipende dal cloud in uso. Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere gli [endpoint radice del servizio Microsoft Graph e Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Di seguito è riportato un esempio di un endpoint Graph con ambito:
 
@@ -225,6 +225,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 Altre informazioni su:
 
 - [Autenticazione nei cloud nazionali](authentication-national-cloud.md)
-- [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/)
-- [Azure Cina (21Vianet)](https://docs.microsoft.com/azure/china/)
-- [Azure Germania](https://docs.microsoft.com/azure/germany/)
+- [Azure per enti pubblici](../../azure-government/index.yml)
+- [Azure Cina (21Vianet)](/azure/china/)
+- [Azure Germania](../../germany/index.yml)

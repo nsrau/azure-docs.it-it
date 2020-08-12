@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: dccf8b2e9608de4f22f9782eb9f3cdb489e18be3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fefc7b39a6539822686618d9f018084f65443ee1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319712"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121731"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire le aree di lavoro di Azure Machine Learning nel portale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,16 +42,78 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
    Campo|Descrizione 
    ---|---
-   Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
-   Sottoscrizione |Selezionare la sottoscrizione di Azure da usare.
-   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. 
-   Location | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
+   Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
+   Subscription |Selezionare la sottoscrizione di Azure da usare.
+   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. 
+   Posizione | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
    Edizione dell'area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e i prezzi. Scopri di più sulle [offerte Basic ed Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
-    ![Configurare l'area di lavoro](./media/how-to-manage-workspace/select-edition.png)
+   :::image type="content" source="media/how-to-manage-workspace/select-edition.png" alt-text="Configura area di lavoro":::
 
-1. Al termine della configurazione dell'area di lavoro, selezionare **Verifica + crea**.
-2. Rivedere le impostazioni e apportare eventuali modifiche o correzioni aggiuntive. Quando si è soddisfatti delle impostazioni, selezionare **Crea**.
+1. Al termine della configurazione dell'area di lavoro, è possibile selezionare **Verifica + crea**o passare alla configurazione di __rete__ facoltativa.
+
+### <a name="optional-networking"></a>Opzionale Rete
+
+> [!IMPORTANT]
+> Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete virtuale con l'area di lavoro, vedere [isolamento e privacy della rete](how-to-enable-virtual-network.md).
+
+1. La configurazione di rete predefinita prevede l'uso di un __endpoint pubblico__accessibile dalla rete Internet pubblica. Per limitare l'accesso all'area di lavoro a una rete virtuale di Azure creata, è invece possibile selezionare __endpoint privato__ come __metodo di connettività__e quindi usare __+ Aggiungi__ per configurare l'endpoint.
+
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Selezione endpoint privato":::
+
+1. Nel modulo __Crea endpoint privato__ impostare il percorso, il nome e la rete virtuale da usare. Se si vuole usare l'endpoint con una zona DNS privato, selezionare __integra con zona DNS privata__ e selezionare la zona usando il campo __area DNS privato__ . Selezionare __OK__ per creare l'endpoint. 
+
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Creazione di endpoint privati":::
+
+1. Al termine della configurazione della rete, è possibile selezionare __Verifica + crea__o passare alla configurazione __avanzata__ facoltativa.
+
+    > [!WARNING]
+    > Quando si crea un endpoint privato, viene creata una nuova zona DNS privato denominata __privatelink.API.azureml.ms__ . Contiene un collegamento alla rete virtuale. Se si creano più aree di lavoro con endpoint privati nello stesso gruppo di risorse, è possibile aggiungere solo la rete virtuale per il primo endpoint privato alla zona DNS. Per aggiungere voci per le reti virtuali usate dalle aree di lavoro o dagli endpoint privati aggiuntivi, seguire questa procedura:
+    > 
+    > 1. Nella [portale di Azure](https://portal.azure.com)selezionare il gruppo di risorse che contiene l'area di lavoro. Quindi selezionare la risorsa DNS privato zona denominata __privatelink.API.azureml.ms__.
+    > 2. In __Impostazioni__selezionare collegamenti alla __rete virtuale__.
+    > 3. Selezionare __Aggiungi__. Nella pagina __Aggiungi collegamento rete virtuale__ specificare un nome univoco per il __collegamento__, quindi selezionare la __rete virtuale__ da aggiungere. Selezionare __OK__ per aggiungere il collegamento di rete.
+    >
+    > Per altre informazioni, vedere [configurazione DNS dell'endpoint privato di Azure](/azure/private-link/private-endpoint-dns).
+
+### <a name="optional-advanced"></a>Opzionale Avanzate
+
+Per impostazione predefinita, le metriche e i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft. 
+
+Per limitare i dati raccolti da Microsoft nell'area di lavoro, selezionare __area di lavoro a elevato__uso di business.
+
+> [!IMPORTANT]
+> Quando si crea un'area di lavoro, è possibile selezionare un elevato effetto aziendale. Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro.
+
+Se si usa la versione __Enterprise__ di Azure Machine Learning, è invece possibile specificare la propria chiave. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure. Per usare la propria chiave, attenersi alla procedura seguente:
+
+> [!IMPORTANT]
+> Prima di seguire questa procedura, è necessario eseguire le azioni seguenti:
+>
+> 1. Autorizzare l' __App Machine Learning__ (in gestione delle identità e degli accessi) con le autorizzazioni di collaboratore per la sottoscrizione.
+> 1. Seguire i passaggi in [configurare le chiavi gestite dal cliente](/azure/cosmos-db/how-to-setup-cmk) per:
+>     * Registrare il provider di Azure Cosmos DB
+>     * Creare e configurare un Azure Key Vault
+>     * Genera una chiave
+>
+>     Non è necessario creare manualmente l'istanza di Azure Cosmos DB, ne verrà creata una automaticamente durante la creazione dell'area di lavoro. Questa istanza di Azure Cosmos DB verrà creata in un gruppo di risorse distinto usando un nome basato su questo modello: `<your-resource-group-name>_<GUID>` .
+>
+> Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro. Se si elimina il Azure Cosmos DB usato dall'area di lavoro, è necessario eliminare anche l'area di lavoro che lo usa.
+
+1. Selezionare __chiavi gestite dal cliente__, quindi selezionare __fare clic per selezionare la chiave__.
+
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Chiavi gestite dal cliente":::
+
+1. Nel modulo __Seleziona chiave da Azure Key Vault__ selezionare una Azure Key Vault esistente, una chiave che contiene e la versione della chiave. Questa chiave viene usata per crittografare i dati archiviati in Azure Cosmos DB. Usare infine il pulsante __Seleziona__ per usare questa chiave.
+
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Selezionare la chiave":::
+
+
+Al termine della configurazione della rete, selezionare __Verifica + crea__.
+
+### <a name="review--create"></a>Verifica + crea
+
+1. Rivedere le impostazioni e apportare eventuali modifiche o correzioni aggiuntive. Quando si è soddisfatti delle impostazioni, selezionare **Crea**.
 
    > [!Warning] 
    > La creazione dell'area di lavoro nel cloud può richiedere diversi minuti.

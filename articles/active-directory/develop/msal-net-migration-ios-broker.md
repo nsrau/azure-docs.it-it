@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75b6559117420ad75b79c58b219400690b25b4cb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185835"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117873"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
 
@@ -28,7 +28,7 @@ Da dove iniziare? Questo articolo illustra come eseguire la migrazione dell'app 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che sia già presente un'app Novell iOS integrata con il broker iOS. In caso contrario, passare direttamente a MSAL.NET e iniziare l'implementazione del broker. Per informazioni su come richiamare il broker iOS in MSAL.NET con una nuova applicazione, vedere [questa documentazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
 ### <a name="what-are-brokers"></a>Che cosa sono i broker?
 
@@ -38,7 +38,7 @@ Consentono di:
 
 - Single Sign-On.
 - Identificazione del dispositivo, richiesta da alcuni [criteri di accesso condizionale](../conditional-access/overview.md). Per ulteriori informazioni, vedere [gestione dei dispositivi](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
-- Verifica dell'identificazione dell'applicazione, necessaria anche in alcuni scenari aziendali. Per ulteriori informazioni, vedere la pagina relativa alla [gestione di applicazioni mobili (MAM) di Intune](https://docs.microsoft.com/intune/mam-faq).
+- Verifica dell'identificazione dell'applicazione, necessaria anche in alcuni scenari aziendali. Per ulteriori informazioni, vedere la pagina relativa alla [gestione di applicazioni mobili (MAM) di Intune](/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Eseguire la migrazione da ADAL a MSAL
 
@@ -151,7 +151,7 @@ ADAL.NET e MSAL.NET usano gli URL per richiamare il broker e restituire la rispo
 <tr><td>
 Lo schema URL è univoco per l'app.
 </td><td>
-Alla classe 
+Il valore di 
 
 `CFBundleURLSchemes`il nome deve includere 
 
@@ -159,7 +159,7 @@ Alla classe
 
 come prefisso, seguito dal`CFBundleURLName`
 
-Ad esempio: `$"msauth.(BundleId")`
+ad esempio `$"msauth.(BundleId")`
 
 ```csharp
  <key>CFBundleURLTypes</key>
@@ -241,4 +241,4 @@ Per altre informazioni su come registrare l'URI di reindirizzamento nel portale,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulle [considerazioni specifiche di Novell per iOS con MSAL.NET](msal-net-xamarin-ios-considerations.md). 
+Informazioni sulle [considerazioni specifiche di Novell per iOS con MSAL.NET](msal-net-xamarin-ios-considerations.md).

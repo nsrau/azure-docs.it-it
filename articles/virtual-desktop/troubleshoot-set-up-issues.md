@@ -3,15 +3,15 @@ title: Creazione del pool host dell'ambiente desktop virtuale Windows-Azure
 description: Come risolvere i problemi e risolvere i problemi relativi ai pool di tenant e host durante l'installazione di un ambiente desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006163"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121375"
 ---
 # <a name="host-pool-creation"></a>Creazione di pool di host
 
@@ -20,7 +20,7 @@ ms.locfileid: "88006163"
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire il feedback
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -252,6 +252,12 @@ the VM.\\\"
 **Motivo:** Questo errore è dovuto a una route statica, a una regola del firewall o a un NSG che blocca il download del file zip associato al modello di Azure Resource Manager.
 
 **Correzione:** Rimuovere la route statica di blocco, la regola del firewall o NSG. Facoltativamente, aprire il file JSON del modello di Azure Resource Manager in un editor di testo, fare il collegamento al file zip e scaricare la risorsa in un percorso consentito.
+
+### <a name="error-cant-delete-a-session-host-from-the-host-pool-after-deleting-the-vm"></a>Errore: non è possibile eliminare un host sessione dal pool host dopo aver eliminato la macchina virtuale
+
+**Motivo:** Prima di eliminare la macchina virtuale, è necessario eliminare l'host sessione.
+
+**Correzione:** Posizionare l'host sessione in modalità di svuotamento, disconnettersi tutti gli utenti dall'host sessione, quindi eliminare l'host.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

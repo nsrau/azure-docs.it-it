@@ -3,15 +3,15 @@ title: Domande frequenti sul desktop virtuale Windows-Azure
 description: Domande frequenti e procedure consigliate per desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007489"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121120"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Domande frequenti su Desktop virtuale Windows
 
@@ -47,8 +47,6 @@ Per impedire a un amministratore di gestire solo le sessioni utente, ad esempio 
 Quando un utente viene assegnato a un gruppo di app, il servizio esegue una semplice assegnazione di ruolo di Azure. Di conseguenza, l'Azure Active Directory dell'utente (AD) e il Azure AD del gruppo di app devono trovarsi nella stessa posizione. Tutti gli oggetti servizio, ad esempio i pool host, i gruppi di app e le aree di lavoro, devono trovarsi anche nello stesso Azure AD dell'utente.
 
 È possibile creare macchine virtuali (VM) in un Azure AD diverso, purché la Active Directory venga sincronizzata con il Azure AD dell'utente nella stessa rete virtuale (VNET).
-
-Azure Lighthouse non supporta completamente la gestione dell'ambiente desktop virtuale di Windows. Poiché Lighthouse non supporta attualmente la gestione degli utenti del tenant Cross-Azure AD, i clienti Lighthouse devono ancora accedere al Azure AD che i clienti usano per gestire gli utenti.
 
 ## <a name="what-are-location-restrictions"></a>Che cosa sono le restrizioni relative alla località?
 
@@ -132,3 +130,11 @@ Questi fattori possono influenzare il limite di scalabilità per i pool host:
 - Esistono restrizioni sul numero di core che è possibile creare per area e per sottoscrizione. Ad esempio, se si dispone di una sottoscrizione di Enterprise Agreement, è possibile creare 350 core. È necessario dividere 350 per il numero predefinito di core per macchina virtuale o per il limite di core per determinare il numero di macchine virtuali che è possibile creare ogni volta che si esegue il modello. Per altre informazioni [, vedere limiti delle macchine virtuali-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - Il nome del prefisso della macchina virtuale e il numero di macchine virtuali sono inferiori a 15 caratteri. Per altre informazioni, vedere [regole di denominazione e restrizioni per le risorse di Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>È possibile gestire gli ambienti desktop virtuali Windows con Azure Lighthouse?
+
+Azure Lighthouse non supporta completamente la gestione di ambienti desktop virtuali Windows. Poiché Lighthouse non supporta attualmente la gestione degli utenti del tenant Cross-Azure AD, i clienti Lighthouse devono ancora accedere al Azure AD che i clienti usano per gestire gli utenti.
+
+Non è inoltre possibile utilizzare le sottoscrizioni CSP sandbox con il servizio desktop virtuale di Windows. Per altre informazioni, vedere [account sandbox di integrazione](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+
+Infine, se è stato abilitato il provider di risorse dall'account del proprietario CSP, gli account del cliente CSP non saranno in grado di modificare il provider di risorse.
