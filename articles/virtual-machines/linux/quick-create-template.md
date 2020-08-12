@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0849aeb6180a17238f0885896a863936cfdf715d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083917"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827657"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Avvio rapido: Creare una macchina virtuale Ubuntu Linux con un modello di Resource Manager
 
@@ -65,7 +65,7 @@ Nel modello sono definite diverse risorse:
     - **Prefisso etichetta DNS**: immettere un identificatore univoco da usare come parte dell'etichetta DNS.
     - **Versione del sistema operativo Ubuntu**: selezionare la versione di Ubuntu da eseguire nella macchina virtuale.
     - **Località**: il valore predefinito è la stessa località del gruppo di risorse, se esiste già.
-    - **Dimensioni della macchina virtuale**: selezionare le [dimensioni ](sizes.md) da usare per la macchina virtuale.
+    - **Dimensioni della macchina virtuale**: selezionare le [dimensioni ](../sizes.md) da usare per la macchina virtuale.
     - **Nome rete virtuale**: il nome da usare per la rete virtuale.
     - **Nome subnet**: il nome della subnet che dovrà essere usata dalla VM.
     - **Nome del gruppo di sicurezza di rete**: il nome per il gruppo di sicurezza di rete.

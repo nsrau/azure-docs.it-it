@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: d74994609799c155453f0c7cac887f2e033ea90b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 11e5d4e31f388dcffe7f1292afa223562d44b20a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087283"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832298"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Avvio rapido: Creare una macchina virtuale Windows con un modello di Resource Manager
 
@@ -63,7 +63,7 @@ Nel modello sono definite diverse risorse:
     - **Password amministratore**: specificare una password da usare per l'account amministratore. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **Prefisso etichetta DNS**: immettere un identificatore univoco da usare come parte dell'etichetta DNS.
     - **Versione del sistema operativo Windows**: selezionare la versione di Windows da eseguire nella macchina virtuale.
-    - **Dimensioni della macchina virtuale**: selezionare le [dimensioni ](sizes.md) da usare per la macchina virtuale.
+    - **Dimensioni della macchina virtuale**: selezionare le [dimensioni ](../sizes.md) da usare per la macchina virtuale.
     - **Località**: il valore predefinito è la stessa località del gruppo di risorse, se esiste già.
 1. Selezionare **Rivedi e crea**. Al termine della convalida, selezionare **Crea** per creare e distribuire la VM.
 

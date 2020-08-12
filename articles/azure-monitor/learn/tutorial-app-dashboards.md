@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553275"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829680"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
@@ -34,7 +34,7 @@ Per completare questa esercitazione:
 - Distribuire un'applicazione .NET in Azure e [abilitare Application Insights SDK](../app/asp-net.md).
 
 > [!NOTE]
-> Le autorizzazioni necessarie per usare i dashboard sono descritte in [Informazioni sul controllo di accesso per i dashboard](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
+> Le autorizzazioni necessarie per usare i dashboard sono descritte in [Informazioni sul controllo di accesso per i dashboard](../../azure-portal/azure-portal-dashboard-share-access.md#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -131,4 +131,3 @@ Dopo avere appreso come creare dashboard personalizzati, esaminare il resto dell
 
 > [!div class="nextstepaction"]
 > [Diagnostica completa](../app/devops.md)
-
