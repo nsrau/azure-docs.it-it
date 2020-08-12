@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afa9c6a508e0215b905a39a430cb64161575b748
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552021"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116012"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -100,7 +100,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Di conseguenza
 | `name` | string | Fornisce un valore leggibile che identifica l'oggetto del token. Il valore potrebbe non essere univoco, è modificabile e può essere usato solo per scopi di visualizzazione. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
 | `scp` | Stringa, elenco di ambiti separati da spazi | Set di ambiti esposti dall'applicazione per cui l'applicazione client ha richiesto (e ricevuto) il consenso. L'app deve verificare che questi ambiti siano ambiti validi esposti dall'app e prendere decisioni relative alle autorizzazioni in base al valore di questi ambiti. Inclusa solo per i [token utente](#user-and-application-tokens). |
 | `roles` | Matrice di stringhe, un elenco di autorizzazioni | Il set di autorizzazioni esposto dall'applicazione per chi all'applicazione o all'utente richiedente è stata concessa l'autorizzazione per la chiamata. Per i [token delle applicazioni](#user-and-application-tokens), si usa durante il flusso di credenziali client ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) al posto degli ambiti utente.  Per i [token utente](#user-and-application-tokens), questa attestazione viene popolata con i ruoli a cui è stato assegnato l'utente nell'applicazione di destinazione. |
-| `wids` | Matrice di GUID [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Indica i ruoli a livello di tenant assegnati a questo utente dalla sezione dei ruoli presenti nella [pagina di ruoli di amministratore](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Questa attestazione viene configurata per ogni applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md).  È necessario impostarla su "All" o su "DirectoryRole".  Può non essere presente nei token ottenuti tramite il flusso implicito, a causa di problemi di lunghezza del token. |
+| `wids` | Matrice di GUID [RoleTemplateID](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids) | Indica i ruoli a livello di tenant assegnati a questo utente dalla sezione dei ruoli presenti nella [pagina di ruoli di amministratore](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids).  Questa attestazione viene configurata per ogni applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md).  È necessario impostarla su "All" o su "DirectoryRole".  Può non essere presente nei token ottenuti tramite il flusso implicito, a causa di problemi di lunghezza del token. |
 | `groups` | Matrice di GUID JSON | Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nell'attestazione dei gruppi sono configurati per ogni singola applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md). Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. <br><br>Vedere di seguito l'attestazione `hasgroups` per informazioni dettagliate sull'uso dell'attestazione `groups` con la concessione implicita. <br>Per gli altri flussi, se il numero di gruppi in cui è presente l'utente è superiore al limite (150 per SAML, 200 per JWT), nelle origini delle attestazioni viene aggiunta un'attestazione di eccedenza che punta all'endpoint Microsoft Graph contenente l'elenco dei gruppi per l'utente. |
 | `hasgroups` | Boolean | Se presente, sempre `true`, per indicare che l'utente è presente in almeno un gruppo. Usato invece dell'attestazione `groups` per i token JWT nei flussi di concessione implicita se l'attestazione completa dei gruppi estenderebbe il frammento dell'URI oltre i limiti di lunghezza dell'URL (attualmente 6 o più gruppi). Indica che il client deve usare l'API Microsoft Graph per determinare i gruppi dell'utente (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Oggetto JSON | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente. Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br>**Valore token JWT di esempio**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
@@ -142,7 +142,7 @@ Le attestazioni seguenti verranno incluse nei token v1.0, se applicabile, ma per
 | Attestazione | Format | Descrizione |
 |-----|--------|-------------|
 | `ipaddr`| string | Indirizzo IP da cui l'utente ha eseguito l'autenticazione. |
-| `onprem_sid`| Stringa, in [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nei casi in cui l'utente ha un'autenticazione in locale, questa attestazione fornisce il relativo SID. È possibile usare `onprem_sid` per l'autorizzazione nelle applicazioni legacy.|
+| `onprem_sid`| Stringa, in [formato SID](/windows/desktop/SecAuthZ/sid-components) | Nei casi in cui l'utente ha un'autenticazione in locale, questa attestazione fornisce il relativo SID. È possibile usare `onprem_sid` per l'autorizzazione nelle applicazioni legacy.|
 | `pwd_exp`| int, timestamp UNIX | Indica quando scade la password dell'utente. |
 | `pwd_url`| string | URL a cui gli utenti possono essere rimandati per reimpostare la password. |
 | `in_corp`| boolean | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa. |
@@ -171,7 +171,7 @@ Le identità Microsoft possono eseguire l'autenticazione in vari modi, che posso
 
 Per convalidare un oggetto id_token o access_token, l'app deve convalidare sia la firma del token che le attestazioni. Per convalidare i token di accesso, l'app deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova all'indirizzo [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-Il middleware di Azure AD offre funzionalità predefinite per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne una nel linguaggio preferito.
+Il middleware di Azure AD offre funzionalità predefinite per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](../azuread-dev/sample-v1-code.md) per trovarne una nel linguaggio preferito.
 
 Sono disponibili librerie ed esempi di codice che illustrano come gestire la convalida dei token. Le informazioni seguenti vengono fornite per chi vuole comprendere il processo sottostante. Sono anche disponibili numerose librerie open source di terze parti per la convalida dei token JWT, con almeno un'opzione per quasi ogni piattaforma e ogni linguaggio. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Librerie di autenticazione v1.0](../azuread-dev/active-directory-authentication-libraries.md) e [Librerie di autenticazione v2.0](reference-v2-libraries.md).
 
@@ -224,13 +224,13 @@ La logica di business dell'applicazione richiede questo passaggio e di seguito s
 * Convalidare lo stato dell'autenticazione del client chiamante usando `appidacr`: il valore non deve essere 0 se i client pubblici non sono autorizzati a chiamare l'API.
 * Eseguire un controllo rispetto all'elenco di attestazioni `nonce` passate per verificare che il token non venga riprodotto.
 * Controllare che `tid` corrisponda a un tenant autorizzato a chiamare l'API.
-* Usare l'attestazione `acr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Questa azione deve essere applicata usando l'[accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Usare l'attestazione `acr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Questa azione deve essere applicata usando l'[accesso condizionale](../conditional-access/overview.md).
 * Se è stata richiesta l'attestazione `roles` o `groups` nel token di accesso, verificare che l'utente sia incluso nel gruppo autorizzato a eseguire questa azione.
   * Per i token recuperati tramite il flusso implicito, sarà probabilmente necessario eseguire una query su [Microsoft Graph](https://developer.microsoft.com/graph/) per ottenere questi dati, in quanto in genere le dimensioni sono troppo grandi per l'inserimento nel token.
 
 ## <a name="user-and-application-tokens"></a>Token utente e dell'applicazione
 
-L'applicazione può ricevere i token per l'utente (il flusso in genere descritto) o direttamente da un'applicazione (tramite il [flusso di credenziali client](v1-oauth2-client-creds-grant-flow.md)). Questi token solo app indicano che la chiamata proviene da un'applicazione e non da un utente. Questi token vengono gestiti in gran parte:
+L'applicazione può ricevere i token per l'utente (il flusso in genere descritto) o direttamente da un'applicazione (tramite il [flusso di credenziali client](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)). Questi token solo app indicano che la chiamata proviene da un'applicazione e non da un utente. Questi token vengono gestiti in gran parte:
 
 * Usare `roles` per visualizzare le autorizzazioni concesse all'oggetto del token (l'entità servizio, anziché un utente in questo caso).
 * Usare `oid` o `sub` per verificare che l'entità servizio chiamante sia quella prevista.
@@ -262,8 +262,8 @@ I token di aggiornamento possono essere revocati dal server a causa di una modif
 | Password cambiata dall'utente | Revocato | Revocato | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo |
 | Utente esegue SSPR | Revocato | Revocato | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo |
 | Amministratore reimposta password | Revocato | Revocato | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo |
-| Utente revoca token di aggiornamento [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revocato | Revocato | Revocato | Revocato | Revocato |
-| L'amministratore revoca tutti i token di aggiornamento per un utente [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocato | Revocato |Revocato | Revocato | Revocato |
+| Utente revoca token di aggiornamento [tramite PowerShell](/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revocato | Revocato | Revocato | Revocato | Revocato |
+| L'amministratore revoca tutti i token di aggiornamento per un utente [tramite PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocato | Revocato |Revocato | Revocato | Revocato |
 | Single Sign-Out ([v 1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v 2.0](v2-protocols-oidc.md#single-sign-out)) sul Web | Revocato | Rimarrà attivo | Revocato | Rimarrà attivo | Rimarrà attivo |
 
 > [!NOTE]

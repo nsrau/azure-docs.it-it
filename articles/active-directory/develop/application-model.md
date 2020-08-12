@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584311"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117482"
 ---
 # <a name="application-model"></a>Modello applicativo
 
@@ -86,4 +86,4 @@ Per ulteriori informazioni sul modello di applicazione:
 
 * Vedere [come e perché le applicazioni vengono aggiunte a Azure ad](active-directory-how-applications-are-added.md) per altre informazioni sugli oggetti applicazione e le entità servizio nella piattaforma di identità Microsoft.
 * Per altre informazioni sulle app a tenant singolo e sulle app multi-tenant, vedere tenant [in Azure Active Directory](single-and-multi-tenant-apps.md) .
-* Vedere [Azure Active Directory B2C documentazione](https://docs.microsoft.com/azure/active-directory-b2c) per altre informazioni sul modo in cui Azure ad fornisce anche Azure Active Directory B2C in modo che le organizzazioni possano accedere agli utenti, in genere clienti, usando identità social come un account Google.
+* Vedere [Azure Active Directory B2C documentazione](../../active-directory-b2c/index.yml) per altre informazioni sul modo in cui Azure ad fornisce anche Azure Active Directory B2C in modo che le organizzazioni possano accedere agli utenti, in genere clienti, usando identità social come un account Google.

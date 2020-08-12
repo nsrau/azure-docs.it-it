@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026731"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115034"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione
 
@@ -49,7 +49,7 @@ Gli **endpoint sono interessati**: tutti
 
 Il 1 giugno 2018, l'autorità ufficiale Azure Active Directory (AAD) per Azure Government è cambiata da `https://login-us.microsoftonline.com` a `https://login.microsoftonline.us` . Questa modifica è stata applicata anche a Microsoft 365 GCC High e DoD, che Azure Government AAD ha anche servizi. Se si è proprietari di un'applicazione in un tenant del governo degli Stati Uniti, è necessario aggiornare l'applicazione per consentire agli utenti di accedere all' `.us` endpoint.  
 
-A partire dal 5 maggio, Azure AD inizierà a applicare la modifica dell'endpoint, bloccando l'accesso degli utenti del governo alle app ospitate nei tenant del governo degli Stati Uniti usando l'endpoint pubblico ( `microsoftonline.com` ).  Le app interessate inizieranno a visualizzare un errore `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Questo errore indica che l'app sta tentando di accedere a un utente del governo degli Stati Uniti nell'endpoint del cloud pubblico. Se l'app si trova in un tenant cloud pubblico ed è destinata a supportare gli utenti del governo degli Stati Uniti, sarà necessario [aggiornare l'app per supportarli in modo esplicito](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Questa operazione potrebbe richiedere la creazione di una nuova registrazione dell'app nel cloud per il governo degli Stati Uniti. 
+A partire dal 5 maggio, Azure AD inizierà a applicare la modifica dell'endpoint, bloccando l'accesso degli utenti del governo alle app ospitate nei tenant del governo degli Stati Uniti usando l'endpoint pubblico ( `microsoftonline.com` ).  Le app interessate inizieranno a visualizzare un errore `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Questo errore indica che l'app sta tentando di accedere a un utente del governo degli Stati Uniti nell'endpoint del cloud pubblico. Se l'app si trova in un tenant cloud pubblico ed è destinata a supportare gli utenti del governo degli Stati Uniti, sarà necessario [aggiornare l'app per supportarli in modo esplicito](./authentication-national-cloud.md). Questa operazione potrebbe richiedere la creazione di una nuova registrazione dell'app nel cloud per il governo degli Stati Uniti. 
 
 L'imposizione di questa modifica verrà eseguita usando un'implementazione graduale in base alla frequenza con cui gli utenti del cloud degli Stati Uniti possono accedere alle app per la firma degli utenti del governo degli Stati Uniti raramente vedranno l'imposizione e le app usate di frequente dagli utenti del governo degli Stati Uniti avranno infine l'applicazione dell'applicazione. Si prevede che l'applicazione venga completata in tutte le app del 2020 giugno. 
 
@@ -98,7 +98,7 @@ Quando viene inviata una risposta di autenticazione da login.microsoftonline.com
 
 **Endpoint interessati**: sia la versione 1.0 che la versione 2.0
 
-**Con effetti sul protocollo**: viene usato Anywhere post ([credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [riscatto del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e [riscatto del token di aggiornamento](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Con effetti sul protocollo**: viene usato Anywhere post ([credenziali client](./v2-oauth2-client-creds-grant-flow.md), [riscatto del codice di autorizzazione](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [OBO](./v2-oauth2-on-behalf-of-flow.md)e [riscatto del token di aggiornamento](./v2-oauth2-auth-code-flow.md#refresh-the-access-token))
 
 A partire dalla settimana 9/2, le richieste di autenticazione che utilizzano il metodo POST verranno convalidate utilizzando standard HTTP più restrittivi.  In particolare, gli spazi e le virgolette doppie (") non verranno più rimossi dai valori del modulo della richiesta. Queste modifiche non devono interrompere i client esistenti e garantire che le richieste inviate a Azure AD siano gestite in modo affidabile ogni volta. In futuro (vedere sopra) si prevede di rifiutare anche i parametri duplicati e ignorare il BOM all'interno delle richieste.
 
@@ -113,9 +113,9 @@ Attualmente, `?e=    "f"&g=h` viene analizzato in modo identico `?e=f&g=h` `e`  
 
 **Data di validità**: 26 luglio 2019
 
-Sono stati **interessati endpoint**: [v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+Sono stati **interessati endpoint**: [v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) e [v 2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-Con **effetti sul protocollo**: [credenziali client (token solo app)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+Con **effetti sul protocollo**: [credenziali client (token solo app)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 Una modifica alla sicurezza è passata in diretta il 26 luglio che modifica il modo in cui vengono emessi i token solo app (tramite la concessione delle credenziali client). In precedenza, le applicazioni potevano ottenere i token per chiamare qualsiasi altra app, indipendentemente dalla presenza nel tenant o dai ruoli consentiti per l'applicazione.  Questo comportamento è stato aggiornato in modo che per le risorse (talvolta chiamate API Web) sia impostato come single-tenant (impostazione predefinita), l'applicazione client deve esistere all'interno del tenant delle risorse.  Si noti che il consenso esistente tra il client e l'API non è ancora necessario e le app devono ancora eseguire i propri controlli di autorizzazione per assicurarsi che `roles` sia presente un'attestazione e che contenga il valore previsto per l'API.
 

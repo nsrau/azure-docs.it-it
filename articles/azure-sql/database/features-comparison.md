@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 07/22/2020
-ms.openlocfilehash: e7f80c7db4af7c676881d92e8fe86d62a45e3310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30107c99f16b1b2f7c91ce8a662f44a041410d01
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049585"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119369"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -59,7 +59,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [Snapshot di database](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | No | No |
 | [Istruzioni DBCC](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | Supportate per la maggior parte. Vedere le singole istruzioni | Sì, vedere le [differenze relative a DBCC](../managed-instance/transact-sql-tsql-differences-sql-server.md#dbcc) |
 | [Istruzioni DDL](https://docs.microsoft.com/sql/t-sql/statements/statements) | Supportate per la maggior parte. Vedere le singole istruzioni | Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [trigger DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Solo database |  Sì |
+| [Trigger DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Solo database |  Sì |
 | [Viste partizionate distribuite](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | No | Sì |
 | [Transazioni distribuite - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No. Vedere [Transazioni elastiche](elastic-transactions-overview.md) |  No. vedere [differenze tra server collegati](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Provare a consolidare i database da diverse istanze di SQL Server distribuite in un'unica Istanza gestita SQL durante la migrazione. |
 | [Trigger DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Supportate per la maggior parte. Vedere le singole istruzioni |  Sì |
@@ -97,7 +97,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | No | Sì, ma solo all'interno dell'istanza. Se si usano route di Service Broker remote, provare a consolidare i database da diverse istanze di SQL Server distribuite in un Istanza gestita SQL durante la migrazione e usare solo le route locali. Vedere le [differenze Service Broker](../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker) |
 | [Impostazioni di configurazione del server](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | No | Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Istruzioni set](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Supportate per la maggior parte. Vedere le singole istruzioni | Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
-| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No. Vedere [Processi elastici](elastic-jobs-overview.md) | Sì, vedere le [differenze relative a SQL Server Agent](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
+| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No. vedere [processi elastici (anteprima)](elastic-jobs-overview.md) | Sì, vedere le [differenze relative a SQL Server Agent](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
 | [Controllo di SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No. Vedere [Controllo del database SQL](auditing-overview.md) | Sì, vedere le [differenze relative al controllo](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [Funzioni archiviate dal sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [Stored procedure di sistema](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Supportate in alcuni casi. Vedere le singole stored procedure | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
@@ -157,7 +157,7 @@ Il database SQL di Azure e Azure SQL Istanza gestita supportano diversi strument
 | Portale di Azure | Sì | Sì |
 | Interfaccia della riga di comando di Azure | Sì | Sì|
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Sì | Sì |
-| Azure PowerShell | Sì | Sì |
+| Azure Powershell | Sì | Sì |
 | [File BACPAC (esportazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sì. Vedere [Esportazione di un database SQL](database-export.md) | Sì. vedere [esportazione istanza gestita SQL](database-export.md) |
 | [File BACPAC (importazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sì. Vedere [Importazione di un database SQL](database-import.md) | Sì. vedere [importazione SQL istanza gestita](database-import.md) |
 | [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | No | No |

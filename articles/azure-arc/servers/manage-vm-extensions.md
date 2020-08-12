@@ -3,16 +3,12 @@ title: Gestione delle estensioni VM con Azure Arc per i server
 description: Azure Arc for Servers (anteprima) è in grado di gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.openlocfilehash: eb1de0c2a5b995231c2972fca7279195cbaea9e7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809630"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121307"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Gestione delle estensioni delle macchine virtuali con Azure Arc per i server (anteprima)
 
@@ -40,12 +36,12 @@ La funzionalità di estensione della macchina virtuale è disponibile solo nell'
 
 In questa versione di anteprima, sono supportate le estensioni di macchina virtuale seguenti nei computer Windows e Linux.
 
-|Estensione |Sistema operativo |Publisher |Informazioni aggiuntive |
+|Estensione |Sistema operativo |Editore |Informazioni aggiuntive |
 |----------|---|----------|-----------------------|
-|CustomScriptExtension |WINDOWS |Microsoft.Compute |[Estensione script personalizzato Windows](../../virtual-machines/extensions/custom-script-windows.md)|
-|DSC |WINDOWS |Microsoft. PowerShell|[Estensione DSC di Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
-|Agente di Log Analytics |WINDOWS |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics estensione VM per Windows](../../virtual-machines/extensions/oms-windows.md)|
-|Microsoft Dependency Agent | WINDOWS |Microsoft.Compute | [Estensione macchina virtuale di Dependency Agent per Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|CustomScriptExtension |Windows |Microsoft.Compute |[Estensione script personalizzato Windows](../../virtual-machines/extensions/custom-script-windows.md)|
+|DSC |Windows |Microsoft. PowerShell|[Estensione DSC di Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
+|Agente di Log Analytics |Windows |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics estensione VM per Windows](../../virtual-machines/extensions/oms-windows.md)|
+|Microsoft Dependency Agent | Windows |Microsoft.Compute | [Estensione macchina virtuale di Dependency Agent per Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |CustomScript|Linux |Microsoft. Azure. Extension |[Estensione script personalizzato Linux versione 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Linux |Microsoft.OSTCExtensions |[Estensione DSC PowerShell per Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |Agente di Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics estensione VM per Linux](../../virtual-machines/extensions/oms-linux.md) |

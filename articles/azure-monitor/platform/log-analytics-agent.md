@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925788"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121528"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente di Log Analytics
 L'agente di Azure Log Analytics è stato sviluppato per la gestione completa di macchine virtuali in qualsiasi cloud, di computer locali e di computer monitorati da [System Center Operations Manager](/system-center/scom/). Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro Log Analytics in Monitoraggio di Azure, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in Monitoraggio di Azure, ad esempio [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), [Centro sicurezza di Azure](../../security-center/index.yml) e [Automazione di Azure](../../automation/automation-intro.md).
@@ -174,7 +174,7 @@ Per garantire la sicurezza dei dati in transito verso i log di Monitoraggio di A
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Requisito di supporto per la firma del codice SHA-2 per Windows
-Il 17 agosto 2020 l'agente Windows inizierà a usare esclusivamente la firma SHA-2. Questa modifica interesserà i clienti che usano l'agente di Log Analytics in un sistema operativo legacy come parte di un servizio di Azure (Monitoraggio di Azure, Automazione di Azure, Gestione aggiornamenti di Azure, Rilevamento modifiche di Azure, Centro sicurezza di Azure, Azure Sentinel e Windows Defender ATP). La modifica non richiede intervento da parte dei clienti, a meno che l'agente non venga eseguito in una versione legacy del sistema operativo (Windows 7, Windows Server 2008 R2 e Windows Server 2008). I clienti che eseguono una versione legacy del sistema operativo devono intraprendere le azioni seguenti nei computer prima del 17 agosto 2020. In caso contrario gli agenti non invieranno più i dati alle aree di lavoro Log Analytics:
+L'agente Windows inizierà a usare esclusivamente la firma SHA-2 il 2 novembre 2020. Questa modifica interesserà i clienti che usano l'agente di Log Analytics in un sistema operativo legacy come parte di un servizio di Azure (Monitoraggio di Azure, Automazione di Azure, Gestione aggiornamenti di Azure, Rilevamento modifiche di Azure, Centro sicurezza di Azure, Azure Sentinel e Windows Defender ATP). La modifica non richiede intervento da parte dei clienti, a meno che l'agente non venga eseguito in una versione legacy del sistema operativo (Windows 7, Windows Server 2008 R2 e Windows Server 2008). I clienti che eseguono una versione legacy del sistema operativo devono eseguire le azioni seguenti sui computer prima del 2 novembre 2020 o i relativi agenti smetteranno di inviare dati alle aree di lavoro Log Analytics:
 
 1. Installare il Service Pack più recente per il sistema operativo. Le versioni del Service Pack richieste sono le seguenti:
     - Windows 7 SP1

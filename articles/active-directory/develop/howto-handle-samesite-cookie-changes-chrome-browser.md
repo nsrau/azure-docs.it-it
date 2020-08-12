@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: df0caf3ae029353742b4b1060ca5241ac9cbb5bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477805"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116972"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Gestire le modifiche ai cookie SameSite nel browser Chrome
 
@@ -59,7 +59,7 @@ La tabella seguente illustra le richieste pull che hanno aggirato le modifiche a
 
 per informazioni dettagliate su come gestire i cookie navigava sullostesso sito in ASP.NET e ASP.NET Core, vedere anche:
 
-- [Usare i cookie navigava sullostesso sito in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite) .
+- [Usare i cookie navigava sullostesso sito in ASP.NET Core](/aspnet/core/security/samesite) .
 - [Blog di ASP.NET sul problema navigava sullostesso sito](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
 # <a name="python"></a>[Python](#tab/python)
@@ -72,7 +72,7 @@ per informazioni dettagliate su come gestire i cookie navigava sullostesso sito 
 
 | Esempio | Richiesta pull |
 | ------ | ------------ |
-|  [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)  | [Correzione #24 dello stesso cookie del sito](https://github.com/Azure-Samples/ms-identity-java-webapp/pull/24)
+|  [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)  | [Correzione #24 dello stesso cookie del sito](https://github.com/Azure-Samples/ms-identity-java-webapp/pull/24)
 |  [MS-Identity-Java-WebAPI](https://github.com/Azure-Samples/ms-identity-java-webapi)  | [Correzione #4 dello stesso cookie del sito](https://github.com/Azure-Samples/ms-identity-java-webapi/pull/4)
 
 ---

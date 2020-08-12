@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771078"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120627"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -33,7 +33,7 @@ Per altre informazioni sulle funzionalità di accesso condizionale complete, ved
 
 Per gli sviluppatori che creano app per Azure AD, questo articolo illustra come usare l'accesso condizionale e offre informazioni sull'impatto dell'accesso alle risorse su cui non si ha controllo e sulle quali è possibile che siano stati applicati criteri di accesso condizionale. L'articolo analizza anche le implicazioni dell'accesso condizionale sul flusso on-behalf-of, sulle app Web, sull'accesso a Microsoft Graph e sulle chiamate alle API.
 
-Si presuppone una conoscenza delle app a [tenant singolo](quickstart-register-app.md) e [multi-tenant](howto-convert-app-to-be-multi-tenant.md) e dei [modelli di autenticazione comuni](authentication-scenarios.md).
+Si presuppone una conoscenza delle app a [tenant singolo](quickstart-register-app.md) e [multi-tenant](howto-convert-app-to-be-multi-tenant.md) e dei [modelli di autenticazione comuni](./authentication-vs-authorization.md).
 
 > [!NOTE]
 > Per usare questa funzionalità è necessario disporre di una licenza di Azure AD Premium P1. Per trovare la licenza corretta per le proprie esigenze, vedere [Caratteristiche e funzionalità di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -52,7 +52,7 @@ In particolare, gli scenari seguenti richiedono che il codice gestisca le richie
 * App a pagina singola che usano MSAL.js
 * App Web che chiamano una risorsa
 
-I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare un criterio di accesso condizionale, vedere [Avvio rapido: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](../conditional-access/app-based-mfa.md).
+I criteri di accesso condizionale possono essere applicati all'app, ma anche a un'API Web a cui l'app accede. Per altre informazioni su come configurare un criterio di accesso condizionale, vedere [Avvio rapido: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 
 A seconda dello scenario, un cliente aziendale può applicare e rimuovere i criteri di accesso condizionale in qualsiasi momento. Affinché l'app continui a funzionare quando vengono applicati nuovi criteri, è necessario implementare la gestione delle richieste. Gli esempi seguenti illustrano la gestione delle richieste.
 
@@ -93,7 +93,7 @@ Gli sviluppatori possono aggiungere questa richiesta a una nuova richiesta per A
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-L'accesso condizionale di Azure AD è una funzionalità inclusa in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Anche i clienti con [licenze di Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) possono accedere alle funzionalità di accesso condizionale.
+L'accesso condizionale di Azure AD è una funzionalità inclusa in [Azure AD Premium](../fundamentals/active-directory-whatis.md). Anche i clienti con [licenze di Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) possono accedere alle funzionalità di accesso condizionale.
 
 ### <a name="considerations-for-specific-scenarios"></a>Considerazioni per scenari specifici
 
@@ -180,7 +180,7 @@ Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](ht
 
 ## <a name="see-also"></a>Vedere anche
 
-* Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure Active Directory](/azure/active-directory/conditional-access/overview).
+* Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure Active Directory](../conditional-access/overview.md).
 * Per altri esempi di codice di Azure AD, vedere gli [esempi](sample-v2-code.md).
 * Per altre informazioni su MSAL SDK e sull'accesso alla documentazione di riferimento, vedere la [panoramica della libreria di Microsoft Authentication](msal-overview.md).
 * Per altre informazioni sugli scenari multi-tenant, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](howto-convert-app-to-be-multi-tenant.md).

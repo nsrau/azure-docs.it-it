@@ -1,19 +1,14 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente Azure Arc for Servers (anteprima) disponibile che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0337894eb0309c5be42c52233df44edcdc06f022
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904975"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121834"
 ---
 # <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Panoramica dell'agente Azure Arc for Servers (anteprima)
 

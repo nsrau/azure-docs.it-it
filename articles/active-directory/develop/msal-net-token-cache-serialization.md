@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e86b89fbf325eb0af5e4127e7fe113b87b1b70c2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9ad5eeec17027b0e2891069af703c28aee9c528
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874266"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119097"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializzazione della cache dei token in MSAL.NET
 Dopo l'[acquisizione di un token](msal-acquire-cache-tokens.md), questo viene memorizzato nella cache da Microsoft Authentication Library (MSAL).  Il codice dell'applicazione deve tentare di ottenere un token dalla cache prima di acquisire un token con un altro metodo.  Questo articolo illustra la serializzazione predefinita e personalizzata della cache dei token in MSAL.NET.
@@ -281,7 +281,7 @@ MSAL.NET fornisce la serializzazione della cache di token personalizzata nelle s
 
 [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web) Library fornisce un pacchetto NuGet di anteprima [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) che contiene la serializzazione della cache dei token:
 
-| Metodo di estensione | Spazio dei nomi Microsoft. Identity. Web | Description  |
+| Metodo di estensione | Spazio dei nomi Microsoft. Identity. Web | Descrizione  |
 | ---------------- | --------- | ------------ |
 | `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | Serializzazione della cache del token di memoria. Questa implementazione è ideale negli esempi. È anche utile nelle applicazioni di produzione a condizione che non si ricordi se la cache dei token viene persa quando l'app Web viene riavviata. `AddInMemoryTokenCaches`accetta un parametro facoltativo di tipo `MsalMemoryTokenCacheOptions` che consente di specificare la durata dopo la quale la voce della cache scadrà a meno che non venga usata.
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | La cache del token è associata alla sessione utente. Questa opzione non è ideale se il token ID contiene molte attestazioni perché il cookie diventa troppo grande.
@@ -325,13 +325,13 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Il loro utilizzo è disponibile nell' [esercitazione ASP.NET Core app Web](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) nella cache dei [Token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)della fase 2-2.
+Il loro utilizzo è disponibile nell' [esercitazione ASP.NET Core app Web](/aspnet/core/tutorials/first-mvc-app/) nella cache dei [Token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)della fase 2-2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Gli esempi seguenti illustrano la serializzazione della cache dei token.
 
-| Esempio | Piattaforma | Description|
+| Esempio | Piattaforma | Descrizione|
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Applicazione .NET per Windows Desktop (WPF) che chiama l'API Microsoft Graph. ![Topologia](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (Console) | Set di soluzioni di Visual Studio che illustrano la migrazione delle applicazioni Azure AD v 1.0 (usando ADAL.NET) alle applicazioni della piattaforma Microsoft Identity (tramite MSAL.NET). In particolare, vedere [migrazione della cache di token](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

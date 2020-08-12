@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 1caddf2fba8544bfbb1108865a459f4166af680b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c394a3e84982db31b5727d170c143e9c07636d62
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846072"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121069"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parametri obbligatori
 
-`AcquireTokenInteractive` prevede un solo parametro obbligatorio, ``scopes``, che contiene un'enumerazione di stringhe che definiscono gli ambiti per i quali è richiesto un token. Se il token è per Microsoft Graph, gli ambiti necessari sono reperibili nelle informazioni di riferimento dell'API per ogni API Microsoft Graph nella sezione denominata "Autorizzazioni". Ad esempio, per [elencare i contatti dell'utente](https://docs.microsoft.com/graph/api/user-list-contacts), è necessario usare l'ambito "User. Read", "Contacts. Read". Per altre informazioni, vedere le [Informazioni di riferimento per le autorizzazioni dell'API Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` prevede un solo parametro obbligatorio, ``scopes``, che contiene un'enumerazione di stringhe che definiscono gli ambiti per i quali è richiesto un token. Se il token è per Microsoft Graph, gli ambiti necessari sono reperibili nelle informazioni di riferimento dell'API per ogni API Microsoft Graph nella sezione denominata "Autorizzazioni". Ad esempio, per [elencare i contatti dell'utente](/graph/api/user-list-contacts), è necessario usare l'ambito "User. Read", "Contacts. Read". Per altre informazioni, vedere le [Informazioni di riferimento per le autorizzazioni dell'API Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 In Android è inoltre necessario specificare l'attività padre usando `.WithParentActivityOrWindow`, come illustrato, in modo che il token torni a tale attività padre dopo l'interazione. Se non viene specificato, viene generata un'eccezione quando si chiama `.ExecuteAsync()`.
 
@@ -278,7 +278,7 @@ Il team di MSAL.NET ha riscritto i test dell'interfaccia utente per usare questo
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Offrire un'esperienza ottimale con SystemWebViewOptions
 
-Da [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) in MSAL.NET 4.1 è possibile specificare:
+Da [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) in MSAL.NET 4.1 è possibile specificare:
 
 - L'URI a cui passare (`BrowserRedirectError`) o il frammento HTML da visualizzare (`HtmlMessageError`) in caso di errori di accesso o di consenso nel Web browser del sistema.
 - L'URI a cui passare (`BrowserRedirectSuccess`) o il frammento HTML da visualizzare (`HtmlMessageSuccess`) in caso di accesso o consenso riuscito.
@@ -433,13 +433,13 @@ Per l'accesso di un utente di dominio a un dominio o a un computer aggiunto ad A
   - In alternativa, l'amministratore del tenant deve avere precedentemente fornito il consenso per l'uso dell'applicazione per tutti gli utenti del tenant.
   - In altre parole:
     - Lo sviluppatore ha selezionato il pulsante **Concedi** nel portale di Azure per se stesso.
-    - In alternativa, un amministratore del tenant ha selezionato **Fornisci/Revoca il consenso amministratore per {dominio tenant}** nella scheda **Autorizzazioni API** della registrazione per l'applicazione. Per altre informazioni, vedere [Aggiungere le autorizzazioni per accedere alle API Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
-    - In alternativa, è stato fornito un modo per consentire agli utenti di fornire il consenso per l'applicazione. Per altre informazioni, vedere [Richiesta di consenso per un singolo utente](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
-    - In alternativa, è stato fornito un modo per consentire all'amministratore del tenant di fornire il consenso per l'applicazione. Per altre informazioni, vedere [Consenso amministratore](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
+    - In alternativa, un amministratore del tenant ha selezionato **Fornisci/Revoca il consenso amministratore per {dominio tenant}** nella scheda **Autorizzazioni API** della registrazione per l'applicazione. Per altre informazioni, vedere [Aggiungere le autorizzazioni per accedere alle API Web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - In alternativa, è stato fornito un modo per consentire agli utenti di fornire il consenso per l'applicazione. Per altre informazioni, vedere [Richiesta di consenso per un singolo utente](./v2-permissions-and-consent.md#requesting-individual-user-consent).
+    - In alternativa, è stato fornito un modo per consentire all'amministratore del tenant di fornire il consenso per l'applicazione. Per altre informazioni, vedere [Consenso amministratore](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 - Questo flusso è abilitato per le app .NET Desktop, .NET Core e UWP.
 
-Per altre informazioni sul consenso, vedere [Autorizzazioni e consenso in Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Per altre informazioni sul consenso, vedere [Autorizzazioni e consenso in Microsoft Identity Platform](./v2-permissions-and-consent.md).
 
 ### <a name="learn-how-to-use-it"></a>Informazioni su come usare l'SDK
 

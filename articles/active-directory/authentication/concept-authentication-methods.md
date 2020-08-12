@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b6111529d1a3d37f08b29fb5c0751fb6a49acea5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054069"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116768"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -45,6 +45,8 @@ La tabella seguente delinea i metodi disponibili per l'autenticazione primaria o
 | [Domande di sicurezza](#security-questions) | No | Solo reimpostazione della password self-service |
 | [Indirizzo di posta elettronica](#email-address) | No | Solo reimpostazione della password self-service |
 | [Password dell'app](#app-passwords) | No | Autenticazione a più fattori solo in alcuni casi |
+
+Questi metodi di autenticazione possono essere configurati nella portale di Azure e sempre più usando l' [API REST di Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 Questo articolo illustra i diversi metodi di autenticazione e verifica disponibili in Azure AD ed eventuali limitazioni o restrizioni specifiche.
 
@@ -297,6 +299,8 @@ Per iniziare, vedere l'[esercitazione sulla reimpostazione della password self-s
 Per altre informazioni sui concetti di reimpostazione della password self-service, vedere [Come funziona la reimpostazione della password self-service di Azure AD][concept-sspr].
 
 Per altre informazioni sui concetti di MFA, vedere [Come funziona Azure Multi-Factor Authentication][concept-mfa].
+
+Altre informazioni sulla configurazione dei metodi di autenticazione con l' [API REST di Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: cc78df7ea904bf85f5f2561319e6fc773244e971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005214"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116700"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Domande frequenti sui servizi di dominio Azure Active Directory (AD)
 
@@ -117,7 +117,11 @@ No. Lo schema è amministrato da Microsoft per il dominio gestito. Le estensioni
 Sì. Ai membri del gruppo *AAD DC Administrators* vengono concessi privilegi di *amministratore DNS* per modificare i record DNS nel dominio gestito. Questi utenti possono usare la console Gestore DNS in un computer che esegue Windows Server aggiunto al dominio gestito per gestire il DNS. Per utilizzare la console Gestore DNS, installare *strumenti server DNS*, che fa parte della *strumenti di amministrazione remota del server* funzionalità facoltativa del server. Per altre informazioni, vedere [amministrare DNS in un Azure ad Domain Services dominio gestito](manage-dns.md).
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Quali sono i criteri di durata delle password in un dominio gestito?
-La durata predefinita di una password in un dominio gestito di Azure AD Domain Services è 90 giorni. Questa durata non è sincronizzata con la durata delle password configurata in Azure AD. Pertanto, possono verificarsi situazioni in cui le password degli utenti scadono nel dominio gestito, ma sono ancora valide in Azure AD. In scenari di questo tipo gli utenti devono cambiare la password in Azure AD e la nuova password verrà sincronizzata nel dominio gestito. Inoltre, gli attributi *password-does-not-expire* e *User-must-change-password-at-next-logon* per gli account utente non vengono sincronizzati nel dominio gestito.
+La durata predefinita di una password in un dominio gestito di Azure AD Domain Services è 90 giorni. Questa durata non è sincronizzata con la durata delle password configurata in Azure AD. Pertanto, possono verificarsi situazioni in cui le password degli utenti scadono nel dominio gestito, ma sono ancora valide in Azure AD. In scenari di questo tipo gli utenti devono cambiare la password in Azure AD e la nuova password verrà sincronizzata nel dominio gestito. Se si desidera modificare la durata predefinita delle password in un dominio gestito, è possibile [creare e configurare criteri password personalizzati.](password-policy.md)
+
+Inoltre, il criterio Azure AD password per *DisablePasswordExpiration* viene sincronizzato con un dominio gestito. Quando *DisablePasswordExpiration* viene applicato a un utente in Azure AD, *DONT_EXPIRE_PASSWORD* applicato il valore di *userAccountControl* per l'utente sincronizzato nel dominio gestito.
+
+Quando gli utenti reimpostano la password in Azure AD, viene applicato l'attributo *forceChangePasswordNextSignIn = true* . Un dominio gestito Sincronizza questo attributo da Azure AD. Quando il dominio gestito rileva che *forceChangePasswordNextSignIn* è impostato per un utente sincronizzato da Azure ad, l'attributo *pwdLastSet* nel dominio gestito viene impostato su *0*, che invalida la password attualmente impostata.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Azure AD Domain Services fornisce il blocco degli account Active Directory come metodo di protezione?
 Sì. Dopo 5 tentativi di inserimento di password non valide in 2 minuti per il dominio gestito, l'account utente viene bloccato per 30 minuti. Dopo 30 minuti l'account utente viene sbloccato automaticamente. I tentativi di password non validi nel dominio gestito non bloccano l'account utente in Azure AD. L'account utente viene bloccato solo all'interno del dominio gestito di Azure AD Domain Services. Per ulteriori informazioni, vedere [criteri di blocco di password e account nei domini gestiti](password-policy.md).

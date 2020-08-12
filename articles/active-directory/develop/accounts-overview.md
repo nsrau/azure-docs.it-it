@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: 1dabadfe30a28fdae409f8452aac2cca4b765418
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313490"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115986"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Account e profili tenant (Android)
 
@@ -69,7 +69,7 @@ Nel diagramma precedente:
   - Un profilo tenant per `tom@live.com` esiste in ognuno di questi tenant.
 - Le informazioni su Tom e Bob in altri tenant possono essere diverse da quelle del sistema di registrazione. Possono variare in base ad attributi quali titolo del processo, posizione dell'ufficio e così via. Possono essere membri di gruppi e/o ruoli all'interno di ogni organizzazione (Azure Active Directory tenant). Si fa riferimento a queste informazioni come bob@contoso.com profilo tenant.
 
-Nel diagramma bob@contoso.com e tom@live.com possono accedere alle risorse in tenant Azure Active Directory diversi. Per ulteriori informazioni, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+Nel diagramma bob@contoso.com e tom@live.com possono accedere alle risorse in tenant Azure Active Directory diversi. Per ulteriori informazioni, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../external-identities/add-users-administrator.md).
 
 ## <a name="accounts-and-single-sign-on-sso"></a>Account e Single Sign-On (SSO)
 
@@ -118,10 +118,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Per visualizzare un elenco di attestazioni disponibili nell'oggetto account, fare riferimento alle [attestazioni in un id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Per visualizzare un elenco di attestazioni disponibili nell'oggetto account, fare riferimento alle [attestazioni in un id_token](./id-tokens.md#claims-in-an-id_token)
 
 > [!TIP]
-> Per includere altre attestazioni nel id_token, vedere la documentazione facoltativa sulle attestazioni in [procedura: fornire attestazioni facoltative all'app Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> Per includere altre attestazioni nel id_token, vedere la documentazione facoltativa sulle attestazioni in [procedura: fornire attestazioni facoltative all'app Azure ad](./active-directory-optional-claims.md)
 
 ### <a name="access-tenant-profile-claims"></a>Accesso alle attestazioni del profilo tenant
 

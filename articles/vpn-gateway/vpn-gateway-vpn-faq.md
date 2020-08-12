@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5d66e79e79edd98f3192d0187d6f0454c3aeffa
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708927"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121477"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
@@ -126,6 +126,10 @@ Per l'autenticazione possono essere usate solo chiavi precondivise.
 ### <a name="can-i-configure-force-tunneling"></a>È possibile configurare il tunneling forzato?
 
 Sì. Vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunneling.md).
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>È possibile utilizzare NAT-T nelle connessioni VPN?
+
+Sì, è supportato l'attraversamento NAT (NAT-T). Il gateway VPN di Azure non eseguirà alcuna funzionalità di tipo NAT sui pacchetti interni da e verso i tunnel IPsec.  In questa configurazione assicurarsi che il dispositivo locale avvii il tunnel IPSec.
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>È possibile configurare il server VPN in Azure e usarlo per connettersi alla rete locale?
 

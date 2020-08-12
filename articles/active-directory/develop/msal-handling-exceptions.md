@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204627"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120950"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gestire errori ed eccezioni di MSAL
 
@@ -236,7 +236,7 @@ In MSAL per Python la maggior parte degli errori viene comunicata come valore re
 * Una risposta con esito positivo contiene la chiave `"access_token"`. Il formato della risposta è definito dal protocollo OAuth2. Per ulteriori informazioni, vedere [5.1 Risposta riuscita](https://tools.ietf.org/html/rfc6749#section-5.1)
 * Una risposta di errore contiene `"error"` e in genere `"error_description"`. Il formato della risposta è definito dal protocollo OAuth2. Per altre informazioni, vedere [5.2 Risposta di errore](https://tools.ietf.org/html/rfc6749#section-5.2)
 
-Quando viene restituito un errore, la chiave `"error_description"` contiene un messaggio leggibile, che a sua volta contiene in genere un codice errore di Microsoft Identity Platform. Per informazioni dettagliate sui vari codici errore, vedere [Codici errore di autenticazione e autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+Quando viene restituito un errore, la chiave `"error_description"` contiene un messaggio leggibile, che a sua volta contiene in genere un codice errore di Microsoft Identity Platform. Per informazioni dettagliate sui vari codici errore, vedere [Codici errore di autenticazione e autorizzazione](./reference-aadsts-error-codes.md).
 
 In MSAL per Python le eccezioni sono rare perché la maggior parte degli errori viene gestita restituendo un valore di errore. L'eccezione `ValueError` viene generata solo quando si verifica un problema con il modo in cui si tenta di usare la libreria, ad esempio quando i parametri dell'API presentano un formato non corretto.
 
