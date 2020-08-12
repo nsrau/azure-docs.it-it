@@ -49,6 +49,8 @@
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
+    - name: Residenza dei dati
+      href: data-residency.md
 - name: Guide pratiche
   items:
     - name: Configurare Network Watcher

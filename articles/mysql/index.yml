@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 27da8c70dc64312506269cd1a15aa5b669842dfd
-  ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+  ms.openlocfilehash: 2d01ffea7a570eb2f8af203dd1db8777661dc7df
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/27/2020
-  ms.locfileid: "80365455"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88078462"
 landingContent:
 - title: Informazioni su Database di Azure per MySQL
   linkLists:
@@ -52,9 +52,9 @@ landingContent:
     - text: Progettare un database con l'interfaccia della riga di comando di Azure
       url: tutorial-design-database-using-cli.md
     - text: Distribuire Wordpress in contenitori
-      url: ../app-service/containers/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+      url: ../app-service/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
     - text: Compilare un'app Web con PHP nell'interfaccia della riga di comando di Azure
-      url: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+      url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
 - title: Eseguire il backup e la migrazione dei dati
   linkLists:
   - linkListType: concept

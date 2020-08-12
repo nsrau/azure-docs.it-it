@@ -90,6 +90,8 @@
           href: managed-identity.md
         - name: Usare un criterio di controllo di accesso
           href: group-permissions-for-apps.md
+        - name: Risoluzione dei problemi di accesso
+          href: troubleshooting-access-issues.md
     - name: Sviluppo
       items:
         - name: Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure

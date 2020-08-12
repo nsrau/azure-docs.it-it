@@ -25,38 +25,8 @@
           href: quickstart-existing-helm-chart.md
     - name: Esercitazioni
       items:
-        - name: Java (Visual Studio Code & interfaccia della riga di comando)
-          items:
-            - name: 1 - Introduzione
-              href: get-started-java.md
-            - name: 2 - Sviluppo di più servizi
-              href: multi-service-java.md
-            - name: 3 - Sviluppo in team
-              href: team-development-java.md
-        - name: .NET Core (Visual Studio Code e interfaccia della riga di comando)
-          items:
-            - name: 1 - Introduzione
-              href: get-started-netcore.md
-            - name: 2 - Sviluppo di più servizi
-              href: multi-service-netcore.md
-            - name: 3 - Sviluppo in team
-              href: team-development-netcore.md
-        - name: .NET Core (Visual Studio)
-          items:
-            - name: 1 - Introduzione
-              href: get-started-netcore-visualstudio.md
-            - name: 2 - Sviluppo di più servizi
-              href: multi-service-netcore-visualstudio.md
-            - name: 3 - Sviluppo in team
-              href: team-development-netcore-visualstudio.md
-        - name: Node.js (Visual Studio Code e interfaccia della riga di comando)
-          items:
-            - name: 1 - Introduzione
-              href: get-started-nodejs.md
-            - name: 2 - Sviluppo di più servizi
-              href: multi-service-nodejs.md
-            - name: 3 - Sviluppo in team
-              href: team-development-nodejs.md
+        - name: Introduzione a Visual Studio
+          href: get-started-netcore-visualstudio.md
     - name: Concetti
       items:
         - name: Funzionamento di Dev Spaces
@@ -83,8 +53,6 @@
           href: how-to/install-dev-spaces.md
         - name: Creare un cluster Kubernetes usando Azure Cloud Shell
           href: how-to/create-cluster-cloud-shell.md
-        - name: Condividere Azure Dev Spaces
-          href: how-to/share-dev-spaces.md
         - name: Gestire i segreti
           href: how-to/manage-secrets.md
         - name: Usare un feed NuGet personalizzato

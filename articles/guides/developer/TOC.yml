@@ -7,7 +7,7 @@
 - name: Guida introduttiva
   items:
     - name: App Web
-      href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html'
+      href: 'https://docs.microsoft.com/azure/app-service/quickstart-html'
     - name: Macchine virtuali
       items:
         - name: Linux
@@ -29,9 +29,9 @@
         - name: .NET con database SQL
           href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase'
         - name: Node.js con Mongo DB
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app'
+          href: 'https://docs.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app'
         - name: PHP con MySQL
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql'
+          href: 'https://docs.microsoft.com/azure/app-service/tutorial-php-mysql-app'
         - name: Java con MySQL
           href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql'
     - name: Distribuire modelli di macchine virtuali complessi

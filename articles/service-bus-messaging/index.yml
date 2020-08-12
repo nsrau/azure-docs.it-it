@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 06/23/2020
-  ms.openlocfilehash: 2961c46fe486c8e635e17a78cbe8095da13a2614
-  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+  ms.openlocfilehash: 7f2cab376320b51cbc4d420b6e5bc63c1df8f675
+  ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85340274"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88067376"
 landingContent:
 - title: Messaggistica del bus di servizio di Azure
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Architettura di riferimento per code ed eventi
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
+      url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
 - title: Creare una coda del bus di servizio
   linkLists:
   - linkListType: quickstart
