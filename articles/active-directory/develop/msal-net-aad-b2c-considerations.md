@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5cc53d909ed090e152af84da49c8e87907f6bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883227"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120610"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
@@ -134,7 +134,7 @@ Con il nome utente e la password in un flusso ROPC si sacrificano diversi elemen
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configurare il flusso ROPC in Azure AD B2C
 
-Nel tenant di Azure AD B2C creare un nuovo flusso utente e selezionare **Accedi con ROPC** per abilitare ROPC per il flusso utente. Per altre informazioni, vedere [configurare il flusso di credenziali password del proprietario della risorsa](/azure/active-directory-b2c/configure-ropc).
+Nel tenant di Azure AD B2C creare un nuovo flusso utente e selezionare **Accedi con ROPC** per abilitare ROPC per il flusso utente. Per altre informazioni, vedere [configurare il flusso di credenziali password del proprietario della risorsa](../../active-directory-b2c/configure-ropc.md).
 
 `IPublicClientApplication`contiene il `AcquireTokenByUsernamePassword` Metodo:
 
@@ -182,7 +182,7 @@ Un sintomo di tale scenario è che MSAL.NET restituisce `Missing from the token 
 
 La soluzione alternativa suggerita consiste nell'usare la [memorizzazione nella cache in base ai criteri](#acquire-a-token-to-apply-a-policy) descritti in precedenza.
 
-In alternativa, è possibile usare l' `tid` attestazione se si usano [criteri personalizzati](../../active-directory-b2c/custom-policy-get-started.md) in Azure ad B2C. I criteri personalizzati possono restituire attestazioni aggiuntive all'applicazione tramite la [trasformazione delle attestazioni](/azure/active-directory-b2c/claims-transformation-technical-profile).
+In alternativa, è possibile usare l' `tid` attestazione se si usano [criteri personalizzati](../../active-directory-b2c/custom-policy-get-started.md) in Azure ad B2C. I criteri personalizzati possono restituire attestazioni aggiuntive all'applicazione tramite la [trasformazione delle attestazioni](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigazione per "missing from the token Response"
 

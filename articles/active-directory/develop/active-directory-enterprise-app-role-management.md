@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478621"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116088"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -265,7 +265,7 @@ Per eliminare un ruolo esistente, completare questi passaggi:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per i passaggi aggiuntivi, vedere la [documentazione dell'app](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Per i passaggi aggiuntivi, vedere la [documentazione dell'app](../saas-apps/tutorial-list.md).
 
 <!--Image references-->
 <!--Image references-->

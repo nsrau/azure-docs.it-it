@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e706c0eeb848b6cd14a3c14de821ca59a9c52ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe321de279397d24e0926cf1ef26a1d66adac8c4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611365"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117312"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework di consenso di Azure Active Directory
 
@@ -28,7 +28,7 @@ Il framework è basato sulla possibilità per un utente o un amministratore di f
 
 Il framework di consenso è basato su OAuth 2.0 e i relativi flussi diversi, come la concessione del codice di autorizzazione e delle credenziali utente, mediante client pubblici o riservati. Tramite OAuth 2.0, Azure AD consente di creare numerosi tipi diversi di applicazioni client, ad esempio su telefono, tablet, server o applicazione Web, e di ottenere l'accesso alle risorse necessarie.
 
-Per altre informazioni sull'uso del framework di consenso con le concessioni di autorizzazione OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web tramite OAuth 2.0 e Azure AD](v2-oauth2-auth-code-flow.md) e [Scenari di autenticazione per Azure AD](authentication-scenarios.md). Per informazioni su come ottenere l'autorizzazione per l'accesso a Office 365 tramite Microsoft Graph, vedere [App authentication with Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview) (Autenticazione di app con Microsoft Graph).
+Per altre informazioni sull'uso del framework di consenso con le concessioni di autorizzazione OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web tramite OAuth 2.0 e Azure AD](v2-oauth2-auth-code-flow.md) e [Scenari di autenticazione per Azure AD](./authentication-vs-authorization.md). Per informazioni su come ottenere l'autorizzazione per l'accesso a Office 365 tramite Microsoft Graph, vedere [App authentication with Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview) (Autenticazione di app con Microsoft Graph).
 
 ## <a name="consent-experience---an-example"></a>Esempio di esperienza di consenso
 
@@ -65,4 +65,4 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [come convertire un'app multi-tenant](howto-convert-app-to-be-multi-tenant.md)
-* Per informazioni più dettagliate, scoprire [come viene supportato il consenso a livello del protocollo OAuth 2.0 durante il flusso di concessione del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code).
+* Per informazioni più dettagliate, scoprire [come viene supportato il consenso a livello del protocollo OAuth 2.0 durante il flusso di concessione del codice di autorizzazione](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code).

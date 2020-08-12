@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9b6451d29a3a874e09d74cbe664662a395b647f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890472"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120678"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Come configurare Single Sign-On per un'applicazione
 
@@ -26,20 +26,20 @@ L'abilitazione dell'accesso Single Sign-on (SSO) federato nell'applicazione avvi
 
 * Se si sta creando un'applicazione per dispositivi mobili, potrebbe essere necessaria della configurazione aggiuntiva per abilitare l'accesso Single Sign-On negoziato o non negoziato.
 
-Per Android, vedere [Abilitare l'accesso Single Sign-On tra app in Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android).<br>
+Per Android, vedere [Abilitare l'accesso Single Sign-On tra app in Android](../azuread-dev/howto-v1-enable-sso-android.md).<br>
 
-Per iOS, vedere [Abilitare l'accesso Single Sign-On tra app in iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
+Per iOS, vedere [Abilitare l'accesso Single Sign-On tra app in iOS](../azuread-dev/howto-v1-enable-sso-ios.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Azure AD SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[Azure AD SSO](../manage-apps/what-is-single-sign-on.md)<br>
 
-[Abilitare l'accesso Single Sign-On tra app in Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[Abilitare l'accesso Single Sign-On tra app in Android](../azuread-dev/howto-v1-enable-sso-android.md)<br>
 
-[Abilitare l'accesso Single Sign-On tra app in iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[Abilitare l'accesso Single Sign-On tra app in iOS](../azuread-dev/howto-v1-enable-sso-ios.md)<br>
 
-[Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Integrazione di applicazioni con Azure Active Directory](./quickstart-register-app.md)<br>
 
-[Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](./v2-permissions-and-consent.md)<br>
 
 [Azure AD in Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/17/2020
+ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592271"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121018"
 ---
 # <a name="translator-v30"></a>Traduttore v 3.0
 
-## <a name="whats-new"></a>Quali sono le novità?
+## <a name="whats-new"></a>Novità
 
 La versione 3 di Translator fornisce un'API Web moderna basata su JSON. Migliora l'usabilità e le prestazioni consolidando le funzionalità esistenti in un minor numero di operazioni e offre nuove funzionalità.
 
@@ -147,11 +147,11 @@ Un token di autenticazione è valido per 10 minuti. Il token deve essere riutili
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale
 
-Il servizio Translator è ora disponibile con le funzionalità di rete virtuale in aree limitate ( `WestUS2` ,, `EastUS` `SouthCentralUS` , `WestUS` , `CentralUSEUAP` , `global` ). Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Il servizio Translator è ora disponibile con le funzionalità di rete virtuale (VNET) in tutte le aree del cloud pubblico di Azure. Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Una volta attivata questa funzionalità, è necessario utilizzare l'endpoint personalizzato per chiamare il traduttore. Non è possibile usare l'endpoint di conversione globale ("api.cognitive.microsofttranslator.com") e non è possibile eseguire l'autenticazione con un token di accesso.
 
-È possibile trovare l'endpoint personalizzato dopo aver creato la [risorsa di conversione](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+È possibile trovare l'endpoint personalizzato dopo la creazione di una [risorsa di conversione](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) e consentire l'accesso da reti selezionate ed endpoint privati.
 
 |Intestazioni|Descrizione|
 |:-----|:----|
@@ -169,7 +169,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
      -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-## <a name="errors"></a>Errori
+## <a name="errors"></a>Errors
 
 Una risposta di errore standard è un oggetto JSON con coppia nome/valore denominato `error`. Il valore è anche un oggetto JSON con proprietà:
 

@@ -11,21 +11,21 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: a27524f860f17642dcd0640bcb740fc04c187407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d865ac8bae475365dbfc6c8bad990a1acc7998f0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881384"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116751"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Come configurare una nuova applicazione multi-tenant
 
 Di seguito è riportato un elenco di argomenti consigliati per altre informazioni sulle applicazioni multi-tenant:
 
-- Informazioni generali sulla [definizione di applicazione multi-tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Informazioni generali su [come configurare un'applicazione multi-tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
-- Panoramica dettagliata sull'[uso del framework di consenso di Azure AD per implementare il consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), necessario per le applicazioni multi-tenant
-- Per altri dettagli, vedere le informazioni sulla [configurazione e sulla codifica end-to-end di un'applicazione multi-tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), incluse le informazioni su come eseguire la registrazione, usare l'endpoint "comune", implementare il consenso di "utente" e "amministratore" e implementare scenari più avanzati multilivello
+- Informazioni generali sulla [definizione di applicazione multi-tenant](./developer-glossary.md#multi-tenant-application)
+- Informazioni generali su [come configurare un'applicazione multi-tenant](./howto-convert-app-to-be-multi-tenant.md)
+- Panoramica dettagliata sull'[uso del framework di consenso di Azure AD per implementare il consenso](./quickstart-register-app.md), necessario per le applicazioni multi-tenant
+- Per altri dettagli, vedere le informazioni sulla [configurazione e sulla codifica end-to-end di un'applicazione multi-tenant](./howto-convert-app-to-be-multi-tenant.md), incluse le informazioni su come eseguire la registrazione, usare l'endpoint "comune", implementare il consenso di "utente" e "amministratore" e implementare scenari più avanzati multilivello
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Azure AD in Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

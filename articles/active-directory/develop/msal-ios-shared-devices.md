@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5abb6852e267fa7d7277e0e0674a4099343e14ca
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80550253"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114915"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modalità dispositivo condiviso per dispositivi iOS
 
@@ -67,7 +67,7 @@ Il dispositivo deve essere configurato per supportare la modalità dispositivo c
       - Tipo: Boolean
       - Valore: true
 
-    Per altre informazioni sulla configurazione con Intune, vedere la [documentazione di configurazione di Intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+    Per altre informazioni sulla configurazione con Intune, vedere la [documentazione di configurazione di Intune](/intune/configuration/ios-device-features-settings).
 
 1. Configurare quindi il MDM per eseguire il push dell'app Microsoft Authenticator al dispositivo tramite un profilo MDM.
 

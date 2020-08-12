@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533360"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121460"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 | ---| --- |
 | Rescupero accelerato del database con database singoli e pool elastici | Per informazioni, vedere [Ripristino accelerato del database](../accelerated-database-recovery.md).|
 | Individuazione dati e classificazione  |Per informazioni, vedere [database SQL di Azure e individuazione dei dati di analisi delle sinapsi di azure & classificazione](data-discovery-and-classification-overview.md).|
-| Processi di database elastici | Per informazioni, vedere [Creare, configurare e gestire processi elastici](elastic-jobs-overview.md). |
+| Processi di database elastici (anteprima) | Per informazioni, vedere [Creare, configurare e gestire processi elastici](elastic-jobs-overview.md). |
 | Query elastiche | Per informazioni, vedere [Panoramica delle query elastiche](elastic-query-overview.md). |
 | Transazioni elastiche | [Transazioni distribuite tra database cloud](elastic-transactions-overview.md). |
 | Editor di query nel portale di Azure |Per informazioni, vedere [Usare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati](connect-query-portal.md).|

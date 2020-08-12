@@ -1,16 +1,16 @@
 ---
-title: Onboarding di un cliente in Azure Lighthouse
+title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133476"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118876"
 ---
-# <a name="onboard-a-customer-to-azure-lighthouse"></a>Onboarding di un cliente in Azure Lighthouse
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
 Questo articolo illustra come un provider di servizi può caricare un cliente nel Faro di Azure. Quando si esegue questa operazione, è possibile accedere e gestire le risorse delegate del cliente (sottoscrizioni e/o gruppi di risorse) tramite il tenant di Azure Active Directory (Azure AD) usando la [gestione delle risorse delegata di Azure](../concepts/azure-delegated-resource-management.md).
 
@@ -86,7 +86,7 @@ Per definire le autorizzazioni, è necessario essere a conoscenza dei valori ID 
 (Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
 
 # To retrieve role definition IDs
 (Get-AzRoleDefinition -Name '<roleName>').id

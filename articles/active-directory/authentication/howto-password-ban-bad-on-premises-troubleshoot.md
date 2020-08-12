@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035486"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116462"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Risoluzione dei problemi: protezione Azure AD password locale
 
@@ -72,7 +72,20 @@ Azure AD la protezione con password ha una dipendenza critica dalla funzionalit�
 
    Una correzione di sicurezza KDS è stata introdotta in Windows Server 2016 che modifica il formato dei buffer crittografati KDS; questi buffer talvolta non riescono a decrittografare in Windows Server 2012 e Windows Server 2012 R2. La direzione inversa è OK: i buffer con KDS crittografati in Windows Server 2012 e Windows Server 2012 R2 verranno sempre decrittografati in Windows Server 2016 e versioni successive. Se i controller di dominio nei domini Active Directory eseguono una combinazione di questi sistemi operativi, è possibile che vengano segnalati errori occasionali di decrittografia della protezione Azure AD password. Non è possibile prevedere accuratamente l'intervallo o i sintomi di questi errori in base alla natura della correzione della sicurezza e, dato che non è deterministica, che Azure AD agente di controller di dominio per la protezione delle password in cui il controller di dominio eseguirà la crittografia dei dati in un determinato momento.
 
-   Microsoft sta esaminando una correzione per questo problema, ma non è ancora disponibile l'ETA. Nel frattempo, non esiste alcuna soluzione per questo problema, ad eccezione di non eseguire una combinazione di questi sistemi operativi incompatibili nei domini Active Directory. In altre parole, è consigliabile eseguire solo i controller di dominio Windows Server 2012 e Windows Server 2012 R2 oppure eseguire solo i controller di dominio Windows Server 2016 e versioni successive.
+   Non esiste alcuna soluzione alternativa per questo problema, ad eccezione del non eseguire una combinazione di questi sistemi operativi incompatibili nei domini Active Directory. In altre parole, è consigliabile eseguire solo i controller di dominio Windows Server 2012 e Windows Server 2012 R2 oppure eseguire solo i controller di dominio Windows Server 2016 e versioni successive.
+
+## <a name="dc-agent-thinks-the-forest-has-not-been-registered"></a>L'agente del controller di dominio ritiene che la foresta non sia stata registrata
+
+Il sintomo di questo problema è 30016 eventi che vengono registrati nel canale Agent\Admin del controller di dominio che afferma in parte:
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+Esistono due possibili cause di questo problema.
+
+1. La foresta non è stata effettivamente registrata. Per risolvere il problema, eseguire il comando Register-AzureADPasswordProtectionForest come descritto nei requisiti per la [distribuzione](howto-password-ban-bad-on-premises-deploy.md).
+1. La foresta è stata registrata, ma l'agente del controller di dominio non è in grado di decrittografare i dati di registrazione della foresta. Questo caso ha la stessa causa principale del problema #2 elencato sopra nell' [agente del controller di dominio non è in grado di crittografare o decrittografare i file di criteri password](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). Un modo semplice per confermare questa ipotesi è che questo errore viene visualizzato solo negli agenti del controller di dominio in esecuzione sui controller di dominio Windows Server 2012 o Windows Server 2012R2, mentre gli agenti controller di dominio in esecuzione su Windows Server 2016 e i controller di dominio successivi sono buoni. La soluzione alternativa è la stessa: aggiornare tutti i controller di dominio a Windows Server 2016 o versione successiva.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Le password vulnerabili vengono accettate, ma non devono essere
 

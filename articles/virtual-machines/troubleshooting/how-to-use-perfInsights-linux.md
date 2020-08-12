@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1bf080ad4c4dc665e61d1075cf22c84d4cd66648
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526800"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121392"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
 
@@ -99,6 +99,7 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
   - /var/log/boot.log
   - /var/log/yum.log
   - /var/log/dpkg.log
+  - /var/log/sysstat o/var/log/SA [ `**` ]
   - /var/log/cloud-init.log
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
@@ -112,7 +113,9 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
 - [Metadati dell'istanza di macchina virtuale di Azure](../windows/instance-metadata-service.md)
 
 >[!Note]
->[ `*` ] Le informazioni PCI non sono ancora state raccolte nelle distribuzioni di Debian e SLES
+>[ `*` ] Le informazioni PCI non sono ancora state raccolte nelle distribuzioni Debian e SLES.
+> 
+>[ `**` ]/var/log/sysstat o/var/log/SA contiene i file del rapporto attività di sistema (SAR) raccolti dal pacchetto sysstat. Se il pacchetto sysstat non è installato nella macchina virtuale, lo strumento PerfInsights fornisce un Consiglio per installarlo.
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>Eseguire PerfInsights Linux nella macchina virtuale
 
@@ -121,7 +124,7 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
 #### <a name="tool-requirements"></a>Requisiti dello strumento
 
 - Questo strumento deve essere eseguito nella macchina virtuale in cui si è verificato il problema di prestazioni.
-- Python 2,7 deve essere installato nella macchina virtuale
+- Python 3. x o Python 2,7 deve essere installato nella macchina virtuale.
 
 - Attualmente sono supportate le distribuzioni seguenti:
 

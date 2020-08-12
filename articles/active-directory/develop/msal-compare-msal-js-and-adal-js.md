@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696419"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120899"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Differenze tra MSAL.js e ADAL.js
 
@@ -30,7 +30,7 @@ In questo articolo viene descritto come scegliere tra Microsoft Authentication L
 
 Nella maggior parte dei casi è consigliabile usare Microsoft Identity Platform e MSAL.js, che rappresenta l'ultima generazione delle librerie di autenticazione di Microsoft. Tramite MSAL.js è possibile acquisire i token per gli utenti che accedono all'applicazione con Azure AD (account aziendali e dell'istituto di istruzione), account Microsoft (personali) o Azure AD B2C.
 
-Se si ha già familiarità con l'endpoint della versione 1.0 (e ADAL.js), è possibile leggere l'articolo sulle [differenze rispetto all'endpoint di Microsoft Identity Platform versione 2.0](active-directory-v2-compare.md).
+Se si ha già familiarità con l'endpoint della versione 1.0 (e ADAL.js), è possibile leggere l'articolo sulle [differenze rispetto all'endpoint di Microsoft Identity Platform versione 2.0](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 È comunque necessario usare ADAL.js se l'applicazione deve consentire l'accesso degli utenti con versioni precedenti di [Active Directory Federation Services (AD FS)](/windows-server/identity/active-directory-federation-services).
 
@@ -96,4 +96,4 @@ Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/comm
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere il [confronto tra la versione 1.0 e la versione 2.0](active-directory-v2-compare.md).
+Per altre informazioni, vedere il [confronto tra la versione 1.0 e la versione 2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

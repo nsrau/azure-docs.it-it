@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552714"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115578"
 ---
 # <a name="app-registration-reference"></a>Riferimento alla registrazione delle app
 
@@ -26,7 +26,7 @@ Questo documento fornisce il contesto e le descrizioni di varie funzionalità di
 
 ## <a name="my-applications-or-converged-applications"></a>Applicazioni personali o con convergenza
 
-Questo elenco include tutte le applicazioni registrate per l'uso con l'endpoint Microsoft Identity Platform (v2.0). Queste applicazioni permettono di eseguire l'accesso sia con account Microsoft personali che aziendali o dell'istituto d'istruzione da Azure Active Directory. Per altre informazioni sull'endpoint di Identity Platform, vedere la [panoramica della versione 2.0](active-directory-appmodel-v2-overview.md). Queste applicazioni possono essere usate anche per l'integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.
+Questo elenco include tutte le applicazioni registrate per l'uso con l'endpoint Microsoft Identity Platform (v2.0). Queste applicazioni permettono di eseguire l'accesso sia con account Microsoft personali che aziendali o dell'istituto d'istruzione da Azure Active Directory. Per altre informazioni sull'endpoint di Identity Platform, vedere la [panoramica della versione 2.0](./v2-overview.md). Queste applicazioni possono essere usate anche per l'integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.
 
 ## <a name="azure-ad-only-applications"></a>Solo applicazioni Azure AD
 

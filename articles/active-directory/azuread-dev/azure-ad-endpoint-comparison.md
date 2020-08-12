@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034908"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116394"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v2.0)?
 
@@ -33,9 +33,9 @@ Quando si sviluppa una nuova applicazione, è importante comprendere le differen
 
 * L'endpoint v1.0 consente l'accesso all'applicazione (Azure AD) solo agli account aziendali e dell'istituto di istruzione
 * L'endpoint della piattaforma Microsoft Identity consente agli account aziendali e dell'Istituto di istruzione di Azure AD e personal account Microsoft (MSA), ad esempio hotmail.com, outlook.com e msn.com, di eseguire l'accesso.
-* Entrambi gli endpoint accettano anche gli accessi degli *[utenti Guest](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* di una directory Azure ad per le applicazioni configurate come *[tenant singolo](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* o per le applicazioni *multi-tenant* configurate in modo da puntare all'endpoint specifico del tenant ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
+* Entrambi gli endpoint accettano anche gli accessi degli *[utenti Guest](../external-identities/what-is-b2b.md)* di una directory Azure ad per le applicazioni configurate come *[tenant singolo](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* o per le applicazioni *multi-tenant* configurate in modo da puntare all'endpoint specifico del tenant ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-L'endpoint della piattaforma Microsoft Identity consente di scrivere app che accettano accessi da account Microsoft personali e account aziendali o dell'Istituto di istruzione. Questo consente di scrivere l'app senza tenere conto dell'account utilizzato per l'accesso. Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, come i siti di SharePoint o i dati delle directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
+L'endpoint della piattaforma Microsoft Identity consente di scrivere app che accettano accessi da account Microsoft personali e account aziendali o dell'Istituto di istruzione. Questo consente di scrivere l'app senza tenere conto dell'account utilizzato per l'accesso. Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, come i siti di SharePoint o i dati delle directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](/graph/api/user-list-messages?view=graph-rest-1.0), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
 
 Per l'endpoint della piattaforma di identità Microsoft, è possibile usare Microsoft Authentication Library (MSAL) per ottenere l'accesso ai mondi utente, didattici ed aziendali. L'endpoint v1.0 di Azure AD accetta gli accessi solo da account aziendali e dell'istituto di istruzione.
 
@@ -141,7 +141,7 @@ Le Registrazioni app che supportano gli account aziendali e dell'istituto di ist
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrizioni relative agli URL di reindirizzamento
 
-Per le informazioni più aggiornate sulle restrizioni relative agli URL di reindirizzamento per le app registrate per la piattaforma di identità Microsoft, vedere [reindirizzare restrizioni e limitazioni degli URL di risposta](https://docs.microsoft.com/azure/active-directory/develop/reply-url) nella documentazione della piattaforma Microsoft Identity.
+Per le informazioni più aggiornate sulle restrizioni relative agli URL di reindirizzamento per le app registrate per la piattaforma di identità Microsoft, vedere [reindirizzare restrizioni e limitazioni degli URL di risposta](../develop/reply-url.md) nella documentazione della piattaforma Microsoft Identity.
 
 Per informazioni su come registrare un'app per l'uso con la piattaforma di identità Microsoft, vedere [registrare un'app con la nuova esperienza registrazioni app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

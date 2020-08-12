@@ -13,12 +13,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8895e52209622025f943aaa6a4261b68a7e2899c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034840"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116300"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Linee guida per gli sviluppatori per la funzionalità di accesso condizionale Azure Active Directory
 
@@ -90,7 +90,7 @@ Gli sviluppatori possono aggiungere questa richiesta a una nuova richiesta per A
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-L'accesso condizionale di Azure AD è una funzionalità inclusa in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Per altre informazioni sui requisiti relativi alle licenza, vedere [Report Utilizzo senza licenza](../active-directory-conditional-access-unlicensed-usage-report.md). Gli sviluppatori possono entrare a far parte di [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx) e ottenere così una sottoscrizione gratuita a Enterprise Mobility Suite, che include Azure AD Premium.
+L'accesso condizionale di Azure AD è una funzionalità inclusa in [Azure AD Premium](../fundamentals/active-directory-whatis.md). Per altre informazioni sui requisiti relativi alle licenza, vedere [Report Utilizzo senza licenza](../reports-monitoring/overview-reports.md). Gli sviluppatori possono entrare a far parte di [Microsoft Developer Network](/) e ottenere così una sottoscrizione gratuita a Enterprise Mobility Suite, che include Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Considerazioni per scenari specifici
 
@@ -177,7 +177,7 @@ Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](ht
 
 ## <a name="see-also"></a>Vedere anche
 
-* Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure Active Directory](../conditional-access/overview.md).
 * Per altri esempi di codice di Azure AD, vedere il [repository GitHub di esempi di codice](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory).
 * Per altre informazioni su ADAL SDK e sull'accesso alla documentazione di riferimento, vedere la [guida alle librerie](active-directory-authentication-libraries.md).
 * Per altre informazioni sugli scenari multi-tenant, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

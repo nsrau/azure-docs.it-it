@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: fc71ebe61fba8c1bdb6b7625b16a50d8995a581a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8de6a7aafdd402e4ee75862e69ac60af3af0e041
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883354"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114932"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Come modificare le impostazioni predefinite per la durata del token per un'applicazione personalizzata
 
@@ -29,5 +29,5 @@ Questo articolo illustra come usare Azure AD PowerShell per impostare i criteri 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere [Durate dei token configurabile in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) per informazioni su come configurare la durata dei token emessi da Azure AD, tra cui come impostare la durata dei token per tutte le app di un'organizzazione, per un'applicazione multi-tenant o per un'entità servizio specifica in un'organizzazione. 
-* [Riferimento al token Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* Vedere [Durate dei token configurabile in Azure AD](./active-directory-configurable-token-lifetimes.md) per informazioni su come configurare la durata dei token emessi da Azure AD, tra cui come impostare la durata dei token per tutte le app di un'organizzazione, per un'applicazione multi-tenant o per un'entità servizio specifica in un'organizzazione. 
+* [Riferimento al token Azure AD](./id-tokens.md)

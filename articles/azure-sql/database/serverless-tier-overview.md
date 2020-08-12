@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 8/7/2020
-ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037304"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121358"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -119,7 +119,7 @@ Le funzionalità seguenti non supportano la sospensione automatica, ma supportan
 - Replica geografica (gruppi di replica geografica attiva e failover automatico).
 - Conservazione dei backup a lungo termine (LTR).
 - Database di sincronizzazione utilizzato nella sincronizzazione dati SQL.  A differenza dei database di sincronizzazione, i database hub e membri supportano la sospensione automatica.
-- Il database dei processi usato nei processi elastici.
+- Il database dei processi usato nei processi elastici (anteprima).
 
 La sospensione dell'autosospensione è temporaneamente bloccata durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.  In questi casi, la sospensione automatico diventa nuovamente consentita al termine dell'aggiornamento del servizio.
 

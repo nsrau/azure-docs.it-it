@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 9388ef4aa320147815bec79c2fa4b90bce3cdac1
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 56d2e01d35f25ac469e808a805382463d2b23ceb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846140"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121103"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>App desktop che chiama le API Web: configurazione del codice
 
@@ -107,8 +107,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Per altre informazioni su come configurare un'applicazione desktop MSAL.NET:
 
-- Per un elenco di tutti i modificatori disponibili in `PublicClientApplicationBuilder` , vedere la documentazione di riferimento [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- Per una descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions` , vedere [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) nella documentazione di riferimento.
+- Per un elenco di tutti i modificatori disponibili in `PublicClientApplicationBuilder` , vedere la documentazione di riferimento [PublicClientApplicationBuilder](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Per una descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions` , vedere [PublicClientApplicationOptions](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) nella documentazione di riferimento.
 
 ### <a name="complete-example-with-configuration-options"></a>Esempio completo con le opzioni di configurazione
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: e96442be50a075ebf2cd81bf1b6fb0f58f883bad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885583"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115476"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
 
@@ -28,10 +28,10 @@ Approfondendo il concetto di esperienza di consenso utente per le applicazioni d
 
 Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. A un amministratore o un utente può essere chiesto il consenso per permettere l'accesso ai dati individuali o a quelli dell'organizzazione.
 
-L'esperienza utente effettiva per la concessione del consenso può variare a seconda dei criteri impostati per il tenant dell'utente, dell'ambito di autorità (o ruolo) dell'utente e del tipo di [autorizzazioni](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) richieste dall'applicazione client. In altre parole, l'esperienza di consenso ricade in parte sotto il controllo degli sviluppatori di applicazioni e degli amministratori del tenant. Gli amministratori hanno la possibilità di impostare e disabilitare i criteri per un tenant o un'app per controllare l'esperienza di consenso nel tenant. Gli sviluppatori di applicazioni possono stabilire quali tipi di autorizzazioni sono richieste e se vogliono fornire agli utenti informazioni dettagliate attraverso il flusso di consenso utente o il flusso di consenso amministratore.
+L'esperienza utente effettiva per la concessione del consenso può variare a seconda dei criteri impostati per il tenant dell'utente, dell'ambito di autorità (o ruolo) dell'utente e del tipo di [autorizzazioni](../azuread-dev/v1-permissions-consent.md) richieste dall'applicazione client. In altre parole, l'esperienza di consenso ricade in parte sotto il controllo degli sviluppatori di applicazioni e degli amministratori del tenant. Gli amministratori hanno la possibilità di impostare e disabilitare i criteri per un tenant o un'app per controllare l'esperienza di consenso nel tenant. Gli sviluppatori di applicazioni possono stabilire quali tipi di autorizzazioni sono richieste e se vogliono fornire agli utenti informazioni dettagliate attraverso il flusso di consenso utente o il flusso di consenso amministratore.
 
 - Il **flusso di consenso utente** è quello per cui uno sviluppatore di applicazioni indirizza gli utenti all'endpoint di autorizzazione allo scopo di registrare il consenso per il solo utente corrente.
-- Il **flusso di consenso amministratore** è quello per cui uno sviluppatore di applicazioni indirizza gli utenti all'endpoint di consenso amministratore allo scopo di registrare il consenso per l'intero tenant. Per garantire il corretto funzionamento del flusso di consenso amministratore, gli sviluppatori di applicazioni devono inserire l'elenco di tutte le autorizzazioni nella proprietà `RequiredResourceAccess` del manifesto dell'applicazione. Per altre informazioni, vedere [Manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- Il **flusso di consenso amministratore** è quello per cui uno sviluppatore di applicazioni indirizza gli utenti all'endpoint di consenso amministratore allo scopo di registrare il consenso per l'intero tenant. Per garantire il corretto funzionamento del flusso di consenso amministratore, gli sviluppatori di applicazioni devono inserire l'elenco di tutte le autorizzazioni nella proprietà `RequiredResourceAccess` del manifesto dell'applicazione. Per altre informazioni, vedere [Manifesto dell'applicazione](./reference-app-manifest.md).
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>Blocchi predefiniti della richiesta di consenso
 
@@ -81,6 +81,6 @@ Di seguito sono illustrate le esperienze di consenso che un utente può visualiz
     1. Gli utenti non amministratore visualizzeranno la stessa schermata illustrata in precedenza al punto 2.ii.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Panoramica dettagliata di [come il framework di consenso di Azure AD implementa il consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Per informazioni più approfondite, scoprire [come un'applicazione multi-tenant può usare il framework di consenso](active-directory-devhowto-multi-tenant-overview.md) per implementare il consenso "user" e "admin", che supporta più modelli di applicazione avanzati a più livelli.
+- Panoramica dettagliata di [come il framework di consenso di Azure AD implementa il consenso](./quickstart-register-app.md).
+- Per informazioni più approfondite, scoprire [come un'applicazione multi-tenant può usare il framework di consenso](./howto-convert-app-to-be-multi-tenant.md) per implementare il consenso "user" e "admin", che supporta più modelli di applicazione avanzati a più livelli.
 - Informazioni [su come configurare il dominio del server di pubblicazione dell'applicazione](howto-configure-publisher-domain.md).

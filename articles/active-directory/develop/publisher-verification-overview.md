@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682434"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120780"
 ---
 # <a name="publisher-verification-preview"></a>Verifica dell'autore (anteprima)
 
@@ -42,13 +42,13 @@ Esistono alcuni prerequisiti per la verifica dell'autore, alcuni dei quali saran
 
 -  ID MPN per un account [Microsoft Partner Network](https://partner.microsoft.com/membership) valido che ha completato il processo di [verifica](/partner-center/verification-responses). Questo account MPN deve essere l'[account globale del partner (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) per l'organizzazione. 
 
--  Un tenant di Azure AD con un [dominio personalizzato](/azure/active-directory/fundamentals/add-custom-domain) verificato da DNS. Il dominio personalizzato deve corrispondere al dominio dell'indirizzo di posta elettronica usato durante la verifica nel passaggio precedente. 
+-  Un tenant di Azure AD con un [dominio personalizzato](../fundamentals/add-custom-domain.md) verificato da DNS. Il dominio personalizzato deve corrispondere al dominio dell'indirizzo di posta elettronica usato durante la verifica nel passaggio precedente. 
 
 -  Un'app registrata in un tenant di Azure AD con un [dominio dell'autore](howto-configure-publisher-domain.md) configurato con lo stesso dominio usato in precedenza. 
 
 -  L'utente che esegue la verifica deve essere autorizzato ad apportare modifiche sia alla registrazione dell'app in Azure AD che all'account MPN in Partner Center. 
 
-    -  In Azure AD questo utente deve essere il proprietario dell'app o avere uno dei [ruoli](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) seguenti: Amministratore applicazione, Amministratore applicazione cloud, Amministratore globale. 
+    -  In Azure AD questo utente deve essere il proprietario dell'app o avere uno dei [ruoli](../users-groups-roles/directory-assign-admin-roles.md) seguenti: Amministratore applicazione, Amministratore applicazione cloud, Amministratore globale. 
 
     -  In Partner Center questo utente deve avere uno dei [ruoli](/partner-center/permissions-overview) seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD).
     
@@ -67,7 +67,7 @@ Di seguito sono riportate alcune domande frequenti relative al programma di veri
 
   Gli sviluppatori che prevedono anche l'integrazione con Microsoft 365 possono ottenere vantaggi aggiuntivi da questi programmi. Per altre informazioni, vedere [Attestazione dell'editore di Microsoft 365](/microsoft-365-app-certification/docs/attestation) e [Certificazione delle app di Microsoft 365](/microsoft-365-app-certification/docs/certification). 
 
-- **Si tratta della stessa cosa della Raccolta di applicazioni di Azure AD?** No. La verifica dell'autore è un programma complementare ma separato rispetto alla [Raccolta di applicazioni di Azure Active Directory](/azure/active-directory/azuread-dev/howto-app-gallery-listing). Gli sviluppatori che soddisfano i criteri sopra indicati devono completare il processo di verifica dell'autore indipendentemente dalla partecipazione a tale programma. 
+- **Si tratta della stessa cosa della Raccolta di applicazioni di Azure AD?** No. La verifica dell'autore è un programma complementare ma separato rispetto alla [Raccolta di applicazioni di Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md). Gli sviluppatori che soddisfano i criteri sopra indicati devono completare il processo di verifica dell'autore indipendentemente dalla partecipazione a tale programma. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Scoprire come [contrassegnare un'app come con autore verificato](mark-app-as-publisher-verified.md).

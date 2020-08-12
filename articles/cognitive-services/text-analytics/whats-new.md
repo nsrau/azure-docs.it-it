@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986299"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121851"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -23,9 +23,45 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 
 ## <a name="august-2020"></a>Agosto 2020
 
+### <a name="general-api-updates"></a>Aggiornamenti generali dell'API
+
 * Versione `2020-07-01` del modello per V3 `/keyphrases` `/pii` ed `/languages` endpoint, che aggiunge:
     * [Categorie di entità](named-entity-types.md?tabs=personal) governative e specifiche del paese aggiuntive per il riconoscimento delle entità denominate.
 * Verrà ora restituito un errore HTTP 400 per le richieste API V3 che superano i [limiti dei dati](concepts/data-limits.md)pubblicati. 
+
+### <a name="text-analytics-for-health-container-august-updates"></a>Analisi del testo per il contenitore di integrità aggiornamenti agosto
+
+Gli aggiornamenti seguenti sono specifici della versione di agosto del Analisi del testo solo per il contenitore di integrità.
+
+* Nuova versione modello per Analisi del testo per l'integrità:`2020-07-24`
+* Nuovo URL per l'invio di Analisi del testo per le richieste di integrità:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+
+Sono state modificate le proprietà seguenti nella risposta JSON:
+
+* `type` è stata rinominata `category` 
+* `score` è stata rinominata `confidenceScore`
+* Le entità nel `category` campo dell'output JSON sono ora in formato Pascal. Le entità seguenti sono state rinominate:
+    * `EXAMINATION_RELATION` è stato rinominato in `RelationalOperator`.
+    * `EXAMINATION_UNIT` è stato rinominato in `MeasurementUnit`.
+    * `EXAMINATION_VALUE` è stato rinominato in `MeasurementValue`.
+    * `ROUTE_OR_MODE`è stato rinominato `MedicationRoute` .
+    * L'entità relazionale `ROUTE_OR_MODE_OF_MEDICATION` è stata rinominata in `RouteOfMedication` .
+
+Sono state aggiunte le entità seguenti:
+
+* NER
+    * `AdministrativeEvent`
+    * `CareEnvironment`
+    * `HealthcareProfession`
+    * `MedicationForm` 
+
+* Estrazione di relazioni
+    * `DirectionOfCondition`
+    * `DirectionOfExamination`
+    * `DirectionOfTreatment`
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su Analisi del testo per il contenitore di integrità](how-tos/text-analytics-for-health.md)
 
 ## <a name="july-2020"></a>Luglio 2020 
 
@@ -39,10 +75,6 @@ Il contenitore offre le funzionalità seguenti:
 * Estrazione di relazioni
 * Collegamento di entità
 * Negazione
-
-
-> [!div class="nextstepaction"]
-> [Altre informazioni su Analisi del testo per il contenitore di integrità](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maggio 2020
 
@@ -108,16 +140,16 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
     * Prodotto
-    * Event
+    * Evento
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organizzazione
+    * Organization
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * E-mail 
+    * Email 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP

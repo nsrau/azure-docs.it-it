@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione a nuovi processi di database elastici
+title: Eseguire la migrazione a nuovi processi di database elastici (anteprima)
 description: Eseguire la migrazione ai nuovi processi di database elastico.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: bb5f7c441ae25e24857d0709b32e17931c3c63a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f9e392ddb7b5a79b01459925fe711707db97b5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038372"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121188"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>Eseguire la migrazione ai nuovi processi di database elastico
+# <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>Eseguire la migrazione al nuovo processi di database elastico (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 È disponibile una versione aggiornata dei [processi di database elastico](elastic-jobs-overview.md).

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: ca164b6ad6b5333c662a6632b27f658ab479231c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067631"
+ms.locfileid: "88120644"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -105,7 +105,9 @@ Archiviazione di Azure contiene tutti i file di dati in un database. I server di
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
 
-I backup sono basati su snapshot di file e quindi sono quasi istantanei. La separazione tra archiviazione e calcolo consente di eseguire il push dell'operazione di backup/ripristino al livello di archiviazione per ridurre il carico di elaborazione della replica di calcolo primaria. Di conseguenza, il backup del database non influisca sulle prestazioni del nodo di calcolo primario. Analogamente, i ripristini vengono eseguiti ripristinando gli snapshot di file e, di conseguenza, non sono le dimensioni dell'operazione sui dati. Il ripristino è un'operazione a tempo costante ed è possibile ripristinare anche database di più terabyte in pochi minuti anziché in ore o in giorni. La creazione di nuovi database tramite il ripristino di un backup esistente sfrutta anche questa funzionalità: la creazione di copie di database a scopo di sviluppo o test, anche di database di dimensioni terabyte, è fattibile in pochi minuti.
+I backup sono basati su snapshot di file e quindi sono quasi istantanei. La separazione tra archiviazione e calcolo consente di eseguire il push dell'operazione di backup/ripristino al livello di archiviazione per ridurre il carico di elaborazione della replica di calcolo primaria. Di conseguenza, il backup del database non influisca sulle prestazioni del nodo di calcolo primario. Analogamente, il recupero temporizzato (ripristino temporizzato) viene eseguito ripristinando gli snapshot di file e, di conseguenza, non è un'operazione di dimensione dati. Il ripristino di un database con iperscalabilità nella stessa area di Azure è un'operazione a tempo costante ed è possibile ripristinare i database di più terabyte in pochi minuti anziché in ore o in giorni. La creazione di nuovi database tramite il ripristino di un backup esistente sfrutta anche questa funzionalità: la creazione di copie di database a scopo di sviluppo o test, anche di database di dimensioni terabyte, è fattibile in pochi minuti.
+
+Per il ripristino geografico di database iperscalari, vedere [ripristino di un database con iperscalabilità in un'area diversa](#restoring-a-hyperscale-database-to-a-different-region).
 
 ## <a name="scale-and-performance-advantages"></a>Vantaggi di scalabilità e prestazioni
 
@@ -156,7 +158,7 @@ Per il contratto di contratto con iperscalabilità, vedere [SLA per database SQL
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Ripristino di emergenza per database iperscalari
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Ripristino di un database con iperscalabilità in un'altra area geografica
+### <a name="restoring-a-hyperscale-database-to-a-different-region"></a>Ripristino di un database con iperscalabilità in un'area diversa
 
 Se è necessario ripristinare un database con iperscalabilità nel database SQL di Azure in un'area diversa da quella in cui è attualmente ospitato, come parte di un'operazione di ripristino di emergenza o di un'esercitazione, una rilocazione o qualsiasi altro motivo, il metodo principale consiste nell'eseguire un ripristino geografico del database. Ciò comporta esattamente la stessa procedura usata per ripristinare qualsiasi altro database nel database SQL in un'area diversa:
 

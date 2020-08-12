@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848755"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117023"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
 
@@ -111,6 +111,11 @@ Dopo aver abilitato un account per MFA, è possibile accedere alle risorse gover
 
 Per comprendere al meglio e configurare correttamente i dispositivi per MFA con il proprio account utente, seguire i passaggi descritti in [Quali sono i vantaggi di Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user.md).
 
+> [!IMPORTANT]
+> Il comportamento di accesso per Desktop remoto Gateway non offre la possibilità di immettere un codice di verifica con Multi-Factor Authentication di Azure. È necessario configurare un account utente per la verifica telefonica o l'app Microsoft Authenticator con notifiche push.
+>
+> Se uno di questi due metodi di autenticazione non è configurato per un utente, non sarà in grado di completare la richiesta di Multi-Factor Authentication di Azure e di accedere al gateway di Desktop remoto.
+
 ## <a name="install-and-configure-nps-extension"></a>Installare e configurare l'estensione NPS
 
 Questa sezione fornisce istruzioni per configurare l'infrastruttura Servizi Desktop remoto per l'uso di Azure MFA per l'autenticazione client con Gateway Desktop remoto.
@@ -202,7 +207,7 @@ I criteri di autorizzazione connessioni Desktop remoto specificano i requisiti p
 
    ![Creazione di un segreto condiviso per stabilire una relazione di trust](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-1. Fare clic su **OK** per chiudere la finestra di dialogo.
+1. Scegliere **OK** per chiudere la finestra di dialogo.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>Configurare il valore di timeout RADIUS in Server dei criteri di rete per Gateway Desktop remoto
 

@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84268439"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119641"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Endpoint UserInfo di Microsoft Identity Platform
 
@@ -34,7 +34,7 @@ Come parte della specifica di OpenID Connect, l'endpoint UserInfo viene spesso c
 
 Le informazioni disponibili nel token ID che l'app può ricevere sono un superset delle informazioni che può ottenere dall'endpoint UserInfo.  Poiché è possibile ottenere un token ID nello stesso momento in cui si ottiene un token per chiamare l'endpoint UserInfo, è consigliabile usare tale token ID per ottenere informazioni sull'utente anziché chiamare l'endpoint UserInfo.  L'uso del token ID eliminerà una o due richieste di rete dall'avvio dell'applicazione, riducendo la latenza nell'applicazione.
 
-Se sono necessari altri dettagli sull'utente, è necessario chiamare l' [ `/user` API Microsoft Graph](https://docs.microsoft.com/graph/api/user-get) per ottenere informazioni come il numero di ufficio o il titolo del processo.   È anche possibile usare [attestazioni facoltative](active-directory-optional-claims.md) per includere informazioni utente aggiuntive nell'ID e nei token di accesso.
+Se sono necessari altri dettagli sull'utente, è necessario chiamare l' [ `/user` API Microsoft Graph](/graph/api/user-get) per ottenere informazioni come il numero di ufficio o il titolo del processo.   È anche possibile usare [attestazioni facoltative](active-directory-optional-claims.md) per includere informazioni utente aggiuntive nell'ID e nei token di accesso.
 
 ## <a name="calling-the-userinfo-endpoint"></a>Chiamata all'endpoint UserInfo
 

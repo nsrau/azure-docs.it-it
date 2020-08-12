@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6a20bbeef83072b6fb76bd4e9214e63f094736a1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b76e77d6d8575fa086f74c956594a344076f7c74
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172582"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118842"
 ---
 # <a name="add-your-application-to-the-azure-active-directory-application-gallery"></a>Aggiungere l'applicazione alla raccolta di applicazioni Azure Active Directory
 
@@ -89,14 +89,14 @@ L'utente Guest è federato a un tenant principale che è anche un Azure AD. L'ut
 
 Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto necessario implementare uno dei protocolli di federazione seguenti supportati da Azure AD. È anche necessario accettare i termini e le condizioni della raccolta di applicazioni Azure AD. Leggere i termini e le condizioni della raccolta di applicazioni Azure AD nel [sito Web](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **OpenID Connect**: per integrare l'applicazione con Azure ad usando il protocollo Open ID Connect, seguire le istruzioni per gli [sviluppatori](v1-authentication-scenarios.md).
+- **OpenID Connect**: per integrare l'applicazione con Azure ad usando il protocollo Open ID Connect, seguire le istruzioni per gli [sviluppatori](../azuread-dev/v1-authentication-scenarios.md).
 
     ![Elenco di un'applicazione OpenID Connect nella raccolta](./media/howto-app-gallery-listing/openid.png)
 
     * Per aggiungere l'applicazione all'elenco nella raccolta usando OpenID Connect, selezionare **OpenID connect & OAuth 2,0** come illustrato.
     * In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **Saml 2,0** o **WS-Fed**: se l'app supporta SAML 2,0, è possibile integrarla direttamente con un tenant di Azure ad seguendo le [istruzioni per l'aggiunta di un'applicazione personalizzata](../active-directory-saas-custom-apps.md).
+- **Saml 2,0** o **WS-Fed**: se l'app supporta SAML 2,0, è possibile integrarla direttamente con un tenant di Azure ad seguendo le [istruzioni per l'aggiunta di un'applicazione personalizzata](../manage-apps/view-applications-portal.md).
 
   ![Elenco di un'applicazione SAML 2,0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
 

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552782"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115612"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utilizzo degli attributi di estensione dello schema di directory nelle attestazioni
 
@@ -34,7 +34,7 @@ L'identificatore per un attributo di estensione dello schema di directory è nel
 ## <a name="registering-and-using-directory-schema-extensions"></a>Registrazione e utilizzo delle estensioni dello schema della directory
 Gli attributi di estensione dello schema di directory possono essere registrati e popolati in uno dei due modi seguenti:
 
-- Configurando AD Connect per crearli e sincronizzarvi i dati da AD locale. Vedere [Azure ad Connect le estensioni della directory di sincronizzazione](/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
+- Configurando AD Connect per crearli e sincronizzarvi i dati da AD locale. Vedere [Azure ad Connect le estensioni della directory di sincronizzazione](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 - Uso di Microsoft Graph per eseguire la registrazione, impostare i valori di e leggere dalle estensioni dello schema di directory degli attributi di estensione dello schema di directory [| API Graph concetti](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) e/o PowerShell + [gestione degli attributi di estensione con i cmdlet di PowerShell per AzureAD](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Creazione di attestazioni con dati da attributi di estensione dello schema di directory creati con AD Connect
