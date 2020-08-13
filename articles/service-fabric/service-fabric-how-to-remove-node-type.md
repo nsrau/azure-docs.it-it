@@ -4,14 +4,14 @@ description: Informazioni su come rimuovere un tipo di nodo da un cluster di Ser
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 08/11/2020
 ms.author: chrpap
-ms.openlocfilehash: 6cc7cbcc8344c5015d60d9721c682b6a856cbb6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247235"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163578"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Come rimuovere un tipo di nodo Service Fabric
 Questo articolo descrive come ridimensionare un cluster di Azure Service Fabric rimuovendo un tipo di nodo esistente da un cluster. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente. Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un cluster orizzontalmente rimuovendo un tipo di nodo (set di scalabilità di macchine virtuali) e tutti i relativi nodi.  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -59,7 +59,7 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
     - Il cluster è integro.
     - Nessuno dei nodi appartenenti al tipo di nodo è contrassegnato come nodo di inizializzazione.
 
-4. Disabilitare i dati per il tipo di nodo.
+4. Disabilitare ogni nodo nel tipo di nodo.
 
     Connettersi al cluster usando PowerShell, quindi eseguire il passaggio seguente.
     
@@ -98,8 +98,20 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
     ```
     
     Attendere fino a quando tutti i nodi per il tipo di nodo sono contrassegnati come inattivi.
+
+6. Deallocare i nodi nel set di scalabilità di macchine virtuali originale
     
-6. Rimuovere i dati per il tipo di nodo.
+    Accedere alla sottoscrizione di Azure in cui è stato distribuito il set di scalabilità e rimuovere il set di scalabilità di macchine virtuali. 
+
+    ```powershell
+    $scaleSetName="myscaleset"
+    $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+    
+    Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+    ```
+
+    
+7. Rimuovere i dati per il tipo di nodo.
 
     Connettersi al cluster usando PowerShell, quindi eseguire il passaggio seguente.
     
@@ -117,7 +129,7 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
 
     Attendere finché tutti i nodi non vengono rimossi dal cluster. I nodi non devono essere visualizzati in SFX.
 
-7. Rimuovere il tipo di nodo dalla sezione Service Fabric.
+8. Rimuovere il tipo di nodo dalla sezione Service Fabric.
 
     - Individuare il modello di Azure Resource Manager usato per la distribuzione.
     - Trovare la sezione relativa al tipo di nodo nella sezione Service Fabric.
@@ -165,7 +177,7 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
     Verificare quindi quanto segue:
     - Service Fabric risorsa nel portale Visualizza pronto.
 
-8. Rimuovere tutti i riferimenti alle risorse relative al tipo di nodo.
+9. Rimuovere tutti i riferimenti alle risorse relative al tipo di nodo dal modello ARM.
 
     - Individuare il modello di Azure Resource Manager usato per la distribuzione.
     - Rimuovere il set di scalabilità di macchine virtuali e altre risorse correlate al tipo di nodo dal modello.
@@ -173,6 +185,13 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
 
     Quindi:
     - Attendere il completamento della distribuzione.
+    
+10. Rimuovere le risorse correlate al tipo di nodo che non sono più in uso. Esempio Load Balancer e IP pubblico. 
+
+    - Per rimuovere queste risorse è possibile usare lo stesso comando di PowerShell usato nel passaggio 6 specificando il tipo di risorsa specifico e la versione dell'API. 
+
+> [!Note]
+> Questo passaggio è facoltativo se lo stesso Load Balancer e IP viene riutilizzato tra i tipi di nodo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [caratteristiche di durabilità](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) dei cluster.

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 04/02/2020
-ms.openlocfilehash: ab3d0a4b33bd2e424141adc9f6b8739380c2947b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/12/2020
+ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542009"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142435"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -103,12 +103,12 @@ La disponibilità elevata è una parte fondamentale del database SQL e della pia
 |:---|:---|:---|:---|
 |Database|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover del database](/rest/api/sql/databases(failover)/failover/)|[AZ Rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) può essere usato per richiamare una chiamata API REST dall'interfaccia della riga di comando di Azure|
 |Pool elastico|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover del pool elastico](/rest/api/sql/elasticpools(failover)/failover/)|[AZ Rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) può essere usato per richiamare una chiamata API REST dall'interfaccia della riga di comando di Azure|
-|database SQL|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Istanze gestite-failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[failover AZ SQL mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|database SQL|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Istanze gestite-failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[failover AZ SQL mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > Il comando di failover non è disponibile per le repliche secondarie leggibili dei database con iperscalabilità.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Il database SQL di Azure e Azure SQL Istanza gestita offrono una soluzione di disponibilità elevata incorporata che è strettamente integrata con la piattaforma Azure. Dipende da Service Fabric per il rilevamento e il ripristino degli errori, sull'archiviazione BLOB di Azure per la protezione dei dati e su zone di disponibilità per una maggiore tolleranza di errore (come indicato in precedenza nel documento non applicabile al Istanza gestita SQL di Azure). Inoltre, il database SQL e SQL Istanza gestita sfruttano la tecnologia del gruppo di disponibilità Always On dall'istanza di SQL Server per la replica e il failover. La combinazione di queste tecnologie consente alle applicazioni di realizzare in modo completo i vantaggi di un modello di archiviazione mista e supportare i contratti di servizio più complessi.
 

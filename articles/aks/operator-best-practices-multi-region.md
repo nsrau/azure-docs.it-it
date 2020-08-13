@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285867"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142180"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -93,7 +93,7 @@ La replica geografica è una funzionalità dei registri contenitori SKU *Premium
 
 Lo stato può essere esternalizzato o colocato con il codice che modifica lo stato. In genere si Externalize lo stato usando un database o un altro archivio dati eseguito in computer diversi in rete o che esaurisce il processo nello stesso computer.
 
-I contenitori e i microservizi sono più resilienti quando i processi che vengono eseguiti al loro interno non mantengono lo stato. Poiché le applicazioni contengono quasi sempre uno stato, usare una soluzione PaaS, ad esempio database di Azure per MySQL, database di Azure per PostgreSQL o database SQL di Azure.
+I contenitori e i microservizi sono più resilienti quando i processi che vengono eseguiti al loro interno non mantengono lo stato. Poiché le applicazioni contengono quasi sempre uno stato, usare una soluzione PaaS, ad esempio Azure Cosmos DB, database di Azure per PostgreSQL, database di Azure per MySQL o database SQL di Azure.
 
 Per compilare applicazioni portabili, vedere le linee guida seguenti:
 

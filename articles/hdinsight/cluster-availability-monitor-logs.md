@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/01/2020
-ms.openlocfilehash: 25bda7ed94eef20e22bcf717780d08a3ea5e6521
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077219"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163731"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Come monitorare la disponibilità dei cluster con i log di monitoraggio di Azure in HDInsight
 
@@ -30,6 +30,8 @@ Dalla pagina delle risorse cluster HDInsight nel portale selezionare monitoraggi
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
+Per impostazione predefinita, l'agente OMS viene installato in tutti i nodi del cluster, ad eccezione dei nodi perimetrali. Poiché non è installato alcun agente OMS nei nodi perimetrali del cluster, per impostazione predefinita non sono presenti dati di telemetria sui nodi perimetrali presenti in Log Analytics.
+
 ## <a name="query-metrics-and-logs-tables"></a>Tabelle di metriche e log di query
 
 Una volta abilitata l'integrazione dei log di monitoraggio di Azure (l'operazione potrebbe richiedere alcuni minuti), passare alla risorsa dell' **area di lavoro log Analytics** e selezionare **log**.
@@ -46,7 +48,7 @@ Log elenca una serie di query di esempio, ad esempio:
 | Computer non disponibili           | Elencare tutti i computer noti che non hanno inviato un heartbeat nelle ultime 5 ore |
 | Frequenza di disponibilità               | Calcolare la frequenza di disponibilità di ogni computer connesso                |
 
-Eseguire ad esempio la query di esempio relativa alla **frequenza di disponibilità** selezionando **Esegui** nella query, come illustrato nella schermata precedente. Verrà visualizzata la percentuale di disponibilità di ogni nodo nel cluster come percentuale. Se sono stati abilitati più cluster HDInsight per l'invio di metriche alla stessa area di lavoro Log Analytics, verrà visualizzata la tariffa di disponibilità per tutti i nodi presenti in tali cluster.
+Eseguire ad esempio la query di esempio relativa alla **frequenza di disponibilità** selezionando **Esegui** nella query, come illustrato nella schermata precedente. Verrà visualizzata la percentuale di disponibilità di ogni nodo nel cluster come percentuale. Se sono stati abilitati più cluster HDInsight per l'invio di metriche alla stessa area di lavoro Log Analytics, viene visualizzata la tariffa di disponibilità per tutti i nodi (esclusi i nodi perimetrali) presenti in tali cluster.
 
 ![Query di esempio ' frequenza di disponibilità' dei log dell'area di lavoro Log Analytics](media/cluster-availability-monitor-logs/portal-availability-rate.png)
 
@@ -55,7 +57,7 @@ Eseguire ad esempio la query di esempio relativa alla **frequenza di disponibili
 
 È possibile aggiungere questa tabella a un dashboard condiviso facendo clic su **Aggiungi** nell'angolo in alto a destra. Se non sono presenti dashboard condivisi scrivibili, è possibile vedere come crearne uno qui: [creare e condividere i dashboard nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
-## <a name="azure-monitor-alerts"></a>Avvisi di monitoraggio di Azure
+## <a name="azure-monitor-alerts"></a>Avvisi di Monitoraggio di Azure
 
 È anche possibile configurare gli avvisi di monitoraggio di Azure che si attiveranno quando il valore di una metrica o i risultati di una query soddisfano determinate condizioni. Si supponga, ad esempio, di creare un avviso per inviare un messaggio di posta elettronica quando uno o più nodi non hanno inviato un heartbeat in 5 ore, ovvero si presume che non sia disponibile.
 

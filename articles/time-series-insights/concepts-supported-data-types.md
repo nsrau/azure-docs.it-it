@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/23/2020
-ms.openlocfilehash: 9d29d83ed92ee0fa2217bb1c27fbf6c2fbb3584c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/12/2020
+ms.openlocfilehash: e6fd405d1969a2f40a5f0c3466a57fbec60723e9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170887"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141160"
 ---
 # <a name="supported-data-types"></a>Tipi di dati supportati
 
@@ -31,7 +31,7 @@ Nella tabella seguente sono elencati i tipi di dati supportati da Azure Time Ser
 
 ## <a name="sending-mixed-data-types"></a>Invio di tipi di dati misti
 
-L'ambiente di Azure Time Series Insights Gen2 è fortemente tipizzato. Se i dispositivi o i tag inviano dati di tipi diversi per una proprietà del dispositivo, i valori verranno archiviati in due colonne separate e la [funzione COALESCE ()](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) deve essere usata durante la definizione delle espressioni variabili del modello Time Series nelle chiamate API.
+L'ambiente di Azure Time Series Insights Gen2 è fortemente tipizzato. Se i dispositivi o i tag inviano dati di tipi diversi per una proprietà del dispositivo, i valori verranno archiviati in due colonne separate e la [funzione COALESCE ()](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions) deve essere usata durante la definizione delle espressioni variabili del modello Time Series nelle chiamate API.
 
 Esplora Azure Time Series Insights offre un modo per unire automaticamente le colonne separate della stessa proprietà del dispositivo. Nell'esempio seguente il sensore invia una `PresentValue` proprietà che può essere sia long che Double. Per eseguire una query su tutti i valori archiviati (indipendentemente dal tipo di dati) della `PresentValue` proprietà, scegliere `PresentValue (Double | Long)` e le colonne verranno fuse.
 

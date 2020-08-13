@@ -3,12 +3,12 @@ title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
 ms.date: 08/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 9842ad91c059fe4da70221d8c7c5570084bcc6b9
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63b8ec60ecf2f2e5655e3253db7aef01c003fc63
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119012"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163340"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
@@ -173,6 +173,9 @@ Gli utenti a cui è stato assegnato il ruolo predefinito lettore di monitoraggio
 1. Verificare che l' **attività directory** sia selezionata nel filtro vicino alla parte superiore della schermata.
 
 Verrà visualizzato un elenco di modifiche della delega. È possibile selezionare **modifica colonne** per visualizzare o nascondere lo **stato**, **la categoria di eventi**, l' **ora**, il **timestamp**, la **sottoscrizione**, l' **evento avviato da**, il **gruppo di risorse**, il tipo di **risorsa**e i valori **delle risorse** .
+
+> [!TIP]
+> Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono utilizzare gli stessi processi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

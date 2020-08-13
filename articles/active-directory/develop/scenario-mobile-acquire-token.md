@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121086"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141279"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Ottenere un token per un'app per dispositivi mobili che chiama API Web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive`ha un solo parametro obbligatorio: `scopes` . Il `scopes` parametro enumera le stringhe che definiscono gli ambiti per i quali è richiesto un token. Se il token è per Microsoft Graph, è possibile trovare gli ambiti necessari nel riferimento all'API di ogni API Microsoft Graph. Nel riferimento passare alla sezione "autorizzazioni".
 
-Per [elencare i contatti dell'utente](/graph/api/user-list-contacts), ad esempio, usare l'ambito "User. Read", "Contacts. Read". Per altre informazioni, vedere le [Informazioni di riferimento per le autorizzazioni dell'API Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Per [elencare i contatti dell'utente](/graph/api/user-list-contacts), ad esempio, usare l'ambito "User. Read", "Contacts. Read". Per altre informazioni, vedere le [Informazioni di riferimento per le autorizzazioni dell'API Microsoft Graph](/graph/permissions-reference).
 
 In Android è possibile specificare l'attività padre quando si crea l'app usando `PublicClientApplicationBuilder` . Se non si specifica l'attività padre in quel momento, è possibile specificarla in un secondo momento usando `.WithParentActivityOrWindow` come nella sezione seguente. Se si specifica l'attività padre, il token torna a tale attività padre dopo l'interazione. Se non viene specificato, la `.ExecuteAsync()` chiamata genera un'eccezione.
 

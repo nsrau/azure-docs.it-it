@@ -1,6 +1,6 @@
 ---
 title: Servizi cloud e certificati di gestione | Documentazione Microsoft
-description: Informazioni su come creare e usare i certificati con Microsoft Azure
+description: Informazioni su come creare e distribuire certificati per i servizi cloud e per l'autenticazione con l'API di gestione in Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -8,25 +8,25 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08ce69856dd36b6029297109fcb8610b856c8b98
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82024609"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142367"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
 I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come distribuirli in Azure.
 
 Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dall'autore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorare questo problema. È consigliabile utilizzare i certificati autofirmati solo quando si sviluppano e si testano servizi cloud. 
 
-I certificati usati da Azure possono contenere una chiave pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate-portal.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
+I certificati usati da Azure possono contenere una chiave pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate-portal.md) di Azure per identificare il certificato che deve essere usato da un servizio cloud. 
 
 >[!Note]
 >I servizi Cloud di Azure non accettano il certificato crittografato AES256-SHA256.
 
 ## <a name="what-are-service-certificates"></a>Cosa sono i certificati di servizio?
-I certificati di servizio sono associati ai servizi cloud e consentono la comunicazione sicura verso e dal servizio. Ad esempio, se si distribuisse un ruolo Web, si fornirebbe un certificato per autenticare un endpoint HTTPS esposto. I certificati di servizio, definiti nella definizione del servizio, vengono automaticamente distribuiti nella macchina virtuale che esegue un'istanza del ruolo. 
+I certificati di servizio sono associati ai servizi cloud e consentono la comunicazione sicura da e verso il servizio. Ad esempio, se si distribuisse un ruolo Web, si fornirebbe un certificato per autenticare un endpoint HTTPS esposto. I certificati di servizio, definiti nella definizione del servizio, vengono automaticamente distribuiti nella macchina virtuale che esegue un'istanza del ruolo. 
 
 È possibile caricare i certificati di servizio nel portale di Azure tramite il portale di Azure o usando il modello di distribuzione classico. I certificati di servizio sono associati a uno specifico servizio cloud. Vengono assegnati a una distribuzione nel file di definizione del servizio.
 
@@ -36,7 +36,7 @@ I certificati di servizio possono essere gestiti separatamente dai servizi e da 
 >L'articolo [domande frequenti sui servizi cloud-configurazione e gestione](cloud-services-configuration-and-management-faq.md) contiene alcune informazioni utili sui certificati.
 
 ## <a name="what-are-management-certificates"></a>Cosa sono i certificati di gestione?
-I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud. 
+I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico. Numerosi programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud. 
 
 > [!WARNING]
 > Fare attenzione. Questi tipi di certificati consentono a chiunque esegua l'autenticazione di gestire la sottoscrizione a cui sono associati. 

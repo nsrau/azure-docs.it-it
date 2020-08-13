@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843505"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142520"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -27,7 +27,7 @@ Le versioni precedenti sono attualmente supportate anche:`3.0.2`
 
 ## <a name="rest-api"></a>API REST
 
-| API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento                                             |
+| API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | read                           | Sì       | Sì       | Sì       |                                                     |
 | VREAD                          | Sì       | Sì       | Sì       |                                                     |
@@ -53,7 +53,7 @@ Le versioni precedenti sono attualmente supportate anche:`3.0.2`
 
 Sono supportati tutti i tipi di parametro di ricerca. 
 
-| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
+| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |-----------------------|-----------|-----------|-----------|---------|
 | Number                | Sì       | Sì       | Sì       |         |
 | Date/DateTime         | Sì       | Sì       | Sì       |         |
@@ -95,7 +95,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | `_type`                 | Sì       | Sì       | Sì       |         |
 | `_query`                | No        | No        | No        |         |
 
-| Operazioni di ricerca       | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
+| Operazioni di ricerca       | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
 | `_sort`                 | No        | No        | No        |         |
@@ -103,7 +103,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | `_count`                | Sì       | Sì       | Sì       |         |
 | `_summary`              | Parziale   | Parziale   | Parziale   | `_summary=count` è supportato |
 | `_include`              | No        | Sì       | No        |         |
-| `_revinclude`           | No        | No        | No        |         |
+| `_revinclude`           | No        | Sì       | No        | Gli elementi inclusi sono limitati a 100. |
 | `_contained`            | No        | No        | No        |         |
 | `_elements`             | No        | No        | No        |         |
 

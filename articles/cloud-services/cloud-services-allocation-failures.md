@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi relativi a errori di allocazione di servizi cloud | Documentazione Microsoft
-description: Risoluzione dei problemi relativi ad errori di allocazione quando si distribuiscono servizi Cloud in Azure
+description: Risolvere un errore di allocazione quando si distribuiscono i servizi cloud di Azure. Informazioni sul funzionamento dell'allocazione e sul motivo per cui l'allocazione non riesce.
 services: azure-service-management, cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: cba3f47015072f16112ef981d2f59d0c73cb69c2
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921597"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142486"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Risoluzione dei problemi relativi ad errori di allocazione quando si distribuiscono servizi Cloud in Azure
 ## <a name="summary"></a>Summary

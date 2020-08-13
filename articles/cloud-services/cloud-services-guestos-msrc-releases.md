@@ -1,6 +1,6 @@
 ---
 title: Elenco di aggiornamenti applicati al sistema operativo guest di Azure | Microsoft Docs
-description: Elenco di aggiornamenti applicati alle versioni del sistema operativo guest
+description: Questo articolo elenca gli aggiornamenti di Microsoft Security Response Center applicati a diversi sistemi operativi guest di Azure. Verificare se un aggiornamento si applica al sistema operativo guest in uso.
 services: cloud-services
 documentationcenter: na
 author: yohaddad
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/11/2020
 ms.author: yohaddad
-ms.openlocfilehash: a8755c593f4009d4cacc3d411eb1bc1cb8ddc50d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079159"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142350"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
@@ -119,7 +119,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98],  [3,85], [4,78]  |  12 maggio 2020  |
 |  Rel 20-05  |  [4556813]  |  Aggiornamento cumulativo più recente   |  [5.43]  |  12 maggio 2020  |
 |  Rel 20-05  |  [4551853]  |  Aggiornamento cumulativo più recente   |  [6.19]  |  12 maggio 2020  |
 |  Rel 20-05  |  [4552940]  |  Rollup mensile   |  [2.98]  |  12 maggio 2020  |

@@ -3,12 +3,12 @@ title: Gestisci aree di lavoro di Sentinel di Azure su larga scala
 description: Informazioni su come gestire efficacemente Azure Sentinel sulle risorse dei clienti Delegate.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105269"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163238"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gestisci aree di lavoro di Sentinel di Azure su larga scala
 
@@ -17,6 +17,9 @@ Come provider di servizi, è possibile che siano stati caricati più tenant del 
 Azure Sentinel fornisce analisi della sicurezza e Intelligence per le minacce, offrendo un'unica soluzione per il rilevamento degli avvisi, la visibilità delle minacce, la ricerca proattiva e la risposta alle minacce. Con Azure Lighthouse è possibile gestire più aree di lavoro di Azure Sentinel tra i tenant su larga scala. Questo consente scenari come l'esecuzione di query su più aree di lavoro o la creazione di cartelle di lavoro per visualizzare e monitorare i dati dalle origini dati connesse per ottenere informazioni dettagliate. Gli IP, ad esempio query e PlayBook, rimangono nel tenant di gestione, ma possono essere usati per eseguire la gestione della sicurezza nei tenant dei clienti.
 
 Questo argomento fornisce una panoramica dell'uso di [Sentinel di Azure](../../sentinel/overview.md) in modo scalabile per la visibilità tra tenant e i servizi di sicurezza gestiti.
+
+> [!TIP]
+> Per quanto riguarda i provider di servizi e i clienti in questo argomento, queste indicazioni si applicano anche alle [aziende che usano Azure Lighthouse per gestire più tenant](../concepts/enterprise.md).
 
 ## <a name="architectural-considerations"></a>Considerazioni sull'architettura
 

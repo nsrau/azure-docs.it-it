@@ -1,25 +1,25 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 08/07/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9ec3896b85f825b22dc9b57d4220e1cdcdf3e390
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0ad1c0944076f24363961da21ee347dbd7c0239c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003609"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163510"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
-Come provider di servizi, è possibile usare [Azure Lighthouse](../overview.md) per gestire le risorse per più clienti dall'interno del proprio tenant nel [portale di Azure](https://portal.azure.com). Molte attività e servizi possono essere eseguiti in tenant gestiti usando la [gestione delle risorse delegata di Azure](../concepts/azure-delegated-resource-management.md).
+Come provider di servizi, è possibile usare il [Faro di Azure](../overview.md) per gestire le risorse per più clienti dall'interno del proprio tenant di Azure Active Directory (Azure ad). Molte attività e servizi possono essere eseguiti in tenant gestiti usando la [gestione delle risorse delegata di Azure](../concepts/azure-delegated-resource-management.md).
 
-> [!NOTE]
+> [!TIP]
 > La gestione risorse delegate di Azure può essere usata anche [all'interno di un'azienda con più tenant Azure AD propri](enterprise.md) per semplificare l'amministrazione tra tenant.
 
-## <a name="understanding-customer-tenants"></a>Informazioni sui tenant dei clienti
+## <a name="understanding-tenants-and-delegation"></a>Informazioni su tenant e delega
 
-Un tenant di Azure Active Directory (Azure AD) è una rappresentazione di un'organizzazione. Si tratta di un'istanza dedicata di Azure AD che un'organizzazione riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft 365 o ad altri servizi. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha un proprio ID tenant (un GUID). Per altre informazioni, vedere [Informazioni su Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
+Un tenant Azure AD è una rappresentazione di un'organizzazione. Si tratta di un'istanza dedicata di Azure AD che un'organizzazione riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft 365 o ad altri servizi. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha un proprio ID tenant (un GUID). Per altre informazioni, vedere [Informazioni su Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
 
 In genere, per gestire le risorse di Azure per un cliente, i provider di servizi devono accedere al portale di Azure usando un account associato al tenant del cliente, richiedendo a un amministratore del tenant del cliente di creare e gestire gli account utente per il provider di servizi.
 
@@ -27,13 +27,13 @@ Con Azure Lighthouse, il processo di onboarding specifica gli utenti all'interno
 
 Azure Lighthouse consente una maggiore flessibilità nella gestione delle risorse per più clienti senza dover accedere a diversi account in tenant diversi. Un provider di servizi, ad esempio, può avere due clienti, con responsabilità e livelli di accesso diversi. Usando Azure Lighthouse, gli utenti autorizzati possono accedere al tenant del provider di servizi per accedere a tali risorse.
 
-![Risorse dei clienti gestite tramite un tenant del provider di servizi](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
+![Diagramma che mostra le risorse dei clienti gestite tramite un tenant del provider di servizi.](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
 ## <a name="apis-and-management-tool-support"></a>Supporto delle API e degli strumenti di gestione
 
 È possibile eseguire le attività di gestione nelle risorse delegate direttamente nel portale oppure usando le API e gli strumenti di gestione, ad esempio l'interfaccia della riga di comando di Azure e Azure PowerShell. Quando si usano le risorse delegate, è possibile utilizzare tutte le API esistenti, purché la funzionalità sia supportata per la gestione tra tenant e l'utente disponga delle autorizzazioni appropriate.
 
-Il [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) Mostra gli `HomeTenantId` `ManagedByTenantIds` attributi e per ogni sottoscrizione, consentendo di identificare se una sottoscrizione restituita appartiene a un tenant del cliente gestito o al tenant di gestione.
+Il [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) Mostra gli `HomeTenantId` `ManagedByTenantIds` attributi e per ogni sottoscrizione, consentendo di identificare se una sottoscrizione restituita appartiene a un tenant gestito o al tenant di gestione.
 
 Analogamente, i comandi dell'interfaccia della riga di comando di Azure come [AZ account list](/cli/azure/account?view=azure-cli-latest#az-account-list) mostrano gli `homeTenantId` `managedByTenants` attributi e.
 
@@ -60,11 +60,11 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 [Automazione di Azure](../../automation/index.yml):
 
-- Usare gli account di automazione per accedere e lavorare con le risorse dei clienti delegate
+- Usare gli account di automazione per accedere e lavorare con le risorse delegate
 
 [Backup di Azure](../../backup/index.yml):
 
-- Eseguire il backup e il ripristino dei dati dei clienti nei tenant dei clienti
+- Eseguire il backup e il ripristino dei dati nei tenant dei clienti
 - Usare l'[Explorer di Backup](../../backup/monitor-azure-backup-with-backup-explorer.md) per visualizzare le informazioni operative degli elementi di backup (incluse le risorse di Azure non ancora configurate per il backup) e le informazioni di monitoraggio (processi e avvisi) per le sottoscrizioni delegate. L'Explorer di Backup è attualmente disponibile solo per i dati delle macchine virtuali di Azure.
 - Usare i [report di Backup](../../backup/configure-reports.md) tra sottoscrizioni delegate per tenere traccia delle tendenze cronologiche, analizzare l'utilizzo dello spazio di archiviazione dei backup e controllare i backup e i ripristini.
 
@@ -80,35 +80,34 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 - Visualizzare avvisi per le sottoscrizioni delegate, con la possibilità di visualizzare gli avvisi in tutte le sottoscrizioni
 - Visualizzare i dettagli del log attività per le sottoscrizioni delegate
-- Log Analytics: Eseguire query sui dati dalle aree di lavoro remote dei clienti in più tenant
-- Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio runbook di Automazione di Azure o Funzioni di Azure, nel tenant del provider di servizi tramite webhook
+- Log Analytics: eseguire query sui dati dalle aree di lavoro remote in più tenant
+- Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio manuali operativi di automazione di Azure o funzioni di Azure, nel tenant di gestione tramite webhook
 - Per i carichi di lavoro SAP, [monitora le metriche delle soluzioni SAP con una visualizzazione aggregata tra i tenant dei clienti](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rete di Azure](../../networking/networking-overview.md):
 
-- Distribuire e gestire la [rete virtuale di Azure](../../virtual-network/index.yml) e le schede di interfaccia di rete virtuale (schede) nei tenant dei clienti
+- Distribuire e gestire la [rete virtuale di Azure](../../virtual-network/index.yml) e le schede di interfaccia di rete virtuale (schede) all'interno di tenant gestiti
 - Distribuire e configurare il [Firewall di Azure](../../firewall/overview.md) per proteggere le risorse della rete virtuale dei clienti
-- Gestire i servizi di connettività, ad esempio la [rete WAN virtuale di Azure](../../virtual-wan/virtual-wan-about.md), [ExpressRoute](../../expressroute/expressroute-introduction.md) e [Gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md), per i clienti
+- Gestire i servizi di connettività, ad esempio [WAN virtuale di Azure](../../virtual-wan/virtual-wan-about.md), [ExpressRoute](../../expressroute/expressroute-introduction.md)e [gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 - Usare Azure Lighthouse per supportare gli scenari principali per il programma [Rete di Azure MSP](../../networking/networking-partners-msp.md)
-
 
 [Criteri di Azure](../../governance/policy/index.yml):
 
 - Gli snapshot di conformità mostrano i dettagli per i criteri assegnati nelle sottoscrizioni delegate
-- Creare e modificare le definizioni dei criteri in una sottoscrizione delegata
-- Assegnare le definizioni dei criteri definite dal cliente nella sottoscrizione delegata
+- Creare e modificare le definizioni dei criteri nelle sottoscrizioni delegate
+- Assegnare le definizioni dei criteri definiti dal cliente nelle sottoscrizioni delegate
 - I clienti visualizzano i criteri creati dal provider di servizi insieme ai criteri che hanno creato personalmente
-- Può [correggere deployIfNotExists o modificare le assegnazioni nel tenant del cliente](../how-to/deploy-policy-remediation.md)
+- Consente [di correggere deployIfNotExists o di modificare le assegnazioni all'interno del tenant gestito](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml):
 
-- Include ora l'ID tenant nei risultati delle query restituiti, consentendo di determinare se una sottoscrizione appartiene al tenant del cliente o al tenant del provider di servizi
+- Include ora l'ID tenant nei risultati della query restituiti, consentendo di identificare se una sottoscrizione appartiene a un tenant gestito
 
 [Centro sicurezza di Azure](../../security-center/index.yml):
 
 - Visibilità tra tenant
   - Monitorare la conformità ai criteri di sicurezza e garantire la copertura della sicurezza tra le risorse di tutti i tenant
-  - Monitoraggio continuo della conformità alle normative per più clienti in una singola visualizzazione
+  - Monitoraggio continuo della conformità alle normative in più tenant in una singola visualizzazione
   - Monitorare, valutare e classificare in ordine di priorità le raccomandazioni sulla sicurezza di utilità pratica con il calcolo del punteggio di sicurezza
 - Gestione del comportamento di sicurezza tra tenant
   - Gestire i criteri di sicurezza
@@ -124,8 +123,8 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 
 - Gestire le risorse di Azure Sentinel [nei tenant dei clienti](../../sentinel/multiple-tenants-service-providers.md)
-- [Tenere traccia degli attacchi e visualizzare gli avvisi di sicurezza in più tenant dei clienti](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Visualizzare gli eventi imprevisti](../../sentinel/multiple-workspace-view.md) tra più aree di lavoro Sentinel distribuite tra i tenant dei clienti
+- [Tenere traccia degli attacchi e visualizzare gli avvisi di sicurezza in più tenant](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
+- [Visualizzare gli eventi imprevisti](../../sentinel/multiple-workspace-view.md) tra più aree di lavoro Sentinel distribuite tra i tenant
 
 [Integrità dei servizi di Azure](../../service-health/index.yml):
 
@@ -138,25 +137,26 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 [Macchine virtuali di Azure](../../virtual-machines/index.yml):
 
-- Usare le estensioni macchina virtuale di Azure per fornire attività di configurazione e automazione post-distribuzione sulle macchine virtuali di Azure nei tenant dei clienti
-- Usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali di Azure nei tenant dei clienti
-- Accedere alle macchine virtuali con la console seriale nei tenant dei clienti
-- Integra le VM con Azure Key Vault per password, segreti o chiavi crittografiche per la crittografia del disco usando l' [identità gestita tramite criteri](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), assicurando che i segreti vengano archiviati in un Key Vault nei tenant dei clienti
-- Si noti che non è possibile usare Azure Active Directory per l'accesso remoto alle macchine virtuali nei tenant dei clienti
+- Usare le estensioni delle macchine virtuali per fornire attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure
+- Usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali
+- Accedere alle VM con la console seriale
+- Integrare le VM con Azure Key Vault per password, segreti o chiavi crittografiche per la crittografia del disco usando l' [identità gestita tramite criteri](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), assicurando che i segreti vengano archiviati in un Key Vault nei tenant gestiti
+- Si noti che non è possibile usare Azure Active Directory per l'accesso remoto alle macchine virtuali
 
 Richieste di supporto:
 
 - [Aprire richieste di supporto da **Guida e supporto** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) nel portale di Azure per le risorse delegate (selezione del piano di supporto disponibile per l'ambito delegato)
 
 ## <a name="current-limitations"></a>Limitazioni correnti
+
 In tutti gli scenari tenere presenti le limitazioni correnti seguenti:
 
-- Le richieste gestite da Azure Resource Manager possono essere eseguite usando la gestione risorse delegate di Azure. Gli URI delle operazioni per queste richieste iniziano con `https://management.azure.com`. Tuttavia, le richieste gestite da un'istanza di un tipo di risorsa (ad esempio Key Vault accesso ai dati di archiviazione o accesso ai dati di archiviazione) non sono supportate con la gestione delle risorse delegate di Azure. Gli URI delle operazioni per queste richieste iniziano in genere con un indirizzo univoco per l'istanza, ad esempio `https://myaccount.blob.core.windows.net` o `https://mykeyvault.vault.azure.net/`. Il secondo è in genere usato per le operazioni di dati invece che per le operazioni di gestione.
+- Le richieste gestite da Azure Resource Manager possono essere eseguite usando Azure Lighthouse. Gli URI delle operazioni per queste richieste iniziano con `https://management.azure.com`. Tuttavia, le richieste gestite da un'istanza di un tipo di risorsa (ad esempio Key Vault accesso ai dati di archiviazione o accesso ai dati di archiviazione) non sono supportate con il faro di Azure. Gli URI delle operazioni per queste richieste iniziano in genere con un indirizzo univoco per l'istanza, ad esempio `https://myaccount.blob.core.windows.net` o `https://mykeyvault.vault.azure.net/`. Il secondo è in genere usato per le operazioni di dati invece che per le operazioni di gestione.
 - Le assegnazione di ruolo devono usare i [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) del controllo degli accessi in base al ruolo. Tutti i ruoli predefiniti sono attualmente supportati con la gestione delle risorse delegata di Azure, ad eccezione del proprietario o dei ruoli predefiniti con [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) autorizzazione. Il ruolo Amministratore Accesso utenti è supportato solo per uso limitato nell'[assegnazione di ruoli a identità gestite](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  I ruoli personalizzati e i [ruoli di amministratore della sottoscrizione classica](../../role-based-access-control/classic-administrators.md) non sono supportati.
 - Sebbene sia possibile caricare sottoscrizioni che utilizzano Azure Databricks, gli utenti nel tenant di gestione non possono al momento avviare le aree di lavoro Azure Databricks in una sottoscrizione delegata.
 - Sebbene sia possibile caricare sottoscrizioni e gruppi di risorse con blocchi di risorse, tali blocchi non impediranno l'esecuzione di azioni da parte degli utenti nel tenant di gestione. Le [assegnazioni di rifiuto](../../role-based-access-control/deny-assignments.md) che proteggono le risorse gestite dal sistema, ad esempio quelle create dalle applicazioni gestite di Azure o Azure Blueprints (assegnazioni di rifiuto assegnate dal sistema), impediscono agli utenti del tenant di gestione di agire su tali risorse; tuttavia, a questo punto gli utenti del tenant del cliente non possono creare le proprie assegnazioni di rifiuto (assegnazioni di rifiuto assegnate dall'utente).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Eseguire l'onboarding dei clienti nella gestione risorse delegate di Azure, [usando i modelli di Azure Resource Manager](../how-to/onboard-customer.md) o [pubblicando un'offerta di servizi gestiti privata o pubblica in Azure Marketplace](../how-to/publish-managed-services-offers.md).
+- È possibile caricare i clienti in Azure Lighthouse, [usando Azure Resource Manager modelli](../how-to/onboard-customer.md) o pubblicando [un'offerta di servizi gestiti pubblici o privati in Azure Marketplace](../how-to/publish-managed-services-offers.md).
 - [Visualizzare e gestire i clienti](../how-to/view-manage-customers.md) passando a **Clienti personali** nel portale di Azure.

@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1d07b3ff41c16ff2145311a0b42d8c57a8e7b82
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342596"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141959"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Linee guida sui prezzi per SQL Server nelle macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -67,7 +67,7 @@ Sono disponibili due possibilità per il pagamento delle licenze di SQL Server p
 
 **Pagamento della licenza di SQL Server in base all'utilizzo** (anche noto come **pagamento in base al consumo**) indica che il costo al secondo dell'esecuzione della macchina virtuale di Azure include il costo della licenza di SQL Server. È possibile visualizzare i prezzi per le diverse edizioni di SQL Server (Web, standard, Enterprise) nella pagina dei prezzi di macchine virtuali di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
-Il costo è lo stesso per tutte le versioni di SQL Server, dalla 2012 SP3 alla 2017. Il costo della licenza al secondo dipende dal numero di CPU virtuali della macchina virtuale.
+Il costo è lo stesso per tutte le versioni di SQL Server (2012 SP3 a 2019). Il costo della licenza al secondo dipende dal numero di CPU virtuali della macchina virtuale.
 
 Il pagamento della licenze di SQL Server in base all'utilizzo è consigliato per:
 

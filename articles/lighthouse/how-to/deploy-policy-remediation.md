@@ -1,18 +1,21 @@
 ---
 title: Distribuire un criterio che è possibile correggere
 description: Per distribuire i criteri che usano un'attività di monitoraggio e aggiornamento tramite Azure Lighthouse, è necessario creare un'identità gestita nel tenant del cliente.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: fc13b6209826d4a59d82bca5db63d4ca5c39f9fb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105337"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163255"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata
 
 [Azure Lighthouse](../overview.md) consente ai provider di servizi di creare e modificare le definizioni dei criteri all'interno di una sottoscrizione delegata. Tuttavia, per distribuire i criteri che usano un' [attività di monitoraggio e aggiornamento](../../governance/policy/how-to/remediate-resources.md) , ovvero i criteri con l'effetto [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) o [Modify](../../governance/policy/concepts/effects.md#modify) , è necessario creare un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente. Questa identità gestita può essere usata da Criteri di Azure per distribuire il modello all'interno del criterio. Per abilitare questo scenario sono necessari alcuni passaggi, sia quando si esegue l'onboarding del cliente per la gestione delle risorse delegate di Azure, sia quando si distribuisce il criterio stesso.
+
+> [!TIP]
+> Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono utilizzare gli stessi processi.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creare un utente che può assegnare ruoli a un'identità gestita nel tenant del cliente
 

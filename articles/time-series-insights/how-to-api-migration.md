@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423950"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163952"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrazione a nuove versioni dell'API Gen2 Azure Time Series Insights
 
@@ -23,7 +23,7 @@ ms.locfileid: "87423950"
 
 Se è stato creato un ambiente di Azure Time Series Insights Gen2 quando era disponibile in anteprima pubblica (prima del 16 luglio 2020), aggiornare l'ambiente TSI per usare le nuove versioni di API a livello generale seguendo i passaggi descritti in questo articolo.
 
-La nuova versione dell'API è `2020-07-31` e usa una [sintassi di espressione Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)aggiornata.
+La nuova versione dell'API è `2020-07-31` e usa una [sintassi di espressione Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)aggiornata.
 
 Gli utenti devono eseguire la migrazione delle [variabili del modello Time Series](./concepts-variables.md)dell'ambiente, delle query salvate, delle query di Power bi e di eventuali strumenti personalizzati che effettuano chiamate agli endpoint dell'API. In caso di domande o dubbi sul processo di migrazione, inviare un ticket di supporto tramite il portale di Azure e menzionare questo documento.
 
@@ -39,7 +39,7 @@ Per consentire agli utenti di eseguire la migrazione delle [variabili del modell
 
 1. Verrà richiesto di aggiornare la sintassi utilizzata dalle variabili del modello Time Series e dalle query salvate.
 
-    [![Messaggio di richiesta](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
+    [![Prompt](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
 
     Se la notifica viene chiusa accidentalmente, è possibile trovarla nel pannello di notifica.
 
@@ -60,7 +60,7 @@ Per consentire agli utenti di eseguire la migrazione delle [variabili del modell
 
     [![Aggiornare le query salvate](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Fare clic su **Done**.
+1. Fare clic su **Fine**.
 
     [![Migrazione completata](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -81,7 +81,7 @@ Se l'applicazione personalizzata effettua chiamate agli endpoint REST seguenti, 
 
 - API modello della serie temporale
   - API impostazioni modello
-    - [Recupero](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Ottieni](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
     - [Aggiornamento](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - API dell'istanza
     - [Tutte le operazioni batch](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
@@ -95,7 +95,7 @@ Se l'applicazione personalizzata effettua chiamate agli endpoint REST seguenti, 
     - [Elimina, Ottieni operazioni](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
     - [Elenco](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-Per gli endpoint REST seguenti, è necessario aggiornare la versione dell'API a `2020-07-31` nell'URI e verificare che tutte le occorrenze della `tsx` Proprietà usino la [sintassi delle espressioni Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)aggiornata.
+Per gli endpoint REST seguenti, è necessario aggiornare la versione dell'API a `2020-07-31` nell'URI e verificare che tutte le occorrenze della `tsx` Proprietà usino la [sintassi delle espressioni Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)aggiornata.
 
 - API di tipi
   - [Operazione Put](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
@@ -104,7 +104,7 @@ Per gli endpoint REST seguenti, è necessario aggiornare la versione dell'API a 
   - [Getserie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="typesbatchput"></a>TypesBatchPut
 
@@ -355,7 +355,7 @@ In alternativa, `value` può essere anche `coalesce($event['Temp'].Double, toDou
 
 #### <a name="invalidinput"></a>InvalidInput
 
-Se viene visualizzato l'errore seguente, si sta usando la nuova versione dell'API ( `2020-07-31` ), ma la sintassi del TSX non è stata aggiornata. Esaminare la [sintassi delle espressioni della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) e gli esempi di migrazione precedenti. Verificare che tutte le `tsx` proprietà siano aggiornate correttamente prima di inviare nuovamente la richiesta dell'API.
+Se viene visualizzato l'errore seguente, si sta usando la nuova versione dell'API ( `2020-07-31` ), ma la sintassi del TSX non è stata aggiornata. Esaminare la [sintassi delle espressioni della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) e gli esempi di migrazione precedenti. Verificare che tutte le `tsx` proprietà siano aggiornate correttamente prima di inviare nuovamente la richiesta dell'API.
 
 ```JSON
 {

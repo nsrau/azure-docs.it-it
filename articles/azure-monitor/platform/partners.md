@@ -4,12 +4,12 @@ description: Informazioni sui partner del monitoraggio di Azure e sulle modalit�
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318335"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142409"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -60,7 +60,7 @@ Circonus è l'esperto di intelligence per i dati del computer, che fornisce l'un
 
 Unire e automatizzare il cloud con una piattaforma creata per risparmiare tempo e denaro. CloudHealth offre visibilità, ottimizzazione intuitiva e procedure di governance solidissime per la gestione del cloud. La piattaforma CloudHealth consente alle aziende e ai MSPs di massimizzare il ritorno sugli investimenti nel cloud. e di prendere decisioni informate su costi, utilizzo, prestazioni e sicurezza.
 
-[Altre informazioni][cloudhealth-doc]
+[Scopri di più][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -134,7 +134,7 @@ LogRhythm, leader di NextGen SIEM, consente alle organizzazioni su sei continent
 
 Microfocus **ArcSight** dispone di uno Smart Connector per hub eventi di monitoraggio di Azure.
 
-[Altre informazioni](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
+[Scopri di più](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
 
 Il **Bridge per operazioni** con Microfocus monitora automaticamente tutte le risorse IT ibride, ovvero qualsiasi dispositivo, sistema operativo, database, applicazione o servizio, indipendentemente da dove viene eseguito e applica AIOps a tutti i tipi di dati, ovvero eventi, metriche, log e dipendenze. Offre una combinazione univoca di monitoraggio di qualità del servizio, associata a analisi approfondite dell'integrità delle applicazioni e include il monitoraggio completo delle prestazioni e della disponibilità dei servizi Microsoft Azure. Operations Bridge consente ai clienti di fornire un unico riquadro di vetro, disponibile su qualsiasi dispositivo con un browser, in modo che sia le aziende che gli stakeholder IT possano comprendere.
 
@@ -183,6 +183,16 @@ OpsGenie agisce come un dispatcher degli avvisi generati da Azure. OpsGenie dete
 PagerDuty, la soluzione leader per la gestione degli eventi imprevisti, ha fornito un supporto eccellente per gli avvisi relativi alle metriche di Azure. PagerDuty supporta le notifiche sugli avvisi di Monitoraggio di Azure, le notifiche di scalabilità automatica e gli eventi del log attività, oltre alle notifiche sulle metriche a livello di piattaforma per i servizi di Azure. Questi miglioramenti offrono una maggiore visibilità della piattaforma di Azure. È possibile sfruttare appieno le funzionalità di gestione degli eventi imprevisti di PagerDuty per la risposta in tempo reale. L'integrazione di Azure estesa è resa possibile tramite i webhook, che consentono una rapida e semplice personalizzazione e configurazione della soluzione.
 
 [Vai alla documentazione.][pagerduty-doc]
+
+## <a name="promitor"></a>Promitor
+
+![Logo promitor](./media/partners/promitor.png)
+
+Promitor è un raschietto di monitoraggio di Azure che rende le metriche disponibili in sistemi come Atlassian Statuspage, Prometeo e statsd.
+
+Eseguire il push di tutte le metriche in monitoraggio di Azure e usarle quando necessario.
+
+[Altre informazioni.][promitor-doc]
 
 ## <a name="qradar"></a>QRadar
 
@@ -293,6 +303,7 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 [newrelic-doc]: https://newrelic.com/azure "Documentazione di NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentazione di OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentazione di PagerDuty."
+[promitor-doc]: https://promitor.io/ "Documentazione di promitor."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "Documentazione di QRadar."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentazione di ScienceLogic."
 [serverless360-doc]: https://docs.serverless360.com/docs/ "Documentazione di Serverless360."

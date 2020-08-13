@@ -1,24 +1,27 @@
 ---
 title: Azure Lighthouse e applicazioni gestite di Azure
-description: Azure Lighthouse e applicazioni gestite di Azure...
-ms.date: 05/01/2020
+description: Informazioni sul modo in cui Azure Lighthouse e le applicazioni gestite di Azure consentono di abilitare scenari diversi e di come possono essere usati insieme.
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81ff61a6d1b7487d3da0643bac3987589de46c1e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121606"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163425"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e applicazioni gestite di Azure
 
 Sia le applicazioni gestite di Azure che Azure Lighthouse funzionano abilitando un provider di servizi ad accedere a risorse che risiedono nel tenant del cliente. Può essere utile comprendere le differenze nel modo in cui funzionano e gli scenari che consentono di abilitare, nonché come possono essere utilizzati insieme.
 
+> [!TIP]
+> Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](enterprise.md) possono utilizzare gli stessi processi e gli stessi strumenti.
+
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Confronto tra Azure Lighthouse e le applicazioni gestite di Azure
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
-Con [Azure Lighthouse](../overview.md), un provider di servizi per eseguire un'ampia gamma di attività di gestione direttamente nella sottoscrizione o nel gruppo di risorse di un cliente. Questo accesso viene effettuato tramite una proiezione logica, consentendo ai provider di servizi di accedere al proprio tenant e accedere alle risorse che appartengono al tenant del cliente. Il cliente può determinare quali sottoscrizioni o gruppi di risorse delegare al provider di servizi e il cliente mantiene l'accesso completo a tali risorse. Possono anche rimuovere l'accesso del provider di servizi in qualsiasi momento.
+Con [Azure Lighthouse](../overview.md), un provider di servizi può eseguire un'ampia gamma di attività di gestione direttamente nella sottoscrizione o nel gruppo di risorse di un cliente. Questo accesso viene effettuato tramite una proiezione logica, consentendo ai provider di servizi di accedere al proprio tenant e accedere alle risorse che appartengono al tenant del cliente. Il cliente può determinare quali sottoscrizioni o gruppi di risorse delegare al provider di servizi e il cliente mantiene l'accesso completo a tali risorse. Possono anche rimuovere l'accesso del provider di servizi in qualsiasi momento.
 
 Per usare Azure Lighthouse, i clienti vengono caricati per la [gestione delle risorse delegata di Azure](azure-delegated-resource-management.md) tramite la [distribuzione di modelli ARM](../how-to/onboard-customer.md) o tramite un' [offerta di servizio gestito in Azure Marketplace](managed-services-offers.md). È possibile tenere traccia dell'effetto sugli impegni dei clienti [collegando l'ID partner](../../cost-management-billing/manage/link-partner-id.md).
 

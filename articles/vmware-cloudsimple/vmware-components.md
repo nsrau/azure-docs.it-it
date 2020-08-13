@@ -1,7 +1,7 @@
 ---
 title: Componenti VMware del cloud privato
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Descrive la modalità di installazione dei componenti VMware in un cloud privato
+description: Informazioni su come il servizio CloudSimple consente di distribuire VMware in modo nativo in località di Azure. I cloud privati sono integrati con il resto del cloud di Azure.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702823"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142503"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware del cloud privato
 

@@ -14,12 +14,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bbc90776ca007b84d5f67c50f8550ee9c881c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506043"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141670"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Cronologia delle attività di controllo per le assegnazioni di gruppi di accesso con privilegi (anteprima) in Privileged Identity Management
 
@@ -36,7 +36,9 @@ Il **controllo delle risorse** offre una visualizzazione di tutte le attività a
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **accesso con privilegi (anteprima)**.
+1. Selezionare **gruppi di accesso con privilegi (anteprima)**.
+
+1. Selezionare il gruppo di accesso con privilegi per cui si vuole visualizzare la cronologia di controllo.
 
 1. In **attività**selezionare **controllo risorse**.
 
@@ -46,15 +48,15 @@ Il **controllo delle risorse** offre una visualizzazione di tutte le attività a
 
 ## <a name="view-my-audit"></a>Visualizzare Controllo personale
 
-Controllo personale consente di visualizzare l'attività del ruolo personale.
+**My audit** consente di visualizzare l'attività del ruolo personale per un gruppo di accesso con privilegi.
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **accesso con privilegi (anteprima)**.
+1. Selezionare **gruppi di accesso con privilegi (anteprima)**.
 
-1. Selezionare il membro o il gruppo per cui si desidera visualizzare la cronologia di controllo.
+1. Selezionare il gruppo di accesso con privilegi per cui si vuole visualizzare la cronologia di controllo.
 
-1. Selezionare **My audit**.
+1. In **Activity**selezionare **My audit**.
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 

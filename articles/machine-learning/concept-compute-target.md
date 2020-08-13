@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f8b532716e14a8a90b0be061f7d93abf43e55e38
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321990"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141926"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -27,7 +27,7 @@ In un ciclo di vita di sviluppo di modelli tipico, è possibile:
 
 Le risorse di calcolo usate per le destinazioni di calcolo sono collegate a un' [area di lavoro](concept-workspace.md). Le risorse di calcolo diverse dal computer locale sono condivise dagli utenti dell'area di lavoro.
 
-## <a name="training-compute-targets"></a><a name="train"></a>Training delle destinazioni di calcolo
+## <a name="training-compute-targets"></a><a name="train"></a> Training delle destinazioni di calcolo
 
 Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo.  È anche possibile aggiungere una risorsa di calcolo personalizzata, anche se il supporto per vari scenari può variare.
 
@@ -82,17 +82,19 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | Nessuno |
-| Dv2 | Nessuno |  
-| DSv2 | Nessuno |  
-| FSv2 | Nessuno |  
+| D | nessuno |
+| Dv2 | nessuno |  
+| DSv2 | nessuno |  
+| FSv2 | nessuno | 
+| HBv2 | Richiede approvazione |  
+| Servizio di elaborazione host | Richiede approvazione |  
 | M | Richiede approvazione |
-| NC | Nessuno |    
+| NC | nessuno |    
 | NCsv2 | Richiede approvazione |
 | NCsv3 | Richiede approvazione |  
 | NDs | Richiede approvazione |
 | NDv2 | Richiede approvazione |
-| NV | Nessuno |
+| NV | nessuno |
 | NVv3 | Richiede approvazione | 
 
 

@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169430"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163187"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -213,6 +213,6 @@ Come specificato nella sezione [Prerequisiti](#prerequisites), Facebook *non* è
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare ad aggiungere Azure Active Directory (Azure AD) come provider di identità. Il file di base che è stato usato in questa Guida introduttiva contiene già parte del contenuto necessario per aggiungere altri provider di identità come Azure AD.
+Provare ad aggiungere Azure Active Directory (Azure AD) come provider di identità. Il file di base che è stato usato in questa Guida introduttiva contiene già parte del contenuto necessario per aggiungere altri provider di identità come Azure AD. Per informazioni sulla configurazione di Azure AD come provider di identità, vedere [configurare l'iscrizione e l'accesso con un account di Azure Active Directory usando Active Directory B2C criteri personalizzati](identity-provider-azure-ad-single-tenant-custom.md). 
 
-Per informazioni sull'impostazione di Azure AD come provider di identità, vedere l'articolo [Configurare l'accesso con un account Azure Active Directory usando criteri personalizzati in Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md).
+Visitare la [raccolta di partner](partner-gallery.md) per altre informazioni su come implementare l'integrazione ISV usando criteri personalizzati. 

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289961"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141721"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modello Time Series in Azure Time Series Insights Gen2
 
@@ -26,7 +26,7 @@ Questo articolo descrive il modello Time Series, le funzionalità e come iniziar
 > * Passare all'ambiente [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) per un esempio di modello Live Time Series.
 > * Informazioni [su come usare il modello Time Series](/azure/time-series-insights/how-to-edit-your-model) con Azure Time Series Insights Gen2 Explorer.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La motivazione principale per il modello Time Series è semplificare la ricerca e l'analisi dei dati delle serie temporali o degli Internet. Questo obiettivo viene raggiunto consentendo la cura, la manutenzione e l'arricchimento dei dati relativi alle serie temporali per preparare i set di dati pronti per il consumo per l'analisi.
 
@@ -75,7 +75,7 @@ Questi componenti vengono combinati per specificare un modello Time Series e per
 
 [![Grafico di panoramica del modello Time Series](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-È possibile creare e gestire un modello Time Series tramite il [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Le impostazioni del modello Time Series possono essere gestite tramite l' [API delle impostazioni del modello](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+È possibile creare e gestire un modello Time Series tramite il [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Le impostazioni del modello Time Series possono essere gestite tramite l' [API delle impostazioni del modello](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Istanze di modello serie temporale
 
@@ -129,7 +129,7 @@ Le istanze hanno la rappresentazione JSON seguente:
 ```
 
 > [!TIP]
-> Per il supporto per l'API di creazione, lettura, aggiornamento ed eliminazione (CRUD) dell'API, vedere l'articolo sull' [esecuzione di query sui dati](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest dell'API dell'istanza](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Per il supporto per l'API di creazione, lettura, aggiornamento ed eliminazione (CRUD) dell'API, vedere l'articolo sull' [esecuzione di query sui dati](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest dell'API dell'istanza](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Gerarchie di modelli serie temporale
 
@@ -186,7 +186,7 @@ Nell'esempio JSON precedente:
 * `ManufactureDate`definisce una gerarchia con padre `year` e figlio `month` . Ogni `ManufactureDate` può avere più `years` di un, che a sua volta può avere più `months` .
 
 > [!TIP]
-> Per il supporto di creazione, lettura, aggiornamento ed eliminazione (CRUD) dell'API gerarchia, vedere l'articolo relativo alle [query sui dati](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest dell'API gerarchia](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Per il supporto di creazione, lettura, aggiornamento ed eliminazione (CRUD) dell'API gerarchia, vedere l'articolo relativo alle [query sui dati](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest dell'API gerarchia](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Esempio di gerarchia
 
@@ -231,7 +231,7 @@ La [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/sam
 [![Esempio di tipo di modello Time Series](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Per i tipi supporto per l'API di creazione, lettura, aggiornamento ed eliminazione (CRUD), leggere l'articolo relativo alle [query sui dati](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)per l'API di tipo.
+> Per i tipi supporto per l'API di creazione, lettura, aggiornamento ed eliminazione (CRUD), leggere l'articolo relativo alle [query sui dati](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api)per l'API di tipo.
 
 ### <a name="type-properties"></a>Proprietà del tipo
 
@@ -288,7 +288,7 @@ I tipi di modello Time Series possono avere molte variabili che specificano le r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su come modificare il modello tramite le API, vedere la documentazione di riferimento del [modello Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
+* Per altre informazioni su come modificare il modello tramite le API, vedere la documentazione di riferimento del [modello Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) .
 
 * Esplorare le formule e i calcoli che è possibile creare con le [variabili di modello Time Series](./concepts-variables.md)
 

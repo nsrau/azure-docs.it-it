@@ -1,6 +1,6 @@
 ---
 title: Compatta la soluzione VMware di Azure di CloudSimple cloud privato
-description: Viene descritto come compattare un cloud privato CloudSimple.
+description: Informazioni su come compattare dinamicamente un cloud privato in CloudSimple rimuovendo un nodo da un cluster vSphere esistente o rimuovendo un intero cluster.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 07/01/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2759b35c9ba521a63eaf54c4c696598d545120b4
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77014267"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141738"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Compattare un cloud privato CloudSimple
 

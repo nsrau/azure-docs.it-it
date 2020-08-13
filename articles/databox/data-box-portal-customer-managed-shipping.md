@@ -2,18 +2,18 @@
 title: Spedizione autogestita di Microsoft Azure Data Box | Microsoft Docs
 description: Descrive il flusso di lavoro di spedizione autogestita per i dispositivi Azure Data Box
 services: databox
-author: priestlg
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
-ms.author: v-grpr
-ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.author: alkohli
+ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608588"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142537"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Usare la spedizione autogestita per Azure Data Box nel portale di Azure
 
@@ -28,6 +28,8 @@ La spedizione autogestita è disponibile come opzione quando si [ordina Azure Da
 * Giappone
 * Singapore
 * Corea del Sud
+* India
+* Sudafrica
 
 ## <a name="use-self-managed-shipping"></a>Usare la spedizione autogestita
 
@@ -36,7 +38,7 @@ Quando si effettua l'ordine di Data Box, è possibile scegliere l'opzione di spe
 1. Nell'ordine di Azure Data Box, nei **dettagli del contatto** selezionare **+ Aggiungi indirizzo di spedizione**.
    ![Spedizione autogestita](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
-2. Quando si sceglie il tipo di spedizione, selezionare l'opzione **Spedizione autogestita**. Questa opzione è disponibile solo se si è in una delle regioni supportate, come descritto nei prerequisiti.
+2. Quando si sceglie il tipo di spedizione, selezionare l'opzione **Spedizione autogestita**. Questa opzione è disponibile solo se ci si trova in una delle aree supportate, come descritto nei prerequisiti.
 
 3. Dopo aver indicato il proprio indirizzo di spedizione, sarà necessario convalidarlo e completare l'ordine.
    ![Spedizione autogestita](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
@@ -49,7 +51,7 @@ Quando si effettua l'ordine di Data Box, è possibile scegliere l'opzione di spe
 
 5. Seguire le istruzioni riportate in **Pianifica il ritiro per Azure**.
 
-   Per poter ottenere il codice di autorizzazione, è necessario inviare un messaggio di posta elettronica a [adbops@microsoft.com](mailto:adbops@microsoft.com) per pianificare il ritiro del dispositivo dal data center regionale.
+   Per poter ottenere il codice di autorizzazione, è necessario inviare un messaggio di posta elettronica a [adbops@microsoft.com](mailto:adbops@microsoft.com) per pianificare il ritiro del dispositivo dal data center dell'area.
 
    ![Pianificare il ritiro](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
@@ -59,11 +61,11 @@ Quando si effettua l'ordine di Data Box, è possibile scegliere l'opzione di spe
 
    Prendere nota del **codice di autorizzazione**. In base ai requisiti di sicurezza, al momento della pianificazione del prelievo, è necessario presentare il nome della persona che arriverebbe per la selezione.
 
-   È anche necessario specificare i dettagli relativi a chi accederà al data center per il ritiro. L'utente o il punto di contatto deve esibire un ID con foto approvato dall'ente pubblico che verrà convalidato presso il data center.
+   È anche necessario specificare i dettagli relativi a chi accederà al data center per il ritiro. L'utente o il punto di contatto deve esibire un documento d'identità valido che verrà convalidato presso il data center.
 
-   Inoltre, la persona che ritira il dispositivo deve avere anche il **codice di autorizzazione**. Il codice di autorizzazione viene convalidato al momento del ritiro nel data center.
+   La persona che ritira il dispositivo deve avere anche il **codice di autorizzazione**. Il codice di autorizzazione viene convalidato al momento del ritiro nel data center.
 
-7. L'ordine passa automaticamente allo stato **Ritirato** dopo che il dispositivo è stato ritirato dal data center.
+7. L'ordine assume automaticamente lo stato **Ritirato** dopo che il dispositivo è stato ritirato dal data center.
 
     ![Ritirato](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
@@ -82,7 +84,7 @@ Quando si effettua l'ordine di Data Box, è possibile scegliere l'opzione di spe
 
     ![Ricezione completata](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 
-11. Ricevuto il dispositivo, la copia dei dati continuerà. Al termine della copia, l'ordine è completato.
+11. Dopo aver ricevuto il dispositivo, la copia dei dati continuerà. Al termine della copia, l'ordine è completato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

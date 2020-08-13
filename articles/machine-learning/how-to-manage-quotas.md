@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846735"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141126"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -107,24 +107,26 @@ Per impostare le quote a livello di area di lavoro, passare a qualsiasi area di 
 
 ## <a name="view-your-usage-and-quotas"></a>Visualizzare le quote e l'uso
 
-L'ambiente di calcolo di Azure Machine Learning è gestito separatamente dalle altre quote delle risorse di Azure della sottoscrizione. Per visualizzare questa quota, è necessario eseguire il drill-down nei servizi Machine Learning.  
+Azure Machine Learning quota di calcolo nella sottoscrizione viene gestita separatamente da altre quote di risorse di Azure. Per visualizzare questa quota, è necessario eseguire il drill-down nei servizi Machine Learning.  
 
 1. Nel riquadro di sinistra selezionare il **servizio Machine Learning** e quindi selezionare un'area di lavoro dall'elenco visualizzato.
 
-1. Nel pannello successivo, nella sezione **Supporto e risoluzione dei problemi**, selezionare **Utilizzo e quote** per visualizzare i limiti di quota correnti e l'utilizzo.
+2. Nel pannello successivo, nella sezione **Supporto e risoluzione dei problemi**, selezionare **Utilizzo e quote** per visualizzare i limiti di quota correnti e l'utilizzo.
 
-1. Selezionare una sottoscrizione per visualizzare i limiti di quota. Ricordare di filtrare i dati in base all'area a cui si è interessati.
+3. Selezionare una sottoscrizione per visualizzare i limiti di quota. Ricordare di filtrare i dati in base all'area a cui si è interessati.
 
-1. È ora possibile passare da una vista a livello di sottoscrizione e una vista a livello di area di lavoro:
-    + **Vista sottoscrizioni:** Visualizza l'utilizzo della quota di core per famiglia di macchine virtuali, espanderlo per area di lavoro ed espanderlo ulteriormente in base ai nomi dei cluster effettivi. È possibile accedere rapidamente ai dettagli dell'utilizzo di base di una particolare famiglia di macchine virtuali per visualizzare le interruzioni delle aree di lavoro e i cluster sottostanti per ognuna di queste aree di lavoro. La convenzione generale in questa vista è (utilizzo/quota) dove l'utilizzo è il numero corrente di core aumentati e la quota è il numero massimo logico di core a cui la risorsa può essere ridimensionata. Per ogni **area di lavoro**, la quota è la quota a livello di area di lavoro (come illustrato sopra) che indica il numero massimo di core del ridimensionamento per una particolare famiglia di macchine virtuali. Analogamente, per un **cluster**, la quota corrisponde ai core corrispondenti al numero massimo di nodi a cui può essere ridimensionato il cluster in base a quanto definito dalla proprietà max_nodes.
-
+4. È ora possibile passare da una vista a livello di sottoscrizione e una vista a livello di area di lavoro:
+    + **Vista sottoscrizioni:** questa vista consente di visualizzare l'utilizzo della quota di core per famiglia di macchine virtuali, espanderlo per area di lavoro ed espanderlo ulteriormente in base ai nomi dei cluster effettivi. Questa vista è ottimale per ottenere rapidamente informazioni dettagliate sull'utilizzo di core per una particolare famiglia di macchine virtuali in modo da visualizzare la suddivisione per aree di lavoro e per cluster sottostanti per ognuna delle aree di lavoro. La convenzione generale in questa vista è (utilizzo/quota) dove l'utilizzo è il numero corrente di core aumentati e la quota è il numero massimo logico di core a cui la risorsa può essere ridimensionata. Per ogni **area di lavoro**, la quota è la quota a livello di area di lavoro (come illustrato sopra) che indica il numero massimo di core del ridimensionamento per una particolare famiglia di macchine virtuali. Analogamente, per un **cluster**, la quota corrisponde ai core corrispondenti al numero massimo di nodi a cui può essere ridimensionato il cluster in base a quanto definito dalla proprietà max_nodes.
+    
     + **Vista area di lavoro:** questa vista consente di visualizzare l'utilizzo della quota di core per area di lavoro, espanderlo per famiglia di macchine virtuali ed espanderlo ulteriormente in base ai nomi dei cluster effettivi. Questa vista è ottimale per ottenere rapidamente informazioni dettagliate sull'utilizzo di core per una area di lavoro in modo da visualizzare la suddivisione per famiglie di macchine virtuali e per cluster sottostanti per ognuna delle famiglie.
 
 La visualizzazione delle quote per le altre risorse di Azure, ad esempio Macchine virtuali, Archiviazione e Rete, è facile tramite il portale di Azure.
 
 1. Nel riquadro a sinistra selezionare **Tutti i servizi** e quindi **Sottoscrizioni** nella categoria Generale.
 
-1. Nell'elenco delle sottoscrizioni selezionare la sottoscrizione per cui si vuole individuare la quota.
+2. Nell'elenco delle sottoscrizioni selezionare la sottoscrizione per cui si vuole individuare la quota.
+
+3. Selezionare **utilizzo e quote** per visualizzare i limiti e l'utilizzo correnti della quota. Utilizzare i filtri per selezionare il provider e le posizioni. 
 
 ## <a name="request-quota-increases"></a>Richiedere aumenti di quota
 

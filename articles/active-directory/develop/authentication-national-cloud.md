@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 9d703eab97b087ed6b3e4d9c3519a7e3ee7489cd
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117414"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141500"
 ---
 # <a name="national-clouds"></a>Cloud nazionali
 
@@ -67,7 +67,7 @@ Per le applicazioni a tenant singolo, sostituire "common" negli URL precedenti c
 
 ## <a name="microsoft-graph-api"></a>API Microsoft Graph
 
-Per informazioni su come chiamare le API Microsoft Graph in un ambiente cloud nazionale, vedere [Microsoft Graph nelle distribuzioni cloud nazionali](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Per informazioni su come chiamare le API Microsoft Graph in un ambiente cloud nazionale, vedere [Microsoft Graph nelle distribuzioni cloud nazionali](/graph/deployments).
 
 > [!IMPORTANT]
 > Alcuni servizi e funzionalità presenti in aree specifiche del servizio globale potrebbero non essere disponibili in tutti i cloud nazionali. Per scoprire quali servizi sono disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).

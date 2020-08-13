@@ -1,6 +1,6 @@
 ---
 title: Eliminare i nodi per la soluzione VMware da CloudSimple-Azure
-description: Informazioni su come eliminare nodi da VMWare con la distribuzione di CloudSimple
+description: Informazioni su come eliminare i nodi da VMWare con la distribuzione di CloudSimple. I nodi CloudSimple sono a consumo. Eliminare i nodi non utilizzati da portale di Azure.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/05/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 569bc6350b1bfa01228d49d28a1d12e2ab62f6f0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024739"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142265"
 ---
 # <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Eliminare i nodi dalla soluzione VMware di Azure CloudSimple
 

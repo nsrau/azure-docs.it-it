@@ -1,6 +1,6 @@
 ---
 title: Come creare e distribuire un servizio Cloud | Documentazione Microsoft
-description: Informazioni su come creare e distribuire un servizio cloud mediante il portale di Azure.
+description: Informazioni su come usare il metodo creazione rapida per creare un servizio cloud e usare carica per caricare e distribuire un pacchetto del servizio cloud in Azure.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fca14ed4e3b338f9b49f949af7498dfd49990d3b
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811347"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142384"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
 Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
