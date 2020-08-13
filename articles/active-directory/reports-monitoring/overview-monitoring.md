@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 84353dd3c8b803f27073d113d6946152f059d9be
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68988198"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873416"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Che cos'è il monitoraggio di Azure Active Directory?
 
@@ -33,6 +33,8 @@ Attualmente, è possibile indirizzare i log a:
 - Un account di archiviazione di Azure.
 - Un hub eventi di Azure, in modo da poterli integrare con le istanze di Splunk e Sumologic.
 - Un'area di lavoro Azure Log Analytics, in cui è possibile analizzare i dati, creare dashboard e generare avvisi per eventi specifici.
+
+**Ruolo prerequisito**: Amministratore globale
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
@@ -68,5 +70,5 @@ I [log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Log attività in Monitoraggio di Azure](concept-activity-logs-azure-monitor.md)
-* [Trasmettere i log di Azure AD a un hub eventi di Azure](tutorial-azure-monitor-stream-logs-to-event-hub.md)
+* [Eseguire lo streaming dei log in un hub eventi](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Inviare log ai log di Monitoraggio di Azure](howto-integrate-activity-logs-with-log-analytics.md)

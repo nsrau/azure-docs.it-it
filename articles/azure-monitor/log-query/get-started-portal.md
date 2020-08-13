@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075333"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874232"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Esercitazione: Introduzione alle query di Log Analytics
 
@@ -32,7 +32,7 @@ Per un'esercitazione dettagliata sulla scrittura di query di log, vedere [Introd
 ## <a name="open-log-analytics"></a>Aprire Log Analytics
 Per usare Log Analytics, è necessario aver eseguito l'accesso a un account Azure. Se non si ha un account Azure, è possibile [crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Per completare la maggior parte dei passaggi di questa esercitazione, è possibile usare [questo ambiente demo](https://portal.loganalytics.io/demo), che include numerosi dati di esempio. Con l'ambiente demo, non sarà possibile salvare le query o aggiungere i risultati a un dashboard.
+Per completare la maggior parte dei passaggi di questa esercitazione, è possibile usare [questo ambiente demo](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), che include numerosi dati di esempio. Con l'ambiente demo, non sarà possibile salvare le query o aggiungere i risultati a un dashboard.
 
 È anche possibile usare il proprio ambiente, se si usa Monitoraggio di Azure per raccogliere i dati di log in almeno una risorsa di Azure. Per aprire un'area di lavoro Log Analytics, selezionare **Log** nel riquadro di spostamento sinistro di Monitoraggio di Azure. 
 

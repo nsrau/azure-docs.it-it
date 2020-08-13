@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: ad338ce3758c9c8387cc74cc55f9a905b1e5cd73
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a7de0dfadd7af4f5baca30a037651b4201278cba
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73155276"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902168"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Esercitazione: integrazione di Azure Active Directory con Getabstract
 
@@ -40,6 +40,9 @@ Per configurare l'integrazione di Azure AD con Getabstract, sono necessari gli e
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
 * Sottoscrizione di Getabstract abilitata per l'accesso Single Sign-On
+
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -80,10 +83,10 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Getabstract, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Getabstract](#configure-getabstract-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Getabstract](#configure-getabstract-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Getabstract](#create-getabstract-test-user)** : per avere una controparte di Britta Simon in Getabstract collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Getabstract](#create-getabstract-test-user)**: per avere una controparte di Britta Simon in Getabstract collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -108,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Getabstract, seguire qu
 
     ![Informazioni su URL e dominio per Single Sign-On di Getabstract](common/idp-intiated.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL:
+    a. Nella casella di testo **Identificatore** digitare un URL: 
 
     Per staging/pre-produzione: `https://int.getabstract.com`
 
@@ -145,7 +148,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Getabstract, seguire qu
 
     b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL di disconnessione
 
 ### <a name="configure-getabstract-single-sign-on"></a>Configurare l'accesso Single Sign-On per Getabstract
 
@@ -153,7 +156,7 @@ Per configurare l'accesso Single Sign-On sul lato **Getabstract**, è necessario
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 

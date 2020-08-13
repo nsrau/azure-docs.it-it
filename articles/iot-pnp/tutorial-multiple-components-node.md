@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 808d1ad522f6678ced54de334e7ea39fb60cd165
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d26179ab82f29ce8f937f5b444463c1308d92047
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420686"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904055"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-nodejs"></a>Esercitazione: Connettere un'applicazione di un dispositivo Plug and Play IoT (anteprima) di esempio con più componenti a un hub IoT (Node.js)
 
@@ -98,29 +98,29 @@ Aprire il file *pnpTemperatureController.js* in un editor di codice a scelta. Il
 
 1. Definire `modelId`, ovvero il DTMI per il dispositivo da implementare. Questo DTMI è definito dall'utente e deve corrispondere a quello del [modello DTDL del dispositivo termoregolatore](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-1. Implementare i componenti definiti nel modello DTDL del dispositivo termoregolatore. I componenti di un dispositivo termoregolatore reale dovranno implementare queste due interfacce. Queste due interfacce sono già pubblicate in un repository centrale. In questo esempio, le due interfacce sono:
+2. Implementare i componenti definiti nel modello DTDL del dispositivo termoregolatore. I componenti di un dispositivo termoregolatore reale dovranno implementare queste due interfacce. Queste due interfacce sono già pubblicate in un repository centrale. In questo esempio, le due interfacce sono:
   - Thermostat
   - Informazioni sul dispositivo sviluppate da Azure
 
-1. Definire i nomi dei componenti. Questo esempio include due termostati e un componente di informazioni sul dispositivo.
+3. Definire i nomi dei componenti. Questo esempio include due termostati e un componente di informazioni sul dispositivo.
 
-1. Definire il nome del comando. Si tratta dei comandi a cui il dispositivo risponde.
+4. Definire il nome del comando. Si tratta dei comandi a cui il dispositivo risponde.
 
-1. Definire la costante `serialNumber`. `serialNumber` è un valore fisso in qualsiasi dispositivo specifico.
+5. Definire la costante `serialNumber`. `serialNumber` è un valore fisso in qualsiasi dispositivo specifico.
 
-1. Definire i gestori dei comandi.
+6. Definire i gestori dei comandi.
 
-1. Definire le funzioni per inviare le risposte ai comandi.
+7. Definire le funzioni per inviare le risposte ai comandi.
 
-1. Definire le funzioni helper per registrare le richieste dei comandi.
+8. Definire le funzioni helper per registrare le richieste dei comandi.
 
-1. Definire una funzione helper per creare le proprietà.
+9. Definire una funzione helper per creare le proprietà.
 
-1. Definire un listener per gli aggiornamenti delle proprietà.
+10. Definire un listener per gli aggiornamenti delle proprietà.
 
-1. Definire una funzione per inviare dati di telemetria da questo dispositivo. Sia i termostati che il componente radice inviano dati di telemetria. Questa funzione riceve il nome del componente come parametro.
+11. Definire una funzione per inviare dati di telemetria da questo dispositivo. Sia i termostati che il componente radice inviano dati di telemetria. Questa funzione riceve il nome del componente come parametro.
 
-1. Definire una funzione `main` che:
+12. Definire una funzione `main` che:
 
     1. Usa l'SDK del dispositivo per creare un client del dispositivo e connettersi all'hub IoT. Il dispositivo fornisce il valore di `modelId` in modo che possa essere identificato dall'hub IoT come dispositivo Plug and Play IoT.
 
