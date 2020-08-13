@@ -5,17 +5,17 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: bf47ec0ca88d409c91b8acad25506c1cc8958e86
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4b39c32da04efa3782cb2166c8e1137029b21258
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422794"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852957"
 ---
 # <a name="deploy-javascript-app-to-read-data-from-fhir-service"></a>Distribuire un'app JavaScript per leggere i dati dal servizio FHIR
 In questa esercitazione verrà distribuita una piccola app JavaScript che legge i dati da un servizio FHIR. La procedura dell'esercitazione è la seguente:

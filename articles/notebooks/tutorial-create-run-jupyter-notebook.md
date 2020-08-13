@@ -3,13 +3,13 @@ title: 'Esercitazione: Creare ed eseguire Jupyter Notebook - Azure Notebooks (an
 description: Informazioni su come creare ed eseguire Jupyter Notebook in Azure Notebooks (anteprima) per mostrare il processo di regressione lineare in data science.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.custom: tracking-python
-ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85834132"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846913"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: creare ed eseguire un notebook di Jupyter con Python
 
