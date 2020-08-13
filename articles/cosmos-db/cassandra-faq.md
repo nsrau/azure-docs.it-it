@@ -4,14 +4,14 @@ description: Risposte alle domande frequenti sulla API Cassandra per Azure Cosmo
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 04708a307cd0eedfbe0510324930eb2327adf06e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449737"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167607"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Domande frequenti sulla API Cassandra in Azure Cosmos DB
 
@@ -79,13 +79,13 @@ I log di diagnostica sono illustrati nell'articolo [Registrazione diagnostica di
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>La chiave primaria corrisponde al concetto di chiave di partizione di Azure Cosmos DB?
 
-Sì, la chiave di partizione viene usata per inserire l'entità nella posizione corretta. In Azure Cosmos DB viene usato per trovare la partizione logica corretta archiviata in una partizione fisica. Il concetto di partizionamento è illustrato in dettaglio nell'articolo [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md). Il punto di vista essenziale è che una partizione logica non deve superare il limite di 10 GB.
+Sì, la chiave di partizione viene usata per inserire l'entità nella posizione corretta. In Azure Cosmos DB viene usato per trovare la partizione logica corretta archiviata in una partizione fisica. Il concetto di partizionamento è illustrato in dettaglio nell'articolo [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md). Il punto di vista essenziale è che una partizione logica non deve superare il limite di 20 GB.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>Cosa accade quando si riceve una notifica che la partizione è piena?
 
 Azure Cosmos DB è un sistema basato su contratto di servizio (SLA). Offre scalabilità illimitata, con garanzie di latenza, velocità effettiva, disponibilità e coerenza. Questa archiviazione illimitata è basata sulla scalabilità orizzontale orizzontale dei dati, usando il partizionamento come concetto chiave. Il concetto di partizionamento è illustrato in dettaglio nell'articolo [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md).
 
-È necessario rispettare il limite di 10 GB per il numero di entità o elementi per partizione logica. Per assicurare la scalabilità dell'applicazione, è consigliabile *non* creare una partizione critica archiviando tutte le informazioni in una partizione ed eseguendo query su di essa. Questo errore può essere presente solo se i dati sono sbilanciati, ovvero se si dispone di una quantità elevata di dati per una chiave di partizione (oltre 10 &nbsp; GB). È possibile trovare la distribuzione dei dati tramite il portale di archiviazione. Per correggere l'errore, è necessario ricreare la tabella e scegliere una chiave primaria granulare (chiave di partizione), che consente una migliore distribuzione dei dati.
+È necessario rispettare il limite di 20 GB per il numero di entità o elementi per partizione logica. Per assicurare la scalabilità dell'applicazione, è consigliabile *non* creare una partizione critica archiviando tutte le informazioni in una partizione ed eseguendo query su di essa. Questo errore può essere presente solo se i dati sono sbilanciati, ovvero se si dispone di una quantità elevata di dati per una chiave di partizione (più di 20 GB). È possibile trovare la distribuzione dei dati tramite il portale di archiviazione. Per correggere l'errore, è necessario ricreare la tabella e scegliere una chiave primaria granulare (chiave di partizione), che consente una migliore distribuzione dei dati.
 
 ### <a name="can-i-use-the-cassandra-api-as-a-key-value-store-with-millions-or-billions-of-partition-keys"></a>È possibile usare il API Cassandra come archivio di valori chiave con milioni o miliardi di chiavi di partizione?
 

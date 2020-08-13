@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809766"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167930"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -23,7 +23,7 @@ Gli errori di backup più comuni possono essere risolti autonomamente seguendo i
 
 ### <a name="step-1-check-azure-vm-health"></a>Passaggio 1: controllare l'integrità delle macchine virtuali di Azure
 
-- **Verificare che lo stato di provisioning della macchina virtuale di Azure sia ' running '**: se lo stato di [provisioning della macchina virtuale](../virtual-machines/windows/states-lifecycle.md#provisioning-states) è in stato di **arresto/deallocazione/aggiornamento** , interferisce con l'operazione di backup. Aprire *portale di Azure > vm > Overview >* e controllare lo stato della macchina virtuale per verificare che sia **in esecuzione** e ripetere l'operazione di backup.
+- **Verificare che lo stato di provisioning della macchina virtuale di Azure sia ' running '**: se lo stato di [provisioning della macchina virtuale](../virtual-machines/states-lifecycle.md#provisioning-states) è in stato di **arresto/deallocazione/aggiornamento** , interferisce con l'operazione di backup. Aprire *portale di Azure > vm > Overview >* e controllare lo stato della macchina virtuale per verificare che sia **in esecuzione** e ripetere l'operazione di backup.
 - **Esaminare gli aggiornamenti o i riavvii del sistema operativo in sospeso**: assicurarsi che non ci siano aggiornamenti del sistema operativo in sospeso o riavvii in sospeso nella macchina virtuale.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Passaggio 2: controllare l'integrità del servizio agente guest della macchina virtuale di Azure
@@ -67,7 +67,7 @@ Backup di Azure usa l'estensione di snapshot VM per eseguire un backup coerente 
 - **Seguire**le procedure consigliate per il backup: esaminare le [procedure consigliate per abilitare il backup delle macchine virtuali di Azure](backup-azure-vms-introduction.md#best-practices).
 - **Esaminare le linee guida per i dischi crittografati**: se si Abilita il backup per le macchine virtuali con dischi crittografati, assicurarsi di avere fornito tutte le autorizzazioni necessarie. Per altre informazioni, vedere [backup e ripristino di macchine virtuali crittografate di Azure](backup-azure-vms-encryption.md#encryption-support).
 
-## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - L'agente delle macchine virtuali non riesce a comunicare con Backup di Azure
+## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable: l'agente di macchine virtuali non riesce a comunicare con Backup di Azure
 
 **Codice di errore**: UserErrorGuestAgentStatusUnavailable <br>
 **Messaggio di errore**: l'agente di macchine virtuali non riesce a comunicare con backup di Azure<br>
@@ -101,7 +101,7 @@ Dopo aver registrato e pianificato una macchina virtuale per il servizio backup 
 **Codice di errore**: UserErrorVmProvisioningStateFailed<br>
 **Messaggio di errore**: lo stato di provisioning della macchina virtuale non è riuscito<br>
 
-Questo errore si verifica quando uno degli errori di estensione inserisce la macchina virtuale in stato di errore di provisioning.<br>**Aprire portale di Azure > impostazioni > VM > estensioni > stato estensioni** e verificare se tutte le estensioni sono in stato di **provisioning riuscito** . Per altre informazioni, vedere [Stati di provisioning](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
+Questo errore si verifica quando uno degli errori di estensione inserisce la macchina virtuale in stato di errore di provisioning.<br>**Aprire portale di Azure > impostazioni > VM > estensioni > stato estensioni** e verificare se tutte le estensioni sono in stato di **provisioning riuscito** . Per altre informazioni, vedere [Stati di provisioning](../virtual-machines/states-lifecycle.md#provisioning-states).
 
 - Se lo stato dell'estensione VMSnapshot è failed, fare clic con il pulsante destro del mouse sull'estensione non riuscita e rimuoverlo. Attivare un backup su richiesta. Questa azione reinstallerà le estensioni ed eseguirà il processo di backup.  <br>
 - Se un'altra estensione si trova in uno stato di errore, può interferire con il backup. Verificare che i problemi relativi all'estensione vengano risolti e ripetere l'operazione di backup.

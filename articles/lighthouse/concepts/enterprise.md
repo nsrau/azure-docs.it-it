@@ -1,56 +1,56 @@
 ---
 title: Azure Lighthouse in scenari aziendali
 description: Le funzionalità di Azure Lighthouse possono essere usate per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
-ms.date: 07/06/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9f9a7aa81772a1edda5fd1915918b547a3066455
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114143"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167350"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse in scenari aziendali
 
-Lo scenario più comune per [Azure Lighthouse](../overview.md) è un provider di servizi che gestisce le risorse nei tenant Azure Active Directory (Azure ad) dei clienti. Le funzionalità di Azure Lighthouse possono tuttavia essere usate anche per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
+Uno scenario comune per [Azure Lighthouse](../overview.md) è un provider di servizi che gestisce le risorse nei tenant Azure Active Directory (Azure ad) dei clienti. Tuttavia, le funzionalità di Azure Lighthouse possono anche essere usate per semplificare la gestione di più tenant all'interno di un'azienda che usa più tenant Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Tenant singolo o più tenant
 
-Per la maggior parte delle organizzazioni, la gestione è più semplice con un singolo tenant di Azure AD. L'inclusione di tutte le risorse in un tenant consente la centralizzazione delle attività di gestione da parte di entità servizio, gruppi di utenti o utenti designati all'interno di tale tenant. Quando possibile, è consigliabile usare un unico tenant per l'organizzazione.
+Per la maggior parte delle organizzazioni, la gestione è più semplice con un singolo tenant di Azure AD. L'inclusione di tutte le risorse in un tenant consente la centralizzazione delle attività di gestione da parte di entità servizio, gruppi di utenti o utenti designati all'interno di tale tenant. Quando possibile, è consigliabile usare un unico tenant per l'organizzazione. Tuttavia, alcune organizzazioni potrebbero avere più tenant Azure AD. In alcuni casi può trattarsi di una situazione temporanea, ad esempio quando si verificano acquisizioni e una strategia di consolidamento dei tenant a lungo termine non è ancora stata definita. In altri casi, è possibile che le organizzazioni debbano mantenere più tenant su base continuativa, a causa di consociate completamente indipendenti, requisiti geografici o legali o altre considerazioni.
 
-Al tempo stesso, in determinate situazioni potrebbe essere necessario per un'organizzazione gestire più tenant di Azure AD. In alcuni casi può trattarsi di una situazione temporanea, ad esempio per il tempo necessario a definire una strategia di consolidamento dei tenant a lungo termine in seguito ad acquisizioni. È anche possibile che un'organizzazione debba gestire più tenant in modo continuativo, a causa di affiliate completamente indipendenti, di requisiti geografici o legali e così via. Nei casi in cui è necessaria un'architettura multi-tenant, Azure Lighthouse può essere usato per centralizzare e semplificare le operazioni di gestione. È possibile eseguire l'onboarding delle sottoscrizioni di più tenant per la [gestione risorse delegate di Azure](azure-delegated-resource-management.md) per consentire agli utenti designati in un tenant di gestione di eseguire [funzioni di gestione tra tenant](cross-tenant-management-experience.md) in modo centralizzato e scalabile.
+Nei casi in cui è necessaria un'architettura multi-tenant, Azure Lighthouse può aiutare a centralizzare e semplificare le operazioni di gestione. Usando la [gestione delle risorse delegata di Azure](azure-delegated-resource-management.md), gli utenti in un tenant di gestione possono eseguire [funzioni di gestione tra tenant](cross-tenant-management-experience.md) in modo centralizzato e scalabile.
 
 ## <a name="tenant-management-architecture"></a>Architettura di gestione dei tenant
 
-Quando si centralizzano le operazioni di gestione in più tenant, è necessario determinare in quale tenant saranno inclusi gli utenti che eseguono operazioni di gestione per gli altri tenant. In altri termini, sarà necessario determinare quale sarà il tenant di gestione per gli altri tenant.
+Per usare Azure Lighthouse in un'azienda, è necessario determinare quale tenant includerà gli utenti che eseguono operazioni di gestione sugli altri tenant. In altre parole, sarà necessario determinare quale tenant sarà il tenant di gestione per gli altri tenant.
 
-Si immagini, ad esempio, che l'organizzazione disponga di un singolo tenant che chiameremo *tenant a*. L'organizzazione acquisisce quindi due tenant aggiuntivi, il *tenant B* e il *tenant C*e i motivi aziendali necessari per mantenerli come tenant distinti.
+Si immagini, ad esempio, che l'organizzazione disponga di un singolo tenant che chiameremo *tenant a*. L'organizzazione acquisisce quindi il *tenant B* e il *tenant C*e si hanno motivi aziendali per cui è necessario mantenerli come tenant distinti.
 
-L'organizzazione vuole usare le stesse definizioni di criteri e procedure di backup e gli stessi processi di sicurezza in tutti i tenant. Dato che sono già presenti utenti (inclusi gruppi di utenti ed entità servizio) incaricati di queste attività in Tenant A, è possibile eseguire l'onboarding di tutte le sottoscrizioni di Tenant B e Tenant C in modo che gli stessi utenti di Tenant A possano eseguire tali attività.
+L'organizzazione vuole usare le stesse definizioni di criteri e procedure di backup e gli stessi processi di sicurezza in tutti i tenant. Poiché il tenant A include già gli utenti responsabili di queste attività, è possibile caricare le sottoscrizioni nel tenant B e nel tenant C, consentendo agli stessi utenti del tenant a di eseguire tali attività.
 
-![Utenti di Tenant A che gestiscono le risorse in Tenant B e Tenant C](../media/enterprise-azure-lighthouse.jpg)
+![Diagramma che Mostra gli utenti del tenant A che gestiscono le risorse nel tenant B e nel tenant C.](../media/enterprise-azure-lighthouse.jpg)
 
 ## <a name="security-and-access-considerations"></a>Considerazioni sulla sicurezza e sull'accesso
 
-Nella maggior parte degli scenari aziendali, è opportuno delegare una sottoscrizione completa di Azure Lighthouse, sebbene sia anche possibile delegare solo gruppi di risorse specifici all'interno di una sottoscrizione.
+Nella maggior parte degli scenari aziendali è opportuno delegare una sottoscrizione completa al Faro di Azure. È anche possibile scegliere di delegare solo gruppi di risorse specifici all'interno di una sottoscrizione.
 
-In entrambi i casi, quando si definiscono gli utenti che avranno accesso alle risorse assicurarsi di [seguire il principio dei privilegi minimi](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Questo garantisce che gli utenti abbiano solo le autorizzazioni necessarie per eseguire le attività richieste e riduce la probabilità di errori accidentali.
+In entrambi i casi, assicurarsi di [seguire il principio dei privilegi minimi quando si definiscono gli utenti che avranno accesso alle risorse delegate](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Questo garantisce che gli utenti abbiano solo le autorizzazioni necessarie per eseguire le attività richieste e riduce la probabilità di errori accidentali.
 
 Azure Lighthouse fornisce solo collegamenti logici tra un tenant di gestione e i tenant gestiti, invece di trasferire fisicamente dati o risorse. L'accesso, inoltre, viene sempre eseguito in una sola direzione, dal tenant di gestione a quelli gestiti.  Gli utenti e i gruppi del tenant di gestione dovranno continuare a usare l'autenticazione a più fattori per eseguire le operazioni di gestione sulle risorse dei tenant gestiti.
 
-Le aziende con tutele interne o esterne per la governance e la conformità possono usare i [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) per soddisfarne i requisiti di trasparenza. Quando nei tenant aziendali sono state stabilite le relazioni tra tenant di gestione e gestiti, gli utenti di ogni tenant possono ottenere la visibilità delle azioni eseguite dagli utenti dell'altro tenant e monitorarle visualizzando l'attività registrata.
+Le aziende con tutele interne o esterne per la governance e la conformità possono usare i [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) per soddisfarne i requisiti di trasparenza. Quando i tenant aziendali hanno stabilito relazioni di gestione e tenant gestite, gli utenti in ogni tenant possono visualizzare l'attività registrata per visualizzare le azioni eseguite dagli utenti nel tenant di gestione.
 
-## <a name="onboarding-process-considerations"></a>Considerazioni sul processo di onboarding
+## <a name="onboarding-considerations"></a>Considerazioni sull'onboarding
 
-Le sottoscrizioni o i gruppi di risorse all'interno di una sottoscrizione possono essere caricate in Azure Lighthouse distribuendo Azure Resource Manager modelli o tramite le offerte di servizi gestiti pubblicate in Azure Marketplace, in modo privato o pubblico.
+Le sottoscrizioni o i gruppi di risorse all'interno di una sottoscrizione possono essere caricate in Azure Lighthouse distribuendo Azure Resource Manager modelli o tramite le offerte di servizi gestiti pubblicate in Azure Marketplace.
 
-Dato che gli utenti aziendali potranno normalmente ottenere l'accesso diretto ai tenant dell'azienda e non è necessario commercializzare o promuovere un'offerta di gestione, è in genere più veloce e semplice eseguire direttamente la distribuzione con modelli di Azure Resource Manager. Nelle [indicazioni per l'onboarding](../how-to/onboard-customer.md) viene fatto riferimento a provider di servizi e clienti, ma gli stessi processi possono essere usati dalle aziende.
+Poiché gli utenti aziendali in genere avranno accesso diretto ai tenant dell'organizzazione e non è necessario commercializzare o promuovere un'offerta di gestione, in genere è più veloce e più semplice distribuire Azure Resource Manager modelli. Sebbene le [linee guida per l'onboarding](../how-to/onboard-customer.md) si riferiscono a provider di servizi e clienti, le aziende possono usare gli stessi processi per caricare i tenant.
 
-Se si preferisce, è possibile eseguire l'onboarding dei tenant in un'azienda [pubblicando un'offerta di servizi gestiti in Azure Marketplace](../how-to/publish-managed-services-offers.md). Affinché l'offerta sia disponibile solo per i tenant appropriati, assicurarsi che i piani siano contrassegnati come privati. Con un piano privato, è possibile fornire gli ID sottoscrizione per ogni tenant di cui si intende eseguire l'onboarding in modo che nessun altro possa sfruttare l'offerta.
+Se si preferisce, è possibile eseguire l'onboarding dei tenant in un'azienda [pubblicando un'offerta di servizi gestiti in Azure Marketplace](../how-to/publish-managed-services-offers.md). Affinché l'offerta sia disponibile solo per i tenant appropriati, assicurarsi che i piani siano contrassegnati come privati. Con un piano privato, si forniscono gli ID sottoscrizione per ogni tenant che si prevede di caricare e nessun altro sarà in grado di ottenere l'offerta.
 
 ## <a name="terminology-notes"></a>Note sulla terminologia
 
-Per la gestione tra tenant all'interno dell'azienda, i riferimenti ai provider di servizi nella documentazione di Azure Lighthouse possono essere considerati applicabili al tenant di gestione all'interno di un'azienda, ossia al tenant contenente gli utenti che gestiranno le risorse degli altri tenant tramite la gestione risorse delegate di Azure. Analogamente, i riferimenti ai clienti possono essere considerati applicabili ai tenant che delegano le risorse che dovranno essere gestite tramite gli utenti del tenant di gestione.
+Per la gestione di più tenant all'interno dell'organizzazione, è possibile comprendere i riferimenti ai provider di servizi nella documentazione di Azure Lighthouse da applicare al tenant di gestione all'interno di un'azienda, ovvero il tenant che include gli utenti che gestiranno le risorse in altri tenant tramite Azure Lighthouse. Analogamente, tutti i riferimenti ai clienti possono essere riconosciuti come applicabili ai tenant che delegano le risorse da gestire tramite gli utenti nel tenant di gestione.
 
 Nell'esempio descritto in precedenza, Tenant A può essere considerato come il tenant del provider di servizi (tenant di gestione) e Tenant B e Tenant C possono essere considerati come i tenant dei clienti.
 

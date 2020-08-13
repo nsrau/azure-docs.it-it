@@ -1,20 +1,23 @@
 ---
 title: Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 description: Informazioni su come Azure Lighthouse consente di distribuire una definizione dei criteri e un'assegnazione di criteri tra più tenant.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111797"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167284"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 
 Come provider di servizi, è possibile che siano stati caricati più tenant del cliente nel [Faro di Azure](../overview.md). Azure Lighthouse consente ai provider di servizi di eseguire operazioni su larga scala tra più tenant contemporaneamente, rendendo più efficienti le attività di gestione.
 
 Questo argomento illustra come usare [Criteri di Azure](../../governance/policy/index.yml) per distribuire una definizione e un'assegnazione dei criteri tra più tenant usando i comandi di PowerShell. In questo esempio, la definizione dei criteri garantisce che gli account di archiviazione siano protetti consentendo solo il traffico HTTPS.
+
+> [!TIP]
+> Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono utilizzare gli stessi processi.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Usare Azure Resource Graph per eseguire query tra tenant di clienti
 

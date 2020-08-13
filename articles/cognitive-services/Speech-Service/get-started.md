@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056466"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167811"
 ---
 # <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
 
@@ -87,7 +87,7 @@ Per passare da una sottoscrizione a un'altra, ad esempio quando la versione di p
 
 ## <a name="about-regions"></a>Informazioni sulle aree
 
-- Se l'applicazione usa un [SDK per il riconoscimento vocale](speech-sdk.md), specificare il codice di area, ad esempio `westus`, durante la creazione di una configurazione di riconoscimento vocale.
+- Se l'applicazione usa un [SDK di riconoscimento vocale](speech-sdk.md), è necessario specificare l'identificatore di area, ad esempio `westus` , quando si crea una configurazione di riconoscimento vocale.
 - Se l'applicazione usa una delle [API REST](rest-apis.md) del Servizio di riconoscimento vocale, l'area è parte dell'URI dell'endpoint usato quando si effettuano richieste.
 - Le chiavi create per un'area sono valide solo in quell'area. Se si prova a usarle con altre aree si verificheranno errori di autenticazione.
 

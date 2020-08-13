@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: e83e6df26a2b3e8eabda142ee6cd89320c59ad8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922643"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168032"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
@@ -46,6 +46,7 @@ Come indicato nel **passaggio 3**, la separazione delle credenziali dell'applica
 > Durante la configurazione del criterio di sicurezza di Azure Time Series Insights, attenersi al principio di **separazione degli interessi** (descritto sopra per questo scenario).
 
 > [!NOTE]
+
 > * Questo articolo è incentrato su un'applicazione a tenant singolo che prevede l'esecuzione dell'applicazione all'interno di una sola organizzazione.
 > * Le applicazioni a tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
 
@@ -115,6 +116,7 @@ Di seguito sono descritte le intestazioni della richiesta obbligatorie.
 
 > [!IMPORTANT]
 > Il token deve essere emesso esattamente nella risorsa `https://api.timeseries.azure.com/` (nota anche come "destinatario" del token).
+
 > * L'**AuthURL** [Postman](https://www.getpostman.com/) sarà: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
 > * `https://api.timeseries.azure.com/` è valido, ma `https://api.timeseries.azure.com` non lo è.
 
@@ -155,7 +157,7 @@ I parametri della stringa di query dell'URL facoltativi includono l'impostazione
 
 | Parametro di query facoltativo | Descrizione | Versione |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Timeout lato server per l'esecuzione di una richiesta HTTP. Applicabile solo alle API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). Il valore di timeout deve essere nel formato di durata ISO 8601, ad esempio `"PT20S"`, e deve essere compreso nell'intervallo `1-30 s`. Il valore predefinito è `30 s`. | Prima generazione |
+| `timeout=<timeout>` | Timeout lato server per l'esecuzione di una richiesta HTTP. Applicabile solo alle API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). Il valore di timeout deve essere nel formato di durata ISO 8601, ad esempio `"PT20S"`, e deve essere compreso nell'intervallo `1-30 s`. Il valore predefinito è `30 s`. | Prima generazione |
 | `storeType=<storeType>` | Per gli ambienti Gen2 con warm Store abilitato, la query può essere eseguita in `WarmStore` o `ColdStore` . Questo parametro nella query definisce l'archivio in cui quest'ultima deve essere eseguita. Se non è definito, la query verrà eseguita nell'archivio ad accesso sporadico. Per eseguire la query nell'archivio ad accesso frequente, occorre impostare **storeType** su `WarmStore`. Se non è definito, la query verrà eseguita nell'archivio ad accesso sporadico. | Seconda generazione |
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -164,6 +166,6 @@ I parametri della stringa di query dell'URL facoltativi includono l'impostazione
 
 * Per il codice di esempio che chiama gli esempi di codice dell'API Azure Time Series Insights Gen2, vedere [eseguire query sui dati di Gen2 con C#](./time-series-insights-update-query-data-csharp.md).
 
-* Per le informazioni di riferimento sull'API, vedere la documentazione di [ riferimento sull'API di query](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+* Per le informazioni di riferimento sull'API, vedere la documentazione di [ riferimento sull'API di query](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api).
 
 * Informazioni su come [creare un'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md).

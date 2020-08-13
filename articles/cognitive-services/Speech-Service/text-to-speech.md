@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399510"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167709"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -41,13 +41,7 @@ Sintesi vocale dal servizio di riconoscimento vocale consente a applicazioni, st
 
 ## <a name="get-started"></a>Introduzione
 
-Il servizio di sintesi vocale è disponibile tramite l'SDK di [riconoscimento vocale](speech-sdk.md). Sono disponibili diversi scenari comuni come guide introduttive, in diversi linguaggi e piattaforme:
-
-* [Sintesi vocale in un file audio](quickstarts/text-to-speech-audio-file.md)
-* [Sintesi vocale in un altoparlante](quickstarts/text-to-speech.md)
-* [Sintetizzare in modo asincrono l'audio a form lungo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-
-Se si preferisce, il servizio di sintesi vocale è accessibile tramite [Rest](rest-text-to-speech.md).
+Per iniziare a usare sintesi vocale, vedere la [Guida introduttiva](get-started-text-to-speech.md) . Il servizio di sintesi vocale è disponibile tramite l' [SDK vocale](speech-sdk.md), l' [API REST](rest-text-to-speech.md)e l'interfaccia della riga di comando [vocale](spx-overview.md)
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -65,7 +59,7 @@ Oltre alle voci standard e neurali, è possibile creare e ottimizzare voci perso
 Quando si usa il servizio di sintesi vocale, viene addebitato ogni carattere convertito in sintesi vocale, inclusa la punteggiatura. Anche se il documento SSML non è fatturabile, gli elementi facoltativi utilizzati per regolare la conversione del testo in sintesi vocale, ad esempio fonemi e pitch, vengono conteggiati come caratteri fatturabili. Ecco un elenco degli elementi fatturabili:
 
 - Testo passato al servizio di sintesi vocale nel corpo SSML della richiesta
-- Tutti i markup all'interno del campo di testo del corpo della richiesta nel formato SSML, `<speak>` ad `<voice>` eccezione dei tag e
+- Tutti i markup all'interno del campo di testo del corpo della richiesta nel formato SSML, ad eccezione dei `<speak>` `<voice>` tag e
 - Lettere, punteggiatura, spazi, tabulazioni, markup e tutti gli spazi vuoti
 - Ogni elemento di codice definito in Unicode
 

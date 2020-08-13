@@ -1,30 +1,30 @@
 ---
 title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
-ms.date: 05/26/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118876"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167318"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
 Questo articolo illustra come un provider di servizi può caricare un cliente nel Faro di Azure. Quando si esegue questa operazione, è possibile accedere e gestire le risorse delegate del cliente (sottoscrizioni e/o gruppi di risorse) tramite il tenant di Azure Active Directory (Azure AD) usando la [gestione delle risorse delegata di Azure](../concepts/azure-delegated-resource-management.md).
 
-È possibile ripetere questo processo se si gestiscono risorse per più clienti. Quindi, quando un utente autorizzato accede al tenant, tale utente può essere autorizzato negli ambiti di locazione dei clienti per eseguire operazioni di gestione, senza dover accedere a ogni singolo tenant del cliente.
-
-Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi. Per semplicità, è consigliabile creare un account di entità servizio nel tenant associato all'ID MPN e concedergli l'accesso in lettura a tutti i clienti di cui è stato eseguito l'onboarding. Per altre informazioni, vedere [Collegare un ID partner agli account Azure](../../cost-management-billing/manage/link-partner-id.md). 
-
-> [!NOTE]
-> I clienti possono anche essere caricati in Azure Lighthouse quando acquistano un'offerta di servizi gestiti (pubblica o privata) pubblicata in Azure Marketplace. Per altre informazioni, vedere [Pubblicare offerte di servizi gestiti in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare il processo di onboarding descritto qui insieme a un'offerta pubblicata in Azure Marketplace.
-
-Il processo di onboarding richiede l'esecuzione di azioni sia dal tenant del provider di servizi che dal tenant del cliente. Tutti questi passaggi sono descritti in questo articolo.
-
 > [!TIP]
 > Anche se si fa riferimento a provider di servizi e clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono usare lo stesso processo per configurare il faro di Azure e consolidare la loro esperienza di gestione.
+
+È possibile ripetere il processo di onboarding per più clienti. Quando un utente con le autorizzazioni appropriate accede al tenant di gestione, tale utente può essere autorizzato negli ambiti di locazione dei clienti per eseguire operazioni di gestione, senza dover accedere a ogni singolo tenant del cliente.
+
+Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. È necessario eseguire questa associazione nel tenant del provider di servizi. Per semplicità, è consigliabile creare un account di entità servizio nel tenant associato all'ID MPN e concedergli l'accesso in lettura a tutti i clienti di cui è stato eseguito l'onboarding. Per altre informazioni, vedere [Collegare un ID partner agli account Azure](../../cost-management-billing/manage/link-partner-id.md).
+
+> [!NOTE]
+> I clienti possono anche essere caricati in Azure Lighthouse quando acquistano un'offerta di servizio gestita (pubblica o privata) [pubblicata in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare la procedura di onboarding descritta qui insieme alle offerte pubblicate in Azure Marketplace.
+
+Il processo di onboarding richiede l'esecuzione di azioni sia dal tenant del provider di servizi che dal tenant del cliente. Tutti questi passaggi sono descritti in questo articolo.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Raccogliere i dettagli del tenant e della sottoscrizione
 
@@ -65,9 +65,11 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definire ruoli e autorizzazioni
 
-Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare [ruoli predefiniti Controllo degli accessi in base al ruolo](../../role-based-access-control/built-in-roles.md) agli utenti nel tenant.
+Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare i [ruoli predefiniti di controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/built-in-roles.md) ai propri utenti nel tenant.
 
-Per semplificare la gestione, è consigliabile usare i gruppi di utenti di Azure AD per ogni ruolo, che consentono di aggiungere o rimuovere singoli utenti al gruppo invece di assegnare le autorizzazioni direttamente a tale utente. È anche possibile assegnare ruoli a un'entità servizio. Assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti abbiano solo le autorizzazioni necessarie per completare il lavoro. Per consigli e informazioni sui ruoli supportati, vedere [Tenant, ruoli e utenti in scenari di Azure Lighthouse](../concepts/tenants-users-roles.md).
+Per semplificare la gestione, è consigliabile usare Azure AD gruppi di utenti per ogni ruolo. In questo modo è possibile aggiungere o rimuovere singoli utenti nel gruppo che ha accesso, in modo da non dover ripetere il processo di caricamento per apportare modifiche agli utenti. È possibile assegnare ruoli a un'entità servizio, che può essere utile per gli scenari di automazione.
+
+Quando si definiscono le autorizzazioni, assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti dispongano solo delle autorizzazioni necessarie per completare il processo. Per le linee guida e le informazioni sui ruoli supportati, vedere [tenant, utenti e ruoli negli scenari di Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
 > Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere **Sicurezza** e non **Office 365**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -109,12 +111,13 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+
 > [!TIP]
 > È consigliabile assegnare il [ruolo di eliminazione dell'assegnazione della registrazione di servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) durante l'onboarding di un cliente, in modo che gli utenti nel tenant possano [rimuovere l'accesso alla delega](remove-delegation.md) in un secondo momento se necessario. Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Creare un modello di Azure Resource Manager
 
-Per eseguire l'onboarding del cliente, sarà necessario creare un modello di [Azure Resource Manager](../../azure-resource-manager/index.yml) per l'offerta con le informazioni seguenti. I valori **mspOfferName** e **mspOfferDescription** saranno visibili al cliente quando si visualizzano i dettagli dell'offerta nella [pagina Provider di servizi](view-manage-service-providers.md) del portale di Azure.
+Per eseguire l'onboarding del cliente, sarà necessario creare un modello di [Azure Resource Manager](../../azure-resource-manager/index.yml) per l'offerta con le informazioni seguenti. I valori **mspOfferName** e **mspOfferDescription** saranno visibili al cliente nella pagina dei [provider di servizi](view-manage-service-providers.md) del portale di Azure.
 
 |Campo  |Definizione  |
 |---------|---------|
@@ -192,13 +195,11 @@ L'esempio seguente illustra un file **delegatedResourceManagement.parameters.jso
 }
 ```
 
-L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con il ruolo Amministratore Accesso utenti (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Quando si assegna questo ruolo, è necessario includere la proprietà **delegatedRoleDefinitionIds** e uno o più ruoli predefiniti. L'utente creato in questa autorizzazione potrà assegnare questi ruoli predefiniti alle [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente, operazione necessaria per [distribuire i criteri che possono essere corretti](deploy-policy-remediation.md).  L'utente è inoltre in grado di creare interventi di supporto.  Nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
+L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con il ruolo Amministratore Accesso utenti (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Quando si assegna questo ruolo, è necessario includere la proprietà **delegatedRoleDefinitionIds** e uno o più ruoli predefiniti. L'utente creato in questa autorizzazione sarà in grado di assegnare questi ruoli predefiniti alle [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente, che è necessario per [distribuire i criteri che possono essere corretti](deploy-policy-remediation.md).  L'utente è inoltre in grado di creare interventi di supporto.  Nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuire i modelli di Azure Resource Manager
 
-Dopo aver aggiornato il file dei parametri, un utente del tenant del cliente deve distribuire il modello di Azure Resource Manager nel proprio tenant come distribuzione a livello di sottoscrizione. È necessaria una distribuzione separata per ogni sottoscrizione di cui si vuole eseguire l'onboarding (o per ogni sottoscrizione che contiene i gruppi di risorse che si vuole caricare).
-
-Trattandosi di una distribuzione a livello di sottoscrizione, non è possibile avviarla nel portale di Azure. È possibile eseguire la distribuzione tramite PowerShell o l'interfaccia della riga di comando di Azure, come illustrato di seguito.
+Dopo aver aggiornato il file dei parametri, un utente del tenant del cliente deve distribuire il modello di Azure Resource Manager nel proprio tenant come distribuzione a livello di sottoscrizione. È necessaria una distribuzione separata per ogni sottoscrizione di cui si vuole eseguire l'onboarding (o per ogni sottoscrizione che contiene i gruppi di risorse che si vuole caricare). È possibile eseguire la distribuzione tramite PowerShell o l'interfaccia della riga di comando di Azure, come illustrato di seguito.
 
 > [!IMPORTANT]
 > Questa distribuzione a livello di sottoscrizione deve essere eseguita da un account non guest nel tenant del cliente con il [ruolo predefinito Proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione di cui eseguire l'onboarding (o che contiene i gruppi di risorse di cui eseguire l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).

@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.custom: dpalled
-ms.openlocfilehash: 34cf770a8ac75c2516480ec3136e61da15f4e4ff
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab7a30cf6ca71e9260a9cb6e9136f2579e51812c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446629"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167998"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Aggiunta del supporto per il tipo di dati Long in Azure Time Series Insights Gen2
 
@@ -66,7 +66,7 @@ Se al momento si inviano dati di telemetria Integer, i dati verranno divisi in d
 
 I dati integer vengono scritti in **propertyValue_long**. I dati numerici inseriti in precedenza (e inseriti successivamente) in **propertyValue_double** non vengono copiati.
 
-Se si desidera eseguire una query sui dati in queste due colonne per la proprietà **PropertyValue** , è necessario utilizzare la funzione scalare **COALESCE ()** nel TSX. La funzione accetta argomenti dello stesso **tipo** di dati e restituisce il primo valore non null nell'elenco di argomenti. Per altre informazioni, vedere [Azure Time Series Insights concetti relativi all'accesso ai dati Gen2](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
+Se si desidera eseguire una query sui dati in queste due colonne per la proprietà **PropertyValue** , è necessario utilizzare la funzione scalare **COALESCE ()** nel TSX. La funzione accetta argomenti dello stesso **tipo** di dati e restituisce il primo valore non null nell'elenco di argomenti. Per altre informazioni, vedere [Azure Time Series Insights concetti relativi all'accesso ai dati Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Definizione di variabile in TSX-numeric
 
@@ -78,7 +78,7 @@ Se si desidera eseguire una query sui dati in queste due colonne per la propriet
 
 [![Nuova definizione di variabile](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizzata.
+È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Definizione di variabile inline usando le API di query TSX-numeric
 
@@ -126,7 +126,7 @@ Se si desidera eseguire una query sui dati in queste due colonne per la propriet
 }
 ```
 
-È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizzata.
+È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
 
 > [!NOTE]
 > Si consiglia di aggiornare queste variabili in tutte le posizioni in cui possono essere utilizzate. Questi punti includono il modello Time Series, le query salvate e le query del connettore Power BI.
@@ -147,7 +147,7 @@ Se attualmente si usano variabili categoriche che esegue il mapping di valori in
 
 È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizzata.
 
-Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo di dati di tutti** gli argomenti in **COALESCE ()** deve essere di tipo **Long** nell' [espressione della serie temporale personalizzata.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo di dati di tutti** gli argomenti in **COALESCE ()** deve essere di tipo **Long** nell' [espressione della serie temporale personalizzata.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Definizione di variabile inline usando le API di query TSX-categorico
 
@@ -227,7 +227,7 @@ Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo 
 }
 ```
 
-Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo di dati di tutti** gli argomenti in **COALESCE ()** deve essere di tipo **Long** nell' [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizzata.
+Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo di dati di tutti** gli argomenti in **COALESCE ()** deve essere di tipo **Long** nell' [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
 
 > [!NOTE]
 > Si consiglia di aggiornare queste variabili in tutte le posizioni in cui possono essere utilizzate. Questi punti includono il modello Time Series, le query salvate e le query del connettore Power BI.

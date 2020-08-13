@@ -3,12 +3,12 @@ title: Pubblicare un'offerta di servizio gestito in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che carica i clienti nel Faro di Azure.
 ms.date: 07/28/2020
 ms.topic: how-to
-ms.openlocfilehash: e86cec16cc377470f255c8b677d7462dee6b3573
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ab12238bac7e479766b3e328c02f73521d08ad96
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407065"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167220"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizio gestito in Azure Marketplace
 

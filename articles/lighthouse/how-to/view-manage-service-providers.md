@@ -1,18 +1,21 @@
 ---
 title: Visualizzare e gestire i provider di servizi
 description: I clienti possono usare la pagina Provider di servizi nel portale di Azure per visualizzare informazioni sui provider di servizi, sulle offerte di provider di servizi e sulle risorse delegate.
-ms.date: 07/10/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273779"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167165"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualizzare e gestire i provider di servizi
 
-I clienti possono usare la pagina dei **provider di servizi** nella [portale di Azure](https://portal.azure.com) per visualizzare i dettagli relativi a provider di servizi e offerte di provider di servizi, delegare risorse specifiche al [Faro di Azure](../overview.md)e acquistare nuove offerte di provider di servizi. Nonostante qui si faccia riferimento ai provider di servizi e ai clienti, le aziende che gestiscono più tenant possono usare lo stesso processo per consolidare l'esperienza di gestione.
+I clienti possono usare la pagina dei **provider di servizi** nella [portale di Azure](https://portal.azure.com) per visualizzare i dettagli relativi a provider di servizi e offerte di provider di servizi, delegare risorse specifiche al [Faro di Azure](../overview.md)e acquistare nuove offerte di provider di servizi.
+
+> [!TIP]
+> Sebbene si faccia riferimento ai provider di servizi e ai clienti, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono usare lo stesso processo per consolidare l'esperienza di gestione.
 
 Per accedere alla pagina **Provider di servizi** nel portale di Azure, il cliente può selezionare **Tutti i servizi**, quindi cercare **Provider di servizi** e selezionarlo. Possono anche trovarlo immettendo "Service Providers" o "Azure Lighthouse" nella casella di ricerca nella parte superiore della portale di Azure.
 
@@ -40,7 +43,7 @@ Un cliente può aggiungere una nuova offerta del provider di servizi dalla pagin
 
 Se il cliente vuole rimuovere un'offerta di provider di servizi, può selezionare l'icona del cestino nella riga relativa all'offerta. Dopo la conferma dell'eliminazione, il provider di servizi non avrà più accesso alle risorse del cliente precedentemente delegate per l'offerta.
 
-## <a name="delegate-resources"></a>Risorse delegate
+## <a name="delegate-resources"></a>Delegare le risorse
 
 Prima che un provider di servizi possa accedere alle risorse di un cliente e gestirle, le risorse devono essere delegate. Se un cliente ha accettato un'offerta ma non ha ancora delegato alcuna risorsa, vedrà una nota nella parte superiore della sezione delle offerte del **provider di servizi** . In questo modo, il cliente saprà che è necessario intervenire prima che il provider di servizi possa accedere a qualsiasi risorsa del cliente.
 

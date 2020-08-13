@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5f8487126cd187ea66f9423a480c9a73151154c3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420108"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168015"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Offerte private in Microsoft Commercial Marketplace
 
@@ -35,7 +35,7 @@ Le offerte private sono ora disponibili per le offerte di macchine virtuali, app
 
 ## <a name="creating-private-offers-using-plans"></a>Creazione di offerte private mediante piani
 
-Per *le offerte nuove o esistenti con i piani*, gli editori possono creare con facilità nuove varianti private creando nuovi piani (noti in precedenza come SKU) e contrassegnando questi ultimi come privati.  
+Per *le offerte nuove o esistenti con i piani*, gli editori possono creare con facilità nuove varianti private creando nuovi piani (noti in precedenza come SKU) e contrassegnando questi ultimi come privati. Ogni offerta può avere fino a 45 piani privati.
 
 <!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
 

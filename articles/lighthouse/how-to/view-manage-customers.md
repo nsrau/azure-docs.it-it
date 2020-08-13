@@ -1,18 +1,21 @@
 ---
 title: Visualizzare e gestire clienti e risorse delegate
-description: Come provider di servizi che usa Azure Lighthouse, è possibile visualizzare tutte le risorse e le sottoscrizioni dei clienti delegate visitando i clienti nella portale di Azure.
-ms.date: 07/06/2020
+description: Come provider di servizi o Enterprise che usa Azure Lighthouse, è possibile visualizzare tutte le risorse e le sottoscrizioni delegate visitando i clienti nella portale di Azure.
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 165110556282e90bbacf4ce3b3c59e34b203a528
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133272"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167199"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visualizzare e gestire clienti e risorse delegate
 
-I provider di servizi che usano [Azure Lighthouse](../overview.md) possono usare la pagina **clienti** nella [portale di Azure](https://portal.azure.com) per visualizzare le risorse e le sottoscrizioni delegate del cliente. Nonostante qui si faccia riferimento ai provider di servizi e ai clienti, le aziende che gestiscono più tenant possono usare lo stesso processo per consolidare l'esperienza di gestione.
+I provider di servizi che usano [Azure Lighthouse](../overview.md) possono usare la pagina **clienti** nella [portale di Azure](https://portal.azure.com) per visualizzare le risorse e le sottoscrizioni delegate del cliente. 
+
+> [!TIP]
+> Sebbene si faccia riferimento ai provider di servizi e ai clienti, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono usare lo stesso processo per consolidare l'esperienza di gestione.
 
 Per accedere alla pagina **Clienti personali** nel portale di Azure, selezionare **Tutti i servizi**, quindi cercare **Clienti personali** e selezionarla. È possibile trovarla anche immettendo "Clienti personali" nella casella di ricerca nella parte superiore del portale di Azure.
 
@@ -56,7 +59,7 @@ Se sono stati inclusi utenti con il [ruolo di eliminazione della registrazione d
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Lavorare nel contesto di una sottoscrizione delegata
 
-È possibile lavorare direttamente nel contesto di una sottoscrizione delegata all'interno del portale di Azure, senza cambiare la directory che si sta usando. A tale scopo, procedere come indicato di seguito:
+È possibile lavorare direttamente nel contesto di una sottoscrizione delegata all'interno del portale di Azure, senza cambiare la directory che si sta usando. A tale scopo:
 
 1. Selezionare l'icona **Directory e sottoscrizione** nella parte superiore del portale di Azure.
 2. Nel filtro **sottoscrizioni globali** verificare che sia selezionata solo la casella di tale sottoscrizione delegata. È possibile usare la casella a discesa **Directory corrente e delegate** per mostrare solo le sottoscrizioni in una directory specifica. Non usare l'opzione **Cambia directory** perché cambierebbe la directory a cui è stato eseguito l'accesso.

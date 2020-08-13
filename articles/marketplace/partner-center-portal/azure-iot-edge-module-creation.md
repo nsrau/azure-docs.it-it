@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: a44e7835b90ca88460d2045a5494420c6d47921b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 38e51f8bc66e8c47807a9b265ade3f196745db26
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032833"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167182"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -234,7 +234,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Termini e condizioni
 5. Indirizzo privacy policy (collegamento)
 6. Nome
-7. Riepilogo
+7. Summary
 8. Descrizione
 9. Collegamenti utili
 10. Screenshot/video
@@ -288,9 +288,11 @@ Aggiungere almeno un ID della sottoscrizione di Azure, singolarmente (fino a 10)
 
 Prima di passare alla sezione successiva, Panoramica del piano, selezionare **Salva bozza**.
 
-### <a name="plan-overview"></a>Panoramica del piano
+## <a name="plan-overview"></a>Panoramica del piano
 
 Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta nel Centro per i partner. I piani (in precedenza denominati SKU) possono variare in termini di cloud disponibili, ad esempio cloud globali, cloud governativi e immagine a cui fa riferimento il piano. Per presentare l'offerta nel marketplace, è necessario configurare almeno un piano.
+
+È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Scopri di più sui piani privati in [offerte private in Microsoft Commercial Marketplace](../private-offers.md).
 
 Dopo aver creato i piani, la scheda **Panoramica del piano** mostra:
 
@@ -305,7 +307,7 @@ Le azioni disponibili in Panoramica del piano variano a seconda dello stato attu
 - **Elimina bozza**: se lo stato del piano è Bozza.
 - **Stop sell Plan** (Interrompi la vendita del piano): se lo stato del piano è pubblicato.
 
-#### <a name="create-new-plan"></a>Creare un nuovo piano
+### <a name="create-new-plan"></a>Creare un nuovo piano
 
 Selezionare **Crea nuovo piano**. Viene visualizzata la finestra di dialogo **Nuovo piano**.
 
@@ -337,7 +339,7 @@ Questa opzione è visibile solo se **Azure per enti pubblici** è selezionato in
 
 I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requisiti e regolamenti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Per rendere consapevoli delle certificazioni per questi programmi, è possibile specificare fino a 100 collegamenti che descrivono tali certificazioni. Questi possono essere collegamenti diretti alle presentazioni del programma o al proprio sito Web. Questi collegamenti sono visibili solo ai clienti di Azure per enti pubblici.
 
-## <a name="plan-listing"></a>Elenco piani
+### <a name="plan-listing"></a>Elenco piani
 
 Questa scheda contiene informazioni specifiche per i vari piani all'interno della stessa offerta.
 
@@ -377,7 +379,7 @@ Di seguito è riportato un esempio di dettagli dei piani di Azure Marketplace (i
 2. Nome piano
 3. Descrizione piano
 
-## <a name="availability"></a>Disponibilità
+### <a name="availability"></a>Disponibilità
 
 Se si vuole nascondere l'offerta pubblicata in modo che i clienti non possano cercarla, vederla o acquistarla nel marketplace, selezionare la casella di controllo **Nascondi piano** nella scheda Disponibilità.
 
