@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 93ce3b02ef8963a33e485b6560516e1d2b9c1ef5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
-ms.translationtype: HT
+ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424018"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135811"
 ---
 # <a name="what-is-virtual-network-nat"></a>Che cos'è NAT di rete virtuale?
 
@@ -153,7 +153,6 @@ Ci interessa sapere come possiamo migliorare il servizio. Proporre nuove funzion
 
 * NAT è compatibile con risorse di indirizzi IP pubblici, prefissi di indirizzi IP pubblici e servizi di bilanciamento del carico di SKU standard. Le risorse di base, ad esempio Load Balancer di base, nonché qualsiasi prodotto derivato, non sono compatibili con NAT.  Le risorse di base devono essere inserite in una subnet non configurata con NAT.
 * La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.  Non è possibile distribuire NAT in una subnet con prefisso IPv6.
-* La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
 * NAT non può estendersi in più reti virtuali.
 
 ## <a name="next-steps"></a>Passaggi successivi

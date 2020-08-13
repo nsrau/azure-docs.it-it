@@ -5,28 +5,28 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
-ms.openlocfilehash: 406991de2441836565c911ef8a8e1402f6398eb0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/07/2020
+ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824784"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135531"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio in Monitoraggio di Azure
 
-Le soluzioni di monitoraggio sfruttano i servizi in Azure per fornire un'ulteriore analisi del funzionamento di un'applicazione o di un servizio specifico. Questo articolo offre una breve panoramica delle soluzioni di monitoraggio in Azure e informazioni dettagliate sull'uso e l'installazione di tali soluzioni. È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Mentre le soluzioni sono in genere disponibili gratuitamente, l'uso della raccolta dei dati potrebbe determinare un addebito.
+Le soluzioni di monitoraggio in monitoraggio di Azure consentono di analizzare il funzionamento di un'applicazione o un servizio di Azure specifico. Questo articolo offre una breve panoramica delle soluzioni di monitoraggio in Azure e informazioni dettagliate sull'uso e l'installazione di tali soluzioni. È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Mentre le soluzioni sono in genere disponibili gratuitamente, l'uso della raccolta dei dati potrebbe determinare un addebito.
 
 ## <a name="use-monitoring-solutions"></a>Usare le soluzioni di monitoraggio
 
-Aprire la pagina **Panoramica** in Monitoraggio di Azure per visualizzare un riquadro per ogni soluzione installata nell'area di lavoro.
+Nella pagina **Panoramica** soluzioni di monitoraggio di Azure viene visualizzato un riquadro per ogni soluzione installata in un'area di lavoro log Analytics. Per aprire questa pagina, passare a **monitoraggio di Azure** nella [portale di Azure](https://ms.portal.azure.com). Nel menu **Insights** selezionare **altro** per aprire l' **Hub Insights**e quindi fare clic su **log Analytics aree di lavoro**.
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **Monitoraggio**.
-1. Nel menu **Informazioni dettagliate** selezionare **Altri**.
-1. Usare le caselle a discesa nella parte superiore della schermata per modificare l'area di lavoro o l'intervallo di tempo usato per i riquadri.
-1. Fare clic sul riquadro di una soluzione per aprire la visualizzazione corrispondente, in cui sarà possibile esaminare analisi più dettagliate sui dati raccolti.
+[![Hub Insights](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
-![Panoramica](media/solutions/overview.png)
+
+Usare le caselle a discesa nella parte superiore della schermata per modificare l'area di lavoro o l'intervallo di tempo usato per i riquadri. Fare clic sul riquadro di una soluzione per aprire la visualizzazione corrispondente, in cui sarà possibile esaminare analisi più dettagliate sui dati raccolti.
+
+[![Panoramica](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Le soluzioni di monitoraggio possono contenere più tipi di risorse di Azure ed è possibile visualizzare tutte le risorse incluse in una soluzione proprio come qualsiasi altra risorsa. Ad esempio, le query di log incluse nella soluzione sono elencate in **Solution Queries** (Query soluzione) in [Esplora query](../log-query/get-started-portal.md#load-queries). È possibile usare queste query durante l'esecuzione di analisi ad hoc con [query di log](../log-query/log-query-overview.md).
 

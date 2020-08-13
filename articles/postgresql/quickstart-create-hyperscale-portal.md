@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 4ff80330ab6244bc9d108b7f5a1d4e4e0dbd4feb
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6e03b8f89ec22b74ad7dd14d9225c11fde78ec7f
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387405"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135624"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Guida introduttiva: Creare un database di Azure per PostgreSQL - Hyperscale (Citus) nel portale di Azure
 
@@ -115,7 +115,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Finora le query hanno riguardato esclusivamente github\_events, ma è possibile combinare queste informazioni con github\_users. Dal momento che sia gli utenti che gli eventi sono stati partizionati con lo stesso identificatore (`user_id`), le righe di entrambe le tabelle con ID utente corrispondenti avranno un [percorso condiviso](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) negli stessi nodi del database e potranno facilmente essere sottoposte a join.
+Finora le query hanno riguardato esclusivamente github\_events, ma è possibile combinare queste informazioni con github\_users. Dal momento che sia gli utenti che gli eventi sono stati partizionati con lo stesso identificatore (`user_id`), le righe di entrambe le tabelle con ID utente corrispondenti avranno un [percorso condiviso](concepts-hyperscale-colocation.md) negli stessi nodi del database e potranno facilmente essere sottoposte a join.
 
 Se si crea un join su `user_id`, Hyperscale può eseguire il push dell'esecuzione del join nelle partizioni in modo che l'esecuzione avvenga in parallelo nei nodi di lavoro. È ad esempio possibile trovare gli utenti che hanno creato il maggior numero di repository:
 

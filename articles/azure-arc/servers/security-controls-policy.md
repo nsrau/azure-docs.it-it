@@ -1,19 +1,15 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Azure Arc per server
-description: Elenca i controlli di conformità alle normative di Criteri di Azure per Azure Arc per server. Queste definizioni di criteri predefinite rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
+description: Elenca i controlli di conformità alle normative di Criteri di Azure per Azure Arc per server. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
 ms.date: 07/22/2020
 ms.topic: sample
-author: mgoedtel
-ms.author: magoedte
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 77613e3fa6d07af0fe097ad816414fe848daa10b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 51daf3ed6bb64826bf5393366d097b2b0bd1afa2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351845"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121630"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-for-servers"></a>Controlli di conformità alle normative di Criteri di Azure per Azure Arc per server
 
@@ -25,5 +21,5 @@ La [conformità alle normative di Criteri di Azure](../../governance/policy/conc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Conformità alle normative di Criteri di Azure](../../governance/policy/concepts/regulatory-compliance.md).
+- Altre informazioni sulla [conformità alle normative di Criteri di Azure](../../governance/policy/concepts/regulatory-compliance.md).
 - Vedere i criteri predefiniti nel [repository di GitHub su Criteri di Azure](https://github.com/Azure/azure-policy).

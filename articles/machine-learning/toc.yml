@@ -161,11 +161,8 @@
             - name: Gestione di utenti e ruoli
               href: how-to-assign-roles.md
             - name: Usare le reti virtuali
-              displayName: 'vnet, blob'
+              displayName: 'vnet, blob, private endpoint, private link'
               href: how-to-enable-virtual-network.md
-            - name: Usare Collegamento privato
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             - name: Proteggere i servizi Web con TLS
               displayName: ssl
               href: how-to-secure-web-service.md
@@ -457,8 +454,8 @@
         - name: Debug e risoluzione dei problemi delle pipeline
           displayName: designer
           href: how-to-debug-pipelines.md
-        - name: Debug delle pipeline in Application Insights
-          href: how-to-debug-pipelines-application-insights.md
+        - name: Registrare i dati della pipeline in Application Insights
+          href: how-to-log-pipelines-application-insights.md
         - name: Usare il passaggio di esecuzione in parallelo
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md

@@ -5,13 +5,13 @@ author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 73d5c3abb2edc940bee9727ce1f3b0c4e8e0a62e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/12/2020
+ms.openlocfilehash: d0a5b48e93e839b0a0adaf185700d7f60fec7948
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289939"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140684"
 ---
 # <a name="time-series-model-variables"></a>Variabili del modello Time Series
 
@@ -27,14 +27,14 @@ Nella tabella seguente vengono illustrate le proprietà rilevanti per ogni tipo 
 
 [![Tabella delle variabili del modello Time Series](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
-#### <a name="numeric-variables"></a>Variabili numeriche
+## <a name="numeric-variables"></a>Variabili numeriche
 
 | Proprietà Variable | Descrizione |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Valore di variabile | Valori di telemetria usati per il calcolo proveniente dal dispositivo o dai sensori oppure trasformati usando le espressioni della serie temporale. Le variabili di tipo numerico devono essere di tipo *Double*.|
 | Interpolazione di variabili | L'interpolazione specifica come ricostruire un segnale usando i dati esistenti. Per le variabili numeriche sono disponibili opzioni di interpolazione *lineare* e *passaggio* . |
-| Aggregazione di variabile | Eseguire calcoli tramite le [funzioni di aggregazione supportate per i tipi di variabile numerica](https://docs.microsoft.com/rest/api/time-series-insights/preview#numeric-variable-kind-1). |
+| Aggregazione di variabile | Eseguire calcoli tramite le [funzioni di aggregazione supportate per i tipi di variabile numerica](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Le variabili sono conformi all'esempio JSON seguente:
 
@@ -57,7 +57,7 @@ Le variabili sono conformi all'esempio JSON seguente:
 }
 ```
 
-#### <a name="categorical-variables"></a>Variabili categoriche
+## <a name="categorical-variables"></a>Variabili categoriche
 
 | Proprietà Variable | Descrizione |
 | --- | ---|
@@ -73,7 +73,7 @@ Le variabili sono conformi all'esempio JSON seguente:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "$event.Status.Long" 
+     "tsx": "$event.Status.Long"
 },
   "interpolation": {
     "kind": "step",
@@ -97,12 +97,12 @@ Le variabili sono conformi all'esempio JSON seguente:
 }
 ```
 
-#### <a name="aggregate-variables"></a>Variabili di aggregazione
+## <a name="aggregate-variables"></a>Variabili di aggregazione
 
 | Proprietà Variable | Descrizione |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
-| Aggregazione di variabile | Eseguire calcoli tramite le [funzioni di aggregazione supportate per i tipi di variabile di aggregazione](https://docs.microsoft.com/rest/api/time-series-insights/preview#aggregate-variable-kind-1). |
+| Aggregazione di variabile | Eseguire calcoli tramite le [funzioni di aggregazione supportate per i tipi di variabile di aggregazione](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Le variabili sono conformi all'esempio JSON seguente:
 
@@ -123,4 +123,3 @@ Le variabili vengono archiviate nella definizione del tipo di un modello Time Se
 * Altre informazioni sul [modello Time Series](./concepts-model-overview.md).
 
 * Scopri di più su come definire le variabili inline usando le [API di query](./concepts-query-overview.md).
-

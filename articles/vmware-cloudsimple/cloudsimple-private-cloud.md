@@ -1,6 +1,6 @@
 ---
 title: Soluzione VMware di Azure di CloudSimple-cloud privati
-description: Informazioni sui cloud privati e i concetti relativi a CloudSimple.
+description: Informazioni sui concetti e i vantaggi di CloudSimple, tra cui la continuità operativa VMware completa, la compatibilità con gli strumenti, le competenze e i processi esistenti.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024950"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140718"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Panoramica del cloud privato CloudSimple
 

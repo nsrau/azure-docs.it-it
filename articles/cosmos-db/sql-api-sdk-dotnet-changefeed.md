@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/05/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5f0d66a515ed13f96645e5916af2b01841950375
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f38b2715115efadef4e09a95e9392b1dfd4c68b0
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846599"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135743"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
 
@@ -49,6 +49,9 @@ ms.locfileid: "87846599"
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
+
+### <a name="232"></a><a name="2.3.2"/>2.3.2
+* Aggiunta della compatibilità dell'archivio di lease con [v3 SDK](sql-api-sdk-dotnet-standard.md) che consente percorsi di migrazione a caldo. Un'applicazione può eseguire la migrazione a V3 SDK ed eseguire nuovamente la migrazione alla libreria del processore dei feed delle modifiche senza perdere alcuno stato.
 
 ### <a name="231"></a><a name="2.3.1"/>2.3.1
 * Correzione di un caso `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` in cui il motivo di chiusura è stato inviato a `FeedProcessing.IChangeFeedObserver.CloseAsync` se non è possibile trovare la partizione o se la replica di destinazione non è aggiornata con la sessione di lettura. In questi casi `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` vengono ora usati i motivi di chiusura.
@@ -193,6 +196,7 @@ Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK pe
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |11 agosto 2020 |--- |
 | [2.3.1](#2.3.1) |30 luglio 2020 |--- |
 | [2.3.0](#2.3.0) |2 aprile 2020 |--- |
 | [2.2.8](#2.2.8) |28 ottobre 2019 |--- |

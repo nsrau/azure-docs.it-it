@@ -1,6 +1,6 @@
 ---
 title: Guida introduttiva-creare una macchina virtuale VMware di Azure in un cloud privato-soluzione VMware di Azure di CloudSimple
-description: Viene descritto come creare una macchina virtuale VMware di Azure in un cloud privato CloudSimple
+description: Informazioni su come creare una macchina virtuale VMware in un cloud privato CloudSimple. Accedere al portale di CloudSimple dalla portale di Azure.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 000e30f2656b88c068654fd8099cdff0ce0a4b37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091267"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140854"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creazione di macchine virtuali VMware nel cloud privato
 
@@ -139,7 +139,7 @@ Le pagine di rete nel portale di CloudSimple consentono di specificare la config
 5. Se lo si desidera, utilizzare il dispositivo di scorrimento per modificare il timeout di inattività.
 6. Immettere l'indirizzo IP locale per cui si vuole assegnare un indirizzo IP pubblico.
 7. Se lo si desidera, immettere un nome DNS associato.
-8. Fare clic su **Done**.
+8. Fare clic su **Fine**.
 
     ![IP pubblico](media/quick-create-pc-public-ip.png)
 
@@ -200,7 +200,7 @@ Avviare un server http che è in ascolto sulla porta 80.
 python2.7 -m SimpleHTTPServer 80
 ```
 
-oppure
+o
 
 ```
 python3 -m http.server 80

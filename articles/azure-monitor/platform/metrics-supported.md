@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 81e2abc1b4fd0c540b08f96e6b34c16fca3319f1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132017"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135556"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -116,16 +116,16 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|---|
 |BackendDuration|Sì|Duration of Backend Requests (Durata delle richieste back-end)|Millisecondi|Media|Durata delle richieste back-end in millisecondi|Location, Hostname|
-|Capacità|Sì|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Location|
+|Capacità|Sì|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Posizione|
 |Durata|Sì|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Location, Hostname|
-|EventHubDroppedEvents|Sì|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Location|
-|EventHubRejectedEvents|Sì|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Location|
-|EventHubSuccessfulEvents|Sì|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Location|
-|EventHubThrottledEvents|Sì|Throttled EventHub Events (Eventi EventHub limitati)|Conteggio|Totale|Numero di eventi EventHub limitati|Location|
-|EventHubTimedoutEvents|Sì|Timed Out EventHub Events (Timeout eventi EventHub)|Conteggio|Totale|Numero di eventi EventHub di timeout|Location|
-|EventHubTotalBytesSent|Sì|Size of EventHub Events (Dimensione degli eventi EventHub)|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Location|
-|EventHubTotalEvents|Sì|Total EventHub Events (Eventi EventHub totali)|Conteggio|Totale|Numero di eventi inviati a EventHub|Location|
-|EventHubTotalFailedEvents|Sì|Failed EventHub Events (Eventi EventHub non riusciti)|Conteggio|Totale|Numero di eventi EventHub non riusciti|Location|
+|EventHubDroppedEvents|Sì|Dropped EventHub Events (Eventi EventHub rimossi)|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Posizione|
+|EventHubRejectedEvents|Sì|Rejected EventHub Events (Eventi EventHub rifiutati)|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Posizione|
+|EventHubSuccessfulEvents|Sì|Successful EventHub Events (Eventi EventHub riusciti)|Conteggio|Totale|Numero di eventi EventHub riusciti|Posizione|
+|EventHubThrottledEvents|Sì|Throttled EventHub Events (Eventi EventHub limitati)|Conteggio|Totale|Numero di eventi EventHub limitati|Posizione|
+|EventHubTimedoutEvents|Sì|Timed Out EventHub Events (Timeout eventi EventHub)|Conteggio|Totale|Numero di eventi EventHub di timeout|Posizione|
+|EventHubTotalBytesSent|Sì|Size of EventHub Events (Dimensione degli eventi EventHub)|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Posizione|
+|EventHubTotalEvents|Sì|Total EventHub Events (Eventi EventHub totali)|Conteggio|Totale|Numero di eventi inviati a EventHub|Posizione|
+|EventHubTotalFailedEvents|Sì|Failed EventHub Events (Eventi EventHub non riusciti)|Conteggio|Totale|Numero di eventi EventHub non riusciti|Posizione|
 |FailedRequests|Sì|Failed Gateway Requests (Richieste gateway non riuscite) (deprecato)|Conteggio|Totale|Numero di errori nelle richieste del gateway: usare la metrica di richiesta MULTIDIMENSIONE con la dimensione GatewayResponseCodeCategory|Location, Hostname|
 |Problemidi|Sì|Stato connettività di rete delle risorse (anteprima)|Conteggio|Media|Stato della connettività di rete dei tipi di risorsa dipendenti dal servizio gestione API|Località, ResourceType|
 |OtherRequests|Sì|Other Gateway Requests (Altre richieste del gateway) (deprecato)|Conteggio|Totale|Numero di altre richieste del gateway: usare la metrica di richiesta MULTIDIMENSIONE con la dimensione GatewayResponseCodeCategory|Location, Hostname|
@@ -474,7 +474,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni scrittura disco/sec|Sì|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|RoleInstanceId|
 |Rete in ingresso|Sì|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|RoleInstanceId|
 |Rete in uscita|Sì|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|RoleInstanceId|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|RoleInstanceId|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|RoleInstanceId|
 
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
@@ -487,7 +487,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni scrittura disco/sec|Sì|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|Nessuna dimensione|
 |Rete in ingresso|Sì|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|Nessuna dimensione|
 |Rete in uscita|Sì|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|Nessuna dimensione|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
 
 
 ## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAccounts
@@ -626,7 +626,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni di lettura da disco/sec per disco|Sì|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
 |Byte scritti su disco/sec per disco|Sì|Byte scritti su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte/sec scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
 |Operazioni di scrittura su disco/sec per disco|Sì|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Scrivi IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
 |Riscontri letture cache per un disco dati Premium|Sì|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN|
 |Mancati riscontri letture cache per un disco dati Premium|Sì|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN|
 |Riscontri letture cache per un disco del sistema operativo Premium|Sì|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
@@ -671,7 +671,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni di lettura da disco/sec per disco|Sì|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
 |Byte scritti su disco/sec per disco|Sì|Byte scritti su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte/sec scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
 |Operazioni di scrittura su disco/sec per disco|Sì|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Scrivi IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|VMName|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|VMName|
 |Riscontri letture cache per un disco dati Premium|Sì|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN, VMName|
 |Mancati riscontri letture cache per un disco dati Premium|Sì|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN, VMName|
 |Riscontri letture cache per un disco del sistema operativo Premium|Sì|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|VMName|
@@ -716,7 +716,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Operazioni di lettura da disco/sec per disco|Sì|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Leggere IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
 |Byte scritti su disco/sec per disco|Sì|Byte scritti su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Byte/sec scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
 |Operazioni di scrittura su disco/sec per disco|Sì|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Conteggio al secondo|Media|Scrivi IOPS da un singolo disco durante il periodo di monitoraggio|SlotId|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|Nessuna dimensione|
 |Riscontri letture cache per un disco dati Premium|Sì|Riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco dati Premium|LUN|
 |Mancati riscontri letture cache per un disco dati Premium|Sì|Mancati riscontri letture cache per un disco dati Premium (anteprima)|Percentuale|Media|Mancati riscontri letture cache per un disco dati Premium|LUN|
 |Riscontri letture cache per un disco del sistema operativo Premium|Sì|Riscontri letture cache per un disco del sistema operativo Premium (anteprima)|Percentuale|Media|Riscontri letture cache per un disco del sistema operativo Premium|Nessuna dimensione|
@@ -1168,7 +1168,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |OutgoingMessages|Sì|Messaggi in uscita|Conteggio|Totale|Messaggi in uscita per Microsoft.EventHub.|Nessuna dimensione|
 |QuotaExceededErrors|No|Errori di superamento quota.|Conteggio|Totale|Errori di superamento quota per Microsoft.EventHub.|Nessuna dimensione|
 |ServerErrors|No|Errori server.|Conteggio|Totale|Errori del server per Microsoft.EventHub.|Nessuna dimensione|
-|Dimensioni|No|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|Ruolo|
+|Dimensione|No|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|Ruolo|
 |SuccessfulRequests|No|Richieste riuscite|Conteggio|Totale|Richieste riuscite per Microsoft.EventHub.|Nessuna dimensione|
 |ThrottledRequests|No|Richieste limitate.|Conteggio|Totale|Richieste limitate per Microsoft.EventHub.|Nessuna dimensione|
 |UserErrors|No|Errori utente.|Conteggio|Totale|Errori utente per Microsoft.EventHub.|Nessuna dimensione|
@@ -1206,7 +1206,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |OUTMSGS|Sì|Outgoing Messages (obsolete) (Deprecated) (Messaggi in uscita (obsoleto) (deprecato))|Conteggio|Totale|Totale messaggi in uscita per uno spazio dei nomi. Questa metrica è deprecata. Usare invece la metrica messaggi in uscita (deprecata)|Nessuna dimensione|
 |QuotaExceededErrors|No|Errori di superamento quota.|Conteggio|Totale|Errori di superamento quota per Microsoft.EventHub.|EntityName, |
 |ServerErrors|No|Errori server.|Conteggio|Totale|Errori del server per Microsoft.EventHub.|EntityName, |
-|Dimensioni|No|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|EntityName|
+|Dimensione|No|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|EntityName|
 |SuccessfulRequests|No|Richieste riuscite|Conteggio|Totale|Richieste riuscite per Microsoft.EventHub.|EntityName, |
 |SUCCREQ|Sì|Richieste completate correttamente (deprecato)|Conteggio|Totale|Totale richieste riuscite per uno spazio dei nomi (deprecato)|Nessuna dimensione|
 |SVRBSY|Sì|Errori server occupato (deprecato)|Conteggio|Totale|Totale errori server occupati per uno spazio dei nomi (deprecato)|Nessuna dimensione|
@@ -1267,6 +1267,20 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |requests/failed|No|Richieste non riuscite|Conteggio|Conteggio|Numero delle richieste HTTP contrassegnate come non riuscite. Nella maggior parte dei casi si tratta di richieste con un codice di risposta maggiore o uguale a 400 e diverso da 401.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, cloud/roleName|
 |requests/rate|No|Frequenza richieste server|Conteggio al secondo|Media|Frequenza delle richieste server al secondo|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |traces/count|Sì|Traces|Conteggio|Conteggio|Numero documenti di analisi|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
+
+## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
+
+|Metrica|Esportabile tramite Impostazioni di diagnostica?|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
+|---|---|---|---|---|---|---|
+|C2D. Property. Read. Failure|Sì|Letture della proprietà del dispositivo non riuscite da IoT Central|Conteggio|Totale|Numero di tutte le letture di proprietà non riuscite avviate da IoT Central|Nessuna dimensione|
+|C2D. Property. Read. Success|Sì|Letture della proprietà del dispositivo riuscite da IoT Central|Conteggio|Totale|Numero di tutte le letture di proprietà riuscite avviate da IoT Central|Nessuna dimensione|
+|C2D. Property. Update. Failure|Sì|Aggiornamenti della proprietà del dispositivo non riusciti da IoT Central|Conteggio|Totale|Numero di tutti gli aggiornamenti di proprietà non riuscite avviati dalla IoT Central|Nessuna dimensione|
+|C2D. Property. Update. Success|Sì|Aggiornamenti della proprietà del dispositivo riusciti da IoT Central|Conteggio|Totale|Numero di tutti gli aggiornamenti di proprietà riuscite avviati dal IoT Central|Nessuna dimensione|
+|connectedDeviceCount|No|Totale dispositivi connessi|Conteggio|Media|Numero di dispositivi connessi a IoT Central|Nessuna dimensione|
+|D2C. Property. Read. Failure|Sì|Letture della proprietà del dispositivo non riuscite dai dispositivi|Conteggio|Totale|Numero di tutte le letture di proprietà non riuscite avviate dai dispositivi|Nessuna dimensione|
+|D2C. Property. Read. Success|Sì|Letture della proprietà del dispositivo riuscite dai dispositivi|Conteggio|Totale|Numero di tutte le letture di proprietà riuscite avviate dai dispositivi|Nessuna dimensione|
+|D2C. Property. Update. Failure|Sì|Aggiornamenti della proprietà del dispositivo non riusciti dai dispositivi|Conteggio|Totale|Numero di tutti gli aggiornamenti delle proprietà non riuscite avviati dai dispositivi|Nessuna dimensione|
+|D2C. Property. Update. Success|Sì|Aggiornamenti della proprietà del dispositivo riusciti dai dispositivi|Conteggio|Totale|Numero di tutti gli aggiornamenti della proprietà riusciti avviati dai dispositivi|Nessuna dimensione|
 
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
@@ -1401,7 +1415,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Esecuzioni annullate|Sì|Esecuzioni annullate|Conteggio|Totale|Numero di esecuzioni annullate per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione viene annullata correttamente.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Esecuzioni completate|Sì|Esecuzioni completate|Conteggio|Totale|Il numero di esecuzioni è stato completato correttamente per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è stata completata e l'output è stato raccolto.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |CpuUtilization|Sì|CpuUtilization|Conteggio|Media|Percentuale di utilizzo della memoria in un nodo della CPU. L'utilizzo viene segnalato a intervalli di un minuto.|Scenario, runId, NodeId, clustername|
-|Errori|Sì|Errors|Conteggio|Totale|Numero di errori di esecuzione in questa area di lavoro. Il conteggio viene aggiornato ogni volta che viene rilevato un errore durante l'esecuzione.|Scenario|
+|Errors|Sì|Errors|Conteggio|Totale|Numero di errori di esecuzione in questa area di lavoro. Il conteggio viene aggiornato ogni volta che viene rilevato un errore durante l'esecuzione.|Scenario|
 |Esecuzioni non riuscite|Sì|Esecuzioni non riuscite|Conteggio|Totale|Numero di esecuzioni non riuscite per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione ha esito negativo.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Finalizzazione delle esecuzioni|Sì|Finalizzazione delle esecuzioni|Conteggio|Totale|Numero di esecuzioni immesse per lo stato di completamento per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è stata completata, ma la raccolta di output è ancora in corso.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |GpuUtilization|Sì|GpuUtilization|Conteggio|Media|Percentuale di utilizzo della memoria in un nodo GPU. L'utilizzo viene segnalato a intervalli di un minuto.|Scenario, runId, NodeId, DeviceId, clustername|
@@ -1848,7 +1862,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Average_Virtual Shared Memory|Sì|Virtual Shared Memory|Conteggio|Media|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Evento|Sì|Event|Conteggio|Media|Evento|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 |Heartbeat|Sì|Heartbeat|Conteggio|Totale|Heartbeat|Computer, OSType, Version, SourceComputerId|
-|Update|Sì|Aggiornamento|Conteggio|Media|Update|Computer, Product, Classification, UpdateState, Optional, Approved|
+|Aggiornamento|Sì|Aggiornamento|Conteggio|Media|Aggiornamento|Computer, Product, Classification, UpdateState, Optional, Approved|
 
 
 ## <a name="microsoftpeeringpeerings"></a>Microsoft. peering/peering
@@ -1925,7 +1939,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |OutgoingMessages|Sì|Messaggi in uscita|Conteggio|Totale|Messaggi in uscita per Microsoft.ServiceBus.|EntityName|
 |ScheduledMessages|No|Numero di messaggi pianificati in una coda o in un argomento.|Conteggio|Media|Numero di messaggi pianificati in una coda o in un argomento.|EntityName|
 |ServerErrors|No|Errori server.|Conteggio|Totale|Errori del server per Microsoft.ServiceBus.|EntityName, |
-|Dimensioni|No|Dimensione|Byte|Media|Dimensioni di una coda o di un argomento in byte.|EntityName|
+|Dimensione|No|Dimensione|Byte|Media|Dimensioni di una coda o di un argomento in byte.|EntityName|
 |SuccessfulRequests|No|Richieste riuscite|Conteggio|Totale|Richieste riuscite totali per uno spazio dei nomi|EntityName, |
 |ThrottledRequests|No|Richieste limitate.|Conteggio|Totale|Richieste limitate per Microsoft.ServiceBus.|EntityName, |
 |UserErrors|No|Errori utente.|Conteggio|Totale|Errori utente per Microsoft.ServiceBus.|EntityName, |
@@ -2199,7 +2213,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |DeserializationError|Sì|Errori di deserializzazione dell'input|Conteggio|Totale|Errori di deserializzazione dell'input|LogicalName, PartitionId|
 |DroppedOrAdjustedEvents|Sì|Eventi non in ordine|Conteggio|Totale|Eventi non in ordine|LogicalName, PartitionId|
 |EarlyInputEvents|Sì|Eventi di input anticipati|Conteggio|Totale|Eventi di input anticipati|LogicalName, PartitionId|
-|Errori|Sì|Errori di runtime|Conteggio|Totale|Errori di runtime|LogicalName, PartitionId|
+|Errors|Sì|Errori di runtime|Conteggio|Totale|Errori di runtime|LogicalName, PartitionId|
 |InputEventBytes|Sì|Byte evento di input|Byte|Totale|Byte evento di input|LogicalName, PartitionId|
 |InputEvents|Sì|Eventi di input|Conteggio|Totale|Eventi di input|LogicalName, PartitionId|
 |InputEventsSourcesBacklogged|Sì|Eventi di input con backlog|Conteggio|Massimo|Eventi di input con backlog|LogicalName, PartitionId|
@@ -2304,7 +2318,7 @@ Per informazioni aggiuntive importanti, vedere [Panoramica degli agenti di monit
 |Rete in uscita|Sì|Rete in uscita|Byte|Totale|Velocità effettiva totale della rete per il traffico trasmesso.|Nessuna dimensione|
 |NetworkInBytesPerSecond|Sì|Network In Bytes/Sec (Rete in ingresso in byte/sec)|Byte al secondo|Media|Velocità effettiva media della rete per il traffico ricevuto.|Nessuna dimensione|
 |NetworkOutBytesPerSecond|Sì|Network Out Bytes/Sec (Rete in uscita in byte/sec)|Byte al secondo|Media|Velocità effettiva media della rete per il traffico trasmesso.|Nessuna dimensione|
-|Percentuale CPU|Sì|CPU percentuale|Percentuale|Media|Utilizzo della CPU. Questo valore viene segnalato con 100% che rappresenta tutti i core del processore nel sistema. Ad esempio, una macchina virtuale a 2 vie che usa il 50% di un sistema a quattro core USA completamente due core.|Nessuna dimensione|
+|CPU percentuale|Sì|CPU percentuale|Percentuale|Media|Utilizzo della CPU. Questo valore viene segnalato con 100% che rappresenta tutti i core del processore nel sistema. Ad esempio, una macchina virtuale a 2 vie che usa il 50% di un sistema a quattro core USA completamente due core.|Nessuna dimensione|
 |PercentageCpuReady|Sì|Percentage CPU Ready (Percentuale di disponibilità CPU)|Millisecondi|Totale|Il tempo pronto è il tempo di attesa per la disponibilità di CPU nell'intervallo di aggiornamento precedente.|Nessuna dimensione|
 
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406283"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135964"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -49,7 +49,7 @@ Gli endpoint privati gestiti sono endpoint privati creati nella Azure Data Facto
 
 ![Nuovo endpoint privato gestito](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory supporta i collegamenti privati. Il collegamento privato consente di accedere ai servizi di Azure (PaaS), ad esempio archiviazione di Azure, Azure Cosmos DB Azure SQL Data Warehouse.
+Azure Data Factory supporta i collegamenti privati. Il collegamento privato consente di accedere ai servizi di Azure (PaaS), ad esempio archiviazione di Azure, Azure Cosmos DB, Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse)).
 
 Quando si usa un collegamento privato, il traffico tra gli archivi dati e la rete virtuale gestita attraversa interamente la rete dorsale Microsoft. Il collegamento privato protegge da rischi di esfiltrazione dei dati. Per stabilire un collegamento privato a una risorsa, è necessario creare un endpoint privato.
 
@@ -79,7 +79,7 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - File di Azure
 - Azure Data Lake Gen2
 - Database SQL di Azure (senza includere Istanza gestita SQL di Azure)
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
 - SQL di Azure CosmosDB
 - Insieme di credenziali chiave di Azure
 - Collegamento privato di Azure

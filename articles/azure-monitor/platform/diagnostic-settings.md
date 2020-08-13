@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799957"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135437"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
@@ -41,34 +41,24 @@ Il video seguente illustra i log della piattaforma di routing con le impostazion
 
 
 ## <a name="destinations"></a>Destinations
-
-Le metriche e i log della piattaforma possono essere inviati alle destinazioni nella tabella seguente. Per informazioni dettagliate sull'invio di dati a tale destinazione, seguire ogni collegamento nella tabella seguente.
+Le metriche e i log della piattaforma possono essere inviati alle destinazioni nella tabella seguente. 
 
 | Destination | Descrizione |
 |:---|:---|
-| [area di lavoro Log Analytics](#log-analytics-workspace) | L'invio di log e metriche a un'area di lavoro di Log Analytics consente di analizzarli con altri dati di monitoraggio raccolti da monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni. |
-| [Hub eventi](#event-hub) | L'invio di log e metriche a hub eventi consente di trasmettere i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics. |
-| [Account di archiviazione di Azure](#azure-storage) | L'archiviazione di log e metriche in un account di archiviazione di Azure è utile per il controllo, l'analisi statica o il backup. Rispetto ai log di monitoraggio di Azure e a un'area di lavoro Log Analytics, archiviazione di Azure è meno costosa e i log possono essere conservati per un periodo illimitato. |
+| [area di lavoro Log Analytics](design-logs-deployment.md) | L'invio di log e metriche a un'area di lavoro di Log Analytics consente di analizzarli con altri dati di monitoraggio raccolti da monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni. |
+| [Hub eventi](/azure/event-hubs/) | L'invio di log e metriche a hub eventi consente di trasmettere i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics.  |
+| [Account di archiviazione di Azure](/azure/storage/blobs/) | L'archiviazione di log e metriche in un account di archiviazione di Azure è utile per il controllo, l'analisi statica o il backup. Rispetto ai log di monitoraggio di Azure e a un'area di lavoro Log Analytics, archiviazione di Azure è meno costosa e i log possono essere conservati per un periodo illimitato.  |
 
 
-## <a name="prerequisites"></a>Prerequisiti
-Qualsiasi destinazione per l'impostazione di diagnostica deve essere creata con le autorizzazioni necessarie. Vedere le sezioni seguenti per i requisiti dei prerequisiti per ogni destinazione.
+### <a name="destination-requirements"></a>Requisiti di destinazione
 
-### <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
-[Creare una nuova area di lavoro](../learn/quick-create-workspace.md) se non ne è già presente una. Non è necessario che l'area di lavoro si trovi nella stessa sottoscrizione della risorsa che invia log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
+Prima di creare le impostazioni di diagnostica, è necessario creare tutte le destinazioni per l'impostazione di diagnostica. Non è necessario che la destinazione si trovi nella stessa sottoscrizione della risorsa che invia i log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni. Nella tabella seguente vengono forniti i requisiti univoci per ogni destinazione, incluse eventuali restrizioni a livello di area.
 
-### <a name="event-hub"></a>Hub eventi
-Se non si dispone già [di un hub eventi, crearne](../../event-hubs/event-hubs-create.md) uno. Lo spazio dei nomi di hub eventi non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette i log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni ed entrambe le sottoscrizioni si trovino nello stesso tenant.
-
-Il criterio di accesso condiviso per lo spazio dei nomi definisce le autorizzazioni di cui dispone il meccanismo di streaming. Per lo streaming a hub eventi sono necessarie autorizzazioni di gestione, invio e ascolto. È possibile creare o modificare i criteri di accesso condiviso nella portale di Azure nella scheda Configura per lo spazio dei nomi di hub eventi. Per aggiornare l'impostazione di diagnostica in modo da includere il flusso, è necessario avere l'autorizzazione ListKey per la regola di autorizzazione di hub eventi. 
-
-
-### <a name="azure-storage"></a>Archiviazione di Azure
-[Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) , se non ne è già presente uno. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della risorsa che invia log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
-
-Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati. Se si archiviano i log attività e i log delle risorse insieme, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
-
-Per inviare i dati a una risorsa di archiviazione non modificabile, impostare i criteri non modificabili per l'account di archiviazione come descritto in [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](../../storage/blobs/storage-blob-immutability-policies-manage.md). È necessario seguire tutti i passaggi descritti in questo articolo, inclusa l'abilitazione di scritture BLOB accodati.
+| Destination | Requisiti |
+|:---|:---|
+| Area di lavoro Log Analytics | Non è necessario che l'area di lavoro si trovi nella stessa area della risorsa monitorata.|
+| Hub eventi | Il criterio di accesso condiviso per lo spazio dei nomi definisce le autorizzazioni di cui dispone il meccanismo di streaming. Per lo streaming a hub eventi sono necessarie autorizzazioni di gestione, invio e ascolto. Per aggiornare l'impostazione di diagnostica in modo da includere il flusso, è necessario avere l'autorizzazione ListKey per la regola di autorizzazione di hub eventi.<br><br>Lo spazio dei nomi dell'hub eventi deve trovarsi nella stessa area della risorsa da monitorare se la risorsa è a livello di area. |
+| Account di archiviazione di Azure | Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati. Se si archiviano i log attività e i log delle risorse insieme, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.<br><br>Per inviare i dati a una risorsa di archiviazione non modificabile, impostare i criteri non modificabili per l'account di archiviazione come descritto in [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](../../storage/blobs/storage-blob-immutability-policies-manage.md). È necessario seguire tutti i passaggi descritti in questo articolo, inclusa l'abilitazione di scritture BLOB accodati.<br><br>L'account di archiviazione deve trovarsi nella stessa area della risorsa da monitorare se la risorsa è a livello di area. |
 
 > [!NOTE]
 > Gli account di Azure Data Lake Storage Gen2 non sono attualmente supportati come destinazione per le impostazioni di diagnostica anche se possono essere elencati come opzioni valide nel portale di Azure.
@@ -138,7 +128,7 @@ Per inviare i dati a una risorsa di archiviazione non modificabile, impostare i 
         >
         > Se, ad esempio, si impostano i criteri di conservazione per *WorkflowRuntime* su 180 giorni e le 24 ore successive lo si imposta su 365 giorni, i log archiviati durante le prime 24 ore verranno eliminati automaticamente dopo 180 giorni, mentre tutti i registri successivi del tipo verranno eliminati automaticamente dopo 365 giorni. Se si modifica il criterio di conservazione in un secondo momento, le prime 24 ore di log rimaneranno per 365 giorni.
 
-6. Fare clic su **Save** (Salva).
+6. Fare clic su **Salva**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e quando questo viene [visualizzato in un'area di lavoro log Analytics](data-ingestion-time.md).
 

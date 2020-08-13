@@ -7,13 +7,13 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 3e4b44c8f784524b4cd363a2f4531c5bf0a70e0d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.custom: contperfq1
+ms.openlocfilehash: a75fbeb9a12f61f827411e56c57ff6a4460ab083
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041596"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136270"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
 
@@ -129,7 +129,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Valori di stato | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore. |
 | Unità | Unità per il valore di telemetria, ad esempio **mph**, **%** o ** &deg; C**. |
 | Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
-| Comment | Eventuali commenti sulla funzionalità di telemetria. |
+| Commento | Eventuali commenti sulla funzionalità di telemetria. |
 | Descrizione | Descrizione della funzionalità di telemetria. |
 
 ### <a name="properties"></a>Proprietà
@@ -150,7 +150,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Valori di stato | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore. |
 | Unità | Unità per il valore della proprietà, ad esempio **mph**, **%** o ** &deg; C**. |
 | Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
-| Comment | Eventuali commenti sulla funzionalità della proprietà. |
+| Commento | Eventuali commenti sulla funzionalità della proprietà. |
 | Descrizione | Descrizione della funzionalità della proprietà. |
 
 ### <a name="commands"></a>Comandi
@@ -165,7 +165,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Nome | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Comando. |
 | Comando | `SynchronousExecutionType`. |
-| Comment | Eventuali commenti sulla funzionalità del comando. |
+| Commento | Eventuali commenti sulla funzionalità del comando. |
 | Descrizione | Descrizione della funzionalità del comando. |
 | Richiesta | Se abilitata, una definizione del parametro della richiesta, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
 | Risposta | Se abilitata, una definizione della risposta del comando, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |

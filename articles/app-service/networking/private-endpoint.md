@@ -4,17 +4,17 @@ description: Connettersi in privato a un'app Web usando un endpoint privato di A
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 773e63cb5eb2a9825975402f65439acd6ad192ae
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068303"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135386"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso di endpoint privati per app Web di Azure (anteprima)
 
@@ -128,6 +128,8 @@ Vengono introdotti regolarmente miglioramenti per la funzionalità di collegamen
 - Per distribuire endpoint privato per l'app Web usando l'interfaccia della riga di comando di Azure, vedere [come connettersi privatamente a un'app Web con l'interfaccia][howtoguide2] della riga di comando di Azure
 - Per distribuire un endpoint privato per l'app Web usando PowerShell, vedere [come connettersi privatamente a un'app Web con PowerShell][howtoguide3]
 - Per distribuire un endpoint privato per l'app Web usando il modello di Azure, vedere la pagina relativa alla [modalità di connessione privata a un'app Web con il modello di Azure][howtoguide4]
+- Esempio end-to-end: come connettere un'app Web front-end a un'app Web back-end protetta con VNet Injection e un endpoint privato con il modello ARM, vedere questa [Guida introduttiva][howtoguide5]
+- Esempio end-to-end: come connettere un'app Web front-end a un'app Web back-end protetta con VNet Injection e un endpoint privato con la bonifica, vedere questo [esempio][howtoguide6]
 
 
 <!--Links-->
@@ -144,3 +146,5 @@ Vengono introdotti regolarmente miglioramenti per la funzionalità di collegamen
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
 [howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide6]: https://docs.microsoft.com/azure/app-service/scripts/terraform-secure-backend-frontend

@@ -3,15 +3,15 @@ title: Risolvere i problemi relativi al client Desktop remoto in Desktop virtual
 description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac2eb2632ad96538e965e4d1057d7e4a116c05d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009393"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134480"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Risolvere i problemi del client Desktop remoto
 
@@ -41,13 +41,13 @@ nslookup rdweb.wvd.microsoft.com
 
 Provare a connettersi con un altro client, ad esempio il client Desktop remoto per Windows 7 o Windows 10, e verificare se è possibile aprire il client Web.
 
-### <a name="opening-another-site-fails"></a>Impossibile aprire un altro sito
+### <a name="cant-open-other-websites-while-connected-to-the-web-client"></a>Non è possibile aprire altri siti Web durante la connessione al client Web
 
-Ciò è in genere causato da problemi di connessione di rete o da un'interruzione di rete. È consigliabile contattare il supporto di rete.
+Se non è possibile aprire altri siti Web mentre si è connessi al client Web, potrebbero verificarsi problemi di connessione di rete o un'interruzione di rete. È consigliabile contattare il supporto di rete.
 
-### <a name="nslookup-cannot-resolve-the-name"></a>Nslookup non riesce a risolvere il nome
+### <a name="nslookup-cant-resolve-the-name"></a>Nslookup: Impossibile risolvere il nome
 
-Ciò è in genere causato da problemi di connessione di rete o da un'interruzione di rete. È consigliabile contattare il supporto di rete.
+Se nslookup non riesce a risolvere il nome, potrebbero verificarsi problemi di connessione di rete o un'interruzione di rete. È consigliabile contattare il supporto di rete.
 
 ### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>Il client non è in grado di connettersi, ma altri client nella rete possono connettersi
 
@@ -58,11 +58,13 @@ Se il browser inizia a funzionare o smette di funzionare mentre si usa il client
 3. Cancellare la cache del browser. Consultare [Cancellare la cache del browser](https://binged.it/2RKyfdU).
 4. Aprire il browser in modalità privata.
 
-## <a name="web-client-does-not-show-my-resources"></a>Il client Web non mostra le risorse personali
+## <a name="client-doesnt-show-my-resources"></a>Il client non Mostra risorse personali
 
-Prima di tutto, controllare l'account Azure Active Directory in uso. Se è già stato effettuato l'accesso con un account di Azure Active Directory diverso da quello che si vuole usare per desktop virtuale Windows, è necessario firmare o usare una finestra del browser privata.
+Prima di tutto, controllare l'account Azure Active Directory in uso. Se è già stato eseguito l'accesso con un account Azure Active Directory diverso da quello che si vuole usare per Desktop virtuale Windows, è necessario disconnettersi o usare una finestra del browser privata.
 
-Se si usa il desktop virtuale di Windows (classico), usare il collegamento client Web in [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md) per connettersi alle risorse.
+Se si usa desktop virtuale Windows (classico), usare il collegamento client Web in [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md) per connettersi alle risorse.
+
+Se questa operazione non funziona, assicurarsi che il gruppo di app sia associato a un'area di lavoro.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Il client Web smette di rispondere o si disconnette
 
@@ -78,8 +80,8 @@ Se il client Web continua a richiedere le credenziali, seguire queste istruzioni
 
 1. Verificare che l'URL del client Web sia corretto.
 2. Verificare che le credenziali usate siano per l'ambiente di Desktop virtuale Windows associato all'URL.
-3. Cancellare i cookie del browser. Per altre informazioni, consultare [Come eliminare i file dei cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Cancellare la cache del browser. Per altre informazioni, consultare [Cancellare la cache del browser](https://binged.it/2RKyfdU).
+3. Cancellare i cookie del browser. Per ulteriori informazioni, vedere [come eliminare i file dei cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Cancellare la cache del browser. Per altre informazioni, vedere [deselezionare la cache del browser per il browser](https://binged.it/2RKyfdU).
 5. Aprire il browser in modalità privata.
 
 ## <a name="next-steps"></a>Passaggi successivi
