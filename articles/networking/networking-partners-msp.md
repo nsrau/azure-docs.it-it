@@ -1,18 +1,18 @@
 ---
 title: 'Partner di rete: Rete di Azure | Microsoft Docs'
-description: Questo articolo fornisce un elenco di partner MSP di rete
+description: Informazioni sul programma per i partner del provider di servizi gestiti di rete di Azure e su come trovare un elenco di partner che offrono servizi di rete ibrido e cloud.
 services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 69129ad0ecda6b5893a5f758b8cac9a30dd0b093
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 841c4d85dee829eeebaef17e6ff12343d9940d03
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282110"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192039"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informazioni sui partner MSP di rete di Azure
 

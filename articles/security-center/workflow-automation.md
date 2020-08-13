@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fcefdfd163bcbd9cd2adfcba6bf6711b9bee18
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d9229137c999157d2cea112ebb5e6e8b169eed96
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041673"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192770"
 ---
 # <a name="workflow-automation"></a>Automazione del flusso di lavoro
 
@@ -32,7 +32,7 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 |----|:----|
 |Stato versione:|Disponibile a livello generale|
 |Prezzi|Livello gratuito|
-|Ruoli e autorizzazioni necessari:|**Reader** nella sottoscrizione che contiene la configurazione di esportazione<br>**Ruolo** o **proprietario** amministratore della sicurezza nel gruppo di risorse<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione<br><br>Per usare i flussi di lavoro di app per la logica di Azure, è necessario disporre anche dei seguenti ruoli/autorizzazioni per le app per la logica:<br> - Le autorizzazioni dell'operatore per l'app per la [logica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.<br> - Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor)<br>Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)|
+|Ruoli e autorizzazioni necessari:|**Ruolo** o **proprietario** amministratore della sicurezza nel gruppo di risorse<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione<br><br>Per usare i flussi di lavoro di app per la logica di Azure, è necessario disporre anche dei seguenti ruoli/autorizzazioni per le app per la logica:<br> - Le autorizzazioni dell'operatore per l'app per la [logica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.<br> - Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor)<br>Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
 |||
 
@@ -44,7 +44,8 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
     [![Elenco di automazione del flusso di lavoro](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    Da questa pagina è possibile creare nuove regole di automazione, nonché abilitare, disabilitare o eliminare quelle esistenti.  
+    Da questa pagina è possibile creare nuove regole di automazione, nonché abilitare, disabilitare o eliminare quelle esistenti.
+
 1. Per definire un nuovo flusso di lavoro, fare clic su **Aggiungi automazione del flusso di lavoro**. 
 
     Viene visualizzato un riquadro con le opzioni per la nuova automazione. Qui è possibile immettere:
@@ -86,9 +87,9 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
 ## <a name="manually-trigger-a-logic-app"></a>Attivare manualmente un'app per la logica
 
-È anche possibile eseguire manualmente le app per la logica quando si visualizza un avviso di sicurezza o qualsiasi raccomandazione che offra una [correzione rapida](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
+È anche possibile eseguire manualmente le app per la logica quando si visualizzano avvisi o raccomandazioni di sicurezza.
 
-Per eseguire manualmente un'app per la logica, aprire un avviso o un suggerimento che supporti la correzione rapida e fare clic su **trigger app**per la logica:
+Per eseguire manualmente un'app per la logica, aprire un avviso o un'indicazione e fare clic su **trigger app**per la logica:
 
 [![Attivare manualmente un'app per la logica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 

@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti - HSM dedicato di Azure | Microsoft Docs
-description: Domande frequenti che riguardano diversi argomenti relativi a HSM dedicato di Azure
+description: Trovare le risposte alle domande più comuni sul modulo di protezione hardware dedicato di Azure, ad esempio informazioni di base, interoperabilità, disponibilità elevata e supporto.
 services: dedicated-hsm
 author: johncdawson
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310386"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189868"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 

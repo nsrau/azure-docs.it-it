@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167726"
+ms.locfileid: "88192397"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento rete durante il training & inferenza con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,6 +32,13 @@ Una __rete virtuale__ funge da limite di sicurezza, isolando le risorse di Azure
 + Conoscenza tecnica generale del [servizio Rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e delle [reti IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 
 + Una rete virtuale e una subnet preesistenti da usare con le risorse di calcolo.
+
++ Per distribuire le risorse in una rete virtuale o in una subnet, l'account utente deve avere le autorizzazioni per le azioni seguenti nei controlli degli accessi in base al ruolo (RBAC) di Azure:
+
+    - "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa di rete virtuale.
+    - "Microsoft. Network/virtualNetworks/subnet/join/Action" sulla risorsa della subnet.
+
+    Per ulteriori informazioni sul controllo degli accessi in base al ruolo con la rete, vedere [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking)
 
 ## <a name="private-endpoints"></a>Endpoint privati
 
@@ -97,7 +104,7 @@ Dopo aver aggiunto l'account del servizio di archiviazione e dell'area di lavoro
 
 1. Per creare un nuovo archivio dati, selezionare __+ nuovo archivio dati__. Per aggiornarne uno esistente, selezionare l'archivio dati e selezionare __Aggiorna credenziali__.
 
-1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dell'area di lavoro__.
+1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dell'area di lavoro__.
 
 > [!NOTE]
 > Per rendere effettive queste modifiche possono essere necessari fino a 10 minuti.

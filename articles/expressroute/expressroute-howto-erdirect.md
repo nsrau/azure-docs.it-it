@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: configurare ExpressRoute Direct'
-description: Questa pagina consente di configurare ExpressRoute Direct.
+description: Informazioni su come usare Azure PowerShell per configurare Azure ExpressRoute Direct per connettersi direttamente alla rete globale Microsoft in località di peering in tutto il mondo.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: jaredro
-ms.openlocfilehash: 8d028baef8898ce8d45fa8e2e142a58a1ae3300c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42803cbc7901be01c88145e2d98f2982434710a1
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736255"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192753"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Come configurare ExpressRoute Direct
 
@@ -106,7 +106,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    > L'attributo dell'incapsulamento può anche essere impostato su Dot1Q. 
    >
 
-   **Output di esempio:**
+   **Output di esempio**:
 
    ```powershell
    Name                       : Contoso-Direct
@@ -174,7 +174,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
-   **Output di esempio:**
+   **Output di esempio**:
 
    ```powershell
    Name                       : Contoso-Direct
@@ -243,7 +243,7 @@ Creare un circuito nella risorsa di ExpressRoute Direct.
 
   Altre larghezze di banda sono 5.0, 10.0 e 40.0
 
-  **Output di esempio:**
+  **Output di esempio**:
 
   ```powershell
   Name                             : ExpressRoute-Direct-ckt

@@ -1,6 +1,6 @@
 ---
 title: Ottimizzazione dello streaming multimediale con la rete CDN di Azure
-description: Ottimizzazione dei file di streaming multimediale per una distribuzione uniforme
+description: Informazioni sulle opzioni per ottimizzare i flussi multimediali nella rete per la distribuzione di contenuti di Azure, ad esempio la condivisione parziale della cache e il tempo di attesa di riempimento della cache.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: edc2198cff360b6f0d2f6ace3b76d35bf77fab97
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c3ab722f182e32cf2f3aca6bb2f3d5a9598264af
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206696"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192600"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Ottimizzazione dello streaming multimediale con la rete CDN di Azure 
  
@@ -86,7 +86,7 @@ I tempi negativi e brevi di memorizzazione nella cache sono utili per l'offload 
 | Memorizzazione nella cache  | Distribuzione Web generale | Streaming multimediale generale | Streaming multimediale di video on demand  
 |--- | --- | --- | ---
 | Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |365 giorni | 365 giorni   
-| Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuno | 1 secondo | 1 secondo
+| Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | nessuno | 1 secondo | 1 secondo
  
 ### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine  
 

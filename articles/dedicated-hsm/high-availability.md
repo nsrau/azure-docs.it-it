@@ -1,6 +1,6 @@
 ---
 title: Disponibilità elevata - HSM dedicato di Azure | Microsoft Docs
-description: Esempio di disponibilità elevata con HSM dedicato di Azure e considerazioni di base
+description: Informazioni sulle considerazioni di base per la disponibilità elevata del modulo HSM dedicato di Azure. Questo articolo include un esempio.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 536ef62acad900090924598edfa45450b2a8c951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f8fa2f12825fe88218fe7033a1721cb49fc7335
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70882257"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189859"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Disponibilità elevata con HSM dedicato di Azure
 
@@ -25,7 +25,7 @@ HSM dedicato di Azure si basa sui data center a disponibilità elevata di Micros
 
 ## <a name="high-availability-example"></a>Esempio di disponibilità elevata
 
-Le informazioni su come configurare i dispositivi HSM per la disponibilità elevata a livello di software sono disponibili in "Gemalto Luna Network HSM Administration Guide" (Guida all'amministrazione di Gemalto Luna Network HSM). Questo documento è disponibile nella pagina del modulo di protezione [hardware Gemalto](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
+Le informazioni su come configurare i dispositivi HSM per la disponibilità elevata a livello di software sono disponibili in "Gemalto Luna Network HSM Administration Guide" (Guida all'amministrazione di Gemalto Luna Network HSM). Questo documento è disponibile nella pagina del modulo di protezione  [hardware Gemalto](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
 
 Il diagramma seguente illustra un'architettura a disponibilità elevata. Essa usa vari dispositivi nell'area e vari dispositivi associati in un'area separata. Questa architettura impiega un minimo di quattro dispositivi HSM e componenti di rete virtuale.
 
@@ -39,7 +39,7 @@ Altri argomenti sui concetti:
 * [Architettura di distribuzione](deployment-architecture.md)
 * [Sicurezza fisica](physical-security.md)
 * [Rete](networking.md)
-* [Facilità di supporto](supportability.md)
+* [Supporto](supportability.md)
 * [Monitoring](monitoring.md)
 
 Per informazioni dettagliate su come configurare i dispositivi HSM per la disponibilità elevata, fare riferimento al portale di supporto clienti di Gemalto per le guide all'amministrazione e vedere la sezione 6.

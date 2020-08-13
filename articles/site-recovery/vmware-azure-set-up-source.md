@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 13972a1afd0860202eab7a3e3f9c4b9273c44e38
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: afd3979690b8952c915a49099ee04b3d416031fd
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185673"
+ms.locfileid: "88189742"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurare l'ambiente di origine per la replica da VMware in Azure
 
@@ -83,7 +83,7 @@ Escludere le cartelle seguenti dal software antivirus
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. Azure Site Recovery directory di installazione del server di elaborazione con bilanciamento del carico, ad esempio: C:\Programmi (x86) \Microsoft Azure Site Recovery
 
-## <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Se il software antivirus è attivo nella destinazione master Linux
+### <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Se il software antivirus è attivo nella destinazione master Linux
 
 Escludere le cartelle seguenti dal software antivirus
 

@@ -1,6 +1,6 @@
 ---
 title: Ripulire un endpoint della rete CDN di Azure | Microsoft Docs
-description: Informazioni su come ripulire tutto il contenuto memorizzato nella cache da un endpoint della rete CDN di Azure.
+description: Informazioni su come ripulire tutto il contenuto memorizzato nella cache da un endpoint della rete per la distribuzione di contenuti di Azure. I nodi perimetrali memorizzano nella cache gli asset fino alla scadenza della durata (TTL).
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: 1946da6a18956b420684f4c2ffe86f35d0084eaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887306"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192531"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Ripulire un endpoint della rete CDN di Azure
 ## <a name="overview"></a>Panoramica
@@ -52,7 +52,7 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
    > 
    > 
 4. Selezionare gli asset che si desidera ripulire dai nodi periferici.  Se si desidera cancellare tutti gli asset, fare clic sulla casella di controllo **Ripulisci tutto** .  In alternativa digitare il percorso di ogni asset che si vuole eliminare nella casella di testo **Percorso**. I formati seguenti sono supportati nel percorso.
-    1. **Ripulitura URL singolo**: ripulire l'asset singolo specificando l'URL completo, con o senza l'estensione di file, ad esempio, `/pictures/strasbourg.png` ;`/pictures/strasbourg`
+    1. **Ripulitura URL singolo**: ripulire l'asset singolo specificando l'URL completo, con o senza l'estensione di file, ad esempio, `/pictures/strasbourg.png` ; `/pictures/strasbourg`
     2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Consente di eliminare tutte le cartelle, le sottocartelle e i file in un endpoint inserendo `/*` nel percorso o di eliminare tutte le sottocartelle e i file in una determinata cartella specificando la cartella seguita da `/*`, ad esempio `/pictures/*`.  Si noti che l'eliminazione dei caratteri jolly non è attualmente supportata dalla rete CDN di Azure fornita da Akamai. 
     3. **Root domain purge**: (Eliminazione del dominio radice) consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
    

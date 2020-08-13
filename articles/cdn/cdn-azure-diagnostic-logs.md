@@ -1,7 +1,7 @@
 ---
 title: Log di diagnostica
 titleSuffix: Azure Content Delivery Network
-description: Il cliente può abilitare l'analisi dei log per la rete CDN di Azure.
+description: Informazioni su come usare i log di diagnostica di Azure per salvare l'analisi principale, che consente di esportare le metriche di utilizzo dall'endpoint della rete per la distribuzione di contenuti di Azure.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: dbaba67a163bb0f948de5ba2ebbdba5497ad5ff9
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116980"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191287"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Log di diagnostica-rete per la distribuzione di contenuti di Azure
 
@@ -210,7 +210,7 @@ I log dell'analisi principale vengono generati ogni ora e i dati vengono raccolt
 |Nome gruppo di risorse |Nome del gruppo di risorse cui appartengono le risorse della rete CDN.|
 |Nome profilo |Nome del profilo CDN|
 |Nome endpoint |Nome dell'endpoint della rete CDN|
-|Anno|  Rappresentazione a quattro cifre dell'anno, ad esempio 2017|
+|Year|  Rappresentazione a quattro cifre dell'anno, ad esempio 2017|
 |Month| Rappresentazione a due cifre del numero del mese. 01 = gennaio... 12 = dicembre|
 |Giorno|   Rappresentazione a due cifre del giorno del mese|
 |PT1H.json| File JSON effettivo in cui vengono archiviati i dati di analisi|
@@ -221,7 +221,7 @@ Per accedere a core Analytics, viene fornito il codice di esempio per uno strume
 
 Di seguito è illustrato come è possibile usare lo strumento:
 
-1.  Visitare il collegamento di GitHub:[https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Visitare il collegamento di GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Scaricare il codice.
 3.  Seguire le istruzioni per la compilazione e la configurazione.
 4.  Eseguire lo strumento.

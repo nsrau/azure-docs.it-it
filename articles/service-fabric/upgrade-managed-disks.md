@@ -3,12 +3,12 @@ title: Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 description: Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542858"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192304"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 
@@ -24,10 +24,13 @@ La strategia generale per l'aggiornamento di un nodo del cluster Service Fabric 
 
 Questo articolo illustra i passaggi per l'aggiornamento del tipo di nodo primario di un cluster di esempio per l'uso di Managed disks, evitando al tempo stesso i tempi di inattività del cluster (vedere la nota riportata di seguito). Lo stato iniziale del cluster di test di esempio è costituito da un tipo di nodo di [durabilità Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), supportato da un singolo set di scalabilità con cinque nodi.
 
+> [!NOTE]
+> Le limitazioni di un servizio di bilanciamento del carico SKU Basic impediscono l'aggiunta di un set di scalabilità aggiuntivo. È consigliabile usare invece il servizio di bilanciamento del carico SKU standard. Per ulteriori informazioni, vedere [confronto tra i due SKU](/azure/load-balancer/skus).
+
 > [!CAUTION]
 > Si verificherà un'interruzione con questa procedura solo se si dispone di dipendenze dal DNS del cluster, ad esempio quando si accede a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). La [procedura consigliata per l'architettura per i servizi front-end](/azure/architecture/microservices/design/gateway) consiste nel disporre di un tipo di servizio di [bilanciamento del carico](/azure/architecture/guide/technology-choices/load-balancing-overview) davanti ai tipi di nodo per consentire lo swapping dei nodi senza interruzioni.
 
-Ecco i [modelli e i cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) per Azure Resource Manager che verranno usati per completare lo scenario di aggiornamento. Le modifiche apportate al modello verranno descritte in [distribuire un set di scalabilità aggiornato per il tipo di nodo primario](#deploy-an-upgraded-scale-set-for-the-primary-node-type) riportato di seguito.
+Ecco i [modelli e i cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) per Azure Resource Manager che verranno usati per completare lo scenario di aggiornamento. Le modifiche apportate al modello verranno descritte in [distribuire un set di scalabilità aggiornato per il tipo di nodo primario](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  riportato di seguito.
 
 ## <a name="set-up-the-test-cluster"></a>Configurare il cluster di test
 
@@ -165,7 +168,7 @@ Di seguito sono riportate le modifiche della sezione per sezione del modello di 
 
 #### <a name="parameters"></a>Parametri
 
-Aggiungere un parametro per il nome dell'istanza del nuovo set di scalabilità. Si noti che `vmNodeType1Name` è univoco per il nuovo set di scalabilità, mentre i valori di conteggio e dimensione sono identici al set di scalabilità originale.
+Aggiungere i parametri per il nome dell'istanza, il numero e le dimensioni del nuovo set di scalabilità. Si noti che `vmNodeType1Name` è univoco per il nuovo set di scalabilità, mentre i valori di conteggio e dimensione sono identici al set di scalabilità originale.
 
 **File modello**
 
@@ -174,7 +177,18 @@ Aggiungere un parametro per il nome dell'istanza del nuovo set di scalabilità. 
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-}
+},
+"nt1InstanceCount": {
+    "type": "int",
+    "defaultValue": 5,
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType1Size": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v2"
+},
 ```
 
 **File dei parametri**
@@ -182,6 +196,12 @@ Aggiungere un parametro per il nome dell'istanza del nuovo set di scalabilità. 
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
+},
+"nt1InstanceCount": {
+    "value": 5
+},
+"vmNodeType1Size": {
+    "value": "Standard_D2_v2"
 }
 ```
 
@@ -199,13 +219,13 @@ Nella sezione modello di distribuzione `variables` aggiungere una voce per il po
 
 Nella sezione Deployment template *Resources* aggiungere il nuovo set di scalabilità di macchine virtuali, tenendo presente quanto segue:
 
-* Il nuovo set di scalabilità fa riferimento al nuovo tipo di nodo:
+* Il nuovo set di scalabilità fa riferimento allo stesso tipo di nodo dell'originale:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* Il nuovo set di scalabilità fa riferimento allo stesso indirizzo back-end del servizio di bilanciamento del carico e alla stessa subnet dell'originale, ma usa un pool NAT in ingresso del servizio di bilanciamento del carico diverso:
+* Il nuovo set di scalabilità fa riferimento allo stesso indirizzo back-end e alla stessa subnet del servizio di bilanciamento del carico, ma usa un pool NAT in ingresso di bilanciamento del carico diverso:
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -236,33 +256,6 @@ Nella sezione Deployment template *Resources* aggiungere il nuovo set di scalabi
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
-
-Aggiungere quindi una voce all' `nodeTypes` elenco della risorsa *Microsoft. ServiceFabric/Clusters* . Utilizzare gli stessi valori della voce del tipo di nodo originale, ad eccezione di `name` , che deve fare riferimento al nuovo tipo di nodo (*vmNodeType1Name*).
-
-```json
-"nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        ...
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    }
-],
-```
 
 Dopo aver implementato tutte le modifiche nei file di modello e di parametri, passare alla sezione successiva per acquisire i riferimenti Key Vault e distribuire gli aggiornamenti al cluster.
 

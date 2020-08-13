@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/10/2020
-ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79455979"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189815"
 ---
 # <a name="score-svd-recommender"></a>Score SVD Recommender
 
@@ -107,9 +107,6 @@ Il set di dati con punteggio restituito da Score SVD Recommender elenca gli elem
 
 - La prima colonna contiene gli identificatori utente.
 - Vengono generate varie colonne aggiuntive, a seconda del valore impostato per il **numero massimo di elementi da consigliare a un utente**. Ogni colonna contiene un elemento consigliato (per identificatore). Le indicazioni sono ordinate in base all'affinità utente-elemento. L'elemento con affinità più elevata viene inserito nella colonna **1**.
-
-> [!WARNING]
-> Non è possibile valutare questo set di dati con punteggio usando il modulo [Evaluate Recommender](evaluate-recommender.md) .
 
 
 ##  <a name="technical-notes"></a>Note tecniche

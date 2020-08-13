@@ -4,14 +4,14 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/09/2020
+ms.date: 08/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114898"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190662"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -130,9 +130,9 @@ Per evitare che la distribuzione abbia esito negativo quando si tenta di convali
         }
 ```
 
-## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Esportare il modello ARM di una regola di avviso per la metrica tramite il portale di Azure
+## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Esportare il modello di Azure Resource Manager di una regola di avviso per la metrica tramite il portale di Azure
 
-L'esportazione del modello ARM di una regola di avviso delle metriche consente di comprendere la sintassi e le proprietà JSON e può essere usata per automatizzare le distribuzioni future.
+L'esportazione del modello di Gestione risorse di una regola di avviso per le metriche consente di comprendere la sintassi e le proprietà JSON e può essere usata per automatizzare le distribuzioni future.
 1. Passare alla sezione **gruppi di risorse** nel portale e selezionare il gruppo di risorse che contiene la regola.
 2. Nella sezione Panoramica selezionare la casella di controllo **Mostra tipi nascosti** .
 3. Nel filtro dei **tipi** selezionare *Microsoft. Insights/metricalerts*.
@@ -207,7 +207,7 @@ Assicurarsi di usare i comandi dell'interfaccia della riga di comando corretti p
 
    - Per una metrica della piattaforma: assicurarsi di usare il nome della **metrica** nella [pagina metrica supportata di monitoraggio di Azure](./metrics-supported.md)e non il **nome visualizzato della metrica** .
 
-   - Per una metrica personalizzata: assicurarsi che la metrica sia già emessa (non è possibile creare una regola di avviso su una metrica personalizzata che non esiste ancora) e che si fornisca lo spazio dei nomi della metrica personalizzata (vedere [un esempio di](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)modello ARM)
+   - Per una metrica personalizzata: assicurarsi che la metrica sia già emessa (non è possibile creare una regola di avviso su una metrica personalizzata che non esiste ancora) e che si fornisca lo spazio dei nomi della metrica personalizzata (vedere un esempio di modello di Gestione risorse [qui](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
 - Se si stanno creando [avvisi sulle metriche nei log](./alerts-metric-logs.md), verificare che siano incluse le dipendenze appropriate. Vedere il [modello di esempio](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 

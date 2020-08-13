@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8032e8809f7849ab7497da7821788c017adff12d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212055"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192315"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Convertire le classi di risorse in gruppi di carico di lavoro
 
@@ -44,13 +44,13 @@ Poiché i gruppi di carico di lavoro operano in base a una percentuale di risors
 
 Con il valore noto di `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, è possibile usare la sintassi CREATE WORKLOAD GROUP <link> per creare il gruppo di carico di lavoro.  È possibile specificare facoltativamente un valore di `MIN_PERCENTAGE_RESOURCE` maggiore di zero per isolare le risorse per il gruppo di carico di lavoro.  È anche possibile specificare facoltativamente un `CAP_PERCENTAGE_RESOURCE` minore di 100 per limitare la quantità di risorse che il gruppo di carico di lavoro può utilizzare.  
 
-L'esempio seguente imposta `MIN_PERCENTAGE_RESOURCE` per dedicare il 9,6% delle risorse di sistema a `wgDataLoads` e garantisce che una query possa essere eseguita sempre.  Inoltre, `CAP_PERCENTAGE_RESOURCE` è impostato su 38,4% e limita il gruppo di carico di lavoro a quattro richieste simultanee.  Impostando il parametro `QUERY_EXECUTION_TIMEOUT_SEC` su 3600, tutte le query eseguite per più di un'ora verranno annullate automaticamente.
+Usando mediumrc come base per un esempio, il codice seguente imposta `MIN_PERCENTAGE_RESOURCE` su per dedicare il 10% delle risorse di sistema a `wgDataLoads` e garantisce che una query possa essere eseguita sempre.  Inoltre, `CAP_PERCENTAGE_RESOURCE` è impostato su 40% e limita il gruppo del carico di lavoro a quattro richieste simultanee.  Impostando il parametro `QUERY_EXECUTION_TIMEOUT_SEC` su 3600, tutte le query eseguite per più di un'ora verranno annullate automaticamente.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
-( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 9.6
- ,MIN_PERCENTAGE_RESOURCE = 9.6
- ,CAP_PERCENTAGE_RESOURCE = 38.4
+( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 10
+ ,MIN_PERCENTAGE_RESOURCE = 10
+ ,CAP_PERCENTAGE_RESOURCE = 40
  ,QUERY_EXECUTION_TIMEOUT_SEC = 3600)
 ```
 

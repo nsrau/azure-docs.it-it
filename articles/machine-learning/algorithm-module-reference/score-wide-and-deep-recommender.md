@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/12/2020
+ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536216"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192747"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Score Wide and Deep Recommender
 
@@ -33,7 +33,7 @@ Quando si crea il secondo tipo di stime, è possibile operare in modalità di *p
 
 - La **modalità di valutazione** funziona su un set ridotto di utenti o elementi che possono essere valutati e viene in genere usato durante la sperimentazione.
 
-Altre informazioni sul Consiglio più ampio e profondo e la relativa teoria sottostante sono disponibili nel documento di ricerca pertinente: [wide & Deep learning per i sistemi di raccomandazione](https://arxiv.org/pdf/1606.07792.pdf).  
+Altre informazioni sul Consiglio più ampio e profondo e la relativa teoria sottostante sono disponibili nel documento di ricerca pertinente:  [wide & Deep learning per i sistemi di raccomandazione](https://arxiv.org/pdf/1606.07792.pdf).  
 
 ## <a name="how-to-configure-score-wide-and-deep-recommender"></a>Come configurare l'assegnazione di punteggi e il Consiglio più profondo
 
@@ -147,9 +147,6 @@ Il set di dati con punteggio restituito da **Score Wide and Deep Recommender** e
 
 - La prima colonna contiene gli identificatori utente.
 - Vengono generate varie colonne aggiuntive, a seconda del valore impostato per il **numero massimo di elementi da consigliare a un utente**. Ogni colonna contiene un elemento consigliato (per identificatore). Le indicazioni sono ordinate in base all'affinità utente-elemento, con l'elemento con l'affinità più elevata Put nella colonna, **elemento 1**.
-
-> [!WARNING]
-> Questo set di dati con punteggio non può essere valutato con il modulo [Evaluate Recommender](evaluate-recommender.md) .
 
 ##  <a name="technical-notes"></a>Note tecniche
 

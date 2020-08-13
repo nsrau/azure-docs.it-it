@@ -1,6 +1,6 @@
 ---
 title: Variabili HTTP per il motore regole della rete CDN di Azure | Microsoft Docs
-description: Le variabili HTTP consentono di recuperare i metadati di richiesta e di risposta HTTP.
+description: Informazioni sulle variabili HTTP che consentono di ottenere i metadati di richiesta e risposta HTTP per alcune funzionalità del motore regole. Usare i metadati per modificare una richiesta/risposta.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203569"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192677"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variabili HTTP per il motore regole della rete CDN di Azure
 Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiesta e di risposta HTTP. Questi metadati possono essere quindi usati per modificare in modo dinamico una richiesta o una risposta. L'uso di variabili HTTP è limitato alle funzionalità del motore regole seguenti:

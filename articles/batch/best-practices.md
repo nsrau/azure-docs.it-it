@@ -1,14 +1,14 @@
 ---
 title: Procedure consigliate
 description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474904"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191812"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -56,6 +56,10 @@ Gli errori di allocazione del pool possono verificarsi in qualsiasi momento dura
 È possibile che i pool di Batch riscontrino eventi di tempi di inattività in Azure. Tenere presente questo aspetto quando si pianifica e si sviluppa uno scenario o un flusso di lavoro per Batch.
 
 In caso di errore di un nodo, Batch prova automaticamente a ripristinare i nodi di calcolo per conto dell'utente. Questo tentativo può attivare la ripianificazione di qualsiasi attività in esecuzione nel nodo ripristinato. Per altre informazioni sulle attività interrotte, vedere [Progettazione per la ripetizione di tentativi](#design-for-retries-and-re-execution).
+
+### <a name="custom-image-pools"></a>Pool di immagini personalizzate
+
+Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare il pool con un'immagine di Azure Marketplace supportata oppure è possibile [creare un'immagine personalizzata con un'immagine della raccolta immagini condivisa](batch-sig-images.md). Anche se è possibile usare un' [immagine gestita](batch-custom-images.md) per creare un pool di immagini personalizzato, è consigliabile creare immagini personalizzate usando la raccolta di immagini condivise quando possibile. Usando la raccolta di immagini condivise è possibile eseguire il provisioning dei pool più velocemente, ridimensionare quantità maggiori di macchine virtuali e migliorare l'affidabilità durante il provisioning di VM.
 
 ### <a name="third-party-images"></a>Immagini di terze parti
 

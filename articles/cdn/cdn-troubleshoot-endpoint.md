@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi relativi agli endpoint della rete CDN di Azure-codice di stato 404
-description: Risolvere i problemi relativi ai codici di risposta 404 con endpoint della rete CDN.
+description: Informazioni su come risolvere i problemi relativi agli endpoint della rete per la distribuzione di contenuti di Azure che restituiscono i codici di stato della risposta HTTP 404.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6476993627708670a210cce50072f1b183d90a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888670"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192482"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Risoluzione dei problemi degli endpoint della rete CDN di Azure che restituiscono un codice stato 404
 Questo articolo consente di risolvere i problemi relativi agli endpoint di rete CDN di Azure che restituiscono codici di stato di risposta HTTP 404.
@@ -51,7 +51,7 @@ Le cause possono essere diverse, ad esempio:
 ### <a name="check-the-origin-file"></a>Controllare il file di origine
 In primo luogo, verificare che il file da memorizzare nella cache sia disponibile nel server di origine e accessibile pubblicamente In Internet. Il modo più rapido per eseguire questa operazione consiste nell'aprire un browser in una sessione privata o anonima e passare direttamente al file. Digitare o incollare l'URL nella casella dell'indirizzo e verificare che restituisca il file desiderato. Si supponga ad esempio che si disponga di un file in account di Archiviazione di Azure, accessibile all'indirizzo https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt. Se è stato possibile caricare il contenuto del file, il test è stato superato.
 
-![Operazione riuscita.](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+![L'operazione è stata completata.](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
 > Anche se questo è il modo più rapido e semplice per verificare che il file sia disponibile pubblicamente, per alcune configurazioni di rete dell'organizzazione potrebbe sembrare che il file sia disponibile pubblicamente mentre in realtà è visibile solo agli utenti della rete (anche se è ospitato in Azure). Per garantire che la situazione è diversa, eseguire il test sul file con un browser esterno, ad esempio in un dispositivo mobile non connesso alla rete dell'organizzazione, oppure in una macchina virtuale in Azure.

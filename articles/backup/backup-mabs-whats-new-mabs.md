@@ -3,12 +3,12 @@ title: Novità del server di Backup di Microsoft Azure
 description: Il server di Backup di Microsoft Azure offre funzionalità avanzate di backup per la protezione di macchine virtuali, file e cartelle, carichi di lavoro e altro ancora.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032443"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190844"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novità di Backup di Microsoft Azure Server (MAB)
 
@@ -25,7 +25,7 @@ In MAB V2 è stato introdotto [Modern backup storage](backup-mabs-add-storage.md
 
 Per ottenere scalabilità e prestazioni per MB è consigliabile usare una piccola percentuale (4% di archiviazione complessiva) di archiviazione Flash (SSD) con MAB V3 UR1 come volume a livelli in combinazione con l'archiviazione HDD di DPM. MAB V3 UR1 con archiviazione a livelli offre backup del 50-70% più veloci. Vedere l'articolo su DPM [configurare MBS con archiviazione a livelli](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) per i passaggi necessari per configurare l'archiviazione a livelli.
 
-### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Supporto per volumi ReFS e volumi ReFS con la deduplicazione abilitata
+### <a name="support-for-refs-volumes"></a>Supporto per i volumi ReFS
 
 Con MAB V3 UR1, è possibile eseguire il backup dei volumi ReFS e dei carichi di lavoro distribuiti nel volume ReFS. È possibile eseguire il backup dei carichi di lavoro seguenti distribuiti nei volumi ReFS:
 
@@ -36,6 +36,8 @@ Con MAB V3 UR1, è possibile eseguire il backup dei volumi ReFS e dei carichi di
 
 >[!NOTE]
 > Il backup di macchine virtuali Hyper-V archiviate in un volume ReFS è supportato con MAB V3
+
+>IMPORTANTE Sono stati identificati alcuni problemi relativi al backup dei volumi ReFS deduplicati. Questi problemi verranno risolti a breve e questa sezione verrà aggiornata non appena sarà disponibile una correzione. Fino ad allora, viene rimosso il supporto per il backup dei volumi ReFS deduplicati da MABSv3 UR1.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Supporto per la protezione della soluzione VMware di Azure
 

@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 08/12/2020
-ms.openlocfilehash: faef8c29b2a5e75745e36c5d826b4feee2d60a98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169142"
+ms.locfileid: "88191205"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in SQL Istanza gestita
 
@@ -31,6 +31,9 @@ La [disponibilità elevata](../database/high-availability-sla.md) è una parte f
 - Testare il modo in cui il failover influisca sulle sessioni di database esistenti
 - Verificare se un failover modifica le prestazioni end-to-end a causa di modifiche alla latenza di rete
 - In alcuni casi di riduzioni delle prestazioni delle query, il failover manuale consente di attenuare il problema di prestazioni.
+
+> [!NOTE]
+> Assicurandosi che le applicazioni siano resilienti al failover prima della distribuzione nell'ambiente di produzione, è possibile ridurre il rischio di errori dell'applicazione in produzione e contribuire alla disponibilità dell'applicazione per i clienti.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Avviare il failover manuale in SQL Istanza gestita
 

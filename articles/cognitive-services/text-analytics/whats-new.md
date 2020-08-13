@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121851"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192021"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -33,8 +33,8 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 
 Gli aggiornamenti seguenti sono specifici della versione di agosto del Analisi del testo solo per il contenitore di integrità.
 
-* Nuova versione modello per Analisi del testo per l'integrità:`2020-07-24`
-* Nuovo URL per l'invio di Analisi del testo per le richieste di integrità:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* Nuova versione modello per Analisi del testo per l'integrità: `2020-07-24`
+* Nuovo URL per l'invio di Analisi del testo per le richieste di integrità: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (si noti che sarà necessaria una cancellazione della cache del browser per poter usare l'app Web demo inclusa in questa nuova immagine contenitore)
 
 Sono state modificate le proprietà seguenti nella risposta JSON:
 
@@ -44,7 +44,7 @@ Sono state modificate le proprietà seguenti nella risposta JSON:
     * `EXAMINATION_RELATION` è stato rinominato in `RelationalOperator`.
     * `EXAMINATION_UNIT` è stato rinominato in `MeasurementUnit`.
     * `EXAMINATION_VALUE` è stato rinominato in `MeasurementValue`.
-    * `ROUTE_OR_MODE`è stato rinominato `MedicationRoute` .
+    * `ROUTE_OR_MODE` è stato rinominato `MedicationRoute` .
     * L'entità relazionale `ROUTE_OR_MODE_OF_MEDICATION` è stata rinominata in `RouteOfMedication` .
 
 Sono state aggiunte le entità seguenti:
@@ -82,7 +82,7 @@ Il contenitore offre le funzionalità seguenti:
 
 L'API di analisi del testo V3 è ora disponibile a livello generale con i seguenti aggiornamenti:
 
-* Versione modello`2020-04-01`
+* Versione modello `2020-04-01`
 * Nuovi [limiti dei dati](concepts/data-limits.md) per ogni funzionalità
 * [Supporto delle lingue](language-support.md) aggiornato per [analisi del sentiment (SA) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * Endpoint separato per il collegamento di entità 
@@ -98,13 +98,13 @@ L'API di analisi del testo V3 è ora disponibile a livello generale con i seguen
    * Evento-sport
 
 Sono state aggiunte le proprietà seguenti nella risposta JSON:
-   * `SentenceText`in Analisi del sentiment
-   * `Warnings`per ogni documento 
+   * `SentenceText` in Analisi del sentiment
+   * `Warnings` per ogni documento 
 
 I nomi delle seguenti proprietà nella risposta JSON sono stati modificati, se applicabile:
 
 * `score` è stata rinominato in `confidenceScore`
-    * `confidenceScore`ha due punti decimali di precisione. 
+    * `confidenceScore` ha due punti decimali di precisione. 
 * `type` è stata rinominata `category`
 * `subtype` è stata rinominata `subcategory`
 
@@ -140,16 +140,16 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
     * Prodotto
-    * Evento
+    * Event
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organization
+    * Organizzazione
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * Email 
+    * E-mail 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP

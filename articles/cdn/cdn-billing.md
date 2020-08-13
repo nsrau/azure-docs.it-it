@@ -1,6 +1,6 @@
 ---
 title: Informazioni sulla fatturazione per la rete CDN di Azure | Microsoft Docs
-description: Queste domande frequenti descrivono il funzionamento della fatturazione per la rete CDN di Azure.
+description: Informazioni sulla struttura di fatturazione per il contenuto ospitato dalla rete per la distribuzione di contenuti di Azure, incluse le aree di fatturazione, i costi di recapito e la gestione dei costi.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: f3240151937a8ad758e4afe765341261069fd60e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254566"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191161"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Informazioni sulla fatturazione per la rete CDN di Azure
 

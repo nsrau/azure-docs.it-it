@@ -3,20 +3,20 @@ title: Problemi noti e risoluzione dei problemi
 titleSuffix: Azure Machine Learning
 description: Ottenere assistenza per individuare e correggere errori o errori in Azure Machine Learning. Informazioni su problemi noti, risoluzione dei problemi e soluzioni alternative.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
-ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/13/2020
+ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120763"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190497"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -203,7 +203,7 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 |Quando si esaminano le immagini, le immagini appena etichettate non vengono visualizzate.     |   Per caricare tutte le immagini con etichetta, scegliere il **primo** pulsante. Il **primo** pulsante consente di tornare all'inizio dell'elenco, ma carica tutti i dati con etichetta.      |
 |Quando si preme il tasto ESC durante l'assegnazione di etichette per il rilevamento di oggetti, viene creata un'etichetta con dimensioni pari a zero nell'angolo superiore sinistro. L'invio di etichette in questo stato non riesce.     |   Eliminare l'etichetta facendo clic sul segno incrociato accanto.  |
 
-### <a name="data-drift-monitors"></a><a name="data-drift"></a>Monitoraggi della deviazione dati
+### <a name="data-drift-monitors"></a><a name="data-drift"></a> Monitoraggi della deviazione dati
 
 Limitazioni e problemi noti per i monitoraggi della deriva dei dati:
 
@@ -248,6 +248,27 @@ Dall'agente di raccolta dati del modello possono essere necessari fino a 10 minu
 ```python
 import time
 time.sleep(600)
+```
+
+* **Log per gli endpoint in tempo reale:**
+
+I log degli endpoint in tempo reale sono dati del cliente. Per la risoluzione dei problemi degli endpoint in tempo reale, è possibile usare il codice seguente per abilitare i log. 
+
+Vedere altri dettagli sul monitoraggio degli endpoint del servizio Web in [questo articolo](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+Se si dispone di più tenant, potrebbe essere necessario aggiungere il codice di autenticazione seguente prima `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## <a name="train-models"></a>Eseguire il training dei modelli
@@ -306,11 +327,11 @@ time.sleep(600)
     * In Windows eseguire automl_setup da un prompt Anaconda. Per installare Miniconda, fare clic [qui](https://docs.conda.io/en/latest/miniconda.html).
     * Verificare che sia installato conda 64 bit, anziché 32 bit eseguendo il `conda info` comando. `platform`Deve essere `win-64` per Windows o `osx-64` per Mac.
     * Verificare che sia installato conda 4.4.10 o versione successiva. È possibile controllare la versione con il comando `conda -V` . Se è installata una versione precedente, è possibile aggiornarla usando il comando: `conda update conda` .
-    * Linux`gcc: error trying to exec 'cc1plus'`
+    * Linux `gcc: error trying to exec 'cc1plus'`
       *  Se `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` viene rilevato l'errore, installare build Essentials usando il comando ther `sudo apt-get install build-essential` .
       * Passare un nuovo nome come primo parametro per automl_setup per creare un nuovo ambiente conda. Visualizzare gli ambienti conda esistenti usando `conda env list` e rimuoverli con `conda env remove -n <environmentname>` .
       
-* **automl_setup_linux. sh ha esito negativo**: se automl_setup_linus. sh non riesce in Ubuntu Linux con l'errore:`unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux. sh ha esito negativo**: se automl_setup_linus. sh non riesce in Ubuntu Linux con l'errore: `unable to execute 'gcc': No such file or directory`-
   1. Verificare che siano abilitate le porte in uscita 53 e 80. In una macchina virtuale di Azure è possibile eseguire questa operazione dal portale di Azure selezionando la macchina virtuale e facendo clic su rete.
   2. Eseguire il comando `sudo apt-get update`
   3. Eseguire il comando `sudo apt-get install build-essential --fix-missing`
@@ -329,7 +350,7 @@ time.sleep(600)
   1. Verificare che il notebook Configuration. ipynb sia stato eseguito correttamente.
   2. Se il notebook è in esecuzione da una cartella che non si trova sotto la cartella in cui è `configuration.ipynb` stato eseguito, copiare la cartella aml_config e il file config.jsin cui è contenuto nella nuova cartella. Area di lavoro. from_config legge il config.jsper la cartella del notebook o la relativa cartella padre.
   3. Se è in uso una nuova sottoscrizione, un gruppo di risorse, un'area di lavoro o un'area, assicurarsi di eseguire di `configuration.ipynb` nuovo il notebook. La modifica di config.jsdirettamente funzionerà solo se l'area di lavoro esiste già nel gruppo di risorse specificato nella sottoscrizione specificata.
-  4. Per modificare l'area, modificare l'area di lavoro, il gruppo di risorse o la sottoscrizione. `Workspace.create`non creerà o aggiornerà un'area di lavoro, se esiste già, anche se l'area specificata è diversa.
+  4. Per modificare l'area, modificare l'area di lavoro, il gruppo di risorse o la sottoscrizione. `Workspace.create` non creerà o aggiornerà un'area di lavoro, se esiste già, anche se l'area specificata è diversa.
   
 * Errore del **notebook di esempio**: se un notebook di esempio ha esito negativo e si verifica un errore, il metodo o la libreria non esiste:
   * Verificare che il kernel correctcorrect sia stato selezionato in jupyter notebook. Il kernel viene visualizzato nella parte superiore destra della pagina del notebook. Il valore predefinito è azure_automl. Si noti che il kernel viene salvato come parte del notebook. Se quindi si passa a un nuovo ambiente conda, sarà necessario selezionare il nuovo kernel nel notebook.

@@ -1,6 +1,6 @@
 ---
 title: Metodi di creazione dei certificati
-description: Modi per creare un certificato in Key Vault.
+description: Informazioni sulle diverse opzioni per creare o importare un certificato di Key Vault in Azure Key Vault. Esistono diversi modi per creare un certificato Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 312f04ff4b1d860724640dfc9e5ea9d75bb76bae
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81866263"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189965"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
@@ -31,7 +31,7 @@ Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero i
 
 1. Nel diagramma precedente l'applicazione crea un certificato, operazione che internamente inizia con la creazione di una chiave nell'insieme di credenziali delle chiavi.
 2. Key Vault restituisce all'applicazione una richiesta di firma del certificato.
-3. L'applicazione passa la richiesta di firma del certificato alla CA scelta.
+3. L'applicazione passa la richiesta di firma del certificato alla CA selezionata.
 4. La CA scelta risponde con un certificato X509.
 5. L'applicazione completa la creazione del certificato con l'unione del certificato X.509 della CA.
 
@@ -43,7 +43,7 @@ Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero i
 
 1. Nel diagramma precedente l'applicazione crea un certificato, operazione che internamente inizia con la creazione di una chiave nell'insieme di credenziali delle chiavi.
 2. Key Vault invia alla CA una richiesta di certificato TLS/SSL.
-3. L'applicazione esegue il polling, in un processo di ciclo e attesa, per Key Vault per il completamento del certificato. La creazione del certificato è completa quando Key Vault riceve la risposta della CA con il certificato X.509.
+3. L'applicazione esegue il polling, con un processo di ciclo e attesa, per Key Vault per il completamento del certificato. La creazione del certificato è completata quando Key Vault riceve la risposta della CA con il certificato X509.
 4. La CA risponde alla richiesta di certificato TLS/SSL di Key Vault con un certificato X. 509 TLS/SSL.
 5. La creazione del nuovo certificato viene completata con la fusione del certificato X. 509 TLS/SSL per l'autorità di certificazione.
 

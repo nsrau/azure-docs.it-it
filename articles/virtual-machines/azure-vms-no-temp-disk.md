@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: c36e37ba876b4b768d852d6ecedb8e3b4d8f09d0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15b9495b95ec4efb4f8e9f315595ea6bfca6cd5a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288558"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191147"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Dimensioni delle macchine virtuali di Azure senza disco temporaneo locale 
 Questo articolo fornisce le risposte alle domande frequenti sulle dimensioni delle macchine virtuali di Azure che non dispongono di un disco temporaneo locale (ovvero senza disco temporaneo locale). Per altre informazioni su queste dimensioni delle macchine virtuali, vedere [specifiche per DV4 e serie Dsv4 (carichi di lavoro per utilizzo generico)](dv4-dsv4-series.md) o [specifiche per Ev4 e serie Esv4 (carichi di lavoro con ottimizzazione per la memoria)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Se l'immagine del sistema operativo personalizzata punta al disco temporaneo loc
 Compilare il [modulo di feedback]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
 ## <a name="next-steps"></a>Passaggi successivi 
-In questo documento sono state illustrate le domande più frequenti relative alle macchine virtuali di Azure con il disco temporaneo locale. Per altre informazioni su queste dimensioni delle macchine virtuali, vedere gli articoli seguenti:
+In questo documento sono state illustrate le domande più frequenti relative alle macchine virtuali di Azure senza dischi temporanei locali. Per altre informazioni su queste dimensioni delle macchine virtuali, vedere gli articoli seguenti:
 
 - [Specifiche per DV4 e serie Dsv4 (carico di lavoro per utilizzo generico)](dv4-dsv4-series.md)
 - [Specifiche per Ev4 e serie Esv4 (carico di lavoro con ottimizzazione per la memoria)](ev4-esv4-series.md)

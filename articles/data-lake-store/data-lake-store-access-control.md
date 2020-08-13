@@ -1,6 +1,6 @@
 ---
 title: Panoramica del controllo di accesso in Data Lake Storage Gen1| Microsoft Docs
-description: Informazioni sul funzionamento del controllo di accesso in Azure Data Lake Storage Gen1
+description: Informazioni sulle nozioni di base del modello di controllo di accesso di Azure Data Lake Storage Gen1, che deriva da HDFS.
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847824"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190152"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
 
@@ -75,7 +75,7 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Elimina    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |

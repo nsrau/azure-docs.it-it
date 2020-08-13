@@ -1,6 +1,6 @@
 ---
 title: 'ExpressRoute: collegare un VNet a un circuito: portale di Azure'
-description: Connettere una VNet a un circuito ExpressRoute di Azure. Procedure.
+description: Informazioni su come creare una connessione per collegare una rete virtuale a un circuito Azure ExpressRoute usando il portale di Azure.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad222e55f1e3051266c1398d76c8d246e342aba9
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737071"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190931"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connettere una rete virtuale a un circuito ExpressRoute usando il portale
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
 > * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -124,7 +124,7 @@ L'utente del circuito deve richiedere l'ID risorsa e una chiave di autorizzazion
 5. Nella pagina **Impostazioni** selezionare **Gateway di rete virtuale** e selezionare la casella di controllo **Riscatta autorizzazione**.
 6. Immettere i valori nei campi **Authorization key** (Chiave di autorizzazione) e **Peer circuit URI** (URI circuito peer) e assegnare un nome di connessione. Fare clic su **OK**. L' **URI del circuito peer** è l'ID di risorsa del circuito ExpressRoute, che è possibile trovare nel riquadro delle impostazioni delle proprietà del circuito ExpressRoute.
 
-   ![Pagina Impostazioni](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![Pagina delle impostazioni](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Verificare le informazioni nella pagina **Riepilogo** e fare clic su **OK**.
 
 **Per rilasciare un'autorizzazione di connessione**
