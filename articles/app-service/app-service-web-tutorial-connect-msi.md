@@ -5,19 +5,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: e38711cbb5ccd9fe4cc8584a9229a1c57550d618
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 206da4e7fe92846352120d604cd8bee578eb45dc
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021229"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077731"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
 Il [Servizio app](overview.md) fornisce un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione in Azure. Offre anche un'[identità gestita](overview-managed-identity.md) per l'app, una soluzione chiavi in mano per proteggere l'accesso al [database SQL di Azure](/azure/sql-database/) e ad altri servizi di Azure. Le identità gestite nel servizio app rendono l'app più sicura eliminando i segreti dall'app, ad esempio le credenziali nelle stringhe di connessione. In questa esercitazione si aggiungerà un'identità gestita all'app Web di esempio creata in una delle esercitazioni seguenti: 
 
 - [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
-- [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](app-service-web-tutorial-dotnetcore-sqldb.md)
+- [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](tutorial-dotnetcore-sqldb-app.md)
 
 Al termine, l'app di esempio si connetterà al database SQL in modo sicuro senza che siano necessari nome utente e password.
 
@@ -43,7 +43,7 @@ Contenuto dell'esercitazione:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo continua da dove è stato interrotto in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md) o [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](app-service-web-tutorial-dotnetcore-sqldb.md). Se non è già stato fatto, seguire prima una delle due esercitazioni. In alternativa, è possibile adattare le procedure alla propria app .NET con un database SQL.
+Questo articolo continua da dove è stato interrotto in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md) o [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](tutorial-dotnetcore-sqldb-app.md). Se non è già stato fatto, seguire prima una delle due esercitazioni. In alternativa, è possibile adattare le procedure alla propria app .NET con un database SQL.
 
 Per eseguire il debug dell'app usando il database SQL come back-end, assicurarsi di aver consentito la connessione client dal computer. In caso contrario, aggiungere l'indirizzo IP del client seguendo la procedura descritta in [Gestire regole del firewall IP a livello di server tramite il portale di Azure](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
@@ -74,14 +74,14 @@ Per altre informazioni sull'aggiunta di un amministratore di Active Directory, v
 
 ## <a name="set-up-visual-studio"></a>Configurare Visual Studio
 
-### <a name="windows"></a>Windows
+### <a name="windows-client"></a>Client Windows
 Visual Studio per Windows è integrato con Autenticazione di Azure AD. Per abilitare lo sviluppo e il debug in Visual Studio, aggiungere l'utente di Azure AD in Visual Studio scegliendo **File** > **Impostazioni account** dal menu e facendo clic su **Aggiungi un account**.
 
 Per impostare l'utente di Azure AD per l'autenticazione dei servizi di Azure, scegliere **Strumenti** > **Opzioni** dal menu, quindi selezionare **Azure Service Authentication (Autenticazione servizi di Azure)**  > **Selezione account**. Selezionare l'utente di Azure AD aggiunto e fare clic su **OK**.
 
 A questo punto è possibile iniziare a sviluppare l'app ed eseguirne il debug con il database SQL come back-end, usando l'autenticazione di Azure AD.
 
-### <a name="macos"></a>MacOS
+### <a name="macos-client"></a>Client macOS
 
 Visual Studio per Mac è integrato con Autenticazione di Azure AD. La libreria [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) che si userà in un secondo momento può però usare i token dell'interfaccia della riga di comando di Azure. Per abilitare lo sviluppo e il debug in Visual Studio, è prima necessario [installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nel computer locale.
 
@@ -142,7 +142,7 @@ In Visual Studio, aprire la Console di Gestione pacchetti e aggiungere il pacche
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-Nell'[esercitazione su ASP.NET Core e database SQL](app-service-web-tutorial-dotnetcore-sqldb.md), la stringa di connessione `MyDbConnection` non viene usata perché l'ambiente locale usa un file di database SQLite e l'ambiente di produzione Azure usa una stringa di connessione del servizio app. Con l'autenticazione di Active Directory si vuole che entrambi gli ambienti usino la stessa stringa di connessione. In *appsettings.json* sostituire il valore della stringa di connessione `MyDbConnection` con:
+Nell'[esercitazione su ASP.NET Core e database SQL](tutorial-dotnetcore-sqldb-app.md), la stringa di connessione `MyDbConnection` non viene usata perché l'ambiente locale usa un file di database SQLite e l'ambiente di produzione Azure usa una stringa di connessione del servizio app. Con l'autenticazione di Active Directory si vuole che entrambi gli ambienti usino la stessa stringa di connessione. In *appsettings.json* sostituire il valore della stringa di connessione `MyDbConnection` con:
 
 ```json
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
@@ -245,7 +245,7 @@ A questo punto è sufficiente pubblicare le modifiche in Azure.
 
 Nella pagina di pubblicazione fare clic su **Pubblica**. 
 
-**Se l'esercitazione completata in precedenza è [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](app-service-web-tutorial-dotnetcore-sqldb.md)** , pubblicare le modifiche usando Git, con i comandi seguenti:
+**Se l'esercitazione completata in precedenza è [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](tutorial-dotnetcore-sqldb-app.md)** , pubblicare le modifiche usando Git, con i comandi seguenti:
 
 ```bash
 git commit -am "configure managed identity"

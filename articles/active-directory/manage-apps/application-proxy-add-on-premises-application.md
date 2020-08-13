@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7153200bc80f6e27a99123a1bba676d0188f607
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4db0956b1a2dec7626a24de2939941c2384d6a8a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129033"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080763"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -114,7 +114,7 @@ Consentire l'accesso agli URL seguenti:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Il connettore usa questi URL per verificare i certificati. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Il connettore usa questi URL durante il processo di registrazione. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Il connettore usa questi URL durante il processo di registrazione. |
 
 È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 

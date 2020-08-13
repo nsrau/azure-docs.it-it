@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0b150491fff953434062cc583566e1113947a679
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 91fecbc68efec1adcee9a2c4013dea46f6da86af
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504904"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066475"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Che cos'è la gerarchia di archiviazione di Azure NetApp Files
 
@@ -50,8 +50,6 @@ Prima di creare un volume in Azure NetApp Files, è necessario acquistare e conf
 - Un volume viene misurato in base all'utilizzo della capacità logica ed è scalabile. 
 - L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool.
 - Ogni volume appartiene a un solo pool, ma un pool può contenere più volumi. 
-- Un volume non può essere spostato da un pool di capacità a un altro. <!--Within the same NetApp account, you can move a volume across pools.  -->   
-  Ad esempio, nel [diagramma concettuale della gerarchia di archiviazione](#conceptual_diagram_of_storage_hierarchy) riportato di seguito non è possibile spostare i volumi dal pool di capacità 1 al pool di capacità 2.
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagramma concettuale della gerarchia di archiviazione 
 L'esempio seguente mostra le relazioni tra sottoscrizione di Azure, account di NetApp, pool di capacità e volumi.   

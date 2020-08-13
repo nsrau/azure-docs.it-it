@@ -290,12 +290,16 @@
                   href: customize-encoder-presets-how-to.md
                 - name: Creare una trasformazione di sovrimpressione
                   href: how-to-create-overlay.md
+                - name: Generare anteprime con .NET
+                  href: media-services-generate-thumbnails-dotnet.md
             - name: Con l'interfaccia della riga di comando
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: Con REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+            - name: Generare anteprime con REST
+              href: media-services-generate-thumbnails-rest.md
         - name: Creare una clip video secondaria
           items:
             - name: Con .NET

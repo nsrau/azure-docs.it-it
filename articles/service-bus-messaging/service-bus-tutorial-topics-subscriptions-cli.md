@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2526559a8b88309c098e59e8cc6d0ffd2793984f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500454"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067597"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando l'interfaccia della riga di comando e argomenti/sottoscrizioni
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratui
 Per sviluppare un'app per il bus di servizio con Java, è necessario che siano installati gli elementi seguenti:
 
 - [Java Development Kit](https://aka.ms/azure-jdks), versione più recente.
-- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+- [Interfaccia della riga di comando di Azure](/cli/azure)
 - [Apache Maven](https://maven.apache.org), versione 3.0 o successiva.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

@@ -6,12 +6,12 @@ documentationcenter: ruby
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ef4bb8ba724a8ae1f708ab80a770a521f7879685
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: aba326a63558632bee3bf0c48d34e471bbe30886
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85336742"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067563"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Ruby
  
@@ -62,7 +62,7 @@ Le sottoscrizioni di un argomento vengono create anche con l'oggetto **Azure::Se
 
 Per impostazione predefinita, le sottoscrizioni sono permanenti. Fintanto che esse, o l'argomento a cui sono associate, non vengono eliminati. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è innanzitutto necessario verificare se la sottoscrizione esiste già usando il metodo getSubscription.
 
-È possibile eliminare automaticamente le sottoscrizioni impostando la [proprietà AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
+È possibile eliminare automaticamente le sottoscrizioni impostando la [proprietà AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 Se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione, viene usato il filtro (predefinito) **MatchAll**. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "all-messages" e viene usato il filtro predefinito **MatchAll**.
@@ -150,7 +150,7 @@ Al messaggio bloccato nella sottoscrizione è anche associato un timeout. Se l'a
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `delete_subscription_message()`, il messaggio viene nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. Tale logica viene spesso ottenuta tramite la proprietà `message_id` del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
-Gli argomenti e le sottoscrizioni sono permanenti, a meno che non venga impostata la [proprietà AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle). Possono essere eliminati tramite il [portale di Azure][Azure portal] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `test-topic`.
+Gli argomenti e le sottoscrizioni sono permanenti, a meno che non venga impostata la [proprietà AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle). Possono essere eliminati tramite il [portale di Azure][Azure portal] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

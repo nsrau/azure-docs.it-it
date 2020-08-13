@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254615"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079910"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN di Azure a un'app Web di Servizio app di Azure
 
@@ -49,7 +49,7 @@ Per completare questa esercitazione:
 
 ## <a name="create-the-web-app"></a>Creare l'app Web
 
-Per creare l'app Web che verrà usata, seguire le istruzioni riportate nella [guida introduttiva per siti HTML statici](../app-service/app-service-web-get-started-html.md) fino al passaggio **Pulire le risorse**.
+Per creare l'app Web che verrà usata, seguire le istruzioni riportate nella [guida introduttiva per siti HTML statici](../app-service/quickstart-html.md) fino al passaggio **Pulire le risorse**.
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
@@ -60,7 +60,7 @@ Se si vuole ottimizzare l'endpoint della rete CDN per l'accelerazione sito dinam
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Creare un profilo e un endpoint della rete CDN
 
-Nel riquadro di spostamento a sinistra selezionare **Servizi app** e quindi l'app creata nella [guida introduttiva per siti HTML statici](../app-service/app-service-web-get-started-html.md).
+Nel riquadro di spostamento a sinistra selezionare **Servizi app** e quindi l'app creata nella [guida introduttiva per siti HTML statici](../app-service/quickstart-html.md).
 
 ![Selezionare Servizi app nel portale](media/cdn-add-to-web-app/portal-select-app-services.png)
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 531322c49a772eaf416fadf1bb4f9a5fb6bf1ff6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430602"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080627"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto azure/service-bus
 Questa esercitazione illustra come scrivere un programma Node.js per inviare messaggi a un argomento del bus di servizio e ricevere messaggi da una sottoscrizione del bus di servizio usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Questo pacchetto usa il [protocollo AMQP 1.0 ](service-bus-amqp-overview.md) più veloce, mentre il precedente pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usava le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.
@@ -22,7 +22,7 @@ Questa esercitazione illustra come scrivere un programma Node.js per inviare mes
 - Se non si hanno un argomento e una sottoscrizione da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare argomenti e sottoscrizioni](service-bus-quickstart-topics-subscriptions-portal.md) per creare argomenti e sottoscrizioni. Prendere nota della stringa di connessione per l'istanza del bus di servizio e dei nomi dell'argomento e della sottoscrizione creati. Questi valori verranno usati negli esempi.
 
 > [!NOTE]
-> - Questa esercitazione usa esempi che è possibile copiare ed eseguire usando [NodeJS](https://nodejs.org/). Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure](../app-service/app-service-web-get-started-nodejs.md) oppure [Servizio cloud Node.js tramite PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Questa esercitazione usa esempi che è possibile copiare ed eseguire usando [NodeJS](https://nodejs.org/). Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure](../app-service/quickstart-nodejs.md) oppure [Servizio cloud Node.js tramite PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 > - Il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) non supporta ancora la creazione di argomenti e sottoscrizioni. Usare il pacchetto [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) se si vuole crearle a livello di codice.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Usare Node Package Manager (NPM) per installare il pacchetto
@@ -33,7 +33,7 @@ npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Inviare messaggi a un argomento
-L'interazione con un argomento del bus di servizio inizia con la creazione di un'istanza della classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e con l'uso della stessa per creare un'istanza della classe [TopicClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/topicclient). Dopo aver ottenuto il client dell'argomento, è possibile creare un mittente e usare il metodo [send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) o [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) per inviare i messaggi.
+L'interazione con un argomento del bus di servizio inizia con la creazione di un'istanza della classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) e con l'uso della stessa per creare un'istanza della classe [TopicClient](/javascript/api/@azure/service-bus/topicclient). Dopo aver ottenuto il client dell'argomento, è possibile creare un mittente e usare il metodo [send](/javascript/api/@azure/service-bus/sender#send-sendablemessageinfo-) o [sendBatch](/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) per inviare i messaggi.
 
 1. Aprire l'editor preferito, ad esempio[Visual Studio Code](https://code.visualstudio.com/).
 2. Creare un file denominato `send.js` e incollarvi il codice riportato di seguito. Questo codice invierà 10 messaggi all'argomento.
@@ -83,7 +83,7 @@ I messaggi hanno alcune proprietà standard, ad esempio `label` e `messageId` ch
 Gli argomenti del bus di servizio supportano messaggi di dimensioni massime fino a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e fino a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Non esistono limiti al numero di messaggi mantenuti in un argomento, mentre è prevista una limitazione alle dimensioni totali dei messaggi in un argomento. Questa dimensione dell'argomento viene definita al momento della creazione, con un limite massimo di 5 GB. Per altre informazioni sulle quote, vedere [Quote del bus di servizio](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-subscription"></a>Ricevere messaggi da una sottoscrizione
-L'interazione con una sottoscrizione del bus di servizio inizia con la creazione di un'istanza della classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e con l'uso della stessa per creare un'istanza della classe [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient). Dopo aver ottenuto il client della sottoscrizione, è possibile creare un destinatario e usare il metodo [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) o [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) per ricevere i messaggi.
+L'interazione con una sottoscrizione del bus di servizio inizia con la creazione di un'istanza della classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) e con l'uso della stessa per creare un'istanza della classe [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient). Dopo aver ottenuto il client della sottoscrizione, è possibile creare un destinatario e usare il metodo [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) o [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) per ricevere i messaggi.
 
 1. Aprire l'editor preferito, ad esempio[Visual Studio Code](https://code.visualstudio.com/).
 2. Creare un file denominato `recieve.js` e incollarvi il codice riportato di seguito. Questo codice tenterà di ricevere 10 messaggi dalla sottoscrizione. Il numero effettivo dei messaggi ricevuti dipende dal numero di messaggi nella sottoscrizione e dalla latenza di rete.
@@ -121,7 +121,7 @@ L'interazione con una sottoscrizione del bus di servizio inizia con la creazione
 
 Congratulazioni! I messaggi sono stati ricevuti da una sottoscrizione del bus di servizio
 
-Il metodo [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) accetta `ReceiveMode`, vale a dire un'enumerazione con i valori [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Ricordarsi di [finalizzare i messaggi](message-transfers-locks-settlement.md#settling-receive-operations) se si usa la modalità `PeekLock` usando uno dei metodi `complete()`, `abandon()`, `defer()`o `deadletter()` nel messaggio.
+Il metodo [createReceiver](/javascript/api/@azure/service-bus/subscriptionclient#createreceiver-receivemode-) accetta `ReceiveMode`, vale a dire un'enumerazione con i valori [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Ricordarsi di [finalizzare i messaggi](message-transfers-locks-settlement.md#settling-receive-operations) se si usa la modalità `PeekLock` usando uno dei metodi `complete()`, `abandon()`, `defer()`o `deadletter()` nel messaggio.
 
 ## <a name="subscription-filters-and-actions"></a>Filtri e azioni nelle sottoscrizioni
 Il bus di servizio supporta [filtri e azioni nelle sottoscrizioni](topic-filters.md). È quindi possibile filtrare i messaggi in arrivo in una sottoscrizione e modificarne le proprietà.
@@ -143,5 +143,3 @@ Per altre informazioni, vedere le risorse riportate di seguito.
 - [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 - Estrarre altri [esempi di NodeJS per il bus di servizio in GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Centro per sviluppatori di Node. js](https://azure.microsoft.com/develop/nodejs/)
-
-

@@ -6,12 +6,12 @@ ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: e87e2d59dd70fbf96c04d9cd467594aa6576639b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 42200fe61b0ac73a63b9f8a3317687fac60c5c02
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501305"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078581"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Guida introduttiva: Creare ed eseguire il push di immagini del contenitore Java in Registro Azure Container
 
@@ -178,4 +178,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker) (Introduzione a Spring Boot in Docker)
 * [Spring Initializr](https://start.spring.io)
 * [Distribuire un'applicazione Spring Boot nel servizio app di Azure](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
-* [Uso di un'immagine Docker personalizzata per App Web di Azure in Linux](../app-service/containers/tutorial-custom-docker-image.md)
+* [Uso di un'immagine Docker personalizzata per App Web di Azure in Linux](../app-service/tutorial-custom-container.md)

@@ -258,6 +258,8 @@
               href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Serie NCv3
               href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Serie NCasT4_v3
+              href: ../nct4-v3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie ND
               href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Serie NDv2
@@ -494,8 +496,6 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Creare una macchina virtuale
                   items:
-                    - name: Specializzata
-                      href: ../vm-specialized-image-version-cli.md
                     - name: Generalizzata
                       href: ../vm-generalized-image-version-cli.md
                 - name: Aggiornare le risorse immagini
@@ -547,8 +547,20 @@
               href: ../image-version-encryption.md
         - name: Generatore di immagini (anteprima)
           items:
+            - name: Panoramica
+              href: image-builder-overview.md
             - name: Utilizzare l'interfaccia della riga di comando di Azure
               href: image-builder.md
+            - name: Creare una macchina virtuale usando la rete virtuale - Interfaccia della riga di comando
+              href: image-builder-vnet.md
+            - name: Configurare le autorizzazioni - Interfaccia della riga di comando
+              href: image-builder-permissions-cli.md
+            - name: Configurare le autorizzazioni - PowerShell
+              href: image-builder-permissions-powershell.md
+            - name: Opzioni di rete
+              href: image-builder-networking.md
+            - name: Attività DevOps
+              href: image-builder-devops-task.md
             - name: Informazioni di riferimento sui modelli di Azure Resource Manager
               displayName: 'ARM,Resource Manager'
               href: image-builder-json.md
@@ -557,7 +569,7 @@
             - name: Aggiornare un'immagine esistente
               href: image-builder-gallery-update-image-version.md
             - name: Risolvere problemi
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+              href: image-builder-troubleshoot.md
         - name: Trovare e usare immagini
           href: cli-ps-findimage.md
         - name: Informazioni sui piani di acquisto

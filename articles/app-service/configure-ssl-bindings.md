@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597896"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078632"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure
 
@@ -52,7 +52,7 @@ Per completare questa guida pratica:
 
 Eseguire i passaggi seguenti:
 
-Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<nome app>** .
+Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<app-name>** .
 
 Dalla barra di spostamento a sinistra dell'app avviare la finestra di dialogo **Associazione TLS/SSL** tramite:
 
@@ -153,7 +153,7 @@ Al termine dell'operazione, l'app rifiuta tutte le connessioni con versioni di T
 
 Nel servizio app la [terminazione TLS](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, quindi tutte le richieste HTTPS raggiungono l'app come richieste HTTP non crittografate. Se la logica dell'app deve controllare se le richieste degli utenti sono crittografate o meno, esaminare l'intestazione `X-Forwarded-Proto`.
 
-Le guide di configurazione specifiche del linguaggio, ad esempio la guida alla [configurazione di Node.js per Linux](containers/configure-language-nodejs.md#detect-https-session), illustrano come rilevare una sessione HTTPS nel codice dell'applicazione.
+Le guide di configurazione specifiche del linguaggio, ad esempio la guida alla [configurazione di Node.js per Linux](configure-language-nodejs.md#detect-https-session), illustrano come rilevare una sessione HTTPS nel codice dell'applicazione.
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 

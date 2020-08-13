@@ -4,8 +4,6 @@
   items:
     - name: Informazioni su App Web
       href: overview.md
-    - name: Informazioni sul servizio app in Linux
-      href: containers/app-service-linux-intro.md
     - name: Informazioni sugli ambienti del servizio app
       href: environment/intro.md
     - name: Confrontare le opzioni di hosting
@@ -13,34 +11,50 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare un'app .NET Core
-      href: app-service-web-get-started-dotnet.md
-    - name: Creare un'app .NET Framework
-      href: app-service-web-get-started-dotnet-framework.md
-    - name: Creare un'app Node.js
-      href: app-service-web-get-started-nodejs.md
-    - name: Creare un'app PHP
-      href: app-service-web-get-started-php.md
-    - name: Creare un'app Java
-      href: app-service-web-get-started-java.md
-    - name: Creare un sito HTML statico
-      href: app-service-web-get-started-html.md
-    - name: Eseguire il contenitore Windows
-      href: app-service-web-get-started-windows-container.md
+    - name: .NET Core
+      href: quickstart-dotnetcore.md
+    - name: .NET Framework
+      href: quickstart-dotnet-framework.md
+    - name: Node.js
+      href: quickstart-nodejs.md
+    - name: PHP
+      href: quickstart-php.md
+    - name: Java
+      href: quickstart-java.md
+    - name: Python
+      href: quickstart-python.md
+    - name: Ruby
+      href: quickstart-ruby.md
+    - name: Sito HTML statico
+      href: quickstart-html.md
+    - name: Contenitore personalizzato
+      href: quickstart-custom-container.md
+    - name: App con più contenitori
+      href: quickstart-multi-container.md
 - name: Esercitazioni
   items:
     - name: App con DB
       items:
         - name: .NET Core con SQL DB
-          href: app-service-web-tutorial-dotnetcore-sqldb.md
+          href: tutorial-dotnetcore-sqldb-app.md
         - name: .NET Framework con SQL DB
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP con MySQL
-          href: app-service-web-tutorial-php-mysql.md
+          href: tutorial-php-mysql-app.md
         - name: Node.js con MongoDB
-          href: app-service-web-tutorial-nodejs-mongodb-app.md
-    - name: Personalizzare Windows (contenitore)
-      href: app-service-web-tutorial-windows-containers-custom-fonts.md
+          href: tutorial-nodejs-mongodb-app.md
+        - name: Ruby con Postgres
+          href: tutorial-ruby-postgres-app.md
+        - name: Python con Postgres
+          href: tutorial-python-postgresql-app.md
+        - name: Java con dati di Spring
+          href: tutorial-java-spring-cosmosdb.md
+    - name: Contenitori personalizzati
+      items:
+        - name: Eseguire la distribuzione dal Registro Azure Container
+          href: tutorial-custom-container.md
+        - name: App con più contenitori
+          href: tutorial-multi-container-app.md
     - name: Accedere al database SQL in modo sicuro
       href: app-service-web-tutorial-connect-msi.md
     - name: Ospitare un'API RESTful
@@ -52,9 +66,11 @@
     - name: Aggiungere una rete CDN
       href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: Autenticare gli utenti
-      href: app-service-web-tutorial-auth-aad.md
+      href: tutorial-auth-aad.md
     - name: Inviare messaggi di posta elettronica/tweet
       href: tutorial-send-email.md
+    - name: Risolvere gli errori
+      href: tutorial-troubleshoot-monitor.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -125,8 +141,14 @@
           href: configure-language-nodejs.md
         - name: Configurare PHP
           href: configure-language-php.md
+        - name: Configurare Python
+          href: configure-language-python.md
         - name: Configurare Java
           href: configure-language-java.md
+        - name: Configurare Ruby
+          href: configure-language-ruby.md
+        - name: Configurare un contenitore Linux personalizzato
+          href: configure-custom-container.md
         - name: Connettersi alle risorse locali
           href: web-sites-integrate-with-vnet.md
         - name: Configurare Archiviazione di Azure (contenitore)
@@ -145,10 +167,14 @@
               href: deploy-content-sync.md
             - name: Eseguire la distribuzione continua
               href: deploy-continuous-deployment.md
+            - name: Integrazione continua/Distribuzione continua di contenitori personalizzati
+              href: deploy-ci-cd-custom-container.md
             - name: Eseguire la distribuzione dall'archivio Git locale
               href: deploy-local-git.md
-            - name: Eseguire la distribuzione con azioni di GitHub
+            - name: GitHub Action
               href: deploy-github-actions.md
+            - name: GitHub Action per i contenitori
+              href: deploy-container-github-action.md
             - name: Eseguire la distribuzione con un modello
               href: deploy-complex-application-predictably.md
         - name: Reimpostare le credenziali di distribuzione
@@ -215,6 +241,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: Ottenere gli eventi della risorsa
           href: get-resource-events.md
+        - name: Aprire una sessione SSH nel contenitore Linux
+          href: configure-linux-open-ssh-session.md
     - name: Gestire un'app
       items:
         - name: Gestire il piano di hosting

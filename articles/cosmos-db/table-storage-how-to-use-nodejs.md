@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6a9a3df1d200aae9e5ea401652752656ed9ff423
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cfcb5645a6284214e233758705537486f32967c6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760975"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079298"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Node.js
 
@@ -484,5 +484,5 @@ Per ulteriori informazioni, vedere le risorse seguenti.
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Azure Storage SDK per Node.js](https://github.com/Azure/azure-storage-node) su GitHub
 * [Azure per sviluppatori Node.js](https://docs.microsoft.com/azure/developer/javascript/)
-* [Creare un'app Web Node.js in Azure](../app-service/app-service-web-get-started-nodejs.md)
+* [Creare un'app Web Node.js in Azure](../app-service/quickstart-nodejs.md)
 * [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando Windows PowerShell)
