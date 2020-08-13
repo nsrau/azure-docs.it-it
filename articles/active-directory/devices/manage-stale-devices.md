@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025634"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184942"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
@@ -150,7 +150,7 @@ $dt = [datetime]’2017/01/01’
 Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
-## <a name="what-you-should-know"></a>Informazioni utili
+## <a name="what-you-should-know"></a>Informazioni importanti
 
 ### <a name="why-is-the-timestamp-not-updated-more-frequently"></a>Perché il timestamp non viene aggiornato più frequentemente?
 
@@ -162,7 +162,7 @@ Quando sono configurate, le chiavi BitLocker per i dispositivi Windows 10 vengon
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Perché è necessario preoccuparsi dei dispositivi Windows Autopilot?
 
-Quando un dispositivo Azure AD è stato associato a un oggetto di Windows Autopilot, possono verificarsi i tre scenari seguenti se il dispositivo verrà reimpiegato in futuro:
+Quando si elimina un dispositivo Azure AD associato a un oggetto di Windows Autopilot, possono verificarsi i tre scenari seguenti se il dispositivo verrà reimpiegato in futuro:
 - Con le distribuzioni basate sugli utenti di Windows Autopilot senza usare il guanto bianco, viene creato un nuovo dispositivo Azure AD, che però non verrà contrassegnato con ZTDID.
 - Con le distribuzioni in modalità self-Deploying di Windows Autopilot, avranno esito negativo perché non è possibile trovare un dispositivo associato Azure AD.  (Si tratta di un meccanismo di sicurezza per assicurarsi che nessun dispositivo "imposto" provi a partecipare Azure AD senza credenziali). L'errore indicherà una mancata corrispondenza ZTDID.
 - Con le distribuzioni del guanto bianco di Windows Autopilot, non riusciranno perché non è possibile trovare un dispositivo Azure AD associato. (In background, le distribuzioni di guanti bianchi usano lo stesso processo di distribuzione automatica, quindi applicano gli stessi meccanismi di sicurezza).

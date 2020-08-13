@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8b74fa39c47f9032e57d2b6630be1a3ef45990a3
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317285"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185180"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
@@ -127,17 +127,25 @@ Per informazioni su come modificare la modalità di controllo di accesso nel por
 
 ## <a name="ingestion-volume-rate-limit"></a>Limite di velocità del volume di inserimento
 
-Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. La soglia della frequenza di inserimento predefinita è impostata su **6 GB/min** per area di lavoro. Si tratta di un valore approssimativo, poiché la dimensione effettiva può variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o dall' [API dell'agente di raccolta dati](data-collector-api.md).
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite di velocità del volume intende proteggere i clienti di monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Una soglia di frequenza del volume di inserimento predefinita di 500 MB (compresso) si applica alle aree di lavoro, che corrispondono a circa **6 GB/min** non compressi, le cui dimensioni effettive possono variare tra i tipi di dati, a seconda della lunghezza del log e del relativo rapporto di compressione. Questa soglia si applica a tutti i dati inseriti se inviati dalle risorse di Azure usando [le impostazioni di diagnostica](diagnostic-settings.md), l' [API dell'agente di raccolta dati](data-collector-api.md) o gli agenti.
 
-Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro inviando un messaggio di posta elettronica LAIngestionRate@microsoft.com o aprendo una richiesta di supporto.
- 
-Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
+Quando si inviano dati a un'area di lavoro a una velocità di volume superiore al 80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Quando la velocità del volume inserito è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se la velocità del volume di inserimento continua a superare la soglia o se si prevede di raggiungerla presto, è possibile richiedere di aumentarla nell'area di lavoro aprendo una richiesta di supporto. 
 
-``` Kusto
+Per ricevere una notifica relativa a un evento di questo tipo nell'area di lavoro, creare una [regola di avviso del log](alerts-log.md) usando la query seguente con la logica di avviso di base per numero di risultati maggiore di zero, periodo di valutazione di 5 minuti e frequenza di 5 minuti.
+
+La velocità del volume di inserimento ha raggiunto il 80% della soglia:
+```Kusto
 Operation
 |where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+```
+
+Soglia raggiunta velocità del volume di inserimento:
+```Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The data ingestion volume rate crossed the threshold"
+```
 
 
 ## <a name="recommendations"></a>Consigli

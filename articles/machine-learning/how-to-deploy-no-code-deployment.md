@@ -9,21 +9,23 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6c70f27eebc9d502ce7275603e99975c2efc267
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9d6e234e1f4c8ac5199b92a09eb12bf7aa41b01b
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544618"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185486"
 ---
 # <a name="preview-no-code-model-deployment"></a>Anteprima Distribuzione del modello senza codice
 
 La distribuzione del modello senza codice è attualmente in anteprima e supporta i Framework di apprendimento automatico seguenti:
 
-## <a name="tensorflow-savedmodel-format"></a>Formato Tensorflow SavedModel
-I modelli Tensorflow devono essere registrati in **formato SavedModel** per funzionare con la distribuzione del modello senza codice.
+## <a name="tensorflow-savedmodel-format"></a>Formato TensorFlow SavedModel
+I modelli TensorFlow devono essere registrati in **formato SavedModel** per funzionare con la distribuzione del modello senza codice.
 
 Vedere [questo collegamento](https://www.tensorflow.org/guide/saved_model) per informazioni su come creare un SavedModel.
+
+Sono supportate tutte le versioni di TensorFlow elencate in "Tags" al [TensorFlow che funge da DockerHub](https://registry.hub.docker.com/r/tensorflow/serving/tags).
 
 ```python
 from azureml.core import Model
@@ -129,7 +131,7 @@ print(output)
 * [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Creazione di applicazioni client per l'utilizzo di servizi Web](how-to-consume-web-service.md)
-* [Aggiornare il servizio Web](how-to-deploy-update-web-service.md)
+* [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)
 * [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)

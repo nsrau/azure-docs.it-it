@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512437"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185384"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -120,14 +120,15 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 
 |Paese/Area geografica  |Paese/Area geografica  |Paese/Area geografica  |Paese/Area geografica  |
 |---------|---------|---------|---------|
-|Stati Uniti orientali    | Europa settentrionale        | India centrale        |US Gov Iowa         |
+|Stati Uniti orientali    | Europa settentrionale        | Central India        |US Gov Iowa         |
 |Stati Uniti occidentali     |Europa occidentale         | India meridionale        | US DoD (area orientale)        |
 |Stati Uniti orientali 2    | Asia orientale        |  India occidentale        | US DoD (area centrale)        |
-|Stati Uniti occidentali 2     | Asia sud-orientale        | Canada centrale        | Cina orientale         |
+|West US 2     | Asia sud-orientale        | Canada centrale        | Cina orientale         |
 |Stati Uniti centrali     | Australia orientale        | Canada orientale        | Cina settentrionale        |
 |Stati Uniti centro-settentrionali     |  Australia sud-orientale       | Brasile meridionale        | Regno Unito meridionale        |
 |Stati Uniti centro-meridionali     | Giappone occidentale        |Corea centrale         | Germania centrale        |
 |Stati Uniti centro-occidentali     |  Giappone orientale       | US Gov Virginia        | Germania nord-orientale        |
+|Sudafrica occidentale   |  Sudafrica settentrionale |
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 

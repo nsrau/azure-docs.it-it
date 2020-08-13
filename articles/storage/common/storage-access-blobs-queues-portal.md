@@ -1,23 +1,23 @@
 ---
-title: Usare la portale di Azure per accedere ai dati di BLOB o di Accodamento
+title: Scegliere come autorizzare l'accesso ai dati BLOB o della coda nel portale di Azure
 titleSuffix: Azure Storage
 description: Quando si accede ai dati di BLOB o di Accodamento usando il portale di Azure, il portale esegue richieste ad archiviazione di Azure dietro le quinte. Queste richieste ad archiviazione di Azure possono essere autenticate e autorizzate usando l'account Azure AD o la chiave di accesso dell'account di archiviazione.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/14/2020
+ms.date: 08/12/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: dcd1280dbe3a00a6a7cbdaaf59aa05326dfa8375
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 27c5b166565dd8f0803f3bca05d137e643325368
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534176"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185741"
 ---
-# <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare la portale di Azure per accedere ai dati di BLOB o di Accodamento
+# <a name="choose-how-to-authorize-access-to-blob-or-queue-data-in-the-azure-portal"></a>Scegliere come autorizzare l'accesso ai dati BLOB o della coda nel portale di Azure
 
 Quando si accede ai dati di BLOB o di Accodamento usando il [portale di Azure](https://portal.azure.com), il portale esegue richieste ad archiviazione di Azure dietro le quinte. È possibile autorizzare una richiesta ad archiviazione di Azure usando l'account Azure AD o la chiave di accesso dell'account di archiviazione. Il portale indica il metodo usato e consente di spostarsi tra i due se si dispone delle autorizzazioni appropriate.  
 
@@ -38,7 +38,7 @@ Per accedere ai dati BLOB e di Accodamento con la chiave di accesso dell'account
 Quando si tenta di accedere ai dati del BLOB o della coda nel portale di Azure, il portale verifica prima di tutto se è stato assegnato un ruolo con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale usa la chiave dell'account per accedere ai dati BLOB e di Accodamento. Se a questa azione non è stato assegnato un ruolo, il portale tenta di accedere ai dati tramite l'account Azure AD.
 
 > [!NOTE]
-> L'amministratore e il coamministratore del servizio ruoli di amministratore della sottoscrizione classica includono l'equivalente del ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati BLOB e Queue con la chiave dell'account. Per altre informazioni, vedere ruoli di [amministratore della sottoscrizione classica, ruoli di Azure e ruoli di amministratore Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> L'amministratore e il coamministratore del servizio ruoli di amministratore della sottoscrizione classica includono l'equivalente del ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati BLOB e Queue con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Usare l'account Azure AD
 

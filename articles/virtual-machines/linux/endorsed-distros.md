@@ -3,7 +3,7 @@ title: Distribuzioni di Linux approvate in Azure
 description: Informazioni sulle distribuzioni di Linux approvate in Azure, che includono le linee guida per Ubuntu, CentOS, Oracle e SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: gbowerman
+author: danielsollondon
 manager: gwallace
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: fd21170c4edc1ed0587ea4d4e067e61590530623
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 83a5289e17243fc7d89dd463b10916fb73046947
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283317"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184993"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuzioni di Linux approvate in Azure
 
@@ -74,6 +74,14 @@ Microsoft dispone di due (2) canali di migrazione per gli utenti di CoreOS.
 [https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
 Credativ è una società indipendente di servizi e consulenza, specializzata nello sviluppo e nell'implementazione di soluzioni professionali tramite l'utilizzo di software gratuito. Come azienda leader nell'open source, Credativ ha ottenuto un riconoscimento internazionale, con molti reparti IT che ricorrono ai suoi servizi di assistenza. In collaborazione con Microsoft, Credativ sta attualmente preparando immagini Debian corrispondenti per Debian 8 (Jessie) e Debian precedente a 7 (Wheezy). Entrambe le immagini sono appositamente progettate per l'esecuzione in Azure e possono essere facilmente gestite tramite la piattaforma. Credativ supporta anche la manutenzione a lungo termine e l'aggiornamento delle immagini Debian per Azure tramite i centri di supporto open source.
+
+### <a name="kinvolk"></a>Kinvolk
+[https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
+
+Kinvolk è la società dietro pianale container Linux, continuando la visione originale di CoreOS per una base minima, non modificabile e di aggiornamento automatico per le applicazioni incluse in contenitori. Come distribuzione minima, pianale contiene solo i pacchetti necessari per la distribuzione dei contenitori. Il file system non modificabile garantisce coerenza e sicurezza, mentre le funzionalità di aggiornamento automatico consentono di essere sempre aggiornati con le correzioni di sicurezza più recenti. 
+
+Pianale container Linux è stato sottoposto a backup dal team globale di Kinvolk per gli esperti di tecnologia per Linux e contenitori che offrono una sottoscrizione di supporto commerciale facoltativa che include risposta 24x7, avvisi di sicurezza e tecnici e immagini esclusive ottimizzate per Azure, incluso un canale di supporto a lungo termine.
+
 
 ### <a name="oracle"></a>Oracle
 

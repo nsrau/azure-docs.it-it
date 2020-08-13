@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: c91731d70d5db59ecf5daa726fd42ee42c58f51e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6de08faee78deeb86117084b420eb5043153f62d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116306"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186047"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migrazione SSIS con SQL di Azure Istanza gestita come destinazione del carico di lavoro del database
 
@@ -32,7 +32,9 @@ La migrazione di SSISDB può essere eseguita tramite DMS, come descritto nell'ar
 
 ## <a name="ssis-jobs-to-sql-managed-instance-agent"></a>Processi SSIS a SQL Istanza gestita Agent
 
-SQL Istanza gestita dispone di un'utilità di pianificazione nativa di prima classe esattamente come SQL Server Agent locale.  Poiché uno strumento di migrazione per i processi SSIS non è ancora disponibile, è necessario eseguirne la migrazione da SQL Server Agent locale a SQL Istanza gestita Agent tramite script/copia manuale.
+SQL Istanza gestita dispone di un'utilità di pianificazione nativa di prima classe esattamente come SQL Server Agent locale.  È possibile [eseguire pacchetti SSIS tramite SQL istanza gestita Agent di Azure](how-to-invoke-ssis-package-managed-instance-agent.md).
+
+Poiché uno strumento di migrazione per i processi SSIS non è ancora disponibile, è necessario eseguirne la migrazione da SQL Server Agent locale a SQL Istanza gestita Agent tramite script/copia manuale.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

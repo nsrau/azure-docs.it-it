@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 04b4feb1219f6a51a1f0a7ac0d19fc3fd70029c6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133526"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185214"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -257,6 +257,10 @@ A partire dalla [versione 9,20](https://support.microsoft.com/help/4478871/updat
 ## <a name="insufficient-space-errorid-95524"></a>Spazio insufficiente (ErrorID: 95524)
 
 Quando l'agente di mobilità viene copiato nella macchina di origine, è necessario almeno 100 MB di spazio disponibile. Verificare che il computer di origine disponga della quantità di spazio disponibile necessaria e ripetere l'operazione.
+
+## <a name="low-system-resources"></a>Risorse di sistema insufficienti
+
+Questo problema si verifica quando la memoria disponibile nel sistema non è sufficiente e non è in grado di allocare memoria per l'installazione del servizio Mobility. Verificare che sia stata liberata una quantità di memoria sufficiente perché l'installazione continui e venga completata correttamente.
 
 ## <a name="vss-installation-failures"></a>Errori di installazione di VSS
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e8aa87eecc29a5b664520cb1be2cbc5e65b2969e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134548"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185418"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,13 +39,13 @@ Per ulteriori informazioni sui concetti relativi al flusso di lavoro di distribu
 
 - Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 - Un modello. Se non si dispone di un modello sottoposto a training, è possibile utilizzare i file di modello e di dipendenza forniti in [questa esercitazione](https://aka.ms/azml-deploy-cloud).
-- [Estensione dell'interfaccia della riga di comando di Azure (CLI) per il servizio Machine Learning](reference-azure-machine-learning-cli.md)
+- [Estensione dell'interfaccia della riga di comando di Azure (CLI) per il servizio Machine Learning](reference-azure-machine-learning-cli.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
 - Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 - Un modello. Se non si dispone di un modello sottoposto a training, è possibile utilizzare i file di modello e di dipendenza forniti in [questa esercitazione](https://aka.ms/azml-deploy-cloud).
-- [Software Development Kit di Azure Machine Learning (SDK) per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- Il [Azure Machine Learning Software Development Kit (SDK) per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ---
 
@@ -242,7 +242,7 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
-Per informazioni dettagliate sull'uso e sulla personalizzazione degli ambienti Python con Azure Machine Learning, vedere [creare & usare gli ambienti software in Azure Machine Learning](how-to-use-environments.md)
+Per informazioni dettagliate sull'uso e sulla personalizzazione degli ambienti Python con Azure Machine Learning, vedere [creare & usare gli ambienti software in Azure Machine Learning](how-to-use-environments.md).
 
 Per informazioni sull'uso di un'immagine Docker personalizzata con una configurazione di inferenza, vedere [come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md).
 
@@ -373,7 +373,7 @@ Per eliminare un WebService distribuito, usare `az ml service <name of webservic
 
 Per eliminare un modello registrato dall'area di lavoro, usare`az ml model delete <model id>`
 
-Altre informazioni sull' [eliminazione di un](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) servizio Web e sull' [eliminazione di un modello](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
+Altre informazioni sull' [eliminazione di un](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) servizio Web e sull' [eliminazione di un modello](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
 
 # <a name="python"></a>[Python](#tab/python)
 

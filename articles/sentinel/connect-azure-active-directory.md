@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 37106517c47c86f4a4a562eebd6d120e31e22334
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a19ced1cb9496bddd1f9aa7ea9e3eb58ba7eea3d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564519"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185690"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Connettere i dati da Azure Active Directory (Azure AD)
 
@@ -30,7 +30,7 @@ Azure Sentinel consente di raccogliere dati da [Azure Active Directory](../activ
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se si desidera esportare i dati di accesso da Azure AD, è necessario disporre di una licenza Azure AD P1 o P2.
+- Qualsiasi licenza di Azure AD (free/O365/P1/P2) può integrarsi con monitoraggio di Azure e inserire i log di accesso in Sentinel di Azure. Verranno applicati addebiti aggiuntivi per Gigabyte per monitoraggio di Azure o Azure Sentinel.
 
 - Utente con autorizzazioni di amministratore globale o di amministratore della sicurezza per il tenant da cui si vogliono trasmettere i log.
 

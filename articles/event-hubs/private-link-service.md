@@ -3,12 +3,12 @@ title: Integrare Hub eventi di Azure con il servizio Collegamento privato di Azu
 description: Informazioni su come integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421103"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185469"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure tramite endpoint privati 
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio Hub eventi di Azure, Archiviazione di Azure e Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
@@ -18,21 +18,19 @@ Un endpoint privato è un'interfaccia di rete che connette privatamente e in mod
 Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
 > [!IMPORTANT]
-> Questa funzionalità è supportata sia per i livelli **standard** che per quelli **dedicati** . 
-
->[!WARNING]
-> L'abilitazione di endpoint privati può impedire ad altri servizi di Azure di interagire con Hub eventi.
+> Questa funzionalità è supportata sia per i livelli **standard** che per quelli **dedicati** . Il livello **Basic** non è supportato.
 >
-> I servizi Microsoft considerati attendibili non sono supportati quando si usano reti virtuali.
+> L'abilitazione di endpoint privati può impedire ad altri servizi di Azure di interagire con Hub eventi.  Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. 
+> 
+> Di seguito sono riportati alcuni dei servizi che non possono accedere alle risorse di hub eventi quando sono abilitati gli endpoint privati. Si noti che l'elenco **non** è esaustivo.
 >
-> Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
 > - Analisi di flusso di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
+> - Griglia di eventi di Azure
+> - Monitoraggio di Azure (impostazioni di diagnostica)
 >
-> I servizi Microsoft seguenti devono essere in una rete virtuale
-> - App Web di Azure
-> - Funzioni di Azure
+> Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati servizi attendibili anche quando gli endpoint privati sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Aggiungere un endpoint privato con il portale di Azure
 
@@ -105,6 +103,10 @@ Se si ha già uno spazio dei nomi di Hub eventi, è possibile creare una conness
 12. Verificare che nell'elenco degli endpoint venga visualizzata la connessione endpoint privato creata. In questo esempio l'endpoint privato viene approvato automaticamente perché si è connessi a una risorsa di Azure nella directory e si hanno autorizzazioni sufficienti. 
 
     ![Endpoint privato creato](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
+Per consentire ai servizi attendibili di accedere allo spazio dei nomi, passare alla scheda **firewall e reti virtuali** nella pagina **rete** e selezionare **Sì** per **Consenti ai servizi Microsoft attendibili di ignorare il firewall**. 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Aggiungere un endpoint privato con PowerShell
 L'esempio seguente illustra come usare Azure PowerShell per creare una connessione endpoint privato. Non crea un cluster dedicato. Per creare un cluster di Hub eventi dedicato, seguire la procedura descritta in [questo articolo](event-hubs-dedicated-cluster-create-portal.md). 

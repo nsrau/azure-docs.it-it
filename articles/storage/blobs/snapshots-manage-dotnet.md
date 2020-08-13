@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9404cc8037b9cd7ef3e6f74265ce803177eb0465
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463536"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185282"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creare e gestire snapshot BLOB in .NET
 
@@ -24,7 +24,7 @@ Per altre informazioni sugli snapshot BLOB in archiviazione di Azure, vedere [cr
 
 ## <a name="create-a-snapshot"></a>Creare uno snapshot
 
-# <a name="net-version-12x"></a>[.NET versione 12. x](#tab/v12)
+# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
 Per creare uno snapshot di un BLOB in blocchi usando la versione 12. x della libreria client di archiviazione di Azure per .NET, usare uno dei metodi seguenti:
 
@@ -77,7 +77,7 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 }
 ```
 
-# <a name="net-version-11x"></a>[.NET versione 11. x](#tab/v11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Per creare uno snapshot di un BLOB in blocchi usando la versione 11. x della libreria client di archiviazione di Azure per .NET, usare uno dei metodi seguenti:
 
@@ -126,11 +126,11 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 Per eliminare un BLOB, è necessario innanzitutto eliminare gli snapshot del BLOB. È possibile eliminare uno snapshot singolarmente o specificare di eliminare tutti gli snapshot quando si elimina il BLOB di origine. Se si tenta di eliminare un BLOB per il quale esistono ancora degli snapshot, viene restituito un errore.
 
-# <a name="net-version-12x"></a>[.NET versione 12. x](#tab/v12)
+# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
 Per eliminare un BLOB e i relativi snapshot usando la versione 12. x della libreria client di archiviazione di Azure per .NET, usare uno dei metodi seguenti e includere l'enumerazione [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) :
 
-- [Eliminazione](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
+- [Elimina](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteasync)
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
@@ -141,11 +141,11 @@ Nell'esempio di codice seguente viene illustrato come eliminare un BLOB e i rela
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
 ```
 
-# <a name="net-version-11x"></a>[.NET versione 11. x](#tab/v11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Per eliminare un BLOB e i relativi snapshot usando la versione 11. x della libreria client di archiviazione di Azure per .NET, usare uno dei metodi di eliminazione BLOB seguenti e includere l'enumerazione [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) :
 
-- [Eliminazione](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [Elimina](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)

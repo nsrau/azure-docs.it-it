@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 095e837043e6322cf85aeaa732f5bcbf7c0fa098
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 13972a1afd0860202eab7a3e3f9c4b9273c44e38
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135384"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185673"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurare l'ambiente di origine per la replica da VMware in Azure
 
@@ -82,6 +82,18 @@ Escludere le cartelle seguenti dal software antivirus
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. Azure Site Recovery directory di installazione del server di elaborazione con bilanciamento del carico, ad esempio: C:\Programmi (x86) \Microsoft Azure Site Recovery
+
+## <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Se il software antivirus è attivo nella destinazione master Linux
+
+Escludere le cartelle seguenti dal software antivirus
+
+1.  /usr/local/ASR
+2.  /usr/local/InMage
+3.  /var/log/vxlogs
+4.  /var/log
+5.  /var/log/ApplicationPolicyLogs
+6.  /var/log/ASRsetuptelemetry
+7.  ASRsetuptelemetry_uploaded/var/log/
 
 
 ## <a name="next-steps"></a>Passaggi successivi

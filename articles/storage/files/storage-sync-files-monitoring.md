@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031082"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185622"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -156,12 +156,13 @@ Integrità di suddivisione in livelli cloud
   - L'ID evento 9016 fornisce inoltre risultati di ghosting per un volume. Ad esempio: percentuale di spazio disponibile, numero di file fantasma nella sessione e numero di file non riusciti a fantasma.
   - L'ID evento 9029 fornisce informazioni sulla sessione di ghosting per un endpoint server. Ad esempio: numero di file tentati nella sessione, numero di file a livelli nella sessione e numero di file già a livelli.
   
-- Per monitorare l'attività di richiamo in un server, usare l'ID evento 9005, 9006, 9009 e 9059 nel registro eventi di telemetria, disponibile in Visualizzatore eventi in *Applications and Services\Microsoft\FileSync\Agent*.
+- Per monitorare l'attività di richiamo in un server, usare l'ID evento 9005, 9006, 9009, 9059 e 9071 nel registro eventi di telemetria, disponibile in Visualizzatore eventi in *Applications and Services\Microsoft\FileSync\Agent*.
 
   - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio: totale file univoci a cui si accede e totale file univoci con accesso non riuscito.
   - L'ID evento 9006 fornisce inoltre la distribuzione di un errore di richiamo per un endpoint server. Ad esempio: Totale richieste non riuscite e ErrorCode. Un evento viene registrato per codice di errore.
   - L'ID evento 9009 fornisce informazioni sulla sessione di richiamo per un endpoint server. Ad esempio: DurationSeconds, CountFilesRecallSucceeded e CountFilesRecallFailed.
   - L'ID evento 9059 fornisce la distribuzione di richiamo delle applicazioni per un endpoint server. Ad esempio: ShareId, nome dell'applicazione e TotalEgressNetworkBytes.
+  - L'ID evento 9071 fornisce l'efficienza di suddivisione in livelli nel cloud per un endpoint server. Ad esempio: TotalDistinctFileCountCacheHit, TotalDistinctFileCountCacheMiss, TotalCacheHitBytes e TotalCacheMissBytes.
 
 ### <a name="performance-counters"></a>Contatori delle prestazioni
 

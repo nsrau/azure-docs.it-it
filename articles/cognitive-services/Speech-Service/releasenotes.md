@@ -11,14 +11,47 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ac4b0c59cfad3d435858e094cbcb8c9f855a0041
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415024"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185316"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
+
+## <a name="new-speech-to-text-locales-2020-august-release"></a>Nuove impostazioni locali per sintesi vocale: 2020-versione di agosto
+Sintesi vocale rilasciate 26 nuove impostazioni locali nel agosto: 2 lingue europee CS-CZ e hu-HU, 5 impostazioni locali inglesi e 19 impostazioni locali spagnole che coprono la maggior parte degli Stati Uniti meridionali. Di seguito è riportato un elenco delle nuove impostazioni locali. Per un elenco completo della lingua, vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+
+| Impostazioni locali  | Linguaggio                          |
+|---------|-----------------------------------|
+| `cs-CZ` | Ceco (Repubblica Ceca)            | 
+| `en-HK` | Inglese (Hong Kong)               | 
+| `en-IE` | Inglese (Irlanda)                 | 
+| `en-PH` | Inglese (Filippine)             | 
+| `en-SG` | Inglese (Singapore)               | 
+| `en-ZA` | Inglese (Sud Africa)            | 
+| `es-AR` | Spagnolo (Argentina)               | 
+| `es-BO` | Spagnolo (Bolivia)                 | 
+| `es-CL` | Spagnolo (Cile)                   | 
+| `es-CO` | Spagnolo (Colombia)                | 
+| `es-CR` | Spagnolo (Costa Rica)              | 
+| `es-CU` | Spagnolo (Cuba)                    | 
+| `es-DO` | Spagnolo (Repubblica Dominicana)      | 
+| `es-EC` | Spagnolo (Ecuador)                 | 
+| `es-GT` | Spagnolo (Guatemala)               | 
+| `es-HN` | Spagnolo (Honduras)                | 
+| `es-NI` | Spagnolo (Nicaragua)               | 
+| `es-PA` | Spagnolo (Panama)                  | 
+| `es-PE` | Spagnolo (Perù)                    | 
+| `es-PR` | Spagnolo (Porto Rico)             | 
+| `es-PY` | Spagnolo (Paraguay)                | 
+| `es-SV` | Spagnolo (El Salvador)             | 
+| `es-US` | Spagnolo (Stati Uniti)                     | 
+| `es-UY` | Spagnolo (Uruguay)                 | 
+| `es-VE` | Spagnolo (Venezuela)               | 
+| `hu-HU` | Ungherese (Ungheria)               | 
+
 
 ## <a name="speech-sdk-1130-2020-july-release"></a>Speech SDK 1.13.0:2020-versione luglio
 
@@ -96,7 +129,7 @@ Rimanere integro.
 ### <a name="bug-fixes"></a>Correzioni di bug
 
 * Lettura valuta
-    * Correzione del problema relativo alla lettura della valuta per `es-ES` e`es-MX`
+    * Correzione del problema relativo alla lettura della valuta per `es-ES` e `es-MX`
      
     | Linguaggio | Input | Lettura dopo miglioramento |
     |---|---|---|
@@ -248,9 +281,9 @@ Rimanere integro.
 
 **Modifiche di rilievo**
 
-- `OpenSSL`è stato aggiornato alla versione 1.1.1 b ed è collegato in modo statico alla libreria principale dell'SDK vocale per Linux. Questa operazione può causare un'interrotta se la posta `OpenSSL` in arrivo non è stata installata `/usr/lib/ssl` nella directory del sistema. Per risolvere il problema, vedere la [documentazione relativa](how-to-configure-openssl-linux.md) ai documenti dell'SDK per la sintesi vocale.
+- `OpenSSL` è stato aggiornato alla versione 1.1.1 b ed è collegato in modo statico alla libreria principale dell'SDK vocale per Linux. Questa operazione può causare un'interrotta se la posta `OpenSSL` in arrivo non è stata installata `/usr/lib/ssl` nella directory del sistema. Per risolvere il problema, vedere la [documentazione relativa](how-to-configure-openssl-linux.md) ai documenti dell'SDK per la sintesi vocale.
 - È stato modificato il tipo di dati restituito per C# `WordLevelTimingResult.Offset` da `int` a per `long` consentire l'accesso a `WordLevelTimingResults` quando i dati vocali sono più lunghi di 2 minuti.
-- `PushAudioInputStream`e `PullAudioInputStream` ora invia le informazioni di intestazione WAV al servizio di riconoscimento vocale in base a `AudioStreamFormat` , facoltativamente specificata al momento della creazione. I clienti devono ora usare il [formato di input audio supportato](how-to-use-audio-input-streams.md). Eventuali altri formati otterranno risultati di riconoscimento non ottimali o potrebbero causare altri problemi. 
+- `PushAudioInputStream` e `PullAudioInputStream` ora invia le informazioni di intestazione WAV al servizio di riconoscimento vocale in base a `AudioStreamFormat` , facoltativamente specificata al momento della creazione. I clienti devono ora usare il [formato di input audio supportato](how-to-use-audio-input-streams.md). Eventuali altri formati otterranno risultati di riconoscimento non ottimali o potrebbero causare altri problemi. 
 
 **Correzioni di bug**
 
@@ -299,8 +332,8 @@ Rimanere integro.
 
 **Esempi**
 
-- Esempio di Novell per`KeywordRecognizer`
-- Esempio di Unity per`KeywordRecognizer`
+- Esempio di Novell per `KeywordRecognizer`
+- Esempio di Unity per `KeywordRecognizer`
 - Esempi di C++ e Java per l'origine automatica Rilevamento lingua.
 
 ## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0:2019-versione di settembre
@@ -323,9 +356,9 @@ Rimanere integro.
 - Correzione di un problema con UUID non univoco in alcune proprietà di connessione
 - Correzione di alcuni avvisi sugli identificatori di supporto di valori null nelle associazioni Swift (potrebbe richiedere modifiche minime al codice)
 - Correzione di un bug che causava la chiusura non corretta delle connessioni WebSocket in un carico di rete
-- È stato risolto un problema in Android che a volte produce ID di impressione duplicati usati da`DialogServiceConnector`
-- Miglioramenti alla stabilità delle connessioni tra interazioni a più turni e segnalazione di errori (tramite `Canceled` eventi) quando si verificano con`DialogServiceConnector`
-- `DialogServiceConnector`l'avvio della sessione ora fornirà correttamente gli eventi, ad esempio quando si chiama `ListenOnceAsync()` durante una chiamata attiva`StartKeywordRecognitionAsync()`
+- È stato risolto un problema in Android che a volte produce ID di impressione duplicati usati da `DialogServiceConnector`
+- Miglioramenti alla stabilità delle connessioni tra interazioni a più turni e segnalazione di errori (tramite `Canceled` eventi) quando si verificano con `DialogServiceConnector`
+- `DialogServiceConnector` l'avvio della sessione ora fornirà correttamente gli eventi, ad esempio quando si chiama `ListenOnceAsync()` durante una chiamata attiva `StartKeywordRecognitionAsync()`
 - È stato risolto un arresto anomalo associato alle `DialogServiceConnector` attività ricevute
 
 **Esempi**
@@ -341,14 +374,14 @@ Rimanere integro.
 - Esempi di avvio rapido per sintesi vocale in UWP e Unity
 - Esempio di Guida introduttiva per SWIFT in iOS
 - Esempi di Unity per la & vocale Riconoscimento finalità e traduzione
-- Esempi di avvio rapido aggiornati per`DialogServiceConnector`
+- Esempi di avvio rapido aggiornati per `DialogServiceConnector`
 
 **Miglioramenti/modifiche**
 
 - Spazio dei nomi finestra di dialogo:
   - `SpeechBotConnector` è stata rinominata `DialogServiceConnector`
   - `BotConfig` è stata rinominata `DialogServiceConfig`
-  - `BotConfig::FromChannelSecret()`è stato rimappato a`DialogServiceConfig::FromBotSecret()`
+  - `BotConfig::FromChannelSecret()` è stato rimappato a `DialogServiceConfig::FromBotSecret()`
   - Tutti i client di sintesi vocale diretta esistenti continuano a essere supportati dopo la ridenominazione
 - Aggiornare l'adapter REST TTS per supportare il proxy, la connessione permanente
 - Miglioramento del messaggio di errore quando viene passata un'area non valida

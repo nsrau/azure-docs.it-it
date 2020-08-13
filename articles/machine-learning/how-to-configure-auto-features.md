@@ -11,23 +11,25 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 94595bac2febdef1d3739703f0fa49c9ef15f218
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: a5eb24b5420431a43afa2ffd006ac821f0e907c9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166621"
+ms.locfileid: "88185758"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Conteggi in Machine Learning automatizzato
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questa guida si apprenderà come:
+In questa guida si apprenderà:
 
 - Quali impostazioni di conteggi Azure Machine Learning offerte.
 - Come personalizzare queste funzionalità per gli [esperimenti di Machine Learning automatizzati](concept-automated-ml.md).
 
 La *progettazione di funzioni* è il processo di utilizzo della conoscenza del dominio dei dati per creare funzionalità che consentono agli algoritmi di Machine Learning (ml) di acquisire maggiore familiarità. In Azure Machine Learning, le tecniche di ridimensionamento e scalabilità dei dati vengono applicate per semplificare la progettazione delle funzionalità. Insieme, queste tecniche e questa funzionalità di progettazione sono denominate *conteggi* in esperimenti automatici di Machine Learning, o *AutoML*.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si conosca già come configurare un esperimento di AutoML. Per informazioni sulla configurazione, vedere gli articoli seguenti:
 
@@ -64,9 +66,9 @@ Nella tabella seguente sono riepilogate le tecniche applicate automaticamente ai
 | ------------- | ------------- |
 |**Elimina la cardinalità elevata o nessuna funzionalità di varianza*** |Eliminare queste funzionalità dai set di training e di convalida. Si applica alle funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità elevata (ad esempio, hash, ID o GUID).|
 |**Imputare i valori mancanti*** |Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
-|**Genera funzionalità aggiuntive*** |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br><br> *Per le attività di previsione,* vengono create queste funzionalità di data/ora aggiuntive: ISO anno, semestre semestrale, calendario mese come stringa, settimana, giorno della settimana come stringa, giorno del trimestre, giorno dell'anno, AM/PM (0 se l'ora è precedente a mezzogiorno (12.00), 1 in caso contrario), AM/PM come stringa, ora del giorno (12h)<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
+|**Genera funzionalità aggiuntive*** |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br><br> *Per le attività di previsione,* vengono create queste funzionalità di data/ora aggiuntive: ISO anno, semestre semestrale, calendario mese come stringa, settimana, giorno della settimana come stringa, giorno del trimestre, giorno dell'anno, AM/PM (0 se l'ora è precedente a mezzogiorno (12.00), 1 in caso contrario), AM/PM come stringa, ora del giorno (12 ore)<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
 |**Trasformare e codificare***|Trasforma le funzionalità numeriche con pochi valori univoci nelle funzionalità categoriche.<br/><br/>La codifica One-Hot viene utilizzata per le funzionalità categoriche con cardinalità bassa. Per le funzionalità categoriche con cardinalità elevata, viene usata la codifica One-Hot-hash.|
-|**Incorporamenti di parole**|Un featurizer di testo converte i vettori di token di testo in vettori di frase usando un modello con training. Il vettore di incorporamento di ogni parola in un documento viene aggregato con il resto per produrre un vettore di funzionalità del documento.|
+|**Incorporamenti di parole**|Un featurizer di testo converte i vettori di token di testo in vettori di frase usando un modello con training preliminare. Il vettore di incorporamento di ogni parola in un documento viene aggregato con il resto per produrre un vettore di funzionalità del documento.|
 |**Codifiche di destinazione**|Per le funzionalità categoriche, questo passaggio esegue il mapping di ogni categoria con un valore di destinazione medio per i problemi di regressione e la probabilità della classe per ogni classe per i problemi di classificazione. Viene applicata la ponderazione basata sulla frequenza e la convalida incrociata k-fold per ridurre l'overfitting del mapping e del rumore causato dalle categorie di dati di tipo sparse.|
 |**Codifica di destinazione del testo**|Per l'input di testo, viene usato un modello lineare in stack con elenco di parole per generare la probabilità di ogni classe.|
 |**Peso dell’evidenza**|Calcola il peso dell’evidenza come misura della correlazione delle colonne di categoria con la colonna di destinazione. Guai viene calcolato come log del rapporto tra le probabilità out-of-Class e le probabilità out-of-Class. Questo passaggio produce una colonna della funzionalità numerica per classe e rimuove la necessità di imputare in modo esplicito i valori mancanti e il trattamento degli outlier.|
@@ -120,7 +122,7 @@ Le personalizzazioni supportate includono:
 
 |Personalizzazione|Definizione|
 |--|--|
-|**Aggiornamento dello scopo della colonna**|Eseguire l'override del tipo di funzionalità rilevato automaticamente per la colonna specificata.|
+|**Aggiornamento dello scopo della colonna**|Esegue l'override del tipo di funzionalità rilevato automaticamente per la colonna specificata.|
 |**Aggiornamento dei parametri del trasformatore** |Aggiornare i parametri per il trasformatore specificato. Attualmente supporta l' *imputatore* (medio, più frequente e mediano) e *HashOneHotEncoder*.|
 |**Eliminazione delle colonne** |Specifica le colonne da eliminare dall'trasformato.|
 |**Blocco dei trasformatori**| Specifica i trasformatori di blocco da usare nel processo conteggi.|
@@ -140,34 +142,196 @@ featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "m
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
 
-## <a name="bert-integration"></a>Integrazione con BERT 
-[Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) viene usato nel livello conteggi di Machine Learning automatico. In questo livello viene rilevato se una colonna contiene testo libero o altri tipi di dati come timestamp o numeri semplici e si trasforma di conseguenza. Per il BERT è possibile ottimizzare/eseguire il training del modello usando le etichette fornite dall'utente, quindi vengono restituiti gli incorporamenti dei documenti (per BERT si tratta dello stato nascosto finale associato al token [CLS] speciale) come funzionalità insieme ad altre funzionalità come le funzionalità basate su timestamp (ad esempio, il giorno della settimana) o i numeri di molti set di dati tipici. 
+## <a name="featurization-transparency"></a>Trasparenza conteggi
 
-Per abilitare BERT, è consigliabile usare il calcolo GPU per il training. Se viene usato un calcolo della CPU, anziché BERT, AutoML consentirà a BiLSTM DNN featurizer. Per richiamare BERT, è necessario impostare "enable_dnn: true" in automl_settings e usare il calcolo GPU (ad esempio, vm_size = "STANDARD_NC6" o una GPU più elevata). Vedere [questo notebook per un esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+Ogni modello AutoML ha conteggi applicato automaticamente.  Conteggi include la progettazione automatica delle funzioni (quando `"featurization": 'auto'` ) e la scalabilità e la normalizzazione, che influiscano quindi sull'algoritmo selezionato e sui relativi valori iperparametri. AutoML supporta metodi diversi per garantire la visibilità degli elementi applicati al modello.
 
-AutoML esegue i passaggi seguenti, per il caso di BERT (si noti che è necessario impostare "enable_dnn: true" in automl_settings per eseguire questi elementi):
+Prendere in considerazione questo esempio di previsione:
 
-1. Pre-elaborazione, inclusa la suddivisione in token di tutte le colonne di testo (il trasformatore "StringCast" viene visualizzato nel riepilogo conteggi del modello finale. Visitare il [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) per vedere un esempio di come produrre il riepilogo conteggi del modello usando il `get_featurization_summary()` metodo.
++ Sono disponibili quattro funzionalità di input: A (numerico), B (numerico), C (numerico), D (DateTime).
++ La funzione numerica C viene eliminata perché è una colonna ID con tutti i valori univoci.
++ Le funzionalità numeriche A e B presentano valori mancanti e pertanto sono imputate dal valore medio.
++ La funzionalità DateTime D è trasformato in 11 diverse funzionalità progettate.
+
+Per ottenere queste informazioni, usare l' `fitted_model` output dell'esecuzione dell'esperimento Machine Learning automatizzato.
 
 ```python
-text_transformations_used = []
-for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
-    text_transformations_used.extend(column_group['Transformations'])
-text_transformations_used
+automl_config = AutoMLConfig(…)
+automl_run = experiment.submit(automl_config …)
+best_run, fitted_model = automl_run.get_output()
+```
+### <a name="automated-feature-engineering"></a>Definizione delle funzionalità automatizzata 
+`get_engineered_feature_names()`Restituisce un elenco di nomi di funzionalità progettati.
+
+  >[!Note]
+  >Usare 'timeseriestransformer' per task='forecasting' oppure usare 'datatransformer' per l'attività 'regression' o 'classification'.
+
+  ```python
+  fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
+  ```
+
+Questo elenco include tutti i nomi delle funzionalità definite. 
+
+  ```
+  ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
+  ```
+
+`get_featurization_summary()`Ottiene un riepilogo conteggi di tutte le funzionalità di input.
+
+  ```python
+  fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+  ```
+
+Output
+
+  ```
+  [{'RawFeatureName': 'A',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'B',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'C',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'Yes',
+    'EngineeredFeatureCount': 0,
+    'Tranformations': []},
+   {'RawFeatureName': 'D',
+    'TypeDetected': 'DateTime',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 11,
+    'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
+  ```
+
+   |Output|Definizione|
+   |----|--------|
+   |RawFeatureName|Nome della funzionalità o della colonna di input del set di dati specificato.|
+   |TypeDetected|Tipo di dati rilevato della funzionalità di input.|
+   |Dropped|Indica se la funzionalità di input è stata eliminata o usata.|
+   |EngineeringFeatureCount|Numero di funzionalità generate tramite trasformazioni della definizione delle funzionalità automatizzata.|
+   |Trasformazioni|Elenco delle trasformazioni applicate alle funzionalità di input per generare le funzionalità definite.|
+
+### <a name="scaling-and-normalization"></a>Ridimensionamento e normalizzazione
+
+Per comprendere il ridimensionamento o la normalizzazione e l'algoritmo selezionato con i relativi valori di iperparametri, usare `fitted_model.steps` . 
+
+L'output di esempio seguente viene eseguito `fitted_model.steps` per un'esecuzione scelta:
+
+```
+[('RobustScaler', 
+  RobustScaler(copy=True, 
+  quantile_range=[10, 90], 
+  with_centering=True, 
+  with_scaling=True)), 
+
+  ('LogisticRegression', 
+  LogisticRegression(C=0.18420699693267145, class_weight='balanced', 
+  dual=False, 
+  fit_intercept=True, 
+  intercept_scaling=1, 
+  max_iter=100, 
+  multi_class='multinomial', 
+  n_jobs=1, penalty='l2', 
+  random_state=None, 
+  solver='newton-cg', 
+  tol=0.0001, 
+  verbose=0, 
+  warm_start=False))
 ```
 
-2. Concatena tutte le colonne di testo in una singola colonna di testo, di conseguenza sarà visualizzato "StringConcatTransformer" nel modello finale. 
+Per ottenere altri dettagli, usare la funzione helper seguente: 
 
-> [!NOTE]
-> La nostra implementazione di BERT limita la lunghezza totale del testo di un campione di training a 128 token. Ciò significa che tutte le colonne di testo concatenate devono avere una lunghezza massima di 128 token. Idealmente, se sono presenti più colonne, ogni colonna deve essere eliminata in modo tale che questa condizione venga soddisfatta. Se, ad esempio, sono presenti due colonne di testo nei dati, entrambe le colonne di testo devono essere eliminate ogni 64 token (presupponendo che entrambe le colonne siano ugualmente rappresentate nella colonna di testo concatenata finale) prima di inserire i dati in AutoML. Per le colonne concatenate di lunghezza >token 128, il livello tokenizer di BERT tronca questo input a 128 token.
+```python
+from pprint import pprint
 
-3. Nel passaggio feature sweeping, AutoML confronta BERT con la baseline (Bag of Words features) in un campione dei dati e determina se BERT darebbe miglioramenti di precisione. Se determina che il BERT garantisce prestazioni migliori rispetto alla linea di base, AutoML usa quindi BERT per il testo conteggi come strategia conteggi ottimale e procede con conoscenze l'intero dato. In tal caso, nel modello finale viene visualizzato "PretrainedTextDNNTransformer".
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(
+                e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0] + ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()
 
-BERT viene generalmente eseguito più a lungo rispetto alla maggior parte degli altri featurizers. È possibile velocizzare l'elaborazione offrendo più risorse di calcolo nel cluster. AutoML distribuirà il training BERT tra più nodi, se disponibili, fino a un massimo di 8 nodi. Questa operazione può essere eseguita impostando [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) su un valore maggiore di 1. Per ottenere prestazioni ottimali, è consigliabile usare SKU con funzionalità RDMA, ad esempio "STANDARD_NC24r" o "STANDARD_NC24rs_V3".
+print_model(model)
+```
+
+Questa funzione helper restituisce l'output seguente per una particolare esecuzione utilizzando `LogisticRegression with RobustScalar` come algoritmo specifico.
+
+```
+RobustScaler
+{'copy': True,
+'quantile_range': [10, 90],
+'with_centering': True,
+'with_scaling': True}
+
+LogisticRegression
+{'C': 0.18420699693267145,
+'class_weight': 'balanced',
+'dual': False,
+'fit_intercept': True,
+'intercept_scaling': 1,
+'max_iter': 100,
+'multi_class': 'multinomial',
+'n_jobs': 1,
+'penalty': 'l2',
+'random_state': None,
+'solver': 'newton-cg',
+'tol': 0.0001,
+'verbose': 0,
+'warm_start': False}
+```
+
+### <a name="predict-class-probability"></a>Stimare la probabilità della classe
+
+I modelli prodotti con il Machine Learning automatizzato hanno tutti oggetti wrapper che rispecchiano la funzionalità della classe di origine open source. La maggior parte degli oggetti wrapper del modello di classificazione restituiti dal Machine Learning automatizzato implementa la funzione `predict_proba()` che accetta dati di esempio di tipo matrice o matrice sparsa delle funzionalità (valori X) e restituisce una matrice n-dimensionale di ogni esempio e la probabilità della rispettiva classe.
+
+Si supponga di avere recuperato l'esecuzione migliore e il modello adattato usando le stesse chiamate precedenti, è possibile chiamare `predict_proba()` direttamente dal modello adattato specificando un `X_test` di esempio nel formato appropriato, a seconda del tipo di modello.
+
+```python
+best_run, fitted_model = automl_run.get_output()
+class_prob = fitted_model.predict_proba(X_test)
+```
+
+Se il modello sottostante non supporta la funzione `predict_proba()` o il formato non è corretto, verrà generata un'eccezione specifica della classe del modello. Per esempi relativi all'implementazione di questa funzione per i diversi tipi di modello, vedere la documentazione di riferimento di [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) e [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html).
+
+## <a name="bert-integration"></a>Integrazione con BERT
+
+[Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) viene usato nel livello conteggi di AutoML. In questo livello, se una colonna contiene testo libero o altri tipi di dati come timestamp o numeri semplici, viene applicato conteggi di conseguenza.
+
+Per BERT, il modello viene ottimizzato e sottoposto a training usando le etichette fornite dall'utente. Da qui, gli incorporamenti dei documenti vengono restituiti come funzionalità insieme ad altri, come le funzionalità basate su timestamp, giorno della settimana. 
+
+
+### <a name="bert-steps"></a>Passaggi BERT
+
+Per richiamare BERT, è necessario impostare  `enable_dnn: True` nel automl_settings e usare un calcolo GPU (ad esempio `vm_size = "STANDARD_NC6"` , o una GPU più elevata). Se viene usato un calcolo della CPU, anziché BERT, AutoML Abilita BiLSTM DNN featurizer.
+
+AutoML esegue i passaggi seguenti per BERT. 
+
+1. **Pre-elaborazione e suddivisione in token di tutte le colonne di testo**. Ad esempio, il trasformatore "StringCast" si trova nel riepilogo conteggi del modello finale. Un esempio di come produrre il riepilogo conteggi del modello è disponibile in [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+
+2. **Concatena tutte le colonne di testo in una singola colonna di testo**, `StringConcatTransformer` di conseguenza nel modello finale. 
+
+    La nostra implementazione di BERT limita la lunghezza totale del testo di un campione di training a 128 token. Ciò significa che tutte le colonne di testo concatenate devono avere una lunghezza massima di 128 token. Se sono presenti più colonne, ogni colonna deve essere eliminata, in modo che questa condizione venga soddisfatta. In caso contrario, per le colonne concatenate di lunghezza >128 token il livello tokenizer di BERT tronca questo input a 128 token.
+
+3. **Come parte della funzionalità di sweep, AutoML confronta BERT con le funzionalità di base (contenitore di parole) in un campione di dati.** Questo confronto determina se BERT darebbe un miglioramento dell'accuratezza. Se BERT è migliore della linea di base, AutoML USA BERT per il testo conteggi per l'intero dato. In tal caso, si vedrà `PretrainedTextDNNTransformer` nel modello finale.
+
+BERT viene in genere eseguito più a lungo rispetto ad altri featurizers. Per ottenere prestazioni ottimali, è consigliabile usare "STANDARD_NC24r" o "STANDARD_NC24rs_V3" per le funzionalità RDMA. 
+
+AutoML distribuirà il training BERT tra più nodi, se disponibili, fino a un massimo di otto nodi. Questa operazione può essere eseguita nell' `AutoMLConfig` oggetto impostando il `max_concurrent_iterations` parametro su un valore maggiore di 1. 
+### <a name="supported-languages"></a>Lingue supportate
 
 AutoML supporta attualmente circa 100 lingue e, a seconda della lingua del set di dati, AutoML sceglie il modello BERT appropriato. Per i dati in tedesco, viene usato il modello di BERT tedesco. Per la lingua inglese, viene usato il modello di BERT inglese. Per tutti gli altri linguaggi, viene usato il modello di BERT multilingue.
 
-Nel codice riportato di seguito viene attivato il modello tedesco BERT, perché il linguaggio del set di dati viene specificato in "DEU", il codice della lingua di 3 lettere per il tedesco in base alla [classificazione ISO](https://iso639-3.sil.org/code/deu):
+Nel codice riportato di seguito viene attivato il modello tedesco BERT, dal momento che la lingua del set di dati è specificata `deu` , il codice della lingua di tre lettere per il tedesco in base alla [classificazione ISO](https://iso639-3.sil.org/code/deu):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig
