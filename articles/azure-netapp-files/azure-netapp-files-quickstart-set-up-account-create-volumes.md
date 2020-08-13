@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c2ef52669a0bc5cd29bdcebf920beb1f409e65d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 92d92072fbc8ceebdd4fd9253620e5fba89bfb54
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533105"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987512"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Guida introduttiva: Configurare Azure NetApp Files e creare un volume NFS 
 
@@ -132,7 +132,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
     > [!NOTE]
     > Per un elenco delle aree supportate, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all).
-    > Per ottenere il nome dell'area supportato dagli strumenti da riga di comando, usare `az account list-locations -query "[].{Region:name}" --out table`
+    > Per ottenere il nome dell'area supportato dagli strumenti da riga di comando, usare `az account list-locations --query "[].{Region:name}" --out table`
     >
 
 2. Creare un nuovo gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create):

@@ -1,19 +1,17 @@
 ---
 title: Gestire gruppi di app per Desktop virtuale Windows con il portale - Azure
 description: Come gestire i gruppi di app di Desktop virtuale Windows con il portale di Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5b0269b80cb879923f9f00861494915b6abe103e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283402"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010090"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Esercitazione: Gestire gruppi di app con il portale di Azure
 
@@ -49,16 +47,16 @@ Se è già stato creato un pool di host e le macchine virtuali dell'host di sess
     > ![Screenshot della scheda Informazioni di base nel portale di Azure.](media/basics-tab.png)
 
 6. Se si vogliono aggiungere gruppi di applicazioni al pool di host, selezionare **Pool di host** nel menu sul lato sinistro della schermata.
-   
+
     Selezionare quindi il nome del pool di host a cui si vogliono aggiungere i gruppi di applicazioni.
-   
+
     Successivamente, selezionare **Gruppi di applicazioni** nel menu sul lato sinistro della schermata, quindi selezionare **+ Aggiungi**.
 
     Infine, selezionare il gruppo di sottoscrizioni e il gruppo di risorse in cui si vuole creare il gruppo di app. È possibile selezionare il nome di un gruppo di risorse esistente dal menu a discesa o selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
 
       >[!NOTE]
       >Quando si aggiungono gruppi di applicazioni al pool di host, il pool di host correlato al gruppo di applicazioni è già selezionato perché è da tale gruppo che è iniziata la selezione.
-      > 
+      >
       > [!div class="mx-imgBorder"]
       >![Screenshot della scheda Informazioni di base con il pool di host preselezionato.](media/host-pool-selected.png)
 
@@ -80,7 +78,7 @@ Se è già stato creato un pool di host e le macchine virtuali dell'host di sess
 
 12.  Selezionare la scheda **Applicazioni**, quindi selezionare **+ Aggiungi applicazioni**.
 
-13.  Per aggiungere un'applicazione dal menu Start: 
+13.  Per aggiungere un'applicazione dal menu Start:
 
       - Passare a **Origine applicazione** e selezionare **menu Start** dal menu a discesa. Passare quindi ad **Applicazione** e scegliere l'applicazione dal menu a discesa.
 
@@ -111,7 +109,7 @@ Se è già stato creato un pool di host e le macchine virtuali dell'host di sess
 16.  Se si vuole registrare il gruppo di app in un'area di lavoro, passare a **Registra gruppo di applicazioni** e selezionare **Sì**. Se si preferisce registrare il gruppo di app in un secondo momento, selezionare **No**.
 
 17.  Se si seleziona **Sì**, è possibile selezionare un'area di lavoro esistente in cui registrare il gruppo di app.
-       
+
        >[!NOTE]
        >È possibile registrare il gruppo di app solo nelle aree di lavoro create nella stessa posizione del pool di host. Inoltre, se in precedenza è stato registrato un altro gruppo di app dallo stesso pool di host del nuovo gruppo di app in un'area di lavoro, questo verrà selezionato e non sarà possibile modificarlo. Tutti i gruppi di app di un pool di host devono essere registrati nella stessa area di lavoro.
 

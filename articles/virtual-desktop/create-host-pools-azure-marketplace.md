@@ -1,19 +1,17 @@
 ---
 title: Pool di host di Desktop virtuale Windows nel portale di Azure - Azure
 description: Come creare un pool di host di Desktop virtuale Windows tramite il portale di Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291449"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002669"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
@@ -61,7 +59,7 @@ Per iniziare a creare il nuovo pool di host:
 6. Immettere un nome univoco per il pool di host.
 
 7. Nel campo Località selezionare l'area in cui si vuole creare il pool di host dall'elenco a discesa.
-   
+
    L'area geografica di Azure associata alle aree selezionate è la posizione in cui verranno archiviati i metadati per questo pool di host e i relativi oggetti correlati. Assicurarsi di scegliere le aree all'interno dell'area geografica in cui si vuole archiviare i metadati del servizio.
 
      > [!div class="mx-imgBorder"]
@@ -140,7 +138,7 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot della pagina del gruppo di sicurezza che mostra un elenco di porte disponibili in un menu a discesa.](media/available-ports.png)
-    
+
     Se si sceglie **Avanzato**, selezionare un gruppo di sicurezza di rete esistente che è stato già configurato.
 
 10. Successivamente, selezionare se si vuole che le macchine virtuali vengano aggiunte a un dominio e a un'unità organizzativa specifici. Se si sceglie **Sì**, specificare il dominio da aggiungere. È anche possibile aggiungere un'unità organizzativa specifica in cui si vuole inserire le macchine virtuali.
@@ -153,7 +151,7 @@ A questo punto, è possibile iniziare la fase successiva della configurazione de
 
 ## <a name="workspace-information"></a>Informazioni sull'area di lavoro
 
-Per impostazione predefinita, il processo di configurazione del pool di host crea un gruppo di applicazioni desktop. Affinché il pool di host funzioni come previsto, è necessario pubblicare questo gruppo di app per utenti o gruppi di utenti ed è necessario registrare il gruppo di app in un'area di lavoro. 
+Per impostazione predefinita, il processo di configurazione del pool di host crea un gruppo di applicazioni desktop. Affinché il pool di host funzioni come previsto, è necessario pubblicare questo gruppo di app per utenti o gruppi di utenti ed è necessario registrare il gruppo di app in un'area di lavoro.
 
 Per registrare il gruppo di app desktop in un'area di lavoro:
 
@@ -167,10 +165,10 @@ Per registrare il gruppo di app desktop in un'area di lavoro:
 
     Qui è possibile aggiungere i tag per raggruppare gli oggetti con i metadati per semplificare le operazioni degli amministratori.
 
-4. Al termine, selezionare **Rivedi e crea**. 
+4. Al termine, selezionare **Rivedi e crea**.
 
      >[!NOTE]
-     >Il processo di convalida di verifica e creazione non controlla se la password soddisfa gli standard di sicurezza o se l'architettura è corretta, quindi è necessario verificare eventuali problemi con uno di questi elementi. 
+     >Il processo di convalida di verifica e creazione non controlla se la password soddisfa gli standard di sicurezza o se l'architettura è corretta, quindi è necessario verificare eventuali problemi con uno di questi elementi.
 
 5. Esaminare le informazioni sulla distribuzione per verificare che tutto sia corretto. Al termine, selezionare **Crea**. Viene avviato il processo di distribuzione, che crea gli oggetti seguenti:
 

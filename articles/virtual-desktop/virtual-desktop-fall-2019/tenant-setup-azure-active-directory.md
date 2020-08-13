@@ -1,19 +1,17 @@
 ---
 title: Creare un tenant in Desktop virtuale Windows (versione classica) - Azure
 description: Descrive come configurare i tenant di Desktop virtuale Windows (versione classica) in Azure Active Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286360"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005619"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows (versione classica)
 
@@ -82,12 +80,12 @@ Per assegnare il ruolo applicazione TenantCreator:
    > ![Screenshot della ricerca di applicazioni aziendali nel portale di Azure](../media/azure-portal-enterprise-applications.png)
 
 2. All'interno di **Applicazioni aziendali** cercare **Desktop virtuale Windows**. Verranno visualizzate le due applicazioni per cui è stato fornito il consenso nella sezione precedente. Tra queste due app, selezionare **Desktop virtuale Windows**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot dei risultati della ricerca visualizzati per "Windows Virtual Desktop" ("Desktop virtuale Windows") in "Enterprise applications" ("Applicazioni aziendali"). L'app denominata "Desktop virtuale Windows" è evidenziata.](../media/tenant-enterprise-app.png)
 
 3. Selezionare **Utenti e gruppi**. Come si può vedere, l'amministratore che ha concesso il consenso per l'applicazione è già presente nell'elenco con il ruolo **Accesso predefinito**. Questo ruolo non è sufficiente per creare un tenant di Desktop virtuale Windows. Continuare a seguire queste istruzioni per aggiungere il ruolo **TenantCreator** a un utente.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot degli utenti e dei gruppi assegnati per gestire l'applicazione aziendale "Desktop virtuale Windows". Lo screenshot illustra solo un'assegnazione, relativa ad "Accesso predefinito".](../media/tenant-default-access.png)
 
@@ -126,13 +124,13 @@ Per trovare l'ID tenant (o **ID directory**) di Azure Active Directory:
 
 Per trovare l'ID sottoscrizione di Azure:
 1. Nella stessa sessione del [portale di Azure](https://portal.azure.com) cercare e selezionare **Sottoscrizioni**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot dei risultati della ricerca di "Azure Active Directory" nel portale di Azure. Il risultato nella categoria "Servizi" è evidenziato.](../media/tenant-search-subscription.png)
 
 2. Selezionare la sottoscrizione di Azure da usare per ricevere le notifiche del servizio Desktop virtuale Windows.
 3. Cercare **ID sottoscrizione** e quindi passare il puntatore del mouse sul valore fino a visualizzare l'icona degli Appunti. Selezionare l'icona degli Appunti e incollare l'ID in una posizione da cui sia possibile usarlo in seguito come valore **AzureSubscriptionId**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot delle proprietà della sottoscrizione di Azure. Il puntatore del mouse passa sull'icona degli Appunti per copiare e incollare "ID sottoscrizione".](../media/tenant-subscription-id.png)
 

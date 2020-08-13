@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a754873aeafe8d4e7b48d49647469874ff40f7e
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875880"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921759"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guida di avvio rapido: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
 
@@ -75,6 +75,10 @@ Selezionare **Call API** (Chiama API) se si vuole che l'API Web restituisca il n
 ![Applicazione di esempio nel browser che mostra la risposta dell'API Web](./media/quickstart-single-page-app/call-api-spa.png)
 
 L'applicazione a pagina singola include un token di accesso nella richiesta alla risorsa API Web protetta.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+È possibile usare il tenant di Azure AD B2C se si prevede di provare altre guide introduttive o esercitazioni relative ad Azure AD B2C. Quando non è più necessario, è possibile [eliminare il tenant di Azure AD B2C](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

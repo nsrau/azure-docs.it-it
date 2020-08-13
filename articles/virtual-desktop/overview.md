@@ -1,19 +1,17 @@
 ---
 title: Informazioni su Desktop virtuale Windows - Azure
 description: Panoramica di Desktop virtuale Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386574"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002371"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows
 
@@ -132,14 +130,14 @@ Le opzioni di automazione e distribuzione disponibili variano a seconda del sist
 
 |Sistema operativo|Raccolta immagini di Azure|Distribuzione manuale della macchina virtuale|Integrazione del modello di Azure Resource Manager|Effettuare il provisioning dei pool di host in Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 multisessione, versione 1903|sì|sì|sì|Sì|
-|Windows 10 multisessione, versione 1809|sì|sì|No|No|
-|Windows 10 Enterprise, versione 1903|sì|sì|sì|Sì|
-|Windows 10 Enterprise, versione 1809|sì|sì|No|No|
-|Windows 7 Enterprise|sì|sì|No|No|
-|Windows Server 2019|sì|sì|No|No|
-|Windows Server 2016|sì|sì|sì|sì|
-|Windows Server 2012 R2|Sì|sì|No|No|
+|Windows 10 multisessione, versione 1903|Sì|Sì|Sì|Sì|
+|Windows 10 multisessione, versione 1809|Sì|Sì|No|No|
+|Windows 10 Enterprise, versione 1903|Sì|Sì|Sì|Sì|
+|Windows 10 Enterprise, versione 1809|Sì|Sì|No|No|
+|Windows 7 Enterprise|Sì|Sì|No|No|
+|Windows Server 2019|Sì|Sì|No|No|
+|Windows Server 2016|Sì|Sì|Sì|Sì|
+|Windows Server 2012 R2|Sì|Sì|No|No|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
