@@ -1,15 +1,15 @@
 ---
 title: "Guida introduttiva: Prima query nell'interfaccia della riga di comando di Azure"
 description: Questa guida di avvio rapido illustra la procedura per abilitare l'estensione Resource Graph per l'interfaccia della riga di comando di Azure ed eseguire la prima query.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 82e36027e5016554770fc9359f413c1fff6fe227
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8132cfb60009739fc2f5fd518ef2a112fea93c4a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500675"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056449"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando l'interfaccia della riga di comando di Azure
 

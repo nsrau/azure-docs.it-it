@@ -7,13 +7,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: tracking-python
-ms.openlocfilehash: 4c490d252fa1153324df62a6119ae6bdc548c331
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-python
+ms.openlocfilehash: f6d1b25cb502b8cb208ba5b59c91667e03c77778
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341039"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064384"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Guida introduttiva: Usare gli argomenti e le sottoscrizioni del bus di servizio con Python
 
@@ -176,7 +176,7 @@ L'eliminazione di un argomento comporta l'eliminazione di tutte le relative sott
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-Per impostazione predefinita, gli argomenti e le sottoscrizioni sono persistenti e rimangono disponibili fino a quando non vengono eliminati. Per eliminare automaticamente le sottoscrizioni dopo un determinato periodo di tempo, è possibile impostare il parametro [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) nella sottoscrizione. 
+Per impostazione predefinita, gli argomenti e le sottoscrizioni sono persistenti e rimangono disponibili fino a quando non vengono eliminati. Per eliminare automaticamente le sottoscrizioni dopo un determinato periodo di tempo, è possibile impostare il parametro [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) nella sottoscrizione. 
 
 > [!TIP]
 > È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica con facilità. Lo strumento offre funzionalità avanzate, tra cui importazione/esportazione e la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
@@ -192,4 +192,4 @@ Dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare 
 [Azure Python package]: https://pypi.python.org/pypi/azure
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md 
+[Service Bus quotas]: service-bus-quotas.md
