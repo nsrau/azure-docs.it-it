@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: c5d52a78dec31dd796929b141556d6da10044099
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031496"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166689"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -187,7 +187,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Condizioni per l'utilizzo
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
-7. Riepilogo
+7. Summary
 8. Descrizione
 9. Screenshot/video
 
@@ -315,6 +315,8 @@ La configurazione tecnica definisce i dettagli (ID tenant e ID app) usati per id
 ## <a name="plan-overview"></a>Panoramica del piano
 
 Questa scheda consente di fornire diverse opzioni per il piano all'interno della stessa offerta. Questi piani, chiamati in precedenza SKU, possono differire in termini di tipo di piano (modello di soluzione e applicazione gestita), monetizzazione o destinatari. Configurare almeno un piano per presentare l'offerta nel marketplace.
+
+È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Scopri di più sui piani privati in [offerte private in Microsoft Commercial Marketplace](../private-offers.md).
 
 Una volta creati i piani, in questa scheda vengono visualizzati i nomi, gli ID, il tipo di piano, la disponibilità (pubblica o privata), lo stato di pubblicazione corrente e tutte le azioni disponibili.
 

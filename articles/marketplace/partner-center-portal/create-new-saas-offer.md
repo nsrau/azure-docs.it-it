@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7fbb50308f14acbcec98c562fe72763341538df2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031031"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166723"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Creare un'offerta SaaS nel Marketplace commerciale
 
@@ -133,7 +133,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Condizioni per l'utilizzo
 6. Informativa sulla privacy
 7. Nome offerta
-8. Riepilogo
+8. Summary
 9. Descrizione
 10. Screenshot/video
 11. Documenti
@@ -351,6 +351,8 @@ Prima di continuare, selezionare **Salva bozza**.
 ## <a name="plan-overview"></a>Panoramica del piano
 
 Questa pagina consente di fornire diverse opzioni per i piani all'interno della stessa offerta. Questi piani (noti anche come SKU) possono differire in termini di versione, monetizzazione o livelli di servizio. Per vendere l'offerta nel marketplace, è necessario configurare almeno un piano.
+
+È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Scopri di più sui piani privati in [offerte private in Microsoft Commercial Marketplace](../private-offers.md).
 
 Una volta creati i piani, verranno visualizzati i nomi, gli ID, i modelli di determinazione prezzi, la disponibilità (pubblica o privata), lo stato di pubblicazione corrente e tutte le azioni disponibili.
 

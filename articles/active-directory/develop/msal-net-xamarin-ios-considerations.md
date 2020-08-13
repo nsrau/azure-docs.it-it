@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 7125559dd39e1626634dae7c45b0744bfff57d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 73303d64d7ebeb94290819226e5e5944f95f6e42
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652663"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165703"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerazioni sull'uso di Novell iOS con MSAL.NET
 Quando si usa Microsoft Authentication Library per .NET (MSAL.NET) in Novell iOS, è necessario: 
@@ -31,7 +31,7 @@ Quando si usa Microsoft Authentication Library per .NET (MSAL.NET) in Novell iOS
 
 ## <a name="implement-openurl"></a>Implementare OpenUrl
 
-Eseguire l'override del `OpenUrl` metodo della `FormsApplicationDelegate` classe derivata e chiamare `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs` . Ad esempio:
+Eseguire l'override del `OpenUrl` metodo della `FormsApplicationDelegate` classe derivata e chiamare `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs` . Ecco un esempio:
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)

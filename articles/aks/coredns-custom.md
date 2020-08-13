@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: f58232eac6727f10fdccb32e7795bf12a93b7cbb
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 08d3c61ca4b5988847676b12478a5865ac319d37
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405518"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164203"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizzare CoreDNS con il servizio Azure Kubernetes
 
@@ -22,7 +22,7 @@ Poiché AKS è un servizio gestito, non è possibile modificare la configurazion
 Questo articolo illustra come usare ConfigMaps per le opzioni di personalizzazione di base di CoreDNS in AKS. Questo approccio è diverso dalla configurazione di CoreDNS in altri contesti, ad esempio l'uso di CoreFile. Verificare la versione di CoreDNS in esecuzione perché i valori di configurazione possono variare tra le versioni.
 
 > [!NOTE]
-> `kube-dns`offerte diverse [Opzioni di personalizzazione][kubednsblog] tramite una mappa di configurazione Kubernetes. CoreDNS **non** è compatibile con le versioni precedenti di Kube-DNS. Tutte le personalizzazioni usate in precedenza devono essere aggiornate per l'uso con CoreDNS.
+> `kube-dns` offerte diverse [Opzioni di personalizzazione][kubednsblog] tramite una mappa di configurazione Kubernetes. CoreDNS **non** è compatibile con le versioni precedenti di Kube-DNS. Tutte le personalizzazioni usate in precedenza devono essere aggiornate per l'uso con CoreDNS.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -53,6 +53,9 @@ data:
         forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
     }
 ```
+
+> [!IMPORTANT]
+> Se si reindirizza a un server DNS, ad esempio l'indirizzo IP del servizio CoreDNS, il server DNS deve essere in grado di risolvere il nome di dominio riscritto.
 
 Creare il ConfigMap usando il comando [kubectl Apply ConfigMap][kubectl-apply] e specificare il nome del manifesto YAML:
 

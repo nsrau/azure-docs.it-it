@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4d9583e08591e8ea5792aad28e247dff178f1c08
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080661"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164581"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso di Azure AD Application Proxy per pubblicare app locali per gli utenti remoti
 
@@ -99,7 +99,7 @@ Application Proxy supporta anche i protocolli di autenticazione seguenti con int
 * [**Autenticazione basata su moduli o su password**](application-proxy-configure-single-sign-on-password-vaulting.md). Con questo metodo di autenticazione, gli utenti eseguono la procedura di accesso all'applicazione con nome utente e password solo la prima volta. Agli accessi successivi sarà Azure AD a indicare il nome utente e la password all'applicazione. In questo scenario l'autenticazione viene gestita da Azure AD.
 * [**Autenticazione SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). L'accesso Single Sign-On basato su SAML è supportato per le applicazioni che usano protocolli SAML 2.0 o WS-Federation. Con l'accesso Single Sign-On SAML, Azure AD esegue l'autenticazione all'applicazione usando l'account Azure AD dell'utente.
 
-Per altre informazioni sui metodi supportati, vedere [Scelta di un metodo di accesso Single Sign-On](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Per altre informazioni sui metodi supportati, vedere [Scelta di un metodo di accesso Single Sign-On](sso-options.md#choosing-a-single-sign-on-method).
 
 ### <a name="security-benefits"></a>Vantaggi di sicurezza
 

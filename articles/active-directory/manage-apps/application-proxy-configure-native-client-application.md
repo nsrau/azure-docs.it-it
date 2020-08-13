@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5cdb592de29f8c5396a68a7c36e6994df906cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f8494852bcff49602645c940470b529302f119f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764809"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165074"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Come abilitare applicazioni client native per l'interazione con applicazioni proxy
 
@@ -124,4 +124,4 @@ Dopo che il codice di MSAL è stato modificato con questi parametri, gli utenti 
 
 Per altre informazioni sul flusso delle applicazioni native, vedere [App native in Azure Active Directory](../azuread-dev/native-app.md).
 
-Vedere le informazioni sulla configurazione dell'[accesso Single Sign-On alle applicazioni in Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Vedere le informazioni sulla configurazione dell'[accesso Single Sign-On alle applicazioni in Azure Active Directory](sso-options.md#choosing-a-single-sign-on-method).

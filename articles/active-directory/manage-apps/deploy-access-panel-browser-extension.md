@@ -15,16 +15,16 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31235936109361f0f15a071346baee128060375a
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763432"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164989"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Procedura: distribuire l'estensione pannello di accesso per Internet Explorer con criteri di gruppo
 
-Questa esercitazione illustra come usare Criteri di gruppo per installare l'estensione Pannello di accesso per Internet Explorer nei computer degli utenti in modalità remota. Questa estensione è necessaria per gli utenti di Internet Explorer che devono eseguire l'accesso ad app configurate con l' [accesso Single Sign-On basato su password](what-is-single-sign-on.md#password-based-sso).
+Questa esercitazione illustra come usare Criteri di gruppo per installare l'estensione Pannello di accesso per Internet Explorer nei computer degli utenti in modalità remota. Questa estensione è necessaria per gli utenti di Internet Explorer che devono eseguire l'accesso ad app configurate con l' [accesso Single Sign-On basato su password](sso-options.md#password-based-sso).
 
 Si consiglia agli amministratori di automatizzare la distribuzione di questa estensione. In caso contrario, gli utenti devono scaricare e installare l'estensione in autonomia, un'operazione soggetta a errori e che richiede autorizzazioni di amministratore. Questa esercitazione descrive un metodo per automatizzare le distribuzioni software tramite Criteri di gruppo. [Altre informazioni su Criteri di gruppo](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 

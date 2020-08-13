@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: e210c19f40ed77bd7c1bc1dcfc2f2787e3ea2087
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: cdd93cf8751ce2e46f06020b1d18d42416f793d4
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120287"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166109"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrazione di applicazioni a MSAL.NET
 
@@ -123,7 +123,7 @@ Concedi | ADAL.NET | MSAL.NET
 Interattività | [Autenticazione interattiva](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquisizione dei token in modo interattivo in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
 Autenticazione integrata di Windows | [Autenticazione integrata di Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Autenticazione integrata di Windows](msal-authentication-flows.md#integrated-windows-authentication)
 Nome utente/password | [Acquisizione di token con nome utente e password](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Autenticazione con nome utente e password](msal-authentication-flows.md#usernamepassword)
-Flusso del codice del dispositivo | [Profilo di dispositivo per i dispositivi senza Web browser](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Flusso del codice del dispositivo](msal-authentication-flows.md#device-code)
+Flusso di codice del dispositivo | [Profilo di dispositivo per i dispositivi senza Web browser](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Flusso del codice del dispositivo](msal-authentication-flows.md#device-code)
 
 #### <a name="confidential-client-applications"></a>Applicazioni client riservate
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 77cc63945e5cfc612c074e75e38365ada26073ea
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032782"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166740"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta di contenitore di Azure in Azure Marketplace
 
@@ -252,9 +252,11 @@ Aggiungere almeno un ID della sottoscrizione di Azure, singolarmente (fino a 10)
 
 Prima di continuare, selezionare **Salva bozza**.
 
-### <a name="plan-overview"></a>Panoramica del piano
+## <a name="plan-overview"></a>Panoramica del piano
 
 Questa scheda consente di specificare diverse opzioni per il piano all'interno della stessa offerta. I piani (in precedenza denominati SKU) possono variare in termini di cloud disponibili, ad esempio cloud globali, cloud governativi e immagine a cui fa riferimento il piano. Per presentare l'offerta nel marketplace commerciale, è necessario configurare almeno un piano.
+
+È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Scopri di più sui piani privati in [offerte private in Microsoft Commercial Marketplace](../private-offers.md).
 
 Dopo aver creato i piani, la scheda **Panoramica del piano** mostra:
 
@@ -269,7 +271,7 @@ Le azioni disponibili in Panoramica del piano variano a seconda dello stato attu
 - **Elimina bozza**: se lo stato del piano è Bozza.
 - **Stop sell Plan** (Interrompi la vendita del piano): se lo stato del piano è pubblicato.
 
-#### <a name="create-new-plan"></a>Creare un nuovo piano
+### <a name="create-new-plan"></a>Creare un nuovo piano
 
 Selezionare **Crea nuovo piano**. Viene visualizzata la finestra di dialogo **Nuovo piano**.
 
@@ -301,7 +303,7 @@ I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requ
 
 Per visualizzare le certificazioni per questi programmi, è possibile specificare fino a 100 collegamenti che li descrivono. Questi possono essere collegamenti diretti alle presentazioni del programma o al proprio sito Web. Questi collegamenti sono visibili solo ai clienti di Azure per enti pubblici.
 
-## <a name="plan-listing"></a>Elenco piani
+### <a name="plan-listing"></a>Elenco piani
 
 Questa scheda contiene informazioni specifiche per ogni piano diverso all'interno dell'offerta attuale.
 
@@ -331,7 +333,7 @@ Questa immagine illustra i dettagli del piano nel portale di Azure:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Dettagli del piano nel portale di Azure.":::
 
-## <a name="plan-availability"></a>Disponibilità del piano
+### <a name="plan-availability"></a>Disponibilità del piano
 
 Se si vuole nascondere l'offerta pubblicata in modo che i clienti non possano cercarla, vederla o acquistarla nel marketplace, selezionare la casella di controllo **Nascondi piano** nella scheda **Disponibilità**.
 

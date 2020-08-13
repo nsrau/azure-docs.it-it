@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 9ef87027bcda6c645d1239598c849f57fb0c8992
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/12/2020
+ms.openlocfilehash: 6524128cb5bccfefe37d605b406210a91e78cac8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491970"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163969"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Origini eventi Azure Time Series Insights Gen2
 
@@ -33,34 +33,34 @@ Quando si connette un'origine evento, l'ambiente Azure Time Series Insights Gen2
 
 > [!IMPORTANT]
 >
-> * È possibile che si verifichi una latenza iniziale elevata quando si connette un'origine evento all'ambiente di Azure Time Series Insights Gen2.
-> La latenza dell'origine evento dipende dal numero di eventi attualmente presenti nell'hub IoT o nell'hub eventi.
-> * La latenza elevata si ridurrà dopo l'inserimento iniziale dei dati di origine dell'evento. Inviare un ticket di supporto con il portale di Azure se si verifica una latenza elevata.
+> - È possibile che si verifichi una latenza iniziale elevata quando si connette un'origine evento all'ambiente di Azure Time Series Insights Gen2.
+> - La latenza dell'origine evento dipende dal numero di eventi attualmente presenti nell'hub IoT o nell'hub eventi.
+> - La latenza elevata si ridurrà dopo l'inserimento iniziale dei dati di origine dell'evento. Inviare un ticket di supporto con il portale di Azure se si verifica una latenza elevata.
 
 ## <a name="streaming-ingestion-best-practices"></a>Procedure consigliate per l'inserimento di flussi
 
-* Creare sempre un gruppo di consumer univoco per l'ambiente Azure Time Series Insights Gen2 per utilizzare i dati dell'origine evento. Il riutilizzo dei gruppi di consumer può causare disconnessioni casuali e potrebbe causare la perdita di dati.
+- Creare sempre un gruppo di consumer univoco per l'ambiente Azure Time Series Insights Gen2 per utilizzare i dati dell'origine evento. Il riutilizzo dei gruppi di consumer può causare disconnessioni casuali e potrebbe causare la perdita di dati.
 
-* Configurare l'ambiente di Azure Time Series Insights Gen2 e l'hub Internet e/o gli hub eventi nella stessa area di Azure. Sebbene sia possibile configurare origini eventi in un'area separata, questo scenario non è supportato e non è possibile garantire la disponibilità elevata.
+- Configurare l'ambiente di Azure Time Series Insights Gen2 e l'hub Internet e/o gli hub eventi nella stessa area di Azure. Sebbene sia possibile configurare un'origine evento in un'area separata, questo scenario non è supportato e non è possibile garantire la disponibilità elevata.
 
-* Non superare il [limite di velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'ambiente o il limite per partizione.
+- Non superare il [limite di velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'ambiente o il limite per partizione.
 
-* Configurare un [avviso](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente.
+- Configurare un [avviso](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente.
 
-* Usare l'inserimento streaming solo per i dati near real-time e recenti. I dati cronologici di streaming non sono supportati.
+- Usare l'inserimento streaming solo per i dati near real-time e recenti. I dati cronologici di streaming non sono supportati.
 
-* Comprendere in che modo le proprietà verranno sottoposte a escape e [i dati JSON appiattiti e archiviati.](./concepts-json-flattening-escaping-rules.md)
+- Comprendere in che modo le proprietà verranno sottoposte a escape e [i dati JSON appiattiti e archiviati.](./concepts-json-flattening-escaping-rules.md)
 
-* Seguire il principio dei privilegi minimi quando si forniscono stringhe di connessione all'origine evento. Per hub eventi, configurare un criterio di accesso condiviso con l'attestazione di *invio* e per l'hub Internet usare solo l'autorizzazione per la *connessione al servizio* .
+- Seguire il principio dei privilegi minimi quando si forniscono stringhe di connessione all'origine evento. Per hub eventi, configurare un criterio di accesso condiviso con l'attestazione di *invio* e per l'hub Internet usare solo l'autorizzazione per la *connessione al servizio* .
 
 ### <a name="historical-data-ingestion"></a>Inserimento dei dati cronologici
 
 L'uso della pipeline di streaming per importare i dati cronologici non è attualmente supportato in Azure Time Series Insights Gen2. Se è necessario importare i dati passati nell'ambiente in uso, seguire le linee guida indicate sotto:
 
-* Non trasmettere dati in tempo reale e cronologici in parallelo. L'inserimento di dati non in ordine comporterà un calo delle prestazioni delle query.
-* Inserire i dati cronologici rispettando la sequenza temporale per ottenere prestazioni ottimali.
-* Rispettare i limiti di velocità effettiva di inserimento indicati sotto.
-* Disabilitare l'archivio ad accesso frequente se i dati sono precedenti al periodo di conservazione dell'archivio ad accesso frequente.
+- Non trasmettere dati in tempo reale e cronologici in parallelo. L'inserimento di dati non in ordine comporterà un calo delle prestazioni delle query.
+- Inserire i dati cronologici rispettando la sequenza temporale per ottenere prestazioni ottimali.
+- Rispettare i limiti di velocità effettiva di inserimento indicati sotto.
+- Disabilitare l'archivio ad accesso frequente se i dati sono precedenti al periodo di conservazione dell'archivio ad accesso frequente.
 
 ## <a name="event-source-timestamp"></a>Timestamp origine evento
 
@@ -82,10 +82,6 @@ HHMMZ ±</br>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere le [regole di escape e Flat JSON](./concepts-json-flattening-escaping-rules.md) per comprendere come verranno archiviati gli eventi. 
+- Leggere le [regole di escape e Flat JSON](./concepts-json-flattening-escaping-rules.md) per comprendere come verranno archiviati gli eventi.
 
-* Informazioni sulle limitazioni della [velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'ambiente
-
-
-
-
+- Informazioni sulle limitazioni della [velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'ambiente

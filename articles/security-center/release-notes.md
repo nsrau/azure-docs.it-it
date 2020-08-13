@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2020
+ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 034e72238375750651a1374a94b844d36fd97d03
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438948"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166451"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -28,6 +28,64 @@ La sicurezza di Azure è in fase di sviluppo attivo e riceve miglioramenti su ba
 - Funzionalità deprecate
 
 Poiché questa pagina viene aggiornata regolarmente, è consigliabile consultarla spesso. Se si cercano informazioni precedenti agli ultimi sei mesi, è possibile trovarle in [Archive for What's new in Azure Security Center](release-notes-archive.md) (Archivio per le novità nel Centro sicurezza di Azure).
+
+
+## <a name="august-2020"></a>Agosto 2020
+
+### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Valutazione della vulnerabilità sulle macchine virtuali-raccomandazioni e criteri consolidati
+
+Il Centro sicurezza controlla le VM per rilevare se sta eseguendo una soluzione di valutazione della vulnerabilità. Se non viene trovata alcuna soluzione di valutazione della vulnerabilità, il Centro sicurezza fornisce una raccomandazione per semplificare la distribuzione.
+
+Quando vengono rilevate vulnerabilità, il Centro sicurezza fornisce una raccomandazione che riepiloga i risultati da analizzare e correggere se necessario.
+
+Per garantire un'esperienza coerente a tutti gli utenti, indipendentemente dal tipo di scanner usato, abbiamo unificato quattro consigli nei due seguenti elementi:
+
+|Raccomandazione unificata|Descrizione modifica:|
+|----|:----|
+|**Una soluzione di valutazione della vulnerabilità dovrebbe essere abilitata nelle macchine virtuali**|Sostituisce le due raccomandazioni seguenti:<br> **•** Abilitare la soluzione di valutazione della vulnerabilità incorporata nelle macchine virtuali (con tecnologia Qualys (ora deprecata) (inclusa nel livello standard)<br> **•** La soluzione di valutazione della vulnerabilità deve essere installata nelle macchine virtuali (ora deprecate) (livelli standard e gratuito)|
+|**È necessario correggere le vulnerabilità nelle macchine virtuali**|Sostituisce le due raccomandazioni seguenti:<br>**•** Correggere le vulnerabilità rilevate nelle macchine virtuali (basate su Qualys) (ora deprecate)<br>**•** Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità (ora deprecata)|
+|||
+
+A questo punto si userà la stessa raccomandazione per distribuire l'estensione di valutazione della vulnerabilità del Centro sicurezza o una soluzione con licenza privata ("BYOL") da un partner, ad esempio Qualys o Rapid7.
+
+Inoltre, quando vengono rilevate e segnalate vulnerabilità al centro sicurezza, una singola raccomandazione segnala i risultati indipendentemente dalla soluzione di valutazione della vulnerabilità che li ha identificati.
+
+#### <a name="updating-dependencies"></a>Aggiornamento delle dipendenze
+
+Se si dispone di script, query o automazione che fanno riferimento ai consigli precedenti o alle chiavi/nomi dei criteri, utilizzare le tabelle seguenti per aggiornare i riferimenti:
+
+##### <a name="before-august-2020"></a>Prima del 2020 agosto
+
+|Recommendation|Scope|
+|----|:----|
+|**Abilitare la soluzione di valutazione della vulnerabilità incorporata nelle macchine virtuali (con tecnologia Qualys)**<br>Chiave: 550e890b-E652-4D22-8274-60b3bdb24c63|Predefinito|
+|**Correggere le vulnerabilità rilevate nelle macchine virtuali (con tecnologia Qualys)**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Predefinito|
+|**È consigliabile installare una soluzione di valutazione della vulnerabilità nelle macchine virtuali**<br>Chiave: 01b1ed4c-B733-4fee-B145-f23236e70cf3|BYOL|
+|**Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità**<br>Chiave: 71992a2a-D168-42e0-b10e-6b45fa2ecddb|BYOL|
+||||
+
+
+|Policy|Scope|
+|----|:----|
+|**La valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9|Predefinito|
+|**Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità**<br>ID criterio: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
+||||
+
+
+##### <a name="from-august-2020"></a>Da agosto 2020
+
+|Recommendation|Scope|
+|----|:----|
+|**Una soluzione di valutazione della vulnerabilità dovrebbe essere abilitata nelle macchine virtuali**<br>Chiave: ffff0522-1e88-47FC-8382-2a80ba848f5d|Incorporato + BYOL|
+|**È necessario correggere le vulnerabilità nelle macchine virtuali**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Incorporato + BYOL|
+||||
+
+|Policy|Scope|
+|----|:----|
+|[**La valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9 |Incorporato + BYOL|
+||||
+
+
 
 ## <a name="july-2020"></a>Luglio 2020
 
@@ -119,12 +177,14 @@ Altre informazioni sulla sicurezza del contenitore del Centro sicurezza sono dis
 
 La funzionalità controlli applicazione adattivi ha ricevuto due aggiornamenti significativi:
 
-- Una nuova raccomandazione identifica un comportamento potenzialmente legittimo che non è stato precedentemente consentito. La nuova raccomandazione, le **regole di consenso nei criteri di controllo delle applicazioni adattivi devono essere aggiornate**. viene chiesto di aggiungere nuove regole al criterio esistente per ridurre il numero di falsi positivi negli avvisi di violazione dei controlli applicazione adattivi.
+* Una nuova raccomandazione identifica un comportamento potenzialmente legittimo che non è stato precedentemente consentito. La nuova raccomandazione, le **regole di consenso nei criteri di controllo delle applicazioni adattivi devono essere aggiornate**. viene chiesto di aggiungere nuove regole al criterio esistente per ridurre il numero di falsi positivi negli avvisi di violazione dei controlli applicazione adattivi.
 
-- Le regole di percorso ora supportano i caratteri jolly. Da questo aggiornamento è possibile configurare regole di percorso consentite utilizzando caratteri jolly. Esistono due scenari supportati:
+* Le regole di percorso ora supportano i caratteri jolly. Da questo aggiornamento è possibile configurare regole di percorso consentite utilizzando caratteri jolly. Esistono due scenari supportati:
 
-    - Utilizzo di un carattere jolly alla fine di un percorso per consentire tutti i file eseguibili all'interno di questa cartella e sottocartelle
-    - Utilizzando un carattere jolly all'interno di un percorso per abilitare un nome di file eseguibile noto con un nome di cartella modificabile (ad esempio, cartelle utente personali con un eseguibile noto, nomi di cartella generati automaticamente e così via). 
+    * Utilizzo di un carattere jolly alla fine di un percorso per consentire tutti i file eseguibili all'interno di questa cartella e sottocartelle
+
+    * Utilizzando un carattere jolly all'interno di un percorso per abilitare un nome di file eseguibile noto con un nome di cartella modificabile (ad esempio, cartelle utente personali con un eseguibile noto, nomi di cartella generati automaticamente e così via).
+
 
 [Altre informazioni sull'applicazione di controlli applicazioni adattivi](security-center-adaptive-application.md).
 
@@ -213,7 +273,7 @@ Per distribuire le configurazioni di automazione nell'organizzazione, usare i cr
 I criteri si trovano in criteri di Azure:
 
 
-|Obiettivo  |Criteri  |ID condizione  |
+|Obiettivo  |Policy  |ID condizione  |
 |---------|---------|---------|
 |Esportazione continua nell'hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
@@ -246,7 +306,7 @@ I nuovi criteri indicati di seguito sono stati aggiunti all'iniziativa ASC defau
 I criteri si trovano in criteri di Azure:
 
 
-| Criteri                                                                                                                                                                                                                                                                | ID condizione                            |
+| Policy                                                                                                                                                                                                                                                                | ID condizione                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
@@ -340,7 +400,7 @@ I controlli di sicurezza, e questo interruttore, fanno parte della nuova esperie
 
 Altre informazioni sui controlli di sicurezza sono disponibili in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md) (Punteggio di sicurezza migliorato (anteprima) nel Centro sicurezza di Azure).
 
-![Interruttore "Raggruppa per controlli" per le indicazioni](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
+![Interruttore "Raggruppa per controlli" per le indicazioni](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controllo di sicurezza espanso "Implement security best practices" (Implementa procedure consigliate per la sicurezza) 
 
@@ -512,17 +572,4 @@ Due raccomandazioni sulla sicurezza per le applicazioni Web sono ora considerate
 Queste raccomandazioni non verranno più visualizzate nel relativo elenco del Centro sicurezza. I criteri correlati non verranno più inclusi nell'iniziativa denominata "Criteri predefiniti del Centro sicurezza".
 
 Sono disponibili altre informazioni sulle [raccomandazioni relative alla sicurezza](recommendations-reference.md).
-
-
-
-## <a name="february-2020"></a>Febbraio 2020
-
-### <a name="fileless-attack-detection-for-linux-preview"></a>Rilevamento di attacchi senza file per Linux (anteprima)
-
-Dal momento che gli utenti malintenzionati impiegano metodi sempre più sofisticati per evitare il rilevamento, il Centro sicurezza di Azure estende il rilevamento degli attacchi senza file a Linux, oltre che a Windows. Gli attacchi senza file sfruttano le vulnerabilità del software, introducono payload dannosi in processi di sistema benigni e si nascondono nella memoria. Queste tecniche:
-
-- riducono al minimo o eliminano del tutto le tracce di malware sul disco
-- riducono notevolmente le probabilità di rilevamento da parte di soluzioni di analisi dei malware basate su disco
-
-Per contrastare questa minaccia, il Centro sicurezza di Azure ha rilasciato il rilevamento degli attacchi senza file per Windows nell'ottobre 2018 e ora ha esteso questa funzionalità anche a Linux. 
 

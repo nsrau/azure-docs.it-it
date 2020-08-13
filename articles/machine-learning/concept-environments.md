@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 828c8a33315f5a76eea780705e2cdf3c2871bd14
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc4c39cf26f3ab8d1037222f967789bfbeca05ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012808"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166774"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Che cosa sono gli ambienti Azure Machine Learning?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Per determinare se riutilizzare un'immagine memorizzata nella cache o crearne un
  * Elenco di pacchetti Python nella definizione conda
  * Elenco di pacchetti nella definizione di Spark 
 
-L'hash non dipende dal nome dell'ambiente o dalla versione. Se si rinomina l'ambiente o si crea un nuovo ambiente con le proprietà esatte e i pacchetti di uno esistente, il valore hash rimarrà invariato. Tuttavia, le modifiche alla definizione dell'ambiente, ad esempio l'aggiunta o la rimozione di un pacchetto python o la modifica della versione del pacchetto, determinano la modifica del valore hash. È importante notare che qualsiasi modifica apportata a un ambiente curato invalida l'hash e genera un nuovo ambiente "non curato".
+L'hash non dipende dal nome dell'ambiente o dalla versione. Se si rinomina l'ambiente o si crea un nuovo ambiente con le proprietà esatte e i pacchetti di uno esistente, il valore hash rimarrà invariato. Tuttavia, le modifiche alla definizione dell'ambiente, ad esempio l'aggiunta o la rimozione di un pacchetto python o la modifica della versione del pacchetto, determinano la modifica del valore hash. La modifica dell'ordine delle dipendenze o dei canali in un ambiente determinerà un nuovo ambiente e quindi richiederà una nuova compilazione dell'immagine. È importante notare che qualsiasi modifica apportata a un ambiente curato invalida l'hash e genera un nuovo ambiente "non curato".
 
 Il valore hash calcolato viene confrontato con quelli presenti nell'area di lavoro e nel registro di ACR globale (o nella destinazione di calcolo per le esecuzioni locali). Se viene rilevata una corrispondenza, viene eseguito il pull dell'immagine memorizzata nella cache; in caso contrario, viene attivata una compilazione dell'immagine. La durata per eseguire il pull di un'immagine memorizzata nella cache include il tempo di download mentre la durata per il pull di un'immagine appena compilata include sia l'ora di compilazione che l'ora di download. 
 
@@ -105,7 +105,7 @@ Il diagramma seguente mostra tre definizioni di ambiente. Due di esse hanno nomi
 >[!IMPORTANT]
 > Se si crea un ambiente con una dipendenza del pacchetto sbloccata, ad esempio ```numpy``` , tale ambiente continuerà a utilizzare la versione del pacchetto installata _al momento della creazione dell'ambiente_. Inoltre, qualsiasi ambiente futuro con definizione di corrispondenza continuerà a utilizzare la versione precedente. 
 
-Per aggiornare il pacchetto, specificare un numero di versione per forzare la ricompilazione dell'immagine, ad esempio ```numpy==1.18.1``` . Verranno installate nuove dipendenze, incluse quelle nidificate, che potrebbero interrompere uno scenario di lavoro precedente.
+Per aggiornare il pacchetto, specificare un numero di versione per forzare la ricompilazione dell'immagine, ad esempio ```numpy==1.18.1``` . Verranno installate nuove dipendenze, incluse quelle nidificate, che potrebbero interrompere uno scenario di lavoro precedente. 
 
 > [!WARNING]
 >  Il metodo [Environment. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) ricreerà l'immagine memorizzata nella cache, con un possibile effetto collaterale dell'aggiornamento dei pacchetti sbloccati e la riproducibilità di rilievo per tutte le definizioni di ambiente corrispondenti a tale immagine memorizzata nella cache.
