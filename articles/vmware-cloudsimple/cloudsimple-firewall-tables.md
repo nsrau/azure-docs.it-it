@@ -1,6 +1,6 @@
 ---
 title: Soluzione VMware di Azure di CloudSimple-tabelle del firewall
-description: Informazioni sulle regole del firewall e delle tabelle del firewall del cloud privato CloudSimple.
+description: Informazioni sulle regole del firewall e sulle tabelle del firewall del cloud privato CloudSimple, incluse le regole predefinite create in ogni tabella del firewall.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025045"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140871"
 ---
 # <a name="firewall-tables-overview"></a>Panoramica delle tabelle del firewall
 
@@ -26,7 +26,7 @@ Nella tabella seguente vengono descritti i parametri di una regola del firewall.
 | Proprietà | Dettagli |
 | ---------| --------|
 | **Nome** | Nome che identifica in modo univoco la regola del firewall e il suo scopo. |
-| **Priority** | Un numero compreso tra 100 e 4096, con 100 è la priorità più alta. Le regole vengono elaborate in ordine di priorità. Quando il traffico rileva una corrispondenza della regola, l'elaborazione della regola viene arrestata. Di conseguenza, le regole con priorità più bassa che hanno gli stessi attributi delle regole con priorità più alta non vengono elaborate.  Prestare attenzione per evitare regole in conflitto. |
+| **Priorità** | Un numero compreso tra 100 e 4096, con 100 è la priorità più alta. Le regole vengono elaborate in ordine di priorità. Quando il traffico rileva una corrispondenza della regola, l'elaborazione della regola viene arrestata. Di conseguenza, le regole con priorità più bassa che hanno gli stessi attributi delle regole con priorità più alta non vengono elaborate.  Prestare attenzione per evitare regole in conflitto. |
 | **Rilevamento dello stato** | Il rilevamento può essere senza stato (cloud privato, Internet o VPN) o con stato (IP pubblico).  |
 | **Protocollo** | Le opzioni includono any, TCP o UDP. Se è necessario ICMP, usare Any. |
 | **Direzione** | Definisce se la regola si applica al traffico in ingresso o in uscita. |
@@ -53,12 +53,12 @@ Per il flusso del traffico in direzione inversa potrebbero essere necessarie alt
 
 In ogni tabella del firewall vengono create le regole predefinite seguenti.
 
-|Priorità|Nome|Rilevamento dello stato|Direzione|Tipo di traffico|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|Action|
+|Priorità|Nome|Rilevamento dello stato|Direzione|Tipo di traffico|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|Azione|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|Consenti-tutti-a-Internet|Con stato|In uscita|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Consenti|
+|65000|Consenti-tutti-a-Internet|Con stato|In uscita|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
 |65001|Deny-All-da-Internet|Con stato|In ingresso|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Nega|
-|65002|Consenti-tutti-a-Intranet|Senza stato|In uscita|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Consenti|
-|65003|Consenti tutto da Intranet|Senza stato|In ingresso|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Consenti|
+|65002|Consenti-tutti-a-Intranet|Senza stato|In uscita|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
+|65003|Consenti tutto da Intranet|Senza stato|In ingresso|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
 title: Panoramica della soluzione VMware di Azure di CloudSimple-nodes
-description: Informazioni sui nodi e concetti relativi a CloudSimple.
+description: Informazioni sui concetti relativi a CloudSimple, tra cui nodi, nodi di cui è stato effettuato il provisioning, un cloud privato e una soluzione VMware tramite SKU dei nodi CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024926"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140837"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Panoramica sui nodi CloudSimple
 
@@ -38,7 +38,7 @@ I tipi di nodi seguenti sono disponibili per il provisioning o la prenotazione.
 
 | SKU           | CS28-nodo                 | CS36-nodo                 | CS36m-nodo                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Region        | Stati Uniti orientali, Stati Uniti occidentali            | Stati Uniti orientali, Stati Uniti occidentali            | Europa occidentale                 |
+| Area        | Stati Uniti orientali, Stati Uniti occidentali            | Stati Uniti orientali, Stati Uniti occidentali            | Europa occidentale                 |
 | CPU           | 2x 2.2 GHz, 28 Core (56 HT) | 2x 2,3 GHz, 36 core (72 HT) | 2x 2,3 GHz, 36 core (72 HT) |
 | RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | Disco della cache    | 1,6-TB NVMe                 | 3,2-TB NVMe                 | 3,2-TB NVMe                 |
