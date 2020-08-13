@@ -29,6 +29,8 @@
       href: quickstart-configure-your-solution.md
     - name: Creare un modulo gemello del Centro sicurezza di Azure per IoT
       href: quickstart-create-security-twin.md
+    - name: Esaminare le raccomandazioni sulla sicurezza
+      href: quickstart-investigate-security-recommendations.md
     - name: Creare avvisi di sicurezza personalizzati
       href: quickstart-create-custom-alerts.md
     - name: Esaminare gli avvisi di sicurezza

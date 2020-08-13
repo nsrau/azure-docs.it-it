@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 391a5f054c5d80b255fd333ea416900c8c5ab6d1
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f6420683d22488abc66b387fd44cb74cc8f8b7bd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135420"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184653"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -575,9 +575,9 @@ Per segnalare se il volume di dati fatturabile inserito nelle ultime 24 ore è s
 - Per **Definire la condizione dell'avviso**, specificare l'area di lavoro Log Analytics come destinazione della risorsa.
 - Per **Criteri di avviso** specificare quanto segue:
    - Per **Nome segnale** selezionare **Ricerca log personalizzata**
-   - Eseguire una **query di ricerca** in `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se si vuole un diversi 
+   - Eseguire una **query di ricerca** in `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
    - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
-   - **Periodo di tempo** di *1440* minuti e **frequenza di avviso** a ogni *1440* minutesto eseguiti una volta al giorno.
+   - **Periodo di tempo** di *1440* minuti e **frequenza di avviso** a ogni *1440* minuti per l'esecuzione una volta al giorno.
 - Per **Definire i dettagli dell'avviso** specificare quanto segue:
    - **Nome** del *volume di dati fatturabile superiore a 50 GB in 24 ore*
    - **Gravità** su *Avviso*
@@ -604,7 +604,7 @@ Quando la raccolta dati si interrompe, OperationStatus è **Avviso**. Quando la 
 |Motivo dell'arresto della raccolta| Soluzione| 
 |-----------------------|---------|
 |È stato raggiunto il limite giornaliero dell'area di lavoro|Attendere il riavvio automatico della raccolta oppure aumentare il limite giornaliero per il volume di dati, come descritto nella sezione sulla gestione del volume di dati giornaliero massimo. Il tempo di reimpostazione limite giornaliero viene visualizzato nella pagina **limite giornaliero** . |
-| L'area di lavoro ha raggiunto la [velocità del volume](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) di inserimento dati | Il limite di velocità del volume di inserimento predefinito per i dati inviati dalle risorse di Azure con le impostazioni di diagnostica è di circa 6 GB/min per area di lavoro. Si tratta di un valore approssimativo, poiché la dimensione effettiva può variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o dall'API dell'agente di raccolta dati. Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle operazioni nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro inviando un messaggio di posta elettronica LAIngestionRate@microsoft.com o aprendo una richiesta di supporto. L'evento da cercare che indica un limite della velocità di inserimento dei dati può essere trovato dalla query `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"` . |
+| L'area di lavoro ha raggiunto la [velocità del volume](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) di inserimento dati | Una soglia di frequenza del volume di inserimento predefinita di 500 MB (compresso) si applica alle aree di lavoro, che corrispondono a circa **6 GB/min** non compressi, le cui dimensioni effettive possono variare tra i tipi di dati, a seconda della lunghezza del log e del relativo rapporto di compressione. Questa soglia si applica a tutti i dati inseriti se inviati dalle risorse di Azure usando [le impostazioni di diagnostica](diagnostic-settings.md), l' [API dell'agente di raccolta dati](data-collector-api.md) o gli agenti. Quando si inviano dati a un'area di lavoro a una velocità di volume superiore al 80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Quando la velocità del volume inserito è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se la velocità del volume di inserimento continua a superare la soglia o se si prevede di raggiungerla presto, è possibile richiedere di aumentarla nell'area di lavoro aprendo una richiesta di supporto. Per ricevere una notifica relativa a un evento di questo tipo nell'area di lavoro, creare una [regola di avviso del log](alerts-log.md) usando la query seguente con la logica di avviso di base per numero di risultati maggiore di zero, periodo di valutazione di 5 minuti e frequenza di 5 minuti. La velocità del volume di inserimento ha raggiunto il 80% della soglia: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . Soglia raggiunta velocità del volume di inserimento: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
 |Limite giornaliero del piano tariffario legacy Gratuito raggiunto |Attendere fino al giorno successivo per il riavvio automatico della raccolta oppure passare a un piano tariffario a pagamento.|
 |La sottoscrizione di Azure è in sospeso perché:<br> la versione di prova gratuita è terminata<br> Azure Pass è scaduto<br> Il limite di spesa mensile è stato raggiunto, ad esempio in una sottoscrizione MSDN o in una sottoscrizione di Visual Studio|Passare a una sottoscrizione a pagamento<br> Rimuovere il limite oppure attendere fino ripristino del limite|
 

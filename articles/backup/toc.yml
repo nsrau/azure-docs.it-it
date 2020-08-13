@@ -24,7 +24,7 @@
       href: tutorial-backup-vm-at-scale.md
     - name: Eseguire il backup di macchine virtuali di Azure con PowerShell
       href: tutorial-backup-azure-vm.md
-    - name: Ripristinare un disco
+    - name: Ripristinare una macchina virtuale con l'interfaccia della riga di comando di Azure
       href: tutorial-restore-disk.md
     - name: Ripristinare singoli file
       href: tutorial-restore-files.md
@@ -353,7 +353,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica
           href: security-overview.md

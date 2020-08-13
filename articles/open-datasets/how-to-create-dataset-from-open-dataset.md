@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: db2e493f04d74308b21e8a63222f26b1e2af8546
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e6f3a541f1e9dbca2c9949fb0c5cde28cd43e8e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038238"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183028"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Creare set di impostazioni di Azure Machine Learning da Azure Open DataSet
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,19 +75,21 @@ Quando si registra un set di dati creato da set di dati aperti, non vengono scar
 
 ## <a name="create-datasets-with-the-studio"></a>Creare set di impostazioni con studio
 
-È anche possibile creare set di impostazioni da set di set di impostazioni aperti con il [Azure Machine Learning Studio](https://ml.azure.com). Nell'area di lavoro selezionare la scheda **set** di **elementi in asset**. Nel menu a discesa **Crea set di dati** selezionare **da set di dati aperti**.
+È anche possibile creare set di impostazioni da set di set di impostazioni aperti con il [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Aprire il set di dati con l'interfaccia utente](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
+1. Nell'area di lavoro selezionare la scheda **set** di **elementi in asset**. Nel menu a discesa **Crea set di dati** selezionare **da set di dati aperti**.
 
-Selezionare un set di dati selezionando il relativo riquadro. È possibile filtrare usando la barra di ricerca. Selezionare **Avanti**.
+    ![Aprire il set di dati con l'interfaccia utente](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
-![Scegliere il set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
+1. Selezionare un set di dati selezionando il relativo riquadro. È possibile filtrare usando la barra di ricerca. Selezionare **Avanti**.
 
-Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati Public Holidays è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Selezionare **Crea**.
+    ![Scegliere il set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-![Imposta parametri set di dati e crea set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+1. Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati **Public Holidays** è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Selezionare **Crea**.
 
-Il set di dati è ora disponibile nell'area di lavoro in **set**di dati. È possibile usarlo nello stesso modo degli altri set di impostazioni creati.
+    ![Imposta parametri set di dati e crea set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+
+    Il set di dati è ora disponibile nell'area di lavoro in **set**di dati. È possibile usarlo nello stesso modo degli altri set di impostazioni creati.
 
 
 ## <a name="access-datasets-for-your-experiments"></a>Accedere ai set di impostazioni per gli esperimenti

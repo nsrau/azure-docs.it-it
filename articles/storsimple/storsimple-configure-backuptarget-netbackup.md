@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 come destinazione di backup con NetBackup | Microsoft Docs
-description: Descrive la configurazione della destinazione di backup di StorSimple con Veritas NetBackup.
+description: Informazioni sulla configurazione della destinazione di backup di StorSimple con Veritas NetBackup e le procedure consigliate per l'integrazione di entrambe le soluzioni.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 34c66c3d5739fdc23323a302e3bedfb1b6301d86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b186fadcc99c6cc538b61eaa94d5d84d649c233f
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077912"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184007"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple come destinazione di backup con NetBackup
 
@@ -253,7 +253,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 | Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
 |---|---|---|---|
 | Completo settimanale | 1 | 4  | 4 |
-| Incrementale giornaliero | 0,5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Incrementale giornaliero | 0.5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
 | Completo mensile | 1 | 12 | 12 |
 | Completo annuale | 1  | 10 | 10 |
 | Requisito GFS |   | 38 |   |
@@ -472,7 +472,7 @@ Dopo aver definito i pool di dischi iniziali, è necessario definire altri tre c
 | Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
 |---|---|---|---|
 | Completo settimanale |  1  |  4 | 4  |
-| Incrementale giornaliero  | 0,5  | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Incrementale giornaliero  | 0.5  | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
 | Completo mensile  | 1 | 12 | 12 |
 | Completo annuale | 1  | 10 | 10 |
 | Requisito GFS  |     |     | 38 |

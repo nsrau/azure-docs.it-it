@@ -6,6 +6,16 @@
       href: ./kubernetes/overview.md
     - name: Informazioni sui server con abilitazione di Azure Arc
       href: ./servers/overview.md
+- name: Avvi rapidi
+  items:
+    - name: Abilitare l'agente Arc per server
+      href: ./servers/learn/quick-enable-hybrid-vm.md
+- name: Esercitazioni
+  items:
+    - name: Assegnare i criteri per valutare la conformità
+      href: ./servers/learn/tutorial-assign-policy-portal.md
+    - name: Monitorare il computer
+      href: ./servers/learn/tutorial-enable-vm-insights.md
 - name: Esempi
   items:
     - name: Criteri di Azure predefiniti

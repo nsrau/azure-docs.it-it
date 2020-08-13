@@ -1,15 +1,15 @@
 ---
 title: Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 description: Come distribuire e configurare la rete dell'infrastruttura iperledger in Azure Kubernetes Service
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533428"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184211"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 
@@ -300,7 +300,7 @@ Dal client dell'organizzazione peer, eseguire il comando per impostare i peer di
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>`elenco separato da spazi dei nodi peer da impostare come peer di ancoraggio. ad esempio:
+`<anchorPeersList>`elenco separato da spazi dei nodi peer da impostare come peer di ancoraggio. Ad esempio,
 
   - Impostare `<anchorPeersList>` come "peer1" Se si vuole impostare solo il nodo Peer1 come peer di ancoraggio.
   - Impostare `<anchorPeersList>` come "peer1" "Peer3" Se si desidera impostare il nodo Peer1 e Peer3 come peer di ancoraggio.
@@ -350,10 +350,22 @@ Attenersi alla procedura seguente:
 Dall'applicazione client peer eseguire il comando seguente per creare un'istanza di chaincode sul canale.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 Passare il nome della funzione di creazione di istanze e l'elenco separato da spazi di argomenti `<instantiateFunc>` rispettivamente in e `<instantiateFuncArgs>` . Ad esempio, in chaincode_example02. go chaincode, per creare un'istanza di chaincode impostato `<instantiateFunc>` su `init` e `<instantiateFuncArgs>` su "a" "2000" "b" "1000".
+
+È anche possibile passare il file JSON di configurazione raccolte usando il `--collections-config` flag. In alternativa, impostare gli argomenti temporanei utilizzando il `-t` flag durante la creazione di un'istanza di chaincode utilizzata per le transazioni private.
+
+Ad esempio:
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+```
+
+\<collectionConfigJSONFilePath\>È il percorso del file JSON contenente le raccolte definite per la creazione di un'istanza di un chaincode di dati privato. È possibile trovare un file JSON di configurazione di raccolte di esempio relativo alla directory azhlfTool nel percorso seguente: `./samples/chaincode/src/private_marbles/collections_config.json` .
+Passare \<transientArgs\> come JSON valido in formato stringa. Escape per i caratteri speciali. Ad esempio: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Eseguire il comando per una sola volta da una qualsiasi organizzazione peer nel canale. Una volta che la transazione è stata inviata correttamente all'ordinatore, l'ordinatore distribuisce questa transazione a tutte le organizzazioni peer nel canale. Viene quindi creata un'istanza di chaincode in tutti i nodi peer di tutte le organizzazioni peer nel canale.  
@@ -377,8 +389,12 @@ Passare il nome della funzione di richiamo e l'elenco separato da spazi di argom
 Eseguire il comando seguente per eseguire una query su chaincode:  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+I peer di verifica sono peer in cui chaincode è installato e viene chiamato per l'esecuzione di transazioni. È necessario impostare i \<endorsingPeers\> nomi dei nodi peer che li contengono dall'organizzazione peer corrente. Elenca i peer di verifica per la combinazione di chaincode e canale specificata separati da spazi. Ad esempio: `-p "peer1" "peer3"`.
+
+Se si usa azhlfTool per installare il chaincode, passare i nomi dei nodi peer come valore all'argomento peer di verifica dell'autenticità. Chaincode viene installato in ogni nodo peer per l'organizzazione. 
+
 Passare il nome della funzione di query e l'elenco separato da spazi di argomenti  `<queryFunction>`   rispettivamente in e  `<queryFuncArgs>`   . Anche in questo caso, prendendo chaincode_example02. go chaincode come riferimento, per eseguire una query sul valore di "a" nello stato globale impostato  `<queryFunction>`   su  `query` e  `<queryArgs>` su "a".  
 
 ## <a name="troubleshoot"></a>Risolvere problemi

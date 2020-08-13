@@ -5,17 +5,20 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: 913f1f2a7a03c1abb83d8daa6d4b0c3f6e77e309
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133757"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184619"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Risolvere i problemi dell'estensione VM di Azure
 
 Questo articolo illustra i passaggi per la risoluzione dei problemi che consentono di risolvere Azure Site Recovery errori correlati all'agente di macchine virtuali e all'estensione.
 
+## <a name="low-system-resources"></a>Risorse di sistema insufficienti
+
+Questo problema si verifica quando la memoria disponibile nel sistema non è sufficiente e non è in grado di allocare memoria per l'installazione del servizio Mobility. Verificare che sia stata liberata una quantità di memoria sufficiente perché l'installazione continui e venga completata correttamente.
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Timeout dell'estensione Azure Site Recovery  
 
@@ -103,7 +106,7 @@ Per disinstallare l'estensione:
 
 1. Nella [portale di Azure](https://portal.azure.com/)passare alla macchina virtuale in cui si è verificato un errore di backup.
 1. Selezionare **Impostazioni**.
-1. Selezionare **estensioni**.
+1. Selezionare **Estensioni**.
 1. Selezionare **Estensione Site Recovery**.
 1. Selezionare **Disinstalla**.
 

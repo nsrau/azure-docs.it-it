@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 come destinazione di backup con Veeam | Microsoft Docs
-description: Descrive la configurazione della destinazione di backup StorSimple con Veeam.
+description: Informazioni sulla configurazione della destinazione di backup StorSimple con Veeam e le procedure consigliate per l'integrazione di entrambe le soluzioni.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 05ee60986703096c004c4d15764028b73d04c0bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077887"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183981"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple come destinazione di backup con Veeam
 
@@ -260,7 +260,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 | Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
 |---|---|---|---|
 | Completo settimanale | 1 | 4  | 4 |
-| Incrementale giornaliero | 0,5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Incrementale giornaliero | 0.5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
 | Completo mensile | 1 | 12 | 12 |
 | Completo annuale | 1  | 10 | 10 |
 | Requisito GFS |   | 38 |   |

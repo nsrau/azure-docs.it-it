@@ -10,16 +10,22 @@
   items:
     - name: Assegnare un criterio - Portale
       displayName: 'assign, compliance'
-      href: assign-policy-portal.md
-    - name: Assegnare un criterio - Azure PowerShell
-      displayName: 'assign, compliance'
-      href: assign-policy-powershell.md
+      href: ./assign-policy-portal.md
     - name: Assegnare un criterio - Interfaccia della riga di comando di Azure
       displayName: 'assign, compliance'
-      href: assign-policy-azurecli.md
+      href: ./assign-policy-azurecli.md
+    - name: Assegnare un criterio - Azure PowerShell
+      displayName: 'assign, compliance'
+      href: ./assign-policy-powershell.md
+    - name: Assegnare un criterio - Python
+      displayName: 'assign, compliance'
+      href: ./assign-policy-python.md
+    - name: Assegnare un criterio - REST
+      displayName: 'armclient, postman'
+      href: ./assign-policy-rest-api.md
     - name: Assegnare un criterio - Modello di Resource Manager
       displayName: 'assign, compliance, resource manager'
-      href: assign-policy-template.md
+      href: ./assign-policy-template.md
 - name: Esercitazioni
   items:
     - name: Creare e gestire i criteri di Azure

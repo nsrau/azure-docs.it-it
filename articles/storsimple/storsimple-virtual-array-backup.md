@@ -1,6 +1,6 @@
 ---
 title: Esercitazione sul backup dell'array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
-description: Si illustra come eseguire il backup delle condivisioni e dei volumi di StorSimple Virtual Array.
+description: Creare backup pianificati e manuali per Microsoft Azure StorSimple array virtuale ed eseguire il ripristino a livello di elemento per ripristinare un file eliminato nell'array virtuale.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513677"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183225"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Eseguire il backup di condivisioni o volumi nell'array virtuale StorSimple
 
@@ -108,7 +108,7 @@ Per visualizzare i backup esistenti, eseguire la procedura seguente nel portale 
    
      ![Filtro backup](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Fare clic su **Apply**. Viene visualizzato l'elenco filtrato dei backup nel pannello **Catalogo di backup**. Si noti che è possibile visualizzare solo 100 elementi di backup alla volta.
+3. Fare clic su **Applica**. Viene visualizzato l'elenco filtrato dei backup nel pannello **Catalogo di backup**. Si noti che è possibile visualizzare solo 100 elementi di backup alla volta.
    
     ![Catalogo di backup aggiornato](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

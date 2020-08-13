@@ -1,17 +1,17 @@
 ---
 title: Aprire un ticket di supporto per Microsoft Azure filer di FXT Edge
-description: Procedura per aprire un ticket per il supporto del file System di Azure FXT Edge
+description: Aprire un ticket di supporto con il servizio supporto tecnico clienti Microsoft per assistenza sul sistema di file di Azure FXT Edge.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 292844f611008b6dafbed4e46cad07c45dbecc54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16b219afa329cc105fb70000d8a088d67883feed
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72255974"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184670"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Aprire un ticket di supporto per il filer di Azure FXT Edge
 

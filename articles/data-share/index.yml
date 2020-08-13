@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: hrasheed-msft
   ms.author: hrasheed
-  ms.date: 09/13/2019
-  ms.openlocfilehash: 66350050a84617b789c6a73c38170dc25dad331d
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 08/11/2020
+  ms.openlocfilehash: 43de19b3caa87bf410ad30a237c2c9e91beba63f
+  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73802910"
+  ms.lasthandoff: 08/12/2020
+  ms.locfileid: "88136372"
 landingContent:
 - title: Informazioni su Condivisione dati di Azure
   linkLists:
@@ -24,13 +24,17 @@ landingContent:
     links:
     - text: Che cos'è Condivisione dati di Azure?
       url: overview.md
+    - text: Archivi dati supportati
+      url: supported-data-stores.md
   - linkListType: concept
     links:
-    - text: Concetti relativi a Condivisione dati di Azure
+    - text: Terminologia di Condivisione dati di Azure
       url: terminology.md
     - text: Ruoli e requisiti per Condivisione dati di Azure
       url: concepts-roles-permissions.md
-- title: Condividere dati
+    - text: Informazioni sui prezzi
+      url: concepts-pricing.md
+- title: Condividere e ricevere dati
   linkLists:
   - linkListType: tutorial
     links:
@@ -40,21 +44,25 @@ landingContent:
       url: subscribe-to-data-share.md
   - linkListType: how-to-guide
     links:
-    - text: Configurare i mapping dei set di dati
-      url: how-to-configure-mapping.md
     - text: Aggiungere set di dati
       url: how-to-add-datasets.md
+    - text: Configurare i mapping dei set di dati
+      url: how-to-configure-mapping.md
 - title: Monitorare e gestire
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Monitorare Condivisione dati di Azure
+    - text: Monitorare la condivisione
       url: how-to-monitor.md
     - text: Risolvere i problemi comuni
       url: data-share-troubleshoot.md
-    - text: Aggiungere set di dati
-      url: how-to-add-datasets.md
+    - text: Aggiungere destinatari
+      url: how-to-add-recipients.md
     - text: Eliminare un invito
       url: how-to-delete-invitation.md
     - text: Revocare una sottoscrizione di condivisione
       url: how-to-revoke-share-subscription.md
+    - text: Panoramica della sicurezza di Condivisione dati di Azure
+      url: security.md
+    - text: Ripristino di emergenza
+      url: disaster-recovery.md

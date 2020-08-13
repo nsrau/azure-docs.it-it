@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 127604264850f9845846d0bb6a2768cac23cdc8c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 0613b4c444b9eacaaf2b9d3e0795f4872cb903f3
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169156"
+ms.locfileid: "88182945"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Stati e ciclo di vita di macchine virtuali
 
@@ -23,137 +23,195 @@ Per Macchine virtuali di Azure (VM) sono previsti vari stati che possono essere 
 
 Lo stato di alimentazione rappresenta l'ultimo stato noto della macchina virtuale.
 
-![Diagramma degli stati di alimentazione della macchina virtuale](./media/vm-power-states.png)
+![Diagramma degli stati di alimentazione della macchina virtuale](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
 La tabella seguente include una descrizione di ogni stato dell'istanza e indica se tale stato genera o meno un addebito per l'utilizzo dell'istanza.
 
-<table>
-<tr>
-<th>
-State
-</th>
-<th>
-Descrizione
-</th>
-<th>
-Fatturazione dell'utilizzo dell'istanza
-</th>
-</tr>
-<tr>
-<td>
-<p><b>Avvio in corso</b></p>
-</td>
-<td>
-<p>Avvio della macchina virtuale in corso.</p>
-<code>"statuses": [<br>
-   {<br>
-      "code": "PowerState/starting",<br>
-       "level": "Info",<br>
-        "displayStatus": "VM starting"<br>
-    }<br>
-    ]</code><br>
-</td>
-<td>
-<p><b>Non fatturato</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Running</b></p>
-</td>
-<td>
-<p>Stato di funzionamento normale per una macchina virtuale</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/running",<br>
- "level": "Info",<br>
- "displayStatus": "VM running"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Fatturato</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Stopping</b></p>
-</td>
-<td>
-<p>Si tratta di uno stato transitorio. Al termine, verrà visualizzato lo stato **Arrestato**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopping",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopping"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Fatturato</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Arrestato</b></p>
-</td>
-<td>
-<p>La macchina virtuale è stato chiusa dall'interno del sistema operativo guest o tramite le API PowerOff.</p>
-<p>L'hardware è ancora allocata alla macchina virtuale e rimane nell'host. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopped",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopped"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Fatturato&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Deallocazione</b></p>
-</td>
-<td>
-<p>Stato transitorio. Al termine, lo stato visualizzato per la macchina virtuale sarà **Deallocato**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocating",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocating"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Non fatturato&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Deallocato</b></p>
-</td>
-<td>
-<p>La macchina virtuale è stata arrestata correttamente e rimossa dall'host. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocated",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocated"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Non fatturato</b></p>
-</td>
-</tr>
-</tbody>
-</table>
+:::row:::
+   :::column span="":::
+
+   **State**
+   
+   :::column-end:::
+   :::column span="":::
+
+   **Descrizione**
+
+   :::column-end:::
+   :::column span="":::
+
+   **Utilizzo dell'istanza fatturato**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Avvio in corso**
+
+   :::column-end:::
+   :::column span="":::
+
+   Avvio della macchina virtuale in corso.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/starting",
+    "level": "Info",
+    "displayStatus": "VM starting"
+    }
+   ]
+   ```
+   :::column-end:::
+   :::column span="":::
+
+   **Non fatturato**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Running**
+
+   :::column-end:::
+   :::column span="":::
+
+   Stato di funzionamento normale per una macchina virtuale
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/running",
+    "level": "Info",
+    "displayStatus": "VM running"
+    }
+  ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Fatturato**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Stopping**
+
+   :::column-end:::
+   :::column span="":::
+
+   Si tratta di uno stato transitorio. Al termine, verrà visualizzato lo stato **Arrestato**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopping",
+    "level": "Info",
+    "displayStatus": "VM stopping"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Fatturato**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Arrestato**
+
+   :::column-end:::
+   :::column span="":::
+
+   La macchina virtuale è stato chiusa dall'interno del sistema operativo guest o tramite le API PowerOff.
+
+   L'hardware è ancora allocata alla macchina virtuale e rimane nell'host.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopped",
+    "level": "Info",
+    "displayStatus": "VM stopped"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Fatturato***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Deallocazione**
+
+   :::column-end:::
+   :::column span="":::
+
+   Stato transitorio. Al termine, lo stato visualizzato per la macchina virtuale sarà **Deallocato**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocating",
+    "level": "Info",
+    "displayStatus": "VM deallocating"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Non fatturato***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Deallocato**
+
+   :::column-end:::
+   :::column span="":::
+
+   La macchina virtuale è stata arrestata correttamente e rimossa dall'host.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocated",
+    "level": "Info",
+    "displayStatus": "VM deallocated"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Non fatturato**
+
+   :::column-end:::
+:::row-end:::
 
 
-&#42;Alcune risorse di Azure, ad esempio dischi e rete, comportano l'addebito di costi. Le licenze software nell'istanza non comportano l'addebito di costi.
+&#42; alcune risorse di Azure, ad esempio dischi e rete, comportano addebiti. Le licenze software nell'istanza non comportano l'addebito di costi.
 
 ## <a name="provisioning-states"></a>Stati di provisioning
 
@@ -171,86 +229,159 @@ Uno stato di provisioning è lo stato di un'operazione del piano di controllo av
 
 Di seguito sono indicati gli stati operativi transitori dopo che la piattaforma ha accettato un'azione avviata dall'utente:
 
-<br>
+:::row:::
+   :::column span="":::
 
-<table>
-<tbody>
-<tr>
-<td width="162">
-<p><b>Stati</b></p>
-</td>
-<td width="366">
-<p>Descrizione</p>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Creating</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating",<br>
- "level": "Info",<br>
- "displayStatus": "Creating"<br>
- }</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Aggiornamento</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/updating",<br>
- "level": "Info",<br>
- "displayStatus": "Updating"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Deleting</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/deleting",<br>
- "level": "Info",<br>
- "displayStatus": "Deleting"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Stati di provisioning del sistema operativo</b></p>
-</td>
-<td width="366">
-<p>Se viene creata una VM con un'immagine del sistema operativo e non con un'immagine specializzata, possono essere indicati i sottostati seguenti:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; La macchina virtuale è in esecuzione e l'installazione del sistema operativo guest è in corso. <p /> 
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning In progress"<br>
- }<br>
-]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; Stato di breve durata. La macchina virtuale passa rapidamente allo stato **Operazione riuscita** a meno che non sia necessario installare estensioni. L'installazione delle estensioni può richiedere tempo. <br />
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning Complete"<br>
- }<br>
-]</code><br>
-<p><b>Nota</b>: il provisioning del sistema operativo può passare allo stato **Operazione non riuscita** in presenza di un errore del sistema operativo o se il sistema operativo non viene installato in tempo. I clienti riceveranno un addebito per la macchina virtuale distribuita nell'infrastruttura.</p>
-</td>
-</tr>
-</table>
+   **State**
+   
+   :::column-end:::
+   :::column span="2":::
 
+   **Descrizione**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Creating**
+
+   :::column-end:::
+   :::column span="2":::
+
+  ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating",
+    "level": "Info",
+    "displayStatus": "Creating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Aggiornamento**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/updating",
+    "level": "Info",
+    "displayStatus": "Updating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Deleting**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/deleting",
+    "level": "Info",
+    "displayStatus": "Deleting"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Stati di provisioning del sistema operativo**
+   
+   :::column-end:::
+   :::column span="2":::
+
+   **Descrizione**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+
+
+   :::column-end:::
+   :::column span="2":::
+
+   Se viene creata una VM con un'immagine del sistema operativo e non con un'immagine specializzata, possono essere indicati i sottostati seguenti:
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningInprogress**
+
+   :::column-end:::
+   :::column span="2":::
+
+   La macchina virtuale è in esecuzione ed è in corso l'installazione del sistema operativo guest.
+ 
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningInprogress",
+    "level": "Info",
+    "displayStatus": "OS Provisioning In progress"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningComplete**
+
+   :::column-end:::
+   :::column span="2":::
+   
+   Stato di breve durata. La macchina virtuale passa rapidamente allo stato **Operazione riuscita** a meno che non sia necessario installare estensioni. L'installazione delle estensioni può richiedere tempo.
+   
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningComplete",
+    "level": "Info",
+    "displayStatus": "OS Provisioning Complete"
+    }
+   [
+   ```
+   
+   **Nota**: il provisioning del sistema operativo può passare allo stato **Operazione non riuscita** in presenza di un errore del sistema operativo o se il sistema operativo non viene installato in tempo. I clienti riceveranno un addebito per la macchina virtuale distribuita nell'infrastruttura.
+
+   :::column-end:::
+
+:::row-end:::
 
 Una volta completata l'operazione, la macchina virtuale passerà a uno degli stati seguenti:
 

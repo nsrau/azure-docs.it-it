@@ -1,17 +1,17 @@
 ---
 title: Modificare il percorso BLOB da quello predefinito
-description: Informazioni su come impostare una funzione di Azure per rinominare un percorso di file BLOB
+description: Informazioni su come configurare una funzione di Azure per rinominare un percorso di file BLOB predefinito e spostare i BLOB in un percorso diverso.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504832"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183718"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Cambiare il percorso BLOB predefinito
 
@@ -27,7 +27,7 @@ Per creare una funzione di Azure, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **+ Crea una risorsa**. Digitare **App per le funzioni** nella casella **Cerca** e premere **INVIO**. Selezionare e fare clic su **App per le funzioni** nell'elenco di applicazioni visualizzato.
+2. Fare clic su **Crea una risorsa**. Digitare **App per le funzioni** nella casella **Cerca** e premere **INVIO**. Selezionare e fare clic su **App per le funzioni** nell'elenco di applicazioni visualizzato.
 
     ![Digitare "App per le funzioni" nella casella Cerca](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 

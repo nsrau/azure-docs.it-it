@@ -1,17 +1,17 @@
 ---
 title: Specifiche di Microsoft Azure FXT Edge Filer | Microsoft Docs
-description: Specifiche fisiche e ambientali per l'hardware di Azure FXT Edge Filer
+description: Informazioni sulle specifiche fisiche e ambientali per Microsoft Azure hardware del filer di FXT Edge.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231300"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184687"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifiche di Azure FXT Edge Filer
 
@@ -36,7 +36,7 @@ I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edg
 
 | Numeri di unità    |  Uso   |  Specifiche |
 |------------------|--------|-----------------|
-| 0, 1             | Sistema operativo     | Unità SSD SATA da 480 GB |
+| 0, 1             | OS     | Unità SSD SATA da 480 GB |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: unità SSD NVMe 3,2 TB <br> FXT 6400: unità SSD NVMe 1,6 TB |
 
 

@@ -1,18 +1,18 @@
 ---
 title: Opzioni per il trasferimento di dati in Azure tramite un'appliance | Microsoft Docs
-description: Informazioni su come scegliere l'appliance più adatta per trasferire i dati in Azure
+description: Informazioni su come scegliere l'appliance ideale per il trasferimento di dati locali in Azure tra Data Box Edge, Sincronizzazione file di Azure e StorSimple serie 8000.
 services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 903342230b28f8e4fbdcdfd93543e5a0aa54975e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203980"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183276"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Confrontare le opzioni di trasferimento dei dati StorSimple, Sincronizzazione file di Azure e Data Box Edge 
 
@@ -28,7 +28,7 @@ Questo documento offre una panoramica delle opzioni per il trasferimento di dati
 
 |                           |StorSimple 8000   |Sincronizzazione file di Azure   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|**Overview**     |Risorsa di archiviazione ibrida in livelli e archiviazione|Archiviazione generale su file server con cloud a livelli e sincronizzazione multisito.  |Soluzione di archiviazione per eseguire l'analisi preliminare dei dati e inviarli ad Azure attraverso la rete.        |
+|**Panoramica**     |Risorsa di archiviazione ibrida in livelli e archiviazione|Archiviazione generale su file server con cloud a livelli e sincronizzazione multisito.  |Soluzione di archiviazione per eseguire l'analisi preliminare dei dati e inviarli ad Azure attraverso la rete.        |
 |**Scenari**    |File server, archiviazione, destinazione di backup |File server, archiviazione (multisito)   |Trasferimento di dati, pre-elaborazione dei dati, inclusi inferenza ML, IoT, archiviazione    |
 |**Calcolo Edge** |Non disponibile |Non disponibile |Supporta l'esecuzione di contenitori usando Azure IoT Edge    |
 |**Fattore di forma**  |Dispositivo fisico   |Agente installato in Windows Server |Dispositivo fisico   |

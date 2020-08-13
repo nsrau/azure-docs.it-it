@@ -5,6 +5,7 @@
     - name: Che cos'è Data Catalog?
       href: overview.md
 - name: Avvi rapidi
+  expanded: true
   items:
     - name: Creare un'istanza di Azure Data Catalog
       href: data-catalog-get-started.md
@@ -20,8 +21,6 @@
       href: data-catalog-dsr.md
     - name: Adozione di Catalogo dati di Azure
       href: data-catalog-adopting-data-catalog.md
-    - name: Prerequisiti
-      href: data-catalog-prerequisites.md
     - name: Domande frequenti
       href: data-catalog-frequently-asked-questions.md
 - name: Procedure

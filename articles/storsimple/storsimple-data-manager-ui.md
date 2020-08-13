@@ -1,17 +1,17 @@
 ---
 title: Interfaccia utente di Microsoft Azure StorSimple Data Manager
-description: Questo articolo illustra come usare l'interfaccia utente del servizio StorSimple Data Manager
+description: Informazioni su come usare l'interfaccia utente di StorSimple Data Manager per trasformare i dati che risiedono nei dispositivi StorSimple serie 8000.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5d6273cbef1664984d466fb15c7f02ca505b18e2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496441"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184536"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
 
@@ -48,7 +48,7 @@ Eseguire la procedura seguente per creare un servizio StorSimple Data Manager.
     
    5. Per inserire un collegamento al servizio nel dashboard, selezionare **Aggiungi al dashboard**.
     
-   6. Scegliere **Crea**.
+   6. Fare clic su **Crea**.
 
       ![Creare un servizio StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 

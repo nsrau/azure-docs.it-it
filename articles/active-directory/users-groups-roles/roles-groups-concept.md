@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65aed14ec7f644f2792aaecde5c8bccfffdd8081
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 30d18041a746a0c1046a51cf408494ccb81019c9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078445"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183208"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usare i gruppi di cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)
 
@@ -60,7 +60,7 @@ Gli scenari seguenti non sono supportati in questo momento:
 
 - Non è possibile creare o modificare un gruppo dinamico quando il ruolo viene assegnato tramite un gruppo.
 - L' **Abilitazione dell'implementazione temporanea per la funzionalità di accesso utente gestito** non supporta l'assegnazione tramite gruppo.
-- *Solo per i clienti con licenza Azure ad P2*: non assegnare un gruppo come attivo a un ruolo tramite Azure AD e Privileged Identity Management. In questo modo, si verificheranno problemi per cui gli utenti non possono visualizzare le relative assegnazioni di ruolo attive in PIM, oltre all'impossibilità di rimuovere tale assegnazione PIM. Le assegnazioni idonee non sono interessate in questo scenario. Se si tenta di eseguire questa assegnazione, è possibile che venga visualizzato un comportamento imprevisto, ad esempio:
+- *Solo per i clienti con licenza Azure ad P2*: non assegnare un gruppo come attivo a un ruolo tramite Azure AD e Privileged Identity Management (PIM). In particolare, non assegnare un ruolo a un gruppo assegnabile al ruolo quando viene creato *e* assegnare un ruolo al gruppo usando PIM in un secondo momento. In questo modo, si verificheranno problemi per cui gli utenti non possono visualizzare le relative assegnazioni di ruolo attive in PIM, oltre all'impossibilità di rimuovere tale assegnazione PIM. Le assegnazioni idonee non sono interessate in questo scenario. Se si tenta di eseguire questa assegnazione, è possibile che venga visualizzato un comportamento imprevisto, ad esempio:
   - L'ora di fine per l'assegnazione di ruolo potrebbe non essere visualizzata correttamente.
   - Nel portale di PIM, i **ruoli** possono visualizzare solo un'assegnazione di ruolo indipendentemente dal numero di metodi per cui viene concessa l'assegnazione (tramite uno o più gruppi e direttamente).
 - *Solo per i clienti con licenza Azure ad P2* Anche dopo l'eliminazione del gruppo, viene comunque visualizzato un membro idoneo del ruolo nell'interfaccia utente di PIM. Dal punto di vista funzionale non è presente alcun problema. si tratta semplicemente di un problema relativo alla cache nel portale di Azure.  

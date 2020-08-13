@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: f7d9912686be8ba6076278f148067575a40f32f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510039"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182168"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestione delle notifiche di manutenzione pianificata
 
@@ -107,7 +107,8 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 **R:** I motivi per cui non vengono visualizzate informazioni sulla manutenzione per le VM sono diversi:
 1.  Si usa una sottoscrizione contrassegnata come Microsoft (interno).
 2.  Le VM non sono pianificate per la manutenzione. La manutenzione potrebbe essere terminata oppure essere stata annullata o modificata e di conseguenza le macchine virtuali non sono più interessate.
-3.  La colonna **Manutenzione** non è stata aggiunta alla visualizzazione elenco delle macchine virtuali. Anche se questa colonna è stata aggiunta alla visualizzazione predefinita, i clienti con una configurazione che non prevede la visualizzazione delle colonne non predefinite devono aggiungere manualmente la colonna **Manutenzione** alla visualizzazione elenco delle VM.
+3. La macchina virtuale è stata deallocata e quindi avviata. Questo può causare lo spostamento della macchina virtuale in una posizione in cui non è pianificata un'ondata di manutenzione pianificata. Quindi, la macchina virtuale non visualizzerà più informazioni di manutenzione. 
+4.  La colonna **Manutenzione** non è stata aggiunta alla visualizzazione elenco delle macchine virtuali. Anche se questa colonna è stata aggiunta alla visualizzazione predefinita, i clienti con una configurazione che non prevede la visualizzazione delle colonne non predefinite devono aggiungere manualmente la colonna **Manutenzione** alla visualizzazione elenco delle VM.
 
 **D: la macchina virtuale è pianificata per la manutenzione per la seconda volta. Perché?**
 

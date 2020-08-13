@@ -72,7 +72,7 @@
               items:
                 - name: Configurare l'autorizzazione di Azure AD
                   href: database/authentication-aad-configure.md
-                - name: Multi-Factor Authentication di AAD
+                - name: Autenticazione di Azure AD a più fattori
                   href: database/authentication-mfa-ssms-overview.md
                 - name: Configurare l'autenticazione a più fattori
                   href: database/authentication-mfa-ssms-configure.md
@@ -891,8 +891,10 @@
           href: managed-instance/threat-detection-configure.md
         - name: Connettere le applicazioni
           href: managed-instance/connect-application-instance.md
-        - name: Creare avvisi
+        - name: Creare avvisi per l'istanza gestita
           href: managed-instance/alerts-create.md
+        - name: Avviare manualmente un failover nell'istanza gestita
+          href: managed-instance/user-initiated-failover.md
     - name: Esempi
       items:
         - name: Interfaccia della riga di comando di Azure

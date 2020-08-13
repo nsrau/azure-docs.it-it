@@ -142,53 +142,17 @@
         - name: Accesso ai dati Gen2
           items:
             - name: Panoramica
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/preview'
-            - name: Impostazioni del modello
-              items:
-                - name: Panoramica
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings'
-                - name: Recupero
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get'
-                - name: Aggiornamento
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update'
-            - name: Query
-              items:
-                - name: Panoramica
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query'
-                - name: Execute
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute'
-                - name: Get Availability
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability'
-                - name: Get Event Schema
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema'
-            - name: Gerarchie di serie temporali
-              items:
-                - name: Panoramica
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies'
-                - name: Eseguire Batch
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch'
-                - name: Recupero
-                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list'
-            - name: Istanze di serie temporali
-              items:
-                - name: Panoramica
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances'
-                - name: Eseguire Batch
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch'
-                - name: Recupero
-                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list'
-                - name: Ricerca
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search'
-                - name: Suggerisci
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest'
-            - name: Tipi di serie temporali
-              items:
-                - name: Panoramica
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes'
-                - name: Eseguire Batch
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch'
-                - name: Recupero
-                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list'
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview'
+            - name: API per gli ambienti
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-environments-apis'
+            - name: API per i modelli
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis'
+            - name: API per le query
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis'
+            - name: Time Series Expression (TSX)
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax'
+            - name: Limiti delle API
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits'
         - name: Accesso ai dati Gen1
           items:
             - name: Panoramica
@@ -196,13 +160,13 @@
             - name: Query
               items:
                 - name: Query
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query'
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1-query'
                 - name: API
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api'
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api'
                 - name: Sintassi
-                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax'
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-syntax'
             - name: API dei dati di riferimento
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api'
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api'
     - name: Client SDK
       items:
         - name: Client SDK JavaScript

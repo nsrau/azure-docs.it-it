@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Microsoft Azure StorSimple Data Manager | Documentazione Microsoft
-description: L'articolo offre una panoramica del servizio StorSimple Data Manager
+description: Informazioni sulla soluzione StorSimple Data Manager e sul modo in cui è possibile usare questo servizio per scrivere applicazioni che usano dati StorSimple e altri servizi di Azure.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67876113"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183497"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Panoramica della soluzione StorSimple Data Manager
 
@@ -72,7 +72,7 @@ Questo set di aree è più ampio perché la distribuzione delle risorse in una d
     
 Microsoft si impegna a garantire che i servizi di Azure siano sempre disponibili in tutte le aree geografiche. Tuttavia, le interruzioni del servizio non pianificate possono verificarsi per brevi periodi in una determinata area. In questi casi, è possibile visualizzare un Data Manager e la definizione di un processo in un'area non interessata dall'interruzione ed eseguire il processo di trasformazione. È possibile che si verifichi una latenza aggiuntiva in uno scenario di questo tipo, ma questa è la strategia di recupero nel raro caso di un'interruzione a livello di area.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 StorSimple Data Manager richiede la chiave di crittografia dei dati del servizio per eseguire la trasformazione dal formato StorSimple a quello nativo. La chiave di crittografia dei dati del servizio viene generata quando il primo dispositivo esegue la registrazione al servizio StorSimple. Per altre informazioni su questa chiave, vedere [Sicurezza di StorSimple](storsimple-8000-security.md).
 

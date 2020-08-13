@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253325"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184347"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -94,8 +94,8 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
    | Scadenza a partire da | Frequenza | Risultato |
    | --- | --- | --- |
-   | Data odierna  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
-   | Data nel futuro  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
+   | Data odierna  | Ogni mese | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
+   | Data nel futuro  | Ogni mese | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
 
    Ad esempio, se si imposta la scadenza a partire dalla data **1 gen** e la frequenza su **Mensile**, ecco come le scadenze potrebbero verificarsi per i due utenti:
 
@@ -363,7 +363,7 @@ R: No. se un amministratore modifica i dettagli per le condizioni per l'utilizzo
 R: attualmente non è possibile aggiornare un documento di condizioni per l'utilizzo esistente. Per modificare un documento relativo alle condizioni per l'utilizzo, è necessario creare una nuova istanza di condizioni per l'utilizzo.
 
 **D: se i collegamenti ipertestuali sono presenti nel documento relativo alle condizioni per l'utilizzo di PDF, gli utenti finali potranno fare clic su di essi?**<br />
-R: Sì, gli utenti finali possono selezionare collegamenti ipertestuali a pagine aggiuntive, ma i collegamenti alle sezioni all'interno del documento non sono supportati.
+R: Sì, gli utenti finali possono selezionare collegamenti ipertestuali a pagine aggiuntive, ma i collegamenti alle sezioni all'interno del documento non sono supportati. Inoltre, i collegamenti ipertestuali in termini di utilizzo di PDF non funzionano quando si accede dal portale Azure AD app/account Web.
 
 **D: le condizioni per l'utilizzo possono supportare più lingue?**<br />
 A: Sì. Attualmente sono disponibili 108 lingue diverse che possono essere configurate da un amministratore per le singole condizioni per l'utilizzo. Un amministratore può caricare più documenti PDF e contrassegnare i documenti con una lingua corrispondente (fino a 108). Quando gli utenti finali accedono, vengono esaminate le preferenze della lingua del browser e viene visualizzato il documento corrispondente. Se non viene trovata alcuna corrispondenza, verrà visualizzato il documento predefinito, ovvero il primo documento che viene caricato.
@@ -391,5 +391,5 @@ R: Condizioni per l'utilizzo utilizza gli endpoint seguenti per l'autenticazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud](require-tou.md)
+- [Avvio rapido: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud](require-tou.md)
 - [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)

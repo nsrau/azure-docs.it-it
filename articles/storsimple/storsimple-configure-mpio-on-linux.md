@@ -1,18 +1,18 @@
 ---
 title: Configurare MPIO nell'host StorSimple Linux
-description: Configurare MPIO in dispositivi StorSimple connessi all'host Linux che esegue CentOS 6.6
+description: Informazioni sui passaggi necessari per configurare l'i/o multipath (MPIO) nel server host StorSimple Linux (CentOS 6,6).
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 05a67ab33c12e9f2bdbc0cd0098c39252db37e8e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187082"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183634"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
 Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi multipli (MPIO) nel server host CentOS 6.6. Il server host è connesso al dispositivo Microsoft Azure StorSimple per la disponibilità elevata attraverso gli iniziatori iSCSI. L'articolo descrive in dettaglio il rilevamento automatico dei dispositivi con percorsi multipli e la configurazione specifica solo per i volumi StorSimple.
@@ -214,7 +214,7 @@ I dispositivi supportati da percorsi multipli possono essere individuati e confi
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Passaggio 2: Configurare i percorsi multipli per volumi StorSimple
 Per impostazione predefinita, tutti i dispositivi sono elencati nella blacklist del file multipath.conf neri e verranno ignorati. È necessario creare eccezioni di blacklist per consentire percorsi multipli per volumi dai dispositivi StorSimple.
 
-1. Modificare il file `/etc/mulitpath.conf` . Digitare:
+1. Modificare il file `/etc/mulitpath.conf`. Digitare:
    
     `vi /etc/multipath.conf`
 1. Trovare la sezione blacklist_exceptions nel file multipath.conf. Il dispositivo StorSimple deve essere elencato come eccezione di blacklist in questa sezione. È possibile rimuovere il commento dalle righe pertinenti in questo file per modificarlo, come mostrato di seguito (usare solo il modello specifico del dispositivo in uso):
@@ -235,7 +235,7 @@ Per impostazione predefinita, tutti i dispositivi sono elencati nella blacklist 
 ### <a name="step-3-configure-round-robin-multipathing"></a>Passaggio 3: Configurare percorsi multipli round robin
 Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli disponibili per il controller attivo in modo bilanciato e round robin.
 
-1. Modificare il file `/etc/multipath.conf` . Digitare:
+1. Modificare il file `/etc/multipath.conf`. Digitare:
    
     `vi /etc/multipath.conf`
 1. Nella sezione `defaults` impostare `path_grouping_policy` su `multibus`. `path_grouping_policy` specifica il criterio di raggruppamento dei percorsi predefinito da applicare ai percorsi multipli non specificati. La sezione delle impostazioni predefinite avrà l'aspetto seguente.
@@ -438,7 +438,7 @@ Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei prob
 | **Percorsi multipli** |`service multipathd start` |Avviare il daemon a percorsi multipli |
 | &nbsp; |`service multipathd stop` |Arrestare il daemon a percorsi multipli |
 | &nbsp; |`service multipathd restart` |Riavviare il daemon a percorsi multipli |
-| &nbsp; |`chkconfig multipathd on` </br> OPPURE </br> `mpathconf -with_chkconfig y` |Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer |
+| &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf -with_chkconfig y` |Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer |
 | &nbsp; |`multipathd -k` |Avviare la console interattiva per la risoluzione dei problemi |
 | &nbsp; |`multipath -l` |Elencare le connessioni e i dispositivi a percorsi multipli |
 | &nbsp; |`mpathconf --enable` |Creare un file mulitpath.conf di esempio in `/etc/mulitpath.conf` |
