@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: bbb42643e23020742cab66812f58f78f4529fe07
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388058"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192839"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -70,7 +70,7 @@ Selezionare questo collegamento per aprire la cartella di lavoro dei report di B
 
 Il report contiene diverse schede:
 
-##### <a name="summary"></a>Summary
+##### <a name="summary"></a>Riepilogo
 Usare questa scheda per ottenere una panoramica di alto livello del patrimonio di backup. È possibile vedere a colpo d'occhio il numero totale di elementi di backup, lo spazio di archiviazione cloud totale utilizzato, il numero di istanze protette e la percentuale di processi completati per tipo di carico di lavoro. Per informazioni più dettagliate su un tipo di elemento di backup specifico, vedere le rispettive schede.
 
    ![Scheda Riepilogo](./media/backup-azure-configure-backup-reports/summary.png)
@@ -106,11 +106,11 @@ Utilizzando questa visualizzazione, è possibile identificare gli elementi di ba
 
 Per visualizzare le risorse inattive, passare alla scheda **optimize** e fare clic sul riquadro **inactive Resources** . Quando si fa clic su questo riquadro viene visualizzata una griglia contenente i dettagli di tutte le risorse inattive presenti nell'ambito selezionato. Per impostazione predefinita, nella griglia vengono visualizzati gli elementi che non dispongono di un punto di ripristino negli ultimi 7 giorni. Per trovare le risorse inattive per un intervallo di tempo diverso, è possibile modificare il filtro **intervallo di tempo** nella parte superiore della scheda.
 
-Una volta identificata una risorsa inattiva, è possibile approfondire ulteriormente il problema passando al dashboard dell'elemento di backup o al pannello delle risorse di Azure per la risorsa (laddove applicabile). A seconda dello scenario, è possibile scegliere di arrestare il backup per il computer (se non esiste più), salvando in tal modo il costo dell'istanza protetta, oppure è possibile risolvere i problemi nel computer per assicurarsi che i backup vengano eseguiti in modo affidabile.
+Una volta identificata una risorsa inattiva, è possibile approfondire ulteriormente il problema passando al dashboard dell'elemento di backup o al pannello delle risorse di Azure per la risorsa (laddove applicabile). A seconda dello scenario, è possibile scegliere di arrestare il backup per il computer (se non esiste più) ed eliminare i backup superflui, in modo da risparmiare sui costi oppure è possibile risolvere i problemi nel computer per assicurarsi che i backup vengano eseguiti in modo affidabile.
 
 ![Ottimizzare le risorse inattive nella scheda](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
-###### <a name="backup-items-with-a-large-retention-duration"></a>Eseguire il backup degli elementi con una durata di conservazione elevata
+###### <a name="backup-items-with-a-large-retention-duration"></a>Elementi di backup con durata di conservazione estesa
 Utilizzando questa visualizzazione, è possibile identificare gli elementi per i quali i backup sono conservati per un periodo di tempo più lungo rispetto a quello richiesto dall'organizzazione. 
 
 Facendo clic sul riquadro **ottimizzazioni dei criteri** seguito dal riquadro **ottimizzazioni di conservazione** viene visualizzata una griglia contenente tutti gli elementi di backup per i quali la conservazione del punto di conservazione giornaliero, settimanale, mensile o annuale è maggiore di un valore specificato. Per impostazione predefinita, nella griglia vengono visualizzati tutti gli elementi di backup nell'ambito selezionato. È possibile utilizzare i filtri per la conservazione giornaliera, settimanale, mensile e annuale della relying party per filtrare ulteriormente la griglia e identificare gli elementi per i quali potrebbe essere possibile ridurre la conservazione per risparmiare sui costi di archiviazione di backup.
@@ -119,7 +119,7 @@ Si noti che per i carichi di lavoro del database come SQL e SAP HANA, i periodi 
 
 ![Ottimizzare le ottimizzazioni per la memorizzazione nella scheda](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
-###### <a name="databases-configured-for-daily-full-backup"></a>Database configurati per il backup completo giornaliero
+###### <a name="databases-configured-for-daily-full-backup"></a>Database configurati per il backup completo giornaliero 
 Utilizzando questa visualizzazione, è possibile identificare i carichi di lavoro del database configurati per il backup completo giornaliero. Spesso, l'uso del backup differenziale giornaliero insieme al backup completo settimanale è più conveniente. 
 
 Facendo clic sul riquadro **ottimizzazioni dei criteri** seguito dal riquadro **ottimizzazioni pianificazione backup** , viene visualizzata una griglia contenente tutti i database con criteri di backup completi giornalieri. È possibile scegliere di passare a un particolare elemento di backup e modificare il criterio in modo da usare il backup differenziale giornaliero con backup completo settimanale.

@@ -1,17 +1,17 @@
 ---
 title: Ottimizzazione delle prestazioni-Storm con Azure Data Lake Storage Gen1
-description: Informazioni sulle linee guida per l'ottimizzazione delle prestazioni per un cluster Storm in Azure Data Lake Storage Gen1.
+description: Comprendere i fattori da tenere in considerazione quando si ottimizzano le prestazioni di una topologia di Storm di Azure, inclusa la risoluzione dei problemi comuni.
 author: stewu
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 47fb385e5e1fb60f860735530356fa87031c51e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513799"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192804"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Storm in HDInsight e Azure Data Lake Storage Gen1
 
