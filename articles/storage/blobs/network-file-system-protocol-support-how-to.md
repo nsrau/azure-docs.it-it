@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760796"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167029"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
 È possibile montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure basata su Windows o Linux o un sistema Windows o Linux eseguito in locale usando il protocollo NFS 3,0. Questo articolo fornisce istruzioni dettagliate. Per altre informazioni sul supporto del protocollo NFS 3,0 nell'archivio BLOB, vedere [supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è disponibile in anteprima pubblica ed è disponibile nelle aree seguenti: Stati Uniti orientali, Stati Uniti centrali e Canada centrale.
+> Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è disponibile in anteprima pubblica ed è disponibile nelle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Passaggio 1: registrare la funzionalità del protocollo NFS 3,0 con la sottoscrizione
 
@@ -90,9 +90,9 @@ Nella versione di anteprima di questa funzionalità il protocollo NFS 3,0 è sup
 
 Quando si configura l'account, scegliere i valori seguenti:
 
-|Impostazione | Valore|
+|Impostazione | valore|
 |----|---|
-|Percorso|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali e Canada centrale |
+|Location|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale |
 |Prestazioni|Premium|
 |Tipo di account|BlockBlobStorage|
 |Replica|Archiviazione con ridondanza locale|
@@ -113,7 +113,7 @@ Creare un contenitore nell'account di archiviazione usando uno di questi strumen
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Interfaccia della riga di comando di Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-|[Azure portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+|[Portale di Azure](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Passaggio 7: montare il contenitore
 

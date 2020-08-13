@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 19a6764b68a7a06f9777bac94c9f34aaf09aec0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cebc2c3d364cdb93c4b528c186dcef79c58ac6ea
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519585"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167012"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivio delle novità del Centro sicurezza di Azure
 
@@ -28,6 +28,19 @@ Questa pagina illustra quanto segue:
 - Nuove funzionalità
 - Correzioni di bug
 - Funzionalità deprecate
+
+
+## <a name="february-2020"></a>Febbraio 2020
+
+### <a name="fileless-attack-detection-for-linux-preview"></a>Rilevamento di attacchi senza file per Linux (anteprima)
+
+Dal momento che gli utenti malintenzionati impiegano metodi sempre più sofisticati per evitare il rilevamento, il Centro sicurezza di Azure estende il rilevamento degli attacchi senza file a Linux, oltre che a Windows. Gli attacchi senza file sfruttano le vulnerabilità del software, introducono payload dannosi in processi di sistema benigni e si nascondono nella memoria. Queste tecniche:
+
+- riducono al minimo o eliminano del tutto le tracce di malware sul disco
+- riducono notevolmente le probabilità di rilevamento da parte di soluzioni di analisi dei malware basate su disco
+
+Per contrastare questa minaccia, il Centro sicurezza di Azure ha rilasciato il rilevamento degli attacchi senza file per Windows nell'ottobre 2018 e ora ha esteso questa funzionalità anche a Linux. 
+
 
 
 ## <a name="january-2020"></a>Gennaio 2020
