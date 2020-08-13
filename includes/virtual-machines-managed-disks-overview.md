@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ba9147aefb793387b429702623639bbccf0beea
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 26d6ca641c03395996fdeaa4e54d2a001cf02bef
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507664"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162695"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -53,7 +53,7 @@ Per altre informazioni su come trasferire i dischi rigidi virtuali in Azure, ved
 
 ### <a name="private-links"></a>Collegamenti privati
 
-La funzionalità Managed Disks supporta l'uso di collegamenti privati per importare o esportare un disco gestito interno alla rete. I collegamenti privati consentono di generare un URI di firma di accesso condiviso con limiti di tempo per gli snapshot e i dischi gestiti non collegati per esportare i dati in altre aree per l'espansione a livello di area, il ripristino di emergenza e l'analisi per scopi legali. L'URI di firma di accesso condiviso può essere usato anche per caricare direttamente un disco rigido virtuale in un disco vuoto dall'ambiente locale. È ora possibile sfruttare i [collegamenti privati](../articles/private-link/private-link-overview.md) per limitare l'esportazione e l'importazione di dischi gestiti alla rete virtuale di Azure. I collegamenti privati assicurano che il traffico dei dati rimanga all'interno della rete backbone Microsoft sicura.
+Il supporto del collegamento privato per i dischi gestiti è attualmente disponibile in anteprima e può essere usato per importare o esportare un disco gestito interno alla rete. I collegamenti privati consentono di generare un URI di firma di accesso condiviso con limiti di tempo per gli snapshot e i dischi gestiti non collegati per esportare i dati in altre aree per l'espansione a livello di area, il ripristino di emergenza e l'analisi per scopi legali. L'URI di firma di accesso condiviso può essere usato anche per caricare direttamente un disco rigido virtuale in un disco vuoto dall'ambiente locale. È ora possibile sfruttare i [collegamenti privati](../articles/private-link/private-link-overview.md) per limitare l'esportazione e l'importazione di dischi gestiti alla rete virtuale di Azure. I collegamenti privati assicurano che il traffico dei dati rimanga all'interno della rete backbone Microsoft sicura.
 
 Per informazioni su come abilitare i collegamenti privati per l'importazione o l'esportazione di un disco gestito, vedere gli articoli relativi all'[interfaccia della riga di comando](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) o al [portale](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md).
 

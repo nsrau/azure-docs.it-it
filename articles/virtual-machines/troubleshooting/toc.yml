@@ -56,7 +56,7 @@
     - name: L'avvio della VM è bloccato
       href: troubleshoot-vm-boot-configure-update.md
     - name: Stati e ciclo di vita delle macchine virtuali
-      href: ../windows/states-lifecycle.md
+      href: ../states-lifecycle.md
 - name: La macchina virtuale non si avvia
   items:
     - name: Linux

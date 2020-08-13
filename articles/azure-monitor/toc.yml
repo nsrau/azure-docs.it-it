@@ -935,6 +935,10 @@
               href: app/sharepoint.md
             - name: Desktop di Windows
               href: app/windows-desktop.md
+        - name: Altri strumenti
+          items:
+            - name: Analisi dei cambiamenti
+              href: app/change-analysis.md
     - name: Monitoraggio di Azure per le macchine virtuali
       items:
         - name: Panoramica
@@ -1062,10 +1066,6 @@
           href: insights/resource-group-insights.md
         - name: Risolvere i problemi relativi ai dati analitici
           href: insights/troubleshoot-workbooks.md
-    - name: Analisi dei cambiamenti
-      items:
-        - name: Analisi dei cambiamenti
-          href: app/change-analysis.md
     - name: Soluzioni
       items:
         - name: Panoramica

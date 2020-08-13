@@ -370,7 +370,7 @@
         - name: Bastion
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Stati e ciclo di vita
-      href: states-lifecycle.md
+      href: ../states-lifecycle.md
     - name: Monitoraggio
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Diagnostica di avvio
@@ -938,7 +938,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architecture
+            - name: Architettura
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md
