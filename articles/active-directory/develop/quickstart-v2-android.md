@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 9afb5b7602b220c25d919f8fe0773d5cfa143d89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a46cd1b916edeae8a24fb997db46e5a0651567cb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80991195"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115272"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
@@ -483,7 +483,7 @@ A differenza del file di configurazione [auth_config_single_account.json](#auth_
 Provare l'esercitazione [Accesso utenti e chiamata di Microsoft Graph da un'app Android](tutorial-v2-android.md) per una guida dettagliata per la compilazione di un'app Android che ottiene un token di accesso e lo usa per chiamare l'API Microsoft Graph.
 
 > [!div class="nextstepaction"]
-> [Esercitazione Android per le chiamate API Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Esercitazione Android per le chiamate API Graph](./tutorial-v2-android.md)
 
 ### <a name="msal-for-android-library-wiki"></a>MSAL per wiki della libreria Android
 

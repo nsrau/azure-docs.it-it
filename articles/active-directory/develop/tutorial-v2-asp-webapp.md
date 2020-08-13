@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f62f6702b36915c6a6e1350072982e231cd9c07e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058278"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118230"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
@@ -264,7 +264,7 @@ In Visual Studio creare una nuova visualizzazione per aggiungere il pulsante di 
     ```
 
 ### <a name="more-information"></a>Ulteriori informazioni
-Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Linee guida sulla personalizzazione").
+Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione](./howto-add-branding-in-azure-ad-apps.md "Linee guida sulla personalizzazione").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Aggiungere un controller per visualizzare le attestazioni dell'utente
 Questo controller illustra gli usi dell'attributo `[Authorize]` per la protezione di un controller. Questo attributo limita l'accesso al controller ai soli utenti autenticati. Il codice seguente usa l'attributo per visualizzare le attestazioni utente recuperate durante l'accesso:
@@ -403,7 +403,7 @@ Le applicazioni che si integrano con Microsoft Identity Platform seguono un mode
 - Lo sviluppatore dell'applicazione inserisce autorizzazioni aggiuntive che richiedono il **consenso dell'amministratore**.
 - La configurazione del tenant (accessibile in **Applicazioni aziendali -> Impostazioni utente**) è tale che gli utenti non possono concedere alle app il consenso per accedere ai dati aziendali per proprio conto.
 
-Per altre informazioni, vedere [Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Per altre informazioni, vedere [Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
 
@@ -424,7 +424,7 @@ Dopo il passaggio alla visualizzazione dei controller, dovrebbe essere visualizz
 |**Oggetto** |Oggetto |Stringa che identifica in modo univoco l'utente nel Web|
 |**ID tenant** |Guid | **GUID** che rappresenta in modo univoco l'organizzazione di Azure AD dell'utente.|
 
-Dovrebbe anche essere visualizzata anche una tabella di tutte le attestazioni disponibili nella richiesta di autenticazione. Per altre informazioni, vedere l'[elenco di attestazioni disponibili in un token ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Dovrebbe anche essere visualizzata anche una tabella di tutte le attestazioni disponibili nella richiesta di autenticazione. Per altre informazioni, vedere l'[elenco di attestazioni disponibili in un token ID](./id-tokens.md).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Eseguire test dell'accesso a un metodo con attributo Authorize (facoltativo)
 
@@ -484,6 +484,6 @@ Altre informazioni su app Web che chiamano API Web con Microsoft Identity Platfo
 Informazioni su come creare API Web che chiamano Microsoft Graph:
 
 > [!div class="nextstepaction"]
-> [Esercitazione su ASP.NET con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/aspnet)
+> [Esercitazione su ASP.NET con Microsoft Graph](/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

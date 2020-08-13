@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentazione di Mappe di Azure
-summary: "Mappe di Microsoft Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali, combinate con i dati delle mappe più aggiornati. Mappe di Azure è disponibile sia per le applicazioni Web che per quelle per dispositivi mobili. Mappe di Azure è un set di API REST conforme all'API Azure One. La seguente è solo una panoramica generale dei servizi offerti da Mappe di Azure: mappe, ricerca, pianificazione percorso, informazioni sul traffico, mobilità, meteo, fusi orari, georilevazione, geofencing, dati mappe e operazioni spaziali. Gli SDK per Android e per il Web rendono lo sviluppo semplice, flessibile e portabile tra più piattaforme."
+summary: "Mappe di Microsoft Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali, combinate con i dati delle mappe più aggiornati. Mappe di Azure è disponibile sia per le applicazioni Web che per quelle per dispositivi mobili. Mappe di Azure è un set di API REST conforme all'API Azure One. La seguente è solo una panoramica generale dei servizi offerti da Mappe di Azure: mappe, ricerca, pianificazione percorso, informazioni sul traffico, mobilità, meteo, fusi orari, georilevazione, geofencing, dati mappe, Creator e operazioni spaziali. Gli SDK per Android e per il Web rendono lo sviluppo semplice, flessibile e portabile tra più piattaforme."
 metadata:
   title: Documentazione di Mappe di Azure | Microsoft Docs
   description: Informazioni su come usare Mappe di Azure per fornire servizi geospaziali all'applicazione Web o per dispositivi mobili.
@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 0760dce9e64560c8ecb593f41b2d611bd059a639
-  ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+  ms.openlocfilehash: 4e95d7d9afb77dcf8e168a04c9e0f4fc3b266807
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87461749"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88121647"
 landingContent:
 - title: Informazioni su Mappe di Azure
   linkLists:

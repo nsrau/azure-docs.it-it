@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf921ce4ce3ad65f0787ccab2f0a064da8973af1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129186"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115238"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Guida introduttiva: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola Angular
 
@@ -47,7 +47,7 @@ In questa guida di avvio rapido si usa codice di esempio per illustrare come un'
 >
 > 1. Accedere al [portale di Azure](https://portal.azure.com).
 > 1. Se l'account ha accesso a più tenant, selezionare l'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
-> 1. Seguire le istruzioni per [registrare un'applicazione a pagina singola](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) nel portale di Azure.
+> 1. Seguire le istruzioni per [registrare un'applicazione a pagina singola](./scenario-spa-app-registration.md) nel portale di Azure.
 > 1. Aggiungere una nuova piattaforma nel riquadro **Autenticazione** della registrazione dell'app e registrare l'URI di reindirizzamento: `http://localhost:4200/`.
 > 1. Questo avvio rapido usa il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). Selezionare le impostazioni di **Concessione implicita** per **Token ID** e **Token di accesso**. I token ID e i token di accesso sono obbligatori perché l'app consente l'accesso agli utenti e chiama un'API.
 
@@ -99,7 +99,7 @@ In questa guida di avvio rapido si usa codice di esempio per illustrare come un'
 >|Nome del valore|Descrizione|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Nella pagina **Panoramica** della registrazione dell'applicazione, è il valore di **ID applicazione (client)** . |
->|Enter_the_Cloud_Instance_Id_Here|Si tratta dell'istanza del cloud di Azure. Per il cloud globale o principale di Azure, immettere **https://login.microsoftonline.com** . Per i cloud nazionali (ad esempio, Cina), vedere [Cloud nazionali](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Cloud_Instance_Id_Here|Si tratta dell'istanza del cloud di Azure. Per il cloud globale o principale di Azure, immettere **https://login.microsoftonline.com** . Per i cloud nazionali (ad esempio, Cina), vedere [Cloud nazionali](./authentication-national-cloud.md).|
 >|Enter_the_Tenant_Info_Here| Impostare il valore su una delle opzioni seguenti: Se l'applicazione supporta *account in questa directory dell'organizzazione*, sostituire questo valore con l'ID della directory (tenant) o il nome del tenant (ad esempio, **contoso.microsoft.com**). Se l'applicazione supporta *Account in qualsiasi directory organizzativa*, sostituire questo valore con **organizations**. Se l'applicazione supporta *Account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con **common**. Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con **consumers**. |
 >|Enter_the_Redirect_Uri_Here|Sostituire con **http://localhost:4200** .|
 >|cacheLocation  | (Facoltativo) Impostare l'archiviazione browser per lo stato di autenticazione. L'impostazione predefinita è **sessionStorage**.   |
@@ -142,5 +142,4 @@ Dopo che il browser ha caricato l'applicazione, selezionare **Accedi**. Quando s
 L'esercitazione su Angular illustra come consentire l'accesso a un utente e acquisire i token:
 
 > [!div class="nextstepaction"]
-> [Esercitazioni su Angular](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
-
+> [Esercitazioni su Angular](./tutorial-v2-angular.md)

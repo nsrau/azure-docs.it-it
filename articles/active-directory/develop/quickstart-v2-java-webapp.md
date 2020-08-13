@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 1474a8ad73f7deb9a7c321f7d7994a7b2b73d624
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87312402"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115221"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java
 
@@ -212,7 +212,7 @@ Se si vuole distribuire l'esempio Web in Tomcat, sarà necessario apportare alcu
 
 
 > [!IMPORTANT]
-> Questa applicazione della guida introduttiva usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'utilizzo di un certificato, vedere [Credenziali del certificato per l'autenticazione dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+> Questa applicazione della guida introduttiva usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'utilizzo di un certificato, vedere [Credenziali del certificato per l'autenticazione dell'applicazione](./active-directory-certificate-credentials.md).
 
 ## <a name="more-information"></a>Ulteriori informazioni
 
@@ -254,11 +254,11 @@ import com.microsoft.aad.msal4j.*;
 Altre informazioni sulle autorizzazioni e sul consenso:
 
 > [!div class="nextstepaction"]
-> [Autorizzazioni e consenso](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+> [Autorizzazioni e consenso](./v2-permissions-and-consent.md)
 
 Per altre informazioni sul flusso di autenticazione per questo scenario, vedere il flusso del codice di autorizzazione Oauth 2.0:
 
 > [!div class="nextstepaction"]
-> [Flusso Oauth del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [Flusso Oauth del codice di autorizzazione](./v2-oauth2-auth-code-flow.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

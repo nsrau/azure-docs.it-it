@@ -3,18 +3,18 @@ title: Documentazione di Microsoft Identity Platform
 summary: Microsoft Identity Platform include un servizio di autenticazione, librerie open source e strumenti di gestione delle applicazioni. Informazioni su come creare soluzioni di autenticazione moderne basate su standard con avvii rapidi, esercitazioni ed esempi di codice. È possibile creare applicazioni a cui utenti e clienti possono accedere usando le identità Microsoft o gli account di social networking e autorizzare l'accesso ad API o ad API Microsoft come Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 07/13/2020
-  author: CelesteDG
-  ms.author: celested
+  ms.date: 08/11/2020
+  author: mmacy
+  ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: e17e6195d629238c9c719d8e34780593129ae244
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: d978cc0f2b59cdb1cd41b0cf5e23851ad5165558
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87027071"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88116734"
 landingContent:
 - title: Microsoft Identity Platform
   linkLists:
@@ -83,7 +83,7 @@ landingContent:
     - text: ASP.NET
       url: quickstart-v2-dotnet-native-aspnet.md
     - text: ASP.NET Core
-      url: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+      url: /samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
 - title: Microsoft Graph
   linkLists:
   - linkListType: get-started
@@ -91,7 +91,7 @@ landingContent:
     - text: Usare l'API Microsoft Graph
       url: microsoft-graph-intro.md
     - text: Panoramica dell'autenticazione di Microsoft Graph
-      url: https://docs.microsoft.com/graph/auth/
+      url: /graph/auth/
 - title: Protocolli
   linkLists:
   - linkListType: overview
@@ -116,3 +116,13 @@ landingContent:
       url: ../managed-identities-azure-resources/overview.md
     - text: Identità gestite e macchine virtuali di Azure
       url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
+- title: Novità della documentazione
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Gestire errori ed eccezioni - Android
+      url: msal-android-handling-exceptions.md
+    - text: Attributi dell'estensione dello schema della directory nelle attestazioni
+      url: active-directory-schema-extensions.md
+    - text: Codice di autorizzazione MSAL.js 2.0 + PKCE e CORS
+      url: quickstart-v2-javascript-auth-code.md

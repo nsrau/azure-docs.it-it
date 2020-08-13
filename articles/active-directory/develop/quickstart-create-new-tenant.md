@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256697"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120814"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
@@ -72,5 +72,5 @@ Per iniziare a creare app che consentono l'accesso agli account di social e loca
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Registrare un'app](quickstart-register-app.md) e integrarla con Microsoft Identity Platform. 
-* Informazioni sulle [nozioni di base dell'autenticazione](authentication-scenarios.md).
+* Informazioni sulle [nozioni di base dell'autenticazione](./authentication-vs-authorization.md).
 * Per informazioni sulla relazione tra sottoscrizioni e un tenant di Azure AD, vedere [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

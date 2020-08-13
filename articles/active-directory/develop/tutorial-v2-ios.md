@@ -12,12 +12,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 61a3884ce4d1075dbcac61a0c202c3a393d2d943
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904763"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118145"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Accesso utenti e chiamata di Microsoft Graph da un'app iOS o macOS
 
@@ -149,7 +149,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-L'unico valore da modificare in precedenza è quello assegnato a `kClientID` per fare in modo che corrisponda a quello di [ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Questo valore fa parte dei dati di configurazione di MSAL salvati durante il passaggio all'inizio di questa esercitazione per registrare l'applicazione nel portale di Azure.
+L'unico valore da modificare in precedenza è quello assegnato a `kClientID` per fare in modo che corrisponda a quello di [ID applicazione](./developer-glossary.md#application-id-client-id). Questo valore fa parte dei dati di configurazione di MSAL salvati durante il passaggio all'inizio di questa esercitazione per registrare l'applicazione nel portale di Azure.
 
 ## <a name="configure-xcode-project-settings"></a>Configurare le impostazioni del progetto Xcode
 
@@ -842,4 +842,4 @@ Dopo l'accesso, l'app visualizzerà i dati restituiti dall'endpoint `/me` di Mic
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-In caso di problemi con questa esercitazione o con Microsoft Identity Platform, vedere [Opzioni di supporto tecnico e assistenza per gli sviluppatori](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+In caso di problemi con questa esercitazione o con Microsoft Identity Platform, vedere [Opzioni di supporto tecnico e assistenza per gli sviluppatori](./developer-support-help-options.md).

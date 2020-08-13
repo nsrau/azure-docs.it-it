@@ -12,6 +12,8 @@
       href: quick-create-powershell.md
     - name: Creare una rete virtuale - Interfaccia della riga di comando di Azure
       href: quick-create-cli.md
+    - name: Creare una rete virtuale - Modello di Resource Manager
+      href: quick-create-template.md
   expanded: true
 - name: Esercitazioni
   items:

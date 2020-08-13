@@ -12,12 +12,12 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 504caffe0505a4e8a66608fcad528130630a5cc8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236212"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117771"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evoluzione di Microsoft Identity Platform
 
@@ -49,7 +49,7 @@ L'esperienza **[Registrazioni app](https://go.microsoft.com/fwlink/?linkid=20839
 
 Per l'integrazione con Azure AD B2C (per l'autenticazione di identità locali o di social networking), sarà necessario registrare l'applicazione in un tenant Azure AD B2C. Anche questa esperienza è inclusa nel portale di Azure.
 
-Usare l'[API dell'applicazione](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) per configurare a livello di codice le applicazioni integrate con Microsoft Identity Platform per l'autenticazione di qualsiasi identità Microsoft.
+Usare l'[API dell'applicazione](/graph/api/resources/application?view=graph-rest-1.0) per configurare a livello di codice le applicazioni integrate con Microsoft Identity Platform per l'autenticazione di qualsiasi identità Microsoft.
 
 ### <a name="msal-libraries"></a>Librerie MSAL
 
@@ -57,7 +57,7 @@ Usare l'[API dell'applicazione](https://docs.microsoft.com/graph/api/resources/a
 
 È anche possibile usare le librerie MSAL per integrare l'applicazione con Azure AD B2C.
 
-Le librerie sul lato server per la creazione di app Web e API Web sono disponibili a livello generale: [ASP.NET](https://docs.microsoft.com/aspnet/overview) e [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2)
+Le librerie sul lato server per la creazione di app Web e API Web sono disponibili a livello generale: [ASP.NET](/aspnet/overview) e [ASP.NET Core](/aspnet/core/?view=aspnetcore-2.2)
 
 ### <a name="microsoft-identity-platform-endpoint"></a>Endpoint di Microsoft Identity Platform
 

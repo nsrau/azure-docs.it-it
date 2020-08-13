@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 79983678d13b810a521a00ba2c1978de92a5029f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 65fff06b4a2d28bbc276920ccbaba90d814d03f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309517"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115357"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -50,7 +50,7 @@ L'app viene integrata con Microsoft Identity Platform registrandola con un tenan
     * Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, `https://localhost:31544` potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web.
     * Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio `myapp://auth`.
 
-    Per esempi di applicazioni Web o native, vedere gli argomenti di avvio rapido in [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop).
+    Per esempi di applicazioni Web o native, vedere gli argomenti di avvio rapido in [Microsoft Identity Platform](./index.yml).
 
 1. Al termine, selezionare **Registra**.
 
@@ -70,7 +70,7 @@ Azure AD assegna all'app un ID applicazione o client univoco. Il portale apre la
 
 * Per gestire gli account supportati, vedere [Avvio rapido: Modificare gli account supportati da un'applicazione](quickstart-modify-supported-accounts.md).
 
-* Per creare un'app e aggiungere funzionalità, vedere gli argomenti di avvio rapido in [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop).
+* Per creare un'app e aggiungere funzionalità, vedere gli argomenti di avvio rapido in [Microsoft Identity Platform](./index.yml).
 
 * Per altre informazioni su due oggetti di Azure AD che rappresentano un'applicazione registrata e la relazione tra essi, vedere [Oggetti applicazione e oggetti entità servizio](app-objects-and-service-principals.md).
 

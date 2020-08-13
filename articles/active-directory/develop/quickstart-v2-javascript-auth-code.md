@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311943"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115187"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Avvio rapido: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript con il flusso del codice di autorizzazione
 
 In questa guida introduttiva viene eseguito un esempio di codice che illustra in che modo un'applicazione a pagina singola JavaScript può consentire l'accesso agli utenti con account personali, account aziendali e account dell'istituto di istruzione tramite il flusso del codice di autorizzazione. L'esempio di codice illustra anche come ottenere un token di accesso per chiamare un'API Web, in questo caso l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
-In questa guida introduttiva viene usato MSAL.js 2.0 con il flusso del codice di autorizzazione. Per una guida introduttiva simile che usi MSAL.js 1.0 con il flusso implicito, vedere [Guida introduttiva: Consentire l'accesso degli utenti nelle applicazioni a pagina singola JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+In questa guida introduttiva viene usato MSAL.js 2.0 con il flusso del codice di autorizzazione. Per una guida introduttiva simile che usi MSAL.js 1.0 con il flusso implicito, vedere [Guida introduttiva: Consentire l'accesso degli utenti nelle applicazioni a pagina singola JavaScript](./quickstart-v2-javascript.md).
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
@@ -152,7 +152,7 @@ In questa guida introduttiva viene usato MSAL.js 2.0 con il flusso del codice di
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here` è l'endpoint a cui verranno eseguite le chiamate API. Per il servizio API Microsoft Graph principale (globale), immettere `https://graph.microsoft.com/` (includere la barra finale). Per altre informazioni su Microsoft Graph nei cloud nazionali, vedere [Distribuzione di cloud nazionali](https://docs.microsoft.com/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` è l'endpoint a cui verranno eseguite le chiamate API. Per il servizio API Microsoft Graph principale (globale), immettere `https://graph.microsoft.com/` (includere la barra finale). Per altre informazioni su Microsoft Graph nei cloud nazionali, vedere [Distribuzione di cloud nazionali](/graph/deployments).
 >
 > Se si usa il servizio Microsoft Graph API principale (globale), i valori `graphMeEndpoint` e `graphMailEndpoint` nel file *graphConfig.js* deve essere simile al seguente:
 >
@@ -202,4 +202,4 @@ npm install @azure/msal-browser
 Per una guida più dettagliata alla creazione dell'applicazione usata in questa guida introduttiva, vedere l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Esercitazione per l'accesso e la chiamata a MS Graph](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)
+> [Esercitazione per l'accesso e la chiamata a MS Graph](./tutorial-v2-javascript-auth-code.md)

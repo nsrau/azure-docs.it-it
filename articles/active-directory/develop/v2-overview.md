@@ -12,12 +12,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 566893a9babc3f771e3198970e0a5ae97592e322
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231676"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119556"
 ---
 # <a name="microsoft-identity-platform-overview"></a>Panoramica di Microsoft Identity Platform
 
@@ -59,7 +59,7 @@ Quando si usa Microsoft Identity Platform per integrare l'autenticazione e l'aut
 
 Set di articoli consigliati sull'applicazione dei concetti di base dell'autenticazione e di Azure AD a Microsoft Identity Platform:
 
-- [Nozioni di base sull'autenticazione](authentication-scenarios.md)
+- [Nozioni di base sull'autenticazione](./authentication-vs-authorization.md)
 - [Entità servizio e applicazione](app-objects-and-service-principals.md)
 - [Destinatari](v2-supported-account-types.md)
 - [Autorizzazioni e consenso](v2-permissions-and-consent.md)
@@ -71,7 +71,7 @@ Set di articoli consigliati sull'applicazione dei concetti di base dell'autentic
 
 [Azure AD B2C](../../active-directory-b2c/overview.md): creare applicazioni rivolte ai clienti a cui gli utenti possono accedere con i loro account di social networking, come Facebook o Google, oppure usando un indirizzo di poste elettronica e una password.
 
-[Azure AD B2B](../b2b/what-is-b2b.md): invitare utenti esterni nel proprio tenant di Azure AD come utente "guest" a cui è possibile assegnare autorizzazioni e al tempo stesso consentire l'uso di credenziali esistenti per l'autenticazione.
+[Azure AD B2B](../external-identities/what-is-b2b.md): invitare utenti esterni nel proprio tenant di Azure AD come utente "guest" a cui è possibile assegnare autorizzazioni e al tempo stesso consentire l'uso di credenziali esistenti per l'autenticazione.
 
 > [!TIP]
 > Per informazioni sulla *piattaforma Azure Active Directory per sviluppatori (v 1.0)* , Vedere [Panoramica di Azure Active Directory per sviluppatori (v1.0)](../azuread-dev/v1-overview.md).

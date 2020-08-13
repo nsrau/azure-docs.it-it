@@ -12,17 +12,17 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b899e1d651f41c9c1e1e54af1b5ec19162dfc28d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b4de8a5e96466ea324475030df1f00eb6bb5cf1a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380053"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118288"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Esercitazione: Concedere l'accesso agli utenti e chiamare Microsoft Graph da un'app Android 
 
 >[!NOTE]
->Questa esercitazione illustra esempi semplificati di come usare MSAL per Android. Per semplicità, in questa esercitazione viene usata solo la modalità Account singolo. È anche possibile visualizzare il repository e clonare l'[app di esempio preconfigurata](https://github.com/Azure-Samples/ms-identity-android-java/) per esplorare scenari più complessi. Per altre informazioni sull'app di esempio, sulla configurazione e sulla registrazione, vedere la guida di [Avvio rapido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android). 
+>Questa esercitazione illustra esempi semplificati di come usare MSAL per Android. Per semplicità, in questa esercitazione viene usata solo la modalità Account singolo. È anche possibile visualizzare il repository e clonare l'[app di esempio preconfigurata](https://github.com/Azure-Samples/ms-identity-android-java/) per esplorare scenari più complessi. Per altre informazioni sull'app di esempio, sulla configurazione e sulla registrazione, vedere la guida di [Avvio rapido](./quickstart-v2-android.md). 
 
 Questa esercitazione spiega come integrare l'app Android con Microsoft Identity Platform usando Microsoft Authentication Library per Android. Verrà illustrato come concedere l'accesso a un utente e disconnetterlo, come ottenere un token di accesso per chiamare l'API Microsoft Graph e come inviare una richiesta all'API Graph. 
 
@@ -117,7 +117,7 @@ Se non si dispone già di un'applicazione Android, seguire questa procedura per 
    ```
     
    >[!NOTE]
-   >Questa esercitazione illustra solo come configurare un'app nella modalità Account singolo. Per altre informazioni sulla [modalità Account singolo e sulla modalità Più account ](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account) e su come [configurare l'app](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration), vedere la documentazione
+   >Questa esercitazione illustra solo come configurare un'app nella modalità Account singolo. Per altre informazioni sulla [modalità Account singolo e sulla modalità Più account ](./single-multi-account.md) e su come [configurare l'app](./msal-configuration.md), vedere la documentazione
    
 4. In **app** > **src** > **main** > **AndroidManifest.xml** aggiungere l'attività `BrowserTabActivity` sotto il corpo dell'applicazione. Questa voce consente a Microsoft di eseguire il callback all'applicazione dopo il completamento dell'autenticazione:
 
@@ -582,4 +582,4 @@ Quando non è più necessario, eliminare l'oggetto app creato nel passaggio [Reg
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-In caso di problemi con questa esercitazione o con Microsoft Identity Platform, vedere [Opzioni di supporto tecnico e assistenza per gli sviluppatori](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+In caso di problemi con questa esercitazione o con Microsoft Identity Platform, vedere [Opzioni di supporto tecnico e assistenza per gli sviluppatori](./developer-support-help-options.md).

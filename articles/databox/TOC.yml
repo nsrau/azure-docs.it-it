@@ -7,11 +7,15 @@
           items:
             - name: Informazioni su Data Box
               href: data-box-overview.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           expanded: true
           items:
             - name: Configurazione - Portale di Azure
-              href: data-box-quickstart-portal.md
+              items:
+                - name: Per l'importazione
+                  href: data-box-quickstart-portal.md
+                - name: Per l'esportazione
+                  href: data-box-quickstart-export.md
         - name: Esercitazioni
           items:
             - name: Importare dati in Azure
@@ -116,7 +120,7 @@
           items:
             - name: Informazioni su Data Box Disk
               href: data-box-disk-overview.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           expanded: true
           items:
             - name: Configurazione - Portale di Azure
@@ -167,7 +171,7 @@
           items:
             - name: Informazioni su Data Box Heavy
               href: data-box-heavy-overview.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: Configurazione - Portale di Azure
               href: data-box-heavy-quickstart-portal.md
