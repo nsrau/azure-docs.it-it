@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 08/14/2020
 ms.author: jingwang
-ms.openlocfilehash: a5d203664520aebadefd16c19813d7957dd37fc4
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 26d52eed02c9d25ed2f18afa3a5262ba9224b0ba
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171253"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224867"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 È possibile utilizzare l'attività Recupera metadati per recuperare i metadati di tutti i dati in Azure Data Factory. Questa attività può essere utilizzata negli scenari seguenti:
@@ -58,9 +59,9 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 - Quando si usa l'attività Ottieni metadati in una cartella, assicurarsi di disporre dell'autorizzazione di elenco/esecuzione per la cartella specificata.
 - Per Amazon S3 e Google Cloud Storage, `lastModified` si applica al bucket e alla chiave ma non alla cartella virtuale e `exists` si applica al bucket e alla chiave, ma non al prefisso o alla cartella virtuale.
 - Per l'archiviazione BLOB di Azure, `lastModified` si applica al contenitore e al BLOB, ma non alla cartella virtuale.
-- `lastModified`Filter attualmente si applica per filtrare gli elementi figlio ma non la cartella o il file specificato.
+- `lastModified` Filter attualmente si applica per filtrare gli elementi figlio ma non la cartella o il file specificato.
 - Il filtro con caratteri jolly per le cartelle o i file non è supportato per l'attività Ottieni metadati.
-- `structure`e `columnCount` non sono supportati per il recupero di metadati da file binari, JSON o XML.
+- `structure` e `columnCount` non sono supportati per il recupero di metadati da file binari, JSON o XML.
 
 **Database relazionale**
 
@@ -100,13 +101,36 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 ```json
 {
-    "name": "MyActivity",
-    "type": "GetMetadata",
-    "typeProperties": {
-        "fieldList" : ["size", "lastModified", "structure"],
-        "dataset": {
-            "referenceName": "MyDataset",
-            "type": "DatasetReference"
+    "name":"MyActivity",
+    "type":"GetMetadata",
+    "dependsOn":[
+
+    ],
+    "policy":{
+        "timeout":"7.00:00:00",
+        "retry":0,
+        "retryIntervalInSeconds":30,
+        "secureOutput":false,
+        "secureInput":false
+    },
+    "userProperties":[
+
+    ],
+    "typeProperties":{
+        "dataset":{
+            "referenceName":"MyDataset",
+            "type":"DatasetReference"
+        },
+        "fieldList":[
+            "size",
+            "lastModified",
+            "structure"
+        ],
+        "storeSettings":{
+            "type":"AzureBlobStorageReadSettings"
+        },
+        "formatSettings":{
+            "type":"JsonReadSettings"
         }
     }
 }
@@ -116,18 +140,22 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 ```json
 {
-    "name": "MyDataset",
-    "properties": {
-    "type": "AzureBlob",
-        "linkedService": {
-            "referenceName": "StorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name":"MyDataset",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "typeProperties": {
-            "folderPath":"container/folder",
-            "filename": "file.json",
-            "format":{
-                "type":"JsonFormat"
+        "annotations":[
+
+        ],
+        "type":"Json",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "fileName":"file.json",
+                "folderPath":"folder",
+                "container":"container"
             }
         }
     }

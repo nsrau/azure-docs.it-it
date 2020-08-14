@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319899"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225377"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemi e soluzioni durante la certificazione della macchina virtuale 
 
@@ -154,7 +154,7 @@ Inviare nuovamente la richiesta con una dimensione minore o uguale a 1023 GB.
 
 Per le limitazioni sulle dimensioni del disco del sistema operativo, fare riferimento alle regole seguenti. Quando si invia una richiesta, verificare che le dimensioni del disco del sistema operativo siano comprese nel limite per Linux o Windows.
 
-|Sistema operativo|Dimensioni del disco rigido virtuale consigliate|
+|OS|Dimensioni del disco rigido virtuale consigliate|
 |---|---|
 |Linux|da 30 GB a 1023 GB|
 |Windows|da 30 GB a 250 GB|
@@ -180,7 +180,7 @@ Per controllare la versione di Windows Server con patch per i dettagli del siste
 > [!NOTE]
 > Windows Server 2019 non presenta requisiti di versione obbligatori.
 
-|Sistema operativo|Versione|
+|OS|Versione|
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
@@ -214,7 +214,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7,5|3.10.0-862.34.2|
+||7.5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -294,7 +294,7 @@ Se tutte le immagini tratte da Azure Marketplace devono essere riutilizzate, il 
 
 * Per **Linux**, il processo seguente generalizza una macchina virtuale Linux e la ridistribuisce come macchina virtuale separata.
 
-  Nella finestra SSH immettere il comando seguente:`sudo waagent -deprovision+user`
+  Nella finestra SSH immettere il comando seguente: `sudo waagent -deprovision+user`
 
 * Per **Windows**, le immagini di Windows vengono generalizzate mediante `sysreptool` .
 
@@ -314,6 +314,57 @@ Per le soluzioni a errori correlati al disco dati, usare la tabella seguente:
 Se l'opzione Remote Desktop Protocol (RDP) non è abilitata per l'immagine di Windows, verrà visualizzato questo errore. 
 
 Abilitare l'accesso RDP per le immagini Windows prima di inviarli.
+
+## <a name="bash-history-failed"></a>Cronologia bash non riuscita
+
+Questo errore viene visualizzato se la dimensione della cronologia bash nell'immagine inviata è superiore a 1 kilobyte (KB). La dimensione è limitata a 1 KB per garantire che tutte le informazioni potenzialmente riservate non vengano acquisite nel file di cronologia bash.
+
+Di seguito sono riportati i passaggi per eliminare la "cronologia bash".
+
+Passaggio 1. Distribuire la macchina virtuale e fare clic sull'opzione "Esegui comando" su portale di Azure.
+![Esegui comando su portale di Azure](./media/vm-certification-issues-solutions-3.png)
+
+Passaggio 2. Selezionare la prima opzione "RunShellScript" ed eseguire il comando seguente.
+
+Comando: "cat/dev/null > ~/. bash_history && History-c" ![ bash History Command on portale di Azure](./media/vm-certification-issues-solutions-4.png)
+
+Passaggio 3. Al termine dell'esecuzione del comando, riavviare la macchina virtuale.
+
+Passaggio 4. Generalizzare la VM, estrarre il disco rigido virtuale dell'immagine e arrestare la macchina virtuale.
+
+Passaggio 5.     Inviare nuovamente l'immagine generalizzata.
+
+## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Richiesta di eccezioni (modelli personalizzati) sulle immagini di VM per i test selettivi
+
+Gli editori possono contattare per richiedere eccezioni per pochi test eseguiti durante la certificazione della macchina virtuale. Le eccezioni vengono fornite in casi estremamente rari quando Publisher fornisce l'evidenza per supportare la richiesta.
+Il team di certificazione si riserva il diritto di negare o approvare le eccezioni in qualsiasi momento.
+
+Nelle sezioni seguenti verranno illustrati gli scenari principali in cui vengono richieste le eccezioni e come richiedere un'eccezione.
+
+Scenari per l'eccezione
+
+Esistono tre scenari/casi in cui i Publisher richiedono in genere queste eccezioni. 
+
+* **Eccezione per uno o più test case:** Gli editori possono raggiungere le eccezioni di richiesta del supporto per l' [editore del Marketplace](https://aka.ms/marketplacepublishersupport) per i test case. 
+
+* **Macchine virtuali bloccate/nessun accesso alla radice:** Pochi autori hanno scenari in cui le macchine virtuali devono essere bloccate in quanto hanno un software, ad esempio i firewall installati nella macchina virtuale. 
+       In questo caso, i server di pubblicazione possono scaricare lo [strumento di test certificato](https://aka.ms/AzureCertificationTestTool) e fornire il report al supporto per gli editori del [Marketplace](https://aka.ms/marketplacepublishersupport)
+
+
+* **Modelli personalizzati:** Alcuni editori pubblicano immagini di VM che richiedono un modello ARM personalizzato per distribuire le macchine virtuali. In questo caso, è necessario che gli editori forniscano i modelli personalizzati del supporto per l' [editore del Marketplace](https://aka.ms/marketplacepublishersupport) , in modo che possano essere usati dal team di certificazione per la convalida. 
+
+### <a name="information-to-provide-for-exception-scenarios"></a>Informazioni da fornire per gli scenari di eccezione
+
+Gli editori devono rivolgersi al supporto tecnico di [Marketplace Publisher](https://aka.ms/marketplacepublishersupport) per la richiesta di eccezioni per lo scenario precedente con le informazioni aggiuntive seguenti:
+
+   1.   ID editore: ID editore nel portale del centro per i partner
+   2.   ID offerta/nome: ID offerta/nome per cui è richiesta l'eccezione 
+   3.   ID dello SKU/piano: ID del piano/SKU dell'offerta di macchina virtuale per cui è richiesta l'eccezione
+   4.    Version (versione): la versione dell'offerta di macchina virtuale per cui è richiesta l'eccezione
+   5.   Tipo di eccezione: test, macchine virtuali bloccate, modelli personalizzati
+   6.   Motivo della richiesta: motivo dell'eccezione e informazioni sui test da esentare 
+   7.   Allegato: collegare eventuali documenti di evidenza di importanza. Per le VM bloccate, collegare il report di test e per i modelli personalizzati, fornire il modello ARM personalizzato come allegato. La mancata connessione del report per le VM bloccate e il modello ARM personalizzato per i modelli personalizzati determinerà un attacco Denial of request
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

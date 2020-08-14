@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419717"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225929"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>I pool elastici consentono di gestire e ridimensionare più database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -113,11 +113,11 @@ I passaggi seguenti consentono di stimare se un pool è più conveniente rispett
 
 Per il modello di acquisto basato su DTU:
 
-MAX (<*numero totale di* database x *utilizzo medio di DTU per database*>, <*numero di database con picco contemporaneamente* x picco di *utilizzo DTU per database*)
+MAX (<*numero totale di* database x *utilizzo medio di DTU per database*>, <*numero di database a picco simultaneo* x *utilizzo DTU di picco per database*>)
 
 Per il modello di acquisto basato su vCore:
 
-MAX (<*numero totale di* database x *utilizzo medio di vCore per database*>, <*numero di database con picco contemporaneamente* x picco di *utilizzo vCore per database*)
+MAX (<*numero totale di* database x *utilizzo medio di vCore per database*>, <*numero di database a picco simultaneo* x *utilizzo vCore di picco per database*>)
 
 2. Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione.
 3. Per il modello di acquisto basato su DTU, considerare la stima di eDTU maggiore tra il Passaggio 1 e il Passaggio 2. Per il modello di acquisto basato su vCore, considerare la stima di vCore del Passaggio 1.

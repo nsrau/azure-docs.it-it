@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 69e60c3e4ac91a5d0ca9a0245dc61f090c625c60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35424c0a9e566a9dfa780c524e23945348335040
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499866"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225989"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accesso al dashboard di Kubernetes con il servizio Azure Kubernetes
 
@@ -20,7 +20,7 @@ Kubernetes include un dashboard web che può essere utilizzato per le operazioni
 Per altre informazioni sul dashboard di Kubernetes, vedere [Web UI (Dashboard) (Interfaccia utente Web - Dashboard)][kubernetes-dashboard]. AKS usa la versione 2,0 e successive del Dashboard Open Source.
 
 > [!WARNING]
-> **Il componente aggiuntivo del dashboard AKS è impostato per la deprecazione.** 
+> **Il componente aggiuntivo del dashboard AKS è impostato per la deprecazione. Usare invece la [visualizzazione risorse Kubernetes nel portale di Azure (anteprima)][kubernetes-portal] .** 
 > * Il dashboard Kubernetes è abilitato per impostazione predefinita per i cluster che eseguono una versione Kubernetes inferiore a 1,18.
 > * Il componente aggiuntivo del dashboard verrà disabilitato per impostazione predefinita per tutti i nuovi cluster creati in Kubernetes 1,18 o versione successiva. 
  > * A partire da Kubernetes 1,19 in anteprima, AKS non supporterà più l'installazione dell'addon gestito di Kube-dashboard. 
@@ -54,8 +54,8 @@ Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apr
 
 > [!NOTE]
 > Se il dashboard non è visibile `http://127.0.0.1:8001` , è possibile indirizzare manualmente agli indirizzi seguenti. I cluster con 1,16 o versioni successive usano HTTPS e richiedono un endpoint separato.
-> * K8s 1,16 o versione successiva:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
-> * K8s 1,15 e versioni precedenti:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
+> * K8s 1,16 o versione successiva: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+> * K8s 1,15 e versioni precedenti: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -117,7 +117,7 @@ La schermata iniziale visualizzata richiede un kubeconfig o un token. Entrambe l
 
 Per i cluster Azure AD abilitati e non Azure AD abilitati, è possibile passare un kubeconfig. Verificare che i token di accesso siano validi se i token sono scaduti è possibile aggiornare i token tramite kubectl.
 
-1. Impostare il kubeconfig amministratore con`az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
+1. Impostare il kubeconfig amministratore con `az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
 1. Selezionare `Kubeconfig` e fare clic `Choose kubeconfig file` per aprire il selettore file
 1. Selezionare il file kubeconfig (il valore predefinito è $HOME/.Kube/config)
 1. Fare clic su`Sign In`.
@@ -209,3 +209,4 @@ Per altre informazioni sul dashboard di Kubernetes, vedere [Kubernetes Web UI Da
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
+[kubernetes-portal]: ./kubernetes-portal.md

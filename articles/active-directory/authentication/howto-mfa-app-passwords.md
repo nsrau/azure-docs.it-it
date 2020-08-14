@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489793"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224918"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Abilitare e usare Multi-Factor Authentication di Azure con le applicazioni legacy usando le password dell'app
 
@@ -41,6 +41,8 @@ Quando si usano le password dell'app, si applicano le considerazioni seguenti:
 * Le applicazioni che memorizzano le password nella cache e le usano in scenari locali possono avere esito negativo perché la password dell'app non è nota all'esterno dell'account aziendale o dell'Istituto di istruzione Un esempio di questo scenario è rappresentato dai messaggi di posta elettronica di Exchange in locale, mentre la posta archiviata si trova nel cloud. In questo scenario non funziona la stessa password.
 * Dopo l'abilitazione di Azure Multi-Factor Authentication sull'account di un utente, le password dell'app possono essere usate con la maggior parte dei client non basati su browser, ad esempio Outlook e Microsoft Skype for business. Tuttavia, non è possibile eseguire azioni amministrative usando password di app tramite applicazioni non basate su browser, ad esempio Windows PowerShell. Tali azioni non possono essere eseguite anche se l'utente dispone di un account amministrativo.
     * Per eseguire gli script di PowerShell, creare un account di servizio con una password complessa e non abilitare l'account per la verifica in due passaggi.
+* Se si sospetta che un account utente sia compromesso e revocare o reimpostare la password dell'account, è necessario aggiornare anche le password dell'app. Le password dell'app non vengono revocate automaticamente quando viene revocata o reimpostata una password dell'account utente. L'utente deve eliminare le password dell'app esistenti e crearne di nuove.
+   * Per altre informazioni, vedere [creare ed eliminare password di app dalla pagina verifica aggiuntiva di sicurezza](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > Le password delle app non funzionano in ambienti ibridi in cui i client comunicano con endpoint di individuazione automatica sia locali sia cloud. Le password del dominio sono necessarie per l'autenticazione locale. Le password dell'app sono necessarie per l'autenticazione con il cloud.

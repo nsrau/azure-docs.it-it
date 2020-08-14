@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530377"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225734"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
 
@@ -118,7 +118,7 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 > Il [portale di Azure](https://portal.azure.com), PowerShell e l'interfaccia della riga di comando di Azure non supportano la copia del database in una sottoscrizione diversa.
 
 > [!TIP]
-> La copia del database con T-SQL supporta la copia di un database da una sottoscrizione in un tenant di Azure diverso.
+> La copia del database con T-SQL supporta la copia di un database da una sottoscrizione in un tenant di Azure diverso. Questa operazione è supportata solo quando si utilizza un account di accesso con autenticazione SQL per accedere al server di destinazione.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 
@@ -171,7 +171,7 @@ Per informazioni sulla gestione di utenti e account di accesso quando si copia u
 
 Durante la copia di un database nel database SQL di Azure, possono essere rilevati gli errori seguenti. Per altre informazioni, vedere [Copiare un database SQL di Azure](database-copy.md).
 
-| Codice di errore | Gravità | Descrizione |
+| Codice errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 40635 |16 |Il client con indirizzo IP '%.&#x2a;ls' è temporaneamente disabilitato. |
 | 40637 |16 |La creazione della copia del database è attualmente disabilitata. |

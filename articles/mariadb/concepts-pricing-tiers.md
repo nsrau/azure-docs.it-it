@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/9/2020
-ms.openlocfilehash: 7ded54e0116e6c6e58c0ca8019942dfaaaa88480
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 8/13/2020
+ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954195"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225717"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Piani tariffari di Database di Azure per MariaDB
 
@@ -48,7 +48,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Tipo di archiviazione | Archiviazione di base | Archiviazione per utilizzo generico | Archiviazione per utilizzo generico |
 | Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
+| Operazioni di I/O al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
 
 È possibile aggiungere ulteriore capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumentare automaticamente le dimensioni di archiviazione in base al consumo di spazio di archiviazione del carico di lavoro.
 
@@ -68,7 +68,7 @@ Sono stati aumentati i limiti di archiviazione nei livelli per utilizzo generico
 | Tipo di archiviazione | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Dimensioni dello spazio di archiviazione | da 32 GB a 16 TB| da 32 a 16 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB |
-| IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
+| Operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!IMPORTANT]
 > Archiviazione di grandi dimensioni è attualmente disponibile in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-occidentali
@@ -93,13 +93,11 @@ Tenere presente che lo spazio di archiviazione può essere scalato solo, non ina
 
 ## <a name="backup"></a>Backup
 
-Il servizio esegue automaticamente il backup del server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. I server per utilizzo generico e con ottimizzazione per la memoria possono scegliere di disporre di archiviazione con ridondanza geografica per i backup. Per altre informazioni sui backup, vedere l' [articolo concetti](concepts-backup.md).
+Database di Azure per MariaDB offre fino al 100% delle risorse di archiviazione del server di cui è stato effettuato il provisioning come archivio di backup senza costi aggiuntivi. Qualsiasi spazio di archiviazione di backup utilizzato in eccedenza rispetto a questo importo viene addebitato in GB al mese. Se, ad esempio, si esegue il provisioning di un server con 250 GB di spazio di archiviazione, saranno disponibili 250 GB di spazio di archiviazione aggiuntivo per i backup del server senza alcun costo aggiuntivo. Lo spazio di archiviazione per i backup in eccesso rispetto a 250 GB viene addebitato in base al [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/mariadb/). Per comprendere i fattori che influenzano l'utilizzo dell'archiviazione di backup, il monitoraggio e il controllo dei costi di archiviazione di backup, è possibile fare riferimento alla [documentazione di backup](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Ridimensionare le risorse
 
 Dopo aver creato il server, è possibile modificare in modo indipendente il numero di vCore, il piano tariffario (ad eccezione del passaggio da/a Basic), lo spazio di archiviazione e il periodo di conservazione dei backup. Non è possibile modificare il tipo di archiviazione dei backup dopo aver creato il server. Il numero di vCore può essere aumentato o ridotto. Il periodo di conservazione dei backup può essere aumentato o ridotto da 7 a 35 giorni. Le dimensioni dello spazio di archiviazione possono essere solo aumentate. Il ridimensionamento delle risorse può essere eseguito tramite il portale o l'interfaccia della riga di comando di Azure. 
-
-<!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
 
 Quando si modifica il numero di vCore, o il piano tariffario, viene creata una copia del server di origine con la nuova allocazione del calcolo. Quando il nuovo server è in esecuzione, le connessioni vengono trasferite al nuovo server. Durante l'intervallo nel quale il sistema passa al nuovo server, non è possibile stabilire nuove connessioni e viene effettuato il rollback di tutte le transazioni di cui non è stato eseguito il commit. Questo intervallo è variabile, ma nella maggior parte dei casi è inferiore al minuto.
 
@@ -112,6 +110,3 @@ Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](ht
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sulle [limitazioni del servizio](concepts-limits.md).
 - Informazioni su come [creare un server MariaDB nel portale di Azure](quickstart-create-mariadb-server-database-using-azure-portal.md).
-
-<!--
-- Learn how to [monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->

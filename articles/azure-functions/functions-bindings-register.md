@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 43bc278ea3cbd14690f1a9ac9263872536b5b174
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031124"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224782"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni di binding di funzioni di Azure
 
@@ -31,7 +31,7 @@ La tabella seguente indica quando e come registrare le associazioni.
 |Libreria di classi C# con Visual Studio|[Usare gli strumenti di NuGet](#vs)|[Usare gli strumenti di NuGet](#vs)|
 |Libreria di classi C# usando Visual Studio Code|N/D|[Usare l'interfaccia della riga di comando di .NET Core](#vs-code)|
 
-<sup>*</sup>Il portale USA bundle di estensione.
+<sup>*</sup> Il portale USA bundle di estensione.
 
 ## <a name="extension-bundles"></a><a name="extension-bundles"></a>Bundle di estensione
 
@@ -53,7 +53,7 @@ Per usare i bundle di estensione, aggiornare il *host.jssu* file in modo da incl
 
 ## <a name="nuget-packages"></a><a name="local-csharp"></a>Pacchetti NuGet
 
-Per un progetto di funzioni basate su libreria di classi C#, è necessario installare bundle di estensioni appositamente progettati per progetti che non sono di classe 
+Per un progetto di funzioni basate su libreria di classi C#, è necessario installare direttamente le estensioni. I bundle di estensione sono progettati in modo specifico per i progetti che non sono basati su libreria di classi C#.
 
 ### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Libreria di classi C con Visual Studio
 
@@ -69,7 +69,7 @@ Sostituire `<TARGET_VERSION>` nell'esempio con una specifica versione del pacche
 
 Se si usa `Install-Package` per fare riferimento a un'associazione, non è necessario usare i [bundle di estensione](#extension-bundles). Questo approccio è specifico per le librerie di classi compilate in Visual Studio.
 
-## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Libreria di classi C# con Visual Studio Code
+## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Libreria di classi C# con Visual Studio Code
 
 In **Visual Studio Code**, installare i pacchetti per un progetto libreria di classi C# dal prompt dei comandi usando il comando [DotNet add Package](/dotnet/core/tools/dotnet-add-package) nel interfaccia della riga di comando di .NET Core. Nell'esempio seguente viene illustrato come aggiungere un'associazione:
 

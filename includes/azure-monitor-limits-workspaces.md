@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 6979ce65022f350a93f533951d634b8e436283bc
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 91adafedfc8f4e6b4948b0dcfe541e2754b47556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186296"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226177"
 ---
 **Conservazione e volume della raccolta dati** 
 
@@ -64,7 +64,7 @@ ms.locfileid: "88186296"
 | Numero massimo di caratteri per nome di colonna | 500 | |
 | Esportazione dati | Attualmente non disponibile | Usare Funzioni di Azure o un'app per la logica per aggregare ed esportare dati. | 
 
-**Velocità del volume di inserimento dati**
+**<a name="data-ingestion-volume-rate">Velocità del volume di inserimento dati</a>**
 
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite per la velocità del volume ha lo scopo proteggere i clienti di Monitoraggio di Azure da picchi di inserimento improvvisi nell'ambiente multi-tenant. Alle aree di lavoro viene applicata una soglia per la velocità del volume di inserimento predefinita di 500 MB (dati compressi), che equivale a circa **6 GB/min** di dati non compressi, le cui dimensioni effettive possono variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questa soglia si applica a tutti i dati inseriti inviati dalle risorse di Azure che usano [Impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md), l'[API agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md) o gli agenti.
 

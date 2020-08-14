@@ -1,18 +1,18 @@
 ---
 title: Informazioni su Servizi cloud di Azure | Microsoft Docs
-description: Informazioni sui servizi cloud di Azure.
+description: Informazioni sui servizi cloud di Azure, in particolare per supportare applicazioni scalabili, affidabili ed economiche da usare.
 services: cloud-services
 author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0013a3a29bae9d2dde7896b3ae23d0d358946f2b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75386851"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224289"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Panoramica di Servizi Cloud di Azure
 Servizi cloud di Azure è un esempio di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Analogamente a [Servizio app di Azure](../app-service/overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come Servizio app, anche Servizi cloud di Azure è ospitato in macchine virtuali (VM). Tuttavia, il controllo sulle macchine virtuali è maggiore. È possibile installare software personalizzato nelle macchine virtuali che usano Servizi cloud di Azure e accedervi in remoto.

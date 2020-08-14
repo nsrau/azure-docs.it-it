@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135964"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225683"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -82,15 +82,11 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
 - SQL di Azure CosmosDB
 - Insieme di credenziali chiave di Azure
-- Collegamento privato di Azure
+- Servizio di collegamento privato di Azure
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicazioni in uscita tramite endpoint pubblico da rete virtuale gestita da ADF
 - Solo la porta 443 è aperta per le comunicazioni in uscita.
 - Archiviazione di Azure e Azure Data Lake Gen2 non sono supportati per la connessione tramite un endpoint pubblico dalla rete virtuale gestita di ADF.
-
-### <a name="other-known-issues"></a>Altri problemi noti
-L'esecuzione del debug per la connettività CosmosDB non funziona, inclusi il debug del flusso di lavoro e il debug della pipeline.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

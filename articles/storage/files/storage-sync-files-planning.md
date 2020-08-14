@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 17274c2b5308b1e5069370400895c001dc03e5bb
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030671"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224442"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -376,7 +376,7 @@ Se si preferisce usare una soluzione di backup locale, è necessario eseguire i 
 > Il ripristino bare metal può avere risultati imprevisti e non è attualmente supportato.
 
 > [!Note]  
-> Con la versione 9 dell'agente di Sincronizzazione file di Azure, gli snapshot VSS (inclusa la scheda Versioni precedenti) sono ora supportati nei volumi che hanno il cloud a livelli abilitato. Tuttavia, è necessario abilitare la compatibilità con le versioni precedenti tramite PowerShell. [Informazioni](storage-files-deployment-guide.md).
+> Con la versione 9 dell'agente di Sincronizzazione file di Azure, gli snapshot VSS (inclusa la scheda Versioni precedenti) sono ora supportati nei volumi che hanno il cloud a livelli abilitato. Tuttavia, è necessario abilitare la compatibilità con le versioni precedenti tramite PowerShell. [Informazioni](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

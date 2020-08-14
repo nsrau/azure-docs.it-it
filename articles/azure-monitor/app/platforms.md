@@ -4,12 +4,12 @@ description: Linguaggi, piattaforme e integrazioni disponibili per Application I
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 35dc6c5146edd13309a42702d1bc247333ff0fd7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d3bb1473d94db04d1dedf2b09e19b83197cc6e0e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322449"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225105"
 ---
 # <a name="supported-languages"></a>Lingue supportate
 
@@ -37,6 +37,8 @@ ms.locfileid: "87322449"
 * [Python](./opencensus-python.md)
 * [App di Windows universale](../learn/mobile-center-quickstart.md) (App Center)
 * [Ruoli di lavoro, servizi e applicazioni desktop di Windows](./windows-desktop.md)
+* [React](./javascript-react-plugin.md)
+* [React Native](./javascript-react-native-plugin.md)
 
 ## <a name="logging-frameworks"></a>Framework di registrazione
 * [ILogger](./ilogger.md)

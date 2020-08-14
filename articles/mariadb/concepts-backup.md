@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: c4d5a9ca85237bde1277904a478a0b8828fc2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/13/2020
+ms.openlocfilehash: fee1285cfb5faefbcb8f7151186d42725d34af0a
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80369233"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224510"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Eseguire il backup e il ripristino in Database di Azure per MariaDB
 
@@ -25,7 +25,24 @@ Questi file di backup non sono esposti dall'utente e non possono essere esportat
 
 ### <a name="backup-frequency"></a>Frequenza di backup
 
-In genere, i backup completi vengono eseguiti ogni settimana, i backup differenziali due volte al giorno e i backup del log delle transazioni ogni cinque minuti. Il primo backup completo viene pianificato subito dopo la creazione di un server. Il backup iniziale può richiedere più tempo per un server ripristinato di grandi dimensioni. Il momento meno recente a cui può essere ripristinato un nuovo server è quello del completamento del backup completo iniziale.
+#### <a name="servers-with-up-to-4-tb-storage"></a>Server con un massimo di 4 TB di archiviazione
+
+Per i server che supportano fino a 4 TB di spazio di archiviazione massimo, i backup completi vengono eseguiti una volta alla settimana. I backup differenziali si verificano due volte al giorno. I backup del log delle transazioni vengono eseguiti ogni cinque minuti.
+
+#### <a name="servers-with-up-to-16-tb-storage"></a>Server con un massimo di 16 TB di archiviazione
+In un subset di [aree di Azure](concepts-pricing-tiers.md#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup di snapshot successivi sono solo backup differenziali. 
+
+I backup differenziali degli snapshot si verificano almeno una volta al giorno. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. I backup differenziali degli snapshot si verificano ogni 24 ore, a meno che il log delle transazioni (binlog in MariaDB) superi 50 GB dall'ultimo backup differenziale. In un giorno sono consentiti al massimo sei snapshot differenziali. 
+
+I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
+
+### <a name="backup-retention"></a>Conservazione backup
+
+I backup vengono conservati in base all'impostazione del periodo di conservazione dei backup nel server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. Il periodo di memorizzazione predefinito è 7 giorni. È possibile impostare il periodo di conservazione durante la creazione del server o in un secondo momento aggiornando la configurazione di backup usando [portale di Azure](howto-restore-server-portal.md#set-backup-configuration) o l' [interfaccia](howto-restore-server-cli.md#set-backup-configuration)della riga di comando 
+
+Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il periodo di conservazione dei backup può essere trattato anche come una finestra di ripristino da una prospettiva di ripristino. Tutti i backup necessari per eseguire un ripristino temporizzato entro il periodo di conservazione dei backup vengono conservati nell'archivio di backup. Se, ad esempio, il periodo di conservazione dei backup è impostato su 7 giorni, la finestra di ripristino viene considerata gli ultimi 7 giorni. In questo scenario vengono conservati tutti i backup necessari per ripristinare il server negli ultimi 7 giorni. Con un intervallo di conservazione dei backup di sette giorni:
+- I server con archiviazione fino a 4 TB manterranno fino a 2 backup completi del database, tutti i backup differenziali e i backup del log delle transazioni eseguiti dopo il primo backup completo del database.
+-   I server con archiviazione fino a 16 TB manterranno lo snapshot completo del database, tutti gli snapshot differenziali e i backup del log delle transazioni negli ultimi 8 giorni.
 
 ### <a name="backup-redundancy-options"></a>Opzioni di ridondanza per il backup
 
@@ -36,11 +53,11 @@ Nei livelli Utilizzo generico e Con ottimizzazione per la memoria, Database di A
 
 ### <a name="backup-storage-cost"></a>Costo dell'archiviazione dei backup
 
-Database di Azure per MariaDB offre fino al 100% delle risorse di archiviazione del server di cui è stato effettuato il provisioning come archivio di backup senza costi aggiuntivi. Questo in genere è idoneo per un periodo di conservazione dei backup di sette giorni. Per lo spazio di archiviazione aggiuntivo usato per i backup è previsto un addebito in GB al mese.
+Database di Azure per MariaDB offre fino al 100% delle risorse di archiviazione del server di cui è stato effettuato il provisioning come archivio di backup senza costi aggiuntivi. Ogni ulteriore spazio di archiviazione di backup utilizzato viene addebitato in GB al mese. Se, ad esempio, è stato effettuato il provisioning di un server con 250 GB di spazio di archiviazione, sono disponibili 250 GB di spazio di archiviazione aggiuntivo per i backup del server senza costi aggiuntivi. Lo spazio di archiviazione utilizzato per i backup con più di 250 GB viene addebitato in base al [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/mariadb/). 
 
-Se è stato effettuato il provisioning di un server con 250 GB, ad esempio, sono disponibili 250 GB per l'archiviazione dei backup senza costi aggiuntivi. Lo spazio di archiviazione oltre 250 GB viene addebitato.
+È possibile usare la metrica di [archiviazione di backup utilizzata](concepts-monitoring.md) in monitoraggio di Azure disponibile tramite il portale di Azure per monitorare l'archiviazione di backup utilizzata da un server. La metrica di archiviazione di backup utilizzata rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup completi del database, backup differenziali e backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. La frequenza dei backup è gestita dal servizio e illustrata in precedenza. Un'intensa attività transazionale sul server può causare un aumento dell'utilizzo dell'archiviazione di backup indipendentemente dalle dimensioni totali del database. Per l'archiviazione con ridondanza geografica, l'utilizzo dell'archiviazione di backup è due volte quello dell'archiviazione con ridondanza locale. 
 
-Per altre informazioni sul costo dell'archiviazione di backup, visitare la [pagina dei prezzi di MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).
+Il modo principale per controllare i costi di archiviazione dei backup consiste nell'impostare il periodo di conservazione dei backup appropriato e scegliere le opzioni di ridondanza di backup corrette per soddisfare gli obiettivi di ripristino desiderati. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. I server per utilizzo generico e con ottimizzazione per la memoria possono scegliere di disporre di archiviazione con ridondanza geografica per i backup.
 
 ## <a name="restore"></a>Restore
 
@@ -66,7 +83,9 @@ Per poter eseguire il ripristino a un momento specifico negli ultimi cinque minu
 
 ### <a name="geo-restore"></a>Ripristino geografico
 
-Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Il ripristino geografico usa il backup più recente del server. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
+Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. I server che supportano fino a 4 TB di spazio di archiviazione possono essere ripristinati nell'area geografica abbinata o in qualsiasi area che supporta fino a 16 TB di spazio di archiviazione. Per i server che supportano fino a 16 TB di spazio di archiviazione, è possibile ripristinare i backup geografici in qualsiasi area che supporti i server a 16 TB. Per l'elenco delle aree supportate, vedere i [piani tariffari per database di Azure per MariaDB](concepts-pricing-tiers.md) .
+
+Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Il ripristino geografico usa il backup più recente del server. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
 
 Durante il ripristino geografico è possibile modificare le seguenti opzioni relative alle configurazioni del server: generazione delle risorse di calcolo, vCore, periodo di conservazione dei backup e ridondanza per il backup. La modifica del piano tariffario (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della risorsa di archiviazione non è supportata durante il ripristino geografico.
 

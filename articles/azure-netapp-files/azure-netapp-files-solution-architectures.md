@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 48e3f895fb123429f1bedd106bd92113533c84ae
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8ed9f6565da55d3ffbe522bbdf404265c487f67c
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055803"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225615"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architetture di soluzioni con Azure NetApp Files
 Questo articolo fornisce i riferimenti alle procedure consigliate che consentono di comprendere le architetture della soluzione per l'uso di Azure NetApp Files.  
@@ -85,6 +85,7 @@ In questa sezione vengono forniti i riferimenti per le soluzioni di infrastruttu
 
 ### <a name="windows-virtual-desktop"></a>Desktop virtuale Windows
 
+* [Uso di desktop virtuali Windows con Azure NetApp Files](solutions-windows-virtual-desktop.md)
 * [Opzioni di archiviazione per i contenitori del profilo FSLogix in desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Creare un contenitore di profili FSLogix per un pool host usando Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [Desktop virtuale Windows su scala Enterprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
@@ -109,7 +110,7 @@ In questa sezione vengono forniti i riferimenti per le soluzioni HPC (High Perfo
 * [Vantaggi dell'uso di Azure NetApp Files per l'automazione della progettazione elettronica](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab con Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 
-### <a name="analytics"></a>Analisi
+### <a name="analytics"></a>Analytics
 
 * [Azure NetApp Files: nuova file system condivisa da usare con la griglia SAS in Microsoft Azure](https://communities.sas.com/t5/Architecture/Azure-NetApp-Files-A-new-shared-file-system-to-use-with-SAS-Grid/m-p/606978)
 

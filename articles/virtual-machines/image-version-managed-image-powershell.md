@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c119ebc8d87c00608fc515099711463f47b8ed1a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901811"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225543"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Eseguire la migrazione da un'immagine gestita a un'immagine della raccolta immagini condivisa
 
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > È necessario attendere che la creazione della versione dell'immagine venga interamente completata e replicata prima di poter usare la stessa immagine gestita o creare un'altra versione di immagine. 
 >
-> Quando si crea la versione dell'immagine, è anche possibile archiviare l'immagine nell'archiviazione Premium, aggiungendo `-StorageAccountType Premium_LRS`, oppure nell'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md), aggiungendo `-StorageAccountType Standard_ZRS`.
+> Per archiviare l'immagine nell'archiviazione Premium, è anche possibile aggiungere `-StorageAccountType Premium_LRS` o l' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md) aggiungendo `-StorageAccountType Standard_ZRS` quando si crea la versione dell'immagine.
 >
 
 ## <a name="delete-the-managed-image"></a>Eliminare l'immagine gestita

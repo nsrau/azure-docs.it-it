@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: 708b243d9db16ee8454b4bc0f5c136b9f4399916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/13/2020
+ms.openlocfilehash: 088d2c0a11f7d145f0c8a7ccb2c0aac5bd2d140d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413196"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224086"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoraggio in Database di Azure per MariaDB
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per MariaDB offre varie metriche che consentono di ottenere informazioni dettagliate sul comportamento del server.
@@ -28,7 +28,7 @@ Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 |---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
-|io_consumption_percent|Percentuale IO|Percentuale|Percentuale di I/O in uso. (Non applicabile ai server di livello Basic).|
+|io_consumption_percent|Percentuale IO|Percentuale|Percentuale di I/O in uso. (Non applicabile per i server di livello Basic)|
 |storage_percent|Percentuale archiviazione|Percentuale|Percentuale di spazio di archiviazione usata rispetto al massimo del server.|
 |storage_used|Uso archiviazione|Byte|Quantità di spazio di archiviazione in uso. Lo spazio di archiviazione usato dal servizio può includere file di database, log delle transazioni e log del server.|
 |serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percentuale|Percentuale di spazio di archiviazione dei log del server usata rispetto allo spazio di archiviazione massimo dei log del server per il server.|
@@ -37,8 +37,10 @@ Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 |storage_limit|Limite archiviazione|Byte|Spazio di archiviazione massimo per il server.|
 |active_connections|Connessioni attive|Conteggio|Numero di connessioni al server attive.|
 |connections_failed|Connessioni non riuscite|Conteggio|Numero di connessioni al server non riuscite.|
+|seconds_behind_master|Intervallo di replica in secondi|Conteggio|Numero di secondi di ritardo del server di replica rispetto al server master. (Non applicabile per i server di livello Basic)|
 |network_bytes_egress|Rete in uscita|Byte|Rete in uscita tra connessioni attive.|
 |network_bytes_ingress|Rete in ingresso|Byte|Rete in ingresso tra connessioni attive.|
+|backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate. Questa metrica rappresenta la somma dello spazio di archiviazione utilizzato da tutti i backup completi del database, backup differenziali e backup del log mantenuti in base al periodo di conservazione dei backup impostato per il server. La frequenza dei backup è gestita dal servizio e illustrata nell' [articolo concetti](concepts-backup.md). Per l'archiviazione con ridondanza geografica, l'utilizzo dell'archiviazione di backup è due volte quello dell'archiviazione con ridondanza locale.|
 
 ## <a name="server-logs"></a>Log del server
 

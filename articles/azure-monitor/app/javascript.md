@@ -4,12 +4,12 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905826"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224853"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -104,7 +104,7 @@ Ogni opzione di configurazione è illustrata sopra in una nuova riga, se non si 
 
 Le opzioni di configurazione disponibili sono 
 
-| Nome | Type | Description
+| Nome | Type | Descrizione
 |------|------|----------------
 | src | stringa **[obbligatorio]** | URL completo da cui caricare l'SDK. Questo valore viene usato per l'attributo "src" di uno &lt; script/tag aggiunto dinamicamente &gt; . È possibile usare il percorso di rete CDN pubblico o un host privato.
 | name | String *[facoltativo]* | Nome globale per l'SDK inizializzato. il valore predefinito è `appInsights` . ```window.appInsights```Sarà quindi un riferimento all'istanza inizializzata. Nota: se si specifica un valore di nome o un'istanza precedente sembra essere assegnata (tramite il nome globale appInsightsSDK), il valore del nome verrà definito anche nello spazio dei nomi globale come ```window.appInsightsSDK=<name value>``` , necessario per il codice di inizializzazione dell'SDK per assicurarsi che l'inizializzazione e l'aggiornamento dei metodi del frammento e del proxy corretti.
@@ -217,8 +217,8 @@ Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impie
 
 | Estensioni |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React](javascript-react-plugin.md)|
+| [React Native](javascript-react-native-plugin.md)|
 
 ## <a name="correlation"></a>Correlazione
 
@@ -235,7 +235,7 @@ Per abilitare `CORS` la correlazione, il client deve inviare due intestazioni di
 
 A seconda della `Access-Control-Allow-Headers` configurazione sul lato server, spesso è necessario estendere l'elenco sul lato server aggiungendo manualmente `Request-Id` e `Request-Context` .
 
-Access-Control-Allow-Headers: `Request-Id` , `Request-Context` ,`<your header>`
+Access-Control-Allow-Headers: `Request-Id` , `Request-Context` , `<your header>`
 
 Se uno dei server di terze parti con cui comunica il client non è in grado di accettare le `Request-Id` `Request-Context` intestazioni e e non è possibile aggiornarne la configurazione, sarà necessario inserirli in un elenco di esclusione tramite la `correlationHeaderExcludeDomains` proprietà di configurazione. Questa proprietà supporta caratteri jolly.
 
@@ -268,7 +268,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche operative per un'applicazione Web.](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 ![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche delle dipendenze per un'applicazione Web.](./media/javascript/performance-dependencies.png)
 
@@ -302,7 +302,7 @@ Il minimizzati stack dei dati di telemetria delle eccezioni può essere unminifi
 ### <a name="drag-and-drop"></a>Trascinamento della selezione
 
 1. Selezionare un elemento di telemetria delle eccezioni nel portale di Azure per visualizzare i relativi dettagli della transazione end-to-end.
-2. Identificare i mapping di origine corrispondenti a questo stack di chiamate. La mappa di origine deve corrispondere al file di origine di un stack frame, ma con suffisso`.map`
+2. Identificare i mapping di origine corrispondenti a questo stack di chiamate. La mappa di origine deve corrispondere al file di origine di un stack frame, ma con suffisso `.map`
 3. Trascinare e rilasciare i mapping di origine nello stack di chiamate nella portale di Azure ![ un'immagine animata che Mostra come trascinare i file della mappa di origine da una cartella di compilazione nella finestra stack di chiamate della portale di Azure.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic

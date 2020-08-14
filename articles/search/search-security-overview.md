@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829289"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225275"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
 
@@ -36,11 +36,11 @@ Guarda questo video veloce per una panoramica dell'architettura della sicurezza 
 
 In Azure ricerca cognitiva la crittografia inizia con connessioni e trasmissioni e si estende ai contenuti archiviati su disco. Per i servizi di ricerca sulla rete Internet pubblica, Azure ricerca cognitiva è in ascolto sulla porta HTTPS 443. Tutte le connessioni da client a servizio utilizzano la crittografia TLS 1,2. Le versioni precedenti (1,0 o 1,1) non sono supportate.
 
-Per i dati gestiti internamente dal servizio di ricerca, nella tabella seguente vengono descritti i [modelli di crittografia dei dati](../security/fundamentals/encryption-atrest.md#data-encryption-models). Alcune funzionalità, ad esempio archivio informazioni, arricchimento incrementale e indicizzazione basata su indicizzatore, lettura o scrittura in strutture di dati di altri servizi di Azure. Questi servizi hanno i propri livelli di supporto della crittografia separati da Azure ricerca cognitiva.
+Per i dati gestiti internamente dal servizio di ricerca, nella tabella seguente vengono descritti i [modelli di crittografia dei dati](../security/fundamentals/encryption-models.md). Alcune funzionalità, ad esempio archivio informazioni, arricchimento incrementale e indicizzazione basata su indicizzatore, lettura o scrittura in strutture di dati di altri servizi di Azure. Questi servizi hanno i propri livelli di supporto della crittografia separati da Azure ricerca cognitiva.
 
 | Modello | Chiavi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisiti&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrizioni | Si applica a |
 |------------------|-------|-------------|--------------|------------|
-| crittografia lato server | Chiavi gestite da Microsoft | Nessuno (predefinito) | Nessuno, disponibile in tutti i livelli, in tutte le aree, per il contenuto creato dopo il 24 2018 gennaio. | Contenuto (mappe indici e sinonimi) e definizioni (indicizzatori, origini dati, skillsets) |
+| crittografia lato server | chiavi gestite da Microsoft | Nessuno (predefinito) | Nessuno, disponibile in tutti i livelli, in tutte le aree, per il contenuto creato dopo il 24 2018 gennaio. | Contenuto (mappe indici e sinonimi) e definizioni (indicizzatori, origini dati, skillsets) |
 | crittografia lato server | chiavi gestite dal cliente | Insieme di credenziali chiave di Azure | Disponibile nei livelli fatturabili, in tutte le aree, per il contenuto creato dopo il 2019 gennaio. | Contenuto (mappe indici e sinonimi) sui dischi dati |
 | crittografia doppia lato server | chiavi gestite dal cliente | Insieme di credenziali chiave di Azure | Disponibile su livelli fatturabili, in aree selezionate, nei servizi di ricerca dopo il 1 2020 agosto. | Contenuto (mappe indici e sinonimi) su dischi dati e dischi temporanei |
 
@@ -54,7 +54,7 @@ Le chiavi gestite dal cliente richiedono un servizio fatturabile aggiuntivo, Azu
 
 <a name="double-encryption"></a>
 
-### <a name="double-encryption"></a>Crittografia doppia 
+### <a name="double-encryption"></a>Crittografia doppia
 
 In Azure ricerca cognitiva la crittografia doppia è un'estensione di CMK. Si tratta di una crittografia a due riduzioni (una volta per CMK e di nuovo da chiavi gestite dal servizio) e di un ambito completo, che include l'archiviazione a lungo termine scritta in un disco dati e l'archiviazione a breve termine scritta nei dischi temporanei. La differenza tra CMK prima del 1 2020 agosto e dopo e che rende CMK una doppia funzionalità di crittografia in Azure ricerca cognitiva è la crittografia aggiuntiva dei dati inattivi sui dischi temporanei.
 
@@ -74,7 +74,7 @@ Le funzionalità di sicurezza in ingresso proteggono l'endpoint del servizio di 
 
 ### <a name="public-access-using-api-keys"></a>Accesso pubblico tramite chiavi API
 
-Per impostazione predefinita, è possibile accedere a un servizio di ricerca tramite il cloud pubblico, usando l'autenticazione basata su chiavi per l'amministratore o l'accesso a query all'endpoint del servizio di ricerca. Una chiave API è una stringa composta da lettere e numeri generati casualmente. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile. 
+Per impostazione predefinita, è possibile accedere a un servizio di ricerca tramite il cloud pubblico, usando l'autenticazione basata su chiavi per l'amministratore o l'accesso a query all'endpoint del servizio di ricerca. Una chiave API è una stringa composta da lettere e numeri generati casualmente. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile.
 
 Sono disponibili due livelli di accesso al servizio di ricerca, abilitati dalle chiavi API seguenti:
 
@@ -92,15 +92,15 @@ L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costit
 
 Per controllare ulteriormente l'accesso al servizio di ricerca, è possibile creare regole del firewall in ingresso che consentano l'accesso a un indirizzo IP specifico o a un intervallo di indirizzi IP. Tutte le connessioni client devono essere effettuate tramite un indirizzo IP consentito o la connessione viene negata.
 
-Per [configurare l'accesso in ingresso](service-configure-firewall.md), è possibile usare il portale. 
+Per [configurare l'accesso in ingresso](service-configure-firewall.md), è possibile usare il portale.
 
-In alternativa, è possibile usare le API REST di gestione. L'API versione 2020-03-13, con il parametro [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) , consente di limitare l'accesso al servizio identificando gli indirizzi IP, singolarmente o in un intervallo, a cui si vuole concedere l'accesso al servizio di ricerca. 
+In alternativa, è possibile usare le API REST di gestione. L'API versione 2020-03-13, con il parametro [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) , consente di limitare l'accesso al servizio identificando gli indirizzi IP, singolarmente o in un intervallo, a cui si vuole concedere l'accesso al servizio di ricerca.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Endpoint privato (nessun traffico Internet)
 
-Un [endpoint privato](../private-link/private-endpoint-overview.md) per ricerca cognitiva di Azure consente a un client in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di accedere in modo sicuro ai dati in un indice di ricerca tramite un [collegamento privato](../private-link/private-link-overview.md). 
+Un [endpoint privato](../private-link/private-endpoint-overview.md) per ricerca cognitiva di Azure consente a un client in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di accedere in modo sicuro ai dati in un indice di ricerca tramite un [collegamento privato](../private-link/private-link-overview.md).
 
-L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della rete virtuale per le connessioni al servizio di ricerca. Il traffico di rete tra il client e il servizio di ricerca attraversa la rete virtuale e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. Un VNET consente la comunicazione sicura tra le risorse, con la rete locale e Internet. 
+L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della rete virtuale per le connessioni al servizio di ricerca. Il traffico di rete tra il client e il servizio di ricerca attraversa la rete virtuale e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. Un VNET consente la comunicazione sicura tra le risorse, con la rete locale e Internet.
 
 Anche se questa soluzione è la più sicura, l'uso di servizi aggiuntivi è un costo aggiunto, quindi è necessario assicurarsi di avere una chiara comprensione dei vantaggi prima di immergersi in. Per ulteriori informazioni sui costi, vedere la [pagina](https://azure.microsoft.com/pricing/details/private-link/)relativa ai prezzi. Per ulteriori informazioni sull'interazione tra questi componenti, guardare il video nella parte superiore di questo articolo. Il code coverage dell'opzione di endpoint privato inizia da 5:48 nel video. Per istruzioni su come configurare l'endpoint, vedere [creare un endpoint privato per Azure ricerca cognitiva](service-create-private-endpoint.md).
 
@@ -140,7 +140,7 @@ Azure ricerca cognitiva è stato certificato conforme per più standard globali,
 
 Per garantire la conformità, è possibile usare i [criteri di Azure](../governance/policy/overview.md) per implementare le procedure consigliate per la sicurezza elevata del benchmark di [sicurezza di Azure](../security/benchmarks/introduction.md). Il benchmark di sicurezza di Azure è una raccolta di consigli sulla sicurezza, codificati in controlli di sicurezza che si riferiscono a azioni chiave che è necessario intraprendere per attenuare le minacce ai servizi e ai dati. Attualmente sono presenti 11 controlli di sicurezza, tra cui la [sicurezza della rete](../security/benchmarks/security-control-network-security.md), la [registrazione e il monitoraggio](../security/benchmarks/security-control-logging-monitoring.md)e la [protezione dei dati](../security/benchmarks/security-control-data-protection.md) , per citarne alcuni.
 
-Criteri di Azure è una funzionalità incorporata in Azure che consente di gestire la conformità per più standard, inclusi quelli del benchmark di sicurezza di Azure. Per i benchmark noti, i criteri di Azure forniscono definizioni predefinite che forniscono entrambi i criteri, nonché una risposta praticabile che risolve la mancata conformità. 
+Criteri di Azure è una funzionalità incorporata in Azure che consente di gestire la conformità per più standard, inclusi quelli del benchmark di sicurezza di Azure. Per i benchmark noti, i criteri di Azure forniscono definizioni predefinite che forniscono entrambi i criteri, nonché una risposta praticabile che risolve la mancata conformità.
 
 Per ricerca cognitiva di Azure, esiste attualmente una definizione predefinita. Per la registrazione diagnostica. Con questa funzionalità incorporata, è possibile assegnare un criterio che identifichi qualsiasi servizio di ricerca privo di registrazione diagnostica e quindi lo attiva. Per altre informazioni, vedere [controlli di conformità normativi di criteri di Azure per ricerca cognitiva di Azure](security-controls-policy.md).
 

@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: includere file
+description: Includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 546c21802d275fe99ed2acbf00e32d37db3603f2
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85448723"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225198"
 ---
 Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
 
@@ -27,22 +27,31 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 |Regioni  |Numero di zone di disponibilità che supportano dischi ultra  |
 |---------|---------|
 |US Gov Virginia     |nessuno         |
+|US Gov Arizona     |nessuno         |
 |Stati Uniti centro-meridionali     |nessuno         |
 |Stati Uniti centrali     |Tre zone         |
 |Stati Uniti occidentali     |nessuno         |
-|Stati Uniti occidentali 2    |Tre zone         |
+|West US 2    |Tre zone         |
 |Stati Uniti orientali     |Tre zone         |
-|Stati Uniti orientali 2     |Due zone         |
+|Stati Uniti orientali 2     |Tre zone         |
 |Asia sudorientale     |Tre zone         |
+|Asia orientale     |nessuno         |
 |Europa settentrionale     |Tre zone          |
 |Europa occidentale     |Tre zone          |
 |Regno Unito meridionale     |Tre zone          |
-|Giappone orientale     |Due zone         |
+|Giappone orientale     |Tre zone         |
 |Francia centrale    |Due zone        |
+|Brasile meridionale    |nessuno        |
+|Australia orientale    |Tre zone        |
+|Canada centrale *    |Tre zone        |
 
+\* Contattare il supporto tecnico di Azure per ottenere l'accesso ai zone di disponibilità per questa area.
 
 - Sono supportate solo nelle serie di macchine virtuali seguenti:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series)
+    - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
+    - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
     - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
