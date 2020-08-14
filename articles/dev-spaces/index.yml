@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: 778d697f5c84f99da6974b9d689ddfe35930cd33
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: ac8900298670323551a25d4ef7ac3f7b44249c5a
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87072905"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88209889"
 landingContent:
 - title: Informazioni su Azure Dev Spaces
   linkLists:
@@ -32,18 +32,6 @@ landingContent:
     links:
     - text: Installazione di Azure Dev Spaces
       url: how-to/install-dev-spaces.md
-- title: Sviluppo e test di microservizi
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Eseguire un microservizio ed eseguirne il debug
-      url: quickstart-netcore.md
-    - text: Collaborare a un set di microservizi con un team
-      url: quickstart-team-development.md
-  - linkListType: how-to-guide
-    links:
-    - text: Integrare Dev Spaces nella pipeline CI/CD per ottimizzare i test end-to-end
-      url: how-to/setup-cicd.md
 - title: Scenari avanzati
   linkLists:
   - linkListType: how-to-guide
