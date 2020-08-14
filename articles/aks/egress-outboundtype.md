@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067359"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214227"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizzare l'uscita del cluster con una route definita dall'utente
 
@@ -71,7 +71,8 @@ Per illustrare l'applicazione di un cluster con tipo in uscita usando una route 
 > [!IMPORTANT]
 > Il tipo di UDR in uscita richiede la presenza di una route per 0.0.0.0/0 e della destinazione hop successiva di appliance virtuale di rete nella tabella di route.
 > La tabella di route dispone già di un 0.0.0.0/0 predefinito a Internet, senza un indirizzo IP pubblico per SNAT. l'aggiunta di questa route non fornirà l'uscita. AKS convaliderà la mancata creazione di una route 0.0.0.0/0 che punta a Internet, bensì a appliance virtuale di rete o gateway e così via.
-
+> 
+> Quando si usa un tipo di UDR in uscita, non viene creato un indirizzo IP pubblico di bilanciamento del carico a meno che non sia configurato un servizio di tipo *LoadBalancer* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

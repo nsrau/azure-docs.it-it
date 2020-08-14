@@ -3,13 +3,14 @@ title: Guida di riferimento per gli sviluppatori di PowerShell per funzioni di A
 description: Informazioni su come sviluppare funzioni usando PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506129"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207405"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
 
@@ -113,7 +114,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
-`Push-OutputBinding`si comporta in modo diverso in base al valore specificato per `-Name` :
+`Push-OutputBinding` si comporta in modo diverso in base al valore specificato per `-Name` :
 
 * Quando il nome specificato non può essere risolto in un'associazione di output valida, viene generato un errore.
 
@@ -125,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding` :
 
-| Nome | Tipo | Posizione | Descrizione |
+| Nome | Type | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | string | 1 | Nome dell'associazione di output che si desidera impostare. |
 | **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
@@ -175,7 +176,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>Esempio di push-output: associazione di output della coda
 
-`Push-OutputBinding`viene usato per inviare dati alle associazioni di output, ad esempio un' [associazione di output di archiviazione code di Azure](functions-bindings-storage-queue-output.md). Nell'esempio seguente, il messaggio scritto nella coda ha il valore "output #1":
+`Push-OutputBinding` viene usato per inviare dati alle associazioni di output, ad esempio un' [associazione di output di archiviazione code di Azure](functions-bindings-storage-queue-output.md). Nell'esempio seguente, il messaggio scritto nella coda ha il valore "output #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -212,7 +213,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding`contiene anche un parametro denominato `-Name` , che può essere usato per filtrare l'associazione restituita, come nell'esempio seguente:
+`Get-OutputBinding` contiene anche un parametro denominato `-Name` , che può essere usato per filtrare l'associazione restituita, come nell'esempio seguente:
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -296,14 +297,14 @@ L'oggetto Request passato nello script è del tipo `HttpRequestContext` , che pr
 
 | Proprietà  | Descrizione                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body`viene serializzato nel tipo migliore in base ai dati. Se, ad esempio, i dati sono JSON, vengono passati come Hashtable. Se i dati sono una stringa, viene passata come stringa. | object |
+| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Se, ad esempio, i dati sono JSON, vengono passati come Hashtable. Se i dati sono una stringa, viene passata come stringa. | object |
 | **`Headers`** | Dizionario che contiene le intestazioni della richiesta.                | Dictionary<String, String><sup>*</sup> |
 | **`Method`** | Metodo HTTP della richiesta.                                | string                    |
 | **`Params`**  | Oggetto che contiene i parametri di routing della richiesta. | Dictionary<String, String><sup>*</sup> |
 | **`Query`** | Oggetto che contiene i parametri di query della richiesta.                  | Dictionary<String, String><sup>*</sup> |
 | **`Url`** | URL della richiesta.                                        | string                    |
 
-<sup>*</sup>Tutte le `Dictionary<string,string>` chiavi non fanno distinzione tra maiuscole e minuscole.
+<sup>*</sup> Tutte le `Dictionary<string,string>` chiavi non fanno distinzione tra maiuscole e minuscole.
 
 #### <a name="response-object"></a>Oggetto della risposta
 
@@ -422,9 +423,9 @@ Le seguenti impostazioni dell'applicazione possono essere usate per modificare i
 
 | Impostazione app per le funzioni              | Valore predefinito             | Descrizione                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00`(7 giorni)     | Ogni processo di lavoro di PowerShell avvia il controllo degli aggiornamenti del modulo sul PowerShell Gallery all'avvio del processo e ogni `MDMaxBackgroundUpgradePeriod` volta. Quando una nuova versione del modulo è disponibile nel PowerShell Gallery, viene installata nel file system e resa disponibile per i ruoli di lavoro di PowerShell. La riduzione di questo valore consente all'app per le funzioni di ottenere prima le versioni più recenti del modulo, ma aumenta anche l'utilizzo delle risorse dell'app (I/O di rete, CPU, archiviazione). L'aumento di questo valore comporta una riduzione dell'utilizzo delle risorse dell'app, ma può anche ritardare la distribuzione di nuove versioni dei moduli nell'app. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00`(1 ora)       | Dopo aver installato le nuove versioni del modulo nella file system, è necessario riavviare tutti i processi di lavoro di PowerShell. Il riavvio dei ruoli di lavoro di PowerShell influiscono sulla disponibilità dell'app perché può interrompere l'esecuzione della funzione corrente. Fino a quando non vengono riavviati tutti i processi di lavoro di PowerShell, le chiamate di funzione possono usare le versioni dei moduli precedenti o nuove. Riavvio di tutti i ruoli di lavoro di PowerShell completato all'interno di `MDNewSnapshotCheckPeriod` . L'aumento di questo valore comporta una riduzione della frequenza delle interruzioni, ma può anche aumentare il periodo di tempo durante il quale le chiamate di funzione utilizzano le versioni precedenti o nuove del modulo in modo non deterministico. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00`(1 giorno)     | Per evitare un numero eccessivo di aggiornamenti del modulo sui riavvii di lavoro frequenti, il controllo degli aggiornamenti dei moduli non viene eseguito quando un thread di lavoro ha già avviato il controllo nell'ultimo `MDMinBackgroundUpgradePeriod` . |
+| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 giorni)     | Ogni processo di lavoro di PowerShell avvia il controllo degli aggiornamenti del modulo sul PowerShell Gallery all'avvio del processo e ogni `MDMaxBackgroundUpgradePeriod` volta. Quando una nuova versione del modulo è disponibile nel PowerShell Gallery, viene installata nel file system e resa disponibile per i ruoli di lavoro di PowerShell. La riduzione di questo valore consente all'app per le funzioni di ottenere prima le versioni più recenti del modulo, ma aumenta anche l'utilizzo delle risorse dell'app (I/O di rete, CPU, archiviazione). L'aumento di questo valore comporta una riduzione dell'utilizzo delle risorse dell'app, ma può anche ritardare la distribuzione di nuove versioni dei moduli nell'app. | 
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 ora)       | Dopo aver installato le nuove versioni del modulo nella file system, è necessario riavviare tutti i processi di lavoro di PowerShell. Il riavvio dei ruoli di lavoro di PowerShell influiscono sulla disponibilità dell'app perché può interrompere l'esecuzione della funzione corrente. Fino a quando non vengono riavviati tutti i processi di lavoro di PowerShell, le chiamate di funzione possono usare le versioni dei moduli precedenti o nuove. Riavvio di tutti i ruoli di lavoro di PowerShell completato all'interno di `MDNewSnapshotCheckPeriod` . L'aumento di questo valore comporta una riduzione della frequenza delle interruzioni, ma può anche aumentare il periodo di tempo durante il quale le chiamate di funzione utilizzano le versioni precedenti o nuove del modulo in modo non deterministico. |
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 giorno)     | Per evitare un numero eccessivo di aggiornamenti del modulo sui riavvii di lavoro frequenti, il controllo degli aggiornamenti dei moduli non viene eseguito quando un thread di lavoro ha già avviato il controllo nell'ultimo `MDMinBackgroundUpgradePeriod` . |
 
 Usare i moduli personalizzati è leggermente diverso da quello che si farebbe normalmente.
 
@@ -517,7 +518,7 @@ Azure PowerShell usa alcuni contesti a _livello di processo_ e lo stato per faci
 
 La concorrenza con Azure PowerShell ha un notevole valore, perché alcune operazioni possono richiedere una notevole quantità di tempo. Tuttavia, è necessario procedere con cautela. Se si ritiene che si stia verificando una race condition, impostare l'impostazione dell'app PSWorkerInProcConcurrencyUpperBound su `1` e usare invece l' [isolamento a livello di processo di lavoro della lingua](functions-app-settings.md#functions_worker_process_count) per la concorrenza.
 
-## <a name="configure-function-scriptfile"></a>Configura funzione`scriptFile`
+## <a name="configure-function-scriptfile"></a>Configura funzione `scriptFile`
 
 Per impostazione predefinita, viene eseguita una funzione di PowerShell da `run.ps1` , un file che condivide la stessa directory padre del corrispondente `function.json` .
 
@@ -595,7 +596,7 @@ Quando si lavora con le funzioni di PowerShell, tenere presenti le considerazion
 
 Quando si sviluppano funzioni di Azure nel [modello di hosting senza server](functions-scale.md#consumption-plan), le partenze a freddo sono realtà. L' *avvio a freddo* si riferisce al periodo di tempo necessario per l'avvio dell'esecuzione dell'app per le funzioni per l'elaborazione di una richiesta. L'avvio a freddo si verifica più frequentemente nel piano a consumo perché l'app per le funzioni viene arrestata durante i periodi di inattività.
 
-### <a name="bundle-modules-instead-of-using-install-module"></a>Aggregare i moduli anziché usare`Install-Module`
+### <a name="bundle-modules-instead-of-using-install-module"></a>Aggregare i moduli anziché usare `Install-Module`
 
 Lo script viene eseguito a ogni chiamata. Evitare `Install-Module` di usare nello script. Usare invece `Save-Module` before Publishing in modo che la funzione non debba sprecare tempo per scaricare il modulo. Se l'avvio a freddo influisca sulle funzioni, provare a distribuire l'app per le funzioni in un [piano di servizio app](functions-scale.md#app-service-plan) impostato su *Always on* o su un [piano Premium](functions-scale.md#premium-plan).
 

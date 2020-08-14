@@ -3,14 +3,14 @@ title: Concetti-interconnettività di rete
 description: Informazioni sugli aspetti chiave e i casi d'uso di rete e interconnettività in Azure VMware Solution (AVS)
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f1f1f5a089781f1f7e882c9c8692f0c845ae485
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062849"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214110"
 ---
-# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Concetti relativi alla rete e all'interconnettività di Azure VMware Solution (AVS) Preview
+# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Concetti relativi alla rete e all'interconnettività della soluzione Azure VMware in anteprima
 
 L'interconnettività di rete tra i cloud privati della soluzione VMware di Azure (AVS) e gli ambienti locali o le reti virtuali in Azure consente di accedere e usare il cloud privato. In questo articolo verranno illustrati alcuni concetti chiave che definiscono le basi per la rete e l'interconnettività.
 
@@ -77,7 +77,7 @@ Nella rete virtuale e nell'implementazione da locale a cloud privato completo è
 
 Il diagramma seguente illustra l'interconnettività da locale a cloud privato, che consente i casi d'uso seguenti:
 * Cross-vCenter a caldo/freddo, vMotion
-* Accesso locale per la gestione del cloud privato AVS
+* Accesso a gestione cloud privato da sito locale ad AVS
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Rete virtuale e connettività cloud privata completa locale" border="false":::
 

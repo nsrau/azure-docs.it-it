@@ -5,13 +5,13 @@ keywords: servizio app di Azure, app Web, impostazioni dell'app, variabili di am
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077374"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213570"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -96,11 +96,11 @@ Per gli stack di altri linguaggi, è preferibile usare [le impostazioni dell'app
 
 In fase di esecuzione, le stringhe di connessione sono disponibili come variabili di ambiente, con prefisso i tipi di connessione seguenti:
 
-* SqlServer`SQLCONNSTR_`  
+* SqlServer `SQLCONNSTR_`  
 * MySQL: `MYSQLCONNSTR_` 
-* SQLAzure`SQLAZURECONNSTR_` 
+* SQLAzure `SQLAZURECONNSTR_` 
 * Personalizzato: `CUSTOMCONNSTR_`
-* PostgreSQL`POSTGRESQLCONNSTR_`  
+* PostgreSQL `POSTGRESQLCONNSTR_`  
 
 Ad esempio, è possibile accedere a una stringa di connessione MySql denominata *connectionstring1* come variabile di ambiente `MYSQLCONNSTR_connectionString1` . Per i passaggi specifici dello stack di linguaggio, vedere:
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087572"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209482"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -162,7 +162,7 @@ La migrazione del database a un'istanza gestita mantiene le impostazioni del dat
 Come prerequisito, verificare di aver completato le attività seguenti:
 
 - Allineare le impostazioni nell'istanza gestita con le impostazioni dell'istanza di SQL Server di origine esaminando varie istanze, database, impostazioni di tempdb e configurazioni. Assicurarsi di non aver modificato le impostazioni, ad esempio i livelli di compatibilità o la crittografia, prima di eseguire il primo confronto delle prestazioni o di accettare il rischio che alcune delle nuove funzionalità abilitate potrebbero influire su alcune query. Per ridurre i rischi della migrazione, modificare il livello di compatibilità del database solo dopo il monitoraggio delle prestazioni.
-- Implementare le [linee guida sulle procedure consigliate di archiviazione per per utilizzo generico](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525), ad esempio pre-allocare le dimensioni dei file per ottenere prestazioni migliori.
+- Implementare le [linee guida sulle procedure consigliate di archiviazione per per utilizzo generico](https://techcommunity.microsoft.com), ad esempio pre-allocare le dimensioni dei file per ottenere prestazioni migliori.
 - Informazioni sulle [differenze di ambiente principali che potrebbero causare le differenze di prestazioni tra un'istanza gestita e SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)e identificare i rischi che potrebbero influire sulle prestazioni.
 - Assicurarsi di rimanere abilitati Query Store e l'ottimizzazione automatica nell'istanza gestita. Queste funzionalità consentono di misurare le prestazioni dei carichi di lavoro e di correggere automaticamente i potenziali problemi di prestazioni. Informazioni su come usare Query Store come strumento ottimale per ottenere informazioni sulle prestazioni del carico di lavoro prima e dopo la modifica del livello di compatibilità del database, come illustrato in [garantire la stabilità delle prestazioni durante l'aggiornamento a una versione più recente di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Una volta preparato l'ambiente che è paragonabile al più possibile con l'ambiente locale, è possibile avviare l'esecuzione del carico di lavoro e misurare le prestazioni. Il processo di misurazione deve includere gli stessi parametri misurati [durante la creazione delle prestazioni di base delle misure del carico di lavoro nell'istanza di SQL Server di origine](#create-a-performance-baseline).

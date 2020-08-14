@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descrive i processi di esecuzione del codice nel servizio Azure Kubernetes con Azure Dev Spaces
 keywords: azds. YAML, Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori
-ms.openlocfilehash: c343c32f0817cc922784bb25283290dc9ed88d29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9dbc1f0f21c2883e5caadbdae268a515eb94d145
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072957"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208689"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Funzionamento del codice con Azure Dev Spaces
 
@@ -130,7 +130,7 @@ La proprietà *Install. set* consente di configurare uno o più valori che devon
 
 Nell'esempio precedente, la proprietà *Install. set. replicaCount* indica al controller il numero di istanze dell'applicazione da eseguire nello spazio di sviluppo. A seconda dello scenario, è possibile aumentare questo valore, ma avrà un effetto sull'associazione di un debugger al Pod dell'applicazione. Per ulteriori informazioni, vedere l' [articolo sulla risoluzione dei problemi][troubleshooting].
 
-Nel grafico Helm generato l'immagine del contenitore è impostata su *{{. Values. image. repository}}: {{. Values. image. Tag}}*. `azds.yaml`Per impostazione predefinita, il file definisce la proprietà *Install. set. image. Tag* come *$ (tag)* , che viene usata come valore per *{{. Values. image. Tag}}*. Impostando la proprietà *Install. set. image. Tag* in questo modo, l'immagine del contenitore per l'applicazione deve essere contrassegnata in modo distinto durante l'esecuzione di Azure Dev Spaces. In questo caso specifico, l'immagine è contrassegnata come * \<value from image.repository> : $ (tag)*. È necessario usare la variabile *$ (tag)* come valore di *Install. set. image. Tag* affinché gli spazi di sviluppo riconoscano e trovino il contenitore nel cluster AKS.
+Nel grafico Helm generato l'immagine del contenitore è impostata su *{{. Values. image. repository}}: {{. Values. image. Tag}}*. `azds.yaml`Per impostazione predefinita, il file definisce la proprietà *Install. set. image. Tag* come *$ (tag)* , che viene usata come valore per *{{. Values. image. Tag}}*. Impostando la proprietà *Install. set. image. Tag* in questo modo, l'immagine del contenitore per l'applicazione deve essere contrassegnata in modo distinto durante l'esecuzione di Azure Dev Spaces. In questo caso specifico, l'immagine è contrassegnata come * \<value from image.repository> : $ (tag)*. È necessario usare la variabile *$ (tag)* come valore di   *Install. set. image. Tag* affinché gli spazi di sviluppo riconoscano e trovino il contenitore nel cluster AKS.
 
 Nell'esempio precedente, `azds.yaml` definisce *Install. set. ingress. hosts*. La proprietà *Install. set. ingress. hosts* definisce un formato del nome host per gli endpoint pubblici. Questa proprietà usa anche *$ (spacePrefix)*, *$ (rootSpacePrefix)* e *$ (hostSuffix)*, che sono valori forniti dal controller.
 
@@ -201,14 +201,6 @@ Per altre informazioni sulla rete e sul modo in cui le richieste vengono instrad
 
 Per altre informazioni sull'uso di Azure Dev Spaces per eseguire rapidamente l'iterazione e lo sviluppo, vedere [come funziona il processo locale con Kubernetes][how-it-works-local-process-kubernetes] e [come funziona il debug remoto del codice con Azure Dev Spaces][how-it-works-remote-debugging].
 
-Per iniziare a usare Azure Dev Spaces per eseguire il progetto, vedere le guide introduttive seguenti:
-
-* [Iterazione e debug rapidi con Visual Studio Code e Java][quickstart-java]
-* [Iterazione e debug rapidi con Visual Studio Code e .NET][quickstart-netcore]
-* [Iterazione e debug rapide con Visual Studio Code e Node.js][quickstart-node]
-* [Iterazione e debug rapidi con Visual Studio e .NET Core][quickstart-vs]
-* [Uso dell'interfaccia della riga di comando per sviluppare un'applicazione in Kubernetes][quickstart-cli]
-
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
@@ -216,10 +208,5 @@ Per iniziare a usare Azure Dev Spaces per eseguire il progetto, vedere le guide 
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
-[quickstart-cli]: quickstart-cli.md
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
 [sync-section]: #file-synchronization
 [troubleshooting]: troubleshooting.md

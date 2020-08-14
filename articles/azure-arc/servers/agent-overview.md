@@ -1,18 +1,18 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
-description: Questo articolo fornisce una panoramica dettagliata dell'agente Azure Arc for Servers (anteprima) disponibile che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
+description: Questo articolo fornisce una panoramica dettagliata dell'agente di Azure Arc Enabled Server (anteprima) disponibile, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121834"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212983"
 ---
-# <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Panoramica dell'agente Azure Arc for Servers (anteprima)
+# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Panoramica dell'agente di Azure Arc Enabled Servers (anteprima)
 
-L'agente del computer connesso di Azure Arc for Servers (anteprima) consente di gestire i computer Windows e Linux ospitati all'esterno di Azure nella rete aziendale o in un altro provider di servizi cloud. Questo articolo offre una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete, nonché dei diversi metodi di distribuzione.
+Azure Arc Enabled Servers (anteprima) Connected Machine Agent consente di gestire i computer Windows e Linux ospitati all'esterno di Azure nella rete aziendale o in un altro provider di servizi cloud. Questo articolo offre una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete, nonché dei diversi metodi di distribuzione.
 
 ## <a name="agent-component-details"></a>Dettagli del componente agente
 
@@ -65,7 +65,7 @@ Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente su
 
 ### <a name="azure-subscription-and-service-limits"></a>Limiti del servizio e della sottoscrizione di Azure
 
-Prima di configurare i computer con Azure Arc for Servers (anteprima), rivedere i limiti della [sottoscrizione](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager e dei [gruppi di risorse](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) per pianificare il numero di computer da connettere.
+Prima di configurare i computer con i server abilitati per Azure Arc (anteprima), rivedere i limiti delle [sottoscrizioni](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager e del [gruppo di risorse](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) per pianificare il numero di computer da connettere.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocollo Transport Layer Security 1,2
 
@@ -105,7 +105,7 @@ Gli URL nella tabella precedente sono necessari in aggiunta alle informazioni re
 
 ### <a name="register-azure-resource-providers"></a>Registrare i provider di risorse di Azure
 
-Azure Arc per server (anteprima) dipende dai provider di risorse di Azure seguenti nella sottoscrizione per poter usare questo servizio:
+I server abilitati per Azure Arc (anteprima) dipendono dai seguenti provider di risorse di Azure nella sottoscrizione per poter usare questo servizio:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -248,4 +248,4 @@ Dopo l'installazione dell'agente Connected Machine per Linux, vengono applicate 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a valutare Azure Arc per server (anteprima), vedere l'articolo [Connettere macchine virtuali ibride ad Azure dal portale di Azure](onboard-portal.md).
+Per iniziare a valutare i server abilitati per Azure Arc (anteprima), seguire l'articolo [connettere macchine ibride ad Azure dalla portale di Azure](onboard-portal.md).

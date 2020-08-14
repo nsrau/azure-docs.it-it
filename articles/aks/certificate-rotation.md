@@ -4,12 +4,12 @@ description: Informazioni su come ruotare i certificati in un cluster Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 90526b78e65c335f07a2a9d2d152b54b47233082
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255354"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211028"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ AKS genera e usa i certificati, le autorità di certificazione e gli account di 
 > [!NOTE]
 > I cluster AKS creati prima del 2019 marzo hanno certificati che scadono dopo due anni. Tutti i cluster creati dopo il 2019 marzo o qualsiasi cluster con i relativi certificati ruotati hanno certificati della CA del cluster che scadono dopo 30 anni. Tutti gli altri certificati scadono dopo due anni. Per verificare quando è stato creato il cluster, usare `kubectl get nodes` per visualizzare l' *età* dei pool di nodi.
 > 
-> Inoltre, è possibile controllare la data di scadenza del certificato del cluster. Ad esempio, il comando seguente Visualizza i dettagli del certificato per il cluster *myAKSCluster* .
+> Inoltre, è possibile controllare la data di scadenza del certificato del cluster. Ad esempio, il seguente comando bash Visualizza i dettagli del certificato per il cluster *myAKSCluster* .
 > ```console
 > kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
@@ -62,7 +62,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Il completamento dell'operazione potrebbe richiedere fino a 30 minuti `az aks rotate-certs` . Se il comando ha esito negativo prima del completamento, usare `az aks show` per verificare che lo stato del cluster sia la *rotazione del certificato*. Se il cluster si trova in uno stato di errore, eseguire `az aks rotate-certs` di nuovo per ruotare nuovamente i certificati.
 
-Verificare che i certificati precedenti non siano più validi eseguendo un `kubectl` comando. Poiché non sono stati aggiornati i certificati utilizzati da `kubectl` , verrà visualizzato un errore.  ad esempio:
+Verificare che i certificati precedenti non siano più validi eseguendo un `kubectl` comando. Poiché non sono stati aggiornati i certificati utilizzati da `kubectl` , verrà visualizzato un errore.  Ad esempio:
 
 ```console
 $ kubectl get no
@@ -75,7 +75,7 @@ Aggiornare il certificato utilizzato da eseguendo `kubectl` `az aks get-credenti
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Verificare che i certificati siano stati aggiornati eseguendo un `kubectl` comando che ora avrà esito positivo. ad esempio:
+Verificare che i certificati siano stati aggiornati eseguendo un `kubectl` comando che ora avrà esito positivo. Ad esempio:
 
 ```console
 kubectl get no

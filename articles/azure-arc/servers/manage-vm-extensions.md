@@ -1,24 +1,24 @@
 ---
-title: Gestione delle estensioni VM con Azure Arc per i server
-description: Azure Arc for Servers (anteprima) è in grado di gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
+title: Gestione delle estensioni VM con i server abilitati per Azure Arc (anteprima)
+description: I server abilitati per Azure Arc (anteprima) possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121307"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213120"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Gestione delle estensioni delle macchine virtuali con Azure Arc per i server (anteprima)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Gestione delle estensioni delle macchine virtuali con i server abilitati per Azure Arc (anteprima)
 
 Le estensioni delle macchine virtuali sono piccole applicazioni che forniscono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o l'esecuzione di uno script al suo interno, è possibile usare un'estensione macchina virtuale.
 
-Azure Arc for Servers (anteprima) consente di distribuire le estensioni di VM di Azure in macchine virtuali Windows e Linux non di Azure, semplificando la gestione del computer ibrido in locale, perimetrale e altri ambienti cloud attraverso il ciclo di vita.
+Azure Arc Enabled Servers (anteprima) consente di distribuire le estensioni di VM di Azure in macchine virtuali Windows e Linux non di Azure, semplificando la gestione del computer ibrido in locale, perimetrale e altri ambienti cloud attraverso il ciclo di vita.
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
-Azure Arc for Servers (anteprima) il supporto dell'estensione VM offre i vantaggi principali seguenti:
+Il supporto per l'estensione di VM per i server abilitati per Azure Arc (anteprima) offre i vantaggi principali seguenti:
 
 * Usare la [configurazione dello stato di automazione di Azure](../../automation/automation-dsc-overview.md) per archiviare centralmente le configurazioni e mantenere lo stato desiderato dei computer connessi ibridi abilitati tramite l'estensione VM DSC.
 
@@ -36,7 +36,7 @@ La funzionalità di estensione della macchina virtuale è disponibile solo nell'
 
 In questa versione di anteprima, sono supportate le estensioni di macchina virtuale seguenti nei computer Windows e Linux.
 
-|Estensione |Sistema operativo |Editore |Informazioni aggiuntive |
+|Estensione |Sistema operativo |Publisher |Informazioni aggiuntive |
 |----------|---|----------|-----------------------|
 |CustomScriptExtension |Windows |Microsoft.Compute |[Estensione script personalizzato Windows](../../virtual-machines/extensions/custom-script-windows.md)|
 |DSC |Windows |Microsoft. PowerShell|[Estensione DSC di Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
@@ -47,7 +47,7 @@ In questa versione di anteprima, sono supportate le estensioni di macchina virtu
 |Agente di Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics estensione VM per Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft Dependency Agent | Linux |Microsoft.Compute | [Estensione macchina virtuale dell'agente di dipendenza per Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-Le estensioni di macchina virtuale possono essere eseguite con Azure Resource Manager modelli, dal portale di Azure o Azure PowerShell nei server ibridi gestiti da Arc per i server (anteprima).
+Le estensioni di macchina virtuale possono essere eseguite con Azure Resource Manager modelli, dal portale di Azure o Azure PowerShell nei server ibridi gestiti da server abilitati per Arc (anteprima).
 
 Per informazioni sul pacchetto dell'agente di computer connesso di Azure e per informazioni dettagliate sul componente agente di estensione, vedere [Panoramica degli agenti](agent-overview.md#agent-component-details).
 
@@ -96,9 +96,9 @@ Le estensioni di macchina virtuale possono essere applicate al computer gestito 
 >[!NOTE]
 >Sebbene sia possibile raggruppare ed elaborare più estensioni, queste vengono installate in modo seriale. Al termine dell'installazione della prima estensione, viene tentata l'installazione dell'estensione successiva.
 
-## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+## <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 
-Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Con le estensioni VM supportate da Arc for Servers (anteprima), è possibile distribuire l'estensione VM supportata in computer Linux o Windows usando Azure PowerShell. Ogni esempio seguente include un file modello e un file di parametri con valori di esempio da fornire al modello.
+Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Con le estensioni VM supportate dai server abilitati per Arc (anteprima), è possibile distribuire l'estensione VM supportata in computer Linux o Windows usando Azure PowerShell. Ogni esempio seguente include un file modello e un file di parametri con valori di esempio da fornire al modello.
 
 >[!NOTE]
 >Sebbene sia possibile raggruppare ed elaborare più estensioni, queste vengono installate in modo seriale. Al termine dell'installazione della prima estensione, viene tentata l'installazione dell'estensione successiva.
@@ -223,7 +223,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 Per usare l'estensione di script personalizzata, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con l'estensione script personalizzata, vedere [estensione script personalizzato per Windows](../../virtual-machines/extensions/custom-script-windows.md) o [estensione script personalizzata per Linux](../../virtual-machines/extensions/custom-script-linux.md). Quando si usa questa estensione con macchine ibride, è necessario comprendere un paio di caratteristiche diverse:
 
-* L'elenco dei sistemi operativi supportati con l'estensione di script personalizzati della macchina virtuale di Azure non è applicabile ad Azure Arc per i server. L'elenco dei sistemi operativi supportati per Arc per i server è disponibile [qui](agent-overview.md#supported-operating-systems).
+* L'elenco dei sistemi operativi supportati con l'estensione di script personalizzati della macchina virtuale di Azure non è applicabile ai server abilitati per Azure Arc. L'elenco di sistemi operativi supportati per i server abilitati per Arc è disponibile [qui](agent-overview.md#supported-operating-systems).
 
 * I dettagli di configurazione relativi ai set di scalabilità di macchine virtuali di Azure o alle VM classiche non sono applicabili
 
@@ -379,7 +379,7 @@ La configurazione dell'estensione script personalizzata specifica informazioni c
 
 Per usare l'estensione DSC di PowerShell, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con l'estensione DSC di PowerShell, vedere [Panoramica del gestore dell'estensione DSC](../../virtual-machines/extensions/dsc-overview.md). Quando si usa questa estensione con macchine ibride, è necessario comprendere un paio di caratteristiche diverse:
 
-* L'elenco dei sistemi operativi supportati con l'estensione DSC PowerShell per macchine virtuali di Azure non è applicabile ad Azure Arc per i server. L'elenco dei sistemi operativi supportati per Arc per i server è disponibile [qui](agent-overview.md#supported-operating-systems).
+* L'elenco dei sistemi operativi supportati con l'estensione DSC PowerShell per macchine virtuali di Azure non è applicabile ai server abilitati per Azure Arc. L'elenco di sistemi operativi supportati per i server abilitati per Arc è disponibile [qui](agent-overview.md#supported-operating-systems).
 
 * Se i computer devono scaricare uno script esternamente e possono comunicare solo tramite un server proxy, è necessario [configurare l'agente del computer connesso](manage-agent.md#update-or-remove-proxy-settings) per impostare la variabile di ambiente del server proxy.
 

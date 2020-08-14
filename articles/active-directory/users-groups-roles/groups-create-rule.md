@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 01/07/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 383c5a0d6811b2797ecb4407e73c26752e1a5022
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 85b457b4aefee408e35fb89d46e0de0dc4e96740
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055990"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213857"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Crea o aggiorna un gruppo dinamico in Azure Active Directory
 
@@ -80,7 +80,7 @@ Se la regola immessa non è valida, una spiegazione del motivo per cui non è st
 
 ## <a name="turn-on-or-off-welcome-email"></a>Attivare o disattivare il messaggio di posta elettronica di benvenuto
 
-Quando viene creato un nuovo gruppo di Office 365, viene inviata una notifica di posta elettronica di benvenuto agli utenti aggiunti al gruppo. In seguito, se vengono modificati tutti gli attributi di un utente o un dispositivo, tutte le regole dinamiche del gruppo nell'organizzazione vengono elaborate per le modifiche dell'appartenenza. Anche gli utenti aggiunti ricevono la notifica di benvenuto. Questo comportamento può essere disattivato in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+Quando viene creato un nuovo gruppo di Microsoft 365, viene inviata una notifica di posta elettronica di benvenuto agli utenti aggiunti al gruppo. In seguito, se vengono modificati tutti gli attributi di un utente o un dispositivo, tutte le regole dinamiche del gruppo nell'organizzazione vengono elaborate per le modifiche dell'appartenenza. Anche gli utenti aggiunti ricevono la notifica di benvenuto. Questo comportamento può essere disattivato in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Controllare lo stato di elaborazione di una regola
 

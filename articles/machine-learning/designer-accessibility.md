@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: af676f128796c762b330d986836ea825a36cb246
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5d91dc212eb2f856f0252261f2ddfc8a5a4d70ee
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646305"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210374"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Usare una tastiera per la finestra di progettazione di Azure Machine Learning (anteprima)
 
@@ -79,5 +79,5 @@ Usare le scelte rapide seguenti con il tasto di scelta. Per altre informazioni s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Attivare un contrasto elevato o cambiare tema](../azure-portal/azure-portal-change-theme-high-contrast.md)
+- [Attivare un contrasto elevato o cambiare tema](../azure-portal/set-preferences.md#choose-a-theme-or-enable-high-contrast)
 - [Strumenti correlati all'accessibilità in Microsoft](https://www.microsoft.com/accessibility)

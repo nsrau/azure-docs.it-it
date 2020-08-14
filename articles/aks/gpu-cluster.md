@@ -4,12 +4,12 @@ description: Informazioni su come usare le GPU per carichi di lavoro a elevato u
 services: container-service
 ms.topic: article
 ms.date: 03/27/2020
-ms.openlocfilehash: 30cbac0984236717581c994700483b85829c4571
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244294"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213189"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usare le GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio Azure Kubernetes
 
@@ -26,7 +26,7 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Kubernetes
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 Se occorre un cluster del servizio Azure Kubernetes che soddisfi i requisiti minimi (nodo abilitato per la GPU e Kubernetes versione 1.10 o versioni successive), completare i passaggi seguenti. Se si dispone già di un cluster AKS che soddisfa questi requisiti, [passare alla sezione successiva](#confirm-that-gpus-are-schedulable).
 
@@ -52,7 +52,7 @@ Ottenere le credenziali per il cluster servizio Azure Kubernetes usando il coman
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Installare i driver NVIDIA
+## <a name="install-nvidia-device-plugin"></a>Installare il plug-in del dispositivo NVIDIA
 
 Prima di poter usare le GPU nei nodi, è necessario distribuire un DaemonSet per il plug-in del dispositivo NVIDIA. Il DaemonSet esegue un pod in ogni nodo per specificare i driver necessari per la GPU.
 
@@ -188,7 +188,7 @@ Per vedere la GPU in esecuzione, pianificare un carico di lavoro abilitato per l
 Creare un file denominato *samples-tf-mnist-demo.yaml* e incollare il manifesto YAML seguente. Il manifesto del processo seguente include un limite di risorse di `nvidia.com/gpu: 1`:
 
 > [!NOTE]
-> Se si riceve un errore di mancata corrispondenza della versione durante la chiamata ai driver, ad esempio la versione del driver CUDA non è sufficiente per la versione del runtime CUDA, vedere il grafico di compatibilità della matrice driver NVIDIA-[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> Se si riceve un errore di mancata corrispondenza della versione durante la chiamata ai driver, ad esempio la versione del driver CUDA non è sufficiente per la versione del runtime CUDA, vedere il grafico di compatibilità della matrice driver NVIDIA- [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1

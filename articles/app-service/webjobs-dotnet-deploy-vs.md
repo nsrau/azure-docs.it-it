@@ -4,16 +4,16 @@ description: Informazioni su come sviluppare processi Web di Azure in Visual Stu
 author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
-ms.custom: vs-azure
+ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: f6ebb20eb66e2449f6627b3c6ce45fd88b8640aa
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14bb693ccaa1b1d16a1d07b7ee1cdeb4493960f5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009778"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212879"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Sviluppare e distribuire processi Web con Visual Studio
 
@@ -57,7 +57,7 @@ Distribuire un progetto come processo Web da solo oppure collegarlo a un progett
 
 Installare Visual Studio 2017 o Visual Studio 2019 con il [carico di lavoro sviluppo di Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
-### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a>Abilitare la distribuzione dei processi Web per un progetto di applicazione console esistente
+### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> Abilitare la distribuzione dei processi Web per un progetto di applicazione console esistente
 
 Sono disponibili due opzioni:
 

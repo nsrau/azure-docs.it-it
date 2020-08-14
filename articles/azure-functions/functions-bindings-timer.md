@@ -6,13 +6,13 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 49bbc2199c7dc3040a24071b8eb5a91929d88e08
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 45f704afce28967237b2905ef068678ba05ae085
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849243"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206639"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -168,7 +168,7 @@ public void keepAlive(
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-Il costruttore dell'attributo accetta un'espressione CRON o un valore `TimeSpan`. È possibile usare `TimeSpan` solo se l'app per le funzioni è in esecuzione in un piano di servizio app. `TimeSpan`non è supportato per l'uso o le funzioni Premium elastiche.
+Il costruttore dell'attributo accetta un'espressione CRON o un valore `TimeSpan`. È possibile usare `TimeSpan` solo se l'app per le funzioni è in esecuzione in un piano di servizio app. `TimeSpan` non è supportato per l'uso o le funzioni Premium elastiche.
 
 L'esempio seguente mostra un'espressione CRON:
 
@@ -315,7 +315,7 @@ Se si condividono gli account di archiviazione tra app per le funzioni non distr
 | Versione di Funzioni | Impostazione                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (e versioni successive)  | La variabile di ambiente `AzureFunctionsWebHost__hostid` |
-| 1.x               | `id`in *host.js*                                  |
+| 1.x               | `id` in *host.js*                                  |
 
 È possibile omettere il valore di identificazione o impostare manualmente la configurazione di identificazione di ogni app per le funzioni su un valore diverso.
 

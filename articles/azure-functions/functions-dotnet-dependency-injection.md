@@ -3,15 +3,16 @@ title: Usare l'inserimento di dipendenze in Funzioni di Azure .NET
 description: Informazioni su come usare l'inserimento di dipendenze per la registrazione e l'uso di servizi in funzioni .NET
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 05b845f3284ea95dd2be595c4d59767e45149306
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ee3caef30c573763db56f89aa4900aa62b8a436a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500465"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206113"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in Funzioni di Azure .NET
 

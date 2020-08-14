@@ -1,18 +1,18 @@
 ---
 title: Criteri IPsec predefiniti della rete WAN virtuale di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni sui criteri IPsec per la rete WAN virtuale.
+description: Informazioni sui criteri di connettività IPsec WAN virtuali di Azure, inclusi i criteri di iniziatore e risponditore predefiniti e le combinazioni di criteri personalizzati.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 877a17327f13e407f86cb3a1a21f051572f74343
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 784f43cfa259ad7bdf161aea8e9b1ce559855db7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73499715"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213891"
 ---
 # <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Criteri predefiniti della rete WAN virtuale per la connettività IPsec
 

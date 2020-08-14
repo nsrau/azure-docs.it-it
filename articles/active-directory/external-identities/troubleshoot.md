@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 824520e04bd4a98b1a00c8369848163a38bcf54b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eb81e5a72ff1f5a8d4442e6e1f211ad2368f6277
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909102"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206284"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 
@@ -93,7 +93,7 @@ Un utente che dispone di un account Guest non può accedere e riceve il messaggi
 
 L'utente dispone di un account utente di Azure ed è un tenant virale che è stato abbandonato o non gestito. Inoltre, nel tenant non sono presenti amministratori globali o aziendali.
 
-Per risolvere il problema, è necessario prendere il sopravvento sul tenant abbandonato. Fare riferimento a [una directory non gestita come amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). È anche necessario accedere al DNS con connessione Internet per il suffisso di dominio in questione, in modo da fornire evidenza diretta che si sta controllando lo spazio dei nomi. Quando il tenant viene restituito a uno stato gestito, rivolgersi al cliente indipendentemente dal fatto che gli utenti e il nome di dominio verificato siano la scelta migliore per la propria organizzazione.
+Per risolvere il problema, è necessario prendere il sopravvento sul tenant abbandonato. Fare riferimento a  [una directory non gestita come amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). È anche necessario accedere al DNS con connessione Internet per il suffisso di dominio in questione, in modo da fornire evidenza diretta che si sta controllando lo spazio dei nomi. Quando il tenant viene restituito a uno stato gestito, rivolgersi al cliente indipendentemente dal fatto che gli utenti e il nome di dominio verificato siano la scelta migliore per la propria organizzazione.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Un utente guest con un tenant JIT o "virale" non può reimpostare la password
 
@@ -109,4 +109,4 @@ Nel cloud del governo degli Stati Uniti di Azure, la collaborazione B2B è attua
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Ottenere assistenza per Collaborazione B2B](/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md)
+[Ottenere assistenza per Collaborazione B2B](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)

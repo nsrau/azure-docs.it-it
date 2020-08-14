@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 57eb005109b97a423f9218ee6a47ce5bb06c3853
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505347"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207797"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
 
@@ -127,7 +127,7 @@ A questo punto l'agente raccoglierà le metriche da ogni plug-in di input specif
 
 ## <a name="additional-configuration"></a>Configurazione aggiuntiva 
 
-Nella procedura dettagliata precedente vengono fornite informazioni su come configurare l'agente di Telegraf per raccogliere le metriche da alcuni plug-in di input di base. L'agente Telegraf dispone del supporto per oltre 150 plug-in di input, con alcuni supportano opzioni di configurazione aggiuntive. InfluxData ha pubblicato un [elenco di plug-in supportati](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) e le istruzioni su [come configurarli](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
+Nella procedura dettagliata precedente vengono fornite informazioni su come configurare l'agente di Telegraf per raccogliere le metriche da alcuni plug-in di input di base. L'agente Telegraf dispone del supporto per oltre 150 plug-in di input, con alcuni supportano opzioni di configurazione aggiuntive. InfluxData ha pubblicato un [elenco di plug-in supportati](https://docs.influxdata.com/telegraf/v1.15/plugins/inputs/) e le istruzioni su [come configurarli](https://docs.influxdata.com/telegraf/v1.15/administration/configuration/).  
 
 Inoltre, questa procedura dettagliata ha consentito di usare l'agente Telegraf per generare metriche sulla macchina virtuale in cui è distribuito l'agente. L'agente Telegraf può essere usato anche come agente di raccolta e servizio di inoltro di metriche per altre risorse. Per informazioni su come configurare l'agente per la generazione di metriche per altre risorse di Azure, vedere [Azure Monitor Custom Metric Output for Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md) (Output di metriche personalizzate di Monitoraggio di Azure per Telegraf).  
 

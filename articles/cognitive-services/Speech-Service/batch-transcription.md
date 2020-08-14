@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053917"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214045"
 ---
 # <a name="what-is-batch-transcription"></a>Che cos'è la trascrizione batch?
 
@@ -63,7 +63,7 @@ Se si prevede di personalizzare i modelli, attenersi alla procedura descritta in
 
 L'API di trascrizione batch supporta i formati seguenti:
 
-| Formato | Codec | Bitrate | Frequenza di campionamento                     |
+| Formato | Codec | BITS per campione | Frequenza di campionamento             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16 bit  | 8 kHz o 16 kHz, mono o stereo |
 | MP3    | PCM   | 16 bit  | 8 kHz o 16 kHz, mono o stereo |

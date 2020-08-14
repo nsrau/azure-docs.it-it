@@ -9,14 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 543644495a99bacd40edc3f2d9151e4c15808c50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038427"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208751"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapping dei campi e trasformazioni usando gli indicizzatori di Azure ricerca cognitiva
+
+![Fasi dell'indicizzatore](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "fasi dell'indicizzatore")
 
 Quando si usano gli indicizzatori di Azure ricerca cognitiva, a volte si scopre che i dati di input non corrispondono esattamente allo schema dell'indice di destinazione. In questi casi, è possibile usare i **mapping dei campi** per modificare la forma dei dati durante il processo di indicizzazione.
 
@@ -201,7 +203,7 @@ Azure ricerca cognitiva supporta la codifica Base64 sicura per gli URL e la codi
 Se `useHttpServerUtilityUrlTokenEncode` rispettivamente i `useHttpServerUtilityUrlTokenDecode` parametri o per la codifica e la decodifica sono impostati su `true` , si `base64Encode` comporta come [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) e si `base64Decode` comporta come [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
 > [!WARNING]
-> Se `base64Encode` viene utilizzato per generare valori di chiave, `useHttpServerUtilityUrlTokenEncode` deve essere impostato su true. Per i valori delle chiavi è possibile usare solo la codifica Base64 con URL sicuro. Vedere [regole di denominazione &#40;&#41;ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/naming-rules) per il set completo di restrizioni sui caratteri nei valori chiave.
+> Se `base64Encode` viene utilizzato per generare valori di chiave, `useHttpServerUtilityUrlTokenEncode` deve essere impostato su true. Per i valori delle chiavi è possibile usare solo la codifica Base64 con URL sicuro. Vedere [regole di denominazione &#40;&#41;ricerca cognitiva di Azure ](https://docs.microsoft.com/rest/api/searchservice/naming-rules) per il set completo di restrizioni sui caratteri nei valori chiave.
 
 Le librerie .NET in Azure ricerca cognitiva presuppongono la .NET Framework completa, che fornisce la codifica incorporata. Le `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` Opzioni e sfruttano questa funzionalità incorporata. Se si usa .NET Core o un altro Framework, è consigliabile impostare tali opzioni su `false` e chiamare direttamente le funzioni di codifica e decodifica del Framework.
 
@@ -212,7 +214,7 @@ La tabella seguente confronta diverse codifiche Base64 della stringa `00>00?00`.
 | Base64 con spaziatura interna | `MDA+MDA/MDA=` | Usare caratteri sicuri per gli URL e rimuovere la spaziatura interna | Usare caratteri Base64 standard e aggiungere spaziatura interna |
 | Base64 senza spaziatura interna | `MDA+MDA/MDA` | Usare caratteri sicuri per gli URL | Usare caratteri Base64 standard |
 | Base64 sicura per gli URL con spaziatura interna | `MDA-MDA_MDA=` | Rimuovere la spaziatura interna | Aggiungere spaziatura interna |
-| Base64 sicura per gli URL senza spaziatura interna | `MDA-MDA_MDA` | Nessuna | Nessuna |
+| Base64 sicura per gli URL senza spaziatura interna | `MDA-MDA_MDA` | nessuno | nessuno |
 
 <a name="extractTokenAtPositionFunction"></a>
 
@@ -275,9 +277,9 @@ Questa funzione può essere usata per codificare una stringa in modo che sia "UR
 
 #### <a name="example---document-key-lookup"></a>Esempio-ricerca chiave documento
 
-`urlEncode`la funzione può essere usata come alternativa alla `base64Encode` funzione, se devono essere convertiti solo i caratteri unsafe URL, mantenendo gli altri caratteri così come sono.
+`urlEncode` la funzione può essere usata come alternativa alla `base64Encode` funzione, se devono essere convertiti solo i caratteri unsafe URL, mantenendo gli altri caratteri così come sono.
 
-Supponiamo che la stringa di input sia, `<hello>` quindi il campo di destinazione di tipo `(Edm.String)` verrà popolato con il valore`%3chello%3e`
+Supponiamo che la stringa di input sia, `<hello>` quindi il campo di destinazione di tipo `(Edm.String)` verrà popolato con il valore `%3chello%3e`
 
 Quando si recupera la chiave codificata in fase di ricerca, è possibile usare la `urlDecode` funzione per ottenere il valore di chiave originale e usarlo per recuperare il documento di origine.
 

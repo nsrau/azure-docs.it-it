@@ -2,13 +2,13 @@
 title: Tipi di entità-LUIS
 description: Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.date: 08/06/2020
+ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337620"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207741"
 ---
 # <a name="extract-data-with-entities"></a>Estrarre dati con entità
 
@@ -140,9 +140,16 @@ Modello. Any è disponibile solo in un [modello](luis-concept-patterns.md).
 
 Se è necessario più del [limite](luis-limits.md#model-limits), contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status"></a>Stato stima entità
+## <a name="entity-prediction-status-and-errors"></a>Stato di stima dell'entità ed errori
 
-Il portale LUIS Mostra quando l'entità ha una stima di entità diversa rispetto all'entità selezionata per un esempio di espressione. Questo punteggio diverso si basa sul modello attualmente sottoposto a training. Utilizzare queste informazioni per risolvere gli errori di training utilizzando uno o più degli elementi seguenti:
+Il portale LUIS Mostra quando l'entità ha una stima di entità diversa rispetto all'entità selezionata per un esempio di espressione. Questo punteggio diverso si basa sul modello attualmente sottoposto a training. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="Il portale LUIS Mostra quando l'entità ha una stima di entità diversa rispetto all'entità selezionata per un esempio di espressione.":::
+
+Il testo di errore viene evidenziato all'interno dell'espressione di esempio e la riga dell'espressione di esempio ha un indicatore di errore a destra, visualizzato come triangolo rosso. 
+
+Utilizzare queste informazioni per risolvere gli errori dell'entità utilizzando uno o più degli elementi seguenti:
+* Il testo evidenziato viene erroneamente etichettato. Per correggere, rivedere, correggere e ripetere il training. 
 * Creare una [funzionalità](luis-concept-feature.md) per l'entità per facilitare l'identificazione del concetto dell'entità
 * Aggiungere altre [espressioni di esempio](luis-concept-utterance.md) ed etichetta con l'entità
 * [Esaminare i suggerimenti di apprendimento attivi](luis-concept-review-endpoint-utterances.md) per eventuali espressioni ricevute nell'endpoint di stima che consentono di identificare il concetto dell'entità.

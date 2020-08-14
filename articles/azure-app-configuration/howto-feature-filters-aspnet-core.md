@@ -3,16 +3,17 @@ title: Usare i filtri delle funzionalità per abilitare una funzionalità per un
 titleSuffix: Azure App Configuration
 description: Informazioni su come usare i filtri delle funzionalità per abilitare una funzionalità per un subset di utenti
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80057008"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206770"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Usare i filtri delle funzionalità per abilitare una funzionalità per un subset di utenti
 
@@ -22,8 +23,8 @@ Al contrario, un _flag della funzionalità condizionale_ consente l'abilitazione
 
 La `Microsoft.FeatureManagement` libreria include due filtri funzionalità:
 
-- `PercentageFilter`Abilita il flag di funzionalità in base a una percentuale.
-- `TimeWindowFilter`Abilita il flag di funzionalità durante un intervallo di tempo specificato.
+- `PercentageFilter` Abilita il flag di funzionalità in base a una percentuale.
+- `TimeWindowFilter` Abilita il flag di funzionalità durante un intervallo di tempo specificato.
 
 È anche possibile creare un filtro funzionalità personalizzato che implementi l' [interfaccia Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 

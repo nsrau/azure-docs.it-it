@@ -1,26 +1,27 @@
 ---
-title: Usare identità gestite per accedere alla configurazione dell'app
+title: Usare le identità gestite per accedere a Configurazione app
 titleSuffix: Azure App Configuration
 description: Eseguire l'autenticazione per app Azure configurazione mediante identità gestite
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 7ccf1bed3a1791f0aa172a617deab1cd192540f3
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b1efeeef09e7c228eb8fc14de52a6beb2e9ffffe
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135471"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206839"
 ---
-# <a name="use-managed-identities-to-access-app-configuration"></a>Usare identità gestite per accedere alla configurazione dell'app
+# <a name="use-managed-identities-to-access-app-configuration"></a>Usare le identità gestite per accedere a Configurazione app
 
 Azure Active Directory le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) semplificano la gestione dei segreti per l'applicazione cloud. Con un'identità gestita, il codice può usare l'entità servizio creata per il servizio di Azure in cui è in esecuzione. È possibile usare un'identità gestita invece di usare credenziali distinte archiviate in Azure Key Vault o una stringa di connessione locale.
 
 App Azure configurazione e le librerie client .NET Core, .NET Framework e Java Spring hanno un supporto di identità gestito incorporato. Sebbene non sia necessario usarlo, l'identità gestita elimina la necessità di un token di accesso che contiene segreti. Il codice può accedere all'archivio di configurazione dell'app usando solo l'endpoint del servizio. È possibile incorporare questo URL direttamente nel codice senza esporre alcun segreto.
 
-Questo articolo illustra come è possibile sfruttare l'identità gestita per accedere alla configurazione dell'app. Si basa sull'app Web presentata nelle guide introduttive. Prima di continuare, [creare prima un'app ASP.NET Core con la configurazione dell'app](./quickstart-aspnet-core-app.md) .
+Questo articolo illustra come è possibile sfruttare l'identità gestita per accedere alla configurazione dell'app. Si basa sull'app Web presentata nelle guide introduttive. Prima di continuare,  [creare prima un'app ASP.NET Core con la configurazione dell'app](./quickstart-aspnet-core-app.md) .
 
 Questo articolo illustra anche come è possibile usare l'identità gestita insieme ai riferimenti Key Vault della configurazione dell'app. Con una singola identità gestita, è possibile accedere facilmente a entrambi i segreti da Key Vault e i valori di configurazione dalla configurazione dell'app. Per esplorare questa funzionalità, terminare usare prima di tutto [Key Vault riferimenti con ASP.NET Core](./use-key-vault-references-dotnet-core.md) .
 
@@ -184,7 +185,7 @@ Per configurare un'identità gestita nel portale, è innanzitutto necessario cre
     È ora possibile accedere a Key Vault riferimenti come qualsiasi altra chiave di configurazione dell'app. Il provider di configurazione utilizzerà l'oggetto `KeyVaultClient` configurato per l'autenticazione Key Vault e il recupero del valore.
 
 > [!NOTE]
-> `ManagedIdentityCredential`supporta solo l'autenticazione di identità gestita. Non funziona negli ambienti locali. Se si vuole eseguire il codice localmente, provare a usare `DefaultAzureCredential` , che supporta anche l'autenticazione basata su entità servizio. Per informazioni dettagliate, vedere il [collegamento](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) .
+> `ManagedIdentityCredential` supporta solo l'autenticazione di identità gestita. Non funziona negli ambienti locali. Se si vuole eseguire il codice localmente, provare a usare `DefaultAzureCredential` , che supporta anche l'autenticazione basata su entità servizio. Per informazioni dettagliate, vedere il [collegamento](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) .
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372018"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206167"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare il Data Box e Data Box Heavy
 
@@ -25,7 +25,7 @@ L'articolo include le esercitazioni seguenti:
 
 - Creare un pacchetto di supporto
 - Arrestare o riavviare il dispositivo
-- Scaricare la distinta base o i file manifesto
+- Scarica la fattura del materiale (BOM) o i file manifesto
 - Visualizzare la capacità disponibile del dispositivo
 - Ignorare la convalida di checksum
 
@@ -53,7 +53,7 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 
 ## <a name="shut-down-or-restart-your-device"></a>Arrestare o riavviare il dispositivo
 
-È possibile arrestare o riavviare il dispositivo usando l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline le condivisioni sull'host e quindi il dispositivo. Questa operazione consente di eliminare qualsiasi rischio di danneggiamento dei dati. Assicurarsi che al momento dell'arresto del dispositivo non sia in corso la copia dei dati.
+È possibile arrestare o riavviare il dispositivo usando l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline le condivisioni sull'host e quindi il dispositivo. Questa operazione riduce al minimo eventuali possibili danni ai dati. Assicurarsi che al momento dell'arresto del dispositivo non sia in corso la copia dei dati.
 
 Per arrestare il dispositivo, seguire questa procedura.
 
@@ -62,7 +62,7 @@ Per arrestare il dispositivo, seguire questa procedura.
 
     ![Arrestare Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Alla richiesta di conferma fare clic su **OK** per continuare.
+3. Quando viene richiesta la conferma, selezionare **OK** per continuare.
 
     ![Arrestare Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -81,33 +81,32 @@ Per riavviare Data Box seguire questa procedura.
 
 ## <a name="download-bom-or-manifest-files"></a>Scaricare la distinta base o i file manifesto
 
-La fattura del materiale (BOM) o i file manifesto contengono l'elenco dei file copiati nella Data Box o Data Box Heavy. Questi file vengono generati per un ordine di importazione quando si prepara il dispositivo per la spedizione.
+Il BOM o i file manifesto contengono l'elenco dei file copiati nel Data Box o Data Box Heavy. Questi file vengono generati per un ordine di importazione quando si prepara il dispositivo per la spedizione.
 
-Prima di iniziare, verificare che il dispositivo abbia completato **prepara per la spedizione** passaggio. Seguire questa procedura per scaricare i file BOM o manifest per l'ordine di importazione:
+Prima di iniziare, seguire questa procedura per scaricare i file BOM o manifest per l'ordine di importazione:
 
-1. Passare all'interfaccia utente Web locale per il dispositivo. Si noterà che il dispositivo ha completato la preparazione per la spedizione. Al termine della preparazione, lo stato visualizzato per il dispositivo è **Pronto per la spedizione**.
+1. Passare all'interfaccia utente Web locale per il dispositivo. Verificare che il dispositivo abbia completato il **prepara per la spedizione** passaggio. Al termine della preparazione, lo stato visualizzato per il dispositivo è **Pronto per la spedizione**.
 
-    ![Dispositivo pronto per la spedizione](media/data-box-portal-admin/ready-to-ship.png)
+    ![Dispositivo pronto per la spedizione](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
 2. Selezionare **Scarica l'elenco dei file** per scaricare l'elenco dei file copiati nel data box.
 
-    ![Selezionare l'elenco di download dei file](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. In Esplora file si noterà che vengono generati elenchi di file diversi a seconda del protocollo usato per la connessione al dispositivo e del tipo di archiviazione di Azure usata.
 
-    ![File per tipo di archiviazione e protocollo di connessione](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![File per tipo di archiviazione e protocollo di connessione](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
 
    Nella tabella seguente i nomi file sono associati al tipo di archiviazione di Azure e al protocollo di connessione usato.
 
     |Nome file  |Tipo di archiviazione di Azure  |Protocollo di connessione usato |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |BLOB in blocchi         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |BLOB di pagine         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |File di Azure         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |BLOB di pagine         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |BLOB in blocchi         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Managed Disks         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Managed Disks         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |BLOB in blocchi         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |BLOB di pagine         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |File di Azure         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |BLOB di pagine         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |BLOB in blocchi         |REST         |
 
 Usare questo elenco per verificare i file caricati nell'account di archiviazione di Azure dopo la restituzione del Data Box al data center di Azure. Di seguito è riportato un esempio di file manifesto.
 
