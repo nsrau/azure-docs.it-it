@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 880ec24c377091173202098a3c54b5776bf69a98
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836616"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210385"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,15 +106,15 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 Archiviazione di Azure ha implementato la stessa funzionalità che consente di limitare la connettività all'account di archiviazione di Azure. Se si sceglie di usare questa funzionalità con un account di Archiviazione di Azure usato dal database SQL di Azure, possono verificarsi problemi. Di seguito sono riportati un elenco e una spiegazione delle funzionalità del database SQL di Azure e di Azure SQL Data Warehouse interessate.
 
-### <a name="azure-synapse-polybase"></a>Polibase di sinapsi di Azure
+### <a name="azure-synapse-polybase-and-copy-statement"></a>Istruzione di copia e di base della sinapsi di Azure
 
-PolyBase viene in genere usato per caricare i dati in Azure Synapse Analytics dagli account di archiviazione di Azure. Se l'account di archiviazione di Azure da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. Per abilitare gli scenari di importazione ed esportazione di polibase con Azure sinapsi Analytics che si connette ad archiviazione di Azure protetta per VNet, seguire la procedura indicata di seguito:
+Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di Azure per l'inserimento dei dati con velocità effettiva elevata, viene comunemente usata la polibase e l'istruzione COPY. Se l'account di archiviazione di Azure da cui si caricano i dati limita l'accesso solo a un set di subnet VNet, la connettività quando si usa la funzione polibase e l'istruzione COPY per l'account di archiviazione si interrompe. Per abilitare gli scenari di importazione ed esportazione usando la copia e la polibase con analisi sinapsi di Azure che si connette ad archiviazione di Azure protetta per VNet, seguire la procedura indicata di seguito:
 
 #### <a name="prerequisites"></a>Prerequisiti
 
 - Installare Azure PowerShell usando questa [guida](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. L'abilitazione di questa configurazione consentirà a polibase e all'istruzione COPY di connettersi all'account di archiviazione usando l'autenticazione avanzata in cui il traffico di rete rimane nel backbone di Azure. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Il modulo AzureRM continuerà a ricevere correzioni di bug fino ad almeno il 2020 dicembre.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).

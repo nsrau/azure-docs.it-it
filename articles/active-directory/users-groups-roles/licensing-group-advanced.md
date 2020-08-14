@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727671"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209477"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
 
@@ -130,7 +130,7 @@ Ecco un esempio di come potrebbe presentarsi questo processo:
 
 1. Eseguire il `connect-msolservice` cmdlet per l'autenticazione e la connessione all'organizzazione.
 
-2. `Get-MsolAccountSku`può essere usato per individuare tutte le licenze del prodotto di cui è stato effettuato il provisioning nell'organizzazione Azure AD.
+2. `Get-MsolAccountSku` può essere usato per individuare tutte le licenze del prodotto di cui è stato effettuato il provisioning nell'organizzazione Azure AD.
 
    ![Schermata del cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
@@ -205,7 +205,7 @@ Se si usano le licenze basate sui gruppi, è consigliabile acquisire familiarit�
 
 - La gestione delle licenze basate sui gruppi attualmente non supporta i "gruppi annidati", ovvero i gruppi che contengono altri gruppi. Se si applica una licenza a un gruppo annidato, la licenza è applicabile solo ai membri di primo livello del gruppo.
 
-- La funzionalità è utilizzabile solo con gruppi di sicurezza e gruppi di Office 365 con securityEnabled=TRUE.
+- La funzionalità può essere usata solo con gruppi di sicurezza e Microsoft 365 gruppi con securityEnabled = TRUE.
 
 - L'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com) attualmente non supporta le licenze basate sui gruppi. Se un utente eredita una licenza da un gruppo, la licenza viene visualizzata nel portale di amministrazione di Office come una normale licenza utente. Se si tenta di modificare la licenza o di rimuoverla, il portale restituisce un messaggio di errore. Le licenze di gruppo ereditate non possono essere modificate direttamente per un utente.
 

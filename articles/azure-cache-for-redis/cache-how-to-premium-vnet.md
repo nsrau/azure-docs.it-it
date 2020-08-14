@@ -4,14 +4,15 @@ description: In questo articolo viene spiegato come creare e gestire il supporto
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: bf9ddc78caa1e19d35ad7e96af76dc0303a8a67c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004731"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205565"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -99,7 +100,7 @@ Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le p
 
 Sono previsti nove requisiti per le porte in uscita. Le richieste in uscita in questi intervalli sono in uscita con altri servizi necessari per il funzionamento della cache o interni alla subnet Redis per la comunicazione tra nodi. Per la replica geografica sono disponibili altri requisiti in uscita per la comunicazione tra subnet della cache primaria e di replica.
 
-| Porte | Direction | Protocollo di trasporto | Scopo | IP locale | IP remoto |
+| Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |In uscita |TCP |Dipendenze Redis in Archiviazione di Azure/PKI (Internet) | (Subnet Redis) |* |
 | 443 | In uscita | TCP | Dipendenza Redis da Azure Key Vault | (Subnet Redis) | AzureKeyVault <sup>1</sup> |
@@ -125,7 +126,7 @@ Se si usa la replica geografica tra le cache nelle reti virtuali di Azure, si no
 
 Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in questi intervalli provengono da altri servizi ospitati nella stessa VNET o sono interne alle comunicazioni subnet di Redis.
 
-| Porte | Direction | Protocollo di trasporto | Scopo | IP locale | IP remoto |
+| Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet Redis), rete virtuale, Azure Load Balancer <sup>1</sup> |
 | 8443 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |

@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 52213999ae0ec9f6891c8ec10ab65471926e87d2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078394"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208031"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -297,6 +297,9 @@ Facoltativamente, le impostazioni di autenticazione possono essere configurate t
     1.  Impostato `enabled` su "true"
     2.  Impostato `isAuthFromFile` su "true"
     3.  Impostare sul `authFilePath` nome del file, ad esempio "auth.json".
+
+> [!NOTE]
+> Il formato di varia a seconda delle `authFilePath` piattaforme. In Windows sono supportati sia i percorsi relativi che assoluti. È consigliabile usare relativa. Per Linux, attualmente sono supportati solo i percorsi assoluti, quindi il valore dell'impostazione deve essere "/Home/site/wwwroot/auth.json" o simile.
 
 Dopo aver eseguito l'aggiornamento della configurazione, il contenuto del file verrà usato per definire il comportamento dell'autenticazione/autorizzazione del servizio app per quel sito. Se si desidera tornare alla configurazione di Azure Resource Manager, è possibile eseguire questa operazione impostando `isAuthFromFile` di nuovo su "false".
 

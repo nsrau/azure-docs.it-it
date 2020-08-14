@@ -1,18 +1,18 @@
 ---
 title: Connettere macchine virtuali ibride ad Azure su larga scala
-description: Questo articolo illustra come connettere computer ad Azure con Azure Arc per server (anteprima) tramite un'entità servizio.
+description: Questo articolo illustra come connettere i computer ad Azure usando i server abilitati per Azure Arc (anteprima) usando un'entità servizio.
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f599ae6bab8a2b1ce442df677ba5de206d11ab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 07266ce7fb9579e1d4fb1b65394e0b7fdf7aa13d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121817"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211412"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connettere macchine virtuali ibride ad Azure su larga scala
 
-È possibile abilitare Azure Arc per server (anteprima) per più computer Windows o Linux nell'ambiente in uso, con diverse opzioni flessibili a seconda dei requisiti. Usando lo script modello fornito è possibile automatizzare tutti i passaggi dell'installazione, inclusa la creazione della connessione ad Azure Arc. Tuttavia, è necessario eseguire questo script in modo interattivo con un account con autorizzazioni elevate, nel computer di destinazione e in Azure. Per connettere i computer ad Azure Arc per server, è possibile usare un'[entità servizio](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory al posto dell'identità con privilegi per [connettere il computer in modo interattivo](onboard-portal.md). Un'entità servizio è un'identità di gestione limitata speciale a cui viene concessa solo l'autorizzazione minima necessaria per connettere computer ad Azure tramite il comando `azcmagent`. Questa soluzione è più sicura rispetto all'uso di un account con autorizzazioni elevate, come un Amministratore tenant, e segue le procedure consigliate per la sicurezza del controllo di accesso. L'entità servizio viene usata solo durante l'onboarding, non viene usata per altri scopi.  
+È possibile abilitare i server abilitati per Azure Arc (anteprima) per più computer Windows o Linux nell'ambiente in uso con diverse opzioni flessibili, a seconda dei requisiti. Usando lo script modello fornito è possibile automatizzare tutti i passaggi dell'installazione, inclusa la creazione della connessione ad Azure Arc. Tuttavia, è necessario eseguire questo script in modo interattivo con un account con autorizzazioni elevate, nel computer di destinazione e in Azure. Per connettere i computer ai server abilitati per Azure Arc (anteprima), è possibile usare un' [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory invece di usare l'identità con privilegi per connettere in modo [interattivo il computer](onboard-portal.md). Un'entità servizio è un'identità di gestione limitata speciale a cui viene concessa solo l'autorizzazione minima necessaria per connettere computer ad Azure tramite il comando `azcmagent`. Questa soluzione è più sicura rispetto all'uso di un account con autorizzazioni elevate, come un Amministratore tenant, e segue le procedure consigliate per la sicurezza del controllo di accesso. L'entità servizio viene usata solo durante l'onboarding, non viene usata per altri scopi.  
 
 I metodi di installazione per installare e configurare l'agente di Connected Machine richiedono che il metodo automatizzato usato disponga delle autorizzazioni di amministratore per i computer. In Linux, tramite l'account radice, e in Windows, come membri del gruppo Administrators locale.
 
@@ -20,7 +20,7 @@ Prima di iniziare, esaminare i [prerequisiti](agent-overview.md#prerequisites) e
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Al termine di questo processo è possibile connettere i computer ibridi ad Azure Arc per server.
+Al termine di questo processo, le macchine ibride sono state connesse correttamente ai server abilitati per Azure Arc (anteprima).
 
 ## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Creare un'entità servizio per l'onboarding su larga scala
 
@@ -133,7 +133,7 @@ azcmagent connect \
 >[!NOTE]
 >Per eseguire **azcmagent**, è necessario disporre delle autorizzazioni di accesso alla *radice* nei computer Linux.
 
-Dopo aver installato l'agente e averlo configurato per la connessione ad Azure Arc per server (anteprima), passare al portale di Azure per verificare che il server sia stato connesso correttamente. Visualizzare le proprie macchine virtuali nel [portale di Azure](https://aka.ms/hybridmachineportal).
+Dopo aver installato l'agente e configurato per la connessione ai server abilitati per Azure Arc (anteprima), passare alla portale di Azure per verificare che il server sia stato connesso correttamente. Visualizzare le proprie macchine virtuali nel [portale di Azure](https://aka.ms/hybridmachineportal).
 
 ![Una connessione server riuscita](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

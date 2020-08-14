@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 4ee489e8b596adf0767856e3358c9bdcb17fbb6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e2aee194d3c97655dd4ec5aaeea46fb607c4c5e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004367"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210964"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json per l'esperienza di creazione di un'applicazione gestita di Azure
 
@@ -39,7 +39,7 @@ CreateUiDefinition contiene sempre tre proprietà:
 
 * gestore
 * version
-* parametri
+* parameters
 
 Il gestore deve essere sempre `Microsoft.Azure.CreateUIDef` e la versione supportata più recente è `0.1.2-preview` .
 
@@ -49,7 +49,7 @@ L'inclusione di `$schema` è consigliata ma facoltativa. Se specificato, il valo
 
 È possibile usare un editor JSON per creare il createUiDefinition, quindi testarlo nella [sandbox createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) per visualizzarne l'anteprima. Per altre informazioni sulla sandbox, vedere [testare l'interfaccia del portale per le applicazioni gestite di Azure](test-createuidefinition.md).
 
-## <a name="basics"></a>Nozioni di base
+## <a name="basics"></a>Operazioni di base
 
 Il passaggio di **base** è il primo passaggio generato quando il portale di Azure analizza il file. Per impostazione predefinita, il passaggio di base consente agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la località per la distribuzione.
 
@@ -77,49 +77,56 @@ Nell'esempio seguente viene illustrata una casella di testo aggiunta agli elemen
 Specificare l'elemento config quando è necessario eseguire l'override del comportamento predefinito per i passaggi di base. Nell'esempio seguente vengono illustrate le proprietà disponibili.
 
 ```json
-"config": {  
-    "basics": {  
-        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
-        "subscription": {
-            "constraints": {
-                "validations": [
-                    {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
-                    },
+"config": {
+    "basics": {
+        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
+        "subscription": {
+            "constraints": {
+                "validations": [
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
-                    }
-                ]
-            },
-            "resourceProviders": [ "<Resource Provider>" ]
-        },
-        "resourceGroup": {
-            "constraints": {
-                "validations": [
-                    {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
-                    }
-                ]
-            },
-            "allowExisting": true
-        },
-        "location": {  
-            "label": "Custom label for location",  
-            "toolTip": "provide a useful tooltip",  
-            "resourceTypes": [ "Microsoft.Compute/virtualMachines" ],
-            "allowedValues": [ "eastus", "westus2" ],  
-            "visible": true  
-        }  
-    }  
-},  
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid subscription."
+                    },
+                    {
+                        "permission": "<Resource Provider>/<Action>",
+                        "message": "Must have correct permission to complete this step."
+                    }
+                ]
+            },
+            "resourceProviders": [
+                "<Resource Provider>"
+            ]
+        },
+        "resourceGroup": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid resource group."
+                    }
+                ]
+            },
+            "allowExisting": true
+        },
+        "location": {
+            "label": "Custom label for location",
+            "toolTip": "provide a useful tooltip",
+            "resourceTypes": [
+                "Microsoft.Compute/virtualMachines"
+            ],
+            "allowedValues": [
+                "eastus",
+                "westus2"
+            ],
+            "visible": true
+        }
+    }
+},
 ```
 
 Per `description` , specificare una stringa abilitata per Markdown che descrive la risorsa. Sono supportati il formato a più righe e i collegamenti.
 
-Per `location` , specificare le proprietà per il controllo del percorso di cui si desidera eseguire l'override. Le proprietà di cui non è stato eseguito l'override sono impostate sui valori predefiniti. `resourceTypes`accetta una matrice di stringhe contenenti nomi di tipi di risorse completi. Le opzioni relative al percorso sono limitate solo alle aree che supportano i tipi di risorse.  `allowedValues`   accetta una matrice di stringhe di area. Nell'elenco a discesa vengono visualizzate solo le aree.È possibile impostare sia `allowedValues`   che  `resourceTypes` . Il risultato è l'intersezione di entrambi gli elenchi. Infine, la `visible` proprietà può essere usata per disabilitare in modo condizionale o completamente l'elenco a discesa percorso.  
+Per `location` , specificare le proprietà per il controllo del percorso di cui si desidera eseguire l'override. Le proprietà di cui non è stato eseguito l'override sono impostate sui valori predefiniti. `resourceTypes` accetta una matrice di stringhe contenenti nomi di tipi di risorse completi. Le opzioni relative al percorso sono limitate solo alle aree che supportano i tipi di risorse.  `allowedValues`   accetta una matrice di stringhe di area. Nell'elenco a discesa vengono visualizzate solo le aree.È possibile impostare sia `allowedValues`   che  `resourceTypes` . Il risultato è l'intersezione di entrambi gli elenchi. Infine, la `visible` proprietà può essere usata per disabilitare in modo condizionale o completamente l'elenco a discesa percorso.  
 
 Gli `subscription` `resourceGroup` elementi e consentono di specificare convalide aggiuntive. La sintassi per specificare le convalide è identica alla [casella di testo](microsoft-common-textbox.md)convalida personalizzata. È anche possibile specificare `permission` convalide per la sottoscrizione o il gruppo di risorse.  
 
@@ -161,7 +168,7 @@ Per impostare il nome della risorsa applicazione gestita, è necessario includer
 
 ## <a name="resource-types"></a>Tipi di risorsa
 
-Per filtrare i percorsi disponibili solo per i percorsi che supportano i tipi di risorse da distribuire, fornire una matrice di tipi di risorse. Se si specifica più di un tipo di risorsa, vengono restituiti solo i percorsi che supportano tutti i tipi di risorsa. La proprietà è facoltativa.
+Per filtrare i percorsi disponibili solo per i percorsi che supportano i tipi di risorse da distribuire, fornire una matrice di tipi di risorse. Se si specifica più di un tipo di risorsa, vengono restituiti solo i percorsi che supportano tutti i tipi di risorsa. Questa proprietà è facoltativa.
 
 ```json
 {

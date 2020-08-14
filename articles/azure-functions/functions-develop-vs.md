@@ -1,15 +1,15 @@
 ---
 title: Sviluppare Funzioni di Azure con Visual Studio
 description: Informazioni su come sviluppare e testare funzioni di Azure usando gli strumenti di funzioni di Azure per Visual Studio 2019.
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 0df65c4cdbf40b49bc265f4accafde67f41dafb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81de0af335e0a233ac568921b298c9bb168eb174
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731022"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209985"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -214,7 +214,7 @@ Il modo più semplice per caricare le impostazioni necessarie nell'app per le fu
 
 Selezionando questo collegamento viene visualizzata la finestra di dialogo **Impostazioni applicazione** per l'app per le funzioni, in cui è possibile aggiungere nuove impostazioni dell'applicazione o modificare quelle esistenti.
 
-![Impostazioni dell'applicazione](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+![Impostazioni applicazione](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **Local** Visualizza un valore di impostazione nel local.settings.jssu file e **Remote** Visualizza un valore di impostazione corrente nell'app per le funzioni in Azure. Scegliere **Aggiungi impostazione** per creare una nuova impostazione dell'app. Usare il collegamento **Inserisci valore da locale** per copiare un valore di impostazione nel campo **Remoto**. Le modifiche in sospeso vengono scritte nel file delle impostazioni locali e nell'app per le funzioni quando si seleziona **OK**.
 

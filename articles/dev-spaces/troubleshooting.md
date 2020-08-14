@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Informazioni su come individuare e risolvere i problemi comuni relativi all'abilitazione e all'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077034"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210834"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -55,8 +55,6 @@ Se l'interfaccia della riga di comando di Azure Dev Spaces non è installata, è
 ```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
-
-Per ricreare il controller è possibile usare l'interfaccia della riga di comando o Visual Studio. Per alcuni esempi, vedere gli argomenti di avvio rapido [Sviluppo in team](quickstart-team-development.md) o [Sviluppo con .NET Core](quickstart-netcore-visualstudio.md).
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>La creazione del controller non riesce a causa della lunghezza del relativo nome
 

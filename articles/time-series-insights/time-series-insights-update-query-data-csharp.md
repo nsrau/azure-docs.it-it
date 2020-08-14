@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 902dfc924fdac28c0aed46745604c5d4d19f084b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 158715a312af5d368b6f1125a7f1acc36dbefe51
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920331"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207516"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c"></a>Eseguire query sui dati dall'ambiente Azure Time Series Insights Gen2 con C #
 
 Questo esempio in C# illustra come eseguire query sui dati dalle [API di accesso ai dati di Gen2](https://docs.microsoft.com/rest/api/time-series-insights/preview) in Azure Time Series Insights ambienti Gen2.
 
 > [!TIP]
-> Vedere gli esempi di codice C# Gen2 in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample) .
+> Vedere gli esempi di codice C# Gen2 in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample) .
 
 ## <a name="summary"></a>Summary
 
@@ -50,7 +50,7 @@ Prima di compilare ed eseguire lo script di esempio, completare questa procedura
 
 1. Effettuare [il provisioning di un ambiente di Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) .
 1. Configurare l'ambiente di Azure Time Series Insights per Azure Active Directory come descritto in [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md). 
-1. Eseguire il [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) come specificato in [Readme.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) per generare le dipendenze del client di Azure Time Series Insights Gen2.
+1. Eseguire il [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) come specificato in [Readme.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) per generare le dipendenze del client di Azure Time Series Insights Gen2.
 1. Aprire la soluzione `TSIPreviewDataPlaneclient.sln` e impostare `DataPlaneClientSampleApp` come progetto predefinito in Visual Studio.
 1. Installare le dipendenze di progetto necessarie usando i passaggi descritti [di seguito](#project-dependencies) e compilare l'esempio in un file eseguibile `.exe`.
 1. Eseguire il file `.exe` selezionandolo facendo doppio clic.
@@ -61,7 +61,7 @@ Si consiglia di usare la versione più recente di Visual Studio:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Versione 16.4.2 o successive
 
-Il codice di esempio presenta diverse dipendenze necessarie che possono essere visualizzate nel file [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config).
+Il codice di esempio presenta diverse dipendenze necessarie che possono essere visualizzate nel file [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/packages.config).
 
 Scaricare i pacchetti in Visual Studio 2019 selezionando l'opzione **Compila** > **Compila soluzione**. 
 

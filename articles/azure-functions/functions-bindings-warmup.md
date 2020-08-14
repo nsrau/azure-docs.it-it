@@ -7,14 +7,15 @@ manager: gwallace
 keywords: funzioni di Azure, funzioni, elaborazione di eventi, riscaldamento, avvio a freddo, Premium, calcolo dinamico, architettura senza server
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: dade31fd9a5a75c875274ea45607fea81a2de027
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383716"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206586"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
 
@@ -107,7 +108,7 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Nell'esempio seguente viene illustrato un trigger di riscaldamento in un *function.jssu* file e una [funzione JavaScript](functions-reference-node.md) che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
+Nell'esempio seguente viene illustrato un trigger di riscaldamento in un *function.jssu* file e una [funzione JavaScript](functions-reference-node.md)  che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
 
 La funzione deve essere denominata ```warmup``` (senza distinzione tra maiuscole e minuscole) ed è possibile che esista una sola funzione di riscaldamento per ogni app.
 

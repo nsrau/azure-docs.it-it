@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d9bc6365070c0aec96def2f55758204925fe7ba
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75641334"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205949"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Tasti di scelta rapida nel portale di Azure
 
@@ -55,5 +55,5 @@ Questo articolo elenca i tasti di scelta rapida che funzionano ovunque nel porta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Attivare un contrasto elevato o cambiare tema](azure-portal-change-theme-high-contrast.md)
-- [Browser e dispositivi supportati](../azure-preview-portal-supported-browsers-devices.md)
+- [Attivare un contrasto elevato o cambiare tema](set-preferences.md#choose-a-theme-or-enable-high-contrast)
+- [Browser e dispositivi supportati](azure-portal-supported-browsers-devices.md)

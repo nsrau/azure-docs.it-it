@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7f05e4fb0443107370f9182706bd35b45771e0f2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501951"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210893"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Baseline della sicurezza di Azure per l'analisi delle sinapsi
 
@@ -160,7 +160,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
@@ -294,7 +294,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: abilitare la registrazione di controllo da riga di comando
 
@@ -520,7 +520,7 @@ La classificazione di individuazione dei dati &amp; è incorporata in SQL sinaps
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
@@ -652,7 +652,7 @@ Inoltre, è possibile configurare gli avvisi per i database nel pool SQL sinapsi
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: distribuire una soluzione di gestione delle patch automatizzata per il sistema operativo
 
@@ -768,7 +768,7 @@ Usare il grafico risorse di Azure per eseguire query e individuare le risorse al
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
@@ -776,7 +776,7 @@ Usare il grafico risorse di Azure per eseguire query e individuare le risorse al
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
 
@@ -784,7 +784,7 @@ Usare il grafico risorse di Azure per eseguire query e individuare le risorse al
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
@@ -864,7 +864,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
@@ -962,7 +962,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
@@ -1040,7 +1040,7 @@ Se si usa una chiave gestita dal cliente per crittografare la chiave di crittogr
 
 * [Come ripristinare chiavi di Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Eseguire il backup e il ripristino nel pool SQL sinapsi di Azure](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Eseguire il backup e il ripristino nel pool SQL sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Come ripristinare un pool SQL esistente](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
 
@@ -1076,7 +1076,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
@@ -1096,7 +1096,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
 
@@ -1118,7 +1118,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 
@@ -1142,7 +1142,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="next-steps"></a>Passaggi successivi
 

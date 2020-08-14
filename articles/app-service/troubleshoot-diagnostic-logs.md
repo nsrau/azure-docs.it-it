@@ -4,13 +4,13 @@ description: Informazioni su come abilitare la registrazione diagnostica e aggiu
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: seodec18
-ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261342"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207535"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -51,7 +51,7 @@ L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore
 > [!NOTE]
 > Attualmente solo i log applicazioni .NET possono essere scritti nell'archiviazione BLOB. I log applicazioni Java, PHP, Node.js e Python possono essere archiviati solo nel servizio app file system (senza modifiche al codice per scrivere i log nell'archiviazione esterna).
 >
-> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, effettuare l'operazione seguente:
+> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, effettuare le seguenti operazioni:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -62,9 +62,9 @@ Consente di selezionare il **livello**o il livello dei dettagli da registrare. L
 
 | Level | Categorie incluse |
 |-|-|
-|**Disabilitato** | nessuno |
-|**Errore** | Errore, Errore critico |
-|**Avviso** | Avviso, Errore, Errore critico|
+|**Disabilitato** | Nessuno |
+|**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
+|**Warning** | Avviso, Errore, Errore critico|
 |**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
 |**Verbose** | Analisi, Debug, Informazioni, Avviso, Errore, Errore critico (tutte le categorie) |
 
@@ -89,7 +89,7 @@ Per la **registrazione del server Web**, selezionare **archiviazione** per archi
 In **periodo di conservazione (giorni)** impostare il numero di giorni per cui conservare i log.
 
 > [!NOTE]
-> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare l'operazione seguente:
+> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare le seguenti operazioni:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -159,8 +159,8 @@ Se si configura l'opzione BLOB di archiviazione di Azure per un tipo di log, è 
 
 Per i log archiviati nel servizio app file system, il modo più semplice consiste nel scaricare il file ZIP nel browser all'indirizzo:
 
-- App Linux/contenitore:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- App di Windows:`https://<app-name>.scm.azurewebsites.net/api/dump`
+- App Linux/contenitore: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- App di Windows: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
 Per le app Linux/contenitore, il file ZIP contiene i log di output della console per l'host Docker e il contenitore docker. Per un'app con scalabilità orizzontale, il file ZIP contiene un set di log per ogni istanza. Nel file system del servizio app, questi file di log sono il contenuto della directory */Home/LogFiles* .
 

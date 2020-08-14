@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d73782d9de7da2c5daacbff5397d9a365ff9ae03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f93df91f87f8119a503f2f7c452b61e3af5924f8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038410"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208803"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Ricerca cognitiva di Azure
 
@@ -38,7 +38,7 @@ Un nuovo indicizzatore viene inizialmente annunciato come funzionalità di antep
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Tutte le operazioni correlate agli indicizzatori, incluse le richieste GET per lo stato o le definizioni, richiedono una [chiave API di amministrazione](search-security-api-keys.md). 
+Tutte le operazioni correlate agli indicizzatori, incluse le richieste GET per lo stato o le definizioni, richiedono una [chiave API di amministrazione](search-security-api-keys.md).
 
 <a name="supported-data-sources"></a>
 
@@ -51,10 +51,47 @@ Gli indicizzatori eseguono ricerche per indicizzazione negli archivi dati in Azu
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Database SQL di Azure e Istanza gestita SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [SQL Server in Macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [SQL Server in macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [Istanza gestita di SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
+## <a name="indexer-stages"></a>Fasi dell'indicizzatore
+
+In un'esecuzione iniziale, quando l'indice è vuoto, un indicizzatore verrà letto in tutti i dati forniti nella tabella o nel contenitore. Nelle esecuzioni successive, l'indicizzatore può in genere rilevare e recuperare solo i dati che sono stati modificati. Per i dati BLOB, il rilevamento delle modifiche è automatico. Per altre origini dati come Azure SQL o Cosmos DB, è necessario abilitare il rilevamento delle modifiche.
+
+Per ogni documento che inserisce, un indicizzatore implementa o coordina più passaggi, dal recupero dei documenti a un motore di ricerca finale per l'indicizzazione. Facoltativamente, un indicizzatore è anche strumentale per la guida dell'esecuzione e degli output delle competenze, supponendo che venga definito un valore di competenze.
+
+![Fasi dell'indicizzatore](./media/search-indexer-overview/indexer-stages.png "fasi dell'indicizzatore")
+
+### <a name="stage-1-document-cracking"></a>Fase 1: cracking del documento
+
+Il cracking dei documenti è il processo di apertura di file ed estrazione di contenuto. A seconda del tipo di origine dati, l'indicizzatore proverà a eseguire diverse operazioni per estrarre contenuto potenzialmente indicizzabile.  
+
+Esempi:  
+
+* Quando il documento è un record in un' [origine dati SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), l'indicizzatore estrae ognuno dei campi per il record.
+* Quando il documento è un file PDF in un' [origine dati di archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md), l'indicizzatore estrae il testo, le immagini e i metadati per il file.
+* Quando il documento è un record in un' [origine dati Cosmos DB](search-howto-index-cosmosdb.md), l'indicizzatore estrae i campi e i sottocampi dal documento Cosmos DB.
+
+### <a name="stage-2-field-mappings"></a>Fase 2: mapping dei campi 
+
+Un indicizzatore estrae il testo da un campo di origine e lo invia a un campo di destinazione in un indice o in un archivio informazioni. Quando i tipi e i nomi dei campi coincidono, il percorso è chiaro. Tuttavia, è possibile che si vogliano nomi o tipi diversi nell'output, nel qual caso è necessario indicare all'indicizzatore come eseguire il mapping del campo. Questo passaggio si verifica dopo il cracking del documento, ma prima delle trasformazioni, quando l'indicizzatore legge i documenti di origine. Quando si definisce un [mapping di campi](search-indexer-field-mappings.md), il valore del campo di origine viene inviato così com'è al campo di destinazione senza alcuna modifica. I mapping dei campi sono facoltativi.
+
+### <a name="stage-3-skillset-execution"></a>Fase 3: esecuzione delle competenze
+
+L'esecuzione delle competenze è un passaggio facoltativo che richiama l'elaborazione incorporata o personalizzata di intelligenza artificiale. Potrebbe essere necessario per il riconoscimento ottico dei caratteri (OCR) sotto forma di analisi delle immagini oppure potrebbe essere necessaria la traduzione della lingua. Qualunque sia la trasformazione, l'esecuzione delle competenze è la posizione in cui si verifica l'arricchimento. Se un indicizzatore è una pipeline, è possibile pensare a un [skillt](cognitive-search-defining-skillset.md) come una "pipeline all'interno della pipeline". Un skillt ha una propria sequenza di passaggi chiamati Skills.
+
+### <a name="stage-4-output-field-mappings"></a>Fase 4: mapping dei campi di output
+
+L'output di un skillt è effettivamente un albero di informazioni denominato documento arricchito. I mapping dei campi di output consentono di selezionare le parti di questo albero da mappare ai campi dell'indice. Informazioni su come [definire i mapping dei campi di output](cognitive-search-output-field-mapping.md).
+
+Proprio come i mapping dei campi che associano i valori Verbatim dai campi di origine a quello di destinazione, i mapping dei campi di output indicano all'indicizzatore come associare i valori trasformati nel documento arricchito ai campi di destinazione nell'indice. A differenza dei mapping dei campi, che sono considerati facoltativi, sarà sempre necessario definire un mapping del campo di output per qualsiasi contenuto trasformato che deve risiedere in un indice.
+
+L'immagine successiva mostra una rappresentazione della [sessione di debug](cognitive-search-debug-session.md) dell'indicizzatore di esempio delle fasi dell'indicizzatore: cracking del documento, mapping dei campi, esecuzione di competenze e mapping dei campi di output.
+
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sessione di debug di esempio" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+
 ## <a name="basic-configuration-steps"></a>Procedura di configurazione di base
+
 Gli indicizzatori possono offrire funzionalità univoche per l'origine dati. In questo senso, alcuni aspetti della configurazione dell'indicizzatore o dell'origine dati possono variare a seconda del tipo di indicizzatore. Tutti gli indicizzatori, tuttavia, condividono la stessa composizione e gli stessi requisiti di base. Le procedure comuni a tutti gli indicizzatori sono descritte sotto.
 
 ### <a name="step-1-create-a-data-source"></a>Passaggio 1: Creare un'origine dati

@@ -10,17 +10,18 @@ editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
 ms.subservice: asc-for-iot
 ms.devlang: na
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 460e3f3955778945600bb3a1f9762a0ac50f5805
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311140"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205908"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire un agente di sicurezza per Linux basato su C# del Centro sicurezza di Azure per IoT
 

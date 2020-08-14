@@ -3,17 +3,17 @@ title: Creare un modello di Image Builder di Azure (anteprima)
 description: Informazioni su come creare un modello da usare con Image Builder di Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
+ms.date: 08/13/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 095aa4ddbdc9ceb04c65d8c896642a0f1a91e547
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830343"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205538"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di Image Builder di Azure 
 
@@ -435,7 +435,8 @@ Proprietà customize:
 - **filters** - facoltativo, consente di specificare un filtro per includere o escludere gli aggiornamenti.
 - **updateLimit** - facoltativo, definisce il numero di aggiornamenti che è possibile installare, valore predefinito 1000.
  
- 
+> [!NOTE]
+> Il Windows Update verbi può avere esito negativo se sono presenti riavvii di Windows in attesa o se le installazioni dell'applicazione sono ancora in esecuzione, in genere è possibile che questo errore venga visualizzato nel file customization. log `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . È consigliabile prendere in considerazione l'aggiunta di un riavvio di Windows e/o consentire alle applicazioni un tempo sufficiente per completare le installazioni usando i comandi [Sleep] o Wait ( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) nei comandi o negli script inline prima di eseguire Windows Update.
 
 ### <a name="generalize"></a>Generalizzazione 
 Per impostazione predefinita, Image Builder di Azure eseguirà anche il codice di "deprovisioning" alla fine di ogni fase di personalizzazione dell'immagine, in modo da "generalizzare" l'immagine. La generalizzazione è un processo in cui l'immagine è configurata in modo da poter essere riutilizzata per creare più macchine virtuali. Per le macchine virtuali Windows, Image Builder di Azure usa Sysprep. Per Linux, Image Builder di Azure esegue "waagent-deprovision". 
@@ -590,7 +591,7 @@ Proprietà distribute per le raccolte di immagini condivise:
 - **type** - sharedImage  
 - **galleryImageId** : ID della raccolta di immagini condivise, che può essere specificato in due formati:
     * Controllo automatico delle versioni: generatore di immagini genera un numero di versione monotona per l'utente. questa operazione è utile quando si vuole salvare le immagini dallo stesso modello: il formato è: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>` .
-    * Controllo delle versioni esplicito: è possibile passare il numero di versione che si vuole venga usato da Image Builder. Il formato è:`/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+    * Controllo delle versioni esplicito: è possibile passare il numero di versione che si vuole venga usato da Image Builder. Il formato è: `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
 
 - **runOutputName** - nome univoco per identificare la distribuzione.  
 - **artifactTags** - facoltativo, tag della coppia chiave-valore specificata dall'utente.

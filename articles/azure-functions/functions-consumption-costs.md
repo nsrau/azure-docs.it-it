@@ -3,12 +3,12 @@ title: Stima dei costi del piano di consumo in funzioni di Azure
 description: Informazioni su come stimare meglio i costi che possono verificarsi quando si esegue l'app per le funzioni in un piano a consumo in Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083039"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207771"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Stima dei costi del piano a consumo
 
@@ -36,6 +36,8 @@ Poiché le modifiche all'utilizzo della memoria nel tempo, il calcolo è essenzi
 
 > [!NOTE]
 > Anche se l'utilizzo della CPU non è direttamente considerato nei costi di esecuzione, può influire sul costo quando influisce sul tempo di esecuzione della funzione.
+
+Per una funzione attivata tramite HTTP, quando si verifica un errore prima che venga avviata l'esecuzione del codice della funzione non viene addebitato alcun costo per l'esecuzione. Questo significa che 401 risposte dalla piattaforma a causa della convalida della chiave API o della funzionalità di autenticazione/autorizzazione del servizio app non vengono conteggiate rispetto al costo di esecuzione. Analogamente, le risposte del codice di stato 5xx non vengono conteggiate quando si verificano nella piattaforma prima di una funzione che elabora la richiesta. Una risposta 5xx generata dalla piattaforma dopo l'avvio dell'esecuzione del codice della funzione viene comunque conteggiata come esecuzione, anche se l'errore non viene generato dal codice della funzione.
 
 ## <a name="other-related-costs"></a>Altri costi correlati
 
@@ -69,7 +71,7 @@ Per comprendere meglio l'impatto sui costi delle funzioni, è possibile usare mo
 
 Usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metrics-getting-started.md) per visualizzare i dati relativi ai costi per le app per le funzioni del piano a consumo in formato grafico. 
 
-1. Nella parte superiore del [portale di Azure] in **Cerca servizi, risorse e documentazione** Cerca `monitor` e seleziona **monitoraggio** in **Servizi**.
+1. Nella parte superiore del [portale di Azure] in **Cerca servizi, risorse e documentazione**  Cerca `monitor` e seleziona **monitoraggio** in **Servizi**.
 
 1. A sinistra selezionare **metrica**  >  **selezionare una risorsa**e quindi usare le impostazioni sotto l'immagine per scegliere l'app per le funzioni.
 
@@ -79,9 +81,9 @@ Usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metr
     |Impostazione  |Valore consigliato  |Descrizione  |
     |---------|---------|---------|
     | Subscription    |  Sottoscrizione in uso  | Sottoscrizione con l'app per le funzioni.  |
-    | Gruppo di risorse     | Gruppo di risorse in uso  | Il gruppo di risorse che contiene l'app per le funzioni.   |
+    | Resource group     | Gruppo di risorse in uso  | Il gruppo di risorse che contiene l'app per le funzioni.   |
     | Tipo di risorsa     |  Servizi app | Le app per le funzioni vengono visualizzate come istanze di servizi app in monitoraggio. |
-    | Resource     |  App per le funzioni  | App per le funzioni da monitorare.        |
+    | Risorsa     |  App per le funzioni  | App per le funzioni da monitorare.        |
 
 1. Selezionare **applica** per scegliere l'app per le funzioni come risorsa da monitorare.
 

@@ -1,18 +1,18 @@
 ---
 title: Linee guida sull'automazione di partner WAN virtuali di Azure | Microsoft Docs
-description: Questo articolo illustra ai partner come configurare l'automazione della rete WAN virtuale di Azure.
+description: Configurare un ambiente di automazione per la connessione e la configurazione di una VPN locale o di un CPE SD-WAN, o un dispositivo Branch, per la rete WAN virtuale di Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565951"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208339"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Linee guida di automazione per partner WAN virtuali
 
@@ -81,12 +81,12 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
 * **vpnSiteConfiguration -** Questa sezione indica i dettagli del dispositivo configurato come un sito che si connette alla rete WAN virtuale. Include il nome e l'indirizzo IP pubblico del dispositivo della succursale.
 * **vpnSiteConnections -** Questa sezione include informazioni su quanto segue:
 
-    * **Spazio degli indirizzi** della rete virtuale degli hub.<br>Esempio:
+    * **Spazio di indirizzi** degli hub virtuali VNet.<br>Esempio:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Spazio degli indirizzi** delle reti virtuali che sono collegate all'hub.<br>Esempio:
+    * **Spazio degli indirizzi** di reti virtuali connessi all'hub.<br>Esempio:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -97,7 +97,7 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Dettagli di configurazione della connessione vpngateway** , ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
+    * **Dettagli di configurazione della connessione al gateway VPN**, ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
   
 **Esempio di file di configurazione del dispositivo**
 

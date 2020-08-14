@@ -3,14 +3,15 @@ title: Esempio di trigger e binding di Funzioni di Azure
 description: Informazioni su come configurare le associazioni di funzioni di Azure
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74227233"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205960"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Esempio di trigger e binding di Funzioni di Azure
 
@@ -45,7 +46,7 @@ Il primo elemento nella matrice `bindings` è il trigger di archiviazione code. 
 
 Il secondo elemento nella matrice `bindings` è l'associazione di output dell'archiviazione tabelle di Azure. Le proprietà `type` e `direction` identificano l'associazione. La proprietà `name` specifica in che modo la funzione fornisce la nuova riga di tabella, in questo caso usando il valore restituito della funzione. Il nome della tabella si trova in `tableName` e la stringa di connessione si trova nell'impostazione app identificata da `connection`.
 
-Per visualizzare e modificare i contenuti della *funzione .json* nel portale di Azure, fare clic sull'opzione **Editor avanzato** nella scheda **Integrazione** della funzione.
+Per visualizzare e modificare il contenuto di *function.js* in portale di Azure, fare clic sull'opzione **Editor avanzato** nella scheda **integrazione** della funzione.
 
 > [!NOTE]
 > Il valore di `connection` corrisponde al nome di un'impostazione app che contiene la stringa di connessione e non alla stringa di connessione stessa. Le associazioni usano stringhe di connessione archiviate nelle impostazioni app per imporre la procedura consigliata che prevede che il file *function.json* non contenga i segreti del servizio.
@@ -102,7 +103,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>Esempio di libreria di classi
 
-In una libreria di classi le stesse informazioni sui trigger e sulle associazioni, ovvero i nomi di coda e tabella, gli account di archiviazione, i parametri di funzione per l'input e l'output, vengono fornite dagli attributi anziché da un file function.json. Ad esempio:
+In una libreria di classi le stesse informazioni sui trigger e sulle associazioni, ovvero i nomi di coda e tabella, gli account di archiviazione, i parametri di funzione per l'input e l'output, vengono fornite dagli attributi anziché da un file function.json. Ecco un esempio:
 
 ```csharp
 public static class QueueTriggerTableOutput

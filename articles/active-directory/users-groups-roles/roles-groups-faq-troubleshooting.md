@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901815ba40459bd50562e557a0a766474c731ce0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476112"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208196"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Risoluzione dei problemi assegnati ai gruppi di cloud
 
@@ -51,7 +51,7 @@ Di seguito sono riportate alcune domande comuni e suggerimenti per la risoluzion
 
 **R:** Sì, è possibile. L'amministratore globale e l'amministratore utente hanno la possibilità di inserire qualsiasi gruppo in un pacchetto di accesso. Non sono state apportate modifiche per l'amministratore globale, ma è presente una lieve modifica nelle autorizzazioni del ruolo Amministratore utenti. Per inserire un gruppo assegnabile da ruoli in un pacchetto di accesso, è necessario essere un amministratore utente e anche il proprietario del gruppo assegnabile al ruolo. Ecco la tabella completa che mostra chi può creare un pacchetto di accesso in Enterprise License Management:
 
-Ruolo della directory di Azure AD | Ruolo di gestione dei diritti | È possibile aggiungere un gruppo di sicurezza\* | È possibile aggiungere il gruppo Office 365\* | È possibile aggiungere l'app | È possibile aggiungere il sito di SharePoint Online
+Ruolo della directory di Azure AD | Ruolo di gestione dei diritti | È possibile aggiungere un gruppo di sicurezza\* | È possibile aggiungere Microsoft 365 gruppo\* | È possibile aggiungere l'app | È possibile aggiungere il sito di SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 Amministratore globale | n/d | ✔️ | ✔️ | ✔️  | ✔️
 Amministratore utenti  | n/d  | ✔️  | ✔️  | ✔️
@@ -101,4 +101,4 @@ Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](roles-groups-concept.md)
-- [Creare un gruppo assegnabile al ruolo](roles-groups-create-eligible.md)
+- [Creare un gruppo assegnabile a un ruolo](roles-groups-create-eligible.md)

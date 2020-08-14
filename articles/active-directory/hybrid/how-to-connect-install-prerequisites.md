@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b0754c8e2be62c0a5568e97e7e5cf4376fb3c593
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542060"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210918"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -72,7 +72,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 - Considerare Azure AD Connect come un controller di dominio e altre risorse di livello 0. Per ulteriori informazioni, vedere [Active Directory modello di livello amministrativo](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Limitare l'accesso amministrativo al server Azure AD Connect solo agli amministratori di dominio o ad altri gruppi di sicurezza strettamente controllati.
 - Creare un [account dedicato per tutto il personale con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Gli amministratori non dovrebbero esplorare il Web, controllare la posta elettronica e svolgere attività quotidiane per la produttività con account con privilegi elevati.
-- Seguire le istruzioni fornite nella pagina relativa alla [protezione dell'accesso con privilegi](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/how-to-configure-protected-accounts). 
+- Seguire le istruzioni fornite nella pagina relativa alla [protezione dell'accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Verificare che ogni computer disponga di una password di amministratore locale univoca. Per ulteriori informazioni, vedere la pagina relativa alla [soluzione di password di amministratore locale (giri)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) può configurare password casuali univoche in ogni workstation e server archiviarle in Active Directory protette da un ACL. Solo gli utenti autorizzati idonei possono leggere o richiedere la reimpostazione di queste password di account amministratore locale. È possibile ottenere i giri da usare nelle workstation e nei server dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Indicazioni aggiuntive per la gestione di un ambiente con i giri e le workstation con accesso con privilegi (Paw) sono disponibili negli [standard operativi basati sul principio di origine pulita](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implementare [workstation con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) dedicati per tutto il personale con accesso con privilegi ai sistemi informativi dell'organizzazione. 
 - Seguire queste [linee guida aggiuntive](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) per ridurre la superficie di attacco dell'ambiente Active Directory.

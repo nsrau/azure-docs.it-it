@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7616f6c502f0b5402aa784f707d0dafa31268d78
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 2f4647f4e13677d9136ce7fdb090e809943cdf0d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853059"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206700"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione tabelle di Azure per Funzioni di Azure
 
@@ -249,7 +249,7 @@ public class Person : TableEntity
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`non è supportato nel runtime di funzioni per le [versioni 2. x e successive](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Di seguito è riportato un esempio di una funzione che esegue una query su una tabella del log di funzioni di Azure:
+`IQueryable` non è supportato nel runtime di funzioni per le [versioni 2. x e successive](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Di seguito è riportato un esempio di una funzione che esegue una query su una tabella del log di funzioni di Azure:
 
 ```json
 {
@@ -561,10 +561,10 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
 |**nome** | n/d | Nome della variabile che rappresenta la tabella o l'entità nel codice della funzione. | 
 |**tableName** | **TableName** | Nome della tabella.| 
-|**partitionKey** | **PartitionKey** |facoltativo. Chiave di partizione dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
-|**rowKey** |**RowKey** | facoltativo. Chiave di riga dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
-|**take** |**Take** | facoltativo. Numero massimo di entità da leggere in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
-|**filtro** |**Filter** | facoltativo. Espressione di filtro OData per l'input della tabella in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**partitionKey** | **PartitionKey** |Facoltativa. Chiave di partizione dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**rowKey** |**RowKey** | Facoltativa. Chiave di riga dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**take** |**Take** | Facoltativa. Numero massimo di entità da leggere in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**filtro** |**Filter** | Facoltativa. Espressione di filtro OData per l'input della tabella in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
 |**connection** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. L'impostazione può essere il nome di un'impostazione dell'app con prefisso "AzureWebJobs" o di una stringa di connessione. Ad esempio, se il nome dell'impostazione è "AzureWebJobsMyStorage", è possibile specificare "Storage" qui. Il runtime di funzioni cercherà automaticamente un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
