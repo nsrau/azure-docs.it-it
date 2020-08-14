@@ -7,25 +7,26 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: efe60079814958116d8042991e1cfd6e2f6f71f5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798121"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213885"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
-Questo articolo offre suggerimenti per la creazione e l'engagement di offerte nel marketplace commerciale. Le tabelle seguenti illustrano le procedure consigliate per il completamento delle informazioni sull'offerta nel Centro per i partner. Per un'analisi delle prestazioni delle offerte, passare al [dashboard Informazioni dettagliate sul marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) nel Centro per i partner. 
+Questo articolo fornisce suggerimenti per la creazione e il coinvolgimento delle offerte di Marketplace commerciali Microsoft. Le tabelle seguenti illustrano le procedure consigliate per il completamento delle informazioni sull'offerta nel Centro per i partner. Per un'analisi delle prestazioni delle offerte, passare al [dashboard Informazioni dettagliate sul marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) nel Centro per i partner. 
 
 ## <a name="storefront-offer-details"></a>Dettagli dell'offerta della vetrina
 
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Nome offerta | Per le app, fornire un titolo chiaro che includa parole chiave di ricerca per aiutare i clienti a individuare l'offerta. <br> <br> Per i servizi di consulenza, seguire questo formato: [nome offerta: [durata] [tipo di offerta] (ad esempio, contoso: implementazione di 2 settimane) <br> <br> Rispettare le linee guida per il marchio: seguire i marchi [Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e le linee guida per il marchio e le linee guida specifiche del prodotto, quando si fa riferimento a marchi Microsoft e ai nomi di software, prodotti e servizi Microsoft. |
+| Nome offerta | Per le app, fornire un titolo chiaro che includa parole chiave di ricerca per aiutare i clienti a individuare l'offerta. <br> <br> Per i servizi di consulenza, seguire questo formato: [nome offerta: [durata] [tipo di offerta] (ad esempio, contoso: implementazione di 2 settimane) |
 | Descrizione dell'offerta | Fornire una descrizione chiara che descriva la proposta di valore dell'offerta nelle prime frasi.  Tenere presente che queste frasi possono essere usate nei risultati dei motori di ricerca. I componenti principali della proposta di valore devono includere: <ul> <li>Descrizione del prodotto o della soluzione. </li> <li> Utente persona che trae vantaggio dal prodotto o dalla soluzione. </li> <li> I clienti hanno bisogno o sono in sofferenza degli indirizzi del prodotto o della soluzione. </li> </ul> <br> Usare il vocabolario standard del settore o la formulazione basata sui vantaggi, quando possibile.  Per vendere un prodotto, non basarsi sulle funzionalità,  ma concentrarsi sul valore che può offrire. <br> <br> Per gli elenchi di servizi di consulenza, indicare chiaramente il servizio Professional fornito. |
 
-Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare i materiali di marketing, passare al [Centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
+> [!IMPORTANT]
+> Verificare che il nome dell'offerta e la descrizione dell'offerta siano conformi alle **[linee guida](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** per il marchio e il marchio Microsoft e altre linee guida specifiche per il prodotto, quando si fa riferimento a marchi Microsoft e ai nomi di software, prodotti e servizi Microsoft.
 
 ## <a name="storefront-listing-details"></a>Dettagli dell'inserzione della vetrina
 
@@ -93,7 +94,7 @@ La selezione del settore si applica solo alle offerte pubblicate in AppSource e 
 | **Distribuzione** | Vendita all'ingrosso <br> Spedizione pacchetti & pacco |  
 | **Education** | Istruzione superiore <br> Primario & secondario edu/K-12 <br> Librerie & musei |
 | **Servizi finanziari** | Settore bancario & mercati finanziari <br> Assicurazioni | 
-| **Enti governativi** |  Difesa & Intelligence <br> Governo civile <br> Sicurezza pubblica & giustizia |
+| **Enti pubblici** |  Difesa & Intelligence <br> Governo civile <br> Sicurezza pubblica & giustizia |
 | **Servizi sanitari** | Pagante di integrità <br> Provider di integrità <br> Prodotti farmaceutici | 
 | **Ospitalità & viaggio** | Travel & Transportation <br> Alberghi & Leisure <br> Ristoranti & servizi alimentari | 
 | **Produzione di risorse &** | & chimico agrochimica <br> Produzione discreta <br> Energia | 
@@ -119,15 +120,15 @@ Le parole chiave consentono ai clienti di trovare l'offerta durante la ricerca. 
 ## <a name="storefront-marketing-details"></a>Dettagli di marketing della vetrina
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Logo dell'offerta (formato PNG, compreso tra 216 × 216 e 350 x 350 pixel): pagina dei dettagli dell'app | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina dell'inserzione con i dettagli dell'app dell'offerta. Il centro per i partner verrà ridimensionato in modo da configurarne le dimensioni necessarie. |
-| Logo dell'offerta (formato PNG, 48 × 48 pixel): pagina di ricerca | Il centro per i partner genererà questo logo dal logo di grandi dimensioni caricato. Facoltativamente, è possibile sostituirlo con un'immagine diversa. |
-| Documenti "Altre informazioni" | Nella sezione "Altre informazioni" includere risorse di supporto per le vendite e il marketing, ad esempio:<ul><li>White paper</li><li> Brochure</li><li>Elenchi di controllo</li><li> Presentazioni di PowerPoint</li></ul><br>Salvare tutti i file in formato PDF. L'obiettivo di questi documenti deve essere l'informazione, non la vendita ai clienti.<br><br>Nella pagina di destinazione dell'app inserire un collegamento a tutti i documenti e aggiungere parametri dell'URL per tenere traccia dei visitatori e dell'uso delle versioni di valutazione. |
+| Logo dell'offerta (formato PNG, 48&nbsp;&times;&nbsp;48): pagina di ricerca | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina di ricerca dell'offerta. |
+| Logo dell'offerta (formato PNG, 216&nbsp;&times;&nbsp;216): pagina dei dettagli dell'app | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina dell'inserzione con i dettagli dell'app dell'offerta. |
+| Documenti "Altre informazioni" | Nella sezione "Altre informazioni" includere risorse di supporto per le vendite e il marketing, ad esempio: <ul> <li> White paper </li> <li> Brochure, </li> <li> Elenchi di controllo </li> <li> Presentazioni di PowerPoint</li> </ul>Salvare tutti i file in formato PDF. L'obiettivo di questi documenti deve essere l'informazione, non la vendita ai clienti. <br><br>Nella pagina di destinazione dell'app inserire un collegamento a tutti i documenti e aggiungere parametri dell'URL per tenere traccia dei visitatori e dell'uso delle versioni di valutazione. |
 | Video: solo AppSource, servizi di consulenza e offerte SaaS | I video più efficaci comunicano il valore dell'offerta in forma narrativa:<ul> <li> Il protagonista deve essere il cliente e non la società che presenta l'offerta. </li> <li> Il video deve dare risposte riguardo alle sfide e agli obiettivi fondamentali del cliente a cui ci si rivolge. </li> <li> Lunghezza consigliata: da 60 a 90 secondi.</li> <li> Includere parole chiave di ricerca che usano il nome dei video. </li> <li> Valutare l'opportunità di aggiungere altri video, ad esempio per illustrare procedure, fornire un avvio rapido o presentare la testimonianza di un cliente. </li> </ul> |
 | Screenshot (1280&nbsp;&times;&nbsp;720) | Aggiungere al massimo cinque screenshot:<br>Includere parole chiave di ricerca nei nomi file. |
 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Creare un collegamento alla pagina dell'offerta dal sito Web
 
-Quando si crea un collegamento dalla notifica di AppSource o Azure Marketplace nel sito Web all'inserzione nel marketplace, è possibile supportare funzionalità avanzate di analisi e generazione di report includendo i parametri di query seguenti alla fine dell'URL:
+Quando si effettua il collegamento dalla notifica di AppSource o Azure Marketplace nel sito all'inserzione nel Marketplace commerciale, è possibile supportare l'analisi avanzata e la creazione di report includendo i parametri di query seguenti alla fine dell'URL:
 * **src**: includere l'origine da cui il traffico viene instradato ad AppSource (ad esempio, sito Web, LinkedIn o Facebook).
 * **mktcmpid**: ID della campagna di marketing, che può contenere fino a 16 caratteri, costituiti da lettere, numeri, caratteri di sottolineatura e trattini (ad esempio, *blogpost_12*).
 

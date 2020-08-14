@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd060972e562759fcc1071f2c6549578bd3d4ed9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58fc6726811ac01b585dd51b2086966f7a3f7c51
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015715"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213589"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
-In questo articolo sono contenute le istruzioni per l'uso di cmdlet PowerShell in Azure Active Directory (Azure AD) per creare e aggiornare i gruppi. Questo contenuto si applica solo ai gruppi di Office 365, noti anche come gruppi unificati.
+In questo articolo sono contenute le istruzioni per l'uso di cmdlet PowerShell in Azure Active Directory (Azure AD) per creare e aggiornare i gruppi. Questo contenuto si applica solo ai gruppi di Microsoft 365 (talvolta denominati gruppi unificati).
 
 > [!IMPORTANT]
 > Alcune impostazioni richiedono una licenza per Azure Active Directory Premium P1. Per altre informazioni, vedere la tabella relativa alle [impostazioni modello](#template-settings).
 
 Per ulteriori informazioni su come impedire agli utenti non amministratori di creare gruppi di sicurezza, impostare  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` come descritto in [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
-Le impostazioni di Gruppi di Office 365 vengono configurare con un oggetto Settings e un oggetto SettingsTemplate. Non vengono inizialmente visualizzati oggetti Settings nella directory, perché la directory è configurata con le impostazioni personalizzate. Per modificarle, è necessario creare un nuovo oggetto Settings usando un modello di impostazioni. I modelli di impostazioni sono definiti da Microsoft. Sono disponibili diversi modelli di impostazioni. Per configurare le impostazioni di gruppo di Office 365 per la directory, usare il modello denominato "Group.Unified". Per configurare le impostazioni di gruppo di Office 365 per un singolo gruppo, usare il modello denominato "Group.Unified.Guest". Questo modello viene usato per gestire l'accesso guest a un gruppo di Office 365. 
+Le impostazioni di gruppi di Microsoft 365 vengono configurate utilizzando un oggetto Settings e un oggetto SettingsTemplate. Non vengono inizialmente visualizzati oggetti Settings nella directory, perché la directory è configurata con le impostazioni personalizzate. Per modificarle, è necessario creare un nuovo oggetto Settings usando un modello di impostazioni. I modelli di impostazioni sono definiti da Microsoft. Sono disponibili diversi modelli di impostazioni. Per configurare le impostazioni di gruppo Microsoft 365 per la directory, usare il modello denominato "Group. Unified". Per configurare le impostazioni di gruppo Microsoft 365 per un singolo gruppo, usare il modello denominato "Group. Unified. Guest". Questo modello viene usato per gestire l'accesso Guest a un gruppo di Microsoft 365. 
 
 I cmdlet fanno parte del modulo Azure Active Directory PowerShell V2. Per istruzioni sul download e sull'installazione del modulo nel computer, vedere l'articolo [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/overview) (Azure Active Directory PowerShell versione 2). È possibile installare la versione 2 del modulo da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -53,7 +53,7 @@ Prima di eseguire i comandi di PowerShell, assicurarsi di disinstallare le versi
    ```
    
 ## <a name="create-settings-at-the-directory-level"></a>Creare le impostazioni a livello di directory
-I passaggi seguenti permettono di creare le impostazioni a livello di directory, che si applicheranno a tutti i gruppi di Office 365 presenti nella directory stessa. Il cmdlet Get-AzureADDirectorySettingTemplate è disponibile solo nel [modulo di anteprima di Azure AD PowerShell per Graph](https://www.powershellgallery.com/packages/AzureADPreview).
+Questi passaggi consentono di creare impostazioni a livello di directory, che si applicano a tutti i gruppi di Microsoft 365 nella directory. Il cmdlet Get-AzureADDirectorySettingTemplate è disponibile solo nel [modulo di anteprima di Azure AD PowerShell per Graph](https://www.powershellgallery.com/packages/AzureADPreview).
 
 1. Nei cmdlet DirectorySettings è necessario specificare l'ID del SettingsTemplate che si vuole usare. Se non si conosce l'ID, questo cmdlet restituisce l'elenco di tutti i modelli di impostazioni:
   
@@ -67,7 +67,7 @@ I passaggi seguenti permettono di creare le impostazioni a livello di directory,
    Id                                   DisplayName         Description
    --                                   -----------         -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-   08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
+   08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Microsoft 365 group
    16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
    4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
    898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -149,20 +149,20 @@ Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.
 
 | **Impostazione** | **Descrizione** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li> Valore predefinito: True |Flag che indica se utenti non amministratori sono autorizzati a creare gruppi di Office 365 nella directory. Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Impostazione predefinita: "" |GUID del gruppo di sicurezza i cui membri sono autorizzati a creare gruppi di Office 365 anche quando EnableGroupCreation == false. |
+|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li> Valore predefinito: True |Flag che indica se la creazione del gruppo Microsoft 365 è consentita nella directory da utenti non amministratori. Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Impostazione predefinita: "" |GUID del gruppo di sicurezza per il quale i membri sono autorizzati a creare gruppi di Microsoft 365 anche se EnableGroupCreation = = false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Impostazione predefinita: "" |Collegamento alle linee guida sull'utilizzo dei gruppi. |
 |  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Impostazione predefinita: "" | Elenco delimitato da virgole di descrizioni di classificazione. Il valore di ClassificationDescriptions è valido solo nel formato seguente:<br>$setting ["ClassificationDescriptions"] = "classificazione: descrizione, classificazione: Descrizione"<br>dove la classificazione corrisponde a una voce in Classification.<br>Questa impostazione non si applica quando EnableMIPLabels = = true.|
 |  <ul><li>DefaultClassification<li>Tipo: String<li>Impostazione predefinita: "" | Classificazione da usare come classificazione predefinita per un gruppo, se non specificata.<br>Questa impostazione non si applica quando EnableMIPLabels = = true.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Impostazione predefinita: "" | Stringa di lunghezza massima pari a 64 caratteri che definisce la convenzione di denominazione configurata per i gruppi di Office 365. Per altre informazioni, vedere [applicare criteri di denominazione per i gruppi di Office 365](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Impostazione predefinita: "" | Stringa di frasi delimitate da virgole che gli utenti non potranno usare in nomi o alias di gruppo. Per altre informazioni, vedere [applicare criteri di denominazione per i gruppi di Office 365](groups-naming-policy.md). |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Impostazione predefinita: "" | Stringa con una lunghezza massima di 64 caratteri che definisce la convenzione di denominazione configurata per Microsoft 365 gruppi. Per ulteriori informazioni, vedere [applicare criteri di denominazione per i gruppi di Microsoft 365](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Impostazione predefinita: "" | Stringa di frasi delimitate da virgole che gli utenti non potranno usare in nomi o alias di gruppo. Per ulteriori informazioni, vedere [applicare criteri di denominazione per i gruppi di Microsoft 365](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Tipo: Boolean<li>Impostazione predefinita: "false" | Non utilizzare
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: Boolean<li> Valore predefinito: False | Valore booleano che indica se un utente guest può essere o meno un proprietario di gruppi. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: Boolean<li> Valore predefinito: True | Valore booleano che indica se un utente guest ha o meno accesso al contenuto dei gruppi di Office 365.  Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
+|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: Boolean<li> Valore predefinito: True | Valore booleano che indica se un utente Guest può accedere al contenuto Microsoft 365 gruppi.  Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Impostazione predefinita: "" | URL di un collegamento alle linee guida per l'utilizzo dei gruppi. |
 |  <ul><li>AllowToAddGuests<li>Tipo: Boolean<li> Valore predefinito: True | Valore booleano che indica se è consentito o meno aggiungere utenti guest a questa directory. <br>Questa impostazione può essere sottoposta a override e diventa di sola lettura se *EnableMIPLabels* è impostato su *true* e un criterio Guest è associato all'etichetta di riservatezza assegnata al gruppo.<br>Se l'impostazione AllowToAddGuests è impostata su false a livello di organizzazione, qualsiasi impostazione AllowToAddGuests a livello di gruppo verrà ignorata. Se si vuole abilitare l'accesso guest solo per alcuni gruppi, è necessario impostare AllowToAddGuests su true a livello di organizzazione e quindi disabilitarlo selettivamente per gruppi specifici. |
-|  <ul><li>ClassificationList<li>Tipo: String<li>Impostazione predefinita: "" | Elenco delimitato da virgole dei valori di classificazione validi che è possibile applicare ai gruppi di Office 365. <br>Questa impostazione non si applica quando EnableMIPLabels = = true.|
-|  <ul><li>EnableMIPLabels<li>Tipo: Boolean<li>Impostazione predefinita: "false" |Flag che indica se è possibile applicare le etichette di riservatezza pubblicate in Microsoft 365 Compliance Center ai gruppi di Office 365. Per altre informazioni, vedere [assign Sensitivity labels for Office 365 groups](groups-assign-sensitivity-labels.md). |
+|  <ul><li>ClassificationList<li>Tipo: String<li>Impostazione predefinita: "" | Elenco delimitato da virgole di valori di classificazione validi che è possibile applicare ai gruppi di Microsoft 365. <br>Questa impostazione non si applica quando EnableMIPLabels = = true.|
+|  <ul><li>EnableMIPLabels<li>Tipo: Boolean<li>Impostazione predefinita: "false" |Flag che indica se è possibile applicare le etichette di riservatezza pubblicate in Microsoft 365 Compliance Center ai gruppi di Microsoft 365. Per altre informazioni, vedere [assegnare etichette di riservatezza per i gruppi di Microsoft 365](groups-assign-sensitivity-labels.md). |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Esempio: configurare i criteri Guest per i gruppi a livello di directory
 1. Ottenere tutti i modelli di impostazione:
@@ -255,7 +255,7 @@ Questo passaggio consente di rimuovere le impostazioni a livello di directory, c
    Id                                   DisplayName            Description
    --                                   -----------            -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-   08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
+   08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Microsoft 365 group
    4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
    898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
    5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...

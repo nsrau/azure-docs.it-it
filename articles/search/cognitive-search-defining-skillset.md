@@ -8,16 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557456"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214081"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un oggetto di competenze in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva 
 
-L'arricchimento di intelligenza artificiale estrae e arricchisce i dati per renderli disponibili per la ricerca in Azure ricerca cognitiva. I passaggi di estrazione e arricchimento vengono definiti *competenze cognitive*, combinate in un *set di competenze* a cui viene fatto riferimento durante l'indicizzazione. Un skillt può usare le competenze [predefinite](cognitive-search-predefined-skills.md) o le competenze personalizzate (vedere [esempio: creazione di un'abilità personalizzata in una pipeline di arricchimento intelligenza artificiale](cognitive-search-create-custom-skill-example.md) per ulteriori informazioni).
+![fasi dell'indicizzatore](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "fasi dell'indicizzatore")
+
+Un skillt definisce le operazioni che estraggono e arricchiscono i dati per renderle ricercabili. Un skillt viene eseguito dopo che il contenuto di testo e immagine viene estratto dai documenti di origine e dopo che tutti i campi del documento di origine sono mappati a campi di destinazione in un indice o in un archivio informazioni.
+
+Un skillt contiene una o più *competenze cognitive* che rappresentano un'operazione di arricchimento specifica, ad esempio la conversione di testo, l'estrazione di frasi chiave o l'esecuzione del riconoscimento ottico dei caratteri da un file di immagine. Per creare un di competenze, è possibile usare le [competenze predefinite](cognitive-search-predefined-skills.md) di Microsoft o competenze personalizzate che contengono modelli o logica di elaborazione fornita (vedere [esempio: creazione di un'abilità personalizzata in una pipeline di arricchimento intelligenza artificiale](cognitive-search-create-custom-skill-example.md) per ulteriori informazioni).
 
 Questo articolo descrive come creare una pipeline di arricchimento per le competenze che si vuole usare. Un skillt è associato a un [indicizzatore](search-indexer-overview.md)di Azure ricerca cognitiva. Una parte della progettazione della pipeline, trattata in questo articolo, consiste nella costruzione del set di competenze stesso. 
 
@@ -36,7 +40,7 @@ Il primo passaggio consigliato consiste nel decidere quali dati estrarre dai dat
 
 Si supponga di essere interessati all'elaborazione di un set di commenti di analisti finanziari. Per ogni file si desidera estrarre i nomi delle società e la valutazione generale dei commenti. Si desidera inoltre scrivere un arricchitore personalizzato che usi il servizio Ricerca entità di Bing per ottenere informazioni aggiuntive sulla società, ad esempio il tipo di business svolto della società. Si desidera, in pratica, estrarre informazioni simili alle seguenti, indicizzate per ogni documento:
 
-| Testo del record | Società | Valutazione | Descrizione della società |
+| Testo del record | Società | sentiment | Descrizione della società |
 |--------|-----|-----|-----|
 |record di esempio| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation è una società di tecnologia multinazionale american...", "LinkedIn è un social network orientato al business e all'occupazione..."]
 

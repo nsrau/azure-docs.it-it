@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
-ms.custom: seodec18
-ms.openlocfilehash: 37c98ca2fbffddd064b55192e9b5d83c948d88e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 8ae7613eea4b952c079be90b05e615087ea80a32
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041960"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214153"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x
 
@@ -1152,7 +1152,7 @@ L'associazione di output di Azure Cosmos DB consente di scrivere un nuovo docume
 Questa sezione contiene gli esempi seguenti:
 
 * Trigger della coda e scrittura di un documento
-* Trigger della coda, scrittura di documenti con`IAsyncCollector`
+* Trigger della coda, scrittura di documenti con `IAsyncCollector`
 
 Gli esempi fanno riferimento a un tipo semplice `ToDoItem`:
 
@@ -1238,7 +1238,7 @@ namespace CosmosDBSamplesV1
 Questa sezione contiene gli esempi seguenti:
 
 * Trigger della coda e scrittura di un documento
-* Trigger della coda, scrittura di documenti con`IAsyncCollector`
+* Trigger della coda, scrittura di documenti con `IAsyncCollector`
 
 ### <a name="queue-trigger-write-one-doc"></a>Trigger della coda e scrittura di un documento
 
@@ -1475,7 +1475,7 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Binding | Riferimento |
+| Binding | Informazioni di riferimento |
 |---|---|
 | Cosmos DB | [Codici di errore di CosmosDB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 

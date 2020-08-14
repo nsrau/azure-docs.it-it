@@ -1,6 +1,6 @@
 ---
 title: Applicare i criteri di denominazione dei gruppi in Azure Active Directory | Microsoft Docs
-description: Come configurare i criteri di denominazione per i gruppi di Office 365 in Azure Active Directory
+description: Come configurare i criteri di denominazione per i gruppi di Microsoft 365 in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 08/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497087"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213751"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione nei gruppi di Office 365 in Azure Active Directory
+# <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione nei gruppi di Microsoft 365 in Azure Active Directory
 
-Per applicare convenzioni di denominazione coerenti per i gruppi di Office 365 creati o modificati dagli utenti, configurare i criteri di denominazione dei gruppi per le organizzazioni in Azure Active Directory (Azure AD). Ad esempio, è possibile usare i criteri di denominazione per comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo. È anche possibile utilizzare i criteri di denominazione per agevolare la categorizzazione dei gruppi nella Rubrica. È possibile utilizzare i criteri per bloccare l'uso di parole specifiche nei nomi dei gruppi e negli alias.
+Per applicare convenzioni di denominazione coerenti per i gruppi di Microsoft 365 creati o modificati dagli utenti, configurare un criterio di denominazione dei gruppi per le organizzazioni in Azure Active Directory (Azure AD). Ad esempio, è possibile usare i criteri di denominazione per comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo. È anche possibile utilizzare i criteri di denominazione per agevolare la categorizzazione dei gruppi nella Rubrica. È possibile utilizzare i criteri per bloccare l'uso di parole specifiche nei nomi dei gruppi e negli alias.
 
 > [!IMPORTANT]
-> Per usare Azure AD i criteri di denominazione per i gruppi di Office 365 è necessario disporre di una licenza di Azure Active Directory Premium P1 o Azure AD Basic licenza EDU per ogni utente univoco membro di uno o più gruppi di Office 365.
+> L'utilizzo di Azure AD criteri di denominazione per i gruppi di Microsoft 365 richiede che si disponga ma non necessariamente di assegnare una licenza Azure Active Directory Premium P1 o Azure AD Basic licenza EDU per ogni utente univoco che è membro di uno o più gruppi di Microsoft 365.
 
 I criteri di denominazione sono applicati per creare o modificare i gruppi creati per più carichi di lavoro (ad esempio Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Vengono applicati al nome e all'alias del gruppo. Se si configurano i criteri di denominazione in Azure AD e si dispone di un criterio di denominazione dei gruppi di Exchange, i criteri di denominazione del Azure AD vengono applicati nell'organizzazione.
 
-Quando vengono configurati i criteri di denominazione dei gruppi, i criteri verranno applicati ai nuovi gruppi di Office 365 creati dagli utenti finali. I criteri di denominazione non si applicano a determinati ruoli della directory, ad esempio amministratore globale o Amministratore utenti. per l'elenco completo dei ruoli esentati dai criteri di denominazione dei gruppi, vedere di seguito. Per i gruppi di Office 365 esistenti, i criteri non verranno applicati immediatamente al momento della configurazione. Quando il proprietario del gruppo modifica il nome del gruppo per questi gruppi, verranno applicati i criteri di denominazione.
+Quando vengono configurati i criteri di denominazione dei gruppi, i criteri verranno applicati ai nuovi gruppi di Microsoft 365 creati dagli utenti finali. I criteri di denominazione non si applicano a determinati ruoli della directory, ad esempio amministratore globale o Amministratore utenti. per l'elenco completo dei ruoli esentati dai criteri di denominazione dei gruppi, vedere di seguito. Per i gruppi di Microsoft 365 esistenti, i criteri non verranno applicati immediatamente al momento della configurazione. Quando il proprietario del gruppo modifica il nome del gruppo per questi gruppi, verranno applicati i criteri di denominazione.
 
 ## <a name="naming-policy-features"></a>Funzionalità dei criteri di denominazione
 
@@ -253,7 +253,7 @@ Outlook Customer Manager (OCM) | Outlook Customer Manager è conforme ai criteri
 App Classroom | I gruppi creati nell'app Classroom sono conformi ai criteri di denominazione, ma tali criteri non vengono applicati automaticamente e l'anteprima dei criteri di denominazione non viene visualizzata agli utenti quando immettono un nome per il gruppo della classe. Gli utenti devono immettere il nome per il gruppo della classi imposto con prefissi e suffissi. In caso contrario, l'operazione di creazione o modifica del gruppo della classe ha esito negativo con errori.
 Power BI | Le aree di lavoro di Power BI sono conformi ai criteri di denominazione.    
 Yammer | Quando un utente connesso a Yammer con il proprio account Azure Active Directory crea un gruppo o modifica il nome di gruppo, quest'ultimo risulterà conforme ai criteri di denominazione. Questo vale sia per i gruppi collegati a Office 365 sia per tutti gli altri gruppi di Yammer.<br>Se un gruppo collegato a Office 365 è stato creato prima che il criterio di denominazione fosse stato stabilito, il nome del gruppo non seguirà automaticamente i criteri di denominazione. Quando un utente modifica il nome del gruppo, gli sarà richiesto di aggiungere il prefisso e suffisso.
-StaffHub  | I team StaffHub non seguono i criteri di denominazione, a differenza del gruppo di Office 365 sottostante. Il nome del team StaffHub non applica i prefissi e i suffissi e verifica la presenza di parole bloccate personalizzate. StaffHub tuttavia applica i prefissi e i suffissi e rimuove le parole bloccate dal gruppo di Office 365 sottostante.
+StaffHub  | I team StaffHub non seguono i criteri di denominazione, ma il gruppo di Microsoft 365 sottostante lo esegue. Il nome del team StaffHub non applica i prefissi e i suffissi e verifica la presenza di parole bloccate personalizzate. Tuttavia, StaffHub applica i prefissi e i suffissi e rimuove le parole bloccate dal gruppo di Microsoft 365 sottostante.
 PowerShell per Exchange | I cmdlet di PowerShell per Exchange sono conformi ai criteri di denominazione. Gli utenti ricevono messaggi di errore appropriati con prefissi e suffissi suggeriti e relativi alle parole bloccate personalizzate se non seguono i criteri di denominazione nel nome e nell'alias del gruppo (mailNickname).
 Cmdlet di PowerShell per Azure Active Directory | I cmdlet di PowerShell per Azure Active Directory sono conformi ai criteri di denominazione. Gli utenti ricevono messaggi di errore appropriati con prefissi e suffissi suggeriti e relativi alle parole bloccate personalizzate se non seguono la convenzione di denominazione nei nomi e negli alias del gruppo.
 Interfaccia di amministrazione di Exchange | L'interfaccia di amministrazione di Exchange è conforme ai criteri di denominazione. Gli utenti ricevono messaggi di errore appropriati con prefissi e suffissi suggeriti e relativi alle parole bloccate personalizzate se non seguono la convenzione di denominazione nel nome e nell'alias del gruppo.
@@ -264,7 +264,7 @@ Interfaccia di amministrazione di Microsoft 365 | Microsoft 365 interfaccia di a
 Questi articoli forniscono informazioni aggiuntive sui gruppi di Azure AD.
 
 - [Vedere i gruppi esistenti](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Criteri di scadenza per i gruppi di Office 365](groups-lifecycle.md)
+- [Criteri di scadenza per i gruppi di Microsoft 365](groups-lifecycle.md)
 - [Gestire le impostazioni di un gruppo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Gestire i membri di un gruppo](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Gestire le appartenenze di un gruppo](../fundamentals/active-directory-groups-membership-azure-portal.md)

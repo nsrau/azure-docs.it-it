@@ -3,14 +3,15 @@ title: Test di Funzioni di Azure
 description: Creare test automatizzati per una funzione C# in Visual Studio e la funzione JavaScript in Visual Studio Code
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0abfc9be0031f899071d6e5e22274481ba76e10
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085079"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212899"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -31,7 +32,7 @@ Il seguente esempio illustra come creare un'app della funzione C# in Visual Stud
 
 ![Test di Funzioni di Azure con C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Installazione
+### <a name="setup"></a>Configurazione
 
 Per configurare l'ambiente, creare una funzione e testare l'app. I passaggi seguenti consentono di creare le app e le funzioni necessarie per supportare i test:
 
@@ -268,7 +269,7 @@ Il seguente esempio illustra come creare un'app della funzione di JavaScript in 
 
 ![Eseguire il test delle Funzioni di Azure con JavaScript in Visual Studio Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Installazione
+### <a name="setup"></a>Configurazione
 
 Per configurare l'ambiente, inizializzare una nuova app Node.js in una cartella vuota eseguendo `npm init`.
 

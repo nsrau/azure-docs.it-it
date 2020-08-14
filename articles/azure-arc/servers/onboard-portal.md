@@ -1,19 +1,19 @@
 ---
 title: Connettere macchine virtuali ibride ad Azure dal portale di Azure
-description: Questo articolo illustra come installare l'agente e connettere macchine virtuali ad Azure usando Azure Arc per server (anteprima) dal portale di Azure.
+description: Questo articolo illustra come installare l'agente e connettere i computer ad Azure usando i server abilitati per Azure Arc (anteprima) dal portale di Azure.
 ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 08f2563aaa67cdd45760af34ef3bef3e8e472ae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 23415bc648ae31b9073adb71d6f066a28c144c9d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120984"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213515"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connettere macchine virtuali ibride ad Azure dal portale di Azure
 
-È possibile abilitare Azure Arc per server (anteprima) per una singola o un numero limitato di macchine virtuali Windows o Linux nell'ambiente eseguendo manualmente un set di passaggi. Si può anche usare un metodo automatico eseguendo uno script di modello fornito da Microsoft. Lo script automatizza il download e l'installazione di entrambi gli agenti.
+È possibile abilitare i server abilitati per Azure Arc (anteprima) per uno o un numero ridotto di computer Windows o Linux nell'ambiente eseguendo manualmente un set di passaggi. Si può anche usare un metodo automatico eseguendo uno script di modello fornito da Microsoft. Lo script automatizza il download e l'installazione di entrambi gli agenti.
 
 Con questo metodo sono necessarie le autorizzazioni di amministratore sulla macchina virtuale per installare e configurare l'agente. In Linux, tramite l'account radice, e in Windows, si è membri del gruppo Administrators locale.
 
@@ -34,7 +34,7 @@ Lo script per automatizzare il download e l'installazione e stabilire la conness
 1. Nella pagina **Genera script** selezionare la sottoscrizione e il gruppo di risorse in cui si vuole che la macchina virtuale venga gestita in Azure. Selezionare una località di Azure in cui verranno archiviati i metadati della macchina virtuale.
 
     >[!NOTE]
-    >Azure Arc per server (anteprima) supporta solo le aree seguenti:
+    >I server abilitati per Azure Arc (anteprima) supportano solo le aree seguenti:
     >- EastUS
     >- Stati Uniti occidentali 2
     >- Europa occidentale
@@ -147,7 +147,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificare la connessione con Azure Arc
 
-Dopo aver installato l'agente e configurato per la connessione ad Azure Arc per i server (anteprima), passare alla portale di Azure per verificare che il server sia stato connesso correttamente. Visualizzare le proprie macchine virtuali nel [portale di Azure](https://aka.ms/hybridmachineportal).
+Dopo aver installato l'agente e configurato per la connessione ai server abilitati per Azure Arc (anteprima), passare alla portale di Azure per verificare che il server sia stato connesso correttamente. Visualizzare le proprie macchine virtuali nel [portale di Azure](https://aka.ms/hybridmachineportal).
 
 ![Una connessione server riuscita](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

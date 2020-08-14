@@ -5,13 +5,13 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.custom: seodec18
-ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 1ed7a6ebea12e5db37ec89c73db105dd7ce7e2ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079808"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211987"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -165,7 +165,7 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
      ![Pagina About con il nuovo valore](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a>Debug remoto di processi Web
+## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a> Debug remoto di processi Web
 Questa sezione illustra come eseguire il debug remoto usando il progetto e l'app creati in [Introduzione ad Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Le funzionalità illustrate in questa sezione sono disponibili solo in Visual Studio 2013 con Update 4 o successivo.

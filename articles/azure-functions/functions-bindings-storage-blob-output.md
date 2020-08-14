@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: d089cb1844356032b956110a7475d839031ef006
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 9596e6a6fd32994f782125c9bd4b8ca6d5a94b03
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849829"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213060"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Binding di output di archiviazione BLOB di Azure per funzioni di Azure
 
@@ -379,8 +379,8 @@ In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name 
 
 È possibile dichiarare i parametri della funzione come i seguenti tipi per scrivere nell'archivio BLOB:
 
-* Stringhe come`func.Out(str)`
-* Flussi come`func.Out(func.InputStream)`
+* Stringhe come `func.Out(str)`
+* Flussi come `func.Out(func.InputStream)`
 
 Per informazioni dettagliate, vedere l' [esempio di output](#example) .
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 07/27/2020
-ms.openlocfilehash: 55483b93b770687703b381366d48edbc7d48f26e
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/12/2020
+ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475339"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212030"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -87,7 +87,7 @@ Se si dispone di una conoscenza corretta della cardinalità dei dati, il partizi
 > [!TIP]
 > L'impostazione manuale dello schema di partizionamento consente di rimescolare i dati e di sfalsare i vantaggi di Spark Optimizer. Una procedura consigliata consiste nel non impostare manualmente il partizionamento, a meno che non sia necessario.
 
-## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a>Ottimizzazione del Azure Integration Runtime
+## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Ottimizzazione del Azure Integration Runtime
 
 I flussi di dati vengono eseguiti in cluster Spark che vengono attivati in fase di esecuzione. La configurazione per il cluster usato viene definita nel runtime di integrazione (IR) dell'attività. Quando si definisce il runtime di integrazione, è necessario tenere presenti tre considerazioni sulle prestazioni: tipo di cluster, dimensioni del cluster e durata (TTL).
 
@@ -273,6 +273,29 @@ Se i dati non sono partizionati in modo uniforme dopo una trasformazione, è pos
 
 > [!TIP]
 > Se si ripartizionano i dati, ma si dispone di trasformazioni a valle che rimescolano i dati, utilizzare il partizionamento hash in una colonna utilizzata come chiave di join.
+
+## <a name="using-data-flows-in-pipelines"></a>Uso di flussi di dati nelle pipeline 
+
+Quando si compilano pipeline complesse con più flussi di dati, il flusso logico può avere un notevole impatto sulla tempistica e sui costi. Questa sezione illustra l'effetto delle diverse strategie di architettura.
+
+### <a name="executing-data-flows-in-parallel"></a>Esecuzione di flussi di dati in parallelo
+
+Se si eseguono più flussi di dati in parallelo, ADF crea cluster Spark distinti per ogni attività. In questo modo, ogni processo può essere isolato ed eseguito in parallelo, ma comporterà la presenza di più cluster in esecuzione nello stesso momento.
+
+Se i flussi di dati vengono eseguiti in parallelo, è consigliabile non abilitare la proprietà Azure IR time to Live, perché condurrà più pool caldi inutilizzati.
+
+> [!TIP]
+> Anziché eseguire lo stesso flusso di dati più volte in un per ogni attività, organizzare i dati in un data Lake e usare i percorsi con caratteri jolly per elaborare i dati in un singolo flusso di dati.
+
+### <a name="execute-data-flows-sequentially"></a>Eseguire flussi di dati in sequenza
+
+Se si eseguono le attività del flusso di dati in sequenza, è consigliabile impostare una durata (TTL) nella configurazione del Azure IR. ADF riutilizzerà le risorse di calcolo con un conseguente tempo di avvio del cluster più rapido. Ogni attività sarà ancora isolata per ricevere un nuovo contesto Spark per ogni esecuzione.
+
+L'esecuzione sequenziale dei processi richiederà probabilmente il tempo più lungo per l'esecuzione end-to-end, ma fornisce una netta separazione delle operazioni logiche.
+
+### <a name="overloading-a-single-data-flow"></a>Overload di un singolo flusso di dati
+
+Se si inserisce tutta la logica all'interno di un singolo flusso di dati, ADF eseguirà l'intero processo in una singola istanza di Spark. Sebbene questo possa sembrare un modo per ridurre i costi, combina flussi logici diversi e può essere difficile da monitorare ed eseguire il debug. Se un componente ha esito negativo, anche tutte le altre parti del processo avranno esito negativo. Il team di Azure Data Factory consiglia di organizzare i flussi di dati in base a flussi indipendenti della logica di business. Se il flusso di dati diventa troppo grande, la suddivisione in componenti separati renderà più semplice il monitoraggio e il debug. Sebbene non esistano limiti rigidi al numero di trasformazioni in un flusso di dati, la presenza di un numero eccessivo renderà il processo complesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

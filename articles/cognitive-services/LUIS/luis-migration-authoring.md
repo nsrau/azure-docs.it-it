@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
+ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 390080fecefcc22decd8bec70d043b28311a725d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145613"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212638"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -34,6 +34,7 @@ La migrazione deve essere eseguita dal portale LUIS. Se si creano le chiavi di c
 
 ## <a name="note-before-you-migrate"></a>Nota prima della migrazione
 
+* È necessario eseguire la migrazione dell'esperienza di creazione entro il **2020 novembre, 2**. 
 * La migrazione è un processo unidirezionale. Non è possibile tornare indietro dopo la migrazione.
 * Se si è il proprietario dell'applicazione, verranno automaticamente migrate le applicazioni.
 * Il proprietario non può scegliere un subset di app da migrare e il processo non è reversibile.

@@ -3,13 +3,13 @@ title: Come disabilitare le funzioni in Funzioni di Azure
 description: Informazioni su come disabilitare e abilitare le funzioni in Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 47fbd446937ea0cfd981cef2d5cdd4759f2583d4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497699"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213143"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Come disabilitare le funzioni in Funzioni di Azure
 
@@ -46,6 +46,21 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 > [!NOTE]  
 > La funzionalità di test integrata nel portale ignora l'impostazione `Disabled`. Ciò significa che una funzione disabilitata viene comunque eseguita quando viene avviata dalla finestra **Test** nel portale. 
+
+## <a name="localsettingsjson"></a>local.settings.json
+
+Le funzioni possono essere disabilitate nello stesso modo durante l'esecuzione in locale. Per disabilitare una funzione denominata `HttpExample` , aggiungere una voce alla raccolta Values nella local.settings.jssu file, come indicato di seguito:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
+    "AzureWebJobs.HttpExample.Disabled": "true"
+  }
+}
+``` 
 
 ## <a name="other-methods"></a>Altri metodi
 

@@ -3,26 +3,27 @@ title: Espressioni e modelli di associazioni di funzioni di Azure
 description: Informazioni su come creare diverse espressioni di associazione di funzioni di Azure basate su modelli comuni.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261070"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212610"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Modelli di espressione di binding di funzioni di Azure
 
 Una delle funzionalità più potenti dei [trigger e delle associazioni](./functions-triggers-bindings.md) è rappresentata dalle *espressioni di associazione*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
 
-Quasi tutte le espressioni sono identificate tramite la disposizione del testo tra parentesi graffe. Ad esempio, in una funzione di trigger della coda `{queueTrigger}` viene risolto nel testo dei messaggi della coda. Se la proprietà `path` dell'associazione di output di un BLOB è `container/{queueTrigger}` e la funzione viene attivata da un messaggio della coda `HelloWorld`, viene creato un BLOB denominato `HelloWorld`.
+La maggior parte delle espressioni viene identificata racchiudendo l'espressione tra parentesi graffe. Ad esempio, in una funzione di trigger della coda `{queueTrigger}` viene risolto nel testo dei messaggi della coda. Se la proprietà `path` dell'associazione di output di un BLOB è `container/{queueTrigger}` e la funzione viene attivata da un messaggio della coda `HelloWorld`, viene creato un BLOB denominato `HelloWorld`.
 
 Tipi di espressioni di associazione
 
 * [Impostazioni app](#binding-expressions---app-settings)
 * [Nome file del trigger](#trigger-file-name)
-* [Metadati dei trigger](#trigger-metadata)
+* [Metadati del trigger](#trigger-metadata)
 * [Payload JSON](#json-payloads)
 * [Nuovo GUID](#create-guids)
 * [Data e ora correnti](#current-time)
@@ -132,7 +133,7 @@ public static void Run(
 
 ```
 
-È inoltre possibile creare espressioni per parti del nome file. Nell'esempio seguente la funzione viene attivata solo sui nomi di file che corrispondono a un modello:`anyname-anyfile.csv`
+È inoltre possibile creare espressioni per parti del nome file. Nell'esempio seguente la funzione viene attivata solo sui nomi di file che corrispondono a un modello: `anyname-anyfile.csv`
 
 ```json
 {

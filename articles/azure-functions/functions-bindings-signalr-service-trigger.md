@@ -3,14 +3,15 @@ title: Binding del trigger del servizio SignalR di funzioni di Azure
 description: Informazioni su come inviare messaggi del servizio SignalR da funzioni di Azure.
 author: chenyl
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540231"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212583"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Binding del trigger del servizio SignalR per funzioni di Azure
 
@@ -53,7 +54,7 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 }
 ```
 
-#### <a name="use-attribute-signalrparameter-to-simplify-parameternames"></a>Usare l'attributo `[SignalRParameter]` per semplificare`ParameterNames`
+#### <a name="use-attribute-signalrparameter-to-simplify-parameternames"></a>Usare l'attributo `[SignalRParameter]` per semplificare `ParameterNames`
 
 Poiché è piuttosto complesso da usare `ParameterNames` , `SignalRParameter` viene fornito per ottenere lo stesso scopo.
 
@@ -192,11 +193,11 @@ InvocationContext contiene tutto il contenuto del messaggio inviato dal servizio
 |Argomenti| Disponibile per la categoria *messaggi* . Contiene *argomenti* nel [messaggio di chiamata](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
 |Errore| Disponibile per l'evento *disconnesso* . Può essere vuoto se la connessione è chiusa senza errori o contiene i messaggi di errore.|
 |Hub| Nome dell'hub a cui appartiene il messaggio.|
-|Category| Categoria del messaggio.|
-|Evento| Evento del messaggio.|
+|Categoria| Categoria del messaggio.|
+|Event| Evento del messaggio.|
 |ConnectionId| ID connessione del client che invia il messaggio.|
 |UserId| Identità utente del client che invia il messaggio.|
-|Intestazioni| Intestazioni della richiesta.|
+|Headers| Intestazioni della richiesta.|
 |Query| Query della richiesta quando i client si connettono al servizio.|
 |Attestazioni| Attestazioni del client.|
 
@@ -216,7 +217,7 @@ await connection.invoke("broadcast", message1, message2);
 
 Per l'associazione di parametri, l'ordine è importante. Se si utilizza `ParameterNames` , l'ordine in `ParameterNames` corrisponde all'ordine degli argomenti richiamati nel client. Se si usa l'attributo `[SignalRParameter]` in C#, l'ordine degli argomenti nei metodi della funzione di Azure corrisponde all'ordine degli argomenti nei client.
 
-`ParameterNames`l'attributo e `[SignalRParameter]` **non può** essere usato contemporaneamente oppure si otterrà un'eccezione.
+`ParameterNames` l'attributo e `[SignalRParameter]` **non può** essere usato contemporaneamente oppure si otterrà un'eccezione.
 
 ## <a name="send-messages-to-signalr-service-trigger-binding"></a>Inviare messaggi al binding del trigger del servizio SignalR
 

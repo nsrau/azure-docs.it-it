@@ -3,14 +3,15 @@ title: Associazioni di SendGrid di Funzioni di Azure
 description: Riferimento per le associazioni di SendGrid di Funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697358"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212188"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
@@ -66,7 +67,7 @@ public class OutgoingEmail
 }
 ```
 
-### <a name="asynchronous"></a>Asincrona
+### <a name="asynchronous"></a>Asincrono
 
 ```cs
 using SendGrid.Helpers.Mail;
@@ -352,7 +353,7 @@ L'annotazione [SendGridOutput](https://github.com/Azure/azure-functions-java-lib
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente sono elencate le proprietà di configurazione dell'associazione disponibili nella *function.jssu* file e l' `SendGrid` attributo o l'annotazione.
+Nella tabella seguente sono elencate le proprietà di configurazione dell'associazione disponibili nella  *function.jssu* file e l' `SendGrid` attributo o l'annotazione.
 
 | *function.jssulla* proprietà | Proprietà attribute/annotation | Description | Facoltativo |
 |--------------------------|-------------------------------|-------------|----------|
@@ -363,7 +364,7 @@ Nella tabella seguente sono elencate le proprietà di configurazione dell'associ
 | to| A | Indirizzo e-mail del destinatario. | Sì |
 | da| From | Indirizzo di posta elettronica del mittente. |  Sì |
 | subject| Oggetto | Oggetto del messaggio di posta elettronica. | Sì |
-| text| Text | Contenuto del messaggio di posta elettronica. | Sì |
+| testo| Text | Contenuto del messaggio di posta elettronica. | Sì |
 
 Le proprietà facoltative possono avere valori predefiniti definiti nell'associazione e aggiunti o sottoposti a override a livello di codice.
 

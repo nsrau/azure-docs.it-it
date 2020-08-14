@@ -3,21 +3,18 @@ title: Eseguire le funzioni di Azure da un pacchetto
 description: Far eseguire le funzioni dal runtime di Funzioni di Azure tramite il montaggio di un file di pacchetto di distribuzione che contiene i file di progetto dell'app per le funzioni.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79365272"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214241"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
 
 In Azure, è possibile eseguire le funzioni direttamente da un file di pacchetto di distribuzione nell'app per le funzioni. L'altra opzione consiste nel distribuire i file nella directory `d:\home\site\wwwroot` dell'app per le funzioni.
 
 Questo articolo descrive i vantaggi dell'esecuzione delle funzioni da un pacchetto. Viene inoltre illustrato come abilitare questa funzionalità nell'app per le funzioni.
-
-> [!IMPORTANT]
-> Quando si distribuiscono le funzioni in un'app per le funzioni Linux in un [piano Premium](functions-scale.md#premium-plan), è sempre necessario eseguire dal file del pacchetto e [pubblicare l'app usando il Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
 ## <a name="benefits-of-running-from-a-package-file"></a>Vantaggi dell'esecuzione da un file di pacchetto
   
@@ -35,7 +32,7 @@ Per ulteriori informazioni, vedere [questo annuncio](https://github.com/Azure/ap
 
 Per abilitare l'esecuzione dell'app per le funzioni da un pacchetto, è sufficiente aggiungere un'impostazione `WEBSITE_RUN_FROM_PACKAGE` alle impostazioni dell'app per le funzioni. L'impostazione `WEBSITE_RUN_FROM_PACKAGE` deve avere almeno uno dei valori seguenti:
 
-| valore  | Descrizione  |
+| Valore  | Descrizione  |
 |---------|---------|
 | **`1`**  | Consigliato per le app per le funzioni in esecuzione in Windows. Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. Se non si [distribuisce con zip deploy](#integration-with-zip-deployment), questa opzione richiede che anche la cartella disponga di un file denominato `packagename.txt` . Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
 |**`<URL>`**  | Percorso di un file di pacchetto specifico da eseguire. Quando si usa l'archiviazione BLOB, è consigliabile usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per abilitare il runtime di Funzioni per l'accesso al pacchetto. È possibile usare [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file di pacchetto nell'account di archiviazione BLOB. Quando si specifica un URL, è necessario sincronizzare anche i [trigger](functions-deployment-technologies.md#trigger-syncing) dopo la pubblicazione di un pacchetto aggiornato. |
