@@ -1,4 +1,4 @@
-- name: Documentazione di Data Catalog
+- name: Documentazione di Azure Data Catalog
   href: index.yml
 - name: Panoramica
   items:
@@ -23,7 +23,7 @@
       href: data-catalog-adopting-data-catalog.md
     - name: Domande frequenti
       href: data-catalog-frequently-asked-questions.md
-- name: Procedure
+- name: Guide pratiche
   items:
     - name: Registrare le origini dati
       href: data-catalog-how-to-register.md

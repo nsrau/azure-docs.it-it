@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: a3a2474b491abd31b750a15aad7860666c7bd02e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84124183"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186368"
 ---
 Questo articolo illustra come pianificare il backup e il ripristino di emergenza di macchine virtuali (VM) e dischi IaaS in Azure. Questo documento è relativo a dischi gestiti e non gestiti.
 
@@ -257,9 +257,6 @@ La differenza principale tra l'archiviazione con ridondanza geografica e l'archi
 Se si verifica un'interruzione significativa, è possibile che il team di Azure attivi un failover geografico e modifichi le voci del DNS primario in modo che facciano riferimento alle risorse di archiviazione secondarie. A questo punto, se è abilitata l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati nell'area che era precedentemente secondaria. In altri termini, se l'account di archiviazione è di tipo archiviazione con ridondanza geografica e si verifica un problema, è possibile accedere alle risorse di archiviazione secondarie solo se è disponibile il failover geografico.
 
 Per altre informazioni, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](../articles/storage/common/storage-disaster-recovery-guidance.md).
-
->[!NOTE] 
->Microsoft controlla se si verifica un failover. Il failover non è controllato per i singoli account di archiviazione e non viene quindi determinato dai singoli clienti. Per implementare il ripristino di emergenza per account di archiviazione o dischi di macchine virtuali specifici, è necessario usare le tecniche illustrate in precedenza in questo articolo.
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
