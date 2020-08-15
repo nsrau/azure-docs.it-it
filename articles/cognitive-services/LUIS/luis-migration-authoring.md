@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: 390080fecefcc22decd8bec70d043b28311a725d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4c9dc04770e5fadd72c5460a4b44c05ffda47cb7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212638"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245452"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -52,7 +52,7 @@ La migrazione deve essere eseguita dal portale LUIS. Se si creano le chiavi di c
 
 ## <a name="migration-prerequisites"></a>Prerequisiti per la migrazione
 
-* È necessario essere associati a una sottoscrizione di Azure valida. Chiedere all'amministratore del tenant di aggiungere l'utente alla sottoscrizione o [iscriversi per una versione gratuita](https://azure.microsoft.com/free/).
+* È necessario essere associati a una sottoscrizione di Azure valida. Chiedere all'amministratore del tenant di aggiungere l'utente alla sottoscrizione o [iscriversi per una versione gratuita](https://azure.microsoft.com/free/cognitive-services).
 * È necessario creare una risorsa di creazione di LUIS Azure dal portale LUIS o dalla portale di Azure. La creazione di una risorsa di creazione dal portale LUIS fa parte del flusso di migrazione illustrato nella sezione successiva.
 * Se si è un collaboratore sulle applicazioni, le applicazioni non verranno migrate automaticamente. Si consiglia di eseguire il backup di queste applicazioni esportandole o usando l' [API di esportazione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). È possibile importare di nuovo l'app in LUIS dopo la migrazione. Il processo di importazione crea una nuova app con un nuovo ID app, per il quale si è proprietari.
 * Se si è proprietari dell'applicazione, non è necessario esportare le app perché verranno migrate automaticamente. Si consiglia di salvare l'elenco collaboratore di ogni app. Un modello di messaggio di posta elettronica con questo elenco viene fornito facoltativamente come parte del processo di migrazione.
@@ -60,7 +60,7 @@ La migrazione deve essere eseguita dal portale LUIS. Se si creano le chiavi di c
 
 |Portale|Scopo|
 |--|--|
-|[Azure](https://azure.microsoft.com/free/)| Creare risorse di stima e di creazione.<br> Assegnare collaboratori alle risorse.|
+|[Azure](https://azure.microsoft.com/free/cognitive-services)| Creare risorse di stima e di creazione.<br> Assegnare collaboratori alle risorse.|
 |[LUIS](https://www.luis.ai)| Eseguire la migrazione alle nuove risorse di creazione.<br> Creare nuove risorse di creazione nel flusso di migrazione.<br> Assegnare o annullare l'assegnazione delle risorse di stima e creazione alle app dalla pagina **Gestisci**  >  **risorse di Azure** . <br> Spostare le applicazioni da una risorsa di creazione a un'altra.  |
 
 > [!Note]

@@ -3,28 +3,35 @@ title: Anteprima - Creare una versione di immagine crittografata con le chiavi p
 description: Creare una versione di immagine in una raccolta di immagini condivise usando le chiavi di crittografia gestite dal cliente.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223585"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245554"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 
 Le immagini della raccolta vengono archiviate come dischi gestiti e vengono pertanto crittografate automaticamente tramite la crittografia lato server. La crittografia lato server usa la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili ed è conforme allo standard FIPS 140-2. Per altre informazioni sui moduli crittografici sottostanti i dischi gestiti di Azure, vedere [API di crittografia: prossima generazione](/windows/desktop/seccng/cng-portal).
 
-È possibile basarsi sulle chiavi gestite dalla piattaforma per la crittografia delle immagini oppure è possibile gestire la crittografia usando le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una *chiave gestita dal cliente* da usare per crittografare e decrittografare tutti i dischi nelle immagini. 
+È possibile basarsi sulle chiavi gestite dalla piattaforma per la crittografia delle immagini, usare le proprie chiavi oppure è possibile usare entrambe insieme per la crittografia doppia. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una *chiave gestita dal cliente* da usare per crittografare e decrittografare tutti i dischi nelle immagini. 
 
 La crittografia lato server con chiavi gestite dal cliente usa Azure Key Vault. È possibile importare [le chiavi RSA personali](../key-vault/keys/hsm-protected-keys.md) nel proprio insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault.
 
-Per usare le chiavi gestite dal cliente per le immagini, è necessario configurare prima di tutto un'istanza di Azure Key Vault. Successivamente si crea un set di crittografia dischi, che viene quindi usato per la creazione di versioni delle immagini.
+## <a name="prerequisites"></a>Prerequisiti
 
-Per altre informazioni sulla creazione e sull'uso di set di crittografia dischi, vedere [Chiavi gestite dal cliente](./windows/disk-encryption.md#customer-managed-keys).
+Per questo articolo è necessario avere già un set di crittografia del disco da usare per l'immagine.
+
+- Per usare solo una chiave gestita dal cliente, vedere **abilitare le chiavi gestite dal cliente con la crittografia lato server** usando il [portale di Azure](./windows/disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+
+- Per usare le chiavi gestite dalla piattaforma e gestite dal cliente (per la crittografia doppia), vedere **abilitare la crittografia a doppia inattiva** usando il [portale di Azure](./windows/disks-enable-double-encryption-at-rest-portal.md) o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+    > [!IMPORTANT]
+    > È necessario usare questo collegamento [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) per accedere al portale di Azure. La crittografia a doppio inattivo non è attualmente visibile nel portale di Azure pubblico senza usare il collegamento.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -90,7 +97,7 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
-$targetRegion = @{$region1}
+$targetRegion = @($region1)
 
 
 # Create the image
@@ -150,6 +157,7 @@ Se l'origine per il disco del sistema operativo è un disco gestito o una macchi
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus \
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
    --gallery-name MyGallery \
@@ -165,11 +173,12 @@ In questo esempio le origini sono costituite da snapshot del disco. Sono present
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus\
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
-   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot"
-   --data-snapshot-luns 0
-   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot"
+   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot" \
+   --data-snapshot-luns 0 \
+   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage 
    
@@ -182,15 +191,19 @@ az sig image-version create \
 
 ## <a name="portal"></a>Portale
 
-Quando si crea la versione dell'immagine nel portale, è possibile usare la scheda **Crittografia** per immettere le informazioni sui set di crittografia di archiviazione.
+Quando si crea la versione dell'immagine nel portale, è possibile usare la scheda **crittografia** per immettere applica i set di crittografia di archiviazione.
+
+> [!IMPORTANT]
+> Per usare la crittografia doppia, è necessario usare questo collegamento [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) per accedere al portale di Azure. La crittografia a doppio inattivo non è attualmente visibile nel portale di Azure pubblico senza usare il collegamento.
+
 
 1. Nella pagina **Crea versione immagine** selezionare la scheda **Crittografia**.
-2. In **Tipo di crittografia** selezionare **Crittografia dati inattivi con chiave gestita dal cliente**. 
+2. In **tipo di crittografia**selezionare **crittografia dei componenti inattivi con una chiave gestita dal cliente o una** **doppia crittografia con chiavi gestite dalla piattaforma e gestite dal cliente**. 
 3. Per ogni disco nell'immagine, selezionare il **set di crittografia del disco** da usare dall'elenco a discesa. 
 
 ### <a name="create-the-vm"></a>Creare la VM
 
-È possibile creare una macchina virtuale da una raccolta di immagini condivise e usare chiavi gestite dal cliente per crittografare i dischi. Quando si crea la macchina virtuale nel portale, nella scheda **Dischi** selezionare **Crittografia dati inattivi con chiave gestita dal cliente** come **Tipo di crittografia**. È quindi possibile selezionare il set di crittografia dall'elenco a discesa.
+È possibile creare una macchina virtuale da una versione di immagine e usare chiavi gestite dal cliente per crittografare i dischi. Quando si crea la macchina virtuale nel portale, nella scheda **dischi** selezionare crittografia dei **componenti inattivi con chiavi gestite dal cliente** o **crittografia doppia con chiavi gestite dalla piattaforma e gestite dal cliente** per il tipo di **crittografia**. È quindi possibile selezionare il set di crittografia dall'elenco a discesa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

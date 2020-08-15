@@ -1,44 +1,44 @@
 ---
-title: Integrare Gestione aggiornamenti di Automazione di Azure con Windows Endpoint Configuration Manager
+title: Integrare Gestione aggiornamenti di automazione di Azure con Microsoft endpoint Configuration Manager
 description: Questo articolo descrive come configurare Microsoft Endpoint Configuration Manager con Gestione aggiornamenti per distribuire gli aggiornamenti software ai client di gestione.
 services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4eccd53fbf3b883d6e3ba6d2c7c80ddd4ae188af
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 09c8ef818428157c7de8c3a87bcce8a7b80e62ea
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450475"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245911"
 ---
-# <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integrare Gestione aggiornamenti con Windows Endpoint Configuration Manager
+# <a name="integrate-update-management-with-microsoft-endpoint-configuration-manager"></a>Integrare Gestione aggiornamenti con Microsoft endpoint Configuration Manager
 
 I clienti che hanno investito in Microsoft Endpoint Configuration Manager per gestire PC, server e dispositivi mobili si affidano alle caratteristiche potenti e avanzate di questa soluzione anche per gestire gli aggiornamenti software come parte del loro ciclo di gestione degli aggiornamenti software.
 
-È possibile creare report e aggiornare i server Windows gestiti tramite la creazione e il pre-staging di distribuzioni di aggiornamenti software in Windows Endpoint Configuration Manager, nonché ottenere lo stato dettagliato delle distribuzioni di aggiornamenti completate usando [Gestione aggiornamenti](update-mgmt-overview.md). Se si usa l'endpoint di Windows Configuration Manager per la creazione di report di conformità degli aggiornamenti, ma non per la gestione delle distribuzioni degli aggiornamenti con i server Windows, è possibile continuare a segnalare Configuration Manager endpoint, mentre gli aggiornamenti della sicurezza vengono gestiti con Gestione aggiornamenti di automazione di Azure.
+È possibile segnalare e aggiornare i server Windows gestiti creando e pre-staging di distribuzioni di aggiornamenti software in Microsoft endpoint Configuration Manager e ottenere lo stato dettagliato delle distribuzioni di aggiornamenti completate usando [Gestione aggiornamenti](update-mgmt-overview.md). Se si usa Microsoft endpoint Configuration Manager per la creazione di report di conformità degli aggiornamenti, ma non per la gestione delle distribuzioni di aggiornamenti con i server Windows, è possibile continuare a creare report a Microsoft endpoint Configuration Manager mentre gli aggiornamenti della sicurezza vengono gestiti con Gestione aggiornamenti di automazione di Azure.
 
 >[!NOTE]
->Mentre Gestione aggiornamenti supporta la valutazione degli aggiornamenti e l'applicazione di patch di Windows Server 2008 R2, non supporta i client gestiti dall'endpoint Configuration Manager l'esecuzione di questo sistema operativo.
+>Mentre Gestione aggiornamenti supporta la valutazione degli aggiornamenti e l'applicazione di patch di Windows Server 2008 R2, non supporta i client gestiti da Microsoft endpoint Configuration Manager l'esecuzione di questo sistema operativo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario avere aggiunto [Gestione aggiornamenti di Automazione di Azure](update-mgmt-overview.md) all'account di Automazione.
-* I server Windows attualmente gestiti dall'ambiente Windows Endpoint Configuration Manager devono inoltre fare riferimento all'area di lavoro Log Analytics in cui è abilitata la soluzione Gestione aggiornamenti.
-* Questa funzionalità è abilitata in Windows Endpoint Configuration Manager, versione Current Branch 1606 e successive. Per integrare il sito di amministrazione centrale di Windows Endpoint Configuration Manager o un sito primario autonomo con i log e le raccolte di importazione di Monitoraggio di Azure, vedere [Connettere Configuration Manager ai log di Monitoraggio di Azure](../../azure-monitor/platform/collect-sccm.md).  
-* Gli agenti Windows devono essere configurati per comunicare con un server Windows Server Update Services (WSUS) o avere accesso a Microsoft Update, se non ricevono gli aggiornamenti della sicurezza da Windows Endpoint Configuration Manager.
+* I server Windows attualmente gestiti dall'ambiente Microsoft endpoint Configuration Manager devono anche creare report nell'area di lavoro Log Analytics in cui è abilitato anche Gestione aggiornamenti.
+* Questa funzionalità è abilitata in Microsoft endpoint Configuration Manager Current Branch versione 1606 e successive. Per integrare il sito di amministrazione centrale Microsoft endpoint Configuration Manager o un sito primario autonomo con i log di monitoraggio di Azure e le raccolte di importazione, vedere [connettere Configuration Manager ai log di monitoraggio di Azure](../../azure-monitor/platform/collect-sccm.md).  
+* Gli agenti Windows devono essere configurati per comunicare con un server di Windows Server Update Services (WSUS) o avere accesso a Microsoft Update se non ricevono gli aggiornamenti della sicurezza da Microsoft endpoint Configuration Manager.
 
-Le modalità di gestione dei client ospitati nella soluzione IaaS di Azure con l'ambiente Windows Endpoint Configuration Manager esistente dipendono principalmente dalla connessione tra i data center di Azure e l'infrastruttura. Questa connessione influisce su eventuali modifiche di progettazione che potrebbe essere necessario apportare all'infrastruttura di Windows Endpoint Configuration Manager e sui costi correlati per supportare le modifiche necessarie. Per comprendere le considerazioni sulla pianificazione da valutare prima di procedere, vedere [Configuration Manager in Azure: domande frequenti](/configmgr/core/understand/configuration-manager-on-azure#networking).
+La modalità di gestione dei client ospitati in Azure IaaS con l'ambiente Microsoft endpoint Configuration Manager esistente dipende principalmente dalla connessione tra i Data Center di Azure e l'infrastruttura. Questa connessione influisce sulle modifiche di progettazione che possono essere necessarie per l'infrastruttura di Microsoft endpoint Configuration Manager e sui costi correlati per supportare le modifiche necessarie. Per comprendere le considerazioni sulla pianificazione da valutare prima di procedere, vedere [Configuration Manager in Azure: domande frequenti](/configmgr/core/understand/configuration-manager-on-azure#networking).
 
-## <a name="manage-software-updates-from-windows-endpoint-configuration-manager"></a>Gestire gli aggiornamenti software da Windows Endpoint Configuration Manager
+## <a name="manage-software-updates-from-microsoft-endpoint-configuration-manager"></a>Gestire gli aggiornamenti software da Microsoft endpoint Configuration Manager
 
-Se si vuole continuare a gestire le distribuzioni di aggiornamenti da Windows Endpoint Configuration Manager, eseguire la procedura illustrata di seguito. Automazione di Azure si connette a Windows Endpoint Configuration Manager per applicare gli aggiornamenti ai computer client connessi all'area di lavoro Log Analytics. Il contenuto degli aggiornamenti è disponibile dalla cache del computer client, come se la distribuzione fosse stata gestita da Windows Endpoint Configuration Manager.
+Se si intende continuare a gestire le distribuzioni degli aggiornamenti da Microsoft endpoint Configuration Manager, seguire questa procedura. Automazione di Azure si connette a Microsoft endpoint Configuration Manager per applicare gli aggiornamenti ai computer client connessi all'area di lavoro di Log Analytics. Il contenuto dell'aggiornamento è disponibile dalla cache del computer client come se la distribuzione fosse stata gestita da Microsoft endpoint Configuration Manager.
 
-1. Creare una distribuzione di aggiornamenti software dal sito principale della gerarchia di Windows Endpoint Configuration Manager usando il processo descritto in [Distribuire gli aggiornamenti software](/configmgr/sum/deploy-use/deploy-software-updates). L'unica impostazione che deve essere configurata in modo diverso rispetto a una distribuzione standard è l'opzione **Non installare aggiornamenti software** per controllare il comportamento di download del pacchetto di distribuzione. Questo comportamento viene gestito in Gestione aggiornamenti creando una distribuzione di aggiornamenti pianificata nel passaggio successivo.
+1. Creare una distribuzione degli aggiornamenti software dal sito di livello superiore nella gerarchia di Microsoft endpoint Configuration Manager usando la procedura descritta in [distribuire gli aggiornamenti software](/configmgr/sum/deploy-use/deploy-software-updates). L'unica impostazione che deve essere configurata in modo diverso rispetto a una distribuzione standard è l'opzione **Non installare aggiornamenti software** per controllare il comportamento di download del pacchetto di distribuzione. Questo comportamento viene gestito in Gestione aggiornamenti creando una distribuzione di aggiornamenti pianificata nel passaggio successivo.
 
-2. Selezionare **Gestione aggiornamenti** in Automazione di Azure. Creare una nuova distribuzione seguendo i passaggi descritti in [Creazione di una distribuzione degli aggiornamenti](update-mgmt-deploy-updates.md#schedule-an-update-deployment) e selezionare **Gruppi importati** nell'elenco a discesa **Tipo** per selezionare la raccolta appropriata di Windows Endpoint Configuration Manager. Tenere presente questi punti importanti:
+2. Selezionare **Gestione aggiornamenti** in Automazione di Azure. Creare una nuova distribuzione seguendo i passaggi descritti in [creazione di una distribuzione degli aggiornamenti](update-mgmt-deploy-updates.md#schedule-an-update-deployment) e selezionare i **gruppi importati** nell'elenco a discesa **tipo** per selezionare la raccolta di Configuration Manager dell'endpoint Microsoft appropriata. Tenere presente questi punti importanti:
 
-    a. Se è stata definita una finestra di manutenzione per la raccolta di dispositivi di Windows Endpoint Configuration Manager selezionata, i membri della raccolta rispettano questa finestra invece dell'impostazione **Durata** definita nella distribuzione pianificata.
+    a. Se è stata definita una finestra di manutenzione per l'endpoint Microsoft selezionato Configuration Manager raccolta dispositivi, i membri della raccolta lo rispettano anziché l'impostazione **durata** definita nella distribuzione pianificata.
 
     b. I membri della raccolta di destinazione devono avere una connessione Internet diretta, tramite un server proxy o il gateway di Log Analytics.
 
@@ -46,9 +46,9 @@ Dopo aver completato la distribuzione di aggiornamenti tramite Automazione di Az
 
 ## <a name="manage-software-updates-from-azure-automation"></a>Gestire gli aggiornamenti software da Automazione di Azure
 
-Per gestire gli aggiornamenti per macchine virtuali Windows Server che sono client di Windows Endpoint Configuration Manager, è necessario configurare i criteri client per disabilitare la funzionalità Gestione aggiornamenti software per tutti i client gestiti da Gestione aggiornamenti software. Per impostazione predefinita, le impostazioni client si applicano a tutti i dispositivi nella gerarchia. Per altre informazioni su questa impostazione dei criteri e su come configurarla, vedere [Come configurare le impostazioni client in Configuration Manager](/configmgr/core/clients/deploy/configure-client-settings).
+Per gestire gli aggiornamenti per le macchine virtuali Windows Server che sono client Microsoft endpoint Configuration Manager, è necessario configurare i criteri client per disabilitare la funzionalità Gestione aggiornamenti software per tutti i client gestiti da Gestione aggiornamenti. Per impostazione predefinita, le impostazioni client si applicano a tutti i dispositivi nella gerarchia. Per altre informazioni su questa impostazione dei criteri e su come configurarla, vedere [Come configurare le impostazioni client in Configuration Manager](/configmgr/core/clients/deploy/configure-client-settings).
 
-Dopo avere apportato questa modifica alla configurazione, creare una nuova distribuzione seguendo i passaggi descritti in [Creazione di una distribuzione degli aggiornamenti](update-mgmt-deploy-updates.md#schedule-an-update-deployment) e selezionare **Gruppi importati** nell'elenco a discesa **Tipo** per selezionare la raccolta appropriata di Windows Endpoint Configuration Manager.
+Dopo aver eseguito questa modifica alla configurazione, creare una nuova distribuzione seguendo i passaggi descritti in [creazione di una distribuzione degli aggiornamenti](update-mgmt-deploy-updates.md#schedule-an-update-deployment) e selezionare i **gruppi importati** nell'elenco a discesa **tipo** per selezionare la raccolta di Configuration Manager dell'endpoint Microsoft appropriata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

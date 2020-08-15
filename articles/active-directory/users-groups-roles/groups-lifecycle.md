@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0a1fb386776a3ab1a3b7689c69dea7dc717d1e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: afc9a32c4f0fa5b4b6a2f6c0ec56bbc35b6dde68
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213784"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244491"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Microsoft 365
 
@@ -79,7 +79,7 @@ Per ulteriori informazioni sulle autorizzazioni per ripristinare un gruppo elimi
 
 3. Nella pagina **scadenza** è possibile:
 
-    - Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti oppure un valore personalizzato (che deve essere di 31 giorni o più).
+    - Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti o un valore personalizzato (deve avere una o più di 30 giorni).
     - Specificare un indirizzo e-mail per l'invio delle notifiche di rinnovo e di scadenza quando un gruppo non ha un proprietario.
     - Consente di selezionare i gruppi di Microsoft 365 scadono. È possibile impostare la scadenza per:
       - **Tutto** Gruppi di Microsoft 365

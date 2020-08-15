@@ -3,18 +3,23 @@ title: Verifica integrità registro di sistema
 description: Informazioni su come eseguire un rapido comando di diagnostica per identificare i problemi comuni quando si usa un registro contenitori di Azure, tra cui la configurazione Docker locale e la connettività al registro di sistema
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74456427"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245384"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Verificare l'integrità di un registro contenitori di Azure
 
 Quando si usa un registro contenitori di Azure, è possibile che si verifichino occasionalmente problemi. Ad esempio, potrebbe non essere possibile eseguire il pull di un'immagine del contenitore a causa di un problema con Docker nell'ambiente locale. In alternativa, un problema di rete potrebbe impedire la connessione al registro di sistema. 
 
 Come primo passaggio di diagnostica, eseguire il comando [AZ ACR check-Health][az-acr-check-health] per ottenere informazioni sullo stato dell'ambiente e, facoltativamente, per accedere a un registro di sistema di destinazione. Questo comando è disponibile nell'interfaccia della riga di comando di Azure versione 2.0.67 o successiva. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+
+Per ulteriori indicazioni sulla risoluzione dei problemi del registro di sistema, vedere:
+* [Risolvere i problemi di accesso al registro](container-registry-troubleshoot-login.md)
+* [Risolvere i problemi di rete con il registro di sistema](container-registry-troubleshoot-access.md)
+* [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
 
 ## <a name="run-az-acr-check-health"></a>Esecuzione AZ ACR check-Health
 
@@ -33,7 +38,7 @@ az acr check-health
 
 ### <a name="check-the-environment-and-a-target-registry"></a>Controllare l'ambiente e un registro di sistema di destinazione
 
-Per controllare l'accesso a un registro di sistema e per eseguire controlli dell'ambiente locale, passare il nome di un registro di destinazione. Ad esempio:
+Per controllare l'accesso a un registro di sistema e per eseguire controlli dell'ambiente locale, passare il nome di un registro di destinazione. Esempio:
 
 ```azurecli
 az acr check-health --name myregistry

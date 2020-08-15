@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206878"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244772"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Uso della VPN S2S come backup per il peering privato di ExpressRoute
 
-Nell'articolo intitolato [progettazione per il ripristino di emergenza con peering privato ExpressRoute][DR-PP], è stata discussa la necessità di una soluzione di connettività di backup per una connettività di peering privato ExpressRoute e come usare circuiti ExpressRoute con ridondanza geografica per lo scopo. Questo articolo illustra come usare e gestire la VPN da sito a sito (S2S) come back per il peering privato di ExpressRoute. 
+Nell'articolo intitolato [progettazione per il ripristino di emergenza con peering privato ExpressRoute][DR-PP], è stata discussa la necessità di una soluzione di connettività di backup per una connettività di peering privato ExpressRoute e come usare circuiti ExpressRoute con ridondanza geografica per lo scopo. Questo articolo illustra come usare e gestire la VPN da sito a sito (S2S) come backup per il peering privato ExpressRoute. 
 
 A differenza dei circuiti ExpressRoute con ridondanza geografica, è possibile usare la combinazione di ripristino di emergenza ExpressRoute-VPN solo in modalità attivo/passivo. Un problema principale dell'utilizzo della connettività di rete di backup in modalità passiva è che la connessione passiva avrebbe spesso esito negativo insieme alla connessione primaria. La causa comune degli errori della connessione passiva è la mancanza di manutenzione attiva. Pertanto, in questo articolo si concentrerà su come verificare e mantenere attivamente la connettività VPN S2S che esegue il backup di un peering privato ExpressRoute.
 
@@ -36,7 +36,7 @@ Nel programma di installazione, il circuito ExpressRoute viene terminato in una 
 
 Nella tabella seguente sono elencati i prefissi IP principali della topologia:
 
-| **Entità** | **Prefisso** |
+| **Entità** | **Prefix** |
 | --- | --- |
 | LAN locale | 10.1.11.0/25 |
 | VNet Hub di Azure | 10.17.11.0/25 |

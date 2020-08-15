@@ -4,12 +4,12 @@ description: Informazioni su come configurare le funzionalità di rete avanzate 
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 93cbe6d2a682009ee883d11bdd99fd69b693c5c4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872430"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246013"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -102,7 +102,7 @@ Quando si crea un cluster servizio Azure Kubernetes, per la rete Azure CNI i par
 * Non deve essere compreso nell'intervallo di indirizzi IP della rete virtuale del cluster
 * Non deve sovrapporsi ad altre reti virtuali con cui la rete virtuale del cluster effettua il peering
 * Non deve sovrapporsi ad altri IP locali
-* Non devono essere compresi negli intervalli `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` o`192.0.2.0/24`
+* Non devono essere compresi negli intervalli `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` o `192.0.2.0/24`
 
 Sebbene sia tecnicamente possibile specificare un intervallo di indirizzi del servizio all'interno della stessa rete virtuale del cluster, tale operazione non è consigliata. Se vengono usati intervalli IP che si sovrappongono, si può verificare un comportamento imprevedibile. Per altre informazioni, vedere la sezione [Domande frequenti](#frequently-asked-questions) di questo articolo. Per altre informazioni sui servizi Kubernetes, vedere [Services][services] (Servizi) nella documentazione di Kubernetes.
 
@@ -152,6 +152,10 @@ Le domande e le risposte seguenti si applicano alla configurazione delle funzion
 * *È possibile distribuire le VM nella subnet del cluster?*
 
   Sì.
+
+* *Quali indirizzi IP di origine vengono visualizzati nei sistemi esterni per il traffico che ha origine in un pod abilitato per Azure CNI?*
+
+  I sistemi nella stessa rete virtuale del cluster AKS visualizzano l'IP pod come indirizzo di origine per qualsiasi traffico dal Pod. I sistemi esterni alla rete virtuale del cluster AKS visualizzano l'IP del nodo come indirizzo di origine per qualsiasi traffico dal Pod. 
 
 * *È possibile configurare I criteri di rete per pod?*
 

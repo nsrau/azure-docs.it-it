@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317128"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245010"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure
 
-Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure tramite l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). I servizi cognitivi sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) di Azure create nella sottoscrizione di Azure. Dopo aver creato la risorsa, usare le chiavi e l'endpoint generati per autenticare le applicazioni. 
+Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure tramite l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). I servizi cognitivi sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) di Azure create nella sottoscrizione di Azure. Dopo aver creato la risorsa, usare le chiavi e l'endpoint generati per autenticare le applicazioni.
 
 
 In questa Guida introduttiva si apprenderà come iscriversi ai servizi cognitivi di Azure e creare un account con una sottoscrizione a servizio singolo o multiservizio usando l' [interfaccia della riga di comando (CLI) di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Questi servizi sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)di Azure, che consentono di connettersi a una o più API servizi cognitivi di Azure.
@@ -27,10 +27,10 @@ In questa Guida introduttiva si apprenderà come iscriversi ai servizi cognitivi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure valida- [crearne una](https://azure.microsoft.com/free/) gratuita.
+* Una sottoscrizione di Azure valida- [crearne una](https://azure.microsoft.com/free/cognitive-services) gratuita.
 * [Interfaccia della riga di comando di Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## <a name="install-the-azure-cli-and-sign-in"></a>Installare l'interfaccia della riga di comando di Azure e accedere 
+## <a name="install-the-azure-cli-and-sign-in"></a>Installare l'interfaccia della riga di comando di Azure e accedere
 
 Installare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)della riga di comando di Azure. Per accedere all'installazione locale dell'interfaccia della riga di comando, eseguire il comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) :
 
@@ -39,7 +39,7 @@ az login
 ```
 
 È anche possibile usare il pulsante **prova** in verde per eseguire questi comandi nel browser.
- 
+
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Creare un nuovo gruppo di risorse servizi cognitivi di Azure
 
 Prima di creare una risorsa Servizi cognitivi, è necessario disporre di un gruppo di risorse di Azure per contenere la risorsa. Quando si crea una nuova risorsa, è possibile scegliere di creare un nuovo gruppo di risorse o utilizzarne uno esistente. Questo articolo illustra come creare un nuovo gruppo di risorse.
@@ -76,7 +76,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="multi-service"></a>Multi-servizio
 
-| Service                    | Tipo                      |
+| Servizio                    | Tipo                      |
 |----------------------------|---------------------------|
 | Più servizi. Per ulteriori informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) .            | `CognitiveServices`     |
 
@@ -86,7 +86,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="vision"></a>Visione
 
-| Service                    | Tipo                      |
+| Servizio                    | Tipo                      |
 |----------------------------|---------------------------|
 | Visione artificiale            | `ComputerVision`          |
 | Visione personalizzata-stima | `CustomVision.Prediction` |
@@ -97,7 +97,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="search"></a>Ricerca
 
-| Service            | Tipo                  |
+| Servizio            | Tipo                  |
 |--------------------|-----------------------|
 | Suggerimenti automatici Bing   | `Bing.Autosuggest.v7` |
 | Ricerca personalizzata Bing | `Bing.CustomSearch`   |
@@ -105,16 +105,16 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Ricerca Bing        | `Bing.Search.v7`      |
 | Controllo ortografico Bing   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Sintesi vocale
+### <a name="speech"></a>Voce
 
-| Service            | Tipo                 |
+| Servizio            | Tipo                 |
 |--------------------|----------------------|
 | Servizi Voce    | `SpeechServices`     |
 | Riconoscimento vocale | `SpeakerRecognition` |
 
-### <a name="language"></a>Lingua
+### <a name="language"></a>Linguaggio
 
-| Service            | Tipo                |
+| Servizio            | Tipo                |
 |--------------------|---------------------|
 | Informazioni sui moduli | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -124,7 +124,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 
 ### <a name="decision"></a>Decisione
 
-| Service           | Tipo               |
+| Servizio           | Tipo               |
 |-------------------|--------------------|
 | Rilevamento anomalie  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -190,7 +190,7 @@ az cognitiveservices account list-usage \
     --subscription subscription-name
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Se si vuole eseguire la pulizia e la rimozione di una risorsa di servizi cognitivi, è possibile eliminarla o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse al suo interno.
 

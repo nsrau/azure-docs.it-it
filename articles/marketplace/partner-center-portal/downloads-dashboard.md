@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317570"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245673"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Dashboard dei download nell'analisi per il mrketplace commerciale
 
@@ -25,9 +25,7 @@ Per accedere al dashboard dei download, aprire il dashboard **[analizza](https:/
 
 ## <a name="downloads-dashboard"></a>Dashboard Download
 
-Il dashboard **download** del menu **analizza** consente di visualizzare le richieste di download che contengono oltre 1000 righe di dati del cliente o dell'ordine.
-
-Si riceverà una notifica popup e un messaggio di posta elettronica contenente un collegamento al dashboard **Downloads** ogni volta che si richiede un download con oltre 1000 righe di dati. Questi download dei dati saranno disponibili per un periodo di 30 giorni e quindi rimossi.
+Il dashboard **download** del menu **analizza** consente di visualizzare le richieste di download che contengono oltre 1000 righe di dati del cliente o dell'ordine. Questi download dei dati saranno disponibili per 30 giorni e quindi rimossi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 8eb9caf466148e43266c4be9cf1308da15fb67f2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169817"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245537"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurare un nome di rete distribuita per un'istanza FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -126,7 +126,7 @@ Per aggiornare i proprietari possibili, attenersi alla procedura seguente:
 
 ## <a name="restart-sql-server-instance"></a>Riavvia SQL Server istanza 
 
-Utilizzare Gestione cluster di failover per riavviare l'istanza di SQL Server. Seguire questa procedura:
+Utilizzare Gestione cluster di failover per riavviare l'istanza di SQL Server. A tale scopo, seguire questa procedura:
 
 1. Passare alla risorsa SQL Server in Gestione cluster di failover.
 1. Fare clic con il pulsante destro del mouse sulla risorsa SQL Server e portarla offline. 
@@ -156,6 +156,29 @@ In **Gestione cluster di failover** viene visualizzato il ruolo e le relative ri
 Per testare la connettività, accedere a un'altra macchina virtuale nella stessa rete virtuale. Aprire **SQL Server Management Studio** e connettersi all'istanza del cluster di failover di SQL Server usando il nome DNS DNN.
 
 Se necessario, è possibile [scaricare SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+
+## <a name="avoid-ip-conflict"></a>Evitare conflitti IP
+
+Si tratta di un passaggio facoltativo per evitare che l'indirizzo IP virtuale (VIP) usato dalla risorsa FCI venga assegnato a un'altra risorsa in Azure come duplicato. 
+
+Sebbene i clienti usino ora DNN per connettersi alla SQL Server FCI, il nome della rete virtuale (VNN) e l'indirizzo IP virtuale non possono essere eliminati perché sono componenti necessari dell'infrastruttura FCI. Tuttavia, poiché non è più disponibile un servizio di bilanciamento del carico che riserva l'indirizzo IP virtuale in Azure, esiste il rischio che a un'altra risorsa nella rete virtuale venga assegnato lo stesso indirizzo IP dell'indirizzo IP virtuale usato dall'istanza FCI. Questo può causare un problema di conflitto IP duplicato. 
+
+Configurare un indirizzo APIPA o una scheda di rete dedicata per riservare l'indirizzo IP. 
+
+### <a name="apipa-address"></a>Indirizzo APIPA
+
+Per evitare di utilizzare indirizzi IP duplicati, configurare un indirizzo APIPA (noto anche come indirizzo locale del collegamento). A tale scopo, eseguire il comando seguente:
+
+```powershell
+Get-ClusterResource "virtual IP address" | Set-ClusterParameter 
+    –Multiple @{"Address”=”169.254.1.1”;”SubnetMask”=”255.255.0.0”;"OverrideAddressMatch"=1;”EnableDhcp”=0}
+```
+
+In questo comando "indirizzo IP virtuale" è il nome della risorsa dell'indirizzo VIP in cluster e "169.254.1.1" è l'indirizzo APIPA scelto per l'indirizzo VIP. Scegliere l'indirizzo più adatto alla propria attività. Impostare `OverrideAddressMatch=1` per consentire l'uso dell'indirizzo IP in qualsiasi rete, incluso lo spazio degli indirizzi APIPA. 
+
+### <a name="dedicated-network-adapter"></a>Scheda di rete dedicata
+
+In alternativa, configurare una scheda di rete in Azure per riservare l'indirizzo IP usato dalla risorsa indirizzo IP virtuale. Tuttavia, in questo modo viene utilizzato l'indirizzo nello spazio degli indirizzi della subnet e si verifica un sovraccarico aggiuntivo che garantisce che la scheda di rete non venga utilizzata per altri scopi.
 
 ## <a name="limitations"></a>Limitazioni
 

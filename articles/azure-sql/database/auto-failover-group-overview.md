@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826535"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245571"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-I gruppi di failover automatico consentono di gestire la replica e il failover di un gruppo di database in un server o in tutti i database di un'istanza gestita in un'altra area. Si tratta di un'astrazione dichiarativa basata sulla funzionalità di [replica geografica attiva](active-geo-replication-overview.md) esistente, progettata per semplificare la distribuzione e la gestione di database con replica geografica su larga scala. È possibile avviare il failover manualmente oppure è possibile delegarlo al servizio di Azure in base a un criterio definito dall'utente. La seconda opzione consente di ripristinare automaticamente più database correlati in un'area secondaria dopo un errore irreversibile o un altro evento non pianificato che comporta una perdita completa o parziale del database SQL o della disponibilità di SQL Istanza gestita nell'area primaria. Un gruppo di failover può includere uno o più database, in genere utilizzati dalla stessa applicazione. È inoltre possibile usare i database secondari leggibili per l'offload dei carichi di lavoro delle query di sola lettura. Poiché i gruppi di failover automatico coinvolgono più database, questi ultimi devono essere configurati nel server primario. I gruppi di failover automatico supportano la replica di tutti i database nel gruppo in un solo server o istanza secondaria in un'area diversa.
+La funzionalità gruppi di failover automatico consente di gestire la replica e il failover di un gruppo di database in un server o di tutti i database in un'istanza gestita in un'altra area. Si tratta di un'astrazione dichiarativa basata sulla funzionalità di [replica geografica attiva](active-geo-replication-overview.md) esistente, progettata per semplificare la distribuzione e la gestione di database con replica geografica su larga scala. È possibile avviare il failover manualmente oppure è possibile delegarlo al servizio di Azure in base a un criterio definito dall'utente. La seconda opzione consente di ripristinare automaticamente più database correlati in un'area secondaria dopo un errore irreversibile o un altro evento non pianificato che comporta una perdita completa o parziale del database SQL o della disponibilità di SQL Istanza gestita nell'area primaria. Un gruppo di failover può includere uno o più database, in genere utilizzati dalla stessa applicazione. È inoltre possibile usare i database secondari leggibili per l'offload dei carichi di lavoro delle query di sola lettura. Poiché i gruppi di failover automatico coinvolgono più database, questi ultimi devono essere configurati nel server primario. I gruppi di failover automatico supportano la replica di tutti i database nel gruppo in un solo server o istanza secondaria in un'area diversa.
 
 > [!NOTE]
 > Se si vogliono più database SQL di Azure secondari nella stessa area o in aree diverse, usare la [replica geografica attiva](active-geo-replication-overview.md).
@@ -33,7 +33,7 @@ I gruppi di failover automatico forniscono anche endpoint di listener di sola le
 
 Quando si usano i gruppi di failover automatico con i criteri di failover automatico, eventuali interruzioni che influiscano sui database in un server o in un'istanza gestita generano failover automatico. È possibile gestire il gruppo di failover automatico mediante:
 
-- [Azure portal](geo-distributed-application-configure-tutorial.md)
+- [Portale di Azure](geo-distributed-application-configure-tutorial.md)
 - [INTERFACCIA della riga di comando di Azure: gruppo di failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: gruppo di failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: gruppo di failover](/rest/api/sql/failovergroups).
@@ -203,7 +203,7 @@ Per illustrare la sequenza di modifiche, si presuppone che il server A sia il se
 1. Eseguire un failover pianificato per passare il server primario a B. il server A diventerà il nuovo server secondario. Il failover può causare alcuni minuti di inattività. Il tempo effettivo dipenderà dalla dimensione del gruppo di failover.
 2. Creare altre repliche secondarie di ogni database nel server B al server C usando la [replica geografica attiva](active-geo-replication-overview.md). Per ogni database nel server B sono presenti due database secondari, uno sul server A e uno sul server C. Ciò garantisce che i database primari rimangano protetti durante la transizione.
 3. Eliminare il gruppo di failover. A questo punto gli account di accesso non riusciranno. Questo perché gli alias SQL per i listener del gruppo di failover sono stati eliminati e il gateway non riconosce il nome del gruppo di failover.
-4. Ricreare il gruppo di failover con lo stesso nome tra i server A e C. A questo punto, gli account di accesso smetteranno di funzionare.
+4. Ricreare il gruppo di failover con lo stesso nome tra i server B e C. A questo punto, gli account di accesso smetteranno di funzionare.
 5. Aggiungere tutti i database primari in B al nuovo gruppo di failover.
 6. Eseguire un failover pianificato del gruppo di failover per passare a B e C. Ora il server C diventerà il database primario e il database secondario. Tutti i database secondari sul server A verranno automaticamente collegati alle primarie in C. Come nel passaggio 1, il failover può comportare diversi minuti di tempo di inattività.
 7. Eliminare il server A. Tutti i database in un verranno eliminati automaticamente.
@@ -231,7 +231,7 @@ Per garantire la connettività senza interruzioni al Istanza gestita SQL primari
 > [!IMPORTANT]
 > La prima istanza gestita creata nella subnet determina la zona DNS per tutte le istanze successive nella stessa subnet. Ciò significa che due istanze della stessa subnet non possono appartenere a zone DNS diverse.
 
-Per ulteriori informazioni sulla creazione di Istanza gestita SQL secondari nella stessa zona DNS dell'istanza primaria, vedere [creare un'istanza gestita secondaria](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
+Per ulteriori informazioni sulla creazione di Istanza gestita SQL secondari nella stessa zona DNS dell'istanza primaria, vedere [creare un'istanza gestita secondaria](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Abilitazione del traffico di replica tra due istanze
 
@@ -378,10 +378,10 @@ Questa sequenza è consigliata in modo specifico per evitare il problema per cui
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitare la perdita di dati critici
 
-A causa della latenza elevata delle reti WAN, per la copia continua viene usato un meccanismo di replica asincrona. La replica asincrona rende inevitabile una perdita parziale dei dati nel caso si verifichi un problema. Tuttavia, alcune applicazione potrebbero non essere soggette alla perdita dei dati. Per proteggere questi aggiornamenti critici, uno sviluppatore di applicazioni può chiamare la procedura di sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) subito dopo il commit della transazione. La chiamata a `sp_wait_for_database_copy_sync` blocca il thread chiamante finché l'ultima transazione di cui è stato eseguito il commit non è stata trasmessa al database secondario. Tuttavia, non attende che le transazioni trasmesse vengano riprodotta e che ne venga eseguito il commit nel database secondario. `sp_wait_for_database_copy_sync`ha come ambito un collegamento di copia continua specifico. La procedura può essere chiamata da qualsiasi utente che abbia diritti di connessione al database primario.
+A causa della latenza elevata delle reti WAN, per la copia continua viene usato un meccanismo di replica asincrona. La replica asincrona rende inevitabile una perdita parziale dei dati nel caso si verifichi un problema. Tuttavia, alcune applicazione potrebbero non essere soggette alla perdita dei dati. Per proteggere questi aggiornamenti critici, uno sviluppatore di applicazioni può chiamare la procedura di sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) subito dopo il commit della transazione. La chiamata a `sp_wait_for_database_copy_sync` blocca il thread chiamante finché l'ultima transazione di cui è stato eseguito il commit non è stata trasmessa al database secondario. Tuttavia, non attende che le transazioni trasmesse vengano riprodotta e che ne venga eseguito il commit nel database secondario. `sp_wait_for_database_copy_sync` ha come ambito un collegamento di copia continua specifico. La procedura può essere chiamata da qualsiasi utente che abbia diritti di connessione al database primario.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync`impedisce la perdita di dati dopo il failover, ma non garantisce la sincronizzazione completa per l'accesso in lettura. Il ritardo causato da una `sp_wait_for_database_copy_sync` chiamata di routine può essere significativo e dipende dalle dimensioni del log delle transazioni al momento della chiamata.
+> `sp_wait_for_database_copy_sync` impedisce la perdita di dati dopo il failover, ma non garantisce la sincronizzazione completa per l'accesso in lettura. Il ritardo causato da una `sp_wait_for_database_copy_sync` chiamata di routine può essere significativo e dipende dalle dimensioni del log delle transazioni al momento della chiamata.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Gruppi di failover e ripristino temporizzato
 

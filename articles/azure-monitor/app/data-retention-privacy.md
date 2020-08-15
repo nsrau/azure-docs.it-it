@@ -4,12 +4,12 @@ description: Informativa sulla conservazione e sulla privacy
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 772777c48c8d16197cd8a73586f6549837d7d080
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b1a1e370d55ad58bf1468c2e8b2381b62707b6a
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372400"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245945"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione dei dati in Application Insights
 
@@ -93,9 +93,6 @@ Microsoft usa i dati solo al fine di fornire il servizio all'utente.
 
 ## <a name="where-is-the-data-held"></a>Dove vengono archiviati i dati?
 * È possibile selezionare la località quando si crea una nuova risorsa di Application Insights. Per altre informazioni sulla disponibilità Application Insights per area, vedere [qui](https://azure.microsoft.com/global-infrastructure/services/?products=all).
-
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Significa che l'app deve essere ospitata negli Stati Uniti, in Europa o in Asia sudorientale?
-* No. L'applicazione può essere eseguita ovunque, nel proprio host locale o nel cloud.
 
 ## <a name="how-secure-is-my-data"></a>Quanto sono sicuri i dati?
 Application Insights è un servizio di Azure. I criteri di sicurezza sono descritti nel [white paper su sicurezza, privacy e conformità di Azure](https://go.microsoft.com/fwlink/?linkid=392408).
@@ -251,12 +248,12 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 | [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Eccezioni**<br/>sessione<br/>user |
 | [Installare Status Monitor in IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>sessione<br/>user |
-| [Aggiungere JavaScript SDK a una pagina Web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Aggiungere JavaScript SDK a una pagina Web][client] |ClientContext  <br/>Inferred<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Definire le proprietà predefinite][apiproperties] |**Properties** in tutti gli eventi standard e personalizzati |
 | [Chiamare TrackMetric][api] |Valori numerici<br/>**Proprietà** |
 | [Chiamare Track*][api] |Nome evento<br/>**Proprietà** |
 | [Chiamare TrackException][api] |**Eccezioni**<br/>Dump dello stack<br/>**Proprietà** |
-| SDK non riesce a raccogliere dati. Ad esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
+| SDK non riesce a raccogliere dati. Esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
 
 Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 
@@ -277,7 +274,7 @@ Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi
 | Ajax |Chiamate HTTP dalla pagina Web al server |
 | Requests |URL, durata, codice di risposta. |
 | Dependencies |Tipo (SQL, HTTP,...), stringa di connessione o URI, Sync/async, Duration, Success, istruzione SQL (con Status Monitor) |
-| **Eccezioni** |Tipo, **messaggio**, stack di chiamate, file di origine, numero di riga,`thread id` |
+| **Eccezioni** |Tipo, **messaggio**, stack di chiamate, file di origine, numero di riga, `thread id` |
 | Crashes |`Process id`, `parent process id` , `crash thread id` ; patch applicazione, `id` , compilazione;  tipo di eccezione, indirizzo, motivo; simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU |
 | Trace |**Messaggio** e livello di gravità. |
 | Perf counters |Tempo processore, memoria disponibile, frequenza di richieste, frequenza di eccezioni, byte privati del processo, velocità di I/O, durata richiesta, lunghezza coda richiesta. |

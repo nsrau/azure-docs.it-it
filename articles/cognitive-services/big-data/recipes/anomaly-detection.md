@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: b29fa17c21b2cdb2e764c905af3819142d8c341e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 823d61d94913122fc279e81698933b7e648dd114
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844066"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244347"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Ricetta: manutenzione predittiva con servizi cognitivi per Big Data
 
@@ -30,7 +30,7 @@ Potrebbero essere presenti outlier nei dati in frequenza casuale. In questi casi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/)
+* Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Area di lavoro sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurata con un [pool Spark](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## <a name="setup"></a>Configurazione
@@ -39,7 +39,7 @@ Potrebbero essere presenti outlier nei dati in frequenza casuale. In questi casi
 
 I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Translator usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). È anche possibile:
 
-- Visualizzare una risorsa esistente nell' [portale di Azure](https://portal.azure.com/).
+- Visualizzare una risorsa esistente nell'  [portale di Azure](https://portal.azure.com/).
 
 Prendere nota dell'endpoint e della chiave per questa risorsa, che sarà necessaria in questa guida.
 

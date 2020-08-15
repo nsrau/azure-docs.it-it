@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985427"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245853"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluzioni nelle macchine virtuali di Azure
 
 Questo articolo descrive come distribuire le macchine virtuali di confidential computing di Azure che dispongono di processori Intel supportati dall'estensione [Intel Software Guard](https://software.intel.com/sgx) (Intel SGX). 
 
-## <a name="azure-confidential-computing-vm-sizes"></a>Dimensioni delle macchine virtuali di confidential computing di Azure
+## <a name="azure-confidential-computing-vm-sizes"></a>Dimensioni delle macchine virtuali di Azure computing riservato
 
 Le macchine virtuali di confidential computing di Azure sono progettate per proteggere la riservatezza e l'integrità dei dati e del codice durante l'elaborazione nel cloud 
 
@@ -32,41 +32,18 @@ Avviare la distribuzione di una macchina virtuale della serie DCsv2 tramite il m
 Per ottenere un elenco di tutte le dimensioni delle macchine virtuali di confidential computing disponibili a livello generale nelle aree e zone di disponibilità, eseguire il comando seguente nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
-    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" 
-    --all 
+az vm list-skus `
+    --size dc `
+    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
+    --all `
     --output table
-```
-
-A partire da maggio 2020, questi SKU sono disponibili nelle aree e nelle zone di disponibilità seguenti:
-
-```output
-Name              Locations      AZ_a
-----------------  -------------  ------
-Standard_DC8_v2   eastus         2
-Standard_DC1s_v2  eastus         2
-Standard_DC2s_v2  eastus         2
-Standard_DC4s_v2  eastus         2
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-Standard_DC8_v2   CentralUSEUAP
-Standard_DC1s_v2  CentralUSEUAP
-Standard_DC2s_v2  CentralUSEUAP
-Standard_DC4s_v2  CentralUSEUAP
 ```
 
 Per una visualizzazione più dettagliata delle dimensioni precedenti, eseguire il comando seguente:
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
+az vm list-skus `
+    --size dc `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Requisiti host dedicati
@@ -101,17 +78,17 @@ Quando si usano le macchine virtuali in Azure, si è responsabili dell'implement
 
 Confidential computing di Azure non supporta al momento la ridondanza della zona tramite zone di disponibilità. Per garantire la massima disponibilità e ridondanza per l'elaborazione riservata, usare i [set di disponibilità](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). A causa delle restrizioni hardware, i set di disponibilità per le istanze di elaborazione riservata possono avere un massimo di 10 domini di aggiornamento. 
 
-## <a name="deploying-via-an-azure-resource-manager-template"></a>Distribuzione da un modello di Azure Resource Manager 
+## <a name="deployment-with-azure-resource-manager-arm-template"></a>Distribuzione con il modello di Azure Resource Manager (ARM)
 
 Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Fornisce un livello di gestione che consente di creare, aggiornate ed eliminare risorse nella sottoscrizione di Azure. È possibile usare funzionalità di gestione, come il controllo di accesso, i blocchi e i tag, per proteggere e organizzare le risorse dopo la distribuzione.
 
-Per informazioni sui modelli di Azure Resource Manager, vedere [Panoramica della distribuzione di modelli](../azure-resource-manager/templates/overview.md).
+Per informazioni sui modelli ARM, vedere [Panoramica di distribuzione modelli](../azure-resource-manager/templates/overview.md).
 
-Per distribuire una macchina virtuale della serie DCsv2 in un modello di Azure Resource Manager, si utilizzerà la [risorsa della macchina virtuale](../virtual-machines/windows/template-description.md). Assicurarsi di specificare le proprietà corrette per **vmSize** e per **imageReference**.
+Per distribuire una macchina virtuale della serie DCsv2 in un modello ARM, si utilizzerà la [risorsa della macchina virtuale](../virtual-machines/windows/template-description.md). Assicurarsi di specificare le proprietà corrette per **vmSize** e per **imageReference**.
 
 ### <a name="vm-size"></a>Dimensioni macchina virtuale
 
-Specificare una delle dimensioni seguenti nel modello di Azure Resource Manager nella risorsa della macchina virtuale. Questa stringa viene inserita come **vmSize** nelle **proprietà**.
+Specificare una delle dimensioni seguenti nel modello ARM nella risorsa della macchina virtuale. Questa stringa viene inserita come **vmSize** nelle **proprietà**.
 
 ```json
   [
@@ -122,7 +99,7 @@ Specificare una delle dimensioni seguenti nel modello di Azure Resource Manager 
       ],
 ```
 
-### <a name="gen2-os-image"></a>Immagine del sistema operativo di seconda generazione
+### <a name="gen2-os-image"></a>Immagine del sistema operativo Gen2
 
 In **Proprietà**, sarà anche necessario fare riferimento a un'immagine in **storageProfile**. Usare *solo una* delle immagini seguenti per **imageReference**.
 

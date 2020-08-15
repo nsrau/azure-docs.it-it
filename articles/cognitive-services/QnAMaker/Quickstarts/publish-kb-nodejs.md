@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 447b8a07f6bbda42be4def96ee8f1244fa752526
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406096"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245588"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Guida introduttiva: API REST di QnA Maker per Node.js
 
@@ -31,7 +31,7 @@ Usare le API REST di QnA Maker per Node.js per eseguire queste operazioni:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
 * Versione corrente di [Node.js](https://nodejs.org).
 * È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e l'endpoint (che include il nome della risorsa), selezionare **Avvio rapido** per la risorsa nel portale di Azure.
 
@@ -88,7 +88,7 @@ Creare le variabili per l'endpoint e la chiave di Azure della risorsa. Se la var
 
 Impostare i valori di ambiente seguenti:
 
-* `QNAMAKER_RESOURCE_KEY`-La **chiave** è una stringa di caratteri 32 ed è disponibile nel portale di Azure, nella risorsa QnA Maker, nella pagina **avvio rapido** . Non è la stessa chiave dell'endpoint di previsione.
+* `QNAMAKER_RESOURCE_KEY` -La **chiave** è una stringa di caratteri 32 ed è disponibile nel portale di Azure, nella risorsa QnA Maker, nella pagina **avvio rapido** . Non è la stessa chiave dell'endpoint di previsione.
 * `QNAMAKER_AUTHORING_ENDPOINT` - L'endpoint di creazione, nel formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, include il **nome della risorsa**. Non è lo stesso URL usato per eseguire query sull'endpoint di previsione.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]

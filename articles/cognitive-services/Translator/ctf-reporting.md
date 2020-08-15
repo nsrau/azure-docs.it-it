@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 1bf6fefbe7d2ea3fccc393f4445fceec44ed4117
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc06f73aba216f37db570bb33b9f897fabb16cbf
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584672"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244126"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
 
@@ -69,14 +69,14 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 >            int? take);
 > ```
 
-**Parametri**
+**Parameters**
 
 | Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix | **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
 | da | **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione. |
-| to | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| su | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | utente | **Facoltativo** Stringa usata per filtrare i risultati in base all'iniziatore dell'invio. |
@@ -97,7 +97,7 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 |:---|:---|
 | Conteggio| Numero di risultati recuperati|
 | From | Lingua di origine|
-| Rating| Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
+| Classificazione| Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
 | A| Lingua di destinazione|
 | Uri| URI applicato nella chiamata al metodo AddTranslation()|
 | Utente| Nome dell'utente|
@@ -113,7 +113,7 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 > [!NOTE]
 > La quota verrà regolata per garantire l'equità tra tutti gli utenti del servizio.
 
-**Visualizzare esempi di codice in GitHub**
+**Visualizzare esempi di codice su GitHub**
 * [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 
@@ -140,14 +140,14 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 >             int? take);
 > ```
 
-**Parametri**
+**Parameters**
 
 | Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix| **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
 | da| **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione.|
-| to| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| su| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | utente| **Opzionale. Stringa utilizzata per filtrare il risultato in base al creatore dell'invio**|
@@ -169,7 +169,7 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 | CreatedDateUtc| Data di creazione della voce mediante AddTranslation()|
 | From| Lingua di origine|
 | OriginalText| Testo nella lingua di origine usato durante l'invio della richiesta|
-|Rating |Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
+|Classificazione |Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
 |A|    Lingua di destinazione|
 |TranslatedText|    Traduzione così come inviata nella chiamata al metodo AddTranslation()|
 |Uri|   URI applicato nella chiamata al metodo AddTranslation()|

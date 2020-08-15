@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b8432a54aa90b7d500898b2f6959d075ac89460
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319916"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245333"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Dashboard di utilizzo nell'analisi per il marketplace commerciale Microsoft
 
@@ -111,6 +111,8 @@ La scheda **Utilizzo di fatturazione a consumo** contiene informazioni sull'util
 - **Tendenza in eccedenza per piano**: rappresenta la tendenza della quantità di utilizzo della dimensione del contatore selezionata per piani. I piani visualizzati rappresenteranno i primi cinque piani con la massima quantità di utilizzo per l'offerta selezionata.
 - **Tendenza eccedenza per i primi 50 clienti**: le prime 50 offerte con il maggior numero di ore di utilizzo vengono visualizzate in una ***classifica*** e classificate in base al maggior utilizzo del contatore personalizzato. Selezionare un cliente nella classifica per visualizzare la tendenza di utilizzo di una dimensione del contatore selezionata.
 - **Tendenza eccedenza per clienti principali**: presenta i percentili dei clienti principali che contribuiscono alla percentuale di utilizzo complessivo. Il percentile del cliente principale viene visualizzato lungo l'asse X ed è determinato dalla quantità di utilizzo del cliente. L'asse Y Visualizza la quantità di utilizzo. È possibile visualizzare i dettagli posizionando il puntatore del mouse sui punti lungo il grafico a linee.
+
+Se sono disponibili più offerte che usano contatori personalizzati, il report sull'utilizzo della fatturazione a consumo Mostra le informazioni di utilizzo per tutte le offerte, in base alle dimensioni del contatore personalizzate.
 
 > [!NOTE]
 > I dettagli di utilizzo e tutti i grafici di questa pagina vengono visualizzati per qualsiasi dimensione del contatore selezionata per il filtro di pagina.

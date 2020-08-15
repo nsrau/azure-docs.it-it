@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 24e04e166c13f787f756c97716e2bf0143eecbdb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b53476bcb05d6e91b157c24795c963c04e6f4bb4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128574"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244492"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua Analisi del testo nel servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ Informazioni su come distribuire il contenitore di rilevamento della lingua. Que
 
 Questa procedura richiede diversi strumenti che devono essere installati ed eseguiti in locale. Non usare Azure Cloud Shell.
 
-* Usare una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Usare una sottoscrizione di Azure. Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services) prima di iniziare.
 * [Git](https://git-scm.com/downloads) per il sistema operativo, in modo che sia possibile clonare l'[esempio](https://github.com/Azure-Samples/cognitive-services-containers-samples) usato in questa procedura.
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Motore Docker](https://www.docker.com/products/docker-engine) e verificare che l'interfaccia della riga di comando di Docker funzioni in una finestra della console.
@@ -389,7 +389,7 @@ Aprire un browser e passare all'indirizzo IP esterno del contenitore `language` 
 
 Modificare l'URL nel browser impostando l'indirizzo IP esterno del contenitore `language-frontend` nel formato seguente: `http://<external-ip>/helloworld`. Il testo `helloworld` nelle impostazioni cultura inglese viene stimato come `English`.
 
-## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando il cluster non è più necessario, eliminare il gruppo di risorse di Azure.
 
