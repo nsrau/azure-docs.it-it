@@ -12,12 +12,12 @@ metadata:
   title: Documentazione di Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Il servizio Language Understanding (LUIS) consente all'applicazione di riconoscere la finalità espressa da una persona usando il linguaggio naturale. Language Understanding usa LUIS usa Machine Learning per consentire agli sviluppatori di compilare applicazioni in grado di ricevere input dall'utente in linguaggio naturale ed estrarne il significato.
-  ms.openlocfilehash: 0d941872670a5bdd559a2760f73cda72773fc887
-  ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+  ms.openlocfilehash: 561f6ee161d2a697b8c143ee49209515f679c77b
+  ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/15/2020
-  ms.locfileid: "84791589"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88236523"
 landingContent:
 - title: Informazioni su Language Understanding (LUIS)
   linkLists:
@@ -60,9 +60,9 @@ landingContent:
     - text: 'Portale: Creare una nuova app LUIS'
       url: get-started-portal-build-app.md
     - text: Uso di C# SDK
-      url: sdk-authoring.md?pivots=programming-language-csharp
+      url: quickstart-sdk.md?pivots=programming-language-csharp
     - text: Uso di Python SDK
-      url: sdk-authoring.md?pivots=programming-language-python
+      url: quickstart-sdk.md?pivots=programming-language-python
   - linkListType: how-to-guide
     links:
     - text: Creare una nuova app LUIS
@@ -88,7 +88,7 @@ landingContent:
     - text: "Portale: Distribuire l'app nell'endpoint di stima"
       url: get-started-portal-deploy-app.md
     - text: Uso dell'SDK
-      url: sdk-authoring.md
+      url: quickstart-sdk.md
   - linkListType: how-to-guide
     links:
     - text: Assegnare un numero di versione all'app
@@ -106,7 +106,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Uso dell'SDK
-      url: sdk-query-prediction-endpoint.md
+      url: quickstart-sdk.md
   - linkListType: quickstart
     links:
     - text: Con C# usando REST

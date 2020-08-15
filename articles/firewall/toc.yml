@@ -58,10 +58,8 @@
       href: remote-work-support.md
     - name: Nome di dominio completo nelle regole di rete
       href: fqdn-filtering-network-rules.md
-    - name: Concetti
-      items:
-        - name: Baseline di sicurezza
-          href: security-baseline.md
+    - name: Baseline di sicurezza
+      href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Eseguire la distribuzione tramite Azure PowerShell

@@ -12,7 +12,7 @@
   items:
     - name: API REST
       items:
-        - name: 'Uso di C#'
+        - name: Uso di C#
           href: quickstarts/csharp.md
         - name: Uso di Java
           href: quickstarts/java.md
@@ -102,7 +102,7 @@
     - name: Knowledge Base
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
     - name: Ottenere una chiave API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: Prova
       href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
     - name: Endpoint di Ricerca immagini Bing

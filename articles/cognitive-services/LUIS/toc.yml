@@ -22,11 +22,7 @@
     - name: Usare il browser
       href: luis-get-started-get-intent-from-browser.md
     - name: Usare l'SDK
-      items:
-        - name: Creazione di app
-          href: sdk-authoring.md
-        - name: Eseguire query sull'endpoint di stima
-          href: sdk-query-prediction-endpoint.md
+      href: quickstart-sdk.md
     - name: Usare le API REST
       items:
         - name: Ottenere la finalità
