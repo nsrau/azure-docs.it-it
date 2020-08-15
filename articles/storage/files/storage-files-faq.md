@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e0670aeb3a41506ef302364c6eeaff332520abc5
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037134"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245435"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -77,13 +77,14 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     > [!NOTE]
     > Non è possibile creare condivisioni file di Azure dagli account di archiviazione BLOB o dagli account di archiviazione per utilizzo generico (GPv1 o GPv2) *Premium*. Le condivisioni file di Azure standard devono essere create solo in account *Standard* per utilizzo generico e le condivisioni file di Azure premium devono essere create solo negli account di archiviazione FileStorage. Gli account di archiviazione *Premium* per utilizzo generico (GPv1 e GPv2) sono solo per i blob di pagine Premium. 
 
+* <a id="file-locking"></a>
+  **File di Azure supporta il blocco di file?**  
+    Sì, File di Azure supporta pienamente il blocco di file di tipo SMB/Windows, [vedere dettagli](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **È possibile aggiungere una funzionalità specifica a File di Azure?**  
     Il team di File di Azure è interessato a tutti i commenti e i suggerimenti dei clienti sul servizio offerto. Gli utenti sono invitati a votare le richieste di funzionalità in [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). Il team di File di Azure farà il possibile per soddisfare le richieste di nuove funzionalità.
 
-  **File di Azure supporta il blocco di file?**  
-    Sì, File di Azure supporta pienamente il blocco di file di tipo SMB/Windows, [vedere dettagli](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
 * <a id="afs-region-availability"></a>
@@ -208,6 +209,13 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 **Quali criteri di conformità dei dati sono supportati da File di Azure?**  
 
    L'esecuzione di File di Azure si basa sulla stessa architettura di archiviazione usata in altri servizi di archiviazione in Archiviazione di Azure. File di Azure applica gli stessi criteri di conformità dei dati usati in altri servizi di archiviazione di Azure. Per ulteriori informazioni sulla conformità dei dati di Archiviazione di Azure, è possibile fare riferimento a [Offerte di conformità dell’archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e al [Centro protezione Microsoft](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+**Come è possibile controllare l'accesso ai file e le modifiche in File di Azure?**
+
+  Sono disponibili due opzioni che forniscono funzionalità di controllo per File di Azure:
+  - Se gli utenti accedono direttamente alla condivisione file di Azure, i [log di archiviazione di Azure (anteprima)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) possono essere usati per tenere traccia delle modifiche ai file e dell'accesso utente. Questi log possono essere usati per la risoluzione dei problemi e le richieste vengono registrate in base al massimo sforzo.
+  - Se gli utenti accedono alla condivisione file di Azure tramite un server Windows in cui è installato l'agente Sincronizzazione file di Azure, usare un [criterio di controllo](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) o un prodotto di terze parti per rilevare le modifiche ai file e l'accesso utente in Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>Autenticazione di servizi di dominio Active Directory & Azure AD DS
 * <a id="ad-support-devices"></a>
@@ -274,7 +282,6 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 **Sono presenti API REST per supportare gli ACL di Windows directory/file.**
 
     Sì, sono supportate le API REST che ottengono, impostano o copiano ACL NTFS per directory o file quando si usa l'API REST di [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o versione successiva). È inoltre supportata la conservazione degli ACL Windows negli strumenti basati su REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
-
 
 ## <a name="on-premises-access"></a>Accesso locale
 

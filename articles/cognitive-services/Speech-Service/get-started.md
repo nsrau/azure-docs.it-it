@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d7464d1788101eef7bdad95545056bb32e46c395
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167811"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245469"
 ---
 # <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
 
@@ -29,7 +29,7 @@ In questo articolo si sceglie un'opzione che consente di testare facilmente il s
 
 Completare i passaggi seguenti per attivare una versione di valutazione gratuita di 30 giorni e ottenere le chiavi API. Il periodo di valutazione inizia immediatamente dopo aver completato i passaggi seguenti.
 
-1. Passare a [try cognitive Service](https://azure.microsoft.com/try/cognitive-services/).
+1. Passare a [try cognitive Service](https://azure.microsoft.com/free/cognitive-services).
 1. Selezionare la scheda **API di riconoscimento vocale**.
 1. Scegliere **Ottieni chiave API**.
 

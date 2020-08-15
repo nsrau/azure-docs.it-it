@@ -4,19 +4,19 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 0921d7bbba90fa2199ea212bae6ad4c35e0fb051
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079706"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245486"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
 L'abilitazione del monitoraggio nelle applicazioni Web ASP.NET e ASP.NET Core basate su [app Azure Services](../../app-service/index.yml) è ora più semplice che mai. Mentre in precedenza era necessario installare manualmente un'estensione del sito, la versione più recente dell'agente è ora incorporata nell'immagine del servizio app per impostazione predefinita. Questo articolo illustra l'abilitazione del monitoraggio Application Insights, oltre a fornire indicazioni preliminari per l'automazione del processo per le distribuzioni su larga scala.
 
 > [!NOTE]
-> L'aggiunta manuale di un'estensione del sito di Application Insights tramite le estensioni **degli strumenti di sviluppo**  >  **Extensions** è deprecata. Questo metodo di installazione dell'estensione dipende da aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora [preinstallata](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio app. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate sull'agente per abilitare il monitoraggio di seguito, verrà automaticamente rimossa l'estensione deprecata.
+> L'aggiunta manuale di un'estensione del sito di Application Insights tramite le estensioni **degli strumenti di sviluppo**  >  **Extensions** è deprecata. Questo metodo di installazione dell'estensione dipende da aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora  [preinstallata](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio app. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate sull'agente per abilitare il monitoraggio di seguito, verrà automaticamente rimossa l'estensione deprecata.
 
 ## <a name="enable-application-insights"></a>Abilitare Application Insights
 
@@ -114,8 +114,8 @@ Le applicazioni Web basate sul servizio app Python non supportano attualmente il
 
 Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare il monitoraggio lato client:
 
-* Selezionare **impostazioni** > * * * * impostazioni applicazione * * * *
-   * In Impostazioni applicazione aggiungere un nuovo nome e **valore**per l' **impostazione dell'app** :
+* **Impostazioni** **>** di **Configurazione** di
+   * In Impostazioni applicazione creare una **nuova impostazione dell'applicazione**:
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -133,10 +133,10 @@ Il monitoraggio lato client è **abilitato per impostazione predefinita** per le
 
 Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
 
-* Selezionare **Impostazioni**  >  **Impostazioni applicazione**
-   * In Impostazioni applicazione aggiungere un nuovo nome e **valore**per l' **impostazione dell'app** :
+* **Impostazioni** **>** di **Configurazione** di
+   * In Impostazioni applicazione creare una **nuova impostazione dell'applicazione**:
 
-     nome`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     nome `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valore: `false`
 
@@ -166,7 +166,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | valore |
+|Nome impostazione app |  Definizione | Valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
@@ -213,7 +213,7 @@ Questa opzione genera il modello di Azure Resource Manager più recente con tutt
 
   ![Modello di app Web del servizio app](./media/azure-web-apps/arm-template.png)
 
-Di seguito è riportato un esempio di sostituzione di tutte le istanze di `AppMonitoredSite` con il nome del sito:
+Di seguito è riportato un esempio di sostituzione di tutte le istanze di  `AppMonitoredSite` con il nome del sito:
 
 ```json
 {
@@ -332,9 +332,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 L'aggiornamento dalla versione 2.8.9 avviene automaticamente, senza alcuna azione aggiuntiva. I nuovi bit di monitoraggio vengono recapitati in background al servizio app di destinazione e, al riavvio dell'applicazione, verranno prelevati.
 
-Per verificare quale versione dell'estensione in esecuzione visitare`http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+Per verificare quale versione dell'estensione in esecuzione visitare `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Screenshot del percorso URLhttp://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Screenshot del percorso URL http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
 ### <a name="upgrade-from-versions-100---265"></a>Aggiornamento dalla versione 1.0.0-2.6.5
 
@@ -363,13 +363,13 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
 
     ![Screenshot della https://yoursitename.scm.azurewebsites/applicationinsights pagina risultati](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Verificare che `Application Insights Extension Status` sia`Pre-Installed Site Extension, version 2.8.12.1527, is running.`
+    * Verificare che `Application Insights Extension Status` sia `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
         * Se non è in esecuzione, seguire le [istruzioni per l'abilitazione del monitoraggio Application Insights](#enable-application-insights)
 
-    * Verificare che l'origine di stato esista e abbia un aspetto simile al seguente:`Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
+    * Verificare che l'origine di stato esista e abbia un aspetto simile al seguente: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Se non è presente un valore simile, significa che l'applicazione non è attualmente in esecuzione o non è supportata. Per assicurarsi che l'applicazione sia in esecuzione, provare a visitare manualmente gli endpoint dell'applicazione/URL dell'applicazione, in modo da rendere disponibili le informazioni di Runtime.
 
-    * Confermare che `IKeyExists` è`true`
+    * Confermare che `IKeyExists` è `true`
         * In caso contrario `false` , aggiungere `APPINSIGHTS_INSTRUMENTATIONKEY` e `APPLICATIONINSIGHTS_CONNECTION_STRING` con il GUID iKey alle impostazioni dell'applicazione.
 
     * Verificare che non siano presenti voci per `AppAlreadyInstrumented` , `AppContainsDiagnosticSourceAssembly` e `AppContainsAspNetTelemetryCorrelationAssembly` .
@@ -377,9 +377,9 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
 
 La tabella seguente fornisce una spiegazione più dettagliata del significato di questi valori, delle cause sottostanti e delle correzioni consigliate:
 
-|Valore problema|Spiegazione|Correzione
+|Valore problema|Spiegazione|Fix
 |---- |----|---|
-| `AppAlreadyInstrumented:true` | Questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e che verrà eseguito il backup. Può essere dovuto a un riferimento a `System.Diagnostics.DiagnosticSource` , `Microsoft.AspNet.TelemetryCorrelation` o`Microsoft.ApplicationInsights`  | Rimuovere i riferimenti. Alcuni di questi riferimenti vengono aggiunti per impostazione predefinita da determinati modelli di Visual Studio e le versioni precedenti di Visual Studio possono aggiungere riferimenti a `Microsoft.ApplicationInsights` .
+| `AppAlreadyInstrumented:true` | Questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e che verrà eseguito il backup. Può essere dovuto a un riferimento a `System.Diagnostics.DiagnosticSource` ,  `Microsoft.AspNet.TelemetryCorrelation` o `Microsoft.ApplicationInsights`  | Rimuovere i riferimenti. Alcuni di questi riferimenti vengono aggiunti per impostazione predefinita da determinati modelli di Visual Studio e le versioni precedenti di Visual Studio possono aggiungere riferimenti a `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Se l'applicazione è destinata a .NET Core 2,1 o 2,2 e si riferisce al metapacchetto [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) , la porta Application Insights e l'estensione verrà riattivata. | Per i clienti di .NET Core 2.1, 2.2 è [consigliabile](https://github.com/aspnet/Announcements/issues/287) usare invece il meta pacchetto Microsoft. AspNetCore. app.|
 |`AppAlreadyInstrumented:true` | Questo valore può anche essere causato dalla presenza delle dll precedenti nella cartella dell'app da una distribuzione precedente. | Pulire la cartella dell'app per assicurarsi che queste DLL vengano rimosse. Controllare sia la directory bin dell'app locale che la directory wwwroot nel servizio app. (Per controllare la directory wwwroot dell'app Web del servizio app: strumenti avanzati (kudu) > console di debug > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Questo valore indica che l'estensione ha rilevato riferimenti a `Microsoft.AspNet.TelemetryCorrelation` nell'applicazione e verrà riattivata. | Rimuovere il riferimento.

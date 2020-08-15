@@ -1,14 +1,9 @@
 ---
 title: "SAP in Azure: guida alla pianificazione e all'implementazione"
 description: Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: MSSedusch
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
-ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -16,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cd335d34a67cc5a102bde11366813c53770266e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fdce2890de1594635e9302260dc4036cb7c58707
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036336"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245520"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -259,7 +254,7 @@ ms.locfileid: "87036336"
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
-[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
+[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines/windows/index.yml
 [virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
@@ -550,7 +545,7 @@ La stringa precedente deve identificare in modo univoco il disco/disco rigido vi
 
 
 #### <a name="azure-persisted-storage-types"></a>Tipi di archiviazione salvati in modalità permanente di Azure
-Azure offre un'ampia gamma di opzioni di archiviazione permanente che possono essere usate per il carico di lavoro SAP e componenti specifici dello stack SAP. Per altri dettagli, vedere il documento [archiviazione di Azure per carichi di lavoro SAP](./planning-guide-storage.md).
+Azure offre un'ampia gamma di opzioni di archiviazione permanente che possono essere usate per il carico di lavoro SAP e componenti specifici dello stack SAP. Per altri dettagli, vedere il documento  [archiviazione di Azure per carichi di lavoro SAP](./planning-guide-storage.md).
 
 
 ### <a name="microsoft-azure-networking"></a><a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Rete di Microsoft Azure
@@ -777,7 +772,7 @@ Si può pianificare di spostare un sistema SAP specifico da locale ad Azure. A t
 Le immagini disponibili in Azure Marketplace potrebbero non soddisfare le esigenze a causa di specifici requisiti di patch riguardanti la versione del sistema operativo o DBMS in uso. Per questo motivo, potrebbe essere necessario creare una macchina virtuale usando una propria immagine privata di macchina virtuale del sistema operativo o DBMS, che in seguito potrà essere distribuita diverse volte. Per preparare un'immagine privata di questo tipo per la duplicazione, considerare gli elementi seguenti:
 
 ---
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 > Per informazioni dettagliate, vedere: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> Le impostazioni di Windows, ad esempio il SID e il nome host di Windows, devono essere astratte o generalizzate nella macchina virtuale locale con il comando sysprep.
 >
@@ -812,7 +807,7 @@ I requisiti per la preparazione del disco della VM di Azure sono:
 * Aggiungere altri account locali come quelli che potrebbero essere richiesti per lo scenario di distribuzione specifico.
 
 ---
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 > In questo scenario non è necessaria la generalizzazione (sysprep) della macchina virtuale per caricare e distribuire la macchina virtuale in Azure.
 > Accertarsi che non venga utilizzata l’unità D:\.
@@ -1130,7 +1125,7 @@ In teoria, la gestione della struttura di una macchina virtuale e dei dischi ass
 
 
 ---
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 > Molti clienti hanno adottato configurazioni in cui, ad esempio, i file binari SAP e DBMS non sono stati installati nell'unità c:\ in cui è stato installato il sistema operativo. I motivi alla base di questa configurazione sono diversi, ma, a uno sguardo più attento, questa scelta spesso risale a 10-15 anni fa ed è stata determinata dalle dimensioni ridotte delle unità e dalla necessità di ottenere altro spazio per gli aggiornamenti del sistema operativo. Oggi queste condizioni non si verificano quasi più, perché è possibile eseguire il mapping dell'unità c:\ in macchine virtuali o in dischi con volumi di grandi dimensioni. Per mantenere semplice la struttura delle distribuzioni, è consigliabile seguire il modello di distribuzione seguente per i sistemi SAP NetWeaver in Azure
 >
@@ -1196,7 +1191,7 @@ Successivamente, è necessario decidere se creare un nuovo disco vuoto o se sele
 **IMPORTANTE**: **NON** usare la memorizzazione nella cache dell'host con l'archiviazione Standard di Azure, ma mantenere l'impostazione predefinita NESSUNA. Con l'archiviazione Premium di Azure, è consigliabile abilitare la memorizzazione nella cache di lettura se la caratteristica I/O è generalmente di lettura, come il normale traffico I/O per i file di dati del database. Nel caso del file di log delle transazioni del database, la memorizzazione nella cache non è consigliata.
 
 ---
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 > [Come collegare un disco dati nel portale di Azure][virtual-machines-linux-attach-disk-portal]
 >
@@ -1219,7 +1214,7 @@ La replica geografica di Azure funziona in locale in ogni disco rigido virtuale 
 
 #### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Impostazione del montaggio automatico per dischi collegati
 ---
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 > Per le macchine virtuali create da immagini o dischi personali, è necessario verificare ed eventualmente impostare il parametro di montaggio automatico. L'impostazione di questo parametro consente alla macchina virtuale di rimontare automaticamente le unità collegate/montate dopo un riavvio o una ridistribuzione in Azure.
 > Il parametro è impostato per le immagini fornite da Microsoft in Azure Marketplace.
@@ -1262,7 +1257,7 @@ Vedere la differenza di architettura tra il modello classico e ARM, come descrit
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configurazione della connettività del sistema SAP e dell'interfaccia utente grafica SAP tramite Internet
 
-Vedere questo articolo, che descrive i dettagli di questo argomento:<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Vedere questo articolo, che descrive i dettagli di questo argomento: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Modifica delle impostazioni del firewall all'interno di una macchina virtuale
 
@@ -1572,7 +1567,7 @@ Le porte di comunicazione SAP tipiche sono elencate nella tabella seguente. Sost
 | --- | --- | --- | --- | --- |
 | Dispatcher |sapdp`<nn>` vedere * |3201 |3200 - 3299 |Dispatcher di SAP, usato dall'interfaccia utente grafica di SAP per Windows e Java |
 | Server messaggi |sapms`<sid`> vedere ** |3600 |sapms libero`<anySID`> |sid = SAP-System-ID |
-| Gateway |sapgw`<nn`> vedere * |3301 |free |Gateway SAP, usato per le comunicazioni CPIC e RFC |
+| Gateway |sapgw`<nn`> vedere * |3301 |libero |Gateway SAP, usato per le comunicazioni CPIC e RFC |
 | Router SAP |sapdp99 |3299 |libero |Solo i nomi del servizio CI (istanza centrale) possono essere riassegnati in /etc/services specificando un valore arbitrario dopo l'installazione. |
 
 *) nn = numero istanza SAP
@@ -1593,7 +1588,7 @@ Quando si distribuiscono macchine virtuali in tale scenario è possibile applica
 La configurazione delle stampanti di rete locali basate su TCP/IP in una VM di Azure è complessivamente uguale a quella della rete aziendale, presupponendo che sia disponibile un tunnel VPN da sito a sito o una connessione ExpressRoute.
 
 ---
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 > A tale scopo, effettuare l'operazione seguente:
 >
@@ -1607,7 +1602,7 @@ La configurazione delle stampanti di rete locali basate su TCP/IP in una VM di A
 > ![Linux][Logo_Linux] Linux
 >
 > * Come per Windows, seguire la procedura standard di installazione di una stampante di rete.
-> * Seguire le guide pubbliche di Linux per [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) o [Red Hat e Oracle Linux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) su come aggiungere una stampante.
+> * Seguire le guide pubbliche di Linux per [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) o [Red Hat e Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) su come aggiungere una stampante.
 >
 >
 
@@ -1628,7 +1623,7 @@ La condivisione della stampante è identificata da un nome univoco nella rete:
 Procedura:
 
 ---
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 > Condividere la stampante locale.
 > Nella macchina virtuale di Azure, aprire Esplora risorse e digitare il nome di condivisione della stampante.
@@ -1953,7 +1948,7 @@ Tuttavia, nel corso dello scorso anno i partner dei data center hanno sviluppato
 In base alla configurazione SAP scelta (livello 2 o 3), potrebbe essere necessario eseguire un backup. del contenuto della VM stessa oltre che del database. I backup correlati ai DBMS dovrebbero essere eseguiti con metodi di database. Una descrizione dettagliata dei diversi database è disponibile nella [Guida alla distribuzione DBMS][dbms-guide]. D'altra parte, i dati SAP possono essere sottoposti a backup in modalità offline (incluso il contenuto del database) come descritto in questa sezione oppure online come descritto nella sezione successiva.
 
 Il backup offline richiederebbe fondamentalmente un arresto della VM usando il portale di Azure e una copia del disco della VM di base, oltre a tutti i dischi collegati alla VM. Questo permetterebbe di mantenere un'immagine temporizzata della VM e del relativo disco. Si consiglia di copiare i backup in un account di archiviazione di Azure diverso. Di conseguenza si applica la procedura descritta nel capitolo [Copia di dischi tra account di archiviazione di Azure][planning-guide-5.4.2] di questo documento.
-Oltre che dal portale di Azure, è possibile eseguire l'arresto anche usando PowerShell o l'interfaccia della riga di comando, come descritto qui: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+
 
 Un ripristino dello stato comporterebbe l'eliminazione della VM di base nonché dei relativi dischi originali e dei dischi montati, la copia dei dischi salvati nell'account di archiviazione originale o nel gruppo di risorse per i dischi gestiti e quindi la ridistribuzione del sistema.
 Questo articolo illustra un esempio di come generare lo script di questo processo in PowerShell: <http://www.westerndevs.com/azure-snapshots/>
