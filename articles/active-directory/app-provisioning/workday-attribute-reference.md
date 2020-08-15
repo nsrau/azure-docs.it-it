@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 8c508e65ef2c6d62716454af151feb0a1c80bba0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036b3af03dec2bdaa7feacc94abca930ebd9b317
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781109"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235384"
 ---
 # <a name="workday-attribute-reference"></a>Informazioni di riferimento sugli attributi di Workday
 
@@ -211,7 +211,7 @@ Per configurare altre espressioni XPATH, vedere la sezione [Esercitazione: Gesti
 ## <a name="custom-xpath-values"></a>Valori XPATH personalizzati
 Nella tabella seguente viene fornito un elenco di altre espressioni API XPATH personalizzate utilizzate comunemente durante il provisioning di ruoli di lavoro da giorni lavorativi a Active Directory o Azure AD. Testare le espressioni API XPATH fornite in questo documento con la versione della giornata lavorativa che fa riferimento alle istruzioni acquisite nella sezione [esercitazione: gestione della configurazione](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
 
-Per aggiungere altri attributi alla tabella XPATH per il vantaggio dei clienti che implementano questa integrazione, lasciare un commento di seguito o [contribuire](https://docs.microsoft.com/contribute) direttamente all'articolo. 
+Per aggiungere altri attributi alla tabella XPATH per il vantaggio dei clienti che implementano questa integrazione, lasciare un commento di seguito o [contribuire](/contribute) direttamente all'articolo. 
 
 > [!div class="mx-tdBreakAll"]
 > | \# | Nome dell'attributo giorni lavorativi  | Versione dell'API giorni lavorativi | Espressione API XPATH di Workday   |
@@ -224,7 +224,7 @@ Per aggiungere altri attributi alla tabella XPATH per il vantaggio dei clienti c
 
 
 ## <a name="supported-xpath-functions"></a>Funzioni XPATH supportate
-Di seguito è riportato l'elenco delle funzioni XPATH supportate da [Microsoft .NET libreria XPath](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) che è possibile usare durante la creazione dell'espressione API XPath. 
+Di seguito è riportato l'elenco delle funzioni XPATH supportate da [Microsoft .NET libreria XPath](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) che è possibile usare durante la creazione dell'espressione API XPath. 
 
 * name
 * last
@@ -248,4 +248,3 @@ Di seguito è riportato l'elenco delle funzioni XPATH supportate da [Microsoft .
 * Sum
 * round
 * floor
-

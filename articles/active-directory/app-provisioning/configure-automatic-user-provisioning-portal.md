@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781991"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234840"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
 Questo articolo descrive i passaggi generali per gestire il provisioning e il deprovisioning automatici degli account utente per le applicazioni che li supportano. Il *provisioning degli account utente* è l'atto di creazione, aggiornamento e/o la disabilitazione di record di account utente nell'archivio di profili utente locale di un'applicazione. La maggior parte delle applicazioni cloud e SaaS archivia i ruoli e le autorizzazioni utente nell'archivio di profili utente locale dell'utente e la presenza di tali record utente nell'archivio locale dell'utente è *necessaria* per il funzionamento degli accessi e del Single Sign-On. Per altre informazioni sul provisioning automatico degli account utente, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](user-provisioning.md).
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di applicazioni preintegrate, abilitate per il provisioning automatico con Azure AD. Per iniziare, trovare l'esercitazione relativa alla configurazione del provisioning specifica della propria applicazione nell'[elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). È probabile che siano disponibili istruzioni dettagliate per la configurazione sia dell'app che di Azure AD per creare la connessione di provisioning.
+> Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di applicazioni preintegrate, abilitate per il provisioning automatico con Azure AD. Per iniziare, trovare l'esercitazione relativa alla configurazione del provisioning specifica della propria applicazione nell'[elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../saas-apps/tutorial-list.md). È probabile che siano disponibili istruzioni dettagliate per la configurazione sia dell'app che di Azure AD per creare la connessione di provisioning.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Individuazione delle app nel portale
 
@@ -85,4 +85,4 @@ Se il provisioning viene abilitato per la prima volta per un'applicazione, attiv
 
 Impostare **Stato del provisioning** su **No** per sospendere il servizio di provisioning. In questo stato Azure non crea, aggiorna né rimuove oggetti utente o gruppo nell'app. Impostare lo stato di nuovo su **Sì** e il servizio ripartirà dal punto in cui si era interrotto.
 
-**Cancella lo stato corrente e riavvia la sincronizzazione** attiva un ciclo iniziale. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e determinerà se sono inclusi nell'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena o è necessario apportare una modifica ai mapping degli attributi. Si noti che il completamento del ciclo iniziale richiede più tempo rispetto al ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Altre informazioni sulle prestazioni dei cicli iniziali e incrementali sono disponibili [qui](application-provisioning-when-will-provisioning-finish-specific-user.md). 
+**Cancella lo stato corrente e riavvia la sincronizzazione** attiva un ciclo iniziale. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e determinerà se sono inclusi nell'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena o è necessario apportare una modifica ai mapping degli attributi. Si noti che il completamento del ciclo iniziale richiede più tempo rispetto al ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Altre informazioni sulle prestazioni dei cicli iniziali e incrementali sono disponibili [qui](application-provisioning-when-will-provisioning-finish-specific-user.md).

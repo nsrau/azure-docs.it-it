@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283096"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235639"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Abilitare il provisioning utenti automatico per l'applicazione multi-tenant
 
@@ -54,7 +54,7 @@ Azure AD offre diversi percorsi di integrazione per abilitare il provisioning ut
 
 * Il [servizio di provisioning Azure ad](../app-provisioning/user-provisioning.md) gestisce il provisioning e il deprovisioning degli utenti da Azure ad all'applicazione (provisioning in uscita) e dall'applicazione ai Azure ad (provisioning in ingresso). Il servizio si connette al sistema per gli endpoint API di gestione degli utenti di gestione identità tra domini (SCIM) forniti dall'applicazione.
 
-* Quando si usa il [Microsoft Graph](https://docs.microsoft.com/graph/), l'applicazione gestisce il provisioning in ingresso e in uscita di utenti e gruppi da Azure ad all'applicazione eseguendo una query sull'API Microsoft Graph.
+* Quando si usa il [Microsoft Graph](/graph/), l'applicazione gestisce il provisioning in ingresso e in uscita di utenti e gruppi da Azure ad all'applicazione eseguendo una query sull'API Microsoft Graph.
 
 * Il provisioning dell'utente Security Assertion Markup Language JIT (just-in-Time) può essere abilitato se l'applicazione usa SAML per la Federazione. Usa le informazioni sulle attestazioni inviate nel token SAML per eseguire il provisioning degli utenti.
 
@@ -72,8 +72,8 @@ Per determinare l'opzione di integrazione da usare per l'applicazione, fare rife
 | Supportare gli account Guest (B2B)| √| √| √ |
 | Supportare account non aziendali (B2C)| X| √| √ |
 
-<sup>*</sup>-Azure AD Connect installazione è necessaria per sincronizzare gli utenti da Active Directory ad Azure AD.  
-<sup>+</sup >: L'uso di SCIM per il provisioning non impedisce all'utente di integrare l'applicazione con MIcrosoft Graph per altri scopi.
+<sup>*</sup> -Azure AD Connect installazione è necessaria per sincronizzare gli utenti da Active Directory ad Azure AD.  
+<sup>+</sup >: L'uso di SCIM per il provisioning non impedisce all'utente di integrare l'applicazione con Microsoft Graph per altri scopi.
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Servizio di provisioning Azure AD (SCIM)
 
@@ -89,7 +89,7 @@ Per ulteriori informazioni sul modo in cui gli utenti del servizio Azure AD prov
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph per il provisioning
 
-Quando si usa Microsoft Graph per il provisioning, è possibile accedere a tutti i dati utente avanzati disponibili in Graph. Oltre ai dettagli di utenti e gruppi, è anche possibile recuperare informazioni aggiuntive, ad esempio i ruoli dell'utente, i Manager e i report diretti, i dispositivi di proprietà e registrati e centinaia di altre parti di dati disponibili nella [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+Quando si usa Microsoft Graph per il provisioning, è possibile accedere a tutti i dati utente avanzati disponibili in Graph. Oltre ai dettagli di utenti e gruppi, è anche possibile recuperare informazioni aggiuntive, ad esempio i ruoli dell'utente, i Manager e i report diretti, i dispositivi di proprietà e registrati e centinaia di altre parti di dati disponibili nella [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
 Più di 15 milioni organizzazioni e 90% delle società Fortune 500 usano Azure AD sottoscrivendo i servizi cloud Microsoft come Office 365, Microsoft Azure, Enterprise Mobility Suite o Microsoft 365. È possibile usare Microsoft Graph per integrare l'app con flussi di lavoro amministrativi, ad esempio l'onboarding dei dipendenti (e la terminazione), la manutenzione del profilo e altro ancora. 
 
@@ -97,9 +97,9 @@ Altre informazioni sull'uso di Microsoft Graph per il provisioning:
 
 * [Home page di Microsoft Graph](https://developer.microsoft.com/graph)
 
-* [Overview of Microsoft Graph (Panoramica di Microsoft Graph)](https://docs.microsoft.com/graph/overview)
+* [Overview of Microsoft Graph (Panoramica di Microsoft Graph)](/graph/overview)
 
-* [Panoramica dell'autenticazione Microsoft Graph](https://docs.microsoft.com/graph/auth/)
+* [Panoramica dell'autenticazione Microsoft Graph](/graph/auth/)
 
 * [Introduzione a Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 

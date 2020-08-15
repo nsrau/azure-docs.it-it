@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40809fae312401cb62fabb10140b9bb7f60e3715
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743576"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234772"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Risoluzione dei più frequenti problemi di routing
 
@@ -102,7 +102,7 @@ Le cause del problema possono essere diverse:
          - Ad esempio, se il back-end accetta solo richieste HTTP, le configurazioni seguenti saranno valide:
             - _I protocolli accettati_ sono HTTP e HTTPS. _Il protocollo di trasmissione_ è HTTP. La corrispondenza richiesta non funziona, poiché HTTPS è un protocollo consentito e se una richiesta è arrivata come HTTPS, il Frontdoor cercherà di inoltrarla usando HTTPS.
 
-            - _I protocolli accettati_ sono HTTP. _Il protocollo di trasmissione_ è una corrispondenza richiesta o HTTPS.
+            - _I protocolli accettati_ sono HTTP. Il _protocollo di invio_ è una richiesta di corrispondenza o http.
 
     - _Riscrittura URL_ è disattivata per impostazione predefinita e occorre usare questo campo solo se si vuole limitare l'ambito delle risorse ospitate dall'origine da rendere disponibili. Se disabilitato, Frontdoor inoltrerà lo stesso percorso di richiesta che riceve. È possibile che questo campo non sia configurato correttamente e che Frontdoor stia richiedendo una risorsa back-end che non è disponibile, restituendo pertanto un codice di stato HTTP 404.
 

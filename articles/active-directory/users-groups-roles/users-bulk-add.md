@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d4cb24a89d19abb753e2be704dbad7fd5b2ddcad
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423610"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236557"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Creare utenti in blocco in Azure Active Directory
 
@@ -33,6 +33,9 @@ Per creare in blocco gli utenti nel portale di amministrazione, è necessario ef
 Scaricare e compilare il modello CSV di caricamento in blocco per creare correttamente in blocco gli utenti di Azure AD. Il modello CSV scaricato sarà simile a questo esempio:
 
 ![Foglio di calcolo per il caricamento con callout che illustrano lo scopo e i valori di ogni riga e colonna](./media/users-bulk-add/create-template-example.png)
+
+> [!WARNING]
+> Se si tenta di aggiungere una sola voce nel modello CSV, è necessario mantenere la riga 3 e aggiungere la nuova voce alla riga 4. 
 
 ### <a name="csv-template-structure"></a>Struttura del modello CSV
 

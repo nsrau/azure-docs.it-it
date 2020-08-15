@@ -1,6 +1,6 @@
 ---
 title: Panoramica di SQL Server nelle macchine virtuali Windows di Azure | Microsoft Docs
-description: Informazioni su come eseguire le edizioni complete di SQL Server in Macchine virtuali di Azure.
+description: Informazioni su come eseguire edizioni complete di SQL Server in macchine virtuali di Azure nel cloud senza dover gestire hardware locale.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 161722d1f80e4bada35548b4e2b4e903c56215ec
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4bf5b9b6f683783a39b7d34c430f1c6671c35885
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926692"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236370"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Informazioni sulle SQL Server in macchine virtuali di Azure (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -128,7 +128,7 @@ Per informazioni dettagliate, vedere:
 - [Creare un'istanza gestita](../../managed-instance/instance-create-quickstart.md)
 - [Creare una singola macchina virtuale SQL Server](sql-vm-create-portal-quickstart.md)
 
-## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a>SQL Server criteri di aggiornamento dell'immagine di macchina virtuale
+## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a> SQL Server criteri di aggiornamento dell'immagine di macchina virtuale
 Azure gestisce una sola immagine di macchina virtuale per ogni combinazione supportata di sistema operativo, versione ed edizione. Ciò significa che le immagini vengono aggiornate nel tempo e quelle meno recenti vengono rimosse. Per altre informazioni, vedere la sezione **Immagini** delle [domande frequenti sulle macchine virtuali SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Analisi utilizzo software

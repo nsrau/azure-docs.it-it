@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782280"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234789"
 ---
 # <a name="no-users-are-being-provisioned"></a>Nessun utente è sottoposto a provisioning 
 >[!NOTE]
@@ -58,13 +58,13 @@ Quando un utente viene visualizzato come "ignorato" nei log di provisioning, è 
 - **Attributo obbligatorio mancante o non popolato per un utente.** Un aspetto importante da considerare quando si configura il provisioning è quello di esaminare e configurare il mapping degli attributi e i flussi di lavoro che definiscono il tipo di flusso di proprietà utente (o gruppo) da Azure AD all'applicazione. Questa configurazione include l'impostazione della "proprietà corrispondente" che viene usata per identificare e abbinare in modo univoco utenti/gruppi tra i due sistemi. Per altre informazioni su questo importante processo, vedere [Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory](customize-application-attributes.md).
 - **Mapping degli attributi per gruppi:** provisioning dei dettagli del gruppo e del nome del gruppo, oltre ai membri, se supportato per alcune applicazioni. È possibile abilitare o disabilitare questa funzionalità abilitando o disabilitando il **mapping** per gli oggetti gruppo visualizzati nella scheda **provisioning** . Se il provisioning dei gruppi è abilitato, assicurarsi di esaminare i mapping degli attributi per assicurarsi che venga usato un campo appropriato per "ID corrispondente". L'ID di abbinamento può essere il nome visualizzato o l'alias di posta elettronica. Il provisioning di questo gruppo e dei relativi membri non viene effettuato se la proprietà corrispondente è vuota o non popolata per un gruppo in Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Provisioning degli utenti assegnati al ruolo di accesso predefinito
-Il ruolo predefinito in un'applicazione dalla raccolta è denominato ruolo "accesso predefinito". In passato, gli utenti assegnati a questo ruolo non vengono sottoposti a provisioning e sono contrassegnati come ignorati nei [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) perché "non è autorizzato in modo efficace". 
+Il ruolo predefinito in un'applicazione dalla raccolta è denominato ruolo "accesso predefinito". In passato, gli utenti assegnati a questo ruolo non vengono sottoposti a provisioning e sono contrassegnati come ignorati nei [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) perché "non è autorizzato in modo efficace". 
 
 **Comportamento per il provisioning delle configurazioni create dopo 04/16/2020:** Gli utenti assegnati al ruolo di accesso predefinito verranno valutati come tutti gli altri ruoli. Un utente a cui viene assegnato l'accesso predefinito non verrà ignorato come "non autorizzato in modo efficace". 
 
 **Comportamento per le configurazioni di provisioning create prima del 04/16/2020:** Per i prossimi 3 mesi, il comportamento continuerà così com'è oggi. Gli utenti con il ruolo di accesso predefinito verranno ignorati in modo non autorizzato. Dopo il 2020 luglio il comportamento sarà uniforme per tutte le applicazioni. Non si ignorerà il provisioning degli utenti con il ruolo di accesso predefinito perché "non è autorizzato in modo efficace". Questa modifica viene apportata da Microsoft e non è richiesta alcuna azione da parte del cliente. Per assicurarsi che gli utenti continuino a essere ignorati, anche dopo questa modifica, applicare i filtri di ambito appropriati o annullare l'assegnazione dell'utente dall'applicazione per assicurarsi che siano fuori ambito.  
 
-Per domande su queste modifiche, contattareprovisioningfeedback@microsoft.com
+Per domande su queste modifiche, contattare provisioningfeedback@microsoft.com
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

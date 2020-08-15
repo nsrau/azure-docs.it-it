@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a0c85226b5890fe0f5f2011110c1d7d20e3c2907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2de6c07395a559085db237eb1bc7f885998860d0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782008"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235078"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: creazione di report sul provisioning automatico degli account utente
 
-Azure Active Directory (Azure AD) include un [servizio di provisioning degli account utente](user-provisioning.md) che consente di automatizzare il provisioning del deprovisioning degli account utente nelle app SaaS e in altri sistemi, allo scopo di gestire il ciclo di vita delle identità end-to-end. Azure AD supporta i connettori di provisioning utenti preintegrati per tutte le applicazioni e i sistemi con le esercitazioni sul provisioning degli utenti [qui](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
+Azure Active Directory (Azure AD) include un [servizio di provisioning degli account utente](user-provisioning.md) che consente di automatizzare il provisioning del deprovisioning degli account utente nelle app SaaS e in altri sistemi, allo scopo di gestire il ciclo di vita delle identità end-to-end. Azure AD supporta i connettori di provisioning utenti preintegrati per tutte le applicazioni e i sistemi con le esercitazioni sul provisioning degli utenti [qui](../saas-apps/tutorial-list.md).
 
 In questo articolo viene descritto come controllare lo stato dei processi di provisioning in seguito alla loro configurazione e come risolvere i problemi di provisioning di singoli utenti e gruppi.
 

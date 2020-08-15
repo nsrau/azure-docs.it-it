@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533546"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236302"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -85,6 +85,9 @@ Dopo avere identificato i file e averli copiati in un percorso di archiviazione 
 Dopo che i dischi sono stati smontati, viene visualizzato un messaggio. L'aggiornamento della connessione in modo che sia possibile rimuovere i dischi potrebbe richiedere alcuni minuti.
 
 In Linux, dopo che la connessione al punto di ripristino viene interrotta, il sistema operativo non rimuove automaticamente i percorsi di montaggio corrispondenti, che rimangono come volumi "orfani" visibili, ma generano un errore in caso di accesso/scrittura di file. Questi percorsi possono essere rimossi manualmente. Quando viene eseguito, lo script identifica tutti i volumi di questo tipo esistenti da eventuali punti di ripristino precedenti e li elimina dopo avere ottenuto il consenso.
+
+> [!NOTE]
+> Assicurarsi che la connessione venga chiusa dopo il ripristino dei file necessari. Si tratta di un aspetto importante, soprattutto nello scenario in cui il computer in cui viene eseguito lo script è configurato anche per il backup. Se la connessione è ancora aperta, il backup successivo potrebbe non riuscire con l'errore "UserErrorUnableToOpenMount". Questo problema si verifica perché si presuppone che le unità o i volumi montati siano disponibili e quando vi si accede potrebbero avere esito negativo perché l'archiviazione sottostante, ovvero, il server di destinazione iSCSI potrebbe non essere disponibile. Se si pulisce la connessione, queste unità/volumi verranno rimossi e pertanto non saranno disponibili durante il backup.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Selezione del computer corretto per l'esecuzione dello script
 
@@ -300,7 +303,7 @@ Se si esegue lo script in un computer con accesso limitato, verificare che sia d
 
 - `download.microsoft.com`
 - URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(Per le aree pubbliche di Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Per le aree pubbliche di Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (per Azure China (21Vianet))
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Per Azure US Gov)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Per Azure Germania)

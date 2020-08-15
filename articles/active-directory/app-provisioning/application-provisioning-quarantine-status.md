@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac5b1f72e4c70e15ccb12ea41e5f080ca0b8a505
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 54d02b3189825d08716b73b7250efd4e3f334aa0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203019"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234740"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisioning dell'applicazione in stato di quarantena
 
@@ -34,7 +34,7 @@ Esistono tre modi per verificare se un'applicazione è in quarantena:
 
 - Nella portale di Azure passare a **Azure Active Directory**  >  **log di controllo** > filtro per **attività: quarantena** e verificare la cronologia di quarantena. Mentre la visualizzazione nell'indicatore di stato, come descritto in precedenza, Mostra se il provisioning è attualmente in quarantena, i log di controllo consentono di visualizzare la cronologia di quarantena per un'applicazione. 
 
-- Usare la richiesta Microsoft Graph [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) per ottenere lo stato del processo di provisioning a livello di codice:
+- Usare la richiesta Microsoft Graph [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?tabs=http&view=graph-rest-beta) per ottenere lo stato del processo di provisioning a livello di codice:
 
 ```microsoft-graph
         GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
@@ -52,15 +52,15 @@ Esistono tre modi per verificare se un'applicazione è in quarantena:
 |---|---|
 |**Problema di conformità di SCIM:** È stata restituita una risposta HTTP/404 non trovata anziché la risposta HTTP/200 OK prevista. In questo caso il servizio di provisioning Azure AD ha effettuato una richiesta all'applicazione di destinazione e ha ricevuto una risposta imprevista.|Controllare la sezione credenziali amministratore per verificare se l'applicazione richiede la specifica dell'URL del tenant e verificare che l'URL sia corretto. Se non viene visualizzato alcun problema, contattare lo sviluppatore dell'applicazione per assicurarsi che il servizio sia conforme a SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenziali non valide:** Quando si tenta di autorizzare l'accesso all'applicazione di destinazione, è stata ricevuta una risposta dall'applicazione di destinazione che indica che le credenziali specificate non sono valide.|Passare alla sezione credenziali amministratore dell'interfaccia utente di configurazione del provisioning e autorizzare di nuovo l'accesso con credenziali valide. Se l'applicazione si trova nella raccolta, vedere l'esercitazione sulla configurazione dell'applicazione per eventuali ulteriori passaggi necessari.|
-|**Ruoli duplicati:** I ruoli importati da alcune applicazioni, ad esempio Salesforce e Zendesk, devono essere univoci. |Passare al [manifesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) dell'applicazione nella portale di Azure e rimuovere il ruolo duplicato.|
+|**Ruoli duplicati:** I ruoli importati da alcune applicazioni, ad esempio Salesforce e Zendesk, devono essere univoci. |Passare al [manifesto](../develop/reference-app-manifest.md) dell'applicazione nella portale di Azure e rimuovere il ruolo duplicato.|
 
  Una richiesta di Microsoft Graph per ottenere lo stato del processo di provisioning Mostra il motivo seguente per la quarantena:
 
-- `EncounteredQuarantineException`indica che sono state specificate credenziali non valide. Il servizio di provisioning non è in grado di stabilire una connessione tra il sistema di origine e il sistema di destinazione.
+- `EncounteredQuarantineException` indica che sono state specificate credenziali non valide. Il servizio di provisioning non è in grado di stabilire una connessione tra il sistema di origine e il sistema di destinazione.
 
-- `EncounteredEscrowProportionThreshold`indica che il provisioning ha superato la soglia del deposito. Questa condizione si verifica quando non è possibile eseguire più del 60% degli eventi di provisioning.
+- `EncounteredEscrowProportionThreshold` indica che il provisioning ha superato la soglia del deposito. Questa condizione si verifica quando non è possibile eseguire più del 60% degli eventi di provisioning.
 
-- `QuarantineOnDemand`indica che è stato rilevato un problema con l'applicazione e che è stato impostato manualmente per la quarantena.
+- `QuarantineOnDemand` indica che è stato rilevato un problema con l'applicazione e che è stato impostato manualmente per la quarantena.
 
 ## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Ricerca per categorie dismettere in quarantena l'applicazione?
 
@@ -74,11 +74,10 @@ Dopo aver risolto il problema, riavviare il processo di provisioning. Alcune mod
 
 - Usare il portale di Azure per riavviare il processo di provisioning. Nella pagina **provisioning** dell'applicazione in **Impostazioni**Selezionare **Cancella stato e riavvia sincronizzazione** e impostare stato del **provisioning** **su on**. Questa azione Riavvia completamente il servizio di provisioning, operazione che può richiedere del tempo. Un ciclo iniziale completo verrà eseguito di nuovo, che cancella i limiti di deposito, rimuove l'app dalla quarantena e cancella tutte le filigrane.
 
-- Usare Microsoft Graph per [riavviare il processo di provisioning](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Si avrà il controllo completo su ciò che viene riavviato. È possibile scegliere di cancellare i riconoscimenti (per riavviare il contatore del deposito per lo stato di quarantena), cancellare la quarantena (per rimuovere l'applicazione dalla quarantena) o cancellare le filigrane. Usare la richiesta seguente:
+- Usare Microsoft Graph per [riavviare il processo di provisioning](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Si avrà il controllo completo su ciò che viene riavviato. È possibile scegliere di cancellare i riconoscimenti (per riavviare il contatore del deposito per lo stato di quarantena), cancellare la quarantena (per rimuovere l'applicazione dalla quarantena) o cancellare le filigrane. Usare la richiesta seguente:
  
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```
 
-Sostituire "{ID}" con il valore dell'ID applicazione e sostituire "{jobId}" con l' [ID del processo di sincronizzazione](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
-
+Sostituire "{ID}" con il valore dell'ID applicazione e sostituire "{jobId}" con l' [ID del processo di sincronizzazione](/graph/api/resources/synchronization-configure-with-directory-extension-attributes?tabs=http&view=graph-rest-beta#list-synchronization-jobs-in-the-context-of-the-service-principal).

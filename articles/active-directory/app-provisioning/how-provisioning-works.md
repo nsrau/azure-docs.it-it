@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445618"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235724"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -44,7 +44,7 @@ Per richiedere un connettore di provisioning automatico Azure AD per un'app che 
 
 Le credenziali sono necessarie ad Azure AD per la connessione all'API di gestione degli utenti dell'applicazione. Durante la configurazione del provisioning utenti automatico per un'applicazione, è necessario immettere credenziali valide. È possibile trovare i tipi di credenziali e i requisiti per l'applicazione facendo riferimento all'esercitazione sull'app. Nel portale di Azure sarà possibile testare le credenziali mediante un tentativo di connessione di Azure AD all'app di provisioning dell'app con le credenziali fornite.
 
-Se per l'applicazione è configurato anche Single Sign-On basato su SAML, il limite di archiviazione interno per applicazione di Azure AD è pari a 1024 byte. Questo limite include tutti i certificati, token segreti, credenziali e dati di configurazione correlati associati a una singola istanza di un'applicazione (definita anche record entità servizio in Azure AD). Quando si configura l'accesso Single Sign-On basato su SAML, il certificato usato per firmare i token SAML spesso usa oltre il 50% dello spazio. Qualsiasi elemento aggiuntivo, come token segreto, URI, indirizzo di posta elettronica di notifica, nome utente e password, immesso durante la configurazione del provisioning degli utenti può provocare il superamento del limite archiviazione. Per altre informazioni, vedere [Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+Se per l'applicazione è configurato anche Single Sign-On basato su SAML, il limite di archiviazione interno per applicazione di Azure AD è pari a 1024 byte. Questo limite include tutti i certificati, token segreti, credenziali e dati di configurazione correlati associati a una singola istanza di un'applicazione (definita anche record entità servizio in Azure AD). Quando si configura l'accesso Single Sign-On basato su SAML, il certificato usato per firmare i token SAML spesso usa oltre il 50% dello spazio. Qualsiasi elemento aggiuntivo, come token segreto, URI, indirizzo di posta elettronica di notifica, nome utente e password, immesso durante la configurazione del provisioning degli utenti può provocare il superamento del limite archiviazione. Per altre informazioni, vedere [Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti](./application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Attributi di mapping
 
@@ -54,7 +54,7 @@ Esiste un set preconfigurato di attributi e mapping degli attributi tra gli ogge
 
 Un aspetto importante da considerare quando si configura il provisioning è quello di esaminare e configurare il mapping degli attributi e i flussi di lavoro che definiscono il tipo di flusso di proprietà utente (o gruppo) da Azure AD all'applicazione. Rivedere e configurare la proprietà corrispondente (**Abbina gli oggetti in base a questo attributo**) che viene usata per identificare e abbinare in modo univoco utenti/gruppi tra i due sistemi.
 
-È possibile personalizzare i mapping degli attributi predefiniti in base alle esigenze aziendali. Quindi è possibile modificare o eliminare i mapping degli attributi esistenti oppure crearne di nuovi. Per i dettagli, vedere [Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS](../manage-apps/customize-application-attributes.md).
+È possibile personalizzare i mapping degli attributi predefiniti in base alle esigenze aziendali. Quindi è possibile modificare o eliminare i mapping degli attributi esistenti oppure crearne di nuovi. Per i dettagli, vedere [Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS](./customize-application-attributes.md).
 
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS. Per i dettagli, vedere [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md).
 
@@ -81,13 +81,13 @@ Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle 
 
 ### <a name="b2b-guest-users"></a>Utenti B2B (guest)
 
-È possibile usare il servizio di provisioning utenti di Azure AD per effettuare il provisioning degli utenti B2B (o guest) di Azure AD in applicazioni SaaS. Tuttavia, perché gli utenti B2B possano accedere all'applicazione SaaS con Azure AD, la funzionalità Single Sign-On basata su SAML dell'applicazione SaaS deve essere configurata in modo specifico. Per altre informazioni su come configurare le applicazioni SaaS per supportare gli accessi dagli utenti B2B, vedere [Configurare app SaaS per Collaborazione B2B](../b2b/configure-saas-apps.md).
+È possibile usare il servizio di provisioning utenti di Azure AD per effettuare il provisioning degli utenti B2B (o guest) di Azure AD in applicazioni SaaS. Tuttavia, perché gli utenti B2B possano accedere all'applicazione SaaS con Azure AD, la funzionalità Single Sign-On basata su SAML dell'applicazione SaaS deve essere configurata in modo specifico. Per altre informazioni su come configurare le applicazioni SaaS per supportare gli accessi dagli utenti B2B, vedere [Configurare app SaaS per Collaborazione B2B](../external-identities/configure-saas-apps.md).
 
 Si noti che il valore di userPrincipalName per un utente guest viene spesso archiviato come "alias#EXT#@domain.com". Quando userPrincipalName viene incluso nei mapping degli attributi come un attributo di origine, #EXT# viene rimosso da userPrincipalName. Se è necessario che #EXT# sia presente, sostituire userPrincipalName con originalUserPrincipalName come attributo di origine. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cicli di provisioning: Iniziale e incrementale
 
-Quando Azure AD è il sistema di origine, il servizio di provisioning usa la [funzionalità di query delta per tracciare le modifiche nei dati di Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview) per monitorare gli utenti e i gruppi. Il servizio di provisioning esegue un ciclo iniziale rispetto al sistema di origine e a quello di destinazione, seguita da cicli incrementali periodici.
+Quando Azure AD è il sistema di origine, il servizio di provisioning usa la [funzionalità di query delta per tracciare le modifiche nei dati di Microsoft Graph](/graph/delta-query-overview) per monitorare gli utenti e i gruppi. Il servizio di provisioning esegue un ciclo iniziale rispetto al sistema di origine e a quello di destinazione, seguita da cicli incrementali periodici.
 
 ### <a name="initial-cycle"></a>Ciclo iniziale
 
@@ -154,11 +154,11 @@ Questi errori possono essere risolti modificando i valori di attributo per l'ute
 
 ### <a name="quarantine"></a>Quarantena
 
-Se la maggior parte o tutte le chiamate al sistema di destinazione non riuscono a causa di un errore (ad esempio nel caso di credenziali di amministratore non valide), il processo di provisioning passa allo stato di "quarantena". Questo stato viene indicato nel [report di riepilogo sul provisioning](../manage-apps/check-status-user-account-provisioning.md) e tramite posta elettronica, se nel portale di Azure sono state configurate le notifiche di posta elettronica.
+Se la maggior parte o tutte le chiamate al sistema di destinazione non riuscono a causa di un errore (ad esempio nel caso di credenziali di amministratore non valide), il processo di provisioning passa allo stato di "quarantena". Questo stato viene indicato nel [report di riepilogo sul provisioning](./check-status-user-account-provisioning.md) e tramite posta elettronica, se nel portale di Azure sono state configurate le notifiche di posta elettronica.
 
 In stato di quarantena, la frequenza dei cicli incrementali viene gradualmente ridotta fino a diventare giornaliera.
 
-Dopo che tutti gli errori sono stati risolti, il processo di provisioning esce dalla quarantena e viene avviato il ciclo di sincronizzazione successivo. Se lo stato di quarantena dura per più di quattro settimane, il processo di provisioning viene disabilitato. Per altre informazioni sugli stati di quarantena, vedere [qui](../manage-apps/application-provisioning-quarantine-status.md).
+Dopo che tutti gli errori sono stati risolti, il processo di provisioning esce dalla quarantena e viene avviato il ciclo di sincronizzazione successivo. Se lo stato di quarantena dura per più di quattro settimane, il processo di provisioning viene disabilitato. Per altre informazioni sugli stati di quarantena, vedere [qui](./application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Tempo richiesto per il provisioning
 
@@ -166,7 +166,7 @@ Le prestazioni variano a seconda che il processo di provisioning esegua un ciclo
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Come stabilire se il provisioning utenti viene eseguito correttamente
 
-Tutte le operazioni eseguite dal servizio di provisioning utenti vengono registrate nei [Log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) di Azure AD. Nei log sono incluse tutte le operazioni di lettura e scrittura eseguite nei sistemi di origine e di destinazione, oltre ai dati degli utenti che sono stati letti o scritti durante ogni operazione. Per informazioni su come leggere i log di provisioning nel portale di Azure, vedere la [guida alla creazione di report sul provisioning](../manage-apps/check-status-user-account-provisioning.md).
+Tutte le operazioni eseguite dal servizio di provisioning utenti vengono registrate nei [Log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) di Azure AD. Nei log sono incluse tutte le operazioni di lettura e scrittura eseguite nei sistemi di origine e di destinazione, oltre ai dati degli utenti che sono stati letti o scritti durante ogni operazione. Per informazioni su come leggere i log di provisioning nel portale di Azure, vedere la [guida alla creazione di report sul provisioning](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Deprovisioning
 
@@ -190,8 +190,8 @@ Se viene visualizzato un attributo IsSoftDeleted nei mapping degli attributi, es
 
 [Pianificare una distribuzione automatica del provisioning utenti](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Configurare il provisioning per un'app della raccolta](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Configurare il provisioning per un'app della raccolta](./configure-automatic-user-provisioning-portal.md)
 
 [Creare un endpoint SCIM e configurare il provisioning durante la creazione dell'app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Risolvere i problemi di configurazione e provisioning degli utenti in un'applicazione](../manage-apps/application-provisioning-config-problem.md).
+[Risolvere i problemi di configurazione e provisioning degli utenti in un'applicazione](./application-provisioning-config-problem.md).

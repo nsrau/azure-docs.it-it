@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445653"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235703"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) il provisioning utenti automatico semplifica q
 
 Vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md) per comprendere meglio le funzionalità.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Informazioni
 
 Il provisioning degli utenti crea una base per la governance delle identità in corso e migliora la qualità dei processi aziendali basati sui dati di identità autorevoli.
 
@@ -42,7 +42,7 @@ I vantaggi principali dell'abilitazione del provisioning utenti automatico sono:
 
 * **Ridurre i costi**. Il provisioning utenti automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate, script e log di controllo.
 
-### <a name="licensing"></a>Gestione delle licenze
+### <a name="licensing"></a>Licenza
 
 Azure AD fornisce l'integrazione self-service di qualsiasi applicazione usando i modelli forniti nel menu della raccolta di applicazioni. Per un elenco completo dei requisiti di licenza, vedere la pagina relativa alla [gestione delle licenze Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -70,7 +70,7 @@ Questo articolo usa i termini seguenti:
 | - | - |
 | Webinar on demand| [Gestire le applicazioni aziendali con Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Informazioni su come Azure AD possibile ottenere l'accesso Single Sign-on alle applicazioni SaaS aziendali e procedure consigliate per il controllo dell'accesso. |
 | Video| [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Come distribuire il provisioning utenti in Active Directory di Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrazione di Salesforce con Azure AD: come automatizzare il provisioning degli utenti](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
-| Corsi online| SkillUp online: [gestione delle identità](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Informazioni su come integrare Azure AD con molte applicazioni SaaS e proteggere l'accesso degli utenti a tali applicazioni. |
+| Corsi online| SkillUp online:  [gestione delle identità](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Informazioni su come integrare Azure AD con molte applicazioni SaaS e proteggere l'accesso degli utenti a tali applicazioni. |
 | Documentazione| [Autenticazione moderna con Azure Active Directory per le applicazioni Web (riferimento per gli sviluppatori) 1 ° edizione](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Si tratta di una guida autorevole e approfondita per la creazione di soluzioni di autenticazione Active Directory per questi nuovi ambienti. |
 | Esercitazioni| Vedere l' [elenco delle esercitazioni sull'integrazione di app Saas con Azure ad](../saas-apps/tutorial-list.md). |
 | Domande frequenti| [Domande frequenti](../app-provisioning/user-provisioning.md) sul provisioning utenti automatizzato |
@@ -157,7 +157,7 @@ I passaggi necessari per abilitare e configurare il provisioning automatico vari
 
 In caso contrario, attenersi alla procedura seguente:
 
-1. [Creare una richiesta](../develop/howto-app-gallery-listing.md) per un connettore di provisioning utenti pre-integrato. Il nostro team collaborerà con te e lo sviluppatore di applicazioni per caricare la tua applicazione sulla nostra piattaforma se supporta SCIM.
+1. [Creare una richiesta](../azuread-dev/howto-app-gallery-listing.md) per un connettore di provisioning utenti pre-integrato. Il nostro team collaborerà con te e lo sviluppatore di applicazioni per caricare la tua applicazione sulla nostra piattaforma se supporta SCIM.
 
 1. Usare il supporto del provisioning utenti generico di [BYOA scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) per l'app. Si tratta di un requisito per Azure AD di eseguire il provisioning degli utenti nell'app senza un connettore di provisioning pre-integrato.
 

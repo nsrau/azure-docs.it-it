@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829697"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235469"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -751,7 +751,7 @@ Il servizio di provisioning Azure AD attualmente opera negli intervalli IP per A
 
 Dopo aver progettato lo schema e aver compreso l'implementazione SCIM di Azure AD, si può iniziare a sviluppare l'endpoint SCIM. Anziché iniziare da zero e creare autonomamente l'intera implementazione, è possibile usare diverse librerie SCIM open source pubblicate dalla community SCIM.
 
-Una risorsa di questo tipo, che consente di accelerare le attività di sviluppo, è il [codice di riferimento](https://aka.ms/SCIMReferenceCode) .NET Core open source pubblicato dal team di provisioning di Azure AD. Dopo aver creato l'endpoint SCIM, sarà opportuno testarlo. È possibile usare la raccolta di [test Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) offerti come parte del codice di riferimento oppure eseguire le richieste e le risposte di esempio riportate [sopra](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
+Una risorsa di questo tipo, che consente di accelerare le attività di sviluppo, è il [codice di riferimento](https://aka.ms/SCIMReferenceCode) .NET Core open source pubblicato dal team di provisioning di Azure AD. Dopo aver creato l'endpoint SCIM, sarà opportuno testarlo. È possibile usare la raccolta di [test Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) offerti come parte del codice di riferimento oppure eseguire le richieste e le risposte di esempio riportate [sopra](#user-operations).  
 
    > [!Note]
    > Il codice di riferimento è utile per iniziare a creare l'endpoint SCIM e viene fornito "COSÌ COM'È". Sono benvenuti i contributi della community per la compilazione e la gestione del codice.
@@ -799,7 +799,7 @@ Il servizio SCIM deve avere un indirizzo HTTP e un certificato di autenticazione
 * Microsoft.SCIM.WebHostSample: https://localhost:5001
 * IIS Express: https://localhost:44359/
 
-Per altre informazioni su HTTPS in ASP.NET Core, usare il collegamento seguente: [Imporre HTTPS in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+Per altre informazioni su HTTPS in ASP.NET Core, usare il collegamento seguente: [Imporre HTTPS in ASP.NET Core](/aspnet/core/security/enforcing-ssl)
 
 ### <a name="handling-endpoint-authentication"></a>Gestione dell'autenticazione dell'endpoint
 
@@ -1168,12 +1168,12 @@ Dopo l'avvio del ciclo iniziale, è possibile selezionare la scheda **Log di pro
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Passaggio 5: Pubblicare l'applicazione nella raccolta di applicazioni di Azure AD
 
-Se si crea un'applicazione che verrà usata da più tenant, è possibile renderla disponibile nella raccolta di applicazioni di Azure AD. In questo modo, le organizzazioni potranno individuare l'applicazione e configurare il provisioning con facilità. Pubblicare l'app nella raccolta di Azure AD e rendere il provisioning disponibile ad altri è semplice. Consultare i passaggi [qui](../develop/howto-app-gallery-listing.md) Microsoft collaborerà all'integrazione dell'applicazione nella raccolta, al test dell'endpoint e al rilascio di [documentazione](../saas-apps/tutorial-list.md) sull'onboarding utilizzabile dai clienti. 
+Se si crea un'applicazione che verrà usata da più tenant, è possibile renderla disponibile nella raccolta di applicazioni di Azure AD. In questo modo, le organizzazioni potranno individuare l'applicazione e configurare il provisioning con facilità. Pubblicare l'app nella raccolta di Azure AD e rendere il provisioning disponibile ad altri è semplice. Consultare i passaggi [qui](../azuread-dev/howto-app-gallery-listing.md) Microsoft collaborerà all'integrazione dell'applicazione nella raccolta, al test dell'endpoint e al rilascio di [documentazione](../saas-apps/tutorial-list.md) sull'onboarding utilizzabile dai clienti. 
 
 ### <a name="gallery-onboarding-checklist"></a>Elenco di controllo per l'onboarding nella raccolta
 Seguire questo elenco di controllo per completare rapidamente l'onboarding dell'applicazione e offrire ai clienti un'esperienza di distribuzione ottimale. Queste informazioni verranno raccolte durante l'onboarding nella raccolta. 
 > [!div class="checklist"]
-> * Supportare un endpoint [SCIM 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) per gli utenti e per i gruppi (ne è necessario uno solo, ma è consigliabile usare entrambi)
+> * Supportare un endpoint [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) per gli utenti e per i gruppi (ne è necessario uno solo, ma è consigliabile usare entrambi)
 > * Supportare almeno 25 richieste al secondo per tenant (obbligatorio)
 > * Stabilire i contatti di progettazione e supporto tecnico per assistere i clienti dopo l'onboarding nella raccolta (obbligatorio)
 > * Usare 3 credenziali di test non in scadenza per l'applicazione (obbligatorio)

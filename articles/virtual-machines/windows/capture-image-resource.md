@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: d1cd4a25a2a9f07c75976d5eb5c97ba450ffdabb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284643"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236608"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
@@ -39,13 +39,15 @@ Per generalizzare la VM Windows, seguire questa procedura:
 
 1. Accedere alla VM Windows.
    
-2. Aprire una finestra del Prompt dei comandi come amministratore. Impostare la directory su %windir%\system32\sysprep e quindi eseguire `sysprep.exe`.
+2. Aprire una finestra del Prompt dei comandi come amministratore. 
+
+3. Eliminare la directory Panther (C:\Windows\Panther). Modificare quindi la directory in%WINDIR%\system32\sysprep, quindi eseguire `sysprep.exe` .
    
-3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e quindi selezionare la casella di controllo **Generalizza**.
+4. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e quindi selezionare la casella di controllo **Generalizza**.
    
-4. In **Opzioni di arresto** selezionare **Arresta il sistema**.
+5. In **Opzioni di arresto** selezionare **Arresta il sistema**.
    
-5. Selezionare **OK**.
+6. Selezionare **OK**.
    
     ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

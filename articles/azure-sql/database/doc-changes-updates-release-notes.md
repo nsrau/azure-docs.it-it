@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121460"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236574"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -41,7 +41,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 |**Istanza gestita di database SQL di Azure** | *Istanza gestita* di database SQL di Azure| Azure SQL Istanza gestita è il proprio prodotto all'interno della famiglia SQL di Azure, anziché semplicemente un'opzione di distribuzione nel database SQL di Azure. | 
 |**Database SQL di Azure**|Database *singolo* database SQL di Azure| Se non specificato diversamente in modo esplicito, il nome del prodotto database SQL di Azure include sia database singoli che database distribuiti in un pool elastico. |
 |**Database SQL di Azure**|*Pool elastico* del database SQL di Azure| Se non specificato diversamente in modo esplicito, il nome del prodotto database SQL di Azure include sia database singoli che database distribuiti in un pool elastico.  |
-|**Database SQL di Azure** |database SQL di Azure | Sebbene il termine rimanga invariato, ora si applica solo alle distribuzioni di database singolo e del pool elastico e non include l'istanza gestita. |
+|**Database SQL di Azure** |Database SQL di Azure | Sebbene il termine rimanga invariato, ora si applica solo alle distribuzioni di database singolo e del pool elastico e non include l'istanza gestita. |
 | **SQL di Azure**| N/D | Questo si riferisce alla famiglia di prodotti SQL Server motore di database disponibili in Azure: database SQL di Azure, Azure SQL Istanza gestita e SQL Server in macchine virtuali di Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funzionalità disponibili in anteprima pubblica
@@ -85,10 +85,10 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 
 Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Istanza gestita in H1 2019:
   - Supporto per le sottoscrizioni con <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> credito mensile di Azure per i sottoscrittori di Visual Studio </a> e più [limiti a livello di area](../managed-instance/resource-limits.md#regional-resource-limitations).
-  - Supporto per <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">sharepoint 2016 e sharepoint 2019</a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 business Central.</a>
+  - Supporto per <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 e sharepoint 2019 </a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 business Central. </a>
   - Creare un'istanza gestita con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di istanza</a> e un <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso orario</a> di propria scelta.
   - Le istanze gestite ora sono protette con un [firewall predefinito](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Configurare SQL Istanza gestita per usare gli [endpoint pubblici](../managed-instance/public-endpoint-configure.md), la connessione per [l'override del proxy](connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update">4 vcore di generazione hardware quinta generazione</a> o <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La [Conservazione del backup a lungo termine](long-term-retention-overview.md#sql-managed-instance-support) (fino a 10 anni) è attualmente in anteprima pubblica limitata.  
+  - Configurare SQL Istanza gestita per usare gli [endpoint pubblici](../managed-instance/public-endpoint-configure.md), la connessione per [l'override del proxy](connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vcore di generazione hardware quinta generazione</a> o <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La [Conservazione del backup a lungo termine](long-term-retention-overview.md#sql-managed-instance-support) (fino a 10 anni) è attualmente in anteprima pubblica limitata.  
   - Le nuove funzionalità consentono di <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">eseguire il ripristino geografico del database in un altro data center tramite PowerShell</a>, [rinominare il database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [eliminare il cluster virtuale](../managed-instance/virtual-cluster-delete.md).
   - Il nuovo [ruolo Collaboratore Istanza](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) predefinito abilita la conformità della separazione dei compiti con i principi di sicurezza e la conformità agli standard aziendali.
   - SQL Istanza gestita è disponibile nelle aree di Azure per enti pubblici seguenti per la versione GA (US Gov Texas, US Gov Arizona) e in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.
@@ -97,6 +97,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 
 |Problema  |Data individuata  |Stato  |Data risolta  |
 |---------|---------|---------|---------|
+|[L'entità servizio non può accedere a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 agosto|Ha una soluzione alternativa||
 |[Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo](#restoring-manual-backup-without-checksum-might-fail)|Maggio 2020|Risolto|Giugno 2020|
 |[Agent smette di rispondere durante la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maggio 2020|Risolto|Giugno 2020|
 |[Autorizzazioni per il gruppo di risorse non applicate a SQL Istanza gestita](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febbraio 2020|Ha una soluzione alternativa||
@@ -124,6 +125,11 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 |Funzionalità posta elettronica database con server di posta elettronica esterni (non Azure) tramite connessione protetta||Risolto|Ottobre 2019|
 |Database indipendenti non supportati in SQL Istanza gestita||Risolto|Agosto 2019|
 
+### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>L'entità servizio non può accedere a Azure AD e AKV
+
+In alcune circostanze potrebbe esistere un problema con l'entità servizio usata per accedere ai servizi Azure AD e Azure Key Vault (AKV). Questo problema influisca quindi sull'utilizzo dell'autenticazione Azure AD e della crittografia Transparent Database Encryption (Transparent Database Encryption) con SQL Istanza gestita. Questo potrebbe essere un problema di connettività intermittente o non essere in grado di eseguire istruzioni, ad esempio creare un account di accesso/utente da un PROVIDER esterno o eseguire come account di accesso/utente. La configurazione di Transparent Data Encryption con una chiave gestita dal cliente in un nuovo Istanza gestita SQL di Azure potrebbe anche non funzionare in alcune circostanze.
+
+**Soluzione alternativa**: per evitare che questo problema si verifichi nel istanza gestita SQL prima di eseguire i comandi di aggiornamento o, nel caso in cui il problema sia già stato riscontrato dopo l'aggiornamento, passare al portale di Azure, accedere al [Pannello di amministrazione](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal)di SQL istanza gestita Active Directory. Verificare che venga visualizzato il messaggio di errore "Istanza gestita necessaria un'entità servizio per accedere Azure Active Directory. Fare clic qui per creare un'entità servizio ". Se è stato rilevato questo messaggio di errore, fare clic su di esso e seguire le istruzioni dettagliate fornite fino a quando l'errore non è stato risolto.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo
 

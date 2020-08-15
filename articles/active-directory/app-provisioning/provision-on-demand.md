@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c3706cc3a15a8832cec3d799ea551810c849379
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313609"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235537"
 ---
 # <a name="on-demand-provisioning"></a>Provisioning su richiesta
 Usare il provisioning su richiesta per eseguire il provisioning di un utente in un'applicazione in pochi secondi. Tra le altre cose, è possibile usare questa funzionalità per:
@@ -47,9 +47,9 @@ Il servizio di provisioning tenta di autorizzare l'accesso all'applicazione di d
 
 #### <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 
-* Assicurarsi di aver fornito le credenziali valide, ad esempio il token segreto e l'URL del tenant, all'applicazione di destinazione. Le credenziali necessarie variano in base all'applicazione. Per esercitazioni dettagliate sulla configurazione, vedere l' [elenco](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)delle esercitazioni. 
+* Assicurarsi di aver fornito le credenziali valide, ad esempio il token segreto e l'URL del tenant, all'applicazione di destinazione. Le credenziali necessarie variano in base all'applicazione. Per esercitazioni dettagliate sulla configurazione, vedere l' [elenco](../saas-apps/tutorial-list.md)delle esercitazioni. 
 * Verificare che l'applicazione di destinazione supporti il filtro sugli attributi corrispondenti definiti nel riquadro **mapping attributi** . Potrebbe essere necessario controllare la documentazione dell'API fornita dallo sviluppatore di applicazioni per comprendere i filtri supportati.
-* Per il sistema per le applicazioni di gestione delle identità tra domini (SCIM), è possibile usare uno strumento come il post. Tali strumenti consentono di garantire che l'applicazione risponda alle richieste di autorizzazione nel modo previsto per il servizio di provisioning Azure Active Directory (Azure AD). Esaminare una [richiesta di esempio](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
+* Per il sistema per le applicazioni di gestione delle identità tra domini (SCIM), è possibile usare uno strumento come il post. Tali strumenti consentono di garantire che l'applicazione risponda alle richieste di autorizzazione nel modo previsto per il servizio di provisioning Azure Active Directory (Azure AD). Esaminare una [richiesta di esempio](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### <a name="step-2-import-user"></a>Passaggio 2: importare un utente
 
@@ -76,7 +76,7 @@ La sezione **Visualizza dettagli Mostra** le proprietà dell'utente che sono sta
 
 ### <a name="step-3-determine-if-user-is-in-scope"></a>Passaggio 3: determinare se l'utente è nell'ambito
 
-Successivamente, il servizio di provisioning determina se l'utente è nell' [ambito](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) per il provisioning. Il servizio considera gli aspetti seguenti:
+Successivamente, il servizio di provisioning determina se l'utente è nell' [ambito](./how-provisioning-works.md#scoping) per il provisioning. Il servizio considera gli aspetti seguenti:
 
 * Indica se l'utente è assegnato all'applicazione.
 * Indica se l'ambito è impostato su **sincronizzazione assegnata** o **Sincronizza tutto**.
@@ -94,8 +94,8 @@ La sezione **Visualizza dettagli Mostra** le condizioni di ambito valutate. È p
 
 #### <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 
-* Assicurarsi di aver definito un ruolo di ambito valido. Ad esempio, evitare di usare l' [operatore Greater_Than](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) con un valore non integer.
-* Se l'utente non ha il ruolo necessario, rivedere i [Suggerimenti per il provisioning degli utenti assegnati al ruolo di accesso predefinito](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
+* Assicurarsi di aver definito un ruolo di ambito valido. Ad esempio, evitare di usare l' [operatore Greater_Than](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) con un valore non integer.
+* Se l'utente non ha il ruolo necessario, rivedere i [Suggerimenti per il provisioning degli utenti assegnati al ruolo di accesso predefinito](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### <a name="step-4-match-user-between-source-and-target"></a>Passaggio 4: associare l'utente tra l'origine e la destinazione
 
@@ -129,7 +129,7 @@ La sezione **Visualizza dettagli** Visualizza gli attributi che sono stati modif
 
 #### <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 
-* Gli errori di esportazione delle modifiche possono variare significativamente. Controllare la [documentazione relativa ai log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) per gli errori comuni.
+* Gli errori di esportazione delle modifiche possono variare significativamente. Controllare la [documentazione relativa ai log di provisioning](../reports-monitoring/concept-provisioning-logs.md#error-codes) per gli errori comuni.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -150,4 +150,4 @@ Esistono attualmente alcune limitazioni note per il provisioning su richiesta. P
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risoluzione dei problemi di provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
+* [Risoluzione dei problemi di provisioning](./application-provisioning-config-problem.md)

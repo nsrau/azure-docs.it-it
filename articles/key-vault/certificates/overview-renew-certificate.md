@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: bbd65cdfc7c8ebbc08b914158577337cc49ec887
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224561"
+ms.locfileid: "88236064"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Informazioni sul rinnovo del certificato Azure Key Vault
 
@@ -64,7 +64,7 @@ Se il certificato emesso è nello stato "disabilitato" nella portale di Azure, c
   Creare un certificato con validità di 1 mese, quindi impostare l'azione di durata per la rotazione all'1%. Questa impostazione ruoterà il certificato in 7,2 ore.
   
 * I tag verranno replicati dopo il rinnovo automatico del certificato?
-  No, i tag non vengono replicati, a meno che l'utente non copi manualmente i tag stessi.
+  Sì, i tag verranno replicati dopo il rinnovo automatico.
 
 ### <a name="see-also"></a>Vedere anche
 *   [Integrazione di Key Vault con l'autorità di certificazione DigiCert](how-to-integrate-certificate-authority.md)

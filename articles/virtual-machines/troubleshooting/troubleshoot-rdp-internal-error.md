@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 4831a084153c28576cca7c40dfefeb8c5ff3c4e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036387"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235163"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Si verifica un errore interno quando si prova a connettersi a una macchina virtuale di Azure tramite Desktop remoto
 
@@ -41,7 +41,7 @@ Questo problema può verificarsi a causa dei motivi seguenti:
 - Il protocollo TLS è disabilitato.
 - Il certificato è danneggiato o scaduto.
 
-## <a name="solution"></a>Solution
+## <a name="solution"></a>Soluzione
 
 Prima di seguire questa procedura, creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -55,13 +55,13 @@ Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-co
 
 #### <a name="step-1-check-the-rdp-port"></a>Passaggio: 1 Verificare la porta RDP
 
-1. In un'istanza di PowerShell, usare il [NETSTAT](/windows-server/administration/windows-commands/netstat) per verificare se la porta 8080 è usata da altre applicazioni:
+1. In un'istanza di PowerShell usare [netstat](/windows-server/administration/windows-commands/netstat) per verificare se la porta 3389 viene usata da altre applicazioni:
 
     ```powershell
     Netstat -anob |more
     ```
 
-2. Se Termservice.exe utilizza la porta 8080, andare al passaggio 2. Se un altro servizio o applicazione diversa da Termservice.exe utilizza la porta 8080, seguire questa procedura:
+2. Se Termservice.exe usa la porta 3389, andare al passaggio 2. Se un altro servizio o un'altra applicazione diversa da Termservice.exe utilizza la porta 3389, attenersi alla seguente procedura:
 
     1. Arrestare il servizio per l'applicazione che usa il servizio 3389:
 

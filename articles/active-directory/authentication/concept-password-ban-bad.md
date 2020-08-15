@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0f7571cf9f8d355330c4acf425e38ce215e840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050876"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235299"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminare le password non valide usando la protezione Azure Active Directory password
 
 Molte linee guida sulla sicurezza consigliano di non usare la stessa password in più punti, per renderla complessa ed evitare semplici password come *Password123*. È possibile fornire agli utenti [informazioni aggiuntive su come scegliere le password](https://www.microsoft.com/research/publication/password-guidance), ma le password vulnerabili o non sicure vengono spesso usate. Azure AD Password Protection rileva e blocca le password vulnerabili note e le relative varianti e può anche bloccare ulteriori termini vulnerabili specifici per l'organizzazione.
 
-Con Azure AD la protezione con password, gli elenchi di password Global Banned globali vengono applicati automaticamente a tutti gli utenti cloud. Per supportare le esigenze aziendali e di sicurezza, è possibile definire le voci in un elenco di password vietate personalizzate. Quando gli utenti modificano o reimpostano le password, vengono controllati gli elenchi delle password vietate per imporre l'utilizzo di password complesse.
+Con Azure AD la protezione con password, gli elenchi di password Global Banned globali vengono applicati automaticamente a tutti gli utenti in un tenant di Azure AD. Per supportare le esigenze aziendali e di sicurezza, è possibile definire le voci in un elenco di password vietate personalizzate. Quando gli utenti modificano o reimpostano le password, vengono controllati gli elenchi delle password vietate per imporre l'utilizzo di password complesse.
 
 È consigliabile usare funzionalità aggiuntive come [Azure multi-factor authentication](concept-mfa-howitworks.md), non solo basarsi sulle password complesse applicate da Azure ad la protezione delle password. Per altre informazioni sull'uso di più livelli di sicurezza per gli eventi di accesso, vedere la pagina relativa a [PA $ $Word non è rilevante](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
@@ -37,7 +37,7 @@ Il team di Azure AD Identity Protection analizza costantemente i dati di telemet
 
 Quando una password viene modificata o reimpostata per tutti gli utenti di un tenant di Azure AD, per convalidare l'attendibilità della password viene usata la versione corrente dell'elenco di password Global Banned. Questo controllo di convalida comporta password più sicure per tutti i clienti Azure AD.
 
-L'elenco delle password Global Banned viene applicato automaticamente a tutti gli utenti del cloud in un tenant di Azure AD. Non c'è niente da abilitare o configurare e non può essere disabilitato.
+L'elenco delle password Global Banned viene applicato automaticamente a tutti gli utenti di un tenant di Azure AD. Non c'è niente da abilitare o configurare e non può essere disabilitato. Questo elenco di password Global Banned viene applicato agli utenti quando modificano o reimpostano la propria password tramite Azure AD.
 
 > [!NOTE]
 > I criminali informatici usano anche strategie analoghe nei propri attacchi per identificare le password e le variazioni vulnerabili più comuni. Per migliorare la sicurezza, Microsoft non pubblica il contenuto dell'elenco globale delle password escluse.
@@ -46,16 +46,16 @@ L'elenco delle password Global Banned viene applicato automaticamente a tutti gl
 
 Alcune organizzazioni vogliono migliorare la sicurezza e aggiungere le proprie personalizzazioni all'elenco globale delle password escluse. Per aggiungere voci personalizzate, è possibile usare l' *elenco di password escluse*. I termini aggiunti all'elenco di password vietate personalizzate devono essere incentrati su termini specifici dell'organizzazione, ad esempio gli esempi seguenti:
 
-- Nomi dei marchi
-- Nomi dei prodotti
-- Località, ad esempio sede centrale aziendale
+- Nomi di marchio
+- Nomi di prodotto
+- Località, ad esempio la sede centrale aziendale
 - Termini interni specifici della società
 - Abbreviazioni con un significato specifico per la società
 
 Quando le condizioni vengono aggiunte all'elenco delle password vietate personalizzate, vengono combinate con i termini nell'elenco globale delle password escluse. Gli eventi di modifica o di reimpostazione della password vengono quindi convalidati in base al set combinato di questi elenchi di password escluse.
 
 > [!NOTE]
-> L'elenco delle password con divieto personalizzato è limitato a un massimo di 1000 termini. Non è progettato per bloccare elenchi di password estremamente estesi.
+> L'elenco di password personalizzate escluse è limitato a un massimo di 1000 termini. Non è progettato per bloccare elenchi di password estremamente estesi.
 >
 > Per sfruttare appieno i vantaggi dell'elenco delle password con Banned personalizzato, è necessario prima di tutto comprendere [come vengono valutate le password](#how-are-passwords-evaluated) prima di aggiungere termini all'elenco degli elenchi bloccati personalizzati. Questo approccio consente di rilevare e bloccare in modo efficiente un numero elevato di password vulnerabili e le relative varianti.
 
@@ -99,7 +99,7 @@ Anche se l'elenco Global Banned è ridotto rispetto ad alcuni elenchi bulk di te
 
 ## <a name="on-premises-hybrid-scenarios"></a>Scenari ibridi locali
 
-Molte organizzazioni dispongono di un modello di identità ibrido che include ambienti Active Directory Domain Services locali (AD DS). Per estendere i vantaggi di sicurezza di Azure AD la protezione delle password nell'ambiente Active Directory Domain Services, è possibile installare i componenti di nei server locali. Questi agenti richiedono eventi di modifica della password nell'ambiente Active Directory Domain Services locale per garantire la conformità con gli stessi criteri password degli utenti solo cloud.
+Molte organizzazioni dispongono di un modello di identità ibrido che include ambienti Active Directory Domain Services locali (AD DS). Per estendere i vantaggi di sicurezza di Azure AD la protezione delle password nell'ambiente Active Directory Domain Services, è possibile installare i componenti di nei server locali. Questi agenti richiedono che gli eventi di modifica della password nell'ambiente Active Directory Domain Services locale siano conformi agli stessi criteri password del Azure AD.
 
 Per ulteriori informazioni, vedere [Enforce Azure ad Password Protection for Active Directory](concept-password-ban-bad-on-premises.md)Domain Services.
 

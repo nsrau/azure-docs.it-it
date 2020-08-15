@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781723"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235818"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procedura: esportare la configurazione del provisioning ed eseguire il rollback a uno stato valido noto
 
@@ -39,8 +39,8 @@ Per esportare la configurazione:
 
 L'esportazione e il salvataggio della configurazione consentono di eseguire il rollback a una versione precedente della configurazione. Si consiglia di esportare la configurazione del provisioning e di salvarla per un uso successivo in qualsiasi momento in cui si apportino una modifica ai mapping degli attributi o ai filtri di ambito. È sufficiente aprire il file JSON che è stato scaricato nei passaggi precedenti, copiare l'intero contenuto del file JSON, sostituire l'intero contenuto del payload JSON nell'Editor schemi e quindi salvare. Se è presente un ciclo di provisioning attivo, questo verrà completato e il ciclo successivo utilizzerà lo schema aggiornato. Il ciclo successivo sarà anche un ciclo iniziale, che rivaluterà tutti gli utenti e i gruppi in base alla nuova configurazione. Quando si esegue il rollback a una configurazione precedente, tenere presente quanto segue:
 
-- Gli utenti verranno valutati di nuovo per determinare se devono essere nell'ambito. Se i filtri di ambito sono stati modificati, un utente non è presente nell'ambito, più saranno disabilitati. Sebbene questo sia il comportamento desiderato nella maggior parte dei casi, è possibile che si desideri impedire questa operazione e utilizzare la funzionalità [Ignora eliminazioni dell'ambito](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
-- Se si modifica la configurazione del provisioning, il servizio viene riavviato e viene attivato un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+- Gli utenti verranno valutati di nuovo per determinare se devono essere nell'ambito. Se i filtri di ambito sono stati modificati, un utente non è presente nell'ambito, più saranno disabilitati. Sebbene questo sia il comportamento desiderato nella maggior parte dei casi, è possibile che si desideri impedire questa operazione e utilizzare la funzionalità [Ignora eliminazioni dell'ambito](./skip-out-of-scope-deletions.md) . 
+- Se si modifica la configurazione del provisioning, il servizio viene riavviato e viene attivato un [ciclo iniziale](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Esportare e importare la configurazione di provisioning tramite l'API Microsoft Graph
 

@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697337"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236795"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lettura del feed di modifiche in Azure Cosmos DB
 
-È possibile usare il feed di modifiche di Azure Cosmos DB con un modello push o un modello pull. Con un modello push, un client richiede un'attività da un server e dispone della logica di business per l'elaborazione di una modifica. Le complessità correlate alla verifica di eventuali modifiche e all'archiviazione dello stato delle ultime modifiche elaborate viene gestita tuttavia dal server.
+È possibile usare il feed di modifiche di Azure Cosmos DB con un modello push o un modello pull. Con un modello push, un server (il feed di modifiche) effettua il push del lavoro a un client con la logica di business per l'elaborazione di questa operazione. Tuttavia, la complessità del controllo del lavoro e dell'archiviazione dello stato per l'ultimo lavoro elaborato viene gestita nel server.
 
-Con un modello pull, un server richiede un'attività, spesso da una coda di lavoro centrale. Il client, in questo caso, dispone della logica di business necessaria non solo per elaborare le modifiche, ma anche per archiviare lo stato dell'ultima modifica elaborata, la gestione del bilanciamento del carico tra più client che elaborano le modifiche in parallelo e la gestione degli errori.
+Con un modello pull, il client deve eseguire il pull del lavoro dal server. Il client, in questo caso, non ha solo la logica di business per l'elaborazione del lavoro, ma anche l'archiviazione dello stato per l'ultima operazione elaborata, la gestione del bilanciamento del carico tra più client che elaborano il lavoro in parallelo e la gestione degli errori.
 
 Quando si legge il feed di modifiche di Azure Cosmos DB, è consigliabile in genere usare un modello push perché non è necessario preoccuparsi degli aspetti seguenti:
 

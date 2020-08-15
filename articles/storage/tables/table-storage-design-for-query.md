@@ -2,18 +2,18 @@
 title: Progettare l'archiviazione tabelle di Azure per le query | Microsoft Docs
 description: Progettare tabelle per le query nell'archivio tabelle di Azure. Scegliere una chiave di partizione appropriata, ottimizzare le query e ordinare i dati per il servizio tabelle.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 28a15541b9d706095bcd3d6d361bd7c983f195df
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a15415ab7f5e01619a4a022d7254ef3995a825b0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926247"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236336"
 ---
 # <a name="design-for-querying"></a>Progettazione per le query
 Le soluzioni di servizio tabelle possono eseguire un'intensa attività di lettura, di scrittura o una combinazione di entrambe. Questo articolo è incentrato sugli aspetti da prendere in considerazione quando si progetta un servizio tabelle in grado di supportare in modo efficiente le operazioni di lettura. Una progettazione che supporta in modo efficiente le operazioni di lettura è in genere efficiente anche nelle operazioni di scrittura. Esistono però altri aspetti da considerare per una progettazione che supporti le operazioni di scrittura, come illustrato nell'articolo [Progettazione per la modifica dei dati](table-storage-design-for-modification.md).
@@ -37,12 +37,12 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 
 | *Nome colonna* | *Tipo di dati* |
 | --- | --- |
-| **PartitionKey** (nome del reparto) |string |
-| **RowKey** (ID dipendente) |string |
-| **FirstName** |string |
-| **LastName** |string |
+| **PartitionKey** (nome del reparto) |Stringa |
+| **RowKey** (ID dipendente) |Stringa |
+| **FirstName** |Stringa |
+| **LastName** |Stringa |
 | **Età** |Integer |
-| **EmailAddress** |string |
+| **EmailAddress** |Stringa |
 
 L'articolo [Panoramica di Archiviazione tabelle di Azure](table-storage-overview.md) descrive alcune delle principali funzionalità del servizio tabelle di Azure che influiscono direttamente sulla progettazione per le query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. Si noti che la sintassi del filtro usata negli esempi seguenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://docs.microsoft.com/rest/api/storageservices/Query-Entities) (Entità query).  
 

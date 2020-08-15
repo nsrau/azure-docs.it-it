@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073855"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236744"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -423,7 +423,6 @@ Di seguito sono riportati alcuni errori di scambio comuni:
       ...
     </conditions>
     ```
-- Alcune [regole di restrizione IP](app-service-ip-restrictions.md) potrebbero impedire all'operazione di scambio di inviare richieste HTTP all'app. Gli intervalli di indirizzi IPv4 che iniziano con `10.` e `100.` sono interni alla distribuzione. È necessario consentire la connessione all'app.
 
 - Dopo lo scambio di slot, l'app può riscontrare riavvii imprevisti. Questo è dovuto al fatto che dopo uno scambio la configurazione dell'associazione del nome host non viene sincronizzata, che non provoca il riavvio. Tuttavia, alcuni eventi di archiviazione sottostanti, ad esempio i failover del volume di archiviazione, possono rilevare tali discrepanze e forzare il riavvio di tutti i processi di lavoro. Per ridurre al minimo questi tipi di riavvii, impostare l' [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` impostazione dell'app](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) su *tutti gli slot*. Tuttavia, questa impostazione dell'app *non* funziona con le app Windows Communication Foundation (WCF).
 

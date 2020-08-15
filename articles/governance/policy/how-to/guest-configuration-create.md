@@ -3,12 +3,12 @@ title: Come creare criteri di Configurazione guest per Windows
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045128"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236540"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di Configurazione guest per Windows
 
@@ -206,7 +206,7 @@ Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. I moduli necessari 
 
 - **Name**: nome del pacchetto di Configurazione guest.
 - **Configuration**: percorso completo del documento di configurazione DSC compilato.
-- **Path**: percorso della cartella di output. Questo parametro è facoltativo. Se non viene specificato, il pacchetto viene creato nella directory corrente.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non viene specificato, il pacchetto viene creato nella directory corrente.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:
 
@@ -223,7 +223,7 @@ Poiché l'agente valuta effettivamente l'ambiente locale, nella maggior parte de
 Parametri del cmdlet `Test-GuestConfigurationPackage`:
 
 - **Name**: nome dei criteri di Configurazione guest.
-- **Parametro**: Parametri dei criteri forniti in formato tabella hash.
+- **Parameter**: parametri dei criteri forniti in formato di tabella hash.
 - **Path**: percorso completo del pacchetto di Configurazione guest.
 
 Eseguire il comando seguente per testare il pacchetto creato nel passaggio precedente:
@@ -307,6 +307,8 @@ Parametri del cmdlet `New-GuestConfigurationPolicy`:
 - **Version**: versione dei criteri.
 - **Path**: percorso di destinazione in cui vengono create le definizioni dei criteri.
 - **Platform**: piattaforma di destinazione (Windows/Linux) per i criteri e il pacchetto di contenuto di Configurazione guest.
+- **Tag** aggiunge uno o più filtri di tag alla definizione dei criteri
+- **Category** imposta il campo dei metadati della categoria nella definizione dei criteri
 
 Nell'esempio seguente vengono create le definizioni dei criteri in un percorso specificato da un pacchetto di criteri personalizzati:
 
@@ -328,14 +330,6 @@ I file seguenti vengono creati da `New-GuestConfigurationPolicy`:
 - **Initiative.json**
 
 L'output del cmdlet restituisce un oggetto contenente il nome visualizzato dell'iniziativa e il percorso dei file dei criteri.
-
-> [!Note]
-> Il modulo Configurazione guest più recente include nuovi parametri:
-> - **Tag** aggiunge uno o più filtri di tag alla definizione dei criteri
->   - Vedere la sezione [Filtro dei criteri di Configurazione guest tramite tag](#filtering-guest-configuration-policies-using-tags).
-> - **Category** imposta il campo dei metadati della categoria nella definizione dei criteri
->   - Se il parametro non è incluso, per impostazione predefinita la categoria corrisponde a Configurazione guest.
-> Queste funzionalità sono attualmente in anteprima e richiedono la versione del modulo Configurazione guest 1.20.1, che è possibile installare usando `Install-Module GuestConfiguration -AllowPrerelease`.
 
 Infine, pubblicare le definizioni dei criteri usando il cmdlet `Publish-GuestConfigurationPolicy`. Il cmdlet ha solo il parametro **Path** che punta al percorso dei file JSON creati da `New-GuestConfigurationPolicy`.
 
@@ -377,9 +371,6 @@ New-AzRoleDefinition -Role $role
 ```
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtro dei criteri di Configurazione guest tramite tag
-
-> [!Note]
-> Questa funzionalità è attualmente in anteprima e richiede la versione del modulo Configurazione guest 1.20.1, che è possibile installare usando `Install-Module GuestConfiguration -AllowPrerelease`.
 
 Le definizioni dei criteri create dai cmdlet nel modulo Configurazione guest possono includere un filtro per i tag. Il parametro **Tag** di `New-GuestConfigurationPolicy` supporta una matrice di tabelle hash in cui sono presenti singole voci di tag. I tag vengono aggiunti alla sezione `If` della definizione dei criteri e non possono essere modificati da un'assegnazione di criteri.
 
@@ -439,10 +430,6 @@ New-GuestConfigurationPolicy
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Estensione di Configurazione guest con strumenti di terze parti
-
-> [!Note]
-> Questa funzionalità è in anteprima e richiede la versione del modulo di configurazione Guest 1.20.3, che può essere installata usando `Install-Module GuestConfiguration -AllowPrerelease` .
-> Nella versione 1.20.3 questa funzionalità è disponibile solo per le definizioni dei criteri che controllano i computer Windows
 
 I pacchetti di artefatti per Configurazione guest possono essere estesi per includere strumenti di terze parti.
 Per l'estensione di Configurazione guest è necessario sviluppare due componenti.
@@ -553,7 +540,7 @@ Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. Per il contenuto di
 
 - **Name**: nome del pacchetto di Configurazione guest.
 - **Configuration**: percorso completo del documento di configurazione compilato.
-- **Path**: percorso della cartella di output. Questo parametro è facoltativo. Se non viene specificato, il pacchetto viene creato nella directory corrente.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non viene specificato, il pacchetto viene creato nella directory corrente.
 - **FilesoInclude**: percorso completo del profilo InSpec.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:
@@ -574,11 +561,6 @@ Per rilasciare un aggiornamento dei criteri, è necessario prestare attenzione a
 - **contentHash**: questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri**, l'estensione non accetterà il pacchetto di contenuto.
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato. Questo processo garantisce che tutte le proprietà siano state aggiornate correttamente.
-
-## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversione del contenuto di Criteri di gruppo Windows in Configurazione guest di Criteri di Azure
-
-Quando si esegue il controllo di computer Windows, Configurazione guest è un'implementazione della sintassi di PowerShell Desired State Configuration. La community DSC ha pubblicato strumenti per convertire i modelli di Criteri di gruppo esportati in formato DSC. Usando questo strumento con i cmdlet di Configurazione guest descritti in precedenza, è possibile convertire il contenuto di Criteri di gruppo Windows, nonché creare un pacchetto ed eseguire la pubblicazione per il controllo tramite Criteri di Azure. Per informazioni dettagliate sull'uso dello strumento, vedere l'articolo [Avvio rapido: Convertire Criteri di gruppo in DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Una volta convertito il contenuto, i passaggi precedenti per creare un pacchetto e pubblicarlo come Criteri di Azure sono gli stessi per tutti i contenuti DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>Facoltativo: Firma dei pacchetti di Configurazione guest
 
