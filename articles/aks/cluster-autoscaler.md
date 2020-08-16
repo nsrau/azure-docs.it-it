@@ -4,12 +4,12 @@ description: Informazioni su come usare il componente di scalabilità automatica
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: af09d594dd745b64901965499df4245fa2e6a85f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130835"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257509"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -20,12 +20,6 @@ Questo articolo illustra come abilitare e gestire il componente di scalabilità 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo articolo richiede che sia in esecuzione l'interfaccia della riga di comando di Azure 2.0.76 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
-
-## <a name="limitations"></a>Limitazioni
-
-Quando si creano e si gestiscono cluster del servizio Azure Kubernetes che usano il ridimensionamento automatico del cluster, si applicano le limitazioni seguenti:
-
-* Il componente aggiuntivo di routing dell'applicazione HTTP non può essere usato.
 
 ## <a name="about-the-cluster-autoscaler"></a>Informazioni sul componente di scalabilità automatica
 
@@ -44,7 +38,7 @@ Sia il componente di scalabilità automatica orizzontale dei pod, sia il compone
 
 Per altre informazioni sui casi in cui il componente di scalabilità automatica del cluster potrebbe non essere in grado di effettuare la riduzione, vedere [Quali tipi di pod possono impedire al componente di scalabilità automatica del cluster di rimuovere un nodo?][autoscaler-scaledown]
 
-Il componente di scalabilità automatica del cluster usa i parametri di avvio per elementi come gli intervalli di tempo tra gli eventi di scalabilità e le soglie delle risorse. Per altre informazioni sui parametri usati dal servizio di scalabilità automatica del cluster, vedere [quali sono i parametri del servizio di scalabilità automatica del cluster?][autoscaler-parameters]
+Il componente di scalabilità automatica del cluster usa i parametri di avvio per elementi come gli intervalli di tempo tra gli eventi di scalabilità e le soglie delle risorse. Per altre informazioni sui parametri usati dal servizio di scalabilità automatica del cluster, vedere [uso del profilo di ridimensionamento](#using-the-autoscaler-profile)automatico.
 
 Il componente di scalabilità automatica orizzontale e il componente di scalabilità automatica del cluster possono essere usati insieme e spesso sono entrambi distribuiti in un cluster. Nell’uso combinato, il componente di scalabilità automatica orizzontale dei pod è dedicato all’esecuzione del numero di pod necessari per soddisfare le richieste delle applicazioni. Il componente di scalabilità automatica del cluster è dedicato all’esecuzione del numero di nodi richiesto per supportare i pod pianificati.
 

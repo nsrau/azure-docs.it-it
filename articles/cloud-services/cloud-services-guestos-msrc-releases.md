@@ -10,17 +10,73 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/11/2020
+ms.date: 8/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 21dcc10be255c0795058886188b4380266679963
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142350"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258295"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="august-2020-guest-os"></a>Sistema operativo guest 2020 agosto
+>[!NOTE]
+>Il sistema operativo guest di agosto è attualmente in fase di implementazione in macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di agosto. L'elenco è soggetto a variazioni.
+
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 20-08 |  [4571687]  |  Aggiornamento cumulativo IE | 2,101, 3,88, 4,81 | 11 agosto 2020 |
+|  Rel 20-08 |  [4561600]  |  Aggiornamento Flash | 3,88, 4,81, 5,46, 6,22 | 9 giugno 2020 |
+|  Rel 20-08 |  [4571694]  |  Aggiornamento cumulativo più recente | 6,22 | 11 agosto 2020 |
+|  Rel 20-08 |  [4565349]  |  Aggiornamento cumulativo più recente | 5,46 | 11 agosto 2020 |
+|  Rel 20-08 |  [4570673]  |  Aggiornamento dello stack di manutenzione | 2,101 | 11 agosto 2020 |
+|  Rel 20-08 |  [4571729]  |  Rollup mensile | 2,101 | 11 agosto 2020 |
+|  Rel 20-08 |  [4569767]  |  Rollup sicurezza e qualità .NET Framework 3.5.1 | 2,101 | 11 agosto 2020 |
+|  Rel 20-08 |  [4569780]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 2,101 | 11 agosto 2020 |
+|  Rel 20-08 |  [4569765]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 3.88 | 11 agosto 2020 |
+|  Rel 20-08 |  [4569779]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 3.88 | 11 agosto 2020 |
+|  Rel 20-08 |  [4566426]  |  Aggiornamento dello stack di manutenzione | 3.88 | 14 luglio 2020 |
+|  Rel 20-08 |  [4571736]  |  Rollup mensile | 3.88 | 11 agosto 2020 |
+|  Rel 20-08 |  [4566425]  |  Aggiornamento dello stack di manutenzione | 4,81 | 14 luglio 2020 |
+|  Rel 20-08 |  [4571703]  |  Rollup mensile | 4,81 | 11 agosto 2020 |
+|  Rel 20-08 |  [4569768]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 4,81 | 11 agosto 2020 |
+|  Rel 20-08 |  [4569778]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 4,81 | 11 agosto 2020 |
+|  Rel 20-08 |  [4494175]  |  Microcodice | 5,46 | 25 febbraio 2020 |
+|  Rel 20-08 |  [4565912]  |  Aggiornamento dello stack di manutenzione | 5,46 | 14 luglio 2020 |
+|  Rel 20-08 |  [4569746]  |  Rollup di sicurezza e qualità .NET Framework 4,8 | 5,46 | 11 agosto 2020 |
+|  Rel 20-08 |  [4569776]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | 6,22 | 11 agosto 2020 |
+|  Rel 20-08 |  [4569750]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4,8 | 6,22 | 11 agosto 2020 |
+|  Rel 20-08 |  [4566424]  |  Aggiornamento dello stack di manutenzione | 6,22 | 11 agosto 2020 |
+
+
+
+[4571687]: https://support.microsoft.com/kb/4571687
+[4561600]: https://support.microsoft.com/kb/4561600
+[4571694]: https://support.microsoft.com/kb/4571694
+[4565349]: https://support.microsoft.com/kb/4565349
+[4570673]: https://support.microsoft.com/kb/4570673
+[4571729]: https://support.microsoft.com/kb/4571729
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566426]: https://support.microsoft.com/kb/4566426
+[4571736]: https://support.microsoft.com/kb/4571736
+[4566425]: https://support.microsoft.com/kb/4566425
+[4571703]: https://support.microsoft.com/kb/4571703
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565912]: https://support.microsoft.com/kb/4565912
+[4569746]: https://support.microsoft.com/kb/4569746
+[4569776]: https://support.microsoft.com/kb/4569776
+[4569750]: https://support.microsoft.com/kb/4569750
+[4566424]: https://support.microsoft.com/kb/4566424
+
 
 ## <a name="july-2020-guest-os"></a>Sistema operativo guest 2020 luglio
 >[!NOTE]

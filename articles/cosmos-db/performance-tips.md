@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
-ms.openlocfilehash: c6c1b30716b52554afebe39562692de181dd7d1a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3e15adcac184a0609de3197181cb8c475a962e8d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921225"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258356"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET SDK v2
 
@@ -41,7 +41,7 @@ Se quindi si sta provando a migliorare le prestazioni del database, prendere in 
 
 Per migliorare le prestazioni, è consigliabile l'elaborazione host Windows a 64 bit. L'SDK SQL include un file ServiceInterop.dll nativo che consente di analizzare e ottimizzare le query in locale. Il file ServiceInterop.dll è supportato solo nella piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è disponibile, viene effettuata una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata. Per impostazione predefinita, nei seguenti tipi di applicazioni viene utilizzata l'elaborazione host a 32 bit. Per modificare l'elaborazione dell'host nell'elaborazione a 64 bit, attenersi alla procedura seguente, in base al tipo di applicazione:
 
-- Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) su **x64** nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
+- Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) su **x64**  nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
 
 - Per i progetti di test basati su VSTest, è possibile modificare l'elaborazione dell' **host selezionando**  >  **impostazioni test**di test  >  **Architettura processore predefinita come x64** nel menu **test** di Visual Studio.
 
@@ -79,14 +79,12 @@ Il modo in cui un client si connette a Azure Cosmos DB ha implicazioni important
   * Modalità diretta
 
     La modalità diretta supporta la connettività tramite il protocollo TCP.
-
-In modalità gateway Azure Cosmos DB usa la porta 443 e le porte 10250, 10255 e 10256 quando si usa l'API Azure Cosmos DB per MongoDB. La porta 10250 esegue il mapping a un'istanza di MongoDB predefinita senza replica geografica. Le porte 10255 e 10256 sono mappate all'istanza di MongoDB con replica geografica.
      
-Quando si usa TCP in modalità diretta, oltre alle porte del gateway, è necessario assicurarsi che l'intervallo di porte compreso tra 10000 e 20000 sia aperto perché Azure Cosmos DB usa porte TCP dinamiche. quando si usa la modalità diretta su [endpoint privati](./how-to-configure-private-endpoints.md), è necessario aprire l'intera gamma di porte TCP, da 0 a 65535. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore di 503 servizio non disponibile. Questa tabella mostra le modalità di connettività disponibili per le varie API e le porte del servizio usate per ogni API:
+Quando si usa TCP in modalità diretta, oltre alle porte del gateway, è necessario assicurarsi che l'intervallo di porte compreso tra 10000 e 20000 sia aperto perché Azure Cosmos DB usa porte TCP dinamiche. Quando si usa la modalità diretta negli [endpoint privati](./how-to-configure-private-endpoints.md), è necessario aprire l'intera gamma di porte TCP, da 0 a 65535. Se queste porte non sono aperte e si tenta di usare il protocollo TCP, si riceverà un errore di 503 servizio non disponibile. La tabella seguente illustra le modalità di connettività disponibili per le varie API e le porte del servizio usate per ogni API:
 
 |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
 |---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabella (443), Cassandra (10350), Graph (443)    |
+|Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabella (443), Cassandra (10350), Graph (443) <br> La porta 10250 esegue il mapping a un'API Azure Cosmos DB predefinita per l'istanza di MongoDB senza replica geografica. Mentre le porte 10255 e 10256 sono mappate all'istanza con replica geografica.   |
 |Connessione diretta    |     TCP    |  .NET SDK    | Quando si usano gli endpoint pubblici/di servizio: porte nell'intervallo da 10000 a 20000<br>Quando si usano endpoint privati: porte nell'intervallo da 0 a 65535 |
 
 Azure Cosmos DB offre un modello di programmazione RESTful semplice e aperto su HTTPS. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Il protocollo TCP usa TLS per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
@@ -121,10 +119,10 @@ Negli scenari in cui si dispone dell'accesso di tipo sparse e si nota un numero 
 
 **Chiamare OpenAsync per evitare la latenza di avvio alla prima richiesta**
 
-Per impostazione predefinita, la prima richiesta ha una latenza più elevata perché deve recuperare la tabella di routing degli indirizzi. Quando si usa [SDK v2](sql-api-sdk-dotnet.md), chiamare `OpenAsync()` una sola volta durante l'inizializzazione per evitare questa latenza di avvio alla prima richiesta. La chiamata ha un aspetto simile al seguente:`await client.OpenAsync();`
+Per impostazione predefinita, la prima richiesta ha una latenza più elevata perché deve recuperare la tabella di routing degli indirizzi. Quando si usa [SDK v2](sql-api-sdk-dotnet.md), chiamare `OpenAsync()` una sola volta durante l'inizializzazione per evitare questa latenza di avvio alla prima richiesta. La chiamata ha un aspetto simile al seguente: `await client.OpenAsync();`
 
 > [!NOTE]
-> `OpenAsync`genererà richieste per ottenere la tabella di routing degli indirizzi per tutti i contenitori nell'account. Per gli account che dispongono di molti contenitori ma la cui applicazione accede a un subset di essi, `OpenAsync` genera una quantità di traffico superflua che rende l'inizializzazione lenta. Pertanto `OpenAsync` , l'utilizzo di potrebbe non essere utile in questo scenario perché rallenta l'avvio dell'applicazione.
+> `OpenAsync` genererà richieste per ottenere la tabella di routing degli indirizzi per tutti i contenitori nell'account. Per gli account che dispongono di molti contenitori ma la cui applicazione accede a un subset di essi, `OpenAsync` genera una quantità di traffico superflua che rende l'inizializzazione lenta. Pertanto `OpenAsync` , l'utilizzo di potrebbe non essere utile in questo scenario perché rallenta l'avvio dell'applicazione.
 
 **Per le prestazioni, collocare i client nella stessa area di Azure**
 
@@ -158,8 +156,8 @@ Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseg
 **Ottimizzare le query parallele per le raccolte partizionate**
 
 SQL .NET SDK 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query in una raccolta partizionata in parallelo. Per altre informazioni, vedere [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) correlati all'utilizzo con gli SDK. Le query parallele sono progettate per offrire una migliore latenza e velocità effettiva delle query rispetto alla relativa controparte seriale. Le query parallele forniscono due parametri che è possibile ottimizzare per soddisfare i requisiti: 
-- `MaxDegreeOfParallelism`Controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo. 
-- `MaxBufferedItemCount`Controlla il numero di risultati prerecuperati.
+- `MaxDegreeOfParallelism` Controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo. 
+- `MaxBufferedItemCount` Controlla il numero di risultati prerecuperati.
 
 ***Ottimizzazione del grado di parallelismo***
 
@@ -204,7 +202,7 @@ Per ridurre il numero di round trip di rete necessari per recuperare tutti i ris
 > [!NOTE] 
 > La `maxItemCount` proprietà non deve essere utilizzata solo per la paginazione. L'uso principale è quello di migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-È anche possibile impostare le dimensioni della pagina usando gli SDK di Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in `FeedOptions` consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale, a seconda delle dimensioni del documento. Ad esempio:
+È anche possibile impostare le dimensioni della pagina usando gli SDK di Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in `FeedOptions` consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale, a seconda delle dimensioni del documento. Esempio:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -231,7 +229,7 @@ collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabas
 
 Per altre informazioni, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](index-policy.md).
 
-## <a name="throughput"></a><a id="measure-rus"></a>Throughput
+## <a name="throughput"></a><a id="measure-rus"></a> Throughput
 
 **Misurare e ottimizzare l'utilizzo di unità richiesta/secondo inferiori**
 

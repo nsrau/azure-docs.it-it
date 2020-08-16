@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 90b4ffb273fc314a7c92971490fb09b6f0c131ee
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987257"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258341"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -32,7 +32,7 @@ Se quindi si sta provando a migliorare le prestazioni del database, prendere in 
 
 Per migliorare le prestazioni, è consigliabile l'elaborazione host Windows a 64 bit. L'SDK SQL include un file ServiceInterop.dll nativo che consente di analizzare e ottimizzare le query in locale. Il file ServiceInterop.dll è supportato solo nella piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è disponibile, viene effettuata una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata. Per impostazione predefinita, nei seguenti tipi di applicazioni viene utilizzata l'elaborazione host a 32 bit. Per modificare l'elaborazione dell'host nell'elaborazione a 64 bit, attenersi alla procedura seguente, in base al tipo di applicazione:
 
-- Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) su **x64** nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
+- Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) su **x64**  nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
 
 - Per i progetti di test basati su VSTest, è possibile modificare l'elaborazione dell' **host selezionando**  >  **impostazioni test**di test  >  **Architettura processore predefinita come x64** nel menu **test** di Visual Studio.
 
@@ -55,7 +55,7 @@ Se si sta eseguendo il test a livelli di velocità effettiva elevati (più di 50
 > [!NOTE] 
 > Un utilizzo elevato della CPU può causare un aumento della latenza e delle eccezioni di timeout richieste.
 
-## <a name="networking"></a>Rete
+## <a name="networking"></a>Funzionalità di rete
 <a id="direct-connection"></a>
 
 **Criteri di connessione: usare la modalità di connessione diretta**
@@ -71,16 +71,13 @@ Il modo in cui un client si connette a Azure Cosmos DB ha implicazioni important
      Se l'applicazione viene eseguita all'interno di una rete aziendale con restrizioni rigide del firewall, la modalità Gateway è la scelta migliore perché usa la porta HTTPS standard e un singolo endpoint. Il compromesso in termini di prestazioni, tuttavia, è che la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. In modo che la modalità diretta offra prestazioni migliori in quanto sono presenti meno hop di rete. Si consiglia anche la modalità di connessione del gateway quando si eseguono applicazioni in ambienti con un numero limitato di connessioni socket.
 
      Quando si usa l'SDK in funzioni di Azure, in particolare nel [piano a consumo](../azure-functions/functions-scale.md#consumption-plan), tenere presenti i [limiti correnti per le connessioni](../azure-functions/manage-connections.md). In tal caso, la modalità gateway potrebbe essere migliore se si lavora anche con altri client basati su HTTP all'interno dell'applicazione funzioni di Azure.
-
-
-In modalità gateway Azure Cosmos DB usa la porta 443 e le porte 10250, 10255 e 10256 quando si usa l'API Azure Cosmos DB per MongoDB. La porta 10250 esegue il mapping a un'istanza di MongoDB predefinita senza replica geografica. Le porte 10255 e 10256 sono mappate all'istanza di MongoDB con replica geografica.
      
-Quando si usa TCP in modalità diretta, oltre alle porte del gateway, è necessario assicurarsi che l'intervallo di porte compreso tra 10000 e 20000 sia aperto perché Azure Cosmos DB usa porte TCP dinamiche. quando si usa la modalità diretta su [endpoint privati](./how-to-configure-private-endpoints.md), è necessario aprire l'intera gamma di porte TCP, da 0 a 65535. Per impostazione predefinita, le porte sono aperte per la configurazione della macchina virtuale di Azure standard. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore di 503 servizio non disponibile. Questa tabella mostra le modalità di connettività disponibili per le varie API e le porte del servizio usate per ogni API:
+Quando si usa TCP in modalità diretta, oltre alle porte del gateway, è necessario assicurarsi che l'intervallo di porte compreso tra 10000 e 20000 sia aperto perché Azure Cosmos DB usa porte TCP dinamiche. Quando si usa la modalità diretta negli [endpoint privati](./how-to-configure-private-endpoints.md), è necessario aprire l'intera gamma di porte TCP, da 0 a 65535. Per impostazione predefinita, le porte sono aperte per la configurazione della macchina virtuale di Azure standard. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore di 503 servizio non disponibile. La tabella seguente illustra le modalità di connettività disponibili per le varie API e le porte del servizio usate per ogni API:
 
 |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
 |---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabella (443), Cassandra (10350), Graph (443)    |
-|Direct    |     TCP    |  .NET SDK    | Quando si usano gli endpoint pubblici/di servizio: porte nell'intervallo da 10000 a 20000<br>Quando si usano endpoint privati: porte nell'intervallo da 0 a 65535 |
+|Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabella (443), Cassandra (10350), Graph (443) <br> La porta 10250 esegue il mapping a un'API Azure Cosmos DB predefinita per l'istanza di MongoDB senza replica geografica. Mentre le porte 10255 e 10256 sono mappate all'istanza con replica geografica.   |
+|Connessione diretta    |     TCP    |  .NET SDK    | Quando si usano gli endpoint pubblici/di servizio: porte nell'intervallo da 10000 a 20000<br>Quando si usano endpoint privati: porte nell'intervallo da 0 a 65535 |
 
 Azure Cosmos DB offre un modello di programmazione RESTful semplice e aperto su HTTPS. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Il protocollo TCP usa TLS per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
 
@@ -167,8 +164,8 @@ Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseg
 **Ottimizzare le query parallele per le raccolte partizionate**
 
 SQL .NET SDK supporta le query parallele, che consentono di eseguire query in un contenitore partizionato in parallelo. Per altre informazioni, vedere [esempi di codice](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) correlati all'utilizzo con gli SDK. Le query parallele sono progettate per offrire una migliore latenza e velocità effettiva delle query rispetto alla relativa controparte seriale. Le query parallele forniscono due parametri che è possibile ottimizzare per soddisfare i requisiti: 
-- `MaxConcurrency`Controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo. 
-- `MaxBufferedItemCount`Controlla il numero di risultati prerecuperati.
+- `MaxConcurrency` Controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo. 
+- `MaxBufferedItemCount` Controlla il numero di risultati prerecuperati.
 
 ***Livello di ottimizzazione della concorrenza***
 

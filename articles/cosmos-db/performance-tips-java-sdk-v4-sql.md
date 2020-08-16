@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d8ad191476416bc6ced35c4086d336b7f0a926cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327838"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258313"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Java SDK v4
 
@@ -45,7 +45,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     Queste modalità di connessione essenzialmente condizionano la route richiesta dal piano dati, ovvero letture e scritture di documenti, dal computer client alle partizioni nel Azure Cosmos DB back-end. In genere, la modalità diretta è l'opzione preferita per ottenere prestazioni ottimali, consentendo al client di aprire le connessioni TCP direttamente alle partizioni nel Azure Cosmos DB back-end e inviare le richieste *Direct*ly senza intermediario. Al contrario, in modalità Gateway, le richieste effettuate dal client vengono instradate a un cosiddetto server "Gateway" nel front-end di Azure Cosmos DB, che a sua volta esegue il fan out delle richieste a una o più partizioni appropriate nel back-end di Azure Cosmos DB. Se l'applicazione è in esecuzione in una rete aziendale con limitazioni rigide del firewall, la modalità Gateway è la scelta migliore, perché usa la porta HTTPS standard e un singolo endpoint. A livello di prestazioni, tuttavia, la modalità Gateway prevede un hop di rete aggiuntivo (da client a Gateway e da Gateway a partizione) ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete.
 
-    La modalità di connessione per le richieste del piano dati viene configurata nel generatore di Azure Cosmos DB client usando i metodi *directMode ()* o *gatewayMode ()* , come illustrato di seguito. Per configurare una delle modalità con le impostazioni predefinite, chiamare uno dei metodi senza argomenti. In caso contrario, passare un'istanza della classe delle impostazioni di configurazione come argomento (*DirectConnectionConfig* per *directMode ()*, *GatewayConnectionConfig* per *gatewayMode ()*.
+    La modalità di connessione per le richieste del piano dati viene configurata nel generatore di Azure Cosmos DB client usando i metodi *directMode ()* o *gatewayMode ()* , come illustrato di seguito. Per configurare una delle modalità con le impostazioni predefinite, chiamare uno dei metodi senza argomenti. In caso contrario, passare un'istanza della classe delle impostazioni di configurazione come argomento (*DirectConnectionConfig* per *directMode ()*,  *GatewayConnectionConfig* per *gatewayMode ()*.
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -75,7 +75,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     # <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
-    API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
+    API Sync di Java SDK v4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientDirectOverrideSync)]
 
@@ -276,7 +276,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](https://docs.microsoft.co
 
     Per migliorare le prestazioni delle scritture di punti, specificare la chiave della partizione dell'elemento nella chiamata all'API per le scritture di punti, come mostrato di seguito:
 
-    # <a name="async"></a>[Asincrona](#tab/api-async)
+    # <a name="async"></a>[Async](#tab/api-async)
 
     API asincrona Java SDK V4 (Maven com.azure::azure-cosmos)
 
@@ -284,7 +284,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](https://docs.microsoft.co
 
     # <a name="sync"></a>[Sincronizza](#tab/api-sync)
 
-    API sincrona Java SDK V4 (Maven com.azure::azure-cosmos)
+    API Sync di Java SDK v4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceNoPKSync)]
 
@@ -316,7 +316,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](https://docs.microsoft.co
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>Java SDK v4 (Maven com.azure::azure-cosmos)
 
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=MigrateIndexingAsync)]
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
     Per altre informazioni, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md).
 

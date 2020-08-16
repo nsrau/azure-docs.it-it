@@ -3,31 +3,16 @@ title: Migliorare l'affidabilità dell'applicazione con Advisor
 description: USA Azure Advisor per garantire e migliorare l'affidabilità nelle tue distribuzioni di Azure cruciali per l'azienda.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057667"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258503"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Migliorare l'affidabilità dell'applicazione usando Azure Advisor
 
 Azure Advisor aiuta a garantire e migliorare la continuità delle applicazioni aziendali critiche. È possibile ottenere consigli sull'affidabilità da Advisor nella scheda **affidabilità** del dashboard di Advisor.
-
-## <a name="ensure-virtual-machine-fault-tolerance"></a>Garantire la tolleranza di errore delle macchine virtuali
-
-Per garantire la ridondanza per l'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Advisor identifica le macchine virtuali che non fanno parte di un set di disponibilità e le consiglia di spostarle in una. Questa configurazione garantisce che, durante la manutenzione pianificata o non pianificata, sia disponibile almeno una macchina virtuale che soddisfi il contratto di contratto con la macchina virtuale di Azure. È possibile scegliere di creare un set di disponibilità per la macchina virtuale oppure aggiungere la macchina virtuale a un set di disponibilità esistente.
-
-> [!NOTE]
-> Se si sceglie di creare un set di disponibilità, è necessario aggiungervi almeno una macchina virtuale. È consigliabile raggruppare due o più macchine virtuali in un set di disponibilità per garantire la disponibilità di almeno una macchina durante un'interruzione.
-
-## <a name="ensure-availability-set-fault-tolerance"></a>Garantire la tolleranza di errore del set di disponibilità
-
-Per garantire la ridondanza per l'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Advisor identifica i set di disponibilità che contengono una singola macchina virtuale e consiglia di aggiungere una o più macchine virtuali.Questa configurazione garantisce che, durante la manutenzione pianificata o non pianificata, sia disponibile almeno una macchina virtuale che soddisfi il contratto di contratto con la macchina virtuale di Azure.È possibile scegliere di creare una macchina virtuale o di aggiungerne una esistente al set di disponibilità.  
-
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Usare Managed disks per migliorare l'affidabilità dei dati
-
-Le macchine virtuali che si trovano in un set di disponibilità con dischi che condividono gli account di archiviazione o le unità di scala di archiviazione non sono resilienti agli errori di unità di scala di archiviazione singole durante le interruzioni. Advisor identifica questi set di disponibilità e consiglia di eseguire la migrazione a Managed Disks di Azure. Questa migrazione garantirà che i dischi delle macchine virtuali nel set di disponibilità siano sufficientemente isolati per evitare un singolo punto di errore. 
 
 ## <a name="check-the-version-of-your-check-point-network-virtual-appliance-image"></a>Verificare la versione dell'immagine dell'appliance virtuale di rete del punto di controllo
 
@@ -73,6 +58,21 @@ Azure Advisor verifica la presenza di un gateway VPN che usa uno SKU di base e c
 - Opzioni di configurazione di Active-Active. 
 - Criteri IPSec/IKE personalizzati. 
 - Stabilità e disponibilità più elevate.
+
+## <a name="ensure-virtual-machine-fault-tolerance-temporarily-disabled"></a>Verificare la tolleranza di errore della macchina virtuale (temporaneamente disabilitata)
+
+Per garantire la ridondanza per l'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Advisor identifica le macchine virtuali che non fanno parte di un set di disponibilità e le consiglia di spostarle in una. Questa configurazione garantisce che, durante la manutenzione pianificata o non pianificata, sia disponibile almeno una macchina virtuale che soddisfi il contratto di contratto con la macchina virtuale di Azure. È possibile scegliere di creare un set di disponibilità per la macchina virtuale oppure aggiungere la macchina virtuale a un set di disponibilità esistente.
+
+> [!NOTE]
+> Se si sceglie di creare un set di disponibilità, è necessario aggiungervi almeno una macchina virtuale. È consigliabile raggruppare due o più macchine virtuali in un set di disponibilità per garantire la disponibilità di almeno una macchina durante un'interruzione.
+
+## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Verificare la tolleranza di errore del set di disponibilità (disabilitata temporaneamente)
+
+Per garantire la ridondanza per l'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Advisor identifica i set di disponibilità che contengono una singola macchina virtuale e consiglia di aggiungere una o più macchine virtuali.Questa configurazione garantisce che, durante la manutenzione pianificata o non pianificata, sia disponibile almeno una macchina virtuale che soddisfi il contratto di contratto con la macchina virtuale di Azure.È possibile scegliere di creare una macchina virtuale o di aggiungerne una esistente al set di disponibilità.  
+
+## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Usare Managed disks per migliorare l'affidabilità dei dati (temporaneamente disabilitato)
+
+Le macchine virtuali che si trovano in un set di disponibilità con dischi che condividono gli account di archiviazione o le unità di scala di archiviazione non sono resilienti agli errori di unità di scala di archiviazione singole durante le interruzioni. Advisor identifica questi set di disponibilità e consiglia di eseguire la migrazione a Managed Disks di Azure. Questa migrazione garantirà che i dischi delle macchine virtuali nel set di disponibilità siano sufficientemente isolati per evitare un singolo punto di errore. 
 
 ## <a name="repair-invalid-log-alert-rules"></a>Ripristinare le regole di avviso del log non valide
 

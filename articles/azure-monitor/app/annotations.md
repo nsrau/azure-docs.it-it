@@ -2,13 +2,13 @@
 title: Annotazioni sulla versione per Application Insights | Documentazione Microsoft
 description: Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights.
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/14/2020
+ms.openlocfilehash: e21981f134f6a78109d70b1edf6d61e204b64e12
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320664"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258410"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
@@ -68,6 +68,10 @@ Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
    ![Nella scheda variabili di Azure DevOps selezionare Aggiungi, denominare la variabile ApiKey e incollare la chiave API in valore.](./media/annotations/7-paste-api-key.png)
    
 1. Selezionare **Save (Salva** ) nella finestra principale modello di rilascio per salvare il modello.
+
+
+   > [!NOTE]
+   > I limiti per le chiavi API sono descritti nella [documentazione relativa ai limiti di frequenza delle API REST](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
 
 ## <a name="view-annotations"></a>Visualizzare le annotazioni
 

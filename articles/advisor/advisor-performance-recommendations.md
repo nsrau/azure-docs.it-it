@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057563"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257467"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -20,7 +20,7 @@ I suggerimenti sulle prestazioni in Azure Advisor consentono di migliorare la ve
 
 Azure Advisor identifica i profili di gestione traffico con un valore TTL più lungo configurato. Si consiglia di configurare la durata (TTL) su 20 secondi o 60 secondi, a seconda che il profilo sia configurato per [failover rapido](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-by-using-sql-database-advisor"></a>Migliorare le prestazioni del database tramite SQL Advisor per database
+## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Migliorare le prestazioni del database tramite SQL Advisor per database (temporaneamente disabilitato)
 
 Azure Advisor offre una vista coerente e consolidata delle raccomandazioni per tutte le risorse di Azure. Si integra con SQL Advisor per database per fornire indicazioni per migliorare le prestazioni dei database.SQL Advisor per database valuta le prestazioni dei database analizzando la cronologia di utilizzo. Offre quindi consigli più adatti per l'esecuzione del carico di lavoro tipico del database.
 
@@ -151,6 +151,22 @@ Advisor identifica Azure Cosmos DB contenitori che usano i criteri di indicizzaz
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Impostare le dimensioni della pagina della query Azure Cosmos DB (MaxItemCount) su-1 
 
 Azure Advisor identifica Azure Cosmos DB contenitori che utilizzano una dimensione della pagina di query di 100. Si consiglia di utilizzare una dimensione di pagina pari a-1 per analisi più veloci. [Altre informazioni su MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
+## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Provare a usare la funzionalità Scritture accelerate nel cluster HBase per migliorare le prestazioni del cluster
+Azure Advisor analizza i registri di sistema negli ultimi 7 giorni e identifica se il cluster ha riscontrato gli scenari seguenti:
+1. Latenza elevata dell'ora di sincronizzazione log write-ahead 
+2. Numero elevato di richieste di scrittura (almeno 3 in un'ora di oltre 1000 avg_write_requests/second/node)
+
+Queste condizioni indicano che il cluster è soggetto a latenze di scrittura elevate. Il problema potrebbe essere dovuto a carichi di lavoro intensivi eseguiti nel cluster. Per migliorare le prestazioni del cluster, è consigliabile usare la funzionalità di scrittura accelerata fornita da Azure HDInsight HBase. La funzionalità scritture accelerate per i cluster HDInsight Apache HBase collega i dischi gestiti da SSD Premium a ogni RegionServer (nodo di lavoro) invece di usare l'archiviazione cloud. Di conseguenza, offre bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni su questa funzionalità, vedere [altre informazioni](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+
+## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Esaminare la cache della tabella Esplora dati di Azure-periodo (criteri) per migliorare le prestazioni (anteprima)
+Questa raccomandazione presenta le tabelle di Esplora dati di Azure con un numero elevato di query che riportano oltre il periodo di memorizzazione nella cache configurato (criteri). le prime 10 tabelle vengono visualizzate per percentuale di query che accedono a dati fuori dalla cache. Azione consigliata per migliorare le prestazioni del cluster: limitare le query su questa tabella all'intervallo di tempo minimo necessario (entro i criteri definiti). In alternativa, se i dati dell'intero intervallo di tempo sono obbligatori, aumentare il periodo della cache con il valore consigliato.
+
+## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Migliorare le prestazioni ottimizzando il dimensionamento della tabella temporanea MySQL
+L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Altre informazioni](https://aka.ms/azure_mysql_tmp_table)
+
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuire i dati nel gruppo di server per distribuire il carico di lavoro tra i nodi
+Advisor identifica i gruppi di server in cui i dati non sono stati distribuiti, ma rimane sul coordinatore. In base a questa operazione, Advisor consiglia di distribuire i dati nei nodi del ruolo di lavoro per i gruppi di server per i vantaggi della scalabilità completa (CITUS). Ciò consente di migliorare le prestazioni di esecuzione delle query utilizzando la risorsa di ogni nodo nel gruppo di server. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Come accedere ai consigli sulle prestazioni in Advisor
 

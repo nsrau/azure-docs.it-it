@@ -4,16 +4,16 @@ description: Usare le variabili di ambiente e creare opzioni per abilitare l'acc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/18/2019
+ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434529"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257484"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Consentire ai moduli di accedere all'archiviazione locale di un dispositivo
 
@@ -26,11 +26,11 @@ Per abilitare un collegamento dalla risorsa di archiviazione del modulo alla ris
 Ad esempio, se si vuole abilitare l'hub IoT Edge per archiviare i messaggi nell'archiviazione locale del dispositivo e recuperarli in un secondo momento, è possibile configurare le variabili di ambiente e le opzioni di creazione nel portale di Azure nella sezione **impostazioni di runtime** .
 
 1. Per entrambi IoT Edge Hub e IoT Edge Agent, aggiungere una variabile di ambiente denominata **StorageFolder** che punta a una directory del modulo.
-1. Per IoT Edge Hub e IoT Edge Agent, aggiungere binding per connettere una directory locale nel computer host a una directory del modulo. Ad esempio:
+1. Per IoT Edge Hub e IoT Edge Agent, aggiungere binding per connettere una directory locale nel computer host a una directory del modulo. Esempio:
 
    ![Aggiungere le opzioni di creazione e le variabili di ambiente per l'archiviazione locale](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-In alternativa, è possibile configurare l'archiviazione locale direttamente nel manifesto della distribuzione. Ad esempio:
+In alternativa, è possibile configurare l'archiviazione locale direttamente nel manifesto della distribuzione. Esempio:
 
 ```json
 "systemModules": {
@@ -82,6 +82,12 @@ sudo chmod 700 <HostStoragePath>
 ```
 
 Per altre informazioni su come creare opzioni, vedere la [documentazione di Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## <a name="encrypted-data-in-module-storage"></a>Dati crittografati nell'archiviazione moduli
+
+Quando i moduli richiamano l'API del carico di lavoro del daemon di IoT Edge per crittografare i dati, la chiave di crittografia viene derivata usando l'ID modulo e l'ID generazione del modulo. Un ID di generazione viene usato per proteggere i segreti se un modulo viene rimosso dalla distribuzione e un altro modulo con lo stesso ID modulo viene distribuito in un secondo momento nello stesso dispositivo. È possibile visualizzare l'ID generazione di un modulo usando il comando dell'interfaccia della riga di comando di Azure [AZ l'hub Module-Identity Show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+
+Se si desidera condividere i file tra i moduli tra le generazioni, questi non devono contenere segreti o non verranno decrittografati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

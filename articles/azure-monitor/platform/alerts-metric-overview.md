@@ -1,15 +1,15 @@
 ---
 title: Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure.
 description: È disponibile una panoramica delle operazioni eseguibili con gli avvisi delle metriche e del relativo funzionamento in Monitoraggio di Azure.
-ms.date: 07/16/2020
+ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327141"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258435"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -135,12 +135,15 @@ Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usat
 
 Questa funzionalità è attualmente supportata per le metriche della piattaforma (non per le metriche personalizzate) per i servizi seguenti nei cloud di Azure seguenti:
 
-| Service | Public Azure (Azure pubblico) | Government | Cina |
+| Servizio | Public Azure (Azure pubblico) | Enti governativi | Cina |
 |:--------|:--------|:--------|:--------|
 | Macchine virtuali  | **Sì** | No | No |
-| Database di SQL Server | **Sì** | **Sì** | No |
-| Pool elastici di SQL Server | **Sì** | **Sì** | No |
-| Dispositivi perimetrali data box | **Sì** | **Sì** | No |
+| Database di SQL Server | **Sì** | **Sì** | **Sì** |
+| Pool elastici di SQL Server | **Sì** | **Sì** | **Sì** |
+| Pool di capacità dei file NetApp | **Sì** | **Sì** | **Sì** |
+| Volumi di file NetApp | **Sì** | **Sì** | **Sì** |
+| Key Vault | **Sì** | **Sì** | **Sì** |
+| Dispositivi perimetrali data box | **Sì** | **Sì** | **Sì** |
 
 È possibile specificare l'ambito di monitoraggio tramite una singola regola di avviso metrica in uno dei tre modi seguenti. Con le macchine virtuali, ad esempio, è possibile specificare l'ambito come:  
 

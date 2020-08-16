@@ -3,12 +3,12 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284371"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258540"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Ridurre i costi del servizio usando Azure Advisor
 
@@ -96,6 +96,8 @@ Il [disco del sistema operativo temporaneo](../virtual-machines/ephemeral-os-dis
 
 È preferibile usare un disco del sistema operativo temporaneo per macchine virtuali IaaS di breve durata o macchine virtuali con carichi di lavoro senza stato. Advisor fornisce consigli per le risorse che possono trarre vantaggio dal disco del sistema operativo temporaneo.
 
+## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>Ridurre la cache della tabella Esplora dati di Azure-periodo (criteri) per l'ottimizzazione dei costi del cluster (anteprima)
+Advisor identifica le risorse in cui la riduzione dei criteri di cache della tabella consente di liberare i nodi del cluster Esplora dati di Azure con un utilizzo ridotto della CPU, della memoria e di una configurazione della dimensione della cache elevata.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Come accedere ai consigli sui costi in Azure Advisor
 

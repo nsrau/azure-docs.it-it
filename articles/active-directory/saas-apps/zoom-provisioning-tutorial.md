@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3a2e4bbff1274a2473ac961b8355ca4193dcc69f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 52700df5c2977f33c988fcb34cdc3d67844d1d49
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924904"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257572"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Esercitazione: configurare lo zoom per il provisioning utenti automatico
 
@@ -50,7 +50,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare lo zoom per supportare il provisioning con Azure AD
 
-1. Accedere alla console di [amministrazione dello zoom](https://zoom.us/signin). Passare a **Advanced > zoom for Developers** nel riquadro di spostamento a sinistra.
+1. Accedere alla console di [amministrazione dello zoom](https://zoom.us/signin). Passare a **Advanced > App Marketplace** nel riquadro di spostamento a sinistra.
 
     ![Integrazioni zoom](media/zoom-provisioning-tutorial/zoom01.png)
 

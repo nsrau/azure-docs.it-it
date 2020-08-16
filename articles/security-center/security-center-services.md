@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3055d8c31307cfacad575d892db0ed812a03a9e4
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519235"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258623"
 ---
 # <a name="feature-coverage-for-machines"></a>Copertura delle funzionalità per i computer
 
 Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure disponibili per le macchine virtuali e i server Windows e Linux.
 
-## <a name="supported-features-for-virtual-machines-and-servers"></a>Funzionalità supportate per le macchine virtuali e i server<a name="vm-server-features"></a>
+## <a name="supported-features-for-virtual-machines-and-servers"></a>Funzionalità supportate per le macchine virtuali e i server <a name="vm-server-features"></a>
 
 ### <a name="windows-machines"></a>[**Computer Windows**](#tab/features-windows)
 
@@ -37,9 +37,9 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 |[Accesso just-in-time alle macchine virtuali](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Valutazione della vulnerabilità nativa](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoraggio dell'integrità dei file](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controlli applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controlli delle applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mappa di rete](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Protezione avanzata della rete adattiva](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[Protezione adattiva della rete](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Dashboard di conformità normativa & report](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Raccomandazioni e protezione dalle minacce nei contenitori IaaS ospitati da Docker|-|-|-|Standard|
 |Valutazione patch del sistema operativo mancanti|✔|✔|✔|Azure: gratuito<br><br>Non Azure: standard|
@@ -61,9 +61,9 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 |[Accesso just-in-time alle macchine virtuali](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Valutazione della vulnerabilità nativa](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoraggio dell'integrità dei file](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controlli applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controlli delle applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mappa di rete](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Protezione avanzata della rete adattiva](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[Protezione adattiva della rete](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Dashboard di conformità normativa & report](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Raccomandazioni e protezione dalle minacce nei contenitori IaaS ospitati da Docker|✔|✔|✔|Standard|
 |Valutazione patch del sistema operativo mancanti|✔|✔|✔|Azure: gratuito<br><br>Non Azure: standard|
@@ -80,7 +80,7 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 >Per sperimentare le funzionalità disponibili solo nel piano tariffario standard, gli utenti del livello gratuito possono iscriversi a una versione di valutazione di 30 giorni. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-## <a name="supported-endpoint-protection-solutions"></a>Soluzioni di Endpoint Protection supportate<a name="endpoint-supported"></a>
+## <a name="supported-endpoint-protection-solutions"></a>Soluzioni di Endpoint Protection supportate <a name="endpoint-supported"></a>
 
 La tabella seguente contiene una matrice che indica:
 
@@ -91,13 +91,13 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 
 | Endpoint Protection| Piattaforme | Installazione del Centro sicurezza | Individuazione del Centro sicurezza |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Sì |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016 o versione successiva| No, predefinito nel sistema operativo| Sì |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Sì |
 | Trend Micro-Deep Security | Famiglia Windows Server  | No | Sì |
 | Symantec v12.1.1100+| Famiglia Windows Server  | No | Sì |
 | McAfee v10+ | Famiglia Windows Server  | No | Sì |
-| McAfee v10+ | Famiglia di server Linux  | No | Sì**\*** |
-| Sophos V9 +| Famiglia di server Linux  | No | Sì**\***  |
+| McAfee v10+ | Famiglia di server Linux  | No | Sì **\*** |
+| Sophos V9 +| Famiglia di server Linux  | No | Sì  **\***  |
 
  **\*** Lo stato di code coverage e i dati di supporto sono attualmente disponibili solo nell'area di lavoro Log Analytics associata alle sottoscrizioni protette. Non viene riflessa nel portale del Centro sicurezza di Azure.
 

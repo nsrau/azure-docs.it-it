@@ -3,12 +3,12 @@ title: 'Come progettare la distribuzione di Application Insights: una o più ris
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420567"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258713"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quante risorse Application Insights è necessario distribuire
 
@@ -41,7 +41,7 @@ Ogni risorsa di Application Insights viene fornita con metriche disponibili. Se 
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
 
-Per rendere più semplice la modifica del valore ikey man mano che il codice attraversa le fasi di produzione, impostarlo nel codice anziché nel file di configurazione.
+Per semplificare la modifica del iKey quando il codice si sposta tra le fasi di produzione, fare riferimento alla chiave in modo dinamico nel codice anziché usare un valore hardcoded/statico.
 
 Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
 

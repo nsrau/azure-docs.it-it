@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 967b2dceab1f1702120cd3121ccd64b4e7286bc6
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511905"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258609"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati nella condivisione dati di Azure
 
@@ -28,9 +28,9 @@ La tabella seguente illustra in dettaglio le origini dati supportate per la cond
 | Archiviazione BLOB di Azure |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| database SQL di Azure |Anteprima pubblica | |
+| Database SQL di Azure |Anteprima pubblica | |
 | Azure sinapsi Analytics (in precedenza Azure SQL DW) |Anteprima pubblica | |
-| Esplora dati di Azure | |Anteprima pubblica |
+| Esplora dati di Azure | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matrice di supporto dell'archivio dati
 
@@ -38,12 +38,12 @@ La condivisione di dati di Azure offre la flessibilità dei consumer di dati per
 
 Nella tabella seguente vengono illustrate le diverse combinazioni e scelte che i consumer di dati hanno per l'accettazione e la configurazione della condivisione di dati. Per ulteriori informazioni su come configurare i mapping dei set di dati, vedere [come configurare i mapping dei set di dati](how-to-configure-mapping.md).
 
-| Archivio dati | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | database SQL di Azure | Azure Synapse Analytics | Esplora dati di Azure
+| Archivio dati | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Database SQL di Azure | Azure Synapse Analytics | Esplora dati di Azure
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Archiviazione BLOB di Azure | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
 | Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
-| database SQL di Azure | ✓ | | ✓ | ✓ | ✓ ||
+| Database SQL di Azure | ✓ | | ✓ | ✓ | ✓ ||
 | Azure sinapsi Analytics (in precedenza Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
 | Esplora dati di Azure |||||| ✓ |
 
@@ -62,9 +62,7 @@ La condivisione da origini basate su SQL include prerequisiti relativi a regole 
 ## <a name="share-from-azure-data-explorer"></a>Condividere da Esplora dati di Azure
 La condivisione di dati di Azure supporta la possibilità di condividere i database sul posto da Azure Esplora dati cluster. Il provider di dati può condividere a livello di database o di cluster. Quando è condiviso a livello di database, il consumer di dati sarà in grado di accedere solo ai database specifici condivisi dal provider di dati. Quando viene condiviso a livello di cluster, il consumer di dati può accedere a tutti i database dal cluster del provider, inclusi eventuali database futuri creati dal provider di dati.
 
-Per accedere ai database condivisi, il consumer di dati deve avere il proprio cluster Esplora dati di Azure. Il cluster di Azure Esplora dati del consumer di dati deve trovarsi nella stessa data center di Azure del cluster di Azure Esplora dati del provider di dati. Quando si stabilisce una relazione di condivisione, condivisione dati di Azure crea un collegamento simbolico tra i cluster di Azure Esplora dati del provider e del consumer.
-
-Azure Esplora dati supporta due modalità di inserimento dei dati: batch e streaming. I dati ricevuti da batch nel database condiviso verranno visualizzati tra pochi secondi e pochi minuti sul lato consumer dati. I dati ricevuti dallo streaming potrebbero richiedere fino a 24 ore per essere visualizzati sul lato utente dati. 
+Per accedere ai database condivisi, il consumer di dati deve avere il proprio cluster Esplora dati di Azure. Il cluster di Azure Esplora dati del consumer di dati deve trovarsi nella stessa data center di Azure del cluster di Azure Esplora dati del provider di dati. Quando si stabilisce una relazione di condivisione, condivisione dati di Azure crea un collegamento simbolico tra i cluster di Azure Esplora dati del provider e del consumer. I dati inseriti con la modalità batch nel cluster di Azure Esplora dati di origine vengono visualizzati nel cluster di destinazione entro pochi secondi per pochi minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali di servizi di ripristino di backup di Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055180"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257963"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -43,8 +43,9 @@ Per eliminare correttamente un insieme di credenziali, è necessario seguire i p
 - **Passaggio 3**: è necessario controllare tutte le tre posizioni seguenti per verificare se sono presenti elementi protetti:
 
   - **Elementi protetti dal cloud**: andare al menu del dashboard dell'insieme di credenziali > **gli elementi di backup**. Tutti gli elementi elencati di seguito devono essere rimossi con **Interrompi backup** o **Elimina dati di backup** insieme ai relativi dati di backup.  Per rimuovere tali elementi, [attenersi alla seguente procedura](#delete-protected-items-in-the-cloud) .
+  - **SQL Server istanza**: andare al menu del dashboard dell'insieme **Backup Infrastructure**di credenziali >  >  **server protetti**dell'infrastruttura di backup. In Server protetti selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server. Fare clic con il pulsante destro del mouse sul server protetto e selezionare **Annulla registrazione**.
   - **Server protetti Mars**: accedere al menu del dashboard dell'insieme **Backup Infrastructure**di credenziali >  >  **server protetti**dell'infrastruttura di backup. Se sono presenti server protetti da MARS, tutti gli elementi elencati di seguito devono essere eliminati insieme ai relativi dati di backup. Per eliminare server protetti da MARS, [seguire questa procedura](#delete-protected-items-on-premises) .
-  - **Server di gestione MAB o DPM**: andare al menu del dashboard dell'insieme di credenziali > **backup infrastruttura**  >  **backup server di gestione**. Se si dispone di DPM o server di Backup di Azure (MAB), è necessario eliminare o annullare la registrazione di tutti gli elementi elencati di seguito insieme ai relativi dati di backup. Per eliminare i server di gestione, [attenersi alla seguente procedura](#delete-protected-items-on-premises) .
+   - **Server di gestione MAB o DPM**: andare al menu del dashboard dell'insieme di credenziali > **backup infrastruttura**  >  **backup server di gestione**. Se si dispone di DPM o server di Backup di Azure (MAB), è necessario eliminare o annullare la registrazione di tutti gli elementi elencati di seguito insieme ai relativi dati di backup. Per eliminare i server di gestione, [attenersi alla seguente procedura](#delete-protected-items-on-premises) .
 
 - **Passaggio 4**: è necessario assicurarsi che tutti gli account di archiviazione registrati vengano eliminati. Passare al menu del dashboard dell'insieme di credenziali > account di archiviazione dell'infrastruttura di **backup**  >  **Storage Accounts**. Se gli account di archiviazione sono elencati qui, è necessario annullare la registrazione di tutti gli account. Per informazioni su come annullare la registrazione dell'account, vedere [annullare la registrazione di un account di archiviazione](manage-afs-backup.md#unregister-a-storage-account).
 
@@ -84,7 +85,7 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
 1. Dal menu del dashboard dell'insieme di credenziali selezionare **infrastruttura di backup**.
 2. A seconda dello scenario locale, scegliere una delle opzioni seguenti:
 
-      - Per MARS selezionare **server protetti** e quindi **agente di backup di Azure**. Selezionare quindi il server che si desidera eliminare.
+      - Per MARS selezionare **server protetti** e quindi  **agente di backup di Azure**. Selezionare quindi il server che si desidera eliminare.
 
         ![Per MARS selezionare l'insieme di credenziali per aprire il relativo dashboard.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -171,7 +172,7 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
 #### <a name="method-2"></a>Metodo 2
 
-Aprire la console di gestione di **MAB** o **DPM** . In **Seleziona metodo protezione dati**deselezionare la casella di controllo voglio la **protezione online** .
+Aprire la console di gestione di **MAB** o **DPM** . In **Seleziona metodo protezione dati**deselezionare la casella di controllo voglio la  **protezione online** .
 
   ![Selezionare il metodo di protezione dati.](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -235,7 +236,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
 
     Post in cui viene visualizzato il messaggio seguente:
 
-    *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/>[Y] Sì [a] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*
+    *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [a] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*
 
 - Per i computer locali protetti con MAB (Backup di Microsoft Azure Server) o DPM (System Center Data Protection Manager) in Azure, usare il comando seguente per eliminare i dati di cui è stato eseguito il backup in Azure.
 
