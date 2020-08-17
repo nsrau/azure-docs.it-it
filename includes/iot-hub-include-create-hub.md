@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: d7ac494edfb9b1deeceafcac523ac58bccde96b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/17/2020
 ms.locfileid: "85365298"
 ---
 Questa sezione illustra come creare un hub IoT usando il [portale di Azure](https://portal.azure.com).
