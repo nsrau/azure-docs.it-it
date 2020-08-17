@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 08/12/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 127629cb0102c2736995364db9202cd837d99a17
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214281"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271006"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemi noti: provisioning delle applicazioni
 Problemi noti da tenere presente quando si utilizza il provisioning delle app. È possibile fornire commenti e suggerimenti sul servizio di provisioning dell'applicazione in UserVoice, vedere Azure AD provisioning [dell'applicazione UserVoice](https://aka.ms/appprovisioningfeaturerequest). Osserviamo attentamente UserVoice per poter migliorare il servizio. 
@@ -66,9 +66,11 @@ Le espressioni di mapping degli attributi possono avere un massimo di 10.000 car
 - Il provisioning di gruppi annidati non è supportato. 
 - Il provisioning in tenant B2C non è supportato a causa delle dimensioni dei tenant. 
 
+**L'intervallo di provisioning è fisso** Il [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) tra i cicli di provisioning non è attualmente configurabile. 
+
 **Le modifiche non passano dall'app di destinazione al Azure AD**
 
-Il servizio di provisioning delle app non è in grado di riconoscere le modifiche apportate alle app esterne. Non viene quindi eseguita alcuna azione per eseguire il rollback. Il servizio di provisioning delle app si basa sulle modifiche apportate in Azure AD.  
+Il servizio di provisioning delle app non è in grado di riconoscere le modifiche apportate alle app esterne. Non viene quindi eseguita alcuna azione per eseguire il rollback. Il servizio di provisioning delle app si basa sulle modifiche apportate in Azure AD. 
 
 **Il ciclo di provisioning continua fino al completamento**
 

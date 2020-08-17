@@ -1,14 +1,14 @@
 ---
 title: Configurare una raccolta di immagini condivise in Azure DevTest Labs | Microsoft Docs
-description: Informazioni su come configurare una raccolta di immagini condivise in Azure DevTest Labs
+description: Informazioni su come configurare una raccolta di immagini condivise in Azure DevTest Labs, che consente agli utenti di accedere alle immagini da un percorso condiviso durante la creazione di risorse Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f4a80062a245530c5d15e761a9eb7dc95fee091e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483789"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271040"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurare una raccolta immagini condivisa in Azure DevTest Labs
 DevTest Labs supporta ora la funzionalità [raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md) . Consente agli utenti del Lab di accedere alle immagini da un percorso condiviso durante la creazione di risorse Lab. Consente inoltre di creare strutture e organizzazioni per le immagini di macchina virtuale gestite in modo personalizzato. La funzionalità raccolta immagini condivise supporta:

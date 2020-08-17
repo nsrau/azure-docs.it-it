@@ -1,17 +1,17 @@
 ---
 title: Configurare l'archiviazione di Avere vFXT - Azure
-description: Come aggiungere un sistema di archiviazione back-end ad Avere vFXT per Azure
+description: Informazioni su come aggiungere un sistema di archiviazione back-end per un cluster in vFXT per Azure. Se è stato creato un contenitore BLOB di Azure con il cluster, è pronto per l'uso.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505750"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271142"
 ---
 # <a name="configure-storage"></a>Configurare l'archiviazione
 
@@ -125,7 +125,7 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
 
 1. Specificare le informazioni seguenti per creare le credenziali per il core filer cloud:
 
-   | Campo | valore |
+   | Campo | Valore |
    | --- | --- |
    | Credential name (Nome credenziali) | qualsiasi nome descrittivo |
    | Tipo di servizio | (selezionare la chiave di accesso di archiviazione di Azure) |

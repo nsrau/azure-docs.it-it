@@ -1,17 +1,17 @@
 ---
 title: Montare il cluster Avere vFXT - Azure
-description: Come montare i client con Avere vFXT per Azure
+description: Informazioni su come connettere i client al cluster vFXT in vFXT per Azure e su come bilanciare il carico del traffico client tra i nodi del cluster.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229568"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272572"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montare il cluster Avere vFXT
 
@@ -76,7 +76,7 @@ Il comando di montaggio ha tre elementi:
 
 Il percorso del server virtuale è una combinazione del relativo *indirizzo IP* e del percorso a una *giunzione dello spazio dei nomi*. La giunzione dello spazio dei nomi è un percorso virtuale definito quando è stato aggiunto il sistema di archiviazione.
 
-Se il cluster è stato creato con l'archiviazione BLOB, il percorso dello spazio dei nomi di tale contenitore è`/msazure`
+Se il cluster è stato creato con l'archiviazione BLOB, il percorso dello spazio dei nomi di tale contenitore è `/msazure`
 
 Esempio: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 

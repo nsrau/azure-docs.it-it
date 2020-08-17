@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 08/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6857fba86aebbcfd7b20326e4a4a268467e4fc3
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81603834"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Esercitazione: integrazione di Azure Active Directory con Amazon Web Services (AWS) (esercitazione legacy)
 
@@ -69,7 +69,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Amazon Web Services (AWS) supporta l'accesso SSO avviato da **SP e IDP**
-* Dopo aver configurato Amazon Web Services (AWS), è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Una volta configurato Amazon Web Services (AWS), è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Aggiunta di Amazon Web Service (AWS) dalla raccolta
 
@@ -86,7 +86,7 @@ Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è neces
 
     ![Amazon Web Services (AWS) nell'elenco dei risultati](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso SSO di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Amazon Web Services (AWS) usando un utente test di nome "Britta Simon".
 
@@ -120,7 +120,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione di **configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure e fare clic su **Salva**.
 
-5. L'applicazione Amazon Web Services (AWS) si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente e attestazioni** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente e attestazioni**.
+5. L'applicazione Amazon Web Services (AWS) si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente e attestazioni** nella pagina di integrazione dell'applicazione. Nella pagina **Configura accesso Single Sign-on con SAML** fare clic sul pulsante **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
 
     ![image](common/edit-attribute.png)
 
@@ -277,7 +277,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Finestra di dialogo Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. Dall'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione in tutte le entità servizio elencate. È possibile usare la query seguente usando l' **ID oggetto** copiato dalla pagina delle proprietà di Azure ad per ottenere la rispettiva entità servizio.
+    f. Dall'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione in tutte le entità servizio elencate. È possibile usare la query seguente usando l' **ID oggetto dell'entità servizio** copiato dalla pagina delle proprietà di Azure ad per ottenere la rispettiva entità servizio.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 

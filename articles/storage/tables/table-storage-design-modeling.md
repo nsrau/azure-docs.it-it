@@ -8,12 +8,12 @@ ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
-ms.openlocfilehash: a7316bc60ea26968e30bb11ef97d63bddb33895a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3023b478ef7a4aaf6d9239e997bdf63282b56210
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235962"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271193"
 ---
 # <a name="modeling-relationships"></a>Modellazione di relazioni
 Questo articolo illustra il processo di modellazione per semplificare la progettazione di soluzioni di archiviazione tabelle di Azure.
@@ -51,7 +51,7 @@ La tabella seguente riepiloga i vantaggi e gli svantaggi di ogni approccio descr
 <td>
 <ul>
 <li>È possibile aggiornare un'entità reparto con un'unica operazione.</li>
-<li>È possibile usare una transazione EGT per mantenere la coerenza, se esiste un requisito che impone di modificare un'entità reparto quando si aggiorna/inserisce/elimina un'entità dipendente, ad esempio se si mantiene un conteggio dei dipendenti per ogni reparto.</li>
+<li>È possibile usare un gruppo di entità Transaction * (transazione EGT) per mantenere la coerenza se si ha la necessità di modificare un'entità Department ogni volta che si aggiorna/inserisce/Elimina un'entità Employee. ad esempio se si mantiene un conteggio dei dipendenti per ogni reparto.</li>
 </ul>
 </td>
 <td>
@@ -92,6 +92,9 @@ La tabella seguente riepiloga i vantaggi e gli svantaggi di ogni approccio descr
 </td>
 </tr>
 </table>
+
+* per altre informazioni, vedere [transazioni di gruppi di entità](table-storage-design.md#entity-group-transactions)  
+
 
 Per scegliere tra queste opzioni e stabilire quali siano i vantaggi e gli svantaggi più importanti, è necessario considerare gli scenari specifici dell'applicazione. Ad esempio, ogni quanto si modificano le entità reparto, se tutte le query dei dipendenti richiedono informazioni aggiuntive sul reparto, quanto si è vicini ai limiti di scalabilità nelle partizioni o nell'account di archiviazione.  
 

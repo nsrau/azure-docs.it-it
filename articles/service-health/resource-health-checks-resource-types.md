@@ -3,12 +3,12 @@ title: Tipi di risorse supportati tramite Integrità risorse di Azure|Microsoft 
 description: Tipi di risorse supportati tramite Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f4d622ac6d37059731b51a679e13f824670b9dc8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6420283f3d3c07182faa2cb2a82ba7b2d784055
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071283"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272655"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
@@ -42,6 +42,11 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |Controlli eseguiti|
 |---|
 |<ul><li>Il server host è operativo?</li><li>L'avvio del sistema operativo host è stato completato?</li><li>Sono stati eseguiti il provisioning e l'accensione del contenitore della macchina virtuale?</li><li>È disponibile la connettività di rete tra l'host e l'account di archiviazione?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li><li>L'hardware dell'host è danneggiato e si prevede un guasto imminente?</li></ul>|
+
+## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/DomainNames
+|Controlli eseguiti|
+|---|
+|<ul><li>Il nome host del servizio cloud è in esecuzione?</li><li>L'avvio del sistema operativo host è stato completato?</li><li>Sono stati eseguiti il provisioning e l'accensione del contenitore della macchina virtuale?</li><li>È disponibile la connettività di rete tra l'host e l'account di archiviazione?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li><li>L'hardware dell'host è danneggiato e si prevede un guasto imminente?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Controlli eseguiti|

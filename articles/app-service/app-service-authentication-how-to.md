@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 52213999ae0ec9f6891c8ec10ab65471926e87d2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7ec16b5de6053256fa6565db510ee94776def2c4
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208031"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272315"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -146,7 +146,7 @@ Il servizio app passa le attestazioni utente all'applicazione usando intestazion
 
 Il codice scritto in qualsiasi linguaggio o framework può ottenere le informazioni necessarie da queste intestazioni. Per le app ASP.NET 4.6, i valori appropriati per **ClaimsPrincipal** vengono impostati automaticamente. ASP.NET Core, tuttavia, non fornisce un middleware di autenticazione che si integra con le attestazioni utente del servizio app. Per una soluzione alternativa, vedere [MaximeRouiller. Azure. AppService. EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-L'applicazione può anche ottenere dettagli aggiuntivi sull'utente autenticato chiamando `/.auth/me`. Gli SDK server delle app per dispositivi mobili forniscono metodi di supporto per l'uso di questi dati. Per altre informazioni, vedere [Come usare Node.js SDK per le app per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) e [Usare l'SDK del server back-end .NET per le app per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Se l' [Archivio di token](overview-authentication-authorization.md#token-store) è abilitato per l'app, è anche possibile ottenere ulteriori dettagli sull'utente autenticato chiamando `/.auth/me` . Gli SDK server delle app per dispositivi mobili forniscono metodi di supporto per l'uso di questi dati. Per altre informazioni, vedere [Come usare Node.js SDK per le app per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) e [Usare l'SDK del server back-end .NET per le app per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Recuperare i token nel codice dell'app
 
@@ -161,14 +161,14 @@ Dal codice server, i token specifici del provider vengono inseriti nell'intestaz
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-Dal codice client (ad esempio un'app per dispositivi mobili o codice JavaScript nel browser), inviare una richiesta `GET` HTTP a `/.auth/me`. Il codice JSON restituito include i token specifici del provider.
+Dal codice client (ad esempio un'app per dispositivi mobili o JavaScript nel browser), inviare una `GET` richiesta HTTP a `/.auth/me` (l'archivio di[token](overview-authentication-authorization.md#token-store) deve essere abilitato). Il codice JSON restituito include i token specifici del provider.
 
 > [!NOTE]
 > I token di accesso consentono l'accesso alle risorse del provider, quindi sono presenti solo se si configura un provider con un segreto client. Per informazioni su come ottenere i token di aggiornamento, vedere Aggiornare i token di accesso.
 
 ## <a name="refresh-identity-provider-tokens"></a>Aggiornare i token del provider di identità
 
-Quando il token di accesso del provider (non il [token di sessione](#extend-session-token-expiration-grace-period)) scade, è necessario autenticare nuovamente l'utente prima di riutilizzare tale token. È possibile evitare la scadenza del token eseguendo una chiamata di `GET` nell'endpoint `/.auth/refresh` dell'applicazione. Quando il metodo viene chiamato, il servizio app aggiorna automaticamente i token di accesso nell'archivio di token per l'utente autenticato. Le successive richieste di token dal codice dell'app ottengono i token aggiornati. Affinché l'aggiornamento dei token funzioni, tuttavia, l'archivio di token deve contenere i [token di aggiornamento](https://auth0.com/learn/refresh-tokens/) per il provider. Il modo per ottenere i token di aggiornamento dipende dal provider, ma di seguito viene riportato un breve riepilogo:
+Quando il token di accesso del provider (non il [token di sessione](#extend-session-token-expiration-grace-period)) scade, è necessario autenticare nuovamente l'utente prima di riutilizzare tale token. È possibile evitare la scadenza del token eseguendo una chiamata di `GET` nell'endpoint `/.auth/refresh` dell'applicazione. Quando viene chiamato, il servizio app Aggiorna automaticamente i token di accesso nell' [Archivio di token](overview-authentication-authorization.md#token-store) per l'utente autenticato. Le successive richieste di token dal codice dell'app ottengono i token aggiornati. Affinché l'aggiornamento dei token funzioni, tuttavia, l'archivio di token deve contenere i [token di aggiornamento](https://auth0.com/learn/refresh-tokens/) per il provider. Il modo per ottenere i token di aggiornamento dipende dal provider, ma di seguito viene riportato un breve riepilogo:
 
 - **Google**: aggiungere un parametro di stringa di query `access_type=offline` alla chiamata API di `/.auth/login/google`. Se si usa Mobile Apps SDK, è possibile aggiungere il parametro a uno degli overload `LogicAsync`. Vedere [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Token di aggiornamento di Google).
 - **Facebook**: non vengono forniti token di aggiornamento. I token di lunga durata scadono dopo 60 giorni. Vedere [Scadenza ed estensione dei token d'accesso di Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension).

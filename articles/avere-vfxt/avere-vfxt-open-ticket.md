@@ -1,17 +1,17 @@
 ---
 title: Come ottenere supporto per Avere vFXT per Azure
-description: Spiegazione della procedura per l'apertura di ticket di supporto relativi ad Avere vFXT per Azure
+description: Informazioni su come risolvere i problemi che possono verificarsi durante la distribuzione o l'uso di vFXT per Azure creando un ticket di supporto tramite la portale di Azure.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847352"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271108"
 ---
 # <a name="get-help-with-your-system"></a>Ottenere assistenza per il sistema
 

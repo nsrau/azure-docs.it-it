@@ -3,12 +3,12 @@ title: Guida al protocollo per le connessioni ibride di inoltro di Azure | Micro
 description: Questo articolo descrive le interazioni lato client con l'inoltro di Connessioni ibride per la connessione dei client nei ruoli listener e mittente
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316654"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272010"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 
@@ -467,7 +467,7 @@ https://{namespace-address}/{path}?sbc-hc-token=...
 
 _namespace-address_ è il nome di dominio completo dello spazio dei nomi di inoltro di Azure che ospita la connessione ibrida, in genere nel formato `{myname}.servicebus.windows.net`.
 
-La richiesta può contenere intestazioni HTTP aggiuntive arbitrarie, incluse quelle definite dall'applicazione. Tutte le intestazioni specificate, ad eccezione di quelle definite direttamente in RFC7230 (vedere il [messaggio di richiesta](#Request message)) vengono inviate al listener e possono essere trovate nell'oggetto `requestHeader` del messaggio **request**.
+La richiesta può contenere intestazioni HTTP aggiuntive arbitrarie, incluse quelle definite dall'applicazione. Tutte le intestazioni fornite, ad eccezione di quelle definite direttamente in RFC7230 (vedere il [messaggio di richiesta](#request-message)) vengono trasmesse al listener ed è possibile trovarle nell' `requestHeader` oggetto del messaggio di **richiesta** .
 
 Le opzioni dei parametri della stringa di query sono le seguenti:
 

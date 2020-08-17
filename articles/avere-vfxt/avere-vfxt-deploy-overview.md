@@ -1,17 +1,17 @@
 ---
 title: Panoramica della distribuzione - Avere vFXT per Azure
-description: Panoramica della distribuzione di Avere vFXT per Azure
+description: Informazioni su come distribuire un cluster vFXT per Azure con questa panoramica. Per gli articoli correlati sono disponibili istruzioni specifiche per la distribuzione.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 78140fea74272dff6056bebfbd44ed9d55b0e1db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c63fdf2164dd4dce12912669eec29c79755cc2a
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76153684"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271227"
 ---
 <!-- filename is linked to in the marketplace template, make sure it gets a redirect if we rename it -->
 

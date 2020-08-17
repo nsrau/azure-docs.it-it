@@ -9,17 +9,17 @@ ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: d48e9ac71ba12ecd2eaadb8ba333f5440c68af4b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 56ada47e46d788ca77f65e354836e19f4d3969d2
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034788"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272757"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
 > [!NOTE]
-> **Microsoft. Azure. Services. AppAuthentication** non è più consigliabile usare con la nuova Key Vault SDK. Si sostituisce Wit New Azure Identity Library **DefaultAzureCredentials** disponibile per .NET, Java, typescript e Python e deve essere usato per tutte le nuove attività di sviluppo. Altre informazioni sono disponibili qui: [autenticazione e Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
+> **Microsoft. Azure. Services. AppAuthentication** non è più consigliabile usare con la nuova Key Vault SDK. Viene sostituita con la nuova libreria di identità di Azure **DefaultAzureCredentials** disponibile per .NET, Java, typescript e Python e deve essere usata per tutte le nuove attività di sviluppo. Altre informazioni sono disponibili qui: [autenticazione e Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
 
 Per eseguire l'autenticazione in Azure Key Vault, è necessario disporre di una credenziale di Azure Active Directory (Azure AD), ovvero un segreto condiviso o un certificato.
 
@@ -210,7 +210,7 @@ Per usare un certificato client per l'autenticazione dell'entità servizio:
     az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
     ```
 
-    L'identificatore del certificato sarà un URL nel formato`https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
+    L'identificatore del certificato sarà un URL nel formato `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
 
 1. Sostituire `{KeyVaultCertificateSecretIdentifier}` in questa stringa di connessione con l'identificatore del certificato:
 
@@ -237,12 +237,12 @@ Per controllare il processo, usare una stringa di connessione passata al costrut
 
 | Opzione della stringa di connessione | Scenario | Commenti|
 |:--------------------------------|:------------------------|:----------------------------|
-| `RunAs=Developer; DeveloperTool=AzureCli` | Sviluppo locale | `AzureServiceTokenProvider`USA AzureCli per ottenere il token. |
-| `RunAs=Developer; DeveloperTool=VisualStudio` | Sviluppo locale | `AzureServiceTokenProvider`Usa Visual Studio per ottenere il token. |
-| `RunAs=CurrentUser` | Sviluppo locale | Non supportato in .NET Core. `AzureServiceTokenProvider`USA Azure AD autenticazione integrata per ottenere il token. |
-| `RunAs=App` | [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider`Usa un'identità gestita per ottenere il token. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identità assegnata dall'utente per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider`Usa un'identità assegnata dall'utente per ottenere il token. |
-| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autenticazione dei servizi personalizzati | `KeyVaultCertificateSecretIdentifier`identificatore del segreto del certificato. |
+| `RunAs=Developer; DeveloperTool=AzureCli` | Sviluppo locale | `AzureServiceTokenProvider` USA AzureCli per ottenere il token. |
+| `RunAs=Developer; DeveloperTool=VisualStudio` | Sviluppo locale | `AzureServiceTokenProvider` Usa Visual Studio per ottenere il token. |
+| `RunAs=CurrentUser` | Sviluppo locale | Non supportato in .NET Core. `AzureServiceTokenProvider` USA Azure AD autenticazione integrata per ottenere il token. |
+| `RunAs=App` | [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` Usa un'identità gestita per ottenere il token. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identità assegnata dall'utente per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` Usa un'identità assegnata dall'utente per ottenere il token. |
+| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autenticazione dei servizi personalizzati | `KeyVaultCertificateSecretIdentifier` identificatore del segreto del certificato. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Entità servizio | `AzureServiceTokenProvider` usa il certificato per ottenere il token da Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Entità servizio | `AzureServiceTokenProvider` usa il certificato per ottenere il token da Azure AD.|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Entità servizio |`AzureServiceTokenProvider` usa il segreto per ottenere il token da Azure AD. |

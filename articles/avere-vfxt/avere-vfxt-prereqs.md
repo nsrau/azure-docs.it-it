@@ -1,17 +1,17 @@
 ---
 title: Prerequisiti per Avere vFXT - Azure
-description: Prerequisiti per Avere vFXT per Azure
+description: Informazioni sulle attività da eseguire prima di creare un cluster in vFXT per Azure, inclusa la gestione delle sottoscrizioni, delle quote e degli endpoint del servizio di archiviazione.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: be5c640ef069690c408460b7374aee82c35b3a67
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496713"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272417"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 

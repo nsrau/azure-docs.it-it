@@ -1,18 +1,18 @@
 ---
 title: Domande frequenti - Avere vFXT per Azure
-description: Domande frequenti su Avere vFXT per Azure
+description: Usare queste domande frequenti per decidere se vFXT per Azure soddisfa le proprie esigenze. Informazioni sul funzionamento di vFXT per Azure con altri componenti di Azure.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: 55423119e55401d5176e228eba784f2eb498bfef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196337"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272692"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 

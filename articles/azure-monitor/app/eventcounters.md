@@ -3,12 +3,12 @@ title: Contatori degli eventi in Application Insights | Microsoft Docs
 description: È possibile monitorare i contatori degli eventi di sistema e di .NET/.NET Core personalizzati in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 42140f68a5f383a2a60fe8327f5023754366e6b7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 000486ecd4fddd5749e4c7cc9f9210a1f0f8666c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324404"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272366"
 ---
 # <a name="eventcounters-introduction"></a>Introduzione di EventCounter
 
@@ -45,10 +45,6 @@ Per le app in esecuzione in .NET Core 3.0 vengono raccolti automaticamente dall'
 |`System.Runtime` | `threadpool-queue-length` |
 |`System.Runtime` | `threadpool-completed-items-count` |
 |`System.Runtime` | `active-timer-count` |
-|`Microsoft.AspNetCore.Hosting` | `requests-per-second` |
-|`Microsoft.AspNetCore.Hosting` | `total-requests` |
-|`Microsoft.AspNetCore.Hosting` | `current-requests` |
-|`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
 > I contatori della categoria Microsoft.AspNetCore.Hosting vengono aggiunti solo in applicazioni ASP.NET Core.

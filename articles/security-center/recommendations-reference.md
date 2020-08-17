@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8038ace4469123e50d98d9296a1aecf0107efbf2
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1609fc720474f92b3a3fa8c0631452164a7e4d0f
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262552"
+ms.locfileid: "88272027"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza: una guida di riferimento
 
@@ -181,6 +181,7 @@ Il punteggio relativo alla sicurezza si basa sul numero di raccomandazioni del C
 |**Per la sottoscrizione devono essere designati al massimo 3 proprietari**|Designare meno di tre proprietari di sottoscrizione in modo da ridurre la probabilità di violazione da parte di un proprietario compromesso.<br>(Criterio correlato: per la sottoscrizione devono essere designati al massimo 3 proprietari)|Alto|N|Subscription|
 |**La soluzione Advanced Threat Protection deve essere abilitata negli insiemi di credenziali in Azure Key Vault**|Il Centro sicurezza di Azure include la protezione avanzata dalle minacce nativa di Azure per Azure Key Vault, offrendo un ulteriore livello di intelligence sulla sicurezza.<br>Importante: la correzione di questa raccomandazione comporta addebiti per la protezione degli insiemi di credenziali AKV. Se non sono presenti insiemi di credenziali AKV in questa sottoscrizione, non verrà addebitato alcun addebito. Se in futuro si crea un insieme di credenziali AKV in questa sottoscrizione, questi saranno protetti automaticamente e i relativi addebiti verranno avviati in quel momento.<br>(Criteri correlati: [è necessario abilitare Advanced Threat Protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)negli insiemi di credenziali Azure Key Vault)|Alto|**S**|Subscription|
 |**I log di diagnostica in Key Vault devono essere abilitati**|Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa.<br>(Criterio correlato: i log di diagnostica in Key Vault devono essere abilitati)|Basso|**S**|Key Vault|
+|**Le entità servizio devono essere usate per proteggere le sottoscrizioni anziché i certificati di gestione**|I certificati di gestione consentono a tutti gli utenti che eseguono l'autenticazione di gestire le sottoscrizioni a cui sono associate. Per gestire le sottoscrizioni in modo più sicuro, è consigliabile usare entità servizio con Gestione risorse per limitare il raggio di esplosione in caso di compromissione del certificato. Automatizza anche la gestione delle risorse.|Media|No|Subscription|
 ||||||
 
 

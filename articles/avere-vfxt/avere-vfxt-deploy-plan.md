@@ -1,17 +1,17 @@
 ---
 title: Pianificare il sistema Avere vFXT - Azure
-description: Informazioni sulle attività di pianificazione da eseguire prima della distribuzione di Avere vFXT per Azure
+description: Pianificare un vFXT per il cluster di Azure più adatto alle proprie esigenze. Scopri le domande da porre prima di passare ad Azure Marketplace o creare macchine virtuali.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922677"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272791"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
 

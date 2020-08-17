@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534482"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272901"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
 
@@ -182,7 +182,7 @@ L'hub IoT può eseguire il routing dei messaggi a un account di archiviazione di
 
 5. Passare alla sezione **Endpoint personalizzati** e fare clic su **Aggiungi**. Come tipo di endpoint selezionare **Archiviazione**.
 
-6. Nella pagina visualizzata, fornire un nome per l'endpoint, selezionare il contenitore che si intende utilizzare nell'archivio BLOB, specificare la codifica e il formato per il nome file. Come **tipo di autenticazione** per l'endpoint di archiviazione selezionare **Assegnato dal sistema**. Fare clic sul pulsante **Crea**.
+6. Nella pagina visualizzata, fornire un nome per l'endpoint, selezionare il contenitore che si intende utilizzare nell'archivio BLOB, specificare la codifica e il formato per il nome file. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea).
 
 A questo punto, l'endpoint di archiviazione personalizzato è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa di archiviazione nonostante le restrizioni del firewall. Ora è possibile usare l'endpoint per impostare una regola di gestione.
 
@@ -234,7 +234,7 @@ La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di
 
 4. Nella pagina delle risorse dell'hub IoT, passare alla scheda **Caricamento file**.
 
-5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Come **tipo di autenticazione** per l'endpoint di archiviazione selezionare **Assegnato dal sistema**. Fare clic sul pulsante **Create** (Crea).
+5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea).
 
 A questo punto, l'endpoint di archiviazione per il caricamento dei file è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa di archiviazione nonostante le restrizioni del firewall.
 

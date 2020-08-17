@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: c3e8299a5acd7cbd3a6fd3cd76af33f4a798ad12
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3faa86fe67e3f0a208bf42dc3e49de8335b25c95
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832995"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272332"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Panoramica-autenticazione Active Directory Domain Services locale su SMB per le condivisioni file di Azure
 
-[File di Azure](storage-files-introduction.md)   supporta l'autenticazione basata su identità su Server Message Block (SMB) tramite due tipi di servizi del dominio: Active Directory Domain Services locale (AD DS) e Azure Active Directory Domain Services (Azure AD DS). Si consiglia vivamente di esaminare la [sezione come funziona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) per selezionare il servizio del dominio appropriato per authentcation. Il programma di installazione è diverso a seconda del servizio del dominio scelto. Questa serie di articoli è incentrata sull'abilitazione e la configurazione di servizi di dominio Active Directory locali per l'autenticazione con condivisioni file di Azure.
+[File di Azure](storage-files-introduction.md)   supporta l'autenticazione basata su identità su Server Message Block (SMB) tramite due tipi di servizi del dominio: Active Directory Domain Services locale (AD DS) e Azure Active Directory Domain Services (Azure AD DS). Si consiglia vivamente di esaminare la [sezione come funziona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) per selezionare il servizio del dominio appropriato per authentcation. Il programma di installazione varia a seconda del servizio del dominio scelto. Queste serie di articoli sono incentrati sull'abilitazione e la configurazione di servizi di dominio Active Directory locali per l'autenticazione con condivisioni file di Azure.
 
 Se non si ha familiarità con le condivisioni file di Azure, è consigliabile leggere la [Guida alla pianificazione](storage-files-planning.md) prima di leggere la serie di articoli riportata di seguito.
 

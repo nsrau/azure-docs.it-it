@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: caad034c2cc3403bc88ee5f50d101702ec692c35
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: a635f32c5e5f1132d70fb503058267c8b33beb7c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192255"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272061"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -31,6 +31,30 @@ Poiché questa pagina viene aggiornata regolarmente, è consigliabile consultarl
 
 
 ## <a name="august-2020"></a>Agosto 2020
+
+Gli aggiornamenti di agosto includono:
+
+- [Inventario asset: nuova e potente visualizzazione del comportamento di sicurezza degli asset](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Aggiunta raccomandazione entità servizio](#service-principals-recommendation-added)
+- [Valutazione della vulnerabilità sulle macchine virtuali-raccomandazioni e criteri consolidati](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+
+
+### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventario asset: nuova e potente visualizzazione del comportamento di sicurezza degli asset
+
+L'inventario degli asset del Centro sicurezza consente di visualizzare il comportamento di sicurezza delle risorse connesse al centro sicurezza.
+
+Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Vengono quindi fornite indicazioni su come correggere tali vulnerabilità. Quando una risorsa presenta raccomandazioni in attesa, verranno visualizzate nell'inventario.
+
+È possibile usare la visualizzazione e i relativi filtri per esplorare i dati relativi alle posture di sicurezza e intraprendere ulteriori azioni in base alle proprie scoperte.
+
+Altre informazioni sull' [inventario degli asset](asset-inventory.md).
+
+
+### <a name="service-principals-recommendation-added"></a>Aggiunta raccomandazione entità servizio
+
+Nuova raccomandazione per i clienti del Centro sicurezza che usano i certificati di gestione per gestire le sottoscrizioni.
+
+Si consiglia di utilizzare le **entità servizio per proteggere le sottoscrizioni anziché i certificati di gestione** . si consiglia di utilizzare le entità servizio o Azure Resource Manager per gestire in modo più sicuro le sottoscrizioni. 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Valutazione della vulnerabilità sulle macchine virtuali-raccomandazioni e criteri consolidati
 

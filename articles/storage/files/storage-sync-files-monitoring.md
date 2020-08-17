@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185622"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271057"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -135,7 +135,7 @@ Usare il registro eventi di telemetria nel server per monitorare l'integrità de
 
 Integrità sincronizzazione
 
-- L'ID evento 9102 viene registrato una volta completata una sessione di sincronizzazione. Utilizzare questo evento per determinare se le sessioni di sincronizzazione hanno esito positivo (**HRESULT = 0**) e se sono presenti errori di sincronizzazione per elemento. Per ulteriori informazioni, vedere la documentazione sull' [integrità della sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e sugli [errori per elemento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
+- L'ID evento 9102 viene registrato una volta completata una sessione di sincronizzazione. Utilizzare questo evento per determinare se le sessioni di sincronizzazione hanno esito positivo (**HRESULT = 0**) e se sono presenti errori di sincronizzazione per elemento (**PerItemErrorCount**). Per ulteriori informazioni, vedere la documentazione sull' [integrità della sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e sugli  [errori per elemento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
 
   > [!Note]  
   > A volte le sessioni di sincronizzazione hanno esito negativo globale o hanno un PerItemErrorCount diverso da zero. Tuttavia, continuano a avanzare e alcuni file vengono sincronizzati correttamente. È possibile visualizzarlo nei campi applicati, ad esempio AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes. Questi campi indicano la parte della sessione completata. Se più sessioni di sincronizzazione hanno esito negativo in una riga e hanno un conteggio applicato crescente, fornire tempo di sincronizzazione per riprovare prima di aprire un ticket di supporto.
@@ -196,7 +196,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
 5. Nel pannello **Configura logica di segnalazione** fare clic su **risultato sessione di sincronizzazione** in nome segnale.  
 6. Selezionare la configurazione della dimensione seguente: 
     - Nome Dimensione: **nome endpoint server**  
-    - Operatore**=** 
+    - Operatore **=** 
     - Valori Dimensione: **tutti i valori correnti e futuri**  
 7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
     - Soglia impostata su **statica** 
@@ -218,7 +218,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
 5. Nel pannello **Configura logica di segnalazione** , fare clic su **file non sincronizzati** in nome segnale.  
 6. Selezionare la configurazione della dimensione seguente: 
      - Nome Dimensione: **nome endpoint server**  
-     - Operatore**=** 
+     - Operatore **=** 
      - Valori Dimensione: **tutti i valori correnti e futuri**  
 7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
      - Soglia impostata su **statica** 
@@ -240,7 +240,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
 5. Nel pannello **Configura logica di segnalazione** fare clic su **stato online server** in nome segnale.  
 6. Selezionare la configurazione della dimensione seguente: 
      - Nome Dimensione: **nome server**  
-     - Operatore**=** 
+     - Operatore **=** 
      - Valori Dimensione: **tutti i valori correnti e futuri**  
 7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
      - Soglia impostata su **statica** 
@@ -262,7 +262,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
 5. Nel pannello **Configura logica di segnalazione** fare clic su dimensioni di richiamo suddivisione in **livelli cloud** in nome segnale.  
 6. Selezionare la configurazione della dimensione seguente: 
      - Nome Dimensione: **nome server**  
-     - Operatore**=** 
+     - Operatore **=** 
      - Valori Dimensione: **tutti i valori correnti e futuri**  
 7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
      - Soglia impostata su **statica** 
