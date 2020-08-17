@@ -1,6 +1,6 @@
 ---
 title: Guida introduttiva per la gestione di condivisioni file di Azure con l'interfaccia della riga di comando di Azure
-description: Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per gestire File di Azure.
+description: Questa guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per gestire File di Azure. Creare un gruppo di risorse e un account di archiviazione e quindi creare e usare una condivisione file di Azure.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 149481f9cae535fa53f94a876e1f52e813b3838b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495776"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034584"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con l'interfaccia della riga di comando di Azure
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con l'interfaccia della riga di comando di Azure. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 

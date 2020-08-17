@@ -3,12 +3,12 @@ title: Domande sull'individuazione, la valutazione e l'analisi delle dipendenze 
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b8ba0ec83b9f2faedebb2bfb4ba84109f6f8b77
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829884"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263504"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -36,23 +36,34 @@ Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-
 - Usare le valutazioni della **soluzione VMware di Azure (AVS)** quando si vuole valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - È possibile usare un gruppo comune con computer VMware solo per eseguire entrambi i tipi di valutazione. Si noti che se si eseguono per la prima volta le valutazioni delle soluzioni Azure VMware in Azure Migrate, è consigliabile creare un nuovo gruppo di computer VMware.
+ 
+
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Perché mancano i dati sulle prestazioni per alcune/tutte le macchine virtuali nel report di valutazione?
+
+Per una valutazione basata sulle prestazioni, l'esportazione del report di valutazione dice "PercentageOfCoresUtilizedMissing" o "PercentageOfMemoryUtilizedMissing" quando l'appliance di Azure Migrate non riesce a raccogliere i dati sulle prestazioni per le macchine virtuali locali. Verificare:
+
+- se le macchine virtuali sono accese per il periodo di tempo per cui si sta creando la valutazione
+- Se mancano solo i contatori di memoria e si sta provando a valutare le macchine virtuali Hyper-V, controllare se la memoria dinamica è abilitata in queste macchine virtuali. Attualmente è presente un problema noto che causa l'impossibilità da parte dell'appliance Azure Migrate di raccogliere dati sull'utilizzo della memoria per tali macchine virtuali.
+- Se non è presente alcun contatore delle prestazioni, assicurarsi che le connessioni in uscita sulle porte 443 (HTTPS) siano consentite.
+
+Nota: se mancano contatori delle prestazioni, Azure Migrate: Server Assessment mantiene la memoria/i core allocati in locale e consiglia una dimensione della macchina virtuale di conseguenza.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Perché la classificazione di attendibilità della valutazione è bassa?
+
+La classificazione di attendibilità viene calcolata per le valutazioni basate sulle prestazioni in base alla percentuale di [punti dati disponibili](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) necessaria per calcolare la valutazione. Di seguito sono riportati i motivi per cui una valutazione potrebbe ottenere una classificazione di attendibilità bassa:
+
+- L'ambiente non è stato analizzato per il perioro di tempo per cui si sta creando la valutazione. Ad esempio, se si sta creando una valutazione con periodo di tempo delle prestazioni impostato su 1 settimana, è necessario attendere almeno una settimana dopo avere avviato l'individuazione perché siano raccolti tutti i punti dati. Se non è possibile attendere per tale periodo, modificare la durata delle prestazioni a un periodo più breve e "Ricalcolare" la valutazione.
+ 
+- Server Assessment non è in grado di raccogliere i dati sulle prestazioni per alcune o tutte le macchine virtuali nel periodo di valutazione. Verificare che le macchine virtuali siano accese per la durata della valutazione e che siano consentite le connessioni in uscita sulle porte 443. Per le macchine virtuali Hyper-V, se la memoria dinamica è abilitata, i contatori di memoria saranno assenti e porteranno a una classificazione con attendibilità bassa. Ricalcolare la valutazione in modo da riflettere le ultime modifiche apportate alla classificazione di attendibilità. 
+
+- Dopo avere avviato l'individuazione in Server Assessment sono state create alcune macchine virtuali. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questo caso, i dati sulle prestazioni per le nuove macchine virtuali non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà limitata.
+
+[Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sulla classificazione di attendibilità.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Non è possibile visualizzare alcuni gruppi quando si crea una valutazione della soluzione VMware di Azure (AVS)
 
 - La valutazione della soluzione Azure VMware può essere eseguita su gruppi che hanno solo computer VMware. Se si intende eseguire una valutazione della soluzione Azure VMware, rimuovere dal gruppo eventuali computer non VMware.
 - Se si eseguono per la prima volta le valutazioni della soluzione Azure VMware in Azure Migrate, è consigliabile creare un nuovo gruppo di computer VMware.
-
-## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Ricerca per categorie selezionare l'ITF-RAID level in AVS Assessment?
-
-Il motore di archiviazione usato in AVS è rete VSAN. I criteri di archiviazione di vSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio richiesto per le macchine virtuali, perché determinano la modalità di allocazione dell'archiviazione alla macchina virtuale. Le combinazioni FTT-RAID disponibili sono le seguenti: 
-
-**Tolleranza errori** | **Configurazione RAID** | **Numero minimo di host richiesti** | **Considerazioni sul dimensionamento**
---- | --- | --- | --- 
-1 | RAID-1 (Mirroring) | 3 | Una macchina virtuale da 100 GB utilizza 200 GB.
-1 | RAID-5 (Erasure Coding) | 4 | Una macchina virtuale da 100 GB utilizza 133,33 GB
-2 | RAID-1 (Mirroring) | 5 | Una macchina virtuale da 100 GB utilizza 300 GB.
-2 | RAID-6 (Erasure Coding) | 6 | Una macchina virtuale da 100 GB utilizza 150 GB.
-3 | RAID-1 (Mirroring) | 7 | Una macchina virtuale da 100 GB utilizza 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Non è possibile visualizzare alcuni tipi di VM in Azure per enti pubblici
 
@@ -133,7 +144,7 @@ Supporto | Questa opzione è attualmente in anteprima ed è disponibile solo per
 Agente | Non è necessario installare gli agenti nei computer che si vuole controllare in modo incrociato. | Agenti da installare in ogni computer locale che si vuole analizzare: [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md)e [Dependency Agent](../azure-monitor/platform/agents-overview.md#dependency-agent). 
 Prerequisiti | [Esaminare](concepts-dependency-visualization.md#agentless-analysis) i prerequisiti e i requisiti di distribuzione. | [Esaminare](concepts-dependency-visualization.md#agent-based-analysis) i prerequisiti e i requisiti di distribuzione.
 Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mapping dei servizi](../azure-monitor/insights/service-map.md) in [Log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-analysis)
-Funzionamento | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
+Come funziona | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
 Data | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
 Visualizzazione | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata di un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> La mappa può essere visualizzata solo in un'ora.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/> Aggiungere e rimuovere i server in un gruppo dalla vista mappa.
 Esportazione dati | Ultimi 30 giorni è possibile scaricare i dati in formato CSV. | È possibile eseguire query sui dati con Log Analytics.

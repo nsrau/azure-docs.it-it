@@ -3,12 +3,12 @@ title: Ripristinare macchine virtuali VMware con il server di Backup di Azure
 description: Usare server di Backup di Azure (MAB) per ripristinare le macchine virtuali VMware in esecuzione su un server VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524523"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263521"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Ripristinare macchine virtuali VMware
 
@@ -22,7 +22,7 @@ Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per r
 
 ## <a name="restore-a-recovery-point"></a>Ripristinare un punto di ripristino
 
-1. In Console di amministrazione di MAB fare clic su visualizzazione ripristino.
+1. In Console di amministrazione di MAB selezionare **visualizzazione ripristino**.
 
 2. Usare il riquadro Sfoglia per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, i punti di ripristino disponibili vengono visualizzati nel riquadro Punti di ripristino per.
 
@@ -30,15 +30,15 @@ Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per r
 
 3. Nel campo **Punti di ripristino per** usare il calendario e i menu a discesa per selezionare una data di creazione di un punto di ripristino. Per le date visualizzate in grassetto nel calendario sono disponibili punti di ripristino.
 
-4. Fare clic su **Ripristina** sulla barra multifunzione per avviare **Ripristino guidato**.
+4. Sulla barra multifunzione dello strumento selezionare **Ripristina** per aprire il **Ripristino guidato**.
 
     ![Ripristino guidato, verifica selezione per ripristino](./media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-5. Fare clic su **Avanti** per passare alla schermata **Specifica opzioni di ripristino**.
+5. Selezionare **Avanti** per passare alla schermata **Specifica opzioni di ripristino** .
 
-6. Nella schermata **Specifica opzioni di ripristino** fare clic su **Modifica** se si vuole abilitare la limitazione della larghezza di banda di rete. Per lasciare disabilitata la limitazione della larghezza di banda di rete, fare clic su **Avanti**. In questa schermata della procedura guidata non sono disponibili alte opzioni per le macchine virtuali VMware. Se si sceglie di modificare la limitazione della larghezza di banda di rete, nella finestra di dialogo Limita larghezza di banda selezionare **Abilita limitazione all'utilizzo della larghezza di banda** per attivare l'opzione. Dopo aver abilitato questa opzione configurare **Impostazioni** e **Pianificazione del lavoro**.
+6. Nella schermata **Specifica opzioni di ripristino** , se si vuole abilitare la limitazione della larghezza di banda di rete, selezionare **modifica**. Per lasciare disabilitata la limitazione della rete, fare clic su **Avanti**. In questa schermata della procedura guidata non sono disponibili alte opzioni per le macchine virtuali VMware. Se si sceglie di modificare la limitazione della larghezza di banda di rete, nella finestra di dialogo Limita larghezza di banda selezionare **Abilita limitazione all'utilizzo della larghezza di banda** per attivare l'opzione. Dopo aver abilitato questa opzione configurare **Impostazioni** e **Pianificazione del lavoro**.
 
-7. Nella schermata **Selezione tipo di ripristino** specificare se si vuole eseguire il ripristino nell'istanza originale o in un nuovo percorso e fare clic su **Avanti**.
+7. Nella schermata **Selezione tipo di ripristino** scegliere se eseguire il ripristino nell'istanza originale o in un nuovo percorso. Fare quindi clic su **Avanti**.
 
      * Se si sceglie **Ripristina nell'istanza originale** non è necessario effettuare altre selezioni nella procedura guidata. Vengono usati i dati per l'istanza originale.
 
@@ -46,7 +46,7 @@ Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per r
 
       ![Selezione tipo di ripristino](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
-8. Nella schermata **Riepilogo** controllare le impostazioni e fare clic su **Ripristina** per avviare il processo di ripristino. Nella schermata **Stato ripristino** viene visualizzato l'avanzamento dell'operazione di ripristino.
+8. Nella schermata **Riepilogo** , rivedere le impostazioni e selezionare **Ripristina** per avviare il processo di ripristino. Nella schermata **Stato ripristino** viene visualizzato l'avanzamento dell'operazione di ripristino.
 
 ## <a name="restore-an-individual-file-from-a-vm"></a>Ripristinare un singolo file da una macchina virtuale
 
@@ -55,28 +55,28 @@ Questo articolo illustra come usare Backup di Microsoft Azure Server (MAB) per r
 >[!NOTE]
 >Il ripristino di un singolo file da una macchina virtuale è disponibile solo per i punti di ripristino di macchine virtuali e dischi Windows.
 
-1. In Console di amministrazione di MAB fare clic su visualizzazione **ripristino** .
+1. In Console di amministrazione di MAB selezionare visualizzazione **ripristino** .
 
-2. Usare il riquadro **Sfoglia** per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, i punti di ripristino disponibili vengono visualizzati nel riquadro Punti di ripristino per.
+2. Usare il riquadro **Sfoglia** per cercare la macchina virtuale da ripristinare o applicare un filtro per trovarla. Dopo aver selezionato una macchina virtuale o una cartella, nel **riquadro punti di ripristino** vengono visualizzati i punti di ripristino disponibili.
 
-    ![Punti di ripristino disponibili](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
+    ![Riquadro "punti di ripristino per"](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
 3. Nel riquadro **Punti di ripristino per** usare il calendario per selezionare la data che contiene i punti di ripristino desiderati. A seconda della configurazione dei criteri di backup, per le date possono essere disponibili più punti di ripristino. Dopo aver selezionato il giorno in cui è stato creato il punto di ripristino, assicurarsi di aver scelto il **tempo di ripristino**corretto. Se per la data selezionata esistono più punti di ripristino, scegliere il punto di ripristino selezionandolo nel menu a discesa Ora ripristino. Dopo aver scelto il punto di ripristino, nel riquadro **Percorso** viene visualizzato l'elenco degli elementi ripristinabili.
 
-4. Per trovare i file da ripristinare, nel riquadro **Percorso** fare doppio clic sull'elemento nella colonna **Elemento ripristinabile** per aprirlo. Selezionare il file, i file o le cartelle da ripristinare. Per selezionare più elementi, premere **CTRL** mentre si seleziona ogni elemento. Usare il riquadro **Percorso** per eseguire una ricerca nell'elenco dei file o cartelle visualizzati nella colonna **Elemento ripristinabile**. L'opzione **Elenco di ricerca seguente** non esegue la ricerca nelle sottocartelle. Per eseguire la ricerca nelle sottocartelle, fare doppio clic sulla cartella. Usare il pulsante **Su** per spostarsi da una cartella figlio alla cartella padre. È possibile selezionare più elementi (file e cartelle), ma devono essere nella stessa cartella padre. Non è possibile ripristinare elementi da più cartelle nello stesso processo di ripristino.
+4. Per trovare i file da ripristinare, nel riquadro **Percorso** fare doppio clic sull'elemento nella colonna **Elemento ripristinabile** per aprirlo. Selezionare il file, i file o le cartelle da ripristinare. Per selezionare più elementi, premere **CTRL** mentre si seleziona ogni elemento. Usare il riquadro **Percorso** per eseguire una ricerca nell'elenco dei file o cartelle visualizzati nella colonna **Elemento ripristinabile**. L' **elenco di ricerca seguente** non esegue la ricerca nelle sottocartelle. Per eseguire la ricerca nelle sottocartelle, fare doppio clic sulla cartella. Usare il pulsante **Su** per spostarsi da una cartella figlio alla cartella padre. È possibile selezionare più elementi (file e cartelle), ma devono essere nella stessa cartella padre. Non è possibile ripristinare gli elementi da più cartelle nello stesso processo di ripristino.
 
     ![Verifica selezione per ripristino](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 
-5. Dopo avere selezionato gli elementi per il ripristino, nella barra multifunzione della Console di amministrazione fare clic su **Ripristina** per aprire **Ripristino guidato**. Nel Ripristino guidato la schermata **Verifica selezione per ripristino** mostra gli elementi selezionati da ripristinare.
+5. Dopo aver selezionato gli elementi per il ripristino, nella barra multifunzione dello strumento Console di amministrazione selezionare **Ripristina** per aprire il **Ripristino guidato**. Nel Ripristino guidato la schermata **Verifica selezione per ripristino** mostra gli elementi selezionati da ripristinare.
 
-6. Nella schermata **Specifica opzioni di ripristino** fare clic su **Modifica** se si vuole abilitare la limitazione della larghezza di banda di rete. Per lasciare disabilitata la limitazione della larghezza di banda di rete, fare clic su **Avanti**. In questa schermata della procedura guidata non sono disponibili alte opzioni per le macchine virtuali VMware. Se si sceglie di modificare la limitazione della larghezza di banda di rete, nella finestra di dialogo Limita larghezza di banda selezionare **Abilita limitazione all'utilizzo della larghezza di banda** per attivare l'opzione. Dopo aver abilitato questa opzione configurare **Impostazioni** e **Pianificazione del lavoro**.
-7. Nella schermata **Selezione tipo di ripristino** fare clic su **Avanti**. È possibile ripristinare i file o le cartelle solo in una cartella di rete.
-8. Nella schermata **Specifica destinazione** fare clic su **Sfoglia** per trovare un percorso di rete per i file o le cartelle. MAB crea una cartella in cui vengono copiati tutti gli elementi ripristinati. Il nome della cartella ha il prefisso MABS_day-month-year. Quando si seleziona un percorso per i file o le cartelle ripristinati, vengono visualizzati i dettagli per tale percorso (destinazione, percorso di destinazione e spazio disponibile).
+6. Nella schermata **Specifica opzioni di ripristino** , se si vuole abilitare la limitazione della larghezza di banda di rete, selezionare **modifica**. Per lasciare disabilitata la limitazione della rete, fare clic su **Avanti**. In questa schermata della procedura guidata non sono disponibili alte opzioni per le macchine virtuali VMware. Se si sceglie di modificare la limitazione della larghezza di banda di rete, nella finestra di dialogo Limita larghezza di banda selezionare **Abilita limitazione all'utilizzo della larghezza di banda** per attivare l'opzione. Dopo aver abilitato questa opzione configurare **Impostazioni** e **Pianificazione del lavoro**.
+7. Nella schermata **Selezione tipo di ripristino** selezionare **Avanti**. È possibile ripristinare i file o le cartelle solo in una cartella di rete.
+8. Nella schermata **specifica destinazione** selezionare **Sfoglia** per trovare un percorso di rete per i file o le cartelle. MAB crea una cartella in cui vengono copiati tutti gli elementi ripristinati. Il nome della cartella ha il prefisso MABS_day-month-year. Quando si seleziona un percorso per i file o le cartelle ripristinati, vengono visualizzati i dettagli per tale percorso (destinazione, percorso di destinazione e spazio disponibile).
 
     ![Specificare il percorso per il ripristino dei file](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
-9. Nella schermata **Specifica opzioni di ripristino** scegliere quale impostazione di sicurezza applicare. È possibile scegliere di modificare la limitazione per l'utilizzo della larghezza di banda di rete, ma la limitazione è disabilitata per impostazione predefinita. Anche le opzioni **Recupero basato su SAN** e **Notifica** non sono abilitate.
-10. Nella schermata **Riepilogo** controllare le impostazioni e fare clic su **Ripristina** per avviare il processo di ripristino. Nella schermata **Stato ripristino** viene visualizzato l'avanzamento dell'operazione di ripristino.
+9. Nella schermata **Specifica opzioni di ripristino** scegliere quale impostazione di sicurezza applicare. È possibile scegliere di modificare la limitazione per l'utilizzo della larghezza di banda di rete, ma la limitazione è disabilitata per impostazione predefinita. Inoltre, il **ripristino San** e la **notifica** non sono abilitati.
+10. Nella schermata **Riepilogo** , rivedere le impostazioni e selezionare **Ripristina** per avviare il processo di ripristino. Nella schermata **Stato ripristino** viene visualizzato l'avanzamento dell'operazione di ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

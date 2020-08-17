@@ -14,17 +14,18 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: e547da3d1a26a7dcc110a8349dbae3c7e3f29e0b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f469256841bf81f5e35ebf9c4a0fe322b513153d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291940"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056976"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Avvio rapido: Creare una rete virtuale usando PowerShell
 
 Una rete virtuale consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente tra loro e con Internet. Questa guida introduttiva illustra come creare una rete virtuale. Dopo avere creato una rete virtuale, si distribuiscono due VM nella rete virtuale. Si effettua quindi la connessione alle VM da Internet e si stabilisce una comunicazione privata tramite la rete virtuale.
 
+## <a name="prerequisites"></a>Prerequisiti
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -219,6 +220,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una VM da Internet ed è stata stabilita una comunicazione privata tra la VM e un'altra VM. Per altre informazioni sulle impostazioni della rete virtuale, vedere [Manage a virtual network](manage-virtual-network.md) (Gestire una rete virtuale).
-
-Azure consente comunicazioni private senza restrizioni tra le macchine virtuali. Tuttavia, per impostazione predefinita, Azure permette solo connessioni Desktop remoto in ingresso alle VM Windows da Internet. Per altre informazioni sulla configurazione dei diversi tipi di comunicazioni della rete delle macchine virtuali, vedere l'esercitazione [Filtrare il traffico di rete](tutorial-filter-network-traffic.md).
+In questa guida introduttiva sono state create una rete virtuale predefinita e due VM. È stata effettuata la connessione a una VM da Internet ed è stata stabilita una comunicazione privata tra le due VM.
+Azure consente comunicazioni private senza restrizioni tra le VM, ma per impostazione predefinita permette solo connessioni Desktop remoto in ingresso alle VM Windows da Internet. Per altre informazioni sulla configurazione di diversi tipi di comunicazioni di rete delle VM, passare all'articolo successivo:
+> [!div class="nextstepaction"]
+> [Filtrare il traffico di rete](tutorial-filter-network-traffic.md)

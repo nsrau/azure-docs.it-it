@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/27/2020
-ms.openlocfilehash: 2edd5b661240b6156cf8a02059b2b9a668c402f3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 08/16/2020
+ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829121"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263470"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Risolvere problemi relativi ai flussi di dati in Azure Data Factory
 
@@ -70,6 +70,13 @@ Questo articolo illustra i metodi più comuni per la risoluzione di problemi rel
 - **Cause**: si tratta di un errore del servizio back-end. È possibile ripetere l'operazione e anche riavviare la sessione di debug.
 - **Raccomandazione**: se la ripetizione dell'operazione e il riavvio non risolvono il problema, contattare il supporto tecnico.
 
+### <a name="error-code-debug-data-preview-no-output-data-on-join"></a>Codice di errore: debug dei dati in anteprima senza dati di output in join
+
+- **Messaggio**: numero elevato di valori null o valori mancanti che potrebbero essere causati dalla presenza di un numero insufficiente di righe campionate. Provare ad aggiornare il limite di righe di debug e ad aggiornare i dati.
+- **Cause**: la condizione di join non corrisponde ad alcuna riga o ha prodotto un numero elevato di valori null durante l'anteprima dei dati.
+- **Suggerimento**: passare a impostazioni di debug e aumentare il numero di righe nel limite di righe di origine. Assicurarsi di aver selezionato e Azure IR con un cluster di flussi di dati sufficientemente grande per gestire più dati.
+
+
 ## <a name="general-troubleshooting-guidance"></a>Indicazioni generali sulla risoluzione dei problemi
 
 1. Verificare lo stato delle connessioni del set di dati. In ogni trasformazione Source (Origine) e Sink controllare il servizio collegato per ogni set di dati in uso e testare le connessioni.
@@ -79,10 +86,10 @@ Questo articolo illustra i metodi più comuni per la risoluzione di problemi rel
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulla risoluzione dei problemi, usare le risorse seguenti:
-*  [Blog di Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog di Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Richieste di funzionalità di Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Video di Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Pagina Microsoft delle domande e risposte](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Video di Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
+*  [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow per Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informazioni su Twitter su Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Guida sulle prestazioni dei flussi di dati di mapping di Azure Data Factory](concepts-data-flow-performance.md)

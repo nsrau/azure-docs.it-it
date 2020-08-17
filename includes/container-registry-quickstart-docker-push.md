@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 01/23/2019
+ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: b10bf18fde850223bda80a597f448747558113f1
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 16c1dec9e52be98e5b4e0103a583bdc219bc2417
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752170"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031803"
 ---
 ## <a name="push-image-to-registry"></a>Eseguire il push dell'immagine nel registro
 
@@ -23,13 +23,20 @@ Per eseguire il push di un'immagine in Registro Azure Container è necessario in
 docker pull hello-world
 ```
 
-Prima di poter eseguire il push di un'immagine nel registro, è necessario contrassegnarla con il nome completo del server di accesso al registro. Il formato del nome del server di accesso è *\<registry-name\>.azurecr.io* (tutto in minuscolo), ad esempio, *mycontainerregistry007.azurecr.io*.
+Prima di poter eseguire il push di un'immagine nel registro, è necessario contrassegnarla con il nome completo del server di accesso al registro. Il formato del nome del server di accesso è *\<registry-name\>.azurecr.io* (interamente in minuscolo), ad esempio *mycontainerregistry.azurecr.io*.
 
 Contrassegnare l'immagine usando il comando [docker tag][docker-tag]. Sostituire `<login-server>` con il nome del server di accesso dell'istanza del record di controllo di accesso.
 
 ```
 docker tag hello-world <login-server>/hello-world:v1
 ```
+
+Esempio:
+
+```
+docker tag hello-world mycontainerregistry.azurecr.io/hello-world:v1
+```
+
 
 Usare infine [docker push][docker-push] per eseguire il push dell'immagine nell'istanza del registro. Sostituire `<login-server>` con il nome del server di accesso dell'istanza del registro. Questo esempio crea il repository **hello-world** che contiene l'immagine `hello-world:v1`.
 

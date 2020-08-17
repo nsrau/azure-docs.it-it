@@ -4,15 +4,15 @@ description: Informazioni su come usare gli argomenti e le sottoscrizioni del bu
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 08/09/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9d4a3a66d967bd003534c7931091979d1667526c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 8a86a1bd9a312f3b1c6d94914d426422687b25a6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432796"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077017"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Avvio rapido: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto azure-sb
 Questa esercitazione illustra come creare applicazioni Node.js per inviare messaggi a un argomento del bus di servizio e ricevere messaggi da una sottoscrizione del bus di servizio usando il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb). Gli esempi sono scritti in JavaScript e usano il [modulo di Azure](https://www.npmjs.com/package/azure) per Node.js che internamente usa il pacchetto `azure-sb`.
@@ -20,7 +20,7 @@ Questa esercitazione illustra come creare applicazioni Node.js per inviare messa
 > [!IMPORTANT]
 > Il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). L'esperienza può essere più rapida se si usa il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) che impiega il [protocollo AMQP 1.0](service-bus-amqp-overview.md) più veloce. 
 > 
-> Per altre informazioni sul nuovo pacchetto, vedere [Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), in caso contrario continuare a leggere per sapere come usare il pacchetto [azure](https://www.npmjs.com/package/azure).
+> Per altre informazioni sul nuovo pacchetto, vedere [Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto @azure/service-bus](./service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md), in caso contrario continuare a leggere per sapere come usare il pacchetto [azure](https://www.npmjs.com/package/azure).
 
 Gli scenari trattati in questo articolo sono i seguenti:
 
@@ -40,7 +40,7 @@ Per altre informazioni su argomenti e sottoscrizioni, vedere la sezione [Passagg
     > In questa guida introduttiva verranno creati un **argomento** e una **sottoscrizione** all'argomento usando **Node.js**. 
 
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere come [creare e distribuire un'applicazione Node.js in un sito Web Azure] o [Servizio cloud Node.js][Node.js Cloud Service] usando Windows PowerShell o Sito Web con WebMatrix.
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere come creare e distribuire un'applicazione Node.js in un sito Web di Azure, in un [servizio cloud Node.js][Node.js Cloud Service] con Windows PowerShell oppure in un sito Web con WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
 Per usare il bus di servizio, scaricare il pacchetto Azure Node.js, che include un set di librerie di riferimento che comunicano con i servizi REST del bus di servizio.
@@ -142,7 +142,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 > [!NOTE]
 > Per impostazione predefinita, le sottoscrizioni sono persistenti fintanto che esse, o l'argomento a cui sono associate, non vengono eliminati. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è prima di tutto necessario verificare se la sottoscrizione esiste usando il metodo `getSubscription`.
 >
-> È possibile eliminare automaticamente le sottoscrizioni impostando la [proprietà AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> È possibile eliminare automaticamente le sottoscrizioni impostando la [proprietà AutoDeleteOnIdle](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 **MatchAll** è il filtro predefinito usato quando viene creata una sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "AllMessages" e viene usato il filtro predefinito **MatchAll**.
@@ -254,7 +254,7 @@ var message = {
     }
 }
 
-for (i = 0;i < 5;i++) {
+for (var i = 0; i < 5; i++) {
     message.customProperties.messagenumber=i;
     message.body='This is Message #'+i;
     serviceBusService.sendTopicMessage(topic, message, function(error) {
@@ -306,7 +306,7 @@ Al messaggio bloccato nell'argomento è anche associato un timeout. Se l'applica
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `deleteMessage`, il messaggio viene nuovamente recapitato all'applicazione al riavvio. Questo comportamento viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, aggiungere logica all'applicazione per gestire il secondo recapito del messaggio. È possibile usare la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
-Gli argomenti e le sottoscrizioni sono persistenti a meno che la [proprietà autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) sia impostata, e devono essere eliminati in modo esplicito nel [portale di Azure][Azure portal] oppure a livello di codice.
+Se non è impostata la [proprietà AutoDeleteOnIdle](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle), gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito nel [portale di Azure][Azure portal] oppure a livello di codice.
 L'esempio seguente illustra come eliminare l'argomento denominato `MyTopic`:
 
 ```javascript
@@ -343,6 +343,6 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Creare e distribuire un'applicazione Node.js in un sito Web Azure]: ../app-service/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application to Azure App Service]: ../app-service/quickstart-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 

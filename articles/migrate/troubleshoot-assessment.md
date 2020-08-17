@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 24e7a1660da4dd021ef7ceb2594b4db2340cf104
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460984"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263028"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
@@ -28,7 +28,7 @@ Correggere i problemi di conformità della valutazione come indicato di seguito:
 Il tipo di avvio non è supportato | Azure non supporta le VM con un tipo di avvio EFI. È consigliabile convertire il tipo di avvio in BIOS prima di eseguire una migrazione. <br/><br/>È possibile usare Azure Migrate migrazione del server per gestire la migrazione di tali macchine virtuali. Il tipo di avvio della macchina virtuale verrà convertito in BIOS durante la migrazione.
 Sistema operativo Windows supportato in modo condizionale | Il sistema operativo ha superato la data di fine del supporto ed è necessario un contratto di supporto personalizzato (CSA) per il [supporto in Azure](https://aka.ms/WSosstatement). Prendere in considerazione l'aggiornamento prima di eseguire la migrazione ad Azure.
 Sistema operativo Windows non supportato | Azure supporta solo le [versioni del sistema operativo Windows selezionate](https://aka.ms/WSosstatement). Provare ad aggiornare il computer prima di eseguire la migrazione ad Azure.
-Sistema operativo Linux con approvazione condizionale | Azure approva solo le [versioni del sistema operativo Linux selezionate](../virtual-machines/linux/endorsed-distros.md). Provare ad aggiornare il computer prima di eseguire la migrazione ad Azure.
+Sistema operativo Linux con approvazione condizionale | Azure approva solo le [versioni del sistema operativo Linux selezionate](../virtual-machines/linux/endorsed-distros.md). Provare ad aggiornare il computer prima di eseguire la migrazione ad Azure. Per altri dettagli, vedere anche [qui](https://docs.microsoft.com/azure/migrate/troubleshoot-assessment#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) .
 Sistema operativo Linux non approvato | Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto per il sistema operativo. Prendere in considerazione l'aggiornamento a una [versione di Linux approvata](../virtual-machines/linux/endorsed-distros.md) prima di eseguire la migrazione ad Azure.
 Sistema operativo sconosciuto | Il sistema operativo della macchina virtuale è stato specificato come "altro" in server vCenter. Questo comportamento blocca Azure Migrate dalla verifica della conformità di Azure della macchina virtuale. Prima di eseguire la migrazione del computer, assicurarsi che il sistema operativo sia [supportato](https://aka.ms/azureoslist) da Azure.
 Versione bit non supportata | Le macchine virtuali con sistemi operativi a 32 bit possono essere avviate in Azure, ma è consigliabile eseguire l'aggiornamento a 64 bit prima di eseguire la migrazione ad Azure.
@@ -64,7 +64,7 @@ Nel caso di macchine virtuali VMware e Hyper-V, la valutazione del server contra
 - È possibile determinare se il sistema operativo Linux in esecuzione nella macchina virtuale locale è approvato in Azure esaminando il supporto per [Linux di Azure](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  Dopo aver verificato la distribuzione approvata, è possibile ignorare questo avviso.
 
-Questa lacuna può essere risolta abilitando l' [individuazione delle applicazioni](./how-to-discover-applications.md) nelle macchine virtuali VMware. Server Assessment usa il sistema operativo rilevato dalla macchina virtuale usando le credenziali Guest fornite. Questi dati del sistema operativo identificano le informazioni corrette del sistema operativo nel caso di macchine virtuali Windows e Linux.
+Questa lacuna può essere risolta abilitando l' [individuazione delle applicazioni](./how-to-discover-applications.md) nelle macchine virtuali VMware. Server Assessment usa il sistema operativo rilevato nella macchina virtuale usando le credenziali guest fornite. Questi dati del sistema operativo identificano le informazioni corrette del sistema operativo nel caso di macchine virtuali Windows e Linux.
 
 ## <a name="operating-system-version-not-available"></a>Versione del sistema operativo non disponibile
 
@@ -74,10 +74,9 @@ Per i server fisici, è necessario che siano disponibili le informazioni sulla v
 
 Azure Migrate server Assessment potrebbe consigliare gli SKU di VM di Azure con più core e memoria rispetto all'allocazione locale corrente in base al tipo di valutazione:
 
-
 - La raccomandazione SKU della macchina virtuale dipende dalle proprietà di valutazione.
 - Questo problema è influenzato dal tipo di valutazione eseguito in server assessment: *basato sulle prestazioni*o in *locale*.
-- Per le valutazioni basate sulle prestazioni, valutazione server considera i dati di utilizzo delle macchine virtuali locali (CPU, memoria, disco e utilizzo della rete) per determinare lo SKU di VM di destinazione appropriato per le macchine virtuali locali. Viene inoltre aggiunto un fattore di comfort quando si determina un utilizzo efficace.
+- Per le valutazioni basate sulle prestazioni, valutazione server considera i dati di utilizzo delle macchine virtuali locali (CPU, memoria, disco e utilizzo della rete) per determinare lo SKU di VM di destinazione appropriato per le macchine virtuali locali. Aggiunge inoltre un fattore di comfort nella determinazione dell'utilizzo effettivo.
 - Per il dimensionamento locale, i dati sulle prestazioni non vengono considerati e lo SKU di destinazione è consigliato in base all'allocazione locale.
 
 Per illustrare il modo in cui questo può influire sulle raccomandazioni, si prenda un esempio:
@@ -88,7 +87,7 @@ Abbiamo una macchina virtuale locale con quattro core e 8 GB di memoria, con un 
 - Se la valutazione è basata sulle prestazioni, in base all'utilizzo effettivo di CPU e memoria (50% di 4 core * 1,3 = 2,6 core e 50% di 8 GB di memoria * 1,3 = 5,3-GB di memoria), si consiglia lo SKU di VM più economico di quattro core (il numero di core supportato più vicino) e otto GB di memoria (le dimensioni più vicine della memoria)
 - [Altre](concepts-assessment-calculation.md#types-of-assessments) informazioni sul dimensionamento della valutazione.
 
-## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKU di dischi di Azure di dimensioni maggiori rispetto a quelle locali in una valutazione delle VM di Azure
+## <a name="why-is-the-recommended-azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Perché gli SKU di dischi di Azure consigliati sono maggiori rispetto a quelli locali in una valutazione delle VM di Azure?
 
 Azure Migrate server Assessment potrebbe consigliare un disco di dimensioni maggiori in base al tipo di valutazione.
 - Il dimensionamento del disco nella valutazione del server dipende da due proprietà di valutazione: criteri di ridimensionamento e tipo di archiviazione.
@@ -97,14 +96,26 @@ Azure Migrate server Assessment potrebbe consigliare un disco di dimensioni magg
 
 Ad esempio, se si dispone di un disco locale con 32 GB di memoria, ma le operazioni di i/o di lettura e scrittura aggregate per il disco sono 800 IOPS, server Assessment consiglia un disco Premium (a causa dei requisiti di IOPS più elevati), quindi consiglia uno SKU del disco in grado di supportare le operazioni di i/o al secondo e le dimensioni necessarie. In questo esempio la corrispondenza più vicina sarebbe P15 (256 GB, 1.100 operazioni di I/O al secondo). Anche se le dimensioni richieste dal disco locale sono 32 GB, server Assessment consiglia un disco più grande a causa del requisito di IOPS elevato del disco locale.
 
-## <a name="utilized-corememory-percentage-missing"></a>Percentuale memoria/Core utilizzata mancante
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Perché mancano i dati sulle prestazioni per alcune/tutte le macchine virtuali nel report di valutazione?
 
-Server Assessment segnala "PercentageOfCoresUtilizedMissing" o "PercentageOfMemoryUtilizedMissing" quando l'appliance Azure Migrate non è in grado di raccogliere i dati sulle prestazioni per le VM locali pertinenti.
+Per una valutazione basata sulle prestazioni, l'esportazione del report di valutazione dice "PercentageOfCoresUtilizedMissing" o "PercentageOfMemoryUtilizedMissing" quando l'appliance di Azure Migrate non riesce a raccogliere i dati sulle prestazioni per le macchine virtuali locali. Verificare:
 
-- Questo problema può verificarsi se le macchine virtuali sono spente durante la durata della valutazione. L'appliance non può raccogliere i dati sulle prestazioni per una macchina virtuale quando è spenta.
-- Se mancano solo i contatori di memoria e si sta provando a valutare le VM Hyper-V, controllare se la memoria dinamica è abilitata in queste VM. Si verifica un problema noto solo per le macchine virtuali Hyper-V, in cui un'appliance Azure Migrate non è in grado di raccogliere dati di utilizzo della memoria per le macchine virtuali in cui non è abilitata la memoria dinamica.
-- Se non è presente alcun contatore delle prestazioni, Azure Migrate server Assessment esegue il fallback alla memoria e ai core allocati e suggerisce le dimensioni della VM corrispondenti.
+- se le macchine virtuali sono accese per il periodo di tempo per cui si sta creando la valutazione
+- Se mancano solo i contatori di memoria e si sta provando a valutare le macchine virtuali Hyper-V, controllare se la memoria dinamica è abilitata in queste macchine virtuali. Attualmente è presente un problema noto che causa l'impossibilità da parte dell'appliance Azure Migrate di raccogliere dati sull'utilizzo della memoria per tali macchine virtuali.
 - Se tutti i contatori delle prestazioni risultano mancanti, verificare che siano soddisfatti i requisiti di accesso alle porte per la valutazione. Altre informazioni sui requisiti di accesso alle porte per [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) e la valutazione dei server [fisici](./migrate-support-matrix-physical.md#port-access) .
+Nota: se mancano contatori delle prestazioni, Azure Migrate: Server Assessment mantiene la memoria/i core allocati in locale e consiglia una dimensione della macchina virtuale di conseguenza.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Perché la classificazione di attendibilità della valutazione è bassa?
+
+La classificazione di attendibilità viene calcolata per le valutazioni basate sulle prestazioni in base alla percentuale di [punti dati disponibili](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) necessaria per calcolare la valutazione. Di seguito sono riportati i motivi per cui una valutazione potrebbe ottenere una classificazione di attendibilità bassa:
+
+- L'ambiente non è stato analizzato per il perioro di tempo per cui si sta creando la valutazione. Ad esempio, se si sta creando una valutazione con periodo di tempo delle prestazioni impostato su 1 settimana, è necessario attendere almeno una settimana dopo avere avviato l'individuazione perché siano raccolti tutti i punti dati. Se non è possibile attendere per tale periodo, modificare la durata delle prestazioni a un periodo più breve e "Ricalcolare" la valutazione.
+ 
+- Server Assessment non è in grado di raccogliere i dati sulle prestazioni per alcune o tutte le macchine virtuali nel periodo di valutazione. Verificare che le macchine virtuali siano accese per la durata della valutazione e che siano consentite le connessioni in uscita sulle porte 443. Per le macchine virtuali Hyper-V, se la memoria dinamica è abilitata, i contatori di memoria saranno assenti e porteranno a una classificazione con attendibilità bassa. Ricalcolare la valutazione in modo da riflettere le ultime modifiche apportate alla classificazione di attendibilità. 
+
+- Dopo avere avviato l'individuazione in Server Assessment sono state create alcune macchine virtuali. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questo caso, i dati sulle prestazioni per le nuove macchine virtuali non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà limitata.
+
+[Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sulla classificazione di attendibilità.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>La licenza del sistema operativo è inclusa in una valutazione delle VM di Azure?
 
@@ -115,7 +126,7 @@ Azure Migrate server Assessment considera attualmente il costo della licenza del
 Server Assessment raccoglie continuamente i dati delle prestazioni dei computer locali e li usa per consigliare lo SKU della macchina virtuale e del disco in Azure. [Informazioni su come](concepts-assessment-calculation.md#calculate-sizing-performance-based) vengono raccolti i dati basati sulle prestazioni.
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Perché la mia valutazione mostra un avviso che è stata creata con una combinazione non valida di istanze riservate, tempo di esecuzione della macchina virtuale e sconto (%)?
-Quando si seleziona ' istanze riservate ',' discount (%)' e le proprietà' tempo di esecuzione VM ' non sono applicabili. Poiché la valutazione è stata creata con una combinazione non valida di queste proprietà, i pulsanti modifica e ricalcola sono disabilitati. Creare una nuova valutazione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2131554).
+Quando si seleziona ' istanze riservate ',' discount (%)' e le proprietà' tempo di esecuzione VM ' non sono applicabili. Poiché la valutazione è stata creata con una combinazione non valida di queste proprietà, i pulsanti modifica e ricalcola sono disabilitati. Creare una nuova valutazione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2131554)
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Non vengono visualizzati i dati sulle prestazioni per alcune schede di rete nei server fisici
 
@@ -133,10 +144,6 @@ La categoria conformità può essere erroneamente contrassegnata come "non pront
 ## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Numero di schede di rete individuate superiori al valore effettivo per i server fisici
 
 Questo problema può verificarsi se nel server fisico è abilitata la virtualizzazione Hyper-V. In questi server Azure Migrate attualmente individua le schede fisiche e virtuali. Quindi, il numero. delle schede di rete individuate è superiore al valore effettivo.
-
-
-## <a name="low-confidence-rating-on-physical-server-assessments"></a>Classificazione con confidenza bassa sulle valutazioni del server fisico
-La classificazione viene assegnata in base alla disponibilità dei punti dati necessari per calcolare la valutazione. Nel caso di server fisici in cui è abilitata la virtualizzazione Hyper-V, si verifica un gap di prodotto noto a causa del quale la classificazione di attendibilità bassa potrebbe essere assegnata erroneamente alle valutazioni dei server fisici. In questi server Azure Migrate attualmente individua le schede fisiche e virtuali. La velocità effettiva della rete viene acquisita sulle schede di rete virtuali individuate, ma non sulle schede di rete fisiche. A causa dell'assenza di punti dati sulle schede di rete fisiche, la classificazione di attendibilità può essere interessata da una valutazione bassa. Si tratta di un gap del prodotto che verrà risolto in futuro.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualizzazione delle dipendenze in Azure per enti pubblici
 
@@ -193,7 +200,7 @@ Attualmente Azure Migrate supporta la creazione dell'area di lavoro OMS nelle ar
 Raccogliere i log del traffico di rete come segue:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Premere F12 per avviare Strumenti di sviluppo. Se necessario, deselezionare l'impostazione **Cancella voci per la navigazione** .
+2. Premere F12 per avviare Strumenti di sviluppo. Se necessario, deselezionare l'impostazione  **Cancella voci per la navigazione** .
 3. Selezionare la scheda **rete** e avviare l'acquisizione del traffico di rete:
    - In Chrome selezionare **Preserve log** (Mantieni log). La registrazione viene avviata automaticamente. Un cerchio rosso indica che è in corso l'acquisizione del traffico. Se il cerchio rosso non viene visualizzato, selezionare il cerchio nero per iniziare.
    - In Microsoft Edge e Internet Explorer la registrazione dovrebbe avviarsi automaticamente. In caso contrario, selezionare il pulsante verde Riproduci.

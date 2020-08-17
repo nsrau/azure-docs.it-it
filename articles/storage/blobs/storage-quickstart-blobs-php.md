@@ -1,23 +1,23 @@
 ---
 title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con PHP | Microsoft Docs
-description: Imparare velocemente come trasferire oggetti da e verso un archivio BLOB di Azure con PHP
+description: Imparare velocemente come trasferire oggetti da e verso un archivio BLOB di Azure con PHP e caricare, scaricare ed elencare BLOB in blocchi in un contenitore nell'archivio BLOB di Azure.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68726397"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835749"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Trasferire oggetti da e verso un archivio BLOB di Azure con PHP
 Questa guida introduttiva illustra come usare PHP per caricare, scaricare ed elencare BLOB in blocchi in un contenitore in un archivio BLOB di Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -166,7 +166,7 @@ Per eseguire un aggiornamento parziale del contenuto di un BLOB in blocchi, usar
 
 ### <a name="get-the-content-of-your-blobs"></a>Ottenere il contenuto dei BLOB
 
-Ottenere il contenuto dei BLOB con il metodo **getBlob()** . Il codice seguente visualizza il contenuto del BLOB caricato in una sezione precedente.
+Ottenere il contenuto dei BLOB con il metodo **getBlob()**. Il codice seguente visualizza il contenuto del BLOB caricato in una sezione precedente.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);

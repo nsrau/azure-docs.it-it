@@ -4,12 +4,12 @@ description: Questo articolo illustra le domande generali più frequenti su Azur
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083736"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263384"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -247,6 +247,75 @@ Sì. Azure Site Recovery per il sistema operativo Linux supporta gli script pers
 
 >[!Note]
 >Per supportare gli script personalizzati, la versione dell'agente di Site Recovery deve essere 9,24 o successiva.
+
+## <a name="replication-policy"></a>Criteri di replica
+
+### <a name="what-is-a-replication-policy"></a>Cosa sono i criteri di replica?
+
+I criteri di replica definiscono le impostazioni per la cronologia di conservazione dei punti di recupero. Definiscono inoltre la frequenza degli snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery crea nuovi criteri di replica con le impostazioni predefinite seguenti:
+
+- 24 ore per la cronologia della conservazione dei punti di recupero.
+- 4 ore per la frequenza degli snapshot coerenti con l'app.
+
+[Altre informazioni sulle impostazioni di replica](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
+
+### <a name="what-is-a-crash-consistent-recovery-point"></a>Che cos'è il punto di recupero coerente con l'arresto anomalo del sistema?
+
+Un punto di recupero coerente con l'arresto anomalo del sistema dispone dei dati su disco come se fosse stato rimosso il cavo di alimentazione dal server durante lo snapshot. Non include tutto ciò che era contenuto in memoria quando è stato creato lo snapshot.
+
+La maggior parte delle applicazioni esegue ora correttamente il ripristino da snapshot coerenti con l'arresto anomalo del sistema. Un punto di recupero coerente con l'arresto anomalo del sistema è in genere sufficiente per sistemi operativi senza database e per applicazioni quali file server, server DHCP e server di stampa.
+
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Qual è la frequenza di generazione di punti di recupero coerenti nell'arresto anomalo del sistema?
+
+Site Recovery crea un punto di recupero coerente con l'arresto anomalo del sistema ogni 5 minuti.
+
+### <a name="what-is-an-application-consistent-recovery-point"></a>Che cos'è un punto di recupero coerente con l'applicazione?
+
+I punti di recupero coerenti con l'applicazione vengono creati dagli snapshot coerenti con l'applicazione. I punti di recupero coerenti con l'applicazione acquisiscono gli stessi dati di snapshot coerenti con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e a tutte le transazioni in corso.
+
+Per via del loro contenuto aggiuntivo, gli snapshot coerenti con l'applicazione impiegano più tempo di esecuzione e sono i più usati. È consigliabile usare i punti di recupero coerenti con l'applicazione per sistemi operativi e applicazioni di database come SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual è l'impatto dei punti di recupero coerenti con l'applicazione sulle prestazioni dell'applicazione?
+
+I punti di recupero coerenti con l'applicazione acquisiscono tutti i dati in memoria e in corso. Poiché i punti di recupero acquisiscono tali dati, richiedono framework come Servizio Copia Shadow del volume in Windows per disattivare l'applicazione. Se il processo di acquisizione è frequente, può influire sulle prestazioni quando il carico di lavoro è già elevato. Non è consigliabile usare una frequenza bassa per i punti di recupero coerenti con l'applicazione per carichi di lavoro non di database. Anche per il carico di lavoro del database, 1 ora è sufficiente.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual è la frequenza minima di generazione di punti di recupero coerenti nell'arresto anomalo del sistema?
+
+Site Recovery può creare un punto di recupero coerente con l'applicazione con una frequenza minima di 1 ora.
+
+### <a name="how-are-recovery-points-generated-and-saved"></a>Come vengono generati e salvati i punti di ripristino?
+
+Per comprendere il modo in cui Site Recovery genera i punti di recupero, è possibile esaminare un esempio di criteri di replica. Questo criterio di replica dispone di un punto di recupero con un intervallo di conservazione di 24 ore e uno snapshot di frequenza coerente con l'applicazione di 1 ora.
+
+Site Recovery crea un punto di recupero coerente con l'arresto anomalo del sistema ogni 5 minuti. L'utente non può modificare questa frequenza. Nell'ultima ora è possibile scegliere tra 12 punti coerenti con l'arresto anomalo del sistema e 1 punto coerente con l'applicazione. Col passare del tempo, Site Recovery elimina tutti i punti di recupero oltre l'ultima ora e salva solo 1 punto di recupero per ogni ora.
+
+Lo screenshot seguente illustra l'esempio. Nello screenshot:
+
+- Nell'ultima ora, sono disponibili punti di recupero con una frequenza di 5 minuti.
+- Oltre l'ultima ora, Site Recovery conserva un solo punto di recupero.
+
+   ![Elenco dei punti di recupero generati](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+
+### <a name="how-far-back-can-i-recover"></a>Fino a quando può risalire il recupero?
+
+Il punto di recupero meno recente che è possibile usare è di 72 ore.
+
+### <a name="i-have-a-replication-policy-of-24-hours-what-will-happen-if-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Ho un criterio di replica di 24 ore. Cosa accade se un problema impedisce a Site Recovery di generare punti di recupero per più di 24 ore? I precedenti punti di recupero verranno persi?
+
+No, Site Recovery manterrà tutti i punti di recupero precedenti. A seconda dell'intervallo di conservazione dei punti di recupero, Site Recovery sostituisce il punto meno recente solo se genera nuovi punti. A causa del problema, Site Recovery non è in grado di generare nuovi punti di recupero. Fino a quando non saranno presenti nuovi punti di recupero, tutti i punti precedenti verranno conservati dopo aver raggiunto l'intervallo di conservazione.
+
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Dopo aver abilitato la replica in una macchina virtuale, come si modifica il criterio di replica?
+
+Passare a **Insieme di credenziali di Site Recovery** > **Infrastruttura di Site Recovery** > **Criteri di replica**. Selezionare i criteri da modificare e salvare le modifiche. Qualsiasi modifica verrà applicata anche a tutte le repliche esistenti.
+
+### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Tutti i punti di recupero includono una copia completa della macchina virtuale o solo una copia differenziale?
+
+Il primo punto di recupero che viene generato include la copia completa. I punti di recupero successivi includono le modifiche delta.
+
+### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>L'aumento del periodo di conservazione dei punti di recupero comporta l'aumento dei costi di archiviazione?
+
+Sì, se si aumenta il periodo di conservazione da 24 a 72 ore, Site Recovery salverà i punti di recupero per altre 48 ore. Il tempo aggiuntivo comporterà dei costi di archiviazione. Ad esempio, un singolo punto di recupero potrebbe avere variazioni delta di 10 GB con un costo per GB di $0,16 al mese. Gli addebiti aggiuntivi saranno $1,60 × 48 al mese.
+
 
 ## <a name="failover"></a>Failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali di Azure dopo il failover?

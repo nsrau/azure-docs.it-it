@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 99982af7f16431ac5b1c2c4a0e419d647d3d2ca0
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167930"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262858"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -23,7 +23,7 @@ Gli errori di backup più comuni possono essere risolti autonomamente seguendo i
 
 ### <a name="step-1-check-azure-vm-health"></a>Passaggio 1: controllare l'integrità delle macchine virtuali di Azure
 
-- **Verificare che lo stato di provisioning della macchina virtuale di Azure sia ' running '**: se lo stato di [provisioning della macchina virtuale](../virtual-machines/states-lifecycle.md#provisioning-states) è in stato di **arresto/deallocazione/aggiornamento** , interferisce con l'operazione di backup. Aprire *portale di Azure > vm > Overview >* e controllare lo stato della macchina virtuale per verificare che sia **in esecuzione** e ripetere l'operazione di backup.
+- **Verificare che lo stato di provisioning della macchina virtuale di Azure sia ' running '**: se lo stato di [provisioning della macchina virtuale](../virtual-machines/states-lifecycle.md#provisioning-states) è in stato di **arresto/deallocazione/aggiornamento** , interferisce con l'operazione di backup. Aprire *portale di Azure > vm > Overview >* e controllare lo stato della macchina virtuale per verificare che sia **in esecuzione**  e ripetere l'operazione di backup.
 - **Esaminare gli aggiornamenti o i riavvii del sistema operativo in sospeso**: assicurarsi che non ci siano aggiornamenti del sistema operativo in sospeso o riavvii in sospeso nella macchina virtuale.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Passaggio 2: controllare l'integrità del servizio agente guest della macchina virtuale di Azure
@@ -96,7 +96,7 @@ Dopo aver registrato e pianificato una macchina virtuale per il servizio backup 
 
 **Causa 5: [la soluzione di controllo delle applicazioni sta bloccando IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
-## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-lo stato di provisioning della macchina virtuale non è riuscito
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed: lo stato di provisioning della macchina virtuale è Non riuscito
 
 **Codice di errore**: UserErrorVmProvisioningStateFailed<br>
 **Messaggio di errore**: lo stato di provisioning della macchina virtuale non è riuscito<br>
@@ -140,7 +140,7 @@ Dopo aver registrato e pianificato una macchina virtuale per il servizio backup 
 
 **[Non è possibile recuperare lo stato dello snapshot oppure non è possibile creare uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 
-## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>Operazione di estensione ExtensionOperationFailedForManagedDisks-VMSnapshot non riuscita
+## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks: il funzionamento dell'estensione VMSnapshot non è riuscita
 
 **Codice di errore**: ExtensionOperationFailedForManagedDisks <br>
 **Messaggio di errore**: VMSnapshot extension operation failed (Operazione dell'estensione VMSnapshot non riuscita)<br>
@@ -175,23 +175,23 @@ L'operazione di backup potrebbe non riuscire quando si esegue il backup di una m
 
 Il processo di backup recente non è riuscito perché è in corso un processo di backup esistente. Non è possibile avviare un nuovo processo di backup fino al termine del processo corrente. Verificare che l'operazione di backup attualmente in corso sia stata completata prima di attivare o pianificare altre operazioni di backup. Per controllare lo stato dei processi di backup, attenersi alla procedura seguente:
 
-1. Accedere al portale di Azure fare clic su **tutti i servizi**. Digitare Servizi di ripristino e fare clic su **Insiemi di credenziali di Servizi di ripristino**. Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
+1. Accedere alla portale di Azure e selezionare **tutti i servizi**. Digitare servizi di ripristino e selezionare insiemi di credenziali **dei servizi di ripristino**. Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
 2. Nell'elenco degli insiemi di credenziali di Servizi di ripristino selezionare un insieme di credenziali in cui è configurato il backup.
-3. Scegliere **Processi di backup** dal menu del dashboard dell'insieme di credenziali per visualizzare tutti i processi di backup.
+3. Nel menu del dashboard dell'insieme di credenziali selezionare **processi di backup** per visualizzare tutti i processi di backup.
    - Se è in corso un processo di backup, attenderne il completamento o annullarlo.
      - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** o usa [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Se il backup è stato riconfigurato in un insieme di credenziali diverso, assicurarsi che non siano presenti processi di backup in esecuzione nell'insieme di credenziali precedente. Se esiste, annullare il processo di backup.
-     - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** oppure usare [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) .
+     - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** o usa [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) .
 4. Ripetere l'operazione di backup.
 
 Se l'operazione di backup pianificato richiede più tempo, in conflitto con la configurazione del backup successiva, esaminare le [procedure](backup-azure-vms-introduction.md#best-practices)consigliate, le [prestazioni di backup](backup-azure-vms-introduction.md#backup-performance)e la considerazione del [ripristino](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
-## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError-backup non riuscito a causa di un errore. Per informazioni dettagliate, vedere dettagli del messaggio di errore del processo
+## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError: il backup non è riuscito a causa di un errore. Per informazioni dettagliate, vedere i dettagli del messaggio di errore del processo
 
 **Codice di errore**: UserErrorCrpReportedUserError <br>
 **Messaggio di errore**: backup non riuscito a causa di un errore. Per informazioni dettagliate, vedere dettagli del messaggio di errore del processo.
 
-Questo errore viene segnalato dalla macchina virtuale IaaS. Per identificare la causa principale del problema, passare alle impostazioni dell'insieme di credenziali di servizi di ripristino. Nella sezione **monitoraggio** selezionare processi di **backup** per filtrare e visualizzare lo stato. Fare clic su **errori** per esaminare i dettagli del messaggio di errore sottostante. Eseguire ulteriori azioni in base alle indicazioni contenute nella pagina dei dettagli dell'errore.
+Questo errore viene segnalato dalla macchina virtuale IaaS. Per identificare la causa principale del problema, passare alle impostazioni dell'insieme di credenziali di servizi di ripristino. Nella sezione **monitoraggio** selezionare processi di **backup** per filtrare e visualizzare lo stato. Selezionare **errori** per esaminare i dettagli del messaggio di errore sottostante. Eseguire ulteriori azioni in base alle indicazioni contenute nella pagina dei dettagli dell'errore.
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent-backup non riuscito: questa macchina virtuale non è (attivamente) protetta da backup di Azure
 
@@ -204,7 +204,7 @@ Verificare che la macchina virtuale specificata sia attiva (non in stato di sosp
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)
 
-#### <a name="solution"></a>Soluzione
+#### <a name="solution-for-this-error"></a>Soluzione per questo errore
 
 L'agente di macchine virtuali può essere danneggiato o il servizio può essere stato arrestato. Reinstallando l'agente di macchine virtuali è possibile ottenere la versione più recente. In questo modo sarà anche possibile riavviare la comunicazione con il servizio.
 
@@ -252,13 +252,13 @@ Se è necessaria la registrazione dettagliata per waagent, attenersi alla proced
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Le opzioni di configurazione dell'agente VM non sono impostate (per le macchine virtuali Linux)
 
 Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. Estensioni per le opzioni del file di configurazione **. abilitare** deve essere impostato su **y** e sul **provisioning. Agent** deve essere impostato su **auto** per consentire il funzionamento del backup.
-Per un elenco completo delle opzioni del file di configurazione dell'agente VM, vedere<https://github.com/Azure/WALinuxAgent#configuration-file-options>
+Per un elenco completo delle opzioni del file di configurazione dell'agente VM, vedere <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>La soluzione di controllo delle applicazioni sta bloccando IaaSBcdrExtension.exe
 
 Se si esegue [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (o un'altra soluzione di controllo delle applicazioni) e le regole sono basate su server di pubblicazione o percorso, possono impedire l'esecuzione del **IaaSBcdrExtension.exe** eseguibile.
 
-#### <a name="solution"></a>Soluzione
+#### <a name="solution-to-this-issue"></a>Soluzione per questo problema
 
 Escludere il `/var/lib` percorso o l'eseguibile **IaaSBcdrExtension.exe** da AppLocker (o da un altro software di controllo delle applicazioni).
 
@@ -266,7 +266,7 @@ Escludere il `/var/lib` percorso o l'eseguibile **IaaSBcdrExtension.exe** da App
 
 Il backup delle macchine virtuali si basa sull'esecuzione del comando di snapshot sull'account di archiviazione sottostante. Il backup può avere esito negativo perché non ha accesso all'account di archiviazione o perché l'esecuzione dell'attività di snapshot è stata ritardata.
 
-#### <a name="solution"></a>Soluzione
+#### <a name="solution-for-this-issue"></a>Soluzione per questo problema
 
 Le condizioni seguenti possono causare errori dell'attività di snapshot:
 
@@ -280,11 +280,11 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare a **tutte le risorse**, selezionare il gruppo di risorse raccolta punti di ripristino nel formato seguente AzureBackupRG_ `<Geo>` _ `<number>` .
 3. Nella sezione **Impostazioni** selezionare **Blocchi** per visualizzare i blocchi.
-4. Per rimuovere il blocco, selezionare i puntini di sospensione e fare clic su **Elimina**.
+4. Per rimuovere il blocco, selezionare i puntini di sospensione e selezionare **Elimina**.
 
     ![Eliminare un blocco](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-### <a name="clean-up-restore-point-collection"></a><a name="clean_up_restore_point_collection"></a>Pulisci raccolta punti di ripristino
+### <a name="clean-up-restore-point-collection"></a><a name="clean_up_restore_point_collection"></a> Pulisci raccolta punti di ripristino
 
 Dopo aver rimosso il blocco, è necessario eseguire la pulizia dei punti di ripristino.
 
@@ -307,16 +307,16 @@ Dopo aver rimosso il blocco, attivare un backup su richiesta. Questa azione assi
 Per cancellare manualmente la raccolta di punti di ripristino, che non è stata cancellata a causa del blocco sul gruppo di risorse, provare a eseguire i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Nel menu **Hub** fare clic su **Tutte le risorse** e selezionare il gruppo di risorse con il formato AzureBackupRG_`<Geo>`_`<number>` nella posizione in cui si trova la VM.
+2. Nel menu **Hub** selezionare tutte le **risorse**, selezionare il gruppo di risorse con il formato seguente AzureBackupRG_ `<Geo>` _ in `<number>` cui si trova la macchina virtuale.
 
-    ![Eliminare un blocco](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Selezionare il gruppo di risorse](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. Fare clic su gruppo di risorse. verrà visualizzato il riquadro **Panoramica** .
+3. Selezionare gruppo di risorse. verrà visualizzato il riquadro **Panoramica** .
 4. Selezionare l'opzione **Mostra tipi nascosti** per visualizzare tutte le risorse nascoste. Selezionare le raccolte di punti di ripristino con il formato AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Eliminare un blocco](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Selezionare la raccolta di punti di ripristino](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
-5. Fare clic su **Elimina** per pulire la raccolta di punti di ripristino.
+5. Selezionare **Elimina** per pulire la raccolta di punti di ripristino.
 6. Ripetere l'operazione di backup.
 
 > [!NOTE]

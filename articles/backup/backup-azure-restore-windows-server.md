@@ -1,15 +1,14 @@
 ---
 title: Ripristinare i file in Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
 description: Questo articolo illustra come ripristinare i dati archiviati in Azure in un computer Windows Server o Windows con l'agente di Servizi di ripristino di Microsoft Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 040ac3069500d0e52441df6f07d92645a7ae69df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764435"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263402"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Ripristinare i file in Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -18,7 +17,7 @@ Questo articolo illustra come ripristinare i dati da un insieme di credenziali d
 * Ripristinare i dati nello stesso computer in cui sono stati eseguiti i backup.
 * Ripristinare i dati in un'altra macchina.
 
-Usare la funzionalità di ripristino istantaneo per montare uno snapshot del punto di ripristino scrivibile come volume di ripristino. È quindi possibile esplorare il volume di ripristino e i file di copia in un computer locale, ripristinando quindi i file in modo selettivo.
+Usare la funzionalità di ripristino istantaneo per montare uno snapshot del punto di ripristino scrivibile come volume di ripristino. È quindi possibile esplorare il volume di ripristino e copiare i file in un computer locale, in modo da ripristinare in modo selettivo i file.
 
 > [!NOTE]
 > Se si vuole usare questa funzione per ripristinare i dati, è necessario l'[aggiornamento di Backup di Azure di gennaio 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar). È necessario anche che i dati di backup siano protetti in insiemi di credenziali nelle impostazioni locali elencate nell'articolo del supporto tecnico. Consultare l'[aggiornamento di Azure Backup di gennaio 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) per un elenco aggiornato delle impostazioni locali che supportano la funzione di ripristino istantaneo.
@@ -38,15 +37,15 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
 2. Selezionare **Ripristina dati** per avviare la procedura guidata.
 
-    ![Schermata di Backup di Azure, con ripristino dei dati evidenziato](./media/backup-azure-restore-windows-server/recover.png)
+    ![Screenshot di backup di Azure con i dati di ripristino evidenziati (ripristino nello stesso computer)](./media/backup-azure-restore-windows-server/recover.png)
 
 3. Nella pagina **Guida introduttiva** selezionare l'opzione **This server (Questo server) (`<server name>`)**  > **Avanti** per ripristinare i dati nello stesso server o computer.
 
-    ![Schermata della pagina introduttiva del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Screenshot della procedura guidata ripristino dati Introduzione pagina (ripristinare lo stesso computer)](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
 4. Nella pagina **Seleziona modalità di ripristino** scegliere **Singoli file e cartelle**>**Avanti**.
 
-    ![Schermata della pagina Seleziona modalità di ripristino del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+    ![Screenshot della procedura guidata Ripristina dati selezionare la modalità di ripristino pagina (Ripristina nello stesso computer)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > L'opzione per ripristinare singoli file e cartelle richiede .NET Framework versione 4.5.2 o successiva. Se l'opzione **Individual files and folders** (Singoli file e cartelle) non viene visualizzata, è necessario eseguire l'aggiornamento di .NET Framework alla versione 4.5.2 o successiva e riprovare.
 
@@ -57,7 +56,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     Nel calendario selezionare un punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Se sono disponibili più punti di ripristino, scegliere quello appropriato nell'elenco a discesa **Ora**.
 
-    ![Schermata della pagina Seleziona volume e dati del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
+    ![Screenshot della procedura guidata ripristino dati selezionare la pagina volume e data (Ripristina nello stesso computer)](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
 6. Dopo aver scelto il punto di ripristino, selezionare **Mount** (Monta).
 
@@ -65,15 +64,15 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
 7. Nella pagina **Cerca e ripristina file** fare clic su **Sfoglia** per aprire Esplora risorse e individuare i file e le cartelle desiderati.
 
-    ![Schermata della pagina di ricerca e ripristino dei file del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
+    ![Screenshot della pagina Cerca e Ripristina file della procedura guidata ripristino dati (Ripristina nello stesso computer)](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
-8. In Esplora risorse copiare i file e le cartelle da ripristinare e incollarle in qualsiasi posizione locale nel server o nel computer. È possibile aprire o trasmettere i file direttamente dal volume di ripristino e verificare che vengano ripristinate le versioni corrette.
+8. In Esplora risorse copiare i file e le cartelle da ripristinare e incollarle in qualsiasi posizione locale nel server o nel computer. È possibile aprire o trasmettere in streaming i file direttamente dal volume di ripristino e verificare che siano state ripristinate le versioni corrette.
 
-    ![Schermata di Windows Explorer, con la funzione di copia evidenziata](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Screenshot di Esplora risorse, con la copia evidenziata (ripristino nello stesso computer)](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
-9. Al termine dell'operazione, nella pagina **Browse and Recover Files** (Cerca e ripristina fine) selezionare **Unmount** (Smonta). Fare clic su **Sì** per confermare che si intende smontare il volume.
+9. Al termine, nella pagina **Browse and Recover Files** selezionare **unmount**. Fare clic su **Sì** per confermare che si intende smontare il volume.
 
-    ![Schermata della pagina di ricerca e ripristino dei file del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Screenshot della pagina Cerca e Ripristina file della procedura guidata ripristino dati (Ripristina nello stesso computer)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Se non si fa clic su **Unmount** (Smonta), il volume di ripristino rimane montato per 6 ore. Il tempo di montaggio viene tuttavia esteso fino a un massimo di 24 ore in caso di copia dei file in corso. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
@@ -100,11 +99,11 @@ Tali passaggi usano la terminologia seguente:
 
 3. Selezionare **Ripristina dati** per aprire il **Ripristino guidato dei dati**.
 
-    ![Schermata di Backup di Azure, con ripristino dei dati evidenziato](./media/backup-azure-restore-windows-server/recover.png)
+    ![Screenshot di backup di Azure con i dati di ripristino evidenziati (ripristino in un computer alternativo)](./media/backup-azure-restore-windows-server/recover.png)
 
 4. Nella pagina **Guida introduttiva** selezionare **Another server** (Un altro server).
 
-    ![Schermata della pagina introduttiva del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+    ![Screenshot della procedura guidata ripristino dati Introduzione pagina (ripristino nel computer alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
 5. Specificare il file dell'insieme di credenziali che corrisponde all'insieme di credenziali di esempio, quindi fare clic su **Avanti**.
 
@@ -112,31 +111,31 @@ Tali passaggi usano la terminologia seguente:
 
 6. Nel riquadro **Seleziona server di backup** selezionare il computer di origine nell'elenco dei computer visualizzati e specificare la passphrase. Fare quindi clic su **Avanti**.
 
-    ![Schermata della pagina Seleziona server di backup del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
+    ![Screenshot della procedura guidata ripristino dati pagina Selezione server di backup (Ripristina computer alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
 7. Nella pagina **Seleziona modalità di ripristino** selezionare **Individual files and folders** > **Next** (Singoli file e cartelle > Avanti).
 
-    ![Schermata della pagina Seleziona modalità di ripristino del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Screenshot della procedura guidata ripristino dati pagina Seleziona modalità di ripristino (Ripristina computer alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. Nella pagina **Seleziona volume e data** selezionare il volume che contiene i file e le cartelle da ripristinare.
 
     Nel calendario selezionare un punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Se sono disponibili più punti di ripristino, scegliere quello appropriato nell'elenco a discesa **Ora**.
 
-    ![Schermata della pagina Seleziona volume e dati del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
+    ![Screenshot della procedura guidata ripristino dati selezionare la pagina volume e data (Ripristina in un computer alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
 9. Fare clic su **Mount** (Mount) per montare localmente il punto di ripristino come volume di ripristino sul computer di destinazione.
 
 10. Nella pagina **Cerca e ripristina file** fare clic su **Sfoglia** per aprire Esplora risorse e individuare i file e le cartelle desiderati.
 
-    ![Schermata della pagina di ricerca e ripristino dei file del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
+    ![Screenshot della pagina Cerca e Ripristina file della procedura guidata ripristino dati (Ripristina computer alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
 11. In Esplora risorse copiare i file e/o le cartelle dal volume di ripristino e incollarli nella posizione del computer di destinazione. È possibile aprire o trasmettere i file direttamente dal volume di ripristino e verificare che vengano ripristinate le versioni corrette.
 
-    ![Schermata di Windows Explorer, con la funzione di copia evidenziata](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
+    ![Screenshot di Esplora risorse, con la copia evidenziata (ripristino nel computer alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. Al termine dell'operazione, nella pagina **Browse and Recover Files** (Cerca e ripristina fine) selezionare **Unmount** (Smonta). Fare clic su **Sì** per confermare che si intende smontare il volume.
+12. Al termine, nella pagina **Browse and Recover Files** selezionare **unmount**. Fare clic su **Sì** per confermare che si intende smontare il volume.
 
-    ![Schermata della pagina di ricerca e ripristino dei file del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
+    ![Smontare il volume (ripristinare il computer alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Se non si fa clic su **Unmount** (Smonta), il volume di ripristino rimane montato per 6 ore. Il tempo di montaggio viene tuttavia esteso fino a un massimo di 24 ore in caso di copia dei file in corso. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.

@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7061a178a3f5a9d126afab3fc1f9aa77d5cc050
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257809"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927029"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Informazioni su Service Fabric Mesh
 
@@ -42,7 +42,7 @@ Con Service Fabric Mesh è possibile:
 
 - Distribuire e gestire le applicazioni senza dover effettuare il provisioning e gestire l'infrastruttura in modo esplicito.  Service Fabric Mesh esegue il provisioning, aggiorna, applica le patch e gestisce automaticamente l'infrastruttura sottostante.
 - Configurare l'integrazione continua, usando gli strumenti integrati per creare pacchetti delle applicazioni e distribuirle facilmente.
-- Sfruttare tutte le funzionalità delle risorse di Azure Resource Manager. Esempi di queste funzionalità sono l'audit trail e il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). Tutte le risorse distribuite nel servizio Service Fabric Mesh in Azure sono risorse di Azure Resource Manager. Queste risorse includono applicazioni, servizi, segreti e così via.
+- Sfruttare tutte le funzionalità delle risorse di Azure Resource Manager. Esempi di queste funzionalità sono l'audit trail e il [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md). Tutte le risorse distribuite nel servizio Service Fabric Mesh in Azure sono risorse di Azure Resource Manager. Queste risorse includono applicazioni, servizi, segreti e così via.
 - Distribuire e gestire risorse usando il [portale di Azure](https://portal.azure.com), i modelli di Resource Manager o le librerie dell'interfaccia della riga di comando di Azure o di PowerShell.
 - Configurare il monitoraggio e gli avvisi di funzionamento usando [Application Insights](/azure/application-insights/) (o uno strumento a scelta) per acquisire le tracce operative e diagnostiche dalla piattaforma.
 - Accedere alle informazioni di diagnostica dell'applicazione generate dal modello dell'applicazione usando [Application Insights](/azure/application-insights/) o uno strumento a scelta.

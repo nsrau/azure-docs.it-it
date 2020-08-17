@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Code di Azure - Archiviazione di Azure
-description: Introduzione a Code di Azure
+description: Introduzione a Code di Azure, un servizio per l'archiviazione di un numero elevato di messaggi. Un servizio di accodamento contiene un formato di URL, un account di archiviazione, una coda e un messaggio.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/18/2020
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: 678ab8a3f3dace17671c242939c20cb5499b2e39
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: c16f02922b2e815ddd4986ab07bf260b20d871ee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805122"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826501"
 ---
 # <a name="what-are-azure-queues"></a>Che cosa sono le code di Azure?
 
@@ -25,11 +25,11 @@ Il servizio di accodamento contiene i componenti seguenti:
 
 ![Diagramma che mostra la relazione tra un account di archiviazione, le code e i messaggi](./media/storage-queues-introduction/queue1.png)
 
-* **Formato URL:** è possibile fare riferimento alle code usando il formato URL seguente:
+* **Formato dell'URL**: è possibile fare riferimento alle code usando il formato di URL seguente:
 
     `https://<storage account>.queue.core.windows.net/<queue>`
   
-    L'URL seguente fa riferimento a una delle code nel diagramma:  
+    L'URL seguente fa riferimento a una delle code nel diagramma:   
   
     `https://myaccount.queue.core.windows.net/images-to-download`
 
@@ -37,7 +37,7 @@ Il servizio di accodamento contiene i componenti seguenti:
 
 * **Coda:** una coda contiene un set di messaggi. Il nome della coda **deve** essere tutto in minuscolo. Per altre informazioni, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Messaggio:** un messaggio, in qualsiasi formato, con dimensioni massime di 64 kB. Prima della versione 2017-07-29, la durata (TTL) massima consentita è di sette giorni. Per la versione 2017-07-29 o successive, la durata massima consentita può essere un numero positivo qualsiasi o -1, a indicare che il messaggio non scade. Se questo parametro viene omesso, la durata predefinita è di sette giorni.
+* **Messaggio:** un messaggio, in qualsiasi formato, con dimensioni massime di 64 KB. Prima della versione 2017-07-29, la durata (TTL) massima consentita è di sette giorni. Per la versione 2017-07-29 o successive, la durata massima consentita può essere un numero positivo qualsiasi o -1, a indicare che il messaggio non scade. Se questo parametro viene omesso, la durata predefinita è di sette giorni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

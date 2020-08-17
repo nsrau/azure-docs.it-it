@@ -1,23 +1,23 @@
 ---
 title: Guida introduttiva per la gestione di condivisioni file di Azure con il portale di Azure
-description: Questa guida introduttiva illustra come usare il portale di Azure per gestire File di Azure.
+description: Informazioni su come creare e gestire condivisioni file di Azure nel portale di Azure. Creare un account di archiviazione e creare e usare una condivisione file di Azure.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f68d9f620b686ab20e93584bdd7c024d8a943577
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71260296"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036539"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con il portale di Azure 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questa guida contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con il [portale di Azure](https://portal.azure.com/).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]

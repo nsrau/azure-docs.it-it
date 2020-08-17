@@ -1,14 +1,14 @@
 ---
 title: Eseguire il backup dello stato del sistema Windows in Azure
-description: Informazioni su come eseguire il backup dello stato del sistema di computer Windows Server e/o Windows in Azure.
+description: Informazioni su come eseguire il backup dello stato del sistema dei computer Windows Server in Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003835"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263045"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Eseguire il backup dello stato del sistema Windows in Azure
 
@@ -24,21 +24,21 @@ Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](
 
 Quando si crea un insieme di credenziali dei Servizi di ripristino, assicurarsi che la ridondanza di archiviazione sia configurata in base alle proprie esigenze.
 
-1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali.
+1. Dal riquadro insiemi di credenziali dei **servizi di ripristino** selezionare il nuovo insieme di credenziali.
 
     ![Selezionare il nuovo insieme di credenziali dall'elenco corrispondente per Servizi di ripristino](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    Quando si seleziona l'insieme di credenziali, il pannello **Insieme di credenziali dei servizi di ripristino** si restringe e vengono aperti il pannello Impostazioni,*con il nome dell'insieme di credenziali nella parte superiore*, e il pannello dei dettagli dell'insieme di credenziali.
+    Quando si seleziona l'insieme di credenziali, il riquadro dell'insieme di credenziali di **servizi di ripristino** si restringe e il riquadro Impostazioni (*che ha il nome dell'insieme di credenziali nella parte superiore*) e il riquadro dei dettagli dell'insieme di credenziali sono aperti.
 
     ![Visualizzare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
-2. Nel pannello Impostazioni del nuovo insieme di credenziali usare il dispositivo di scorrimento verticale per passare alla sezione Gestisci e fare clic su **Infrastruttura di backup**.
-    Verrà visualizzato il pannello Infrastruttura di backup.
-3. Nel pannello Infrastruttura di backup fare clic su **Configurazione backup** per aprire il pannello **Configurazione backup**.
+2. Nel riquadro impostazioni del nuovo insieme di credenziali usare la diapositiva verticale per scorrere verso il basso fino alla sezione Gestisci e selezionare **infrastruttura di backup**.
+    Verrà visualizzato il riquadro infrastruttura di backup.
+3. Nel riquadro infrastruttura di backup selezionare **configurazione backup** per aprire il riquadro **configurazione backup** .
 
     ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Scegliere l'opzione di replica di archiviazione appropriata per l'insieme di credenziali.
 
-    ![opzioni di configurazione dell'archiviazione](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Opzioni di configurazione dell'archiviazione](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
     Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si usa Azure come endpoint di archiviazione di backup primario, continuare a usare l'opzione **Con ridondanza geografica**. Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure. Per altre informazioni sulle opzioni di archiviazione [con ridondanza geografica](../storage/common/storage-redundancy.md) e [con ridondanza locale](../storage/common/storage-redundancy.md), vedere [Panoramica della ridondanza di archiviazione](../storage/common/storage-redundancy.md).
 
@@ -46,47 +46,47 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
 ## <a name="configure-the-vault"></a>Configurare l'insieme di credenziali
 
-1. Nel pannello dell'insieme di credenziali dei servizi di ripristino appena creato, nella sezione Attività iniziali fare clic su **Backup** e nel pannello **Introduzione al backup** selezionare **Obiettivo del backup**.
+1. Nel riquadro dell'insieme di credenziali di servizi di ripristino (per l'insieme di credenziali appena creato), nella sezione Introduzione selezionare **backup**, quindi nel riquadro **Introduzione con backup** selezionare **obiettivo del backup**.
 
-    ![Aprire il Pannello Obiettivo di backup](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
+    ![Apri impostazioni backup](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-    Verrà visualizzato il pannello **Obiettivo del backup**.
+    Verrà visualizzato il riquadro **obiettivo del backup** .
 
-    ![Aprire il Pannello Obiettivo di backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
+    ![Apri riquadro obiettivo di backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
 2. Scegliere **Locale** dal menu a discesa **Posizione di esecuzione del carico di lavoro**.
 
-    Si sceglie **Locale** perché il server di Windows o il computer Windows è un computer fisico che non si trova in Azure.
+    Si sceglie **locale** perché il computer Windows Server o Windows è un computer fisico che non si trova in Azure.
 
-3. Scegliere **stato del sistema**dal menu **di cui si desidera eseguire il backup?** , quindi fare clic su **OK**.
+3. Scegliere lo **stato del sistema**dal menu **di cui si desidera eseguire il backup?** e selezionare **OK**.
 
     ![Configurazione di file e cartelle](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Dopo aver fatto clic su OK verrà visualizzato un segno di spunta accanto a **Obiettivo del backup** e si aprirà il pannello **Preparare l'infrastruttura**.
+    Dopo aver fatto clic su OK, viene visualizzato un segno di spunta accanto a **obiettivo di backup**e viene aperto il riquadro **prepara infrastruttura** .
 
     ![Preparare l'infrastruttura dopo aver configurato l'obiettivo del backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. Nel pannello **Preparare l'infrastruttura** fare clic su **Scaricare l'agente per Windows Server o Windows Client**.
+4. Nel riquadro **prepara infrastruttura** selezionare **Scarica agente per Windows Server o client Windows**.
 
     ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-    Se si usa Windows Server Essentials, scegliere di scaricare l'agente per Windows Server Essentials. Un menu a comparsa chiederà di eseguire o salvare MARSAgentInstaller.exe.
+    Se si usa Windows Server Essential, scegliere di scaricare l'agente per Windows Server Essential. Un menu a comparsa chiederà di eseguire o salvare MARSAgentInstaller.exe.
 
     ![Finestra di dialogo di MARSAgentInstaller](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
-5. Fare clic su **Salva** nel menu a comparsa del download.
+5. Nel menu a comparsa Scarica selezionare **Salva**.
 
-    Per impostazione predefinita, il file **MARSagentinstaller.exe** viene salvato nella cartella Downloads. Al termine del programma di installazione verrà visualizzato un messaggio popup che chiede se eseguire il programma di installazione o aprire la cartella.
+    Per impostazione predefinita, il file **MARSagentinstaller.exe** viene salvato nella cartella Downloads. Al termine del programma di installazione verrà visualizzato un messaggio popup che chiede se si vuole eseguire il programma di installazione o aprire la cartella.
 
-    ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
+    ![Programma di installazione MARS completato](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
     Non è ancora necessario installare l'agente. È possibile installare l'agente al termine del download delle credenziali dell'insieme di credenziali.
 
-6. Fare clic su **Scarica** nel pannello **Preparare l'infrastruttura**.
+6. Nel riquadro **prepara infrastruttura** selezionare **Scarica**.
 
     ![Scaricare le credenziali dell'insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Salva**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.
+    Le credenziali dell'insieme di credenziali vengono scaricate nella cartella **Downloads** . Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se si desidera aprire o salvare le credenziali. Selezionare **Salva**. Se si seleziona accidentalmente **Apri**, consentire alla finestra di dialogo che tenta di aprire le credenziali dell'insieme di credenziali di non riuscire. Non sarà possibile aprire le credenziali dell'insieme di credenziali. Continuare con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella **Downloads** .
 
     ![Il download delle credenziali dell'insieme di credenziali è terminato](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -142,39 +142,39 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
     ![Avviare l'agente di Servizi di ripristino di Azure](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-2. Nell'agente di Servizi di ripristino fare clic su **Pianifica backup**.
+2. Nell'agente di servizi di ripristino selezionare **Pianifica backup**.
 
     ![Pianificare un backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
-3. Nella pagina Guida introduttiva della Pianificazione guidata backup fare clic su **Avanti**.
+3. Nella pagina attività **iniziali** della pianificazione guidata backup selezionare **Avanti**.
 
-4. Nella pagina **Seleziona elementi per backup** fare clic su Aggiungi elementi.
+4. Nella pagina **Seleziona elementi per il backup** selezionare **Aggiungi elementi**.
 
-5. Selezionare **Stato del sistema** e quindi fare clic su **OK**.
+5. Selezionare **stato del sistema** , quindi fare clic su **OK**.
 
-6. Fare clic su **Avanti**.
+6. Selezionare **Avanti**.
 
 7. Nelle pagine successive, selezionare la frequenza e i criteri di conservazione del backup per i backup dello stato del sistema.
 
-8. Nella pagina Conferma esaminare le informazioni e fare clic su **Fine**.
+8. Nella pagina Conferma esaminare le informazioni e quindi fare clic su **fine**.
 
-9. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
+9. Al termine della creazione della pianificazione del backup da parte della procedura guidata, selezionare **Chiudi**.
 
 ### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Eseguire il backup dello stato del sistema Windows Server per la prima volta
 
 1. Verificare che non siano presenti aggiornamenti in sospeso di Windows Server che richiedono un riavvio.
 
-2. Nell'agente di Servizi di ripristino fare clic su **Esegui backup** per completare il seeding iniziale sulla rete.
+2. Nell'agente di servizi di ripristino selezionare **Esegui backup** per completare il seeding iniziale sulla rete.
 
     ![Backup di Windows Server ora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Selezionare **Stato del sistema** nella schermata di **selezione degli elementi di backup** visualizzata e fare clic su **Avanti**.
+3. Selezionare **stato del sistema** nella schermata **Selezione elemento di backup** visualizzata e selezionare **Avanti**.
 
-4. Nella pagina Conferma riesaminare le impostazioni che l'Esecuzione guidata backup userà per il backup del computer. Fare clic su **Backup**.
+4. Nella pagina Conferma riesaminare le impostazioni che l'Esecuzione guidata backup userà per il backup del computer. Quindi selezionare **backup**.
 
-5. Fare clic su **Chiudi** per uscire dalla procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
+5. Selezionare **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
     > [!NOTE]
-    > L'agente MARS attiva SFC/VERIFYONLY. come parte delle verifiche preliminari prima di ogni backup dello stato del sistema. In questo modo si garantisce che i file di cui è stato eseguito il backup come parte dello stato del sistema abbiano le versioni corrette corrispondenti alla versione di Windows. Altre informazioni su controllo file di sistema (SFC) in [questo articolo](/windows-server/administration/windows-commands/sfc).
+    > L'agente MARS viene attivato `SFC /verifyonly` come parte delle verifiche preliminari prima di ogni backup dello stato del sistema. In questo modo si garantisce che i file di cui è stato eseguito il backup come parte dello stato del sistema abbiano le versioni corrette corrispondenti alla versione di Windows. Altre informazioni su controllo file di sistema (SFC) in [questo articolo](/windows-server/administration/windows-commands/sfc).
     >
 
 Al termine del backup iniziale, nella console Backup comparirà lo stato **Processo completato** .
@@ -183,7 +183,7 @@ Al termine del backup iniziale, nella console Backup comparirà lo stato **Proce
 
 ## <a name="questions"></a>Domande?
 
-In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](https://feedback.azure.com/forums/258995-azure-backup).
+Per eventuali domande, [inviare commenti e suggerimenti](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

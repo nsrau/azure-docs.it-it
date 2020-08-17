@@ -4,12 +4,12 @@ description: Ripristinare una macchina virtuale di Azure da un punto di ripristi
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006333"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263011"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
@@ -53,7 +53,7 @@ Se non si dispone delle autorizzazioni, è possibile [ripristinare un disco](#re
 
 1. Nell'insieme di credenziali associato alla VM che si vuole ripristinare selezionare **elementi di backup**  >  **macchina virtuale di Azure**.
 1. Selezionare una macchina virtuale. Per impostazione predefinita, nel dashboard della macchina virtuale verranno visualizzati i punti di ripristino degli ultimi 30 giorni. È possibile visualizzare punti di ripristino antecedenti a 30 giorni o applicare un filtro per trovare punti di ripristino in base a date, intervalli di tempo e tipi diversi di coerenza degli snapshot.
-1. Per ripristinare la macchina virtuale, fare clic su **Ripristina macchina virtuale**.
+1. Per ripristinare la macchina virtuale, selezionare **Ripristina macchina virtuale**.
 
     ![Punto di ripristino](./media/backup-azure-arm-restore-vms/restore-point.png)
 
@@ -85,7 +85,7 @@ Tra le [opzioni di ripristino](#restore-options) è possibile creare rapidamente
 
 ## <a name="restore-disks"></a>Ripristinare i dischi
 
-Tra le [opzioni di ripristino](#restore-options) è possibile creare un disco da un punto di ripristino. Con il disco è quindi possibile eseguire una di queste operazioni:
+Tra le [opzioni di ripristino](#restore-options) è possibile creare un disco da un punto di ripristino. Quindi, con il disco, è possibile eseguire una delle azioni seguenti:
 
 - Usare il modello generato durante l'operazione di ripristino per personalizzare le impostazioni e attivare la distribuzione della macchina virtuale. Modificare le impostazioni predefinite del modello e inviare il modello per la distribuzione della macchina virtuale.
 - [Collegare i dischi ripristinati](../virtual-machines/windows/attach-managed-disk-portal.md) a una macchina virtuale esistente.
@@ -95,7 +95,7 @@ Tra le [opzioni di ripristino](#restore-options) è possibile creare un disco da
 1. In **Gruppo di risorse** selezionare un gruppo di risorse per i dischi ripristinati o crearne uno nuovo con un nome univoco globale.
 1. In **percorso di gestione temporanea**specificare l'account di archiviazione in cui copiare i dischi rigidi virtuali. [Altre informazioni](#storage-accounts)
 
-    ![Configurazione di ripristino completata](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+    ![Selezionare il gruppo di risorse e il percorso di gestione temporanea](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
 1. Selezionare **Ripristina** per attivare l'operazione di ripristino.
 
@@ -202,7 +202,7 @@ Esistono diversi scenari comuni in cui potrebbe essere necessario ripristinare l
 **Ripristino bare metal** | La differenza principale tra le macchine virtuali di Azure e gli hypervisor locali consiste nel fatto che in Azure non è disponibile una console per macchine virtuali. La console è obbligatoria per alcuni scenari, ad esempio per il ripristino tramite un backup di tipo di ripristino bare metal (BMR). Tuttavia, il ripristino della macchina virtuale dall'insieme di credenziali è una sostituzione completa con il ripristino bare metal.
 **Ripristinare le VM con configurazioni di rete speciali** | Configurazioni di rete speciali includono macchine virtuali con bilanciamento del carico interno o esterno, con più schede di interfaccia di rete o con più indirizzi IP riservati. Per ripristinare queste macchine virtuali, usare l'[opzione relativa al disco di ripristino](#restore-disks). Questa opzione Crea una copia dei dischi rigidi virtuali nell'account di archiviazione specificato ed è quindi possibile creare una macchina virtuale con un servizio di bilanciamento del carico [interno](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) o [esterno](../load-balancer/quickstart-create-standard-load-balancer-powershell.md) , [più schede](../virtual-machines/windows/multiple-nics.md)di rete o [più indirizzi IP riservati](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), in base alla configurazione.
 **Gruppo di sicurezza di rete (NSG) nella scheda NIC/subnet** | Il backup di macchine virtuali di Azure supporta il backup e il ripristino delle informazioni NSG a livello di VNET, subnet e NIC.
-**VM bloccate della zona** | Se si esegue il backup di una macchina virtuale di Azure bloccata in una zona (con backup di Azure), è possibile ripristinarla nella stessa area in cui è stata bloccata. [Scopri di più](../availability-zones/az-overview.md)
+**VM bloccate della zona** | Se si esegue il backup di una macchina virtuale di Azure bloccata in una zona (con backup di Azure), è possibile ripristinarla nella stessa area in cui è stata bloccata. [Altre informazioni](../availability-zones/az-overview.md)
 **Ripristinare una macchina virtuale in un set di disponibilità** | Quando si ripristina una macchina virtuale dal portale, non è possibile scegliere un set di disponibilità. Una macchina virtuale ripristinata non ha un set di disponibilità. Se si usa l'opzione Ripristina disco, è possibile [specificare un set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) quando si crea una macchina virtuale dal disco usando il modello fornito o PowerShell.
 **Ripristinare macchine virtuali speciali, ad esempio macchine virtuali SQL** | Se si esegue il backup di una VM di SQL usando il backup delle VM di Azure e quindi si usa l'opzione Ripristina macchina virtuale o si crea una macchina virtuale dopo il ripristino dei dischi, la macchina virtuale appena creata deve essere registrata con il provider SQL come indicato [qui](../azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md?tabs=azure-cli%2Cbash). La macchina virtuale ripristinata verrà convertita in una macchina virtuale di SQL.
 

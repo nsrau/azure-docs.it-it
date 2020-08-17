@@ -1,20 +1,18 @@
 ---
 title: Novità di Desktop virtuale Windows - Azure
 description: Nuove funzionalità e aggiornamenti del prodotto per Desktop virtuale Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 06/15/2020
+ms.date: 08/07/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8663fc3f016fadcd4f4c99acd800cd0ccf8844f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291231"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003527"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -27,11 +25,46 @@ Desktop virtuale Windows viene aggiornato regolarmente. Questo articolo include 
 
 Questo articolo viene aggiornato ogni mese. Controllare spesso l'articolo per ottenere informazioni sui nuovi aggiornamenti.
 
+## <a name="july-2020"></a>Luglio 2020  
+
+Nel mese di luglio è diventato disponibile a livello generale Desktop virtuale Windows con l'integrazione con Azure Resource Manager.
+
+Ecco le modifiche apportate in questa nuova versione: 
+
+- La "versione Autunno 2019" è ora denominata "Desktop virtuale Windows (versione classica)", mentre la "versione Primavera 2020" è ora semplicemente "Desktop virtuale Windows". Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
+
+Per altre informazioni sulle nuove funzionalità, vedere [questo post di blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+
+### <a name="autoscaling-tool-update"></a>Aggiornamento dello strumento di scalabilità automatica
+
+L'ultima versione dello strumento di scalabilità automatica, precedentemente in anteprima, è ora disponibile a livello generale. Questo strumento usa un account di automazione di Azure e un'app per la logica di Azure per arrestare e riavviare automaticamente le macchine virtuali (VM) host della sessione all'interno di un pool di host, riducendo i costi dell'infrastruttura. Per altre informazioni, vedere [Ridimensionare gli host di sessione con Automazione di Azure](set-up-scaling-script.md).
+
+### <a name="azure-portal"></a>Portale di Azure
+
+È ora possibile eseguire le operazioni seguenti con il portale di Azure in Desktop virtuale Windows: 
+
+- Assegnare direttamente gli utenti agli host di sessione del desktop personale  
+- Modificare l'impostazione dell'ambiente di convalida per i pool di host 
+
+### <a name="diagnostics"></a>Diagnostica
+
+Sono state rilasciate alcune nuove query predefinite per l'area di lavoro Log Analytics. Per accedere alle query, passare a **Log** e selezionare **Desktop virtuale Windows** in **Categoria**. Per altre informazioni, vedere [Usare Log Analytics per la funzionalità di diagnostica](diagnostics-log-analytics.md).
+
+### <a name="update-for-remote-desktop-client-for-android"></a>Aggiornamento per il client Desktop remoto per Android
+
+Il [client Desktop remoto per Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) supporta ora le connessioni a Desktop virtuale Windows. A partire dalla versione 10.0.7, il client Android offre una nuova interfaccia utente per una migliore esperienza utente. Il client si integra anche con Microsoft Authenticator nei dispositivi Android per abilitare l'accesso condizionale per la sottoscrizione di aree di lavoro Desktop virtuale Windows.  
+
+La versione precedente del client Desktop remoto è ora denominata "Desktop remoto 8". Tutte le connessioni esistenti nella versione precedente del client verranno trasferite senza problemi al nuovo client. Il nuovo client è stato riscritto per lo stesso motore di base RDP sottostante dei client iOS e macOS, per velocizzare il rilascio delle nuove funzionalità in tutte le piattaforme. 
+
+### <a name="teams-update"></a>Aggiornamento di Teams
+
+Sono stati apportati alcuni miglioramenti a Microsoft Teams per Desktop virtuale Windows. Desktop virtuale Windows supporta ora soprattutto l'ottimizzazione audio e video per il client desktop Windows. Il reindirizzamento migliora la latenza creando percorsi diretti tra gli utenti quando effettuano chiamate e riunioni con audio o video. Una distanza minore comporta meno hop, quindi la chiamata ha un aspetto e un audio migliori. Per altre informazioni, vedere [Usare Teams in Desktop virtuale Windows](teams-on-wvd.md).
+
 ## <a name="june-2020"></a>Giugno 2020
 
 Il mese scorso è stato presentato Desktop virtuale Windows con l'integrazione con Azure Resource Manager in anteprima. Questo aggiornamento offre molte nuove funzionalità straordinarie. Ecco le novità per questa versione di Desktop virtuale Windows.
 
-### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>Desktop virtuale Windows è ora integrato con Azure Resource Manager (anteprima)
+### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager"></a>Integrazione di Desktop virtuale Windows con Azure Resource Manager
 
 Desktop virtuale Windows è ora integrato in Azure Resource Manager. Nell'aggiornamento più recente tutti gli oggetti di Desktop virtuale Windows sono ora risorse di Azure Resource Manager. Questo aggiornamento è integrato anche con il controllo degli accessi in base al ruolo di Azure. Per altre informazioni, vedere [Informazioni su Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
@@ -41,7 +74,7 @@ Questa modifica ha gli effetti seguenti:
 
 - Prima dell'aggiornamento era possibile pubblicare RemoteApps e desktop solo per singoli utenti. Grazie ad Azure Resource Manager, è ora possibile pubblicare risorse nei gruppi di Azure Active Directory.
 
-- La versione precedente di Desktop virtuale Windows include quattro ruoli di amministratore predefiniti che è possibile assegnare a un tenant o a un pool di host. Questi ruoli sono ora disponibili nel [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) do Azure. È possibile applicare questi ruoli a ogni oggetto di Azure Resource Manager di Desktop virtuale Windows, in modo da ottenere un modello di delega completo e avanzato.
+- La versione precedente di Desktop virtuale Windows include quattro ruoli di amministratore predefiniti che è possibile assegnare a un tenant o a un pool di host. Questi ruoli sono ora disponibili nel [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md). È possibile applicare questi ruoli a ogni oggetto di Azure Resource Manager di Desktop virtuale Windows, in modo da ottenere un modello di delega completo e avanzato.
 
 - In questo aggiornamento non è più necessario eseguire Azure Marketplace o il modello di GitHub ripetutamente per espandere un pool di host. Per espandere un pool di host è sufficiente passare al pool di host nel portale di Azure e selezionare **+ Aggiungi** per distribuire host di sessione aggiuntivi.
 
@@ -49,7 +82,7 @@ Questa modifica ha gli effetti seguenti:
 
 - Le funzioni di monitoraggio eseguite in precedenza tramite PowerShell o l'app Web Servizio diagnostica sono ora state spostate in Log Analytics nel portale di Azure. Sono inoltre ora disponibili due opzioni per visualizzare i report. È possibile eseguire query di Kusto e usare Cartelle di lavoro per creare report visivi.
 
-- Non è più necessario completare il consenso di Azure Active Directory (Azure AD) per usare Desktop virtuale Windows. In questo aggiornamento il tenant di Azure AD nella sottoscrizione di Azure esegue l'autenticazione degli utenti e fornisce controlli del Controllo degli accessi in base al ruolo per gli amministratori.
+- Non è più necessario completare il consenso di Azure Active Directory (Azure AD) per usare Desktop virtuale Windows. In questo aggiornamento, il tenant di Azure AD nella sottoscrizione di Azure esegue l'autenticazione degli utenti e fornisce i controlli degli accessi in base al ruolo di Azure per gli amministratori.
 
 
 ### <a name="powershell-support"></a>Supporto PowerShell
@@ -60,7 +93,7 @@ Per installare il modulo, seguire le istruzioni disponibili in [Configurare il m
 
 È anche possibile visualizzare un elenco dei comandi disponibili nelle [informazioni di riferimento su AzWvd PowerShell](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
 
-Per altre informazioni sulle nuove funzionalità, vedere il [post di blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+Per altre informazioni sulle nuove funzionalità, vedere il [post di blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 
 ### <a name="additional-gateways"></a>Gateway aggiuntivi
 

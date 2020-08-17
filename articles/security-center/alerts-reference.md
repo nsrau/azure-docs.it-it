@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 30609535f21b64c137d7f94b89bedfab41159deb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e20e57a5fe1dde786097c658374516a1f3bf4005
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830564"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263351"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Guida di riferimento per gli avvisi di sicurezza
 
@@ -42,6 +42,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 |**Aggiunta dell'account Guest al gruppo Administrators locale**|L'analisi dei dati dell'host ha rilevato l'aggiunta dell'account Guest predefinito al gruppo Administrators locale in %{host compromesso}, un'operazione strettamente associata all'attività di un utente malintenzionato.|-|Media|
 |**Un registro eventi è stato cancellato**|I log del computer indicano un'operazione sospetta di cancellazione del registro eventi eseguita dall'utente: '%{nome utente}' nel computer: '%{entità compromessa}'. Il log %{canale log} è stato cancellato.|-|Informativo|
 |**Azione antimalware intrapresa**|Microsoft antimalware per Azure ha effettuato un'azione per proteggere il computer da malware o altro software potenzialmente indesiderato.|-|Media|
+|**Azione antimalware non riuscita**|Microsoft antimalware ha rilevato un errore durante l'esecuzione di un'azione su malware o altro software potenzialmente indesiderato.|-|Media|
 |**Rilevati indicatori ransomware Petya**|L'analisi dei dati dell'host in %{host compromesso} ha rilevato indicatori associati al ransomware Petya. Per altre informazioni, vedere https://blogs.technet.microsoft.com/mmpc/2017/06/27/new-ransomware-old-techniques-petya-adds-worm-capabilities/. Esaminare la riga di comando associata a questo avviso e inoltrare questo avviso al team di sicurezza.|-|Alto|
 |**Rilevate azioni che indicano la disabilitazione e l'eliminazione dei file di log IIS**|L'analisi dei dati dell'host ha rilevato azioni che indicano che i file di log IIS sono stati disabilitati e/o eliminati.|-|Media|
 |**Rilevata combinazione anomala di caratteri maiuscoli e minuscoli nella riga di comando**|L'analisi dei dati dell'host in %{host compromesso} ha rilevato una riga di comando con una combinazione anomala di caratteri maiuscoli e minuscoli. Questo tipo di modello, benché probabilmente non dannoso, è anche tipico di utenti malintenzionati che tentano di nascondersi dalla corrispondenza di regole basata su hash o distinzione tra maiuscole e minuscole durante l'esecuzione di attività amministrative in un host compromesso.|-|Media|

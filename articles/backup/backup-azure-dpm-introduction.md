@@ -3,12 +3,12 @@ title: Preparare il server DPM per il backup dei carichi di lavoro
 description: Questo articolo illustra come preparare i backup di System Center Data Protection Manager (DPM) in Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 9891be5eded94c64a6cc256b99510a9c0c673daf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a61112f04d3faef83a80395a7d316c63130e7758
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514170"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263266"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -26,8 +26,8 @@ Questo articolo include:
 
 [System Center DPM](/system-center/dpm/dpm-overview) esegue il backup dei dati di file e applicazioni. DPM interagisce con Backup di Azure nei modi seguenti:
 
-- **Se DPM viene eseguito in un server fisico o in una macchina virtuale locale**, è possibile eseguire il backup dei dati in un insieme di credenziali di backup in Azure, oltre al backup su disco e nastro.
-- **Se DPM viene eseguito in una macchina virtuale di Azure**, da System Center 2012 R2 con aggiornamento 3 o successivo, è possibile distribuire DPM in una macchina virtuale di Azure. È possibile eseguire il backup dei dati nei dischi di Azure collegati alla macchina virtuale oppure usare Backup di Azure per eseguire il backup dei dati in un insieme di credenziali di backup.
+- **DPM in esecuzione su un server fisico o una macchina virtuale locale** : è possibile eseguire il backup dei dati in un insieme di credenziali per il backup in Azure, oltre al backup su disco e su nastro.
+- **DPM in esecuzione in una macchina virtuale di Azure** : da System Center 2012 R2 con aggiornamento 3 o versione successiva, è possibile distribuire DPM in una macchina virtuale di Azure. È possibile eseguire il backup dei dati nei dischi di Azure collegati alla macchina virtuale oppure usare Backup di Azure per eseguire il backup dei dati in un insieme di credenziali di backup.
 
 Di seguito sono elencati i vantaggi aziendali derivanti dal backup dei server DPM in Azure:
 
@@ -44,8 +44,8 @@ DPM su una macchina virtuale Hyper-V | System Center 2012 SP1 o versione success
 DPM in una macchina virtuale VMware | System Center 2012 R2 con aggiornamento cumulativo 5 o successivo.
 Componenti | Nel server DPM devono essere installati Windows PowerShell e .NET Framework 4,5.
 App supportate | [Informazioni](/system-center/dpm/dpm-protection-matrix) relative agli elementi di cui DPM può eseguire il backup.
-Tipi di file supportati | Questi tipi di file possono essere sottoposti a backup con Backup di Azure: crittografati, solo backup completi; compressi, backup incrementali supportati; sparse, backup incrementali supportati; compressi e sparse considerati come sparse.
-Tipi di file non supportati | Server nei file system che distinguono tra maiuscole e minuscole; collegamenti reali, ignorati; reparse point, ignorati; crittografati e compressi, ignorati; crittografati e sparse, ignorati; flusso compresso; analisi di flusso.
+Tipi di file supportati | Questi tipi di file possono essere sottoposti a backup con Backup di Azure:<br> <li>Crittografati (solo backup completi)<li> Compressi (backup incrementali supportati) <li> Sparse (backup incrementali supportati)<li> Compressi e sparse (considerati come sparse)
+Tipi di file non supportati | <li>Server in file System con distinzione tra maiuscole e minuscole<li> collegamenti reali (ignorati)<li> reparse point (ignorati)<li> crittografati e compressi (ignorati)<li> crittografati e sparse (ignorati)<li> Flusso compresso<li> flusso di analisi
 Archiviazione locale | Ogni computer di cui si desidera eseguire il backup deve disporre di spazio di archiviazione locale disponibile almeno il 5% delle dimensioni dei dati di cui viene eseguito il backup. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 5 GB di spazio disponibile nello spazio di lavoro.
 Archiviazione dell'insieme di credenziali | Non esiste alcun limite alla quantità di dati di cui è possibile eseguire il backup in un insieme di credenziali di backup di Azure, ma le dimensioni di un'origine dati (ad esempio una macchina virtuale o un database) non devono superare 54.400 GB.
 Azure ExpressRoute | È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.<br/><br/> **Con peering pubblico**: garantire l'accesso ai seguenti domini/indirizzi:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con il peering Microsoft**selezionare i servizi/le aree e i valori della community pertinenti seguenti:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure area (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>-Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>Per ulteriori informazioni, vedere [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: il peering pubblico è deprecato per i nuovi circuiti.
@@ -68,7 +68,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
 1. Aprire il dashboard dell'insieme di credenziali.
 
-2. In **Gestione** fare clic su **Infrastruttura di backup**.
+2. In **Gestisci**selezionare **infrastruttura di backup**.
 
 3. Nel menu **Configurazione di backup** selezionare un'opzione di archiviazione opzione per l'insieme di credenziali.
 
@@ -91,7 +91,7 @@ Per ottenere le credenziali, scaricare il file dell'insieme di credenziali trami
 - È responsabilità dell'utente garantire che il file delle credenziali dell'insieme di credenziali sia sicuro e non venga danneggiato.
   - Se si perde il controllo delle credenziali, le credenziali dell'insieme di credenziali possono essere usate per registrare altri computer nell'insieme di credenziali.
   - Poiché i dati di backup sono crittografati tramite una passphrase appartenente al cliente, i dati di backup esistenti non possono tuttavia essere compromessi.
-- Verificare che il file venga salvato in un percorso accessibile dal server DPM. Se vengano archiviate in una condivisione file/SMB, verificare le autorizzazioni di accesso.
+- Verificare che il file venga salvato in un percorso accessibile dal server DPM. Se viene archiviato in una condivisione file/SMB, verificare le autorizzazioni di accesso.
 - Le credenziali dell'insieme di credenziali scadono dopo 48 ore. È possibile scaricare le nuove credenziali dell'insieme di credenziali ogni volta che è necessario. Tuttavia, durante il flusso di lavoro di registrazione, è possibile usare solo il file di credenziali dell'insieme di credenziali più recente.
 - Il servizio Backup di Azure non è a conoscenza della chiave privata del certificato e la chiave privata non è disponibile nel portale o nel servizio.
 
@@ -99,27 +99,27 @@ Scaricare le credenziali dell'insieme di credenziali in un computer locale come 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Aprire l'insieme di credenziali in cui si desidera registrare il server DPM.
-3. In **Impostazioni** fare clic su **Proprietà**.
+3. In **Impostazioni**selezionare **Proprietà**.
 
     ![Menu dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. In **Properties**  >  **backup Credentials**fare clic su **download**. Il portale genera il file delle credenziali dell'insieme di credenziali usando una combinazione del nome dell'insieme di credenziali e della data corrente e lo rende disponibile per il download.
+4. In **Properties**  >  **backup Credentials**selezionare **download**. Il portale genera il file delle credenziali dell'insieme di credenziali usando una combinazione del nome dell'insieme di credenziali e della data corrente e lo rende disponibile per il download.
 
-    ![Scarica](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Scaricare le credenziali](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
-5. Fare clic su **Salva** per scaricare le credenziali dell'insieme di credenziali nella cartella o su **Salva con nome** per specificare un percorso. La generazione del file potrebbe impiegare fino a un minuto.
+5. Selezionare **Salva** per scaricare le credenziali dell'insieme di credenziali nella cartella o **Salva con nome** e specificare un percorso. La generazione del file potrebbe impiegare fino a un minuto.
 
 ## <a name="install-the-backup-agent"></a>Installare l'agente di backup
 
 In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere installato l'agente di backup, noto anche come agente del servizio di ripristino di Microsoft Azure (MARS). Installare l'agente nel server DPM come indicato di seguito:
 
 1. Aprire l'insieme di credenziali in cui si desidera registrare il server DPM.
-2. In **Impostazioni** fare clic su **Proprietà**.
+2. In **Impostazioni**selezionare **Proprietà**.
 
-    ![Menu dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Apri impostazioni insieme di credenziali](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Nella pagina **Proprietà** scaricare l'agente di Backup di Azure.
 
-    ![Scarica](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Al termine del download eseguire MARSAgentInstaller.exe. per installare l'agente in un computer DPM.
 5. Selezionare una cartella di installazione e una cartella della cache per l'agente. Lo spazio disponibile nel percorso della cache deve essere almeno il 5% dei dati di backup.
@@ -131,7 +131,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registrare il server DPM nell'insieme di credenziali
 
-1. Nella console dell'amministrazione DPM > **Gestione** fare clic su **Online**. Selezionare **Registra**. Verrà visualizzata la procedura guidata Registrazione del server.
+1. Nella console amministrazione DPM > **gestione**selezionare **online**. Selezionare **Registra**. Verrà visualizzata la procedura guidata Registrazione del server.
 2. In **Configurazione proxy** specificare le impostazioni proxy in base alle esigenze.
 
     ![Configurazione proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
@@ -147,7 +147,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
 
     - Backup di Azure usa questo percorso come area temporanea di conservazione dei dati ripristinati.
     - Al termine del ripristino dei dati, Backup di Azure cancellerà i dati in quest'area.
-    - Il percorso deve avere spazio sufficiente per contenere gli elementi di cui si anticipa il ripristino in parallelo.
+    - Il percorso deve disporre di spazio sufficiente per contenere gli elementi che si prevede di ripristinare in parallelo.
 
     ![Impostazioni cartella di ripristino](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 
@@ -163,15 +163,15 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
     > L'utente è proprietario della passphrase di crittografia e Microsoft non può visualizzarla.
     > Se la passphrase viene persa o dimenticata, Microsoft non potrà fornire assistenza per il recupero dei dati di backup.
 
-7. Fare clic su **Registra** per registrare il server DPM nell'insieme di credenziali.
+7. Selezionare **Register (registra** ) per registrare il server DPM nell'insieme di credenziali.
 
-Dopo aver registrato correttamente il server nell'insieme di credenziali sarà possibile avviare il backup in Microsoft Azure. È necessario configurare il gruppo protezione dati nella console DPM per eseguire il backup dei carichi di lavoro in Azure. [Informazioni su come](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) distribuire i gruppi protezione dati.
+Dopo che il server è stato registrato correttamente nell'insieme di credenziali, è ora possibile iniziare a eseguire il backup Microsoft Azure. È necessario configurare il gruppo protezione dati nella console DPM per eseguire il backup dei carichi di lavoro in Azure. [Informazioni su come](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) distribuire i gruppi protezione dati.
 
 ## <a name="troubleshoot-vault-credentials"></a>Risolvere i problemi dell'insieme di credenziali
 
 ### <a name="expiration-error"></a>Errore di scadenza
 
-Il file delle credenziali di insieme è valido solo per 48 ore dopo che è stato scaricato dal portale. Se si verifica un errore in questa schermata, ad esempio "Il file delle credenziali di insieme fornito è scaduto", accedere al portale di Azure e scaricare nuovamente il file delle credenziali di insieme.
+Il file delle credenziali dell'insieme di credenziali è valido solo per 48 ore (dopo che è stato scaricato dal portale). Se si verifica un errore in questa schermata, ad esempio "il file delle credenziali di insieme fornito è scaduto", accedere al portale di Azure e scaricare di nuovo il file dell'insieme di credenziali.
 
 ### <a name="access-error"></a>Errore di accesso
 
@@ -179,7 +179,7 @@ Verificare che il file delle credenziali dell'insieme di credenziali sia disponi
 
 ### <a name="invalid-credentials-error"></a>Errore di credenziali non valide
 
-Se si verifica un errore di credenziali dell'insieme di credenziali non valide, ad esempio "Le credenziali dell'insieme di credenziali specificate non sono valide", il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino.
+Se si verifica un errore di credenziali dell'insieme di credenziali non valido, ad esempio "credenziali di insieme di credenziali non valide fornite", il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino.
 
 - Ripetere l'operazione dopo avere scaricato un nuovo file di archivio delle credenziali dal portale.
-- Questo errore in genere si verifica quando l'utente fa clic sull'opzione **Download vault credential** (Scarica credenziali dell'insieme di credenziali) nel portale di Azure due volte di seguito. In questo caso è valido solo il secondo file delle credenziali di insieme.
+- Questo errore viene in genere visualizzato quando si seleziona l'opzione **Scarica credenziali** dell'insieme di credenziali nel portale di Azure, due volte in rapida successione. In questo caso è valido solo il secondo file delle credenziali di insieme.

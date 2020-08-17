@@ -1,23 +1,23 @@
 ---
-title: Portale di Azure - Limitare l'accesso dell'importazione/esportazione ai dischi gestiti con collegamenti privati (anteprima)
-description: Abilitare i collegamenti privati (anteprima) per i dischi gestiti con il portale di Azure. Consente di esportare e importare in modo sicuro i dischi solo all'interno della rete virtuale.
+title: Portale di Azure - Limitare l'accesso di importazione/esportazione ai dischi gestiti con collegamenti privati
+description: Abilitare collegamenti privati per i dischi gestiti con il portale di Azure (attualmente in anteprima). È così possibile esportare e importare in modo sicuro i dischi all'interno della rete virtuale.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 75b5ba995ff87649ec8a7a96a7c816bf2bec7e44
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535603"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135845"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Portale di Azure - Limitare l'accesso dell'importazione/esportazione per i dischi gestiti con collegamenti privati (anteprima)
+# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Portale di Azure: limitare l'accesso di importazione/esportazione per i dischi gestiti con collegamenti privati
 
-È possibile generare un URI di firma di accesso condiviso con limiti di tempo per gli snapshot e i dischi gestiti non collegati per esportare i dati in un'altra area per l'espansione a livello di area, il ripristino di emergenza e per leggere i dati per scopi legali. È anche possibile usare l'URI di firma di accesso condiviso per caricare direttamente un disco rigido virtuale in un disco vuoto dall'ambiente locale.  È ora possibile sfruttare i [collegamenti privati](../private-link/private-link-overview.md) (anteprima) per limitare l'esportazione e l'importazione a Managed Disks solo dalla rete virtuale di Azure. Inoltre, ci si assicura che i dati non passino mai attraverso la rete Internet pubblica e che viaggino sempre all'interno della rete backbone Microsoft sicura quando si usano i collegamenti privati. 
+Il supporto di collegamenti privati per i dischi gestiti, attualmente in anteprima, consente di limitare l'esportazione e l'importazione di dischi gestiti affinché vengano eseguite solo all'interno della rete virtuale di Azure. È possibile generare un URI di firma di accesso condiviso con limiti di tempo per gli snapshot e i dischi gestiti non collegati per esportare i dati in un'altra area per l'espansione a livello di area, il ripristino di emergenza e per leggere i dati per scopi legali. È anche possibile usare l'URI di firma di accesso condiviso per caricare direttamente un disco rigido virtuale in un disco vuoto dall'ambiente locale. Il traffico di rete tra i client nella rete virtuale e i dischi gestiti passa soltanto attraverso la rete virtuale e un collegamento privato sulla rete backbone Microsoft, eliminando l'esposizione alla rete Internet pubblica.
 
 È possibile creare una risorsa di accesso al disco e collegarla alla rete virtuale nella stessa sottoscrizione creando un endpoint privato. È necessario associare un disco o uno snapshot con un accesso al disco per l'esportazione e l'importazione dei dati tramite i collegamenti privati. Inoltre, è necessario impostare la proprietà NetworkAccessPolicy del disco o dello snapshot su `AllowPrivate`. 
 

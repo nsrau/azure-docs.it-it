@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535171"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067766"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con il portale di Azure
 
@@ -45,7 +45,7 @@ Per caricare un BLOB in blocchi nel nuovo contenitore nel portale di Azure, segu
 
 1. Nel portale di Azure passare al contenitore creato nella sezione precedente.
 1. Selezionare il contenitore per visualizzare un elenco dei BLOB contenuti. Poiché questo contenitore è nuovo, non conterrà ancora alcun BLOB.
-1. Selezionare il pulsante **Carica** per aprire il pannello Carica ed esplorare il file system locale per trovare un file da caricare come BLOB in blocchi. Facoltativamente, è possibile espandere la sezione di opzioni avanzate per configurare altre impostazioni per l'operazione di caricamento.
+1. Selezionare il pulsante **Carica** per aprire il pannello Carica ed esplorare il file system locale per trovare un file da caricare come BLOB in blocchi. Facoltativamente, è possibile espandere la sezione **Avanzate** per configurare altre impostazioni per l'operazione di caricamento.
 
     ![Screenshot che mostra come caricare un BLOB dall'unità locale](media/storage-quickstart-blobs-portal/upload-blob.png)
 
@@ -59,9 +59,18 @@ Per caricare un BLOB in blocchi nel nuovo contenitore nel portale di Azure, segu
 1. Passare all'elenco di BLOB caricati nella sezione precedente.
 1. Fare clic con il pulsante destro del mouse sul BLOB che si vuole scaricare e selezionare **Scarica**.
 
+    ![Screenshot che mostra come scaricare un BLOB](media/storage-quickstart-blobs-portal/download-blob.png)
+
+## <a name="delete-a-block-blob"></a>Eliminare un BLOB in blocchi
+
+È possibile scaricare un BLOB in blocchi per visualizzarlo nel browser o salvarlo nel file system locale. Per scaricare un BLOB in blocchi, seguire questa procedura:
+
+1. Passare all'elenco di BLOB caricati nella sezione precedente.
+1. Selezionare i BLOB da eliminare e quindi **Elimina** nella barra delle azioni superiore.
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per rimuovere le risorse create in questa guida introduttiva, è possibile eliminare il contenitore. Verranno eliminati anche tutti i BLOB presenti nel contenitore.
+Per rimuovere tutte le risorse create in questa guida di avvio rapido è sufficiente eliminare il contenitore. Verranno eliminati anche tutti i BLOB presenti nel contenitore.
 
 Per eliminare il contenitore:
 
