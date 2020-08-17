@@ -2,15 +2,15 @@
 title: Creare e distribuire una specifica di modello
 description: Informazioni su come creare una specifica di modello da un modello di Resource Manager e quindi distribuire la specifica di modello in un gruppo di risorse nella sottoscrizione.
 author: tfitzmac
-ms.date: 07/20/2020
+ms.date: 08/06/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: b2667e63f7cac5d1e3ad8475501ff909e8f6f3c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fe9ec46050ad831430239b960a7f528af7f4dc2
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101023"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924326"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Avvio rapido: Creare e distribuire una specifica di modello (anteprima)
 
@@ -53,7 +53,7 @@ Queste opzioni sono mostrate di seguito.
    New-AzTemplateSpec `
      -ResourceGroupName templateSpecRG `
      -Name storageSpec `
-     -Version "1.0.0.0" `
+     -Version "1.0" `
      -Location westus2 `
      -TemplateJsonFile "c:\Templates\azuredeploy.json"
    ```
@@ -86,7 +86,7 @@ Queste opzioni sono mostrate di seguito.
                    {
                        "type": "versions",
                        "apiVersion": "2019-06-01-preview",
-                       "name": "1.0.0.1",
+                       "name": "1.0",
                        "location": "westus2",
                        "dependsOn": [ "storageSpec" ],
                        "properties": {
@@ -195,7 +195,7 @@ Queste opzioni sono mostrate di seguito.
 1. Ottenere l'ID risorsa della specifica di modello.
 
    ```azurepowershell
-   $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0.0.0").Version.Id
+   $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
    ```
 
 1. Distribuire la specifica di modello.
@@ -203,7 +203,16 @@ Queste opzioni sono mostrate di seguito.
    ```azurepowershell
    New-AzResourceGroupDeployment `
      -TemplateSpecId $id `
-     -ResourceGroupName demoRG
+     -ResourceGroupName storageRG
+   ```
+
+1. Specificare i parametri usando la stessa procedura adottata per un modello di Azure Resource Manager. Ridistribuire la specifica di modello con un parametro per il tipo di account di archiviazione.
+
+   ```azurepowershell
+   New-AzResourceGroupDeployment `
+     -TemplateSpecId $id `
+     -ResourceGroupName storageRG `
+     -StorageAccountType Standard_GRS
    ```
 
 # <a name="arm-template"></a>[Modello ARM](#tab/azure-resource-manager)
@@ -224,7 +233,7 @@ Queste opzioni sono mostrate di seguito.
                "name": "demo",
                "properties": {
                    "templateLink": {
-                       "id": "[resourceId('templateSpecRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0.0.0')]"
+                       "id": "[resourceId('templateSpecRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
                    },
                    "parameters": {
                    },

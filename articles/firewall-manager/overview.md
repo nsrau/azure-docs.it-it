@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384770"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056993"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Che cos'è Gestione firewall di Azure?
 
@@ -78,10 +78,12 @@ Gestione firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |Descrizione  |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-|La suddivisione del traffico non è attualmente supportata.|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|È attualmente in corso l'analisi della suddivisione del traffico nell'hub.
-|Un unico hub virtuale protetto per area.|Non è possibile avere più hub virtuali protetti per area.|Creare più reti WAN virtuali in un'area.|
-|I criteri di base devono trovarsi nella stessa area dei criteri locali.|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi in corso|
-|Comunicazione tra hub non funzionante con l'hub virtuale protetto|La comunicazione tra hub virtuali protetti non è ancora supportata, ma quella tra hub funziona ancora.|Analisi in corso|
+|Suddivisione del traffico|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|È attualmente in corso l'analisi della suddivisione del traffico nell'hub.
+|Un unico hub virtuale protetto per area|Non è possibile avere più hub virtuali protetti per area.|Creare più reti WAN virtuali in un'area.|
+|I criteri di base devono trovarsi nella stessa area dei criteri locali|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi in corso|
+|Applicazione di filtri al traffico tra hub in distribuzioni sicure degli hub virtuali|L'applicazione di filtri alle comunicazioni tra hub virtuali protetti non è ancora supportata. Le comunicazioni tra hub tuttavia funzionano comunque se non sono abilitati filtri per il traffico privato tramite Firewall di Azure.|Analisi in corso|
+|Spoke in un'area diversa rispetto all'hub virtuale|Gli spoke in un'area diversa rispetto all'hub virtuale non sono supportati.|Analisi in corso<br><br>Creare un hub per ogni area e connettere le reti virtuali tramite peering nella stessa area dell'hub.|
+|Traffico tra rami con filtri abilitati per il traffico privato|Il traffico tra rami non è supportato quando sono abilitati filtri per il traffico privato. |Analisi in corso.<br><br>Non proteggere il traffico privato se la connettività tra rami è essenziale.|
 |Tutti gli hub virtuali protetti che condividono la stessa rete WAN virtuale devono risiedere nello stesso gruppo di risorse.|Questo comportamento è attualmente allineato agli hub di rete WAN virtuale.|Creare più reti WAN virtuali per consentire la creazione di hub virtuali protetti in gruppi di risorse diversi.|
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,12 +3,12 @@ title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 787658cebcb8345edd616bcdde485883ea43e8dc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529348"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920161"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -25,7 +25,7 @@ Ad esempio, è possibile applicare a un gruppo di gestione criteri che limitano 
 
 È possibile creare una gerarchia che applica un criterio, ad esempio che limita le posizioni delle VM all'area Stati Uniti occidentali nel gruppo denominato "Produzione". Questo criterio erediterà da tutte le sottoscrizioni del Contratto Enterprise (EA) discendenti del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
 
-Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli utenti l'accesso a più sottoscrizioni. Spostando più sottoscrizioni all'interno del gruppo di gestione, è possibile creare un'assegnazione di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel gruppo di gestione, con ereditarietà di tale accesso in tutte le sottoscrizioni. Una sola assegnazione nel gruppo di gestione può consentire agli utenti di accedere a tutte le risorse necessarie invece di eseguire script di controllo degli accessi in base al ruolo per diverse sottoscrizioni.
+Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli utenti l'accesso a più sottoscrizioni. Spostando più sottoscrizioni all'interno del gruppo di gestione, è possibile creare una [assegnazione di ruolo di Azure](../../role-based-access-control/overview.md) nel gruppo di gestione, che eredita l'accesso a tutte le sottoscrizioni. Una sola assegnazione nel gruppo di gestione può consentire agli utenti di accedere a tutte le risorse necessarie invece di eseguire script di controllo degli accessi in base al ruolo per diverse sottoscrizioni.
 
 ### <a name="important-facts-about-management-groups"></a>Informazioni importanti sui gruppi di gestione
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1864ce5a3c1b5b0b2e0cfe757e66fca2074b764c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475806"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923833"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico per bilanciare il carico delle macchine virtuali con il portale di Azure
 
@@ -152,26 +152,60 @@ In questa sezione verrà illustrato come:
 * Creare tre macchine virtuali per il pool back-end del servizio di bilanciamento del carico.
 * Installare IIS nelle macchine virtuali per testare il servizio di bilanciamento del carico.
 
-## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
+## <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
-In questa sezione è necessario sostituire i parametri delle procedure con le informazioni riportate di seguito:
+In questa sezione si crea una rete virtuale e una subnet.
 
-| Parametro                   | valore                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Europa occidentale      |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.1.0.0\24          |
+1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
+
+    | **Impostazione**          | **Valore**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Dettagli del progetto**  |                                                                 |
+    | Subscription     | Selezionare la sottoscrizione ad Azure                                  |
+    | Gruppo di risorse   | Selezionare **myResourceGroupLB** |
+    | **Dettagli istanza** |                                                                 |
+    | Nome             | Immettere **myVNet**                                    |
+    | Region           | Selezionare **Europa occidentale** |
+
+3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
+
+4. Nella scheda **Indirizzi IP** immettere queste informazioni:
+
+    | Impostazione            | valore                      |
+    |--------------------|----------------------------|
+    | Spazio indirizzi IPv4 | Immettere **10.1.0.0/16** |
+
+5. In **Nome subnet** selezionare la parola **predefinito**.
+
+6. In **Modifica subnet** immettere queste informazioni:
+
+    | Impostazione            | valore                      |
+    |--------------------|----------------------------|
+    | Nome della subnet | Immettere **myBackendSubnet** |
+    | Intervallo di indirizzi subnet | Immettere **10.1.0.0/24** |
+
+7. Selezionare **Salva**.
+
+8. Selezionare la scheda **Sicurezza**.
+
+9. In **BastionHost** selezionare **Abilita**. Immettere le informazioni seguenti:
+
+    | Impostazione            | valore                      |
+    |--------------------|----------------------------|
+    | Nome bastion | Immettere **myBastionHost** |
+    | Spazio indirizzi della subnet AzureBastionSubnet | Immettere **10.1.1.0/24** |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. </br> Per **Nome** immettere **myBastionIP**. </br> Selezionare **OK**. |
+
+
+8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea**.
+
+9. Selezionare **Crea**.
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-Gli SKU degli indirizzi IP pubblici e gli SKU del bilanciamento del carico devono corrispondere. Per Load Balancer Standard usare macchine virtuali con indirizzi IP standard nel pool back-end. 
-
-In questa sezione verranno create tre macchine virtuali (**myVM1**, **myVM2** e **myVM3**) con un indirizzo IP pubblico standard in tre zone diverse (**Zona 1**, **Zona 2**e **Zona 3**). 
+In questa sezione verranno create tre macchine virtuali (**myVM1**, **myVM2** e **myVM3**) in tre zone diverse (**Zona 1**, **Zona 2** e **Zona 3**). 
 
 Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilanciamento del carico creato in precedenza.
 
@@ -196,6 +230,8 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Username | Immettere un nome utente |
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
+    | **Regole porta in ingresso** |  |
+    | Porte in ingresso pubbliche | Selezionare **Nessuno** |
 
 3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
   
@@ -206,7 +242,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
     | Subnet | **myBackendSubnet** |
-    | IP pubblico | Accettare l'impostazione predefinita **myVM-ip**. </br> IP sarà automaticamente un IP dello SKU standard nella Zona 1. |
+    | IP pubblico | Selezionare **Nessuno**. |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | Selezionare **Avanzato**|
     | Configura gruppo di sicurezza di rete | Selezionare **Crea nuovo**. </br> Nella pagina **Crea gruppo di sicurezza di rete** immettere **myNSG** in **Nome**. </br> In **Regole in ingresso** selezionare **+ Aggiungi una regola in ingresso**. </br> In **Intervalli di porte di destinazione** immettere **80**. </br> In **Priorità** immettere **100**. </br> In **Nome** immettere **myHTTPRule** </br> Selezionare **Aggiungi** </br> Selezionare **OK**. |
     | **Bilanciamento del carico**  |
@@ -253,7 +289,7 @@ Per altre informazioni sulle connessioni in uscita, vedere [Connessioni in uscit
     | Impostazione | valore |
     | ------- | ----- |
     | Name (Nome) | Immettere **myOutboundRule**. |
-    | Indirizzo IP front-end | Selezionare **Crea nuovo**. </br> In **Nome** immettere **LoadBalancerFrontEndOutbound**. </br> Selezionare **Indirizzo IP** o **Prefisso IP**. </br> Selezionare **Crea nuovo** in **Indirizzo IP pubblico**  o **Prefisso IP pubblico**. </br> In Nome immettere **myPublicIPOutbound** o **myPublicIPPrefixOutbound**. </br> Selezionare **OK**. </br> Selezionare **Aggiungi**.|
+    | Indirizzo IP front-end | Selezionare **Crea nuovo**. </br> In **Nome** immettere **LoadBalancerFrontEndOutbound**. </br> Selezionare **Indirizzo IP** o **Prefisso IP**. </br> Selezionare **Crea nuovo** in **Indirizzo IP pubblico**  o **Prefisso IP pubblico**. </br> In Nome immettere **myPublicIPOutbound** o **myPublicIPPrefixOutbound**. </br> Selezionare **Aggiungi**.|
     | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15 minuti**.|
     | Reimpostazione TCP | Selezionare **Enabled**.|
     | Pool back-end | Selezionare **Crea nuovo**. </br> In **Nome** immettere **myBackendPoolOutbound**. </br> Selezionare **Aggiungi**. |
@@ -296,7 +332,7 @@ Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un
 
 2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare **myResourceGroupLB** nella casella di testo.|
@@ -324,21 +360,56 @@ In questa sezione vengono configurati:
 * Un probe di integrità.
 * Una regola di bilanciamento del carico.
 
-## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
+## <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
-In questa sezione è necessario sostituire i parametri delle procedure con le informazioni riportate di seguito:
+In questa sezione si crea una rete virtuale e una subnet.
 
-| Parametro                   | Valore                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Europa occidentale      |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.1.0.0\24          |
+1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
+    | **Impostazione**          | **Valore**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Dettagli del progetto**  |                                                                 |
+    | Subscription     | Selezionare la sottoscrizione ad Azure                                  |
+    | Gruppo di risorse   | Selezionare **myResourceGroupLB** |
+    | **Dettagli istanza** |                                                                 |
+    | Nome             | Immettere **myVNet**                                    |
+    | Region           | Selezionare **Europa occidentale** |
+
+3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
+
+4. Nella scheda **Indirizzi IP** immettere queste informazioni:
+
+    | Impostazione            | valore                      |
+    |--------------------|----------------------------|
+    | Spazio indirizzi IPv4 | Immettere **10.1.0.0/16** |
+
+5. In **Nome subnet** selezionare la parola **predefinito**.
+
+6. In **Modifica subnet** immettere queste informazioni:
+
+    | Impostazione            | valore                      |
+    |--------------------|----------------------------|
+    | Nome della subnet | Immettere **myBackendSubnet** |
+    | Intervallo di indirizzi subnet | Immettere **10.1.0.0/24** |
+
+7. Selezionare **Salva**.
+
+8. Selezionare la scheda **Sicurezza**.
+
+9. In **BastionHost** selezionare **Abilita**. Immettere le informazioni seguenti:
+
+    | Impostazione            | valore                      |
+    |--------------------|----------------------------|
+    | Nome bastion | Immettere **myBastionHost** |
+    | Spazio indirizzi della subnet AzureBastionSubnet | Immettere **10.1.1.0/24** |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. </br> Per **Nome** immettere **myBastionIP**. </br> Selezionare **OK**. |
+
+
+8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea**.
+
+9. Selezionare **Crea**.
 ### <a name="create-a-backend-pool"></a>Creare un pool back-end
 
 Un pool di indirizzi back-end contiene gli indirizzi IP delle schede di interfaccia di rete virtuale connesse al bilanciamento del carico. 
@@ -371,7 +442,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
     
     | Impostazione | valore |
     | ------- | ----- |
-    | Name (Nome) | Immettere **myHealthProbe**. |
+    | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
     | Porta | Immettere **80**.|
     | Path | Immettere **/** |
@@ -420,8 +491,6 @@ In questa sezione verrà illustrato come:
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-Gli SKU degli indirizzi IP pubblici e gli SKU del bilanciamento del carico devono corrispondere. Per un servizio di bilanciamento del carico di base usare macchine virtuali con indirizzi IP di base nel pool back-end. 
-
 In questa sezione verranno create tre macchine virtuali (**myVM1**, **myVM2** e **myVM3**) con un indirizzo IP pubblico di base.  
 
 Le tre macchine virtuali verranno aggiunte a un set di disponibilità denominato **myAvailabilitySet**.
@@ -459,7 +528,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | **Interfaccia di rete** |  |
     | Rete virtuale | Selezionare **myVNet** |
     | Subnet | Selezionare **myBackendSubnet** |
-    | IP pubblico | Selezionare **Crea nuovo** </br> Immettere **myVM-ip** in Nome. </br> Selezionare **OK**. |
+    | IP pubblico | Selezionare **Nessuno** |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | Selezionare **Avanzato**|
     | Configura gruppo di sicurezza di rete | Selezionare **Crea nuovo**. </br> Nella pagina **Crea gruppo di sicurezza di rete** immettere **myNSG** in **Nome**. </br> In **Regole in ingresso** selezionare **+ Aggiungi una regola in ingresso**. </br> In **Intervalli di porte di destinazione** immettere **80**. </br> In **Priorità** immettere **100**. </br> In **Nome** immettere **myHTTPRule** </br> Selezionare **Aggiungi** </br> Selezionare **OK**. |
     | **Bilanciamento del carico**  |
@@ -510,15 +579,15 @@ Le VM create nei passaggi precedenti devono essere aggiunte al pool back-end **m
 
 1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1**, che si trova nel gruppo di risorse **myResourceGroupLB**.
 
-2. Nella pagina **Panoramica** selezionare **Connetti** per scaricare il file RDP per la macchina virtuale.
+2. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
-3. Aprire il file RDP.
+4. Immettere il nome utente e la password specificati durante la creazione della VM.
 
-4. Accedere alla VM con le credenziali fornite durante la creazione di questa VM.
+5. Selezionare **Connetti**.
 
-5. Nel desktop del server passare a **Strumenti di amministrazione Windows**>**Windows PowerShell**.
+6. Nel desktop del server passare a **Strumenti di amministrazione Windows** > **Windows PowerShell**.
 
-6. Nella finestra di PowerShell eseguire i comandi seguenti per:
+7. Nella finestra di PowerShell eseguire i comandi seguenti per:
 
     * Installare il server IIS
     * Rimuovere il file iisstart.htm predefinito
@@ -535,9 +604,9 @@ Le VM create nei passaggi precedenti devono essere aggiunte al pool back-end **m
     # Add a new htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
-7. Chiudere la sessione RDP con **myVM1**.
+8. Chiudere la sessione di Bastion con **myVM1**.
 
-8. Ripetere i passaggi da 1 a 6 per installare IIS e il file iisstart.htm aggiornato in **myVM2** e **myVM3**.
+9. Ripetere i passaggi da 1 a 6 per installare IIS e il file iisstart.htm aggiornato in **myVM2** e **myVM3**.
 
 ## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
 

@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: e7ebcf39c203f9956b23ef22754b38f32e9d9352
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323022"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832757"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -178,7 +178,7 @@ Gli amministratori possono accedere a Azure PowerShell e all’interfaccia della
 
 ## <a name="azure-subscriptions"></a>Sottoscrizioni Azure
 
-Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Per informazioni sugli amministratori delle sottoscrizione classiche, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md).
+Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Per informazioni sugli amministratori delle sottoscrizione classiche, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selezionare e abilitare una sottoscrizione di Azure
 

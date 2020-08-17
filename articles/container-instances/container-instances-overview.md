@@ -2,14 +2,14 @@
 title: Contenitori serverless in Azure
 description: Il servizio Istanze di Azure Container rappresenta il modo più semplice e rapido per eseguire contenitori isolati in Azure, senza dover gestire macchine virtuali né adottare un agente di orchestrazione di livello superiore.
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498685"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121664"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -35,10 +35,15 @@ Istanze di Azure Container supporta anche l'esecuzione di un comando in un conte
 > [!IMPORTANT]
 > A partire dal 13 gennaio 2020, Istanze di Azure Container richiederà l'uso di TLS 1.2 in tutte le connessioni sicure da server e applicazioni. Il supporto per TLS 1.0 e 1.1 verrà ritirato.
 
-## <a name="hypervisor-level-security"></a>Sicurezza a livello di hypervisor
+## <a name="compliant-deployments"></a>Distribuzioni conformi
+
+### <a name="hypervisor-level-security"></a>Sicurezza a livello di hypervisor
 
 In passato i contenitori offrivano l'isolamento di dipendenze delle applicazioni e la governance delle risorse, ma non erano considerati sufficientemente protetti per l'uso di multi-tenant ostili. Istanze di Azure Container garantisce all'applicazione in un contenitore lo stesso livello di isolamento di cui usufruirebbe in una VM.
 
+### <a name="customer-data"></a>Dati del cliente
+
+Il servizio Istanze di Azure Container archivia i dati minimi del cliente necessari per assicurare che i gruppi di contenitori vengano eseguiti come previsto. L'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica Asia Pacifico. Per tutte le altre aree i dati dei clienti vengono archiviati in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Per altre informazioni, contattare il supporto di Azure.
 
 ## <a name="custom-sizes"></a>Dimensioni personalizzate
 

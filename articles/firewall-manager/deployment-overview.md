@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8cca982e291d5d4caf7856e0d807515511c41dc8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372366"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055038"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Panoramica della distribuzione di Gestione firewall di Azure
 
@@ -65,6 +65,8 @@ Per distribuire Gestione firewall di Azure è possibile procedere in più modi, 
 > - Non è possibile disporre di più di un hub per ogni WAN virtuale per area. Per ottenere questo risultato, è tuttavia possibile aggiungere più WAN virtuali nell'area.
 > - Non è possibile avere spazi IP sovrapposti per gli hub in una WAN virtuale.
 > - Le connessioni di rete virtuale dell'hub devono trovarsi nella stessa area dell'hub.
+>
+> Per altri problemi noti, vedere [Informazioni su Gestione firewall di Azure](overview.md#known-issues)
 
 ## <a name="convert-virtual-networks"></a>Convertire reti virtuali
 

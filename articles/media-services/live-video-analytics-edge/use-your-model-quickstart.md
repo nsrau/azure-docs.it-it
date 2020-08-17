@@ -3,12 +3,12 @@ title: Analizzare un video live con un modello personalizzato - Azure
 description: Questo argomento di avvio rapido illustra come applicare la visione artificiale all'analisi del feed di video live proveniente da una videocamera IP simulata.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: dc8c2d1f0620a92a13cb1f4c0b83c2452f964fd6
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 75e18917b0d44dc33999d17360cd66a538c83d2b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170614"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065200"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Avvio rapido: Analizzare un video live con un modello personalizzato
 
@@ -31,7 +31,7 @@ In questo argomento di avvio rapido si usano una VM di Azure come dispositivo Io
 ## <a name="review-the-sample-video"></a>Esaminare il video di esempio
 Quando si configurano le risorse di Azure, nella VM Linux di Azure usata come dispositivo IoT Edge viene copiato un breve video del traffico in autostrada. In questa guida il file video viene usato per simulare uno streaming live.
 
-Aprire un'applicazione, ad esempio il [lettore multimediale VLC](https://www.videolan.org/vlc/). Premere CTRL+N, quindi incollare un collegamento al [video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) per avviare la riproduzione. Viene visualizzato il filmato di molti veicoli in transito nel traffico di un'autostrada.
+Aprire un'applicazione, ad esempio il [lettore multimediale VLC](https://www.videolan.org/vlc/). Selezionare `Ctrl+N` e quindi incollare un collegamento al [video di esempio sull'intersezione dell'autostrada](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) per avviare la riproduzione. Viene visualizzato il filmato di molti veicoli in transito nel traffico di un'autostrada.
 
 In questo argomento di avvio rapido si userà Analisi video live in IoT Edge per rilevare oggetti come veicoli e persone. Gli eventi di inferenza associati verranno pubblicati nell'hub di IoT Edge.
 
@@ -107,9 +107,18 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
 1. Quando viene chiesto di selezionare un dispositivo hub IoT, selezionare **lva-sample-device**.
 1. Dopo circa 30 secondi, nell'angolo in basso a sinistra della finestra aggiornare l'hub IoT di Azure. Il dispositivo Edge mostra ora i moduli distribuiti seguenti:
 
-    * Il modulo Analisi video live, denominato **lvaEdge**
-    * Il modulo **rtspsim**, che simula un server RTSP e funge da origine di un feed video live
-    * Il modulo **yolov3**, ovvero il modello YOLOv3 di rilevamento oggetti che applica la visione artificiale alle immagini e restituisce più classi di tipi di oggetto
+    * Il modulo Analisi video live, denominato `lvaEdge`
+    * Il modulo `rtspsim`, che simula un server RTSP e funge da origine di un feed video live
+    > [!NOTE]
+    > Se si usa un dispositivo perimetrale personalizzato invece del dispositivo sottoposto a provisioning dallo script di configurazione, passare al dispositivo perimetrale ed eseguire i comandi seguenti con **diritti di amministratore** per eseguire il pull e archiviare il file del video di esempio usato per questo avvio rapido:  
+
+    ```
+    mkdir /home/lvaadmin/samples
+    mkdir /home/lvaadmin/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+    chown -R lvaadmin /home/lvaadmin/samples/  
+    ```
+    * Il modulo `yolov3`, ovvero il modello YoloV3 di rilevamento oggetti che applica la visione artificiale alle immagini e restituisce più classi di tipi di oggetto
  
       ![Moduli distribuiti nel dispositivo Edge](./media/quickstarts/yolov3.png)
 
@@ -284,7 +293,7 @@ Se si intende provare altri argomenti di avvio rapido, mantenere le risorse crea
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Provare a eseguire una [versione protetta del modello YOLOv3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) e distribuirla nel dispositivo perimetrale IoT. 
+* Provare a eseguire una [versione protetta del modello YoloV3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) e distribuirla nel dispositivo di IoT Edge. 
 
 Esaminare altri problemi per utenti avanzati:
 

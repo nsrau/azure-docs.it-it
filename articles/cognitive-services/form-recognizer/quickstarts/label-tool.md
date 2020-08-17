@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 234d6af25f37bf04d3240177142d5ef919e8dd2d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141892"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903477"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -26,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 
-- Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
+- Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -133,7 +133,7 @@ Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno
    1. Fare clic su **+** per creare un nuovo tag.
    1. Immettere il nome del tag.
    1. Premere INVIO per salvare il tag.
-1. Nell'editor principale fare clic e trascinare una o più parole dagli elementi di testo evidenziati per selezionarle.
+1. Nell'editor principale fare clic per selezionare parole dagli elementi di testo evidenziati per selezionarle.
 1. Fare clic sul tag da applicare oppure premere il tasto corrispondente della tastiera. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
     > [!Tip]
     > Per l'etichettatura dei moduli, tenere presenti i suggerimenti seguenti.
@@ -192,7 +192,7 @@ Sono attualmente supportati i tipi di valore e le varianti seguenti:
 
 Fare clic sull'icona del training nel riquadro sinistro per aprire la pagina corrispondente. Quindi fare clic sul pulsante **Train** per iniziare il training del modello. Al termine del processo di training, verranno visualizzate le informazioni seguenti:
 
-* **ID modello**: l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'API REST.
+* **ID modello**: l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'[API REST](./curl-train-extract.md) o la [libreria client](./client-library.md).
 * **Average Accuracy** (Accuratezza media): l'accuratezza media del modello. È possibile migliorare l'accuratezza del modello etichettando altri moduli ed eseguendo di nuovo il training per creare un nuovo modello. Per iniziare, è consigliabile etichettare cinque moduli ed aggiungerne altri se necessario.
 * L'elenco dei tag e l'accuratezza stimata per ognuno.
 

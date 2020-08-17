@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 4e92f974ce7d6c03143276808c4ca4d09d607a84
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773280"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835817"
 ---
 # <a name="confidential-computing-on-azure"></a>Confidential computing in Azure
 
@@ -52,7 +52,7 @@ Le enclavi sono parti protette del processore e della memoria dell'hardware. Non
 
 Quando si sviluppano applicazioni, è possibile usare [strumenti software](#oe-sdk) per schermare parti del codice e dei dati all'interno dell'enclave. Questi strumenti garantiscono che il codice e i dati non possano essere visualizzati o modificati da utenti esterni all'ambiente attendibile. 
 
-Fondamentalmente, un'enclave può essere paragonata a una scatola nera. Il codice e i dati crittografati vengono inseriti nella scatola. Dall'esterno della scatola, non è possibile vedere niente. All'enclave viene assegnata una chiave per decrittografare i dati, che vengono quindi elaborati e crittografati di nuovo, prima di essere inviati al di fuori.
+Fondamentalmente, un'enclave può essere paragonata a una scatola protetta. Il codice e i dati crittografati vengono inseriti nella scatola. Dall'esterno della scatola, non è possibile vedere niente. All'enclave viene assegnata una chiave per decrittografare i dati, che vengono quindi elaborati e crittografati di nuovo, prima di essere inviati al di fuori.
 
 ### <a name="attestation"></a>Attestazione
 

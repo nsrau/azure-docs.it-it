@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281056"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042820"
 ---
 # <a name="what-is-azure-digital-twins"></a>Cos'è il servizio Gemelli digitali di Azure?
 
-**Gemelli digitali di Azure** è un'offerta PaaS che consente la creazione di modelli digitali completi di interi ambienti. Questi ambienti possono essere edifici, fabbriche, fattorie, reti energetiche, ferrovie, stadi e altro ancora, persino intere città. Questi modelli digitali possono essere usati per ottenere informazioni che consentono di migliorare i prodotti, ottimizzare le operazioni, ridurre i costi e rivoluzionare l'esperienza dei clienti.
+**Gemelli digitali di Azure** è un'offerta PaaS che consente la creazione di grafici di conoscenze basati su modelli digitali di interi ambienti. Questi ambienti possono essere edifici, fabbriche, fattorie, reti energetiche, ferrovie, stadi e altro ancora, persino intere città. Questi modelli digitali possono essere usati per ottenere informazioni che consentono di migliorare i prodotti, ottimizzare le operazioni, ridurre i costi e rivoluzionare l'esperienza dei clienti.
 
 È possibile sfruttare la propria esperienza del settore oltre a quella di Gemelli digitali di Azure per creare soluzioni personalizzate e connesse che consentono di:
 * Modellare qualsiasi ambiente e implementare i gemelli digitali in modo scalabile e sicuro

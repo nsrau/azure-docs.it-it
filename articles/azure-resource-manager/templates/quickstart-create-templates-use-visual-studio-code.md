@@ -2,15 +2,15 @@
 title: Creare un modello - Visual Studio Code
 description: Usare Visual Studio Code e l'estensione Strumenti di Azure Resource Manager per elaborare i modelli di Resource Manager.
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040523"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034983"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Guida introduttiva: Creare modelli di Azure Resource Manager con Visual Studio Code
 
@@ -26,7 +26,7 @@ Creare e aprire con Visual Studio Code un nuovo file denominato *azuredeploy.jso
 
 Selezionare `arm!` per creare un modello con ambito per la distribuzione di un gruppo di risorse di Azure.
 
-![Immagine che mostra lo scaffolding di Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Immagine che mostra i frammenti di codice per scaffolding di Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 Questo frammento di codice crea i blocchi predefiniti di base per un modello di Resource Manager.
 
@@ -68,7 +68,7 @@ Per usare le funzionalità di completamento, rimuovere `megaStorage`, posizionar
 
 A questo punto, creare e usare un parametro per specificare il nome dell'account di archiviazione.
 
-Posizionare il cursore nel blocco parameters, aggiungere un ritorno a capo, digitare `par`e quindi selezionare il frammento `arm-param-value`. Questa azione aggiunge un parametro generico al modello.
+Posizionare il cursore nel blocco parameters, aggiungere un ritorno a capo, digitare `"`e quindi selezionare il frammento `new-parameter`. Questa azione aggiunge un parametro generico al modello.
 
 ![Immagine che mostra l'aggiunta di un parametro al modello di Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 

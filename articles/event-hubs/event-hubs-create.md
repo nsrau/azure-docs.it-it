@@ -3,12 +3,12 @@ title: Avvio rapido di Azure - Creare un hub eventi tramite il portale di Azure
 description: Questa guida introduttiva illustra come creare un hub eventi di Azure con il portale di Azure e inviare e ricevere eventi usando .NET Standard SDK.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ca71dbb1a82e3fd9fe241e197b0bcbbfec2dcb8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: bc9190bba6b21e59f10f51bd0eb7da2426f6d1b4
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323141"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902117"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Avvio rapido: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -20,7 +20,7 @@ In questa guida introduttiva viene creato un hub eventi usando il [portale di Az
 Per completare questa guida introduttiva, assicurarsi di disporre di quanto segue:
 
 - Sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- [Visual Studio 2019](https://www.visualstudio.com/vs) o versioni successive.
+- [Visual Studio 2019](https://www.visualstudio.com/vs) o versione successiva.
 - [NET Standard SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse

@@ -3,12 +3,12 @@ title: Rilevare il movimento e generare eventi - Azure
 description: Questo avvio rapido illustra come usare Live Video Analytics in IoT Edge per rilevare il movimento e generare eventi mediante la chiamata diretta dei metodi a livello di codice.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: fca773d0583bee3bef4e7254bcca95866b2205e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fdc80c4d734902309e8b6dc5a6bfee38514fcdb7
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091913"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067801"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Avvio rapido: Rilevare il movimento e generare eventi
 
@@ -48,11 +48,11 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
 
 1. Eseguire il comando seguente.
 
-    ```
-    bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
-    ```
+```
+bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
+```
 
-    Se lo script viene completato correttamente, verranno visualizzate tutte le risorse necessarie nella sottoscrizione.
+Se lo script viene completato correttamente, verranno visualizzate tutte le risorse necessarie nella sottoscrizione.
 
 1. Al termine dello script, selezionare le parentesi graffe per esporre la struttura della cartella. Vengono visualizzati alcuni file nella directory *~/clouddrive/lva-sample*. I file rilevanti per questo avvio rapido sono:
 
@@ -72,30 +72,30 @@ Questi file saranno necessari per configurare l'ambiente di sviluppo in Visual S
 
     Il testo sarà simile all'output seguente.
 
-    ```
-    {  
-        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
-        "deviceId" : "lva-sample-device",  
-        "moduleId" : "lvaEdge"  
-    }
-    ```
-1. Passare alla cartella *src/edge* e creare un file denominato *.env*.
+```
+{  
+    "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+    "deviceId" : "lva-sample-device",  
+    "moduleId" : "lvaEdge"  
+}
+```
+5. Passare alla cartella *src/edge* e creare un file denominato *.env*.
 1. Copiare il contenuto del file */clouddrive/lva-sample/edge-deployment/.env*. Il testo sarà simile al codice seguente.
 
-    ```
-    SUBSCRIPTION_ID="<Subscription ID>"  
-    RESOURCE_GROUP="<Resource Group>"  
-    AMS_ACCOUNT="<AMS Account ID>"  
-    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
-    AAD_TENANT_ID="<AAD Tenant ID>"  
-    AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
-    AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"
-    APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
-    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
-    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
-    ```
+```
+SUBSCRIPTION_ID="<Subscription ID>"  
+RESOURCE_GROUP="<Resource Group>"  
+AMS_ACCOUNT="<AMS Account ID>"  
+IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
+AAD_TENANT_ID="<AAD Tenant ID>"  
+AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
+AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
+INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+OUTPUT_VIDEO_FOLDER_ON_DEVICE="/var/media"
+APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
+CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
+CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"      
+```
 
 ## <a name="examine-the-sample-files"></a>Esaminare i file di esempio
 
@@ -141,6 +141,15 @@ Seguire questa procedura per generare il manifesto dal file modello e quindi dis
 
 Il modulo del simulatore RTSP simula un flusso video live usando un file video copiato nel dispositivo perimetrale quando è stato eseguito lo [script di configurazione delle risorse di Analisi video live](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
+> [!NOTE]
+> Se si usa un dispositivo perimetrale personalizzato invece del dispositivo sottoposto a provisioning dallo script di configurazione, passare al dispositivo perimetrale ed eseguire i comandi seguenti con **diritti di amministratore** per eseguire il pull e archiviare il file del video di esempio usato per questo avvio rapido:  
+
+```
+mkdir /home/lvaadmin/samples      
+mkdir /home/lvaadmin/samples/input    
+curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+chown -R lvaadmin /home/lvaadmin/samples/  
+```
 A questo punto i moduli sono distribuiti ma non sono disponibili grafi multimediali attivi.
 
 ## <a name="prepare-to-monitor-events"></a>Preparare il monitoraggio degli eventi
@@ -168,57 +177,56 @@ Per eseguire il codice di esempio, seguire questa procedura:
 1. Avviare una sessione di debug premendo F5. Nella finestra **TERMINALE** verranno visualizzati alcuni messaggi.
 1. Il file *operations.json* verrà avviato con le chiamate a `GraphTopologyList` e `GraphInstanceList`. Se dopo aver completato gli argomenti di avvio rapido precedenti sono state pulite le risorse, questa procedura restituirà elenchi vuoti e quindi verrà sospesa. Per continuare, premere INVIO.
 
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-        "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-        "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+    "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+    "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
 
-    La finestra **TERMINALE** mostra il set successivo di chiamate ai metodi diretti:
+La finestra **TERMINALE** mostra il set successivo di chiamate ai metodi diretti:
+ * Una chiamata a `GraphTopologySet` che usa `topologyUrl` precedente
+ * Una chiamata a `GraphInstanceSet` che usa il corpo seguente:
      
-     * Una chiamata a `GraphTopologySet` che usa `topologyUrl` precedente
-     * Una chiamata a `GraphInstanceSet` che usa il corpo seguente:
+```
+{
+  "@apiVersion": "1.0",
+  "name": "Sample-Graph",
+  "properties": {
+    "topologyName": "MotionDetection",
+    "description": "Sample graph description",
+    "parameters": [
+      {
+        "name": "rtspUrl",
+        "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+      },
+      {
+        "name": "rtspUserName",
+        "value": "testuser"
+      },
+      {
+        "name": "rtspPassword",
+        "value": "testpassword"
+      }
+    ]
+  }
+}
+```
      
-         ```
-         {
-           "@apiVersion": "1.0",
-           "name": "Sample-Graph",
-           "properties": {
-             "topologyName": "MotionDetection",
-             "description": "Sample graph description",
-             "parameters": [
-               {
-                 "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-               },
-               {
-                 "name": "rtspUserName",
-                 "value": "testuser"
-               },
-               {
-                 "name": "rtspPassword",
-                 "value": "testpassword"
-               }
-             ]
-           }
-         }
-         ```
-     
-     * Una chiamata a `GraphInstanceActivate` che avvia l'istanza del grafo e il flusso di video
-     * Una seconda chiamata a `GraphInstanceList` che mostra che l'istanza del grafo è in esecuzione
-1. L'output della finestra **TERMINALE** viene sospeso in corrispondenza di `Press Enter to continue`. Non premere ancora INVIO. Scorrere in alto per visualizzare i payload della risposta JSON per i metodi diretti richiamati.
+ * Una chiamata a `GraphInstanceActivate` che avvia l'istanza del grafo e il flusso di video
+ * Una seconda chiamata a `GraphInstanceList` che mostra che l'istanza del grafo è in esecuzione
+6. L'output della finestra **TERMINALE** viene sospeso in corrispondenza di `Press Enter to continue`. Non premere ancora INVIO. Scorrere in alto per visualizzare i payload della risposta JSON per i metodi diretti richiamati.
 1. Passare alla finestra **OUTPUT** in Visual Studio Code. Vengono visualizzati i messaggi inviati dal modulo Analisi video live in IoT Edge all'hub IoT. La sezione seguente di questo argomento di avvio rapido descrive questi messaggi.
-1. Il grafo multimediale continua a essere eseguito e a visualizzare i risultati. Il simulatore RTSP continua a eseguire il video di origine in un ciclo. Quindi, per arrestare il grafo multimediale, tornare nella finestra **TERMINALE** e premere INVIO. 
+1. Il grafo multimediale continua a essere eseguito e a stampare i risultati. Il simulatore RTSP continua a eseguire il video di origine in un ciclo. Quindi, per arrestare il grafo multimediale, tornare nella finestra **TERMINALE** e premere INVIO. 
 
     La serie successiva di chiamate pulisce le risorse:
      * Una chiamata a `GraphInstanceDeactivate` disattiva l'istanza del grafo.

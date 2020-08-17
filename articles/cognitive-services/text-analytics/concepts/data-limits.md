@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/27/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 79a12505ccc7cea709a88818513ba95710989954
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142368"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986815"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limiti dei dati e di velocità per l'API Analisi del testo
 <a name="data-limits"></a>
@@ -38,10 +38,7 @@ Il numero massimo di documenti che è possibile inviare in una singola richiesta
 
 #### <a name="version-3"></a>[Versione 3](#tab/version-3)
 
-> [!NOTE]
-> Se la richiesta dell'API v3 supera questi limiti, ma rientra nei limiti della versione v2, nella risposta dell'API verrà restituito un avviso. A partire dal 15 luglio 2020, verrà invece restituito un codice errore di tipo 400. 
-
-Nell'API v3 sono stati modificati i limiti seguenti. Il superamento di tali limiti genererà un avviso nella risposta dell'API.
+Nell'API v3 sono stati modificati i limiti seguenti. Il superamento dei limiti indicati di seguito provocherà un codice errore HTTP 400.
 
 
 | Funzionalità | Numero massimo di documenti per richiesta | 

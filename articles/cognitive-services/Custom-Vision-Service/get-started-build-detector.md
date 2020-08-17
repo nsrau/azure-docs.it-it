@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: ba121400368f37c4a562a9c34e209c59d15b173c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 01a5714cb78959a982ad73deb401edbafeebe8f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404102"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834457"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Guida introduttiva: Come creare un rilevatore di oggetti con Visione personalizzata
 
@@ -55,6 +55,7 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
     |---|---|
     |__Generale__| Ottimizzato per un'ampia gamma di attività di rilevamento oggetti. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico. |
     |__Logo__|Ottimizzato per il rilevamento di logo dei marchi nelle immagini.|
+    |__Prodotti sugli scaffali__|Ottimizzato per il rilevamento e la classificazione dei prodotti sugli scaffali.|
     |__Domini compatti__| Ottimizzati per i vincoli di rilevamento in tempo reale su dispositivi mobili. I modelli generati da domini compatti possono essere esportati per l'esecuzione in locale.|
 
 1. Selezionare infine __Crea progetto__.

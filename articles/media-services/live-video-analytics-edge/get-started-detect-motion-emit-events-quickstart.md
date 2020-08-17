@@ -3,12 +3,12 @@ title: Introduzione ad Analisi di video live in IoT Edge - Azure
 description: Questo argomento di avvio rapido descrive come iniziare a usare Analisi video live in IoT Edge. Informazioni su come rilevare il movimento in un flusso video live.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090077"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067690"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Avvio rapido: Introduzione: analisi di video live in IoT Edge
 
@@ -84,7 +84,7 @@ Se la connessione riesce, viene visualizzato l'elenco di dispositivi Edge. Si do
 
 ![nodo lva-sample-device](./media/quickstarts/lva-sample-device-node.png)
 
-## <a name="use-direct-methods"></a>Usare metodi diretti
+## <a name="use-direct-method-calls"></a>Usare chiamate dei metodi diretti
 
 È possibile usare il modulo per analizzare i flussi video live richiamando metodi diretti. Per altre informazioni, vedere [Metodi diretti per Analisi video live in IoT Edge](direct-methods.md). 
 
