@@ -1,18 +1,18 @@
 ---
 title: 'Creare un host Bastion di Azure: portale'
-description: Questo articolo illustra come creare un host Bastion di Azure tramite il portale
+description: In questo articolo viene illustrato come creare un host di Azure Bastion, che fornisce la connettività RDP/SSH a tutte le macchine virtuali in una rete virtuale.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e0bc9a17a12afac6d91867b19aba0f90b7f6edb
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744273"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270751"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Creare un host di Azure Bastion usando il portale
 
@@ -30,7 +30,7 @@ Bastion è disponibile nelle aree pubbliche di Azure seguenti:
 
 Questa sezione consente di creare una nuova risorsa di Azure Bastion dalla portale di Azure.
 
-1. Nel menu del [portale di Azure](https://portal.azure.com) o dalla pagina **Home** selezionare **Crea una risorsa**.
+1. Nel menu del [portale di Azure](https://portal.azure.com) o nella **home page** selezionare **Crea una risorsa**.
 
 1. Nella **nuova** pagina, nel campo *Cerca nel Marketplace* digitare **Bastion**, quindi premere **invio** per ottenere i risultati della ricerca.
 

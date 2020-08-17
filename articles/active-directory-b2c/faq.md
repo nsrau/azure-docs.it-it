@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ce79644ead939eaeffa5cfffeb495da15e7fe5
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84297905"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270666"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -134,7 +134,7 @@ No, per il momento. Questa funzionalità verrà implementata in futuro. Questo n
 
 Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 
-È possibile usare la nuova esperienza Unified **registrazioni app** o **le applicazioni legacy (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
+È possibile usare la nuova esperienza Unified **registrazioni app** o  **le applicazioni legacy (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
 
 #### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
@@ -154,7 +154,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
-1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.
+1. Nella pagina **Panoramica** selezionare **Elimina tenant**. Seguire le istruzioni visualizzate per completare il processo.
 
 #### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
 
@@ -166,7 +166,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. In **Gestisci** selezionare **Utenti**.
 1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
-1. In **Gestisci** selezionare **Registrazioni app**.
+1. In **Gestione** selezionare **Registrazioni per l'app**.
 1. Selezionare **Visualizza tutte le applicazioni**
 1. Selezionare l'applicazione denominata **B2C-Extensions-app**, selezionare **Elimina**e quindi fare clic su **Sì** quando richiesto.
 1. In **Gestisci**selezionare **impostazioni utente**.

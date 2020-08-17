@@ -1,14 +1,14 @@
 ---
 title: Creare elementi personalizzati per la macchina virtuale di DevTest Labs | Microsoft Docs
-description: Informazioni su come creare elementi personalizzati da usare con Azure DevTest Labs.
+description: Informazioni su come creare artefatti da usare con Azure DevTest Labs per distribuire e configurare le applicazioni dopo il provisioning di una macchina virtuale.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 775908749f52c71eeaf97eef25e3787f9b6794fc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857012"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270683"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creare elementi personalizzati per la macchina virtuale di DevTest Labs
 
