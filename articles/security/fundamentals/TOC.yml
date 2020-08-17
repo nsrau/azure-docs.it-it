@@ -78,12 +78,16 @@
   items:
     - name: Sicurezza e crittografia dei dati
       href: encryption-overview.md
+    - name: Crittografia doppia
+      href: double-encryption.md
     - name: Crittografia del disco
       items:
         - name: Procedure consigliate
           href: data-encryption-best-practices.md
-        - name: Crittografia dei dati inattivi
+        - name: Crittografia di dati inattivi
           href: encryption-atrest.md
+        - name: Modelli di crittografia dei dati
+          href: encryption-models.md
         - name: Crittografia dischi di Azure per le macchine virtuali
           href: azure-disk-encryption-vms-vmss.md
     - name: Sicurezza del database

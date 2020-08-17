@@ -3,14 +3,14 @@ title: Valutazioni delle VM di Azure in Azure Migrate server Assessment
 description: Informazioni sulle valutazioni in Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825991"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261855"
 ---
-# <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Valutazioni delle VM di Azure in Azure Migrate: valutazione del server
+# <a name="server-assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione del server (migrazione alle macchine virtuali di Azure)
 
 In questo articolo viene fornita una panoramica delle valutazioni dello strumento [Azure migrate: server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Lo strumento può valutare le macchine virtuali VMware locali, le VM Hyper-V e i server fisici per la migrazione ad Azure.
 
@@ -122,7 +122,7 @@ Ecco cosa è incluso in una valutazione di VM di Azure in server assessment:
 **Cronologia delle prestazioni** | Utilizzato con il dimensionamento basato sulle prestazioni. Cronologia prestazioni specifica la durata utilizzata per la valutazione dei dati sulle prestazioni.
 **Utilizzo percentile** | Utilizzato con il dimensionamento basato sulle prestazioni. L'utilizzo percentile specifica il valore percentile dell'esempio di prestazioni utilizzato per rightsizing.
 **Serie VM** | Serie di VM di Azure che si vuole considerare per rightsizing. Se, ad esempio, non si dispone di un ambiente di produzione che richiede macchine virtuali serie A in Azure, è possibile escludere una serie A dall'elenco di serie.
-**Fattore di comfort** | Buffer utilizzato durante la valutazione. Viene applicato ai dati di utilizzo della CPU, della RAM, del disco e della rete per le macchine virtuali. In questo modo vengono rilevati problemi come l'utilizzo stagionale, la cronologia delle prestazioni brevi e probabilmente aumenti nell'utilizzo futuro.<br/><br/> Ad esempio, una macchina virtuale con 10 core con utilizzo del 20% normalmente produce una macchina virtuale a due core. Con un fattore di comfort di 2,0, il risultato è una macchina virtuale a quattro core.
+**Fattore di comfort** | Buffer utilizzato durante la valutazione. Viene applicato ai dati della CPU, della RAM, del disco e della rete per le macchine virtuali. In questo modo vengono rilevati problemi come l'utilizzo stagionale, la cronologia delle prestazioni brevi e probabilmente aumenti nell'utilizzo futuro.<br/><br/> Ad esempio, una macchina virtuale con 10 core con utilizzo del 20% normalmente produce una macchina virtuale a due core. Con un fattore di comfort di 2,0, il risultato è una macchina virtuale a quattro core.
 **Offerta** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) in cui si è iscritti. Server Assessment stima il costo per l'offerta.
 **Valuta** | Valuta di fatturazione per l'account.
 **Sconto (%)** | Tutti gli sconti specifici della sottoscrizione ricevuti dall'offerta di Azure. L'impostazione predefinita è 0%.
@@ -151,8 +151,8 @@ Per una valutazione delle VM di Azure, server Assessment esamina le seguenti pro
 Proprietà | Dettagli | Stato di idoneità per Azure
 --- | --- | ---
 **Tipo di avvio** | Azure supporta le VM con un tipo di avvio BIOS e non UEFI. | Pronto in modo condizionale se il tipo di avvio è UEFI
-**Core** | Ogni computer non deve avere più di 128 core, ovvero il numero massimo supportato da una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se le impostazioni di valutazione specificano un fattore di comfort, il numero di core utilizzati viene moltiplicato per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Pronto se il numero di core rientra nel limite
-**RAM** | Ogni computer non deve avere più di 3.892 GB di RAM, ovvero la dimensione massima supportata da una VM di Azure M Standard_M128m &nbsp; <sup>2</sup> . [Altre informazioni](../virtual-machines/sizes.md)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate considera la RAM utilizzata per il confronto. Se viene specificato un fattore di comfort, la RAM utilizzata viene moltiplicata per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia, viene usata la RAM allocata senza l'applicazione di un fattore di comfort.<br/><br/> | Pronto se la quantità di RAM è entro il limite
+**Core** | Ogni computer non deve avere più di 128 core, ovvero il numero massimo supportato da una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se le impostazioni di valutazione specificano un fattore di comfort, il numero di core utilizzati viene moltiplicato per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia delle prestazioni, Azure Migrate usa i core allocati per applicare il fattore di comfort. | Pronto se il numero di core rientra nel limite
+**RAM** | Ogni computer non deve avere più di 3.892 GB di RAM, ovvero la dimensione massima supportata da una VM di Azure M Standard_M128m &nbsp; <sup>2</sup> . [Altre informazioni](../virtual-machines/sizes.md)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate considera la RAM utilizzata per il confronto. Se viene specificato un fattore di comfort, la RAM utilizzata viene moltiplicata per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia, viene usata la RAM allocata per applicare un fattore di comfort.<br/><br/> | Pronto se la quantità di RAM è entro il limite
 **Disco di archiviazione** | Le dimensioni allocate di un disco non devono superare 32 TB. Sebbene Azure supporti i dischi da 64 TB con i dischi Ultra SSD di Azure, Azure Migrate: la valutazione del server attualmente verifica la presenza di 32 TB come limite delle dimensioni del disco, perché non supporta ancora Ultra SSD. <br/><br/> Il numero di dischi collegati al computer, incluso il disco del sistema operativo, deve essere 65 o un numero inferiore. | Pronto se il numero e le dimensioni del disco sono entro i limiti
 **Rete** | Un computer non deve avere più di 32 interfacce di rete (NIC) connesse. | Pronto se il numero di schede di rete rientra nel limite
 
@@ -282,7 +282,7 @@ Una volta completate le indicazioni sul dimensionamento, una valutazione delle V
     - Software Assurance
     - Istanze riservate
     - Tempo di attività macchina virtuale
-    - Percorso
+    - Location
     - Impostazioni di valuta
 
     Server Assessment aggrega il costo in tutti i computer per calcolare il costo totale di calcolo mensile.

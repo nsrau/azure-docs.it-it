@@ -13,21 +13,21 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 7a241d3144b6220d0084b61de2dde7c36a68c257
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 590aa7773c099aaa537e1fb9aaf658843b040674
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334719"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88204065"
 ---
-Ai Azure Site Recovery si applicano i limiti seguenti.
+I limiti seguenti si applicano ad Azure Site Recovery.
 
 | Identificatore limite | Limite |
 | --- | --- |
 | Numero di insiemi di credenziali per ogni sottoscrizione |500 |     
-| Numero di server per l'insieme di credenziali di Azure |250 |
-| Numero di gruppi protezione dati per ogni insieme di credenziali di Azure |Nessun limite |
-| Numero di piani di ripristino per Azure archivio |Nessun limite |
+| Numero di server per insieme di credenziali di Servizi di ripristino |250 |
+| Numero di gruppi di protezione dati per insieme di credenziali di Servizi di ripristino |Nessun limite |
+| Numero di piani di ripristino per insieme di credenziali di Servizi di ripristino |Nessun limite |
 | Numero di server per il gruppo protezione dati |Nessun limite |
-| Numero di server per il piano di ripristino |50 |
+| Numero di server per il piano di ripristino |100 |
 

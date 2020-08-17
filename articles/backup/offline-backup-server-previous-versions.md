@@ -1,14 +1,14 @@
 ---
 title: Backup offline per Data Protection Manager (DPM) e server di Backup di Microsoft Azure (MAB)-versioni precedenti
-description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per DPM e server di Backup di Azure.
+description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per le versioni precedenti di DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186946"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261923"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (versioni precedenti)
 
@@ -61,7 +61,7 @@ Prima di avviare il flusso di lavoro di backup offline, verificare che siano sod
     | Stati Uniti | [Collegamento](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | Cina | [Collegamento](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Un account di archiviazione di Azure con il modello di distribuzione Gestione risorse è stato creato nella sottoscrizione da cui è stato scaricato il file di impostazioni di pubblicazione. Nell'account di archiviazione creare un nuovo contenitore BLOB che verrà usato come destinazione.
+* Un account di archiviazione di Azure con il modello di distribuzione Gestione risorse è stato creato nella sottoscrizione da cui è stato scaricato il file di impostazioni di pubblicazione. Nell'account di archiviazione, creare un nuovo contenitore BLOB, che verrà usato come destinazione.
 
   ![Creare un account di archiviazione con Gestione risorse sviluppo](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 

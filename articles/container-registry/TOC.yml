@@ -148,6 +148,12 @@
         - name: Risolvere problemi
           expanded: false
           items:
+            - name: Risolvere i problemi relativi all'accesso
+              href: container-registry-troubleshoot-login.md
+            - name: Risolvere i problemi relativi alla rete
+              href: container-registry-troubleshoot-access.md
+            - name: Risolvere i problemi relativi alle prestazioni del registro
+              href: container-registry-troubleshoot-performance.md
             - name: Rilevare i problemi comuni
               href: container-registry-check-health.md
             - name: Domande frequenti
@@ -160,7 +166,7 @@
       items:
         - name: Informazioni su Attività del Registro Azure Container
           href: container-registry-tasks-overview.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       expanded: true
       items:
         - name: 'Creare, effettuare il push ed eseguire un''immagine - Interfaccia della riga di comando'

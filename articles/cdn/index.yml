@@ -3,18 +3,18 @@ title: Documentazione della rete CDN di Azure
 summary: La rete di distribuzione dei contenuti di Azure (rete CDN) è una soluzione globale della rete CDN per la distribuzione di contenuti con esigenze elevate di larghezza di banda. Può essere ospitata in Azure o in qualsiasi altra posizione. Con la rete CDN di Azure è possibile memorizzare nella cache gli oggetti statici caricati dall'archivio BLOB di Azure, da un'applicazione Web o da qualsiasi server Web accessibile pubblicamente, tramite il server POP (Point of Presence) più vicino. La rete CDN di Azure consente anche di accelerare il contenuto dinamico, non memorizzabile nella cache, sfruttando varie ottimizzazioni del routing e della rete.
 metadata:
   title: Documentazione della rete CDN di Azure - Esercitazioni e informazioni di riferimento sulle API
-  description: La rete di distribuzione dei contenuti di Azure (rete CDN) è una soluzione globale della rete CDN per la distribuzione di contenuti con esigenze elevate di larghezza di banda. Può essere ospitata in Azure o in qualsiasi altra posizione. Con la rete CDN di Azure è possibile memorizzare nella cache gli oggetti statici caricati dall'archivio BLOB di Azure, da un'applicazione Web o da qualsiasi server Web accessibile pubblicamente, tramite il server POP (Point of Presence) più vicino. La rete CDN di Azure consente anche di accelerare il contenuto dinamico, non memorizzabile nella cache, sfruttando varie ottimizzazioni del routing e della rete.
+  description: Informazioni sula rete CDN di Azure, una soluzione per la distribuzione di contenuti a larghezza di banda elevata ospitati in Azure o in altre posizioni.
   ms.service: azure-cdn
   ms.topic: landing-page
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: c3c9cd72a85744ac6b609b178ac4e7c2413b4080
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.openlocfilehash: ed3c4f1794407ccdb841ea3c6ca35ff4d8e1a808
+  ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85554302"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88192455"
 landingContent:
 - title: Informazioni sulla rete CDN di Azure
   linkLists:

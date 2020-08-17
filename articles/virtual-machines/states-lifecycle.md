@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 0613b4c444b9eacaaf2b9d3e0795f4872cb903f3
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182945"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261889"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Stati e ciclo di vita di macchine virtuali
 
@@ -423,6 +423,8 @@ L'API per la visualizzazione dell'istanza fornisce informazioni sullo stato di e
 Azure Resource Explorer offre una semplice interfaccia utente per visualizzare lo stato di esecuzione della macchina virtuale: [Resource Explorer](https://resources.azure.com/).
 
 Gli stati di provisioning sono visibili nelle proprietà della macchina virtuale e nella visualizzazione dell'istanza. Gli stati di alimentazione sono disponibili nella visualizzazione dell'istanza di macchina virtuale.
+
+Per recuperare lo stato di alimentazione di tutte le macchine virtuali nella sottoscrizione, usare [macchine virtuali-elenca tutte le API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) con il parametro **statusOnly** impostato su *true*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

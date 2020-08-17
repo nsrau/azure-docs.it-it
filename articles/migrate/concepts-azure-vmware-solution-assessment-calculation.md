@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 3469b612081f9cb96beec98a065e0827d1c04b4c
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387949"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261838"
 ---
-# <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Valutazioni AVS in Azure Migrate: server Assessment
+# <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Panoramica della valutazione del server (migrazione alla soluzione VMware di Azure)
 
 [Azure migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali. Consente anche di tenere traccia delle istanze di cloud privato e pubblico in Azure. L'hub offre strumenti Azure Migrate per la valutazione e la migrazione, nonché offerte di fornitori di software indipendenti (ISV) di terze parti.
 
@@ -152,7 +152,7 @@ Server Assessment esamina la seguente proprietà della macchina virtuale locale 
 
 | **Proprietà** | **Dettagli** | **Stato di conformità con AVS** 
 | - | - | - 
-| **Internet Protocol** | Attualmente la soluzione Azure VMware non supporta indirizzi Internet IPv6.<br/><br/> Se vengono rilevati indirizzi IPv6 nel computer, contattare il team MSFT AVS GBB locale per ricevere indicazioni per la correzione.| Protocollo Internet predisposto in modo condizionale
+| **Protocollo Internet** | Attualmente la soluzione Azure VMware non supporta indirizzi Internet IPv6.<br/><br/> Se vengono rilevati indirizzi IPv6 nel computer, contattare il team MSFT AVS GBB locale per ricevere indicazioni per la correzione.| Protocollo Internet predisposto in modo condizionale
 
 
 ### <a name="guest-operating-system"></a>Sistema operativo guest

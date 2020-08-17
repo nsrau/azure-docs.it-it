@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236302"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262671"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -32,7 +32,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
 3. Scegliere **ripristino file**dal menu Dashboard di backup.
 
-    ![Pulsante Ripristino file](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Seleziona ripristino file](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     Viene aperto il menu **Ripristino file**.
 
@@ -42,7 +42,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
 5. Per scaricare il software usato per copiare i file dal punto di ripristino, selezionare **Scarica eseguibile** (per le macchine virtuali di Windows Azure) o **Scarica script** (per le macchine virtuali Linux di Azure, viene generato uno script Python).
 
-    ![Password generata](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Scarica eseguibile](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Azure scarica il file eseguibile o lo script sul computer locale.
 
@@ -56,7 +56,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
 7. Assicurarsi di [disporre di un computer appropriato](#selecting-the-right-machine-to-run-the-script) per eseguire lo script. Se il computer idoneo è lo stesso in cui è stato scaricato lo script, è possibile passare alla sezione del download. Nel percorso di download (in genere la cartella *Download*) fare clic con il pulsante destro del mouse sul file eseguibile o sullo script ed eseguirlo con credenziali di amministratore. Quando richiesto, digitare la password o incollarla dalla memoria e premere **INVIO**. Dopo l'immissione della password valida, lo script si connette al punto di ripristino.
 
-    ![Menu Ripristino file](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Output eseguibile](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. Per i computer Linux, viene generato uno script Python. È necessario scaricare lo script e copiarlo nel server Linux pertinente/compatibile. Potrebbe essere necessario modificare le autorizzazioni per eseguirlo con ```chmod +x <python file name>```. Eseguire quindi il file Python con ```./<python file name>```.
 

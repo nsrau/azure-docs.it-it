@@ -44,6 +44,8 @@
           items:
             - name: Portale di Azure
               href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Interfaccia della riga di comando di Azure
+              href: service-bus-tutorial-topics-subscriptions-cli.md
             - name: Modello ARM
               href: service-bus-resource-manager-namespace-topic.md
         - name: Pubblicare e sottoscrivere messaggi
@@ -62,12 +64,8 @@
               href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Esercitazioni
   items:
-    - name: Aggiornare l'inventario - PowerShell
-      href: service-bus-tutorial-topics-subscriptions-powershell.md
-    - name: Aggiornare l'inventario - Portale
+    - name: Aggiornare l'inventario
       href: service-bus-tutorial-topics-subscriptions-portal.md
-    - name: Aggiornare l'inventario - Interfaccia della riga di comando
-      href: service-bus-tutorial-topics-subscriptions-cli.md
     - name: Rispondere agli eventi tramite Griglia di eventi
       href: service-bus-to-event-grid-integration-example.md
 - name: Esempi

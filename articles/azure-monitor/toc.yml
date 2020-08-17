@@ -494,6 +494,8 @@
               href: platform/alerts-metric.md
             - name: Usare soglie dinamiche
               href: platform/alerts-dynamic-thresholds.md
+            - name: Avvisi singoli per più serie temporali
+              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: Avvisi per le metriche nei log
               href: platform/alerts-metric-logs.md
             - name: Con il modello di Azure Resource Manager

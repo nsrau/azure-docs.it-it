@@ -8,7 +8,7 @@
       href: azure-portal-quickstart-center.md
     - name: Browser e dispositivi supportati
       href: azure-portal-supported-browsers-devices.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare una VM nel portale
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
@@ -27,20 +27,16 @@
       href: azure-portal-dashboards-create-programmatically.md
 - name: Guide pratiche
   items:
-    - name: Impostare le preferenze del portale di Azure
+    - name: Gestire impostazioni e preferenze del portale di Azure
       href: set-preferences.md
-    - name: Configurare le impostazioni di timeout per inattività per tutti gli utenti
-      href: admin-timeout.md
-    - name: Attivare un contrasto elevato o cambiare tema
-      href: azure-portal-change-theme-high-contrast.md
     - name: 'Aggiungere, rimuovere e ordinare i preferiti'
       href: azure-portal-add-remove-sort-favorites.md
-    - name: Creare e condividere dashboard di Azure
-      href: azure-portal-dashboards.md
-    - name: Usare un riquadro markdown personalizzato
-      href: azure-portal-markdown-tile.md
-    - name: Esportare o eliminare le impostazioni utente
-      href: azure-portal-export-delete-settings.md
+    - name: Creare dashboard di Azure
+      items:
+        - name: Creare e condividere dashboard di Azure
+          href: azure-portal-dashboards.md
+        - name: Usare un riquadro markdown personalizzato
+          href: azure-portal-markdown-tile.md
     - name: Serie di video di procedure per il portale di Azure
       href: azure-portal-video-series.md
     - name: Creare e gestire le richieste di supporto

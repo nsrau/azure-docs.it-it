@@ -25,7 +25,7 @@ Informazioni su come distribuire il contenitore di rilevamento della lingua. Que
 
 Questa procedura richiede diversi strumenti che devono essere installati ed eseguiti in locale. Non usare Azure Cloud Shell.
 
-* Usare una sottoscrizione di Azure. Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services) prima di iniziare.
+* Usare una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services) prima di iniziare.
 * [Git](https://git-scm.com/downloads) per il sistema operativo, in modo che sia possibile clonare l'[esempio](https://github.com/Azure-Samples/cognitive-services-containers-samples) usato in questa procedura.
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Motore Docker](https://www.docker.com/products/docker-engine) e verificare che l'interfaccia della riga di comando di Docker funzioni in una finestra della console.
@@ -389,7 +389,7 @@ Aprire un browser e passare all'indirizzo IP esterno del contenitore `language` 
 
 Modificare l'URL nel browser impostando l'indirizzo IP esterno del contenitore `language-frontend` nel formato seguente: `http://<external-ip>/helloworld`. Il testo `helloworld` nelle impostazioni cultura inglese viene stimato come `English`.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il cluster non è più necessario, eliminare il gruppo di risorse di Azure.
 
@@ -404,4 +404,4 @@ az group delete --name cogserv-container-rg
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Contenitori di servizi cognitivi](../cognitive-services-container-support.md)
+> [Contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

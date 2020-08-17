@@ -131,7 +131,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 Per ulteriori informazioni, vedere MSDN sull' [elemento proxy predefinito](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 Facoltativo: usare un account utente di test per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti

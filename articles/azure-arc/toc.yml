@@ -8,7 +8,7 @@
       href: ./servers/overview.md
 - name: Avvi rapidi
   items:
-    - name: Abilitare l'agente Arc per server
+    - name: Abilitare l'agente per server con abilitazione di Arc
       href: ./servers/learn/quick-enable-hybrid-vm.md
 - name: Esercitazioni
   items:
