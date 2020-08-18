@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: b35dce5a2b572e5a3f11601d5e67efb2da02cdec
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 61c1efb7337bee5fe329c9d548e23f3931e6ce3c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997061"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510777"
 ---
 # <a name="what-is-a-bleu-score"></a>Che cos'è un punteggio BLEU?
 
@@ -26,7 +26,7 @@ L'algoritmo BLEU confronta espressioni consecutive della traduzione automatica c
 
 ## <a name="how-bleu-works"></a>Come funziona BLEU?
 
-Il punto di forza di BLEU è che si mette in correlazione con il giudizio umano, calcolando la media di singoli errori di giudizio di frase su un corpus di test, anziché tentare di individuare l'esatta sentenza umana per ogni frase.
+Il punto di forza di BLEU è la sua capacità di stabilire una correlazione con il giudizio umano calcolando la media degli errori di giudizio di singole frasi su una raccolta di test, invece di cercare di definire l'esatto giudizio umano per ogni frase.
 
 Una discussione più approfondita sui punteggi BLEU è disponibile [qui](https://youtu.be/-UqDljMymMg).
 

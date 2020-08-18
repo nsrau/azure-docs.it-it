@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698768"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509085"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -191,6 +191,11 @@ I tenant di Azure AD sono isolati per impostazione predefinita. Queste attività
 ![GALSync in una topologia per più foreste e più directory](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 È possibile usare FIM 2010 o MIM 2016 locale per sincronizzare gli utenti (tramite GALSync) tra due organizzazioni di Exchange. Gli utenti di un'organizzazione vengono visualizzati come utenti/contatti esterni nell'altra organizzazione. Sarà quindi possibile sincronizzare le due istanze locali diverse di Active Directory con i rispettivi tenant di Azure AD.
+
+### <a name="using-unauthorized-clients-to-access-the-azure-ad-connect-backend"></a>Uso di client non autorizzati per accedere al back-end Azure AD Connect
+![Uso di client non autorizzati per accedere al back-end Azure AD Connect](./media/plan-connect-topologies/other-client-unsupported.png)
+
+Il server di Azure Active Directory Connect comunica con Azure Active Directory tramite il back-end Azure Active Directory Connect. L'unico software che può essere usato per comunicare con questo back-end è Azure Active Directory Connect. Non è supportata la comunicazione con il back-end Azure Active Directory Connect usando qualsiasi altro software o metodo. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come installare Azure AD Connect per questi scenari, vedere [Installazione personalizzata di Azure Ad Connect](how-to-connect-install-custom.md).

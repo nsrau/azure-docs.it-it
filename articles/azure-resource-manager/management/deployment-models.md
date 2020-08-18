@@ -3,12 +3,12 @@ title: Resource Manager e distribuzione classica
 description: Vengono descritte le differenze tra il modello di distribuzione di Gestione risorse e il modello di distribuzione classico (o gestione dei servizi).
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: 9e44128da9b6e180bd2857f4574c0b384fdffef2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: d9c1a27efc1f474e25d0ed164d106e8f64ba3e96
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057569"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511406"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
 
@@ -108,7 +108,7 @@ La tabella seguente descrive i cambiamenti nelle modalità di interazione dei pr
 | Account di archiviazione |Per la macchina virtuale è necessario un account di archiviazione in cui sono archiviati i dischi rigidi virtuali per il sistema operativo, i dischi temporanei e i dischi dati aggiuntivi. |La macchina virtuale richiede un account di archiviazione per l'archiviazione dei dischi nell'archivio BLOB. |
 | SET DI DISPONIBILITÀ |La disponibilità per la piattaforma era indicata mediante la configurazione  dello stesso oggetto "AvailabilitySetName" nelle macchine virtuali. Il numero massimo di domini di errore era 2. |Il set di disponibilità è una risorsa esposta dal provider Microsoft.Compute. Le macchine virtuali che richiedono un'elevata disponibilità devono essere incluse nel set di disponibilità. Il numero massimo di domini di errore è ora 3. |
 | Gruppi di affinità |I gruppi di affinità erano necessari per la creazione di reti virtuali. Tuttavia, con l'introduzione delle reti virtuali regionali, non era più necessario. |Per semplificare, non esiste il concetto di gruppi di affinità nelle API esposte tramite Gestione risorse di Microsoft Azure. |
-| Bilanciamento del carico. |La creazione di un servizio cloud fornisce un servizio di bilanciamento del carico implicito per le macchine virtuali distribuite. |Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'interfaccia di rete primaria delle macchine virtuali che deve essere configurata con carico bilanciato deve fare riferimento al servizio di bilanciamento del carico. I servizi di bilanciamento del carico possono essere interni o esterni. Un'istanza del servizio di bilanciamento del carico fa riferimento al pool back-end di indirizzi IP che includono la NIC di una macchina virtuale (facoltativo) e fa riferimento a un indirizzo IP pubblico o privato del servizio di bilanciamento del carico (facoltativo). |
+| Bilanciamento del carico |La creazione di un servizio cloud fornisce un servizio di bilanciamento del carico implicito per le macchine virtuali distribuite. |Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'interfaccia di rete primaria delle macchine virtuali che deve essere configurata con carico bilanciato deve fare riferimento al servizio di bilanciamento del carico. I servizi di bilanciamento del carico possono essere interni o esterni. Un'istanza del servizio di bilanciamento del carico fa riferimento al pool back-end di indirizzi IP che includono la NIC di una macchina virtuale (facoltativo) e fa riferimento a un indirizzo IP pubblico o privato del servizio di bilanciamento del carico (facoltativo). |
 | Indirizzo IP virtuale |Servizi cloud ottiene un indirizzo IP virtuale (VIP) predefinito quando una VM viene aggiunta a un servizio cloud. L'indirizzo IP virtuale è l'indirizzo associato al servizio di bilanciamento del carico implicito. |Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'indirizzo IP pubblico può essere statico (riservato) o dinamico. Gli indirizzi IP pubblici possono essere assegnati a un Load Balancer. Gli indirizzi IP pubblici possono essere protetti tramite gruppi di protezione. |
 | Indirizzo IP riservato |In Microsoft Azure è possibile riservare un indirizzo IP e associarlo a un servizio cloud per assicurarsi che l'indirizzo IP sia permanente. |L'indirizzo IP pubblico può essere creato in modalità statica e offre le stesse funzionalità di un indirizzo IP riservato. |
 | Indirizzo IP pubblico per macchina virtuale |Gli indirizzi IP pubblici possono anche essere associati direttamente a una VM. |Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'indirizzo IP pubblico può essere statico (riservato) o dinamico. |
@@ -122,7 +122,7 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 
 Se si è pronti per eseguire la migrazione delle risorse dalla distribuzione classica alla distribuzione Gestione risorse, vedere:
 
-1. [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+1. [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-deep-dive.md)
 2. [Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 3. [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)

@@ -1,14 +1,14 @@
 ---
 title: Gestisci aree di lavoro di Sentinel di Azure su larga scala
 description: Informazioni su come gestire efficacemente Azure Sentinel sulle risorse dei clienti Delegate.
-ms.date: 06/17/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163238"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511253"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gestisci aree di lavoro di Sentinel di Azure su larga scala
 
@@ -69,9 +69,9 @@ Le [cartelle di lavoro di monitoraggio di Azure in Sentinel di Azure](../../sent
 
 È anche possibile distribuire le cartelle di lavoro direttamente in un singolo tenant gestito per gli scenari specifici del cliente.
 
-## <a name="run-queries-across-azure-sentinel-workspaces"></a>Eseguire query tra aree di lavoro di Azure Sentinel
+## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Eseguire Log Analytics e cacciare query tra aree di lavoro di Azure Sentinel
 
-È possibile creare e salvare Log Analytics query per il rilevamento delle minacce in modo centralizzato nel tenant di gestione. Queste query possono quindi essere eseguite in tutte le aree di lavoro di Azure Sentinel dei clienti usando l'operatore Union e l'espressione Workspace (). Per altre informazioni, vedere [esecuzione di query tra aree di lavoro](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+È possibile creare e salvare Log Analytics query per il rilevamento delle minacce in modo centralizzato nel tenant di gestione, incluse le [query di caccia](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Queste query possono quindi essere eseguite in tutte le aree di lavoro di Azure Sentinel dei clienti usando l'operatore Union e l'espressione Workspace (). Per altre informazioni, vedere [esecuzione di query tra aree di lavoro](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Usare l'automazione per la gestione tra aree di lavoro
 

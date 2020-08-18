@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805001"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509298"
 ---
 # <a name="get-information-about-a-converted-model"></a>Ottenere informazioni su un modello convertito
 
@@ -100,7 +100,7 @@ In questa sezione vengono registrate le informazioni sul formato del file di ori
 In questa sezione vengono fornite informazioni sulla scena di origine. Spesso si verificano discrepanze tra i valori di questa sezione e i valori equivalenti nello strumento che ha creato il modello di origine. Queste differenze sono previste perché il modello viene modificato durante i passaggi di esportazione e conversione.
 
 * `numMeshes`: Numero di parti mesh, in cui ogni parte può fare riferimento a un singolo materiale.
-* `numFaces`: Numero totale di _triangoli_ nell'intero modello. Si noti che la mesh viene triangolata durante la conversione. Questo numero contribuisce al limite del poligono nelle [dimensioni della macchina virtuale per il rendering standard](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
+* `numFaces`: Numero totale di _triangoli_ nell'intero modello. Si noti che la mesh viene triangolata durante la conversione. Questo numero contribuisce al limite del poligono nella [dimensione del server di rendering standard](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: Numero totale di vertici nell'intero modello.
 * `numMaterial`: Numero totale di materiali nell'intero modello.
 * `numFacesSmallestMesh`: Numero di triangoli nella mesh più piccola del modello.

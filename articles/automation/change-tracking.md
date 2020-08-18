@@ -3,14 +3,14 @@ title: Panoramica di Automazione di Azure - Rilevamento modifiche e inventario
 description: Questo articolo descrive la funzionalità di Rilevamento modifiche e inventario, che consente di identificare le modifiche al software e al servizio Microsoft nell'ambiente in uso.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/08/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2fe92942e263cf53b9827ccbcb13a2d7bafc367c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447932"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511049"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -26,10 +26,10 @@ Questo articolo descrive la funzionalità di Rilevamento modifiche e inventario 
 > [!NOTE]
 > Per tenere traccia delle modifiche apportate alle proprietà di Azure Resource Manager, vedere il grafico [cronologia modifiche](../governance/resource-graph/how-to/get-resource-changes.md) di Azure Resource Graph.
 
-La funzionalità Rilevamento modifiche e inventario ottiene i dati da Monitoraggio di Azure. Le macchine virtuali connesse alle aree di lavoro Log Analytics utilizzano agenti Log Analytics per raccogliere dati sulle modifiche al software installato, ai servizi Microsoft, al registro di sistema e ai file di Windows e ai Daemon Linux nei server monitorati. Quando i dati sono disponibili, gli agenti lo inviano a Monitoraggio di Azure per l'elaborazione. Monitoraggio di Azure applica la logica ai dati ricevuti, li registra e li rende disponibili. 
+La funzionalità Rilevamento modifiche e inventario ottiene i dati da Monitoraggio di Azure. Le macchine virtuali connesse alle aree di lavoro Log Analytics usano l'agente Log Analytics per raccogliere dati sulle modifiche al software installato, ai servizi Microsoft, al registro di sistema di Windows e ai file e ai Daemon Linux nei server monitorati. Quando i dati sono disponibili, l'agente lo invia a monitoraggio di Azure per l'elaborazione. Monitoraggio di Azure applica la logica ai dati ricevuti, li registra e li rende disponibili.
 
 > [!NOTE]
-> Per usare la funzionalità Rilevamento modifiche e inventario, è necessario individuare tutte le macchine virtuali nella stessa sottoscrizione e nella stessa area dell'account di automazione.
+> Rilevamento modifiche e inventario richiedono il collegamento di un'area di lavoro Log Analytics all'account di automazione. Per un elenco completo delle aree supportate, vedere [Mapping dell'area di lavoro di Azure](./how-to/region-mappings.md). I mapping a livello di area non influiscono sulla possibilità di gestire le VM in un'area separata rispetto all'account di Automazione.
 
 Rilevamento modifiche e inventario attualmente non supporta gli elementi seguenti:
 
@@ -53,7 +53,7 @@ In Rilevamento modifiche e inventario si verificano attualmente i problemi segue
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-La funzionalità Rilevamento modifiche e inventario è supportata in tutti i sistemi operativi che soddisfano i requisiti degli agenti di Log Analytics. Le versioni ufficiali del sistema operativo sono Windows Server 2008 SP1 o versione successiva e Windows 7 SP1 o versione successiva. La funzionalità è supportata anche in diversi sistemi operativi Linux. Per i sistemi operativi che supportano Log Analytics, vedere [Panoramica di log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md).
+La funzionalità Rilevamento modifiche e inventario è supportata in tutti i sistemi operativi che soddisfano i requisiti degli agenti di Log Analytics. Le versioni ufficiali del sistema operativo sono Windows Server 2008 SP1 o versione successiva e Windows 7 SP1 o versione successiva. La funzionalità è supportata anche in diversi sistemi operativi Linux. Per un elenco dei sistemi operativi supportati, vedere [Panoramica di log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md).
 
 Per informazioni sui requisiti dei client per TLS 1,2, vedere [tls 1,2 Enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 

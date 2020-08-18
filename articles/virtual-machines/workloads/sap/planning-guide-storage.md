@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825005"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510862"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
 Azure dispone di numerosi tipi di archiviazione che variano notevolmente in funzionalità, velocità effettiva, latenza e prezzi. Alcuni tipi di archiviazione non sono o di utilizzo limitato per gli scenari SAP. Mentre alcuni tipi di archiviazione di Azure sono particolarmente adatti o ottimizzati per scenari specifici del carico di lavoro SAP. In particolare per SAP HANA, alcuni tipi di archiviazione di Azure sono stati certificati per l'utilizzo con SAP HANA. In questo documento vengono esaminati i diversi tipi di archiviazione e ne viene descritta la funzionalità e l'usabilità con i carichi di lavoro SAP e i componenti SAP.
@@ -84,24 +84,24 @@ Prima di entrare nei dettagli, verranno presentati il riepilogo e le raccomandaz
 | Volume di log DBMS non-HANA famiglie di VM non M/Mv2 | non supportato | adatto limitato (non prod) | adatto per carichi di lavoro fino a medium | Consigliato | non supportato |
 
 
-<sup>1</sup> con l'uso di [acceleratore di scrittura di Azure](../../windows/how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward <sup>2</sup> con e è necessario/Hana/data e/Hana/log in e 
+<sup>1</sup> con l'uso di [acceleratore di scrittura di Azure](../../how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward <sup>2</sup> con e è necessario/Hana/data e/Hana/log in e 
 
 Caratteristiche che è possibile prevedere dall'elenco dei diversi tipi di archiviazione, ad esempio:
 
 | Scenario di utilizzo | HDD Standard | SSD Standard | Archiviazione Premium | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| SLA velocità effettiva/IOPS | No | No | sì | sì | sì |
+| SLA velocità effettiva/IOPS | no | no | sì | sì | sì |
 | Letture latenza | high | da medio a alto | low | millisecondi | millisecondi |
 | Scritture latenza | high | da medio a alto  | bassa (sub-millisecond<sup>1</sup>) | millisecondi | millisecondi |
-| HANA supportato | No | No | Sì<sup>1</sup> | sì | sì |
-| Snapshot del disco possibili | sì | sì | sì | No | sì |
+| HANA supportato | no | no | Sì<sup>1</sup> | sì | sì |
+| Snapshot del disco possibili | sì | sì | sì | no | sì |
 | Allocazione di dischi in cluster di archiviazione diversi quando si usano i set di disponibilità | tramite Managed Disks | tramite Managed Disks | tramite Managed Disks | tipo di disco non supportato con le macchine virtuali distribuite tramite i set di disponibilità | n.<sup>3</sup> |
 | Allineato con zone di disponibilità | sì | sì | sì | sì | richiede il coinvolgimento di Microsoft |
-| Ridondanza di zona | non per Managed Disks | non per Managed Disks | non per Managed Disks | No | No |
-| Ridondanza geografica | non per Managed Disks | non per Managed Disks | No | No | No |
+| Ridondanza di zona | non per Managed Disks | non per Managed Disks | non per Managed Disks | no | no |
+| Ridondanza geografica | non per Managed Disks | non per Managed Disks | no | no | no |
 
 
-<sup>1</sup> con utilizzo del [acceleratore di scrittura di Azure](../../windows/how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward
+<sup>1</sup> con utilizzo del [acceleratore di scrittura di Azure](../../how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward
 
 <sup>2</sup> i costi dipendono da IOPS e velocità effettiva con provisioning
 
@@ -137,7 +137,7 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | Funzionalità| Commento| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | adatto | tutti i sistemi |
-| Disco dati | adatto | tutti i sistemi, [specialmente per SAP Hana](../../windows/how-to-enable-write-accelerator.md) |
+| Disco dati | adatto | tutti i sistemi, [specialmente per SAP Hana](../../how-to-enable-write-accelerator.md) |
 | Directory di trasporto globale SAP | YES | [Supportato](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | adatto | tutti i sistemi |
 | Archiviazione di backup | adatto | per l'archiviazione a breve termine dei backup |
@@ -149,12 +149,12 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | Numero massimo di IOPS per disco | 20.000 [dipendente dalla dimensione del disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Prendere in considerazione anche i [limiti delle VM](../../sizes.md) |
 | SLA velocità effettiva | YES | - |
 | Velocità effettiva lineare a capacità | semi lineare tra parentesi quadre | [Prezzi del disco gestito](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Certificazione HANA | YES | [appositamente per SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| Certificazione HANA | YES | [appositamente per SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Snapshot del disco possibili | YES | - |
-| Snapshot di VM di backup di Azure possibili | YES | ad eccezione di [acceleratore di scrittura](../../windows/how-to-enable-write-accelerator.md) dischi memorizzati nella cache  |
+| Snapshot di VM di backup di Azure possibili | YES | ad eccezione di [acceleratore di scrittura](../../how-to-enable-write-accelerator.md) dischi memorizzati nella cache  |
 | Costi | MEDIUM | - |
 
-Archiviazione Premium di Azure non soddisfa SAP HANA indicatori KPI di latenza di archiviazione con i tipi di memorizzazione nella cache comuni offerti con archiviazione Premium di Azure. Per soddisfare gli indicatori KPI di latenza di archiviazione per SAP HANA scritture del log, è necessario usare la memorizzazione nella cache di acceleratore di scrittura di Azure, come descritto nell'articolo [abilitare acceleratore di scrittura](../../windows/how-to-enable-write-accelerator.md). Azure acceleratore di scrittura avvantaggia tutti gli altri sistemi DBMS per le Scritture del log delle transazioni e le Scritture del log di ripristino. Pertanto, è consigliabile utilizzarlo in tutte le distribuzioni di SAP DBMS. Per SAP HANA, l'uso di acceleratore di scrittura di Azure in combinazione con archiviazione Premium di Azure è obbligatorio.
+Archiviazione Premium di Azure non soddisfa SAP HANA indicatori KPI di latenza di archiviazione con i tipi di memorizzazione nella cache comuni offerti con archiviazione Premium di Azure. Per soddisfare gli indicatori KPI di latenza di archiviazione per SAP HANA scritture del log, è necessario usare la memorizzazione nella cache di acceleratore di scrittura di Azure, come descritto nell'articolo [abilitare acceleratore di scrittura](../../how-to-enable-write-accelerator.md). Azure acceleratore di scrittura avvantaggia tutti gli altri sistemi DBMS per le Scritture del log delle transazioni e le Scritture del log di ripristino. Pertanto, è consigliabile utilizzarlo in tutte le distribuzioni di SAP DBMS. Per SAP HANA, l'uso di acceleratore di scrittura di Azure in combinazione con archiviazione Premium di Azure è obbligatorio.
 
 
 

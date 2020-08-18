@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681246"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509842"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usare l'API REST di gestione delle sessioni
 
@@ -71,9 +71,9 @@ Questo comando crea una sessione. Restituisce l'ID della nuova sessione. È nece
 
 **Corpo della richiesta:**
 
-* maxLeaseTime (TimeSpan): valore di timeout quando la macchina virtuale verrà ritirata automaticamente
+* maxLeaseTime (TimeSpan): valore di timeout quando la sessione verrà ritirata automaticamente
 * modelli (Array): URL del contenitore di asset da precaricare
-* Size (String): dimensioni della macchina virtuale (**"standard"** o **"Premium"**). Vedere [Limitazioni delle dimensioni della macchina virtuale](../reference/limits.md#overall-number-of-polygons) per le specifiche.
+* Size (String): dimensione del server da configurare ([**"standard"**](../reference/vm-sizes.md) o [**"Premium"**](../reference/vm-sizes.md)). Vedere limitazioni specifiche delle [dimensioni](../reference/limits.md#overall-number-of-polygons).
 
 **Risposte**
 
@@ -130,7 +130,7 @@ Questo comando Aggiorna i parametri di una sessione. Attualmente è possibile es
 
 **Corpo della richiesta:**
 
-* maxLeaseTime (TimeSpan): valore di timeout quando la macchina virtuale verrà ritirata automaticamente
+* maxLeaseTime (TimeSpan): valore di timeout quando la sessione verrà ritirata automaticamente
 
 **Risposte**
 

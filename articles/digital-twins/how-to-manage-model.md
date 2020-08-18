@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 919db9338917a9c2bedd7806eb251a2e5ef6187b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987325"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509995"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -160,7 +160,7 @@ Pageable<ModelData> pmd3 = client.GetModels(null, true);
 Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-Le chiamate API per recuperare i modelli restituiscono tutti `ModelData` gli oggetti. `ModelData`contiene i metadati relativi al modello archiviato nell'istanza di Azure Digital Twins, ad esempio nome, DTMI e data di creazione del modello. `ModelData`Inoltre, l'oggetto include facoltativamente il modello stesso. A seconda dei parametri, è quindi possibile utilizzare le chiamate di recupero per recuperare solo i metadati (utile negli scenari in cui si desidera visualizzare un elenco di interfacce utente di strumenti disponibili, ad esempio) o l'intero modello.
+Le chiamate API per recuperare i modelli restituiscono tutti `ModelData` gli oggetti. `ModelData` contiene i metadati relativi al modello archiviato nell'istanza di Azure Digital Twins, ad esempio nome, DTMI e data di creazione del modello. `ModelData`Inoltre, l'oggetto include facoltativamente il modello stesso. A seconda dei parametri, è quindi possibile utilizzare le chiamate di recupero per recuperare solo i metadati (utile negli scenari in cui si desidera visualizzare un elenco di interfacce utente di strumenti disponibili, ad esempio) o l'intero modello.
 
 La `RetrieveModelWithDependencies` chiamata non restituisce solo il modello richiesto, ma anche tutti i modelli da cui dipende il modello richiesto.
 
@@ -174,7 +174,7 @@ I modelli possono essere rimossi anche dal servizio, in uno dei due modi seguent
 
 Si tratta di funzionalità separate che non influiscano tra loro, anche se possono essere utilizzate insieme per rimuovere gradualmente un modello. 
 
-### <a name="decommissioning"></a>Rimozione delle autorizzazioni
+#### <a name="decommissioning"></a>Rimozione delle autorizzazioni
 
 Ecco il codice per rimuovere le autorizzazioni per un modello:
 

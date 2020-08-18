@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9bbb4ee4a2fd41ca0605d7dd5d8c66c83d475744
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506473"
+ms.locfileid: "88516300"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurare le notifiche di posta elettronica per gli avvisi di sicurezza 
 
@@ -60,9 +60,9 @@ Per evitare l'affaticamento degli avvisi, il Centro sicurezza limita il volume d
 1. Per applicare le informazioni di contatto di sicurezza alla sottoscrizione, selezionare **Salva**.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Per ulteriori informazioni sugli avvisi di sicurezza, vedere gli argomenti seguenti:
 
 * [Avvisi di sicurezza: Guida di riferimento](alerts-reference.md) : informazioni sugli avvisi di sicurezza che possono essere visualizzati nel modulo di protezione dalle minacce del Centro sicurezza di Azure
 * [Gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza
-- [Automazione del flusso di lavoro](workflow-automation.md) : automatizzare le risposte agli avvisi con la logica di notifica personalizzata
+* [Automazione del flusso di lavoro](workflow-automation.md) : automatizzare le risposte agli avvisi con la logica di notifica personalizzata

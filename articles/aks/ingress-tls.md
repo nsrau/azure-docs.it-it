@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come installare e configurare un controller di ingresso NGINX che usa la crittografia per la generazione automatica di certificati TLS in un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 91a22a3148568f7c4c3c223b5bca0dd6a8a33ce4
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/17/2020
+ms.openlocfilehash: c86b4e921dce6258ac585375e686bec5fa44b211
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245877"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508958"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS nel servizio Azure Kubernetes
 
@@ -292,11 +292,15 @@ spec:
       - backend:
           serviceName: aks-helloworld-one
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: aks-helloworld-two
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
+      - backend:
+          serviceName: aks-helloworld-one
+          servicePort: 80
+        path: /(.*)
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
@@ -345,7 +349,7 @@ tls-secret   True    tls-secret   11m
 
 Aprire un Web browser per *Hello-World-ingress. MY_CUSTOM_DOMAIN* del controller di ingresso Kubernetes. Si noti che si è reindirizzati per l'uso di HTTPS e il certificato è attendibile e l'applicazione demo viene visualizzata nel Web browser. Aggiungere il percorso */Hello-World-Two* e notare che viene visualizzata la seconda applicazione demo con il titolo personalizzato.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Questo articolo ha usato Helm per installare i componenti di ingresso, i certificati e le app di esempio. Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire queste risorse, è possibile eliminare l'intero spazio dei nomi di esempio o le singole risorse.
 

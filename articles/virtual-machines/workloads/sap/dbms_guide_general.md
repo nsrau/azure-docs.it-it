@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827419"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510233"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -221,7 +221,7 @@ Per l'archiviazione Premium, le opzioni di memorizzazione nella cache sono:
 
 Per l'archiviazione Premium, è consigliabile usare **Read caching for data files** (Caching di lettura per i file di dati) del database SAP e scegliere **No caching for the disks of log file(s)** (Nessun caching per i dischi dei file di log).
 
-Per le distribuzioni di macchine serie M, è consigliabile usare Acceleratore di scrittura di Azure per la distribuzione DBMS. Per i dettagli, le limitazioni e la distribuzione dell'acceleratore di scrittura di Azure, vedere [Abilitare l'acceleratore di scrittura](../../windows/how-to-enable-write-accelerator.md).
+Per le distribuzioni di macchine serie M, è consigliabile usare Acceleratore di scrittura di Azure per la distribuzione DBMS. Per i dettagli, le limitazioni e la distribuzione dell'acceleratore di scrittura di Azure, vedere [Abilitare l'acceleratore di scrittura](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="azure-nonpersistent-disks"></a>Dischi non persistenti di Azure

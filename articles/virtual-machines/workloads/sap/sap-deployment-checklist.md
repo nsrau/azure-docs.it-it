@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3c22a46d22ef4eb717eb686fa295c820c78c934
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067257"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511143"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -114,7 +114,7 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
         - In generale, non è consigliabile usare i [dischi di Azure HDD standard](../../windows/disks-types.md#standard-hdd).
         - Usare [archiviazione Premium di Azure](../../windows/disks-types.md#premium-ssd) per tutte le macchine virtuali DBMS che sono sensibili alle prestazioni in remoto.
         - Usare [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/).
-        - Usare l'acceleratore di scrittura di Azure per le unità di log DBMS con serie M. Tenere presente i limiti e l'utilizzo di acceleratore di scrittura, come documentato in [acceleratore di scrittura](../../linux/how-to-enable-write-accelerator.md).
+        - Usare l'acceleratore di scrittura di Azure per le unità di log DBMS con serie M. Tenere presente i limiti e l'utilizzo di acceleratore di scrittura, come documentato in [acceleratore di scrittura](../../how-to-enable-write-accelerator.md).
         - Per i diversi tipi di DBMS, consultare la [documentazione di DBMS generica relativa a SAP](./dbms_guide_general.md) e la documentazione specifica di DBMS a cui fa riferimento il documento generico.
         - Per altre informazioni sulle SAP HANA, vedere [SAP Hana configurazioni e operazioni dell'infrastruttura in Azure](./hana-vm-operations.md).
         - Non montare mai dischi dati di Azure in una macchina virtuale Linux di Azure tramite l'ID dispositivo. Usare invece l'identificatore univoco universale (UUID). Prestare attenzione quando si usano, ad esempio, strumenti grafici per il montaggio di dischi dati di Azure. Controllare le voci in/etc/fstab per assicurarsi che l'UUID venga usato per montare i dischi. Altre informazioni sono disponibili in [questo articolo](../../linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).

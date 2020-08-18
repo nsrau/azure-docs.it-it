@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come installare e configurare un controller di ingresso NGINX con un indirizzo IP pubblico statico in un cluster del servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 93f9317b88229a85a5ee06d83188f67d9d7da3dc
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/17/2020
+ms.openlocfilehash: 60e0ace70fa87c6a4c47e94eb3ff7f121c9a37cb
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245894"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509043"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso con un indirizzo IP pubblico statico nel servizio Azure Kubernetes
 
@@ -294,11 +294,15 @@ spec:
       - backend:
           serviceName: aks-helloworld
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: ingress-demo
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
+      - backend:
+          serviceName: aks-helloworld
+          servicePort: 80
+        path: /(.*)
 ```
 
 Creare la risorsa di ingresso con il comando `kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic`.
@@ -379,7 +383,7 @@ A questo punto aggiungere il percorso */hello-world-two* al nome FQDN, ad esempi
 
 ![Esempio di applicazione 2](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Questo articolo ha usato Helm per installare i componenti di ingresso, i certificati e le app di esempio. Quando si distribuisce un grafico Helm, viene creato un certo numero di risorse di Kubernetes. Queste risorse includono pod, distribuzioni e servizi. Per pulire queste risorse, è possibile eliminare l'intero spazio dei nomi di esempio o le singole risorse.
 

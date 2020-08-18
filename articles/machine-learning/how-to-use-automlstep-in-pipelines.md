@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 20a85c17ccd4167b29e167c55df1bd8a8cc4d56e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: c2fc0b0bc1b59bcb3fa4a84235135d9b8ff1fc27
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185656"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510250"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usare Machine Learning automatiche in una pipeline Azure Machine Learning in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -347,7 +347,7 @@ Il `automl_settings` dizionario viene passato al `AutoMLConfig` costruttore come
 Lo `AutoMLStep` stesso accetta `AutoMLConfig` e ha, come output, gli `PipelineData` oggetti creati per conservare le metriche e i dati del modello. 
 
 >[!Important]
-> È necessario impostare `enable_default_model_output` e `enable_default_metrics_output`  su a `False` meno che non si utilizzi  `AutoMLStep` .
+> È necessario impostare `enable_default_model_output` e `enable_default_metrics_output`  su `True` solo se si utilizza  `AutoMLStepRun` .
 
 In questo esempio, il processo di Machine Learning automatico eseguirà convalide incrociate in `training_data` . È possibile controllare il numero di convalide incrociate con l' `n_cross_validations` argomento. Se i dati di training sono già stati divisi nell'ambito dei passaggi di preparazione dei dati, è possibile impostare `validation_data` il proprio `Dataset` .
 

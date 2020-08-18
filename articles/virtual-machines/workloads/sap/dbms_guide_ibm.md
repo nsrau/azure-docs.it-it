@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 08/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ea95603ea630a1320db5698092f6748e36a9934
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 3db8ece7cd1d3ef57b51b164fad3340b80882369
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245758"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510199"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -73,7 +73,7 @@ In alternativa, è possibile usare i pool di archiviazione di Windows (disponibi
 
 Per i dischi contenenti i percorsi di archiviazione Db2 per le directory sapdata e saptmp, è necessario specificare una dimensione del settore del disco pari a 512 kB. Quando si usano i pool di archiviazione di Windows, è necessario creare manualmente i pool di archiviazione con l'interfaccia della riga di comando usando il parametro `-LogicalSectorSizeDefault`. Per altre informazioni, vedere <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-Per la VM serie M di Azure la latenza di scrittura nei log delle transazioni può essere ridotta di alcuni fattori, in confronto alle prestazioni di Archiviazione Premium di Azure, quando si usa l'acceleratore di scrittura di Azure. È quindi consigliabile distribuire l'acceleratore di scrittura di Azure per i dischi rigidi virtuali che formano il volume per i log delle transazioni Db2. I dettagli sono disponibili nel documento relativo all'[acceleratore di scrittura](../../windows/how-to-enable-write-accelerator.md).
+Per la VM serie M di Azure la latenza di scrittura nei log delle transazioni può essere ridotta di alcuni fattori, in confronto alle prestazioni di Archiviazione Premium di Azure, quando si usa l'acceleratore di scrittura di Azure. È quindi consigliabile distribuire l'acceleratore di scrittura di Azure per i dischi rigidi virtuali che formano il volume per i log delle transazioni Db2. I dettagli sono disponibili nel documento relativo all'[acceleratore di scrittura](../../how-to-enable-write-accelerator.md).
 
 ## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Raccomandazione sulla macchina virtuale e sulla struttura del disco per la distribuzione di IBM DB2
 

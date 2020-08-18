@@ -1,32 +1,32 @@
 ---
-title: Dimensioni delle macchine virtuali
-description: Descrive le dimensioni di VM distinte che è possibile allocare
+title: Dimensioni del server
+description: Descrive le dimensioni del server distinte che è possibile allocare
 author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b9479c2ab5b63440a03bd74d2503930108a49091
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121613"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511186"
 ---
-# <a name="vm-sizes"></a>Dimensioni delle macchine virtuali
+# <a name="server-sizes"></a>Dimensioni del server
 
-Il servizio di rendering può funzionare su due diversi tipi di computer in Azure, denominati `Standard` e `Premium` .
+Il rendering remoto di Azure è disponibile in due configurazioni server: `Standard` e `Premium` .
 
 ## <a name="polygon-limits"></a>Limiti del poligono
 
-È previsto un limite rigido di **20 milioni poligoni** per le `Standard` dimensioni della macchina virtuale. Non esiste alcuna limitazione di questo tipo per le `Premium` dimensioni.
+Il rendering remoto con `Standard` server di dimensioni ha una dimensione massima della scena di 20 milioni poligoni. Il rendering remoto con `Premium` dimensioni non impone un valore massimo rigido, ma le prestazioni potrebbero risultare ridotte se il contenuto supera le funzionalità di rendering del servizio.
 
-Quando il renderer in una macchina virtuale standard raggiunge questa limitazione, passa il rendering a uno sfondo a scacchi:
+Quando il renderer su una dimensione del server ' standard ' raggiunge questa limitazione, passa il rendering a uno sfondo a scacchi:
 
 ![Scacchi](media/checkerboard.png)
 
-## <a name="allocate-the-vm"></a>Allocare la macchina virtuale
+## <a name="specify-the-server-size"></a>Specificare le dimensioni del server
 
-Il tipo desiderato di macchina virtuale deve essere specificato al momento dell'inizializzazione della sessione di rendering. Non può essere modificato all'interno di una sessione in esecuzione. Gli esempi di codice seguenti illustrano la posizione in cui è necessario specificare le dimensioni della macchina virtuale:
+Il tipo desiderato di configurazione del server deve essere specificato al momento dell'inizializzazione della sessione di rendering. Non può essere modificato all'interno di una sessione in esecuzione. Negli esempi di codice seguenti viene illustrata la posizione in cui è necessario specificare le dimensioni del server:
 
 ```cs
 async void CreateRenderingSession(AzureFrontend frontend)
@@ -51,7 +51,7 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 }
 ```
 
-Per gli [script di PowerShell di esempio](../samples/powershell-example-scripts.md), è necessario specificare le dimensioni della macchina virtuale all'interno del `arrconfig.json` file:
+Per gli [script di PowerShell di esempio](../samples/powershell-example-scripts.md), è necessario specificare le dimensioni del server desiderate all'interno del `arrconfig.json` file:
 
 ```json
 {
@@ -74,13 +74,13 @@ Di conseguenza, è possibile scrivere un'applicazione destinata `standard` a dim
 
 ### <a name="how-to-determine-the-number-of-polygons"></a>Come determinare il numero di poligoni
 
-Esistono due modi per determinare il numero di poligoni di un modello o di una scena che contribuiscono al limite di budget della `standard` VM di dimensioni:
+Esistono due modi per determinare il numero di poligoni di un modello o di una scena che contribuiscono al limite di budget della `standard` dimensione di configurazione:
 * Sul lato conversione del modello recuperare il [file JSON di output della conversione](../how-tos/conversion/get-information.md)e controllare la `numFaces` voce nella sezione [ *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
 * Se l'applicazione sta occupando contenuto dinamico, il numero di poligoni sottoposti a rendering può essere sottoposto a query in modo dinamico durante il Runtime. Usare una [query di valutazione delle prestazioni](../overview/features/performance-queries.md#performance-assessment-queries) e verificare la presenza del `polygonsRendered` membro nello `FrameStatistics` struct. Il `polygonsRendered` campo verrà impostato su `bad` quando il renderer raggiunge la limitazione del poligono. Lo sfondo della scacchiera viene sempre sbiadito con un certo ritardo per garantire che l'azione dell'utente possa essere eseguita dopo questa query asincrona. L'azione dell'utente può, ad esempio, nascondere o eliminare le istanze del modello.
 
 ## <a name="pricing"></a>Prezzi
 
-Per una suddivisione dettagliata dei prezzi per ogni tipo di macchina virtuale, vedere la pagina relativa ai prezzi per il [rendering remoto](https://azure.microsoft.com/pricing/details/remote-rendering) .
+Per una suddivisione dettagliata dei prezzi per ogni tipo di configurazione, vedere la pagina relativa ai prezzi per il [rendering remoto](https://azure.microsoft.com/pricing/details/remote-rendering) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Script di Azure PowerShell di esempio](../samples/powershell-example-scripts.md)

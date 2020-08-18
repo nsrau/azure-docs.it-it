@@ -2,36 +2,36 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 8/12/2020
 ms.author: sngun
-ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c5ed4e1bbe54c642202c19e1beb61de94b4f751
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67179898"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88515261"
 ---
 **1. In che modo i clienti verranno avvisati circa l'SDK in fase di ritiro?**
 
-Microsoft invierà una notifica anticipata 12 mesi prima fine del supporto dell'SDK in fase di ritiro per agevolare la transizione a un SDK supportato. I clienti verranno anche informati tramite vari canali di comunicazione, ad esempio il portale di gestione di Azure, il centro sviluppatori e comunicazioni dirette indirizzate agli amministratori dei servizi indicati.
+Microsoft fornirà una notifica di anticipo di 12 mesi alla fine del supporto dell'SDK di ritiro per facilitare una transizione senza problemi a un SDK supportato. Inoltre, i clienti riceveranno una notifica tramite diversi canali di comunicazione: portale di Azure, gli aggiornamenti di Azure e la comunicazione diretta agli amministratori del servizio assegnati.
 
 **2. i clienti possono creare applicazioni che usano un Azure Cosmos DB SDK "da ritirare" durante il periodo di 12 mesi?** 
 
-Sì, durante il periodo di tolleranza di 12 mesi ai clienti sarà garantito l'accesso completo per creare, distribuire e modificare applicazioni tramite la versione dell'SDK di Azure Cosmos DB "in fase di ritiro". Durante il periodo di tolleranza di 12 mesi, i clienti sono invitati a eseguire la migrazione a una versione supportata più recente dell'SDK di Azure Cosmos DB.
+Sì, i clienti avranno accesso completo per creare, distribuire e modificare applicazioni usando il Azure Cosmos DB SDK "in fase di ritiro" durante il periodo di preavviso di 12 mesi. Durante il periodo di preavviso di 12 mesi, i clienti sono invitati a eseguire la migrazione a una versione supportata più recente di Azure Cosmos DB SDK, a seconda dei casi. 
 
-**3. i clienti possono creare e modificare applicazioni usando un Azure Cosmos DB SDK ritirato dopo il periodo di notifica di 12 mesi?**
+**3. dopo la data di ritiro, cosa accade alle applicazioni che usano l'SDK Azure Cosmos DB non supportato?** 
 
-Dopo il periodo di notifica di 12 mesi, l'SDK verrà ritirato. La piattaforma Azure Cosmos DB non consentirà alcun tentativo di accesso ad Azure Cosmos DB da applicazioni che usano una versione di SDK ritirata. Inoltre, Microsoft non fornirà più il supporto tecnico per la versione di SDK ritirata.
+Dopo la data di ritiro, Azure Cosmos DB non effettuerà più correzioni di bug, aggiungono nuove funzionalità e fornirà supporto per le versioni di SDK ritirate. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalle versioni ritirate dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB. 
 
-**4. cosa accade alle applicazioni in esecuzione del cliente che usano una versione non supportata di Azure Cosmos DB SDK?**
+**4. quali versioni dell'SDK avranno le funzionalità e gli aggiornamenti più recenti?**
 
-Qualsiasi tentativo di connessione al servizio Azure Cosmos DB con una versione di SDK ritirata verrà rifiutato. 
+Le nuove funzionalità e gli aggiornamenti verranno aggiunti solo alla versione secondaria più recente della versione più recente dell'SDK principale supportata. È consigliabile usare sempre la versione più recente per sfruttare i vantaggi delle nuove funzionalità, miglioramenti delle prestazioni e correzioni di bug. Se si usa una versione precedente, non ritirata, dell'SDK, le richieste a Azure Cosmos DB continueranno a funzionare, ma non sarà possibile accedere a nuove funzionalità.  
 
-**5. verranno applicate nuove funzionalità e funzionalità a tutti gli SDK non ritirati?**
+**5. cosa devo fare se non è possibile aggiornare l'applicazione prima di una data di riduzione?**
 
-Le nuove funzioni e funzionalità verranno aggiunte solo alle nuove versioni. Se si usa una versione di SDK precedente non ritirata, le richieste inviate ad Azure Cosmos DB continueranno a funzionare come in precedenza, ma non sarà possibile accedere alle nuove funzionalità.  
+Si consiglia di effettuare l'aggiornamento alla versione di SDK più recente quanto prima. Una volta che un SDK è stato contrassegnato per il ritiro, si avranno 12 mesi per aggiornare l'applicazione. Se non si è in grado di eseguire l'aggiornamento in base alla data di ritiro, le richieste inviate dalle versioni ritirate dell'SDK continueranno a essere gestite da Azure Cosmos DB, quindi le applicazioni in esecuzione continueranno a funzionare. Tuttavia, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni di SDK ritirate. 
 
-**6. cosa devo fare se non è possibile aggiornare l'applicazione prima di una data di riduzione?**
+Se si dispone di un piano di supporto e si richiede supporto tecnico, [Contattaci](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) inviando un ticket di supporto.
+    
 
-Si consiglia di effettuare l'aggiornamento alla versione di SDK più recente quanto prima. Una volta che un SDK è stato contrassegnato per il ritiro, l'utente ha a disposizione 12 mesi per aggiornare l'applicazione. Se, per qualunque motivo, non è possibile completare l'aggiornamento dell'applicazione entro questo periodo di tempo, contattare il [team di Cosmos DB](mailto:askcosmosdb@microsoft.com) e richiedere assistenza prima della data prevista per il ritiro.
 

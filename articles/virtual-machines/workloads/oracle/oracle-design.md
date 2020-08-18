@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507931"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510012"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
@@ -187,7 +187,7 @@ Dopo avere ottenuto un quadro preciso dei requisiti di I/O, è possibile sceglie
 - Usare la compressione dei dati per ridurre le operazioni di I/O (per i dati e gli indici).
 - Separare i log di rollforward, di sistema e temporanei e annullare TS nei dischi dati separati.
 - Non inserire alcun file dell'applicazione nei dischi del sistema operativo predefiniti (dev/sda). Questi dischi non sono ottimizzati per l'avvio rapido delle macchine virtuali e potrebbero non offrire prestazioni valide per l'applicazione.
-- Quando si usano macchine virtuali della serie M nell'archiviazione Premium, abilitare [acceleratore di scrittura](../../linux/how-to-enable-write-accelerator.md) sul disco dei log di rollforward.
+- Quando si usano macchine virtuali della serie M nell'archiviazione Premium, abilitare [acceleratore di scrittura](../../how-to-enable-write-accelerator.md) sul disco dei log di rollforward.
 
 ### <a name="disk-cache-settings"></a>Impostazioni della cache su disco
 

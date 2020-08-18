@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: c43ed412116d0cb30f7d06ba65467fd529f367ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcff550b5411ac00dc54d2103278812f32f56543
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552696"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509978"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Usare le API front-end di Azure per l'autenticazione
 
@@ -64,7 +64,7 @@ Le classi pertinenti sono ```AzureFrontend``` e ```AzureSession```. ```AzureFron
 
 Ogni elemento ```AzureSession``` aperto o creato manterrà un riferimento al front-end che lo ha creato. Per l'arresto corretto, è necessario deallocare tutte le sessioni prima di deallocare il front-end.
 
-La deallocazione di una sessione non arresterà la macchina virtuale in Azure, è necessario chiamare in modo esplicito `AzureSession.StopAsync`.
+La deallocazione di una sessione non arresterà il server in Azure, ma `AzureSession.StopAsync` sarà necessario chiamare in modo esplicito.
 
 Dopo che una sessione è stata creata e il relativo stato è stato contrassegnato come pronto, può connettersi al runtime di rendering remoto con `AzureSession.ConnectToRuntime`.
 

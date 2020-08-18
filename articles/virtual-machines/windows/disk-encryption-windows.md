@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10e306d26ebfd5ffafe65d7aa52753e993b085bf
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291963"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509162"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 
@@ -264,7 +264,7 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e le
 - Creare un'immagine o uno snapshot di una macchina virtuale crittografata e usarla per distribuire altre macchine virtuali.
 - Macchine virtuali Gen2 (vedere: [supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - VM serie M con dischi acceleratore di scrittura.
-- Applicazione di ADE a una macchina virtuale con un disco dati crittografato con la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) (SSE + CMK) o applicazione di SSE + CMK a un disco dati in una VM crittografata con Ade.
+- Applicazione di ADE a una macchina virtuale che ha o ha *mai* utilizzato dischi crittografati con la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) (SSE + CMK). Applicare anche SSE + CMK a un disco dati in una macchina virtuale crittografata con ADE è uno scenario non supportato.
 - Migrazione di una macchina virtuale crittografata con ADE alla [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md).
 
 

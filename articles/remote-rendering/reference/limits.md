@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4c6be7c8a6287c5a8ec6a60121751ff9fc0dc9
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808537"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509228"
 ---
 # <a name="limitations"></a>Limitazioni
 
@@ -26,7 +26,7 @@ Diverse funzionalità prevedono delle limitazioni in termini di dimensioni, cont
 * Totale oggetti consentiti di un singolo tipo (Entity, CutPlaneComponent e così via): 16.777.215.
 * Totale piani di taglio attivi consentiti: 8.
 
-## <a name="geometry"></a>Geometry
+## <a name="geometry"></a>Geometria
 
 * Totale materiali consentiti in un asset: 65.535.
 * Dimensione massima di una singola trama: 16.384 x 16.384. Le trame di origine più grandi verranno ridimensionate in base al processo di conversione.
@@ -35,12 +35,12 @@ Diverse funzionalità prevedono delle limitazioni in termini di dimensioni, cont
 
 Il numero consentito di poligoni per tutti i modelli caricati dipende dalle dimensioni della macchina virtuale passate all'[API REST di gestione della sessione](../how-tos/session-rest-api.md#create-a-session):
 
-| Dimensioni macchina virtuale | Numero massimo di poligoni |
+| Dimensioni del server | Numero massimo di poligoni |
 |:--------|:------------------|
 |standard| 20 milioni |
 |premium| nessun limite |
 
-Per informazioni più dettagliate su questa limitazione, vedere il capitolo [dimensioni macchina virtuale](../reference/vm-sizes.md) .
+Per informazioni più dettagliate su questa limitazione, vedere il capitolo [dimensioni server](../reference/vm-sizes.md) .
 
 ## <a name="platform-limitations"></a>Limitazioni della piattaforma
 

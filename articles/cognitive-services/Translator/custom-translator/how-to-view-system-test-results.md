@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994261"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509686"
 ---
 # <a name="view-system-test-results"></a>Visualizzare i risultati dei test di sistema
 
@@ -54,11 +54,11 @@ Fare clic sul collegamento Download Translations (Scarica traduzioni) per scaric
 
 Questo archivio ZIP scaricato contiene tre file.
 
-1.  **Custom. mt. txt:** Questo file contiene le traduzioni del computer delle frasi della lingua di origine nella lingua di destinazione eseguita dal modello sottoposto a training con i dati dell'utente.
+1.  **custom.mt.txt:** Questo file contiene le traduzioni del computer delle frasi della lingua di origine nella lingua di destinazione eseguita dal modello sottoposto a training con i dati dell'utente.
 
-2.  **ref. txt:** Questo file contiene le traduzioni fornite dall'utente delle frasi della lingua di origine nella lingua di destinazione.
+2.  **ref.txt:** Questo file contiene le traduzioni fornite dall'utente delle frasi della lingua di origine nella lingua di destinazione.
 
-3.  **source. txt:** Questo file contiene frasi nella lingua di origine.
+3.  **source.txt:** Questo file contiene frasi nella lingua di origine.
 
     ![Risultati dei test di sistema scaricati](media/how-to/how-to-download-system-test.png)
 
@@ -68,7 +68,7 @@ Per richiedere una distribuzione:
 
 1.  Selezionare un progetto e passare alla scheda Models (Modelli).
 
-2. Per un modello correttamente sottoposto a training, viene visualizzato il pulsante "Distribuisci", se non è stato distribuito.
+2. Per un modello correttamente sottoposto a training è disponibile il pulsante "Deploy" (Distribuisci), se non è ancora stato distribuito.
 
     ![Distribuire il modello](media/how-to/how-to-deploy-model.png)
 
@@ -77,7 +77,7 @@ Per richiedere una distribuzione:
 
     ![Distribuire il modello](media/how-to/how-to-deploy-model-regions.png)
 
-5.  È possibile visualizzare lo stato del modello nella colonna "stato".
+5.  È possibile visualizzare lo stato del modello nella colonna "Status" (Stato).
 
 >[!Note]
 >Il convertitore personalizzato supporta 10 modelli distribuiti in un'area di lavoro in qualsiasi momento.
@@ -102,6 +102,6 @@ Per aggiornare le impostazioni di distribuzione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Iniziare a usare il modello di traduzione personalizzata distribuito tramite [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Iniziare a usare il modello di traduzione personalizzata distribuito tramite l'[API Traduzione testuale Microsoft V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
 - Scoprire [come gestire le impostazioni](how-to-manage-settings.md) per condividere l'area di lavoro e gestire la chiave di sottoscrizione.
 - Scoprire [come eseguire la migrazione dell'area di lavoro e del progetto](how-to-migrate.md) da [Hub di Microsoft Translator](https://hub.microsofttranslator.com)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055240"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509757"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Sviluppare modelli ARM per la coerenza cloud
 
@@ -570,7 +570,7 @@ Al contrario, per specificare una configurazione del disco gestito in un modello
 }
 ```
 
-Le stesse modifiche si applicano anche ai [dischi di dati](../../virtual-machines/windows/using-managed-disks-template-deployments.md).
+Le stesse modifiche si applicano anche ai [dischi di dati](../../virtual-machines/using-managed-disks-template-deployments.md).
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Verificare che le estensioni di macchina virtuale siano disponibili in Azure Stack
 

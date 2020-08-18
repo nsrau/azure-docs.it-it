@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888310"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510794"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
-Usare Translator per tradurre in e da uno dei 60 linguaggi di traduzione del testo. La conversione di macchine neurali (NMT) è il nuovo standard per le traduzioni di macchine basate su intelligenza artificiale di alta qualità ed è disponibile come impostazione predefinita con V3 di Translator quando è disponibile un sistema neurale.
+Usare Translator per tradurre in e da uno dei più di 70 linguaggi di traduzione del testo. La conversione di macchine neurali (NMT) è il nuovo standard per le traduzioni di macchine basate su intelligenza artificiale di alta qualità ed è disponibile come impostazione predefinita con V3 di Translator quando è disponibile un sistema neurale.
 
 È anche possibile usare Translator insieme a Translator personalizzato per creare sistemi di traduzione neurale che comprendono la terminologia usata nella propria azienda e nel settore e con Microsoft Speech Service per aggiungere la traduzione vocale all'app.
 
@@ -47,6 +47,7 @@ Translator supporta le seguenti lingue per la traduzione da testo a testo.
 |Cinese tradizionale|   `zh-Hant`       |
 |Croato|  `hr`    |
 |Ceco| `cs`    |
+|Dari|  `prs`   |
 |Danese|    `da`        |
 |Olandese| `nl`|
 |Inglese|   `en`    |
@@ -83,6 +84,8 @@ Translator supporta le seguenti lingue per la traduzione da testo a testo.
 |Maori| `mi`  |
 |Marathi| `mr`  |
 |Norvegese| `nb`    |
+|Odia|  `or`    |
+|Pashto|    `ps`    |
 |Persiano|   `fa`    |
 |Polacco|    `pl`    |
 |Portoghese (Brasile)|   `pt-br` |

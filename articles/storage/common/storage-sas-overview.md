@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b9882168cd063cb4448269cc6a4949778fe93fb1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502172"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509859"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -29,7 +29,7 @@ Archiviazione di Azure supporta tre tipi di firme di accesso condiviso:
 
     Per altre informazioni sulla firma di accesso condiviso della delega utente, vedere [creare una firma di accesso condiviso utente (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
-- **Firma di accesso condiviso del servizio.** Una firma di accesso condiviso del servizio è protetta con la chiave dell'account di archiviazione. Una firma di accesso condiviso del servizio delega l'accesso a una risorsa in uno solo dei servizi di archiviazione di Azure: archiviazione BLOB, archiviazione code, archiviazione tabelle o File di Azure. 
+- **Firma di accesso condiviso del servizio.** Una firma di accesso condiviso del servizio è protetta con la chiave dell'account di archiviazione. Una firma di accesso condiviso del servizio delega l'accesso a una risorsa in uno solo dei servizi di archiviazione di Azure: archiviazione BLOB, archiviazione code, archiviazione tabelle o File di Azure.
 
     Per altre informazioni sulla firma di accesso condiviso del servizio, vedere creare una firma di accesso condiviso del [servizio (API REST)](/rest/api/storageservices/create-service-sas).
 
@@ -38,7 +38,7 @@ Archiviazione di Azure supporta tre tipi di firme di accesso condiviso:
     Per altre informazioni sulla firma di accesso condiviso dell'account, creare una firma di accesso condiviso dell' [account (API REST)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
-> Microsoft consiglia di utilizzare le credenziali di Azure AD quando possibile come procedura di sicurezza consigliata, anziché utilizzare la chiave dell'account, che può essere compromessa in modo più semplice. Quando la progettazione dell'applicazione richiede firme di accesso condiviso per l'accesso all'archiviazione BLOB, usare le credenziali Azure AD per creare una firma di accesso condiviso di delega utente quando possibile per una sicurezza superiore.
+> Microsoft consiglia di utilizzare le credenziali di Azure AD quando possibile come procedura di sicurezza consigliata, anziché utilizzare la chiave dell'account, che può essere compromessa in modo più semplice. Quando la progettazione dell'applicazione richiede firme di accesso condiviso per l'accesso all'archiviazione BLOB, usare le credenziali Azure AD per creare una firma di accesso condiviso di delega utente quando possibile per una sicurezza superiore. Per altre informazioni, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](storage-auth-aad.md).
 
 Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
@@ -52,15 +52,27 @@ Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
 Una firma di accesso condiviso è un URI con fimra che punta a una o più risorse di archiviazione e include un token che contiene un set di parametri di query speciale. Il token indica la modalità di accesso alla risorsa da parte del client. Uno dei parametri di query, ovvero la firma, viene creato dai parametri SAS e firmato con la chiave usata per creare la firma di accesso condiviso. Questa firma viene usata da Archiviazione di Azure per autorizzare l'accesso alla risorsa di archiviazione.
 
-### <a name="sas-signature"></a>Firma SAS
+### <a name="sas-signature-and-authorization"></a>Firma e autorizzazione SAS
 
-È possibile firmare una firma di accesso condiviso in uno dei due modi seguenti:
+È possibile firmare un token SAS in uno dei due modi seguenti:
 
 - Con una *chiave di delega utente* creata con le credenziali Azure Active Directory (Azure ad). Una firma di accesso condiviso di delega utente è firmata con la chiave di delega utente.
 
     Per ottenere la chiave di delega utente e creare la firma di accesso condiviso, è necessario assegnare a un'entità di sicurezza Azure AD un ruolo di Azure che includa l'azione **Microsoft. storage/storageAccounts/blobServices/generateUserDelegationKey** . Per informazioni dettagliate sui ruoli di Azure con le autorizzazioni per ottenere la chiave di delega utente, vedere creare una firma di accesso condiviso [(API REST) di delega utente](/rest/api/storageservices/create-user-delegation-sas).
 
-- Con la chiave dell'account di archiviazione. Una firma di accesso condiviso del servizio e una firma di accesso condiviso dell'account sono firmate con la chiave account di archiviazione Per creare una firma di accesso condiviso con la chiave dell'account, un'applicazione deve avere accesso alla chiave dell'account.
+- Con la chiave dell'account di archiviazione (chiave condivisa). Una firma di accesso condiviso del servizio e una firma di accesso condiviso dell'account sono firmate con la chiave account di archiviazione Per creare una firma di accesso condiviso con la chiave dell'account, un'applicazione deve avere accesso alla chiave dell'account.
+
+Quando una richiesta include un token di firma di accesso condiviso, la richiesta viene autorizzata in base al modo in cui il token SAS è firmato. La chiave di accesso o le credenziali usate per creare un token SAS vengono usate anche da archiviazione di Azure per concedere l'accesso a un client che possiede la firma di accesso condiviso.
+
+La tabella seguente riepiloga il modo in cui ogni tipo di token SAS è autorizzato quando viene incluso in una richiesta ad archiviazione di Azure:
+
+| Tipo di firma di accesso condiviso | Tipo di autorizzazione |
+|-|-|
+| SAS di delega utente (solo archiviazione BLOB) | Azure AD |
+| Firma di accesso condiviso del servizio | Chiave condivisa |
+| Firma di accesso condiviso dell'account | Chiave condivisa |
+
+Microsoft consiglia di usare una firma di accesso condiviso di delega utente quando possibile per una sicurezza superiore.
 
 ### <a name="sas-token"></a>Token di firma di accesso condiviso
 

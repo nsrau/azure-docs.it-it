@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061213"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510267"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -33,7 +33,7 @@ Prima di procedere con questo articolo, assicurarsi di aver installato FarmBeats
 - Segreto client
 - Stringa di connessione all’Hub eventi
 
-Seguire questa procedura:
+Attenersi ai passaggi descritti di seguito.
 
 > [!NOTE]
 > Per eseguire la procedura seguente, è necessario essere un amministratore.
@@ -58,13 +58,13 @@ Seguire questa procedura:
 
 5. Passare alla Home Directory.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     cd
     ```
-    
+
 6. Eseguire il comando seguente. In questo modo si connette un account autenticato da usare per le richieste di Azure AD
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     Connect-AzureAD
     ```
 
@@ -78,7 +78,7 @@ Seguire questa procedura:
 
 8. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto da **Azure Active Directory**  >  pagina**Panoramica** .
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1
 
@@ -148,7 +148,7 @@ Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/Fa
 
 Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API e l'URI di una risorsa per eseguire query, inviare dati a, creare o eliminare una richiesta. Quindi si aggiungono una o più intestazioni della richiesta HTTP. L'URL del servizio API è l'endpoint API, ovvero l'URL datahub (https:// \<yourdatahub> . azurewebsites.NET).
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 FarmBeats datahub usa l'autenticazione della porta, che richiede le credenziali seguenti generate nella sezione precedente:
 

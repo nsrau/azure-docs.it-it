@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563260"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509281"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -105,7 +105,7 @@ Se questi due passaggi non sono stati utili, è necessario verificare se i fotog
 
 **Il modello supera i limiti della macchina virtuale selezionata, in particolare il numero massimo di poligoni:**
 
-Vedere limiti di dimensioni specifiche per le [macchine virtuali](../reference/limits.md#overall-number-of-polygons).
+Vedere limiti specifici per le [dimensioni del server](../reference/limits.md#overall-number-of-polygons).
 
 **Il modello non si trova all'interno della fotocamera tronco:**
 
@@ -148,7 +148,7 @@ Rendering remoto di Azure include gli hook alla pipeline di rendering di Unity p
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Il rendering del modello a scacchi viene eseguito dopo il caricamento
 
-Se l'immagine sottoposta a rendering è simile alla seguente: ![ scacchiera, ](../reference/media/checkerboard.png) il renderer raggiunge i [limiti del poligono per le dimensioni della macchina virtuale standard](../reference/vm-sizes.md). Per attenuare, passare alla dimensione della **VM Premium** o ridurre il numero di poligoni visibili.
+Se l'immagine sottoposta a rendering è simile alla seguente: ![ scacchiera, ](../reference/media/checkerboard.png) il renderer raggiunge i [limiti del poligono per le dimensioni di configurazione standard](../reference/vm-sizes.md). Per attenuare, passare a dimensioni di configurazione **Premium** o ridurre il numero di poligoni visibili.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>L'immagine sottoposta a rendering in Unity è capovolta
 

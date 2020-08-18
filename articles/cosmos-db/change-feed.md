@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 223514e8e873d36f8551e18956aafc0a54243990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cd0ad1553f04a781349a4664fbb408108015632
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119376"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510284"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed di modifiche in Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Se una proprietà TTL (Time to Live) è impostata su un elemento su -1, il feed 
 
 ### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Feed di modifiche e _etag, _lsn or _ts
 
-Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch che viene aggiunto solo per i feed di modifiche e rappresenta l'ID transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione dell'elemento mentre ETag viene utilizzato per la sequenziazione del feed.
+Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch che viene aggiunto solo per i feed di modifiche e rappresenta l'ID transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno e viene usato per il controllo della concorrenza. La proprietà _etag indica la versione dell'elemento, mentre la proprietà ETag viene utilizzata per la sequenziazione del feed.
 
 ## <a name="working-with-change-feed"></a>Utilizzo del feed di modifiche
 

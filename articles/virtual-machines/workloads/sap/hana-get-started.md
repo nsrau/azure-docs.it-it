@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: ec63d08b164a3ed767a7622a9829beaf73e65ef3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042325"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509961"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Installazione di SAP HANA in macchine virtuali di Azure
 ## <a name="introduction"></a>Introduzione
@@ -72,7 +72,7 @@ In questa fase è necessario eseguire i passaggi per la distribuzione delle macc
     -  [Nota di supporto SAP #2382421-ottimizzazione della configurazione di rete a livello di HANA e del sistema operativo](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Selezionare il tipo di archiviazione di Azure per SAP HANA. In questo passaggio è necessario scegliere il layout di archiviazione per l'installazione di SAP HANA. Si useranno i dischi di Azure collegati o le condivisioni NFS native di Azure. I tipi di archiviazione di Azure supportati da o e le combinazioni di diversi tipi di archiviazione di Azure che possono essere usati sono documentati in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md). Eseguire le configurazioni documentate come punto di partenza. Per i sistemi non di produzione, si potrebbe essere in grado di configurare una velocità effettiva o IOPS inferiore. Per finalità di produzione, potrebbe essere necessario configurare un numero maggiore di velocità effettiva e IOPS.
-2. Assicurarsi di aver configurato [Azure acceleratore di scrittura](../../linux/how-to-enable-write-accelerator.md) per i volumi che contengono i log delle transazioni DBMS o i log di rollforward quando si usano VM serie M o Mv2. Tenere presente le limitazioni per acceleratore di scrittura come documentato.
+2. Assicurarsi di aver configurato [Azure acceleratore di scrittura](../../how-to-enable-write-accelerator.md) per i volumi che contengono i log delle transazioni DBMS o i log di rollforward quando si usano VM serie M o Mv2. Tenere presente le limitazioni per acceleratore di scrittura come documentato.
 2. Controllare se la [rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) è abilitata nelle macchine virtuali distribuite.
 
 > [!NOTE]
