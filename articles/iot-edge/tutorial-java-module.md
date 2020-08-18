@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 86c2bc86a4eeea8b04c4f22c20edade2eac2a811
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: ef4b42b56ea3e9e73de6d5bc793b2f1b206f34f3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439025"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829986"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in Java per dispositivi Linux
 
@@ -62,7 +62,7 @@ Per sviluppare un modulo IoT Edge in Java, installare i prerequisiti aggiuntivi 
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
-   >Le variabili di ambiente per Java e Maven verranno aggiunte durante i processi di installazione. Sarà opportuno riavviare le istanze del terminale di Visual Studio Code, di PowerShell o del prompt dei comandi aperte durante l'aggiunta di queste variabili di ambiente. Ciò garantisce che i comandi Java e Maven vengano successivamente riconosciuti da queste utilità.
+   >I processi di installazione di Java e Maven aggiungono le variabili di ambiente al sistema. Al termine dell'installazione, riavviare tutte le istanze aperte del terminale di Visual Studio Code, di PowerShell o del prompt dei comandi. Questo passaggio assicura che i comandi Java e Maven vengano successivamente riconosciuti da queste utilità.
 
 ## <a name="create-a-module-project"></a>Creare un progetto di modulo
 

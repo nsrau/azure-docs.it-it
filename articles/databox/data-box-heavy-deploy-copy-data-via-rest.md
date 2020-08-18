@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST"
-description: Informazioni su come copiare dati nell'archiviazione BLOB di Azure Data Box Heavy tramite API REST
+description: Questa esercitazione illustra come connettersi all'archiviazione BLOB del dispositivo Azure Data Box usando le API REST tramite HTTP o HTTPS e quindi copiare i dati dal dispositivo Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a57dc6c57e10c82f9548490c4c2e98fd87f677af
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f9134b57d8a3e76417283e5d863724651b4f6a6f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849430"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921164"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
 

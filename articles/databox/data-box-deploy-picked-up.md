@@ -1,20 +1,20 @@
 ---
 title: Esercitazione per restituire Azure Data Box | Microsoft Docs
-description: Informazioni su come spedire Azure Data Box a Microsoft
+description: Questa esercitazione illustra le operazioni da eseguire per restituire il dispositivo Azure Data Box Heavy, tra cui la preparazione per la spedizione, la spedizione del dispositivo, la verifica del caricamento dei dati e la cancellazione dei dati dal dispositivo.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: efcc5e8f629c8b6ccc903478473b54989c0e9fd6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 577c184f78c5784b29db7562f3c33a3cb7518f0c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959494"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142044"
 ---
 ::: zone target="docs"
 
@@ -35,6 +35,7 @@ Questa esercitazione illustra come restituire Azure Data Box e verificare che i 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
+>
 > * Prerequisiti
 > * Preparare per la spedizione
 > * Spedire il Data Box a Microsoft
@@ -45,8 +46,8 @@ In questa esercitazione si apprenderà come:
 
 Prima di iniziare, verificare che:
 
-- Sia stata completata l'[Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md). 
-- I processi di copia sono stati completati e non sono presenti errori nella pagina **Connetti e copia**. Se i processi di copia sono in corso o se sono presenti errori nella pagina **Connetti e copia**, non è possibile procedere con la preparazione per la spedizione.
+* Sia stata completata l'[Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md).
+* I processi di copia sono stati completati e non sono presenti errori nella pagina **Connetti e copia**. Se i processi di copia sono in corso o se sono presenti errori nella pagina **Connetti e copia**, non è possibile procedere con la preparazione per la spedizione.
 
 ## <a name="prepare-to-ship"></a>Preparare per la spedizione
 
@@ -77,7 +78,7 @@ Assicurarsi che la copia dei dati sul dispositivo sia completa e che la **prepar
 
 ::: zone-end
 
-## <a name="in-us-canada-europe"></a>[Stati Uniti, Canada o Europa](#tab/in-us-canada-europe)
+## <a name="us-canada-europe"></a>[Stati Uniti, Canada o Europa](#tab/in-us-canada-europe)
 
 Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Uniti, in Canada on in Europa.
 
@@ -86,9 +87,9 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
 3. Assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta viene danneggiata o smarrita oppure non viene visualizzata sul display E-ink, contattare il supporto tecnico Microsoft. Se consigliato dal supporto, è possibile passare a **Panoramica > Scarica etichetta di spedizione** nel portale di Azure. Scaricare l'etichetta di spedizione e applicarla sul dispositivo. 
 4. Pianificare un ritiro con UPS per la restituzione del dispositivo. Per pianificare un ritiro:
 
-    - Chiamare il servizio UPS locale (numero verde specifico del paese o area).
-    - Nella chiamata specificare il numero di monitoraggio della spedizione di reso indicato sul display E-ink o sull'etichetta stampata.
-    - Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
+    * Chiamare il servizio UPS locale (numero verde specifico del paese o area).
+    * Nella chiamata specificare il numero di monitoraggio della spedizione di reso indicato sul display E-ink o sull'etichetta stampata.
+    * Se non si specifica il numero di monitoraggio, il servizio UPS addebiterà un costo aggiuntivo al momento del ritiro.
 
     Anziché pianificare il ritiro, è anche possibile consegnare Data Box al più vicino punto di consegna.
 4. Dopo che il Data Box è stato ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
@@ -100,7 +101,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Unit
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
 
 ## <a name="erasure-of-data-from-data-box"></a>Cancellare i dati dal Data Box
- 
+
 Una volta completato il caricamento in Azure, i dati vengono cancellati dai dischi del Data Box in base alle [linee guida NIST SP 800-88 revisione 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone-end
@@ -109,15 +110,11 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
-
-
 ::: zone-end
 
-
-## <a name="in-australia"></a>[Australia](#tab/in-australia)
+## <a name="australia"></a>[Australia](#tab/in-australia)
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per la spedizione in Australia.
-
 
 1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
 2. Assicurarsi che la copia dei dati sul dispositivo sia completa e che la **preparazione per la spedizione** sia stata eseguita correttamente.
@@ -132,7 +129,7 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
 
 ## <a name="erasure-of-data-from-data-box"></a>Cancellare i dati dal Data Box
- 
+
 Una volta completato il caricamento in Azure, i dati vengono cancellati dai dischi del Data Box in base alle [linee guida NIST SP 800-88 revisione 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone-end
@@ -143,7 +140,7 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 
 ::: zone-end
 
-## <a name="in-japan"></a>[Giappone](#tab/in-japan) 
+## <a name="japan"></a>[Giappone](#tab/in-japan)
 
 1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
 2. Spegnere il dispositivo e rimuovere i cavi.
@@ -151,13 +148,13 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 4. Sulla lettera di vettura, nelle informazioni sul mittente, indicare il nome dell'azienda e l'indirizzo.
 5. Inviare un messaggio di posta elettronica a Quantium Solutions usando il modello di messaggio di posta elettronica seguente.
 
-    - Se la lettera di vettura di Japan Post Chakubarai non era inclusa o risulta mancante, indicarlo nel messaggio di posta elettronica. Quantium Solutions Japan richiederà a Japan Post di portare la lettera di vettura al momento del ritiro.
-    - In caso di più ordini, inviare messaggi di posta elettronica per garantire prelievi singoli.
+    * Se la lettera di vettura di Japan Post Chakubarai non era inclusa o risulta mancante, indicarlo nel messaggio di posta elettronica. Quantium Solutions Japan richiederà a Japan Post di portare la lettera di vettura al momento del ritiro.
+    * In caso di più ordini, inviare messaggi di posta elettronica per garantire prelievi singoli.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
     Subject: Pickup request for Azure Data Box｜Job name： 
-    Body: 
+    Body:
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
     a. 08：00-13：00 
@@ -166,12 +163,12 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
     d. 17：00-19：00 
     ```
 
-3. Si riceverà una conferma tramite posta elettronica da Quantium Solutions dopo la prenotazione di un prelievo. La conferma tramite posta elettronica include anche informazioni sulla lettera di vettura di Chakubarai.
+6. Si riceverà una conferma tramite posta elettronica da Quantium Solutions dopo la prenotazione di un prelievo. La conferma tramite posta elettronica include anche informazioni sulla lettera di vettura di Chakubarai.
 
 Se necessario, è possibile contattare il supporto di Quantium Solutions (in lingua giapponese) come segue: 
 
-- Posta elettronica：Customerservice.JP@quantiumsolutions.com 
-- Telefono：03-5755-0150 
+* Posta elettronica：Customerservice.JP@quantiumsolutions.com 
+* Telefono：03-5755-0150 
 
 ::: zone target="chromeless"
 
@@ -191,17 +188,17 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 
 ::: zone-end
 
-## <a name="in-singapore"></a>[Singapore](#tab/in-singapore) 
+## <a name="singapore"></a>[Singapore](#tab/in-singapore)
 
 1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
-2. Annotare il numero di tracciabilità (visualizzato come numero di riferimento nella pagina Prepara per la spedizione dell'interfaccia utente Web locale di Data Box). Il numero sarà disponibile dopo il completamento del passaggio Prepara per la spedizione. Scaricare l'etichetta indirizzo da questa pagina e incollarla sulla scatola. 
+2. Annotare il numero di tracciabilità (visualizzato come numero di riferimento nella pagina Prepara per la spedizione dell'interfaccia utente Web locale di Data Box). Il numero sarà disponibile dopo il completamento del passaggio Prepara per la spedizione. Scaricare l'etichetta indirizzo da questa pagina e incollarla sulla scatola.
 3. Spegnere il dispositivo e rimuovere i cavi.
 4. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo. 
 5. Inviare un messaggio di posta elettronica al Servizio clienti SingPost usando il modello seguente con il numero tracciabilità.
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - OrderName 
+    Subject: Microsoft Azure Pickup - OrderName 
     Body: 
         1. Requestor name  
         2. Requestor contact number
@@ -211,8 +208,89 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 
    > [!NOTE]
    > Per le richieste di prenotazione ricevute in un giorno lavorativo:
-   > - Prima delle 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 9:00 e le 13:00.
-   > - Dopo le 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 14:00 e le 18:00.  
+   > * Prima delle 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 9:00 e le 13:00.
+   > * Dopo le 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 14:00 e le 18:00.  
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Cancellare i dati dal Data Box
+
+Una volta completato il caricamento in Azure, i dati vengono cancellati dai dischi del Data Box in base alle [linee guida NIST SP 800-88 revisione 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
+
+## <a name="south-africa"></a>[Sud Africa](#tab/in-sa)
+
+1. Imballare il dispositivo da spedire per la restituzione nella scatola originale.
+2. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
+3. Per prenotare un ritiro con DHL:
+
+    * Chiamare il servizio clienti al numero +27(0) 11 9213600, selezionare l'opzione 1 e quindi specificare il numero di lettera di vettura.
+    * Per pianificare un ritiro, è necessario chiamare prima delle 14.00.
+    * Inviare un messaggio di posta elettronica a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) usando il modello seguente:
+
+    ```output
+    To: Priority.Support@dhl.com
+    Subject: Pickup request for Microsoft Azure
+    Body: Need pick up for the below shipment
+      *  DHL tracking number (reference number/waybill number)
+      *  Requested pickup date: yyyy/mm/dd;time:HH MM
+    ```
+
+    * In alternativa, è possibile consegnare il pacchetto al centro DHL più vicino.
+
+4. Se si verificano problemi, inviare un messaggio di posta elettronica a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) specificando i dettagli dei problemi riscontrati e indicando nell'oggetto il numero di lettera di vettura. È anche possibile chiamare il numero +27(0)119213902.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Cancellare i dati dal Data Box
+
+Una volta completato il caricamento in Azure, i dati vengono cancellati dai dischi del Data Box in base alle [linee guida NIST SP 800-88 revisione 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
+
+## <a name="hong-kong"></a>[RAS di Hong Kong](#tab/in-hk)
+
+1. Imballare il dispositivo da spedire per la restituzione nella scatola originale.
+2. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
+3. Chiamare l'assistenza clienti di **Quantium Solutions** al numero **(852) 2318 1213** durante l'orario di ufficio (dalle 9.00 alle 18.00, da lunedì a venerdì).  
+4. Aggiungere la dicitura Ritiro Microsoft Azure, nonché il numero di riferimento e il numero di tracciabilità (sopra il codice a barre) sull'etichetta dell'indirizzo di reso per predisporre un ritiro.
+5. Si riceverà una conferma verbale della pianificazione del prelievo. Qualora il corriere non si presenti, chiamare l'assistenza clienti di Quantium Solutions per ulteriori accordi.
+6. Quando si prenota un ritiro con Quantium, inviare la conferma a [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) usando il modello seguente:
+
+    ```output
+    To: adbo@microsoft.com
+    Subject: Microsoft Data Box Job: [order name] has completed copy
+    Body:
+    We have confirmed the pickup details with Quantium.
+
+       * Requestor name:
+       * Requestor contact number:
+       * Pickup Date:  
+       * Pickup time:
+    ```
+
+Se si verificano problemi, inviare un messaggio di posta elettronica a Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) indicando il nome del processo nell'oggetto e specificando il problema riscontrato.
 
 ::: zone target="chromeless"
 
@@ -231,7 +309,6 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
-
 
 <!--## [In Korea](#tab/in-korea) 
 
@@ -273,24 +350,26 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged) 
+## <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged)
 
-Se si usa Data Box in Giappone, Singapore, Corea ed Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
+Se si usa il dispositivo Data Box in Giappone, Singapore, Corea, India, Sudafrica o Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
 
 1. Annotare il codice di autorizzazione visualizzato nella pagina Prepara per la spedizione dell'interfaccia utente Web locale di Data Box una volta completato questo passaggio.
 2. Spegnere il dispositivo e rimuovere i cavi. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
 3. Quando si è pronti per restituire il dispositivo, inviare un messaggio di posta elettronica al team delle operazioni di Azure Data Box usando il modello seguente.
-    
+
     ```
-    To: adbops@microsoft.com 
-    Subject: Request for Azure Data Box drop-off for order: ‘orderName’ 
-    Body: 
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box drop-off for order: 'orderName'
+    Body:
         1. Order name  
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
         3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
 
 ::: zone target="chromeless"
+
+---
 
 ## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
 

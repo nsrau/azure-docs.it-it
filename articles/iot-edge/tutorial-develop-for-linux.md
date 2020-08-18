@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c6cdde3ae63a2f816db7a978557f72b4b60d2677
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439127"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056228"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Linux
 
@@ -151,6 +151,9 @@ Una volta che la nuova soluzione viene caricata nella finestra di Visual Studio 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Fornire le credenziali del registro all'agente IoT Edge
 
 Il file dell'ambiente archivia le credenziali per il registro contenitori e le condivide con il runtime IoT Edge. Il runtime necessita di queste credenziali per eseguire il pull delle immagini dei contenitori nel dispositivo IoT Edge.
+
+>[!NOTE]
+>Se il valore **localhost:5000** non è stato sostituito con il valore del server di accesso del registro contenitori di Azure, nel passaggio [**Creare un modello di progetto**](#create-a-project-template), il file con estensione **env** e la sezione registryCredentials del manifesto della distribuzione risulteranno mancanti. 
 
 L'estensione IoT Edge cerca di eseguire il pull delle credenziali del Registro Container da Azure, per inserirle nel file di ambiente. Verificare se le credenziali sono già incluse. In caso contrario, aggiungerle:
 

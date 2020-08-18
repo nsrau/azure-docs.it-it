@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di macchine vi
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534831"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066645"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
 
@@ -99,7 +99,7 @@ Lo strumento Azure Migrate: Migrazione del server usa un'appliance di replica pe
 Preparare la distribuzione dell'appliance come indicato di seguito:
 
 - Configurare una VM EC2 separata per ospitare l'appliance di replica. L'istanza deve eseguire Windows Server 2012 R2 o Windows Server 2016. [Verificare](./migrate-replication-appliance.md#appliance-requirements) i requisiti hardware, software e di rete per l'appliance.
-- L'appliance non deve essere installata in una VM di origine che si vuole replicare. Deve essere distribuita in una VM diversa.
+- L'appliance non deve essere installata in una macchina virtuale di origine che si vuole replicare o nell'appliance di individuazione e valutazione di Azure Migrate eventualmente installata in precedenza. Deve essere distribuita in una VM diversa.
 - Le VM AWS di origine di cui eseguire la migrazione devono comunicare in rete con l'appliance di replica. Configurare le regole del gruppo di sicurezza necessarie per abilitare questa comunicazione. È consigliabile distribuire l'appliance di replica nella stessa rete privata virtuale delle VM di origine di cui eseguire la migrazione. Se l'appliance di replica deve trovarsi in una rete privata virtuale diversa, le due reti devono essere connesse tramite peering.
 - Le VM AWS di origine comunicano con l'appliance di replica sulle porte HTTPS 443 (orchestrazione del canale di controllo) e TCP 9443 (trasporto dati) in ingresso per la gestione della replica e il trasferimento dei dati di replica. L'appliance di replica a sua volta orchestra e invia i dati di replica ad Azure sulla porta HTTPS 443 in uscita. Per configurare queste regole, modificare le regole in ingresso e in uscita del gruppo di sicurezza con le porte e le informazioni sull'indirizzo IP di origine appropriate.
 

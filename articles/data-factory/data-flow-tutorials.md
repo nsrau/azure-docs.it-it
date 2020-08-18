@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
-ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 08/11/2020
+ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848879"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067852"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Esercitazioni video sul flusso di dati di mapping
 
@@ -36,6 +36,8 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 [Monitorare e gestire le prestazioni dei flussi di dati per mapping](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
 [Intervalli di benchmark](http://youtu.be/6CSbWm4lRhw?hd=1)
+
+[Debug dei flussi di lavoro per i flussi di dati](https://youtu.be/y3suL7UsWVw)
 
 ## <a name="transformation-overviews"></a>Panoramica delle trasformazioni
 
@@ -118,6 +120,8 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 [Ottimizzare in modo dinamico le dimensioni del cluster del flusso di dati in fase di esecuzione](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 [Ottimizzare i tempi di avvio del flusso di dati](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Istanze di Azure Integration Runtime per flussi di dati](https://mssqldude.wordpress.com/)
 
 ## <a name="mapping-data-flow-scenarios"></a>Scenari di flussi di dati per mapping
 

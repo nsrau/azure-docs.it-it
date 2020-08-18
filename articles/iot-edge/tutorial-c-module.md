@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4bed27654b3482300d3d102d545b44373c53dde0
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: cf9fb8a95be9a5ba025534508139a0e300036542
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439793"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064843"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Linux
 
@@ -57,6 +57,8 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 Per sviluppare un modulo IoT Edge in C, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo:
 
 * [Estensione C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) per Visual Studio Code.
+
+Per questa esercitazione non è necessario installare l'SDK di Azure IoT C, ma tale SDK può fornire funzionalità utili come IntelliSense e la lettura delle definizioni dei programmi. Per informazioni sull'installazione, vedere [SDK e librerie di Azure IoT C](https://github.com/Azure/azure-iot-sdk-c).
 
 ## <a name="create-a-module-project"></a>Creare un progetto di modulo
 

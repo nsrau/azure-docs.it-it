@@ -232,6 +232,8 @@
       href: ../extensions/troubleshoot.md
     - name: Installare l'agente di macchine virtuali Windows offline
       href: install-vm-agent-offline.md
+    - name: Risolvere i problemi relativi all'agente di macchine virtuali Windows
+      href: windows-azure-guest-agent.md
 - name: Backup e ripristino
   items:
     - name: Risolvere gli errori di backup nella macchina virtuale di Azure

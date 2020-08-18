@@ -1,6 +1,6 @@
 ---
 title: Esercitazione per configurare Azure Data Box | Microsoft Docs
-description: Informazioni su come cablare e connettersi ad Azure Data Box
+description: Questa esercitazione illustra come cablare il dispositivo Azure Data Box, nonché connettersi ad esso e accenderlo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c74b5ba5101dae9165898aeb4f265d449988ecab
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205233"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924157"
 ---
 ::: zone target="docs"
 

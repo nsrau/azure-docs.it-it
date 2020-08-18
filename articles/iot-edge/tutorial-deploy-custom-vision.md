@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439731"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042803"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
 
@@ -435,7 +435,7 @@ In Visual Studio Code fare clic con il pulsante destro del mouse sul nome del di
 > [!NOTE]
 > Nell'output del modulo cameraCapture potrebbero essere inizialmente visualizzati alcuni errori di connessione. Ciò è dovuto al ritardo tra la distribuzione e l'avvio dei moduli.
 >
-> Il modulo cameraCapture tenterà di nuovo automaticamente la connessione fino a quando non avrà esito positivo. Successivamente, dovrebbero iniziare a essere visualizzati i messaggi di classificazione delle immagini previsti, descritti di seguito.
+> Il modulo cameraCapture effettua di nuovo automaticamente un tentativo di connessione fino a quando non avrà esito positivo. Una volta stabilita la connessione, verranno visualizzati i messaggi di classificazione delle immagini previsti, descritti di seguito.
 
 I risultati del modulo di Visione personalizzata, inviati come messaggi dal modulo cameraCapture, includono la probabilità che l'immagine sia un abete canadese o un ciliegio. Poiché l'immagine corrisponde a un abete canadese, la probabilità dovrebbe essere indicata come 1.0.
 

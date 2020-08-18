@@ -1,6 +1,6 @@
 ---
 title: Trasferire i dati con Azure Data Box Gateway | Microsoft Docs
-description: Informazioni su come aggiungere condivisioni e connettersi a esse in un dispositivo Data Box Gateway.
+description: Informazioni su come aggiungere le condivisioni e connettersi ad esse nel dispositivo Azure Data Box Gateway per consentire al dispositivo di trasferire i dati in Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 4817db0ce9723f46ceac4f4720915a9bfddcf915
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561749"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923476"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Esercitazione: Trasferire i dati con Azure Data Box Gateway
 

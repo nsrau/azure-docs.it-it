@@ -1,6 +1,6 @@
 ---
 title: Esercitazione per ordinare Azure Data Box Heavy | Microsoft Docs
-description: Informazioni sui prerequisiti di distribuzione e su come ordinare un dispositivo Azure Data Box Heavy
+description: Questa esercitazione fornisce informazioni su Azure Data Box Heavy, una soluzione ibrida che consente di importare dati locali in Azure, e illustra come ordinare il dispositivo Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 91d78975106299c3b3a6df6d8dee05f337dd339a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9b2b97f11c1493deca9b79907e894efbb7b9c456
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742982"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920994"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Esercitazione: Ordinare Azure Data Box Heavy
 

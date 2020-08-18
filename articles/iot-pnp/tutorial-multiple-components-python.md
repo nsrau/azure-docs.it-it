@@ -7,12 +7,12 @@ ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0cde9caa2f2b68b1e75eac635a81865cc4b6b33c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 571f0e0ceff0adfbf1814abc627fcab6b23acbe1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351872"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905857"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-python"></a>Esercitazione: Connettere un'applicazione di un dispositivo Plug and Play IoT (anteprima) di esempio con più componenti all'hub IoT (Python)
 
@@ -86,26 +86,26 @@ Aprire il file *pnp_temp_controller_with_thermostats.py* in un editor a scelta. 
 
 1. Importa `pnp_helper_preview_refresh.py` per ottenere l'accesso ai metodi helper.
 
-1. Definisce due identificatori DTMI (Digital Twin Model Identifier) che rappresentano in modo univoco due interfacce diverse, definite nel modello DTDL. I componenti di un dispositivo termoregolatore reale dovranno implementare queste due interfacce. Queste due interfacce sono già pubblicate in un repository centrale. Questi DTMI devono essere noti all'utente e variano in base allo scenario di implementazione del dispositivo. Per l'esempio corrente, queste due interfacce rappresentano:
+2. Definisce due identificatori DTMI (Digital Twin Model Identifier) che rappresentano in modo univoco due interfacce diverse, definite nel modello DTDL. I componenti di un dispositivo termoregolatore reale dovranno implementare queste due interfacce. Queste due interfacce sono già pubblicate in un repository centrale. Questi DTMI devono essere noti all'utente e variano in base allo scenario di implementazione del dispositivo. Per l'esempio corrente, queste due interfacce rappresentano:
 
   - Un termostato
   - Informazioni sul dispositivo sviluppate da Azure.
 
-. Definisce il DTMI, `model_id`, per il dispositivo da implementare. Il DTMI è definito dall'utente e deve corrispondere al DTMI nel file del modello DTDL.
+3. Definisce il DTMI `model_id` per il dispositivo da implementare. Il DTMI è definito dall'utente e deve corrispondere al DTMI nel file del modello DTDL.
 
-1. Definisce i nomi assegnati ai componenti nel file DTDL. Nel DTDL sono inclusi due termostati e un componente di informazioni sul dispositivo. Nell'interfaccia radice viene anche definita una costante denominata `serial_number`. Non è possibile cambiare `serial_number` per un dispositivo.
+4. Definisce i nomi assegnati ai componenti nel file DTDL. Nel DTDL sono inclusi due termostati e un componente di informazioni sul dispositivo. Nell'interfaccia radice viene anche definita una costante denominata `serial_number`. Non è possibile cambiare `serial_number` per un dispositivo.
 
-1. Definisce le implementazioni del gestore comandi, ossia l'operazione eseguita dal dispositivo quando riceve richieste di comandi.
+5. Definisce le implementazioni del gestore comandi, ossia l'operazione eseguita dal dispositivo quando riceve richieste di comandi.
 
-1. Definisce le funzioni per la creazione della risposta a un comando, ossia come risponde il dispositivo alle richieste dei comandi. Creare le funzioni di risposta ai comandi se un comando deve inviare una risposta personalizzata all'hub IoT. Se non viene specificata una funzione di risposta per un comando, viene inviata una risposta generica. In questo esempio solo il comando **getMaxMinReport** include una risposta personalizzata.
+6. Definisce le funzioni per la creazione della risposta a un comando, ossia come risponde il dispositivo alle richieste dei comandi. Creare le funzioni di risposta ai comandi se un comando deve inviare una risposta personalizzata all'hub IoT. Se non viene specificata una funzione di risposta per un comando, viene inviata una risposta generica. In questo esempio solo il comando **getMaxMinReport** include una risposta personalizzata.
 
-1. Definisce una funzione per l'invio di dati di telemetria da questo dispositivo. Sia i termostati che l'interfaccia radice inviano dati di telemetria. Questa funzione accetta un parametro facoltativo per il nome del componente che consente di identificare il componente che ha inviato i dati di telemetria.
+7. Definisce una funzione per l'invio di dati di telemetria da questo dispositivo. Sia i termostati che l'interfaccia radice inviano dati di telemetria. Questa funzione accetta un parametro facoltativo per il nome del componente che consente di identificare il componente che ha inviato i dati di telemetria.
 
-1. Definisce un listener per le richieste dei comandi.
+8. Definisce un listener per le richieste dei comandi.
 
-1. Definisce un listener per gli aggiornamenti delle proprietà desiderati.
+9. Definisce un listener per gli aggiornamenti delle proprietà desiderati.
 
-1. Include una funzione `main` che:
+10. Include una funzione `main` che:
 
     1. Usa l'SDK del dispositivo per creare un client del dispositivo e connettersi all'hub IoT. Il dispositivo invia `model_id` in modo che possa essere identificato dall'hub IoT come dispositivo Plug and Play IoT.
 

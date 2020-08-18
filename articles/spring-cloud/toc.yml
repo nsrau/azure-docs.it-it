@@ -47,6 +47,8 @@
       href: ./policy-samples.md
 - name: Concetti
   items:
+    - name: Informazioni su app e distribuzione
+      href: spring-cloud-concept-understand-app-and-deployment.md
     - name: Informazioni su quote e limiti
       href: spring-cloud-quotas.md
     - name: Informazioni sulle metriche

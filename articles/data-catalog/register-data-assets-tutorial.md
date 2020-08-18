@@ -1,17 +1,17 @@
 ---
-title: Registrare gli asset di dati in Azure Data Catalog
+title: 'Esercitazione: Registrare gli asset di dati in Azure Data Catalog'
 description: Questa esercitazione descrive come registrare gli asset di dati in Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 66bacdf27b2ef9cf624b645cb6e4c123d9c3fa2a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255195"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135879"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Esercitazione: Registrare gli asset di dati in Azure Data Catalog
 
@@ -67,31 +67,31 @@ Il nome del database usato in questa esercitazione è *RLSTest*.
 
 6. Registrare i metadati degli asset di dati. In questo esempio vengono registrati oggetti **Product** dallo spazio dei nomi dell'esempio:
 
-    1. Nell'albero **Gerarchia server** espandere l'esempio di database e selezionare **SalesLT**.
+   1. Nell'albero **Gerarchia server** espandere l'esempio di database e selezionare **SalesLT**.
 
-    2. Selezionare **Product**, **ProductCategory**, **ProductDescription** e **ProductModel** usando CTRL+selezione.
+   2. Selezionare **Product**, **ProductCategory**, **ProductDescription** e **ProductModel** usando CTRL+selezione.
 
-    3. Selezionare la **freccia verso destra** ( **>** ) per spostare la selezione. Questa azione sposta tutti gli oggetti selezionati nell'elenco **Oggetti da registrare** .
+   3. Selezionare la **freccia verso destra** ( **>** ) per spostare la selezione. Questa azione sposta tutti gli oggetti selezionati nell'elenco **Oggetti da registrare** .
 
-          ![Esercitazione di Azure Data Catalog - Esplorare e selezionare gli oggetti](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
+      ![Esercitazione di Azure Data Catalog - Esplorare e selezionare gli oggetti](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
-    4. Selezionare **Includi anteprima** per includere un'anteprima sotto forma di snapshot dei dati. Lo snapshot include fino a 20 record di ogni tabella e viene copiato nel catalogo.
+   4. Selezionare **Includi anteprima** per includere un'anteprima sotto forma di snapshot dei dati. Lo snapshot include fino a 20 record di ogni tabella e viene copiato nel catalogo.
 
-    5. Selezionare **Includi profilo dati** per includere uno snapshot delle statistiche per il profilo dei dati, ad esempio valori minimi, massimi e medi per una colonna e il numero di righe.
+   5. Selezionare **Includi profilo dati** per includere uno snapshot delle statistiche per il profilo dei dati, ad esempio valori minimi, massimi e medi per una colonna e il numero di righe.
 
-    6. Nel campo **Aggiungi tag** immettere **sales, product, azure sql**. Questa azione aggiunge i tag di ricerca per gli asset di dati. I tag sono un modo eccezionale per consentire agli utenti di trovare un'origine dati registrata.
+   6. Nel campo **Aggiungi tag** immettere **sales, product, azure sql**. Questa azione aggiunge i tag di ricerca per gli asset di dati. I tag sono un modo eccezionale per consentire agli utenti di trovare un'origine dati registrata.
 
-    7. Specificare il nome di un **esperto** per i dati (facoltativo).
+   7. Specificare il nome di un **esperto** per i dati (facoltativo).
 
-          ![Esercitazione di Azure Data Catalog - Oggetti da registrare](media/register-data-assets-tutorial/data-catalog-objects-register.png)
+      ![Esercitazione di Azure Data Catalog - Oggetti da registrare](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Selezionare **REGISTRA**. Nel Catalogo dati di Azure vengono registrati gli oggetti selezionati. In questo esercizio vengono registrati gli oggetti selezionati nell'esempio di database. Lo strumento di registrazione estrae i metadati dall'asset di dati e li copia nel servizio Azure Data Catalog. I dati non vengono rimossi e rimangono sotto il controllo degli amministratori e dei criteri del sistema di origine.
+   8. Selezionare **REGISTRA**. Nel Catalogo dati di Azure vengono registrati gli oggetti selezionati. In questo esercizio vengono registrati gli oggetti selezionati nell'esempio di database. Lo strumento di registrazione estrae i metadati dall'asset di dati e li copia nel servizio Azure Data Catalog. I dati non vengono rimossi e rimangono sotto il controllo degli amministratori e dei criteri del sistema di origine.
 
-          ![Azure Data Catalog - Oggetti registrati](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
+      ![Azure Data Catalog - Oggetti registrati](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
     9. Per visualizzare gli oggetti origine dati registrati, selezionare **Visualizza portale**. Nel portale di Azure Data Catalog verificare che tutte e quattro le tabelle e il database siano visualizzati nella griglia (verificare che la barra di ricerca sia vuota).
 
-        ![Oggetti nel portale di Azure Data Catalog](media/register-data-assets-tutorial/data-catalog-view-portal.png)
+       ![Oggetti nel portale di Azure Data Catalog](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
 In questo esercizio sono stati registrati gli oggetti dell'esempio di database per il database SQL di Azure in modo che possano essere facilmente individuati dagli utenti dell'organizzazione.
 
@@ -119,19 +119,20 @@ La ricerca di base consente di eseguire ricerche nel catalogo con uno o più ter
 
 2. Nella casella di ricerca immettere `product` e premere **INVIO**.
 
-    ![Azure Data Catalog - Ricerca di testo di base](media/register-data-assets-tutorial/data-catalog-basic-text-search.png)
+   ![Azure Data Catalog - Ricerca di testo di base](media/register-data-assets-tutorial/data-catalog-basic-text-search.png)
 
 3. Verificare che tutte e quattro le tabelle e il database siano visualizzati nei risultati. È possibile passare dalla **visualizzazione griglia** alla **visualizzazione elenco** e viceversa selezionando i pulsanti sulla barra degli strumenti, come illustrato nella figura seguente. Si noti che la parola chiave di ricerca è evidenziata nei risultati della ricerca perché l'opzione **Evidenzia** è **ATTIVATA**. È anche possibile specificare il numero di **risultati per pagina** nei risultati della ricerca.
 
-    ![Azure Data Catalog - Risultati della ricerca di testo di base](media/register-data-assets-tutorial/data-catalog-basic-text-search-results.png)
+   ![Azure Data Catalog - Risultati della ricerca di testo di base](media/register-data-assets-tutorial/data-catalog-basic-text-search-results.png)
 
-    Il pannello **Ricerche** è visualizzato a sinistra e il pannello **Proprietà** a destra. Il pannello **Ricerche** consente di modificare i criteri di ricerca e filtrare i risultati. Il pannello **Proprietà** visualizza le proprietà di un oggetto selezionato nella griglia o nell'elenco.
+   Il pannello **Ricerche** è visualizzato a sinistra e il pannello **Proprietà** a destra. Il pannello **Ricerche** consente di modificare i criteri di ricerca e filtrare i risultati. Il pannello **Proprietà** visualizza le proprietà di un oggetto selezionato nella griglia o nell'elenco.
 
 4. Selezionare **Product** nei risultati della ricerca. Selezionare le schede **Anteprima**, **Colonne**, **Profilo dati** e **Documentazione** oppure usare la freccia per espandere il riquadro in basso.  
 
-    ![Azure Data Catalog - Riquadro inferiore](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
+   ![Azure Data Catalog - Riquadro inferiore](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
 
-    Nella scheda **Anteprima** viene visualizzata un'anteprima dei dati nella tabella **Product**.  
+   Nella scheda **Anteprima** viene visualizzata un'anteprima dei dati nella tabella **Product**.
+
 5. Selezionare la scheda **Colonne** per informazioni dettagliate sulle colonne dell'asset di dati, ad esempio **nome** e **tipo di dati**.
 
 6. Selezionare la scheda **Profilo dati** per visualizzare informazioni dettagliate sui dati dell'asset di dati, ad esempio numero di righe, dimensioni dei dati o valore minimo in una colonna.
@@ -146,13 +147,13 @@ L'ambito della proprietà consente di individuare gli asset di dati in cui il te
 
 3. Verificare che le tabelle e il database siano visualizzati nei risultati.  
 
-    ![Data Catalog - Risultati della ricerca dell'ambito della proprietà](media/register-data-assets-tutorial/data-catalog-property-scoping-results.png)
+   ![Data Catalog - Risultati della ricerca dell'ambito della proprietà](media/register-data-assets-tutorial/data-catalog-property-scoping-results.png)
 
 ### <a name="save-the-search"></a>Salvare la ricerca
 
 1. Nella sezione **Ricerca corrente** del riquadro **Ricerche** immettere un nome per la ricerca e selezionare **Salva**.
 
-    ![Azure Data Catalog - Salvare la ricerca](media/register-data-assets-tutorial/data-catalog-save-search.png)
+   ![Azure Data Catalog - Salvare la ricerca](media/register-data-assets-tutorial/data-catalog-save-search.png)
 
 2. Verificare che la ricerca salvata venga visualizzata in **Ricerche salvate**.
 
@@ -166,7 +167,7 @@ Il raggruppamento con parentesi consente di raggruppare parti della query per ot
 
 2. Verificare che nei risultati della ricerca venga visualizzata solo la tabella **Product** .
 
-    ![Azure Data Catalog - Raggruppamento delle ricerche](media/register-data-assets-tutorial/data-catalog-grouping-search.png)
+   ![Azure Data Catalog - Raggruppamento delle ricerche](media/register-data-assets-tutorial/data-catalog-grouping-search.png)
 
 ### <a name="comparison-operators"></a>Operatori di confronto
 
@@ -180,7 +181,7 @@ Gli operatori di confronto consentono di usare confronti diversi dall'uguaglianz
 
 4. Verificare che nei risultati della ricerca siano visibili le tabelle **Product**, **ProductCategory** e **ProductDescription**, oltre al database SQL registrato.
 
-    ![Azure Data Catalog - Risultati della ricerca di confronto](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
+   ![Azure Data Catalog - Risultati della ricerca di confronto](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
 Per informazioni dettagliate sull'individuazione di asset di dati, vedere [Come individuare gli asset di dati](data-catalog-how-to-discover.md). Per altre informazioni sulla sintassi di ricerca, vedere [Informazioni di riferimento sulla sintassi di ricerca di Data Catalog](/rest/api/datacatalog/#search-syntax-reference).
 
@@ -233,21 +234,21 @@ In questo esercizio, gli asset di dati verranno aperti in uno strumento client i
 
 1. Selezionare **Product** nei risultati della ricerca. Selezionare **Apri in** sulla barra degli strumenti e quindi **Excel**.
 
-    ![Azure Data Catalog - Connettersi all'asset di dati](media/register-data-assets-tutorial/data-catalog-connect1.png)
+   ![Azure Data Catalog - Connettersi all'asset di dati](media/register-data-assets-tutorial/data-catalog-connect1.png)
 
 2. Selezionare **Apri** nella finestra popup di download. Questa esperienza può variare in base al browser.
 
 3. Nella finestra **Avviso di sicurezza di Microsoft Excel** selezionare **Abilita**.
 
-    ![Azure Data Catalog - Popup di sicurezza Excel](media/register-data-assets-tutorial/data-catalog-excel-security-popup.png)
+   ![Azure Data Catalog - Popup di sicurezza Excel](media/register-data-assets-tutorial/data-catalog-excel-security-popup.png)
 
 4. Mantenere i valori predefiniti nella finestra di dialogo **Importa dati** e selezionare **OK**.
 
-    ![Azure Data Catalog - Importazione dati di Excel](media/register-data-assets-tutorial/data-catalog-excel-import-data.png)
+   ![Azure Data Catalog - Importazione dati di Excel](media/register-data-assets-tutorial/data-catalog-excel-import-data.png)
 
 5. Visualizzare l'origine dati in Excel.
 
-    ![Azure Data Catalog - Tabella Product in Excel](media/register-data-assets-tutorial/data-catalog-connect2.png)
+   ![Azure Data Catalog - Tabella Product in Excel](media/register-data-assets-tutorial/data-catalog-connect2.png)
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
@@ -259,7 +260,7 @@ In questo esercizio ci si connetterà agli asset di dati individuati usando Azur
 
 3. Usare l'autenticazione e le credenziali appropriate per accedere agli asset di dati. Se non è possibile accedere, usare le informazioni nel campo **Richiedi accesso** per ottenere l'accesso.
 
-    ![Azure Data Catalog - Richiedi accesso](media/register-data-assets-tutorial/data-catalog-request-access.png)
+   ![Azure Data Catalog - Richiedi accesso](media/register-data-assets-tutorial/data-catalog-request-access.png)
 
 Selezionare **Visualizza stringhe di connessione** per visualizzare e copiare negli Appunti le stringhe di connessione ADO.NET, ODBC e OLEDB da usare nell'applicazione.
 
@@ -299,18 +300,22 @@ In Azure Data Catalog è possibile eliminare un singolo asset o più asset conte
 
 3. Selezionare un elemento nell'elenco risultati e selezionare **Elimina** sulla barra degli strumenti, come illustrato nella figura seguente:
 
-    ![Azure Data Catalog - Eliminare un elemento della griglia](media/register-data-assets-tutorial/data-catalog-delete-grid-item.png)
+   ![Azure Data Catalog - Eliminare un elemento della griglia](media/register-data-assets-tutorial/data-catalog-delete-grid-item.png)
 
-    Se si usa la visualizzazione elenco, la casella di controllo è a sinistra dell'elemento come illustrato nella figura seguente:
+   Se si usa la visualizzazione elenco, la casella di controllo è a sinistra dell'elemento come illustrato nella figura seguente:
 
-    ![Azure Data Catalog - Eliminare un elemento dell'elenco](media/register-data-assets-tutorial/data-catalog-delete-list-item.png)
+   ![Azure Data Catalog - Eliminare un elemento dell'elenco](media/register-data-assets-tutorial/data-catalog-delete-list-item.png)
 
-    È anche possibile selezionare più asset di dati ed eliminarli come illustrato nell'immagine seguente:
+   È anche possibile selezionare più asset di dati ed eliminarli come illustrato nell'immagine seguente:
 
-    ![Azure Data Catalog - Eliminare più asset di dati](media/register-data-assets-tutorial/data-catalog-delete-assets.png)
+   ![Azure Data Catalog - Eliminare più asset di dati](media/register-data-assets-tutorial/data-catalog-delete-assets.png)
 
 > [!NOTE]
 > Il comportamento predefinito del catalogo consente a tutti gli utenti di registrare qualsiasi origine dati e consente a qualsiasi utente di eliminare qualsiasi asset di dati registrato. Le funzionalità di gestione incluse nell'Edizione Standard di Azure Data Catalog forniscono opzioni aggiuntive per acquisire la proprietà degli asset, limitando gli utenti che possono individuare ed eliminare gli asset.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Seguire la procedura [Rimuovere gli asset di dati](#remove-data-assets) per pulire tutti gli asset eventualmente usati durante l'esercitazione.
 
 ## <a name="summary"></a>Summary
 

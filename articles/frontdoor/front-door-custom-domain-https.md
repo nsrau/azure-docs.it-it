@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 770353f893762f0f35d744fe1e7a5e4de4a671ce
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160086"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808769"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
@@ -68,6 +68,9 @@ Per abilitare il protocollo HTTPS in un dominio personalizzato, seguire questa p
 4. Fare clic su Salva.
 
 5. Procedere a [Convalidare il dominio](#validate-the-domain).
+
+> [!NOTE]
+> Per i certificati gestiti del servizio Frontdoor di Azure viene applicato il limite di 64 caratteri di DigiCert. Se il limite viene superato, la convalida non riuscirà.
 
 
 ### <a name="option-2-use-your-own-certificate"></a>Opzione 2: Usare un certificato personale

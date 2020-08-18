@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di computer fi
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ff8ac55f129e7579b12e2102c0c6292e9030021c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165397"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066628"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Eseguire la migrazione di computer come server fisici in Azure
 
@@ -103,10 +103,13 @@ Lo strumento Migrazione server di Azure Migrate usa un'appliance di replica per 
 
 Preparare la distribuzione dell'appliance come indicato di seguito:
 
-- Preparare un computer che ospiti l'appliance di replica. [Esaminare](migrate-replication-appliance.md#appliance-requirements) i requisiti del computer. L'appliance non deve essere installata in un computer di origine che si vuole replicare.
+- Preparare un computer che ospiti l'appliance di replica. [Esaminare](migrate-replication-appliance.md#appliance-requirements) i requisiti del computer.
 - L'appliance di replica usa MySQL. Esaminare le [opzioni](migrate-replication-appliance.md#mysql-installation) per l'installazione di MySQL nell'appliance.
 - Esaminare gli URL di Azure necessari all'appliance di replica per accedere ai cloud [pubblico](migrate-replication-appliance.md#url-access) e per [enti pubblici](migrate-replication-appliance.md#azure-government-url-access).
 - Esaminare i requisiti di accesso alle [porte] (migrate-replication-appliance.md#port-access) per l'appliance di replica.
+
+> [!NOTE]
+> L'appliance di replica non deve essere installata in una macchina virtuale di origine che si vuole replicare o nell'appliance di individuazione e valutazione di Azure Migrate eventualmente installata in precedenza.
 
 ## <a name="add-the-server-migration-tool"></a>Aggiungere lo strumento Migrazione server
 
@@ -155,7 +158,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
     ![Scaricare il provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Copiare il file di installazione dell'appliance e il file della chiave nel computer Windows Server 2016 creato per l'appliance.
-11. Eseguire il file di installazione dell'appliance di replica, come descritto nella procedura seguente. Al termine dell'installazione, verrà avviata automaticamente la procedura guidata di configurazione di appliance (è anche possibile avviare la procedura guidata manualmente usando il collegamento cspsconfigtool creato sul desktop dell'appliance). Usare la scheda Gestisci account della procedura guidata per aggiungere i dettagli dell'account da usare per l'installazione push del servizio di mobilità. In questa esercitazione verrà installato manualmente il servizio di mobilità nei computer da replicare, quindi creare un account fittizio in questo passaggio e procedere.
+11. Al termine dell'installazione, verrà avviata automaticamente la procedura guidata di configurazione dell'appliance (è anche possibile avviare la procedura guidata manualmente usando il collegamento cspsconfigtool creato sul desktop dell'appliance). Usare la scheda Gestisci account della procedura guidata per aggiungere i dettagli dell'account da usare per l'installazione push del servizio di mobilità. In questa esercitazione verrà installato manualmente il servizio di mobilità nelle VM da replicare, quindi occorre creare un account fittizio in questo passaggio e prima di procedere. È possibile specificare i dettagli seguenti per la creazione dell'account fittizio, usando "guest" come nome descrittivo, "username" come nome utente e "password" come password per l'account. Questo account fittizio verrà usato nella fase di abilitazione della replica. 
 
 12. Una volta completata l'installazione e dopo il riavvio dell'appliance, in **Individua macchine virtuali** selezionare la nuova appliance in **Selezionare il server di configurazione** e fare clic su **Finalize registration** (Finalizza registrazione). Con la finalizzazione della registrazione vengono eseguite un paio di attività finali per preparare l'appliance di replica.
 
@@ -230,7 +233,7 @@ Selezionare ora le VM per la migrazione.
 2. In **Replica** > **Impostazioni origine**  > **I computer sono virtualizzati?** selezionare **Non virtualizzato/Altro**.
 3. In **Appliance locale** selezionare il nome dell'appliance di Azure Migrate configurata.
 4. In **Server di elaborazione** selezionare il nome dell'appliance di replica.
-6. In **Credenziali guest** specificare un account fittizio che verrà usato per installare manualmente il servizio di mobilità (l'installazione push non è supportata in macchine fisiche). Fare quindi clic su **Avanti: Macchine virtuali**.
+6. In **Credenziali guest**selezionare l'account fittizio creato in precedenza durante la [configurazione del programma di installazione della replica](#download-the-replication-appliance-installer) per installare manualmente il servizio di mobilità (l'installazione push non è supportata). Fare quindi clic su **Avanti: Macchine virtuali**.   
 
     ![Replicare le VM](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 

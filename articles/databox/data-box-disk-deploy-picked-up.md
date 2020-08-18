@@ -1,20 +1,20 @@
 ---
 title: Esercitazione per restituire Azure Data Box Disk | Microsoft Docs
-description: Usare questa esercitazione per scoprire come restituire i dischi di Azure Data Box a Microsoft
+description: Questa esercitazione illustra come restituire il dispositivo Azure Data Box Disk. Le istruzioni per il ritiro dipendono dalla località da cui viene restituito il dispositivo.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 62ab110a24bbf6b93f7f019c829222ca666ecfaf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 692ddbf1e17e316bdcee6c34062ffa51ef278bc7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039464"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923782"
 ---
 ::: zone target="docs"
 
@@ -85,7 +85,7 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 
 1. Usare l'etichetta di spedizione per reso fornita e verificare che vi sia scritto il codice TAU (numero di riferimento). Se l'etichetta di spedizione fornita è mancante o per qualsiasi altro problema, inviare un messaggio di posta elettronica a [Data Box Asia Operations](mailto:adbo@microsoft.com). Specificare il nome dell'ordine nell'intestazione dell'oggetto e fornire i dettagli del problema riscontrato.
 2. Applicare l'etichetta sulla scatola.
-3. Prenotare un ritiro online al collegamento https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
+3. Prenotare un ritiro online facendo clic sul collegamento https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
 
 ### <a name="japan"></a>[Giappone](#tab/in-japan)
 
@@ -138,7 +138,7 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - XZ00001234567
+    Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
      b.    Requestor contact number
@@ -155,6 +155,32 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
    In caso di problemi, contattare Data Box Operations Asia all'indirizzo adbo@microsoft.com. Specificare il nome del processo nell'intestazione dell'oggetto e il problema riscontrato.
 
 3. Consegnare la scatola al corriere.
+
+### <a name="south-africa"></a>[Sud Africa](#tab/in-sa)
+
+Eseguire questa procedura se si restituisce il dispositivo in Sudafrica.
+
+1. Applicare l'etichetta di spedizione fornita sulla scatola. L'etichetta contiene il numero tracciabilità. Se l'etichetta indirizzo non è presente, è possibile scaricarne una nuova da **Panoramica > Scarica etichetta di spedizione**.
+
+2. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
+
+3. Per prenotare un ritiro con DHL:
+
+    * Chiamare il servizio clienti al numero +27(0) 11 9213600, selezionare l'opzione 1 e specificare il numero di lettera di vettura.
+    * Per pianificare un ritiro, è necessario chiamare prima delle 14.00 (ora solare Sud Africa).  
+    * Inviare un messaggio di posta elettronica all'indirizzo [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) per organizzare il ritiro usando il modello di messaggio di posta elettronica seguente:
+
+    ```output
+    To: Priority.Support@dhl.com
+    Subject:Pickup request for Microsoft Azure
+    Body:  Need pick up for the below shipment
+    *  DHL tracking number (reference number/waybill number)
+    *  Requested pickup date：yyyy/mm/dd; time: HH MM
+    ```
+
+    * In alternativa, è possibile consegnare il pacchetto al centro DHL più vicino.
+
+4. Se si verificano problemi, inviare un messaggio di posta elettronica a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) specificando i dettagli dei problemi riscontrati e indicando nell'oggetto il numero di lettera di vettura. È anche possibile chiamare il numero +27(0)119213902.
 
 ### <a name="china"></a>[Cina](#tab/in-china)
 
@@ -231,7 +257,3 @@ Passare alla guida pratica successiva per informazioni su come verificare il car
 > [Verificare il caricamento dei dati da Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)
 
 ::: zone-end
-
-
-
-

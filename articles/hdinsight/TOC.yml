@@ -356,6 +356,8 @@
               href: ./set-up-pyspark-interactive-environment.md
         - name: Sviluppo
           items:
+            - name: Ottimizzare le query con SparkCruise
+              href: ./spark/spark-cruise.md
             - name: Usare una shell di Apache Spark interattiva
               href: ./spark/apache-spark-shell.md
             - name: Processi remoti con Apache Livy
