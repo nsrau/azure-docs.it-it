@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa18b55884a22f6c64f1c08bd5be8a71b265029a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a01f945496d2f0bc81a108c5e58c89587c1c4e38
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034384"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505479"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
@@ -116,7 +116,7 @@ Nella tabella seguente sono elencate le attività che i ruoli di gestione dei di
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Ruoli necessari per aggiungere risorse a un catalogo
 
-Un amministratore globale può aggiungere o rimuovere qualsiasi gruppo (gruppi di sicurezza creati dal cloud o gruppi di Office 365 creati dal cloud), un'applicazione o un sito di SharePoint online in un catalogo. Un amministratore utente può aggiungere o rimuovere qualsiasi gruppo o applicazione in un catalogo.
+Un amministratore globale può aggiungere o rimuovere qualsiasi gruppo (gruppi di sicurezza creati dal cloud o gruppi di Office 365 creati dal cloud), un'applicazione o un sito di SharePoint online in un catalogo. Un amministratore utente può aggiungere o rimuovere qualsiasi gruppo o applicazione in un catalogo, ad eccezione di un gruppo configurato come assegnabile a un ruolo della directory.
 
 Per un utente che non è un amministratore globale o un amministratore di utenti, per aggiungere gruppi, applicazioni o siti di SharePoint Online a un catalogo, tale utente deve avere *sia* il ruolo della directory Azure ad necessario che il ruolo di gestione dei diritti del proprietario del catalogo. Nella tabella seguente sono elencate le combinazioni di ruoli necessarie per aggiungere risorse a un catalogo. Per rimuovere le risorse da un catalogo, è necessario avere gli stessi ruoli.
 
@@ -131,6 +131,9 @@ Per un utente che non è un amministratore globale o un amministratore di utenti
 | [Amministratore applicazione](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
 | [Amministratore applicazione cloud](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
 | Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il proprietario del gruppo | Solo se il proprietario dell'app |  |
+
+> [!NOTE]
+> Se un utente aggiunge un gruppo di sicurezza o un gruppo di Office 365, il gruppo non può essere assegnabile come ruolo. Se l'utente aggiunge un gruppo assegnabile ai ruoli quando crea il pacchetto di accesso, deve essere anche il proprietario di tale gruppo assegnabile al ruolo. Per ulteriori informazioni, fare riferimento a [creare un gruppo assegnabile ai ruoli in Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
 
 Per determinare il ruolo con privilegi minimi per un'attività, è anche possibile fare riferimento ai [ruoli di amministratore per attività di amministrazione in Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 

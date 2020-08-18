@@ -3,12 +3,12 @@ title: Applicazione Azure Insights per le applicazioni ASP.NET Core | Microsoft 
 description: Monitorare le applicazioni Web ASP.NET Core per identificare disponibilità, prestazioni e utilizzo.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475516"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270921"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -30,7 +30,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 > [!NOTE]
 > ASP.NET Core 3. X richiede [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o versione successiva.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Applicazione ASP.NET Core funzionante. Se è necessario creare un'applicazione ASP.NET Core, seguire questa [esercitazione ASP.NET Core](/aspnet/core/getting-started/).
 - Chiave di strumentazione Application Insights valida. Questa chiave è necessaria per inviare i dati di telemetria a Application Insights. Se è necessario creare una nuova risorsa Application Insights per ottenere una chiave di strumentazione, vedere [creare una risorsa di Application Insights](./create-new-resource.md).
@@ -109,12 +109,16 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    * `APPINSIGHTS_INSTRUMENTATIONKEY`viene in genere usato nelle [app Web di Azure](./azure-web-apps.md?tabs=net), ma può essere usato anche in tutte le posizioni in cui questo SDK è supportato. Se si sta eseguendo il monitoraggio di app Web senza codice, questo formato è obbligatorio se non si usano stringhe di connessione.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` viene in genere usato nelle [app Web di Azure](./azure-web-apps.md?tabs=net), ma può essere usato anche in tutte le posizioni in cui questo SDK è supportato. Se si sta eseguendo il monitoraggio di app Web senza codice, questo formato è obbligatorio se non si usano stringhe di connessione.
 
     Anziché impostare le chiavi di strumentazione, è ora possibile utilizzare anche le [stringhe di connessione](./sdk-connection-string.md?tabs=net).
 
     > [!NOTE]
     > Una chiave di strumentazione specificata nel codice prevale sulla variabile di ambiente `APPINSIGHTS_INSTRUMENTATIONKEY` , che prevale su altre opzioni.
+
+### <a name="user-secrets-and-other-configuration-providers"></a>Segreti utente e altri provider di configurazione
+
+Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio `services.AddApplicationInsightsTelemetry(Configuration);`.
 
 ## <a name="run-your-application"></a>Eseguire l'applicazione
 
@@ -143,7 +147,7 @@ Il supporto per i [contatori delle prestazioni](./web-monitor-performance.md) in
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule`è abilitato per impostazione predefinita e raccoglie un set predefinito di contatori dalle app .NET Core 3. X. L'esercitazione [EventCounter](eventcounters.md) elenca il set predefinito di contatori raccolti. Sono inoltre disponibili istruzioni per la personalizzazione dell'elenco.
+`EventCounterCollectionModule` è abilitato per impostazione predefinita e raccoglie un set predefinito di contatori dalle app .NET Core 3. X. L'esercitazione [EventCounter](eventcounters.md) elenca il set predefinito di contatori raccolti. Sono inoltre disponibili istruzioni per la personalizzazione dell'elenco.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>Abilitare la telemetria sul lato client per le applicazioni Web
 
@@ -199,16 +203,16 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Elenco completo delle impostazioni in`ApplicationInsightsServiceOptions`
+Elenco completo delle impostazioni in `ApplicationInsightsServiceOptions`
 
 |Impostazione | Descrizione | Predefinito
 |---------------|-------|-------
-|EnablePerformanceCounterCollectionModule  | Abilita/Disabilita`PerformanceCounterCollectionModule` | true
-|EnableRequestTrackingTelemetryModule   | Abilita/Disabilita`RequestTrackingTelemetryModule` | true
-|EnableEventCounterCollectionModule   | Abilita/Disabilita`EventCounterCollectionModule` | true
-|EnableDependencyTrackingTelemetryModule   | Abilita/Disabilita`DependencyTrackingTelemetryModule` | true
-|EnableAppServicesHeartbeatTelemetryModule  |  Abilita/Disabilita`AppServicesHeartbeatTelemetryModule` | true
-|EnableAzureInstanceMetadataTelemetryModule   |  Abilita/Disabilita`AzureInstanceMetadataTelemetryModule` | true
+|EnablePerformanceCounterCollectionModule  | Abilita/Disabilita `PerformanceCounterCollectionModule` | true
+|EnableRequestTrackingTelemetryModule   | Abilita/Disabilita `RequestTrackingTelemetryModule` | true
+|EnableEventCounterCollectionModule   | Abilita/Disabilita `EventCounterCollectionModule` | true
+|EnableDependencyTrackingTelemetryModule   | Abilita/Disabilita `DependencyTrackingTelemetryModule` | true
+|EnableAppServicesHeartbeatTelemetryModule  |  Abilita/Disabilita `AppServicesHeartbeatTelemetryModule` | true
+|EnableAzureInstanceMetadataTelemetryModule   |  Abilita/Disabilita `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Abilita/Disabilita la funzionalità LiveMetrics | true
 |EnableAdaptiveSampling | Abilita/Disabilita il campionamento adattivo | true
 |EnableHeartbeat | Abilita/Disabilita la funzionalità heartbeat, che periodicamente (15 minuti per impostazione predefinita) Invia una metrica personalizzata denominata ' HeartbeatState ' con informazioni sul runtime come la versione .NET, le informazioni sull'ambiente di Azure, se applicabile e così via. | true
@@ -281,13 +285,13 @@ Application Insights USA moduli di telemetria per raccogliere automaticamente da
 
 I moduli di raccolta automatica seguenti sono abilitati per impostazione predefinita. Questi moduli sono responsabili della raccolta automatica dei dati di telemetria. È possibile disabilitarle o configurarle per modificarne il comportamento predefinito.
 
-* `RequestTrackingTelemetryModule`: Raccoglie RequestTelemetry dalle richieste Web in ingresso.
-* `DependencyTrackingTelemetryModule`: Raccoglie [DependencyTelemetry](./asp-net-dependencies.md) dalle chiamate http in uscita e dalle chiamate SQL.
-* `PerformanceCollectorModule`-Raccoglie Windows PerformanceCounters.
-* `QuickPulseTelemetryModule`-Raccoglie i dati di telemetria per la visualizzazione nel portale di metriche attive.
-* `AppServicesHeartbeatTelemetryModule`-Raccoglie i battimenti cardiaci, che vengono inviati come metriche personalizzate, sull'ambiente app Azure servizio in cui è ospitata l'applicazione.
-* `AzureInstanceMetadataTelemetryModule`-Raccoglie i battimenti cardiaci, che vengono inviati come metriche personalizzate, sull'ambiente di macchine virtuali di Azure in cui è ospitata l'applicazione.
-* `EventCounterCollectionModule`-Raccoglie [EventCounters.](eventcounters.md) Questo modulo è una nuova funzionalità ed è disponibile nella versione SDK 2.8.0 e versioni successive.
+* `RequestTrackingTelemetryModule` : Raccoglie RequestTelemetry dalle richieste Web in ingresso.
+* `DependencyTrackingTelemetryModule` : Raccoglie [DependencyTelemetry](./asp-net-dependencies.md) dalle chiamate http in uscita e dalle chiamate SQL.
+* `PerformanceCollectorModule` -Raccoglie Windows PerformanceCounters.
+* `QuickPulseTelemetryModule` -Raccoglie i dati di telemetria per la visualizzazione nel portale di metriche attive.
+* `AppServicesHeartbeatTelemetryModule` -Raccoglie i battimenti cardiaci, che vengono inviati come metriche personalizzate, sull'ambiente app Azure servizio in cui è ospitata l'applicazione.
+* `AzureInstanceMetadataTelemetryModule` -Raccoglie i battimenti cardiaci, che vengono inviati come metriche personalizzate, sull'ambiente di macchine virtuali di Azure in cui è ospitata l'applicazione.
+* `EventCounterCollectionModule` -Raccoglie [EventCounters.](eventcounters.md) Questo modulo è una nuova funzionalità ed è disponibile nella versione SDK 2.8.0 e versioni successive.
 
 Per configurare qualsiasi impostazione predefinita `TelemetryModule` , usare il metodo di estensione `ConfigureTelemetryModule<T>` su `IServiceCollection` , come illustrato nell'esempio seguente.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8e0f0b37dd429578194c18e5a9a1f063b74fb693
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563926"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506533"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -158,7 +158,7 @@ Le proprietà definite del gemello digitale vengono restituite come proprietà d
 
 È possibile analizzare il JSON restituito per il gemello usando una libreria di analisi JSON di propria scelta, ad esempio `System.Text.Json` .
 
-È anche possibile usare la classe helper di serializzazione `BasicDigitalTwin` inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Esempio:
+È anche possibile usare la classe helper di serializzazione `BasicDigitalTwin` inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Ecco un esempio:
 
 ```csharp
 Response<string> res = client.GetDigitalTwin(twin_id);
@@ -180,6 +180,8 @@ Per aggiornare le proprietà di un dispositivo gemello digitale, è necessario s
 ```csharp
 await client.UpdateDigitalTwin(id, patch);
 ```
+
+Una chiamata patch può aggiornare tutte le proprietà di un singolo gemello come si preferisce (anche tutte). Se è necessario aggiornare le proprietà tra più dispositivi gemelli, sarà necessaria una chiamata di aggiornamento separata per ogni dispositivo gemello.
 
 > [!TIP]
 > Dopo la creazione o l'aggiornamento di un dispositivo gemello, è possibile che si verifichi una latenza di un massimo di 10 secondi prima che le modifiche vengano riflesse nelle [query](how-to-query-graph.md). L' `GetDigitalTwin` API (descritta [in precedenza in questo articolo](#get-data-for-a-digital-twin)) non presenta questo ritardo, quindi usare la chiamata API invece di eseguire query per visualizzare i gemelli appena aggiornati se è necessaria una risposta immediata. 
@@ -204,6 +206,7 @@ Di seguito è riportato un esempio di codice patch JSON. Questo documento sostit
 È possibile creare patch manualmente o usando una classe helper di serializzazione nell' [SDK](how-to-use-apis-sdks.md). Di seguito è riportato un esempio di ogni.
 
 #### <a name="create-patches-manually"></a>Creazione manuale di patch
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -278,6 +281,19 @@ La patch per questa situazione deve aggiornare sia il modello che la proprietà 
   }
 ]
 ```
+
+### <a name="handle-conflicting-update-calls"></a>Gestire le chiamate di aggiornamento in conflitto
+
+I dispositivi gemelli digitali di Azure garantiscono che tutte le richieste in ingresso vengano elaborate una dopo l'altra. Ciò significa che, anche se più funzioni tentano di aggiornare la stessa proprietà in un dispositivo gemello allo stesso tempo, non è **necessario** scrivere codice di blocco esplicito per gestire il conflitto.
+
+Questo comportamento si basa su un singolo dispositivo. 
+
+Si supponga, ad esempio, uno scenario in cui queste tre chiamate arrivano allo stesso tempo: 
+*   Scrivi proprietà A in *Twin1*
+*   Scrivere la proprietà B in *Twin1*
+*   Scrivi proprietà A in *Twin2*
+
+Le due chiamate che modificano *Twin1* vengono eseguite una dopo l'altra e i messaggi delle modifiche vengono generati per ogni modifica. La chiamata a Modify *Twin2* può essere eseguita simultaneamente senza conflitti, non appena arriva.
 
 ## <a name="delete-a-digital-twin"></a>Eliminare un dispositivo gemello digitale
 

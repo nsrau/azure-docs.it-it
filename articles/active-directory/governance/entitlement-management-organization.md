@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2c57f23a5cad2f47311b54728d576eb810ad88a4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170497"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506023"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -103,7 +103,7 @@ Per aggiungere una directory o un dominio di Azure AD esterno come organizzazion
 
 Se l'organizzazione connessa passa a un dominio diverso, il nome dell'organizzazione cambia o si vuole modificare gli sponsor, è possibile aggiornare l'organizzazione connessa seguendo le istruzioni riportate in questa sezione.
 
-**Ruolo prerequisito**: *amministratore globale*, *amministratore utente*o *invitatore Guest*
+**Ruolo prerequisiti**: *amministratore globale* o *Amministratore utenti*
 
 1. Nella portale di Azure selezionare **Azure Active Directory**e quindi selezionare **governance identità**.
 
@@ -120,7 +120,7 @@ Se l'organizzazione connessa passa a un dominio diverso, il nome dell'organizzaz
 
 Se non si ha più una relazione con una directory o un dominio di Azure AD esterno, è possibile eliminare l'organizzazione connessa.
 
-**Ruolo prerequisito**: *amministratore globale*, *amministratore utente*o *invitatore Guest*
+**Ruolo prerequisiti**: *amministratore globale* o *Amministratore utenti*
 
 1. Nella portale di Azure selezionare **Azure Active Directory**e quindi selezionare **governance identità**.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 385086bd46145be717ee5a14a10f889ec811e17e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681701"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505652"
 ---
 # <a name="rendering-modes"></a>Modalità di rendering
 
@@ -50,7 +50,7 @@ Le caratteristiche delle prestazioni per entrambe le modalità variano in base a
 
 ## <a name="setting-the-render-mode"></a>Impostazione della modalità di rendering
 
-La modalità di rendering utilizzata in una macchina virtuale per il rendering remoto viene specificata durante `AzureSession.ConnectToRuntime` tramite il `ConnectToRuntimeParams` .
+La modalità di rendering utilizzata in un server di rendering remoto viene specificata durante `AzureSession.ConnectToRuntime` tramite il `ConnectToRuntimeParams` .
 
 ```cs
 async void ExampleConnect(AzureSession session)

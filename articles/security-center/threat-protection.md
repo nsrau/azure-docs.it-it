@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: d049538653ea345935d40bd965afd7d2453b2aa2
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041987"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272502"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protezione dalle minacce nel Centro sicurezza di Azure
 
@@ -110,7 +110,7 @@ Per altre informazioni sui piani di servizio app, vedere [Piani del servizio app
 
 
 
-## <a name="threat-protection-for-containers"></a>Protezione dalle minacce per i contenitori<a name="azure-containers"></a>
+## <a name="threat-protection-for-containers"></a>Protezione dalle minacce per i contenitori <a name="azure-containers"></a>
 
 ### <a name="availability"></a>Disponibilità
 
@@ -230,7 +230,6 @@ Alcune configurazioni di rete potrebbero impedire al Centro sicurezza di generar
 
 Per un elenco degli avvisi a livello di rete di Azure, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azurenetlayer).
 
-Per informazioni dettagliate sul modo in cui il Centro sicurezza può usare segnali correlati alla rete per applicare la protezione dalle minacce, vedere [Heuristic DNS detections in Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/) (Rilevamenti di DNS euristici nel Centro sicurezza).
 
 
 

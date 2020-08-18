@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5209ffb0328e90fb2ca9b91773cbf18dd4ed2916
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 47e4bb291d031c41c89c88435a795004490e20a1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163619"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505326"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Inserire dati di telemetria dell'hub Internet in dispositivi gemelli digitali di Azure
 
@@ -24,10 +24,10 @@ Questo documento illustra il processo di scrittura di una funzione di Azure in g
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di continuare con questo esempio, è necessario completare i prerequisiti seguenti.
-* **Un hub**Internet. Per istruzioni, vedere la sezione *creare un hub* di tutto il contenuto di [questa Guida introduttiva sull'hub](../iot-hub/quickstart-send-telemetry-cli.md) .
-* **Funzione di Azure** con le autorizzazioni corrette per chiamare l'istanza di Digital Twin. Per istruzioni, vedere [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md) . 
-* **Un'istanza di gemelli digitale** che riceverà i dati di telemetria del dispositivo. Vedere [ *procedura: configurare un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione*](./how-to-set-up-instance-portal.md) 
+Prima di continuare con questo esempio, è necessario configurare le risorse seguenti come prerequisiti:
+* **Un hub**Internet. Per istruzioni, vedere la sezione *creare un hub* per gli Internet in [questa Guida introduttiva sull'hub](../iot-hub/quickstart-send-telemetry-cli.md).
+* **Funzione di Azure** con le autorizzazioni corrette per chiamare l'istanza di Digital Twin. Per istruzioni, vedere [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md). 
+* **Un'istanza di gemelli digitale di Azure** che riceverà i dati di telemetria del dispositivo. Per istruzioni, vedere [*procedura: configurare un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione*](./how-to-set-up-instance-portal.md).
 
 ### <a name="example-telemetry-scenario"></a>Scenario di telemetria di esempio
 

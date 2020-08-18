@@ -418,7 +418,7 @@
         - name: Panoramica della migrazione
           href: migration-classic-resource-manager-overview.md
         - name: Approfondimento sulla migrazione
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md
         - name: Pianificare la migrazione
           href: migration-classic-resource-manager-plan.md
         - name: Eseguire la migrazione usando l'interfaccia della riga di comando
@@ -428,7 +428,7 @@
         - name: Strumenti della community per la migrazione
           href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Domande frequenti
-          href: migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md
     - name: Usare immagini
       displayName: 'SIG, AMI, image'
       items:
@@ -938,7 +938,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architettura
+            - name: Architecture
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md
@@ -954,7 +954,7 @@
           href: detach-disk.md
         - name: Distribuire dischi con un modello di Azure Resource Manager
           displayName: 'Azure Resource Manager, ARM'
-          href: using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md
         - name: Abilitare i dischi condivisi
           href: disks-shared-enable.md
         - name: Caricare un disco rigido virtuale in un disco - Interfaccia della riga di comando
@@ -1004,7 +1004,7 @@
         - name: Prestazioni
           items:
             - name: Uso dell'acceleratore di scrittura
-              href: how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md
             - name: Uso di dischi Ultra
               href: disks-enable-ultra-ssd.md
             - name: Misurare il benchmark di un disco

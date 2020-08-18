@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 18263f9e77961fb4c169559f221ab94eb4a38840
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207448"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505717"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -164,6 +164,9 @@ Nella finestra del terminale o da un prompt dei comandi, eseguire il comando seg
 ```
 func init MyFunctionProj
 ```
+
+>[!IMPORTANT]
+> Java usa un archetipo Maven per creare il progetto di funzioni locali, insieme alla prima funzione attivata tramite HTTP. Usare il comando seguente per creare il progetto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Per un esempio di utilizzo dell'archetipo Maven, vedere la [Guida introduttiva alla riga di comando](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
 
 Quando si fornisce un nome di progetto, viene creata e inizializzata una nuova cartella con lo stesso nome. In caso contrario, viene inizializzata la cartella corrente.  
 Nella versione 3. x/2. x, quando si esegue il comando è necessario scegliere un runtime per il progetto. 
@@ -334,6 +337,14 @@ Per eseguire un progetto Funzioni, eseguire l'host di Funzioni. L'host Abilita i
 ```
 func start --build
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```
+mvn clean package 
+mvn azure-functions:run
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/node)
 
 ```
@@ -505,6 +516,9 @@ Per pubblicare il codice locale in un'app per le funzioni in Azure, usare il com
 func azure functionapp publish <FunctionAppName>
 ```
 
+>[!IMPORTANT]
+> Java USA Maven per pubblicare il progetto locale in Azure. Usare il comando seguente per pubblicare in Azure: `mvn azure-functions:deploy` . Le risorse di Azure vengono create durante la distribuzione iniziale.
+
 Questo comando consente di pubblicare un'app per le funzioni esistente in Azure. Se si prova a pubblicare in un `<FunctionAppName>` che non esiste nella sottoscrizione, viene ricevuto un errore. Per informazioni su come creare un'app per le funzioni dal prompt dei comandi o dalla finestra del terminale usando l'interfaccia della riga di comando di Azure, vedere [Creare un'app per le funzioni per l'esecuzione senza server](./scripts/functions-cli-create-serverless.md). Per impostazione predefinita, questo comando usa la [compilazione remota](functions-deployment-technologies.md#remote-build) e distribuisce l'app per [l'esecuzione dal pacchetto di distribuzione](run-functions-from-deployment-package.md). Per disabilitare la modalità di distribuzione consigliata, utilizzare l' `--nozip` opzione.
 
 >[!IMPORTANT]
@@ -585,5 +599,5 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 [Portale di Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [Bundle di estensione]: functions-bindings-register.md#extension-bundles

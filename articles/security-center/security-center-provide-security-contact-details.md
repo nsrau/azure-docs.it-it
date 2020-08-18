@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 9bbb4ee4a2fd41ca0605d7dd5d8c66c83d475744
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042276"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506473"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurare le notifiche di posta elettronica per gli avvisi di sicurezza 
 
@@ -32,6 +32,9 @@ Per evitare l'affaticamento degli avvisi, il Centro sicurezza limita il volume d
 - un massimo di **due** messaggi di posta elettronica al giorno per gli avvisi con **gravità media**
 - un massimo di **un** messaggio di posta elettronica al giorno per gli avvisi con **gravità bassa**
 
+
+:::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configurazione dei dettagli del contatto che riceveranno messaggi di posta elettronica sugli avvisi di sicurezza." :::
+
 ## <a name="availability"></a>Disponibilità
 
 |Aspetto|Dettagli|
@@ -43,9 +46,7 @@ Per evitare l'affaticamento degli avvisi, il Centro sicurezza limita il volume d
 |||
 
 
-
-
-## <a name="set-up-email-notifications-for-alerts"></a>Configurare le notifiche di posta elettronica per gli avvisi<a name="email"></a>
+## <a name="set-up-email-notifications-for-alerts"></a>Configurare le notifiche di posta elettronica per gli avvisi <a name="email"></a>
 
 È possibile inviare notifiche tramite posta elettronica a singoli utenti o a tutti gli utenti con ruoli specifici di Azure.
 
@@ -64,3 +65,4 @@ Per ulteriori informazioni sugli avvisi di sicurezza, vedere gli argomenti segue
 
 * [Avvisi di sicurezza: Guida di riferimento](alerts-reference.md) : informazioni sugli avvisi di sicurezza che possono essere visualizzati nel modulo di protezione dalle minacce del Centro sicurezza di Azure
 * [Gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza
+- [Automazione del flusso di lavoro](workflow-automation.md) : automatizzare le risposte agli avvisi con la logica di notifica personalizzata

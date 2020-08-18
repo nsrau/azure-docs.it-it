@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82689771"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272451"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform e il flusso di concessione dell'autorizzazione del dispositivo OAuth 2,0
 
@@ -51,11 +51,11 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parametro | Condizione | Description |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
-| `tenant` | Necessario | Può essere/Common,/consumers o/Organizations.  Può anche essere il tenant di directory per cui si desidera richiedere l'autorizzazione nel formato GUID o nome descrittivo.  |
+| `tenant` | Obbligatoria | Può essere/Common,/consumers o/Organizations.  Può anche essere il tenant di directory per cui si desidera richiedere l'autorizzazione nel formato GUID o nome descrittivo.  |
 | `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
-| `scope` | Implementazione consigliata | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  |
+| `scope` | Obbligatoria | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  |
 
 ### <a name="device-authorization-response"></a>Risposta di autorizzazione per il dispositivo
 
@@ -90,12 +90,12 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parametro | Obbligatorio | Description|
+| Parametro | Obbligatoria | Descrizione|
 | -------- | -------- | ---------- |
-| `tenant`  | Necessario | Stesso alias tenant o tenant usato nella richiesta iniziale. |
-| `grant_type` | Necessario | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Necessario | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
-| `device_code`| Necessario | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
+| `tenant`  | Obbligatoria | Stesso alias tenant o tenant usato nella richiesta iniziale. |
+| `grant_type` | Obbligatoria | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Obbligatoria | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
+| `device_code`| Obbligatoria | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
 
 ### <a name="expected-errors"></a>Errori previsti
 

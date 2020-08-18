@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831057"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505560"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione DBMS per SQL Server di macchine virtuali di Azure per un SAP NetWeaver
 
@@ -355,7 +355,7 @@ Il diagramma soprastante mostra un caso semplice. Come accennato nell'articolo [
 
 
 ### <a name="special-for-m-series-vms"></a>Speciale per le macchine virtuali serie M
-Per la VM serie M di Azure la latenza di scrittura nel log delle transazioni può essere ridotta di alcuni fattori, in confronto alle prestazioni di Archiviazione Premium di Azure, quando si usa l'acceleratore di scrittura di Azure. È quindi consigliabile distribuire l'acceleratore di scrittura di Azure per i dischi rigidi virtuali che formano il volume per il log delle transazioni SQL Server. I dettagli sono disponibili nel documento relativo all'[acceleratore di scrittura](../../windows/how-to-enable-write-accelerator.md).
+Per la VM serie M di Azure la latenza di scrittura nel log delle transazioni può essere ridotta di alcuni fattori, in confronto alle prestazioni di Archiviazione Premium di Azure, quando si usa l'acceleratore di scrittura di Azure. È quindi consigliabile distribuire l'acceleratore di scrittura di Azure per i dischi rigidi virtuali che formano il volume per il log delle transazioni SQL Server. I dettagli sono disponibili nel documento relativo all'[acceleratore di scrittura](../../how-to-enable-write-accelerator.md).
   
 
 ### <a name="formatting-the-disks"></a>Formattazione dei dischi

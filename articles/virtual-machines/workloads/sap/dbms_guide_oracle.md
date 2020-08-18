@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832264"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504943"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -404,7 +404,7 @@ Se sono necessarie più operazioni di I/O al secondo, è consigliabile usare i p
 
 
 #### <a name="write-accelerator"></a>Acceleratore di scrittura
-Per le macchine virtuali serie M di Azure, la latenza di scrittura nei log di ripristino online può essere ridotta sensibilmente, rispetto alle prestazioni di Archiviazione Premium di Azure. Abilitare l'acceleratore di scrittura di Azure per i dischi (VHD) basati sull'Archiviazione Premium di Azure che vengono usati per il file di log di rollforward online. Per altre informazioni, vedere [Acceleratore di scrittura](../../linux/how-to-enable-write-accelerator.md).
+Per le macchine virtuali serie M di Azure, la latenza di scrittura nei log di ripristino online può essere ridotta sensibilmente, rispetto alle prestazioni di Archiviazione Premium di Azure. Abilitare l'acceleratore di scrittura di Azure per i dischi (VHD) basati sull'Archiviazione Premium di Azure che vengono usati per il file di log di rollforward online. Per altre informazioni, vedere [Acceleratore di scrittura](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Backup/ripristino
@@ -498,7 +498,7 @@ Se sono necessarie più operazioni di I/O al secondo, è consigliabile usare LVM
 
 
 #### <a name="write-accelerator"></a>Acceleratore di scrittura
-Per le macchine virtuali serie M di Azure, quando si usa l'acceleratore di scrittura di Azure, la latenza di scrittura nei log di ripristino online può essere ridotta sensibilmente, rispetto alle prestazioni di Archiviazione Premium di Azure. Abilitare l'acceleratore di scrittura di Azure per i dischi (VHD) basati sull'Archiviazione Premium di Azure che vengono usati per il file di log di rollforward online. Per altre informazioni, vedere [Acceleratore di scrittura](../../linux/how-to-enable-write-accelerator.md).
+Per le macchine virtuali serie M di Azure, quando si usa l'acceleratore di scrittura di Azure, la latenza di scrittura nei log di ripristino online può essere ridotta sensibilmente, rispetto alle prestazioni di Archiviazione Premium di Azure. Abilitare l'acceleratore di scrittura di Azure per i dischi (VHD) basati sull'Archiviazione Premium di Azure che vengono usati per il file di log di rollforward online. Per altre informazioni, vedere [Acceleratore di scrittura](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Backup/ripristino

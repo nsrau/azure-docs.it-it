@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 59b05fcd7fbaf9b0fd9b4083c884edadb4bfef4e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876717"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505581"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -40,10 +40,11 @@ L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione i
 ### <a name="operating-system"></a>Sistema operativo
 
 Per i nodi che eseguono Linux, l'estensione DSC per Linux supporta tutte le distribuzioni di Linux elencate nella [documentazione di PowerShell DSC](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
- 
+
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Per l'estensione DSCForLinux è necessario che la macchina virtuale di destinazione sia connessa a Internet. Ad esempio, l'estensione Register richiede la connettività al servizio di automazione. Per altre azioni, ad esempio pull, pull, l'installazione richiede la connettività ad archiviazione di Azure e GitHub. Dipende dalle impostazioni fornite dal cliente.
+Per l'estensione DSCForLinux è necessario che la macchina virtuale di destinazione sia connessa a Internet. Ad esempio, l'estensione Register richiede la connettività al servizio di automazione.
+Per altre azioni, ad esempio pull, pull, l'installazione richiede la connettività ad archiviazione di Azure e GitHub. Dipende dalle impostazioni fornite dal cliente.
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -55,13 +56,13 @@ Di seguito sono riportati tutti i parametri della configurazione pubblica suppor
 * `ResourceName`: (facoltativo, stringa) il nome del modulo della risorsa personalizzata.
 * `ExtensionAction`: (facoltativo, stringa) specifica le azioni compiute da un'estensione. I valori validi sono Register, push, pull, install e Remove. Se non è specificato, viene considerata un'azione push per impostazione predefinita.
 * `NodeConfigurationName`: (facoltativo, stringa) il nome della configurazione di un nodo da applicare.
-* `RefreshFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC tenta di ottenere la configurazione dal server di pull. 
+* `RefreshFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC tenta di ottenere la configurazione dal server di pull.
        Se la configurazione nel server di pull è diversa da quella corrente nel nodo di destinazione, viene copiata nell'archivio in sospeso e applicata.
 * `ConfigurationMode`: (facoltativo, stringa) specifica la modalità di applicazione della configurazione da parte di DSC. I valori validi sono ApplyOnly, ApplyAndMonitor e ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (facoltativo, int) specifica la frequenza (in minuti) con cui DSC verifica che la configurazione si trovi nello stato desiderato.
 
 > [!NOTE]
-> Se si usa una versione precedente alla 2,3, il parametro mode è uguale a ExtensionAction. La modalità sembra essere un termine di overload. Per evitare confusione, ExtensionAction viene usato dalla versione 2,3 in poi. Per garantire la compatibilità con le versioni precedenti, l'estensione li supporta entrambi. 
+> Se si usa una versione precedente alla 2,3, il parametro mode è uguale a ExtensionAction. La modalità sembra essere un termine di overload. Per evitare confusione, ExtensionAction viene usato dalla versione 2,3 in poi. Per garantire la compatibilità con le versioni precedenti, l'estensione li supporta entrambi.
 >
 
 ### <a name="protected-configuration"></a>Configurazione protetta
@@ -269,7 +270,7 @@ $publicConfig = '{
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono ideali quando si distribuiscono una o più macchine virtuali che richiedono la configurazione post-distribuzione, ad esempio l'onboarding in automazione di Azure. 
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono ideali quando si distribuiscono una o più macchine virtuali che richiedono la configurazione post-distribuzione, ad esempio l'onboarding in automazione di Azure.
 
 Il modello di Resource Manager di esempio è [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) e [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
@@ -323,13 +324,13 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 
 Per accedere all'account Azure in modalità di gestione dei servizi di Azure, è possibile eseguire:
 
-```powershell>
+```powershell
 Add-AzureAccount
 ```
 
 E distribuire l'estensione DSCForLinux eseguendo:
 
-```powershell>
+```powershell
 $vmname = '<vm-name>'
 $vm = Get-AzureVM -ServiceName $vmname -Name $vmname
 $extensionName = 'DSCForLinux'
@@ -362,7 +363,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 
 È possibile accedere al proprio account Azure in modalità Azure Resource Manager eseguendo:
 
-```powershell>
+```powershell
 Login-AzAccount
 ```
 
@@ -370,7 +371,7 @@ Per altre informazioni su come usare Azure PowerShell con Azure Resource Manager
 
 È possibile distribuire l'estensione DSCForLinux eseguendo:
 
-```powershell>
+```powershell
 $rgName = '<resource-group-name>'
 $vmName = '<vm-name>'
 $location = '< location>'

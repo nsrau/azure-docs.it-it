@@ -9,16 +9,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921997"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506329"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Creare una foresta di risorse Azure Active Directory Domain Services e un trust tra foreste in uscita per un dominio locale usando Azure PowerShell
 
-Negli ambienti in cui non è possibile sincronizzare gli hash delle password o in cui gli utenti accedono esclusivamente tramite smart card senza conoscere effettivamente la password, è possibile usare una foresta di risorse in Azure AD Domain Services (Azure AD DS). Una foresta di risorse usa un trust in uscita unidirezionale da Azure AD Domain Services a uno o più ambienti Active Directory Domain Services locali. Questa relazione di trust consente a utenti, applicazioni e computer di eseguire l'autenticazione in un dominio locale dal dominio gestito di Azure AD Domain Services. In una foresta di risorse gli hash delle password locali non vengono mai sincronizzati.
+Negli ambienti in cui non è possibile sincronizzare gli hash delle password o in cui gli utenti accedono esclusivamente tramite smart card senza conoscere effettivamente la password, è possibile usare una foresta di risorse in Azure AD Domain Services (Azure AD DS). Una foresta di risorse usa un trust in uscita unidirezionale da Azure AD Domain Services a uno o più ambienti Active Directory Domain Services locali. Questa relazione di trust consente a utenti, applicazioni e computer di eseguire l'autenticazione in un dominio locale dal dominio gestito di Azure AD Domain Services. In una foresta di risorse, gli hash delle password locali non vengono mai sincronizzati.
 
 ![Diagramma del trust tra foreste da Azure AD Domain Services ad Active Directory Domain Services locale](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -88,7 +88,7 @@ Per creare una foresta di risorse di dominio gestito, usare lo `New-AzureAaddsFo
 
 1. Per prima cosa, creare un gruppo di risorse usando il cmdlet [New-AzResourceGroup][New-AzResourceGroup] . Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *westus*. Usare il proprio nome e l'area desiderata:
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
@@ -123,7 +123,7 @@ Per creare una foresta di risorse di dominio gestito, usare lo `New-AzureAaddsFo
 
 1. Creare ora una foresta di risorse di dominio gestito con lo `New-AzureAaaddsForest` script. Nell'esempio seguente viene creata una foresta denominata *addscontoso.com* e viene creata una subnet del carico di lavoro. Specificare i nomi di parametro e gli intervalli di indirizzi IP o le reti virtuali esistenti.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
@@ -163,7 +163,7 @@ Prima di iniziare, assicurarsi di comprendere le [considerazioni e le raccomanda
     * Verificare che il controller di dominio locale sia in grado di connettersi alla macchina virtuale gestita usando `ping` o desktop remoto, ad esempio.
     * Verificare che la macchina virtuale di gestione sia in grado di connettersi ai controller di dominio locali, usando di nuovo un'utilità, ad esempio `ping` .
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com* , e attendere che lo stato venga segnalato come **in esecuzione**.
+1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com* , e attendere che lo stato venga segnalato come **in esecuzione**.
 
     Quando si esegue, [aggiornare le impostazioni DNS per la rete virtuale di Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) e quindi [abilitare gli account utente per Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) per completare le configurazioni per la foresta delle risorse del dominio gestito.
 
@@ -204,7 +204,7 @@ A questo punto specificare lo script per le seguenti informazioni:
 
 Nell'esempio seguente viene creata una relazione di trust denominata *myAzureADDSTrust* in *OnPrem.contoso.com*. Usare nomi di parametro e password personalizzati:.
 
-```azure-powershell
+```azurepowershell
 Add-AaddsResourceForestTrust `
     -ManagedDomainFqdn "aaddscontoso.com" `
     -TrustFqdn "onprem.contoso.com" `

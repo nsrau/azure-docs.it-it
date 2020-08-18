@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 0039480c24e96f39ec2b464984a84e672b5bffa1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 79d0386e12b38eb6590b68ff959911ddc0a0ab5f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832604"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505547"
 ---
 # <a name="m-series"></a>Serie M
 
@@ -30,7 +30,7 @@ Live Migration: Non supportato
 
 Manutenzione con mantenimento della memoria: Non supportato
 
-Acceleratore di scrittura: [supportato](./windows/how-to-enable-write-accelerator.md)
+Acceleratore di scrittura: [supportato](./how-to-enable-write-accelerator.md)
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|---|

@@ -12,20 +12,20 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: b2252a70aea6df755bb8b37c36b77b08db819ba9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 51e31977a5f31777252920f9cd18bf069bad6d1e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037542"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507196"
 ---
-# <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
+# <a name="create-azure-machine-learning-datasets"></a>Creare set di dati di Azure Machine Learning
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come creare set di dati di Azure Machine Learning per accedere ai dati per gli esperimenti locali o remoti. Per informazioni sul modo in cui i set di dati si adattano al flusso di lavoro di accesso ai dati complessivo di Azure Machine Learning, vedere l'articolo relativo ai [dati](concept-data.md#data-workflow) di
 
-Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nella posizione esistente, non viene addebitato alcun costo aggiuntivo per l'archiviazione e l'integrità delle origini dati non è rischiosa. Inoltre, i set di impostazioni vengono valutati in modo differito, che facilitano le prestazioni del flusso È possibile creare set di dati da archivi dati, URL pubblici e set di dati [aperti di Azure](../open-datasets/how-to-create-dataset-from-open-dataset.md).
+Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nella posizione esistente, non viene addebitato alcun costo aggiuntivo per l'archiviazione e l'integrità delle origini dati non è rischiosa. Inoltre, i set di impostazioni vengono valutati in modo differito, che facilitano le prestazioni del flusso È possibile creare set di dati da archivi dati, URL pubblici e set di dati [aperti di Azure](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
 Con Azure Machine Learning set di impostazioni è possibile:
 
@@ -166,7 +166,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 |Indice|PassengerId|Survived|Pclass|Nome|Sesso|Età|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
-1|2|Vero|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
+1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|Vero|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 ### <a name="create-a-dataset-from-pandas-dataframe"></a>Creare un set di dati da Pandas dataframe
@@ -232,7 +232,7 @@ Per creare un set di dati in studio:
 
 [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. I set di dati includono dati di pubblico dominio relativi a meteo, censimento, festività, sicurezza pubblica e posizione, che consentono di eseguire il training di modelli di Machine Learning e arricchire le soluzioni predittive. I set di impostazioni aperti si trovano nel cloud in Microsoft Azure e sono inclusi sia nell'SDK che in studio.
 
-Informazioni su come creare [set di impostazioni di Azure Machine Learning da Azure Open DataSets](../open-datasets/how-to-create-dataset-from-open-dataset.md). 
+Informazioni su come creare [set di impostazioni di Azure Machine Learning da Azure Open DataSets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md). 
 
 ## <a name="train-with-datasets"></a>Eseguire il training con set di dati
 

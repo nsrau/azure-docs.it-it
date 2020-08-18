@@ -1,20 +1,20 @@
 ---
 title: Formati dei documenti e convenzioni di denominazione - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Guida ai formati dei documenti e alle convenzioni di denominazione in Custom Translator. Questo concetto consente di gestire meglio i nomi dei documenti e di evitare conflitti di denominazione.
+description: Guida ai formati dei documenti e alle convenzioni di denominazione in Custom Translator. Questo concetto consente di gestire meglio i nomi dei documenti ed evitare conflitti di denominazione.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e976b59c0128adef6536e78985e7cf89d256062c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 46a19cd4396e598a74f9099727ac80d44c0a44f5
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992709"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507247"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guida ai formati dei documenti e alle convenzioni di denominazione
 
@@ -47,7 +47,7 @@ Ogni documento nel file zip con estensione TXT, HTML, HTM, PDF, DOCX, ALIGN deve
 
 {nome documento}\_{codice lingua} dove {nome documento} è il nome del documento e {codice lingua} è l'ID lingua ISO (due caratteri), indicante che il documento contiene frasi in tale lingua. Deve essere presente un carattere di sottolineatura (_) prima del codice della lingua.
 
-Ad esempio, per caricare due documenti paralleli in un file zip per un sistema da inglese a Spagnolo, i file devono essere denominati "data_en" e "data_es".
+Ad esempio, per caricare due documenti paralleli all'interno di un file ZIP per un sistema di traduzione dall'inglese allo spagnolo, i file dovrebbero essere denominati "dati_en" e "dati_es".
 
 I file di memoria di traduzione (con estensione TMX, XLF, XLIFF, LCL, XLSX) non devono seguire la convenzione di denominazione del linguaggio specifico.  
 

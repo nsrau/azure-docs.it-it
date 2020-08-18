@@ -1,20 +1,20 @@
 ---
-title: Domande frequenti - Custom Translator
+title: Domande frequenti-convertitore personalizzato
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene le risposte alle domande più frequenti sul traduttore personalizzato di servizi cognitivi di Azure.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 2edc5e9e255af321a30521ba1e707eea30d81f73
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 06caafe75682a2375a8023787f9905ca1e8117c9
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957597"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507230"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Domande frequenti sul traduttore personalizzato
 
@@ -41,7 +41,7 @@ La distribuzione richiede in genere meno di un'ora.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Come si accede a un sistema distribuito?
 
-È possibile accedere ai sistemi distribuiti tramite Translator specificando CategoryID. Altre informazioni su Translator sono disponibili nella pagina Web di riferimento per le [API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
+È possibile accedere ai modelli distribuiti tramite l'API Traduzione testuale V3 di Microsoft specificando il CategoryID. Altre informazioni sull'API Traduzione testuale sono disponibili nella pagina Web [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Com'è possibile evitare le fasi di allineamento e segmentazione delle frasi se i miei file sono già allineati?
 
@@ -49,6 +49,7 @@ Custom Translator non esegue l'allineamento e la segmentazione delle frasi con f
 
 Se il numero di frasi estratte non corrisponde ai due file con lo stesso nome di base, Custom Translator eseguirà comunque il processo di allineamento sui file `.align`.
 
-## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Ho tentato di caricare un file TMX ma è apparso il messaggio di errore "Document processing failed" (Elaborazione documento non riuscita).
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Ho provato a caricare il TMX, ma è stato visualizzato il messaggio "elaborazione del documento non riuscita"
+
 
 Verificare che il file TMX sia conforme alle specifiche TMX 1.4b illustrate all'indirizzo <https://www.gala-global.org/tmx-14b>.

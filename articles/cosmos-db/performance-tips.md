@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
-ms.openlocfilehash: 3e15adcac184a0609de3197181cb8c475a962e8d
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: bc73292d7ed01468fc31e5a6203a4ba53a6425a2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258356"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505768"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET SDK v2
 
@@ -72,7 +72,7 @@ Il modo in cui un client si connette a Azure Cosmos DB ha implicazioni important
 
   * Modalità Gateway (impostazione predefinita)
       
-    La modalità Gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata per il [Microsoft.Azure.DocUMENTDB SDK](sql-api-sdk-dotnet.md). Se l'applicazione viene eseguita all'interno di una rete aziendale con restrizioni rigide del firewall, la modalità Gateway è la scelta migliore perché usa la porta HTTPS standard e un singolo endpoint. Il compromesso in termini di prestazioni, tuttavia, è che la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. In modo che la modalità diretta offra prestazioni migliori in quanto sono presenti meno hop di rete. Si consiglia anche la modalità di connessione del gateway quando si eseguono applicazioni in ambienti con un numero limitato di connessioni socket.
+    La modalità Gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata per il [Microsoft.Azure.DocUMENTDB SDK](sql-api-sdk-dotnet.md). Se l'applicazione viene eseguita all'interno di una rete aziendale con restrizioni rigide del firewall, la modalità Gateway è la scelta migliore perché usa la porta HTTPS standard e un singolo endpoint DNS. Il compromesso in termini di prestazioni, tuttavia, è che la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. In modo che la modalità diretta offra prestazioni migliori in quanto sono presenti meno hop di rete. Si consiglia anche la modalità di connessione del gateway quando si eseguono applicazioni in ambienti con un numero limitato di connessioni socket.
 
     Quando si usa l'SDK in funzioni di Azure, in particolare nel [piano a consumo](../azure-functions/functions-scale.md#consumption-plan), tenere presenti i [limiti correnti per le connessioni](../azure-functions/manage-connections.md). In tal caso, la modalità gateway potrebbe essere migliore se si lavora anche con altri client basati su HTTP all'interno dell'applicazione funzioni di Azure.
 
@@ -202,7 +202,7 @@ Per ridurre il numero di round trip di rete necessari per recuperare tutti i ris
 > [!NOTE] 
 > La `maxItemCount` proprietà non deve essere utilizzata solo per la paginazione. L'uso principale è quello di migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-È anche possibile impostare le dimensioni della pagina usando gli SDK di Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in `FeedOptions` consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale, a seconda delle dimensioni del documento. Esempio:
+È anche possibile impostare le dimensioni della pagina usando gli SDK di Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in `FeedOptions` consente di impostare il numero massimo di elementi da restituire nell'operazione di enumerazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale, a seconda delle dimensioni del documento. Ad esempio:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

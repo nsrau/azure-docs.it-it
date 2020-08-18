@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 218850feea8b0e22b8e11695a3aa3c69173f1ab7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75896130"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504926"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemi di autenticazione in Azure HDInsight
 
@@ -148,7 +148,7 @@ Variabile.
 
 ### <a name="resolution"></a>Soluzione
 
-Per la riuscita di kinit, è necessario conoscerla `sAMAccountName` (si tratta del nome dell'account breve senza l'area di autenticazione). `sAMAccountName`è in genere il prefisso dell'account (ad esempio, Bob in `bob@contoso.com` ). Per alcuni utenti, può essere diverso. È necessario avere la possibilità di sfogliare o cercare la directory per apprendere il `sAMAccountName` .
+Per la riuscita di kinit, è necessario conoscerla `sAMAccountName` (si tratta del nome dell'account breve senza l'area di autenticazione). `sAMAccountName` è in genere il prefisso dell'account (ad esempio, Bob in `bob@contoso.com` ). Per alcuni utenti, può essere diverso. È necessario avere la possibilità di sfogliare o cercare la directory per apprendere il `sAMAccountName` .
 
 Modi per trovare `sAMAccountName` :
 
@@ -208,7 +208,7 @@ Questo errore si verifica in modo intermittente quando gli utenti provano ad acc
 
 * Per Azure Data Lake Storage Gen1, pulire la cache del browser e accedere di nuovo a Ambari.
 
-* Per Azure Data Lake Storage Gen2, eseguire `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` per l'utente a cui l'utente sta tentando di accedere
+* Per Azure Data Lake Storage Gen2, eseguire `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` per l'utente a cui l'utente sta tentando di accedere
 
 ---
 

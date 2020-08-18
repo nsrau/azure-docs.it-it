@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192397"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506499"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento rete durante il training & inferenza con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 
 Aggiungere l'area di lavoro e l'account di archiviazione alla stessa rete virtuale in modo che possano accedervi.
 
-1. Per connettere l'area di lavoro alla rete virtuale, [abilitare il collegamento privato di Azure](how-to-configure-private-link.md). Questa funzionalità è attualmente in anteprima ed è disponibile nelle aree Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali.
+1. Per connettere l'area di lavoro alla rete virtuale, [abilitare il collegamento privato di Azure](how-to-configure-private-link.md). Questa funzionalità è attualmente in anteprima ed è disponibile nelle aree Stati Uniti orientali e Stati Uniti occidentali 2.
 
 1. Per connettere l'account di archiviazione alla rete virtuale, [configurare le impostazioni di firewall e reti virtuali](#use-a-storage-account-for-your-workspace).
 

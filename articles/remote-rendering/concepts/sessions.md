@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: a74fae74a2d0ebbb71d65420475e5772e44a8d84
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758861"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507094"
 ---
 # <a name="remote-rendering-sessions"></a>Sessioni di Rendering remoto
 
@@ -40,10 +40,10 @@ Ogni sessione prevede più fasi.
 
 Quando si chiede ad ARR di [creare una nuova sessione](../how-tos/session-rest-api.md#create-a-session), la prima cosa che fa è restituire un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) di sessione. L'UUID consente di eseguire query sulle informazioni relative alla sessione. L'UUID e alcune informazioni di base sulla sessione vengono resi permanenti per 30 giorni, pertanto è possibile eseguire query su tali informazioni anche dopo l'arresto della sessione. A questo punto, lo **stato della sessione** verrà segnalato come **Avvio in corso**.
 
-Successivamente, il rendering remoto di Azure tenterà di trovare un server in grado di ospitare la sessione. Per questa ricerca sono disponibili due parametri. In primo luogo, vengono riservati solo i server nell'[area di pertinenza](../reference/regions.md). Ciò è dovuto al fatto che la latenza di rete tra aree può essere troppo elevata per garantire un'esperienza soddisfacente. Il secondo fattore è rappresentato dalle *dimensioni* desiderate specificate. In ogni area è disponibile un numero limitato di server che possono soddisfare le richieste di dimensioni *Standard* o *Premium*. Di conseguenza, se tutti i server delle dimensioni richieste sono attualmente in uso nell'area, la creazione della sessione avrà esito negativo. Il motivo dell'errore [può essere sottoposto a query](../how-tos/session-rest-api.md#get-sessions-properties).
+Successivamente, il rendering remoto di Azure tenterà di trovare un server in grado di ospitare la sessione. Per questa ricerca sono disponibili due parametri. In primo luogo, vengono riservati solo i server nell'[area di pertinenza](../reference/regions.md). Ciò è dovuto al fatto che la latenza di rete tra aree può essere troppo elevata per garantire un'esperienza soddisfacente. Il secondo fattore è rappresentato dalle *dimensioni* desiderate specificate. In ogni area è disponibile un numero limitato di server che possono soddisfare la richiesta di dimensioni [*standard*](../reference/vm-sizes.md) o [*Premium*](../reference/vm-sizes.md) . Di conseguenza, se tutti i server delle dimensioni richieste sono attualmente in uso nell'area, la creazione della sessione avrà esito negativo. Il motivo dell'errore [può essere sottoposto a query](../how-tos/session-rest-api.md#get-sessions-properties).
 
 > [!IMPORTANT]
-> Se si richiedono macchine virtuali con dimensioni *Standard* e la richiesta ha esito negativo a causa di un'elevata domanda, questo non implica che la richiesta di un server *Premium* avrà anch'essa esito negativo. Dunque, in tal caso sarà possibile provare a eseguire il fallback a una macchina virtuale *Premium*.
+> Se si richiede una dimensione del server *standard* e la richiesta ha esito negativo a causa di una richiesta elevata, questo non implica che la richiesta di un server *Premium* avrà esito negativo. Quindi, se si tratta di un'opzione, è possibile provare a eseguire il fallback a una dimensione del server *Premium* .
 
 Quando il servizio individua un server idoneo, deve copiare la macchina virtuale appropriata per trasformarla in un host di rendering remoto di Azure. Questo processo richiede alcuni minuti. Successivamente, la macchina virtuale viene avviata e lo **stato della sessione** passa a **Pronto**.
 
@@ -72,7 +72,7 @@ Una sessione può anche essere arrestata a causa di un errore.
 In tutti i casi, dopo l'arresto di una sessione non verrà applicato alcun addebito.
 
 > [!WARNING]
-> L'eventuale connessione a una sessione e la relativa durata non influiscono sulla fatturazione. Il pagamento per il servizio dipende dalla *durata della sessione*, ovvero dal tempo in cui un server viene riservato esclusivamente e dalle funzionalità hardware richieste (dimensioni della macchina virtuale). Se si avvia una sessione, ci si connette per cinque minuti e quindi non si arresta la sessione, per cui l'esecuzione prosegue fino alla scadenza del lease, verrà addebitata l'intera durata del lease. Viceversa, la *durata del lease massima* è principalmente una rete di sicurezza. Non è importante se si richieda o meno una sessione con una durata del lease di otto ore per poi usarla solo per cinque minuti, se si arresta manualmente la sessione in un secondo momento.
+> L'eventuale connessione a una sessione e la relativa durata non influiscono sulla fatturazione. Il pagamento per il servizio dipende dalla *durata della sessione*, ovvero dal tempo in cui un server viene riservato esclusivamente e dalle capacità hardware richieste ( [dimensione allocata](../reference/vm-sizes.md)). Se si avvia una sessione, ci si connette per cinque minuti e quindi non si arresta la sessione, per cui l'esecuzione prosegue fino alla scadenza del lease, verrà addebitata l'intera durata del lease. Viceversa, la *durata del lease massima* è principalmente una rete di sicurezza. Non è importante se si richieda o meno una sessione con una durata del lease di otto ore per poi usarla solo per cinque minuti, se si arresta manualmente la sessione in un secondo momento.
 
 #### <a name="extend-a-sessions-lease-time"></a>Estendere la durata del lease di una sessione
 

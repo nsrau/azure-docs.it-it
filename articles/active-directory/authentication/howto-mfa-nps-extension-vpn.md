@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848710"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507179"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -308,17 +308,23 @@ Per informazioni sulla configurazione degli utenti per Multi-Factor Authenticati
 
 Questa sezione contiene istruzioni per configurare la rete VPN al fine di usare Multi-Factor Authentication per l'autenticazione client con il server VPN.
 
+> [!NOTE]
+> La chiave del registro di sistema REQUIRE_USER_MATCH distingue tra maiuscole e minuscole Tutti i valori devono essere impostati in formato MAIUSCOLo.
+>
+
 Dopo aver installato e configurato l'estensione Server dei criteri di rete, tutte le autenticazioni client basate su RADIUS elaborate da questo server devono usare Multi-Factor Authentication. Se non tutti gli utenti VPN vengono registrati in Azure Multi-Factor Authentication, è possibile eseguire una delle operazioni seguenti:
 
 * Configurare un altro server RADIUS per autenticare gli utenti che non sono configurati al fine di usare Multi-Factor Authentication.
 
 * Creare una voce del registro di sistema che consenta agli utenti che hanno inviato la richiesta di offrire un secondo fattore di autenticazione se sono registrati in Azure Multi-Factor Authentication.
 
-Creare un nuovo valore stringa denominato _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMFA_ e impostare il valore su *True* o *False*.
+Creare un nuovo valore stringa denominato _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_e impostare il valore su *true* o *false*.
 
 ![Impostazioni della "Richiesta di corrispondenza utente"](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-Se il valore è impostato su *True* o non è impostato, tutte le richieste di autenticazione sono soggette a verifica MFA. Se il valore è impostato su *False*, le verifiche MFA vengono eseguite solo per gli utenti registrati in Azure Multi-Factor Authentication. Usare l'impostazione *False* solo a scopo di test o negli ambienti di produzione durante un periodo di onboarding.
+Se il valore è impostato su *true* o è vuoto, tutte le richieste di autenticazione sono soggette a una richiesta di autenticazione a più fattori. Se il valore è impostato su *false*, le richieste di autenticazione a più fattori vengono rilasciate solo agli utenti registrati in Azure multi-factor authentication. Usare l'impostazione *false* solo nei test o negli ambienti di produzione durante un periodo di onboarding.
+
+
 
 ### <a name="obtain-the-azure-active-directory-tenant-id"></a>Ottenere l'ID tenant Azure Active Directory
 
