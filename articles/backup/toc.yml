@@ -146,7 +146,11 @@
         - name: Panoramica
           href: backup-azure-sql-database.md
         - name: Backup
-          href: backup-sql-server-database-azure-vms.md
+          items:
+            - name: Eseguire il backup di più macchine virtuali di SQL Server dall'insieme di credenziali
+              href: backup-sql-server-database-azure-vms.md
+            - name: Eseguire il backup di una macchina virtuale di SQL Server dal riquadro delle macchine virtuali
+              href: backup-sql-server-vm-from-vm-pane.md
         - name: Restore
           href: restore-sql-database-azure-vm.md
         - name: Gestione

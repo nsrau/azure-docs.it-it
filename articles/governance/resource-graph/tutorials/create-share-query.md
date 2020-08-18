@@ -3,16 +3,16 @@ title: 'Esercitazione: Gestire le query nel portale di Azure'
 description: In questa esercitazione viene creata una nuova query di Resource Graph, che viene condivisa con altre persone nel portale di Azure.
 ms.date: 06/29/2020
 ms.topic: tutorial
-ms.openlocfilehash: c3da623e8bea44cc49e4ef46517ce461459405a9
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970587"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005171"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Esercitazione: Creare e condividere una query di Azure Resource Graph nel portale di Azure
 
-Azure Resource Graph Explorer consente di salvare le query di Resource Graph direttamente nel portale di Azure. Esistono due tipi di query: _privata_ e _condivisa_. Una query privata viene salvata nelle impostazioni del portale di Azure. Una query condivisa invece è una risorsa di Azure Resource Manager che può essere gestita con i controlli degli accessi in base al ruolo (RBAC) e protetta con i blocchi di risorse. Entrambi i tipi di query vengono crittografati quando inattive.
+Azure Resource Graph Explorer consente di salvare le query di Resource Graph direttamente nel portale di Azure. Esistono due tipi di query: _privata_ e _condivisa_. Una query privata viene salvata nelle impostazioni del portale di Azure. Una query condivisa è invece una risorsa di Azure Resource Manager che è possibile gestire con il Controllo degli accessi in base al ruolo di Azure, nonché proteggere con i blocchi delle risorse. Entrambi i tipi di query vengono crittografati quando inattive.
 
 Salvare le query nel portale di Azure consente di risparmiare tempo e di avere a disposizione le query preferite o usate più di frequente. Condividendo le query si offre un valido aiuto al proprio team nel realizzare obiettivi di coerenza ed efficienza grazie alla ripetizione.
 
@@ -60,7 +60,7 @@ Le query private sono accessibili e visualizzabili solo dall'account che le crea
 
 ## <a name="create-a-shared-query"></a>Creare una query condivisa
 
-A differenza di una query privata, una query condivisa è una risorsa di Resource Manager. Ciò significa che la query viene salvata in un gruppo di risorse, può essere gestita e controllata con il controllo degli accessi in base al ruolo e può anche essere protetta con i blocchi di risorse. In quanto risorsa, tutti gli utenti che hanno le autorizzazioni appropriate possono visualizzarla e usarla.
+A differenza di una query privata, una query condivisa è una risorsa di Resource Manager. Ciò significa che la query viene salvata in un gruppo di risorse, può essere gestita e controllata con il Controllo degli accessi in base al ruolo di Azure e può anche essere protetta con i blocchi delle risorse. In quanto risorsa, tutti gli utenti che hanno le autorizzazioni appropriate possono visualizzarla e usarla.
 Per creare una nuova query condivisa, seguire questa procedura:
 
 1. Dal menu del portale selezionare **Tutti i servizi** oppure usare la casella di ricerca di Azure nella parte superiore di tutte le pagine e selezionare **Resource Graph Explorer**.

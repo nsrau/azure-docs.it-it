@@ -1,6 +1,6 @@
 ---
 title: Esempio di script di Azure PowerShell - Eliminare i contenitori mediante prefisso | Microsoft Docs
-description: Eliminare i contenitori BLOB dell'Archiviazione di Azure in base a un prefisso del nome.
+description: Vedere un esempio che mostra come eliminare l'archivio BLOB di Azure in base a un prefisso nel nome del contenitore, usando Azure PowerShell.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 6069c51b27d7f8f11155a72613c04566d1c7b64d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 18827beeb606694e2c9089f27570216d413aabd9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006093"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033548"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminare i contenitori in base al prefisso del nome
 

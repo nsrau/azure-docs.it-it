@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9a393e29c4b5b2faa48cbcd273c7bc7a46169ba3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475652"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904191"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: Creare un cluster di Azure Red Hat OpenShift 4
 
@@ -49,9 +49,9 @@ Un segreto pull di Red Hat consente al cluster di accedere ai registri contenito
 
    È necessario accedere all'account Red Hat o creare un nuovo account Red Hat con l'indirizzo di posta elettronica aziendale e accettare i termini e le condizioni.
 
-2. **Fare clic su Download pull secret (Scarica segreto pull).**
+2. Se è la prima volta che si crea un cluster, passare alla [**pagina dei prodotti OpenShift**](https://developers.redhat.com/products/codeready-containers). Dopo la registrazione, passare alla [**pagina di Red Hat OpenShift Cluster Manager**](https://cloud.redhat.com/openshift/), dove è possibile fare clic sul pulsante per il **download del segreto pull** da usare con il cluster ARO.
 
-Conservare il file `pull-secret.txt` salvato in una posizione sicura perché verrà usato ogni volta che si crea un cluster.
+Conservare il file `pull-secret.txt` salvato in una posizione sicura. Il file verrà usato per ogni creazione di cluster se è necessario creare un cluster che includa gli esempi o gli operatori per Red Hat o i partner certificati.
 
 Quando si esegue il comando `az aro create`, è possibile fare riferimento al segreto di pull usando il parametro `--pull-secret @pull-secret.txt`. Eseguire `az aro create` dalla directory in cui è stato archiviato il file `pull-secret.txt`. In caso contrario, sostituire `@pull-secret.txt` con `@<path-to-my-pull-secret-file>`.
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: fbe3f0109ca3af2cf9ff44061c7882e6bd72c8a6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927420"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508603"
 ---
-# <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Edizioni Enterprise e Basic di Azure Machine Learning 
+# <a name="enterprise-preview-and-basic-editions-of-azure-machine-learning"></a>Edizioni Enterprise (Preview) e Basic di Azure Machine Learning 
 
 Azure Machine Learning offre due edizioni personalizzate per le esigenze di machine learning. Queste edizioni determinano quali strumenti di Machine Learning sono disponibili per sviluppatori e data scientist dalla relativa area di lavoro.
 
@@ -23,7 +23,7 @@ Azure Machine Learning offre due edizioni personalizzate per le esigenze di mach
 
 L'edizione viene assegnata ogni volta che si crea un'area di lavoro. I clienti sono responsabili dei costi sostenuti per le risorse di calcolo e di altro tipo di Azure durante questo periodo di tempo. Informazioni su come [gestire i costi per Azure Machine Learning](concept-plan-manage-cost.md).
 
-Vedere le informazioni su come [aggiornare un'area di lavoro dell'edizione Basic all'edizione Enterprise](how-to-manage-workspace.md#upgrade). 
+Informazioni su come [aggiornare un'area di lavoro di base all'edizione Enterprise (anteprima)](how-to-manage-workspace.md#upgrade). 
 
 ## <a name="whats-in-each-edition"></a>Elementi di ogni edizione
 
@@ -49,7 +49,7 @@ Vedere le informazioni su come [aggiornare un'area di lavoro dell'edizione Basic
 | Funzionalità    | Edizione                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Creazione ed esecuzione [di esperimenti AutoML nei notebook](how-to-configure-auto-train.md)               | Tutti                     |
-| Creazione ed esecuzione [di esperimenti AutoML in studio (Web)](how-to-use-automated-ml-for-ml-models.md)   | Solo Enterprise Edition |
+| Creazione ed esecuzione  [di esperimenti AutoML in studio (Web)](how-to-use-automated-ml-for-ml-models.md)   | Solo Enterprise Edition |
 | Funzionalità di previsione AutoML leader di settore             | Solo Enterprise Edition |
 | Supporto per Deep Learning e altri Learner avanzati | Solo Enterprise Edition |
 | Attività di classificazione e regressione del supporto dati di grandi dimensioni (fino a 100 GB)                     | Solo Enterprise Edition |

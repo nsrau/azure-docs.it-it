@@ -3,17 +3,17 @@ title: Inviare notifiche push a iOS con Hub di notifica di Azure e iOS SDK
 description: In questa esercitazione si apprenderà come usare Hub di notifica di Azure e Apple Push Notification Service per inviare notifiche push a dispositivi iOS.
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/19/2020
+ms.date: 08/10/2020
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 94e930c996710c2b25d4114c7cfcb17129c5177d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cdf095898bfe85e6f3b14fa1dcdb7b0c94ccde6
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022430"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042446"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app iOS con Hub di notifica di Azure
 
@@ -102,6 +102,9 @@ Per inviare notifiche push a un'app per iOS, registrare l'applicazione con Apple
 4. Nella pagina **Certificates, Identifiers & Profiles** (Certificati, identificatori e profili), in **Identifiers** (Identificatori), individuare la voce relativa all'ID app appena creato e selezionare la riga corrispondente per visualizzare la schermata **Edit your App ID Configuration** (Modifica la configurazione dell'ID app).
 
 ## <a name="create-a-certificate-for-notification-hubs"></a>Creare un certificato per Hub di notifica
+
+> [!NOTE]
+> Con la versione di iOS 13, è possibile ricevere notifiche automatiche solo usando l'autenticazione basata su token. Se si usa l'autenticazione basata su certificati per le credenziali del servizio APN, è necessario passare all'autenticazione basata su token.
 
 Per consentire all'hub di notifica di usare **APNS**, è necessario un certificato. Questa operazione può essere eseguita in uno dei due modi seguenti:
 

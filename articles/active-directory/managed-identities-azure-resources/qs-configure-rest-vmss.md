@@ -1,6 +1,6 @@
 ---
-title: Configurare le identità gestite nel set di scalabilità di macchine virtuali di Azure tramite REST-Azure AD
-description: Istruzioni dettagliate per la configurazione di un sistema e di identità gestite assegnate dall'utente in un set di scalabilità di macchine virtuali di Azure tramite CURL per eseguire chiamate API REST.
+title: Configurare le identità gestite in un set di scalabilità di macchine virtuali di Azure tramite REST - Azure AD
+description: Istruzioni dettagliate per configurare le identità gestite assegnate dall'utente e dal sistema in un set di scalabilità di macchine virtuali di Azure usando CURL per eseguire chiamate all'API REST.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06bce15dfbd2ccd3ac97f6a4f1e4efb5a24db85d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf514480f0ca247606ffbc50148556eeed007c8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609101"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921521"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite le chiamate API REST
 
@@ -37,7 +37,7 @@ Questo articolo illustra come eseguire queste operazioni di identità gestite pe
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le seguenti assegnazioni di controllo degli accessi in base al ruolo:
+- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le assegnazioni di ruolo di Azure seguenti:
 
     > [!NOTE]
     > Non sono necessarie altre assegnazioni di ruoli della directory di Azure AD.
@@ -337,7 +337,7 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
    az account get-access-token
    ``` 
 
-4. Creare un'identità gestita assegnata dall'utente usando le istruzioni disponibili qui: [creare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Creare un'identità gestita assegnata dall'utente usando le istruzioni disponibili qui: [Creare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 5. Creare un set di scalabilità di macchine virtuali usando CURL per chiamare l'endpoint REST di Azure Resource Manager. L'esempio seguente crea un set di scalabilità di macchine virtuali denominato *myVMSS* nel gruppo di risorse *myResourceGroup*, con un'identità gestita assegnata dall'utente €`ID1`, come indicato nel corpo della richiesta dal valore `"identity":{"type":"UserAssigned"}`. Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
  

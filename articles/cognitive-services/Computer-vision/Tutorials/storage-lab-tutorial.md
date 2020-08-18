@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 43172cb08bb1e31c8cff891628ca6ef85cb8c864
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 68dd2ae09c5d6ad5e510fb3beb532b235f83fc8d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404420"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834695"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Esercitazione: Usare Visione artificiale per generare i metadati delle immagini in Archiviazione di Azure
 
@@ -59,7 +59,7 @@ Sarà necessario creare una risorsa Visione artificiale per l'account Azure. Que
 
 ## <a name="add-computer-vision-credentials"></a>Aggiungere le credenziali dell'API Visione artificiale
 
-Aggiungere quindi le credenziali necessarie all'app in modo che possa accedere alle risorse Visione artificiale
+Aggiungere quindi le credenziali necessarie all'app in modo che possa accedere alle risorse di Visione artificiale.
 
 Aprire l'applicazione Web ASP.NET in Visual Studio e passare al file **Web. config** nella radice del progetto. Aggiungere le istruzioni seguenti alla sezione `<appSettings>` del file, sostituendo `VISION_KEY` con la chiave copiata nel passaggio precedente e `VISION_ENDPOINT` con l'URL salvato nel passaggio precedente.
 

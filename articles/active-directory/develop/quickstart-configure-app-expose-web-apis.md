@@ -1,6 +1,7 @@
 ---
-title: Configurare un'app per esporre le API Web - Microsoft Identity Platform | Azure
-description: Informazioni su come configurare un'applicazione in modo da esporre un nuovo ambito/autorizzazione e un nuovo ruolo e renderla così disponibile per applicazioni client.
+title: "Avvio rapido: Configurare un'app per esporre un'API Web | Azure"
+titleSuffix: Microsoft identity platform
+description: In questo argomento di avvio rapido viene illustrato come configurare un'applicazione in modo da esporre un nuovo ambito/autorizzazione e un nuovo ruolo e renderla così disponibile per le applicazioni client.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,30 +9,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/14/2019
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 263eb531466e26ed6069dc889c17e2632aa9ed20
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 93b0c3392a32a6ff18a285d34fdaede6ceea6528
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799413"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830292"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web
+# <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Avvio rapido: Configurare un'applicazione per esporre un'API Web
 
 È possibile sviluppare un'API Web e renderla disponibile per applicazioni client esponendo [ambiti/autorizzazioni](developer-glossary.md#scopes) e [ruoli](developer-glossary.md#roles). Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365.
 
-In questa guida introduttiva verrà illustrato come configurare un'applicazione in modo da esporre un nuovo ambito e renderla così disponibile per applicazioni client.
+In questo argomento di avvio rapido viene illustrato come configurare un'applicazione in modo da esporre un nuovo ambito e renderla così disponibile per le applicazioni client.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per iniziare, assicurarsi di soddisfare questi prerequisiti:
-
-* Acquisire informazioni su [autorizzazioni supportate e consenso](v2-permissions-and-consent.md), la cui conoscenza è importante per creare applicazioni che dovranno essere usate da altri utenti o applicazioni.
-* Avere un tenant in cui sono registrate applicazioni.
-  * Se non si hanno app registrate, vedere come [registrare applicazioni con Microsoft Identity Platform](quickstart-register-app.md).
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Completamento di [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Accedere al portale di Azure e selezionare l'app
 
@@ -86,13 +84,17 @@ Per esporre un nuovo ambito tramite l'interfaccia utente:
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Esporre un nuovo ambito o ruolo tramite il manifesto dell'applicazione
 
+Il manifesto dell'applicazione funge da meccanismo per l'aggiornamento dell'entità applicazione e definisce gli attributi di una registrazione di app Azure AD.
+
 [![Esporre un nuovo ambito con la raccolta oauth2Permissions del manifesto](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
 
-Per esporre un nuovo ambito tramite il manifesto dell'applicazione:
+Per esporre un nuovo ambito modificando il manifesto dell'applicazione:
 
 1. Nella pagina **Panoramica** dell'app selezionare la sezione **Manifesto**. Si apre un editor di manifesto basato sul Web che consente di **modificare** il manifesto all'interno del portale. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione.
 
     L'esempio seguente illustra come esporre un nuovo ambito denominato `Employees.Read.All` nella risorsa/API aggiungendo l'elemento JSON seguente alla raccolta `oauth2Permissions`.
+
+    Generare il valore di `id` a livello di codice oppure usando uno strumento per la generazione di GUID come [guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
 
       ```json
       {
@@ -107,13 +109,12 @@ Per esporre un nuovo ambito tramite il manifesto dell'applicazione:
       }
       ```
 
-   > [!NOTE]
-   > Il valore di `id` deve essere generato a livello di codice oppure usando uno strumento per la generazione di GUID come [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` rappresenta un identificatore univoco per l'ambito esposto dall'API Web. Dopo che un client è stato configurato in modo appropriato con le autorizzazioni per accedere all'API Web, Azure AD rilascia al client un token di accesso OAuth 2.0. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (scp) impostata sulle autorizzazioni richieste nella registrazione della relativa applicazione.
-   >
-   > Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando le attestazioni dell'ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
-
 1. Al termine fare clic su **Salva**. Ora l'API Web è configurata in modo che possa essere usata da altre applicazioni nella directory.
 1. Seguire la procedura per [verificare che l'API Web sia esposta ad altre applicazioni](#verify-the-web-api-is-exposed-to-other-applications).
+
+Per altre informazioni sull'entità applicazione e sul relativo schema, vedere la documentazione di riferimento per il tipo di risorsa [applicazione][ms-graph-application] di Microsoft Graph.
+
+Per altre informazioni sul manifesto dell'applicazione, incluse le informazioni di riferimento sullo schema, vedere [Informazioni sul manifesto dell'app Azure AD](reference-app-manifest.md).
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificare che l'API Web sia esposta ad altre applicazioni
 
@@ -125,24 +126,24 @@ Per esporre un nuovo ambito tramite il manifesto dell'applicazione:
 
 Dopo aver selezionato la risorsa API Web, il nuovo ambito sarà disponibile per le richieste di autorizzazioni dei client.
 
-## <a name="more-on-the-application-manifest"></a>Altre informazioni sul manifesto dell'applicazione
+## <a name="using-the-exposed-scopes"></a>Uso degli ambiti esposti
 
-Il manifesto dell'applicazione funge da meccanismo per l'aggiornamento dell'entità applicazione e definisce tutti gli attributi della configurazione dell'identità di un'applicazione Azure AD. Per altre informazioni sull'entità applicazione e il relativo schema, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), che include informazioni di riferimento complete sui membri dell'entità applicazione utilizzati per specificare le autorizzazioni per l'API, fra cui:
+Dopo che un client è stato configurato in modo appropriato con le autorizzazioni per accedere all'API Web, Azure AD può rilasciare al client un token di accesso OAuth 2.0. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (`scp`) impostata sulle autorizzazioni richieste nella registrazione dell'applicazione.
 
-* Il membro appRoles, che è una raccolta di entità [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) utilizzate per definire le [Autorizzazioni applicazione](developer-glossary.md#permissions) per un'API Web.
-* Il membro oauth2Permissions, che è una raccolta di entità [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) utilizzate per definire le [Autorizzazioni delegate](developer-glossary.md#permissions) per un'API Web.
+Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando le attestazioni dell'ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
 
-Per altre informazioni sui concetti generali relativi al manifesto dell'applicazione, vedere [Informazioni sul manifesto dell'applicazione in Azure Active Directory](reference-app-manifest.md).
+Nelle applicazioni il valore dell'ambito completo è una concatenazione di **URI ID applicazione** dell'API Web (la risorsa) e **Nome ambito**.
+
+Se, ad esempio, l'URI ID applicazione dell'API Web è `https://contoso.com/api` e il nome dell'ambito è `Employees.Read.All`, l'ambito completo è:
+
+`https://contoso.com/api/Employees.Read.All`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le altre guide introduttive correlate sulla gestione delle app:
+Ora che l'API Web è stata esposta configurandone gli ambiti, configurare la registrazione dell'app client con l'autorizzazione per accedere a tali ambiti.
 
-* [Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
-* [Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md)
-* [Modificare gli account supportati da un'applicazione](quickstart-modify-supported-accounts.md)
-* [Rimuovere un'applicazione registrata con Microsoft Identity Platform](quickstart-remove-app.md)
+> [!div class="nextstepaction"]
+> [Configurare la registrazione di un'app per l'accesso all'API Web](quickstart-configure-app-access-web-apis.md)
 
-Per altre informazioni su due oggetti di Azure AD che rappresentano un'applicazione registrata e la relazione tra essi, vedere [Oggetti applicazione e oggetti entità servizio](app-objects-and-service-principals.md).
-
-Per altre informazioni sulle linee guida sulla personalizzazione da seguire per lo sviluppo di applicazioni con Azure Active Directory, vedere [Linee guida sulla personalizzazione delle applicazioni](howto-add-branding-in-azure-ad-apps.md).
+<!-- REF LINKS -->
+[ms-graph-application]: /graph/api/resources/application

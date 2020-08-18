@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: e5ba08da5c58ff486bc26f2c771dfef55452629a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8539696f4521a1b4a2f56fe7d2936b45dec26ec9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75681040"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077681"
 ---
-Nella finestra del terminale locale aggiungere un'istanza remota di Azure al repository Git locale. Sostituire *\<deploymentLocalGitUrl-from-create-step>* con l'URL del Git remoto salvato in [Creare un'app Web](#create-a-web-app).
+Nella finestra del terminale locale aggiungere un'istanza remota di Azure al repository Git locale. Sostituire *\<deploymentLocalGitUrl-from-create-step>* con l'URL dell'istanza remota di Git salvata in [Creare un'app Web](#create-a-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Effettuare il push all'istanza remota di Azure per distribuire l'app con il comando seguente. Quando Git Credential Manager richiede le credenziali, assicurarsi di immettere quelle create in [Configurare un utente della distribuzione](/azure/app-service/containers/tutorial-python-postgresql-app#configure-a-deployment-user), non quelle usate per accedere al portale di Azure.
+Effettuare il push all'istanza remota di Azure per distribuire l'app con il comando seguente. Quando Git Credential Manager richiede le credenziali, assicurarsi di immettere quelle create in **Configurare un utente della distribuzione**, non quelle usate per accedere al portale di Azure.
 
 ```bash
 git push azure master

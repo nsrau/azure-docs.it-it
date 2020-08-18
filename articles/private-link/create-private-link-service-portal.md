@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78252539"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927239"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Collegamento privato usando il portale di Azure
 
@@ -40,9 +40,9 @@ In questa sezione è necessario sostituire i parametri seguenti delle procedure 
 | **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | Stati Uniti orientali 2      |
-| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<IPv4-address-space>**   | 10.3.0.0/16          |
 | **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.3.0.0\24          |
+| **\<subnet-address-range>** | 10.3.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -133,7 +133,7 @@ Per creare una regola di bilanciamento del carico:
 
 ## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato
 
-In questa sezione verrà creato un servizio Collegamento privato dietro un'istanza di Load Balancer Standard.
+In questa sezione verrà creato un servizio di collegamento privato dietro un'istanza di Load Balancer Standard.
 
 1. Nella parte superiore sinistra della pagina del portale di Azure selezionare **Crea una risorsa** > **Rete** > **Centro collegamento privato (anteprima)** . È anche possibile usare la barra di ricerca del portale per cercare Collegamento privato.
 
@@ -173,7 +173,7 @@ In questa sezione verrà creato un servizio Collegamento privato dietro un'istan
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non si ha più bisogno del servizio Collegamento privato, eliminare il gruppo di risorse per pulire le risorse usate in questo argomento di avvio rapido.
+Quando non si ha più bisogno del servizio di collegamento privato, eliminare il gruppo di risorse per pulire le risorse usate in questo argomento di avvio rapido.
 
 1. Immettere **myResourceGroupLB** nella casella Cerca nella parte superiore del portale e selezionare **myResourceGroupLB** nei risultati della ricerca.
 1. Selezionare **Elimina gruppo di risorse**.

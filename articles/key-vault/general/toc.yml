@@ -138,6 +138,8 @@
           href: move-region.md
 - name: Informazioni di riferimento
   items:
+    - name: Librerie client
+      href: client-libraries.md
     - name: Codici di errore dell'API REST - Azure Key Vault
       href: rest-error-codes.md
     - name: Parametri e intestazioni comuni

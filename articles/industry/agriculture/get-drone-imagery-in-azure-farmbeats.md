@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f0c3c63d00ea49bf43f00f256266599a73d6c0
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77132042"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508805"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Ottenere immagini drone da partner drone
 
@@ -53,9 +53,9 @@ Attenersi a questa procedura.
 5. Passare alla directory in cui sono stati caricati i file. Per impostazione predefinita, vengono caricati nella home directory sotto il nome utente.
 6. Eseguire lo script riportato di seguito:
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generateCredentials.ps1   
+    ./generateCredentials.ps1
 
     ```
 

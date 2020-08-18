@@ -5,16 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: a6805fc686d0bc5bd0e2357828d59d40ba05f248
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "84870388"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852923"
 ---
 # <a name="testing-the-fhir-api"></a>Test dell'API per FHIR
 Nei due passaggi precedenti è stata distribuita l'API di Azure per FHIR ed è stata registrata l'applicazione client. Ora è possibile per verificare che l'API di Azure per FHIR sia configurata con l'applicazione client. 
@@ -22,7 +22,7 @@ Nei due passaggi precedenti è stata distribuita l'API di Azure per FHIR ed è s
 ## <a name="retrieve-capability-statement"></a>Recuperare la dichiarazione di funzionalità
 Prima di tutto si otterrà la dichiarazione di funzionalità per l'API di Azure per FHIR. 
 1. Aprire Postman
-1. Recuperare la dichiarazione di funzionalità eseguendo GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata. Nell'immagine seguente il nome del server FHIR è **fhirserver**.
+1. Recuperare la dichiarazione di funzionalità tramite GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata. Nell'immagine seguente il nome del server FHIR è **fhirserver**.
 
 ![Dichiarazione di funzionalità](media/tutorial-web-app/postman-capability-statement.png)
 
@@ -41,8 +41,8 @@ Per ottenere l'accesso, è necessario un token di accesso.
 |Token Name (Nome del token)           |Un nome per il token                                               |
 |Grant Type (Tipo di concessione)           |Codice di autorizzazione                                                  |
 |Callback URL (URL callback)         |https://www.getpostman.com/oauth2/callback                          |
-|Auth URL (URL autorizzazione)             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/?resource=https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com|
-|Access Token URL (URL token di accesso)     |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/token|
+|Auth URL (URL autorizzazione)             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID> /oauth2/?resource=https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com|
+|Access Token URL (URL token di accesso)     |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID> /oauth2/token|
 |ID client            |L'ID client copiato nei passaggi precedenti             |
 |Client Secret        |\<BLANK>                                                            |
 |Scope                |\<BLANK>                                                            |

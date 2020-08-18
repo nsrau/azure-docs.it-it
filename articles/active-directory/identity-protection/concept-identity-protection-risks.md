@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de905c61642c36a07c7f87e0be910b0f035bffc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555259"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507434"
 ---
 # <a name="what-is-risk"></a>Che cosa sono i rischi?
 
@@ -65,6 +65,12 @@ Questi rischi possono essere calcolati in tempo reale o calcolati offline usando
 | Rilevato rischio aggiuntivo | In tempo reale o offline | Questo rilevamento indica che è stato rilevato uno dei rilevamenti Premium precedenti. Poiché i rilevamenti Premium sono visibili solo ai clienti Azure AD Premium P2, sono intitolati "rischi aggiuntivi rilevati" per i clienti senza Azure AD Premium le licenze P2. |
 
 ## <a name="common-questions"></a>Domande frequenti
+
+### <a name="risk-levels"></a>Livelli di rischio
+
+Identity Protection suddivide i rischi in tre livelli: basso, medio e alto. 
+
+Sebbene Microsoft non fornisca dettagli specifici sul modo in cui viene calcolato il rischio, si dirà che ogni livello garantisce una maggiore fiducia nell'utente o nell'accesso. Ad esempio, qualcosa di simile a un'istanza di proprietà di accesso non note per un utente potrebbe non essere così minaccioso come le credenziali perse per un altro utente.
 
 ### <a name="leaked-credentials"></a>Credenziali perse
 

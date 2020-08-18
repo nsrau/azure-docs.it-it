@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 99d9988a02b046562c2517df8a81b8ef5c778ef2
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 330066a950165d3424ca7900493ac89ce746b309
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683528"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904548"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pagerduty"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con PagerDuty
 
@@ -38,6 +38,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di PagerDuty abilitata per l'accesso Single Sign-On (SSO).
+
+> [!NOTE]
+> Se si usa l'autenticazione a più fattori o l'autenticazione senza password con Azure AD, disattivare il valore AuthnContext nella richiesta SAML. In caso contrario Azure AD genererà l'errore in caso di mancata corrispondenza di AuthnContext e non invierà di nuovo il token all'applicazione.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -64,7 +67,7 @@ Configurare e testare l'accesso SSO di Azure AD con PagerDuty usando un utente d
 Per configurare e testare l'accesso SSO di Azure AD con PagerDuty, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di PagerDuty](#configure-pagerduty-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di PagerDuty](#create-pagerduty-test-user)** : per avere una controparte di B.Simon in PagerDuty collegata alla rappresentazione dell'utente in Azure AD.

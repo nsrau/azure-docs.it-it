@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759700"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507502"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migrazione del traffico del database SQL di Azure ai gateway più recenti
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,21 +28,43 @@ I clienti riceveranno una notifica tramite posta elettronica e in portale di Azu
 
 # <a name="in-progress"></a>[In corso](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Settembre 2020
+Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL dovranno iniziare ad accettare il traffico dei clienti il **15 settembre 2020**:
 
-Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL dovranno iniziare ad accettare il traffico dei clienti il 10 settembre 2020:
+- Australia sudorientale: 13.77.48.10
+- Canada orientale: 40.86.226.166, 52.242.30.154
+- Regno Unito meridionale: 51.140.184.11, 51.105.64.0
+
+I gateway SQL esistenti inizieranno ad accettare il traffico nelle aree seguenti. Questi gateway SQL dovranno iniziare ad accettare il traffico dei clienti il **15 settembre 2020** :
+
+- Australia sudorientale: 191.239.192.109 e 13.73.109.251
+- Stati Uniti centrali: 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 e 104.208.21.1
+- Asia orientale: 191.234.2.139, 52.175.33.150 e 13.75.32.4
+- Stati Uniti orientali: 40.121.158.30, 40.79.153.12, 191.238.6.43 e 40.78.225.32
+- Stati Uniti orientali 2:40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 e 104.208.150.3
+- Francia centrale: 40.79.137.0 e 40.79.129.1
+- Giappone occidentale: 104.214.148.156, 40.74.100.192, 191.238.68.11 e 40.74.97.10
+- Stati Uniti centro-settentrionali: 23.96.178.199, 23.98.55.75 e 52.162.104.33
+- Asia sudorientale: 104.43.15.0, 23.100.117.95 e 40.78.232.3
+- Stati Uniti occidentali: 104.42.238.205, 23.99.34.75 e 13.86.216.196
+
+Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL dovranno iniziare ad accettare il traffico dei clienti il **10 settembre 2020**:
 
 - Stati Uniti centro-occidentali: 13.78.248.43 
 - Sudafrica settentrionale: 102.133.120.2  
 
-Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL inizieranno ad accettare il traffico dei clienti il 1 ° settembre 2020:
+Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL inizieranno ad accettare il traffico dei clienti il **1 ° settembre 2020**:
 
 - Europa settentrionale: 13.74.104.113 
 - Uniti Ovest: 40.78.248.10 
 - Europa occidentale: 52.236.184.163 
 - Stati Uniti centro-meridionali: 20.45.121.1, 20.49.88.1 
 
-I gateway SQL esistenti inizieranno ad accettare il traffico nelle aree seguenti. Questi gateway SQL inizieranno ad accettare il traffico dei clienti il 1 ° settembre 2020. :
+I gateway SQL esistenti inizieranno ad accettare il traffico nelle aree seguenti. Questi gateway SQL inizieranno ad accettare il traffico dei clienti il **1 ° settembre 2020** :
 - Giappone orientale: 40.79.184.8, 40.79.192.5
+
+# <a name="completed"></a>[Operazione completata](#tab/completed-ip)
+
+Sono state completate le migrazioni del gateway seguenti: 
 
 ### <a name="august-2020"></a>Agosto 2020
 
@@ -53,10 +75,6 @@ Nuovi gateway SQL vengono aggiunti alle aree seguenti:
 - Stati Uniti occidentali 2:40.78.240.8
 
 Questi gateway SQL dovranno iniziare ad accettare il traffico dei clienti il 10 agosto 2020. 
-
-# <a name="completed"></a>[Operazione completata](#tab/completed-ip)
-
-Sono state completate le migrazioni del gateway seguenti: 
 
 ### <a name="october-2019"></a>Ottobre 2019
 - Brasile meridionale
@@ -96,7 +114,7 @@ Si consiglia di consentire il traffico in uscita agli indirizzi IP per tutti gli
 
 Le connessioni effettuate da applicazioni che utilizzano il driver Microsoft JDBC per la versione 4,0 potrebbero avere esito negativo. Le versioni precedenti di Microsoft JDBC si basano sul nome comune (CN) nel campo oggetto del certificato. La mitigazione consiste nel verificare che la proprietà hostNameInCertificate sia impostata su *. database.windows.net. Per ulteriori informazioni su come impostare la proprietà hostNameInCertificate, vedere [connessione con crittografia](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
-Se la mitigazione precedente non funziona, archiviare una richiesta di supporto per il database SQL o SQL Istanza gestita usando l'URL seguente:https://aka.ms/getazuresupport
+Se la mitigazione precedente non funziona, archiviare una richiesta di supporto per il database SQL o SQL Istanza gestita usando l'URL seguente: https://aka.ms/getazuresupport
 
 ## <a name="next-steps"></a>Passaggi successivi
 

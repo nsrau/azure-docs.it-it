@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: c49894c722897233afa6325def1d3e17562d2dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a770fe2362e1e1c98c683f694f7f834ac6f4ea6c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075092"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836854"
 ---
 # <a name="azure-enterprise-transfers"></a>Trasferimenti di Azure Enterprise
 
@@ -98,7 +98,7 @@ Azure EA Portal può trasferire le sottoscrizioni da un proprietario dell'accoun
 
 ## <a name="subscription-transfer-effects"></a>Effetti del trasferimento della sottoscrizione
 
-Quando una sottoscrizione di Azure viene trasferita in un account nello stesso tenant di Azure Active Directory, tutti gli utenti, i gruppi e le entità servizio che disponevano del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per gestire le risorse conservano l'accesso.
+Quando una sottoscrizione di Azure viene trasferita in un account nello stesso tenant di Azure Active Directory, tutti gli utenti, i gruppi e le entità servizio con il [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) per gestire le risorse conservano l'accesso.
 
 Per visualizzare gli utenti con autorizzazioni di controllo degli accessi in base al ruolo alla sottoscrizione:
 

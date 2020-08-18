@@ -43,7 +43,7 @@
               href: solutions-benefits-azure-netapp-files-oracle-database.md
             - name: Vantaggi dell'uso di Azure NetApp Files per l'automazione della progettazione elettronica
               href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
-            - name: Uso di Desktop virtuale Windows con Azure NetApp Files
+            - name: Vantaggi dell'uso di Azure NetApp Files con Desktop virtuale Windows
               href: solutions-windows-virtual-desktop.md
     - name: Domande frequenti su Azure NetApp Files
       href: azure-netapp-files-faqs.md

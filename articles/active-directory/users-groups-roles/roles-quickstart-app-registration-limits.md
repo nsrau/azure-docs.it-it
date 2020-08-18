@@ -8,29 +8,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5acfa98636f54f87facf9771beb7d94dbd2b324
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: fdaf80f7b493c0979f1d353b7d740a41035a87bc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84731733"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003314"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Avvio rapido: Concedere l'autorizzazione per creare registrazioni per l'app illimitate
 
-In questo argomento di avvio rapido verrà creato un ruolo personalizzato con l'autorizzazione per creare un numero illimitato di registrazioni di app e quindi si assegnerà tale ruolo a un utente. L'utente assegnato può quindi usare il portale di Azure AD, Azure AD PowerShell o l'API Microsoft Graph per creare registrazioni dell'applicazione. Diversamente dal ruolo predefinito Sviluppatore di applicazioni, questo ruolo personalizzato concede la possibilità di creare un numero illimitato di registrazioni dell'applicazione. Il ruolo Sviluppatore di applicazioni concede la possibilità, ma il numero totale di oggetti creati è limitato a 250 per impedire il raggiungimento della [quota di oggetti a livello di directory](directory-service-limits-restrictions.md).
+In questa guida di avvio rapido verrà creato un ruolo personalizzato con l'autorizzazione per creare un numero illimitato di registrazioni di app e quindi tale ruolo verrà assegnato a un utente. L'utente assegnato può quindi usare il portale di Azure AD, Azure AD PowerShell o l'API Microsoft Graph per creare registrazioni dell'applicazione. Diversamente dal ruolo predefinito Sviluppatore di applicazioni, questo ruolo personalizzato concede la possibilità di creare un numero illimitato di registrazioni dell'applicazione. Il ruolo Sviluppatore di applicazioni concede la possibilità, ma il numero totale di oggetti creati è limitato a 250 per impedire il raggiungimento della [quota di oggetti a livello di directory](directory-service-limits-restrictions.md). Il ruolo con privilegi minimi necessario per creare e assegnare ruoli personalizzati di Azure AD è Amministratore ruolo con privilegi.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisite"></a>Prerequisito
-
-Il ruolo con privilegi minimi necessario per creare e assegnare ruoli personalizzati di Azure AD è Amministratore ruolo con privilegi.
-
-## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Creare un nuovo ruolo personalizzato usando il portale di Azure AD
+## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Creare un ruolo personalizzato usando il portale di Azure AD
 
 1. Accedere all' [interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con autorizzazioni di Amministratore ruolo con privilegi o Amministratore globale nell'organizzazione di Azure AD.
 1. Selezionare **Azure Active Directory**, selezionare **Ruoli e amministratori** e quindi selezionare **Nuovo ruolo personalizzato**.
@@ -47,7 +43,7 @@ Il ruolo con privilegi minimi necessario per creare e assegnare ruoli personaliz
 
 1. Nella scheda **Rivedi e crea** rivedere le autorizzazioni e selezionare **Crea**.
 
-### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Assegnare il ruolo a un utente usando il portale di Azure AD
+### <a name="assign-the-role-in-the-azure-ad-portal"></a>Assegnare il ruolo nel portale di Azure AD
 
 1. Accedere all' [interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com)  con autorizzazioni di Amministratore ruolo con privilegi o Amministratore globale nell'organizzazione di Azure AD.
 1. Selezionare **Azure Active Directory** e quindi selezionare **Ruoli e amministratori**.
@@ -66,32 +62,9 @@ Sono disponibili due autorizzazioni per concedere la possibilità di creare regi
 - microsoft.directory/applications/createAsOwner: se si assegna questa autorizzazione, l'autore verrà aggiunto come primo proprietario della registrazione di app creata e la registrazione di app creata verrà calcolata nella quota dei 250 oggetti creati dell'autore.
 - microsoft.directory/applicationPolicies/create: se si assegna questa autorizzazione l'autore non verrà aggiunto come primo proprietario della registrazione di app creata e la registrazione di app creata non verrà calcolata nella quota dei 250 oggetti creati dell'autore. Usare questa autorizzazione con cautela, perché non è possibile impedire all'assegnatario di creare registrazioni di app fino a quando non viene raggiunta la quota a livello di directory. Se vengono assegnate entrambe le autorizzazioni, questa autorizzazione avrà la precedenza.
 
-## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Creare un ruolo personalizzato con Azure AD PowerShell
+## <a name="create-a-custom-role-in-azure-ad-powershell"></a>Creare un ruolo personalizzato in Azure AD PowerShell
 
-Creare un nuovo ruolo con lo script PowerShell seguente:
-
-``` PowerShell
-# Basic role information
-$description = "Application Registration Creator"
-$displayName = "Can create an unlimited number of application registrations."
-$templateId = (New-Guid).Guid
-
-# Set of permissions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/applications/createAsOwner"
-)
-$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
-$rolePermission = @{'resourceActions' = $resourceActions}
-$rolePermissions = $rolePermission
-
-# Create new custom admin role
-$customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
-```
-
-### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Assegnare il ruolo personalizzato con Azure AD PowerShell
-
-#### <a name="prepare-powershell"></a>Preparare PowerShell
+### <a name="prepare-powershell"></a>Preparare PowerShell
 
 Installare prima il modulo Azure AD PowerShell da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Importare quindi il modulo di anteprima di Azure AD PowerShell usando questo comando:
 
@@ -108,30 +81,46 @@ get-module azureadpreview
   Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
 ```
 
-#### <a name="assign-the-custom-role"></a>Assegnare il ruolo personalizzato
+### <a name="create-the-custom-role-in-azure-ad-powershell"></a>Creare il ruolo personalizzato in Azure AD PowerShell
 
-Assegnare il ruolo con lo script PowerShell seguente:
+Creare un nuovo ruolo con lo script PowerShell seguente:
 
-``` PowerShell
+```powershell
+
 # Basic role information
-$description = "Application Registration Creator"
-$displayName = "Can create an unlimited number of application registrations."
+$displayName = "Application Registration Creator"
+$description = "Can create an unlimited number of application registrations."
 $templateId = (New-Guid).Guid
 
 # Set of permissions to grant
 $allowedResourceAction =
 @(
     "microsoft.directory/applications/create"
+    "microsoft.directory/applications/createAsOwner"
 )
-$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
-$rolePermission = @{'resourceActions' = $resourceActions}
-$rolePermissions = $rolePermission
+$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 
 # Create new custom admin role
-$customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+$customRole = New-AzureAdMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="create-a-custom-role-using-microsoft-graph-api"></a>Creare un ruolo personalizzato usando l'API Microsoft Graph
+### <a name="assign-the-role-in-azure-ad-powershell"></a>Assegnare il ruolo in Azure AD PowerShell
+
+Assegnare il ruolo usando lo script di PowerShell seguente:
+
+```powershell
+# Get the user and role definition you want to link
+$user = Get-AzureADUser -Filter "userPrincipalName eq 'Adam@contoso.com'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Registration Creator'"
+
+# Get resource scope for assignment
+$resourceScope = '/'
+
+# Create a scoped role assignment
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+```
+
+## <a name="create-a-custom-role-in-the-microsoft-graph-api"></a>Creare un ruolo personalizzato nell'API Microsoft Graph
 
 Richiesta HTTP per creare il ruolo personalizzato.
 
@@ -156,6 +145,7 @@ Corpo
                 "allowedResourceActions":
                 [
                     "microsoft.directory/applications/create"
+                    "microsoft.directory/applications/createAsOwner"
                 ]
             },
             "condition":null
@@ -166,7 +156,7 @@ Corpo
 }
 ```
 
-### <a name="assign-the-custom-role-using-microsoft-graph-api"></a>Assegnare il ruolo personalizzato usando l'API Microsoft Graph
+### <a name="assign-the-role-in-the-microsoft-graph-api"></a>Assegnare il ruolo nell'API Microsoft Graph
 
 L'assegnazione di ruolo combina un ID entità di sicurezza, che può essere un utente o un'entità servizio, un ID definizione del ruolo (ruolo) e un ambito della risorsa di Azure AD.
 
@@ -191,5 +181,5 @@ Corpo
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Condividere le informazioni nel [forum di Azure AD sui ruoli amministrativi](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-- Per altre informazioni sui ruoli e l'assegnazione del ruolo di amministratore, vedere l'articolo sull'[assegnazione dei ruoli di amministratore](directory-assign-admin-roles.md).
-- Per le autorizzazioni utente predefinite, vedere un [confronto tra le autorizzazioni predefinite per gli utenti guest e quelle per gli utenti membro](../fundamentals/users-default-permissions.md).
+- Per altre informazioni sulle assegnazioni dei ruoli di Azure AD, vedere [Assegnare i ruoli di amministratore](directory-assign-admin-roles.md).
+- Per altre informazioni sulle autorizzazioni utente predefinite, vedere il [confronto tra le autorizzazioni predefinite per gli utenti guest e quelle per gli utenti membro](../fundamentals/users-default-permissions.md).

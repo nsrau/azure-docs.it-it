@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 07/14/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e16fdaed8ce7e73718569652e88e66844850175
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 79e23f516fe31b4a21232f75286540e6c0d9019d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416570"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Amazon Web Services (AWS)
 
@@ -81,7 +81,7 @@ Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è neces
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Amazon Web Services (AWS)** nella casella di ricerca.
 1. Selezionare **Amazon Web Service (AWS)** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Amazon Web Services (AWS)
+## <a name="configure-and-test-azure-ad-sso-for-amazon-web-services-aws"></a>Configurare e testare l'accesso SSO di Azure AD per Amazon Web Services (AWS)
 
 Configurare e testare l'accesso SSO di Azure AD con Amazon Web Services (AWS) usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Amazon Web Services (AWS).
 
@@ -133,7 +133,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Certificato di firma SAML** trovare **XML metadati federazione** e quindi selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
-    ![Collegamento di download del certificato](common/metadataxml.png)
+    ![Collegamento di download del certificato](./media/amazon-web-service-tutorial/certificate.png)
 
 1. Nella sezione **Configura Amazon Web Services (AWS)** copiare gli URL appropriati in base alle esigenze.
 

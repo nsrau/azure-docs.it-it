@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-javascript
 ms.date: 06/16/2020
-ms.openlocfilehash: ff4af372fa0ec1b6b24698184eb3f52449e28d46
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6540b35925a92ebd6a8bcced427b5457785603db
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430813"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056908"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
@@ -130,6 +130,60 @@ INTO
     output
 FROM
     input PARTITION BY PARTITIONID
+```
+
+### <a name="cast-string-to-json-object-to-process"></a>eseguire il cast della stringa all'oggetto JSON da elaborare
+
+Se è presente un campo stringa JSON e si vuole convertirlo in un oggetto JSON per l'elaborazione in una funzione definita dall'utente JavaScript, è possibile usare la funzione **JSON.parse()** per creare un oggetto JSON da usare a questo scopo.
+
+**Definizione della funzione JavaScript definita dall'utente:**
+
+```javascript
+function main(x) {
+var person = JSON.parse(x);  
+return person.name;
+}
+```
+
+**Query di esempio:**
+```SQL
+SELECT
+    UDF.getName(input) AS Name
+INTO
+    output
+FROM
+    input
+```
+
+### <a name="use-trycatch-for-error-handling"></a>usare try/catch per la gestione degli errori
+
+I blocchi try/catch consentono di identificare i problemi relativi a dati di input in formato non valido passati in una funzione definita dall'utente JavaScript.
+
+**Definizione della funzione JavaScript definita dall'utente:**
+
+```javascript
+function main(input, x) {
+    var obj = null;
+
+    try{
+        obj = JSON.parse(x);
+    }catch(error){
+        throw input;
+    }
+    
+    return obj.Value;
+}
+```
+
+**Query di esempio: passare l'intero record come primo parametro in modo che possa essere restituito se si verifica un errore.**
+```SQL
+SELECT
+    A.context.company AS Company,
+    udf.getValue(A, A.context.value) as Value
+INTO
+    output
+FROM
+    input A
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

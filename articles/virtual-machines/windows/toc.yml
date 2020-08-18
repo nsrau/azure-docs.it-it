@@ -423,7 +423,7 @@
         - name: Panoramica della migrazione
           href: migration-classic-resource-manager-overview.md
         - name: Approfondimento sulla migrazione
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md
         - name: Pianificare la migrazione
           href: migration-classic-resource-manager-plan.md
         - name: Eseguire la migrazione con PowerShell
@@ -433,7 +433,7 @@
         - name: Strumenti della community per la migrazione
           href: migration-classic-resource-manager-community-tools.md
         - name: Domande frequenti
-          href: migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md
     - name: Usare immagini
       displayName: 'SIG, AMI, image'
       items:
@@ -853,7 +853,7 @@
           href: detach-disk.md
         - name: Distribuire dischi con un modello di Azure Resource Manager
           displayName: Azure Resource Manager
-          href: using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md
         - name: Abilitare i dischi condivisi
           href: disks-shared-enable.md
         - name: Caricare un VHD su disco - PowerShell
@@ -901,7 +901,7 @@
         - name: Prestazioni
           items:
             - name: Abilitare l'acceleratore di scrittura
-              href: how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md
             - name: Uso di dischi Ultra
               href: disks-enable-ultra-ssd.md
             - name: Misurare il benchmark di un disco

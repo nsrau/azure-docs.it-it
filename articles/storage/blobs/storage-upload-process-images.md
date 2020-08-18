@@ -1,6 +1,6 @@
 ---
 title: Caricare i dati immagine nel cloud con Archiviazione di Azure | Microsoft Docs
-description: Usare l'archiviazione BLOB di Azure con un'app Web per archiviare i dati dell'app
+description: Usare Archiviazione BLOB di Azure con le app Web per archiviare i dati delle app in un account di archiviazione. Questa esercitazione consente di creare un'app Web che archivia le immagini in Archiviazione di Azure e le visualizza.
 author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 15d18372b9123602e6d6f05b9259e50a74f7eb39
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 3ac1855c0cc72a3c4afc20598d023f0adce2bd76
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433284"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034142"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Esercitazione: Caricare i dati immagine nel cloud con Archiviazione di Azure
 

@@ -5,23 +5,23 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 71b3027d86400d6921895f86e257ddff2961f91f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8ff431c27dd53e82f9003b658c82ceb3efb5d320
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77615160"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810021"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Esercitazione: Condivisione di Ancoraggi nello spazio di Azure tra sessioni e dispositivi con un back-end di Azure Cosmos DB
 
-Questa esercitazione è una continuazione della [condivisione di Ancoraggi nello spazio di Azure tra sessioni e dispositivi](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md). Illustrerà il processo di aggiunta di altre funzionalità che consentiranno ad Azure Cosmos DB di fungere da risorsa di archiviazione back-end durante la condivisione di Ancoraggi nello spazio di Azure tra sessioni e dispositivi.
+Questa esercitazione è una continuazione della [condivisione di Ancoraggi nello spazio di Azure tra sessioni e dispositivi](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md). Viene illustrato il processo di aggiunta di funzionalità per usare Azure Cosmos DB come risorsa di archiviazione back-end quando si condividono ancoraggi nello spazio di Azure tra sessioni e dispositivi.
 
 ![GIF che illustra la persistenza degli oggetti](./media/persistence.gif)
 
-Si noti che in questa esercitazione si useranno Unity e Azure Cosmos DB solo per mostrare un esempio di condivisione degli identificatori di Ancoraggi nello spazio tra dispositivi. È possibile usare altri linguaggi e tecnologie di back-end per conseguire lo stesso obiettivo. Inoltre, l'app Web ASP.NET Core usata in questa esercitazione richiede .NET Core 2.2 SDK. Viene eseguita correttamente in app Web per Windows, ma attualmente non può essere eseguita in app Web per Linux.
+Si noti che in questa esercitazione si useranno Unity e Azure Cosmos DB solo per mostrare un esempio di condivisione degli identificatori di Ancoraggi nello spazio tra dispositivi. È possibile usare altri linguaggi e tecnologie di back-end per conseguire lo stesso obiettivo.
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -42,14 +42,6 @@ In **Esplora soluzioni** aprire `SharingService\appsettings.json`.
 Individuare la proprietà `StorageConnectionString` e impostare lo stesso valore di `Connection String` annotato nel passaggio [Creare un account di database](#create-a-database-account). Salvare il file.
 
 È possibile pubblicare di nuovo il servizio di condivisione ed eseguire l'app di esempio.
-
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-
-### <a name="unity-20193"></a>Unity 2019.3
-
-A causa di modifiche che causano un'interruzione, Unity 2019.3 non è attualmente supportato. Usare Unity 2019.1 o 2019.2.
-
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

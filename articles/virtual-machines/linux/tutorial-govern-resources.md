@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 487342fdacfcf8e321bb2a65b6bd6577fc67be36
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 890afadc82acc90ab0324058e07aa5c4d34d04e0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497954"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926162"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Esercitazione: Informazioni sulla gestione di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -43,7 +43,7 @@ Il gruppo di risorse è attualmente vuoto.
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
+Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
 
 Per creare e rimuovere assegnazioni di ruoli, gli utenti devono disporre di accesso `Microsoft.Authorization/roleAssignments/*`. Questo accesso viene concesso tramite il ruolo Proprietario o Amministratore accessi utente.
 

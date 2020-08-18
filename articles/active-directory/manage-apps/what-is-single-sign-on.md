@@ -1,6 +1,6 @@
 ---
 title: Informazioni su Azure Single Sign-On
-description: Informazioni su come scegliere un metodo di accesso Single Sign-On quando si configurano le applicazioni in Azure Active Directory (Azure AD). Usare il metodo di accesso Single Sign-On in modo che gli utenti non debbano ricordare le password per ogni applicazione e per semplificare l'amministrazione della gestione degli account.
+description: Informazioni sul funzionamento dell'accesso Single Sign-On (SSO) con Azure Active Directory. Usare l'accesso SSO in modo che gli utenti non debbano ricordare le password per ogni applicazione. L'accesso SSO consente anche di semplificare l'amministrazione della gestione degli account.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,23 +11,39 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6f3c6351a7bcd87ae25dfae53cb17f634bbef146
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387541"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121511"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Informazioni sull'accesso Single Sign-On (SSO)
 
-L'accesso Single Sign-On (SSO) offre sicurezza e praticità quando gli utenti accedono alle applicazioni in Azure Active Directory (Azure AD). Questo articolo descrive i metodi di accesso Single Sign-On e consente di scegliere il metodo SSO più appropriato quando si configurano le applicazioni.
+Single Sign-on, ovvero accesso singolo, significa che un utente non deve eseguire l'accesso a ogni applicazione usata. L'utente esegue l'accesso una sola volta e le credenziali vengono usate anche per le altre app.
+
+A un utente finale probabilmente i dettagli dell'accesso SSO non interessano molto. L'unico desiderio è usare le app per la produttività senza dover digitare ogni volta la password. Le app sono disponibili in: https://myapps.microsoft.com.
+ 
+Per un amministratore o un professionista IT, le informazioni seguenti spiegano come viene implementato l'accesso SSO in Azure.
+
+## <a name="single-sign-on-basics"></a>Nozioni di base sull'accesso Single Sign-On
+L'accesso Single Sign-On offre notevoli vantaggi per quanto riguarda le modalità di accesso alle applicazioni e il loro utilizzo da parte degli utenti. Per i sistemi di autenticazione basati su Single Sign-on si parla spesso di "autenticazione moderna". Per comprendere ciò che rende possibile l'accesso Single Sign-On, vedere questo video.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+## <a name="understanding-where-an-app-is-hosted"></a>Informazioni sulla posizione in cui un'app è ospitata
+La modalità di implementazione dell'accesso Single Sign-On per un'app dipende in larga misura da dove l'app è ospitata. L'hosting è importante perché influisce sul modo in cui il traffico di rete viene instradato per accedere all'app. Se un'app è ospitata nella rete locale e vi si accede da tale rete, ovvero se è un'app locale, non è necessario che gli utenti accedano a Internet per usare l'app. Se l'app è ospitata in un'altra posizione, ovvero è un'app ospitata nel cloud, gli utenti devono accedere a Internet per usarla.
+
+> [!TIP]
+> Le app cloud sono dette anche app SaaS (Software as a Service, software come un servizio). 
+
+> [!TIP]
+> I termini cloud e Internet vengono spesso usati in modo interscambiabile. Il motivo ha a che fare con i diagrammi di rete. È comune denotare le reti di computer di grandi dimensioni con una forma di nuvoletta in un diagramma perché non è possibile disegnare ogni componente. Internet è la rete più conosciuta ed è quindi facile usare i termini in modo interscambiabile. Tuttavia, qualsiasi rete di computer può essere trasformata in un cloud.
+
+## <a name="choosing-a-single-sign-on-method"></a>Scelta di un metodo di accesso Single Sign-On
 
 - **Con l'accesso Single Sign-On**, gli utenti eseguono l'accesso una sola volta con un account a tutti i dispositivi aggiunti a un dominio, alle risorse aziendali, alle applicazioni SaaS (software distribuito come servizio) e alle applicazioni Web. Dopo aver eseguito l'accesso, l'utente potrà avviare le applicazioni dal portale di Office 365 o dal pannello di accesso MyApps di Azure AD. Gli amministratori possono centralizzare la gestione degli account utente e aggiungere o rimuovere automaticamente l'accesso utente alle applicazioni in base all'appartenenza a gruppi.
 
 - **Senza l'accesso Single Sign-On**, gli utenti devono ricordare le password specifiche dell'applicazione e accedere a ognuna di esse. Il personale IT deve creare e aggiornare gli account utente per ogni applicazione, ad esempio Office 365, Box e Salesforce. Gli utenti devono ricordare le password, oltre a impiegare il tempo necessario per accedere a ogni applicazione.
-
-## <a name="choosing-a-single-sign-on-method"></a>Scelta di un metodo di accesso Single Sign-On
 
 È possibile configurare un'applicazione per l'accesso Single Sign-On in vari modi. La scelta di un metodo di accesso Single Sign-On dipende dal modo in cui è configurata per l'autenticazione.
 
@@ -42,7 +58,7 @@ La tabella seguente include un riepilogo dei metodi di accesso Single Sign-On e 
 
 | Metodo di accesso Single Sign-On | Tipi di applicazioni | Utilizzo |
 | :------ | :------- | :----- |
-| [OpenID Connect e OAuth](#openid-connect-and-oauth) | Solo cloud | Usare OAuth e OpenID Connect quando si sviluppa una nuova applicazione. Questo protocollo semplifica la configurazione dell'applicazione, ha SDK facili da usare e consente all'applicazione di usare MS Graph.
+| [OpenID Connect e OAuth](#openid-connect-and-oauth) | Cloud e locale | Usare OAuth e OpenID Connect quando si sviluppa una nuova applicazione. Questo protocollo semplifica la configurazione dell'applicazione, ha SDK facili da usare e consente all'applicazione di usare MS Graph.
 | [SAML](#saml-sso) | Cloud e locale | Scegliere SAML laddove possibile per le applicazioni esistenti che non usano OAuth o OpenID Connect. SAML funziona per le applicazioni che eseguono l'autenticazione usando uno dei protocolli SAML.|
 | [Basato su password](#password-based-sso) | Cloud e locale | Scegliere il metodo basato su password quando l'applicazione esegue l'autenticazione con nome utente e password. L'accesso Single Sign-On basato su password consente l'archiviazione e la riproduzione delle password delle applicazioni protette usando un'estensione del Web browser o un'app per dispositivi mobili. Questo metodo usa il processo di accesso esistente fornito dall'applicazione, ma consente all'amministratore di gestire le password. |
 | [Collegato](#linked-sign-on) | Cloud e locale | Scegliere l'accesso collegato quando l'applicazione è configurata per il Single Sign-On in un altro servizio di provider di identità. Questa opzione non aggiunge l'accesso Single Sign-On all'applicazione. L'applicazione potrebbe comunque avere già implementato l'accesso Single Sign-On usando un altro servizio, ad esempio Active Directory Federation Services.|
@@ -197,10 +213,5 @@ Poiché questo scenario è il risultato di una partnership fra Azure AD e PingAc
 
 Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
-## <a name="related-articles"></a>Articoli correlati
+## <a name="next-steps"></a>Passaggi successivi
 * [Serie di guide di avvio rapido sulla gestione delle applicazioni](view-applications-portal.md)
-* [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configurazione dell'accesso Single Sign-On basato su password](configure-password-single-sign-on-non-gallery-applications.md)
-* [Configurazione dell'accesso collegato](configure-linked-sign-on.md)
-* [Introduzione alla gestione dell'accesso alle applicazioni](what-is-access-management.md)
-* Collegamento di download: [piano di distribuzione di Single Sign-On](https://aka.ms/SSODeploymentPlan).

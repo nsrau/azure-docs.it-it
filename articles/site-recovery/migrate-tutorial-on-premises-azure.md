@@ -1,18 +1,17 @@
 ---
-title: Eseguire la migrazione di computer locali con Azure Site Recovery
-description: Questo articolo illustra come eseguire la migrazione di computer locali ad Azure usando Azure Site Recovery.
-author: rayne-wiselman
+title: Eseguire la migrazione di computer locali con Azure Migrate
+description: Questo articolo riepiloga le istruzioni per la migrazione di computer locali in Azure e consiglia l'uso di Azure Migrate.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
-ms.openlocfilehash: 3c421845d4e15ef13ce98d0de111270159f564fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e0e60ee346d20113b2ec7970390d9874522cc770
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285357"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847313"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -20,7 +19,7 @@ Questo articolo illustra le opzioni per la migrazione di computer locali in Azur
 
 ## <a name="migrate-with-azure-migrate"></a>Eseguire la migrazione con Azure Migrate
 
-È consigliabile eseguire la migrazione di computer ad Azure usando il servizio [Azure Migrate](../migrate/migrate-services-overview.md). Azure Migrate offre un hub centralizzato per la valutazione e la migrazione di computer locali in Azure, usando Azure Migrate, altri servizi di Azure e strumenti di terze parti.
+È consigliabile eseguire la migrazione di computer ad Azure usando il servizio [Azure Migrate](../migrate/migrate-services-overview.md). Azure Migrate è un servizio creato appositamente per la migrazione dei server. Azure Migrate fornisce un hub centralizzato per l'individuazione, la valutazione e la migrazione di computer locali in Azure.
 
 Per eseguire la migrazione con Azure Migrate, seguire questi collegamenti:
 
@@ -43,6 +42,6 @@ Se si usa già Azure Site Recovery e si vuole continuare a usarlo per la migrazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Vedere le domande frequenti](../migrate/resources-faq.md) su Azure Migrate.
+> [Esaminare le domande comuni](../migrate/resources-faq.md) su Azure Migrate.
 
   

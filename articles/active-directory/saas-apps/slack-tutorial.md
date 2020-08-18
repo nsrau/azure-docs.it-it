@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffc9d3f4feb003d537b52cde15356e756aa11c0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd5e3e2a0e6d50340954600c5a452b6d026e5afc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500107"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987459"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Slack
 
@@ -159,15 +159,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Accedere a **Microsoft Azure AD**, quindi andare su **Impostazioni team**.
 
-     ![Configurare l'accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial-slack-001.png)
+     ![Configurare l'accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. Nella sezione **Impostazioni team** fare clic sulla scheda **Autenticazione**, quindi fare clic su **Cambia impostazioni**.
 
-    ![Configurare l'accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial-slack-002.png)
+    ![Configurare l'accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. Nella finestra di dialogo **Impostazioni di autenticazione SAML** eseguire la procedura seguente:
 
-    ![Configurare l'accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial-slack-003.png)
+    ![Configurare l'accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  Nella casella di testo **SAML 2.0 Endpoint (HTTP)** (Endpoint SAML 2.0 - HTTP) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -177,7 +177,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     d. Configurare le tre impostazioni riportate sopra nel modo appropriato per il proprio team Slack. Per altre informazioni sulle impostazioni, vedere la **guida alla configurazione dell'accesso SSO di Slack** disponibile a questo indirizzo: `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    ![Configurare l'accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial-slack-004.png)
+    ![Configurare l'accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial-slack-expand.png)
 
     e. Fare clic su **Espandi**  e immettere `https://slack.com` nella casella di testo **Service Provider Issuer** (Autorità di certificazione del provider di servizi).
 

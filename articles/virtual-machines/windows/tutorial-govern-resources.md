@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 33a32623e49212579619abc3ab839868882856ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723eaeb6eb8946473b31b447e817a0a3b696f1cc
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028108"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926570"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Esercitazione: Gestione delle macchine virtuali Windows con Azure PowerShell
 
@@ -41,7 +41,7 @@ Il gruppo di risorse è attualmente vuoto.
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
+Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito.
 
 Per creare e rimuovere assegnazioni di ruoli, gli utenti devono disporre di accesso `Microsoft.Authorization/roleAssignments/*`. Questo accesso viene concesso tramite il ruolo Proprietario o Amministratore accessi utente.
 

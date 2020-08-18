@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 08/05/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d05e48cdaf75af5acb09713679d3aa21450b433
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: a7e81b636690ced9baafc79de110f78c7258c36e
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509373"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056304"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Esercitazione: Integrare Sage Intacct con Azure Active Directory
 
@@ -45,6 +44,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Sage Intacct supporta l'accesso SSO avviato da **IDP**
+* Dopo aver configurato Sage Intacct, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-sage-intacct-from-the-gallery"></a>Aggiunta di Sage Intacct dalla raccolta
 
@@ -57,7 +57,7 @@ Per configurare l'integrazione di Sage Intacct in Azure AD, è necessario aggiun
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Sage Intacct** nella casella di ricerca.
 1. Selezionare **Sage Intacct** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sage-intacct"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Sage Intacct
+## <a name="configure-and-test-azure-ad-sso-for-sage-intacct"></a>Configurare e testare l'accesso SSO di Azure AD per Sage Intacct
 
 Configurare e testare l'accesso SSO di Azure AD con Sage Intacct usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Sage Intacct.
 
@@ -227,3 +227,4 @@ Quando si fa clic sul riquadro di Sage Intacct nel pannello di accesso, si dovre
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

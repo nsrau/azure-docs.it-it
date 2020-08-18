@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 8ba6141bddd60c2bdc2fdf17845e8f470dd6ef55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: ff23a42d9b96b8411d8b2f82ab8303e2a8a69953
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520528"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852719"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning con Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -97,7 +97,7 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
         + Il nome deve iniziare con una lettera (non un numero o un trattino).
         + Se si usa il trattino, deve essere seguito da almeno una lettera. Esempio: Test-, test-0, test-01 non sono validi, mentre test-a0, test-0a sono istanze valide.
 
-    1.  Selezionare le dimensioni della macchina virtuale dalle opzioni disponibili.
+    1.  Selezionare le dimensioni della macchina virtuale dalle opzioni disponibili. Per le esercitazioni, la macchina virtuale predefinita è una buona opzione.
 
     1. Selezionare quindi **Crea**. Per configurare la VM sono necessari circa 5 minuti.
 

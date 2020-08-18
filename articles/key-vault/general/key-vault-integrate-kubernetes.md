@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 7acdee98e5e433567a3d177400ee4e7043d0895c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e70ee75344a939ea1632df3549d796617c7596af
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921568"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901998"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -71,7 +71,7 @@ Completare le sezioni "Creare un gruppo di risorse", "Creare un cluster del serv
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Per visualizzare i metadati del cluster del servizio Azure Kubernetes creato, usare il comando seguente. Copiare i valori di **principalId**, **clientId**, **subscriptionId** e **nodeResourceGroup** per un uso successivo.
+1. Per visualizzare i metadati del cluster del servizio Azure Kubernetes creato, usare il comando seguente. Copiare i valori di **principalId**, **clientId**, **subscriptionId** e **nodeResourceGroup** per un uso successivo. Se il cluster del servizio Azure Kubernetes non è stato creato con le identità gestite abilitate, **principalId** e **clientId** saranno Null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -166,7 +166,7 @@ L'immagine seguente mostra l'output della console per **az keyvault show --name 
 
 ### <a name="assign-a-service-principal"></a>Assegnare un'entità servizio
 
-Se si usa un'entità servizio, assegnarle le autorizzazioni per l'accesso all'istanza di Key Vault e il recupero dei segreti. Assegnare il ruolo *Lettore* e concedere all'entità servizio le autorizzazioni per *recuperare* i segreti dall'istanza di Key Vault completando i passaggi seguenti:
+Se si usa un'entità servizio, assegnarle le autorizzazioni per l'accesso all'istanza di Key Vault e il recupero dei segreti. Assegnare il ruolo *Lettore* e concedere all'entità servizio le autorizzazioni per *recuperare* i segreti dall'insieme di credenziali delle chiavi usando il comando seguente:
 
 1. Assegnare l'entità servizio all'istanza di Key Vault esistente. Il parametro **$AZURE_CLIENT_ID** è il valore di **appId** copiato dopo la creazione dell'entità servizio.
     ```azurecli
@@ -204,10 +204,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Se si usano le identità gestite, assegnare ruoli specifici al cluster del servizio Azure Kubernetes creato. 
 
-1. Per creare, elencare o leggere un'identità gestita assegnata dall'utente, è necessario assegnare al cluster del servizio Azure Kubernetes il ruolo [Collaboratore di identità gestite](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor). Assicurarsi che il valore di **$clientId** corrisponda a quello di clientId del cluster Kubernetes.
+1. Per creare, elencare o leggere un'identità gestita assegnata dall'utente, è necessario assegnare al cluster del servizio Azure Kubernetes il ruolo [Operatore di identità gestite](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator). Assicurarsi che il valore di **$clientId** corrisponda a quello di clientId del cluster Kubernetes. Per l'ambito, si troverà nel servizio della sottoscrizione di Azure, in particolare nel gruppo di risorse del nodo che è stato creato al momento della creazione del cluster del servizio Azure Kubernetes. Questo ambito garantisce che solo le risorse all'interno di tale gruppo siano interessate dai ruoli assegnati di seguito. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```

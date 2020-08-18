@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34bdd8561b30358e3cb5c9a64ed4405ba8d94588
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: db496ac504a48398ef7ab656cc5a6a890f882bab
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160151"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Esercitazione: Integrazione di Azure Active Directory con Proofpoint on Demand
 
@@ -41,6 +41,9 @@ Per configurare l'integrazione di Azure AD con Proofpoint on Demand, sono necess
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
 * Sottoscrizione di Proofpoint on Demand abilitata per l'accesso Single Sign-On
+
+> [!NOTE]
+> Se si usa l'autenticazione a più fattori o l'autenticazione senza password con Azure AD, disattivare il valore AuthnContext nella richiesta SAML. In caso contrario Azure AD genererà l'errore in caso di mancata corrispondenza di AuthnContext e non invierà di nuovo il token all'applicazione.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -78,7 +81,7 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Proofpoint on Demand, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Proofpoint on Demand](#configure-proofpoint-on-demand-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Proofpoint on Demand](#configure-proofpoint-on-demand-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Proofpoint on Demand](#create-proofpoint-on-demand-test-user)** per avere una controparte di Britta Simon in Proofpoint on Demand collegata alla rappresentazione dell'utente in Azure AD.
@@ -127,7 +130,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Proofpoint on Demand, s
 
     b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL di disconnessione
 
 ### <a name="configure-proofpoint-on-demand-single-sign-on"></a>Configurare l'accesso Single Sign-On di Proofpoint on Demand
 
@@ -135,7 +138,7 @@ Per configurare l'accesso Single Sign-On sul lato **Proofpoint on Demand**, è n
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 

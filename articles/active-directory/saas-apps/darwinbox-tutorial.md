@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91b1be75b06b4281ee5d03675d9d33db00a5aaf7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 783a61c8e2b6c60b81e31d7771d3237c93be92a8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70013796"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055554"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Darwinbox
 
@@ -30,7 +30,6 @@ Questa esercitazione descrive come integrare Darwinbox con Azure Active Director
 * Controllare in Azure AD chi può accedere a Darwinbox.
 * Abilitare gli utenti per l'accesso automatico a Darwinbox con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -39,6 +38,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Sottoscrizione di Darwinbox abilitata per l'accesso Single Sign-On (SSO).
+> [!NOTE]
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico.
+
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -66,9 +68,9 @@ Per configurare e testare l'accesso SSO di Azure AD con Darwinbox, completare le
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Darwinbox](#configure-darwinbox-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Darwinbox](#create-darwinbox-test-user)** : per avere una controparte di B.Simon in Darwinbox collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Darwinbox](#configure-darwinbox-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Darwinbox](#create-darwinbox-test-user)**: per avere una controparte di B.Simon in Darwinbox collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -83,12 +85,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.darwinbox.in/`
+   1. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.darwinbox.in/`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
+   1. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
 
-    > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Darwinbox](https://darwinbox.com/contact-us.php). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+      > [!NOTE]
+      > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Darwinbox](https://darwinbox.com/contact-us.php). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -141,6 +143,28 @@ In questa sezione viene creato un utente di nome B.Simon in Darwinbox. Collabora
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro di Darwinbox nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Darwinbox per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="test-sso-for-darwinbox-mobile"></a>Testare l'accesso SSO per Darwinbox (per dispositivi mobili)
+
+1. Aprire l'applicazione per dispositivi mobili Darwinbox. Fare clic su **Enter Organization URL** (Immetti l'URL dell'organizzazione), immettere l'URL dell'organizzazione nella casella di testo e fare clic sul pulsante con la freccia.
+
+    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+
+1. Se sono disponibili più domini, fare clic sul dominio desiderato.
+
+    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+
+1. Immettere l'indirizzo di posta elettronica di Azure AD nell'applicazione Darwinbox e fare clic su **Next** (Avanti).
+
+    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+
+1. Immettere la password di Azure AD nell'applicazione Darwinbox e fare clic su **Sign in** (Accedi).
+
+    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+
+1. Al termine dell'accesso verrà infine visualizzata la home page dell'applicazione.
+
+    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile05.jpg)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

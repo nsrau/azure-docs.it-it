@@ -2,19 +2,19 @@
 title: Azure Key Vault - Come usare la funzionalità di eliminazione temporanea con l'interfaccia della riga di comando
 description: Esempi di casi d'uso della funzionalità di eliminazione temporanea con frammenti di codice dell'interfaccia della riga di comando
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 7023a2301b6b6137f7a0485523c68f21d72d67a9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 8f32fcc319c3bffd9089d894c5376268227a0151
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385739"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135930"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -58,11 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Insieme di credenziali delle chiavi nuovo
 
-È possibile abilitare la funzione di eliminazione temporanea per un nuovo insieme di credenziali delle chiavi al momento della creazione aggiungendo "soft-delete enable" al comando di creazione.
-
-```azurecli
-az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
-```
+L'eliminazione temporanea è abilitata automaticamente in tutti gli insiemi di credenziali delle chiavi per impostazione predefinita. Entro il 31 dicembre 2020 non sarà più possibile creare un nuovo insieme di credenziali delle chiavi senza l'eliminazione temporanea abilitata.
 
 ### <a name="verify-soft-delete-enablement"></a>Verificare l'abilitazione della funzione di eliminazione temporanea
 

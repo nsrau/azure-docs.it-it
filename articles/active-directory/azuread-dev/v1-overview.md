@@ -13,18 +13,18 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: db158a50cfc164a0fc839e858cc6e7c46558eb77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cb426239fe9f3dea207df06b6f2bafbdb54058a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551589"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117669"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Panoramica di Azure Active Directory per sviluppatori (v1.0)
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Azure Active Directory (Azure AD) è un servizio cloud di gestione delle identità che consente agli sviluppatori di creare app che permettono l'accesso sicuro agli utenti con un account Microsoft aziendale o dell'istituto di istruzione. Azure AD supporta gli sviluppatori che creano app line-of-business (LOB) a singolo tenant e gli sviluppatori che vogliono sviluppare app multi-tenant. Oltre all'accesso di base, Azure AD consente alle app di chiamare anche API Microsoft come [Microsoft Graph](https://docs.microsoft.com/graph/overview) e API personalizzate create sulla piattaforma di Azure AD. Questa documentazione illustra come aggiungere il supporto di Azure AD all'applicazione tramite protocolli standard di settore, come OAuth2.0 e OpenID Connect.
+Azure Active Directory (Azure AD) è un servizio cloud di gestione delle identità che consente agli sviluppatori di creare app che permettono l'accesso sicuro agli utenti con un account Microsoft aziendale o dell'istituto di istruzione. Azure AD supporta gli sviluppatori che creano app line-of-business (LOB) a singolo tenant e gli sviluppatori che vogliono sviluppare app multi-tenant. Oltre all'accesso di base, Azure AD consente alle app di chiamare anche API Microsoft come [Microsoft Graph](/graph/overview) e API personalizzate create sulla piattaforma di Azure AD. Questa documentazione illustra come aggiungere il supporto di Azure AD all'applicazione tramite protocolli standard di settore, come OAuth2.0 e OpenID Connect.
 
 > [!NOTE]
 > La maggior parte dei contenuti di questa pagina è incentrata sulla piattaforma e sull'endpoint v1.0, in cui sono supportati solo account Microsoft aziendali o dell'istituto di istruzione. Se si vuole consentire l'accesso ad account Microsoft consumer o personali, vedere le informazioni su [piattaforma ed endpoint v2.0](../develop/v2-overview.md). L'endpoint v2.0 offre un'esperienza di sviluppo unificata per le app in cui si vuole consentire l'accesso a tutte le identità Microsoft.
@@ -44,12 +44,12 @@ Vedere le **guide alle procedure per la versione 1.0** per informazioni e proced
 
 Gli articoli seguenti forniscono informazioni dettagliate su API, messaggi di protocollo e termini usati in Azure AD.
 
-- [Librerie di autenticazione (adal)](active-directory-authentication-libraries.md) Panoramica delle librerie e degli SDK forniti da Azure AD.
-- [Esempi di codice](sample-v1-code.md) Elenco di tutti gli esempi di codice Azure AD.
-- [Glossario](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) Terminologia e definizioni di parole utilizzate in questa documentazione.
+- [Librerie di autenticazione (ADAL)](active-directory-authentication-libraries.md) Panoramica delle librerie e degli SDK forniti da Azure AD.
+- [Esempi di codice](sample-v1-code.md) Elenco di tutti gli esempi di codice di Azure AD.
+- [Glossario](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) Terminologia e definizioni dei termini usati nella documentazione.
 
 ## <a name="videos"></a>Video
 
-Per informazioni sulla migrazione alla nuova piattaforma di Microsoft Identity, vedere [Azure Active Directory video della piattaforma per sviluppatori](videos.md) .
+Vedere i [video sulla piattaforma per sviluppatori Azure Active Directory](videos.md) per informazioni sulla migrazione nella nuova piattaforma Microsoft Identity Platform.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

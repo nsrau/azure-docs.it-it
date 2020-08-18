@@ -1,6 +1,6 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Eliminare i contenitori mediante prefisso | Microsoft Docs
-description: Eliminare i contenitori BLOB dell'Archiviazione di Azure in base a un prefisso del nome.
+description: Eliminare i contenitori BLOB di Archiviazione di Azure in base a un prefisso del nome del contenitore e quindi eseguire la pulizia della distribuzione. Vedere i collegamenti della guida per i comandi usati nello script di esempio.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 66869b7dc38e11b614ebc89538c2c195122b5bb3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aeccf255004cd4512fbc591942324341504b20f7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479558"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901879"
 ---
 # <a name="use-an-azure-cli-script-to-delete-containers-based-on-container-name-prefix"></a>Usare uno script dell'interfaccia della riga di comando di Azure per eliminare i contenitori in base al prefisso del nome
 

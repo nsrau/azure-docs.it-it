@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: aaebf849cc69db7c85d1472f4d71774bc599be11
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8597b3e4ffab44672e88374010fa829211fbc18b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994304"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507330"
 ---
 # <a name="upload-a-document"></a>Caricare un documento
 
@@ -24,7 +24,7 @@ Prima di caricare i documenti, consultare la [guida ai formati dei documenti e a
 
 ## <a name="how-to-upload-document"></a>Come caricare i documenti?
 
-Dal portale di [conversione personalizzato](https://portal.customtranslator.azure.ai) , fare clic sulla scheda "documenti" per passare alla pagina documenti.
+Dal portale di [Custom Translator](https://portal.customtranslator.azure.ai) fare clic sulla scheda "Documents" (Documenti) per passare alla pagina dei documenti.
 
 ![Collegamento per il caricamento del documento](media/how-to/how-to-upload-1.png)
 
@@ -61,11 +61,11 @@ Dal portale di [conversione personalizzato](https://portal.customtranslator.azur
 
     ![Finestra di dialogo di caricamento del documento](media/how-to/how-to-upload-dialog.png)
 
-3.  A questo punto, sono in corso l'elaborazione dei documenti e il tentativo di estrarre le frasi. È possibile fare clic su "Visualizza stato caricamento" per controllare lo stato dei documenti durante l'elaborazione.
+3.  A questo punto, sono in corso l'elaborazione dei documenti e il tentativo di estrarre le frasi. È possibile fare clic su "View upload Progress" (Visualizza stato di caricamento) per controllare lo stato dei documenti durante l'elaborazione.
 
     ![Finestra di dialogo di elaborazione del caricamento dei documenti](media/how-to/how-to-upload-processing-dialog.png)
 
-4.  In questa pagina verranno visualizzati lo stato e gli eventuali errori per ogni file nel caricamento. È possibile visualizzare lo stato di caricamento passato in qualsiasi momento facendo clic sulla scheda "carica cronologia".
+4.  In questa pagina verranno visualizzati lo stato e gli eventuali errori per ogni file nel caricamento. È possibile visualizzare lo stato dei caricamenti precedenti in qualsiasi momento facendo clic sulla scheda "Upload history" (Carica cronologia).
 
     ![Finestra di dialogo della cronologia dei caricamenti dei documenti](media/how-to/how-to-upload-document-history.png)
 

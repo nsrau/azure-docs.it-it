@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 810f887c43b5653513d6848e9b7dd2e7ced070ab
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251332"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003216"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
 
@@ -26,7 +26,7 @@ Per iniziare, completare l'avvio rapido del servizio Azure Kubernetes [nel porta
 
 ## <a name="access-security-and-monitoring"></a>Accesso, sicurezza e monitoraggio
 
-Per migliorare la sicurezza e la gestione, servizio Azure Kubernetes consente l'integrazione con Azure Active Directory e l'uso dei controlli di accesso basato sui ruoli di Kubernetes. È anche possibile monitorare l'integrità del cluster e delle risorse.
+Per migliorare la sicurezza e la gestione, servizio Azure Kubernetes consente l'integrazione con Azure Active Directory e l'uso del controllo degli accessi in base al ruolo di Kubernetes. È anche possibile monitorare l'integrità del cluster e delle risorse.
 
 ### <a name="identity-and-security-management"></a>Gestione delle identità e della sicurezza
 
@@ -140,6 +140,6 @@ Altre informazioni sulla distribuzione e la gestione di servizio Azure Kubernete
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md

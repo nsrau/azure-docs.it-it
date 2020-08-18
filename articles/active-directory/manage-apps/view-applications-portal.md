@@ -12,16 +12,16 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 8f6d9c3409e0b91b6744d406fb1af674f73dbe3c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808372"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117890"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Avvio rapido: Visualizzare l'elenco delle applicazioni che usano il tenant di Azure Active Directory (Azure AD) per la gestione delle identità
 
-Iniziare a usare Azure AD come sistema di gestione delle identità e degli accessi (IAM) per le applicazioni usate dall'organizzazione. In questo argomento di avvio rapido verranno visualizzate le applicazioni, note anche come app, che sono già configurate per usare il tenant di Azure AD come provider di identità.
+Iniziare a usare Azure AD come sistema di gestione delle identità e degli accessi (IAM) per le applicazioni usate dall'organizzazione. In questo argomento di avvio rapido verranno visualizzate le applicazioni, note anche come app, che sono già configurate per usare il tenant di Azure AD come provider di identità (IdP).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

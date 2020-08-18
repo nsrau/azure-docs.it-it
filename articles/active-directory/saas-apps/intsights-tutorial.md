@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ef70535ecd84a97bde9650eb8a3ea3b9406bd2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 291a9016c01e7d618cbfdd556a482ec77f173ab9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093689"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003591"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intsights"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IntSights
 
@@ -105,6 +105,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | lastName | user.surname |
     | intsightsAccountId | < intsightsAccountId > |
     | intsightsRole | < intsightsRole > |
+
+    > [!NOTE]
+    > **intsightsAccountId** e **intsightsRole** sono le attestazioni facoltative che non vengono aggiunte per impostazione predefinita e devono essere aggiunte manualmente solo quando è abilitato il provisioning utenti **JIT**.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 

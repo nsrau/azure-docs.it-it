@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15b96a8bb5460064d6f50f81809f7e3850b30a4c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281923"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921674"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Panoramica degli aspetti tecnici e delle funzionalità di Azure Active Directory B2C
 
@@ -262,7 +262,4 @@ Per altre informazioni sull'analisi di utilizzo, vedere [Tenere traccia del comp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è acquisita una panoramica approfondita delle funzionalità e degli aspetti tecnici di Azure Active Directory B2C, iniziare a usare il servizio creando un tenant B2C:
-
-> [!div class="nextstepaction"]
-> [Esercitazione: Creare un tenant di Azure Active Directory B2C >](tutorial-create-tenant.md)
+Ora che sono stati approfonditi gli aspetti tecnici e le funzionalità di Azure Active Directory B2C, iniziare a usare il servizio seguendo l'[esercitazione per la creazione di un tenant Azure Active Directory B2C](tutorial-create-tenant.md).

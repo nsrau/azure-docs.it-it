@@ -8,17 +8,17 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 57a070aa5931349d94597c629a09ab7662e327fb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530011"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922456"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
 
-Per gestire l'accesso alle risorse di Azure, è necessario il ruolo di amministratore appropriato. In Azure è disponibile un sistema di autorizzazione, il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md), con diversi ruoli predefiniti tra cui è possibile scegliere. È possibile assegnare questi ruoli in ambiti diversi, ad esempio gruppo di gestione, sottoscrizione o gruppo di risorse. Per impostazione predefinita, la persona che crea una nuova sottoscrizione di Azure può assegnare ad altri utenti l'accesso amministrativo a una sottoscrizione.
+Per gestire l'accesso alle risorse di Azure, è necessario il ruolo di amministratore appropriato. In Azure è disponibile un sistema di autorizzazione detto [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md), con diversi ruoli predefiniti tra cui è possibile scegliere. È possibile assegnare questi ruoli in ambiti diversi, ad esempio gruppo di gestione, sottoscrizione o gruppo di risorse. Per impostazione predefinita, la persona che crea una nuova sottoscrizione di Azure può assegnare ad altri utenti l'accesso amministrativo a una sottoscrizione.
 
 Questo articolo descrive come aggiungere o modificare il ruolo di amministratore per un utente mediante il controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
 

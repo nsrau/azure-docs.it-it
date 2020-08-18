@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto FedRAMP High
 description: Mapping dei controlli dell'esempio di progetto FedRAMP High. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: ae534248196dec30c087ff4b529e699ef082426e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1b5be2a4dbc6c54e4d8aa69f6be7bc7c60b9a73d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484233"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926009"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto FedRAMP High
 
@@ -32,7 +32,7 @@ Questo progetto consente di esaminare gli account che potrebbero non conformi ai
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestione degli account | Schemi basati sui ruoli
 
-Azure implementa il [controllo degli accessi in base al ruolo](../../../../role-based-access-control/overview.md) per consentire di gestire chi ha accesso alle risorse di Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna inoltre definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del controllo degli accessi in base al ruolo. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
+Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) che semplifica la gestione dell'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna inoltre definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del controllo degli accessi in base al ruolo. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
 
 - È consigliabile effettuare il provisioning di un amministratore di Azure Active Directory per SQL Server
 - Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati
@@ -63,7 +63,7 @@ La presenza di un solo proprietario di sottoscrizioni di Azure non consente la r
 
 ## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>AC-6 (7) Privilegi minimi | Revisione dei privilegi degli utenti
 
-Azure implementa il [controllo degli accessi in base al ruolo](../../../../role-based-access-control/overview.md) per consentire di gestire chi ha accesso alle risorse di Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account la cui verifica dovrebbe essere prioritaria. L'esame di questi indicatori di account è utile per verificare l'implementazione dei controlli dei privilegi minimi.
+Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) che semplifica la gestione dell'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account la cui verifica dovrebbe essere prioritaria. L'esame di questi indicatori di account è utile per verificare l'implementazione dei controlli dei privilegi minimi.
 
 - Per la sottoscrizione devono essere designati al massimo 3 proprietari
 - Controlla le macchine virtuali Windows in cui il gruppo Administrators contiene uno qualsiasi dei membri specificati

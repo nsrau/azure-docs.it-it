@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808406"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135488"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare le proprietà per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -48,37 +48,24 @@ Per modificare le proprietà dell'applicazione:
     - **Abilitata per l'accesso degli utenti?** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
     - **Assegnazione di utenti obbligatoria** determina se gli utenti non assegnati all'applicazione potranno eseguire l'accesso.
     - **Visibile agli utenti?** determina se gli utenti assegnati a un'app possono vederla nel [pannello di accesso](https://myapps.microsoft.com) e nell'icona di avvio delle app di Office 365. (Vedere il menu waffle nell'angolo in alto a sinistra di un sito Web di Office 365 o Microsoft 365).
-4. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
+    
+    > [!TIP]
+    > L'assegnazione degli utenti viene eseguita nella sezione **Utenti e gruppi** del riquadro di spostamento.
 
-   - Comportamento per gli utenti *assegnati*:
+    Le tre opzioni possono essere attivate e disattivate in modo indipendente l'una dall'altra e il comportamento risultante non è sempre ovvio. Ecco una tabella che può risultare utile:
+    
+    | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Comportamento per gli utenti che sono stati assegnati o meno all'app. |
+    |---|---|---|---|
+    | Sì | Sì | Sì | Gli utenti assegnati possono vedere l'app e accedere.<br>Gli utenti non assegnati non possono vedere l'app e non possono accedere. |
+    | Sì | Sì | No  | Gli utenti assegnati non possono vedere l'app ma possono accedere.<br>Gli utenti non assegnati non possono vedere l'app e non possono accedere. |
+    | Sì | No  | Sì | Gli utenti assegnati possono vedere l'app e accedere.<br>Gli utenti non assegnati non possono vedere l'app ma possono accedere. |
+    | Sì | No  | No  | Gli utenti assegnati non possono vedere l'app ma possono accedere.<br>Gli utenti non assegnati non possono vedere l'app ma possono accedere. |
+    | No  | Sì | Sì | Gli utenti assegnati non possono vedere l'app e non possono accedere.<br>Gli utenti non assegnati non possono vedere l'app e non possono accedere. |
+    | No  | Sì | No  | Gli utenti assegnati non possono vedere l'app e non possono accedere.<br>Gli utenti non assegnati non possono vedere l'app e non possono accedere. |
+    | No  | No  | Sì | Gli utenti assegnati non possono vedere l'app e non possono accedere.<br>Gli utenti non assegnati non possono vedere l'app e non possono accedere. |
+    | No  | No  | No  | Gli utenti assegnati non possono vedere l'app e non possono accedere.<br>Gli utenti non assegnati non possono vedere l'app e non possono accedere. |
 
-       | Proprietà dell'applicazione | Proprietà dell'applicazione | Proprietà dell'applicazione | Esperienza degli utenti assegnati | Esperienza degli utenti assegnati |
-       |---|---|---|---|---|
-       | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
-       | Sì | Sì | Sì | Sì | Sì  |
-       | Sì | Sì | No  | Sì | No   |
-       | Sì | No  | Sì | Sì | Sì  |
-       | Sì | No  | No  | Sì | No   |
-       | No  | Sì | Sì | No  | No   |
-       | No  | Sì | No  | No  | No   |
-       | No  | No  | Sì | No  | No   |
-       | No  | No  | No  | No  | No   |
-
-   - Comportamento per gli utenti *non assegnati*:
-
-       | Proprietà dell'applicazione | Proprietà dell'applicazione | Proprietà dell'applicazione | Esperienza degli utenti non assegnati | Esperienza degli utenti non assegnati |
-       |---|---|---|---|---|
-       | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
-       | Sì | Sì | Sì | No  | No   |
-       | Sì | Sì | No  | No  | No   |
-       | Sì | No  | Sì | Sì | No   |
-       | Sì | No  | No  | Sì | No   |
-       | No  | Sì | Sì | No  | No   |
-       | No  | Sì | No  | No  | No   |
-       | No  | No  | Sì | No  | No   |
-       | No  | No  | No  | No  | No   |
-
-     *L'applicazione viene visualizzata agli utenti nel pannello di accesso e nell'icona di avvio delle app di Office 365?
+4. Al termine, fare clic su **Salva**.
 
 ## <a name="use-a-custom-logo"></a>Usare un logo personalizzato
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a0afdecfcab9cc1ab3903429b197fe859d40a7f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd436462d157a7e416f0f6a468edd33520ccec7d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424616"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009939"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Kemp LoadMaster - Azure AD Integration
 
@@ -44,7 +44,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Kemp LoadMaster - Azure AD Integration supporta l'accesso SSO avviato da **IDP**
-* Dopo aver configurato Kemp LoadMaster - Azure AD Integration, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato l'integrazione di Azure AD per Kemp LoadMaster, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Aggiunta di Kemp LoadMaster - Azure AD Integration dalla raccolta
 

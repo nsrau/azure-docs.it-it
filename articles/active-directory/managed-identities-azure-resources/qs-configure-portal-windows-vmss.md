@@ -1,5 +1,5 @@
 ---
-title: Configurare le identità gestite in Azure VMSS-Azure AD
+title: Configurare le identità gestite in set di scalabilità di macchine virtuali di Azure - Azure AD
 description: Istruzioni dettagliate per la configurazione di identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite il portale di Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e2d72ba63633d7c5d3da3094cfa00e076513af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d05ee1be18b315c63ccf9d564ea95391a163826e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609113"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924496"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurare identità gestite per risorse di Azure in un set di scalabilità di macchine virtuali tramite il portale di Azure
 
@@ -32,7 +32,7 @@ Questo articolo illustra come eseguire le operazioni relative alle identità ges
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le seguenti assegnazioni di controllo degli accessi in base al ruolo:
+- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le assegnazioni di ruolo di Azure seguenti:
 
     > [!NOTE]
     > Non sono necessarie altre assegnazioni di ruoli della directory di Azure AD.
@@ -105,5 +105,3 @@ Attualmente il portale di Azure non supporta l'associazione di un'identità gest
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Tramite il portale di Azure, concedere all'identità gestita del set di scalabilità di macchine virtuali l'[accesso a un'altra risorsa di Azure](howto-assign-access-portal.md).
-
-

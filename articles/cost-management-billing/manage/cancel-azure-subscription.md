@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 08/10/2020
 ms.author: banders
-ms.openlocfilehash: 8b0ba7b597921d82883f2c7ba505ebb10eee1876
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 592a5d9573cb4e475c5d1ca6b4f06002f949e197
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039758"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136253"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annullare la sottoscrizione di Azure
 
@@ -32,10 +32,10 @@ Se si annulla un piano di supporto di Azure a pagamento, verrà emessa una fattu
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Annullare la sottoscrizione nel portale di Azure
 
 1. Selezionare la sottoscrizione nella [pagina Sottoscrizioni del portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Selezionare la sottoscrizione da annullare.
-3. Selezionare **Panoramica** e quindi selezionare **Annulla sottoscrizione**.
+1. Selezionare la sottoscrizione da annullare.
+1. Selezionare **Panoramica** e quindi selezionare **Annulla sottoscrizione**.
     ![Screenshot che mostra il pulsante Annulla](./media/cancel-azure-subscription/cancel_ibiza.png)
-3. Seguire le istruzioni e completare la procedura di annullamento.
+1. Seguire le istruzioni e completare la procedura di annullamento.
 
 ## <a name="who-can-cancel-a-subscription"></a>Chi può annullare una sottoscrizione?
 
@@ -49,11 +49,20 @@ La tabella seguente indica l'autorizzazione necessaria per annullare una sottosc
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Cosa accade quando si annulla la sottoscrizione?
 
-Dopo l'annullamento, la fatturazione viene interrotta immediatamente. Per essere visualizzata sul portale, tuttavia, è possibile che siano necessari fino a 10 minuti. Se si annulla la sottoscrizione nel corso di un periodo di fatturazione, la fattura finale verrà inviata alla normale data della fattura al termine del periodo. 
+Dopo l'annullamento, la fatturazione viene interrotta immediatamente. Per essere visualizzata sul portale, tuttavia, è possibile che siano necessari fino a 10 minuti. Se si annulla la sottoscrizione nel corso di un periodo di fatturazione, la fattura finale verrà inviata alla normale data della fattura al termine del periodo.
 
 Dopo l'annullamento, i servizi vengono disabilitati. Le macchine virtuali vengono deallocate, gli indirizzi IP temporanei vengono liberati e la risorsa di archiviazione diventa di sola lettura.
 
-Microsoft attenderà 30-90 giorni prima di eliminare definitivamente i dati, nel caso in cui fosse necessario accedervi o si cambiasse idea. Non verrà comunque addebitato alcun costo per questo servizio di conservazione dei dati. Per altre informazioni, vedere [Microsoft Trust Center - Come vengono gestiti i dati](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+Dopo che la sottoscrizione è stata annullata, Microsoft attende da 30 a 90 giorni prima di eliminare in modo permanente i dati, nel caso in cui sia necessario accedervi o si cambi idea. Non verrà comunque addebitato alcun costo per questo servizio di conservazione dei dati. Per altre informazioni, vedere [Microsoft Trust Center - Come vengono gestiti i dati](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+
+## <a name="delete-free-trial-subscription"></a>Eliminare la sottoscrizione di valutazione gratuita
+
+Se si ha una sottoscrizione di valutazione gratuita, non è necessario attendere 30 giorni per l'eliminazione automatica della sottoscrizione. È possibile eliminare la sottoscrizione *tre giorni* dopo averla annullata. L'opzione **Elimina sottoscrizione** diventa disponibile tre giorni dopo l'annullamento della sottoscrizione.
+
+1. Attendere tre giorni dopo la data di annullamento della sottoscrizione.
+1. Selezionare la sottoscrizione nella pagina [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) del portale di Azure.
+1. Selezionare la sottoscrizione da eliminare.
+1. Selezionare **Panoramica** e quindi **Elimina sottoscrizione**.
 
 ## <a name="reactivate-subscription"></a>Riattivare la sottoscrizione
 

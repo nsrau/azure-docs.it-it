@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77615483"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810174"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Esercitazione: Condividere Ancoraggi nello spazio di Azure tra sessioni e dispositivi
 
@@ -34,7 +34,7 @@ Si apprenderà come:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Si noti che in questa esercitazione si useranno Unity e l'app Web ASP.NET Core solo per mostrare un esempio di condivisione degli identificatori di Ancoraggi nello spazio di Azure con altri dispositivi. È possibile usare altri linguaggi e tecnologie di back-end per conseguire lo stesso obiettivo. L'app Web ASP.NET Core usata in questa esercitazione ha una dipendenza da .NET Core 2.2 SDK. Funziona correttamente in app Web di Azure per Windows, ma al momento non in app Web di Azure per Linux.
+Si noti che in questa esercitazione si useranno Unity e l'app Web ASP.NET Core solo per mostrare un esempio di condivisione degli identificatori di Ancoraggi nello spazio di Azure con altri dispositivi. È possibile usare altri linguaggi e tecnologie di back-end per conseguire lo stesso obiettivo.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -82,19 +82,13 @@ Nella finestra di dialogo **Configura piano di hosting** usare le impostazioni s
 
 Selezionare **OK**.
 
-Aprire Visual Studio Code e il progetto nella cartella `Sharing\SharingServiceSample`. Seguire <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">questa esercitazione</a> per distribuire il servizio di condivisione tramite Visual Studio Code. È possibile seguire la procedura a partire dalla sezione "Aprire il progetto con Visual Studio Code". Non creare un altro progetto MVC come illustrato nel passaggio precedente poiché il progetto da distribuire e pubblicare, ovvero SharingServiceSample, è già presente.
+Aprire Visual Studio Code e il progetto nella cartella `Sharing\SharingServiceSample`. Seguire <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">questa esercitazione</a> per distribuire il servizio di condivisione tramite Visual Studio Code. È possibile seguire la procedura a partire dalla sezione "Aprire il progetto con Visual Studio Code". Non creare un altro progetto ASP.NET come illustrato nel passaggio precedente perché si dispone già del progetto da distribuire e pubblicare, ovvero SharingServiceSample.
 
 ---
 
 ## <a name="deploy-the-sample-app"></a>Distribuire l'app di esempio
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
-
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-
-### <a name="unity-20193"></a>Unity 2019.3
-
-A causa di modifiche che causano un'interruzione, Unity 2019.3 non è attualmente supportato. Usare Unity 2019.1 o 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

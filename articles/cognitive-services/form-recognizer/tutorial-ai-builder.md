@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 16869ab3a1961879cfcda1eaa383073cd2309a01
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433383"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003359"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Esercitazione: Creare un'app di elaborazione moduli con AI Builder
 
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Set di almeno cinque moduli dello stesso tipo da usare per i dati di training/test. Per suggerimenti e informazioni sulle opzioni per la creazione di un set di dati di training, vedere [Creare un set di dati di training](./build-training-data-set.md). Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2128080).
-* Licenza di Power Apps o Power Automate. Vedere la [guida alle licenze](https://go.microsoft.com/fwlink/?linkid=2085130). La licenza deve includere [Dataflex Pro](https://powerplatform.microsoft.com/en-us/common-data-service/).
+* Licenza di Power Apps o Power Automate. Vedere la [guida alle licenze](https://go.microsoft.com/fwlink/?linkid=2085130). La licenza deve includere [Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/).
 * [Componente aggiuntivo o versione di valutazione](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409) di AI Builder.
 
 
