@@ -6,13 +6,14 @@ ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
+ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a5e8b6f430f6af49ab79ca0f8cb2253bd0f2049
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975075"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520657"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
 La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di un gruppo di dispositivi registrato in un dato punto con il servizio Device Provisioning. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Gli SDK sono disponibili su GitHub nello stesso repository degli SDK di Azure IoT.
@@ -39,7 +40,7 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
     È possibile creare un gruppo di registrazioni con gli SDK attenendosi al flusso di lavoro seguente:
 
     1. Per il gruppo di registrazioni, il meccanismo di attestazione usa il certificato X.509.  Chiamare l'API dell'SDK del servizio ```X509Attestation.createFromRootCertificate``` con il certificato radice per creare l'attestazione per la registrazione.  Il certificato X.509 viene fornito in un file con estensione pem o sotto forma di stringa.
-    1. Creare una nuova variabile ```EnrollmentGroup``` tramite il valore del parametro ```attestation``` creato e un valore univoco del parametro ```enrollmentGroupId```.  Facoltativamente, è possibile impostare parametri quali, ad esempio, ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
+    1. Creare una nuova variabile ```EnrollmentGroup``` tramite il valore del parametro ```attestation``` creato e un valore univoco del parametro ```enrollmentGroupId```.  Facoltativamente, è possibile impostare parametri come ```IoTHubHostName``` , ```ProvisioningStatus``` .
     2. Chiamare l'API dell'SDK del servizio ```createOrUpdateEnrollmentGroup``` nell'applicazione back-end tramite ```EnrollmentGroup``` per creare un gruppo di registrazioni.
 
 * Una **registrazione individuale** è una voce per un singolo dispositivo che esegue la registrazione. Le registrazioni singole possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM fisico o virtuale) come meccanismo di attestazione. È consigliabile usare le registrazioni singole per i dispositivi che richiedono configurazioni iniziali univoche oppure per i dispositivi che possono usare solo token di firma di accesso condiviso tramite TPM o TPM virtuale come meccanismo di attestazione. In caso di registrazione individuale è possibile specificare l'ID dispositivo hub IoT desiderato.

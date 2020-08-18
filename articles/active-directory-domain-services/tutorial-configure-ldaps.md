@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404175"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054341"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -265,7 +265,7 @@ Per eseguire la connessione e il binding al dominio gestito e svolgere ricerche 
 Eseguire quindi il binding al dominio gestito. Gli utenti e gli account del servizio non possono eseguire binding LDAP semplici se la sincronizzazione degli hash delle password NTLM è stata disabilitata nel dominio gestito. Per altre informazioni sulla disabilitazione della sincronizzazione degli hash delle password NTLM, vedere [Proteggere il dominio gestito][secure-domain].
 
 1. Selezionare l'opzione di menu **Connessione**, quindi scegliere **Associa**.
-1. Fornire le credenziali di un account utente appartenente al gruppo *Amministratori di AAD DC*, ad esempio *contosoadmin*. Immettere la password dell'account utente, quindi immettere il dominio, ad esempio *aaddscontoso.com*.
+1. Fornire le credenziali di un account utente appartenente al dominio gestito. Immettere la password dell'account utente, quindi immettere il dominio, ad esempio *aaddscontoso.com*.
 1. Per **Tipo di binding** scegliere l'opzione *Binding con credenziali*.
 1. Selezionare **OK** per eseguire il binding al dominio gestito.
 

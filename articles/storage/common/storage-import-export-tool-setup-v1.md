@@ -1,6 +1,6 @@
 ---
 title: Configurazione dello strumento Importazione/Esportazione di Azure versione 1 | Documentazione Microsoft
-description: Informazioni su come configurare lo strumento di preparazione e ripristino delle unità per il servizio Importazione/Esportazione di Azure. Si riferisce alla versione 1 dello strumento Importazione/Esportazione.
+description: Informazioni su come configurare lo strumento di preparazione e ripristino delle unità per il servizio Importazione/Esportazione di Azure. Questo articolo si riferisce alla versione 1 dello strumento di importazione/esportazione.
 author: twooley
 services: storage
 ms.service: storage
@@ -8,28 +8,28 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: ca74e3aea8a847344c75ca7167c46675e1339459
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2aeb010d0c6f62284f1347bd90b952be50c665e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077822"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530801"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Configurazione dello strumento di importazione/esportazione di Azure V1
 Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile usare con il servizio Importazione/Esportazione di Microsoft Azure. È possibile usare lo strumento per svolgere le funzioni seguenti:  
 
--   Prima di creare un processo di importazione, è possibile utilizzare questo strumento per copiare i dati nei dischi rigidi che si intende fornire a un data center di Microsoft Azure.  
+-   Prima di creare un processo di importazione, è possibile usare questo strumento per copiare i dati nei dischi rigidi da spedire a un data center di Windows Azure.  
 
 -   Al termine di un processo di importazione, è possibile usare lo strumento per ripristinare gli eventuali BLOB danneggiati, mancanti o in conflitto con altri BLOB.  
 
 -   Dopo aver ricevuto le unità da un processo di esportazione completato, è possibile usare questo strumento per recuperare eventuali file danneggiati o mancanti nelle unità.  
 
 ## <a name="prerequisites"></a>Prerequisiti  
-Se si intende preparare delle unità per un processo di importazione, è necessario soddisfare i prerequisiti seguenti:  
+Se si preparano le unità per un processo di importazione, è necessario soddisfare i prerequisiti seguenti:  
 
 -   È necessario disporre di una sottoscrizione di Azure attiva.  
 
--   La sottoscrizione deve includere un account di archiviazione con spazio disponibile sufficiente per archiviare i file che si intende importare.  
+-   La sottoscrizione deve includere un account di archiviazione con spazio disponibile sufficiente per archiviare i file che si stanno importando.  
 
 -   È necessaria almeno una delle chiavi dell'account per l'account di archiviazione.  
 
@@ -39,7 +39,7 @@ Se si intende preparare delle unità per un processo di importazione, è necessa
 
 -   Nel computer di copia deve essere abilitato BitLocker.  
 
--   È necessario disporre di una o più unità contenenti i dati da importare o dischi rigidi SATA da 3,5 pollici vuoti connessi al computer di copia.  
+-   Sono necessarie una o più unità che contengono i dati da importare o dischi rigidi SATA da 3,5 pollici vuoti collegati al computer di copia.  
 
 -   I file che si intende importare devono essere accessibili dal computer di copia, che si trovino in una condivisione di rete o in un disco rigido locale.
 
@@ -72,7 +72,7 @@ Se si tenta di recuperare un'importazione parzialmente non riuscita, è necessar
 
 - Hddid.dll  
 
-  Copiare questi file in una directory di lavoro, ad esempio `c:\WAImportExport`. Successivamente, aprire una finestra della riga di comando in modalità amministratore e impostare la suddetta directory come directory corrente.  
+  Copiare questi file in una directory di lavoro, ad esempio `c:\WAImportExport`. Successivamente, aprire una finestra della riga di comando in modalità amministratore e impostare la directory precedente come directory corrente.  
 
   Per visualizzare la Guida per il comando, eseguire lo strumento senza parametri:  
 
@@ -253,5 +253,4 @@ Examples:
 * [Anteprima dell'uso del disco per un processo di esportazione](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
 * [Revisione dello stato dei processi con i file di log di copia](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)   
-* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
+* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)

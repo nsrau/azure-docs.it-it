@@ -1,20 +1,20 @@
 ---
 title: "Esercitazione: Creare un'applicazione di localizzazione di punti vendita con Mappe di Azure | Microsoft Docs"
-description: Questa esercitazione illustra come creare un'applicazione Web di localizzazione di punti vendita usando Microsoft Azure Maps Web SDK.
+description: Informazioni su come creare applicazioni Web del localizzatore di punti vendita. Usare l'SDK Web di Mappe di Azure per creare una pagina Web, eseguire query nel servizio di ricerca e visualizzare i risultati su una mappa.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/14/2020
+ms.date: 08/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4bb0a4a0a621881fe1d9a59585476baa2ce05f8e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1ec4dbb1ce55919fda6c73d198100db34f5f57ea
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289552"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121256"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -31,25 +31,24 @@ Questa esercitazione illustra il processo di creazione di un semplice localizzat
 
 <a id="Intro"></a>
 
-Passare all'[esempio attivo di localizzatore di punti vendita](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) o al [codice sorgente](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
+Passare all'[esempio attivo di localizzatore di punti vendita](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) o al [codice sorgente](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare i passaggi di questa esercitazione, è prima di tutto necessario creare un account di Mappe di Azure e ottenere la chiave primaria (chiave di sottoscrizione). Seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-azure-maps-account) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+1. [Creare un account Mappe di Azure con il piano tariffario S1](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
+
+Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Progettazione
 
 Prima di passare al codice, è consigliabile definire la struttura. Il localizzatore di punti vendita può essere semplice o complesso, in base alle necessità specifiche. In questa esercitazione viene creato un localizzatore di punti vendita semplice. L'esercitazione include alcuni suggerimenti utili per estendere alcune funzionalità, se necessario. Verrà creato un localizzatore di punti vendita per una società fittizia denominata Contoso Coffee. La figura seguente mostra un wireframe del layout generale del localizzatore di punti vendita creato in questa esercitazione:
 
-<center>
-
-![Wireframe di un'applicazione di localizzazione di punti vendita per le posizioni dei bar Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Wireframe di un'applicazione di localizzazione di punti vendita per le posizioni dei bar Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)
 
 Per massimizzare l'utilità di questo localizzatore di punti vendita, includeremo un layout reattivo che si adatta quando la larghezza dello schermo di un utente è inferiore a 700 pixel. Un layout reattivo semplifica l'uso del localizzatore di punti vendita su un piccolo schermo, ad esempio in un dispositivo mobile. Ecco un wireframe del layout per uno schermo di piccole dimensioni:  
 
-<center>
-
-![Wireframe dell'applicazione di localizzazione di punti vendita di Contoso Coffee su un dispositivo mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Wireframe dell'applicazione di localizzazione di punti vendita di Contoso Coffee su un dispositivo mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</
 
 I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include una casella di ricerca, un elenco di archivi nelle vicinanze e una mappa con alcuni indicatori, ad esempio i simboli. Dispone inoltre di una finestra popup che visualizza informazioni aggiuntive quando l'utente seleziona un indicatore. Ecco una descrizione più dettagliata delle funzionalità create nel localizzatore di punti vendita in questa esercitazione:
 
@@ -71,45 +70,36 @@ I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include
 
 Prima di sviluppare un'applicazione di tipo localizzatore di punti vendita, è necessario creare un set di dati dei punti vendita da visualizzare sulla mappa. In questa esercitazione viene usato un set di dati per un bar fittizio denominato Contoso Coffee. Il set di dati per questo semplice localizzatore di punti vendita viene gestito in una cartella di lavoro di Excel. Il set di dati contiene 10.213 posizioni di bar Contoso Coffee in nove paesi/aree geografiche, ovvero Stati Uniti, Canada, Regno Unito, Francia, Germania, Italia, Paesi Bassi, Danimarca e Spagna. Ecco uno screenshot dell'aspetto dei dati:
 
-<center>
+![Screenshot dei dati del localizzatore di punti vendita in una cartella di lavoro di Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)
 
-![Screenshot dei dati del localizzatore di punti vendita in una cartella di lavoro di Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
-
-È possibile [scaricare la cartella di lavoro di Excel](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
+È possibile [scaricare la cartella di lavoro di Excel](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data).
 
 Esaminando lo screenshot dei dati è possibile fare le osservazioni seguenti:
-    
+
 * Le informazioni sulla posizione sono archiviate mediante le colonne **AddressLine**, **City**, **Municipality** (comune), **AdminDivision** (stato/provincia), **PostCode** (codice postale) e **Country**.  
 * Le colonne **Latitude** e **Longitude** contengono le coordinate per ogni posizione dei bar Contoso Coffee. Se non sono disponibili informazioni sulle coordinate, è possibile usare i servizi di ricerca in Mappe di Azure per determinare le coordinate relative alle posizioni.
 * Alcune colonne aggiuntive contengono metadati correlati ai bar, ovvero numero di telefono, colonne booleane e orari di apertura e chiusura del bar nel formato 24 ore. Le colonne booleane contengono i dati per la disponibilità del Wi-Fi e l'accessibilità per disabili. È possibile creare colonne personalizzate contenenti i metadati più pertinenti per i dati di posizione specifici.
 
-> [!Note]
-> Mappe di Azure esegue il rendering dei dati nella proiezione sferica di Mercatore "EPSG:3857", ma legge i dati in "EPSG:4325" che usano il dato WGS84. 
+> [!NOTE]
+> Mappe di Azure esegue il rendering dei dati nella proiezione sferica di Mercatore "EPSG:3857", ma legge i dati in "EPSG:4325" che usano il dato WGS84.
 
-È possibile esporre in molti modi il set di dati all'applicazione. Un approccio consiste nel caricare i dati in un database ed esporre un servizio Web che esegue query sui dati e invia i risultati al browser dell'utente. Questa opzione è ideale per set di dati di grandi dimensioni o per set di dati che vengono aggiornati spesso. Questa opzione richiede tuttavia un maggior numero di attività di sviluppo e prevede costi più elevati. 
+È possibile esporre in molti modi il set di dati all'applicazione. Un approccio consiste nel caricare i dati in un database ed esporre un servizio Web che esegue query sui dati e invia i risultati al browser dell'utente. Questa opzione è ideale per set di dati di grandi dimensioni o per set di dati che vengono aggiornati spesso. Questa opzione richiede tuttavia un maggior numero di attività di sviluppo e prevede costi più elevati.
 
 Un altro approccio consiste nel convertire questo set di dati in un file flat di testo che può essere analizzato con facilità dal browser. Il file stesso può essere ospitato insieme al resto dell'applicazione. Questa opzione consente di semplificare le procedure, ma è ideale solo per set di dati più piccoli perché l'utente scarica tutti i dati. Per questo set di dati viene usato il file flat di testo perché le dimensioni del file di dati sono inferiori a 1 MB.  
 
-Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome**. Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)** . Specificare il nome *ContosoCoffee.txt* per il file. 
+Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome**. Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)** . Specificare il nome *ContosoCoffee.txt* per il file.
 
-<center>
-
-![Screenshot della finestra di dialogo con Tipo file](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+![Screenshot della finestra di dialogo con Tipo file](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
 Se si apre il file di testo in Blocco note, avrà un aspetto simile alla figura seguente:
 
-<center>
-
-![Screenshot di un file di Blocco note che mostra un set di dati con valori delimitati da tabulazioni](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
-
+![Screenshot di un file di Blocco note che mostra un set di dati con valori delimitati da tabulazioni](./media/tutorial-create-store-locator/StoreDataTabFile.png)
 
 ## <a name="set-up-the-project"></a>Configurare il progetto
 
 Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html*, *index.css* e *index.js*. Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images*. In questa applicazione vengono usate 10 immagini per icone, pulsanti e indicatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
 
-<center>
-
-![Screenshot della cartella del progetto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+![Screenshot della cartella del progetto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Creare l'interfaccia utente
 
@@ -922,23 +912,17 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
 
 È ora disponibile un localizzatore di punti vendita completamente funzionante. Nel Web browser aprire i file *index.html* per il localizzatore di punti vendita. Quando i cluster vengono visualizzati sulla mappa, è possibile cercare una posizione usando la casella di ricerca, selezionando il pulsante My Location, selezionando un cluster o ingrandendo la mappa per visualizzare le singole posizioni.
 
-Quando un utente seleziona il pulsante My Location per la prima volta, il browser mostra un avviso di sicurezza che richiede l'autorizzazione per accedere alla sua posizione. Se l'utente accetta di condividere la propria posizione, la mappa viene ingrandita per visualizzarla e vengono mostrati i bar presenti nelle vicinanze. 
+Quando un utente seleziona il pulsante My Location per la prima volta, il browser mostra un avviso di sicurezza che richiede l'autorizzazione per accedere alla sua posizione. Se l'utente accetta di condividere la propria posizione, la mappa viene ingrandita per visualizzarla e vengono mostrati i bar presenti nelle vicinanze.
 
-<center>
-
-![Screenshot della richiesta del browser di accedere alla posizione dell'utente](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+![Screenshot della richiesta del browser di accedere alla posizione dell'utente](./media/tutorial-create-store-locator/GeolocationApiWarning.png)
 
 Quando si ingrandisce a sufficienza un'area che include posizioni dei bar, i cluster si separano in singole posizioni. Selezionare una delle icone sulla mappa oppure selezionare un elemento nel pannello laterale per visualizzare una finestra popup che mostra le informazioni per tale posizione.
 
-<center>
+![Screenshot del localizzatore di punti vendita completato](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)
 
-![Screenshot del localizzatore di punti vendita completato](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+Se si ridimensiona la finestra del browser fino a una larghezza inferiore a 700 pixel o se si apre l'applicazione in un dispositivo mobile, il layout viene modificato per adattarsi meglio a schermi più piccoli.
 
-Se si ridimensiona la finestra del browser fino a una larghezza inferiore a 700 pixel o se si apre l'applicazione in un dispositivo mobile, il layout viene modificato per adattarsi meglio a schermi più piccoli. 
-
-<center>
-
-![Screenshot della versione del localizzatore di punti vendita per schermi di piccole dimensioni](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+![Screenshot della versione del localizzatore di punti vendita per schermi di piccole dimensioni](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -950,7 +934,7 @@ In questa esercitazione viene illustrato come creare un localizzatore di punti v
 > * Consentire all'utente di [filtrare le posizioni lungo un tragitto](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
 > * Aggiungere la possibilità di [impostare filtri](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 > * Aggiungere il supporto per specificare un valore di ricerca iniziale mediante una stringa di query. Quando si include questa opzione nel localizzatore di punti vendita, gli utenti possono aggiungere ai segnalibri e condividere le ricerche. Questa opzione consente anche di passare con facilità le ricerche a questa pagina da un'altra pagina.  
-> * Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/quickstart-html). 
 > * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
 > [!div class="nextstepaction"]

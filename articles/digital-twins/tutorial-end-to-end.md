@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131736"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827336"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Creare una soluzione end-to-end
 
@@ -95,6 +95,20 @@ Il passaggio successivo prevede la configurazione di un'[app di Funzioni di Azur
 
 In questa sezione si pubblicherà l'app per le funzioni scritta in precedenza e si verificherà che sia in grado di accedere a Gemelli digitali di Azure assegnandole un'identità di Azure Active Directory (Azure AD). Completando questi passaggi sarà possibile usare le funzioni all'interno dell'app per le funzioni nel resto dell'esercitazione. 
 
+Tornare nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_. L'app per le funzioni si trova nel file di progetto _**SampleFunctionsApp**_. È possibile visualizzarlo nel riquadro *Esplora soluzioni*.
+
+### <a name="update-dependencies"></a>Aggiornare le dipendenze
+
+Prima di pubblicare l'app, è consigliabile assicurarsi che le dipendenze siano aggiornate, assicurandosi di avere la versione più recente di tutti i pacchetti inclusi.
+
+Nel riquadro *Esplora soluzioni* espandere *SampleFunctionsApp > Dipendenze*. Fare clic con il pulsante destro del mouse su *Pacchetti* e scegliere *Gestisci pacchetti NuGet...* .
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Gestire i pacchetti NuGet per il progetto SampleFunctionsApp" border="false":::
+
+Verrà aperto Gestione pacchetti NuGet. Selezionare la scheda *Aggiornamenti* e se sono presenti pacchetti da aggiornare, selezionare la casella accanto a *Seleziona tutti i pacchetti*. Fare quindi clic su *Aggiorna*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: Selezione per aggiornare tutti i pacchetti in Gestione pacchetti NuGet":::
+
 ### <a name="publish-the-app"></a>Pubblicare l'app
 
 Tornare nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_. Nel riquadro *Esplora soluzioni* fare clic con il pulsante destro del mouse per selezionare il file di progetto _**SampleFunctionsApp**_ e scegliere **Pubblica**.
@@ -134,19 +148,21 @@ Nel riquadro *Pubblica* visualizzato di nuovo nella finestra principale di Visua
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: pubblicazione":::
 
 > [!NOTE]
-> È possibile che venga visualizzato un popup simile al seguente: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: credenziali di pubblicazione" border="false":::
-> In questo caso, selezionare **Tentativo di recuperare le credenziali da Azure** e quindi **Salva**.
+> Se viene visualizzato un popup simile al seguente: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: credenziali di pubblicazione" border="false":::
+> Selezionare **Tentativo di recuperare le credenziali da Azure** e quindi **Salva**.
 >
-> Se viene visualizzato l'avviso *Your version of the functions runtime does not match the version running in Azure* (La versione del runtime di Funzioni non corrisponde alla versione in esecuzione in Azure), seguire le istruzioni per eseguire l'aggiornamento alla versione più recente del runtime di Funzioni di Azure. Questo problema può verificarsi se si usa una versione di Visual Studio meno recente rispetto a quella consigliata nella sezione *Prerequisiti* all'inizio di questa esercitazione.
+> Se viene visualizzato un avviso per *aggiornare la versione di Funzioni in Azure* o che indica che *la versione del runtime di Funzioni non corrisponde alla versione in esecuzione in Azure*:
+>
+> seguire le istruzioni per eseguire l'aggiornamento alla versione più recente del runtime di Funzioni di Azure. Questo problema può verificarsi se si usa una versione di Visual Studio meno recente rispetto a quella consigliata nella sezione *Prerequisiti* all'inizio di questa esercitazione.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Assegnare le autorizzazioni all'app per le funzioni
 
-Per consentire l'accesso dell'app per le funzioni a Gemelli digitali di Azure, il passaggio successivo consiste nel configurare un'impostazione dell'app, assegnare all'app un'identità di Azure AD gestita dal sistema e assegnare a questa identità le autorizzazioni di *proprietario* nell'istanza di Gemelli digitali di Azure.
+Per consentire l'accesso dell'app per le funzioni a Gemelli digitali di Azure, il passaggio successivo consiste nel configurare un'impostazione dell'app, assegnare all'app un'identità di Azure AD gestita dal sistema e assegnare a questa identità il ruolo *Proprietario di Gemelli digitali di Azure (anteprima)* nell'istanza di Gemelli digitali di Azure. Questo ruolo è necessario per qualsiasi utente o funzione che vuole eseguire molte attività del piano dati nell'istanza. Per altre informazioni sulla sicurezza e le assegnazioni di ruolo, vedere [*Concetti: Sicurezza per le soluzioni di Gemelli digitali di Azure*](concepts-security.md).
 
-In Azure Cloud Shell usare il comando seguente per configurare un'impostazione che verrà usata dall'app per le funzioni per fare riferimento all'istanza di gemelli digitali.
+In Azure Cloud Shell usare il comando seguente per configurare un'impostazione che verrà usata dall'app per le funzioni per fare riferimento all'istanza di Gemelli digitali di Azure.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Usare il comando seguente per creare l'identità gestita dal sistema. Prendere nota del campo *principalId* nell'output.
@@ -155,7 +171,7 @@ Usare il comando seguente per creare l'identità gestita dal sistema. Prendere n
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Usare il valore di *principalId* nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo di *proprietario* per l'istanza di Gemelli digitali di Azure:
+Usare il valore *principalId* dell'output nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo *Proprietario di Gemelli digitali di Azure (anteprima)* per l'istanza di Gemelli digitali di Azure:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
@@ -339,7 +355,7 @@ L'output di questo comando è costituito da informazioni sull'endpoint creato.
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Cercare il campo `provisioningState` nell'output e verificare che il valore sia "Succeeded".
+Cercare il campo `provisioningState` nell'output e verificare che il valore sia "Succeeded". Si può anche pronunciare "Provisioning", a indicare che l'endpoint è ancora in fase di creazione. In questo caso, attendere alcuni secondi ed eseguire di nuovo il comando per verificare che sia stato completato correttamente.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Risultato della query che mostra l'endpoint con provisioningState Succeeded":::
 
@@ -354,6 +370,9 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 ```
 
 L'output di questo comando è costituito da alcune informazioni sulla route creata.
+
+>[!NOTE]
+>È necessario completare il provisioning degli endpoint (del passaggio precedente) prima di poter configurare una route di eventi che li usi. Se la creazione della route non riesce perché gli endpoint non sono pronti, attendere qualche minuto e riprovare.
 
 #### <a name="connect-the-function-to-event-grid"></a>Connettere la funzione a Griglia di eventi
 

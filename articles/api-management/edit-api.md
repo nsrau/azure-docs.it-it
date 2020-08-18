@@ -1,6 +1,6 @@
 ---
 title: Modificare un'API con il portale di Azure | Microsoft Docs
-description: Questa esercitazione illustra come usare Gestione API per modificare un'API.
+description: Informazioni su come usare Gestione API per modificare un'API. Aggiungere, eliminare o rinominare operazioni nell'istanza di Gestione API o modificare lo swagger dell'API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70072166"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905160"
 ---
 # <a name="edit-an-api"></a>Modificare un'API
 
@@ -26,7 +26,7 @@ I passaggi di questa esercitazione illustrano come usare Gestione API per modifi
 + È possibile modificare l'API aggiungendo, eliminando e rinominando operazioni nell'istanza di Gestione API. 
 + È possibile modificare lo swagger dell'API.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 + [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 + [Importare e pubblicare la prima API](import-and-publish.md)

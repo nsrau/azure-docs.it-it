@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3baa659d454a24a132eda914d50acddbd5df8a90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020067"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520210"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -414,6 +414,10 @@ Gli scenari di relying party SAML seguenti sono supportati tramite un endpoint d
 * Più URL di disconnessione o binding POST per l'URL di disconnessione nell'oggetto applicazione/entità servizio.
 * Specificare la chiave di firma per verificare le richieste della relying party nell'oggetto applicazione/entità servizio.
 * Specificare la chiave di crittografia del token nell'oggetto applicazione/entità servizio.
+* Accesso avviato dal provider di identità, in cui il provider di identità viene Azure AD B2C.
+
+Gli scenari SAML relying party (RP) seguenti non sono attualmente supportati:
+* Accesso avviato dal provider di identità, dove il provider di identità è un provider di identità esterno, ad esempio ADFS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

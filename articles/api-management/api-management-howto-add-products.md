@@ -1,6 +1,6 @@
 ---
 title: Come creare e pubblicare un prodotto in Gestione API di Azure
-description: Informazioni su come creare e pubblicare prodotti in Gestione API di Azure.
+description: Informazioni su come creare e pubblicare prodotti in Gestione API di Azure. Dopo la pubblicazione di un prodotto, gli sviluppatori possono iniziare a usare le API del prodotto.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: d90b212286b555bf5b858990fd5dcb062348be8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69b5e381ed8446b45f68b4b1ce9bb13df47039c0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254725"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904905"
 ---
 # <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto  
 

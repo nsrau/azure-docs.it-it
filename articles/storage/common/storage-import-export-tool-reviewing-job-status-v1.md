@@ -1,6 +1,6 @@
 ---
 title: Esame dello stato del processo di importazione/esportazione di Azure - versione 1 | Documentazione Microsoft
-description: Informazioni su come usare i file di log creati quando il processo di importazione o esportazione è stato eseguito per visualizzare lo stato del processo di importazione/esportazione.
+description: Informazioni su come usare i file di log creati dal processo di importazione o esportazione per visualizzare lo stato del processo.
 author: twooley
 services: storage
 ms.service: storage
@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 01/26/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 5ab0dd7f0e0ed90c205c37ddbb7ea3a9fca74ae9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9093af25e621b3ab9a60d9894f0a875340fda45
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512253"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525670"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Esame dello stato del processo di Importazione/Esportazione di Azure con i file di log di copia
-Quando il servizio Importazione/Esportazione di Microsoft Azure elabora unità associate a un processo di importazione o esportazione, scrive file di log di copia per l'account di archiviazione verso cui o da cui si importano o si esportano BLOB. Il file di log contiene lo stato dettagliato di ogni file importato o esportato. L'URL ad ogni file di log di copia viene restituito quando si esegue una query sullo stato di un processo completato. Per ulteriori informazioni, vedere [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get).  
+Quando il servizio Importazione/Esportazione di Microsoft Azure elabora le unità associate a un processo di importazione o esportazione, i file di log di copia vengono scritti nell'account di archiviazione usato per importare o esportare i BLOB. Il file di log contiene lo stato dettagliato di ogni file importato o esportato. Il servizio restituisce l'URL per ogni file di log di copia quando si esegue una query sullo stato di un processo completato. Per ulteriori informazioni, vedere [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get).  
 
 ## <a name="example-urls"></a>URL di esempio
 
@@ -33,5 +33,4 @@ Di seguito sono mostrati URL di esempio per i file di log di copia per un proces
  * [Configurazione dello strumento di importazione/esportazione di Azure](storage-import-export-tool-setup-v1.md)   
  * [Preparazione dei dischi rigidi per un processo di importazione](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
  * [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)   
- * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)   
- * [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
+ * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)

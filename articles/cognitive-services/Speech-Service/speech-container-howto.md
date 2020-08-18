@@ -10,30 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808661"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518323"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
-I contenitori consentono di eseguire alcune delle API del servizio vocale nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore di riconoscimento vocale.
+I contenitori consentono di eseguire alcune delle API del servizio Voce nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore del servizio Voce.
 
-I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per le funzionalità cloud affidabili e la località perimetrale. Sono disponibili quattro contenitori diversi. I due contenitori standard sono **sintesi vocale** e sintesi **vocale**. I due contenitori personalizzati sono da **riconoscimento vocale personalizzato a testo** e **da sintesi vocale personalizzata**. I contenitori di riconoscimento vocale hanno lo stesso [Prezzo](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) dei servizi di riconoscimento vocale di Azure basati sul cloud.
+I contenitori del servizio Voce permettono ai clienti di creare un'architettura per le applicazioni ottimizzata sia per le funzionalità cloud avanzate e che per la posizione fisica dei dispositivi perimetrali. Sono disponibili quattro contenitori diversi. I due contenitori standard sono **sintesi vocale** e sintesi **vocale**. I due contenitori personalizzati sono da **riconoscimento vocale personalizzato a testo** e **da sintesi vocale personalizzata**. I contenitori di riconoscimento vocale hanno lo stesso [Prezzo](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) dei servizi di riconoscimento vocale di Azure basati sul cloud.
 
 > [!IMPORTANT]
 > Tutti i contenitori di riconoscimento vocale sono attualmente offerti come parte di un' [anteprima pubblica "gestita"](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Verrà creato un annuncio quando i contenitori di riconoscimento vocale sono in stato di disponibilità generale.
 
-| Funzione | Funzionalità | Più recente |
+| Funzione | Funzionalità | Ultima versione |
 |--|--|--|
 | Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.3.1 |
 | Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.3.1 |
 | Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.5.0 |
 | Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.5.0 |
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -76,25 +76,25 @@ La tabella seguente descrive l'allocazione minima e consigliata delle risorse pe
 
 # <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore | Minima | Implementazione consigliata |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore | Minima | Implementazione consigliata |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore | Minima | Implementazione consigliata |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Sintesi vocale | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore | Minima | Implementazione consigliata |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
@@ -441,7 +441,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Simple.Extensions`restituirà il risultato del sentimento nel livello radice della risposta.
+`Simple.Extensions` restituirà il risultato del sentimento nel livello radice della risposta.
 
 ```json
 {
@@ -480,7 +480,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Detailed.Extensions`fornisce il risultato del sentimento nel livello radice della risposta. `Detailed.Options`fornisce il risultato in base al `NBest` livello della risposta. Possono essere usati separatamente o insieme.
+`Detailed.Extensions` fornisce il risultato del sentimento nel livello radice della risposta. `Detailed.Options` fornisce il risultato in base al `NBest` livello della risposta. Possono essere usati separatamente o insieme.
 
 ```json
 {

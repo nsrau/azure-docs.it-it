@@ -3,23 +3,19 @@ title: 'Esercitazione: configurare il writeback di SAP SuccessFactors in Azure A
 description: Informazioni su come configurare il writeback degli attributi in SAP SuccessFactors da Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215868b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: f150d6abf2ac6a423a99d3347df9bf0adc9b294b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809933"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533997"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a SAP SuccessFactors
 L'obiettivo di questa esercitazione è mostrare i passaggi per la scrittura di attributi da Azure AD a SAP SuccessFactors Employee Central. 
@@ -151,7 +147,7 @@ L'app di provisioning del writeback SuccessFactors USA determinati valori di *co
 1. In postazione fare clic sui puntini di sospensione (...) associati alla raccolta SuccessFactors e aggiungere una nuova richiesta denominata "Get email types", come illustrato di seguito. 
 
    > [!div class="mx-imgBorder"]
-   > ![Richiesta di posta elettronica del post](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
+   > ![Richiesta di posta elettronica del post ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
 
 1. Aprire il pannello della richiesta "Get email type". 
 1. Nell'URL GET aggiungere l'URL seguente, sostituendo `successFactorsAPITenantName` con il tenant API per l'istanza di SuccessFactors. 
@@ -250,14 +246,14 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
 1. Nella sezione **mapping** degli attributi della tabella di mapping è possibile eseguire il mapping degli attributi Azure Active Directory seguenti a SuccessFactors. La tabella seguente fornisce indicazioni su come eseguire il mapping degli attributi write-back. 
 
-   | \# | Attributo di Azure AD | Attributo SuccessFactors | Osservazioni |
+   | \# | Attributo di Azure AD | Attributo SuccessFactors | Commenti |
    |--|--|--|--|
    | 1 | employeeId | personIdExternal | Per impostazione predefinita, questo attributo è l'identificatore corrispondente. Anziché employeeId, è possibile usare qualsiasi altro Azure AD attributo che può archiviare il valore uguale a personIdExternal in SuccessFactors.    |
    | 2 | mail | email | Origine dell'attributo di posta elettronica mappa. A scopo di test, è possibile eseguire il mapping di userPrincipalName alla posta elettronica. |
    | 3 | 8448 | emailType | Questo valore costante è il valore ID SuccessFactors associato alla posta elettronica aziendale. Aggiornare questo valore in modo che corrisponda all'ambiente SuccessFactors. Per la procedura per impostare questo valore, vedere la sezione [recuperare il valore costante per emailType](#retrieve-constant-value-for-emailtype) . |
    | 4 | true | emailIsPrimary | Usare questo attributo per impostare la posta elettronica aziendale come primaria in SuccessFactors. Se la posta elettronica aziendale non è primaria, impostare questo flag su false. |
    | 5 | userPrincipalName | [custom01 – custom15] | Utilizzando **Aggiungi nuovo mapping**, è possibile scrivere facoltativamente userPrincipalName o qualsiasi attributo Azure ad in un attributo personalizzato disponibile nell'oggetto utente SuccessFactors.  |
-   | 6 | samAccountName locale | username | Utilizzando **Aggiungi nuovo mapping**, è possibile eseguire facoltativamente il mapping di sAMAccountName locale all'attributo nome utente SuccessFactors. |
+   | 6 | samAccountName locale | nomeutente | Utilizzando **Aggiungi nuovo mapping**, è possibile eseguire facoltativamente il mapping di sAMAccountName locale all'attributo nome utente SuccessFactors. |
    | 7 | SSO | loginMethod | Se il tenant di SuccessFactors è configurato per l'accesso [SSO parziale](https://apps.support.sap.com/sap/support/knowledge/en/2320766), quindi si usa Aggiungi nuovo mapping, è possibile impostare facoltativamente loginMethod su un valore costante di "SSO" o "pwd". |
    | 8 | telephoneNumber | businessPhoneNumber | Usare questo mapping per eseguire il flusso di *telephoneNumber* da Azure ad a SuccessFactors numero di telefono aziendale/lavoro. |
    | 9 | 10605 | businessPhoneType | Questo valore costante è il valore ID SuccessFactors associato al telefono aziendale. Aggiornare questo valore in modo che corrisponda all'ambiente SuccessFactors. Per la procedura per impostare questo valore, vedere la sezione [recuperare il valore costante per PhoneType](#retrieve-constant-value-for-phonetype) . |

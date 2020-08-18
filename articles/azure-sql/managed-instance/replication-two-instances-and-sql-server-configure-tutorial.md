@@ -10,15 +10,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 680f8394ad1d10a564033ae5a2b9f59063589f73
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532527"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920144"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Esercitazione: Configurare la replica transazionale tra Istanza gestita di SQL di Azure e SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
+
+La replica transazionale consente di replicare i dati da un database a un altro ospitato in SQL Server o in un'[istanza gestita di SQL di Azure](sql-managed-instance-paas-overview.md). L'istanza gestita di SQL può essere un server di pubblicazione, un server di distribuzione o un sottoscrittore nella topologia di replica. Per le configurazioni disponibili, vedere [Configurazioni di replica transazionale](replication-transactional-overview.md#common-configurations). 
+
+La replica transazionale è attualmente disponibile in anteprima pubblica per l'istanza gestita di SQL. 
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -30,11 +34,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ![Replica tra un server di pubblicazione dell'istanza gestita, un server di distribuzione dell'istanza gestita e un sottoscrittore di SQL Server](./media/replication-two-instances-and-sql-server-configure-tutorial/sqlmi-to-sql-replication.png)
 
-Questa esercitazione è destinata a un pubblico esperto e presuppone che l'utente abbia familiarità con la distribuzione e la connessione a entrambe le istanze gestite e con le macchine virtuali di SQL Server in Azure. Di conseguenza, in questa esercitazione vengono ignorati alcuni passaggi.
+Questa esercitazione è destinata a un pubblico esperto e presuppone che l'utente abbia familiarità con la distribuzione e la connessione a entrambe le istanze gestite e con le macchine virtuali di SQL Server in Azure. 
 
-Per altre informazioni, vedere gli articoli [Panoramica di Istanza gestita di SQL di Azure](sql-managed-instance-paas-overview.md) e [Replica transazionale SQL](replication-transactional-overview.md).
 
-Per configurare la replica tra un server di pubblicazione di istanza gestita e un sottoscrittore di istanza gestita, vedere [Configurare la replica transazionale tra due istanze gestite](replication-between-two-instances-configure-tutorial.md).
+> [!NOTE]
+> Questo articolo descrive l'uso della [replica transazionale](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) nell'istanza gestita di SQL di Azure. Non è correlato ai [gruppi di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una funzionalità dell'istanza gestita di SQL di Azure che consente di creare repliche leggibili complete di singole istanze. Per la configurazione della [ replica transazionale con i gruppi di failover](replication-transactional-overview.md#with-failover-groups), è necessario tenere presenti alcune considerazioni aggiuntive.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

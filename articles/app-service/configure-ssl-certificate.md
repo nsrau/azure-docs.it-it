@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: be490c5ec11ab4bafcd68731a535483d1803a8c7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0dd0b86a11c7060040f8734c0102252f18d9f114
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146420"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987172"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Aggiungere un certificato TLS/SSL nel Servizio app di Azure
 
@@ -64,6 +64,7 @@ Il certificato gratuito gestito dal servizio app è una soluzione rapida ed effi
 - Non supporta i certificati con caratteri jolly.
 - Non supporta i domini di tipo naked.
 - Non è esportabile.
+- Non è supportato nell'ambiente del servizio app
 - Non supporta i record A; ad esempio il rinnovo automatico non funziona con i record A.
 
 > [!NOTE]

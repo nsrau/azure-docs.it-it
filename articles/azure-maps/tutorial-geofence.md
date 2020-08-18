@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi su una mappa di Microsoft Azure'
-description: Informazioni su come configurare un recinto virtuale e monitorare i dispositivi in relazione al recinto virtuale usando il servizio spaziale di Mappe di Microsoft Azure.
+description: Informazioni su come configurare un recinto virtuale. Vedere come tenere traccia dei dispositivi relativi al recinto virtuale usando il servizio spaziale di Mappe di Azure.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/15/2020
+ms.date: 8/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517403"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121239"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -397,7 +397,7 @@ Ognuna delle sezioni seguenti crea richieste HTTP GET dell'API Geofencing usando
 
 ### <a name="location-4-47637988-1221338344"></a>Posizione 4 (47.637988,-122.1338344)
 
-1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta).  Immettere un **Request Name** (Nome richiesta) per la richiesta. Si userà il nome *Location 4*. Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
+1. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta).  Immettere un **Request Name** (Nome richiesta) per la richiesta. Si userà il nome *Location 5*. Selezionare la raccolta creata nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data) e selezionare **Salva**.
 
 2. Selezionare il metodo HTTP **GET** nella scheda del generatore e immettere l'URL seguente. Assicurarsi di sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria e `{udid}` con il valore `udid` salvato nella sezione [Caricare i dati GeoJSON di geofencing](#upload-geofencing-geojson-data).
 

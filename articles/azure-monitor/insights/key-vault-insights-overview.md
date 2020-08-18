@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498953"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531260"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoraggio del servizio Key Vault con Monitoraggio di Azure per Key Vault (anteprima)
 Monitoraggio di Azure per Key Vault (anteprima) offre il monitoraggio completo degli insiemi di credenziali delle chiavi mettendo a disposizione una vista unificata delle richieste, delle prestazioni, degli errori e della latenza di Key Vault.
@@ -45,7 +45,7 @@ Monitoraggio di Azure per Key Vault combina log e metriche per offrire una soluz
 
 In Monitoraggio di Azure è possibile visualizzare i dettagli su richieste, latenza ed errori di più insiemi di credenziali delle chiavi disponibili nella sottoscrizione, oltre a identificare problemi di prestazioni e scenari di limitazione delle richieste.
 
-Per visualizzare informazioni sull'utilizzo e sulle operazioni degli account di archiviazione di tutte le sottoscrizioni, seguire questa procedura:
+Per visualizzare l'utilizzo e le operazioni degli insiemi di credenziali delle chiavi in tutte le sottoscrizioni, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 

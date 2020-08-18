@@ -3,12 +3,12 @@ title: Applicazione Azure Insights per le applicazioni ASP.NET Core | Microsoft 
 description: Monitorare le applicazioni Web ASP.NET Core per identificare disponibilità, prestazioni e utilizzo.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270921"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518085"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -36,6 +36,8 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 - Chiave di strumentazione Application Insights valida. Questa chiave è necessaria per inviare i dati di telemetria a Application Insights. Se è necessario creare una nuova risorsa Application Insights per ottenere una chiave di strumentazione, vedere [creare una risorsa di Application Insights](./create-new-resource.md).
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Abilitare la telemetria lato server Application Insights (Visual Studio)
+
+Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-insights-server-side-telemetry-no-visual-studio). Questa procedura è supportata solo dalla versione di Windows di Visual Studio.
 
 1. Aprire il progetto in Visual Studio.
 
@@ -118,7 +120,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>Segreti utente e altri provider di configurazione
 
-Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio `services.AddApplicationInsightsTelemetry(Configuration);`.
+Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio: `services.AddApplicationInsightsTelemetry(Configuration);`.
 
 ## <a name="run-your-application"></a>Eseguire l'applicazione
 

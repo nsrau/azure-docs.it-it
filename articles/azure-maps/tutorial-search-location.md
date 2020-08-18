@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Cercare località vicine su una mappa | Mappe di Microsoft Azure'
-description: In questa esercitazione si apprenderà come cercare punti di interesse su una mappa con Mappe di Microsoft Azure.
+description: Informazioni su come cercare i punti di interesse su una mappa. Vedere come usare l'SDK Web di Mappe di Azure per aggiungere le funzionalità di ricerca e le caselle popup interattive a una mappa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4e16c4e88d749f6dbc4f6271a7ceaf77661a208c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8dc430febb25283ab5bd32496bb2f71ba19c895b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281532"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035859"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -173,7 +173,7 @@ Questa sezione illustra come usare l'[API di ricerca](https://docs.microsoft.com
 
 ### <a name="service-module"></a>Modulo del servizio
 
-1. Nel gestore dell'evento `ready` della mappa costruire l'URL del servizio di ricerca aggiungendo il codice Javascript seguente.
+1. Nel gestore dell'evento `ready` della mappa costruire l'URL del servizio di ricerca aggiungendo il codice JavaScript seguente.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key

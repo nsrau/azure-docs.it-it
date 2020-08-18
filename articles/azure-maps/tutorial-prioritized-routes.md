@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Trovare più itinerari per modalità di trasporto | Mappe di Microsoft Azure'
-description: Questa esercitazione illustra come trovare itinerari per diverse modalità di trasporto usando Mappe di Microsoft Azure.
+description: Informazioni su come usare Mappe di Azure per trovare gli itinerari per modalità di viaggio specifiche verso i punti di interesse. Vedere come visualizzare più itinerari sulle mappe.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0cb3c1eadae426cef59b7aad8821343c23e76d79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d17b9474edef245f7db16f33c72d722f356f712
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289537"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037593"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 

@@ -1,6 +1,6 @@
 ---
 title: Esempio di script di Azure PowerShell - Configurare i criteri relativi ai limiti di frequenza | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Configurare i criteri relativi ai limiti di frequenza
+description: Informazioni su come configurare i criteri relativi ai limiti di frequenza con Azure PowerShell. Vedere uno script di esempio e visualizzare altre risorse disponibili.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 991a9fd9fa0717c97a549d371ca47c5b389d1a27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40bbd520eb265b70f95c6b365b590727af8ea144
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008746"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851291"
 ---
 # <a name="set-up-rate-limit-policy"></a>Configurare i criteri relativi ai limiti di frequenza
 

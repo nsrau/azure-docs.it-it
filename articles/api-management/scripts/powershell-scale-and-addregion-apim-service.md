@@ -1,6 +1,6 @@
 ---
 title: "Esempio di script di Azure PowerShell: ridimensionare l'istanza del servizio | Microsoft Docs"
-description: "Esempio di script di Azure PowerShell: ridimensionare l'istanza del servizio"
+description: Informazioni su come dimensionare e aggiungere aree all'istanza del servizio Gestione API. Vedere uno script di esempio e visualizzare altre risorse disponibili.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: a880bf617f4d1d81b73fda1fbe27d2dd803619a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec54f1dcf3f7f28415646a58c057453985d450f0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008830"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902270"
 ---
 # <a name="scale-the-service-instance"></a>Ridimensionare l'istanza del servizio
 

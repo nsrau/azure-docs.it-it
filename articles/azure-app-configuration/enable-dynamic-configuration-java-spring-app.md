@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/5/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: a2864d610d71c6b3a86c131dabb3c0b9ed138bec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 653fcb6f6590fd503a97800ec8196025cf14a3b9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327923"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121562"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Esercitazione: Usare la configurazione dinamica in un'app Java Spring
 
@@ -36,7 +36,7 @@ Aprire quindi il file *pom.xml* in un editor di testo e aggiungere un elemento `
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
@@ -46,11 +46,33 @@ Aprire quindi il file *pom.xml* in un editor di testo e aggiungere un elemento `
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.7</version>
 </dependency>
 ```
 
-Salvare il file, quindi compilare ed eseguire l'applicazione come di consueto.
+## <a name="run-and-test-the-app-locally"></a>Eseguire e testare l'app in locale
+
+1. Compilare l'applicazione Spring Boot con Maven ed eseguirla.
+
+    ```shell
+    mvn clean package
+    mvn spring-boot:run
+    ```
+
+1. Aprire una finestra del browser e passare all'URL: `http://localhost:8080`.  Verrà visualizzato il messaggio associato alla chiave. 
+
+    È anche possibile usare *curl* per testare l'applicazione, ad esempio: 
+    
+    ```cmd
+    curl -X GET http://localhost:8080/
+    ```
+
+1. Per testare la configurazione dinamica, aprire il portale di Configurazione app di Azure associato all'applicazione. Selezionare **Esplora configurazioni** e aggiornare il valore della chiave visualizzata, ad esempio:
+    | Chiave | valore |
+    |---|---|
+    | application/config.message | Hello - Updated |
+
+1. Aggiornare la pagina del browser per visualizzare il nuovo messaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

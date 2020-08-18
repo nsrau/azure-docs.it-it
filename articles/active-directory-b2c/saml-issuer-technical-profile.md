@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 08/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d709bf02f1cb504121e52f88385d0f6c074b24a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203589"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521213"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un'autorità di certificazione del token SAML nei criteri personalizzati di Azure Active Directory B2C
 
@@ -57,6 +57,7 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | IssuerUri | No | Nome dell'autorità emittente visualizzato nella risposta SAML. Questo valore deve corrispondere al nome configurato nell'applicazione basata su attestazioni. |
+| XmlSignatureAlgorithm | No | Metodo che Azure AD B2C utilizza per firmare l'asserzione SAML. I valori possibili sono: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare di configurare l'algoritmo di firma per entrambe le parti con lo stesso valore. Usare solo l'algoritmo supportato dal certificato. Per configurare la risposta SAML, vedere [metadati SAML della relying party](relyingparty.md#metadata)|
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
@@ -76,15 +77,4 @@ Per configurare le sessioni SAML di Azure AD B2C tra un'applicazione basata su a
 Per esempi relativi all'uso di un profilo tecnico dell'autorità di certificazione SAML, vedere gli articoli seguenti:
 
 - [Registrare un'applicazione SAML in Azure AD B2C](connect-with-saml-service-providers.md)
-
-
-
-
-
-
-
-
-
-
-
 

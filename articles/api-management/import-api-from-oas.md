@@ -1,6 +1,6 @@
 ---
 title: Importare una specifica OpenAPI usando il portale di Azure | Microsoft Docs
-description: Informazioni su come importare una specifica OpenAPI con Gestione API.
+description: Informazioni su come importare una specifica OpenAPI con Gestione API e quindi testare l'API nel portale di Azure e nel portale per sviluppatori.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 2e4dee74eb0c50e8e12d3f9ff0dccdd83271ea65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 346156c624a4c8b1c1d6cc490fc0559f364b4b9d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202911"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905568"
 ---
 # <a name="import-an-openapi-specification"></a>Importare una specifica OpenAPI
 

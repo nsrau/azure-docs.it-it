@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 669c5f1ae6b667073e885a0077e9f3130ba3c4f0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 3df1ccadb69f02272c44a0ba574805c816151dc7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405977"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520941"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilare un'app LUIS a livello di codice con Node.js
 
@@ -27,7 +27,7 @@ LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sit
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Accedere al sito Web [LUIS](luis-reference-regions.md) e individuare la [chiave di creazione](luis-how-to-azure-subscription.md#authoring-key) in Impostazioni account. Questa chiave viene usata per chiamare l'API di creazione.
-* Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 * Questo articolo inizia con un volume CSV per i file di log di una società ipotetica di richieste utente. Scaricarla [qui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installare la versione più recente di Node.js con NPM. Scaricarla [qui](https://nodejs.org/en/download/).
 * **[Consigliato]** Visual Studio Code per IntelliSense e debug. Scaricarlo [qui](https://code.visualstudio.com/) gratuitamente.
@@ -146,7 +146,7 @@ Eseguire lo script da un terminale/riga di comando con Node.js.
 > node index.js
 ```
 
-oppure
+o
 
 ```console
 > npm start

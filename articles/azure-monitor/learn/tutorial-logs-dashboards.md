@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148260"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927369"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creare e condividere i dashboard dei dati di Log Analytics
 
@@ -54,7 +54,7 @@ Quando si crea un dashboard, per impostazione predefinita il dashboard è privat
 
 ![Condividere un nuovo dashboard nel portale di Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per praticità, l'esperienza di pubblicazione del portale propone un modello che prevede l'inserimento dei dashboard in un gruppo di risorse denominato **dashboards**(dashboard).  Verificare la sottoscrizione selezionata e quindi fare clic su **Pubblica**.  L'accesso alle informazioni visualizzate nel dashboard è controllato con il [controllo degli accessi in base alle risorse di Azure](../../role-based-access-control/role-assignments-portal.md).   
+Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per praticità, l'esperienza di pubblicazione del portale propone un modello che prevede l'inserimento dei dashboard in un gruppo di risorse denominato **dashboards**(dashboard).  Verificare la sottoscrizione selezionata e quindi fare clic su **Pubblica**.  L'accesso alle informazioni visualizzate nel dashboard è controllato con il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualizzare una query di log
 [Log Analytics](../log-query/get-started-portal.md) è un portale dedicato usato per lavorare con le query di log e i relativi risultati. Le funzionalità includono la possibilità di modificare una query su più righe, eseguire codice in modo selettivo, Intellisense sensibile al contesto e analisi intelligente. In questa esercitazione si userà Log Analytics per creare una visualizzazione delle prestazioni sotto forma di grafico, salvarla per query future e aggiungerla al dashboard condiviso creato in precedenza.
