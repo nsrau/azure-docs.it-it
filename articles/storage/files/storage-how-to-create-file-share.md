@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a642aa9735c4360c11d50cf475e5de63259c55df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, references_regions
+ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495710"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525650"
 ---
 # <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 Per creare una condivisione file di Azure, è necessario rispondere a tre domande sul modo in cui verrà usata:
@@ -229,6 +229,60 @@ Questo comando avrà esito negativo se l'account di archiviazione è contenuto a
 
 > [!Note]  
 > Il nome della condivisione file deve essere composto solo da caratteri minuscoli. Per informazioni complete sulla denominazione di condivisioni file e file, vedere [denominazione e riferimento a condivisioni, directory, file e metadati](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### <a name="create-a-hot-or-cool-file-share"></a>Creare una condivisione file frequente o ad accesso sporadico
+Una condivisione file in un **account di archiviazione per utilizzo generico V2 (GPv2)** può contenere condivisioni di file ottimizzate, ad accesso frequente o ad accesso sporadico (o un miscuglio). Le condivisioni ottimizzate per le transazioni sono disponibili in tutte le aree di Azure, ma le condivisioni di file frequente e sporadico sono disponibili solo [in un subset di aree](storage-files-planning.md#storage-tiers). È possibile creare una condivisione file frequente o ad accesso sporadico usando il modulo Azure PowerShell Preview o l'interfaccia della riga di comando di Azure. 
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+Il portale di Azure non supporta ancora la creazione di condivisioni file frequente e sporadico o lo stato di trasferimento di condivisioni file ottimizzate per le transazioni esistenti ad accesso frequente o sporadico Vedere le istruzioni per la creazione di una condivisione file con PowerShell o l'interfaccia della riga di comando di Azure.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+```PowerShell
+# Update the Azure storage module to use the preview version. You may need to close and 
+# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
+# the following:
+# - Run the below cmdlets as an administrator.
+# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
+# Get-Module -ListAvailable -Name PowerShellGet
+Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
+Uninstall-Module -Name Az.Storage
+Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
+
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
+# storage accounts. Standard tiers are only available in standard storage accounts. 
+$shareName = "myhotshare"
+
+New-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Hot
+
+# You can also change an existing share's tier.
+Update-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Cool
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+La funzionalità per creare o spostare una condivisione file in un livello specifico è disponibile nell'aggiornamento dell'interfaccia della riga di comando di Azure più recente. L'aggiornamento dell'interfaccia della riga di comando di Azure è specifico per la distribuzione Linux o del sistema operativo in uso. Per istruzioni su come aggiornare l'interfaccia della riga di comando di Azure nel sistema, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando di Azure.
+
+```bash
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
+# storage accounts. Standard tiers are only available in standard storage accounts.
+shareName="myhotshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "Hot"
+```
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Pianificare una distribuzione di file di Azure](storage-files-planning.md) o [pianificare una distribuzione di sincronizzazione file di Azure](storage-sync-files-planning.md). 

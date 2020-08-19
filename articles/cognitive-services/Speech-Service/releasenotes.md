@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8985d8ab0b5fa8477a636254d1a5179cd2187963
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8df54adf8f3aeaa58e30d6d9218cec8bec8c1121
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505806"
+ms.locfileid: "88525922"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
 
@@ -26,13 +26,13 @@ ms.locfileid: "88505806"
 
 * **TTS neurale: nuovo stile di pronuncia per `en-US` Voce aria**. AriaNeural può sembrare un telegiornale per la lettura delle notizie. Lo stile "telegiornale-formale" suona più grave, mentre lo stile "telegiornale-informale" è più rilassato e informale. Vedere [How to use the Speaking Styles in SSML](speech-synthesis-markup.md).
 
-* **Voce personalizzata: viene rilasciata una nuova funzionalità per verificare automaticamente la qualità dei dati di training**. Quando si caricano i dati, la funzionalità di controllo dei dati analizzerà diversi aspetti dell'audio e delle trascrizioni e correggerà o filtra automaticamente i dati con i problemi per migliorare la qualità del modello vocale sottoposto a training. Questo copre il volume dell'audio, il livello di disturbo, l'accuratezza della pronuncia del riconoscimento vocale, l'allineamento del discorso al testo normalizzato, il silenzio nell'audio, oltre al formato audio e script. 
+* **Voce personalizzata: viene rilasciata una nuova funzionalità per verificare automaticamente la qualità dei dati di training**. Quando si caricano i dati, il sistema esamina i vari aspetti dei dati audio e trascrizioni e corregge o filtra automaticamente i problemi per migliorare la qualità del modello vocale. In questo modo si copre il volume dell'audio, il livello di disturbo, l'accuratezza della pronuncia del riconoscimento vocale, l'allineamento del parlato con il testo normalizzato, il silenzio nell'audio, oltre al formato audio e script. 
 
 * **Creazione di contenuti audio: un set di nuove funzionalità che consentono di ottimizzare le funzionalità di ottimizzazione vocale e di gestione audio**.
 
     * Pronuncia: la funzionalità di ottimizzazione della pronuncia viene aggiornata al set di fonemi più recente. È possibile scegliere l'elemento fonema corretto dalla libreria e perfezionare la pronuncia delle parole selezionate. 
 
-    * Download: la funzionalità di "download"/"esportazione" audio è stata migliorata per supportare la generazione di audio in base a ogni paragrafo. È possibile modificare facilmente contenuto diverso nello stesso file/SSML, durante la generazione di più output audio. Anche la struttura di file "download" è stata perfezionata. A questo punto, è possibile ottenere facilmente tutti gli audio in una cartella. 
+    * Download: la funzionalità "download"/"esportazione" audio è stata migliorata per supportare la generazione di audio per paragrafo. È possibile modificare il contenuto nello stesso file/SSML durante la generazione di più output audio. Anche la struttura di file "download" è stata perfezionata. A questo punto, è possibile ottenere facilmente tutti gli audio in una cartella. 
 
     * Stato attività: l'esperienza di esportazione a più file è stata migliorata. Quando si esportano più file in passato, in caso di errore di uno dei file, l'intera attività avrà esito negativo. Ma ora tutti gli altri file verranno esportati correttamente. Il report attività è arricchito con informazioni più dettagliate e strutturate. È possibile controllare i log per tutti i file e le frasi con errori ora con il report. 
 
@@ -42,7 +42,7 @@ ms.locfileid: "88505806"
 
 ### <a name="general-tts-voice-quality-improvements"></a>Miglioramenti alla qualità della voce TTS generale
 
-* Riduzione dell'errore di pronuncia a livello di parola per `ru-RU` (errore ridotto del 56%) e `sv-SE` (errore ridotto del 49%)
+* Riduzione dell'errore di pronuncia a livello di parola per `ru-RU` (errori ridotti del 56%) e `sv-SE` (errori ridotti del 49%)
 
 * Miglioramento della lettura delle parole di polifonia sulle `en-US` voci neurali del 40%. Esempi di parole polifonia includono "Read", "Live", "Content", "record", "Object" e così via. 
 
@@ -63,8 +63,8 @@ ms.locfileid: "88505806"
 
 * Correzione di un numero di bug con lo strumento di creazione del contenuto audio 
     * Correzione del problema relativo all'aggiornamento automatico. 
-    * Correzione di problemi con le voci di stile in zh-CN nell'area Asia orientale meridionale
-    * Correzione del problema di stabilità, incluso l'errore di esportazione con il tag "break", errori nelle punteggiatura    
+    * Correzione dei problemi relativi agli stili vocali in zh-CN nell'area Asia orientale meridionale.
+    * Correzione di un problema di stabilità, incluso un errore di esportazione con il tag "break" ed errori nelle punteggiatura.    
 
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Nuove impostazioni locali per sintesi vocale: 2020-versione di agosto
 Riconoscimento vocale rilasciate 26 nuove impostazioni locali nell'agosto: 2 lingue europee `cs-CZ` e `hu-HU` 5 impostazioni locali inglesi e 19 impostazioni locali in spagnolo che coprono la maggior parte dei paesi dell'America del sud. Di seguito è riportato un elenco delle nuove impostazioni locali. Per un elenco completo della lingua, vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
