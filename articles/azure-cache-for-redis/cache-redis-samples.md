@@ -4,14 +4,15 @@ description: 'Informazioni su come usare Azure Cache for Redis con questi esempi
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 01/23/2017
-ms.openlocfilehash: 8057a7db3d1a2db0e51ec15e4966ed0b31c84226
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 553850173f463a05b13768eb3b9e17703bfa2886
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75433396"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212294"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Esempi di Cache Redis di Azure
 Questo argomento fornisce un elenco di esempi di Cache Redis di Azure relativi a scenari come la connessione a una cache, la lettura e la scrittura di dati nella cache e l'uso di provider di Cache Redis ASP.NET. Alcuni esempi sono progetti scaricabili e alcuni forniscono informazioni dettagliate e includono frammenti di codice, ma non un collegamento a un progetto scaricabile.

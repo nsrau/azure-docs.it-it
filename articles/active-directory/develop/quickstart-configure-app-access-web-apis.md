@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120865"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140803"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Avvio rapido: Configurare un'applicazione client per l'accesso a un'API Web
 
@@ -148,7 +148,7 @@ Per aggiungere un segreto client:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Aggiungere autorizzazioni per accedere ad API Web
 
-L'[autorizzazione Accedi e leggi il profilo di un altro utente dell'API Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) è selezionata per impostazione predefinita. È possibile selezionare tra [due tipi di autorizzazione](developer-glossary.md#permissions) per ogni API Web:
+L'[autorizzazione Accedi e leggi il profilo di un altro utente dell'API Graph](/graph/permissions-reference#user-permissions) è selezionata per impostazione predefinita. È possibile selezionare tra [due tipi di autorizzazione](developer-glossary.md#permissions) per ogni API Web:
 
 * **Autorizzazioni dell'applicazione**. L'applicazione client deve accedere all'API Web direttamente come se stessa, senza contesto utente. Questo tipo di autorizzazione richiede il consenso dell'amministratore. Questa autorizzazione non è disponibile per le applicazioni client per dispositivi mobili e desktop.
 * **Autorizzazioni delegate**. l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione richieda il consenso dell'amministratore.

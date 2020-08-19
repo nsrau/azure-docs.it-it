@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 6902e69ecfd0738a74e6d492b8ed4d2b2d525eaf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
+ms.openlocfilehash: 1bc8a9c06b564282af15d6a6aa53b6fc696857b2
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026884"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165771"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
 In questa guida introduttiva si usa un esempio di codice per illustrare in che modo l'app Web ASP.NET Core può consentire l'accesso ad account personali (hotmail.com, outlook.com e di altro tipo) e account aziendali e dell'istituto di istruzione da qualsiasi istanza di Azure Active Directory (Azure AD). Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).

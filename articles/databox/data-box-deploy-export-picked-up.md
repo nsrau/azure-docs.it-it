@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 332b4fdb6e0a26437edbf4309ee0b89b79f7eb23
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845800"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142112"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Esercitazione: Restituire Azure Data Box (anteprima)
 
@@ -176,7 +176,7 @@ Se si verificano problemi, inviare un messaggio di posta elettronica a Data Box 
 
 ## <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged)
 
-Se si usa Data Box in Giappone, Singapore, Corea ed Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni.
+Se si usa il dispositivo Data Box in Giappone, Singapore, Corea, India, Sudafrica o Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni.
 
 1. Annotare il codice di autorizzazione visualizzato nella pagina Prepara per la spedizione dell'interfaccia utente Web locale di Data Box una volta completato questo passaggio.
 2. Spegnere il dispositivo e rimuovere i cavi. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.

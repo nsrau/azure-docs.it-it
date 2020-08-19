@@ -1,14 +1,14 @@
 ---
 title: Distribuire un esempio di progetto Media
 description: Procedura di distribuzione per l'esempio di progetto Media, inclusi i dettagli dei parametri degli artefatti del progetto.
-ms.date: 02/25/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: 7c107c49a5ab5ec8c64b2d2deadb2531e8a67f3a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c8ac1726bc5007c1790f5efbc45c72f9712fcdf2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042799"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208428"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Distribuire l'esempio di progetto Media
 

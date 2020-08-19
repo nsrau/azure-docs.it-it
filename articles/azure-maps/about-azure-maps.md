@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 6933321ad402104fa5529af2b7fdf38e329e0168
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6422874f57b490773f70b6fb27d5b65c654ded07
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830952"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212750"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -76,7 +76,7 @@ Per altre informazioni sul servizio, vedere la [documentazione del servizio di m
 
 ### <a name="render-service"></a>Servizio di rendering
 
-Il [servizio di rendering v2](https://docs.microsoft.com/est/api/maps/renderv2), ora disponibile in anteprima, introduce una nuova versione dell'[API Recupero tessera mappa v2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). L'API Recupero tessera mappa v2 consente ora ai clienti di richiedere tessere stradali di Mappe di Azure, tessere meteorologiche o tessere mappa create tramite la risorsa Creator di Mappe di Azure. È consigliabile usare la nuova API Recupera tessere mappa v2.  
+Il [servizio di rendering v2](https://docs.microsoft.com/rest/api/maps/renderv2), ora disponibile in anteprima, introduce una nuova versione dell'[API Recupero tessera mappa v2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). L'API Recupero tessera mappa v2 consente ora ai clienti di richiedere tessere stradali di Mappe di Azure, tessere meteorologiche o tessere mappa create tramite la risorsa Creator di Mappe di Azure. È consigliabile usare la nuova API Recupera tessere mappa v2.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Esempio di mappa del servizio di rendering v2":::
 

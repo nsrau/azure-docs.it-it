@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: ccab8014000f9f684249bf2c1f800f74c92e7369
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76899360"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209941"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Esercitazione: Gestire i flag di funzionalità in Configurazione app di Azure
 

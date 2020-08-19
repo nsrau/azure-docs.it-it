@@ -4,13 +4,13 @@ description: Informazioni su come eseguire app Web nel servizio app di Azure dis
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 08/06/2020
-ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 55b8dabfb2f5b3deff8b8435f0121a41333fb655
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, mvc, devcenter, seodec18
+ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083834"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212563"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creare un'app Web del framework ASP.NET in Azure
 
@@ -43,7 +43,7 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 4. È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa guida di avvio rapido scegliere il modello **MVC**.
 
-5. Verificare che l'autenticazione sia impostata su **Nessuna autenticazione**. Selezionare **Crea**.
+5. Verificare che l'autenticazione sia impostata su **Nessuna autenticazione**. Selezionare **Create** (Crea).
 
    ![Creare un'applicazione Web ASP.NET](./media/quickstart-dotnet-framework/select-mvc-template-vs2019.png)
 

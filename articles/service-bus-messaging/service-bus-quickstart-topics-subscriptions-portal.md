@@ -5,14 +5,14 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: fc84b9ec9cc71d35e31a5c11ae0dd0d2228621da
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: d3dc63106e1ca5d9db2b14392ca1fb97e3a68289
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341074"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191539"
 ---
-# <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Guida introduttiva: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento
+# <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento
 In questa guida di avvio rapido si usa il portale di Azure per creare un argomento del Bus di servizio e quindi creare le sottoscrizioni a tale argomento. 
 
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Cosa sono gli argomenti e le sottoscrizioni del bus di servizio?

@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 77a8ef9c96219d2deb08126dc68eafe08d5262d4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 348e37202335cc525f945085658337fbe6bcc561
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341703"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182426"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando il portale di Azure e argomenti/sottoscrizioni
 
@@ -409,7 +409,7 @@ Per altri esempi di invio e ricezione dei messaggi, vedere gli [esempi del bus d
 Passare alla prossima esercitazione per altre informazioni su come usare le funzionalità di pubblicazione/sottoscrizione del bus di servizio.
 
 > [!div class="nextstepaction"]
-> [Aggiornare l'inventario usando PowerShell e argomenti/sottoscrizioni](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Rispondere agli eventi tramite Griglia di eventi](service-bus-to-event-grid-integration-example.md)
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

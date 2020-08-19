@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto per i controlli HIPAA HITRUST
 description: Procedura di distribuzione per l'esempio di progetto HIPAA HITRUST, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 12/03/2019
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: b3101d67e281f3b613b95e3f3ef5f620ae44cec7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f41827d687beb583ea6402d517e88b8cf69903a0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044839"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211533"
 ---
 # <a name="deploy-the-hipaa-hitrust-blueprint-sample"></a>Distribuire l'esempio di progetto per i controlli HIPAA HITRUST
 
@@ -106,6 +106,8 @@ Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |Distribuisci il controllo nei server SQL |Assegnazione di criteri |Nome gruppo di risorse per l'account di archiviazione per il controllo di SQL Server |Il controllo esegue la scrittura degli eventi del database in un log di controllo nell'account di archiviazione di Azure. Viene creato un account di archiviazione in ogni area in cui viene creata un'istanza di SQL Server condivisa da tutti i server di tale area. Importante: per il corretto funzionamento del controllo, non eliminare o rinominare il gruppo di risorse o gli account di archiviazione. |
 |Distribuire le impostazioni di diagnostica per i gruppi di sicurezza di rete |Assegnazione di criteri |Prefisso dell'account di archiviazione per la diagnostica del gruppo di sicurezza di rete |Questo prefisso viene combinato con la posizione del gruppo di sicurezza di rete per formare il nome dell'account di archiviazione creato. |
 |Distribuire le impostazioni di diagnostica per i gruppi di sicurezza di rete |Assegnazione di criteri |Nome del gruppo di risorse per l'account di archiviazione per la diagnostica del gruppo di sicurezza di rete (deve esistere) |Il gruppo di risorse in cui viene creato l'account di archiviazione. Questo gruppo di risorse deve già esistere. |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux |Assegnazione di criteri |Area di lavoro Log Analytics per i set di scalabilità di macchine virtuali Linux |Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri. |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows |Assegnazione di criteri |Area di lavoro Log Analytics per i set di scalabilità di macchine virtuali Linux |Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
