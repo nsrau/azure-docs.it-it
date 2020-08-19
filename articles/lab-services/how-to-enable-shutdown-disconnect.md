@@ -3,12 +3,12 @@ title: Configurare l'arresto automatico delle macchine virtuali per un Lab in Az
 description: Informazioni su come abilitare o disabilitare l'arresto automatico delle macchine virtuali al termine di una connessione desktop remota.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 7941a3eed502f2329f5d2acf244eec7cef322615
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3188117ac651f31057b4db88e32dfb42c45abb60
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589767"
+ms.locfileid: "88604888"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configurare l'arresto automatico delle macchine virtuali per un Lab
 
@@ -22,7 +22,7 @@ Questo articolo illustra come configurare l'arresto automatico delle macchine vi
 
 Per ulteriori informazioni sulle funzionalità di arresto automatico, vedere la sezione [ottimizzare il controllo dei costi con le impostazioni di arresto automatico](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) .
 
-Un amministratore dell'account lab può configurare questa impostazione per l'account in cui vengono creati i lab. Per altre informazioni, vedere [Configurare l'arresto automatico delle macchine virtuali tramite l'impostazione di disconnessione per un account lab](how-to-configure-lab-accounts.md). Il proprietario del lab può eseguire l'override dell'impostazione quando crea un lab o dopo la creazione. 
+Un amministratore dell'account lab può configurare questa impostazione per l'account in cui vengono creati i lab. Per altre informazioni, vedere [configurare l'arresto automatico delle macchine virtuali per un account Lab](how-to-configure-lab-accounts.md). Il proprietario del lab può eseguire l'override dell'impostazione quando crea un lab o dopo la creazione. 
 
 ## <a name="configure-for-the-lab-level"></a>Configurare per il livello Lab
 

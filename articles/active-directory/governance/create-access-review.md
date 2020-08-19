@@ -11,20 +11,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/09/2020
+ms.date: 08/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb290106c5ceafe8c636bbeeab38b74ea475eb4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1be8a714d57d0f84b195c9f3846964aa2bf2525b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056194"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605083"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
 L'accesso a gruppi e applicazioni per dipendenti e utenti guest cambia nel corso del tempo. Per ridurre i rischi associati alle assegnazioni di accesso obsolete, gli amministratori possono usare Azure Active Directory (Azure AD) per creare verifiche di accesso per i membri dei gruppi o l'accesso alle applicazioni. Se è necessario esaminare periodicamente l'accesso, è anche possibile creare verifiche di accesso ricorrenti. Per altre informazioni su questi scenari, vedere [Gestire l'accesso utente](manage-user-access-with-access-reviews.md) e [Gestire l'accesso guest](manage-guest-access-with-access-reviews.md).
+
+È possibile guardare un breve video su come abilitare le verifiche di accesso:
+
+>[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
 Questo articolo descrive come creare una o più verifiche di accesso per i membri del gruppo o l'accesso alle applicazioni.
 
@@ -55,7 +59,12 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
 1. Per fare in modo che la verifica di accesso ricorra, modificare l'impostazione della **frequenza** da **una volta a una** **settimana**, ogni **mese**, ogni **trimestre**, **semestrale**o **annuale**. Usare il dispositivo di scorrimento **Durata** o la casella di testo per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
 
-1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: può essere eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica oppure terminare dopo che è stato completato un numero definito di occorrenze. Un utente con ruolo Amministratore utente o Amministratore globale può interrompere la serie dopo la creazione modificando la data in **Impostazioni**, in modo che termini in tale data.
+1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: 
+    1. Viene eseguito continuamente per avviare le verifiche a tempo indefinito
+    1. Fino a una data specifica,
+    1. Fino al completamento di un numero definito di occorrenze. 
+  
+    Un utente con ruolo Amministratore utente o Amministratore globale può interrompere la serie dopo la creazione modificando la data in **Impostazioni**, in modo che termini in tale data.
 
 1. Nella sezione **utenti** specificare gli utenti a cui si applica la verifica di accesso. Le verifiche di accesso possono essere relative ai membri di un gruppo o agli utenti assegnati a un'applicazione. È possibile definire ulteriormente l'ambito della verifica di accesso in modo da controllare solo gli utenti guest che sono membri o che sono stati assegnati all'applicazione invece di controllare tutti gli utenti che sono membri o che hanno accesso all'applicazione.
 
@@ -83,9 +92,9 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
     ![Creare una verifica di accesso - Programmi](./media/create-access-review/programs.png)
 
-    È possibile semplificare il rilevamento e la raccolta delle verifiche di accesso per scopi diversi organizzandole nei programmi. Ogni verifica di accesso può essere collegata a un programma. Quando si preparano i report per un revisore, è possibile concentrarsi sulle verifiche di accesso nell'ambito per un'iniziativa specifica. I risultati dei programmi e della verifica di accesso sono visibili agli utenti con ruolo amministratore globale, Amministratore utenti, amministratore della sicurezza o lettore sicurezza.
+    Per semplificare la raccolta e il rilevamento delle verifiche di accesso, è possibile organizzarle in programmi. Ogni verifica di accesso può essere collegata a un programma. Quando si preparano i report per un revisore, è possibile concentrarsi sulle verifiche di accesso nell'ambito per un'iniziativa specifica. I risultati dei programmi e della verifica di accesso sono visibili agli utenti con ruolo amministratore globale, Amministratore utenti, amministratore della sicurezza o lettore sicurezza.
 
-    Per visualizzare un elenco di programmi, accedere alla pagina delle verifiche di accesso e selezionare **Programmi**. Se si dispone di un ruolo amministratore globale o Amministratore utenti, è possibile creare programmi aggiuntivi. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità. Se un programma non è più necessario e non dispone di controlli collegati, è possibile eliminarlo.
+    Per visualizzare un elenco di programmi, accedere alla pagina delle verifiche di accesso e selezionare **Programmi**. Se si dispone di un ruolo amministratore globale o Amministratore utenti, è possibile creare programmi aggiuntivi. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità. Quando un programma non è più necessario e non dispone di controlli collegati, è possibile eliminarlo.
 
 ### <a name="upon-completion-settings"></a>Impostazioni al completamento
 
@@ -93,7 +102,7 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
     ![Creare una verifica di accesso-dopo le impostazioni di completamento](./media/create-access-review/upon-completion-settings.png)
 
-1. Se si vuole rimuovere automaticamente l'accesso per gli utenti rifiutati, impostare l'opzione **Applica automaticamente i risultati alla risorsa** su **Abilita**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
+1. Se si vuole rimuovere automaticamente l'accesso per gli utenti non autorizzati, impostare **auto Apply results to Resource** to **Enable**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
 
 1. Usare l'elenco **In caso di mancata risposta del revisore** per specificare cosa accade per gli utenti non sottoposti a verifica dal revisore entro il periodo di verifica. Questa impostazione non ha alcun impatto sugli utenti che sono stati sottoposti a verifica manualmente dai revisori. Se la decisione finale del revisore è il rifiuto, l'accesso dell'utente verrà rimosso.
 
@@ -119,7 +128,7 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
     >[!NOTE]
     > Per impostazione predefinita, Azure AD invia automaticamente un promemoria a metà della data di fine ai revisori che non hanno ancora risposto
 
-1. Anteprima Il contenuto del messaggio di posta elettronica inviato ai revisori viene generato automaticamente in base ai dettagli della revisione, ad esempio il nome della revisione, il nome della risorsa, la scadenza e così via. Se è necessario un modo per comunicare informazioni aggiuntive, ad esempio istruzioni aggiuntive o informazioni di contatto, è possibile specificare questi dettagli nel contenuto aggiuntivo per l'indirizzo di posta elettronica del revisore che verrà incluso nei messaggi di posta elettronica di invito e promemoria inviati ai revisori assegnati. La sezione evidenziata di seguito consente di visualizzare queste informazioni.
+1. Anteprima Il contenuto del messaggio di posta elettronica inviato ai revisori viene generato automaticamente in base ai dettagli della revisione, ad esempio il nome della revisione, il nome della risorsa, la scadenza e così via. Se è necessario un modo per comunicare informazioni aggiuntive, ad esempio istruzioni aggiuntive o informazioni di contatto, è possibile specificare questi dettagli nel **contenuto aggiuntivo per l'indirizzo di posta elettronica del revisore** che verrà incluso nei messaggi di posta elettronica di invito e promemoria inviati ai revisori assegnati. La sezione evidenziata di seguito consente di visualizzare queste informazioni.
 
     ![Verificare l'accesso di un utente a un gruppo](./media/create-access-review/review-users-access-group.png)
 
@@ -142,8 +151,8 @@ Se sono stati assegnati Guest come revisori che non hanno accettato l'invito, no
 |Avvio in corso | È in corso l'avvio della verifica. Se sono abilitate le notifiche tramite posta elettronica, i messaggi di posta elettronica vengono inviati ai revisori. |
 |InProgress | Verifica avviata. Se sono state inviate notifiche tramite posta elettronica ai revisori. I revisori possono inviare decisioni fino alla data di scadenza. |
 |Completamento | La verifica è stata completata e i messaggi di posta elettronica vengono inviati al proprietario della verifica. |
-|Revisione dell'autovisione | La revisione si trova in una fase di verifica del sistema. Il sistema sta registrando le decisioni per gli utenti che non sono stati esaminati in base a raccomandazioni o decisioni preconfigurate. |
-|Revisione autoesaminata | Le decisioni sono state registrate dal sistema per tutti gli utenti che non sono stati rivisti. Verifica è pronto per procedere con l' **applicazione** se l'applicazione automatica è abilitata. |
+|Revisione automatica | La revisione si trova in una fase di verifica del sistema. Il sistema sta registrando le decisioni per gli utenti che non sono stati esaminati in base a raccomandazioni o decisioni preconfigurate. |
+|Revisione automatica | Le decisioni sono state registrate dal sistema per tutti gli utenti che non sono stati rivisti. Verifica è pronto per procedere con l' **applicazione** se l'applicazione automatica è abilitata. |
 |Applicazione | Non verrà apportata alcuna modifica all'accesso per gli utenti che sono stati approvati. |
 |Applicato | Gli utenti negati, se presenti, sono stati rimossi dalla risorsa o dalla directory. |
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 757f729caa7ea8a038a29f8e0a56465848b774ad
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 69be4118aca45582c38bb49a996782d661d8084f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035111"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604413"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -50,8 +50,8 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 | 1 | Titolo dell'offerta |<ul><li>Deve contenere solo lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. Il titolo non può essere modificato dopo la pubblicazione.</li><li>Descrive la soluzione offerta.</li><li>Corrisponde alla promozione online della soluzione nel sito Web del partner. | Contiene parole chiave di ricerca. |
 | 2 | Informazioni tecniche: Configurazione |<ul><li>Per le app SaaS (Software as a Service), scegliere se si vuole solo presentare l'app o consentire ai clienti di acquistarla tramite Azure.</li><li>• Selezionare il testo che si vuole visualizzare sul pulsante di acquisizione dell'offerta: *Gratuito*, *Versione di prova gratuita* o *Desidero essere contattato*.</li><li>Nella finestra popup selezionare un solo prodotto applicabile se l'app utilizza la tecnologia: Cortana Intelligence, Modelli di soluzioni di Power BI o Power Apps. |  |
 | 3 | Test drive | Selezionare *Yes* o *No* | Il cliente può immediatamente capire quali sono i passaggi successivi: <ol><li>Provare la versione di valutazione.</li><li>Acquistare subito.</li><li>Mettersi in contatto tramite e-mail o telefonicamente per un appuntamento per un modello di verifica, una valutazione o un briefing.</li></ol> |
-| 4 | Dati da visualizzare nella vetrina: Riepilogo offerta | Viene visualizzato nella pagina di ricerca dell'app e contiene un massimo di 100 caratteri. | |
-| 5 | Dati da visualizzare nella vetrina: Settori | Settori (max 2): selezionare i settori ai quali l'app è più allineata e applicabile. | |
+| 4 | Dettagli archivio online: riepilogo offerta | Viene visualizzato nella pagina di ricerca dell'app e contiene un massimo di 100 caratteri. | |
+| 5 | Dettagli negozio online: settori | Settori (max 2): selezionare i settori ai quali l'app è più allineata e applicabile. | |
 | 6 | Descrizione dell'offerta | <ul><li>È consentito il codice HTML semplice, inclusi i \<p> tag di intestazione,,, \<em> \<ul> \<li> , \<ol> e. Max. 3000 caratteri.</li><li>Comprende 2-3 paragrafi.</li><li>La soluzione offerta è immediatamente comprensibile.</li><li>La descrizione è completa e contiene destinatari, tipo di utente e proposta di valore.</li><li>È in formato descrittivo e suddivisa in paragrafi, con frasi brevi e facili da comprendere. | <ul><li>È indicato il settore di destinazione, se pertinente.</li><li>Lo stile di formattazione è corretto: l'intestazione di ogni paragrafo è costituita da una frase di riepilogo del contenuto che segue, nel quale i vantaggi chiave sono evidenziati dall'uso di punti elenco, se appropriato. L'obiettivo è consentire una comprensione immediata dell'offerta da parte del lettore, grazie a un formato di visualizzazione chiaro che non richiede la lettura di paragrafi.</li><li>Tra un paragrafo e l'altro è presente una spaziatura sufficiente. Lo stile è simile a quello dei depliant delle automobili. In altre parole, l'offerta viene descritta in modo completo e semplice, senza l'uso di tecnicismi. | 
 | 7 | Artefatti di marketing | I logo vengono visualizzati correttamente. | <ul><li>Logo: Small (48 x 48 pixel), Medium (90 x 90 pixel) e Large (tra 216 x 216 e 350 x 350 pixel) sono obbligatori.</li><li>Screenshot (max. 5): richiede un. Immagine PNG con risoluzione di 1280x720 pixel. |
 | 8 | Categorie e settori | <ul><li>Le categorie corrispondono alle caratteristiche della soluzione offerta.</li><li>Selezionare almeno un elemento nella finestra popup.</li><li>Non selezionare le categorie non adatte alla soluzione.</li><li>È stato selezionato il settore ottimale oppure sono stati selezionati tutti i settori appropriati (se non esiste un settore ottimale). | Max. 3 categorie selezionate, se applicabili. |

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 43623e6841c3776e6e83453ad9cb47549fc16021
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b48fc6ad448b829bb399c151d3f1507c804ad471
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170293"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605113"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni per la trasformazione dei dati nel flusso di dati per mapping
 
@@ -101,21 +101,13 @@ ___
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Selezionare una matrice di colonne nel flusso in base al nome. È possibile passare un nome di flusso facoltativo come secondo argomento. Se sono presenti più corrispondenze, restituisce la prima corrispondenza. Se non sono presenti corrispondenze per una colonna, l'intero output è un valore NULL. Il valore restituito richiede una delle funzioni di conversione del tipo (toDate, toString ...).  I nomi di colonna noti in fase di progettazione devono essere riportati solo in base al relativo nome. Gli input calcolati non sono supportati, ma è possibile usare le sostituzioni di parametro.
 * ``toString(byNames(['parent', 'child']))``
-* ````
 * ``byNames(['parent']) ? string``
-* ````
 * ``toLong(byNames(['income']))``
-* ````
 * ``byNames(['income']) ? long``
-* ````
 * ``toBoolean(byNames(['foster']))``
-* ````
 * ``toLong(byNames($debtCols))``
-* ````
 * ``toString(byNames(['a Column']))``
-* ````
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
-* ````
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
@@ -354,7 +346,7 @@ Durata in millisecondi per il numero di ore.
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-In base alla condizione specifica, applica un valore o l'altro. L'altro valore è considerato NULL se non viene specificato. Entrambi i valori devono essere compatibili (numeric, String...).* ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
+In base alla condizione specifica, applica un valore o l'altro. L'altro valore è considerato NULL se non viene specificato. Entrambi i valori devono essere compatibili (numeric, String...). * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``  
 * ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``  
 ___
@@ -968,7 +960,7 @@ ___
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Ottiene il valore dell'anno di una data.  
 * ``year(toDate('2012-8-8')) -> 2012``  
-##Funzioni di aggregazione le funzioni seguenti sono disponibili solo nelle trasformazioni aggregate, pivot, UNPIVOT e Window.
+## Funzioni di aggregazione le funzioni seguenti sono disponibili solo nelle trasformazioni aggregate, pivot, UNPIVOT e Window.
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1161,7 +1153,7 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 In base a un criterio, ottiene la varianza non distorta di una colonna.  
 * ``varianceSampleIf(region == 'West', sales)``  
-##Funzioni finestra le funzioni seguenti sono disponibili solo nelle trasformazioni finestra.
+## Funzioni finestra le funzioni seguenti sono disponibili solo nelle trasformazioni finestra.
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>

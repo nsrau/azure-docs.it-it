@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bbee9881addf66d762f1eadb837e5a4e41bf79de
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7ef9d87db1981c7721c2398e858404c2527dd274
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167896"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605780"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
 
@@ -70,7 +70,7 @@ Per completare l'esercitazione, fare riferimento a questi pacchetti nel progetto
 
   Questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, ovunque sia in esecuzione l'applicazione.
 
-Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, seguire questa procedura:
+Per ottenere entrambi i pacchetti, è possibile usare NuGet. Attenersi ai passaggi descritti di seguito.
 
 1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 1. In **Gestione pacchetti NuGet**, selezionare **Sfoglia**. Cercare e scegliere **Microsoft. Azure. storage. blob**, quindi selezionare **Install (installa**).
@@ -99,7 +99,7 @@ Salvare quindi le credenziali nel file del progetto `App.config` . In **Esplora 
 ```
 
 > [!NOTE]
-> La versione più recente dell'emulatore di archiviazione di Azure non supporta File di Azure. Per poter usare File di Azure, la stringa di connessione deve specificare come destinazione un account di archiviazione di Azure nel cloud.
+> Le versioni più recenti dell'emulatore di archiviazione di Azure e dell'emulatore open source di azzurrite non supportano File di Azure. Per poter usare File di Azure, la stringa di connessione deve specificare come destinazione un account di archiviazione di Azure nel cloud.
 
 ## <a name="add-using-directives"></a>Aggiungere le direttive using
 

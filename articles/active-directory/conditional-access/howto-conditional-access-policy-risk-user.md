@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a015f7dd58bae328a8c18e3de3202c0ca615c9cf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034840"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605585"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Accesso condizionale: accesso condizionale basato sul rischio utente
 
@@ -29,7 +29,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
-1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
+1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri. Per altre informazioni, [impostare gli standard di denominazione per i criteri](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
@@ -48,7 +48,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 1. In **assegnazioni**selezionare **utenti**.
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi**selezionare **Seleziona utenti esclusi**, scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass e selezionare **Seleziona**.
-   1. Selezionare **Operazione completata**.
+   1. Selezionare **Fine**.
 1. In **condizioni**selezionare **rischio utente**, quindi fare clic **su alto**.
    1. Selezionare **Seleziona**, quindi **fine**.
 1. In **Controlla**  >  **accesso**scegliere **Consenti accesso**, quindi selezionare **Richiedi modifica della password**.
@@ -60,10 +60,10 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 
 [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
-[Accesso condizionale basato sul rischio di accesso](howto-conditional-access-policy-risk.md)
+[Accesso condizionale basato sul rischio per l'accesso](howto-conditional-access-policy-risk.md)
 
 [Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 
-[Informazioni su Azure Active Directory Identity Protection](../identity-protection/overview.md)
+[Che cos'è Azure Active Directory Identity Protection?](../identity-protection/overview.md)

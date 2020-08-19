@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98ce4d5e82d65d911984dc45615253ddcae33ae1
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0aaa454df05cd8981b314abe238163caced7864c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589868"
+ms.locfileid: "88604590"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Gestione dei costi per Azure Lab Services
 
@@ -129,8 +129,8 @@ Queste impostazioni possono essere configurate a livello di account Lab e a live
     
 Per informazioni su come configurare e abilitare l'arresto automatico delle macchine virtuali alla disconnessione, vedere questi articoli:
 
-* [Configurare l'arresto automatico delle macchine virtuali tramite l'impostazione di disconnessione per un account lab](how-to-configure-lab-accounts.md)
-* [Abilitare l'arresto automatico delle macchine virtuali al termine della connessione](how-to-enable-shutdown-disconnect.md)
+* [Configurare l'arresto automatico delle macchine virtuali per un account Lab](how-to-configure-lab-accounts.md)
+* [Configurare l'arresto automatico delle macchine virtuali per un Lab](how-to-enable-shutdown-disconnect.md)
 
 ### <a name="quota-vs-scheduled-time"></a>Quota rispetto a tempo pianificato
 

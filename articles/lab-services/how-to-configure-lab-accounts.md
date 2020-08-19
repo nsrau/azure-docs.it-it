@@ -3,12 +3,12 @@ title: Configurare l'arresto automatico delle macchine virtuali in Azure Lab Ser
 description: Questo articolo descrive come configurare l'arresto automatico delle macchine virtuali nell'account lab.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9fd93d383ba6a2d57057a3b45f8b517c84990043
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589801"
+ms.locfileid: "88603894"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configurare l'arresto automatico delle macchine virtuali per un account Lab
 
@@ -35,4 +35,4 @@ Per ulteriori informazioni sulle funzionalità di arresto automatico, vedere la 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come un proprietario del Lab può configurare o eseguire l'override di questa impostazione a livello di Lab, vedere [Enable Automatic Shutdown of VM on Disconnect](how-to-enable-shutdown-disconnect.md)
+Per informazioni su come un proprietario del Lab può configurare o eseguire l'override di questa impostazione a livello di Lab, vedere [configurare l'arresto automatico delle macchine virtuali per un Lab](how-to-enable-shutdown-disconnect.md)

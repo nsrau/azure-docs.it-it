@@ -4,15 +4,15 @@ description: Informazioni su come usare l'inserimento di dipendenze per la regis
 author: craigshoemaker
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 09/05/2019
+ms.date: 08/15/2020
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: ee3caef30c573763db56f89aa4900aa62b8a436a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4919dc8f08a745a029eb6c3755f8cfc9c39f827f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206113"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603868"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in Funzioni di Azure .NET
 
@@ -226,10 +226,10 @@ Dall'interno del metodo `Startup.Configure`, è possibile estrarre i valori dall
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
-                .Configure<IConfiguration>((settings, configuration) =>
-                                           {
-                                                configuration.GetSection("MyOptions").Bind(settings);
-                                           });
+    .Configure<IConfiguration>((settings, configuration) =>
+    {
+        configuration.GetSection("MyOptions").Bind(settings);
+    });
 ```
 
 La chiamata di `Bind` copia i valori che hanno nomi di proprietà corrispondenti dalla configurazione all'istanza personalizzata. L'istanza Options è ora disponibile nel contenitore IoC per essere inserita in una funzione.
@@ -253,8 +253,57 @@ public class HttpTrigger
 
 Per informazioni dettagliate sull'uso delle opzioni, fare riferimento al [modello di opzioni in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
-> [!WARNING]
-> Evitare di provare a leggere i valori da file come *local.settings.json* o *appsettings.{environment}.json* nel piano a consumo. I valori letti da questi file correlati alle connessioni trigger non sono disponibili perché l'app viene ridimensionata perché l'infrastruttura host non ha accesso alle informazioni di configurazione perché il controller di scalabilità crea nuove istanze dell'app.
+### <a name="customizing-configuration-sources"></a>Personalizzazione delle origini di configurazione
+
+> [!NOTE]
+> La personalizzazione dell'origine di configurazione è disponibile a partire dalle versioni host di funzioni di Azure 2.0.14192.0 e 3.0.14191.0.
+
+Per specificare origini di configurazione aggiuntive, eseguire l'override del `ConfigureAppConfiguration` metodo nella classe dell'app per le funzioni `StartUp` .
+
+Nell'esempio seguente vengono aggiunti i valori di configurazione da una base e da un file di impostazioni dell'app specifici dell'ambiente.
+
+```csharp
+using System.IO;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+[assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
+
+namespace MyNamespace
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+        {
+            FunctionsHostBuilderContext context = builder.GetContext();
+
+            builder.ConfigurationBuilder
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+        }
+    }
+}
+```
+
+Aggiungere i provider di configurazione alla `ConfigurationBuilder` proprietà di `IFunctionsConfigurationBuilder` . Per ulteriori informazioni sull'utilizzo dei provider di configurazione, vedere la pagina relativa [alla configurazione in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+
+Un oggetto `FunctionsHostBuilderContext` viene ottenuto da `IFunctionsConfigurationBuilder.GetContext()` . Usare questo contesto per recuperare il nome dell'ambiente corrente e risolvere il percorso dei file di configurazione nella cartella dell'app per le funzioni.
+
+Per impostazione predefinita, i file di configurazione, ad esempio *appsettings.json* , non vengono copiati automaticamente nella cartella di output dell'app per le funzioni. Aggiornare il file con *estensione csproj* in modo che corrisponda all'esempio seguente per assicurarsi che i file vengano copiati.
+
+```xml
+<None Update="appsettings.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>      
+</None>
+<None Update="appsettings.Development.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+</None>
+```
+
+> [!IMPORTANT]
+> Per le app per le funzioni in esecuzione nei piani di consumo o Premium, le modifiche ai valori di configurazione usati nei trigger possono causare errori di scalabilità. Tutte le modifiche apportate a queste proprietà dalla `FunctionsStartup` classe generano un errore di avvio dell'app per le funzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

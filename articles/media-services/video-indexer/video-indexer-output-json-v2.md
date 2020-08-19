@@ -8,37 +8,52 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/10/2020
 ms.author: juliako
-ms.openlocfilehash: 5e3501ea8bc327f0dd906a42702194abce18c5fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656586"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604788"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output del Video Indexer prodotto dall'API
+# <a name="examine-the-video-indexer-output"></a>Esaminare l'output del Video Indexer
 
-Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato della risposta è OK, viene restituito un output JSON dettagliato come contenuto della risposta. Il contenuto JSON include le informazioni dettagliate sul video specificato. Le informazioni dettagliate includono: trascrizioni, OCR, visi, argomenti, blocchi e così via. Ogni tipo di informazioni include le istanze degli intervalli temporali che mostrano quando l'Insight viene visualizzato nel video. 
+Quando un video viene indicizzato, Video Indexer poduces il contenuto JSON che contiene i dettagli del video specificato. Le informazioni dettagliate includono: trascrizioni, OCR, visi, argomenti, blocchi e così via. Ogni tipo di informazioni include le istanze degli intervalli temporali che mostrano quando l'Insight viene visualizzato nel video. 
+
+È possibile esaminare visivamente le informazioni dettagliate riepilogate del video premendo il pulsante **Riproduci** sul video nel sito Web [video Indexer](https://www.videoindexer.ai/) . 
+
+È anche possibile usare l'API chiamando il **Get video index** API e lo stato della risposta è OK, si ottiene un output JSON dettagliato come contenuto della risposta.
+
+![Informazioni dettagliate](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+
+Questo articolo esamina l'output del Video Indexer (contenuto JSON). Per informazioni sulle funzionalità e le informazioni dettagliate disponibili, vedere [video Indexer Insights](video-indexer-overview.md#video-insights).
+
+> [!NOTE]
+> La scadenza di tutti i token di accesso in Video Indexer è di un'ora.
+
+## <a name="get-the-insights"></a>Ottieni informazioni dettagliate
+
+### <a name="insightsoutput-produced-in-the-websiteportal"></a>Informazioni dettagliate/output prodotto nel sito Web/portale
+
+1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
+1. Trovare un video dell'output di cui si vuole esaminare l'output.
+1. Premere **Riproduci**.
+1. Selezionare la scheda **Insights** (informazioni dettagliate riepilogate) o la scheda **sequenza temporale** (consente di filtrare le informazioni rilevanti).
+1. Scaricare gli artefatti e gli elementi in essi contenuti.
+
+Per altre informazioni, vedere [Visualizzare e analizzare le informazioni dettagliate per i video](video-indexer-view-edit.md).
+
+## <a name="insightsoutput-produced-by-api"></a>Informazioni dettagliate/output prodotto dall'API
 
 1. Per recuperare il file JSON, chiamare [Get video index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. Se si è interessati anche a elementi specifici, chiamare [Get video artefatte URL download API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
 
     Nella chiamata API specificare il tipo di artefatto richiesto (OCR, visi, fotogrammi chiave e così via)
 
-È anche possibile esaminare visivamente le informazioni dettagliate riepilogate del video, premendo il pulsante **Play** del video nel sito Web di [Video Indexer](https://www.videoindexer.ai/). Per altre informazioni, vedere [Visualizzare e analizzare le informazioni dettagliate per i video](video-indexer-view-edit.md).
+## <a name="root-elements-of-the-insights"></a>Elementi radice delle informazioni dettagliate
 
-![Informazioni dettagliate](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
-
-In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get Video Index** (Ottieni indice video). 
-
-> [!NOTE]
-> La scadenza di tutti i token di accesso in Video Indexer è di un'ora.
-
-
-## <a name="root-elements"></a>Elementi radice
-
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
@@ -86,7 +101,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |duration|Contiene una durata che definisce il tempo associato a un'informazione dettagliata. La durata è espressa in secondi.|
 |thumbnailVideoId|ID del video da cui è stata ottenuta l'anteprima.
 |thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passarla ThumbnailVideoId e thumbnailId.|
-|faces|Può contenere zero o più volti. Per informazioni più dettagliate, vedere [faces](#faces).|
+|visi/animatedCharacters|Può contenere zero o più volti. Per informazioni più dettagliate, vedere [visi/animatedCharacters](#facesanimatedcharacters).|
 |keywords|Può contenere zero o più parole chiave. Per informazioni più dettagliate, vedere [keywords](#keywords).|
 |sentiments|Può contenere zero o più valutazioni. Per informazioni più dettagliate, vedere [sentiments](#sentiments).|
 |audioEffects| Può contenere zero o più audioEffects. Per informazioni più dettagliate, vedere [audioEffects](#audioeffects).|
@@ -98,7 +113,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
 ## <a name="videos"></a>videos
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |accountId|ID account Video Indexer del video.|
 |id|ID del video.|
@@ -162,7 +177,7 @@ Una faccia potrebbe avere un ID, un nome, un'anteprima, altri metadati e un elen
 |ocr|Informazioni dettagliate sull' [OCR](#ocr) .|
 |keywords|[Parole chiave](#keywords) Insight.|
 |blocks|Può contenere uno o più [blocchi](#blocks)|
-|faces|Informazioni dettagliate sui [visi](#faces) .|
+|visi/animatedCharacters|Informazioni dettagliate su [visi/animatedCharacters](#facesanimatedcharacters) .|
 |Etichette|Informazioni dettagliate sulle [etichette](#labels) .|
 |shots|Informazioni [dettagliate](#shots) .|
 |brands|Informazioni dettagliate sui [marchi](#brands) .|
@@ -206,7 +221,7 @@ instances|Elenco degli intervalli di tempo di questo blocco.|
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
-|text|Testo della trascrizione.|
+|testo|Testo della trascrizione.|
 |Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
@@ -244,11 +259,11 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
-|text|Testo risultante dal riconoscimento ottico dei caratteri.|
+|testo|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
 |Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
-|height|Altezza del rettangolo OCR|
+|altezza|Altezza del rettangolo OCR|
 |top|Posizione superiore in px|
 |sinistro| Posizione a sinistra in px|
 |width|Larghezza del rettangolo OCR|
@@ -279,7 +294,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
-|text|Testo della parola chiave.|
+|testo|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
 |Linguaggio|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
@@ -305,7 +320,11 @@ Esempio:
 }
 ```
 
-#### <a name="faces"></a>faces
+#### <a name="facesanimatedcharacters"></a>visi/animatedCharacters
+
+`animatedCharacters` l'elemento sostituisce `faces` se il video è stato indicizzato con un modello di caratteri animati. Questa operazione viene eseguita usando un modello personalizzato in Visione personalizzata, Video Indexer la esegue nei fotogrammi chiave.
+
+Se sono presenti visi (caratteri non animati), Video Indexer USA API Viso su tutti i frame del video per rilevare visi e celebrità.
 
 |Nome|Descrizione|
 |---|---|
@@ -499,7 +518,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |id|ID del marchio.|
 |name|Nome del marchio.|
 |referenceId | Suffisso dell'URL di Wikipedia del marchio. Ad esempio, "Target_Corporation" è il suffisso di [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
-|referenceUrl | URL di Wikipedia del marchio, se presente. Ad esempio, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
+|referenceUrl | URL di Wikipedia del marchio, se presente. ad esempio [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|Descrizione del marchio.|
 |tags|Elenco di tag predefiniti associati a questo marchio.|
 |confidence|Valore di attendibilità della funzionalità di rilevamento dei marchi di Video Indexer (0-1).|
@@ -566,7 +585,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |Nome|Descrizione|
 |---|---|
 |id|L'ID dell'effetto audio.|
-|tipo|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
+|type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
 |instances|Elenco degli intervalli di tempo in cui è presente l'effetto audio.|
 
 ```json
@@ -680,7 +699,7 @@ Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'e
 |Nome|Descrizione|
 |---|---|
 |id|ID dell'emozione.|
-|tipo|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
+|type|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
 |instances|Elenco degli intervalli di tempo in cui è comparsa l'emozione.|
 
 ```json

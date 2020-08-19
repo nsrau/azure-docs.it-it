@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: f62483880d2572b6487c87bbd73e0dd7033238d3
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166689"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606172"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -103,7 +103,7 @@ Per informazioni sui requisiti di pubblicazione per ogni piano dell'applicazione
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 >[!NOTE]
->Dopo la pubblicazione di un'offerta, le modifiche apportate all'offerta nel Centro per i partner non verranno visualizzate nelle vetrine finché non si ripubblica l'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
+>Dopo la pubblicazione di un'offerta, le modifiche apportate al centro per i partner non verranno visualizzate negli archivi online fino a quando non si pubblica nuovamente l'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
 
@@ -187,7 +187,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Condizioni per l'utilizzo
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
-7. Summary
+7. Riepilogo
 8. Descrizione
 9. Screenshot/video
 

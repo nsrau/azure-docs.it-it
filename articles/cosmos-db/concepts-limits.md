@@ -5,37 +5,40 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391843"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605765"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
 Questo articolo fornisce una panoramica delle quote predefinite offerte a risorse diverse in Azure Cosmos DB.
 
-## <a name="storage-and-throughput"></a>Archiviazione e velocità effettiva
+## <a name="storage-and-database-operations"></a>Operazioni di archiviazione e database
 
-Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possibile gestire i dati nell'account [creando database, contenitori ed elementi](databases-containers-items.md). È possibile effettuare il provisioning della velocità effettiva a livello di contenitore o di database in termini di [unità richiesta (UR/sec o UR)](request-units.md). La tabella seguente elenca i limiti relativi all'archiviazione e alla velocità effettiva per ogni contenitore o database.
+Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possibile gestire i dati nell'account [creando database, contenitori ed elementi](databases-containers-items.md).
+
+### <a name="provisioned-throughput"></a>Velocità effettiva con provisioning
+
+È possibile effettuare il provisioning della velocità effettiva a livello di contenitore o di database in termini di [unità richiesta (UR/sec o UR)](request-units.md). La tabella seguente elenca i limiti relativi all'archiviazione e alla velocità effettiva per ogni contenitore o database.
 
 | Risorsa | Limite predefinito |
 | --- | --- |
 | Numero massimo di UR per ogni contenitore ([modalità di provisioning con velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Numero massimo di UR per ogni database ([modalità di provisioning con velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Numero massimo di UR per ogni chiave di partizione (logica) | 10,000 |
-| Dimensione massima di archiviazione per tutti gli elementi per ogni chiave di partizione (logica)| 20 GB |
+| Numero massimo di ur per partizione (logica) | 10,000 |
+| Archiviazione massima in tutti gli elementi per ogni partizione (logica) | 20 GB |
 | Numero massimo di chiavi di partizione (logica) distinte | Nessuna limitazione |
 | Dimensione massima di archiviazione per ogni contenitore | Nessuna limitazione |
 | Dimensione massima di archiviazione per ogni database | Nessuna limitazione |
-| Dimensione massima degli allegati per ogni account (la funzionalità relativa agli allegati verrà deprecata) | 2 GB |
+| Dimensioni massime allegati per account (la funzionalità degli allegati verrà deprecata) | 2 GB |
 | Numero minimo di UR richieste per 1 GB | 10 UR/sec |
 
 > [!NOTE]
 > Per informazioni sulle procedure consigliate per la gestione dei carichi di lavoro con chiavi di partizione che richiedono limiti più elevati per l'archiviazione o la velocità effettiva, vedere [Creare una chiave di partizione sintetica](synthetic-partition-keys.md).
->
 
 Un contenitore Cosmos (o un database con velocità effettiva condivisa) deve avere una velocità effettiva minima di 400 UR/sec. Man mano che aumenta la dimensione del contenitore, la velocità effettiva minima supportata dipende anche dai fattori seguenti:
 
@@ -47,7 +50,6 @@ La velocità effettiva corrente e minima di un contenitore o di un database può
 
 > [!NOTE]
 > In alcuni casi, potrebbe essere possibile ridurre la velocità effettiva a un valore inferiore al 10%. Usare l'API per ottenere il numero minimo esatto di UR per ogni contenitore.
->
 
 In sintesi, di seguito sono riportati i limiti minimi di provisioning delle UR. 
 
@@ -58,6 +60,18 @@ In sintesi, di seguito sono riportati i limiti minimi di provisioning delle UR.
 | Numero minimo di UR per ogni contenitore all'interno di un database con velocità effettiva condivisa | 100 |
 
 Cosmos DB supporta il ridimensionamento elastico della velocità effettiva (UR) per ogni contenitore o database tramite gli SDK o il portale. Ogni contenitore può essere ridimensionato in modo sincrono e immediatamente entro un intervallo di scala compreso tra 10 e 100 volte, tra i valori minimo e massimo. Se il valore della velocità effettiva richiesta non rientra nell'intervallo, il ridimensionamento viene eseguito in modo asincrono. Il ridimensionamento asincrono può richiedere minuti o ore, a seconda della velocità effettiva richiesta e della dimensione di archiviazione dei dati nel contenitore.  
+
+### <a name="serverless"></a>Senza server
+
+Senza [Server](serverless.md) è possibile usare le risorse di Azure Cosmos DB in modo basato sul consumo. La tabella seguente elenca i limiti per l'archiviazione e la velocità effettiva di espansione per contenitore/database.
+
+| Risorsa | Limite |
+| --- | --- |
+| Numero massimo di ur/sec per contenitore | 5\.000 |
+| Massima partizione ur/s per (logica) | 5\.000 |
+| Archiviazione massima in tutti gli elementi per ogni partizione (logica) | 20 GB |
+| Numero massimo di chiavi di partizione (logica) distinte | Nessuna limitazione |
+| Dimensione massima di archiviazione per ogni contenitore | 50 GB |
 
 ## <a name="control-plane-operations"></a>Operazioni del piano di controllo
 
@@ -75,12 +89,22 @@ Cosmos DB esegue automaticamente il backup dei dati a intervalli regolari. Per i
 
 ## <a name="per-account-limits"></a>Limiti per account
 
+### <a name="provisioned-throughput"></a>Velocità effettiva con provisioning
+
 | Risorsa | Limite predefinito |
 | --- | --- |
 | Numero massimo di database | Nessuna limitazione |
 | Numero massimo di contenitori per ogni database con velocità effettiva condivisa |25 |
 | Numero massimo di contenitori per ogni database o account con velocità effettiva dedicata  |senza limiti |
 | Numero massimo di aree | Nessun limite (tutte le aree di Azure) |
+
+### <a name="serverless"></a>Senza server
+
+| Risorsa | Limite |
+| --- | --- |
+| Numero massimo di database | Nessuna limitazione |
+| Numero massimo di contenitori per account  | 100 |
+| Numero massimo di aree | 1 (qualsiasi area di Azure) |
 
 ## <a name="per-container-limits"></a>Limiti per contenitore
 

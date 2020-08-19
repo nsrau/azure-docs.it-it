@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563202"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605730"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 
 Dopo aver creato un contenitore o un database Azure Cosmos, è possibile aggiornare la velocità effettiva con provisioning. La velocità effettiva massima con provisioning che è possibile configurare nel database o nel contenitore non è soggetta ad alcun limite. 
 
-Per stimare la [velocità effettiva minima di provisioning](concepts-limits.md#storage-and-throughput) di un database o di un contenitore, trovare il numero massimo di:
+Per stimare la [velocità effettiva minima di provisioning](concepts-limits.md#storage-and-database-operations) di un database o di un contenitore, trovare il numero massimo di:
 
 * 400 UR/sec 
 * Archiviazione corrente in GB * 10 UR/sec

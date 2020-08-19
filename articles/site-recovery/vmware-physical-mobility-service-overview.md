@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 431f1da463e4bd9970bc92b0842393f2de882220
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131802"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604732"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
@@ -37,6 +37,7 @@ L'installazione push è parte integrante del processo eseguito dal portale di Az
 
 - Verificare che tutti i [prerequisiti](vmware-azure-install-mobility-service.md) di installazione push siano soddisfatti.
 - Verificare che tutte le configurazioni del server soddisfino i criteri della [matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure](vmware-physical-azure-support-matrix.md).
+- Dalla [versione 9,36](https://support.microsoft.com/help/4578241/) e successive, per SUSE Linux Enterprise Server 11 SP4, verificare che il programma di installazione più recente sia [disponibile nel server di configurazione e nel server di elaborazione con scalabilità orizzontale](#download-latest-mobility-agent-installer-for-suse-11-sp3-server)
 
 Il flusso di lavoro di installazione push è descritto nelle sezioni seguenti:
 
@@ -142,7 +143,7 @@ Impostazione | Dettagli
 --- | ---
 Sintassi | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
 Log di configurazione dell'agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log`
-`/CSEndPoint` | Parametro obbligatorio. `<CSIP>`Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
+`/CSEndPoint` | Parametro obbligatorio. `<CSIP>` Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
 `/PassphraseFilePath` |  Mandatory. Percorso della passphrase. Usare qualsiasi percorso file locale o UNC valido.
 
 ### <a name="linux-machine"></a>Computer Linux
@@ -181,7 +182,7 @@ Sintassi | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 Impostazione | Dettagli
 --- | ---
 Sintassi | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
-`-i` | Parametro obbligatorio. `<CSIP>`Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
+`-i` | Parametro obbligatorio. `<CSIP>` Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
 `-P` |  Mandatory. Percorso completo del file in cui è stata salvata la passphrase. Usare qualsiasi cartella valida.
 
 ## <a name="azure-virtual-machine-agent"></a>Agente di macchina virtuale di Azure
@@ -204,13 +205,27 @@ File del programma di installazione | Sistema operativo (solo a 64 bit)
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> Include SP2 e SP3.
-`Microsoft-ASR_UA_version_SLES11-SP3-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP3
+[Da scaricare e inserire manualmente in questa cartella](#download-latest-mobility-agent-installer-for-suse-11-sp3-server). | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6,4 </br> Oracle Enterprise Linux 6,5
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14.04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Server Ubuntu Linux 16.04 LTS
 `Microsoft-ASR_UA_version_DEBIAN7-64_GA_date_release.tar.gz` | Debian 7
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
+
+### <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-server"></a>Scaricare il programma di installazione dell'agente Mobility più recente per il server SUSE 11 SP3
+
+Come **prerequisito per aggiornare o proteggere i computer SUSE Linux Enterprise Server 11 SP3** dalla [versione 9,36](https://support.microsoft.com/help/4578241/) e successive:
+
+1. Verificare che il programma di installazione dell'agente Mobility più recente venga scaricato dall'area download Microsoft e inserito nel repository del programma di installazione push nel server di configurazione e in tutti i server di elaborazione
+2. [Scaricare](https://download.microsoft.com/download/0/3/4/0341b388-1ff5-4ead-b197-7cf6d2bb3e40/Microsoft-ASR_UA_9.36.0.0_SLES11-SP3-64_GA_06Aug2020_release.tar.gz) il programma di installazione dell'agente SUSE Linux Enterprise Server 11 SP3.
+3. Passare al server di configurazione, copiare il programma di installazione dell'agente SUSE Linux Enterprise Server 11 SP3 nei percorsi seguenti
+    1. INSTALL_DIR \home\svsystems\pushinstallsvc\repository
+    1.  INSTALL_DIR cartelle \home\svsystems\admin\web\sw
+4. A questo punto, passare a server di elaborazione con scalabilità orizzontale associati & copiare il programma di installazione in entrambi i percorsi indicati in 3 passaggi.
+5. Se, **ad esempio**, il percorso di installazione è c:\Programmi (x86) \Microsoft Azure Site Recovery, le directory sopra indicate saranno
+    1. C:\Programmi (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc\repository
+    1. C:\Programmi (x86) \Microsoft Azure site Recovery\home\svsystems\admin\web\sw Path
 
 ## <a name="next-steps"></a>Passaggi successivi
 

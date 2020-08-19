@@ -5,39 +5,32 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/19/2020
+ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523537"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605262"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modello di determinazione dei prezzi di Azure Cosmos DB
 
-Il modello di determinazione dei prezzi di Azure Cosmos DB semplifica la gestione e la pianificazione dei costi. Con Azure Cosmos DB viene addebitato un costo per la velocità effettiva sottoposta a provisioning e per le risorse di archiviazione usate.
+Il modello di determinazione dei prezzi di Azure Cosmos DB semplifica la gestione e la pianificazione dei costi. Con Azure Cosmos DB si paga per le operazioni eseguite sul database e per lo spazio di archiviazione utilizzato dai dati.
 
-* **Velocità effettiva con provisioning**: la [velocità effettiva con provisioning](how-to-choose-offer.md) (detta anche velocità effettiva riservata) garantisce prestazioni elevate su qualsiasi scala. Specificando la velocità effettiva (UR/s) necessaria, Azure Cosmos DB dedica le risorse necessarie per garantire la velocità effettiva configurata. Verrà quindi addebitata su base oraria la velocità effettiva massima sottoposta a provisioning per un'ora specifica. Puoi eseguire manualmente il provisioning della velocità effettiva o usare la [scalabilità](provision-throughput-autoscale.md)automatica.
+- **Operazioni di database**: il modo in cui vengono addebitate le operazioni di database dipende dal tipo di account Azure Cosmos usato.
+
+  - **Velocità effettiva con provisioning**: la [velocità effettiva con provisioning](set-throughput.md) (detta anche velocità effettiva riservata) garantisce prestazioni elevate su qualsiasi scala. È possibile specificare la velocità effettiva necessaria in [unità richiesta](request-units.md) al secondo (UR/sec) e Azure Cosmos DB dedicare le risorse necessarie per garantire la velocità effettiva configurata. È possibile [eseguire il provisioning della velocità effettiva in un database o in un contenitore](set-throughput.md). In base alle esigenze del carico di lavoro, è possibile ridimensionare la velocità effettiva in qualsiasi momento o usare la [scalabilità](provision-throughput-autoscale.md) automatica (anche se è necessaria una velocità effettiva minima in un database o in un contenitore per garantire i contratti di contratto). Verrà quindi addebitata su base oraria la velocità effettiva massima sottoposta a provisioning per un'ora specifica.
 
    > [!NOTE]
-   > Poiché il modello di velocità effettiva con provisioning dedica risorse al contenitore o al database, verrà addebitata la velocità effettiva con provisioning anche se non vengono eseguiti carichi di lavoro.
+   > Poiché il modello di velocità effettiva con provisioning dedica risorse al contenitore o al database, verrà addebitata la velocità effettiva di cui è stato effettuato il provisioning, anche se non vengono eseguiti carichi di lavoro.
 
-* **Archiviazione utilizzata**: viene addebitata una tariffa fissa per la quantità totale di spazio di archiviazione (GB) utilizzata per i dati e gli indici per una determinata ora.
+  - Senza **Server**: in modalità senza [Server](serverless.md) non è necessario effettuare il provisioning di una velocità effettiva durante la creazione di risorse nell'account Azure Cosmos. Alla fine del periodo di fatturazione, viene addebitata la quantità di unità richiesta che è stata utilizzata dalle operazioni del database.
 
-La velocità effettiva sottoposta a provisioning, specificata come [unità richiesta](request-units.md) al secondo o UR/s, consente di leggere o scrivere dati nei contenitori o database. È possibile [eseguire il provisioning della velocità effettiva in un database o in un contenitore](set-throughput.md). In base alle esigenze del carico di lavoro, è possibile ridurre o aumentare la velocità effettiva in qualsiasi momento. I prezzi di Azure Cosmos DB sono elastici e proporzionali alla velocità effettiva configurata in un database o contenitore. I valori minimi di velocità effettiva e archiviazione e gli incrementi di scalabilità offrono una gamma completa di prezzi rispetto a uno spettro di elasticità per tutti i segmenti di clienti, da contenitori su scala ridotta a contenitori su larga scala. Ogni database o contenitore viene fatturato su base oraria per la velocità effettiva sottoposta a provisioning nelle unità di 100 UR/s, con un minimo di 400 UR/s e spazio di archiviazione usato in GB. A differenza della velocità effettiva sottoposta a provisioning, l'archiviazione è fatturata in base al consumo, Ovvero, non è necessario riservare alcuna archiviazione in anticipo. Verranno addebitate le sole risorse di archiviazione usate.
+- **Archiviazione**: viene addebitata una tariffa fissa per la quantità totale di spazio di archiviazione (in GB) utilizzata dai dati e dagli indici per un'ora specifica. L'archiviazione viene fatturata in base a un consumo, quindi non è necessario riservare alcuna archiviazione in anticipo. Verranno addebitate le sole risorse di archiviazione usate.
 
-Per altre informazioni, vedere la [pagina dei prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) e [Informazioni sulla fattura di Azure Cosmos DB](understand-your-bill.md).
+Il modello di prezzi in Azure Cosmos DB è coerente in tutte le API. Per ulteriori informazioni, vedere la [pagina relativa ai prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/), informazioni sulla [fattura Azure Cosmos DB](understand-your-bill.md) e sul [modo in cui Azure Cosmos DB modello di determinazione prezzi è conveniente per i clienti](total-cost-ownership.md).
 
-Il modello di prezzi in Azure Cosmos DB è coerente in tutte le API. Per altre informazioni, vedere [Costo totale di proprietà (TCO) con Azure Cosmos DB](total-cost-ownership.md). È necessaria una velocità effettiva minima in un database o in un contenitore per garantire i contratti di contratto ed è possibile aumentare o ridurre la velocità effettiva con provisioning per ogni 100 ur/sec.
-
-Se si distribuisce l'account Azure Cosmos DB in un'area non governativa degli Stati Uniti, attualmente il prezzo minimo per entrambi i database e la velocità effettiva basata su contenitori è di circa 24 dollari al mese. I prezzi variano a seconda dell'area in uso. per informazioni aggiornate sui prezzi, vedere la pagina relativa ai [prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) . Se il carico di lavoro usa più contenitori, è possibile ottimizzare i costi tramite la velocità effettiva a livello di database, che consente di disporre di un numero qualsiasi di contenitori in un database che condividono la velocità effettiva. La tabella seguente riepiloga la velocità effettiva sottoposta a provisioning e i costi per diverse entità:
-
-|**Entità**  | **Velocità effettiva minima** |**Incrementi di scala** |**Ambito di provisioning** |
-|---------|---------|---------|-------|
-|Database    | 400 UR/sec    | 100 ur/sec   |La velocità effettiva viene riservata per il database e viene condivisa dai contenitori all'interno del database |
-|Contenitore     | 400 UR/sec   | 100 ur/sec  |La velocità effettiva viene riservata per un contenitore specifico |
-
-Come illustrato nella tabella precedente, la velocità effettiva minima in Azure Cosmos DB inizia a un prezzo di circa 24 dollari al mese. Se si inizia con la velocità effettiva minima e si aumentano le prestazioni nel tempo per supportare i carichi di lavoro di produzione, i costi aumenteranno senza problemi, con incrementi di circa 6 dollari al mese. I prezzi variano a seconda dell'area in uso. per informazioni aggiornate sui prezzi, vedere la pagina relativa ai [prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) . Il modello tariffario<di prezzi di Azure Cosmos DB è elastico e prevede aumenti o riduzioni graduali man mano che si esegue un ridimensionamento verso l'alto o verso il basso.
+Se si distribuisce l'account Azure Cosmos DB in un'area non governativa degli Stati Uniti, è previsto un prezzo minimo per la velocità effettiva del database e del contenitore in modalità di velocità effettiva con provisioning. Non esiste alcun prezzo minimo in modalità senza server. I prezzi variano a seconda dell'area in uso. per informazioni aggiornate sui prezzi, vedere la pagina relativa ai [prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Prova gratuitamente Azure Cosmos DB
 
@@ -53,7 +46,7 @@ Azure Cosmos DB offre molte opzioni gratuite per gli sviluppatori. Tali opzioni 
 
 ## <a name="pricing-with-reserved-capacity"></a>Prezzi con capacità riservata
 
-La [capacità di riserva](cosmos-db-reserved-capacity.md) di Azure Cosmos DB permette di risparmiare grazie al pagamento anticipato delle risorse di Azure Cosmos DB per un anno o tre anni. È possibile ridurre significativamente i costi con impegni inziali di un anno o di tre anni e risparmiare tra il 20 e il 65% rispetto al prezzo normale. La capacità riservata di Azure Cosmos DB aiuta a ridurre i costi pagando anticipatamente per la velocità effettiva con provisioning (UR/s) per un periodo di uno o tre anni e ottenendo uno sconto sulla velocità effettiva con provisioning. 
+Azure Cosmos DB [capacità riservata](cosmos-db-reserved-capacity.md) ti permette di risparmiare denaro quando usi la modalità di velocità effettiva con provisioning prepagando le risorse Azure Cosmos DB per un anno o tre anni. È possibile ridurre significativamente i costi con impegni inziali di un anno o di tre anni e risparmiare tra il 20 e il 65% rispetto al prezzo normale. La capacità riservata di Azure Cosmos DB aiuta a ridurre i costi pagando anticipatamente per la velocità effettiva con provisioning (UR/s) per un periodo di uno o tre anni e ottenendo uno sconto sulla velocità effettiva con provisioning. 
 
 La capacità riservata consente di ottenere uno sconto a livello di fatturazione e non ha alcuna ripercussione sullo stato del runtime delle risorse di Azure Cosmos DB. La capacità riservata è disponibile in modo coerente per tutte le API, incluso MongoDB, Cassandra, SQL, Gremlin e Azure Tables, per tutte le aree geografiche del mondo. Altre informazioni sulla capacità riservata sono disponibili nell'articolo [Prepay for Azure Cosmos DB resources with reserved capacity](cosmos-db-reserved-capacity.md) (Pagamento anticipato per le risorse di Azure Cosmos DB con capacità riservata). È possibile anche acquistare capacità riservata sul [portale di Azure](https://portal.azure.com/).
 

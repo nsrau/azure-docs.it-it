@@ -4,14 +4,14 @@ description: Informazioni su come scegliere tra la velocità effettiva con provi
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116809"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605205"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Come scegliere tra la velocità effettiva con provisioning standard (manuale) e la velocità effettiva con provisioning a scalabilità automatica 
 
@@ -37,7 +37,10 @@ La tabella seguente illustra un confronto generale tra standard (manuale) e a sc
 ## <a name="understand-your-traffic-patterns"></a>Panoramica sui modelli di traffico
 
 ### <a name="new-applications"></a>Nuove applicazioni ###
-Se si sta compilando una nuova applicazione e non si conosce ancora il modello di traffico, è possibile iniziare dal punto di ingresso di UR/s (o numero minimo di UR/s) per evitare l'overprovisioning nella fase iniziale. Se invece si ha un'applicazione di piccole dimensioni che non richiede una particolare scalabilità, è preferibile effettuare il provisioning solo del numero minimo di UR/s (punto di ingresso) per ottimizzare i costi. In entrambi i casi, è adatta sia la velocità effettiva standard (manuale), sia quella a scalabilità automatica. Di seguito sono descritti gli elementi di cui tenere conto.
+
+Se si sta compilando una nuova applicazione e non si conosce ancora il modello di traffico, è possibile iniziare dal punto di ingresso di UR/s (o numero minimo di UR/s) per evitare l'overprovisioning nella fase iniziale. Se invece si ha un'applicazione di piccole dimensioni che non richiede una particolare scalabilità, è preferibile effettuare il provisioning solo del numero minimo di UR/s (punto di ingresso) per ottimizzare i costi. Per le piccole applicazioni con un basso traffico previsto, è anche possibile prendere in considerazione la modalità di capacità senza [Server](throughput-serverless.md) .
+
+Se si prevede di usare lo standard (manuale) o la scalabilità automatica, è necessario prendere in considerazione quanto segue:
 
 Se si seleziona la velocità effettiva con provisioning standard (manuale) al punto di ingresso di 400 UR/s, non sarà possibile usare più di 400 UR/s, a meno che non si modifichi manualmente la velocità effettiva. Verranno quindi addebitate 400 UR/s alla tariffa oraria della velocità effettiva con provisioning standard (manuale).
 

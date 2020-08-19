@@ -1,27 +1,25 @@
 ---
-title: Unità richiesta e velocità effettiva in Azure Cosmos DB
+title: Unità richiesta come valuta di velocità effettiva e prestazioni in Azure Cosmos DB
 description: Informazioni su come specificare e stimare i requisiti relativi alle unità richiesta in Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/24/2020
-ms.openlocfilehash: f1f203d17de9fb0fc9fe8bb0f6de80fe2b93ba8b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/19/2020
+ms.openlocfilehash: 6831cb3f39c25eb69d16300156f456980cf57fa0
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327804"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604834"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
-Con Azure Cosmos DB, viene addebitato un costo per la velocità effettiva sottoposta a provisioning e per le risorse di archiviazione utilizzate su base oraria. È necessario il provisioning della velocità effettiva per assicurarsi che siano costantemente disponibili risorse di sistema sufficienti per il database di Azure Cosmos, È necessario disporre di risorse sufficienti per soddisfare o superare i [contratti di Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
-
 Azure Cosmos DB supporta un'ampia gamma di API, come SQL, MongoDB, Cassandra, Gremlin e Tabella. Ogni API ha il proprio set di operazioni di database, da semplici operazioni di lettura e scrittura puntuali a query complesse. Ogni operazione di database utilizza le risorse di sistema a seconda della complessità.
 
-Il costo di tutte le operazioni del database viene normalizzato da Azure Cosmos DB ed è espresso da *unità richiesta* (o ur, per brevità). L'unità di misura UR al secondo può essere considerata come la valuta della velocità effettiva. UR al secondo è una valuta basata sulla frequenza, che viene determinata in base all'astrazione delle risorse di sistema, come CPU, operazioni di I/O al secondo e memoria, necessarie per eseguire le operazioni di database supportate da Azure Cosmos DB. Per archiviare ogni 1 GB di dati, è necessario un minimo di 10 UR/sec.
+Il costo di tutte le operazioni del database viene normalizzato da Azure Cosmos DB ed è espresso da *unità richiesta* (o ur, per brevità). È possibile considerare le UR come una valuta delle prestazioni astraendo le risorse di sistema, ad esempio CPU, IOPS e memoria, necessarie per eseguire le operazioni del database supportate da Azure Cosmos DB.
 
-Il costo per la lettura di un punto per un elemento di 1 KB è 1 unità richiesta (o 1 UR). In modo analogo, a tutte le altre operazioni di database viene assegnato un costo in termini di UR. I costi vengono sempre misurati in UR, indipendentemente dall'API usata per interagire con il contenitore Azure Cosmos. Il fatto che l'operazione di database sia una scrittura, un punto di lettura o una query, i costi vengono sempre misurati in ur.
+Il costo per la lettura di un punto (ad esempio il recupero di un singolo elemento in base al relativo ID e valore della chiave di partizione) per un elemento di 1 KB è 1 unità richiesta (o 1 UR). In modo analogo, a tutte le altre operazioni di database viene assegnato un costo in termini di UR. I costi vengono sempre misurati in UR, indipendentemente dall'API usata per interagire con il contenitore Azure Cosmos. Il fatto che l'operazione di database sia una scrittura, un punto di lettura o una query, i costi vengono sempre misurati in ur.
 
 Nell'immagine seguente viene illustrata l'idea generale delle UR:
 
@@ -29,16 +27,16 @@ Nell'immagine seguente viene illustrata l'idea generale delle UR:
 
 Per gestire e pianificare la capacità, Azure Cosmos DB garantisce che il numero di UR per una specifica operazione di database su un determinato set di dati sia deterministico. È possibile esaminare l'intestazione della risposta per tenere traccia del numero di UR utilizzate da qualsiasi operazione di database. Quando si conoscono i [fattori che influiscono sugli addebiti](request-units.md#request-unit-considerations) delle unità richiesta e sui requisiti di velocità effettiva dell'applicazione, è possibile eseguire il costo dell'applicazione in modo efficiente.
 
-Il provisioning del numero di UR per l'applicazione viene effettuato in base a incrementi di 100 UR al secondo. Per ridimensionare la velocità effettiva di cui viene effettuato il provisioning per l'applicazione, è possibile aumentare o diminuire il numero di UR in qualsiasi momento, in base a incrementi o decrementi di 100 UR, Le modifiche possono essere apportate a livello di codice o tramite il portale di Azure. I costi vengono addebitati su base oraria.
+Il tipo di account Azure Cosmos usato determina il modo in cui viene addebitato il consumo di ur:
 
-È possibile effettuare il provisioning della velocità effettiva a due diversi livelli di granularità:
-
-* **Contenitori**: per altre informazioni, vedere [provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
-* **Database**: per altre informazioni, vedere [provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md).
+- In modalità di [velocità effettiva con provisioning](set-throughput.md) viene effettuato il provisioning del numero di ur per l'applicazione in base al secondo con incrementi di 100 ur al secondo. Per ridimensionare la velocità effettiva con provisioning per l'applicazione, è possibile aumentare o diminuire il numero di ur in qualsiasi momento con incrementi o decrementi di 100 ur. Le modifiche possono essere apportate a livello di codice o tramite il portale di Azure. Viene addebitato su base oraria per la quantità di ur al secondo di cui è stato effettuato il provisioning. È possibile effettuare il provisioning della velocità effettiva a due diversi livelli di granularità:
+  - **Contenitori**: per altre informazioni, vedere [provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
+  - **Database**: per altre informazioni, vedere [provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md).
+- In modalità senza [Server](serverless.md) non è necessario effettuare il provisioning di una velocità effettiva durante la creazione di risorse nell'account Azure Cosmos. Alla fine del periodo di fatturazione, viene addebitata la quantità di unità richiesta che è stata utilizzata dalle operazioni del database.
 
 ## <a name="request-unit-considerations"></a>Considerazioni sulle unità richiesta
 
-Al momento di stimare il numero di UR al secondo di cui effettuare il provisioning è opportuno tenere in considerazione i fattori seguenti:
+Mentre si stima il numero di ur utilizzate dal carico di lavoro, considerare i fattori seguenti:
 
 * **Dimensioni degli elementi**: con l'aumentare delle dimensioni di un elemento, aumenta anche il numero di UR utilizzate per la lettura o la scrittura dell'elemento.
 
@@ -69,6 +67,7 @@ Al momento di stimare il numero di UR al secondo di cui effettuare il provisioni
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni su come [effettuare il provisioning della velocità effettiva per contenitori e database di Azure Cosmos](set-throughput.md).
+* Scopri di più [su Azure Cosmos DB senza server](serverless.md).
 * [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
 * [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375124"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507579"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -187,7 +187,7 @@ No. La rete WAN virtuale non richiede ExpressRoute da ogni sito. I siti possono 
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>È previsto un limite di velocità effettiva di rete o di connessioni quando si usa la rete WAN virtuale di Azure?
 
-La velocità effettiva della rete viene assegnata per servizio in un hub della rete WAN virtuale. Anche se è possibile avere qualsiasi numero di reti WAN virtuali, per ognuna è consentito 1 hub per area. In ogni hub la velocità effettiva aggregata della VPN è fino a 20 Gbps, la velocità effettiva aggregata di ExpressRoute è fino a 20 Gbps e la velocità effettiva aggregata della VPN utente/VPN da punto a sito è fino a 20 Gbps. Il router nell'hub virtuale supporta fino a 50 Gbps per i flussi di traffico da rete virtuale a rete virtuale e presuppone un totale di carico di lavoro di 2000 VM in tutte le reti virtuali negli hub della rete WAN virtuale.
+La velocità effettiva della rete viene assegnata per servizio in un hub della rete WAN virtuale. Anche se è possibile avere qualsiasi numero di reti WAN virtuali, per ognuna è consentito 1 hub per area. In ogni hub la velocità effettiva aggregata della VPN è fino a 20 Gbps, la velocità effettiva aggregata di ExpressRoute è fino a 20 Gbps e la velocità effettiva aggregata della VPN utente/VPN da punto a sito è fino a 20 Gbps. Il router nell'hub virtuale supporta fino a 50 Gbps per i flussi di traffico da rete virtuale a rete virtuale e presuppone un totale di carico di lavoro di 2000 macchine virtuali in tutte le reti virtuali connesse a un singolo hub virtuale.
 
 I siti VPN si connettono a un hub tramite connessioni. La rete WAN virtuale supporta fino a 1000 connessioni o 2000 tunnel IPsec per ogni hub virtuale. Quando gli utenti remoti si connettono all'hub virtuale, si connettono al gateway VPN da punto a sito, che supporta fino a 10.000 utenti a seconda dell'unità di scala (larghezza di banda) scelta per il gateway VPN da punto a sito nell'hub virtuale.
 
