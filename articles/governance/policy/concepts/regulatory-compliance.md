@@ -1,14 +1,14 @@
 ---
 title: Conformità alle normative nelle definizioni di iniziativa
 description: Viene descritto come utilizzare una definizione di iniziativa per raggruppare i criteri per dominio normativo, ad esempio il controllo degli accessi, la gestione della configurazione e altri.
-ms.date: 05/11/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3bcc876cf8fd608d700e39bda11c94395beace80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 296febc1aad62d06c8e9dfcf4f285b16cacf0a40
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84205902"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544622"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformità alle normative in criteri di Azure
 

@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare il cibo per il provisioning utenti automatico usando Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in un alimento.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40549fa8880fb4dc4d29046b0037621610f0b130
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057825"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544184"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Esercitazione: configurare un alimento per il provisioning utenti automatico
 
@@ -75,7 +71,7 @@ Per configurare gli utenti per il provisioning utenti automatico usando Azure AD
 
 Per aggiungere un alimento dalla raccolta di applicazioni di Azure AD, seguire questa procedura:
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro sinistro.
+1. Nel riquadro sinistro della [portale di Azure](https://portal.azure.com)selezionare **Azure Active Directory**.
 
     ![Comando Azure Active Directory](common/select-azuread.png)
 

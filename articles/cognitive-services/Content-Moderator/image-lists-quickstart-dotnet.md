@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: e650529f3adb998ce683354565acdeb3928b50c3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a020163347babfc68ac9aab0514352a35f5831c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72931761"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542939"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Eseguire la moderazione con elenchi personalizzati di immagini in C#
 
@@ -34,7 +34,7 @@ Questo articolo contiene informazioni ed esempi di codice per iniziare a usare l
 
 L'applicazione console per questa guida simula alcune delle attività che è possibile eseguire con l'API dell'elenco di immagini.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare. 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Eseguire la registrazione per i servizi Content Moderator
 
@@ -72,7 +72,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Creare il client di Content Moderator
 
-Aggiungere il codice seguente per creare un client di Content Moderator per la sottoscrizione. Aggiornare i `AzureEndpoint` campi `CMSubscriptionKey` e con i valori dell'URL dell'endpoint e della chiave di sottoscrizione. È possibile trovarli nella scheda **avvio rapido** della risorsa nel portale di Azure.
+Aggiungere il codice seguente per creare un client di Content Moderator per la sottoscrizione. Aggiornare i `AzureEndpoint` `CMSubscriptionKey` campi e con i valori dell'URL dell'endpoint e della chiave di sottoscrizione. È possibile trovarli nella scheda **avvio rapido** della risorsa nel portale di Azure.
 
 ```csharp
 /// <summary>

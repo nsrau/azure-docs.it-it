@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare il provisioning utenti automatico di Peakon con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Peakon.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 0a67dc8069ee71305a47bd5d2a724a61cec234a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b16ca0c396e2c406677af351cf6b1de2a3499353
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063393"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543670"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Esercitazione: configurare Peakon per il provisioning utenti automatico
 
@@ -133,7 +129,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Attributi utente di Peakon](media/Peakon-provisioning-tutorial/Peakon-user-attributes.png)
 
-12. Per configurare i filtri di ambito, fare riferimento alle istruzioni seguenti fornite nell'esercitazione relativa al [filtro di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni seguenti fornite nell'esercitazione relativa al       [filtro di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
     
     ![Ambito di provisioning](common/provisioning-scope.png)
 

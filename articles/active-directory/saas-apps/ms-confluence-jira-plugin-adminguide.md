@@ -2,25 +2,21 @@
 title: Guida dell'amministratore per Atlassian Jira/Confluence - Azure Active Directory | Microsoft Docs
 description: Guida dell'amministratore all'uso di Atlassian Jira e Confluence con Azure Active Directory (Azure AD).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5884685f12c4697558a008287f446e52e5105d3b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016786"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543983"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guida dell'amministratore per Atlassian Jira e Confluence per Azure Active Directory
 
@@ -28,7 +24,7 @@ ms.locfileid: "87016786"
 
 Il plug-in Single Sign-On (SSO) di Azure Active Directory (Azure AD) consente ai clienti di Microsoft Azure AD di usare l'account aziendale o dell'istituto di istruzione per accedere ai prodotti basati sui server Atlassian Jira e Confluence. Implementa l'accesso Single Sign-On basato su SAML 2.0.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando gli utenti vogliono accedere all'applicazione Atlassian Jira o Confluence, nella pagina di accesso viene visualizzato il pulsante **Accedi con Azure AD**. Dopo aver fatto clic sul pulsante, viene chiesto loro di accedere tramite la pagina di accesso dell'organizzazione ad Azure Active Directory (ovvero usando l'account aziendale o dell'istituto di istruzione).
 

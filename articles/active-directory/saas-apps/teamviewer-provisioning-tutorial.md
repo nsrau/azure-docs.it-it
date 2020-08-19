@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare TeamViewer per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a TeamViewer.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: 73dd5494-f572-42bb-9071-d599361b9bd7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: cd455f3149fea4240d393d69b2e39b9247edc0a3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7cb83b53b6516de58c99859f3a0d4c9122b78322
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920285"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542174"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Esercitazione: configurare TeamViewer per il provisioning utenti automatico
 
@@ -101,7 +97,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `ttps://webapi.teamviewer.com/scim/v2` nel campo **URL tenda** e immettere il token di script creato in precedenza nel **token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi a TeamViewer. Se la connessione non riesce, verificare che l'account TeamViewer disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere `ttps://webapi.teamviewer.com/scim/v2`  nel campo **URL tenda** e immettere il token di script creato in precedenza nel **token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi a TeamViewer. Se la connessione non riesce, verificare che l'account TeamViewer disponga delle autorizzazioni di amministratore e riprovare.
 
     ![provisioning](./media/teamViewer-provisioning-tutorial/provisioning.png)
 

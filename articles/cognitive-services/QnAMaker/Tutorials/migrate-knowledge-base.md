@@ -3,12 +3,12 @@ title: Eseguire la migrazione delle knowledge base - QnA Maker
 description: Il processo di migrazione consiste nell'esportazione del contenuto di una knowledge base e nella relativa importazione in un'altra knowledge base.
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: e2d6c1795b816d3b7ac046ea4055402b9107e20b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4148431ebb4de288ac517c7c006a925e36c5f460
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343089"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542922"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
 
@@ -22,7 +22,7 @@ Per eseguire la migrazione di una Knowledge base è necessario esportare da una 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Prima di iniziare, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Prima di iniziare, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/).
 * Configurare un nuovo [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
 ## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Eseguire la migrazione di una knowledge base da QnA Maker
