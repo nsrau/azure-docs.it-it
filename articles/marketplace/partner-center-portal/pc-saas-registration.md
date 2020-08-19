@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 52427cbaa418e0335797fe0a98c26c3fb84cf670
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304174"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548336"
 ---
 # <a name="register-a-saas-application"></a>Registrare un'applicazione SaaS
 
@@ -68,28 +68,28 @@ Pubblica<br>
 
 ##### <a name="uri-parameter"></a>*Parametro URI*
 
-|  Nome parametro    |  Obbligatorio         |  Descrizione |
+|  Nome parametro    |  Obbligatoria         |  Descrizione |
 |  ---------------   |  ---------------  | ------------ |
 |  `tenantId`        |  True      |  ID tenant dell'applicazione AAD registrata. |
 
 ##### <a name="request-header"></a>*Intestazione della richiesta*
 
-|  Nome intestazione       |  Obbligatorio         |  Descrizione |
+|  Nome intestazione       |  Obbligatoria         |  Descrizione |
 |  ---------------   |  ---------------  | ------------ |
 |  `content-type`    |  True      |  Tipo di contenuto associato alla richiesta. Il valore predefinito è `application/x-www-form-urlencoded`. |
 
 ##### <a name="request-body"></a>*Corpo della richiesta*
 
-|  Nome proprietà     |  Obbligatorio         |  Descrizione |
+|  Nome proprietà     |  Obbligatoria         |  Descrizione |
 |  ---------------   |  ---------------  | ------------ |
-|  `grant-type`      |  True      |  Tipo di concessione. Usare `"client_credentials"`. |
+|  `grant_type`      |  True      |  Tipo di concessione. Usare `"client_credentials"`. |
 |  `client_id`       |  True      |  Identificatore del client/app associato all'app di Azure AD. |
 |  `client_secret`   |  True      |  Segreto associato all'app Azure AD. |
 |  `resource`        |  True      |  Risorsa di destinazione per cui è richiesto il token. Usare `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` perché in questo caso l'API Saas del Marketplace è sempre la risorsa di destinazione. |
 
 ##### <a name="response"></a>*Response*.
 
-|  Nome     |  Type         |  Description |
+|  Nome     |  Type         |  Descrizione |
 |  ------   |  ---------------  | ------------ |
 |  200 - OK   |  TokenResponse    |  La richiesta ha avuto esito positivo. |
 

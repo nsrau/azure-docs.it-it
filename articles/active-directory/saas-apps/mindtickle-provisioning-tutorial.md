@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare MindTickle per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in MindTickle.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 6ae7b6ac9c6feb539e4da3627ebbabd3c5b628fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3cac57e0f205da7a39447ddd48810b8fd120ab58
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77061221"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549062"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Esercitazione: configurare MindTickle per il provisioning utenti automatico
 
@@ -57,7 +53,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 Prima di configurare MindTickle per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in MindTickle.
 
 
-1.  Contattare il team di [supporto di MindTickle](mailto:help@mindtickle.com) per ottenere il token JWT necessario per configurare il provisioning di SCIM.
+1.  Contattare il team di  [supporto di MindTickle](mailto:help@mindtickle.com) per ottenere il token JWT necessario per configurare il provisioning di SCIM.
 
 
 ## <a name="add-mindtickle-from-the-gallery"></a>Aggiungere MindTickle dalla raccolta

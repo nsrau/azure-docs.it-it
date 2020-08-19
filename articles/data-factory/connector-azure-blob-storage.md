@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: 7296ec52f8bede86b73e7494af3a784526b639c3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/18/2020
+ms.openlocfilehash: e9561c0b54d256d5f24dc02c6f46d84821b9708c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849115"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548447"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -237,7 +237,7 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarla passando il mouse sull'angolo superiore destro della portale di Azure. | Sì |
-| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione AAD. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
+| azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione Azure Active Directory. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
@@ -267,7 +267,7 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 }
 ```
 
-### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a>Identità gestite per l'autenticazione delle risorse di Azure
+### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a> Identità gestite per l'autenticazione delle risorse di Azure
 
 Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità gestita per l'autenticazione dell'archiviazione BLOB, che è simile all'uso della propria entità servizio. Consente a questa factory designata di accedere e copiare i dati da o in un archivio BLOB.
 
@@ -426,7 +426,7 @@ Le proprietà seguenti sono supportate per l'archiviazione BLOB di Azure in `sto
 
 ### <a name="blob-storage-as-a-sink-type"></a>Archiviazione BLOB come tipo di sink
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
 
 Le proprietà seguenti sono supportate per l'archiviazione BLOB di Azure in `storeSettings` impostazioni in un sink di copia basato sul formato:
 
@@ -534,15 +534,15 @@ Nel contenitore di origine scegliere una serie di file che corrispondono a un cr
 
 Esempi di caratteri jolly:
 
-* ```*```Rappresenta qualsiasi set di caratteri.
-* ```**```Rappresenta l'annidamento di directory ricorsiva.
-* ```?```Sostituisce un carattere.
-* ```[]```Trova la corrispondenza di uno o più caratteri tra parentesi quadre.
+* ```*``` Rappresenta qualsiasi set di caratteri.
+* ```**``` Rappresenta l'annidamento di directory ricorsiva.
+* ```?``` Sostituisce un carattere.
+* ```[]``` Trova la corrispondenza di uno o più caratteri tra parentesi quadre.
 
-* ```/data/sales/**/*.csv```Ottiene tutti i file con estensione CSV in/data/Sales.
-* ```/data/sales/20??/**/```Ottiene tutti i file nel ventesimo secolo.
-* ```/data/sales/*/*/*.csv```Ottiene i file con estensione CSV a due livelli sotto/data/Sales.
-* ```/data/sales/2004/*/12/[XY]1?.csv```Ottiene tutti i file con estensione CSV nel 2004 dicembre a partire da X o Y preceduto da un numero a due cifre.
+* ```/data/sales/**/*.csv``` Ottiene tutti i file con estensione CSV in/data/Sales.
+* ```/data/sales/20??/**/``` Ottiene tutti i file nel ventesimo secolo.
+* ```/data/sales/*/*/*.csv``` Ottiene i file con estensione CSV a due livelli sotto/data/Sales.
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Ottiene tutti i file con estensione CSV nel 2004 dicembre a partire da X o Y preceduto da un numero a due cifre.
 
 **Percorso radice partizione:** Se nell'origine file sono presenti cartelle partizionate con un ```key=value``` formato (ad esempio, `year=2019` ), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
 

@@ -1,17 +1,17 @@
 ---
 title: Disponibilità elevata-database di Azure per PostgreSQL-server singolo
 description: Questo articolo fornisce informazioni sulla disponibilità elevata in database di Azure per PostgreSQL-server singolo
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 33c66fff681b0458d1cff1ff6176c34f4771b38e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508465"
+ms.locfileid: "88547682"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Disponibilità elevata in database di Azure per PostgreSQL-server singolo
 Il servizio database di Azure per PostgreSQL-server singolo offre un livello di disponibilità elevato garantito con il contratto di servizio con supporto finanziario del [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) di tempo di indisponibilità. Database di Azure per PostgreSQL offre disponibilità elevata durante gli eventi pianificati, ad esempio l'operazione di calcolo con scalabilità dell'utente avviate da, e anche quando si verificano eventi non pianificati, ad esempio hardware, software o errori di rete sottostanti. Il database di Azure per PostgreSQL è in grado di eseguire rapidamente il ripristino dalla maggior parte delle circostanze critiche, garantendo al tempo stesso il tempo di inattività dell'applicazione

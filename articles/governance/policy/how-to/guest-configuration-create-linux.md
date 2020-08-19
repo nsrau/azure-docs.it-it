@@ -1,14 +1,14 @@
 ---
 title: Come creare criteri di Configurazione guest per Linux
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Linux.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236591"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547721"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -25,9 +25,8 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 > [!IMPORTANT]
 > I criteri personalizzati con Configurazione guest sono una funzionalità di anteprima.
 >
-> L'estensione Configurazione guest è necessaria per eseguire controlli in macchine virtuali di Azure.
-> Per distribuire l'estensione su larga scala in tutti i computer Linux, assegnare la definizione dei criteri seguente:
->   - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> L'estensione Configurazione guest è necessaria per eseguire controlli in macchine virtuali di Azure. Per distribuire l'estensione su larga scala in tutti i computer Linux, assegnare la definizione dei criteri seguente:
+> - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
 
@@ -52,14 +51,13 @@ Sistemi operativi in cui è possibile installare il modulo:
 - Windows
 
 > [!NOTE]
-> Il cmdlet ' test-GuestConfigurationPackage ' richiede la versione OpenSSL 1,0, a causa di una dipendenza da OMI.
-> Questo genera un errore in qualsiasi ambiente con OpenSSL 1,1 o versione successiva.
+> Il cmdlet ' test-GuestConfigurationPackage ' richiede la versione OpenSSL 1,0, a causa di una dipendenza da OMI. Questo genera un errore in qualsiasi ambiente con OpenSSL 1,1 o versione successiva.
 
 Il modulo risorse Configurazione guest richiede il software seguente:
 
 - PowerShell 6.2 o versione successiva. Se non è ancora installato, seguire [queste istruzioni](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 o versione successiva. Se non è ancora installato, seguire [queste istruzioni](/powershell/azure/install-az-ps).
-  - Sono necessari solo i moduli AZ "Az.Accounts" e "Az.Resources".
+  - Sono necessari solo AZ modules ' AZ. Accounts ' è AZ. resources '.
 
 ### <a name="install-the-module"></a>Installare il modulo
 
@@ -81,7 +79,8 @@ Per installare il modulo **GuestConfiguration** in PowerShell:
 
 ## <a name="guest-configuration-artifacts-and-policy-for-linux"></a>Criteri e artefatti di Configurazione guest per Linux
 
-Anche negli ambienti Linux, Configurazione guest usa Desired State Configuration come astrazione del linguaggio. L'implementazione è basata sul codice nativo (C++) in modo da non richiedere il caricamento di PowerShell. Tuttavia, richiede un file MOF di configurazione che descrive i dettagli sull'ambiente. DSC funge da wrapper per InSpec per standardizzare la modalità di esecuzione, il modo in cui vengono forniti i parametri e il modo in cui l’output viene restituito al servizio. Quando si lavora con contenuto InSpec personalizzato, è necessaria una conoscenza minima di DSC.
+Anche negli ambienti Linux, Configurazione guest usa Desired State Configuration come astrazione del linguaggio. L'implementazione è basata sul codice nativo (C++) in modo da non richiedere il caricamento di PowerShell. Tuttavia, richiede un file MOF di configurazione che descrive i dettagli sull'ambiente.
+DSC funge da wrapper per InSpec per standardizzare la modalità di esecuzione, il modo in cui vengono forniti i parametri e il modo in cui l’output viene restituito al servizio. Quando si lavora con contenuto InSpec personalizzato, è necessaria una conoscenza minima di DSC.
 
 #### <a name="configuration-requirements"></a>Requisiti di configurazione
 
@@ -141,8 +140,6 @@ AuditFilePathExists -out ./Config
 Salvare questo file con il nome `config.ps1` nella cartella del progetto. Eseguirlo in PowerShell eseguendo `./config.ps1` nel terminale. Verrà creato un nuovo file MOF.
 
 Il comando `Node AuditFilePathExists` non è tecnicamente necessario, ma produce un file denominato `AuditFilePathExists.mof` anziché il file `localhost.mof` predefinito. Il nome del file MOF che segue la configurazione consente di organizzare in modo semplice molti file quando si opera su larga scala.
-
-
 
 A questo punto dovrebbe essere disponibile una struttura di progetto come indicato di seguito:
 
@@ -288,8 +285,7 @@ I file seguenti vengono creati da `New-GuestConfigurationPolicy`:
 
 L'output del cmdlet restituisce un oggetto contenente il nome visualizzato dell'iniziativa e il percorso dei file dei criteri.
 
-Infine, pubblicare le definizioni dei criteri usando il cmdlet `Publish-GuestConfigurationPolicy`.
-Il cmdlet ha solo il parametro **Path** che punta al percorso dei file JSON creati da `New-GuestConfigurationPolicy`.
+Infine, pubblicare le definizioni dei criteri usando il cmdlet `Publish-GuestConfigurationPolicy`. Il cmdlet ha solo il parametro **Path** che punta al percorso dei file JSON creati da `New-GuestConfigurationPolicy`.
 
 Per eseguire il comando Publish, è necessario l'accesso per creare criteri in Azure. I requisiti di autorizzazione specifici sono documentati nella pagina [Panoramica di Criteri di Azure](../overview.md). Il ruolo predefinito migliore è **Collaboratore ai criteri delle risorse**.
 
@@ -312,9 +308,9 @@ Publish-GuestConfigurationPolicy `
 Una volta creati i criteri in Azure, l'ultimo passaggio consiste nell'assegnazione dell'iniziativa. Vedere come assegnare l'iniziativa con il [portale](../assign-policy-portal.md), l'[interfaccia della riga di comando di Azure](../assign-policy-azurecli.md) e [Azure PowerShell](../assign-policy-powershell.md).
 
 > [!IMPORTANT]
-> I criteri di Configurazione guest devono **sempre** essere assegnati usando l'iniziativa che combina i criteri _AuditIfNotExists_ e _DeployIfNotExists_. Se viene assegnato solo il criterio _AuditIfNotExists_, i prerequisiti non vengono distribuiti e il criterio indica sempre che "0" server sono conformi.
+> I criteri di Configurazione guest devono **sempre** essere assegnati usando l'iniziativa che combina i criteri _AuditIfNotExists_ e _DeployIfNotExists_. Se vengono assegnati solo i criteri _AuditIfNotExists_, i prerequisiti non vengono distribuiti e i criteri indicano sempre che "0" server sono conformi.
 
-Per assegnare una definizione dei criteri con l’effetto _DeployIfNotExists_ è necessario un livello di accesso aggiuntivo. Per concedere il privilegio minimo, è possibile creare una definizione di ruolo personalizzata che estende **Collaboratore ai criteri delle risorse**. Nell'esempio riportato di seguito viene creato un ruolo denominato **Resource Policy Contributor DINE** con l'autorizzazione aggiuntiva _Microsoft.Authorization/roleAssignments/write_.
+Per assegnare una definizione dei criteri con l'effetto _DeployIfNotExists_, è necessario un livello di accesso aggiuntivo. Per concedere privilegi minimi, è possibile creare una definizione del ruolo personalizzata che estende il ruolo **Collaboratore ai criteri delle risorse**. Nell'esempio riportato di seguito viene creato un ruolo denominato **Resource Policy Contributor DINE** con l'autorizzazione aggiuntiva _Microsoft.Authorization/roleAssignments/write_.
 
 ```azurepowershell-interactive
 $subscriptionid = '00000000-0000-0000-0000-000000000000'
@@ -459,5 +455,5 @@ Per altre informazioni sui cmdlet in questo strumento, usare il comando Get-Help
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere le informazioni sul controllo delle macchine virtuali con [Configurazione guest](../concepts/guest-configuration.md).
-- Vedere come [creare criteri a livello di codice](programmatically-create.md).
-- Leggere le informazioni su come [ottenere dati sulla conformità](get-compliance-data.md).
+- Vedere come [creare criteri a livello di codice](./programmatically-create.md).
+- Leggere le informazioni su come [ottenere dati sulla conformità](./get-compliance-data.md).

@@ -1,14 +1,14 @@
 ---
 title: Come creare criteri di Configurazione guest per Windows
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Windows.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 4ee0c9d1912338235e53eb287bfc86a14b75cc97
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236540"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547665"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di Configurazione guest per Windows
 
@@ -16,8 +16,7 @@ Prima di creare definizioni dei criteri personalizzate, è consigliabile leggere
  
 Per informazioni sulla creazione di criteri di Configurazione guest per Linux, vedere la pagina [Come creare criteri di Configurazione guest per Linux](./guest-configuration-create-linux.md)
 
-Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer.
-Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto dei criteri **auditIfNotExists** e il computer viene considerato **non conforme**.
+Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto dei criteri **auditIfNotExists** e il computer viene considerato **non conforme**.
 
 È possibile usare la funzione [Configurazione guest di Criteri di Azure](../concepts/guest-configuration.md) solo per controllare le impostazioni all'interno dei computer. La correzione delle impostazioni all'interno dei computer non è ancora disponibile.
 
@@ -56,7 +55,7 @@ Il modulo risorse Configurazione guest richiede il software seguente:
 
 - PowerShell 6.2 o versione successiva. Se non è ancora installato, seguire [queste istruzioni](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 o versione successiva. Se non è ancora installato, seguire [queste istruzioni](/powershell/azure/install-az-ps).
-  - Sono necessari solo i moduli AZ "Az.Accounts" e "Az.Resources".
+  - Sono necessari solo AZ modules ' AZ. Accounts ' è AZ. resources '.
 
 ### <a name="install-the-module"></a>Installare il modulo
 
@@ -90,8 +89,7 @@ Quando la configurazione Guest controlla un computer, la sequenza di eventi è d
 1. Il valore booleano restituito dalla funzione determina se lo stato di Azure Resource Manager per l'assegnazione guest deve essere conforme o non conforme.
 1. Il provider esegue `Get-TargetResource` per restituire lo stato corrente di ogni impostazione, in modo che siano disponibili informazioni dettagliate sia sul motivo per cui un computer non è conforme sia per confermare che lo stato corrente è conforme.
 
-I parametri nei criteri di Azure che passano i valori alle assegnazioni di configurazione Guest devono essere di tipo _stringa_ .
-Non è possibile passare matrici tramite parametri, anche se la risorsa DSC supporta matrici.
+I parametri nei criteri di Azure che passano i valori alle assegnazioni di configurazione Guest devono essere di tipo _stringa_ . Non è possibile passare matrici tramite parametri, anche se la risorsa DSC supporta matrici.
 
 ### <a name="get-targetresource-requirements"></a>Requisiti di Get-TargetResource
 
@@ -121,7 +119,7 @@ return @{
 }
 ```
 
-La proprietà Reasons deve anche essere aggiunta al file MOF dello schema per la risorsa come classe incorporata.
+È necessario aggiungere la proprietà reasons al file MOF dello schema per la risorsa come classe incorporata.
 
 ```mof
 [ClassVersion("1.0.0.0")] 
@@ -166,8 +164,7 @@ Il formato del pacchetto deve essere un file ZIP.
 ### <a name="storing-guest-configuration-artifacts"></a>Archiviazione degli artefatti di Configurazione guest
 
 Il pacchetto ZIP deve essere archiviato in un percorso accessibile dalle macchine virtuali gestite.
-È ad esempio possibile usare repository GitHub, un repository di Azure o Archiviazione di Azure. Se si preferisce non rendere pubblico il pacchetto, è possibile includere un [token di firma di accesso condiviso](../../../storage/common/storage-sas-overview.md) nell'URL.
-È anche possibile implementare un [endpoint servizio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) per i computer in una rete privata, anche se questa configurazione si applica solo all'accesso al pacchetto e non alla comunicazione con il servizio.
+È ad esempio possibile usare repository GitHub, un repository di Azure o Archiviazione di Azure. Se si preferisce non rendere pubblico il pacchetto, è possibile includere un [token di firma di accesso condiviso](../../../storage/common/storage-sas-overview.md) nell'URL. È anche possibile implementare un [endpoint servizio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) per i computer in una rete privata, anche se questa configurazione si applica solo all'accesso al pacchetto e non alla comunicazione con il servizio.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Procedura dettagliata per la creazione di criteri di controllo di Configurazione guest personalizzati per Windows
 
@@ -372,7 +369,7 @@ New-AzRoleDefinition -Role $role
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtro dei criteri di Configurazione guest tramite tag
 
-Le definizioni dei criteri create dai cmdlet nel modulo Configurazione guest possono includere un filtro per i tag. Il parametro **Tag** di `New-GuestConfigurationPolicy` supporta una matrice di tabelle hash in cui sono presenti singole voci di tag. I tag vengono aggiunti alla sezione `If` della definizione dei criteri e non possono essere modificati da un'assegnazione di criteri.
+Le definizioni dei criteri create dai cmdlet nel modulo Configurazione guest possono includere un filtro per i tag. Il parametro **Tag** di `New-GuestConfigurationPolicy` supporta una matrice di tabelle hash in cui sono presenti singole voci di tag. I tag vengono aggiunti alla `If` sezione della definizione dei criteri e non possono essere modificati da un'assegnazione di criteri.
 
 Di seguito è riportato un frammento di codice di esempio di una definizione dei criteri che filtra in base ai tag.
 
@@ -440,7 +437,7 @@ Per l'estensione di Configurazione guest è necessario sviluppare due componenti
   - Conversione dell'output
 - Contenuto con il formato corretto per l'utilizzo nativo da parte dello strumento
 
-Per la risorsa DSC è necessario lo sviluppo personalizzato se non esiste già una soluzione della community.
+Per la risorsa DSC è necessario lo sviluppo personalizzato se una soluzione community non esiste già.
 Le soluzioni della community possono essere individuate cercando in PowerShell Gallery il tag [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
 > [!Note]
@@ -536,7 +533,7 @@ Sarà ora disponibile una struttura di progetto simile alla seguente:
 
 I file di supporto devono essere inclusi in un unico pacchetto. Il pacchetto completato viene usato da Configurazione guest per creare le definizioni di Criteri di Azure.
 
-Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. Per il contenuto di terze parti, usare il parametro **FilesToInclude** per aggiungere il contenuto InSpec al pacchetto. Non è necessario specificare **ChefProfilePath** come per i pacchetti Linux.
+Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. Per il contenuto di terze parti, usare il parametro **FilesToInclude** per aggiungere il contenuto InSpec al pacchetto. Non è necessario specificare il **ChefProfilePath** come per i pacchetti Linux.
 
 - **Name**: nome del pacchetto di Configurazione guest.
 - **Configuration**: percorso completo del documento di configurazione compilato.
@@ -602,5 +599,5 @@ Per altre informazioni sui cmdlet in questo strumento, usare il comando Get-Help
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere le informazioni sul controllo delle macchine virtuali con [Configurazione guest](../concepts/guest-configuration.md).
-- Vedere come [creare criteri a livello di codice](programmatically-create.md).
-- Leggere le informazioni su come [ottenere dati sulla conformità](get-compliance-data.md).
+- Vedere come [creare criteri a livello di codice](./programmatically-create.md).
+- Leggere le informazioni su come [ottenere dati sulla conformità](./get-compliance-data.md).

@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare zScaler private Access (ZPA) per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in zScaler private Access (ZPA).
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: ee9128c3-ff02-4739-8c51-0693d8451742
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 609d2726eaaaeb49210e19f000bcc2faef1de5d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c605efe60e279ca3f5f14055e39bf95dc677542b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064156"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545841"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler private Access (ZPA) per il provisioning utenti automatico
 
@@ -129,7 +125,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni, selezionare **Zscaler Private Access (ZPA)**.
+2. Nell'elenco delle applicazioni, selezionare **Zscaler Private Access (ZPA)** .
 
     ![Collegamento a Zscaler Private Access (ZPA) nell'elenco delle applicazioni](common/all-applications.png)
 

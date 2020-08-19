@@ -1,14 +1,14 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione di definizioni di criteri, al vario SDK e al componente aggiuntivo per Kubernetes.
-ms.date: 05/22/2020
+ms.date: 08/17/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6d23a148521506adf0c0fc16913a32aab5eb7a30
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135563"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545540"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Risolvere gli errori usando criteri di Azure
 
@@ -34,7 +34,7 @@ Criteri di Azure usa [alias](../concepts/definition-structure.md#aliases) per es
 
 Un alias errato o inesistente viene utilizzato in una definizione di criteri.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Prima di tutto, verificare che la proprietà Gestione risorse disponga di un alias. Usare l' [estensione di criteri di Azure per Visual Studio Code](../how-to/extension-for-vscode.md), [Azure Resource Graph](../../resource-graph/samples/starter.md#distinct-alias-values)o SDK per cercare gli alias disponibili. Se l'alias di una proprietà Gestione risorse non esiste, creare un ticket di supporto.
 
@@ -48,7 +48,7 @@ Una risorsa è nello stato "non avviato" o i dettagli di conformità non sono ag
 
 Un nuovo criterio o un'assegnazione di iniziativa richiede circa 30 minuti per essere applicati. Le risorse nuove o aggiornate nell'ambito di un'assegnazione esistente diventano disponibili circa 15 minuti dopo. Un'analisi di conformità standard viene eseguita ogni 24 ore. Per altre informazioni, vedere [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers).
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Attendere prima di tutto la quantità di tempo appropriata per il completamento di una valutazione e la disponibilità dei risultati di conformità in portale di Azure o SDK. Per avviare una nuova analisi di valutazione con Azure PowerShell o l'API REST, vedere [analisi di valutazione su richiesta](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
@@ -62,7 +62,7 @@ Una risorsa non è nello stato di valutazione, _conforme_ o _non conforme_, prev
 
 La risorsa non è nell'ambito corretto per l'assegnazione dei criteri o la definizione dei criteri non funziona come previsto.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 - Per una risorsa non conforme che dovrebbe essere conforme, iniziare [determinando i motivi della mancata conformità](../how-to/determine-non-compliance.md). Il confronto tra la definizione e il valore della proprietà valutato indica il motivo per cui una risorsa non è conforme.
 - Per una risorsa conforme che dovrebbe essere non conforme, leggere la condizione di definizione dei criteri in base alla condizione e valutare le proprietà delle risorse. Verificare che gli operatori logici raggruppino le condizioni corrette insieme e che le condizioni non siano invertite.
@@ -79,7 +79,7 @@ Una risorsa che si prevede venga applicata da criteri di Azure non è e non è p
 
 L'assegnazione dei criteri è stata configurata per [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) di _disabilitato_. Mentre la modalità di imposizione è disabilitata, l'effetto del criterio non viene applicato e non è presente alcuna voce nel log attività.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Aggiornare **enforcementMode** a _Enabled_. Questa modifica consente ad Azure Policy di agire sulle risorse nell'assegnazione dei criteri e di inviare le voci al log attività. Se **enforcementMode** è già abilitato, vedere [valutazione non come previsto](#scenario-evaluation-not-as-expected) per i corsi di azione.
 
@@ -93,7 +93,7 @@ La creazione o l'aggiornamento di una risorsa è stato negato.
 
 Un'assegnazione di criteri all'ambito in cui si trova la risorsa nuova o aggiornata soddisfa i criteri di una definizione di criteri con un effetto di [negazione](../concepts/effects.md#deny) . Le riunioni di risorse non possono essere create o aggiornate per queste definizioni.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Il messaggio di errore di un'assegnazione di criteri Deny include gli ID di definizione dei criteri e di assegnazione dei criteri. Se le informazioni sull'errore nel messaggio vengono perse, sono disponibili anche nel [log attività](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Usare queste informazioni per ottenere altri dettagli per comprendere le restrizioni delle risorse e modificare le proprietà delle risorse nella richiesta in modo che corrispondano ai valori consentiti.
 
@@ -109,7 +109,7 @@ Criteri di Azure supporta varie funzioni e funzioni di modello di Azure Resource
 
 L'uso di funzioni supportate, ad esempio `parameter()` o `resourceGroup()` , comporta il risultato elaborato della funzione in fase di distribuzione anziché lasciare che la funzione per la definizione dei criteri e il motore di criteri di Azure venga elaborata.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Per passare una funzione in modo da far parte di una definizione dei criteri, eseguire l'escape dell'intera stringa con `[` tale che la proprietà ha un aspetto simile a `[[resourceGroup().tags.myTag]` . Il carattere di escape fa in modo che Gestione risorse considerino il valore come stringa durante l'elaborazione del modello. Criteri di Azure posiziona quindi la funzione nella definizione dei criteri, in modo che sia dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
@@ -128,7 +128,7 @@ Il `helm install azure-policy-addon` comando ha esito negativo con uno dei messa
 
 La password generata include una virgola ( `,` ) su cui si divide il grafico Helm.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Eseguire l'escape della virgola ( `,` ) nel valore della password durante l'esecuzione `helm install azure-policy-addon` con una barra rovesciata ( `\` ).
 
@@ -144,7 +144,7 @@ Il `helm install azure-policy-addon` comando ha esito negativo con il messaggio 
 
 Il grafico Helm con il nome `azure-policy-addon` è già stato installato o parzialmente installato.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Seguire le istruzioni per [rimuovere il componente aggiuntivo criteri di Azure per Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on), quindi eseguire di nuovo il `helm install azure-policy-addon` comando.
 

@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare BitaBIZ per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in BitaBIZ.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: d0d38abe-c041-482a-9d3f-ca340678c226
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ad9176614c4a5235e5138444d4197286204a747f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f3e01147e44b495a666d11a3927eabbbe0dec0e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77059221"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547280"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Esercitazione: configurare BitaBIZ per il provisioning utenti automatico
 
@@ -64,7 +60,7 @@ Prima di configurare BitaBIZ per il provisioning utenti automatico con Azure AD,
 
     ![Console di amministrazione di BitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
 
-2.  Passare a **Microsoft Azure ad provisioning**.  Selezionare **abilitato** nel provisioning utenti automatico. Copiare i valori per l' **URL dell'endpoint di provisioning di SCIM** e il token di **porta**. Questi valori verranno immessi nei campi URL tenant e token segreto nella scheda provisioning dell'applicazione BitaBIZ nel portale di Azure.
+2.  Passare a **Microsoft Azure ad provisioning**.  Selezionare **abilitato** nel provisioning utenti automatico. Copiare i valori per l' **URL dell'endpoint di provisioning di SCIM** e il token di  **porta**. Questi valori verranno immessi nei campi URL tenant e token segreto nella scheda provisioning dell'applicazione BitaBIZ nel portale di Azure.
 
     ![BitaBIZ aggiungere SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
 

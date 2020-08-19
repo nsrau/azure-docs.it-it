@@ -1,29 +1,29 @@
 ---
 title: Come creare definizioni dei criteri di configurazione Guest da Criteri di gruppo baseline per Windows
 description: Informazioni su come convertire Criteri di gruppo dalla linea di base di sicurezza di Windows Server 2019 in una definizione dei criteri.
-ms.date: 06/05/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bbb634ed55acf8aa994045fbef6569fae031c841
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080670"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547769"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Come creare definizioni dei criteri di configurazione Guest da Criteri di gruppo baseline per Windows
 
-Prima di creare definizioni dei criteri personalizzati, è consigliabile leggere le informazioni generali concettuali in [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md). Per informazioni sulla creazione di definizioni dei criteri di configurazione Guest personalizzati per Linux, vedere [How to create Guest Configuration Policies for Linux](./guest-configuration-create-linux.md). Per informazioni sulla creazione di definizioni dei criteri di configurazione Guest personalizzati per Windows, vedere [How to create Guest Configuration Policies for Windows](./guest-configuration-create.md). 
+Prima di creare definizioni dei criteri personalizzati, è consigliabile leggere le informazioni generali concettuali in [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md). Per informazioni sulla creazione di definizioni dei criteri di configurazione Guest personalizzati per Linux, vedere [How to create Guest Configuration Policies for Linux](./guest-configuration-create-linux.md). Per informazioni sulla creazione di definizioni dei criteri di configurazione Guest personalizzati per Windows, vedere [How to create Guest Configuration Policies for Windows](./guest-configuration-create.md).
 
-Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione è **non conforme**, viene attivato l'effetto del criterio *auditIfNotExists* . La [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md) controlla solo le impostazioni all'interno dei computer.
+Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione è **non conforme**, viene attivato l'effetto del criterio *auditIfNotExists* .
+La [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md) controlla solo le impostazioni all'interno dei computer.
 
 > [!IMPORTANT]
 > Le definizioni dei criteri personalizzati con la configurazione Guest sono una funzionalità in anteprima.
 >
-> L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.
-> Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti:
->   - [Distribuisci i prerequisiti per abilitare i criteri di Configurazione guest nelle macchine virtuali Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure. Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti:
+> - [Distribuisci i prerequisiti per abilitare i criteri di Configurazione guest nelle macchine virtuali Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
-La community DSC ha pubblicato il [modulo BaselineManagement](https://github.com/microsoft/BaselineManagement) per convertire i modelli esportati criteri di gruppo in formato DSC. Insieme al cmdlet GuestConfiguration, il modulo BaselineManagement crea il pacchetto di configurazione Guest di criteri di Azure per Windows dal contenuto Criteri di gruppo. Per informazioni dettagliate sull'uso del modulo BaselineManagement, vedere l'articolo [Guida introduttiva: convertire criteri di gruppo in DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
+La community DSC ha pubblicato il [modulo BaselineManagement](https://github.com/microsoft/BaselineManagement) per convertire i modelli esportati criteri di gruppo in formato DSC. Insieme al cmdlet GuestConfiguration, il modulo BaselineManagement crea il pacchetto di configurazione Guest di criteri di Azure per Windows dal contenuto Criteri di gruppo. Per informazioni dettagliate sull'uso del modulo BaselineManagement, vedere l'articolo [Guida introduttiva: convertire criteri di gruppo in DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
 Questa guida illustra il processo di creazione di un pacchetto di configurazione Guest di criteri di Azure da un oggetto Criteri di gruppo (GPO). Mentre la procedura dettagliata illustra la conversione della linea di base di sicurezza di Windows Server 2019, lo stesso processo può essere applicato ad altri oggetti Criteri di gruppo.  
 
@@ -62,7 +62,7 @@ Per installare **DSC**, **GuestConfiguration**, la **gestione di base**e i modul
 
 ## <a name="convert-from-group-policy-to-azure-policy-guest-configuration"></a>Conversione da Criteri di gruppo a configurazione Guest di criteri di Azure
 
-Si convertirà quindi la baseline del server scaricato 2019 in un pacchetto di configurazione Guest usando i moduli di configurazione Guest e di gestione della linea di base. 
+Si convertirà quindi la baseline del server scaricato 2019 in un pacchetto di configurazione Guest usando i moduli di configurazione Guest e di gestione della linea di base.
 
 1. Convertire il Criteri di gruppo nella configurazione dello stato desiderato usando il modulo di gestione di base.
 
@@ -203,5 +203,5 @@ Per assegnare una definizione dei criteri con l'effetto _DeployIfNotExists_, è 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere le informazioni sul controllo delle macchine virtuali con [Configurazione guest](../concepts/guest-configuration.md).
-- Vedere come [creare criteri a livello di codice](programmatically-create.md).
-- Leggere le informazioni su come [ottenere dati sulla conformità](get-compliance-data.md).
+- Vedere come [creare criteri a livello di codice](./programmatically-create.md).
+- Leggere le informazioni su come [ottenere dati sulla conformità](./get-compliance-data.md).

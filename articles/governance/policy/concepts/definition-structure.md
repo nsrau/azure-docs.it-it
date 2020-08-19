@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
-ms.date: 06/12/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 87cdca414a04d287f02fec5b3510c4f561cab8c0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: ba6b8160eefb0a59bc8273989c27a3a8501a79b7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116991"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547801"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -77,7 +77,7 @@ Usare **displayName** e **description** per identificare la definizione dei crit
 > [!NOTE]
 > Durante la creazione o l'aggiornamento di una definizione dei criteri, **ID**, **tipo** e **nome** sono definiti dalle proprietà esterne a JSON e non sono necessari nel file JSON. Il recupero della definizione dei criteri tramite SDK restituisce le proprietà **id**, **tipo** e **nome** come parte di JSON, ma ognuna è costituita da informazioni di sola lettura correlate alla definizione dei criteri.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Anche se non è possibile impostare la proprietà **Type** , sono disponibili tre valori restituiti da SDK e visibili nel portale:
 
@@ -119,10 +119,10 @@ La proprietà facoltativa `metadata` archivia le informazioni sulla definizione 
 
 ### <a name="common-metadata-properties"></a>Proprietà dei metadati comuni
 
-- `version`(String): tiene traccia dei dettagli sulla versione del contenuto di una definizione dei criteri.
-- `category`(String): determina in quale categoria portale di Azure viene visualizzata la definizione dei criteri.
-- `preview`(booleano): true o false flag per se la definizione dei criteri è _Preview_.
-- `deprecated`(booleano): true o false flag per se la definizione dei criteri è stata contrassegnata come _deprecata_.
+- `version` (String): tiene traccia dei dettagli sulla versione del contenuto di una definizione dei criteri.
+- `category` (String): determina in quale categoria portale di Azure viene visualizzata la definizione dei criteri.
+- `preview` (booleano): true o false flag per se la definizione dei criteri è _Preview_.
+- `deprecated` (booleano): true o false flag per se la definizione dei criteri è stata contrassegnata come _deprecata_.
 
 > [!NOTE]
 > Il servizio Criteri di Azure usa le proprietà `version`, `preview` e `deprecated` per fornire il livello di modifica a una definizione o un'iniziativa di criteri predefinita e uno stato. Il formato di `version` è: `{Major}.{Minor}.{Patch}`. Gli stati specifici, ad esempio _deprecato_ o _anteprima_, vengono aggiunti alla proprietà `version` o a un'altra proprietà come **booleano**. Per altre informazioni sul modo in cui le versioni di criteri di Azure sono predefinite, vedere controllo delle versioni [predefinito](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
@@ -188,7 +188,7 @@ Questo esempio fa riferimento al parametro **allowedLocations** illustrato nella
 
 Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **strongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Il formato di un _tipo di risorsa_ **strongType** è `<Resource Provider>/<Resource Type>` . Ad esempio: `Microsoft.Network/virtualNetworks/subnets`.
 
-Alcuni _tipi di risorse_ non restituiti da **Get-AzResourceProvider** sono supportati. Essi sono:
+Alcuni _tipi di risorse_ non restituiti da **Get-AzResourceProvider** sono supportati. Questi tipi sono:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -275,7 +275,8 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 - `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
 - `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
 - `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
-- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
+  `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
 Per **less**, **lessOrEquals**, **greater** e **greaterOrEquals**, se il tipo di proprietà non corrisponde al tipo di condizione, viene generato un errore. I confronti tra stringhe vengono eseguiti usando `InvariantCultureIgnoreCase`.
@@ -346,8 +347,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 
 ### <a name="value"></a>valore
 
-Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
-**value** è associato a qualsiasi [condizione](#conditions) supportata.
+Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali. **value** è associato a qualsiasi [condizione](#conditions) supportata.
 
 > [!WARNING]
 > Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri non riesce. Una valutazione non riuscita è un risultato **deny** implicito. Per altre informazioni, vedere come [evitare errori dei modelli](#avoiding-template-failures). Usare [enforcementMode](./assignment-structure.md#enforcement-mode) di **DoNotEnforce** per evitare l'effetto di una valutazione non riuscita su risorse nuove o aggiornate durante il test e la convalida di una nuova definizione dei criteri.
@@ -453,7 +453,7 @@ Le proprietà seguenti vengono usate con **count**:
 - **count.field** (obbligatorio): Contiene il percorso della matrice e deve essere un alias di matrice. Se la matrice non è presente, l'espressione viene valutata come _false_ senza considerare l'espressione della condizione.
 - **count.where** (facoltativo): L'espressione della condizione per valutare individualmente ogni membro della matrice [alias \[\*\]](#understanding-the--alias) di **count.field**. Se questa proprietà non viene specificata, tutti i membri della matrice con il percorso ' Field ' verranno valutati come _true_. All'interno di questa proprietà è possibile usare qualunque [condizione](../concepts/definition-structure.md#conditions).
   [Gli operatori logici](#logical-operators) possono essere usati all'interno di questa proprietà per creare requisiti di valutazione complessi.
-- **\<condition\>**(obbligatorio): il valore viene confrontato con il numero di elementi che soddisfano l'espressione della condizione **Count. Where** . È necessario usare una [condizione](../concepts/definition-structure.md#conditions) numerica.
+- **\<condition\>** (obbligatorio): il valore viene confrontato con il numero di elementi che soddisfano l'espressione della condizione **Count. Where** . È necessario usare una [condizione](../concepts/definition-structure.md#conditions) numerica.
 
 #### <a name="count-examples"></a>Esempi di count
 
@@ -575,7 +575,7 @@ Tutte le [funzioni del modello di Resource Manager](../../../azure-resource-mana
 
 La funzione seguente è disponibile per l'uso in una regola dei criteri, ma è diversa da quella usata in un modello di Azure Resource Manager (modello ARM):
 
-- `utcNow()`-Diversamente da un modello ARM, questa proprietà può essere usata all'esterno di _DefaultValue_.
+- `utcNow()` -Diversamente da un modello ARM, questa proprietà può essere usata all'esterno di _DefaultValue_.
   - Restituisce una stringa impostata sulla data e l'ora corrente nel formato DateTime ISO 8601 universale "aaaa-MM-ggTHH:mm:SS.fffffffZ"
 
 Le funzioni seguenti sono disponibili solo nelle regole dei criteri:

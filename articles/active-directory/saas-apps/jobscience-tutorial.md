@@ -2,25 +2,20 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con Jobscience | Documentazione Microsoft'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Jobscience.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.assetid: 77282dcc-bbe2-4728-953d-adb4ab6a713b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0de47cc12c461e47d8703861a99d11e7ee72d581
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870531"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Esercitazione: Integrazione di Azure Active Directory con Jobscience
 
@@ -66,11 +61,11 @@ Per configurare l'integrazione di Jobscience in Azure AD, è necessario aggiunge
 
 1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 1. Nella casella di ricerca digitare **Jobscience**.
 
@@ -105,7 +100,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-1. Nella finestra di dialogo **Single Sign-on** selezionare **modalità** come **accesso basato su SAML** per abilitare Single Sign-on.
+1. Nella finestra di dialogo **Single Sign-on** selezionare **modalità** come    **accesso basato su SAML** per abilitare Single Sign-on.
  
     ![Configure Single Sign-On](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
@@ -113,7 +108,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
-    Nella casella di testo **URL di accesso** Digitare un URL usando il modello seguente:`http://<company name>.my.salesforce.com`
+    Nella casella di testo **URL di accesso** Digitare un URL usando il modello seguente:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Ottenere questo valore dal [team di supporto clienti di Jobscience](http://www.jobscience.com/support) o dal profilo SSO che verrà creato come descritto più avanti nell'esercitazione. 
@@ -146,7 +141,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nel sito della società Jobscience company fare clic su **Security Controls** e quindi su **Single Sign-On Settings**.
     
-    ![Security Controls](./media/jobscience-tutorial/ic784364.png "Security Controls")
+    ![Controlli di sicurezza](./media/jobscience-tutorial/ic784364.png "Security Controls")
 
 1. Nella sezione **Single Sign-On Settings** eseguire la procedura seguente:
     
@@ -154,7 +149,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     a. Selezionare **SAML Enabled**.
 
-    b. Fare clic su **New**.
+    b. Fare clic su **Nuovo**.
 
 1. Nella pagina **SAML Single Sign-On Setting Edit** eseguire la procedura seguente:
     
@@ -192,7 +187,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Per ottenere l'URL di accesso Single Sign-On inizializzato da provider di servizi, fare clic su **Single Sign-On Settings** nella sezione **Security Controls** del menu.
 
-    ![Security Controls](./media/jobscience-tutorial/ic784368.png "Security Controls")
+    ![Controlli di sicurezza](./media/jobscience-tutorial/ic784368.png "Security Controls")
     
     Fare clic sul profilo SSO creato nel passaggio precedente. Questa pagina mostra l'URL di accesso Single Sign-On della società, ad esempio `https://companyname.my.salesforce.com?so=companyid`.    
 
@@ -201,7 +196,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente di test di Azure AD
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 ![Creare un utente di Azure AD][100]
 

@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura della definizione dell'iniziativa
 description: Viene descritto come vengono usate le definizioni delle iniziative di criteri per raggruppare le definizioni di criteri per la distribuzione nelle risorse di Azure dell'organizzazione.
-ms.date: 05/29/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 80fa90765caa25d6995220134b9a5b4225133219
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84205872"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544639"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Struttura di definizione di Azure Policy Initiative
 
@@ -109,14 +109,14 @@ I clienti possono definire le proprietà e i valori utili per la propria organiz
 
 ### <a name="common-metadata-properties"></a>Proprietà dei metadati comuni
 
-- `version`(String): tiene traccia dei dettagli sulla versione del contenuto di una definizione di iniziativa di criteri.
-- `category`(String): determina in quale categoria portale di Azure viene visualizzata la definizione dei criteri.
+- `version` (String): tiene traccia dei dettagli sulla versione del contenuto di una definizione di iniziativa di criteri.
+- `category` (String): determina in quale categoria portale di Azure viene visualizzata la definizione dei criteri.
 
   > [!NOTE]
   > Per un'iniziativa di [conformità alle normative](./regulatory-compliance.md) , `category` deve essere una **conformità normativa**.
 
-- `preview`(booleano): true o false flag per se la definizione di iniziativa Policy è _Preview_.
-- `deprecated`(booleano): true o false flag per se la definizione di iniziativa Policy è stata contrassegnata come _deprecata_.
+- `preview` (booleano): true o false flag per se la definizione di iniziativa Policy è _Preview_.
+- `deprecated` (booleano): true o false flag per se la definizione di iniziativa Policy è stata contrassegnata come _deprecata_.
 
 > [!NOTE]
 > Il servizio Criteri di Azure usa le proprietà `version`, `preview` e `deprecated` per fornire il livello di modifica a una definizione o un'iniziativa di criteri predefinita e uno stato. Il formato di `version` è: `{Major}.{Minor}.{Patch}`. Gli stati specifici, ad esempio _deprecato_ o _anteprima_, vengono aggiunti alla proprietà `version` o a un'altra proprietà come **booleano**. Per altre informazioni sul modo in cui le versioni di criteri di Azure sono predefinite, vedere controllo delle versioni [predefinito](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
@@ -218,10 +218,10 @@ La `policyDefinitions` parte della definizione Initiative è una _matrice_ in cu
 
 Ogni elemento della _matrice_ che rappresenta una definizione di criteri presenta le proprietà seguenti:
 
-- `policyDefinitionId`(String): ID della definizione di criteri personalizzata o predefinita da includere.
-- `policyDefinitionReferenceId`(String): nome breve per la definizione dei criteri inclusa.
+- `policyDefinitionId` (String): ID della definizione di criteri personalizzata o predefinita da includere.
+- `policyDefinitionReferenceId` (String): nome breve per la definizione dei criteri inclusa.
 - `parameters`: (Facoltativo) coppie nome/valore per il passaggio di un parametro Initiative alla definizione di criteri inclusa come proprietà nella definizione dei criteri. Per altre informazioni, vedere [Parametri](#parameters).
-- `groupNames`(matrice di stringhe): (facoltativo) gruppo di cui è membro la definizione dei criteri. Per ulteriori informazioni, vedere [gruppi di criteri](#policy-definition-groups).
+- `groupNames` (matrice di stringhe): (facoltativo) gruppo di cui è membro la definizione dei criteri. Per ulteriori informazioni, vedere [gruppi di criteri](#policy-definition-groups).
 
 Di seguito è riportato un esempio di `policyDefinitions` che include due definizioni di criteri incluse ognuna delle quali ha superato lo stesso parametro Initiative:
 
@@ -257,11 +257,11 @@ Come parte della funzionalità di [conformità normativa](./regulatory-complianc
 
 Ogni elemento della _matrice_ in `policyDefinitionGroups` deve avere entrambe le proprietà seguenti:
 
-- `name`(stringa) \[ Required \] : nome breve per il **controllo**. Il valore di questa proprietà viene utilizzato da `groupNames` in `policyDefinitions` .
-- `category`(String): **dominio di conformità** del controllo.
-- `displayName`(String): nome descrittivo per il **controllo**. Usato dal portale.
-- `description`(String): Descrizione della funzione del **controllo** .
-- `additionalMetadataId`(String): la posizione dell'oggetto [policyMetadata](#metadata-objects) con ulteriori dettagli sul dominio di **controllo** e **conformità**.
+- `name` (stringa) \[ Required \] : nome breve per il **controllo**. Il valore di questa proprietà viene utilizzato da `groupNames` in `policyDefinitions` .
+- `category` (String): **dominio di conformità** del controllo.
+- `displayName` (String): nome descrittivo per il **controllo**. Usato dal portale.
+- `description` (String): Descrizione della funzione del **controllo** .
+- `additionalMetadataId` (String): la posizione dell'oggetto [policyMetadata](#metadata-objects) con ulteriori dettagli sul dominio di **controllo** e **conformità**.
 
   > [!NOTE]
   > I clienti possono puntare a un oggetto [policyMetadata](#metadata-objects) esistente. Tuttavia, questi oggetti sono di sola _lettura_ e vengono creati solo da Microsoft.
@@ -292,9 +292,9 @@ Queste informazioni sono:
 I metadati per un raggruppamento di criteri hanno le informazioni seguenti nel `properties` nodo:
 
 - `metadataId`: **ID del controllo** a cui si riferisce il raggruppamento.
-- `category`(obbligatorio): il **dominio di conformità** a cui appartiene il **controllo** .
-- `title`(obbligatorio): nome descrittivo dell' **ID del controllo**.
-- `owner`(obbligatorio): identifica chi ha la responsabilità del controllo in Azure: _Customer_, _Microsoft_, _Shared_.
+- `category` (obbligatorio): il **dominio di conformità** a cui appartiene il **controllo** .
+- `title` (obbligatorio): nome descrittivo dell' **ID del controllo**.
+- `owner` (obbligatorio): identifica chi ha la responsabilità del controllo in Azure: _Customer_, _Microsoft_, _Shared_.
 - `description`: Informazioni aggiuntive sul controllo.
 - `requirements`: Informazioni dettagliate sulla responsabilità dell'implementazione del controllo.
 - `additionalContentUrl`: Un collegamento ad altre informazioni sul controllo. Questa proprietà è in genere un collegamento alla sezione della documentazione che copre questo controllo nello standard di conformità.
