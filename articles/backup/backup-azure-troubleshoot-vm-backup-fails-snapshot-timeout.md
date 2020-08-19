@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99982af7f16431ac5b1c2c4a0e419d647d3d2ca0
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 53c0ede07040e782b683e8ff4b0b08e6fe0a9caf
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262858"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585561"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -65,7 +65,7 @@ Backup di Azure usa l'estensione di snapshot VM per eseguire un backup coerente 
 
 - **Verificare che il servizio VSS Writer sia attivo e in esecuzione**: seguire questa procedura per [risolvere i problemi VSS Writer](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Seguire**le procedure consigliate per il backup: esaminare le [procedure consigliate per abilitare il backup delle macchine virtuali di Azure](backup-azure-vms-introduction.md#best-practices).
-- **Esaminare le linee guida per i dischi crittografati**: se si Abilita il backup per le macchine virtuali con dischi crittografati, assicurarsi di avere fornito tutte le autorizzazioni necessarie. Per altre informazioni, vedere [backup e ripristino di macchine virtuali crittografate di Azure](backup-azure-vms-encryption.md#encryption-support).
+- **Esaminare le linee guida per i dischi crittografati**: se si Abilita il backup per le macchine virtuali con dischi crittografati, assicurarsi di avere fornito tutte le autorizzazioni necessarie. Per altre informazioni, vedere [backup e ripristino di macchine virtuali crittografate di Azure](backup-azure-vms-encryption.md).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable: l'agente di macchine virtuali non riesce a comunicare con Backup di Azure
 

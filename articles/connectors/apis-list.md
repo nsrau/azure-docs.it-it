@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 3a628a70d8ce62827f79c1f7e16d2826be8d80f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1dd38f0360a4471124497d8357481283cd98383c
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827249"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566302"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
@@ -50,7 +50,7 @@ I connettori sono disponibili come trigger e azioni predefiniti o come connettor
 
   È anche possibile identificare i connettori usando queste categorie, sebbene alcuni connettori possano incrociare più categorie. Ad esempio, SAP è un connettore aziendale e un connettore locale:
 
-  | Categoria | Descrizione |
+  | Category | Descrizione |
   |----------|-------------|
   | [**Connettori gestiti**](#managed-api-connectors) | Consentono di creare app per la logica che usano i servizi, ad esempio archiviazione BLOB di Azure, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online e molti altri. |
   | [**Connettori locali**](#on-premises-connectors) | Dopo aver installato e configurato il [gateway dati locale][gateway-doc], questi connettori consentono alle app per la logica di accedere a sistemi locali quali SQL Server, SharePoint Server, Oracle DB, condivisioni di file e altri. |
@@ -407,6 +407,10 @@ Per chiamare API che eseguono codice personalizzato o non sono disponibili come 
 ## <a name="block-creating-connections"></a>Blocca la creazione di connessioni
 
 Se l'organizzazione non consente la connessione a risorse specifiche usando i connettori in app per la logica di Azure, è possibile [bloccare la funzionalità per creare le connessioni](../logic-apps/block-connections-connectors.md) per connettori specifici nei flussi di lavoro delle app per la logica usando [criteri di Azure](../governance/policy/overview.md). Per altre informazioni, vedere [bloccare le connessioni create da connettori specifici in app](../logic-apps/block-connections-connectors.md)per la logica di Azure.
+
+## <a name="get-ready-for-deployment"></a>Prepararsi alla distribuzione
+
+Anche se si creano connessioni dall'interno di un'app per la logica, le connessioni sono risorse di Azure separate con le proprie definizioni di risorse. Per esaminare queste definizioni delle risorse di connessione, è possibile [ispezionare il gruppo di risorse per l'app per la logica usando il portale di Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#view-resource-definitions) o scaricare l'app per la [logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è principalmente pronto per la distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

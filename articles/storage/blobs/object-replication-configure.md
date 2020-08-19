@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bfc18332553d1aee713ccb8fc269ba63d2b5af12
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540597"
+ms.locfileid: "88566064"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurare la replica di oggetti per i BLOB in blocchi (anteprima)
 
@@ -45,7 +45,7 @@ Per creare un criterio di replica nel portale di Azure, seguire questa procedura
 
 1. Passare all'account di archiviazione di origine nel portale di Azure.
 1. In **servizio BLOB**selezionare **replica oggetti**.
-1. Selezionare **Configurare la replica**.
+1. Selezionare **Configura regole di replica**.
 1. Selezionare la sottoscrizione di destinazione e l'account di archiviazione.
 1. Nella sezione **Container pairs** (Coppie di contenitori) selezionare un contenitore di origine nell'account di origine e un contenitore di destinazione nell'account di destinazione. È possibile creare fino a 10 coppie di contenitori per ogni criterio di replica.
 

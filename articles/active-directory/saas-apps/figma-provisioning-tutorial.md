@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare il provisioning utenti automatico di Figma con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Figma.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: a50f1c81f5eda78ee6834aba3085f685c197b4dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0f0d61788d7ac9b242dbc176a125b45753d2578
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057958"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555123"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Esercitazione: configurare Figma per il provisioning utenti automatico
 
@@ -71,7 +67,7 @@ Prima di configurare Figma per il provisioning utenti automatico con Azure AD, s
 
     ![Figma creare token](media/Figma-provisioning-tutorial/token.png)
 
-5. Copiare il valore del **token dell'API** . Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione Figma nel portale di Azure. 
+5. Copiare il valore del  **token dell'API** . Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione Figma nel portale di Azure. 
 
     ![Figma creare token](media/Figma-provisioning-tutorial/figma04.png)
 

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: f42509390c3ca850162c804b45f132bfe30bde22
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: HT
+ms.openlocfilehash: d567a4f7d9b9429887d6396cb2b03dfc34c6ac93
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539132"
+ms.locfileid: "88602229"
 ---
 <!-- Create a resource group -->
 
-Nel comando seguente specificare l'ID della sottoscrizione di Azure che si vuole usare per l'account di Servizi multimediali. È possibile visualizzare un elenco di sottoscrizioni a cui è possibile accedere passando a [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Usare il comando seguente per creare un gruppo di risorse. Selezionare l'area geografica che verrà usata per archiviare i record di supporti e metadati per l'account di servizi multimediali. Questa area verrà usata per elaborare e riprodurre in streaming il contenuto multimediale.
 
 ```azurecli
-az account set --subscription mySubscriptionId
+az group create --name amsResourceGroup --location westus2
 ```

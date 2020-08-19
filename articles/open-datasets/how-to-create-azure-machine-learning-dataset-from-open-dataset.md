@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 54408b20ebba60de2e1a696e5bd9b06f55e860ba
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513159"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88584880"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Creare set di impostazioni di Azure Machine Learning da Azure Open DataSet
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,7 +75,7 @@ tabular_dataset = MNIST.get_tabular_dataset()
 file_dataset = MNIST.get_file_dataset()
 ```
 
-In questo esempio, la `opendatasets` classe diabete è disponibile solo come `TabularDataset` , di conseguenza l'uso di `get_tabular_dataset()`
+In questo esempio, la `opendatasets` classe diabete è disponibile solo come `TabularDataset` , di conseguenza l'uso di `get_tabular_dataset()` .
 
 ```python
 
@@ -98,7 +98,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-with-the-studio"></a>Creare set di impostazioni con studio
 
-È anche possibile creare set di risultati da set di set di risultati aperti con [Azure Machine Learning Studio](https://ml.azure.com), un'interfaccia Web consolidata che include strumenti di machine learning per eseguire Data Science scenari per Data Science professionisti di tutti i livelli di competenza.
+È anche possibile creare set di impostazioni di Azure Machine Learning da Azure Open DataSets con [Azure Machine Learning Studio](https://ml.azure.com), un'interfaccia Web consolidata che include gli strumenti di machine learning per eseguire Data Science scenari per Data Science professionisti di tutti i livelli di competenza.
 
 > [!Note]
 > I set di impostazioni creati tramite Azure Machine Learning Studio vengono registrati automaticamente nell'area di lavoro.
@@ -111,7 +111,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
     ![Scegliere il set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati **Public Holidays** è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Selezionare **Crea**.
+1. Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati **Public Holidays** è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Vedere il [Catalogo dei set](https://azure.microsoft.com/services/op[en-datasets/catalog/) di dati aperti di Azure per informazioni dettagliate sui dati, ad esempio le descrizioni dei campi e gli intervalli di date. Selezionare **Create** (Crea).
 
     ![Imposta parametri set di dati e crea set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

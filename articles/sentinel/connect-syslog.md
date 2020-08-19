@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322840"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566149"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Raccogliere dati da origini basate su Linux usando syslog
 
@@ -30,7 +30,7 @@ ms.locfileid: "87322840"
 >
 > - Log Analytics supporta la raccolta di messaggi inviati dai daemon **rsyslog** o **syslog-ng** , dove rsyslog è il valore predefinito. Il daemon predefinito syslog nella versione 5 di Red Hat Enterprise Linux (RHEL), CentOS e Oracle Linux Version (**sysklog**) non è supportato per la raccolta di eventi syslog. Per raccogliere i dati di SysLog da questa versione delle distribuzioni, è necessario installare e configurare il daemon rsyslog in modo da sostituire sysklog.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 **Syslog** è un protocollo di registrazione eventi comune a Linux. Quando l' **agente di log Analytics per Linux** è installato nella macchina virtuale o nel dispositivo, la routine di installazione configura il daemon syslog locale per l'invio di messaggi all'agente sulla porta TCP 25224. L'agente invia quindi il messaggio all'area di lavoro di Log Analytics su HTTPS, dove viene analizzato in una voce del registro eventi nella tabella syslog in **Azure Sentinel > log**.
 
@@ -86,6 +86,8 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 1. È possibile usare i parametri di query descritti in [uso delle funzioni nelle query log di monitoraggio di Azure](../azure-monitor/log-query/functions.md) per analizzare i messaggi syslog. È quindi possibile salvare la query come nuova funzione Log Analytics e utilizzarla come nuovo tipo di dati.
 
 > [!NOTE]
+> **Uso dello stesso computer per l'invio di messaggi syslog *e* CEF normali**
+>
 >
 > È possibile utilizzare il [computer del server d'avanzamento del log CEF](connect-cef-agent.md) esistente per raccogliere e trasmettere log da origini syslog semplici. Tuttavia, è necessario eseguire la procedura seguente per evitare di inviare eventi in entrambi i formati ad Azure Sentinel, in quanto ciò comporta la duplicazione degli eventi.
 >

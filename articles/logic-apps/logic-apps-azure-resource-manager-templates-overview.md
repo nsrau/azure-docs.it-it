@@ -3,15 +3,15 @@ title: Panoramica-automatizzare la distribuzione per le app per la logica di Azu
 description: Informazioni sui modelli di Azure Resource Manager per automatizzare la distribuzione per le app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/25/2019
-ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 391692d708adbd542b2cf358f0ac597dc1db3fa0
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520970"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565554"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
@@ -32,7 +32,7 @@ Per ulteriori informazioni sui modelli di Gestione risorse, vedere gli argomenti
 
 * [Struttura e sintassi del modello di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Procedure consigliate per i modelli di Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md)
-* [I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
+* [Sviluppare i modelli di Azure Resource Manager per la coerenza cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 Per i modelli di app per la logica di esempio, vedere questi esempi:
 
@@ -175,7 +175,7 @@ Di seguito sono riportate alcune procedure consigliate per la definizione dei pa
 
   * [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
-* Per distinguere i nomi dei parametri di modello dai nomi dei parametri di definizione del flusso di lavoro, è possibile usare nomi di parametri di modello descrittivi, ad esempio:`TemplateFabrikamPassword`
+* Per distinguere i nomi dei parametri di modello dai nomi dei parametri di definizione del flusso di lavoro, è possibile usare nomi di parametri di modello descrittivi, ad esempio: `TemplateFabrikamPassword`
 
 Per altre procedure consigliate sui modelli, vedere procedure consigliate [per i parametri del modello](../azure-resource-manager/templates/template-best-practices.md#parameters).
 
@@ -264,6 +264,22 @@ Il modello include un `resources` oggetto, ovvero una matrice che contiene le de
 
 > [!NOTE]
 > I modelli possono includere definizioni di risorse per più app per la logica, quindi assicurarsi che tutte le risorse dell'app per la logica specifichino lo stesso gruppo di risorse di Azure. Quando si distribuisce il modello in un gruppo di risorse di Azure usando Visual Studio, viene richiesto quale app per la logica si vuole aprire. Inoltre, il progetto del gruppo di risorse di Azure può contenere più di un modello, quindi assicurarsi di selezionare il file dei parametri corretto quando richiesto.
+
+<a name="view-resource-definitions"></a>
+
+### <a name="view-resource-definitions"></a>Visualizzare le definizioni delle risorse
+
+Per esaminare le definizioni di risorse per tutte le risorse in un gruppo di risorse di Azure, [scaricare l'app per la logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è prevalentemente pronto per la distribuzione oppure seguire questa procedura nel portale di Azure:
+
+1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
+
+1. Trovare il gruppo di risorse di Azure che contiene l'app per la logica, le connessioni e altre risorse.
+
+1. Nella barra degli strumenti del gruppo di risorse selezionare **Panoramica**, quindi selezionare tutte le risorse nel gruppo di risorse.
+
+1. Nella barra degli strumenti del gruppo di risorse, in **Impostazioni**, selezionare **Esporta modello**.
+
+   Il portale Mostra le definizioni per le risorse selezionate. Per ulteriori informazioni, vedere [esportazione a più risorse e una singola in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md).
 
 Per informazioni generali sulle risorse modello e sui relativi attributi, vedere gli argomenti seguenti:
 

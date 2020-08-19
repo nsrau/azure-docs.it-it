@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c7b4cf688d02ebbcb099f116c0eb7b4ebe7c6074
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212418"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566081"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -159,7 +159,7 @@ Si supponga, ad esempio, che l'app per la logica disponga di un criterio di auto
 
 Prima di abilitare questa autenticazione, considerare quanto segue:
 
-* Una chiamata in ingresso all'app per la logica può usare un solo schema di autorizzazione, Azure AD OAuth o le [firme di accesso condiviso (SAS)](#sas). Per i token OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request.
+* Una chiamata in ingresso all'app per la logica può usare un solo schema di autorizzazione, Azure AD OAuth o le [firme di accesso condiviso (SAS)](#sas). L'uso di uno schema non comporta la disabilitazione dell'altro, ma l'uso di entrambe le volte genera un errore perché il servizio non conosce lo schema da scegliere. Per i token OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request.
 
 * L'app per la logica è limitata a un numero massimo di criteri di autorizzazione. Ogni criterio di autorizzazione ha anche un numero massimo di [attestazioni](../active-directory/develop/developer-glossary.md#claim). Per altre informazioni, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
