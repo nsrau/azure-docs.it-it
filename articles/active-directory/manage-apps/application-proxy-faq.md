@@ -2,25 +2,21 @@
 title: Domande frequenti sul proxy di applicazione Azure AD | Microsoft Docs
 description: Informazioni sulle risposte alle domande frequenti sull'uso del proxy di applicazione Azure AD per pubblicare applicazioni locali locali per gli utenti remoti.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042106"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589164"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -90,6 +86,15 @@ Il proxy di applicazione richiede Windows Server 2012 R2 o versione successiva. 
 
 
 ## <a name="application-configuration"></a>Configurazione dell'applicazione
+
+### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Si riceve un errore relativo a un certificato non valido o a una password errata
+
+Dopo aver caricato il certificato SSL, viene visualizzato il messaggio "certificato non valido, possibile password errata" nel portale.
+
+Ecco alcuni suggerimenti per la risoluzione di questo errore:
+- Verificare la presenza di problemi con il certificato. Installarlo nel computer locale. Se non si verificano problemi, il certificato è valido.
+- Verificare che la password non contenga caratteri speciali. Per il test, la password deve contenere solo i caratteri 0-9, A-Z e a-z.
+- Se il certificato è stato creato con il provider di archiviazione chiavi del software Microsoft, è necessario usare l'algoritmo RSA.
 
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>Qual è la lunghezza del timeout di back-end predefinito e "Long"? Il timeout può essere esteso?
 

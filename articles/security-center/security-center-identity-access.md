@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 57e13f3ed619fa88f29397fe44b783bd3650f636
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 313f10c77da499f4c405134028b975900d2d2a9e
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759167"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590235"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorare identità e accesso
 
@@ -60,7 +60,7 @@ Per abilitare l'autenticazione a più fattori sono necessarie [autorizzazioni te
 
 - Se si ha un'edizione Premium di AD, abilitare l'autenticazione a più fattori usando l'[accesso condizionale](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 
-- Gli utenti dell'edizione gratuita di AD possono abilitare le **impostazioni predefinite per la sicurezza** in Azure Active Directory come descritto nella [documentazione di AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), ma la raccomandazione del Centro sicurezza di abilitare l'autenticazione a più fattori comparirà comunque.
+- Se si usa AD Free Edition, abilitare le **impostazioni predefinite di sicurezza** in Azure Active Directory come descritto nella [documentazione di ad](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

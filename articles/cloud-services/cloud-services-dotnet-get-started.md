@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac843ec2084cd019ec9d3bc90f6c8bbcb5c34279
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255229"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590354"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -37,7 +37,7 @@ Questa esercitazione mostra come eseguire front-end e back-end in un servizio cl
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
 * Creare un progetto di servizio cloud di Visual Studio con un ruolo Web MVC ASP.NET e un ruolo di lavoro.
-* Testare il progetto di servizio cloud localmente, tramite l'emulatore di archiviazione di Azure.
+* Come testare il progetto di servizio cloud in locale usando l'emulatore di archiviazione di Azure.
 * Pubblicare il progetto cloud in un servizio cloud di Azure e testarlo tramite un account di archiviazione di Azure.
 * Caricare file e archiviarli nel servizio BLOB di Azure.
 * Usare il servizio di accodamento di Azure per la comunicazione tra livelli.
@@ -100,7 +100,7 @@ L'applicazione è stata eseguita interamente nel computer locale, senza connessi
 
 Nella sezione seguente la soluzione sarà configurata per usare le risorse cloud di Azure per code, BLOB e per il database dell'applicazione in caso di esecuzione nel cloud. Se si vuole, è possibile continuare l'esecuzione locale usando tuttavia le risorse di archiviazione e database del cloud. È sufficiente impostare le stringhe di connessione, come sarà illustrato in seguito.
 
-## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
+## <a name="deploy-the-application-to-azure"></a>Distribuire l'applicazione in Azure
 Per eseguire l'applicazione nel cloud, eseguire i passaggi seguenti:
 
 * Creare un servizio cloud di Azure.

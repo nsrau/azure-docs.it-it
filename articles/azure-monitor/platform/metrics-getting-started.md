@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 14f21b1c0bff5f4d5f77b1547c09ddd6c370ece0
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276431"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590184"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione a Esplora metriche di Azure
 
@@ -41,16 +41,19 @@ Per creare un grafico delle metriche, da una risorsa, un gruppo di risorse, una 
 
 4. Facoltativamente, è possibile [modificare l'aggregazione delle metriche](metrics-charts.md#changing-aggregation). È ad esempio possibile fare in modo che il grafico mostri i valori minimo, massimo o medio della metrica.
 
-> [!NOTE]
+> [!TIP]
 > Usare il pulsante **Aggiungi metrica** e ripetere questi passaggi per visualizzare più metriche tracciate nello stesso grafico. Per più grafici in una visualizzazione, selezionare il pulsante **Aggiungi grafico** nella parte superiore.
 
 ## <a name="select-a-time-range"></a>Selezionare un intervallo di tempo
+
+> [!WARNING]
+> [La maggior parte delle metriche in Azure viene conservata per 93 giorni](data-platform-metrics.md#retention-of-metrics). Tuttavia, è possibile eseguire una query su un massimo di 30 giorni di dati su un singolo grafico. Questa limitazione non si applica alle [metriche basate su log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 Per impostazione predefinita, il grafico mostra le ultime 24 ore di dati della metrica. Usare il pannello **selezione ora** per modificare l'intervallo di tempo, ingrandire o ridurre il grafico. 
 
 ![Pannello per la modifica dell'intervallo di tempo](./media/metrics-getting-started/time-picker.png)
 
-> [!NOTE]
+> [!TIP]
 > Usare il **pennello ora** per esaminare un'area interessante del grafico (picco o DIP). Posizionare il puntatore del mouse all'inizio dell'area, fare clic e tenendo premuto il pulsante sinistro del mouse, trascinare l'altro lato dell'area, quindi rilasciare il pulsante. Il grafico ingrandirà tale intervallo di tempo. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Applicare i filtri e la divisione delle dimensioni

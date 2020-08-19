@@ -1,24 +1,24 @@
 ---
-title: Eseguire i comandi dell'interfaccia della riga di comando di Azure con Azure AD credenziali per accedere ai dati di BLOB o
+title: Scegliere come autorizzare l'accesso ai dati BLOB o della coda con l'interfaccia della riga di comando di Azure
 titleSuffix: Azure Storage
 description: Specificare come autorizzare le operazioni sui dati del BLOB o della coda con l'interfaccia della riga di comando di Azure. È possibile autorizzare le operazioni sui dati usando Azure AD credenziali, con la chiave di accesso dell'account o con un token di firma di accesso condiviso (SAS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 08/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5ab346af1516c29b1638811217b779e11f120043
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a089ffb7631ded7bd36a4eee5fb862ced3fd2ad0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183395"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589063"
 ---
-# <a name="run-azure-cli-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Eseguire i comandi dell'interfaccia della riga di comando di Azure con Azure AD credenziali per accedere ai dati di BLOB o
+# <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Scegliere come autorizzare l'accesso ai dati BLOB o della coda con l'interfaccia della riga di comando di Azure
 
 Archiviazione di Azure fornisce estensioni per l'interfaccia della riga di comando di Azure che consentono di specificare come si desidera autorizzare le operazioni su BLOB o dati della coda. È possibile autorizzare le operazioni sui dati nei modi seguenti:
 

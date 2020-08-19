@@ -1,14 +1,14 @@
 ---
 title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
-ms.date: 08/11/2020
+ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 63b8ec60ecf2f2e5655e3253db7aef01c003fc63
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163340"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589742"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
@@ -66,9 +66,6 @@ New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName 
 
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role "Monitoring Reader" --scope "/"
 ```
-
-> [!NOTE]
-> È anche possibile assegnare il ruolo predefinito lettore di monitoraggio di Azure nell'ambito radice a singoli utenti o gruppi di utenti. Questa operazione può essere utile se si desidera che un utente sia in grado di [visualizzare le informazioni di delega direttamente nell'portale di Azure](#view-delegation-changes-in-the-azure-portal). In tal caso, tenere presente che si tratta di un ampio livello di accesso, che dovrebbe essere limitato al minor numero possibile di utenti.
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Rimuovere l'accesso con privilegi elevati per l'account amministratore globale
 
@@ -164,15 +161,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Visualizzare le modifiche di delega nel portale di Azure
-
-Gli utenti a cui è stato assegnato il ruolo predefinito lettore di monitoraggio di Azure nell'ambito radice possono visualizzare le modifiche della delega direttamente nel portale di Azure.
-
-1. Passare alla pagina **clienti personali** , quindi selezionare **log attività** dal menu di spostamento a sinistra.
-1. Verificare che l' **attività directory** sia selezionata nel filtro vicino alla parte superiore della schermata.
-
-Verrà visualizzato un elenco di modifiche della delega. È possibile selezionare **modifica colonne** per visualizzare o nascondere lo **stato**, **la categoria di eventi**, l' **ora**, il **timestamp**, la **sottoscrizione**, l' **evento avviato da**, il **gruppo di risorse**, il tipo di **risorsa**e i valori **delle risorse** .
 
 > [!TIP]
 > Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono utilizzare gli stessi processi.

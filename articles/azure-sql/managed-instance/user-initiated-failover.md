@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/12/2020
-ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 08/18/2020
+ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191205"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589504"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in SQL Istanza gestita
 
@@ -126,9 +126,12 @@ Prima di avviare il failover, l'output indicherà la replica primaria corrente n
 
 Non sarà possibile visualizzare lo stesso output con il livello di servizio di GP come quello riportato sopra per BC. Questo perché il livello di servizio di GP si basa su un solo nodo. L'output di query T-SQL per il livello di servizio di GP mostrerà un solo nodo prima e dopo il failover. La perdita di connettività dal client durante il failover, che in genere dura meno di un minuto, sarà l'indicazione dell'esecuzione del failover.
 
+> [!NOTE]
+> Il completamento del processo di failover (non la mancata disponibilità effettiva) potrebbe richiedere diversi minuti alla volta in caso di carichi di lavoro **ad alta intensità** . Questo perché il motore dell'istanza sta occupando tutte le transazioni correnti nel database primario e viene aggiornato sul nodo secondario, prima di poter eseguire il failover.
+
 > [!IMPORTANT]
 > Limitazioni funzionali del failover manuale avviato dall'utente:
-> - Potrebbe essere stato avviato un failover (1) nella stessa Istanza gestita ogni 30 minuti.
+> - Potrebbe essere stato avviato un failover (1) nella stessa Istanza gestita ogni **30 minuti**.
 > - Per le istanze BC è necessario che esista il quorum delle repliche affinché venga accettata la richiesta di failover.
 > - Per le istanze BC non è possibile specificare la replica secondaria leggibile su cui avviare il failover.
 

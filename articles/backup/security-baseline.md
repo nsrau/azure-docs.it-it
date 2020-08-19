@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d0a6b6561b5d0995d7794993608a4991b1da2718
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 72c038bda88ecc9b7518f1f764a41bd4c49f52c6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810140"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589419"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -350,7 +350,7 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 - [Come configurare backup di Azure per usare Azure AD account di accesso](../app-service/configure-authentication-provider-aad.md)
 
-- [Come creare e configurare un'istanza di AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Come creare e configurare un'istanza di Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -902,7 +902,7 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
 - [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Informazioni sulla crittografia in backup di Azure](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
+- [Informazioni sulla crittografia in backup di Azure](./backup-encryption.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

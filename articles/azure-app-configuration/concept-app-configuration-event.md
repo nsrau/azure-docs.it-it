@@ -1,18 +1,18 @@
 ---
 title: Reazione a app Azure eventi chiave-valore di configurazione
-description: Usare griglia di eventi di Azure per sottoscrivere gli eventi di configurazione dell'app.
+description: Usare griglia di eventi di Azure per sottoscrivere gli eventi di configurazione dell'app, che consentono alle applicazioni di reagire alle modifiche apportate ai valori chiave senza la necessità di codice complesso.
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523799"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590031"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reazione agli eventi di configurazione app Azure
 

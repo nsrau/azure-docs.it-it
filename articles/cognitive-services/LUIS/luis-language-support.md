@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 43858015857303d404b1abc0fe410aa462671587
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b60a777960f3c6f8a2415ca551217d35b7f3497d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340199"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588023"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -115,8 +115,8 @@ Le impostazioni cultura seguenti includono versioni Tokenizer personalizzate:
 |--|--|--|
 |Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in `Ich fahre einen kranken wagen` . Consentire il contrassegno di `kranken` e `wagen` in modo indipendente come entità diverse.|
 |Tedesco<br>`de-de`|1.0.2|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come espressione, rimane un singolo token. Pertanto `krankenwagen` è contrassegnato come una singola entità. |
-|Olandese<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ik ga naar de kleuterschool` come espressione, viene convertito in `Ik ga naar de kleuter school` . Consentire il contrassegno di `kleuter` e `school` in modo indipendente come entità diverse.|
-|Olandese<br>`de-de`|1.0.1|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ik ga naar de kleuterschool` come espressione, rimane un singolo token. Pertanto `kleuterschool` è contrassegnato come una singola entità. |
+|Olandese<br>`nl-nl`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ik ga naar de kleuterschool` come espressione, viene convertito in `Ik ga naar de kleuter school` . Consentire il contrassegno di `kleuter` e `school` in modo indipendente come entità diverse.|
+|Olandese<br>`nl-nl`|1.0.1|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ik ga naar de kleuterschool` come espressione, rimane un singolo token. Pertanto `kleuterschool` è contrassegnato come una singola entità. |
 
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrazione tra versioni di Tokenizer

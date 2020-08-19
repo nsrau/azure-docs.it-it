@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242764"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589301"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -19,7 +19,7 @@ Le impostazioni dell'app in un'app per le funzioni contengono le opzioni di conf
 Sono disponibili altre opzioni di configurazione globali nel file [host.json](functions-host-json.md) e nel file [local.settings.json](functions-run-local.md#local-settings-file).
 
 > [!NOTE]  
-> È possibile utilizzare le impostazioni dell'applicazione per eseguire l'override host.jssull'impostazione di valori senza dover modificare il host.jsnel file stesso. Questa operazione è utile per gli scenari in cui è necessario configurare o modificare host.jsspecifiche sulle impostazioni per un ambiente specifico. Questo consente anche di modificare host.jssulle impostazioni senza dover ripubblicare il progetto. Per altre informazioni, vedere l' [articolohost.jssu riferimento](functions-host-json.md#override-hostjson-values).  
+> È possibile utilizzare le impostazioni dell'applicazione per eseguire l'override host.jssull'impostazione di valori senza dover modificare il host.jsnel file stesso. Questa operazione è utile per gli scenari in cui è necessario configurare o modificare host.jsspecifiche sulle impostazioni per un ambiente specifico. Questo consente anche di modificare host.jssulle impostazioni senza dover ripubblicare il progetto. Per altre informazioni, vedere l' [ articolohost.jssu riferimento](functions-host-json.md#override-hostjson-values).  
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -41,7 +41,7 @@ Stringa di connessione per Application Insights. Usare `APPLICATIONINSIGHTS_CONN
 
 Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano un collegamento per inviare chiamate API da proxy direttamente alle funzioni nella stessa app per le funzioni. Questo tasto di scelta rapida viene utilizzato anziché creare una nuova richiesta HTTP. Questa impostazione consente di disabilitare il comportamento del collegamento.
 
-|Chiave|Valore|Descrizione|
+|Chiave|valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno inviate direttamente alla funzione. Al contrario, le richieste vengono indirizzate di nuovo al front-end HTTP per l'app per le funzioni.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Si tratta del valore predefinito. |
@@ -50,7 +50,7 @@ Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano 
 
 Questa impostazione determina se i caratteri `%2F` vengono decodificati come barre nei parametri di route quando vengono inseriti nell'URL back-end. 
 
-|Chiave|Valore|Descrizione|
+|Chiave|valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|I parametri di route con barre codificate vengono decodificati. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Tutti i parametri di route vengono passati insieme a Unchanged, che è il comportamento predefinito. |
@@ -234,8 +234,8 @@ Per l'utilizzo & solo piani Premium. Il percorso del file per il codice e la con
 
 Il numero massimo di istanze che l'app per le funzioni è in grado di scalare orizzontalmente. Il valore predefinito è no limit.
 
-> [!NOTE]
-> Questa impostazione è una funzionalità di anteprima ed è affidabile solo se è impostata su un valore <= 5
+> [!IMPORTANT]
+> Questa impostazione è in anteprima.  È stata aggiunta una [Proprietà app per la funzione Max scale out](./functions-scale.md#limit-scale-out) ed è il metodo consigliato per limitare la scalabilità orizzontale.
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -264,7 +264,7 @@ I valori validi sono un URL che si risolve nel percorso di un file di pacchetto 
 
 Consente di impostare il fuso orario per l'app per le funzioni. 
 
-|Chiave|Sistema operativo|Valore di esempio|
+|Chiave|OS|Valore di esempio|
 |---|--|------------|
 |\_fuso orario sito Web \_|Windows|Ora solare fuso orientale|
 |\_fuso orario sito Web \_|Linux|America/New_York|

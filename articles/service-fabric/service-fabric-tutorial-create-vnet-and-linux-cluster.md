@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un cluster Linux di Service Fabric
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 14e029622f17e8aae392cc55ba4418b3971a5ad2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260227"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586921"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -21,7 +21,7 @@ Prima di iniziare:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installare l' [interfaccia](service-fabric-cli.md) della riga di comando di Service Fabric
-* Installare l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure
+* Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 * Per informazioni sui concetti chiave dei cluster, vedere [Panoramica dei cluster di Azure](service-fabric-azure-clusters-overview.md)
 * [Pianificare e preparare](service-fabric-cluster-azure-deployment-preparation.md) la distribuzione di un cluster di produzione.
 
@@ -41,7 +41,12 @@ Per Ubuntu 18,04 LTS:
 * [AzureDeploy.js][template2]
 * [AzureDeploy.Parameters.js][parameters2]
 
-La differenza tra i due modelli è l'attributo **vmImageSku** impostato su "18,04-LTS" e il **typeHandlerVersion** di ogni nodo viene impostato su 1,1.
+Per Ubuntu 18,04 LTS la differenza tra i due modelli è 
+* attributo **vmImageSku** impostato su "18,04-LTS"
+* il **typeHandlerVersion** di ogni nodo viene impostato su 1,1
+* Risorse di Microsoft. ServiceFabric/Clusters
+   - **apiVersion** impostato su "2019-03-01" o versione successiva
+   - proprietà **vmImage** impostata su "Ubuntu18_04"
 
 Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Il [AzureDeploy.jssu][template] distribuisce un numero di risorse, incluse le seguenti.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 06/25/2020
-ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.date: 08/14/2020
+ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055216"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590065"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Che cos'è Istanza gestita SQL di Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -73,8 +73,8 @@ Il [modello di acquisto basato su vCore](../database/service-tiers-vcore.md) per
 
 Nel modello vCore è possibile scegliere tra generazioni di hardware.
 
-- Le CPU logiche **Gen4** sono basate su processori Intel E5-2673 V3 (Haswell) a 2,4 GHz, SSD collegati, core fisici, 7 GB di RAM per core e dimensioni di calcolo comprese tra 8 e 24 vcore.
-- Le CPU logiche **quinta generazione** sono basate su processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake), unità SSD Fast NVMe, core logico con Hyper-Threading e dimensioni di calcolo tra 4 e 80 core.
+- Le CPU logiche **Gen4** sono basate su processori Intel® E5-2673 V3 (Haswell) a 2,4 GHz, SSD collegati, core fisici, 7 GB di RAM per core e dimensioni di calcolo comprese tra 8 e 24 vcore.
+- Le CPU logiche **quinta generazione** sono basate su processori Intel® E5-2673 V4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) e Intel® 8272CL (Cascade Lake) 2,5 GHz, unità SSD Fast NVMe, core logico con Hyper-Threading e dimensioni di calcolo comprese tra 4 e 80 core.
 
 Trovare altre informazioni sulla differenza tra le generazioni hardware nei [limiti delle risorse di SQL istanza gestita](resource-limits.md#hardware-generation-characteristics).
 
@@ -161,7 +161,7 @@ Viene introdotta una nuova sintassi per creare Azure AD entità server (account 
 
 SQL Istanza gestita consente di gestire centralmente le identità degli utenti del database e di altri servizi Microsoft con l' [integrazione Azure Active Directory](../database/authentication-aad-overview.md). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory supporta [l'autenticazione](../database/authentication-mfa-ssms-configure.md) a più fattori per aumentare la sicurezza dei dati e delle applicazioni, supportando al tempo stesso un processo Single Sign-on.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 Per autenticazione di SQL Istanza gestita si intende il modo in cui gli utenti dimostrano la propria identità durante la connessione al database SQL Istanza gestita supporta due tipi di autenticazione:  
 
@@ -227,7 +227,7 @@ Per ulteriori informazioni, vedere [l'elenco delle funzionalità di sql istanza 
 
 La tabella seguente illustra diverse proprietà, accessibili tramite Transact-SQL, che è possibile usare per rilevare che l'applicazione funziona con SQL Istanza gestita e recuperare le proprietà importanti.
 
-|Proprietà|Valore|Comment|
+|Proprietà|valore|Commento|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL. Questa operazione **non** indica il motore SQL versione 12 (SQL Server 2014). SQL Istanza gestita esegue sempre la versione più recente del motore SQL stabile, che è uguale o superiore alla versione RTM più recente disponibile di SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

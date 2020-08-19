@@ -1,14 +1,14 @@
 ---
 title: Pubblicare un'offerta di servizio gestito in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che carica i clienti nel Faro di Azure.
-ms.date: 07/28/2020
+ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: ab12238bac7e479766b3e328c02f73521d08ad96
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 11fb0073bcc3ba4437f78de8b263d165f0069db8
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167220"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589725"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizio gestito in Azure Marketplace
 
@@ -22,8 +22,19 @@ In base ai [requisiti di certificazione dell'offerta del servizio gestito](/lega
 
 L'ID MPN (Microsoft Partner Network) verrà [associato automaticamente](../../cost-management-billing/manage/link-partner-id.md) alle offerte pubblicate per tenere traccia dell'impatto sugli engagement dei clienti.
 
-> [!NOTE]
-> Se non si vuole pubblicare un'offerta in Azure Marketplace, è possibile eseguire l'onboarding dei clienti manualmente usando i modelli di Azure Resource Manager. Per altre informazioni, vedere [onboarding an Customer to Azure Lighthouse](onboard-customer.md).
+Se non si vuole pubblicare un'offerta in Azure Marketplace o non soddisfare tutti i requisiti, è possibile caricare i clienti manualmente usando modelli di Azure Resource Manager. Per altre informazioni, vedere [onboarding an Customer to Azure Lighthouse](onboard-customer.md).
+
+La tabella seguente consente di determinare se eseguire l'onboarding dei clienti pubblicando un'offerta del servizio gestito o utilizzando Azure Resource Manager modelli.
+
+|**Considerazioni**  |**Offerta di servizio gestito**  |**Modelli di Gestione risorse di Azure**  |
+|---------|---------|---------|
+|Richiede l' [account del centro](../../marketplace/partner-center-portal/create-account.md) per i partner   |Sì         |No        |
+|Richiede il [livello di competenza Silver o Gold per la piattaforma cloud](/partner-center/learn-about-competencies) o [Azure Expert msp](https://partner.microsoft.com/membership/azure-expert-msp)      |Sì         |No         |
+|Disponibile per i nuovi clienti tramite Azure Marketplace     |Sì     |No       |
+|È possibile limitare l'offerta a clienti specifici     |Sì (solo con offerte private, che non possono essere usate con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP))         |Sì         |
+|Richiede l'accettazione del cliente in portale di Azure     |Sì     |No   |
+|Può usare l'automazione per caricare più sottoscrizioni, gruppi di risorse o clienti |No     |Sì    |
+|Accesso immediato ai nuovi ruoli predefiniti e alle funzionalità di Azure Lighthouse     |Non sempre (disponibile a livello generale dopo un certo ritardo)         |Sì         |
 
 ## <a name="create-your-offer"></a>Creare l'offerta
 

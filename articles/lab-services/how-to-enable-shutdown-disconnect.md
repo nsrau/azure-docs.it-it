@@ -1,34 +1,44 @@
 ---
-title: Abilitare l'arresto delle macchine virtuali al termine della connessione Azure Lab Services | Microsoft Docs
+title: Configurare l'arresto automatico delle macchine virtuali per un Lab in Azure Lab Services
 description: Informazioni su come abilitare o disabilitare l'arresto automatico delle macchine virtuali al termine di una connessione desktop remota.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 0c5c22d5e4a9d66413e37cce095f5497915bd122
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/17/2020
+ms.openlocfilehash: 7941a3eed502f2329f5d2acf244eec7cef322615
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445713"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589767"
 ---
-# <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Abilitare l'arresto automatico delle macchine virtuali al termine della connessione
-Questo articolo spiega come abilitare o disabilitare l'arresto automatico delle macchine virtuali lab **Windows 10** (modello o studente) al termine di una connessione desktop remota. È inoltre possibile specificare per quanto tempo le macchine virtuali devono attendere che l'utente si riconnetta prima di arrestarsi automaticamente.
+# <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configurare l'arresto automatico delle macchine virtuali per un Lab
+
+Questo articolo illustra come configurare l'arresto automatico delle macchine virtuali per un Lab.
+
+È possibile abilitare diverse funzionalità di controllo dei costi di arresto automatico per prevenire in modo proattivo i costi aggiuntivi quando le macchine virtuali non vengono usate attivamente. La combinazione delle tre funzionalità di arresto e disconnessione automatiche rileva la maggior parte dei casi in cui gli utenti lasciano accidentalmente le macchine virtuali in esecuzione:
+ 
+* Disconnettere automaticamente gli utenti dalle macchine virtuali ritenute inattive dal sistema operativo (solo Windows).
+* Arresta automaticamente le macchine virtuali quando gli utenti si disconnettono (Windows & Linux).
+* Arrestare automaticamente le macchine virtuali avviate, ma gli utenti non si connettono.
+
+Per ulteriori informazioni sulle funzionalità di arresto automatico, vedere la sezione [ottimizzare il controllo dei costi con le impostazioni di arresto automatico](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) .
 
 Un amministratore dell'account lab può configurare questa impostazione per l'account in cui vengono creati i lab. Per altre informazioni, vedere [Configurare l'arresto automatico delle macchine virtuali tramite l'impostazione di disconnessione per un account lab](how-to-configure-lab-accounts.md). Il proprietario del lab può eseguire l'override dell'impostazione quando crea un lab o dopo la creazione. 
 
-## <a name="configure-when-creating-a-lab"></a>Configurare quando si crea un lab
-Nella pagina con il passaggio 3 della procedura guidata per la creazione di un lab, è possibile abilitare o disabilitare questa funzionalità e specificare anche per quanto tempo la macchina virtuale deve attendere la riconnessione dell'utente prima di arrestarsi automaticamente. 
+## <a name="configure-for-the-lab-level"></a>Configurare per il livello Lab
 
-![Configurare al momento della creazione del lab](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+È possibile configurare l'impostazione di arresto automatico nell' [Azure Lab Services](https://labs.azure.com/).
 
-## <a name="configure-after-the-lab-is-created"></a>Configurare dopo la creazione del lab
-È possibile configurare questa impostazione nella pagina **Impostazioni**, come illustrato nell'immagine seguente: 
+* Quando si crea un Lab (nei **criteri del Lab**) o
+* Dopo la creazione del Lab (in **Impostazioni**)
 
-![Configurare dopo la creazione del lab](./media/how-to-enable-shutdown-disconnect/configure-lab-automatic-shutdown.png)
+> [!div class="mx-imgBorder"]
+> ![Configurare al momento della creazione del lab](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+
+Assicurarsi di esaminare i dettagli relativi all'arresto automatico nella sezione [ottimizzare il controllo dei costi con le impostazioni di arresto automatico](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) .
 
 > [!WARNING]
 > Se si arresta il sistema operativo Windows in una macchina virtuale prima di disconnettere una sessione RDP con la macchina virtuale, la funzionalità di arresto automatico non funzionerà correttamente.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti:
 
-- [Dashboard per lab per le classi](use-dashboard.md)
+[Dashboard per lab per le classi](use-dashboard.md)

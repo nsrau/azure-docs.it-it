@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f48b30e0e4e76a4cf4c855008776f6b7541ad5a2
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a344b9c1383976cfe1b7507c120e19221f3555f
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850653"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589351"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Scenario: firewall di Azure-personalizzato
 
@@ -26,7 +26,7 @@ Per determinare il numero di tabelle di route necessarie, è possibile creare un
 
 **Matrice di connettività**
 
-| Da           | Con:      | *Reti virtuali*      | *Rami*    | *Internet*   |
+| From           | Con:      | *Reti virtuali*      | *Rami*    | *Internet*   |
 |---             |---       |---           |---            |---           |
 | **Reti virtuali**      |   &#8594;|     X        |     AzFW      |     AzFW     |
 | **Rami**   |   &#8594;|    AzFW      |       X       |       X      |
@@ -40,6 +40,8 @@ Nella tabella precedente, una "X" rappresenta la connettività diretta tra due c
   * Tabella di route associata: **predefinita**
   * Propagazione alle tabelle di route: **predefinita**
 
+> [!NOTE]
+> È possibile creare un'istanza WAN virtuale separata con un singolo hub virtuale sicuro in ogni area, quindi è possibile connettere ogni WAN virtuale tra loro tramite VPN da sito a sito.
 
 Per informazioni sul routing degli hub virtuali, vedere [About Virtual Hub routing](about-virtual-hub-routing.md).
 

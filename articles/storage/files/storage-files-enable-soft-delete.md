@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528384"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590116"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Abilitare l'eliminazione temporanea in condivisioni file di Azure
 
@@ -22,6 +22,8 @@ Archiviazione di Azure offre l'eliminazione temporanea per le condivisioni file 
 Le sezioni seguenti illustrano come abilitare e usare l'eliminazione temporanea per le condivisioni file di Azure in un account di archiviazione esistente:
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
+
+## <a name="getting-started"></a>Introduzione
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Passare all'account di archiviazione e selezionare **Eliminazione temporanea** in **Servizio file**.
@@ -33,7 +35,13 @@ Le sezioni seguenti illustrano come abilitare e usare l'eliminazione temporanea 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-I cmdlet per l'eliminazione temporanea sono disponibili nella versione 2.1.1-Preview del modulo AZ. storage. Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client file. Nell'esempio seguente viene abilitata l'eliminazione temporanea per tutte le condivisioni file in un account di archiviazione:
+## <a name="prerequisite"></a>Prerequisito
+
+I cmdlet di eliminazione temporanea sono attualmente disponibili solo nelle versioni [2.1.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) e [2.3.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) del modulo AZ. storage. 
+
+## <a name="getting-started"></a>Introduzione
+
+Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client file. Nell'esempio seguente viene abilitata l'eliminazione temporanea per tutte le condivisioni file in un account di archiviazione:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"

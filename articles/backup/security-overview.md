@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità di sicurezza
 description: Informazioni sulle funzionalità di sicurezza di Backup di Azure che consentono di proteggere i dati di backup e soddisfare le esigenze di sicurezza dell'azienda.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319304"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589385"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Panoramica delle funzionalità di sicurezza in Backup di Azure
 
@@ -48,9 +48,9 @@ La crittografia protegge i dati e consente di soddisfare gli obblighi di sicurez
 
 * In Azure, i dati in transito tra archiviazione di Azure e l'insieme di credenziali sono [protetti da https](backup-support-matrix.md#network-traffic-to-azure). Questi dati rimangono all'interno della rete backbone di Azure.
 
-* I dati di backup vengono crittografati automaticamente usando [chiavi gestite da Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys)e non è necessario intraprendere alcuna azione esplicita per abilitarla. È anche possibile crittografare i dati di cui è stato eseguito il backup usando [chiavi gestite dal cliente](encryption-at-rest-with-cmk.md) archiviate nel Azure Key Vault. si applica a tutti i carichi di lavoro di cui viene eseguito il backup nell'insieme di credenziali di Servizi di ripristino.
+* I dati di backup vengono crittografati automaticamente usando [chiavi gestite dalla piattaforma](backup-encryption.md)e non è necessario eseguire alcuna azione esplicita per abilitarla. È anche possibile crittografare i dati di cui è stato eseguito il backup usando [chiavi gestite dal cliente](encryption-at-rest-with-cmk.md) archiviate nel Azure Key Vault. si applica a tutti i carichi di lavoro di cui viene eseguito il backup nell'insieme di credenziali di Servizi di ripristino.
 
-* Backup di Azure supporta il backup e il ripristino di macchine virtuali di Azure con i dischi del sistema operativo/dati crittografati con [crittografia dischi di Azure (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) e le [VM con dischi crittografati CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Per altre informazioni, vedere [altre informazioni sulle macchine virtuali di Azure crittografate e backup di Azure](./backup-azure-vms-encryption.md).
+* Backup di Azure supporta il backup e il ripristino di macchine virtuali di Azure con i dischi del sistema operativo/dati crittografati con [crittografia dischi di Azure (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) e le [VM con dischi crittografati CMK](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). Per altre informazioni, vedere [altre informazioni sulle macchine virtuali di Azure crittografate e backup di Azure](./backup-azure-vms-encryption.md).
 
 * Quando si esegue il backup dei dati dai server locali con l'agente MARS, i dati vengono crittografati con una passphrase prima del caricamento in backup di Azure e decrittografati solo dopo essere stati scaricati da backup di Azure. Scopri di più sulle [funzionalità di sicurezza per proteggere i backup ibridi](#security-features-to-help-protect-hybrid-backups).
 

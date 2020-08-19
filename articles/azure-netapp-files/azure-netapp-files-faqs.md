@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: eeb22672829dca9ba342079183dcc5ed7c35393c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134497"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590371"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -54,7 +54,9 @@ No. L'assegnazione IP ai volumi Azure NetApp Files è dinamica. L'assegnazione d
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>È possibile crittografare il traffico di rete tra la macchina virtuale di Azure e l'archiviazione?
 
-Il traffico dati (traffico dal client NFSv3, NFSv 4.1 o SMBv3 a volumi Azure NetApp Files) non è crittografato. Tuttavia, il traffico da una macchina virtuale di Azure (che esegue un client NFS o SMB) a Azure NetApp Files è sicuro come qualsiasi altro traffico da macchina virtuale a macchina virtuale di Azure. Questo traffico è locale per la rete del Data Center di Azure. 
+Il traffico dati tra i client NFSv 4.1 e i volumi Azure NetApp Files può essere crittografato con Kerberos con la crittografia AES-256. Per informazioni dettagliate, vedere [configurare la crittografia Kerberos NFSv 4.1 per Azure NetApp files](configure-kerberos-encryption.md) .   
+
+Il traffico dati tra i client NFSv3 o SMBv3 e i volumi Azure NetApp Files non è crittografato. Tuttavia, il traffico da una macchina virtuale di Azure (che esegue un client NFS o SMB) a Azure NetApp Files è sicuro come qualsiasi altro traffico da macchina virtuale a macchina virtuale di Azure. Questo traffico è locale per la rete del Data Center di Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Lo spazio di archiviazione può essere crittografato a riposo?
 
@@ -125,7 +127,7 @@ Azure NetApp Files supporta NFSv3 e NFSv 4.1. È possibile [creare un volume uti
 
 ### <a name="how-do-i-enable-root-squashing"></a>Ricerca per categorie abilitare la squash radice?
 
-La squash radice non è attualmente supportata.
+È possibile specificare se l'account radice può accedere al volume o meno usando i criteri di esportazione del volume. Per informazioni dettagliate, vedere [configurare i criteri di esportazione per un volume NFS](azure-netapp-files-configure-export-policy.md) .
 
 ## <a name="smb-faqs"></a>Domande frequenti su SMB
 

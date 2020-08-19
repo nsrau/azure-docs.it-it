@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c144442ecd93ca87683179adef496a5d68cce98e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c48c48ef438f99f3b144c3300cb2415e4d387e7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525898"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586682"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurazione degli endpoint di rete di File di Azure
 
@@ -136,7 +136,7 @@ Per limitare l'accesso all'endpoint pubblico è prima necessario disabilitare l'
 
 #### <a name="disable-access-to-the-public-endpoint"></a>Disabilitare l'accesso all'endpoint pubblico
 
-Se si disabilita l'accesso all'endpoint pubblico, l'account di archiviazione rimane comunque accessibile tramite i relativi endpoint privati. Altrimenti le richieste valide inviate all'endpoint pubblico dell'account di archiviazione verranno rifiutate. 
+Se si disabilita l'accesso all'endpoint pubblico, l'account di archiviazione rimane comunque accessibile tramite i relativi endpoint privati. Altrimenti le richieste valide all'endpoint pubblico dell'account di archiviazione verranno rifiutate, a meno che non provengano da [un'origine consentita in modo specifico](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks). 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019732"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589045"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -104,7 +104,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    2. Chiamare `Update-AzureADSSOForest -OnPremCredentials $creds`. Questo comando aggiorna la chiave di decrittografia di Kerberos per l'account computer `AZUREADSSO` in questa foresta di AD specifica e la aggiorna in Azure AD.
    
    >[!NOTE]
-   >Se non si è un amministratore di dominio ed è stata assegnata l'autorizzazione all'amministratore di dominio, è necessario chiamare`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   >Se non si è un amministratore di dominio ed è stata assegnata l'autorizzazione all'amministratore di dominio, è necessario chiamare `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui è stata configurata la funzionalità.
 
@@ -135,6 +135,8 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
    4. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.
    5. Chiamare `Enable-AzureADSSO -Enable $false`.
+   
+   A questo punto l'accesso Single Sign-on facile è disabilitato, ma i domini rimarranno configurati nel caso in cui si desideri abilitare l'accesso SSO semplice. Se si desidera rimuovere completamente i domini dalla configurazione seamless SSO, chiamare il cmdlet seguente dopo aver completato il passaggio 5 precedente: `Disable-AzureADSSOForest -DomainFqdn <fqdn>` .
 
    >[!IMPORTANT]
    >Disabilitando l'accesso Single Sign-On facile tramite PowerShell, non verrà modificato lo stato in Azure AD Connect. L'accesso Single Sign-On facile verrà visualizzato come abilitato nella pagina **Cambia l'accesso utente**.

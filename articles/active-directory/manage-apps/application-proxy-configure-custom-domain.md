@@ -1,27 +1,22 @@
 ---
-title: Domini personalizzati nel proxy di applicazione di Azure AD | Documentazione Microsoft
+title: Domini personalizzati nel proxy di applicazione Azure AD
 description: Configurare e gestire domini personalizzati in Azure AD Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764911"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587770"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurare domini personalizzati con Azure AD Application Proxy
 
@@ -91,11 +86,11 @@ Per pubblicare l'app tramite Application Proxy con un dominio personalizzato:
    
    ![Selezionare il dominio personalizzato](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-6. Se è già stato caricato un certificato per il dominio, il campo **Certificato** visualizza le informazioni sul certificato. In caso contrario, selezionare il campo **Certificato**. 
+6. Se è già stato caricato un certificato per il dominio, il campo **Certificato** visualizza le informazioni sul certificato. In caso contrario, selezionare il campo **Certificato**.
    
    ![Fare clic per caricare un certificato](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. Nella pagina **Certificato SSL** individuare e selezionare il file di certificato PFX. Immettere la password per il certificato e selezionare **Carica certificato**. Per altre informazioni sui certificati, vedere la sezione [Certificati per domini personalizzati](#certificates-for-custom-domains).
+7. Nella pagina **Certificato SSL** individuare e selezionare il file di certificato PFX. Immettere la password per il certificato e selezionare **Carica certificato**. Per altre informazioni sui certificati, vedere la sezione [Certificati per domini personalizzati](#certificates-for-custom-domains). Se il certificato non è valido o si è verificato un problema con la password, verrà visualizzato un messaggio di errore. Le [domande frequenti sul proxy di applicazione](application-proxy-faq.md#application-configuration) contengono alcune procedure di risoluzione dei problemi che è possibile provare.
    
    ![Caricamento del certificato](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
@@ -126,7 +121,7 @@ Un certificato crea la connessione TLS sicura per il dominio personalizzato.
 
 Per verificare che siano inclusi tutti i certificati intermedi necessari, è necessario usare un certificato PFX. Il certificato deve includere la chiave privata.
 
-Non ci sono restrizioni per i metodi di firma del certificato. Sono supportati certificati ECC (Elliptic Curve Cryptography), SAN (Subject Alternative Name) e altri tipi comuni di certificato. 
+Sono supportati i metodi di firma del certificato più comuni, ad esempio nome alternativo del soggetto (SAN). 
 
 È possibile usare certificati con caratteri jolly purché il carattere jolly corrisponda all'URL esterno. È necessario usare certificati con caratteri jolly per le [applicazioni con caratteri jolly](application-proxy-wildcard.md). Se si intende usare il certificato per accedere anche ai sottodomini, è necessario aggiungere i caratteri jolly dei sottodomini come nomi alternativi del soggetto nello stesso certificato. Ad esempio, un certificato per *\*.adventure-works.com* non funziona per *\*.apps.adventure-works.com* a meno che non si aggiunga *\*.apps.adventure-works.com* come nome alternativo del soggetto. 
 

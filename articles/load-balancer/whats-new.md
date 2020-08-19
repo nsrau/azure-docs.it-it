@@ -4,15 +4,15 @@ description: Informazioni sulle novità di Azure Load Balancer, tra cui le note 
 services: load-balancer
 author: anavinahar
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 24c5133b9c012b628e43e956c56d5112e1ad4649
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447020"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586716"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Novità di Azure Load Balancer
 

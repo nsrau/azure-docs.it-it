@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: a635f32c5e5f1132d70fb503058267c8b33beb7c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: dbd040bf7caf3dbe9ed9820bf189bc1f74475c09
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272061"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586895"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -35,6 +35,7 @@ Poiché questa pagina viene aggiornata regolarmente, è consigliabile consultarl
 Gli aggiornamenti di agosto includono:
 
 - [Inventario asset: nuova e potente visualizzazione del comportamento di sicurezza degli asset](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Aggiunta del supporto per le impostazioni predefinite di sicurezza Azure Active Directory (per l'autenticazione a più fattori)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Aggiunta raccomandazione entità servizio](#service-principals-recommendation-added)
 - [Valutazione della vulnerabilità sulle macchine virtuali-raccomandazioni e criteri consolidati](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 
@@ -50,11 +51,27 @@ Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse 
 Altre informazioni sull' [inventario degli asset](asset-inventory.md).
 
 
+### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Aggiunta del supporto per le impostazioni predefinite di sicurezza Azure Active Directory (per l'autenticazione a più fattori)
+
+Il Centro sicurezza ha aggiunto il supporto completo per le [impostazioni predefinite di sicurezza](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), le protezioni Microsoft per la sicurezza delle identità gratuite.
+
+Le impostazioni predefinite di sicurezza forniscono impostazioni di sicurezza delle identità preconfigurate per difendere l'organizzazione da attacchi comuni relativi all'identità. Impostazioni predefinite per la sicurezza che proteggono già più di 5 milioni tenant generali; 50.000 i tenant sono protetti anche dal centro sicurezza.
+
+Il Centro sicurezza offre ora una raccomandazione di sicurezza ogni volta che identifica una sottoscrizione di Azure senza che siano abilitate le impostazioni predefinite di sicurezza. Fino ad ora, il Centro sicurezza consiglia di abilitare la funzionalità di autenticazione a più fattori tramite l'accesso condizionale, che fa parte della licenza di Azure Active Directory (AD) Premium. Per i clienti che usano Azure AD gratuita, è ora consigliabile abilitare le impostazioni predefinite di sicurezza. 
+
+Il nostro obiettivo è incoraggiare più clienti a proteggere gli ambienti cloud con l'autenticazione a più fattori e mitigare uno dei rischi più elevati che è anche il più significativo per il proprio [Punteggio sicuro](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+
+Altre informazioni sulle [impostazioni predefinite di sicurezza](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+
+
 ### <a name="service-principals-recommendation-added"></a>Aggiunta raccomandazione entità servizio
 
-Nuova raccomandazione per i clienti del Centro sicurezza che usano i certificati di gestione per gestire le sottoscrizioni.
+È stata aggiunta una nuova raccomandazione per consigliare che i clienti del Centro sicurezza che usano i certificati di gestione per gestire le sottoscrizioni passano a entità servizio.
 
 Si consiglia di utilizzare le **entità servizio per proteggere le sottoscrizioni anziché i certificati di gestione** . si consiglia di utilizzare le entità servizio o Azure Resource Manager per gestire in modo più sicuro le sottoscrizioni. 
+
+Altre informazioni sugli [oggetti applicazione e gli oggetti entità servizio sono disponibili in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Valutazione della vulnerabilità sulle macchine virtuali-raccomandazioni e criteri consolidati
 
@@ -89,7 +106,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 ||||
 
 
-|Policy|Scope|
+|Criteri|Scope|
 |----|:----|
 |**La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9|Predefinito|
 |**Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità**<br>ID criterio: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
@@ -104,7 +121,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 |**È necessario correggere le vulnerabilità nelle macchine virtuali**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Incorporato + BYOL|
 ||||
 
-|Policy|Scope|
+|Criteri|Scope|
 |----|:----|
 |[**La valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9 |Incorporato + BYOL|
 ||||
@@ -297,7 +314,7 @@ Per distribuire le configurazioni di automazione nell'organizzazione, usare i cr
 I criteri si trovano in criteri di Azure:
 
 
-|Obiettivo  |Policy  |ID condizione  |
+|Obiettivo  |Criteri  |ID condizione  |
 |---------|---------|---------|
 |Esportazione continua nell'hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
@@ -330,7 +347,7 @@ I nuovi criteri indicati di seguito sono stati aggiunti all'iniziativa ASC defau
 I criteri si trovano in criteri di Azure:
 
 
-| Policy                                                                                                                                                                                                                                                                | ID condizione                            |
+| Criteri                                                                                                                                                                                                                                                                | ID condizione                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |

@@ -3,12 +3,12 @@ title: Abilitare il backup quando si crea una macchina virtuale di Azure
 description: Viene descritto come abilitare il backup quando si crea una macchina virtuale di Azure con backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032851"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586699"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -47,6 +47,9 @@ Se non è già stato effettuato l'accesso al proprio account, accedere al [porta
     - [Altre](backup-instant-restore-capability.md) informazioni sulla funzionalità di ripristino istantaneo.
 
       ![Criterio di backup predefinito](./media/backup-during-vm-creation/daily-policy.png)
+
+>[!NOTE]
+>[SSE e PMK sono i metodi di crittografia predefiniti per le](backup-encryption.md) macchine virtuali di Azure. Backup di Azure supporta il backup e il ripristino di queste macchine virtuali di Azure.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Gruppo di risorse di backup di Azure per le macchine virtuali
 

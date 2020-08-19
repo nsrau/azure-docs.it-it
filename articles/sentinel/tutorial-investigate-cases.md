@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565236"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566336"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: esaminare gli eventi imprevisti con Sentinel di Azure
 
@@ -37,10 +37,12 @@ Questo articolo riguarda:
 > * Usare il grafico di analisi
 > * Rispondere alle minacce
 
-Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di tutte le evidenze rilevanti per un'indagine specifica. Viene creato un evento imprevisto in base alle regole analitiche create nella pagina di **analisi** . Le proprietà correlate agli avvisi, ad esempio la gravità e lo stato, vengono impostate a livello di evento imprevisto. Quando si lascia che Azure Sentinel conosca quali tipi di minacce si sta cercando e come trovarli, è possibile monitorare le minacce rilevate esaminando gli eventi imprevisti.
+Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di tutte le evidenze rilevanti per un'indagine specifica. Viene creato un evento imprevisto in base alle regole di analisi create nella pagina di **analisi** . Le proprietà correlate agli avvisi, ad esempio gravità e stato, vengono impostate a livello di evento imprevisto. Quando si lascia che Azure Sentinel conosca quali tipi di minacce si sta cercando e come trovarli, è possibile monitorare le minacce rilevate esaminando gli eventi imprevisti.
 
 ## <a name="prerequisites"></a>Prerequisiti
-È possibile esaminare l'evento imprevisto solo se sono stati usati i campi di mapping delle entità quando si configura la regola di analisi. Il grafico di indagine richiede che l'evento imprevisto originale includa entità.
+- È possibile esaminare l'evento imprevisto solo se sono stati usati i campi di mapping delle entità quando si configura la regola di analisi. Il grafico di indagine richiede che l'evento imprevisto originale includa entità.
+
+- Se si dispone di un utente guest che deve assegnare gli eventi imprevisti, all'utente deve essere assegnato il ruolo [lettore di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) nel tenant di Azure ad. Per gli utenti regolari (non Guest) questo ruolo è assegnato per impostazione predefinita.
 
 ## <a name="how-to-investigate-incidents"></a>Come analizzare gli eventi imprevisti
 
