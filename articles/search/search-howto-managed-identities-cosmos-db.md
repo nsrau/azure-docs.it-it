@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 107cd113645a2cbd4b452f9350fa67d734ee6df8
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: f65aa4b307108682fa6e190a229e9d82b6efdec0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143657"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553203"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore a un database Cosmos DB usando un'identità gestita (anteprima)
 
 > [!IMPORTANT] 
-> Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in un'anteprima pubblica gestita. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
-> È possibile richiedere l'accesso all'anteprima compilando [questo modulo](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
 
 Questa pagina descrive come configurare una connessione dell'indicizzatore a un database Azure Cosmos DB usando un'identità gestita invece di immettere le credenziali nella stringa di connessione dell'oggetto origine dati.
 
@@ -58,11 +57,9 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
 ### <a name="3---create-the-data-source"></a>3 - Creare l'origine dati
 
-Un'**origine dati** specifica i dati per l'indice, le credenziali e i criteri per l'identificazione delle modifiche apportate ai dati (ad esempio documenti modificati o eliminati nella raccolta). L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
+L' [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da Cosmos DB usando l' [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
 
-Quando si usano le identità gestite per eseguire l'autenticazione all'origine dati, le **credenziali** non includono una chiave dell'account.
-
-Esempio di come creare un oggetto origine dati Cosmos DB usando l'[API REST ](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Quando si usano identità gestite per l'autenticazione, le **credenziali** non includeranno una chiave dell'account.
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -93,8 +90,6 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 | **container** | Contiene gli elementi seguenti: <br/>**name**: Obbligatorio. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: Facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che possa essere indicizzato da Ricerca cognitiva di Azure.<br/>Per le API MongoDB, Gremlin e Apache Cassandra, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato |
 |**dataDeletionDetectionPolicy** | Facoltativo |
-
-Il portale di Azure e il [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) supportano anche la stringa di connessione di identità gestite. Il portale di Azure richiede un flag di funzionalità che verrà indicato all'utente durante l'iscrizione all'anteprima usando il collegamento riportato nella parte superiore di questa pagina. 
 
 ### <a name="4---create-the-index"></a>4 - Creare l'indice
 

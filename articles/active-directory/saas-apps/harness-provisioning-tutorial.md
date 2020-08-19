@@ -2,25 +2,21 @@
 title: "Esercitazione: configurare l'harness per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs"
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente per l'harness.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 0cdb970b-440b-4e7c-9118-2f03baab6a20
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56a865de8cb1be079f4935ef2a8f840f10589b26
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057839"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550011"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Esercitazione: configurare l'harness per il provisioning utenti automatico
 
@@ -82,7 +78,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, decidere qua
 
 Prima di configurare l'harness per il provisioning utenti automatico con Azure AD, è necessario aggiungere harness dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro sinistro.
+1. Nel riquadro sinistro della [portale di Azure](https://portal.azure.com)selezionare **Azure Active Directory**.
 
     ![Pulsante "Azure Active Directory"](common/select-azuread.png)
 

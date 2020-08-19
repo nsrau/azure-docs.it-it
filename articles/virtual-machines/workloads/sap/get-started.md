@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/14/2020
+ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1152eb11d3452743daa5bcb39fb593dddf94452
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 5cee26f9c1674030903e8be6dac80f6615317a67
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245928"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551668"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -88,6 +88,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 ## <a name="change-log"></a>Registro modifiche
 
+- 08/17/2020: aggiungere informazioni sull'uso di Azure Site Recovery per lo sviluppo di sistemi SAP NetWeaver da locale ad Azure nell'articolo [pianificazione e implementazione di macchine virtuali di Azure per SAP NetWeaver](./planning-guide.md)
 - 08/14/2020: aggiunta di suggerimenti per la configurazione del disco per DB2 nell'articolo [distribuzione DBMS di macchine virtuali di Azure in IBM DB2 per il carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - 08/11/2020: aggiunta di RHEL 7,6 nei [sistemi operativi compatibili per le istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) come sistema operativo disponibile per le unità HLI di tipo I
 - 08/10/2020: Introduzione alla configurazione di archiviazione SAP HANA di costo cosciente in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e aggiornamento dei [carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)

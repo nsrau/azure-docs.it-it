@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 48b94b8cd047f62ea13bf4e062254088ea11840e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b07236fd639c9878c59523f78de5215b173ffc6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663599"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553165"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore a un'origine dati usando un'identità gestita (anteprima)
 
 > [!IMPORTANT] 
-> Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in un'anteprima pubblica gestita. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
-> È possibile richiedere l'accesso all'anteprima compilando [questo modulo](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
 
 Un [indicizzatore](search-indexer-overview.md) in Ricerca cognitiva di Azure è un crawler che fornisce un modo per eseguire il pull dei dati dall'origine dati in Ricerca cognitiva di Azure. Un indicizzatore ottiene una connessione all'origine dati dall'oggetto origine dati creato. L'oggetto origine dati in genere include le credenziali per l'origine dati di destinazione. Ad esempio, l'oggetto origine dati potrebbe includere una chiave dell'account di archiviazione di Azure se si vuole indicizzare i dati da un contenitore di archiviazione BLOB.
 

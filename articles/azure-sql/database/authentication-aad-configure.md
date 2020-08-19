@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/17/2020
+ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499178"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551841"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione Azure AD con SQL di Azure
 
@@ -71,7 +71,9 @@ Quando si usa Azure Active Directory con la replica geografica, l'amministratore
 ## <a name="provision-azure-ad-admin-sql-managed-instance"></a>Provisioning amministratore Azure AD (SQL Istanza gestita)
 
 > [!IMPORTANT]
-> Se si esegue il provisioning di un Istanza gestita SQL di Azure, seguire questa procedura. Questa operazione può essere eseguita solo dall'amministratore globale/aziendale o da un amministratore del ruolo con privilegi in Azure AD. Di seguito viene descritta la procedura da seguire per concedere le autorizzazioni agli utenti con privilegi diversi nella directory.
+> Se si esegue il provisioning di un Istanza gestita SQL di Azure, seguire questa procedura. Questa operazione può essere eseguita solo dall'amministratore globale/aziendale o da un amministratore del ruolo con privilegi in Azure AD.
+>
+> Nell' **anteprima pubblica**è possibile assegnare il ruolo **Readers di directory** a un gruppo in Azure ad. I proprietari del gruppo possono quindi aggiungere l'identità dell'istanza gestita come membro di questo gruppo, che consente di effettuare il provisioning di un amministratore Azure AD per il Istanza gestita SQL. Per altre informazioni su questa funzionalità, vedere [ruolo dei lettori di directory nella Azure Active Directory per SQL di Azure](authentication-aad-directory-readers-role.md).
 
 Il Istanza gestita SQL richiede le autorizzazioni per leggere Azure AD per eseguire correttamente le attività, ad esempio l'autenticazione degli utenti tramite l'appartenenza ai gruppi di sicurezza o la creazione di nuovi utenti. Per eseguire questa operazione, è necessario concedere l'autorizzazione SQL Istanza gestita per la lettura Azure AD. Questa operazione può essere eseguita usando il portale di Azure o PowerShell.
 
@@ -519,7 +521,7 @@ Per altre informazioni, vedere [SQL Server Security Blog](https://blogs.msdn.mic
 Le istruzioni seguenti eseguono la connessione usando la versione 13.1 di sqlcmd disponibile in [Download Center](https://www.microsoft.com/download/details.aspx?id=53591).
 
 > [!NOTE]
-> `sqlcmd`con il `-G` comando non funziona con le identità di sistema e richiede un account di accesso dell'entità utente.
+> `sqlcmd` con il `-G` comando non funziona con le identità di sistema e richiede un account di accesso dell'entità utente.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
@@ -528,7 +530,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 ## <a name="troubleshoot-azure-ad-authentication"></a>Risolvere i problemi di autenticazione Azure AD
 
-Informazioni aggiuntive sulla risoluzione dei problemi relativi all'autenticazione Azure AD sono disponibili nel Blog seguente:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
+Informazioni aggiuntive sulla risoluzione dei problemi relativi all'autenticazione Azure AD sono disponibili nel Blog seguente: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ## <a name="next-steps"></a>Passaggi successivi
 

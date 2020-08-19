@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare LucidChart per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a LucidChart.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 25fe315e7d1af2e301e761c755470d2e3c24db1c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 88c14ef916847b84f881e8da2deda7835df37ffb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927012"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550285"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Esercitazione: configurare LucidChart per il provisioning utenti automatico
 
@@ -98,7 +94,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere il valore del **token di porta** recuperato in precedenza nel campo **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a LucidChart. Se la connessione non riesce, verificare che l'account LucidChart disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere il valore del **token di porta**  recuperato in precedenza nel campo **token segreto** . Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a LucidChart. Se la connessione non riesce, verificare che l'account LucidChart disponga delle autorizzazioni di amministratore e riprovare.
 
       ![provisioning](./media/Lucidchart-provisioning-tutorial/lucidchart1.png)
 

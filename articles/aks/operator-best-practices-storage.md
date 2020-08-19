@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'archiviazio
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 26af9e0ab2bd3a52c159e947f1f40300f9e84dd4
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: c683cbf7802fbf5420ec95d49e2dfda624ce093f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562839"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551796"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
 
@@ -34,9 +34,9 @@ La tabella seguente descrive i tipi di archiviazione disponibili e le relative f
 
 | Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto per i contenitori di Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| Configurazione condivisa       | File di Azure   | sì | sì | sì | sì |
+| Configurazione condivisa       | File di Azure   | Sì | Sì | Sì | Sì |
 | Dati di app strutturati        | Dischi di Azure   | Sì | No  | No  | Sì |
-| Dati non strutturati, operazioni sui file system | [BlobFuse][blobfuse] | sì | sì | Sì | No |
+| Dati non strutturati, operazioni sui file system | [BlobFuse][blobfuse] | Sì | Sì | Sì | No |
 
 I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo del servizio Azure Kubernetes.
 
@@ -88,7 +88,7 @@ Per altre informazioni sulle opzioni delle classi di archiviazione, vedere [Clas
 
 ## <a name="secure-and-back-up-your-data"></a>Proteggere ed eseguire il backup dei dati
 
-**Indicazioni sulle procedure consigliate** : eseguire il backup dei dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero o Azure Site Recovery. Verificare l'integrità e la sicurezza di tali backup.
+**Indicazioni sulle procedure consigliate** : eseguire il backup dei dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero o backup di Azure. Verificare l'integrità e la sicurezza di tali backup.
 
 Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Prima di eseguire l'operazione di snapshot, potrebbe essere necessario cercare le applicazioni per scaricare le Scritture su disco. [Velero][velero] può eseguire il backup di volumi permanenti insieme a risorse e configurazioni aggiuntive del cluster. Se non è possibile [rimuovere lo stato dall'applicazione][remove-state], eseguire il backup dei dati di volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4a618b00b211ce65b170379cc14d6b83a1183d28
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: bb6793bc1e3d5bb55426c1f344520ae19a22a9f9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460356"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549566"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -187,6 +187,8 @@ Usare i metodi di estensione di `TelemetryProcessorChainBuilder`, come illustrat
 > Se si usa questo metodo per configurare il campionamento, assicurarsi di impostare la `aiOptions.EnableAdaptiveSampling` proprietà su `false` quando si chiama `AddApplicationInsightsTelemetry()` .
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility
+
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
 {
     var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -448,7 +450,7 @@ Come in altri tipi di campionamento, l'algoritmo consente di mantenere gli eleme
 
 I punti dati che vengono rimossi dal campionamento non sono disponibili in alcuna funzionalità di Application Insights, ad esempio nell' [esportazione continua](./export-telemetry.md).
 
-Il campionamento di inserimento non funziona mentre è in esecuzione il campionamento adattivo o a frequenza fissa. Il campionamento adattivo è abilitato per impostazione predefinita quando si usa ASP.NET SDK o ASP.NET Core SDK oppure quando Application Insights è abilitato nel [servizio app Azure](azure-web-apps.md) o usando status monitor. Quando l'endpoint del servizio Application Insights riceve i dati di telemetria, esamina i dati di telemetria e se la frequenza di campionamento viene segnalata come inferiore al 100% (che indica che la telemetria viene campionata), la frequenza di campionamento di inserimento impostata viene ignorata.
+Il campionamento di inserimento non funziona mentre è in esecuzione il campionamento adattivo o a frequenza fissa. Il campionamento adattivo è abilitato per impostazione predefinita quando si usa ASP.NET SDK o ASP.NET Core SDK oppure quando Application Insights è abilitato nel [servizio app Azure ](azure-web-apps.md) o usando status monitor. Quando l'endpoint del servizio Application Insights riceve i dati di telemetria, esamina i dati di telemetria e se la frequenza di campionamento viene segnalata come inferiore al 100% (che indica che la telemetria viene campionata), la frequenza di campionamento di inserimento impostata viene ignorata.
 
 > [!WARNING]
 > Il valore visualizzato nel riquadro del portale indica il valore impostato per il campionamento di inserimento. Non rappresenta la frequenza di campionamento effettiva se è in esecuzione un qualsiasi tipo di campionamento SDK (campionamento adattivo o a frequenza fissa).

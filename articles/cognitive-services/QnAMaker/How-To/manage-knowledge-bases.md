@@ -3,12 +3,12 @@ title: Gestisci Knowledge base-QnA Maker
 description: QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazioni e al contenuto della Knowledge base.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756811"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551779"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Creazione della Knowledge base e gestione delle impostazioni
 
@@ -17,7 +17,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!div class="checklist"]
-> * Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+> * Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 > * [Risorsa QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) creata nel portale di Azure. Prendere nota dei valori di ID di Azure Active Directory, sottoscrizione e nome della risorsa di QnA selezionati durante la creazione della risorsa.
 
 ## <a name="create-a-knowledge-base"></a>Creare una knowledge base
@@ -36,7 +36,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
 
    ![Screenshot della selezione di una knowledge base per il servizio QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. Nel **passaggio 3**assegnare un nome alla Knowledge `My Sample QnA KB`base.
+1. Nel **passaggio 3**assegnare un nome alla Knowledge base `My Sample QnA KB` .
 
 1. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
 
@@ -65,7 +65,7 @@ QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazio
 
 1.  Selezionare **Impostazioni**. L'elenco seguente contiene i campi che è possibile modificare.
 
-       |Obiettivo|Action|
+       |Obiettivo|Azione|
        |--|--|
        |Aggiungere URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"**.|
        |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|

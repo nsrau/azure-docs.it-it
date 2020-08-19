@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare looop per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in looop.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 0efe2262-43c3-4e0c-97fa-9344385638e2
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: e3e25a8c27b9a5c1bc1e7673300ac8aca9377c08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8bec6b3065cc58f9589cfba0d6f494a9d065355
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057440"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549688"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Esercitazione: configurare looop per il provisioning utenti automatico
 
@@ -123,7 +119,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://<organisation_domain>.looop.co/scim/v2` in **URL tenant**. Ad esempio `https://demo.looop.co/scim/v2`. Immettere il valore recuperato e salvato in precedenza da looop nel **token Secret**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a looop. Se la connessione non riesce, verificare che l'account looop disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere `https://<organisation_domain>.looop.co/scim/v2` in **URL tenant**. Ad esempio, `https://demo.looop.co/scim/v2`. Immettere il valore recuperato e salvato in precedenza da looop nel **token Secret**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a looop. Se la connessione non riesce, verificare che l'account looop disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
