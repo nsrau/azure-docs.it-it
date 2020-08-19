@@ -65,6 +65,8 @@
                   href: database/sql-vulnerability-assessment.md
                 - name: Regole di valutazione della vulnerabilità
                   href: database/sql-database-vulnerability-assessment-rules.md
+                - name: Archiviare le analisi delle vulnerabilità nell'archiviazione
+                  href: database/sql-database-vulnerability-assessment-storage.md
             - name: 'Account di accesso, account utente, ruoli e autorizzazioni'
               href: database/logins-create-manage.md
             - name: Autenticazione di Azure AD
@@ -80,6 +82,8 @@
                   href: database/conditional-access-configure.md
                 - name: Entità servizio (applicazioni)
                   href: database/authentication-aad-service-principal.md
+                - name: Ruolo con autorizzazioni di lettura nella directory
+                  href: database/authentication-aad-directory-readers-role.md
             - name: Transparent Data Encryption (TDE)
               items:
                 - name: Panoramica
@@ -141,14 +145,16 @@
               href: database/temporal-tables-retention-policy.md
             - name: Configurare la conservazione dei backup con archiviazione BLOB di Azure
               href: database/long-term-backup-retention-configure.md
-        - name: Security
+        - name: Sicurezza
           items:
-            - name: Creare utenti guest di Azure AD e impostarli come amministratore di Azure AD
-              href: database/authentication-aad-guest-users.md
+            - name: Autenticazione di Azure AD
+              items:
+                - name: Creare utenti guest di Azure AD e impostarli come amministratore di Azure AD
+                  href: database/authentication-aad-guest-users.md
+                - name: Assegnare il ruolo con autorizzazioni di lettura nella directory ai gruppi
+                  href: database/authentication-aad-directory-readers-role-tutorial.md
             - name: Configurare TDE con BYOK
               href: database/transparent-data-encryption-byok-configure.md
-            - name: Archiviare le analisi delle vulnerabilità nell'archiviazione
-              href: database/sql-database-vulnerability-assessment-storage.md
             - name: Always Encrypted
               items:
                 - name: Usare Azure Key Vault
@@ -207,12 +213,14 @@
               href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json'
             - name: Java
               items:
+                - name: Usare Java e JDBC
+                  href: database/connect-query-java.md
                 - name: Usare JDBC per Spring Data
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Usare JPA per Spring Data
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Usare R2DBC per Spring Data
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 - name: Database SQL
   items:
     - name: Documentazione
@@ -402,11 +410,11 @@
                 - name: Java
                   href: database/connect-query-java.md
                 - name: Java con JDBC per Spring Data
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Java con JPA per Spring Data
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Java con R2DBC per Spring Data
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Node.js
                   href: database/connect-query-nodejs.md
                 - name: PHP

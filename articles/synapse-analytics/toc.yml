@@ -74,10 +74,10 @@
       href: ./sql/tutorial-connect-power-bi-desktop.md
     - name: Data scientist
       items:
-        - name: Prevedere le mance dei tassisti di NYC
+        - name: Eseguire un esperimento di regressione con Azure AutoML
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+        - name: Creare un modello di classificazione con Apache Spark MLlib
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-        - name: Estendere Apache Spark con librerie aggiuntive
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: Analista dati
       items:
         - name: Usare SQL su richiesta per analizzare e Synapse Studio per visualizzare
@@ -202,8 +202,6 @@
               href: ./spark/apache-spark-overview.md
             - name: Concetti di Apache Spark
               href: ./spark/apache-spark-concepts.md
-            - name: Librerie e linguaggi di runtime supportati
-              href: ./spark/apache-spark-version-support.md
             - name: Che cos'è Delta Lake
               href: ./spark/apache-spark-what-is-delta-lake.md
             - name: Prestazioni di Apache Spark
@@ -212,6 +210,12 @@
               href: ./spark/apache-spark-autoscale.md
         - name: Sviluppo
           items:
+            - name: Librerie
+              items:
+                - name: Aggiungere e gestire le librerie
+                  href: ./spark/apache-spark-azure-portal-add-libraries.md
+                - name: Librerie e linguaggi di runtime supportati
+                  href: ./spark/apache-spark-version-support.md
             - name: Notebook di Azure Synapse Studio
               href: ./spark/apache-spark-development-using-notebooks.md
             - name: .NET per Apache Spark
@@ -230,7 +234,7 @@
               href: sql/on-demand-workspace-overview.md
             - name: Pool SQL
               href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Architettura
+            - name: Architecture
               href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Panoramica delle funzionalità
               href: sql/overview-features.md

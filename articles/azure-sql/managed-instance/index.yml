@@ -12,12 +12,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 05/27/2020
-  ms.openlocfilehash: 33d6acf888c7335c282e53201e6219e4e044cc8e
-  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+  ms.openlocfilehash: 6c02f1f12ed32cbced046f9937d4b8a28d74f97a
+  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/12/2020
-  ms.locfileid: "88136287"
+  ms.lasthandoff: 08/19/2020
+  ms.locfileid: "88590422"
 landingContent:
 - title: Istanza gestita di SQL di Azure
   linkLists:
@@ -25,6 +25,10 @@ landingContent:
     links:
     - text: Creare un'istanza gestita di SQL
       url: instance-create-quickstart.md
+  - linkListType: video
+    links:
+    - text: Panoramica di Istanza gestita di SQL di Azure
+      url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
   - linkListType: concept
     links:
     - text: Novità
@@ -61,12 +65,22 @@ landingContent:
       url: ../database/dynamic-data-masking-overview.md
     - text: Endpoint pubblici
       url: public-endpoint-overview.md
-- title: Informazioni di riferimento
+- title: Informazioni su SQL di Azure
   linkLists:
   - linkListType: learn
     links:
+    - text: SQL di Azure per principianti
+      url: https://aka.ms/azuresql4beginners
+    - text: Nozioni fondamentali su SQL di Azure
+      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+    - text: Esercitazioni pratiche su SQL di Azure
+      url: https://aka.ms/asqlworkshop
+    - text: Bootcamp su SQL di Azure
+      url: https://aka.ms/azuresqlbootcamp
     - text: Risorse SQL per la formazione
       url: /sql/sql-server/educational-sql-resources
+- title: Informazioni di riferimento
+  linkLists:
   - linkListType: deploy
     links:
     - text: Esempi dell'interfaccia della riga di comando di Azure

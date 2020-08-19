@@ -24,6 +24,8 @@
       href: classroom-labs-fundamentals.md
     - name: Limiti di capacità
       href: capacity-limits.md
+    - name: Gestione costi per i lab
+      href: cost-management-guide.md
     - name: Scenari
       items:
         - name: Usare i servizi lab per gestire le classi
@@ -66,7 +68,7 @@
           href: how-to-manage-lab-accounts.md
         - name: Gestire i lab in un account lab
           href: manage-labs.md
-        - name: Configurare l'arresto automatico delle VM
+        - name: Configurare l'arresto automatico delle macchine virtuali per un account lab
           href: how-to-configure-lab-accounts.md
         - name: Aggiungere un autore del lab
           href: add-lab-creator.md
@@ -86,8 +88,6 @@
           href: specify-marketplace-images.md
         - name: Specificare le informazioni di supporto (proprietario dell'account lab)
           href: lab-account-owner-support-information.md
-        - name: Gestione costi per i lab
-          href: cost-management-guide.md
     - name: Creare e configurare lab per le classi (educatore)
       items:
         - name: Creare e gestire i lab per le classi
@@ -106,7 +106,7 @@
           href: how-to-use-shared-image-gallery.md
         - name: Abilitare Connessione desktop remoto per Linux
           href: how-to-enable-remote-desktop-linux.md
-        - name: Abilitare l'arresto automatico alla disconnessione
+        - name: Configurare l'arresto automatico delle macchine virtuali per un lab
           href: how-to-enable-shutdown-disconnect.md
         - name: Abilitare la virtualizzazione annidata in una VM modello
           items:
