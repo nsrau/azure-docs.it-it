@@ -3,17 +3,17 @@ title: Elenco di controllo di prestazioni e scalabilità di Archiviazione tabell
 description: Un elenco di controllo delle procedure consolidate per l'uso con Archiviazione tabelle nello sviluppo di applicazioni ad elevate prestazioni.
 services: storage
 author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7c805e9cf15e22b9200ef86c6c22ac3f50e77719
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75749543"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236387"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Elenco di controllo di prestazioni e scalabilità di Archiviazione tabelle
 
@@ -196,7 +196,7 @@ In questa sezione vengono elencate diverse impostazioni di configurazione rapide
 
 A partire dalla versione del servizio di archiviazione 2013-08-15, il servizio tabelle supporta l'uso di JSON al posto del formato AtomPub basato su XML per il trasferimento dei dati della tabella. L'uso di JSON consente di ridurre le dimensioni del payload di una percentuale massima del 75% e può migliorare notevolmente le prestazioni dell'applicazione.
 
-Per altre informazioni, vedere il post [Tabelle di Microsoft Azure: introduzione a JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e al [formato Payload per operazioni del servizio tabelle](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Per altre informazioni, vedere il post [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Tabelle di Microsoft Azure: introduzione a JSON) e [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato di Payload per operazioni del servizio tabelle).
 
 ### <a name="disable-nagle"></a>Disabilitare Nagle
 
@@ -215,7 +215,7 @@ La modalità con cui vengono rappresentati i dati e vengono eseguite query su di
 Le tabella sono divise in partizioni. Ogni entità archiviata in una partizione condivide la stessa chiave di partizione e dispone di una chiave di riga univoca che la identifica all'interno della partizione. Le partizioni offrono dei vantaggi ma introducono anche dei limiti di scalabilità.
 
 - Vantaggi: è possibile aggiornare le entità nella stessa partizione in un'unica transazione batch atomica che contiene fino a 100 operazioni di archiviazione distinte (limite di 4 MB di dimensioni totali). Presupponendo lo stesso numero di entità da recuperare, è anche possibile eseguire query sui dati all'interno di una singola partizione in modo più efficiente rispetto ai dati distribuiti in più partizioni (tuttavia, leggere più avanti per ulteriori consigli sulle query sui dati nelle tabelle).
-- Limite di scalabilità: l'accesso alle entità archiviate in una singola partizione non può essere sottoposto a bilanciamento del carico perché le partizioni supportano le transazioni batch atomiche. Per questo motivo, l'obiettivo di scalabilità per una singola partizione della tabella è inferiore rispetto a quello dell'intero servizio tabelle.
+- Limite di scalabilità: L'accesso alle entità archiviate in una singola partizione non può essere sottoposto a bilanciamento del carico perché le partizioni supportano le transazioni batch atomiche. Per questo motivo, l'obiettivo di scalabilità per una singola partizione della tabella è inferiore rispetto a quello dell'intero servizio tabelle.
 
 Tenendo conto delle caratteristiche descritte di tabelle e partizioni, adottare i seguenti principi di progettazione:
 

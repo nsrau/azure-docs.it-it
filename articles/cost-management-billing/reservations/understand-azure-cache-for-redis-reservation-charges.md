@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4ad28bd65fe9bc240e963f103ca5bd658e90fdfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10fedaf5680976ae93984c9b2c607882f650019d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77529620"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213262"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Come viene applicato lo sconto della prenotazione ad Azure Cache for Redis
 
-Dopo avere acquistato capacità riservata per Azure Cache for Redis, lo sconto viene automaticamente applicato alle istanze della cache che corrispondono agli attributi e alla quantità della prenotazione. La prenotazione copre solo i costi di calcolo di Azure Cache for Redis. Per l'archiviazione e la rete vengono addebitate le tariffe normali. La capacità riservata è disponibile solo per le cache del [livello Premium](/azure/azure-cache-for-redis/cache-premium-tier-intro).
+Dopo avere acquistato capacità riservata per Azure Cache for Redis, lo sconto viene automaticamente applicato alle istanze della cache che corrispondono agli attributi e alla quantità della prenotazione. La prenotazione copre solo i costi di calcolo di Azure Cache for Redis. Per l'archiviazione e la rete vengono addebitate le tariffe normali. La capacità riservata è disponibile solo per le cache del [livello Premium](/https://docs.microsoft.com/azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 

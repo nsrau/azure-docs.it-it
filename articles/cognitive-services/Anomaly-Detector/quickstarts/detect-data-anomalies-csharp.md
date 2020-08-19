@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: 585731212fa31be2757d5b5d4c4e0a2ef1212ca8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 86742568d8f0c7c951d872e7df23b8ce1cb0920f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980218"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244228"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e C# 
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e C#
 
 Usare questa guida di avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione C# invia due richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
 
@@ -30,13 +30,13 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
 - Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="creare una risorsa Rilevamento anomalie"  target="_blank">creare una risorsa Rilevamento anomalie <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa**.
     - La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Rilevamento anomalie. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 - Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://visualstudio.microsoft.com/downloads/)
 - Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet. Per installare Newtonsoft.Json come pacchetto NuGet in Visual Studio:
-    
+
     1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**.
     2. Scegliere **Gestisci pacchetti NuGet**.
     3. Cercare *Newtonsoft.Json* e installare il pacchetto.
@@ -49,7 +49,7 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 
 ## <a name="create-a-new-application"></a>Creare una nuova applicazione
 
-1. In Visual Studio creare una nuova soluzione console e aggiungere i pacchetti seguenti. 
+1. In Visual Studio creare una nuova soluzione console e aggiungere i pacchetti seguenti.
 
     [!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=usingStatements)]
 
@@ -60,7 +60,7 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
     |------------------------------------|--------------------------------------------------|
     | Rilevamento in batch                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | Rilevamento nel punto dati più recente | `/anomalydetector/v1.0/timeseries/last/detect`   |
-        
+
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Creare una funzione per inviare richieste
@@ -79,7 +79,7 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 
 2. Deserializzare l'oggetto JSON e visualizzarlo nella console.
 
-3. Se la risposta contiene il campo `code`, viene visualizzato il codice errore e il messaggio di errore. 
+3. Se la risposta contiene il campo `code`, viene visualizzato il codice errore e il messaggio di errore.
 
 4. In caso contrario, trovare le posizioni delle anomalie nel set di dati. Il campo `isAnomaly` della risposta contiene una matrice di valori booleani, ognuno dei quali indica se un punto dati è un'anomalia. Convertirla in una matrice di stringhe con la funzione `ToObject<bool[]>()` dell'oggetto risposta. Scorrere la matrice e stampare l'indice dei valori `true`. Questi valori corrispondono all'indice dei punti dati anomali, se presenti.
 
@@ -93,10 +93,10 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 2. Deserializzare l'oggetto JSON e visualizzarlo nella console.
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
- 
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Caricare i dati delle serie temporali e inviare la richiesta
 
-1. Nel metodo main dell'applicazione caricare i dati delle serie temporali JSON con `File.ReadAllText()`. 
+1. Nel metodo main dell'applicazione caricare i dati delle serie temporali JSON con `File.ReadAllText()`.
 
 2. Chiamare le funzioni di rilevamento anomalie create in precedenza. Usare `System.Console.ReadKey()` per mantenere aperta la finestra della console dopo l'esecuzione dell'applicazione.
 

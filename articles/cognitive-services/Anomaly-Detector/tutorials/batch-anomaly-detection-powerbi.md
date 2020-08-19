@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: aahi
-ms.openlocfilehash: 9f27deebe3a1fb21f4c7406bfd424196fb1072ec
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 527ce1c7d434ae94c91c78c865c00aa0687a73cb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921927"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245503"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Power BI
 
@@ -29,10 +29,10 @@ In questa esercitazione si apprenderà come:
 > * Visualizzare le anomalie trovate all'interno dei dati, inclusi i valori previsti e quelli rilevati, e i limiti di rilevamento anomalie.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Una [sottoscrizione di Azure](https://azure.microsoft.com/free/)
+* Una [sottoscrizione di Azure](https://azure.microsoft.com/free/cognitive-services)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponibile gratuitamente.
 * Un file di Excel (con estensione xlsx) contenente i punti dati delle serie temporali. I dati di esempio per questa guida di avvio rapido sono disponibili in [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962).
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="creare una risorsa Rilevamento anomalie"  target="_blank">creare una risorsa Rilevamento anomalie <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="creare una risorsa Rilevamento anomalie"  target="_blank">creare una risorsa Rilevamento anomalie <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Rilevamento anomalie. Questa operazione verrà eseguita più avanti nell'avvio rapido.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
@@ -52,19 +52,19 @@ Nella finestra di dialogo visualizzata passare alla cartella in cui è stato sca
 
 ![Immagine della schermata "Strumento di navigazione" dell'origine dati in Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI convertirà i timestamp nella prima colonna in un tipo di dati `Date/Time`. Questi timestamp devono essere convertiti in testo per essere inviati all'API Rilevamento anomalie. Se l'editor di Power Query non si apre automaticamente, fare clic su **Modifica query** nella scheda Home. 
+Power BI convertirà i timestamp nella prima colonna in un tipo di dati `Date/Time`. Questi timestamp devono essere convertiti in testo per essere inviati all'API Rilevamento anomalie. Se l'editor di Power Query non si apre automaticamente, fare clic su **Modifica query** nella scheda Home.
 
 Fare clic sulla scheda **Trasforma** sulla barra multifunzione nell'editor di Power Query. Nel gruppo **Qualsiasi colonna** aprire l'elenco a discesa **Tipo di dati** e selezionare **Testo**.
 
 ![Immagine della schermata "Strumento di navigazione" dell'origine dati in Power BI](../media/tutorials/data-type-drop-down.png)
 
-Quando si riceve un avviso sulla modifica del tipo di colonna, fare clic su **Sostituisci corrente**. Quindi fare clic su **Chiudi e applica** o su **Applica** nella scheda **Home** della barra multifunzione. 
+Quando si riceve un avviso sulla modifica del tipo di colonna, fare clic su **Sostituisci corrente**. Quindi fare clic su **Chiudi e applica** o su **Applica** nella scheda **Home** della barra multifunzione.
 
 ## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Creare una funzione per inviare i dati e formattare la risposta
 
 Per formattare e inviare il file di dati all'API Rilevamento anomalie, è possibile richiamare una query sulla tabella creata in precedenza. Nella scheda **Home** sulla barra multifunzione dell'editor di Power Query n aprire il menu a discesa **Nuova origine** e fare clic su **Query vuota**.
 
-Verificare che la nuova query sia selezionata e quindi fare clic su **Editor avanzato**. 
+Verificare che la nuova query sia selezionata e quindi fare clic su **Editor avanzato**.
 
 ![Immagine del pulsante "Editor avanzato" in Power BI](../media/tutorials/advanced-editor-screen.png)
 
@@ -84,7 +84,7 @@ In Editor avanzato usare il frammento di Power Query M seguente per estrarre le 
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
-                    
+
                      Table.Column(inputTable, "Timestamp")
                      ,Table.Column(inputTable, "Value")
                      , Record.Field(jsonresp, "IsAnomaly") as list
@@ -96,7 +96,7 @@ In Editor avanzato usare il frammento di Power Query M seguente per estrarre le 
 
                   }, {"Timestamp", "Value", "IsAnomaly", "ExpectedValues", "UpperMargin", "LowerMargin", "IsPositiveAnomaly", "IsNegativeAnomaly"}
                ),
-    
+
     respTable1 = Table.AddColumn(respTable , "UpperMargins", (row) => row[ExpectedValues] + row[UpperMargin]),
     respTable2 = Table.AddColumn(respTable1 , "LowerMargins", (row) => row[ExpectedValues] -  row[LowerMargin]),
     respTable3 = Table.RemoveColumns(respTable2, "UpperMargin"),
@@ -112,7 +112,7 @@ In Editor avanzato usare il frammento di Power Query M seguente per estrarre le 
  in results
 ```
 
-Richiamare la query nel foglio dati selezionando `Sheet1` sotto **Immettere un parametro**, quindi fare clic su **Richiama**. 
+Richiamare la query nel foglio dati selezionando `Sheet1` sotto **Immettere un parametro**, quindi fare clic su **Richiama**.
 
 ![Immagine del pulsante "Editor avanzato"](../media/tutorials/invoke-function-screenshot.png)
 
@@ -121,23 +121,23 @@ Richiamare la query nel foglio dati selezionando `Sheet1` sotto **Immettere un p
 > [!NOTE]
 > È importante conoscere i criteri dell'organizzazione a livello di privacy e accesso ai dati. Per altre informazioni, vedere [Livelli di privacy di Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels).
 
-Quando si prova a eseguire la query si potrebbe ricevere un messaggio di avviso, poiché utilizza un'origine dati esterna. 
+Quando si prova a eseguire la query si potrebbe ricevere un messaggio di avviso, poiché utilizza un'origine dati esterna.
 
 ![Immagine che mostra un avviso creato da Power BI](../media/tutorials/blocked-function.png)
 
-Per risolvere il problema, fare clic su **File** e quindi su **Opzioni e impostazioni**. Quindi fare clic su **Opzioni**. In **File corrente** selezionare **Privacy** e **Ignora i livelli di privacy per un potenziale miglioramento delle prestazioni**. 
+Per risolvere il problema, fare clic su **File** e quindi su **Opzioni e impostazioni**. Quindi fare clic su **Opzioni**. In **File corrente** selezionare **Privacy** e **Ignora i livelli di privacy per un potenziale miglioramento delle prestazioni**.
 
 Si potrebbe anche ricevere un messaggio che chiede di specificare in che modo ci si vuole connettere all'API.
 
 ![Immagine che mostra una richiesta di specificare le credenziali di accesso](../media/tutorials/edit-credentials-message.png)
 
-Per risolvere il problema, fare clic su **Modifica credenziali**  nel messaggio. Nella finestra di dialogo visualizzata selezionare **Anonimo** per connettersi alll'API in modalità anonima. Fare clic su **Connetti**. 
+Per risolvere il problema, fare clic su **Modifica credenziali**  nel messaggio. Nella finestra di dialogo visualizzata selezionare **Anonimo** per connettersi alll'API in modalità anonima. Fare clic su **Connetti**.
 
 Quindi fare clic su **Chiudi e applica** nella scheda **Home** della barra multifunzione per applicare le modifiche.
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Visualizzare la risposta dell'API Rilevamento anomalie
 
-Nella schermata principale di Power BI iniziare a usare le query create in precedenza per visualizzare i dati. Prima di tutto selezionare **Grafico a linee** in **Visualizzazioni**. Quindi aggiungere il timestamp della funzione richiamata all'**Asse** del grafico a linee. Fare clic su di esso con il pulsante destro del mouse e scegliere **Timestamp**. 
+Nella schermata principale di Power BI iniziare a usare le query create in precedenza per visualizzare i dati. Prima di tutto selezionare **Grafico a linee** in **Visualizzazioni**. Quindi aggiungere il timestamp della funzione richiamata all'**Asse** del grafico a linee. Fare clic su di esso con il pulsante destro del mouse e scegliere **Timestamp**.
 
 ![Fare clic con il pulsante destro del mouse sul valore Timestamp](../media/tutorials/timestamp-right-click.png)
 

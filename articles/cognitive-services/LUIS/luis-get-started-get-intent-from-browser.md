@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Eseguire query per la stima con un browser - LUIS'
 description: In questa guida introduttiva si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo in un browser.
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769976"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245996"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Guida introduttiva: Eseguire query sul runtime di stima con un testo dell'utente
 
@@ -19,7 +19,7 @@ Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un 
 Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 
 * Informazioni sulla risorsa LUIS (Language Understanding):
-    * **Chiave di stima**, che è possibile ottenere dal [portale LUIS](https://www.luis.ai/). Se non si ha già una sottoscrizione per creare una chiave, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
+    * **Chiave di stima**, che è possibile ottenere dal [portale LUIS](https://www.luis.ai/). Se non si ha già una sottoscrizione per creare una chiave, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/cognitive-services).
     * **Sottodominio dell'endpoint di stima**: il sottodominio è anche il **nome** della risorsa LUIS.
 * Un ID app LUIS: usare l'ID app IoT pubblica `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La query utente usata nel codice di avvio rapido è specifica di tale app.
 

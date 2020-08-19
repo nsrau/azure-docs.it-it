@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
 ms.topic: include
-ms.openlocfilehash: 2af0d0eb2411c5ffe9f80498a3e93d48fe0a769b
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0434ddb1e90789628d14d4782eccb6514fccf8d8
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057816"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226483"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,7 +43,7 @@ A questo punto aggiungere il codice XAML che definisce l'interfaccia utente dell
 
 1. Nel gestore `SpeechTranslationFromMicrophone_ButtonClicked` di questo file individuare la stringa `YourSubscriptionKey` e sostituirla con la chiave di sottoscrizione.
 
-1. Nel gestore `SpeechTranslationFromMicrophone_ButtonClicked` individuare la stringa `YourServiceRegion` e sostituirla con l'[area](~/articles/cognitive-services/Speech-Service/regions.md) associata alla sottoscrizione. Ad esempio, usare `westus` per la sottoscrizione di valutazione gratuita.
+1. Nel gestore `SpeechTranslationFromMicrophone_ButtonClicked` individuare la stringa `YourServiceRegion` e sostituirla con l'[area](~/articles/cognitive-services/Speech-Service/regions.md) associata alla sottoscrizione.
 
 1. Dalla barra dei menu scegliere **File** > **Salva tutto** per salvare le modifiche.
 

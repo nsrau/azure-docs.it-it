@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: c9bcd301b19252cedd9ac9a1867ccf132a537587
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 709efa3fb4f85ab5d0c3d345fd9a5ceada274459
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81275530"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226395"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,7 +47,7 @@ Il progetto helloworld comune contiene implementazioni indipendenti dalla piatta
 1. Nel gestore `OnRecognitionButtonClicked` del file di origine individuare la stringa `YourSubscriptionKey` e sostituirla con la chiave di sottoscrizione.
 
 
-1. Nel gestore `OnRecognitionButtonClicked` trovare la stringa `YourServiceregion` e sostituirla con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione. Ad esempio, usare `westus` per la sottoscrizione di valutazione gratuita.
+1. Nel gestore `OnRecognitionButtonClicked` trovare la stringa `YourServiceregion` e sostituirla con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione. 
 
 1. È quindi necessario creare un [servizio Xamarin](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), che viene usato per eseguire una query sulle autorizzazioni del microfono da diversi progetti di piattaforma, ad esempio UWP, Android e iOS. A tale scopo, aggiungere una nuova cartella denominata *Services* nel progetto helloworld e creare un nuovo file di origine C# al suo interno. È possibile fare clic con il pulsante destro del mouse sulla cartella *Services*, quindi scegliere **Aggiungi** > **Nuovo elemento** > **File di codice**. Rinominare il file `IMicrophoneService.cs` e inserirvi tutto il codice del frammento seguente:
 
@@ -135,7 +135,7 @@ Aggiungere ora il codice C# che definisce la parte specifica di UWP dell'applica
 
    ![Richiesta di autorizzazione di accesso al microfono](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. Selezionare **Avvia riconoscimento vocale**  e pronunciare una frase o espressione nel microfono del dispositivo. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella finestra.
+1. Selezionare **Avvia riconoscimento vocale ** e pronunciare una frase o espressione nel microfono del dispositivo. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella finestra.
 
    ![Interfaccia utente di riconoscimento vocale](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *
