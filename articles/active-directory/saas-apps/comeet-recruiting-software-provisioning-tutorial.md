@@ -2,25 +2,21 @@
 title: 'Esercitazione: configurare il software di assunzione per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente per il software di selezione.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f427fb75cfaeda79b037c327992e4ad482a7e689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5165c3f03d51403a978ad3574306bc27d931e1d7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058335"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88536887"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Esercitazione: configurare il software di reclutamento per il provisioning utenti automatico
 
@@ -102,7 +98,7 @@ In questa sezione vengono illustrati i passaggi per configurare il servizio di p
 
 5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant** e il **token segreto** dell'account del software di reclutamento del tenant, come descritto nel passaggio 6.
 
-6. Nella [console di amministrazione del software di selezione](https://app.comeet.co/), passare a **> impostazioni > autenticazione > Microsoft Azure**e copiare il **token segreto per il** valore della società nel campo **token segreto** in Azure ad.
+6. Nella [console di amministrazione del software di selezione](https://app.comeet.co/), passare a  **> impostazioni > autenticazione > Microsoft Azure**e copiare il **token segreto per il** valore della società nel campo **token segreto** in Azure ad.
 
     ![Provisioning del software di recruiting](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
