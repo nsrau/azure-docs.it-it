@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d32ad29bf652cad62a5950859ebff0366e09fc6f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510029"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587634"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
 
@@ -30,7 +30,7 @@ In generale, le notifiche sono costituite da due parti: l'intestazione e il corp
 
 Le intestazioni dei messaggi di notifica sono rappresentate da coppie chiave-valore. A seconda del protocollo utilizzato (MQTT, AMQP o HTTP), le intestazioni dei messaggi verranno serializzate in modo diverso. In questa sezione vengono illustrate le informazioni generali sull'intestazione per i messaggi di notifica, indipendentemente dal protocollo specifico e dalla serializzazione scelta.
 
-Alcune notifiche sono conformi allo standard CloudEvents. La conformità di CloudEvents è la seguente.
+Alcune notifiche sono conformi allo standard [CloudEvents](https://cloudevents.io/) . La conformità di CloudEvents è la seguente.
 * Le notifiche emesse dai dispositivi continuano a seguire le specifiche esistenti per le notifiche
 * Le notifiche elaborate e emesse dall'hub Internet continuano a seguire le specifiche esistenti per la notifica, tranne nel caso in cui l'hub Internet sceglie di supportare CloudEvents, ad esempio tramite griglia di eventi.
 * Notifiche emesse dai dispositivi [gemelli digitali](concepts-twins-graph.md) con un [modello](concepts-models.md) conforme a CloudEvents
@@ -103,11 +103,11 @@ Le notifiche del ciclo di vita vengono attivate nei casi seguenti:
 
 Di seguito sono riportati i campi nel corpo di una notifica del ciclo di vita.
 
-| Nome | Valore |
+| Nome | valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` è univoco per ogni evento distinto. |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della specifica CloudEvents. |
+| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID del dispositivo gemello digitale |
@@ -189,11 +189,11 @@ Le **notifiche di modifica delle relazioni** vengono attivate quando viene creat
 
 Ecco i campi nel corpo di una notifica di modifica del bordo.
 
-| Nome    | Valore |
+| Nome    | valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
 | `source` | Nome dell'istanza di Azure Digital Twins, ad esempio *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della specifica CloudEvents. |
+| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | ID della relazione, ad esempio `<twinID>/relationships/<relationshipID>` |
@@ -245,11 +245,11 @@ Quando si aggiorna un dispositivo gemello digitale, vengono attivate le notifich
 
 Ecco i campi nel corpo di una notifica di modifica del dispositivo gemello digitale.
 
-| Nome    | Valore |
+| Nome    | valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET*
-| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della specifica CloudEvents. |
+| `specversion` | *1,0*<br>Il messaggio è conforme a questa versione della [specifica CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID del dispositivo gemello digitale |

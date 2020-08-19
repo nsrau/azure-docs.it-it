@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare e configurare insiemi di crede
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 244562efdc4c274a79ea27cdfa00dd51ae671fa4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7084fb9b599e127fac2b8c75748448d37d3f5365
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032953"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586189"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
@@ -25,10 +25,10 @@ Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insiem
 >- Se il backup non è ancora stato configurato, [attenersi alla procedura seguente](#set-storage-redundancy) per esaminare e modificare le impostazioni.
 >- Se il backup è già stato configurato e deve essere spostato da GRS a con ridondanza locale, [esaminare queste soluzioni alternative](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali. Nella sezione **Impostazioni** fare clic su **Proprietà**.
-1. In**Proprietà** fare clic su **Aggiornamento** in **Configurazione di backup**.
+1. Dal riquadro insiemi di credenziali dei **servizi di ripristino** selezionare il nuovo insieme di credenziali. Nella sezione **Impostazioni** selezionare  **Proprietà**.
+1. In **Proprietà**, in **configurazione backup**, selezionare **Aggiorna**.
 
-1. Selezionare il tipo di replica di archiviazione e fare clic su **Salva**.
+1. Selezionare il tipo di replica di archiviazione e selezionare **Salva**.
 
      ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -46,7 +46,7 @@ Come una delle opzioni di ripristino, Cross Region Restore (CRR) consente di rip
 - eseguire esercitazioni in caso di requisiti di controllo o di conformità
 - ripristinare la macchina virtuale o il relativo disco in caso di emergenza nell'area primaria.
 
-Per scegliere questa funzionalità, selezionare **Abilita ripristino tra aree** nel pannello **configurazione backup** .
+Per scegliere questa funzionalità, selezionare **Abilita ripristino tra aree** dal riquadro **configurazione backup** .
 
 Per questo processo, esistono implicazioni relative ai prezzi a livello di archiviazione.
 
@@ -62,16 +62,16 @@ Per questo processo, esistono implicazioni relative ai prezzi a livello di archi
 
 ### <a name="configure-cross-region-restore"></a>Configurare il ripristino tra aree
 
-Un insieme di credenziali creato con ridondanza GRS include l'opzione per configurare la funzionalità di ripristino tra aree. Ogni insieme di credenziali GRS avrà un banner, che sarà collegato alla documentazione. Per configurare CRR per l'insieme di credenziali, passare al pannello configurazione backup che contiene l'opzione per abilitare questa funzionalità.
+Un insieme di credenziali creato con ridondanza GRS include l'opzione per configurare la funzionalità di ripristino tra aree. Ogni insieme di credenziali GRS avrà un banner, che sarà collegato alla documentazione. Per configurare CRR per l'insieme di credenziali, passare al riquadro Configurazione backup che contiene l'opzione per abilitare questa funzionalità.
 
  ![Banner di configurazione di backup](./media/backup-azure-arm-restore-vms/banner.png)
 
 1. Dal portale passare a insieme di credenziali di servizi di ripristino > impostazioni > proprietà.
-2. Per abilitare la funzionalità, fare clic su **Abilita ripristino tra aree in questo** insieme di credenziali.
+2. Per abilitare la funzionalità, selezionare **Abilita ripristino tra aree in questo** insieme di credenziali.
 
-   ![Prima di fare clic su Abilita ripristino tra aree in questo insieme di credenziali](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Prima di selezionare Abilita ripristino tra aree in questo insieme di credenziali](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
 
-   ![Dopo aver fatto clic su Abilita ripristino tra aree in questo insieme di credenziali](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![Dopo aver selezionato Abilita ripristino tra aree in questo insieme di credenziali](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
 Informazioni su come [visualizzare gli elementi di backup nell'area secondaria](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
 
@@ -79,9 +79,27 @@ Informazioni su come eseguire [il ripristino nell'area secondaria](backup-azure-
 
 Informazioni su come [monitorare i processi di ripristino dell'area secondaria](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
 
+## <a name="set-encryption-settings"></a>Imposta impostazioni di crittografia
+
+Per impostazione predefinita, i dati nell'insieme di credenziali di servizi di ripristino vengono crittografati usando chiavi gestite dalla piattaforma. Non è richiesta alcuna azione esplicita da parte dell'utente per abilitare questa crittografia e si applica a tutti i carichi di lavoro di cui viene eseguito il backup nell'insieme di credenziali di servizi di ripristino.  È possibile scegliere di importare la propria chiave per crittografare i dati di backup in questo insieme di credenziali. Questa operazione viene definita chiavi gestite dal cliente. Se si vuole crittografare i dati di backup usando una chiave personalizzata, è necessario specificare la chiave di crittografia prima che qualsiasi elemento sia protetto da questo insieme di credenziali. Una volta abilitata la crittografia con la chiave, non può essere invertita.
+
+### <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Configurazione di un insieme di credenziali per la crittografia tramite chiavi gestite dal cliente
+
+Per configurare l'insieme di credenziali per la crittografia con chiavi gestite dal cliente, è necessario seguire questi passaggi nell'ordine seguente:
+
+1. Abilitare l'identità gestita per l'insieme di credenziali di servizi di ripristino
+
+1. Assegnare le autorizzazioni all'insieme di credenziali per accedere alla chiave di crittografia nel Azure Key Vault
+
+1. Abilitare l'eliminazione temporanea e ripulire la protezione sul Azure Key Vault
+
+1. Assegnare la chiave di crittografia all'insieme di credenziali dei servizi di ripristino
+
+Le istruzioni per ognuno di questi passaggi sono disponibili [in questo articolo](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
+
 ## <a name="modifying-default-settings"></a>Modifica delle impostazioni predefinite
 
-Si consiglia vivamente di rivedere le impostazioni predefinite per il **tipo di replica di archiviazione** e **le impostazioni di sicurezza** prima di configurare i backup nell'insieme di credenziali.
+È consigliabile rivedere le impostazioni predefinite di **Tipo di replica di archiviazione** e **Impostazioni di sicurezza** prima di configurare i backup nell'insieme di credenziali.
 
 - Per impostazione predefinita, il **tipo di replica di archiviazione** è impostato su con **ridondanza geografica** (GRS). Dopo aver configurato il backup, l'opzione per la modifica è disabilitata.
   - Se il backup non è ancora stato configurato, [attenersi alla procedura seguente](#set-storage-redundancy) per esaminare e modificare le impostazioni.
@@ -132,7 +150,6 @@ Se è necessario mantenere i dati protetti correnti nell'insieme di credenziali 
   - Dovrai pagare per mantenete i punti di ripristino nell'insieme di credenziali di GRS (vedere [prezzi di backup di Azure](azure-backup-pricing.md) per informazioni dettagliate).
   - Sarà possibile ripristinare la macchina virtuale, se necessario, dall'insieme di credenziali di GRS.
   - Il primo backup nell'insieme di credenziali con ridondanza locale della macchina virtuale nella nuova risorsa sarà una replica iniziale.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

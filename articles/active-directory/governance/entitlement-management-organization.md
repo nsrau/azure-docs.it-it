@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c57f23a5cad2f47311b54728d576eb810ad88a4
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506023"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586572"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -131,6 +131,10 @@ Se non si ha più una relazione con una directory o un dominio di Azure AD ester
     Attualmente, è possibile eliminare un'organizzazione connessa solo se non sono presenti utenti connessi.
 
     ![Pulsante Elimina organizzazione connessa](./media/entitlement-management-organization/organization-delete.png)
+
+## <a name="managing-a-connected-organization-programmatically"></a>Gestione di un'organizzazione connessa a livello di codice
+
+È anche possibile creare, elencare, aggiornare ed eliminare le organizzazioni connesse usando Microsoft Graph. Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per gestire gli oggetti [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) e impostare gli sponsor.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: f9c5de4fb4e38d3f9ccb79c89be988fe0bbebc3c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 95d892bf7a0c0e395289d4a5535cd9b6b789b055
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760295"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565928"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure
 
@@ -28,12 +28,12 @@ Questo articolo illustra come configurare entrambi i tipi di identità gestite p
 
 * [Trigger e azioni che supportano le identità gestite](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 * [Tipi di autenticazione supportati nelle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
-* [Limiti relativi delle identità gestite per le app per la logica](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
+* [Limiti sulle identità gestite per le app per la logica](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Servizi di Azure che supportano l'autenticazione di Azure AD con identità gestite](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). È necessario che l'identità gestita e la risorsa di destinazione di Azure a cui accedere usino la stessa sottoscrizione di Azure.
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). È necessario che l'identità gestita e la risorsa di destinazione di Azure a cui accedere usino la stessa sottoscrizione di Azure.
 
 * Per concedere a un'identità gestita l'accesso a una risorsa di Azure, è necessario aggiungere un ruolo alla risorsa di destinazione per l'identità. Per aggiungere ruoli, sono necessarie le [autorizzazioni di amministratore di Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) che possono assegnare i ruoli alle identità nel tenant di Azure AD corrispondente.
 

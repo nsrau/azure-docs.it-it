@@ -3,14 +3,14 @@ title: Ridimensionamento e hosting di Funzioni di Azure
 description: Scopri come scegliere tra il piano a consumo di funzioni di Azure e il piano Premium.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26924498f32b8aac2e3e7fb5cfd7c1965ee5884f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025829"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587226"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -32,7 +32,7 @@ Per un confronto dettagliato tra i diversi piani di hosting (incluso l'hosting b
 
 ## <a name="consumption-plan"></a>Piano a consumo
 
-Quando si usa il piano a consumo, le istanze dell'host di funzioni di Azure vengono aggiunte e rimosse in modo dinamico in base al numero di eventi in ingresso. Questo piano senza server offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano A consumo, il timeout dell'esecuzione di una funzione si verifica dopo un periodo di tempo configurabile.
+Quando si usa il piano a consumo, le istanze dell'host di funzioni di Azure vengono aggiunte e rimosse in modo dinamico in base al numero di eventi in ingresso. Questo piano serverless offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano A consumo, il timeout dell'esecuzione di una funzione si verifica dopo un periodo di tempo configurabile.
 
 La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. La fatturazione viene aggregata tra tutte le funzioni all'interno di un'app per le funzioni. Per altre informazioni, vedere la [pagina relativa ai prezzi per Funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/).
 
@@ -86,7 +86,7 @@ Quando si eseguono funzioni JavaScript in un piano di servizio app, è necessari
 
 L'esecuzione in un [ambiente del servizio app](../app-service/environment/intro.md) (ASE) consente di isolare completamente le funzioni e sfruttare i vantaggi offerti dalla scalabilità elevata.
 
-### <a name="always-on"></a><a name="always-on"></a>Always On
+### <a name="always-on"></a><a name="always-on"></a> Always On
 
 Se si esegue in un piano di servizio app, è necessario abilitare l'impostazione **Always on in** modo che l'app per le funzioni venga eseguita correttamente. In un piano di servizio app il runtime delle funzioni risulta inattivo dopo pochi minuti di inattività. Solo i trigger HTTP "attiveranno" quindi le funzioni. L'opzione Always on è disponibile solo nel piano di servizio app. In un piano a consumo, la piattaforma attiva automaticamente le app per le funzioni.
 
@@ -144,11 +144,19 @@ Dopo che l'app per le funzioni è rimasta inattiva per un certo numero di minuti
 
 Il ridimensionamento può variare in base a numerosi fattori e comportarsi diversamente a seconda del trigger e della lingua selezionati. È necessario tenere presenti alcune complessità dei comportamenti di ridimensionamento:
 
-* Una singola app per le funzioni è scalabile solo a un massimo di 200 istanze. Una singola istanza può elaborare più di un messaggio o più di una richiesta alla volta. Pertanto, non esiste alcun limite per quanto riguarda il numero di esecuzioni parallele.
+* Una singola app per le funzioni è scalabile solo a un massimo di 200 istanze. Una singola istanza può elaborare più di un messaggio o più di una richiesta alla volta. Pertanto, non esiste alcun limite per quanto riguarda il numero di esecuzioni parallele.  È possibile [specificare un valore massimo inferiore](#limit-scale-out) per limitare la scalabilità secondo le esigenze.
 * Per i trigger HTTP, le nuove istanze vengono allocate al massimo una volta al secondo.
 * Per i trigger non HTTP, le nuove istanze vengono allocate al massimo una volta ogni 30 secondi. La scalabilità è più veloce quando viene eseguita in un [piano Premium](#premium-plan).
 * Per i trigger del bus di servizio, usare _Gestisci_ diritti sulle risorse per il ridimensionamento più efficiente. Con i diritti di _ascolto_ , il ridimensionamento non è accurato perché la lunghezza della coda non può essere usata per informare le decisioni di scalabilità. Per altre informazioni sull'impostazione dei diritti nei criteri di accesso del bus di servizio, vedere [criteri di autorizzazione dell'accesso condiviso](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 * Per i trigger dell'hub eventi, vedere le [linee guida per la scalabilità](functions-bindings-event-hubs-trigger.md#scaling) nell'articolo di riferimento. 
+
+### <a name="limit-scale-out"></a>Limitare la scalabilità orizzontale
+
+È possibile limitare il numero di istanze a cui viene scalata un'app.  Questa operazione è più comune nei casi in cui un componente downstream come un database ha una velocità effettiva limitata.  Per impostazione predefinita, le funzioni del piano a consumo aumenteranno fino a un numero di istanze pari a 200, mentre le funzioni del piano Premium aumenteranno fino a un numero di istanze pari a 100.  È possibile specificare un valore massimo inferiore per un'app specifica modificando il `functionAppScaleLimit` valore.  Il `functionAppScaleLimit` valore di può essere impostato su 0 o null per senza restrizioni oppure su un valore valido compreso tra 1 e il valore massimo dell'app.
+
+```azurecli
+az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <function_app_name>/config/web --set properties.functionAppScaleLimit=<scale_limit>
+```
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedure consigliate e modelli per app scalabili
 

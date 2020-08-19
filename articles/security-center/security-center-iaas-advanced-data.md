@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043870"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566268"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Sicurezza avanzata dei dati per i computer SQL (anteprima)
 
@@ -57,7 +57,7 @@ Entrambi sono descritti di seguito.
     - **Connettere il computer Windows senza Azure Arc** : se si sceglie di connettere un SQL Server in esecuzione in un computer Windows senza usare Azure Arc, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-### <a name="step-2-enable-the-optional-bundle-in-security-centers-pricing-and-settings-page"></a>Passaggio 2: Abilitare il bundle facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
+### <a name="step-2-enable-the-optional-bundle-in-security-centers-pricing-and-settings-page"></a>Passaggio 2. Abilitare il bundle facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
 
 1. Dalla barra laterale del Centro sicurezza, aprire la pagina **impostazioni & prezzi** .
 
@@ -72,7 +72,7 @@ Entrambi sono descritti di seguito.
 
     [![Pagina dei prezzi del Centro sicurezza con Bundle facoltativi](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    La protezione avanzata dei dati per SQL Server nei computer verrà abilitata in tutti i server SQL connessi all'area di lavoro selezionata. La protezione sarà completamente attiva dopo il primo riavvio del SQL Server. 
+    La protezione avanzata dei dati per SQL Server nei computer verrà abilitata in tutti i server SQL connessi all'area di lavoro selezionata. La protezione sarà completamente attiva dopo il primo riavvio dell'istanza di SQL Server.
 
     >[!TIP] 
     > Per creare una nuova area di lavoro, seguire le istruzioni riportate in [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).

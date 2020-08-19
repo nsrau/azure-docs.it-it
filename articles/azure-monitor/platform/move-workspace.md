@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770799"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566285"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
@@ -39,7 +39,10 @@ Soluzioni che devono essere rimosse prima di poter scollegare l'account di autom
 - Centro sicurezza di Azure
 
 >[!IMPORTANT]
-> - Una volta abilitata in un'area di lavoro, Azure Sentinel non **supporta attualmente** lo stato di trasferimento dell'area di lavoro ad altri gruppi di risorse o sottoscrizioni. Se è necessario spostare l'area di lavoro, contattare [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
+> **Clienti di Azure Sentinel:**
+> - Una volta distribuita in un'area di lavoro, Azure Sentinel non **supporta attualmente** lo stato di trasferimento dell'area di lavoro ad altri gruppi di risorse o sottoscrizioni. 
+>
+>   Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Questa operazione dovrebbe essere efficace nella maggior parte dei casi, tuttavia, per ripetere l'iterazione, non è supportata e non è stata eseguita a proprio rischio.
 
 ### <a name="delete-solutions-in-azure-portal"></a>Eliminare soluzioni in portale di Azure
 Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azure:

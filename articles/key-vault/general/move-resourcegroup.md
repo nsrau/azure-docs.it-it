@@ -7,16 +7,16 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
-ms.openlocfilehash: bbc27af9eb448911093473d6ab20fde8004c7b88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe8051d551077666c06ac033f22303fd643ac602
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099586"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585734"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Trasferimento di una Azure Key Vault tra gruppi di risorse
 
@@ -32,7 +32,7 @@ Lo stato di un insieme di credenziali delle chiavi tra gruppi di risorse è una 
 
 Si dispone di un'applicazione connessa a Key Vault che crea certificati validi per due anni. Il gruppo di risorse in cui si tenta di spostare l'insieme di credenziali delle chiavi è associato a un'assegnazione di criteri che blocca la creazione di certificati validi per più di un anno. Dopo aver spostato l'insieme di credenziali delle chiavi nel nuovo gruppo di risorse, l'operazione di creazione di un certificato valido per due anni verrà bloccata da un'assegnazione di criteri di Azure.
 
-### <a name="solution"></a>Solution
+### <a name="solution"></a>Soluzione
 
 Assicurarsi di passare alla pagina Criteri di Azure nella portale di Azure ed esaminare le assegnazioni dei criteri per il gruppo di risorse corrente, nonché il gruppo di risorse in cui si sta effettuando il passaggio e assicurarsi che non ci siano mancate corrispondenze.
 

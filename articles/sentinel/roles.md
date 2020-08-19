@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836769"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565843"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Sentinel di Azure
 
@@ -59,6 +59,10 @@ Sono disponibili tre ruoli predefiniti Sentinel di Azure.
 - Connessione di origini dati ad Azure Sentinel
 
     Per aggiungere **connettori dati**, è necessario assegnare le autorizzazioni di scrittura utente nell'area di lavoro di Azure Sentinel. Si notino anche le autorizzazioni aggiuntive necessarie per ogni connettore, come elencato nella pagina del connettore pertinente.
+
+- Utenti guest che assegnano eventi imprevisti
+
+    Se un utente guest deve essere in grado di assegnare gli eventi imprevisti, oltre al ruolo Risponditore sentinella di Azure, è necessario che all'utente sia assegnato anche il ruolo di [lettore di directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Si noti che questo ruolo *non* è un ruolo di controllo degli accessi in base al ruolo di Azure, ma un ruolo **Azure Active Directory** e che questo ruolo è assegnato per impostazione predefinita a utenti regolari (non Guest). 
 
 Per un confronto affiancato, vedere la [tabella seguente](#roles-and-allowed-actions).
 

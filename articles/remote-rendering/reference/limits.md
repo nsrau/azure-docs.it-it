@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 5c4c6be7c8a6287c5a8ec6a60121751ff9fc0dc9
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: af935aeaaeee11ab50b327b7f7b5b77246cb974b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509228"
+ms.locfileid: "88566047"
 ---
 # <a name="limitations"></a>Limitazioni
 
@@ -46,7 +46,6 @@ Per informazioni più dettagliate su questa limitazione, vedere il capitolo [dim
 
 **Windows 10 Desktop**
 
-* UWP/x86 è l'unica piattaforma UWP supportata. La piattaforma UWP/x64 non è supportata.
 * Win32/x64 è l'unica piattaforma Win32 supportata. Win32/x86 non è supportato.
 
 **Hololens 2**

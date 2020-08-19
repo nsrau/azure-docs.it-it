@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 40485014d819026c6fbc1f82da57c494f7a6a182
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: dd0a9bf69a3b5a6a17d91f0521bebd0fc78f606f
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272593"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566217"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Guida di riferimento per gli avvisi di sicurezza
 
@@ -283,7 +283,6 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 | **Accesso da una posizione insolita**             | È stata riscontrata una modifica nel modello di accesso a SQL Server, quando un utente ha effettuato l'accesso al server da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).                                                                                             | Sfruttamento                       | Media   |
 | **Potenziale tentativo di attacco di forza bruta a SQL**           | Si è verificato un numero insolitamente elevato di tentativi di accesso non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.                                                                                                                                                                                                                      | Esecuzione del probe                            | Alto     |
 | **Potenziale attacco SQL injection**                     | Si è verificato un exploit attivo contro un'applicazione identificata vulnerabile a SQL injection. Ciò significa che un utente malintenzionato sta cercando di inserire istruzioni SQL dannose usando codice dell'applicazione o stored procedure vulnerabili.                                                                                                                                                                                                            | -                                  | Alto     |
-| **Azione potenzialmente non sicura**                   | Un comando SQL con privilegi elevati, comunemente usato in sessioni dannose, è stato eseguito in SQL Server. Per impostazione predefinita, è consigliabile disabilitare questi comandi. In alcuni casi, l'avviso rileva un'azione legittima (esecuzione di script di amministrazione). In altri casi, l'avviso rileva un'azione dannosa (un utente malintenzionato che usa trust SQL per violare il livello Windows).                                                                               | Esecuzione                          | Alto     |
 | **Percorso di esportazione insolito**                     | È stata riscontrata una modifica nella destinazione di archiviazione di esportazione per un'operazione di importazione ed esportazione SQL. In alcuni casi, l'avviso rileva una modifica legittima (nuova destinazione di backup). In altri casi, l'avviso rileva un'azione dannosa (un utente malintenzionato ha sottratto dati in un file).                                                                                                                                                          | Esfiltrazione                       | Alto     |
 |                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                    |          |
 

@@ -1,20 +1,20 @@
 ---
 title: 'Azure Cosmos DB: API Python, risorse e SDK per SQL'
 description: Informazioni complete sull'SDK e sull'API Python per SQL, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB Python SDK.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 44d9521e9d02195cb1d4ff61fd519f31ce9c0018
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876258"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585985"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Python SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 
@@ -27,7 +27,8 @@ ms.locfileid: "87876258"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spring data V2](sql-api-sdk-java-spring-v2.md)
+> * [Spring data V3](sql-api-sdk-java-spring-v3.md)
 > * [Connettore Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -45,6 +46,20 @@ ms.locfileid: "87876258"
 |**Piattaforma attualmente supportata**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3 e versioni successive](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Cronologia delle versioni
+
+### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+
+- Aggiunta dell'avviso di deprecazione per la modalità di indicizzazione "Lazy". Il back-end non consente più la creazione di contenitori con questa modalità e li imposterà su coerente.
+
+**Nuove funzionalità**
+- È stata aggiunta la possibilità di impostare la durata (TTL) di archiviazione analitica quando si crea un nuovo contenitore.
+
+**Correzioni di bug**
+- Correzione del supporto per le dicti come input per le API get_client.
+- Correzione della compatibilità con Python 2/3 negli iteratori di query.
+- Errore di hint di tipo fixed (problema #12570).
+- Correzione del bug per cui le intestazioni delle opzioni non sono state aggiunte alla funzione upsert_item. Problema #11791 @aalapatirvbd . grazie.
+- Correzione dell'errore generato quando un ID non stringa viene utilizzato in un elemento. Genera ora TypeError anziché AttributeError (Issue #11793).
 
 ### <a name="400"></a>4.0.0
 

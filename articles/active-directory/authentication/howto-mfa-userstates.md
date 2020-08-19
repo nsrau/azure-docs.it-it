@@ -5,53 +5,55 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 08/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d949f4b10bc6b7b592556d78edfcf02a05ec7144
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417931"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565775"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Abilitare Azure Multi-Factor Authentication per singolo utente per proteggere gli eventi di accesso
 
-Esistono due modi per proteggere gli eventi di accesso degli utenti richiedendo l'autenticazione a più fattori in Azure AD. La prima opzione, quella preferita, è configurare un criterio di accesso condizionale che richieda l'autenticazione a più fattori in determinate condizioni. La seconda opzione è abilitare ogni utente ad Azure Multi-Factor Authentication. Quando gli utenti sono abilitati individualmente, effettuano l'autenticazione a più fattori a ogni accesso (con alcune eccezioni, come quando l'accesso viene effettuato da indirizzi IP attendibili o quando la funzione _dispositivi memorizzati_ è attiva).
+Per proteggere gli eventi di accesso degli utenti in Azure AD, è possibile richiedere l'autenticazione a più fattori. L'abilitazione di Azure Multi-Factor Authentication usando i criteri di accesso condizionale è l'approccio consigliato per proteggere gli utenti. L'accesso condizionale è una funzionalità Azure AD Premium P1 o P2 che consente di applicare le regole per richiedere l'autenticazione a più fattori in base alle esigenze in determinati scenari. Per iniziare a usare l'accesso condizionale, vedere l'[esercitazione: Proteggere gli eventi di accesso degli utenti con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-> [!NOTE]
-> L'approccio consigliato consiste nell'abilitare Azure Multi-Factor Authentication con i criteri di accesso condizionale. La modifica degli stati dell'utente non è più consigliata, a meno che le licenze non includano l'accesso condizionale in quanto richiede agli utenti di eseguire l'autenticazione a più fattori ogni volta che accedono. Per iniziare a usare l'accesso condizionale, vedere l'[esercitazione: Proteggere gli eventi di accesso degli utenti con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+Per Azure AD tenant gratuiti senza accesso condizionale, è possibile [usare le impostazioni predefinite di sicurezza per proteggere gli utenti](../fundamentals/concept-fundamentals-security-defaults.md). Agli utenti viene richiesto di usare l'autenticazione a più fattori in base alle esigenze, ma non è possibile definire regole personalizzate per controllare il comportamento.
+
+Se necessario, è invece possibile abilitare ogni account per Multi-Factor Authentication Azure per utente. Quando gli utenti sono abilitati singolarmente, eseguono l'autenticazione a più fattori ogni volta che accedono (con alcune eccezioni, ad esempio quando accedono da indirizzi IP attendibili o quando la funzionalità memorizza l'autenticazione a più fattori _su dispositivi attendibili_ è attivata).
+
+La modifica degli stati utente non è consigliata, a meno che le licenze Azure AD non includano l'accesso condizionale e non si desideri usare le impostazioni predefinite di sicurezza. Per altre informazioni sulle diverse modalità di abilitazione dell'autenticazione a più fattori, vedere [funzionalità e licenze per Azure multi-factor authentication](concept-mfa-licensing.md).
+
+> [!IMPORTANT]
 >
-> Per Azure AD tenant gratuiti senza accesso condizionale, è possibile [usare le impostazioni predefinite di sicurezza per proteggere gli utenti](../fundamentals/concept-fundamentals-security-defaults.md).
+> Questo articolo illustra come visualizzare e modificare lo stato per Multi-Factor Authentication Azure per utente. Se si usa l'accesso condizionale o i valori predefiniti di sicurezza, non è possibile esaminare o abilitare gli account utente seguendo questa procedura.
+>
+> Abilitando Azure Multi-Factor Authentication tramite un criterio di accesso condizionale lo stato dell'utente non viene modificato. Non allarmarsi se gli utenti sembrano essere disabilitati. L'accesso condizionale non modifica lo stato.
+>
+> **Non abilitare o applicare Multi-Factor Authentication di Azure per utente se si usano i criteri di accesso condizionale.**
 
 ## <a name="azure-multi-factor-authentication-user-states"></a>Stati degli utenti di Azure Multi-Factor Authentication
 
-Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
+Lo stato di un utente indica se un amministratore ha registrato tali utenti in Multi-Factor Authentication di Azure per utente. Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-> [!IMPORTANT]
-> Abilitando Azure Multi-Factor Authentication tramite un criterio di accesso condizionale lo stato dell'utente non viene modificato. Non allarmarsi se gli utenti sembrano essere disabilitati. L'accesso condizionale non modifica lo stato.
->
-> **Se si usano criteri di accesso condizionale, non è necessario abilitare o applicare gli utenti.**
-
-| Stato | Descrizione | App interessate non basate su browser | App interessate basate su browser | Autenticazione moderna interessata |
+| State | Descrizione | Autenticazione legacy interessata | App interessate basate su browser | Autenticazione moderna interessata |
 |:---:| --- |:---:|:--:|:--:|
-| Disabled | Lo stato predefinito di un nuovo utente non registrato in Azure Multi-Factor Authentication. | No | No | No |
-| Attivato | L'utente è stato iscritto in Azure Multi-Factor Authentication, ma non ha registrato metodi di autenticazione. Viene richiesto di eseguire la registrazione al successivo accesso. | No.  Continuano a funzionare fino al completamento della registrazione. | Sì. Allo scadere della sessione è richiesta la registrazione ad Azure Multi-Factor Authentication.| Sì. Allo scadere del token di accesso è richiesta la registrazione ad Azure Multi-Factor Authentication. |
-| Enforced | L'utente è stato registrato e ha completato la procedura di registrazione per Azure Multi-Factor Authentication. | Sì. Le app richiedono password per le app. | Sì. Azure Multi-Factor Authentication è richiesto all'accesso. | Sì. Azure Multi-Factor Authentication è richiesto all'accesso. |
+| Disabled | Lo stato predefinito per un utente non registrato in Multi-Factor Authentication di Azure per utente. | No | No | No |
+| Attivato | L'utente è registrato nel Multi-Factor Authentication di Azure per utente, ma può comunque usare la password per l'autenticazione legacy. Se l'utente non ha ancora registrato i metodi di autenticazione a più fattori, riceve una richiesta di registrazione al successivo accesso usando l'autenticazione moderna, ad esempio tramite un Web browser. | No. L'autenticazione legacy continua a funzionare fino al completamento del processo di registrazione. | Sì. Allo scadere della sessione è richiesta la registrazione ad Azure Multi-Factor Authentication.| Sì. Allo scadere del token di accesso è richiesta la registrazione ad Azure Multi-Factor Authentication. |
+| Enforced | L'utente è registrato per utente in Multi-Factor Authentication di Azure. Se l'utente non ha ancora registrato i metodi di autenticazione, riceve una richiesta di registrazione al successivo accesso usando l'autenticazione moderna, ad esempio tramite un Web browser. Gli utenti che completano la registrazione in stato *abilitato* vengono spostati automaticamente nello stato *applicato* . | Sì. Le app richiedono password per le app. | Sì. Al momento dell'accesso è necessario Multi-Factor Authentication di Azure. | Sì. Al momento dell'accesso è necessario Multi-Factor Authentication di Azure. |
 
-Lo stato di un utente indica se un amministratore lo ha registrato in Azure Multi-Factor Authentication e se l'utente ha completato la procedura di registrazione.
-
-Tutti gli utenti iniziano con *Disabilitato*. Quando si registrano gli utenti in Azure Multi-Factor Authentication, il relativo stato si modifica in *Abilitato*. Quando gli utenti abilitati accedono e completano il processo di registrazione, il relativo stato viene modificato in *Applicato*.
+Tutti gli utenti iniziano con *Disabilitato*. Quando si registrano gli utenti in Multi-Factor Authentication di Azure per utente, il relativo stato diventa *attivato*. Quando gli utenti abilitati accedono e completano il processo di registrazione, il relativo stato viene modificato in *Applicato*. Gli amministratori possono spostare gli utenti tra gli Stati, inclusi quelli da *applicare* a *abilitato* o *disabilitato*.
 
 > [!NOTE]
-> Se si abilita nuovamente MFA su un oggetto utente che già presenta alcuni dettagli di registrazione, come numero di telefono o indirizzo di posta elettronica, gli amministratori devono chiedere all'utente di effettuare nuovamente la registrazione a Microsoft Azure Multi-Factor Authentication tramite il portale di Azure o PowerShell. Se l'utente non effettua nuovamente la registrazione, lo stato di MFA non passa da *Abilitato* ad *Applicato* nell'interfaccia utente di gestione di MFA.
+> Se l'autenticazione a più fattori per utente viene riabilitata per un utente e l'utente non esegue di nuovo la registrazione, il loro stato di autenticazione a più fattori non passa da *abilitato* a *applicato* nell'interfaccia utente di gestione dell'autenticazione a più fattori L'amministratore deve spostare l'utente direttamente in *applicato*.
 
 ## <a name="view-the-status-for-a-user"></a>Visualizzare lo stato di un utente
 
-Per accedere alla pagina del portale di Azure in cui è possibile visualizzare e gestire gli stati utente, procedere come segue:
+Per visualizzare e gestire gli stati utente, completare i passaggi seguenti per accedere alla pagina portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
 1. Cercare e selezionare *Azure Active Directory*, quindi selezionare **Utenti** > **Tutti gli utenti**.
@@ -61,16 +63,16 @@ Per accedere alla pagina del portale di Azure in cui è possibile visualizzare e
 
 ## <a name="change-the-status-for-a-user"></a>Modificare lo stato di un utente
 
-Per modificare lo stato di un utente di Azure Multi-Factor Authentication, completare i passaggi seguenti:
+Per modificare lo stato di Azure Multi-Factor Authentication per utente per un utente, seguire questa procedura:
 
-1. Usare la procedura precedente per visualizzare la pagina **utenti** di Azure Multi-Factor Authentication.
-1. Trovare l'utente che si desidera abilitare ad Azure Multi-Factor Authentication. Potrebbe essere necessario modificare la visualizzazione nella parte superiore impostandola su **utenti**.
+1. Usare i passaggi precedenti per [visualizzare lo stato di un utente](#view-the-status-for-a-user) per ottenere la pagina **utenti** di Azure multi-factor authentication.
+1. Trovare l'utente che si vuole abilitare per Multi-Factor Authentication Azure per utente. Potrebbe essere necessario modificare la visualizzazione nella parte superiore impostandola su **utenti**.
    ![Selezionare l'utente per cui modificare lo stato dalla scheda utenti](./media/howto-mfa-userstates/enable1.png)
 1. Selezionare la casella accanto ai nomi degli utenti di cui si vuole modificare lo stato.
 1. A destra, sotto **Azioni rapide**, scegliere **Abilita** o **Disabilita**. Nell'esempio seguente l'utente *John Smith* presenta un segno di spunta a fianco del nome ed è abilitato per l'uso: ![Per abilitare l'utente selezionato, fare clic su Abilita nel menu Azioni rapide](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
-   > Gli utenti *abilitati* diventano automaticamente *Applicati* quando si registrano ad Azure Multi-Factor Authentication. Non modificare manualmente lo stato utente in *Applicato*.
+   > Gli utenti *abilitati* diventano automaticamente *Applicati* quando si registrano ad Azure Multi-Factor Authentication. Non modificare manualmente lo stato *utente per impostarlo, a meno* che l'utente non sia già registrato o se è accettabile che l'utente sperimenti le interruzioni nelle connessioni ai protocolli di autenticazione legacy.
 
 1. Confermare la selezione nella finestra popup che viene visualizzata.
 
@@ -84,7 +86,7 @@ Per modificare lo stato utente usando [Azure AD PowerShell](/powershell/azure/) 
 * *Applicato*
 * *Disabilitato*  
 
-Un utente non può essere spostato direttamente sullo stato *Applicato*. Se si esegue questa operazione, le app non basate su browser smettono di funzionare poiché l'utente non ha effettuato la registrazione ad Azure Multi-Factor Authentication e non ha ottenuto una [password delle app](howto-mfa-app-passwords.md).
+In generale, non spostare gli utenti direttamente nello stato *applicato* , a meno che non siano già registrati per l'autenticazione a più fattori. In tal caso, le app di autenticazione legacy smetteranno di funzionare perché l'utente non ha eseguito la registrazione Multi-Factor Authentication di Azure e ha ottenuto una [password dell'app](howto-mfa-app-passwords.md). In alcuni casi è possibile che si desideri questo comportamento, ma influisca sull'esperienza utente fino a quando l'utente non si registra.
 
 Per iniziare, installare il modulo *MSOnline* usando [Install-Module](/powershell/module/powershellget/install-module) come segue:
 
@@ -138,7 +140,7 @@ Get-MsolUser -UserPrincipalName bsimon@contoso.com | Set-MsolUser -StrongAuthent
 Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements @()
 ```
 
-## <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Convertire gli utenti dall'autenticazione a più fattori per singolo utente all'autenticazione a più fattori basata sull'accesso condizionale
+## <a name="convert-users-from-per-user-mfa-to-conditional-access"></a>Convertire gli utenti dall'autenticazione a più fattori per utente all'accesso condizionale
 
 Lo script di PowerShell seguente consente di eseguire la conversione all'autenticazione a più fattori di Azure basata sull'accesso condizionale.
 
@@ -177,11 +179,11 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Se si abilita nuovamente MFA su un oggetto utente che già presenta alcuni dettagli di registrazione, come numero di telefono o indirizzo di posta elettronica, gli amministratori devono chiedere all'utente di effettuare nuovamente la registrazione a Microsoft Azure Multi-Factor Authentication tramite il portale di Azure o PowerShell. Se l'utente non effettua nuovamente la registrazione, lo stato di MFA non passa da *Abilitato* ad *Applicato* nell'interfaccia utente di gestione di MFA.
+> Se l'autenticazione a più fattori viene riabilitata per un utente e l'utente non esegue di nuovo la registrazione, il relativo stato di autenticazione a più fattori non viene sottoposto a transizione da *abilitato* a *applicato* nell'interfaccia utente di gestione In questo caso, l'amministratore deve spostare l'utente direttamente in *applicato*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare le impostazioni di Azure Multi-Factor Authentication, vedere [configurare le impostazioni di azure multi-factor authentication](howto-mfa-mfasettings.md).
+Per configurare le impostazioni di Azure Multi-Factor Authentication, vedere  [configurare le impostazioni di azure multi-factor authentication](howto-mfa-mfasettings.md).
 
 Per la gestione delle impostazioni utente per Azure Multi-Factor Authentication, vedere l'articolo [Gestire le impostazioni utente con Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 07/21/2020
-ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/14/2020
+ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325067"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586813"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Panoramica del modello vCore: database SQL di Azure e Istanza gestita SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,7 +38,7 @@ Le opzioni del livello di servizio nel modello vCore includono per utilizzo gene
 |IOPS e velocità effettiva (approssimativa)|**Database SQL**: vedere i limiti delle risorse per i [database singoli](resource-limits-vcore-single-databases.md) e i [pool elastici](resource-limits-vcore-elastic-pools.md).<br/>**Istanza gestita SQL**: vedere [Panoramica dei limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
 |Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 [repliche con scalabilità in lettura](read-scale-out.md)|
 |Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
-|In memoria|Non supportato|Supportato|Non supportato|
+|In memoria|Non supportate|Supportato|Non supportate|
 |||
 
 
@@ -100,14 +100,14 @@ To enable M-series hardware for a subscription and region, a support request mus
 ### <a name="compute-and-memory-specifications"></a>Specifiche di calcolo e memoria
 
 
-|Generazione dell'hardware  |Calcolo  |Memory  |
+|Generazione dell'hardware  |Calcolo  |Memoria  |
 |:---------|:---------|:---------|
-|Quarta generazione     |-Processori Intel E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
-|Quinta generazione     |**Calcolo con provisioning**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake) *<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake) *<br>-Scalabilità automatica fino a 16 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 48 GB max|
-|Serie Fsv2     |-Processori Intel Xeon Platinum 8168 (Skylake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning fino a 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Effettuare il provisioning fino a 136 GB|
-|Serie M     |-Intel Xeon E7-8890 V3 2,5 GHz e processori Intel Xeon Platinum 8280M 2,7 GHz (Cascade Lake)<br>-Provisioning fino a 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Effettuare il provisioning fino a 3,7 TB|
+|Quarta generazione     |-Processori Intel® E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
+|Quinta generazione     |**Calcolo con provisioning**<br>-Intel® E5-2673 V4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) \* e intel® 8272CL (Cascade Lake) 2,5 GHz \* Processor<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel® E5-2673 V4 (Broadwell) a 2,3 GHz e Intel® SP-8160 (Skylake) *<br>-Scalabilità automatica fino a 40 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 120 GB max|
+|Serie Fsv2     |-Processori Intel® 8168 (Skylake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning fino a 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Effettuare il provisioning fino a 136 GB|
+|Serie M     |-Intel® E7-8890 V3 2,5 GHz e processori Intel® 8280M 2,7 GHz (Cascade Lake)<br>-Provisioning fino a 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Effettuare il provisioning fino a 3,7 TB|
 
-\*Nella vista a gestione dinamica [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) la generazione hardware per i database quinta generazione con processori Intel SP-8160 (Skylake) viene visualizzata come Gen6. I limiti delle risorse per tutti i database quinta generazione sono gli stessi indipendentemente dal tipo di processore (Broadwell o Skylake).
+\* Nella vista a gestione dinamica [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) la generazione di hardware per i database che usano processori Intel® SP-8160 (Skylake) viene visualizzata come Gen6, mentre la generazione hardware per i database che usano Intel® 8272CL (Cascade Lake) viene visualizzata come GEN7. I limiti delle risorse per tutti i database quinta generazione sono gli stessi indipendentemente dal tipo di processore (Broadwell, Skylake o Cascade Lake).
 
 Per altre informazioni sui limiti delle risorse, vedere [limiti delle risorse per i database singoli (vCore)](resource-limits-vcore-single-databases.md)o [limiti delle risorse per i pool elastici (vCore)](resource-limits-vcore-elastic-pools.md).
 
@@ -180,7 +180,7 @@ Per altri dettagli, vedere comando [AZ SQL mi Update](https://docs.microsoft.com
 
 ### <a name="hardware-availability"></a>Disponibilità hardware
 
-#### <a name="gen4gen5"></a><a name="gen4gen5-1"></a>Gen4/quinta generazione
+#### <a name="gen4gen5"></a><a name="gen4gen5-1"></a> Gen4/quinta generazione
 
 L'hardware Gen4 viene eliminato e non è più disponibile per [le](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) nuove distribuzioni. Tutti i nuovi database devono essere distribuiti nell'hardware quinta generazione.
 

@@ -1,17 +1,17 @@
 ---
 title: Informazioni sull'archivio chiave-valore di configurazione app Azure
-description: Informazioni sul modo in cui i dati di configurazione vengono archiviati nella configurazione app Azure.
+description: Informazioni sull'archiviazione chiave-valore nella configurazione app Azure, che archivia i dati di configurazione come valori chiave. I valori di chiave sono una rappresentazione delle impostazioni dell'applicazione.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 9a0ed747ea0c894214a633bdbc8141e95e95b5fb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b1998532c3d9e4272d91280d57d9ea2f6e7a262c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830037"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586393"
 ---
 # <a name="keys-and-values"></a>Chiavi e valori
 

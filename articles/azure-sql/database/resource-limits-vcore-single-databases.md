@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117023"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566183"
 ---
-# <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto vCore
+# <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questo articolo fornisce i limiti dettagliati delle risorse per i singoli database nel database SQL di Azure usando il modello di acquisto vCore.
@@ -50,7 +50,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|320|640|1280|1920|2560|
-|Velocità massima log (MBps)|3.8|7,5|15|22,5|30|
+|Velocità massima log (MBps)|3.8|7.5|15|22,5|30|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|75|150|300|450|600|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|
@@ -58,7 +58,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generazione di calcolo quinta generazione (parte 2)
 
@@ -84,7 +84,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-3"></a>Generazione calcolo quinta generazione (parte 3)
 
@@ -97,7 +97,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|3072|3072|4096|4096|4096|
-|Dimensioni massime del log (GB)|922|922|1229|1229|1229|
+|Dimensioni massime del log (GB)|922|922|1024|1024|1024|
 |Dimensioni massime dati TempDB (GB)|576|640|768|1024|1280|
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
@@ -110,7 +110,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 
 ## <a name="hyperscale---provisioned-compute---gen4"></a>Calcolo con provisioning iperscalare-Gen4
@@ -140,7 +140,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Conservazione dell'archiviazione di backup|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|
 |||
 
-\*Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen4-compute-generation-part-2"></a>Generazione di calcolo Gen4 (parte 2)
 
@@ -167,7 +167,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Conservazione dell'archiviazione di backup|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|
 |||
 
-\*Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ## <a name="hyperscale---provisioned-compute---gen5"></a>Calcolo con provisioning iperscalare-quinta generazione
 
@@ -177,7 +177,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
+|Memoria (GB)|10.4|20,8|31,1|41,5|51,9|62,3|72,7|
 |[RBPEX](service-tier-hyperscale.md#compute) Dimensioni|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -196,7 +196,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Conservazione dell'archiviazione di backup|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|
 |||
 
-\*Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generazione di calcolo quinta generazione (parte 2)
 
@@ -223,7 +223,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Conservazione dell'archiviazione di backup|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|7 giorni|
 |||
 
-\*Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### <a name="notes"></a>Note
 
@@ -251,7 +251,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|320|640|960|1280|1600|1920|
-|Velocità massima log (MBps)|3,75|7,5|11,25|15|18,75|22,5|
+|Velocità massima log (MBps)|3,75|7.5|11,25|15|18,75|22,5|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|1|
@@ -259,7 +259,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen4-compute-generation-part-2"></a>Generazione di calcolo Gen4 (parte 2)
 
@@ -284,7 +284,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Calcolo per utilizzo generico-quinta generazione
 
@@ -294,7 +294,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
+|Memoria (GB)|10.4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -303,7 +303,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|640|1280|1920|2560|3200|3840|4480|
-|Velocità massima log (MBps)|7,5|15|22,5|30|30|30|30|
+|Velocità massima log (MBps)|7.5|15|22,5|30|30|30|30|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|1|1|
@@ -311,7 +311,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generazione di calcolo quinta generazione (parte 2)
 
@@ -323,7 +323,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
-|Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
+|Dimensioni massime del log (GB)|922|922|922|1024|1024|1024|1024|
 |Dimensioni massime dati TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
@@ -336,7 +336,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Fsv2-serie di calcolo con provisioning per utilizzo generico
 
@@ -364,7 +364,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="fsv2-series-compute-generation-part-2"></a>Generazione di calcolo della serie Fsv2 (parte 2)
 
@@ -390,7 +390,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Calcolo con provisioning critico per il business-Gen4
 
@@ -421,7 +421,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen4-compute-generation-part-2"></a>Generazione di calcolo Gen4 (parte 2)
 
@@ -447,7 +447,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---gen5"></a>Calcolo con provisioning critico per il business-quinta generazione
 
@@ -457,7 +457,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
+|Memoria (GB)|10.4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|1,57|3,14|4,71|6,28|8,65|11,02|13,39|
 |Dimensioni massime dei dati (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -475,7 +475,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generazione di calcolo quinta generazione (parte 2)
 
@@ -487,7 +487,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|15,77|18,14|20,51|25,25|37,94|52,23|131.64|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
-|Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
+|Dimensioni massime del log (GB)|922|922|922|1024|1024|1024|1024|
 |Dimensioni massime dati TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
@@ -501,7 +501,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Business critical-serie di calcolo con provisioning-M
 
@@ -529,7 +529,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).
@@ -558,7 +558,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\*Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).

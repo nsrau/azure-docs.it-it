@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8e0f0b37dd429578194c18e5a9a1f063b74fb693
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506533"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587600"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -37,18 +37,22 @@ Per creare un dispositivo gemello digitale, è necessario fornire:
 
 Facoltativamente, è possibile fornire i valori iniziali per tutte le proprietà del dispositivo gemello digitale. 
 
-Il modello e i valori delle proprietà iniziali vengono forniti tramite il `initData` parametro, ovvero una stringa JSON contenente i dati rilevanti.
+Il modello e i valori delle proprietà iniziali vengono forniti tramite il `initData` parametro, ovvero una stringa JSON contenente i dati rilevanti. Per ulteriori informazioni sulla strutturazione di questo oggetto, passare alla sezione successiva.
 
 > [!TIP]
 > Dopo la creazione o l'aggiornamento di un dispositivo gemello, è possibile che si verifichi una latenza di un massimo di 10 secondi prima che le modifiche vengano riflesse nelle [query](how-to-query-graph.md). L' `GetDigitalTwin` API, descritta [più avanti in questo articolo](#get-data-for-a-digital-twin), non riscontra questo ritardo, quindi usare la chiamata API anziché eseguire query per visualizzare i dispositivi gemelli appena creati se è necessaria una risposta immediata. 
 
-### <a name="initialize-properties"></a>Inizializza proprietà
+### <a name="initialize-model-and-properties"></a>Inizializzare il modello e le proprietà
 
-L'API per la creazione di dispositivi gemelli accetta un oggetto che può essere serializzato in una descrizione JSON valida delle proprietà dei dispositivi gemelli. Per una descrizione del formato JSON per un gemello, vedere [*concetti: dispositivi gemelli digitali e il grafico a gemelli*](concepts-twins-graph.md) .
+L'API per la creazione di dispositivi gemelli accetta un oggetto che viene serializzato in una descrizione JSON valida delle proprietà dei dispositivi gemelli. Per una descrizione del formato JSON per un gemello, vedere [*concetti: dispositivi gemelli digitali e il grafico a gemelli*](concepts-twins-graph.md) . 
+
+Prima di tutto, si creerà un oggetto dati per rappresentare il gemello e i relativi dati della proprietà. Quindi, è possibile usare `JsonSerializer` per passare una versione serializzata di questo oggetto alla chiamata API per il `initdata` parametro.
 
 È possibile creare un oggetto Parameter manualmente oppure usando una classe helper fornita. Di seguito è riportato un esempio di ogni.
 
 #### <a name="create-twins-using-manually-created-data"></a>Creare i dispositivi gemelli usando dati creati manualmente
+
+Senza l'uso di alcuna classe helper personalizzata, è possibile rappresentare le proprietà di un gemello in un `Dictionary<string, object>` oggetto, dove `string` è il nome della proprietà e `object` è un oggetto che rappresenta la proprietà e il relativo valore.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -68,6 +72,8 @@ client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<stri
 
 #### <a name="create-twins-with-the-helper-class"></a>Creare i dispositivi gemelli con la classe helper
 
+La classe helper di `BasicDigitalTwin` consente di archiviare più direttamente i campi di proprietà in un oggetto "gemello". È comunque possibile creare l'elenco di proprietà usando un `Dictionary<string, object>` oggetto, che può quindi essere aggiunto direttamente all'oggetto gemello `CustomProperties` .
+
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
 twin.Metadata = new DigitalTwinMetadata();
@@ -80,6 +86,13 @@ twin.CustomProperties = props;
 
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
+
+>[!NOTE]
+> `BasicDigitalTwin` gli oggetti vengono inclusi in un `Id` campo. È possibile lasciare vuoto questo campo, ma se si aggiunge un valore ID, è necessario che corrisponda al parametro ID passato alla `CreateDigitalTwin` chiamata. Per l'esempio precedente, l'aspetto sarà simile al seguente:
+>
+>```csharp
+>twin.Id = "myNewRoomID";
+>```
 
 ## <a name="get-data-for-a-digital-twin"></a>Ottenere i dati per un dispositivo gemello digitale
 
