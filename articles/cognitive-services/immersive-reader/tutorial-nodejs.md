@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
 ms.custom: devx-track-javascript
-ms.openlocfilehash: c64fc95c44aad81087cada23639e3b13bf478056
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a8cd8bacc749ef44ee23e98709f04f75757f5919
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407184"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516334"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Esercitazione: Avviare lo strumento di lettura immersiva (Node.js)
 
@@ -30,7 +30,7 @@ Nella [panoramica](./overview.md) si è appreso che cos'è lo strumento di lettu
 > * Specificare la lingua dell'interfaccia dello strumento di lettura immersiva
 > * Avviare lo strumento di lettura immersiva con dati matematici
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

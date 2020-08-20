@@ -2,26 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con ASC Contracts | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ASC Contracts.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa8796fa2bd0c803e7dd4b873ff5a44537d8a559
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1750d8c3a9a1d213b4373e4c4308453f407968de
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157840"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Esercitazione: Integrazione di Azure Active Directory con ASC Contracts
 

@@ -1,17 +1,17 @@
 ---
 title: Integrare Azure Key Vault con Kubernetes
 description: Questa esercitazione illustra come accedere e recuperare segreti da Azure Key Vault usando il driver CSI (Container Storage Interface) dell'archivio segreti per poi montarli nei pod Kubernetes.
-author: taytran0
-ms.author: t-trtr
+author: rkarlin
+ms.author: rkarlin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: e70ee75344a939ea1632df3549d796617c7596af
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9a13ede1c9dcd23b829d08ed9e3c6fc10248e191
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901998"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510046"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -241,7 +241,7 @@ kubectl apply -f secretProviderClass.yaml
 ### <a name="use-a-service-principal"></a>Usare un’entità servizio
 
 Se si usa un'entità servizio, usare il comando seguente per distribuire i pod Kubernetes con l'oggetto SecretProviderClass e il segreto secrets-store-creds configurato in precedenza. Ecco i modelli di distribuzione:
-* Per [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-secrets-store-inline-volume-secretproviderclass.yaml)
+* Per [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-inline-volume-service-principal.yaml)
 * Per [Windows](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/windows-pod-secrets-store-inline-volume-secret-providerclass.yaml)
 
 ```azurecli

@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 0c7e077b3f170e3d9f1b15f78d52a1f386396983
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1777d4d09dfb12f490245f726715aed4eefd6227
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876870"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517796"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Avvio rapido: Estrarre le informazioni sul layout e sul testo usando l'API REST Riconoscimento modulo con Python
 
 In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo di Azure con Python per estrarre informazioni sul layout del testo e i dati delle tabelle da documenti modulo.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
