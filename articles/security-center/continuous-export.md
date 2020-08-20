@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: d101acd3e72e68efd9198cb273fd352967a0cd54
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192371"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612385"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Esportare avvisi e raccomandazioni di sicurezza
 
@@ -57,7 +57,29 @@ I passaggi seguenti sono necessari se si sta configurando un'esportazione contin
 
 1. Dall'area "Esporta destinazione" scegliere il percorso in cui salvare i dati. I dati possono essere salvati in una destinazione in una sottoscrizione diversa, ad esempio in un'istanza centrale dell'hub eventi o in un'area di lavoro centrale Log Analytics.
 
-1. Fare clic su **Salva**.
+1. Selezionare **Salva**.
+
+
+## <a name="setting-up-continuous-export-via-the-rest-api"></a>Impostazione dell'esportazione continua tramite l'API REST
+
+La funzionalità di esportazione continua può essere configurata e gestita tramite l' [API di automazione](https://docs.microsoft.com/rest/api/securitycenter/automations)del Centro sicurezza di Azure. Usare questa API per creare o aggiornare le automazioni per l'esportazione in una delle destinazioni possibili seguenti:
+
+- Hub eventi di Azure
+- Area di lavoro Log Analytics
+- App per la logica di Azure 
+
+L'API fornisce funzionalità aggiuntive non disponibili dal portale di Azure, ad esempio:
+
+* **Volume maggiore** : l'API consente di creare più configurazioni di esportazione in una singola sottoscrizione. La pagina **esportazione continua** nell'interfaccia utente del portale del Centro sicurezza supporta solo una configurazione di esportazione per sottoscrizione.
+
+* **Funzionalità aggiuntive** : l'API offre parametri aggiuntivi che non vengono visualizzati nell'interfaccia utente. Ad esempio, è possibile aggiungere tag alla risorsa di automazione, nonché definire l'esportazione in base a un set più ampio di proprietà di avviso e raccomandazione rispetto a quelle offerte nella pagina **esportazione continua** nell'interfaccia utente del portale del Centro sicurezza.
+
+* **Ambito più mirato** : l'API fornisce un livello più granulare per l'ambito delle configurazioni di esportazione. Quando si definisce un'esportazione con l'API, è possibile eseguire questa operazione a livello di gruppo di risorse. Se si usa la pagina **esportazione continua** nell'interfaccia utente del portale del Centro sicurezza, è necessario definirla a livello di sottoscrizione.
+
+    > [!TIP]
+    > Se sono state impostate più configurazioni di esportazione tramite l'API o se sono stati usati parametri solo API, le funzionalità aggiuntive non verranno visualizzate nell'interfaccia utente del Centro sicurezza. Al contrario, sarà presente un banner che informa che sono presenti altre configurazioni.
+
+Altre informazioni sull'API Automations sono disponibili nella [documentazione dell'API REST](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
 
 
@@ -109,7 +131,7 @@ Monitoraggio di Azure offre un'esperienza unificata per gli avvisi per un'ampia 
 
 Per visualizzare gli avvisi e le raccomandazioni dal centro sicurezza in monitoraggio di Azure, configurare una regola di avviso basata su query Log Analytics (avviso log):
 
-1. Dalla pagina degli **avvisi** di monitoraggio di Azure fare clic su **nuova regola di avviso**.
+1. Dalla pagina degli **avvisi** di monitoraggio di Azure selezionare **nuova regola di avviso**.
 
     ![Pagina degli avvisi di monitoraggio di Azure](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -126,12 +148,25 @@ Verranno ora visualizzati nuovi avvisi del Centro sicurezza di Azure o consigli 
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Esportazione manuale di avvisi di sicurezza
 
-Per scaricare un report CSV per avvisi o raccomandazioni, aprire la pagina avvisi o **raccomandazioni** di **sicurezza** e fare clic sul pulsante **Scarica report CSV** .
+Per scaricare un report CSV per avvisi o raccomandazioni, aprire la pagina avvisi o **raccomandazioni** di **sicurezza** e selezionare il pulsante **Scarica report CSV** .
 
 [![Scarica i dati degli avvisi come file CSV](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
 > Questi report contengono avvisi e consigli per le risorse delle sottoscrizioni attualmente selezionate.
+
+
+
+## <a name="faq---continuous-export"></a>Domande frequenti-esportazione continua
+
+### <a name="what-are-the-costs-involved-in-exporting-data"></a>Quali sono i costi legati all'esportazione dei dati?
+
+Non è previsto alcun costo per l'abilitazione di un'esportazione continua. I costi possono essere sostenuti per l'inserimento e la conservazione dei dati nell'area di lavoro Log Analytics, a seconda della configurazione in uso. 
+
+Scopri di più su [log Analytics prezzi dell'area di lavoro](https://azure.microsoft.com/pricing/details/monitor/).
+
+Scopri di più sui [prezzi di hub eventi di Azure](https://azure.microsoft.com/pricing/details/event-hubs/).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

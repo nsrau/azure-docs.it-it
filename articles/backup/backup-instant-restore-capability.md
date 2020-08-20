@@ -4,12 +4,12 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531830"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611806"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -42,10 +42,10 @@ Per impostazione predefinita, gli snapshot vengono conservati per due giorni. Qu
 ## <a name="feature-considerations"></a>Considerazioni sulle funzionalità
 
 * Gli snapshot vengono archiviati insieme ai dischi per ottimizzare la creazione del punto di ripristino e velocizzare le operazioni di ripristino. Verranno pertanto addebitati costi di archiviazione corrispondenti agli snapshot creati durante questo periodo.
-* Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti vengono addebitati i costi per gli snapshot archiviati nell'account di archiviazione locale. Poiché le raccolte di punti di ripristino usate dai backup delle macchine virtuali gestite usano snapshot BLOB a livello di archiviazione sottostante, per i dischi gestiti verranno addebitati i costi corrispondenti ai prezzi degli snapshot BLOB, che sono incrementali.
+* Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti vengono addebitati i costi per gli snapshot archiviati nell'account di archiviazione locale. Poiché le raccolte di punti di ripristino usate dai backup di macchine virtuali gestite usano snapshot di BLOB a livello di archiviazione sottostante, per i dischi gestiti vengono visualizzati i costi corrispondenti ai prezzi degli snapshot BLOB e sono incrementali.
 * Per gli account di archiviazione Premium, gli snapshot creati per i punti di ripristino istantaneo vengono inclusi nel conteggio relativo al limite di 10 TB di spazio allocato.
-* Si ottiene la possibilità di configurare la conservazione degli snapshot in base alle esigenze di ripristino. A seconda delle esigenze, è possibile impostare il periodo di conservazione degli snapshot su un minimo di un giorno nel pannello dei criteri di backup, come spiegato di seguito. Ciò consentirà di risparmiare sui costi per la conservazione degli snapshot se i ripristini non vengono eseguiti di frequente.
-* Si tratta di un aggiornamento direzionale, una volta aggiornato a un ripristino immediato, non è possibile tornare indietro.
+* Si ottiene la possibilità di configurare la conservazione degli snapshot in base alle esigenze di ripristino. A seconda del requisito, è possibile impostare la conservazione degli snapshot su un minimo di un giorno nel riquadro Criteri di backup, come illustrato di seguito. Ciò consentirà di risparmiare sui costi per la conservazione degli snapshot se i ripristini non vengono eseguiti di frequente.
+* Si tratta di un aggiornamento direzionale. Una volta eseguito l'aggiornamento a Instant Restore, non è possibile tornare indietro.
 
 >[!NOTE]
 >Con questo aggiornamento immediato del ripristino la durata della conservazione degli snapshot di tutti i clienti (**sia nuovi che esistenti**) verrà impostata su un valore predefinito di due giorni. Tuttavia, è possibile impostare la durata in base alle esigenze su un valore compreso tra 1 e 5 giorni.
@@ -61,7 +61,7 @@ Gli snapshot incrementali vengono archiviati nell'account di archiviazione della
 
 ### <a name="using-azure-portal"></a>Uso del portale di Azure
 
-Nella portale di Azure è possibile visualizzare un campo aggiunto nel pannello criteri di **backup della macchina virtuale** nella sezione **ripristino immediato** . È possibile cambiare la durata della conservazione degli snapshot nel pannello **Criteri di backup di macchine virtuali** per tutte le macchine virtuali associate al criterio di backup specifico.
+Nella portale di Azure è possibile visualizzare un campo aggiunto nel riquadro Criteri di **backup della macchina virtuale** nella sezione **ripristino immediato** . È possibile modificare la durata del periodo di memorizzazione dello snapshot dal riquadro **criteri di backup della macchina virtuale** per tutte le macchine virtuali associate al criterio di backup specifico.
 
 ![Funzionalità Ripristino istantaneo](./media/backup-azure-vms/instant-restore-capability.png)
 
@@ -106,11 +106,11 @@ Se il tipo di ripristino è "Snapshot e insieme di credenziali", il ripristino v
 
 ### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>Che cosa accade se si seleziona un periodo di conservazione del punto di ripristino (livello 2) inferiore a quello dello snapshot (livello 1)?
 
-Il nuovo modello non consente di eliminare il punto di ripristino (livello 2) senza eliminare lo snapshot (livello 1). È consigliabile pianificare un periodo di conservazione del punto di ripristino (livello 2) superiore al periodo di conservazione degli snapshot.
+Il nuovo modello non consente l'eliminazione del punto di ripristino (livello 2) a meno che non venga eliminato lo snapshot (Tier1). È consigliabile pianificare un periodo di conservazione del punto di ripristino (livello 2) superiore al periodo di conservazione degli snapshot.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Perché lo snapshot è disponibile anche dopo il periodo di conservazione impostato nei criteri di backup?
 
-Se il punto di ripristino contiene snapshot e si tratta dell'ultimo punto di ripristino disponibile, viene conservato fino al corretto completamento di un backup successivo. Questa situazione si verifica in base ai criteri di "Garbage Collection" progettati (GC) che impone che almeno un RP più recente sia sempre presente nel caso in cui tutti i backup abbiano esito negativo a causa di un problema nella macchina virtuale. Negli scenari normali, i punti di ripristino vengono puliti entro 24 ore dalla relativa scadenza.
+Se il punto di ripristino dispone di uno snapshot e la versione più recente di RP è disponibile, viene mantenuta fino al successivo backup completato. Questa situazione si verifica in base ai criteri di "Garbage Collection" progettati (GC) che impone che almeno un RP più recente sia sempre presente nel caso in cui tutti i backup abbiano esito negativo a causa di un problema nella macchina virtuale. Negli scenari normali, i punti di ripristino vengono puliti entro 24 ore dalla relativa scadenza.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Non è necessaria la funzionalità di ripristino immediato. Può essere disabilitato?
 

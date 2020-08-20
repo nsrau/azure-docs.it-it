@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922317"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612521"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -79,8 +79,8 @@ Se si vuole eseguire il backup di computer Linux, sono supportati gli scenari se
 --- | ---
 **Backup diretto di un computer locale che esegue Linux** | Non supportato. L'agente MARS può essere installato solo in computer Windows.
 **Uso dell'estensione agente per eseguire il backup di una VM di Azure che esegue Linux** | Backup coerenti con le app tramite [script personalizzati](backup-azure-linux-app-consistent.md).<br/><br/> Ripristino a livello di file.<br/><br/> Ripristino tramite creazione di una VM da un punto di ripristino o da disco.
-**Uso di DPM per eseguire il backup su computer locali che eseguono Linux** | Backup coerenti con i file di VM guest Linux in Hyper-V e VMware.<br/><br/> Ripristino di VM guest Linux Hyper-V e VMware.
-**Uso di MABS per eseguire il backup su computer locali che eseguono Linux** | Backup coerenti con i file di VM guest Linux in Hyper-V e VMware.<br/><br/> Ripristino di VM guest Linux Hyper-V e VMware.
+**Uso di DPM per eseguire il backup su computer locali che eseguono Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMware.<br/><br/> Ripristino di VM di VM guest Hyper-V e VMware Linux.
+**Uso di MABS per eseguire il backup su computer locali che eseguono Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMware.<br/><br/> Ripristino di VM di VM guest Hyper-V e VMware Linux.
 **Uso di MABS o DPM per eseguire il backup di VM Linux di Azure** | Non supportato.
 
 ## <a name="daylight-saving-time-support"></a>Ora legale supportata

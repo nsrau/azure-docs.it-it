@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio SWIFT CSP-CSCF v2020
 description: Mapping dei controlli dell'esempio di progetto SWIFT CSP-CSCF v2020. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 05/13/2020
+ms.date: 08/18/2020
 ms.topic: sample
-ms.openlocfilehash: 0ef53a570190afa2b27193bdc741e70bad5554a4
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ee9ba86c41f37aac8eba3dbf973d2853a493547a
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926638"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612742"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto SWIFT CSP-CSCF v2020
 
@@ -31,17 +31,17 @@ Questo progetto consente di esaminare gli account che potrebbero non conformi ai
 
 ## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2.6, 5.1, 6.4 e 6.5A Gestione degli account | Schemi basati sui ruoli
 
-Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) che semplifica la gestione dell'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna inoltre definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del controllo degli accessi in base al ruolo. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
+Azure implementa il [controllo degli accessi in base al ruolo](../../../../role-based-access-control/overview.md) per consentire di gestire chi ha accesso alle risorse di Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna inoltre definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare l'uso dell'autenticazione di Azure Active Directory per istanze di SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft. Questo progetto assegna inoltre una definizione di Criteri di Azure per controllare l'uso di regole personalizzate del controllo degli accessi in base al ruolo. Identificando dove vengono implementate regole personalizzate del controllo degli accessi in base al ruolo, è possibile verificare l'esigenza e la corretta implementazione, perché tali regole sono soggette a errore.
 
 - È consigliabile effettuare il provisioning di un amministratore di Azure Active Directory per SQL Server
-- Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati
+- Controlla macchine virtuali che non usano dischi gestiti
 - I cluster di Service Fabric deve usare solo Azure Active Directory per l'autenticazione client
 
 ## <a name="29a--account-management--account-monitoring--atypical-usage"></a>2.9A Gestione degli account | Monitoraggio degli account/utilizzo atipico
 
 L'accesso JIT alle macchine virtuali blocca il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e al tempo stesso offrendo un facile accesso per connettersi alle macchine virtuali quando necessario. Tutte le richieste JIT di accesso alle macchine virtuali vengono registrate nel Log attività allo scopo di monitorare l'eventuale utilizzo atipico. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali in grado di supportare l'accesso JIT ma che non sono state ancora configurate.
 
-- Alle macchine virtuali deve essere applicato il controllo di accesso alla rete JIT
+- Le porte di gestione delle macchine virtuali devono essere protette tramite un controllo di accesso alla rete JIT
 
 ## <a name="13-51-and-64-separation-of-duties"></a>1.3, 5.1 e 6.4 Separazione dei compiti
 
@@ -54,11 +54,11 @@ La presenza di un solo proprietario di sottoscrizioni di Azure non consente la r
 
 ## <a name="13-51-and-64-least-privilege--review-of-user-privileges"></a>1.3, 5.1 e 6.4 Privilegi minimi | Revisione dei privilegi degli utenti
 
-Azure implementa il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) che semplifica la gestione dell'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account la cui verifica dovrebbe essere prioritaria. L'esame di questi indicatori di account è utile per verificare l'implementazione dei controlli dei privilegi minimi.
+Azure implementa il [controllo degli accessi in base al ruolo](../../../../role-based-access-control/overview.md) per consentire di gestire chi ha accesso alle risorse di Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account la cui verifica dovrebbe essere prioritaria. L'esame di questi indicatori di account è utile per verificare l'implementazione dei controlli dei privilegi minimi.
 
 - Per la sottoscrizione devono essere designati al massimo 3 proprietari
-- Mostra i risultati del controllo dalle macchine virtuali Windows in cui il gruppo Administrators non contiene tutti i membri specificati
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui il gruppo Administrators non contiene tutti i membri specificati
+- Mostra i risultati del controllo dalle macchine virtuali Windows che non sono aggiunte al dominio specificato
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non sono aggiunte al dominio specificato
 - Alla sottoscrizione deve essere assegnato più di un proprietario
 
 ## <a name="22-and-27-security-attributes"></a>2.2 e 2.7 Attributi di sicurezza
@@ -72,9 +72,9 @@ Le funzionalità di individuazione e classificazione dei dati offerte da Sicurez
 
 Questo progetto consente di monitorare e controllare l'accesso remoto assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) per verificare che il debug remoto per l'applicazione del Servizio app di Azure sia disattivato e altre definizioni di criteri per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password. Il progetto assegna anche una definizione di Criteri di Azure per il monitoraggio dell'accesso illimitato agli account di archiviazione. Il monitoraggio di questi indicatori è utile per verificare la conformità dei metodi di accesso remoto ai criteri di sicurezza.
 
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
-- \[Anteprima\]: Distribuisci prerequisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
-- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
+- Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
+- Distribuisci prerequisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
+- Gli account di archiviazione devono limitare l'accesso alla rete
 - Il debug remoto deve essere disattivato per l'app per le API
 - Il debug remoto deve essere disattivato per l'app per le funzioni
 - Il debug remoto deve essere disattivato per l'applicazione Web
@@ -84,10 +84,8 @@ Questo progetto consente di monitorare e controllare l'accesso remoto assegnando
 I dati del log applicazioni raccolti da Monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics per la centralizzazione della configurazione e della gestione. Questo progetto consente di assicurarsi che gli eventi vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano e impongono la distribuzione dell'agente di Log Analytics nelle macchine virtuali di Azure.
 
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
+- Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 
 ## <a name="22-27-and-64-response-to-audit-processing-failures"></a>2.2, 2.7 e 6.4 Risposta a errori di elaborazione di controllo
 
@@ -95,51 +93,50 @@ Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overvi
 
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
-- Distribuire il controllo in SQL Server
+- È consigliabile abilitare il controllo in SQL Server
 
 ## <a name="13-and-64-audit-review-analysis-and-reporting--central-review-and-analysis"></a>1.3 e 6.4 Revisione, analisi e report di controllo | Revisione e analisi centralizzate
 
 I dati del log raccolti da Monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics per la centralizzazione della creazione di report e dell'analisi. Questo progetto consente di assicurarsi che gli eventi vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano e impongono la distribuzione dell'agente di Log Analytics nelle macchine virtuali di Azure.
 
 - \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
+- Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 
 ## <a name="13-22-27-64-and-65a-audit-generation"></a>1.3, 2.2, 2.7, 6.4 e 6.5A Generazione di controlli
 
 Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le impostazioni dei log nelle risorse di Azure. Queste definizioni di criteri controllano e impongono la distribuzione dell'agente di Log Analytics nelle macchine virtuali di Azure e la configurazione delle impostazioni di controllo per altri tipi di risorse di Azure. Controllano anche la configurazione dei log di diagnostica per fornire informazioni dettagliate sulle operazioni eseguite nelle risorse di Azure. Il controllo e la funzionalità Sicurezza dei dati avanzata vengono inoltre configurati nei server SQL.
 
-- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
+- Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
+- Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - Controlla le impostazioni di controllo a livello del server SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Distribuisci Sicurezza dei dati avanzata nei server SQL
-- Distribuisci il controllo nei server SQL
+- È consigliabile abilitare il controllo in SQL Server
 - Distribuire le impostazioni di diagnostica per i gruppi di sicurezza di rete
 
 ## <a name="11-least-functionality--prevent-program-execution"></a>1.1 Funzionalità minima | Impedire l'esecuzione di programmi
 
 Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni può essere eseguito in una modalità di imposizione che impedisce l'esecuzione di applicazioni non approvate. Questo progetto assegna una definizione di Criteri di Azure che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti che però non è stato ancora configurato.
 
-- I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
+- I controlli applicazioni adattivi per la definizione delle applicazioni sicure devono essere abilitati nei computer
 
 ## <a name="11-least-functionality--authorized-software--whitelisting"></a>1.1 Funzionalità minima | Software autorizzato/elenco elementi consentiti
 
 Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di creare elenchi di applicazioni approvate per le macchine virtuali. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti che però non è stato ancora configurato.
 
-- I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
+- I controlli applicazioni adattivi per la definizione delle applicazioni sicure devono essere abilitati nei computer
 
 ## <a name="11-user-installed-software"></a>1.1 Software installato dall'utente
 
 Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di imporre e monitorare la conformità ai criteri di restrizione software. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti che però non è stato ancora configurato.
 
-- I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
+- I controlli applicazioni adattivi per la definizione delle applicazioni sicure devono essere abilitati nei computer
+- È consigliabile eseguire la migrazione delle macchine virtuali alle nuove risorse di Azure Resource Manager
 
 ## <a name="42-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>4.2 Identificazione e autenticazione (utenti dell'organizzazione) | Accesso alla rete per gli account con privilegi
 
@@ -158,36 +155,36 @@ Questo progetto consente di limitare e controllare l'accesso assegnando una defi
 
 Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le macchine virtuali Linux che consentono connessioni remote da account senza password e/o per cui sono impostate autorizzazioni errate nel file passwd. Questo progetto assegna anche definizioni di criteri che controllano la configurazione del tipo di crittografia delle password per le macchine virtuali Windows. Il monitoraggio di questi indicatori è utile per verificare che gli autenticatori di sistema siano conformi ai criteri di identificazione e autenticazione dell'organizzazione.
 
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
-- \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
+- Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
+- Distribuisci i requisiti per controllare le macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
+- Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
+- Distribuisci i requisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
+- Mostra i risultati del controllo dalle macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
+- Distribuisci i requisiti per controllare le macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
 
 ## <a name="23-and-41-authenticator-management--password-based-authentication"></a>2.3 e 4.1 Gestione autenticatori | Autenticazione basata su password
 
 Questo progetto consente di imporre password complesse assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le macchine virtuali Windows che non impongono il requisito minimo di complessità o altri requisiti delle password. Identificando le macchine virtuali che violano i criteri di complessità delle password, è possibile adottare azioni correttive per assicurarsi che le password di tutti gli account utente delle macchine virtuali siano conformi ai criteri delle password dell'organizzazione.
 
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
-- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
-- \[Anteprima\]: Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
+- Mostra i risultati del controllo dalle macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
+- Mostra i risultati del controllo dalle macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
+- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
 
 ## <a name="22-and-27-vulnerability-scanning"></a>2.2 e 2.7 Analisi delle vulnerabilità
 
 Questo progetto consente di gestire le vulnerabilità dei sistemi informativi assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano le vulnerabilità del sistema operativo, nonché di SQL e delle macchine virtuali nel Centro sicurezza di Azure. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite. Questo progetto assegna anche definizioni di criteri che controllano e impongono l'uso di Sicurezza dei dati avanzata nei server SQL. Sicurezza dei dati avanzata include le funzionalità Valutazione della vulnerabilità e Advanced Threat Protection che consentono di comprendere le vulnerabilità nelle risorse distribuite.
 
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
-- Distribuisci Sicurezza dei dati avanzata nei server SQL
+- È consigliabile abilitare il controllo in SQL Server
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità dei database SQL devono essere risolte 
 - Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
@@ -196,14 +193,14 @@ Questo progetto consente di gestire le vulnerabilità dei sistemi informativi as
 
 Il livello Standard per gli attacchi Distributed Denial of Service (DDoS) di Azure offre funzionalità aggiuntive e di mitigazione dei rischi rispetto al livello di servizio Basic. Queste funzionalità aggiuntive includono l'integrazione di Monitoraggio di Azure e la possibilità di esaminar ei report di mitigazione dei rischi dopo gli attacchi. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per controllare l'abilitazione del livello Standard per gli attacchi Distributed Denial of Service. La comprensione delle differenze nelle funzionalità dei livelli di servizio consente di selezionare la soluzione più adatta per rispondere ad attacchi Denial of Service per l'ambiente Azure.
 
-- Lo standard di protezione DDoS deve essere abilitato
+- La protezione DDoS di Azure Standard deve essere abilitata
 
 ## <a name="11-and-61-boundary-protection"></a>1.1 e 6.1 Protezione dei limiti
 
 Questo progetto consente di gestire e controllare i limiti di sistema assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora l'applicazione delle raccomandazioni sulla protezione avanzata per i gruppi di sicurezza di rete nel Centro sicurezza di Azure. Centro sicurezza di Azure analizza i criteri relativi al traffico di macchine virtuali connesse a Internet e fornisce raccomandazioni sulle regole dei gruppi di sicurezza di rete per ridurre la potenziale superficie di attacco.
 Questo progetto assegna inoltre definizioni di criteri che monitorano endpoint, applicazioni e account di archiviazione non protetti. Gli endpoint e le applicazioni non protetti da un firewall e gli account di archiviazione con accesso illimitato possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo.
 
-- Le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet devono essere rafforzate
+- Le raccomandazioni di Protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali con connessione Internet
 - L'accesso tramite endpoint con connessione Internet deve essere limitato
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 
@@ -211,13 +208,13 @@ Questo progetto assegna inoltre definizioni di criteri che monitorano endpoint, 
 
 L'accesso JIT alle macchine virtuali blocca il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e al tempo stesso offrendo un facile accesso per connettersi alle macchine virtuali quando necessario. L'accesso JIT alle macchine virtuali consente di limitare il numero di connessioni esterne alle risorse in Azure. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali in grado di supportare l'accesso JIT ma che non sono state ancora configurate.
 
-- Alle macchine virtuali deve essere applicato il controllo di accesso alla rete JIT
+- Le porte di gestione delle macchine virtuali devono essere protette tramite un controllo di accesso alla rete JIT
 
 ## <a name="29a-boundary-protection--external-telecommunications-services"></a>2.9A Protezione dei limiti | Servizi di telecomunicazione esterni
 
 L'accesso JIT alle macchine virtuali blocca il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e al tempo stesso offrendo un facile accesso per connettersi alle macchine virtuali quando necessario. L'accesso JIT alle macchine virtuali consente di gestire le eccezioni ai criteri di flusso del traffico agevolando i processi di richiesta e approvazione degli accessi. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali in grado di supportare l'accesso JIT ma che non sono state ancora configurate.
 
-- Alle macchine virtuali deve essere applicato il controllo di accesso alla rete JIT
+- Le porte di gestione delle macchine virtuali devono essere protette tramite un controllo di accesso alla rete JIT
 
 ## <a name="21-24-24a-25a-and-26-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>2.1, 2.4, 2.4A, 2.5A e 2.6 Riservatezza e integrità delle trasmissioni | Protezione crittografica o fisica in alternativa
 
@@ -247,6 +244,8 @@ Questo progetto consente di gestire le vulnerabilità dei sistemi informativi as
 - Imponi l'applicazione automatica di patch alle immagini del sistema operativo nei set di scalabilità di macchine virtuali
 - Gli aggiornamenti di sistema nei set di scalabilità di macchine virtuali devono essere installati
 - Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali
+- Controlla la distribuzione di Dependency Agent nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
+- Le variabili dell'account di automazione devono essere crittografate
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
 - Le vulnerabilità nella configurazione di sicurezza delle macchine virtuali devono essere risolte
 - Le vulnerabilità dei database SQL devono essere risolte
@@ -258,6 +257,7 @@ Questo progetto consente di gestire Endpoint Protection, inclusa la protezione d
 - Distribuisci estensione IaaSAntimalware Microsoft predefinita per Windows Server
 - La soluzione Endpoint Protection deve essere installata nei set di scalabilità di macchine virtuali
 - Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure
+- È consigliabile eseguire la migrazione degli account di archiviazione alle nuove risorse di Azure Resource Manager
 
 ## <a name="61-malicious-code-protection--central-management"></a>6.1 Protezione dal malware | Gestione centrale
 
@@ -270,11 +270,11 @@ Questo progetto consente di gestire Endpoint Protection, inclusa la protezione d
 
 Questo progetto consente di monitorare il sistema controllando e imponendo la registrazione e la sicurezza dei dati nelle risorse di Azure. In particolare, i criteri assegnati controllano e impongono la distribuzione dell'agente di Log Analytics, nonché impostazioni di sicurezza avanzata per database SQL, account di archiviazione e risorse di rete. Queste funzionalità consentono di rilevare comportamenti anomali e indicatori di attacchi in modo che sia possibile adottare le misure appropriate.
 
-- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
-- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
+- Mostra i risultati del controllo dalle macchine virtuali Windows in cui l'agente di Log Analytics non è connesso come previsto
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
+- Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Windows
+- Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Le impostazioni avanzate di sicurezza dei dati per SQL Server devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
 - I log di diagnostica devono essere abilitati in Analisi di flusso di Azure

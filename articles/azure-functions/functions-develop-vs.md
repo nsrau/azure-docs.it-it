@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare e testare funzioni di Azure usando 
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 81de0af335e0a233ac568921b298c9bb168eb174
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0ee5d270db2149be0cfbf6bf06f87a5d0133c6ef
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209985"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612810"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -27,7 +27,7 @@ Questo articolo fornisce informazioni dettagliate su come usare Visual Studio pe
 
 Se non specificato diversamente, le procedure e gli esempi indicati sono per Visual Studio 2019. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Strumenti di funzioni di Azure. Per aggiungere gli strumenti per le funzioni di Azure, includere il carico di lavoro **sviluppo di Azure** nell'installazione di Visual Studio. Gli strumenti di funzioni di Azure sono disponibili nel carico di lavoro di sviluppo di Azure a partire da Visual Studio 2017.
 

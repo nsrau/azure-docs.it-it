@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807588"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612470"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Attività successive di configurazione per Aggiunta ad Azure AD ibrido
 
@@ -87,9 +87,6 @@ Questo programma di installazione crea nel sistema del dispositivo un'attività 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. configurare criteri di gruppo per consentire la registrazione del dispositivo
 
 Per informazioni su come consentire il join ibrido Azure AD per i singoli dispositivi, vedere [convalida controllata del join Azure ad ibrido](../devices/hybrid-azuread-join-control.md).
-
-> [!NOTE]
-> Le impostazioni dei criteri per 2012 R2 sono disponibili in **Configurazione Computer > criteri > modelli amministrativi Componenti di Windows > > workplace join > i computer client aggiunti automaticamente all'area di lavoro**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configura il writeback dispositivi](how-to-connect-device-writeback.md)

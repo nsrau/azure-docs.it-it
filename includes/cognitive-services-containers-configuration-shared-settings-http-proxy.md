@@ -4,21 +4,21 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 84cd8ed79281b005407b5a857398b5669635c072
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ce4cc68826b39b5707549afc799d2d214e8876c6
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68320523"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88639136"
 ---
 Se è necessario configurare un proxy HTTP per eseguire le richieste in uscita, usare questi due argomenti:
 
-| Name | Tipo di dati | Descrizione |
+| Nome | Tipo di dati | Descrizione |
 |--|--|--|
-|HTTP_PROXY|stringa|Il proxy da usare, ad esempio, `http://proxy:8888`<br>`<proxy-url>`|
-|HTTP_PROXY_CREDS|stringa|Qualsiasi credenziale richiesta per autenticare il proxy, ad esempio, nome utente:password.|
-|`<proxy-user>`|stringa|L'utente per il proxy.|
-|`<proxy-password>`|stringa|La password associata a `<proxy-user>` per il proxy.|
+|HTTPS_PROXY|string|Il proxy da usare, ad esempio, `https://proxy:8888`<br>`<proxy-url>`|
+|HTTPS_PROXY_CREDS|string|Qualsiasi credenziale richiesta per autenticare il proxy, ad esempio, nome utente:password.|
+|`<proxy-user>`|string|L'utente per il proxy.|
+|`<proxy-password>`|string|La password associata a `<proxy-user>` per il proxy.|
 ||||
 
 
@@ -30,6 +30,6 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<endpoint> \
 ApiKey=<api-key> \
-HTTP_PROXY=<proxy-url> \
-HTTP_PROXY_CREDS=<proxy-user>:<proxy-password> \
+HTTPS_PROXY=<proxy-url> \
+HTTPS_PROXY_CREDS=<proxy-user>:<proxy-password> \
 ```

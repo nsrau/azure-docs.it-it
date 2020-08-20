@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: dfcbf214c374f449a04139ce7bf4fbb6853ed524
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ab25ec5406c75316aaa1ee8efd0192dc0207ad79
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006860"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612419"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure (legacy)
 
@@ -27,6 +27,7 @@ Per lo script di esempio completo usato in questo articolo, vedere esempi dell'i
 ## <a name="the-following-limitations-apply"></a>Si applicano le limitazioni seguenti:
 
 - Azure AD può essere abilitata solo in un cluster abilitato per RBAC.
+- Azure AD integrazione legacy può essere abilitata solo durante la creazione del cluster.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -176,7 +177,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Se l'utente che si concede l'associazione RBAC per si trova nello stesso tenant Azure AD, assegnare le autorizzazioni in base a *userPrincipalName*. Se l'utente si trova in un tenant Azure AD diverso, eseguire una query per e utilizzare la proprietà *ObjectID* .
 
-Creare un manifesto YAML denominato `basic-azure-ad-binding.yaml` e incollare il contenuto seguente. Nell'ultima riga sostituire *userPrincipalName_or_objectId* con l'output UPN o ID oggetto del comando precedente:
+Creare un manifesto YAML denominato `basic-azure-ad-binding.yaml` e incollare il contenuto seguente. Nell'ultima riga sostituire *userPrincipalName_or_objectId*  con l'output UPN o ID oggetto del comando precedente:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -244,7 +245,7 @@ error: You must be logged in to the server (Unauthorized)
 
 * È stato definito l'ID oggetto o UPN appropriato, a seconda che l'account utente si trovi nello stesso tenant Azure AD o meno.
 * L'utente non deve essere membro di più di 200 gruppi.
-* Il segreto definito nella registrazione dell'applicazione per il server corrisponde al valore configurato usando`--aad-server-app-secret`
+* Il segreto definito nella registrazione dell'applicazione per il server corrisponde al valore configurato usando `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

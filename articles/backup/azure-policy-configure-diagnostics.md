@@ -3,12 +3,12 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498050"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612504"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
@@ -34,17 +34,17 @@ Per assegnare i criteri per gli insiemi di credenziali nell'ambito necessario, a
 
 1. Accedere al portale di Azure e passare al dashboard dei **criteri** .
 2. Selezionare **definizioni** nel menu a sinistra per ottenere un elenco di tutti i criteri predefiniti tra le risorse di Azure.
-3. Filtrare l'elenco per **Category = Monitoring**. Individuare il criterio denominato **[Anteprima]: Distribuisci impostazioni di diagnostica per l'insieme di credenziali di servizi di ripristino per log Analytics area di lavoro per categorie specifiche di risorse**.
+3. Filtrare l'elenco per **Category = Monitoring**. Individuare il criterio denominato **[Anteprima]: Distribuisci impostazioni di diagnostica per l'insieme di credenziali di servizi di ripristino nell'area di lavoro log Analytics per categorie specifiche delle risorse**.
 
-    ![Pannello definizione criteri](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![Riquadro definizione criteri](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
-4. Fare clic sul nome del criterio. Si verrà reindirizzati alla definizione dettagliata per questo criterio.
+4. Selezionare il nome del criterio. Si verrà reindirizzati alla definizione dettagliata per questo criterio.
 
     ![Definizione dettagliata dei criteri](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
-5. Fare clic sul pulsante **assegna** nella parte superiore del pannello. In questo modo viene reindirizzato al pannello **assegna criterio** .
+5. Selezionare il pulsante **assegna** nella parte superiore del riquadro. Viene quindi reindirizzati al riquadro **assegna criterio** .
 
-6. In **nozioni di base**fare clic sui tre puntini di sospensione accanto al campo **ambito** . Verrà aperto un pannello di contesto a destra in cui è possibile selezionare la sottoscrizione per il criterio da applicare. Facoltativamente, è anche possibile selezionare un gruppo di risorse, in modo che i criteri vengano applicati solo per gli insiemi di credenziali in un determinato gruppo di risorse.
+6. In **nozioni di base**selezionare i tre puntini di sospensione accanto al campo **ambito** . Verrà aperto un riquadro di contesto a destra in cui è possibile selezionare la sottoscrizione per il criterio da applicare. Facoltativamente, è anche possibile selezionare un gruppo di risorse, in modo che i criteri vengano applicati solo per gli insiemi di credenziali in un determinato gruppo di risorse.
 
     ![Nozioni fondamentali sull'assegnazione di criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -61,7 +61,7 @@ Per assegnare i criteri per gli insiemi di credenziali nell'ambito necessario, a
 
     ![Monitoraggio e aggiornamento dell'assegnazione dei criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. Passare alla scheda **Verifica e crea** e fare clic su **Crea**.
+9. Passare alla scheda **Verifica e crea** e selezionare **Crea**.
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>In quali condizioni l'attività di monitoraggio e aggiornamento viene applicata a un insieme di credenziali?
 
@@ -72,7 +72,7 @@ L'attività di monitoraggio e aggiornamento viene applicata agli insiemi di cred
 
 Quindi, anche se un utente dispone di un insieme di credenziali con l'evento AzureBackupReport abilitato in modalità AzureDiagnostics (supportato dai report di backup), l'attività di correzione sarà ancora applicabile a questo insieme di credenziali, poiché la modalità specifica della risorsa è il modo consigliato per creare le impostazioni di diagnostica, [in futuro](./backup-azure-diagnostic-events.md#legacy-event).
 
-Inoltre, se un utente dispone di un insieme di credenziali con solo un subset dei sei eventi specifici della risorsa abilitata, l'attività di monitoraggio e aggiornamento verrà applicata a questo insieme di credenziali, poiché i report di backup funzioneranno come previsto solo se tutti e sei gli eventi specifici delle risorse sono abilitati.
+Inoltre, se un utente dispone di un insieme di credenziali con solo un subset dei sei eventi specifici per le risorse abilitati, l'attività di monitoraggio e aggiornamento verrà applicata a questo insieme di credenziali, poiché i report di backup funzioneranno come previsto solo se tutti e sei gli eventi specifici delle risorse sono abilitati.
 
 > [!NOTE]
 >

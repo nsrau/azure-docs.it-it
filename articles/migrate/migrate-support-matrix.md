@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022719"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612113"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto di Azure Migrate
 
@@ -45,7 +45,7 @@ Migrazione server di Azure Migrate | ND | Eseguire la migrazione di [macchine vi
 [DMA](/sql/dma/dma-overview?view=sql-server-2017) | Valutare SQL Server database. | ND
 [Servizio Migrazione del database](../dms/dms-overview.md) | ND | Eseguire la migrazione di SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Valutare Virtual Desktop Infrastructure (VDI) | ND
-[Movere](https://www.movere.io/) | Valutare macchine virtuali VMWare, macchine virtuali Hyper-V, macchine virtuali Xen, computer fisici, workstation (inclusa VDI), carichi di lavoro su cloud pubblico | ND
+[Movere](https://www.movere.io/) | Valutare le macchine virtuali VMware, le VM Hyper-V, le VM Xen, i computer fisici, le workstation (incluso VDI), i carichi di lavoro del cloud pubblico | ND
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | Eseguire la migrazione di macchine virtuali VMWare, macchine virtuali Hyper-V, macchine virtuali Xen, macchine virtuali KVM, computer fisici, carichi di lavoro su cloud pubblico 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Valutare macchine virtuali VMware, macchine virtuali Hyper-V, server fisici, carichi di lavoro su cloud pubblico. | ND
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Valutare macchine virtuali VMware, macchine virtuali Hyper-V, server fisici, carichi di lavoro su cloud pubblico e database SQL Server. | ND

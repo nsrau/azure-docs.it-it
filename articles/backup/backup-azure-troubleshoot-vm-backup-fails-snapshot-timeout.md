@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 53c0ede07040e782b683e8ff4b0b08e6fe0a9caf
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585561"
+ms.locfileid: "88611858"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -31,7 +31,7 @@ Gli errori di backup più comuni possono essere risolti autonomamente seguendo i
 - **Verificare che il servizio agente guest di macchine virtuali di Azure sia avviato e aggiornato**:
   - In una macchina virtuale Windows:
     - Passare a **Services. msc** e verificare che il **servizio agente guest della macchina virtuale di Microsoft Azure** sia in esecuzione. Verificare inoltre che sia installata la [versione più recente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) . Per altre informazioni, vedere [problemi relativi all'agente guest della macchina virtuale Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - L'agente di macchine virtuali di Azure viene installato per impostazione predefinita in qualsiasi VM Windows distribuita dall'immagine di Azure Marketplace dal portale, da PowerShell, dall'interfaccia della riga di comando o da un modello di Azure Resource Manager. Quando si crea un'immagine di macchina virtuale personalizzata distribuita in Azure, potrebbe essere necessaria un' [installazione manuale dell'agente](../virtual-machines/extensions/agent-windows.md#manual-installation) .
+    - L'agente di macchine virtuali di Azure viene installato per impostazione predefinita in qualsiasi VM Windows distribuita da un'immagine di Azure Marketplace dal portale, da PowerShell, dall'interfaccia della riga di comando o da un modello di Azure Resource Manager. Quando si crea un'immagine di macchina virtuale personalizzata distribuita in Azure, potrebbe essere necessaria un' [installazione manuale dell'agente](../virtual-machines/extensions/agent-windows.md#manual-installation) .
     - Esaminare la matrice di supporto per verificare se la macchina virtuale è in esecuzione nel [sistema operativo Windows supportato](backup-support-matrix-iaas.md#operating-system-support-windows).
   - Nella VM Linux,
     - Verificare che il servizio agente guest della macchina virtuale di Azure sia in esecuzione eseguendo il comando `ps-e` . Verificare inoltre che sia installata la [versione più recente](../virtual-machines/extensions/update-linux-agent.md) . Per altre informazioni, vedere [problemi relativi all'agente guest della macchina virtuale Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).

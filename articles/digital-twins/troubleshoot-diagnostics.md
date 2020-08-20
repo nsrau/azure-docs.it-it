@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003588"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612402"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: registrazione diagnostica
 
@@ -70,8 +70,8 @@ Ogni categoria di log è costituita da operazioni di scrittura, lettura, elimina
 | --- | --- |
 | Scrittura | PUT e PATCH |
 | Lettura | GET |
-| Elimina | DELETE |
-| Action | POST |
+| Delete | DELETE |
+| Azione | POST |
 
 Ecco un elenco completo delle operazioni e delle [chiamate API REST di Azure Digital gemelle](https://docs.microsoft.com/rest/api/azure-digitaltwins/) corrispondenti registrate in ogni categoria. 
 
@@ -88,7 +88,7 @@ Ecco un elenco completo delle operazioni e delle [chiamate API REST di Azure Dig
 | ADTEventRoutesOperation | Microsoft. DigitalTwins/eventroutes/Write | Route di eventi-Aggiungi API |
 |  | Microsoft. DigitalTwins/eventroutes/Read | Route di eventi Get by ID ed elenco di API |
 |  | Microsoft. DigitalTwins/eventroutes/Delete | API di eliminazione delle route degli eventi |
-|  | Microsoft. DigitalTwins/eventroutes/Action | Uscita di un evento in un servizio endpoint (non una chiamata API) |
+|  | Microsoft. DigitalTwins/eventroutes/Action | Errore durante il tentativo di pubblicare eventi in un servizio endpoint (non in una chiamata API) |
 | ADTDigitalTwinsOperation | Microsoft. DigitalTwins/DigitalTwins/Write | Dispositivi gemelli digitali aggiungere, aggiungere relazioni, aggiornare e aggiornare un componente |
 |  | Microsoft. DigitalTwins/DigitalTwins/Read | Dispositivi gemelli digitali Get by ID, Get Component, Get Relationship by ID, List relazioni in ingresso, elenco relazioni |
 |  | Microsoft. DigitalTwins/DigitalTwins/Delete | Eliminazione di gemelli digitali, relazione Delete |

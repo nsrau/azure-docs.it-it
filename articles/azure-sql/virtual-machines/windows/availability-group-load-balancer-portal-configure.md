@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a83755a08a3579484796cd56623cb3401d03d874
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284286"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612555"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On in macchine virtuali di Azure
 
@@ -67,10 +67,11 @@ Per prima cosa creare il servizio di bilanciamento del carico.
 
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | valore |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
    | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
+   | **SKU** |**Standard**: obbligatorio se le istanze di SQL si trovano in un set di disponibilità diverso da quello del servizio di bilanciamento del carico. </br> **Basic**: opzione predefinita. |
    | **Rete virtuale** |Selezionare la rete virtuale in cui si trovano le istanze di SQL Server. |
    | **Subnet** |Selezionare la subnet in cui si trovano le istanze di SQL Server. |
    | **Assegnazione indirizzi IP** |**Statico** |
@@ -115,7 +116,7 @@ Il probe definisce come Azure deve verificare quali istanze di SQL Server sono a
 
 3. Configurare il probe nel pannello **Aggiungi probe** . Usare i valori seguenti per configurare il probe.
 
-   | Impostazione | valore |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il probe. Ad esempio **SQLAlwaysOnEndPointProbe**. |
    | **Protocollo** |**TCP** |
@@ -141,7 +142,7 @@ Le regole di bilanciamento del carico consentono di configurare il modo in cui i
 
 3. Nel pannello **Aggiungi regola di bilanciamento del carico** configurare la regola di bilanciamento del carico. Usare le seguenti impostazioni: 
 
-   | Impostazione | valore |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta la regola di bilanciamento del carico. Ad esempio **SQLAlwaysOnEndPointListener**. |
    | **Protocollo** |**TCP** |
@@ -233,7 +234,7 @@ Per aggiungere un indirizzo IP a un servizio di bilanciamento del carico con il 
 
 7. Aggiungere un probe integrità usando le impostazioni seguenti:
 
-   |Impostazione |valore
+   |Impostazione |Valore
    |:-----|:----
    |**Nome** |Un nome per identificare il probe.
    |**Protocollo** |TCP
@@ -247,7 +248,7 @@ Per aggiungere un indirizzo IP a un servizio di bilanciamento del carico con il 
 
 10. Configurare la nuova regola di bilanciamento del carico usando le impostazioni seguenti:
 
-    |Impostazione |valore
+    |Impostazione |Valore
     |:-----|:----
     |**Nome** |Nome per identificare la regola di bilanciamento del carico. 
     |**Indirizzo IP front-end IP** |Selezionare l'indirizzo IP che è stato creato. 
@@ -296,7 +297,7 @@ Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribui
 
 1. Creare la regola di bilanciamento del carico con le impostazioni seguenti:
 
-   |Impostazione |valore
+   |Impostazione |Valore
    |:-----|:----
    |**Nome** |Aggiungere il nome per identificare la regola di bilanciamento del carico per il gruppo di disponibilità distribuito. 
    |**Indirizzo IP front-end IP** |Usare lo stesso indirizzo IP front-end del gruppo di disponibilità.

@@ -3,12 +3,12 @@ title: Abilitare automaticamente il backup durante la creazione di macchine virt
 description: Articolo che descrive come usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali create in un determinato ambito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19985ebc51fe713ee0392800e2791ea1891ff3cd
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514221"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612674"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
 
@@ -33,18 +33,18 @@ Attualmente, backup di Azure fornisce un criterio predefinito (usando criteri di
 Per assegnare i criteri all'ambito richiesto, attenersi alla procedura seguente:
 
 1. Accedere al portale di Azure e passare al dashboard dei **criteri** .
-2. Selezionare **definizioni** nel menu a sinistra per ottenere un elenco di tutti i criteri predefiniti tra le risorse di Azure.
-3. Filtrare l'elenco per **Category = backup**. L'elenco viene filtrato in modo da ottenere un singolo criterio denominato ' Configure backup on VMS of a location to an existing Central Vault nello stesso percorso '.
+1. Selezionare **definizioni** nel menu a sinistra per ottenere un elenco di tutti i criteri predefiniti tra le risorse di Azure.
+1. Filtrare l'elenco per **Category = backup**. L'elenco verrà filtrato in modo da visualizzare un singolo criterio denominato ' Configure backup on VMS of a location to an existing Central Vault nello stesso percorso '.
 ![Dashboard dei criteri](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
-4. Fare clic sul nome del criterio. Si verrà reindirizzati alla definizione dettagliata per questo criterio.
-![Pannello definizione criteri](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
-5. Fare clic sul pulsante **assegna** nella parte superiore del pannello. In questo modo viene reindirizzato al pannello **assegna criterio** .
-6. In **nozioni di base**fare clic sui tre puntini di sospensione accanto al campo **ambito** . Verrà aperto un pannello di contesto a destra in cui è possibile selezionare la sottoscrizione per il criterio da applicare. Facoltativamente, è anche possibile selezionare un gruppo di risorse, in modo che i criteri vengano applicati solo per le macchine virtuali in un determinato gruppo di risorse.
+1. Selezionare il nome del criterio. Si verrà reindirizzati alla definizione dettagliata per questo criterio.
+![Riquadro definizione criteri](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
+1. Selezionare il pulsante **assegna** nella parte superiore del riquadro. Viene quindi reindirizzati al riquadro **assegna criterio** .
+1. In **nozioni di base**selezionare i tre puntini di sospensione accanto al campo **ambito** . Verrà aperto un riquadro di contesto a destra in cui è possibile selezionare la sottoscrizione per il criterio da applicare. Facoltativamente, è anche possibile selezionare un gruppo di risorse, in modo che i criteri vengano applicati solo per le macchine virtuali in un determinato gruppo di risorse.
 ![Nozioni fondamentali sull'assegnazione di criteri](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
-7. Nella scheda **parametri** scegliere un percorso dall'elenco a discesa e selezionare l'insieme di credenziali e i criteri di backup a cui è necessario associare le VM nell'ambito.
+1. Nella scheda **parametri** scegliere un percorso dall'elenco a discesa e selezionare l'insieme di credenziali e i criteri di backup a cui è necessario associare le VM nell'ambito.
 ![Parametri di assegnazione dei criteri](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
-8. Verificare che l' **effetto** sia impostato su deployIfNotExists.
-9. Passare a **Verifica + crea** e fare clic su **Crea**.
+1. Verificare che l' **effetto** sia impostato su deployIfNotExists.
+1. Passare a **Verifica + crea** e selezionare **Crea**.
 
 > [!NOTE]
 >

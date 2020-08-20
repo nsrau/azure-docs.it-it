@@ -4,12 +4,12 @@ description: Istruzioni su come spostare l'insieme di credenziali di servizi di 
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 40ef55fa3b86856051b840c5d88ab8fadae3b7c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514102"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612572"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -57,23 +57,23 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 
    ![Insieme di credenziali di Servizi di ripristino aperto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-   Se non vengono visualizzate le **informazioni di base per l'insieme** di credenziali, fare clic sull'icona a discesa. Le informazioni di base dovrebbero ora essere visualizzate.
+   Se non vengono visualizzate le **informazioni di base per l'insieme** di credenziali, selezionare l'icona a discesa. Le informazioni di base dovrebbero ora essere visualizzate.
 
    ![Scheda delle informazioni di base](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. Nel menu Panoramica dell'insieme di credenziali fare clic su **cambia** accanto a **Gruppo di risorse**, per aprire il pannello **Sposta risorse**.
+3. Nel menu Panoramica dell'insieme di credenziali selezionare **Cambia** accanto al **gruppo di risorse**per aprire il riquadro **Sposta risorse** .
 
    ![Cambiare il gruppo di risorse](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. Nel pannello **Sposta risorse** , per l'insieme di credenziali selezionato è consigliabile spostare le risorse correlate facoltative selezionando la casella di controllo come illustrato nella figura seguente.
+4. Nel riquadro **Sposta risorse** , per l'insieme di credenziali selezionato è consigliabile spostare le risorse correlate facoltative selezionando la casella di controllo come illustrato nella figura seguente.
 
    ![Spostare la sottoscrizione](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Per aggiungere il gruppo di risorse di destinazione, nell'elenco a discesa **Gruppo di risorse** selezionare un gruppo di risorse esistente o fare clic sull'opzione **Crea un nuovo gruppo**.
+5. Per aggiungere il gruppo di risorse di destinazione, nell'elenco a discesa **gruppo di risorse** selezionare un gruppo di risorse esistente o selezionare l'opzione **Crea un nuovo gruppo** .
 
    ![Creare la risorsa](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-6. Dopo aver aggiunto il gruppo di risorse, confermare l'opzione **Dichiaro di aver compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiornerò con i nuovi ID di risorsa** e quindi fare clic su **OK** per completare lo spostamento dell'insieme di credenziali.
+6. Dopo aver aggiunto il gruppo di risorse, confermare di aver **compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiorno per l'uso della nuova opzione ID risorsa** , quindi selezionare **OK** per completare lo spostamento dell'insieme di credenziali.
 
    ![Messaggio di conferma](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
@@ -86,11 +86,11 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 
     ![Insieme di credenziali di Servizi di ripristino aperto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-    Se le **Informazioni di base** per l'insieme di credenziali non sono visualizzate, fare clic sulla freccia verso il basso. Le informazioni di base dovrebbero ora essere visualizzate.
+    Se non vengono visualizzate le **informazioni di base per l'insieme** di credenziali, selezionare l'icona a discesa. Le informazioni di base dovrebbero ora essere visualizzate.
 
     ![Scheda delle informazioni di base](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. Nel menu Panoramica dell'insieme di credenziali fare clic su **cambia** accanto a **Sottoscrizione**, per aprire il pannello **Sposta risorse**.
+3. Nel menu Panoramica dell'insieme di credenziali selezionare **Cambia** accanto a **sottoscrizione**per aprire il riquadro **Sposta risorse** .
 
    ![Cambiare la sottoscrizione](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -99,11 +99,11 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
    ![Spostare la risorsa](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Dall'elenco a discesa **Sottoscrizione ** selezionare la sottoscrizione di destinazione in cui si vuole spostare l'insieme di credenziali.
-6. Per aggiungere il gruppo di risorse di destinazione, nell'elenco a discesa **Gruppo di risorse** selezionare un gruppo di risorse esistente o fare clic sull'opzione **Crea un nuovo gruppo**.
+6. Per aggiungere il gruppo di risorse di destinazione, nell'elenco a discesa **gruppo di risorse** selezionare un gruppo di risorse esistente o selezionare l'opzione **Crea un nuovo gruppo** .
 
    ![Aggiungere la sottoscrizione](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Fare clic sull'opzione **Dichiaro di aver compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiornerò con i nuovi ID di risorsa** per confermare e quindi fare clic su **OK**.
+7. Selezionare **ho compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiorno per usare la nuova opzione ID risorsa** per confermare, quindi selezionare **OK**.
 
 > [!NOTE]
 > Il backup tra sottoscrizioni (l'insieme di credenziali di Servizi di ripristino e le macchine virtuali protette si trovano in sottoscrizioni diverse) non è uno scenario supportato. Neppure l'opzione di ridondanza di archiviazione può essere modificata da archiviazione con ridondanza locale ad archiviazione con ridondanza globale e viceversa durante l'operazione di spostamento dell'insieme di credenziali.

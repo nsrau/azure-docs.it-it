@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
-ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 08/19/2020
+ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225972"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607542"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -35,12 +35,13 @@ Poiché l'emulatore Azure Cosmos fornisce un ambiente emulato eseguito nella wor
 
 * Esplora dati nell'emulatore attualmente supporta i client per l'API SQL. La vista Esplora dati e le operazioni per le API di Azure Cosmos DB, tra cui le API MongoDB, Tabella, Graph e Cassandra, non sono supportate completamente.
 * L'emulatore Azure Cosmos supporta solo un singolo account fisso e una chiave master nota. La rigenerazione della chiave non è possibile nell'emulatore Cosmos Azure, tuttavia la chiave predefinita può essere modificata usando l'opzione della riga di comando.
+* Azure Cosmos Emulator supporta un account Azure Cosmos in modalità di [velocità effettiva con provisioning](set-throughput.md) ; Attualmente non supporta un account Azure Cosmos in modalità senza [Server](serverless.md) .
 * L'emulatore Azure Cosmos non è un servizio scalabile e non supporta un numero elevato di contenitori.
 * L'emulatore Azure Cosmos non offre [livelli di coerenza di Azure Cosmos DB](consistency-levels.md) diversi.
 * L'emulatore Azure Cosmos non offre la [replica multiarea](distribute-data-globally.md).
 * Poiché la copia dell'emulatore Azure Cosmos potrebbe non essere sempre aggiornata con le modifiche più recenti del servizio Azure Cosmos DB, fare riferimento allo [strumento di pianificazione della capacità di Azure Cosmos DB](https://www.documentdb.com/capacityplanner) per stimare con precisione le esigenze di velocità effettiva (UR) dell'applicazione.
 * Quando si usa l'emulatore Azure Cosmos, per impostazione predefinita è possibile creare fino a 25 contenitori di dimensione fissa (supportati solo con Azure Cosmos DB SDK) o 5 contenitori senza limiti con l'emulatore Azure Cosmos. Per altre informazioni sulla modifica di questo valore, vedere la sezione su come [impostare il valore PartitionCount](#set-partitioncount).
-* L'emulatore supporta dimensioni massime della proprietà ID di 254 caratteri.
+* Emulatore supporta la dimensione massima della proprietà ID di 254 caratteri.
 
 ## <a name="system-requirements"></a>Requisiti di sistema
 

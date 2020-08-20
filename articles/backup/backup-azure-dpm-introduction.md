@@ -3,12 +3,12 @@ title: Preparare il server DPM per il backup dei carichi di lavoro
 description: Questo articolo illustra come preparare i backup di System Center Data Protection Manager (DPM) in Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: a61112f04d3faef83a80395a7d316c63130e7758
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263266"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612657"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -119,7 +119,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
     ![Apri impostazioni insieme di credenziali](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Nella pagina **Proprietà** scaricare l'agente di Backup di Azure.
 
-    ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Scarica](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Al termine del download eseguire MARSAgentInstaller.exe. per installare l'agente in un computer DPM.
 5. Selezionare una cartella di installazione e una cartella della cache per l'agente. Lo spazio disponibile nel percorso della cache deve essere almeno il 5% dei dati di backup.
@@ -182,4 +182,4 @@ Verificare che il file delle credenziali dell'insieme di credenziali sia disponi
 Se si verifica un errore di credenziali dell'insieme di credenziali non valido, ad esempio "credenziali di insieme di credenziali non valide fornite", il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino.
 
 - Ripetere l'operazione dopo avere scaricato un nuovo file di archivio delle credenziali dal portale.
-- Questo errore viene in genere visualizzato quando si seleziona l'opzione **Scarica credenziali** dell'insieme di credenziali nel portale di Azure, due volte in rapida successione. In questo caso è valido solo il secondo file delle credenziali di insieme.
+- Questo errore viene in genere visualizzato quando si seleziona l'opzione per il **download delle credenziali** dell'insieme di credenziali nel portale di Azure, due volte in rapida successione. In questo caso è valido solo il secondo file delle credenziali di insieme.

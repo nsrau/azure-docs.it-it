@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 08/10/2020
+ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276652"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611127"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche nel database di Azure per PostgreSQL-server singolo
 
@@ -126,7 +126,7 @@ Informazioni su come [arrestare la replica in una replica](howto-read-replicas-p
 ## <a name="failover"></a>Failover
 Non esiste un failover automatico tra i server master e di replica. 
 
-Poiché la replica è asincrona, si verifica un ritardo tra il database master e la replica. La quantità di ritardo può essere influenzata da una serie di fattori quali la quantità di carico di lavoro in esecuzione nel server master e la latenza tra i Data Center. Nella maggior parte dei casi, il ritardo di replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
+Poiché la replica è asincrona, si verifica un ritardo tra il database master e la replica. La quantità di ritardo può essere influenzata da una serie di fattori quali la quantità di carico di lavoro in esecuzione nel server master e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
 
 > [!Tip]
 > Se si esegue il failover alla replica, il ritardo nel momento in cui si scollega la replica dal database master indicherà la quantità di dati persi.
@@ -146,7 +146,7 @@ Una volta che l'applicazione ha elaborato correttamente le operazioni di lettura
 
 Questa sezione riepiloga le considerazioni sulla funzionalità di replica in lettura.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 Le repliche e la [decodifica logica](concepts-logical.md) dipendono entrambi dal log write-ahead di Postgres (WAL) per informazioni. Queste due funzionalità richiedono diversi livelli di registrazione da postgres. Per la decodifica logica è necessario un livello di registrazione più elevato rispetto alla lettura delle repliche.
 
 Per configurare il livello di registrazione corretto, usare il parametro di supporto della replica di Azure. Il supporto per la replica di Azure offre tre opzioni di impostazione:
@@ -163,16 +163,19 @@ Una replica in lettura viene creata come nuovo server di Database di Azure per P
 ### <a name="replica-configuration"></a>Configurazione della replica
 Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo la creazione di una replica, è possibile modificare diverse impostazioni, tra cui archiviazione e periodo di conservazione dei backup.
 
-VCore e il piano tariffario possono anche essere modificati nella replica nei casi seguenti:
-* PostgreSQL richiede che il valore del parametro`max_connections` sulla replica in lettura sia maggiore o uguale a quello del master; in caso contrario, la replica non si avvia. In database di Azure per PostgreSQL, il `max_connections` valore del parametro è basato sullo SKU (VCore e piano tariffario). Per altre informazioni, vedere [Limiti in Database di Azure per PostgreSQL](concepts-limits.md). 
-* Il ridimensionamento a o dal piano tariffario Basic non è supportato
-
-> [!IMPORTANT]
-> Prima che un'impostazione master venga aggiornata a un nuovo valore, aggiornare la configurazione della replica a un valore uguale o maggiore. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
-
-Se si tenta di aggiornare i valori del server descritti sopra, ma non si rispettano i limiti, viene visualizzato un errore.
-
 Le regole del firewall, le regole della rete virtuale e le impostazioni dei parametri non vengono ereditate dal server master alla replica quando la replica viene creata o successivamente.
+
+### <a name="scaling"></a>Scalabilità
+Ridimensionamento di Vcore o tra per utilizzo generico e con ottimizzazione per la memoria:
+* PostgreSQL richiede che l' `max_connections` impostazione in un server secondario sia [maggiore o uguale all'impostazione sul database primario](https://www.postgresql.org/docs/current/hot-standby.html). in caso contrario, il database secondario non verrà avviato.
+* In database di Azure per PostgreSQL, il numero massimo di connessioni consentite per ogni server è fissato allo SKU di calcolo poiché le connessioni occupano memoria. È possibile ottenere altre informazioni sul [mapping tra max_connections e SKU di calcolo](concepts-limits.md).
+* Scalabilità **verticale**: aumentare prima di tutto il calcolo di una replica, quindi aumentare le prestazioni del database primario. Questo ordine impedisce agli errori di violare il `max_connections` requisito.
+* **Riduzione**delle prestazioni: prima di tutto ridurre le risorse di calcolo del database primario, quindi ridimensionare la replica. Se si prova a ridimensionare la replica in un livello inferiore rispetto al database primario, si verifica un errore perché questo viola il `max_connections` requisito.
+
+Ridimensionamento dello spazio di archiviazione:
+* Tutte le repliche hanno una crescita automatica dell'archiviazione abilitata per impedire problemi di replica da una replica di archiviazione completa. Questa impostazione non può essere disabilitata.
+* È anche possibile scalare manualmente l'archiviazione, come per qualsiasi altro server
+
 
 ### <a name="basic-tier"></a>Livello Basic
 I server di livello Basic supportano solo la replica della stessa area.

@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262671"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611841"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -234,7 +234,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Non usare "Mount-a". Questo comando monta tutti i dispositivi descritti in '/etc/fstab '. Questo potrebbe significare che i dispositivi duplicati possono essere montati. I dati possono essere reindirizzati ai dispositivi creati dallo script, che non mantengono i dati e pertanto potrebbero causare la perdita di dati.
+> Non usare "Mount-a". Questo comando monta tutti i dispositivi descritti in '/etc/fstab '. Questo potrebbe significare che i dispositivi duplicati possono essere montati. I dati possono essere reindirizzati ai dispositivi creati dallo script, che non mantengono i dati, quindi potrebbero causare la perdita di dati.
 
 #### <a name="for-raid-arrays"></a>Per le matrici RAID
 

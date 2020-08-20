@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c7cd3ed863153762e42a0b6420623fec52e779e1
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566319"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611535"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -141,7 +141,7 @@ Dimensioni macchina virtuale |Macchine virtuali di Azure di qualsiasi dimensione
 Backup di macchine virtuali in [set di disponibilità](../virtual-machines/availability.md#availability-sets) | Supportato.<br/><br/> Non è possibile ripristinare una macchina virtuale in un set di disponibilità usando l'opzione di creazione rapida di una macchina virtuale. Quando si ripristina la macchina virtuale, ripristinare il disco e usarlo per distribuire una macchina virtuale oppure ripristinare un disco e usarlo per sostituire un disco esistente.
 Backup di macchine virtuali distribuite con il [vantaggio Hybrid Use (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Supportato.
 Backup di macchine virtuali distribuite in un [set di scalabilità](../virtual-machine-scale-sets/overview.md) |Supportata. Per il dominio di errore è necessario impostare la [modalità di orchestrazione](../virtual-machine-scale-sets/orchestration-modes.md) su 2. Il set di disponibilità non è supportato.
-Backup di macchine virtuali distribuite da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (pubblicazione da parte di Microsoft, terze parti) |Supportato.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo). Le macchine virtuali di Azure Marketplace supportate come VM non vengono ripristinate, in quanto queste richiedono informazioni sugli acquisti. Vengono ripristinati solo come dischi.
+Eseguire il backup di macchine virtuali distribuite da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (pubblicazione da parte di Microsoft, terze parti) |Supportato.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo). Le macchine virtuali di Azure Marketplace supportate come macchine virtuali non vengono ripristinate, in quanto queste richiedono informazioni sugli acquisti. Vengono ripristinati solo come dischi.
 Backup di macchine virtuali distribuite da un'immagine personalizzata (terze parti) |Supportato.<br/><br/> È necessario che la macchina virtuale esegua un sistema operativo supportato.<br/><br/> Quando si ripristinano i file nella macchina virtuale, è possibile eseguire il ripristino solo in un sistema operativo compatibile (non in un sistema operativo precedente o successivo).
 Backup di macchine virtuali di cui è stata eseguita la migrazione in Azure| Supportato.<br/><br/> Per eseguire il backup della macchina virtuale, l'agente di macchine virtuali deve essere installato nella macchina sottoposta a migrazione.
 Backup della coerenza tra più macchine virtuali | Backup di Azure non garantisce la coerenza dei dati e delle applicazioni tra più macchine virtuali.

@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure crittografate
 description: Viene descritto come eseguire il backup e il ripristino di VM di Azure crittografate con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 304196f6b517c353cb4fc142129fa4d3007a1d9c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585330"
+ms.locfileid: "88611297"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Eseguire il backup e il ripristino di macchine virtuali di Azure crittografate
 
@@ -69,7 +69,7 @@ In alcune circostanze può anche essere necessario eseguire alcune operazioni:
 1. In **obiettivo di backup**in  >  **cui è in esecuzione il carico di lavoro?** selezionare **Azure**.
 1. In **che cosa si vuole eseguire il backup?** selezionare **macchina virtuale**. Quindi selezionare **backup**.
 
-      ![Pannello Scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+      ![Riquadro scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
 1. In **criteri di backup**  >  **scegliere criteri di backup**, selezionare i criteri che si desidera associare all'insieme di credenziali. Selezionare **OK**.
     - Un criterio di backup specifica quando vengono eseguiti i backup e per quanto tempo vengono archiviati.

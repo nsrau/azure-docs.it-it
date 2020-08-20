@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007777"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612640"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura l'accelerazione GPU (Graphics Processing Unit) per Desktop virtuale Windows
 
@@ -51,7 +51,7 @@ Per impostazione predefinita, le app e i desktop eseguiti in configurazioni con 
 1. Connettersi al desktop della macchina virtuale usando un account con privilegi di amministratore locale.
 2. Aprire il menu Start e digitare "gpedit.msc" per aprire l'Editor Criteri di gruppo.
 3. Spostarsi nell'albero **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Servizi Desktop remoto** > **Host sessione Desktop remoto** > **Ambiente sessione remota**.
-4. Selezionare il criterio **Usa la scheda grafica predefinita per l'hardware per tutte le sessioni di Servizi Desktop remoto** e impostarlo su **Abilitato** per abilitare il rendering della GPU nella sessione remota.
+4. Selezionare criteri **usa schede grafiche hardware per tutte le sessioni di Servizi Desktop remoto** e impostare questo criterio su **abilitato** per abilitare il rendering GPU nella sessione remota.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurare la codifica del frame con accelerazione GPU
 

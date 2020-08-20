@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 08cf736e533486b765f3b1a1173fcfe06c03306f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ded612fb79001adf2ada1a289603bc8a7561d38f
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212865"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612487"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -188,7 +188,7 @@ A partire dalla versione 3.x è necessario installare esplicitamente l'estension
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-L'emulatore di archiviazione di Azure eseguito in locale non include tutte le funzionalità necessarie a WebJobs SDK. In questa sezione si crea quindi un account di archiviazione in Azure e si configura il progetto per usarlo. Se è già disponibile un account di archiviazione, procedere con il passaggio 6.
+L'emulatore di archiviazione di Azure in esecuzione in locale non include tutte le funzionalità necessarie per webjobs SDK. In questa sezione si crea quindi un account di archiviazione in Azure e si configura il progetto per usarlo. Se è già disponibile un account di archiviazione, procedere con il passaggio 6.
 
 1. Aprire **Esplora server** in Visual Studio e accedere ad Azure. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connessione alla sottoscrizione di Microsoft Azure**.
 

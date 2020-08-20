@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3a23e0c2546da55f977d589eb38607994d3902b
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80133170"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611790"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Usare IoT Edge in Windows per eseguire i contenitori Linux
 
@@ -26,7 +26,7 @@ Questo articolo elenca i passaggi per installare il runtime di Azure IoT Edge us
 
 Per informazioni su ciò che è incluso nella versione più recente di IoT Edge, vedere [Azure IOT Edge versioni](https://github.com/Azure/azure-iotedge/releases).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Usare questa sezione per verificare se il dispositivo Windows in uso può supportare IoT Edge e per prepararlo per un motore del contenitore prima dell'installazione.
 
@@ -34,7 +34,7 @@ Usare questa sezione per verificare se il dispositivo Windows in uso può suppor
 
 Azure IoT Edge con i contenitori Linux possono essere eseguiti in qualsiasi versione di Windows che soddisfi i [requisiti per desktop Docker](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
-Se si desidera installare IoT Edge in una macchina virtuale, abilitare la virtualizzazione annidata e allocare almeno 2 GB di memoria. La modalità di abilitazione della virtualizzazione annidata è diversa a seconda dell'hypervisor usato. Per Hyper-V, per le macchine virtuali di seconda generazione la virtualizzazione nidificata è abilitata per impostazione predefinita. Per VMWare, è disponibile un interruttore per abilitare la funzionalità nella macchina virtuale.
+Se si desidera installare IoT Edge in una macchina virtuale, abilitare la virtualizzazione annidata e allocare almeno 2 GB di memoria. La modalità di abilitazione della virtualizzazione annidata è diversa a seconda dell'hypervisor usato. Per Hyper-V, per le macchine virtuali di seconda generazione la virtualizzazione nidificata è abilitata per impostazione predefinita. Per VMware, è disponibile un interruttore per abilitare la funzionalità nella macchina virtuale.
 
 ### <a name="prepare-the-container-engine"></a>Preparare il motore del contenitore
 
@@ -88,7 +88,7 @@ Per altre informazioni sui diversi parametri e opzioni di installazione, vedere 
 
 6. Quando richiesto, specificare la stringa di connessione del dispositivo recuperata nel passaggio 1. La stringa di connessione del dispositivo associa il dispositivo fisico a un ID dispositivo nell'hub.
 
-   La stringa di connessione del dispositivo ha il formato seguente e non deve includere le virgolette:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   La stringa di connessione del dispositivo ha il formato seguente e non deve includere le virgolette: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 

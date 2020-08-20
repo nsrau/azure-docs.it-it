@@ -4,16 +4,16 @@ description: Informazioni su come usare le funzionalità di sicurezza in Backup 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 9d8f8d6937cd93a9da9c82b2ed501c9fbb815b11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03bbcef2ce408a1b1f5e2c2d909728d3ed8e7e19
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079350"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611246"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 
-Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare questi attacchi, Backup di Azure offre ora una serie di funzionalità di sicurezza per la protezione dei backup ibridi. Questo articolo descrive come abilitare e usare queste funzionalità tramite un agente di Servizi di ripristino di Azure e il server di Backup di Azure. Queste funzionalità comprendono:
+Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare questi attacchi, Backup di Azure offre ora una serie di funzionalità di sicurezza per la protezione dei backup ibridi. Questo articolo descrive come abilitare e usare queste funzionalità tramite un agente di Servizi di ripristino di Azure e il server di Backup di Azure. Queste funzionalità includono:
 
 - **Prevenzione**. Ogni volta che viene eseguita un'operazione critica, come la modifica di una passphrase, viene aggiunto un ulteriore livello di autenticazione. Questa convalida serve a garantire che tali operazioni possano essere eseguite solo dagli utenti che hanno credenziali di Azure valide.
 - **Avviso**. Ogni volta che viene eseguita un'operazione critica, come l'eliminazione dei dati di backup, viene inviata una notifica tramite posta elettronica all'amministratore della sottoscrizione. Questo messaggio di posta elettronica garantisce che l'utente venga informato rapidamente riguardo a tali azioni.
@@ -32,7 +32,7 @@ Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e 
 
 ## <a name="enable-security-features"></a>Abilitare le funzionalità di sicurezza
 
-Se si crea un insieme di credenziali di Servizi di ripristino, è possibile usare tutte le funzionalità di sicurezza. Se si usa un insieme di credenziali esistente, abilitare le funzionalità di sicurezza eseguendo questa procedura:
+Se si sta creando un insieme di credenziali di servizi di ripristino, è possibile usare tutte le funzionalità di sicurezza. Se si usa un insieme di credenziali esistente, abilitare le funzionalità di sicurezza attenendosi alla procedura seguente:
 
 1. Accedere al portale di Azure con le credenziali di Azure.
 2. Selezionare **Sfoglia** e quindi digitare **Servizi di ripristino**.
@@ -40,39 +40,39 @@ Se si crea un insieme di credenziali di Servizi di ripristino, è possibile usar
     ![Screenshot dell'opzione Sfoglia del portale di Azure](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
     Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino. Selezionare un insieme di credenziali dall'elenco. Viene aperto il dashboard dell'insieme di credenziali selezionato.
-3. Nell'elenco degli elementi visualizzato sotto l'insieme di credenziali fare clic su **Proprietà** in **Impostazioni**.
+3. Nell'elenco di elementi visualizzato sotto l'insieme di credenziali, in **Impostazioni**, selezionare **Proprietà**.
 
     ![Screenshot delle opzioni per l'insieme di credenziali di Servizi di ripristino](./media/backup-azure-security-feature/vault-list-properties.png)
-4. Fare clic su **Aggiorna** in **Impostazioni di sicurezza**.
+4. In **impostazioni di sicurezza**selezionare **Aggiorna**.
 
     ![Screenshot delle proprietà dell'insieme di credenziali di Servizi di ripristino](./media/backup-azure-security-feature/security-settings-update.png)
 
-    Il collegamento Aggiorna apre il pannello **Impostazioni di sicurezza**, che contiene un riepilogo delle funzionalità e permette di abilitarle.
-5. Nell'elenco a discesa **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** selezionare un valore per confermare se [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) è stato abilitato. Se è stata abilitato, verrà chiesto di eseguire l'autenticazione da un altro dispositivo, ad esempio uno smartphone, quando si accede al portale di Azure.
+    Il collegamento aggiornamento apre il riquadro **impostazioni di sicurezza** , che fornisce un riepilogo delle funzionalità e consente di abilitarle.
+5. Nell'elenco a discesa **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** selezionare un valore per confermare se [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) è stato abilitato. Se è abilitata, viene richiesto di eseguire l'autenticazione da un altro dispositivo, ad esempio un telefono cellulare, durante l'accesso al portale di Azure.
 
    Quando si eseguono operazioni critiche in Backup, è necessario immettere il PIN di sicurezza, disponibile nel portale di Azure. L'abilitazione di Azure Multi-Factor Authentication aggiunge un livello di sicurezza. Solo gli utenti autorizzati con credenziali di Azure valide e autenticati da un secondo dispositivo potranno accedere al portale di Azure.
-6. Per salvare le impostazioni di sicurezza, selezionare **Abilita** e fare clic su **Salva**. È possibile selezionare **Abilita** solo dopo aver selezionato un valore nell'elenco **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** nel passaggio precedente.
+6. Per salvare le impostazioni di sicurezza, selezionare **Abilita** e selezionare **Salva**. È possibile selezionare **Abilita** solo dopo aver selezionato un valore nell'elenco **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** nel passaggio precedente.
 
     ![Screenshot delle impostazioni di sicurezza](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>Ripristino dei dati di backup eliminati
 
-Backup conserva i dati di backup eliminati per altri 14 giorni anziché eliminarli immediatamente quando viene eseguita l'**interruzione del backup con l'eliminazione dei dati di backup**. Per ripristinare i dati entro i 14 giorni previsti, eseguire la procedura seguente, a seconda del componente usato:
+Il backup conserva i dati di backup eliminati per altri 14 giorni e non li elimina immediatamente se viene eseguita l'operazione **Interrompi backup con Elimina dati di backup** . Per ripristinare i dati entro i 14 giorni previsti, eseguire la procedura seguente, a seconda del componente usato:
 
 Per utenti dell'**agente di Servizi di ripristino di Azure**:
 
-1. Se il computer in cui sono stati eseguiti i backup è ancora disponibile, riproteggere le origini dati eliminate e usare [Ripristinare i dati nello stesso computer](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in Servizi di ripristino di Azure per recuperare i dati da tutti i punti di recupero precedenti.
-2. Se invece il computer non è disponibile, scegliere [Ripristinare in un altro computer](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) per usare un altro computer con Servizi di ripristino di Azure per ottenere questi dati.
+1. Se il computer in cui si sono verificati i backup è ancora disponibile, riproteggere le origini dati eliminate e usare i [dati di ripristino nello stesso computer](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in servizi di ripristino di Azure per eseguire il ripristino da tutti i punti di ripristino precedenti.
+2. Se il computer non è disponibile, eseguire il [ripristino in un computer alternativo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) per usare un altro computer dei servizi di ripristino di Azure per ottenere questi dati.
 
 Per gli utenti che usano il **server di Backup di Azure**:
 
-1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino dei **dati per recuperare** i dati da tutti i punti di recupero precedenti.
-2. Se questo server non è disponibile, scegliere [Ripristinare i dati da un altro server di Backup di Azure](backup-azure-alternate-dpm-server.md) per usare un'altra istanza del server di Backup di Azure per ottenere questi dati.
+1. Se il server in cui si sono verificati i backup è ancora disponibile, riproteggere le origini dati eliminate e usare la funzionalità **Ripristina dati** per eseguire il ripristino da tutti i punti di ripristino precedenti.
+2. Se questo server non è disponibile, usare il [ripristino dei dati da un altro server di backup di Azure](backup-azure-alternate-dpm-server.md) per usare un'altra istanza di server di backup di Azure per ottenere questi dati.
 
 Per gli utenti di **Data Protection Manager**:
 
-1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino dei **dati per recuperare** i dati da tutti i punti di recupero precedenti.
-2. Se questo server non è disponibile, usare [Aggiungi DPM esterno](backup-azure-alternate-dpm-server.md) per usare un altro server Data Protection Manager per ottenere questi dati.
+1. Se il server in cui si sono verificati i backup è ancora disponibile, riproteggere le origini dati eliminate e usare la funzionalità **Ripristina dati** per eseguire il ripristino da tutti i punti di ripristino precedenti.
+2. Se il server non è disponibile, usare [Aggiungi DPM esterno](backup-azure-alternate-dpm-server.md) per usare un altro server Data Protection Manager per ottenere questi dati.
 
 ## <a name="prevent-attacks"></a>Prevenire gli attacchi
 
@@ -80,7 +80,7 @@ Sono stati aggiunti alcuni controlli per garantire che solo gli utenti validi po
 
 ### <a name="authentication-to-perform-critical-operations"></a>Autenticazione per eseguire operazioni critiche
 
-Come parte dell'aggiunta di un ulteriore livello di autenticazione per le operazioni critiche, viene chiesto di immettere un PIN di sicurezza quando si eseguono le operazioni **Arresta protezione dei dati con eliminazione dei dati** e **Modifica passphrase**.
+Nell'ambito dell'aggiunta di un ulteriore livello di autenticazione per le operazioni critiche, viene richiesto di immettere un PIN di sicurezza quando si esegue l' **arresto della protezione con Elimina dati** e si **modificano** le operazioni di passphrase.
 
 > [!NOTE]
 >
@@ -90,7 +90,7 @@ Per ricevere questo PIN:
 
 1. Accedere al portale di Azure.
 2. Individuare **Recovery Services vault**  >  **le proprietà delle impostazioni**dell'insieme di credenziali dei servizi di ripristino  >  **Properties**.
-3. Fare clic su **Genera** in **PIN di sicurezza**. Verrà visualizzato un pannello contenente il PIN da immettere nell'interfaccia utente dell'agente di Servizi di ripristino di Azure.
+3. In **pin di sicurezza**selezionare **genera**. Verrà aperto un riquadro che contiene il PIN da immettere nell'interfaccia utente dell'agente di servizi di ripristino di Azure.
     Questo PIN è valido solo per cinque minuti e viene generato automaticamente dopo questo periodo.
 
 ### <a name="maintain-a-minimum-retention-range"></a>Mantenimento di un intervallo minimo di conservazione
@@ -112,7 +112,7 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 
 | Operazione | Dettagli errore | Risoluzione |
 | --- | --- | --- |
-| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore si verifica quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. Le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata:**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza un approccio consigliato è l'aggiornamento dell'agente di backup, del server di Backup di Azure e/o di DPM UR. |
+| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore si verifica quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. Le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata:**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, un approccio consigliato consiste nell'aggiornare l'agente di backup, server di Backup di Azure e/o DPM UR per sfruttare tutti gli aggiornamenti della sicurezza. |
 | Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata:**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > impostazioni > proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
 | Modificare la passphrase |Operazione non riuscita. ID: 120002 |**Causa:**<br/>Questo errore si verifica quando sono abilitate impostazioni di sicurezza, si tenta di modificare la passphrase e si usa una versione non supportata. Le versioni valide sono specificate nella prima nota di questo articolo.<br/>**Azione consigliata:**<br/> Per modificare la passphrase, è prima necessario aggiornare l'agente di backup almeno alla versione 2.0.9052, il server di Backup di Azure almeno all'Update 1 e/o DPM almeno a DPM 2012 R2 UR12 o a DPM 2016 UR2 (collegamenti per il download riportati più avanti). Immettere quindi un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > impostazioni > proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
 

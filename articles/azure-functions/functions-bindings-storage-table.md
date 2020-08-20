@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 2f4647f4e13677d9136ce7fdb090e809943cdf0d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: fd50e649257ba8849f49cd3aae85e3228b9eb94c
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206700"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612215"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione tabelle di Azure per Funzioni di Azure
 
@@ -100,7 +100,7 @@ Il metodo `IQueryable` non è supportato nel [runtime di Funzioni v2](functions-
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Threading.Tasks;
 
@@ -228,8 +228,8 @@ Queste proprietà sono descritte nella sezione [configuration](#input---configur
 Il codice script C# aggiunge un riferimento ad Azure Storage SDK in modo che il tipo di entità possa derivare da `TableEntity`:
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
+#r "Microsoft.Azure.Cosmos"
+using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Logging;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
@@ -273,8 +273,8 @@ public class Person : TableEntity
 ```
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
+#r "Microsoft.Azure.Cosmos"
+using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -564,7 +564,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**partitionKey** | **PartitionKey** |Facoltativa. Chiave di partizione dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
 |**rowKey** |**RowKey** | Facoltativa. Chiave di riga dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
 |**take** |**Take** | Facoltativa. Numero massimo di entità da leggere in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
-|**filtro** |**Filter** | Facoltativa. Espressione di filtro OData per l'input della tabella in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**filter** |**Filter** | Facoltativa. Espressione di filtro OData per l'input della tabella in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
 |**connection** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. L'impostazione può essere il nome di un'impostazione dell'app con prefisso "AzureWebJobs" o di una stringa di connessione. Ad esempio, se il nome dell'impostazione è "AzureWebJobsMyStorage", è possibile specificare "Storage" qui. Il runtime di funzioni cercherà automaticamente un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

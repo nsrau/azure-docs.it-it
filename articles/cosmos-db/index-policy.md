@@ -4,14 +4,14 @@ description: Informazioni su come configurare e modificare i criteri di indicizz
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077595"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607514"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 
@@ -30,15 +30,15 @@ Azure Cosmos DB supporta due modalità di indicizzazione:
 - **None**: l'indicizzazione è disabilitata nel contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Può anche essere usato per migliorare le prestazioni delle operazioni bulk. Una volta completate le operazioni bulk, è possibile impostare la modalità di indicizzazione su coerente e quindi monitorarla utilizzando [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) fino al completamento.
 
 > [!NOTE]
-> Azure Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione Lazy esegue gli aggiornamenti dell'indice con un livello di priorità molto inferiore quando il motore non esegue altre operazioni. Ciò può comportare risultati di query **incoerenti o incompleti** . Se si prevede di eseguire una query su un contenitore Cosmos, non selezionare l'indicizzazione differita. Nel giugno 2020 è stata introdotta una modifica che non consente più l'impostazione dei nuovi contenitori sulla modalità di indicizzazione differita. Se l'account Azure Cosmos DB contiene già almeno un contenitore con indicizzazione differita, questo account viene esentato automaticamente dalla modifica. È anche possibile richiedere un'esenzione contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Azure Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione Lazy esegue gli aggiornamenti dell'indice con un livello di priorità molto inferiore quando il motore non esegue altre operazioni. Ciò può comportare risultati di query **incoerenti o incompleti** . Se si prevede di eseguire una query su un contenitore Cosmos, non selezionare l'indicizzazione differita. Nel giugno 2020 è stata introdotta una modifica che non consente più l'impostazione dei nuovi contenitori sulla modalità di indicizzazione differita. Se l'account Azure Cosmos DB contiene già almeno un contenitore con indicizzazione differita, questo account viene esentato automaticamente dalla modifica. È anche possibile richiedere un'esenzione contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (ad eccezione del caso in cui si usi un account Azure Cosmos in modalità senza [Server](serverless.md) che non supporta l'indicizzazione differita).
 
 Per impostazione predefinita, i criteri di indicizzazione vengono impostati su `automatic` . Per ottenere questo risultato, impostare la `automatic` proprietà nei criteri di indicizzazione su `true` . L'impostazione di questa proprietà su `true` consente ad Azure CosmosDB di indicizzare automaticamente i documenti man mano che vengono scritti.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusione ed esclusione dei percorsi delle proprietà
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Inclusione ed esclusione dei percorsi delle proprietà
 
 Un criterio di indicizzazione personalizzato può specificare percorsi di proprietà inclusi o esclusi in modo esplicito dall'indicizzazione. Ottimizzando il numero di percorsi indicizzati, è possibile ridurre sostanzialmente la latenza e l'addebito delle unità richiesta per le operazioni di scrittura. Questi percorsi vengono definiti seguendo [il metodo descritto nella sezione Panoramica dell'indicizzazione](index-overview.md#from-trees-to-property-paths) con le aggiunte seguenti:
 
-- un percorso che conduce a un valore scalare (stringa o numero) termina con`/?`
+- un percorso che conduce a un valore scalare (stringa o numero) termina con `/?`
 - gli elementi di una matrice vengono risolti insieme tramite la `/[]` notazione `/0` , anziché e `/1` così via.
 - il `/*` carattere jolly può essere usato per trovare la corrispondenza con qualsiasi elemento al di sotto del nodo
 
@@ -58,11 +58,11 @@ Riprendendo lo stesso esempio:
     }
 ```
 
-- il `headquarters` `employees` percorso di è`/headquarters/employees/?`
+- il `headquarters` `employees` percorso di è `/headquarters/employees/?`
 
-- il `locations` `country` percorso è`/locations/[]/country/?`
+- il `locations` `country` percorso è `/locations/[]/country/?`
 
-- il percorso di qualsiasi elemento in `headquarters` è`/headquarters/*`
+- il percorso di qualsiasi elemento in `headquarters` è `/headquarters/*`
 
 Ad esempio, è possibile includere il `/headquarters/employees/?` percorso. Questo percorso garantisce che la proprietà Employees venga indicizzata, ma non verrà indicizzato un altro JSON annidato all'interno di questa proprietà.
 
@@ -81,11 +81,11 @@ Tutti i criteri di indicizzazione devono includere il percorso radice `/*` come 
 
 Quando si includono ed escludono i percorsi, è possibile che si verifichino gli attributi seguenti:
 
-- `kind`può essere `range` o `hash` . La funzionalità degli indici di intervallo fornisce tutte le funzionalità di un indice hash, quindi è consigliabile usare un indice di intervallo.
+- `kind` può essere `range` o `hash` . La funzionalità degli indici di intervallo fornisce tutte le funzionalità di un indice hash, quindi è consigliabile usare un indice di intervallo.
 
-- `precision`numero definito a livello di indice per i percorsi inclusi. Il valore `-1` indica la precisione massima. È consigliabile impostare sempre questo valore su `-1` .
+- `precision` numero definito a livello di indice per i percorsi inclusi. Il valore `-1` indica la precisione massima. È consigliabile impostare sempre questo valore su `-1` .
 
-- `dataType`può essere `String` o `Number` . Indica i tipi di proprietà JSON che saranno indicizzate.
+- `dataType` può essere `String` o `Number` . Indica i tipi di proprietà JSON che saranno indicizzate.
 
 Quando non è specificato, queste proprietà avranno i valori predefiniti seguenti:
 
@@ -103,9 +103,9 @@ Se i percorsi inclusi e i percorsi esclusi presentano un conflitto, il percorso 
 
 Ecco un esempio:
 
-**Percorso incluso**:`/food/ingredients/nutrition/*`
+**Percorso incluso**: `/food/ingredients/nutrition/*`
 
-**Percorso escluso**:`/food/ingredients/*`
+**Percorso escluso**: `/food/ingredients/*`
 
 In questo caso, il percorso incluso avrà la precedenza sul percorso escluso perché è più preciso. In base a questi percorsi, tutti i dati nel `food/ingredients` percorso o annidati all'interno di verrebbero esclusi dall'indice. L'eccezione è costituita dai dati all'interno del percorso incluso: `/food/ingredients/nutrition/*` , che verrebbe indicizzato.
 
@@ -123,7 +123,7 @@ Quando si definisce un percorso spaziale nei criteri di indicizzazione, è neces
 
 * Point
 
-* Poligono
+* Polygon
 
 * MultiPolygon
 
@@ -261,6 +261,9 @@ Quando si creano indici compositi per ottimizzare una query con un filtro e una 
 
 I criteri di indicizzazione di un contenitore possono essere aggiornati in qualsiasi momento [usando il portale di Azure o uno degli SDK supportati](how-to-manage-indexing-policy.md). Un aggiornamento ai criteri di indicizzazione attiva una trasformazione dall'indice precedente a quello nuovo, che viene eseguito online e sul posto (pertanto non viene utilizzato alcuno spazio di archiviazione aggiuntivo durante l'operazione). L'indice del criterio precedente viene trasformato in modo efficiente nei nuovi criteri senza influire sulla disponibilità di scrittura, sulla disponibilità in lettura o sulla velocità effettiva di cui è stato effettuato il provisioning nel contenitore. La trasformazione dell'indice è un'operazione asincrona e il tempo necessario per il completamento dipende dalla velocità effettiva con provisioning, dal numero di elementi e dalle relative dimensioni.
 
+> [!IMPORTANT]
+> La trasformazione dell'indice è un'operazione che utilizza le [unità richiesta](request-units.md). Le unità di richiesta utilizzate da una trasformazione dell'indice non sono attualmente fatturate se si utilizzano contenitori senza [Server](serverless.md) . Queste unità di richiesta verranno fatturate una volta che il server diventa disponibile a livello generale.
+
 > [!NOTE]
 > È possibile tenere traccia dello stato di avanzamento della trasformazione dell'indice [usando uno degli SDK](how-to-manage-indexing-policy.md).
 
@@ -284,7 +287,7 @@ Per gli scenari in cui non è necessario indicizzare alcun percorso di propriet�
 
 - modalità di indicizzazione impostata su coerente e
 - nessun percorso incluso e
-- `/*`come unico percorso escluso.
+- `/*` come unico percorso escluso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

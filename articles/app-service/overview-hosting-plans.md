@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3b339b359ddbaf105b95bdf5d94ee0f66f339a82
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141585"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611450"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -65,11 +65,11 @@ Per informazioni sull'aumento del numero di istanze di un'app, vedere [Aumentare
 
 Questa sezione descrive come vengono fatturate le app del servizio app. Per informazioni dettagliate sui prezzi specifici di ogni area, vedere [Prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 
-Fatta eccezione per il piano **Gratuito**, un piano di servizio app prevede una tariffa oraria per le risorse di calcolo usate.
+Ad eccezione del livello **gratuito** , un piano di servizio app comporta un addebito per le risorse di calcolo che usa.
 
-- Nel piano **Condiviso** ogni app riceve una quota di minuti di CPU, quindi la quota di CPU di _ogni app_ viene fatturata su base oraria.
-- Nei livelli di calcolo dedicati (**Basic**, **standard**, **Premium**, **PremiumV2**) il piano di servizio app definisce il numero di istanze di VM a cui vengono ridimensionate le app, quindi _ogni istanza di macchina virtuale_ nel piano di servizio app ha un costo orario. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
-- Nel piano **Isolato** l'ambiente del servizio app definisce il numero di ruoli di lavoro isolati che eseguono le app e _ogni ruolo di lavoro_ viene fatturato su base oraria. È anche prevista una tariffa di base oraria per l'esecuzione dell'ambiente del servizio app stesso.
+- Nel livello **condiviso** ogni app riceve una quota di minuti di CPU, quindi _ogni app_ viene addebitata per la quota della CPU.
+- Nei livelli di calcolo dedicati (**Basic**, **standard**, **Premium**, **PremiumV2**), il piano di servizio app definisce il numero di istanze di VM a cui vengono ridimensionate le app, quindi viene addebitata _ogni istanza di macchina virtuale_ nel piano di servizio app. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
+- Nel livello **isolato** , il ambiente del servizio app definisce il numero di processi di lavoro isolati che eseguono le app e _ogni thread di lavoro_ viene addebitato. Inoltre, esiste una tariffa flat Stamp per l'esecuzione del ambiente del servizio app stesso.
 
 Non viene addebitato alcun costo per l'uso delle funzionalità del servizio app disponibili (configurazione di domini personalizzati, certificati TLS/SSL, slot di distribuzione, backup e così via). Le eccezioni sono le seguenti:
 

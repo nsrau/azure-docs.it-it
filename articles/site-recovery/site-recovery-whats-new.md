@@ -2,13 +2,13 @@
 title: Novità di Azure Site Recovery
 description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamenti più recenti nel servizio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 28bdf902ab74bf4bb94a6bc02a558bf200b25e52
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/20/2020
+ms.openlocfilehash: d7e3a8e29800943b28c64848fc66f27f888d439f
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836633"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611739"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -22,17 +22,25 @@ Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la vers
 
 **Aggiornamento** |  **Installazione unificata** | **OVA del server di configurazione** | **Agente del servizio Mobility** | **Site Recovery** | **Agente di Servizi di ripristino**
 --- | --- | --- | --- | --- | ---
+[Rollup 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [Rollup 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Computer HyperV-2.0.9183.0 <br> Computer VMware-2.0.9177.0
 [Rollup 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Rollup 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
-[Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
-[Rollup 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 
 [Altre](service-updates-how-to.md) informazioni sull'installazione e il supporto degli aggiornamenti.
 
-> [!NOTE]
-> L'aggiornamento cumulativo 44 non viene visualizzato nella tabella perché non include gli aggiornamenti per i provider di Site Recovery e gli agenti.
+
+## <a name="updates-august-2020"></a>Aggiornamenti (2020 agosto)
+
+### <a name="update-rollup-49"></a>Aggiornamento cumulativo 49
+
+L' [aggiornamento cumulativo 49](https://support.microsoft.com/help/4578241/update-rollup-49-for-azure-site-recovery) fornisce gli aggiornamenti seguenti:
+
+**Aggiornamento** | **Dettagli**
+--- | ---
+**Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider, come descritto in dettaglio nell'aggiornamento cumulativo.
+**Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti, come descritto in dettaglio nell'aggiornamento cumulativo.
 
 ## <a name="updates-july-2020"></a>Aggiornamenti (2020 luglio)
 
