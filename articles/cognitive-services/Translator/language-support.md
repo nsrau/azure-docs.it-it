@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a0ea0a7580bbb7a6106880d2733f36f5ab7a7690
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510794"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639784"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -296,6 +296,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Francese      | `fr`          |
 | Tedesco      | `de`          |
 | Greco      | `el`          |
+| Gujarati| `gu`    |
 | Ebraico      | `he`          |
 | Hindi      | `hi`          |
 | Ungherese      | `hu`          |
@@ -309,11 +310,14 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Lettone      | `lv`          |
 | Lituano      | `lt`          |
 | Malgascio| `mg`    |
+| Malese|    `ms`        |
 | Maori| `mi`  |
+| Marathi| `mr`  |
 | Norvegese      | `nb`          |
 | Persiano      | `fa`          |
 | Polacco      | `pl`          |
 | Portoghese (Brasile) | `pt-br` |
+| Punjabi|`pa`|
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
 | Samoano|   `sm`    |
@@ -325,6 +329,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Thai      | `th`          |
 | Turco      | `tr`          |
 | Ucraino      | `uk`          |
+| Urdu| `ur`    |
 | Vietnamita      | `vi`          |
 | Gallese | `cy` |
 

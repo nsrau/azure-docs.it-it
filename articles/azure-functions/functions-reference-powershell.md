@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207405"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642215"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
 
@@ -382,14 +382,14 @@ Quando si crea un'app per le funzioni usando strumenti, ad esempio Visual Studio
 * Autenticazione MSI automatica in Azure.
 * Possibilità di attivare gli alias di Azure PowerShell `AzureRM` PowerShell, se si desidera.
 
-## <a name="powershell-version"></a>Versione PowerShell
+## <a name="powershell-versions"></a>Versioni di PowerShell
 
-La tabella seguente illustra la versione di PowerShell usata da ogni versione principale del runtime di funzioni:
+La tabella seguente illustra le versioni di PowerShell supportate da ogni versione principale del runtime di funzioni e la versione di .NET richiesta:
 
-| Versione di Funzioni | Versione PowerShell                             |
-|-------------------|------------------------------------------------|
-| 1.x               | Windows PowerShell 5,1 (bloccato dal Runtime) |
-| 2.x               | PowerShell Core 6                              |
+| Versione di Funzioni | Versione PowerShell                               | Versione di .NET  | 
+|-------------------|--------------------------------------------------|---------------|
+| 3. x (scelta consigliata) | PowerShell 7 (scelta consigliata)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 3.1 |
+| 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 È possibile visualizzare la versione corrente stampando `$PSVersionTable` da qualsiasi funzione.
 

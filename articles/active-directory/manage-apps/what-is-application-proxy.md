@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164581"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640515"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso di Azure AD Application Proxy per pubblicare app locali per gli utenti remoti
 
@@ -76,7 +76,7 @@ Application Proxy è un servizio di Azure AD che viene configurato nel portale d
 
 I componenti di questa funzionalità includono il servizio Application Proxy, che viene eseguito nel cloud, il connettore di Application Proxy, un agente semplice che viene eseguito in un server locale, e Azure AD, ovvero il provider di identità. Tutti e tre i componenti interagiscono in modo da offrire all'utente un'esperienza Single Sign-On per accedere alle applicazioni Web locali.
 
-Dopo la procedura di accesso, gli utenti esterni possono accedere alle applicazioni Web locali usando un URL familiare o il [pannello di accesso di App personali](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) dal desktop o dai dispositivi iOS o Mac. Application Proxy può ad esempio consentire l'accesso remoto e Single Sign-On a Desktop remoto, siti SharePoint, Tableau, Qlik, Outlook sul Web e applicazioni line-of-business.
+Dopo l'accesso, gli utenti esterni possono accedere alle applicazioni Web locali usando un URL familiare o [le mie app](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) dai dispositivi desktop o iOS/Mac. Application Proxy può ad esempio consentire l'accesso remoto e Single Sign-On a Desktop remoto, siti SharePoint, Tableau, Qlik, Outlook sul Web e applicazioni line-of-business.
 
 ![Architettura di Azure AD Application Proxy](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 

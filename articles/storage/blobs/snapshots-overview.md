@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/19/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 4c6c2774e0d71ec33449565efab797c040aa264f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055769"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640600"
 ---
 # <a name="blob-snapshots"></a>Snapshot BLOB
 
 Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento.
 
 > [!NOTE]
-> Il controllo delle versioni dei BLOB (anteprima) offre un modo alternativo per mantenere le copie cronologiche di un BLOB. Per ulteriori informazioni, vedere [controllo delle versioni dei BLOB (anteprima)](versioning-overview.md).
+> Il controllo delle versioni dei BLOB (anteprima) offre un modo alternativo per gestire le versioni precedenti di un BLOB. Per ulteriori informazioni, vedere [controllo delle versioni dei BLOB (anteprima)](versioning-overview.md).
 
 ## <a name="about-blob-snapshots"></a>Informazioni sugli snapshot BLOB
 
@@ -33,7 +33,7 @@ Uno snapshot di un BLOB è identico al relativo BLOB di base, ad eccezione del f
 > Tutti gli snapshot condividono l'URI del BLOB di base. L'unica distinzione tra il BLOB di base e lo snapshot è il valore **DateTime** aggiunto.
 >
 
-Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenuti fino a quando non vengono eliminati in modo esplicito, in modo indipendente o come parte dell'operazione Delete Blob per il BLOB di base. È possibile enumerare gli snapshot associati al BLOB di base per tenere traccia degli snapshot correnti.
+Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenuti fino a quando non vengono eliminati in modo esplicito, in modo indipendente o come parte di un'operazione [Delete Blob](/rest/api/storageservices/delete-blob) per il BLOB di base. È possibile enumerare gli snapshot associati al BLOB di base per tenere traccia degli snapshot correnti.
 
 Quando si crea uno snapshot di un BLOB, le proprietà di sistema del BLOB vengono copiate nello snapshot con gli stessi valori. Anche i metadati del BLOB di base vengono copiati nello snapshot, se non si specificano metadati separati per lo snapshot durante la creazione. Dopo aver creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 
@@ -51,15 +51,15 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 
 - Sono previsti costi per l'account di archiviazione per blocchi univoci o pagine, sia che si trovino nel BLOB che nello snapshot. Non sono previsti costi aggiuntivi per gli snapshot associati a un BLOB finché il BLOB su cui si basano non viene aggiornato. Dopo aver aggiornato il BLOB di base, questo differisce dai relativi snapshot. In questo caso, vengono addebitati costi per i blocchi univoci o le pagine in ogni BLOB o snapshot.
 - Quando si sostituisce un blocco all'interno di un BLOB in blocchi, tale blocco viene successivamente addebitato come blocco univoco. Ciò è vero persino se il blocco ha lo stesso ID blocco e la stessa data che ha nello snapshot. Una volta che il blocco viene inviato nuovamente, differisce dalla controparte in ogni snapshot e all'utente verrà addebitato un costo per i relativi dati. Lo stesso vale per una pagina in un BLOB di pagine che viene aggiornata con dati identici.
-- La sostituzione di un BLOB in blocchi chiamando il metodo [UploadFromFile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] o [UploadFromByteArray] [dotnet_UploadFromByteArray] sostituisce tutti i blocchi nel BLOB. Se è presente uno snapshot associato al BLOB, tutti i blocchi del BLOB di base e lo snapshot a questo punto differiranno e all'utente verranno addebitati i costi di tutti i blocchi in entrambi i BLOB. Questo vale persino se i dati nel BLOB di base e nello snapshot restano identici.
+- L'aggiornamento di un BLOB in blocchi chiamando un metodo che sovrascrive l'intero contenuto del BLOB sostituirà tutti i blocchi nel BLOB. Se è presente uno snapshot associato al BLOB, tutti i blocchi del BLOB di base e lo snapshot a questo punto differiranno e all'utente verranno addebitati i costi di tutti i blocchi in entrambi i BLOB. Questo vale persino se i dati nel BLOB di base e nello snapshot restano identici.
 - Il servizio BLOB di Azure non dispone dei mezzi per determinare se due blocchi contengono dati identici. Ogni blocco che viene caricato e inviato viene trattato come univoco, persino se contiene gli stessi dati e ha lo stesso ID blocco. Poiché i costi aumentano per i blocchi univoci, è importante considerare che se si aggiorna un BLOB contenente uno snapshot, si generano altri blocchi univoci e i costi aggiuntivi aumentano.
 
-### <a name="minimize-cost-with-snapshot-management"></a>Ridurre al minimo i costi con la gestione degli snapshot
+### <a name="minimize-costs-with-snapshot-management"></a>Ridurre i costi con la gestione degli snapshot
 
 Si consiglia di gestire gli snapshot con attenzione per evitare costi supplementari. È possibile seguire queste procedure consigliate per ridurre al minimo i costi che sorgono con l'archiviazione degli snapshot:
 
 - Eliminare e ricreare gli snapshot associati a un BLOB ogni volta che si aggiorna il BLOB, persino se l'aggiornamento viene eseguito con dati identici, a meno che la progettazione dell'applicazione non richieda di mantenerli. Se si eliminano e si ricreano gli snapshot del BLOB, ci si garantisce che il BLOB e gli snapshot non differiscano.
-- Se si gestiscono snapshot per un BLOB, evitare di chiamare [UploadFromFile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] o [UploadFromByteArray] [dotnet_UploadFromByteArray] per aggiornare il BLOB. Questi metodi sostituiscono tutti i blocchi nel BLOB, creando così delle differenze significative tra il BLOB di base e gli snapshot. Aggiornare invece il minor numero possibile di blocchi usando i metodi [PutBlock] [dotnet_PutBlock] e [PutBlockList] [dotnet_PutBlockList].
+- Se si gestiscono snapshot per un BLOB, evitare di chiamare metodi che sovrascrivono l'intero BLOB quando si aggiorna il BLOB. Aggiornare invece il minor numero possibile di blocchi per ridurre i costi.
 
 ### <a name="snapshot-billing-scenarios"></a>Scenari di fatturazione degli snapshot
 
@@ -85,9 +85,12 @@ Nello Scenario 3, il BLOB di base è stato aggiornato, ma lo snapshot no. Il blo
 
 #### <a name="scenario-4"></a>Scenario 4
 
-Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci. Questo scenario può verificarsi se si utilizza un metodo di aggiornamento, ad esempio [UploadFromFile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] o [UploadFromByteArray] [dotnet_UploadFromByteArray], perché questi metodi sostituiscono tutto il contenuto di un BLOB.
+Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci.
 
 ![Risorse di archiviazione di Azure](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+
+> [!TIP]
+> Evitare di chiamare metodi che sovrascrivono l'intero BLOB e aggiornare invece singoli blocchi per ridurre i costi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

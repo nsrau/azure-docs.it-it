@@ -6,19 +6,19 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171854"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640583"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
 Questo articolo illustra come risolvere i problemi durante la distribuzione del dispositivo [Azure migrate](migrate-services-overview.md) e l'uso dell'appliance per individuare i computer locali.
 
 
-## <a name="whats-supported"></a>Attività supportate
+## <a name="whats-supported"></a>Elementi supportati
 
 [Esaminare](migrate-appliance.md) i requisiti di supporto dell'appliance.
 
@@ -27,7 +27,7 @@ Questo articolo illustra come risolvere i problemi durante la distribuzione del 
 
 Se viene visualizzato l'errore "il file manifesto specificato non è valido: voce del manifesto OVF non valida", eseguire le operazioni seguenti:
 
-1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-prepare-vmware.md). Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
+1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-prepare-vmware.md) Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
@@ -117,6 +117,28 @@ Errore 50004: "Impossibile connettersi a un host o a un cluster perché il nome 
     3. Aggiungere l'indirizzo IP e il nome host in una riga. Ripetere l'operazione per ogni host o cluster in cui viene visualizzato questo errore.
     4. Salvare e chiudere il file degli host.
     5. Controllare se l'appliance è in grado di connettersi agli host usando l'app di gestione Appliance. Dopo 30 minuti, nel portale di Azure verranno visualizzate le informazioni più recenti per questi host.
+
+
+## <a name="error-60001-unable-to-connect-to-server"></a>Errore 60001: Impossibile connettersi al server 
+
+- Verificare che sia disponibile la connettività dal dispositivo al server
+- Se si tratta di un server Linux, assicurarsi che l'autenticazione basata su password sia abilitata attenendosi alla procedura seguente:
+    1. Accedere al computer Linux e aprire il file di configurazione SSH usando il comando ' vi nella/etc/ssh/sshd_config '
+    2. Impostare l'opzione "PasswordAuthentication" su Sì. Salvare il file.
+    3. Riavviare il servizio SSH eseguendo "service sshd restart"
+- Se si tratta di un server Windows, assicurarsi che la porta 5985 sia aperta per consentire le chiamate WMI remote.
+- Se si sta scoprendo un server GCP Linux e si usa un utente root, usare i comandi seguenti per modificare l'impostazione predefinita per l'account di accesso radice
+    1. Accedere al computer Linux e aprire il file di configurazione SSH usando il comando ' vi nella/etc/ssh/sshd_config '
+    2. Impostare l'opzione "PermitRootLogin" su Sì.
+    3. Riavviare il servizio SSH eseguendo "service sshd restart"
+
+## <a name="error-no-suitable-authentication-method-found"></a>Errore: non è stato trovato alcun metodo di autenticazione appropriato
+
+Verificare che l'autenticazione basata su password sia abilitata nel server Linux attenendosi alla procedura seguente:
+    1. Accedere al computer Linux e aprire il file di configurazione SSH usando il comando ' vi nella/etc/ssh/sshd_config '
+    2. Impostare l'opzione "PasswordAuthentication" su Sì. Salvare il file.
+    3. Riavviare il servizio SSH eseguendo "service sshd restart"
+
 
 ## <a name="discovered-vms-not-in-portal"></a>Macchine virtuali individuate non nel portale
 

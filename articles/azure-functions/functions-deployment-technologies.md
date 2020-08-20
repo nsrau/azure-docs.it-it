@@ -4,16 +4,16 @@ description: Informazioni sui diversi modi in cui è possibile distribuire il co
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905126"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641960"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
-È possibile usare alcune tecnologie diverse per distribuire il codice del progetto di funzioni di Azure in Azure. Questo articolo fornisce una panoramica dei metodi di distribuzione disponibili e consigli per il metodo migliore da usare in diversi scenari. Viene inoltre fornito un elenco completo dei dettagli chiave sulle tecnologie di distribuzione underlyng. 
+È possibile usare alcune tecnologie diverse per distribuire il codice del progetto di funzioni di Azure in Azure. Questo articolo fornisce una panoramica dei metodi di distribuzione disponibili e consigli per il metodo migliore da usare in diversi scenari. Viene inoltre fornito un elenco completo dei dettagli sulle tecnologie di distribuzione sottostanti. 
 
 ## <a name="deployment-methods"></a>Metodi di distribuzione
 
@@ -202,7 +202,13 @@ Nella tabella seguente sono illustrati i sistemi operativi e i linguaggi che sup
 | PowerShell (anteprima) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup>La modifica del portale è abilitata solo per i trigger HTTP e timer per le funzioni in Linux con piani Premium e dedicati.
+<sup>*</sup> La modifica del portale è abilitata solo per i trigger HTTP e timer per le funzioni in Linux con piani Premium e dedicati.
+
+## <a name="deployment-behaviors"></a>Comportamenti di distribuzione
+
+Quando si esegue una distribuzione, tutte le esecuzioni esistenti possono essere completate o timeout, dopo le quali il nuovo codice viene caricato per iniziare l'elaborazione delle richieste.
+
+Se è necessario un maggiore controllo sulla transizione, è consigliabile usare gli slot di distribuzione.
 
 ## <a name="deployment-slots"></a>Slot di distribuzione
 

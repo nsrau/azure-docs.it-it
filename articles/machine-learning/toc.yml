@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Idoneità e sicurezza aziendale
       items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
         - name: Sicurezza e governance aziendale
           items:
             - name: Enterprise Security Package

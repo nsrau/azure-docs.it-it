@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 62c3dad980b65c3e8cfc64c98ba173f667e0b5fe
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447054"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639852"
 ---
 # <a name="high-availability-ports-overview"></a>Panoramica delle porta a disponibilità elevata
 
@@ -92,7 +92,7 @@ Se lo scenario richiede la configurazione di più front-end con porte a disponib
 ## <a name="limitations"></a>Limitazioni
 
 - Le regole di bilanciamento del carico delle porte a disponibilità elevata sono disponibili solo per Load Balancer Standard interni.
-- La combinazione di una regola di bilanciamento del carico per le porte a disponibilità elevata e di una regola di bilanciamento del carico di porte non a disponibilità elevata che punta allo stesso configurazione IP di back-end non è supportata, a meno che non sia abilitato l'indirizzo IP mobile.
+- La combinazione di una regola di bilanciamento del carico per le porte a disponibilità elevata e di una regola di bilanciamento del carico di porte non a disponibilità elevata che punta allo stesso configurazione IP back-end non è supportata in una singola configurazione IP front-end, a meno che **non** sia abilitato l'indirizzo IP mobile.
 - I frammenti IP esistenti verranno trasmessi dalle regole di bilanciamento del carico delle porte a disponibilità elevata alla stessa destinazione del primo pacchetto.  La frammentazione IP di un pacchetto UDP o TCP non è supportata.
 - La simmetria del flusso (principalmente per gli scenari di appliance virtuale di rete) è supportata con un'istanza di back-end e una singola scheda di interfaccia di rete (e una singola configurazione IP) solo se usata come illustrato nel diagramma precedente e con le regole di bilanciamento del carico delle porte Non è disponibile in nessun altro scenario. Questo significa che due o più risorse di Load Balancer e le rispettive regole prendono decisioni indipendenti e non sono mai coordinate. Vedere la descrizione e il diagramma per [gli appliance di rete virtuale](#nva). Quando si usano più schede di rete o si sandwich all'appliance virtuale di rete tra un Load Balancer pubblico e un interno, la simmetria di flusso non è disponibile.  È possibile risolvere questo problema applicando un processo SNAT (Source NAT) al flusso di ingresso sull'indirizzo IP dell'appliance in modo che le risposte arrivino alla stessa appliance di rete virtuale.  È tuttavia consigliabile usare una singola scheda di interfaccia di rete e l'architettura di riferimento illustrata nel diagramma precedente.
 

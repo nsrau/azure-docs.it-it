@@ -86,6 +86,8 @@
               href: entitlement-management-request-access.md
     - name: Verifiche di accesso
       items:
+        - name: Pianificare la distribuzione delle verifiche di accesso
+          href: deploy-access-reviews.md
         - name: Pacchetti di accesso
           items:
             - name: Creare una verifica di accesso

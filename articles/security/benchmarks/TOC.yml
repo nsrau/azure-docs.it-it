@@ -63,6 +63,8 @@
       href: ../../firewall/security-baseline.md
     - name: Baseline di sicurezza di Funzioni di Azure
       href: ../../azure-functions/security-baseline.md
+    - name: Baseline di sicurezza di Azure Machine Learning
+      href: ../../machine-learning/security-baseline.md
     - name: Baseline di sicurezza di Criteri di Azure
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Baseline di sicurezza di Azure Resource Graph

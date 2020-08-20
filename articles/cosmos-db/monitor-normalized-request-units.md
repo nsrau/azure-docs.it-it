@@ -6,30 +6,32 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7005a3786bb2d538450b076c113e159c766d72e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482905"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642079"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Come monitorare le UR/sec normalizzate per un contenitore o un account di Azure Cosmos
 
 Monitoraggio di Azure per Azure Cosmos DB fornisce una visualizzazione delle metriche per monitorare l'account e creare dashboard. Per impostazione predefinita, la metrica Azure Cosmos DB viene raccolta, per questa funzionalità non è necessario abilitare o configurare elementi in modo esplicito.
 
-La metrica di utilizzo delle unità richiesta **normalizzata** viene usata per verificare il livello di saturazione delle repliche rispetto al consumo delle unità richiesta negli intervalli di chiavi di partizione. Azure Cosmos DB distribuisce equamente la velocità effettiva tra tutte le partizioni fisiche. Questa metrica offre una visualizzazione al secondo dell'utilizzo massimo della velocità effettiva in un set di repliche. Usare questa metrica per calcolare l'utilizzo di Ur/s tra le partizioni per il contenitore specificato. Utilizzando questa metrica, se viene visualizzata una percentuale elevata di utilizzo delle unità richiesta, è necessario aumentare la velocità effettiva per soddisfare le esigenze del carico di lavoro.
+La metrica di **utilizzo delle UR normalizzata** viene usata per vedere quanto sono saturi gli intervalli di chiavi di partizione rispetto al traffico. Azure Cosmos DB distribuisce equamente la velocità effettiva in tutti gli intervalli di chiavi di partizione. Questa metrica offre una visualizzazione al secondo dell'utilizzo massimo della velocità effettiva per l'intervallo di chiavi di partizione. Usare questa metrica per calcolare l'utilizzo di Ur/s nell'intervallo di chiavi di partizione per il contenitore specificato. Utilizzando questa metrica, se viene visualizzata una percentuale elevata di utilizzo delle unità richiesta in tutti gli intervalli di chiavi di partizione in monitoraggio di Azure, è necessario aumentare la velocità effettiva per soddisfare le esigenze del carico di lavoro. 
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Cosa aspettarsi e quando le UR/sec normalizzate sono più elevate
 
-Quando il consumo di Ur/s normalizzato raggiunge il 100%, il client riceve errori di limitazione della frequenza. Il client deve rispettare il tempo di attesa e riprovare. Se è presente un picco breve che raggiunge l'utilizzo del 100%, significa che la velocità effettiva della replica ha raggiunto il limite massimo delle prestazioni. Ad esempio, una singola operazione, ad esempio un stored procedure che utilizza tutte le UR/sec in una replica, provocherà un breve picco nell'utilizzo di Ur/s normalizzato. In questi casi, se la frequenza delle richieste è bassa, non saranno presenti errori di limitazione della frequenza immediata. Ciò è dovuto al fatto che Azure Cosmos DB consente alle richieste di addebitare un importo superiore alle UR/sec di cui è stato effettuato il provisioning per la richiesta specifica e altre richieste entro tale periodo di tempo sono limitate.
+Quando il consumo di Ur/s normalizzato raggiunge il 100% per l'intervallo di chiavi di partizione specificato e se un client effettua ancora richieste nell'intervallo di tempo di un secondo per l'intervallo di chiavi di partizione specifico, riceve un errore di frequenza limitato. Il client deve rispettare il tempo di attesa suggerito e ripetere la richiesta. L'SDK semplifica la gestione di questa situazione ritentando i tempi preconfigurati attendendo in modo appropriato.  Non è necessario visualizzare l'errore di limitazione della frequenza ur solo perché l'unità richiesta normalizzata ha raggiunto il 100%. Questo perché l'unità richiesta normalizzata è un singolo valore che rappresenta l'utilizzo massimo di tutti gli intervalli di chiavi di partizione, un intervallo di chiavi di partizione può essere occupato, ma gli altri intervalli di chiavi di partizione possono soddisfare le richieste senza problemi. Ad esempio, una singola operazione, ad esempio un stored procedure che utilizza tutte le UR/s in un intervallo di chiavi di partizione, provocherà un breve picco nel consumo di Ur/s normalizzato. In questi casi, non si verificano errori di limitazione della frequenza immediata se la frequenza delle richieste è insufficiente o se le richieste vengono eseguite ad altre partizioni in intervalli di chiavi di partizione differenti. 
 
-Le metriche di monitoraggio di Azure consentono di trovare le operazioni per ogni codice di stato usando la metrica **Total requests** . Successivamente, è possibile filtrare in base a queste richieste con il codice di stato 429 e suddividerle in base al **tipo di operazione**.
+Le metriche di monitoraggio di Azure consentono di trovare le operazioni per ogni codice di stato per l'API SQL usando la metrica **Totale richieste** . Successivamente, è possibile filtrare in base a queste richieste con il codice di stato 429 e suddividerle in base al **tipo di operazione**.  
 
 Per trovare le richieste con frequenza limitata, è consigliabile ottenere queste informazioni tramite i log di diagnostica.
 
-Se è presente un picco continuo del 100% di utilizzo di Ur/s normalizzato o vicino al 100%, è consigliabile aumentare la velocità effettiva. È possibile scoprire quali operazioni sono pesanti e i loro picchi di utilizzo usando le metriche di monitoraggio di Azure e i log di monitoraggio di Azure.
+Se è presente un picco continuo del 100% di utilizzo di Ur/s normalizzato o vicino al 100% tra più intervalli di chiavi di partizione, è consigliabile aumentare la velocità effettiva. È possibile scoprire quali operazioni sono pesanti e i loro picchi di utilizzo usando le metriche di monitoraggio di Azure e i log di diagnostica di monitoraggio di Azure.
 
-La metrica di **consumo ur normalizzata** viene usata anche per vedere quale intervallo di chiavi di partizione è più caldo in termini di utilizzo; in questo modo si fornisce l'inclinazione della velocità effettiva verso un intervallo di chiavi di partizione. In un secondo momento, è possibile visualizzare il log di **PartitionKeyRUConsumption** nei log di monitoraggio di Azure per ottenere informazioni sulle chiavi di partizione logiche che sono a caldo in termini di utilizzo.
+In sintesi, la metrica di **consumo ur normalizzata** viene usata per vedere quale intervallo di chiavi di partizione è più caldo in termini di utilizzo. In questo modo si ottiene l'inclinazione della velocità effettiva verso un intervallo di chiavi di partizione. In un secondo momento, è possibile visualizzare il log di **PartitionKeyRUConsumption** nei log di monitoraggio di Azure per ottenere informazioni sulle chiavi di partizione logiche che sono a caldo in termini di utilizzo. In questo modo si punterà a modificare la scelta della chiave di partizione o alla modifica della logica dell'applicazione. Per risolvere la limitazione della frequenza, distribuire il carico dei dati tra più partizioni o semplicemente aumentare la velocità effettiva in quanto è effettivamente necessaria. 
+
+
 
 ## <a name="view-the-normalized-request-unit-consumption-metric"></a>Visualizzare la metrica di consumo unità richiesta normalizzata
 

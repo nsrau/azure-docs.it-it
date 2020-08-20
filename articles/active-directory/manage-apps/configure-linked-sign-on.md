@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 2269a8f7f58d35fee5e2ca30a77af5e8cba83678
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: bad4fe7f0cf090e5d61506e775fccf677df45fa5
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459335"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641977"
 ---
 # <a name="configure-linked-sign-on"></a>Configurare l'accesso collegato
 
 Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni si è appreso come usare Azure ad come provider di identità (IDP) per un'applicazione. Nella Guida introduttiva viene configurato l'accesso Single Sign-on basato su SAML. È stata **collegata**un'altra opzione. Questo articolo illustra in modo più dettagliato l'opzione collegata.
 
-L'opzione **collegata** consente di configurare il percorso di destinazione quando un utente seleziona l'app nel portale [app personali](https://myapplications.microsoft.com/) o Office 365 dell'organizzazione.
+L'opzione **collegata** consente di configurare il percorso di destinazione quando un utente seleziona l'app nel portale [app personali](https://myapps.microsoft.com/) o Office 365 dell'organizzazione.
 
 Di seguito sono riportati alcuni scenari comuni in cui l'opzione di collegamento è utile:
 - Aggiungere un collegamento a un'applicazione Web personalizzata che attualmente usa la Federazione, ad esempio Active Directory Federation Services (AD FS).
@@ -35,7 +35,7 @@ Di seguito sono riportati alcuni scenari comuni in cui l'opzione di collegamento
 
 Per iniziare rapidamente, esaminare la serie di [guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni. Nella Guida introduttiva, in cui è possibile configurare Single Sign-On, sarà anche presente l'opzione **collegata** . 
 
-L'opzione **collegata** non fornisce funzionalità di accesso tramite Azure ad. L'opzione imposta semplicemente il percorso a cui gli utenti verranno inviati quando selezionano l'app nelle app [personali](https://myapplications.microsoft.com/) o nell'utilità di avvio dell'app Microsoft 365.
+L'opzione **collegata** non fornisce funzionalità di accesso tramite Azure ad. L'opzione imposta semplicemente il percorso a cui gli utenti verranno inviati quando selezionano l'app nelle app [personali](https://myapps.microsoft.com/) o nell'utilità di avvio dell'app Microsoft 365.
 
 > [!IMPORTANT] 
 > Esistono alcuni scenari in cui l'opzione **Single Sign-on** non verrà spostata per un'applicazione nelle **applicazioni aziendali**. 
@@ -48,7 +48,7 @@ L'opzione **collegata** non fornisce funzionalità di accesso tramite Azure ad. 
 
 Per impostare un collegamento per un'app, selezionare **collegato** nella pagina **Single Sign-on** . Quindi, immettere il collegamento e selezionare **Salva**. Serve un promemoria per trovare queste opzioni? Vedere la [serie di avvio rapido](view-applications-portal.md).
  
-Dopo aver configurato un'app, assegnarvi utenti e gruppi. Quando si assegnano utenti, è possibile controllare quando l'applicazione viene visualizzata in [app personali](https://myapplications.microsoft.com/) o nell'utilità di avvio dell'app Microsoft 365.
+Dopo aver configurato un'app, assegnarvi utenti e gruppi. Quando si assegnano utenti, è possibile controllare quando l'applicazione viene visualizzata in [app personali](https://myapps.microsoft.com/) o nell'utilità di avvio dell'app Microsoft 365.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

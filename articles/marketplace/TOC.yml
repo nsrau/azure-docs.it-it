@@ -8,7 +8,7 @@
     - name: Panoramica e vantaggi del marketplace commerciale
       href: ./marketplace-publishers-guide.md
       items:
-        - name: 'Un marketplace, due vetrine'
+        - name: 'Un marketplace, due store online'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Opzioni e considerazioni sulla pubblicazione
           href: ./determine-your-listing-type.md

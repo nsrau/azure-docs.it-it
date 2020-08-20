@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de173d6dc25610cd397cd719fe4c1c9db33a02f6
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168200"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641841"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Tabella di Azure Cosmos DB: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -41,6 +41,14 @@ la serie 2.0.0 prende la dipendenza da [Microsoft. Azure. Cosmos](https://www.nu
 
 ## <a name="release-notes-for-100-series"></a>Note sulla versione per la serie 1.0.0
 la serie 1.0.0 prende la dipendenza da [Microsoft.Azure.DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="108"></a><a name="1.0.8"></a>1.0.8
+* Aggiungere il supporto per impostare la proprietà TTL se è l'endpoint cosmosdb 
+* Rispetta i criteri di ripetizione durante il timeout e l'eccezione attività annullata
+* Correzione dell'eccezione intermittente dell'attività annullata riscontrata nelle applicazioni ASP .NET
+* Correzione del recupero dell'archiviazione tabelle di Azure dalla modalità posizione solo endpoint secondario
+* Aggiornare la `Microsoft.Azure.DocumentDB.Core` versione della dipendenza a 2.11.2 che corregge l'eccezione intermittente del riferimento null
+* Aggiornare `Odata.Core` la versione della dipendenza a 7.6.4 che corregge i conflitti di compatibilità con Azure Shell
 
 ### <a name="107"></a><a name="1.0.7"></a>1.0.7
 * Miglioramento delle prestazioni impostando il livello di traccia predefinito di Table SDK su SourceLevels. off, che può essere scelto tramite app.config

@@ -125,20 +125,26 @@
           href: partition-data.md
         - name: Chiave di partizione sintetica
           href: synthetic-partition-keys.md
-    - name: Velocità effettiva con provisioning
+    - name: Capacità
       items:
         - name: Unità richiesta
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: Introduzione alla velocità effettiva con provisioning
-          displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
-          href: set-throughput.md
-        - name: Effettuare il provisioning della velocità effettiva con scalabilità automatica
-          href: provision-throughput-autoscale.md
-        - name: Scegliere tra la velocità effettiva con scalabilità automatica e standard (manuale)
-          href: how-to-choose-offer.md
-        - name: Domande frequenti sulla scalabilità automatica
-          href: autoscale-faq.md
+        - name: Velocità effettiva con provisioning
+          items:
+            - name: Introduzione alla velocità effettiva con provisioning
+              displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
+              href: set-throughput.md
+            - name: Effettuare il provisioning della velocità effettiva con scalabilità automatica
+              href: provision-throughput-autoscale.md
+            - name: Scegliere tra la velocità effettiva con scalabilità automatica e standard (manuale)
+              href: how-to-choose-offer.md
+            - name: Domande frequenti sulla scalabilità automatica
+              href: autoscale-faq.md
+        - name: Senza server
+          href: serverless.md
+        - name: Scegliere tra le modalità Provisioning velocità effettiva e Serverless
+          href: throughput-serverless.md
     - name: query SQL
       items:
         - name: Introduzione
@@ -238,6 +244,9 @@
                     - name: DateTimeToTicks
                       displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
                       href: sql-query-datetimetoticks.md
+                    - name: DateTimeToTimestamp
+                      displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
+                      href: sql-query-datetimetotimestamp.md
                     - name: GetCurrentDateTime
                       displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
                       href: sql-query-getcurrentdatetime.md
@@ -247,6 +256,12 @@
                     - name: GetCurrentTimestamp
                       displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
                       href: sql-query-getcurrenttimestamp.md
+                    - name: TicksToDateTime
+                      displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
+                      href: sql-query-tickstodatetime.md
+                    - name: TimestampToDateTime
+                      displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
+                      href: sql-query-timestamptodatetime.md
                 - name: Funzioni matematiche
                   items:
                     - name: Funzioni matematiche
@@ -953,26 +968,28 @@
           href: how-to-manage-conflicts.md
         - name: Convertire il formato dei token di sessione
           href: how-to-convert-session-token.md
-    - name: Velocità effettiva con provisioning
+    - name: Capacità
       items:
-        - name: Effettuare il provisioning della velocità effettiva standard (manuale) in un contenitore
-          displayName: 'request units, RUs, RU, collection level'
-          href: how-to-provision-container-throughput.md
-        - name: Effettuare il provisioning della velocità effettiva standard (manuale) in un database
-          displayName: 'request units, RUs, RU, shared throughput, database level'
-          href: how-to-provision-database-throughput.md
-        - name: Effettuare il provisioning della velocità effettiva con scalabilità automatica in un database o un contenitore
-          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
-          href: how-to-provision-autoscale-throughput.md
-        - name: Stimare il valore RU/sec con Cosmos Capacity Planner
-          displayName: 'request units, RUs, RU, capacity'
-          href: estimate-ru-with-capacity-planner.md
         - name: Trovare l'addebito dell'unità richiesta
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
-        - name: Scalare usando il timer di Funzioni di Azure
-          displayName: 'request units, RUs, RU, timer'
-          href: scale-on-schedule.md
+        - name: Velocità effettiva con provisioning
+          items:
+            - name: Effettuare il provisioning della velocità effettiva standard (manuale) in un contenitore
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-container-throughput.md
+            - name: Effettuare il provisioning della velocità effettiva standard (manuale) in un database
+              displayName: 'request units, RUs, RU, shared throughput, database level'
+              href: how-to-provision-database-throughput.md
+            - name: Effettuare il provisioning della velocità effettiva con scalabilità automatica in un database o un contenitore
+              displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+              href: how-to-provision-autoscale-throughput.md
+            - name: Stimare il valore RU/sec con Cosmos Capacity Planner
+              displayName: 'request units, RUs, RU, capacity'
+              href: estimate-ru-with-capacity-planner.md
+            - name: Scalare usando il timer di Funzioni di Azure
+              displayName: 'request units, RUs, RU, timer'
+              href: scale-on-schedule.md
     - name: Usare contenitori ed elementi
       items:
         - name: Usare i dati di Cosmos DB

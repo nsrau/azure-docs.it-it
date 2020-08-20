@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459386"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640549"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Configurare Single Sign-On basate su password
 
@@ -29,7 +29,7 @@ SSO basato su password è un ottimo modo per iniziare a integrare rapidamente le
 
 - Supportare applicazioni che richiedono più campi di accesso per applicazioni che richiedono non solo i campi di nome utente e password per accedere
 
-- Personalizzare le etichette dei campi nome utente e password visualizzati dagli utenti nel [Pannello di accesso dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando immettono le credenziali
+- Personalizzare le etichette dei campi nome utente e password visualizzati dagli utenti nelle [app](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando immettono le credenziali
 
 - Consentire agli utenti di fornire i propri nomi utente e password per tutti gli account dell'applicazione esistenti digitati manualmente.
 
@@ -71,7 +71,7 @@ Se il tentativo di analisi del Azure AD ha esito negativo, è possibile configur
    ![Configurazione manuale delle Single Sign-On basate su password](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Selezionare **Acquisisci campi di accesso**. Viene visualizzata una pagina stato acquisizione in una nuova scheda, che mostra che l' **acquisizione dei metadati del messaggio è attualmente in corso**.
 
-4. Se la casella di controllo **estensione pannello di accesso** è visualizzata in una nuova scheda, selezionare **Installa ora** per installare l'estensione del browser dell'estensione per l'accesso **sicuro alle app personali** . Per l'estensione del browser è necessario Microsoft Edge, Chrome o Firefox. Quindi, installare, avviare e abilitare l'estensione e aggiornare la pagina stato acquisizione.
+4. Se la casella **estensione app personali richiesta** viene visualizzata in una nuova scheda, selezionare **Installa ora** per installare l'estensione del browser dell'estensione per l' **accesso sicuro alle app personali** . Per l'estensione del browser è necessario Microsoft Edge, Chrome o Firefox. Quindi, installare, avviare e abilitare l'estensione e aggiornare la pagina stato acquisizione.
 
    L'estensione del browser apre quindi un'altra scheda che Visualizza l'URL immesso.
 5. Nella scheda con l'URL immesso scorrere il processo di accesso. Inserire i campi nome utente e password e provare ad accedere. Non è necessario specificare la password corretta.

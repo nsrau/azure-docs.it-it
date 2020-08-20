@@ -1,5 +1,5 @@
 ---
-title: Che cos'è la trascrizione in batch-servizio vocale
+title: Come usare il servizio di traduzione vocale di batch
 titleSuffix: Azure Cognitive Services
 description: La trascrizione batch è ideale se si desidera trascrivere una grande quantità di audio in un archivio, ad esempio BLOB di Azure. Usando l'API REST dedicata è possibile puntare ai file audio con un URI di firma di accesso condiviso (SAS) e ricevere trascrizioni in modo asincrono.
 services: cognitive-services
@@ -10,20 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df1266070e9fb69ec94811a3120412d9b238e470
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214045"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640158"
 ---
-# <a name="what-is-batch-transcription"></a>Che cos'è la trascrizione batch?
+# <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
 La trascrizione batch è un set di operazioni API REST che consente di trascrivere una grande quantità di audio nell'archivio. È possibile puntare a file audio con un URI di firma di accesso condiviso (SAS) e ricevere in modo asincrono i risultati della trascrizione. Con la nuova API v 3.0 è possibile scegliere di trascrivere uno o più file audio oppure elaborare un intero contenitore di archiviazione.
 
 La trascrizione asincrona di sintesi vocale è solo una delle funzionalità. È possibile usare le API REST per la trascrizione batch per chiamare i metodi seguenti:
-
-
 
 |    Operazione di trascrizione batch                                             |    Metodo    |    Chiamata API REST                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
@@ -46,22 +44,16 @@ Accanto all'API di facile utilizzo, non è necessario distribuire endpoint perso
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="subscription-key"></a>Chiave di sottoscrizione
-
 Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottoscrizione dal [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md).
 
 >[!NOTE]
 > Per usare la trascrizione batch, è necessaria una sottoscrizione standard (S0) per il servizio di riconoscimento vocale. Le chiavi di sottoscrizione gratuite (F0) non funzionano. Per altre informazioni, vedere [prezzi e limiti](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-### <a name="custom-models"></a>Modelli personalizzati
-
 Se si prevede di personalizzare i modelli, attenersi alla procedura descritta in [personalizzazione acustica](how-to-customize-acoustic-models.md) e [personalizzazione della lingua](how-to-customize-language-model.md). Per usare i modelli creati nella trascrizione batch, è necessario il percorso del modello. È possibile recuperare il percorso del modello quando si esaminano i dettagli del modello ( `self` proprietà). Un endpoint personalizzato distribuito *non è necessario* per il servizio di trascrizione batch.
 
-## <a name="the-batch-transcription-api"></a>API di trascrizione batch
+## <a name="batch-transcription-api"></a>API di trascrizione Batch
 
-### <a name="supported-formats"></a>Formati supportati
-
-L'API di trascrizione batch supporta i formati seguenti:
+L'API trascrizione batch supporta i formati seguenti:
 
 | Formato | Codec | BITS per campione | Frequenza di campionamento             |
 |--------|-------|---------|---------------------------------|
@@ -185,7 +177,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 
 La trascrizione batch supporta l' [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) per la lettura di audio e la scrittura di trascrizioni nell'archiviazione.
 
-## <a name="the-batch-transcription-result"></a>Risultato della trascrizione batch
+## <a name="batch-transcription-result"></a>Risultato trascrizione batch
 
 Per ogni audio di input, viene creato un file di risultati della trascrizione. È possibile ottenere l'elenco dei file di risultati chiamando [Get trascrizioni files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). Questo metodo restituisce un elenco di file di risultati per la trascrizione. Per trovare il file di trascrizione per un file di input specifico, filtrare tutti i file restituiti con `kind`  ==  `Transcription` e `name`  ==  `{originalInputName.suffix}.json` .
 
@@ -251,7 +243,7 @@ Ogni file di risultati della trascrizione ha il formato seguente:
 }
 ```
 
-Il risultato contiene i seguenti formati:
+Il risultato contiene i formati seguenti:
 
 :::row:::
    :::column span="1":::
@@ -317,7 +309,7 @@ I timestamp a livello di parola devono essere abilitati perché i parametri nell
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Il servizio di trascrizione può gestire un numero elevato di trascrizioni inviate. È possibile eseguire una query sullo stato delle trascrizioni tramite un oggetto `GET` sulle [trascrizioni Get](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Chiamare la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regolarmente dal servizio una volta recuperati i risultati. In alternativa `timeToLive` , impostare la proprietà su un valore ragionevole per garantire l'eventuale eliminazione dei risultati.
+Il servizio di trascrizione batch può gestire un numero elevato di trascrizioni inviate. È possibile eseguire una query sullo stato delle trascrizioni tramite un oggetto `GET` sulle [trascrizioni Get](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Chiamare la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regolarmente dal servizio una volta recuperati i risultati. In alternativa `timeToLive` , impostare la proprietà su un valore ragionevole per garantire l'eventuale eliminazione dei risultati.
 
 ## <a name="sample-code"></a>Codice di esempio
 

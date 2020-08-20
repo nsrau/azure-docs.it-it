@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757604"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641076"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Pianificare una distribuzione di Azure Multi-Factor Authentication
 
@@ -108,6 +108,9 @@ Alcuni dei rilevamenti dei rischi eseguiti da Azure Active Directory Identity Pr
 ## <a name="plan-authentication-methods"></a>Pianificare i metodi di autenticazione
 
 Gli amministratori possono scegliere i [metodi di autenticazione](../authentication/concept-authentication-methods.md) che vogliono mettere a disposizione degli utenti. È importante consentire più di un singolo metodo di autenticazione in modo che gli utenti possano contare su un metodo di backup nel caso in cui il metodo principale non sia disponibile. I metodi seguenti sono disponibili per l'abilitazione da parte degli amministratori:
+
+> [!TIP]
+> Microsoft consiglia di usare l'app per dispositivi mobili come metodo principale per Azure Multi-Factor Authentication per la migliore sicurezza e l'esperienza utente.
 
 ### <a name="notification-through-mobile-app"></a>Notifica tramite app per dispositivi mobili
 
@@ -284,7 +287,7 @@ Se è già stata distribuita ed è in uso un'istanza di NPS, vedere [Integrare l
 
 Scegliere cosa accade quando gli utenti non registrati per MFA tentano di eseguire l'autenticazione. Usare l'impostazione del registro `REQUIRE_USER_MATCH` nel percorso del registro `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | valore | Predefinito |
+| Chiave | Valore | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | Non impostato (equivalente a VERO) |
 

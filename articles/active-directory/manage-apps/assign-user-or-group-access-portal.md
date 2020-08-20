@@ -12,16 +12,16 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7875bfc55d4530f7f56a96599491cab4a98ced04
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799503"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642028"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory
 
-Questo articolo illustra come assegnare utenti o gruppi alle applicazioni aziendali in Azure Active Directory (Azure AD), dal portale di Azure o tramite PowerShell. Quando si assegna un utente a un'applicazione, l'applicazione viene visualizzata nel [pannello di accesso App personali](https://myapps.microsoft.com/) dell'utente per accedervi più facilmente. Se l'applicazione espone ruoli, è anche possibile assegnare un ruolo specifico all'utente.
+Questo articolo illustra come assegnare utenti o gruppi alle applicazioni aziendali in Azure Active Directory (Azure AD), dal portale di Azure o tramite PowerShell. Quando si assegna un utente a un'applicazione, l'applicazione viene visualizzata nelle [app personali](https://myapps.microsoft.com/) dell'utente per facilitarne l'accesso. Se l'applicazione espone ruoli, è anche possibile assegnare un ruolo specifico all'utente.
 
 Per un maggiore controllo, è possibile configurare alcuni tipi di applicazioni aziendali per [richiedere l'assegnazione utente](#configure-an-application-to-require-user-assignment). 
 
@@ -45,7 +45,7 @@ Quando è richiesta l'assegnazione utente, solo gli utenti assegnati in modo esp
 
 Quando l'assegnazione *non è richiesta*, perché questa opzione è stata impostata su **No** o perché l'applicazione usa un'altra modalità di accesso SSO, qualsiasi utente potrà accedere all'applicazione se dispone di un collegamento diretto all'applicazione o dell'**URL accesso utente** nella pagina **Proprietà** dell'applicazione. 
 
-Questa impostazione non influisce sulla presenza di un'applicazione nel pannello di accesso App personali. Le applicazioni vengono visualizzate nei pannelli di accesso App personali degli utenti dopo aver assegnato un utente o un gruppo all'applicazione. Per informazioni di base, vedere [Gestione dell'accesso alle app](what-is-access-management.md).
+Questa impostazione non ha effetto se un'applicazione viene visualizzata o meno nelle app personali. Le applicazioni vengono visualizzate nei pannelli di accesso App personali degli utenti dopo aver assegnato un utente o un gruppo all'applicazione. Per informazioni di base, vedere [Gestione dell'accesso alle app](what-is-access-management.md).
 
 
 Per richiedere l'assegnazione utente per un'applicazione:
@@ -161,7 +161,7 @@ Questo esempio assegna l'utente Britta Simon all'applicazione [Microsoft Workpla
 ## <a name="related-articles"></a>Articoli correlati
 
 - [Altre informazioni sull'accesso degli utenti finali alle applicazioni](end-user-experiences.md)
-- [Pianificare una distribuzione del pannello di accesso di Azure AD](access-panel-deployment-plan.md)
+- [Pianificare un Azure AD la distribuzione di app personali](access-panel-deployment-plan.md)
 - [Gestione dell'accesso alle app](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Passaggi successivi

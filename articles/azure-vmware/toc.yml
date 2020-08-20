@@ -58,8 +58,10 @@
               href: set-up-mabs-for-avs.md
             - name: Eseguire il backup di VM della soluzione Azure VMware con il server di backup
               href: backup-avs-vms-with-mabs.md
-        - name: Gateway applicazione nella soluzione Azure VMware
+        - name: Gateway applicazione con la soluzione Azure VMware
           href: protect-avs-web-apps-with-app-gateway.md
+        - name: Gestione traffico con la soluzione Azure VMware
+          href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: Soluzioni VMware
       items:
         - name: Configurareoperazioni vRealize per la soluzione Azure VMware

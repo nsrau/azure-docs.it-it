@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/27/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: d4f00061664340681b365eddfa1a742795f96d99
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 262c3a7c8a668ef25d092b5d523743e0ece89cc3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164683"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641144"
 ---
 # <a name="using-azure-ad-for-applications-not-listed-in-the-app-gallery"></a>Uso di Azure AD per le applicazioni non elencate nella raccolta di app
 
@@ -31,7 +31,7 @@ Oltre alle opzioni disponibili nella [raccolta di applicazioni di Azure AD](http
 - Integrazione self-service di qualsiasi applicazione che supporta i provider di identità [SAML (Security Assertion Markup Language) 2.0](https://wikipedia.org/wiki/SAML_2.0) (avviata dal provider di servizi o dal provider di identità)
 - Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](sso-options.md#password-based-sso)
 - Connessione self-service di applicazioni che usano il [protocollo SCIM (System for Cross-domain Identity Management) per il provisioning utenti](../app-provisioning/use-scim-to-provision-users-and-groups.md)
-- Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](sso-options.md#linked-sign-on)
+- Possibilità di aggiungere collegamenti a qualsiasi applicazione nell' [utilità di avvio delle app di Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) o [app personali](sso-options.md#linked-sign-on)
 
 Per informazioni aggiuntive per gli sviluppatori su come integrare app personalizzate con Azure AD, vedere [scenari di autenticazione per Azure ad](../develop/authentication-scenarios.md). Quando si sviluppa un'app che usa un protocollo moderno, ad esempio [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) per autenticare gli utenti, è possibile registrarlo con Microsoft Identity Platform usando l'esperienza [Registrazioni app](../develop/quickstart-register-app.md) nel portale di Azure.
 

@@ -291,6 +291,8 @@
       href: azure-monitor-overview.md
     - name: Provider di Monitoraggio di Azure per soluzioni SAP
       href: azure-monitor-providers.md
+    - name: Configurare Monitoraggio di Azure per soluzioni SAP
+      href: azure-monitor-sap-quickstart.md
     - name: Domande frequenti su Monitoraggio di Azure per soluzioni SAP
       href: azure-monitor-faq.md
 - name: Informazioni di riferimento

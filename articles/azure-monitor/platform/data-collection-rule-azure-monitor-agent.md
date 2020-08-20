@@ -4,13 +4,13 @@ description: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 3cd2ed692f3a34223675da69efd92e78c2ba9504
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083069"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640838"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)
 Le regole di raccolta dati (DCR) definiscono i dati in arrivo in monitoraggio di Azure e specificano la posizione in cui devono essere inviati. Questo articolo descrive come creare una regola di raccolta dati per raccogliere dati dalle macchine virtuali usando l'agente di monitoraggio di Azure.
@@ -48,19 +48,24 @@ Nella scheda **Raccogli e Distribuisci** fare clic su **Aggiungi origine dati** 
 [![Base origine dati](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Per specificare altri log e contatori delle prestazioni, selezionare **personalizzato**. È quindi possibile specificare un [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) per tutti i valori specifici da raccogliere. Per esempi, vedere l' [esempio DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
+Per specificare altri log e contatori delle prestazioni, selezionare **personalizzato**. È quindi possibile specificare un [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) per tutti i valori specifici da raccogliere. Per esempi, vedere l' [esempio DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
 
 [![Personalizzata origine dati](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
 Nella scheda **destinazione** aggiungere una o più destinazioni per l'origine dati. Le origini dati degli eventi di Windows e syslog possono essere inviate solo ai log di monitoraggio di Azure. I contatori delle prestazioni possono inviare le metriche di monitoraggio di Azure e i log di monitoraggio di Azure.
 
-[![Destination](media/azure-monitor-agent/data-collection-rule-destination.png)](media/azure-monitor-agent/data-collection-rule-destination.png#lightbox)
+[![Destinazione](media/azure-monitor-agent/data-collection-rule-destination.png)](media/azure-monitor-agent/data-collection-rule-destination.png#lightbox)
 
 Fare clic su **Aggiungi origine dati** , quindi su **+ Crea** per esaminare i dettagli della regola di raccolta dati e l'associazione con il set di macchine virtuali. Fare clic su **Crea** per crearlo.
 
 > [!NOTE]
 > Una volta create le associazioni e la regola di raccolta dei dati, potrebbero essere necessari fino a 5 minuti per l'invio dei dati alle destinazioni.
 
+## <a name="createusingrestapi"></a>Creare usando l'API REST
+Attenersi alla procedura seguente per creare un DCR e le associazioni usando l'API REST. 
+1.Creare manualmente il file DCR usando il formato JSON illustrato nell' [esempio DCR](data-collection-rule-overview.md#sample-data-collection-rule).
+2.Creare la regola usando l' [API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
+3.Creare un'associazione per ogni macchina virtuale alla regola di raccolta dati usando l' [API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

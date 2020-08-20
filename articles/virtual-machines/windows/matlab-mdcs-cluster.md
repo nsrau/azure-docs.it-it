@@ -8,15 +8,18 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: a3f3dbd74ef74f091ca923f8c09680c6913ac300
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2561a6dc3ad8c0af1c266b3822a80c76f45c174
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074232"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639682"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Creare cluster MATLAB Distributed Computing Server in VM di Azure
 Usare macchine virtuali di Microsoft Azure per creare uno o più cluster MATLAB Distributed Computing Server per eseguire carichi di lavoro MATLAB paralleli a elevato utilizzo di calcolo. Installare il software MATLAB Distributed Computing Server in una VM da usare come un'immagine di base e usare un modello di avvio rapido di Azure o uno script Azure PowerShell, disponibile in [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster), per distribuire e gestire il cluster. Dopo la distribuzione, connettersi al cluster per eseguire i carichi di lavoro.
+
+> [!IMPORTANT]
+> Poiché questo articolo è stato scritto, è ora disponibile un supporto formale per l'uso di applicazioni MATLAB in Azure. È consigliabile usare queste funzionalità più recenti al posto del modello e degli script a cui si fa riferimento in questo articolo. Eseguire una ricerca in [Azure Marketplace](https://azuremarketplace.microsoft.com/) per "MATLAB"; Altre informazioni sull'esecuzione di applicazioni MATLAB in Azure sono disponibili in [MathWorks](https://www.mathworks.com/solutions/cloud.html#public-cloud).
 
 ## <a name="about-matlab-and-matlab-distributed-computing-server"></a>Informazioni su MATLAB e MATLAB Distributed Computing Server
 La piattaforma [MATLAB](https://www.mathworks.com/products/matlab/) è ottimizzata per la risoluzione di problemi di progettazione e scientifici. Gli utenti di MATLAB con simulazioni su larga scala e attività di elaborazione dei dati possono usare i prodotti di elaborazione parallela MathWorks per velocizzare i carichi di lavoro a elevato utilizzo di calcolo sfruttando cluster di elaborazione e servizi griglia. [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing/) consente agli utenti di MATLAB di parallelizzare le applicazioni e sfruttare i vantaggi di processori multicore, GPU e cluster di elaborazione. [MATLAB Distributed Computing Server](https://www.mathworks.com/products/distriben/) consente agli utenti di MATLAB di utilizzare molti computer in un cluster di elaborazione.

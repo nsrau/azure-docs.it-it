@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121766"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640965"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Eseguire manualmente una funzione non attivata da HTTP
 
@@ -37,7 +37,7 @@ Utilizzare questo percorso di richiesta in Postman insieme alla chiave master de
 
 ## <a name="get-the-functions-master-key"></a>Ottenere la chiave master della funzione
 
-1. Passare alla funzione nell'portale di Azure e selezionare **tasti funzione**. Quindi, selezionare il tasto funzione che si desidera copiare. 
+1. Passare all'app per le funzioni nella [portale di Azure](https://portal.azure.com), selezionare **chiavi app**e quindi la `_master` chiave. 
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Individuare la chiave master da copiare." border="true":::
 
@@ -50,7 +50,7 @@ Utilizzare questo percorso di richiesta in Postman insieme alla chiave master de
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Visualizzare i log per visualizzare i risultati del test della chiave master." border="true":::
 
 > [!CAUTION]  
-> Date le autorizzazioni elevate concesse dalla chiave master nell'app per le funzioni, è consigliabile non condividere questa chiave con terze parti o distribuirla in un'applicazione.
+> Date le autorizzazioni elevate concesse dalla chiave master nell'app per le funzioni, è consigliabile non condividere questa chiave con terze parti o distribuirla in un'applicazione. La chiave deve essere inviata solo a un endpoint HTTPS.
 
 ## <a name="call-the-function"></a>Chiamare la funzione
 

@@ -3,12 +3,12 @@ title: Supporto per la valutazione del server fisico in Azure Migrate
 description: Informazioni sul supporto per la valutazione del server fisico con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 97da09fa88cc3e69965237cb5b4326b8b59739bd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2b96bff7468f0705f2b80f60dcd5248960495f16
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423780"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640124"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matrice di supporto per la valutazione del server fisico 
 
@@ -33,8 +33,8 @@ Per valutare i server fisici, creare un progetto Azure Migrate e aggiungere lo s
 
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
-| **Distribuzione server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
-| **Autorizzazioni**           | **Windows:** Usare un account di dominio per i computer aggiunti a un dominio e un account locale per computer che non fanno parte di un dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
+| **Distribuzione del server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
+| **Autorizzazioni**           | **Windows:** Usare un account di dominio per i computer aggiunti a un dominio e un account locale per computer che non fanno parte di un dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. <br/> In alternativa, assicurarsi che le funzionalità richieste siano impostate usando i comandi seguenti. <br/> setcap CAP_DAC_READ_SEARCH + Pei/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + Pei/sbin/fdisk (se/usr/sbin/fdisk non è presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + PEI"/sbin/LVM <br/> setcap CAP_DAC_READ_SEARCH + Pei/usr/sbin/dmidecode <br/> chmod a + r/sys/class/DMI/ID/product_uuid
 | **Sistema operativo** | Tutti i sistemi operativi ad eccezione di Windows Server 2003 e SUSE Linux possono essere valutati per la migrazione. |
 
 
@@ -53,7 +53,7 @@ Nella tabella seguente sono riepilogati i requisiti di porta per la valutazione.
 
 **Dispositivo** | **Connection**
 --- | ---
-**Appliance** | Connessioni in ingresso sulla porta TCP 3389, per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368, per accedere in remoto all'app di gestione Appliance usando l'URL:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Connessioni in uscita sulle porte 443 (HTTPS) per inviare i metadati di individuazione e prestazioni a Azure Migrate.
+**Appliance** | Connessioni in ingresso sulla porta TCP 3389, per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368, per accedere in remoto all'app di gestione Appliance usando l'URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Connessioni in uscita sulle porte 443 (HTTPS) per inviare i metadati di individuazione e prestazioni a Azure Migrate.
 **Server fisici** | **Windows:** Connessione in ingresso sulla porta WinRM 5985 (HTTP) per il pull dei metadati di configurazione e delle prestazioni dai server Windows. <br/><br/> **Linux:**  Connessioni in ingresso sulla porta 22 (TCP), per eseguire il pull dei metadati di configurazione e delle prestazioni dai server Linux. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisiti dell'analisi delle dipendenze basata su agente

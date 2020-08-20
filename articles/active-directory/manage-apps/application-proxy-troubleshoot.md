@@ -2,26 +2,21 @@
 title: Risolvere i problemi del proxy dell'applicazione | Documentazione Microsoft
 description: Illustra come risolvere gli errori nel Proxy applicazione di Azure AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 413cfe4f3aed446ad26a210b4faa452c4f624685
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848458"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640855"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
 
@@ -84,6 +79,7 @@ Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti f
 | Non è possibile accedere a questa app aziendale in questo momento. Riprovare più tardi. Timeout del connettore. | L'utente può ricevere questo errore quando tenta di accedere all'app pubblicata se non sono definite correttamente per questa applicazione sul lato locale. Assicurarsi che gli utenti dispongano delle autorizzazioni appropriate come definito per questa applicazione back-end nel computer locale. |
 | Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Verificare che l'utente disponga di una licenza per Azure Active Directory Premium. | L'utente può ricevere questo errore quando tenta di accedere all'app pubblicata se non è stata assegnata in modo esplicito con una licenza Premium dall'amministratore del Sottoscrittore. Passare alla scheda **licenze** Active Directory del Sottoscrittore e verificare che all'utente o al gruppo di utenti sia stata assegnata una licenza Premium. |
 | Impossibile trovare un server con il nome host specificato. | L'utente può ricevere questo errore quando tenta di accedere all'app pubblicata se il dominio personalizzato dell'applicazione non è configurato correttamente. Assicurarsi che sia stato caricato un certificato per il dominio e che il record DNS sia stato configurato correttamente seguendo la procedura descritta in [utilizzo di domini personalizzati nel proxy di applicazione Azure ad](application-proxy-configure-custom-domain.md) |
+|Accesso negato: non è possibile accedere a questa app aziendale oppure l'utente non può essere autorizzato. Assicurarsi che l'utente sia definito nell'istanza locale di Active Directory e che l'utente abbia accesso all'app in AD locale. | Potrebbe trattarsi di un problema relativo all'accesso alle informazioni di autorizzazione. vedere [alcune applicazioni e le API richiedono l'accesso alle informazioni di autorizzazione per gli oggetti account]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). In breve, aggiungere l'account del computer del connettore del proxy di applicazione al gruppo di dominio predefinito "gruppo di accesso di autorizzazione Windows" da risolvere. |
 
 ## <a name="my-error-wasnt-listed-here"></a>L'errore non è riportato in questi elenchi
 

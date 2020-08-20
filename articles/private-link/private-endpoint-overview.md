@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543470"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639835"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -47,6 +47,7 @@ Di seguito vengono indicati alcuni dettagli importanti sugli endpoint privati:
  
 - È possibile creare più endpoint privati nella stessa subnet o in subnet diverse all'interno della stessa rete virtuale. Sono previsti limiti per il numero di endpoint privati che è possibile creare in una sottoscrizione. Per informazioni dettagliate, vedere  [Limiti di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
+- La sottoscrizione dalla risorsa collegamento privato deve anche essere registrata con il provider di risorse Microsoft. Network. Per informazioni dettagliate, vedere [provider di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
  
 ## <a name="private-link-resource"></a>Risorsa di collegamento privato 
@@ -71,8 +72,8 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |**Registro Azure Container** | Microsoft.ContainerRegistry/registries    | Registro di sistema |
 |**Configurazione app di Azure** | Microsoft.Appconfiguration/configurationStores    | configurationStores |
 |**Backup di Azure** | Microsoft.RecoveryServices/vaults    | insieme di credenziali |
-|**Hub eventi di Azure** | Microsoft.EventHub/namespaces    | namespace |
-|**Bus di servizio di Azure** | Microsoft.ServiceBus/namespaces | namespace |
+|**Hub eventi di Azure** | Microsoft.EventHub/namespaces    | spazio dei nomi |
+|**Bus di servizio di Azure** | Microsoft.ServiceBus/namespaces | spazio dei nomi |
 |**Inoltro di Azure** | Microsoft.Relay/namespaces | spazio dei nomi |
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/topics    | argomento |
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/domains    | dominio |
@@ -132,9 +133,9 @@ La tabella seguente contiene un elenco di limitazioni note quando si usano gli e
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare un endpoint privato per il database SQL tramite il portale](create-private-endpoint-portal.md)
-- [Creare un endpoint privato per il database SQL con PowerShell](create-private-endpoint-powershell.md)
-- [Creare un endpoint privato per il database SQL usando l'interfaccia della riga di comando](create-private-endpoint-cli.md)
+- [Creare un endpoint privato per il database SQL tramite il portale ](create-private-endpoint-portal.md)
+- [Creare un endpoint privato per il database SQL con PowerShell ](create-private-endpoint-powershell.md)
+- [Creare un endpoint privato per il database SQL usando l'interfaccia della riga di comando ](create-private-endpoint-cli.md)
 - [Creare un endpoint privato per l'account di archiviazione con il portale ](create-private-endpoint-storage-portal.md)
 - [Creare un endpoint privato per l'account Azure Cosmos con il portale ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creare un servizio Collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)

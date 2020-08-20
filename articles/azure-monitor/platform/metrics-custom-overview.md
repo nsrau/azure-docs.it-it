@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321276"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639903"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in monitoraggio di Azure (anteprima)
 
@@ -26,6 +26,7 @@ Le metriche personalizzate di monitoraggio di Azure sono attualmente disponibili
 
 È possibile inviare le metriche personalizzate a Monitoraggio di Azure mediante diversi metodi:
 - Instrumentare l'applicazione usando Azure Application Insights SDK e inviare i dati di telemetria personalizzati a Monitoraggio di Azure. 
+- Installare l'agente di monitoraggio di Azure (anteprima) nella [macchina virtuale Windows o Linux di Azure](azure-monitor-agent-overview.md) e usare una [regola di raccolta dati](data-collection-rule-azure-monitor-agent.md) per inviare i contatori delle prestazioni alle metriche di monitoraggio di Azure.
 - Installare l'estensione Diagnostica di Azure per Windows (WAD) nella [macchina virtuale di Azure](collect-custom-metrics-guestos-resource-manager-vm.md), nel [set di scalabilità di macchine virtuali](collect-custom-metrics-guestos-resource-manager-vmss.md), nella [macchina virtuale classica](collect-custom-metrics-guestos-vm-classic.md) o nel [servizio cloud classico](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e inviare i contatori delle prestazioni a Monitoraggio di Azure. 
 - Installare l'[agente InfluxDB Telegraf](collect-custom-metrics-linux-telegraf.md) nella macchina virtuale Linux di Azure e inviare le metriche tramite il plug-in di output di Monitoraggio di Azure.
 - Inviare metriche personalizzate [direttamente all'API REST di monitoraggio di Azure](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
@@ -53,7 +54,7 @@ Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'appl
 > [!TIP]  
 > Quando si richiede che un token di Azure AD generi metriche personalizzate, assicurarsi che il destinatario o la risorsa per cui è richiesto il token sia `https://monitoring.azure.com/`. Assicurarsi di includere la barra finale (/).
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Oggetto
 Questa proprietà consente di acquisire l'ID risorsa di Azure per cui viene indicata la metrica personalizzata. L'informazione viene codificata nell'URL della chiamata API eseguita. Ogni API può inviare solo i valori delle metriche per una singola risorsa di Azure.
 
 > [!NOTE]  
@@ -221,7 +222,7 @@ Se si elimina una metrica o si rimuove una dimensione, la modifica può richiede
 ## <a name="quotas-and-limits"></a>Quote e limiti
 Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle metriche personalizzate:
 
-|Categoria|Limite|
+|Category|Limite|
 |---|---|
 |Serie temporale attiva/sottoscrizioni/area|50.000|
 |Chiavi di dimensione per metrica|10|

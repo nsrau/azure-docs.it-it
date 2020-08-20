@@ -13,12 +13,14 @@
       href: cognitive-services-custom-subdomains.md
     - name: Lingue supportate
       href: language-support.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare una nuova risorsa con il portale di Azure
       href: cognitive-services-apis-create-account.md
     - name: Creare una nuova risorsa con l'interfaccia della riga di comando di Azure
       href: cognitive-services-apis-create-account-cli.md
+    - name: Creare una nuova risorsa con la libreria client
+      href: cognitive-services-apis-create-account-client-library.md
     - name: Creare una nuova risorsa con un modello di Resource Manager
       displayName: Resource Manager
       href: resource-manager-template.md

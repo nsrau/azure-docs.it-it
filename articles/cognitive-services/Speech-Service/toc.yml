@@ -20,10 +20,8 @@
       href: index-speech-to-text.yml
     - name: Panoramica
       items:
-        - name: Che cos'è il riconoscimento vocale in tempo reale?
+        - name: Che cos'è il riconoscimento vocale?
           href: speech-to-text.md
-        - name: Che cos'è il riconoscimento vocale in batch?
-          href: batch-transcription.md
         - name: Nozioni di base sul riconoscimento vocale
           href: speech-to-text-basics.md
     - name: Avvi rapidi
@@ -53,6 +51,8 @@
           href: how-to-select-audio-input-devices.md
         - name: Usare il rilevamento automatico della lingua di origine
           href: how-to-automatic-language-detection.md
+        - name: Usare l'API di trascrizione batch
+          href: batch-transcription.md
     - name: Esercitazioni
       items:
         - name: Migliorare l'accuratezza con i modelli di tenant
@@ -210,7 +210,7 @@
           href: speech-translation.md
         - name: Nozioni di base sulla traduzione vocale
           href: speech-translation-basics.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Tradurre la voce in testo
           href: quickstarts/translate-speech-to-text.md
@@ -259,7 +259,7 @@
   items:
     - name: Documentazione di Riconoscimento finalità
       href: index-intent-recognition.yml
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: 'Riconoscere la voce, le finalità e le entità'
           displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
@@ -358,7 +358,7 @@
           items:
             - name: Che cos'è la conversazione per più dispositivi?
               href: multi-device-conversation.md
-        - name: Guida introduttiva
+        - name: Avvio rapido
           items:
             - name: Avviare a una conversazione e parteciparvi
               href: quickstarts/multi-device-conversation.md
@@ -528,7 +528,7 @@
           href: speech-sdk.md
         - name: Disponibilità di scenari
           href: scenario-availability.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Configurare Speech SDK
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
@@ -591,7 +591,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md
