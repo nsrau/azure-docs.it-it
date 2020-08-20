@@ -2,26 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con ACLP | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ACLP.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 35b392f1-8881-4af9-a9b0-63a15d02986e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516e85fa4dca6c18bc83ee169e284c3c490ba74e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c5538f0defa7d634fc6ab32436a7a5dfdbf13b1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67165110"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Esercitazione: Integrazione di Azure Active Directory con ACLP
 
