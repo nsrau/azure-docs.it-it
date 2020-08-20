@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto Media
 description: Mapping dei controlli dell'esempio di progetto Media. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 02/24/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: bdc4ef65c6d61a9d4217d7873bb29bd787842e71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4101b9030425c22b8806870d467581521870d639
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201738"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208461"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Media
 
@@ -19,7 +19,7 @@ I mapping seguenti fanno riferimento ai controlli **Media**. Usare la barra di s
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza 1:1 o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/media/control-mapping.md).
 
-## <a name="access-control"></a>Controllo dell’accesso
+## <a name="access-control"></a>Controllo di accesso
 
 ### <a name="ac-11--ensure-no-root-access-key-exists"></a>AC-1.1 - Assicurarsi che non esista una chiave di accesso radice
 
@@ -174,7 +174,7 @@ I mapping seguenti fanno riferimento ai controlli **Media**. Usare la barra di s
 
 - \[Anteprima\]: Distribuisci i prerequisiti per controllare le configurazioni delle macchine virtuali Windows in 'Proprietà Windows Firewall'
 
-## <a name="security-planning"></a>Pianificazione della sicurezza
+## <a name="security-planning"></a>Pianificazione della protezione
 
 ### <a name="sp-113--threats-must-be-identified-that-could-negatively-impact-the-confidentiality-integrity-or-availability-of-company-information-and-content-along-with-the-likelihood-of-their-occurrence"></a>SP-11.3 - È necessario identificare le minacce che potrebbero influire negativamente sulla riservatezza, l'integrità o la disponibilità di informazioni e contenuti aziendali oltre alla probabilità che si verifichino.
 
@@ -236,7 +236,7 @@ I mapping seguenti fanno riferimento ai controlli **Media**. Usare la barra di s
 È stato esaminato il mapping dei controlli dell'esempio di progetto Media. Vedere gli articoli seguenti per informazioni sulla panoramica e su come distribuire questo esempio:
 
 > [!div class="next step action"]
-> [Progetto Media - Panoramica](./control-mapping.md)
+> [Progetto Media - Mapping dei controlli](./control-mapping.md)
 > [Progetto Media - Procedura di distribuzione](./deploy.md)
 
 Altri articoli sui progetti e su come usarli:

@@ -2,26 +2,21 @@
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zoom | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Zoom.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d257935aa3e9ad54b64b0f416119931661809172
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70743975"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545965"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zoom
 
@@ -87,6 +82,8 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `<companyname>.zoom.us`
 
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<companyname>.zoom.us`
+
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
@@ -140,13 +137,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Fare clic sulla scheda **Single Sign-On**.
 
-    ![Scheda Single Sign-On](./media/zoom-tutorial/ic784700.png "Single sign-on")
+    ![Scheda Single Sign-On](./media/zoom-tutorial/zoom-sso1.png "Single sign-on")
 
-3. Fare clic sulla scheda **Security Control** (Controllo di sicurezza) e quindi passare alle impostazioni **Single Sign-On**.
+3. Fare clic sulla scheda **Security Control** e quindi passare alle impostazioni **Single Sign-On**.
 
 4. Nella sezione Single Sign-On seguire questa procedura:
 
-    ![Sezione Single Sign-On](./media/zoom-tutorial/ic784701.png "Single sign-on")
+    ![Sezione Single Sign-On](./media/zoom-tutorial/zoom-sso2.png "Single sign-on")
 
     a. Nella casella di testo **URL pagina di accesso** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -162,11 +159,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Pulsante Copia endpoint](./media/zoom-tutorial/endpoint1.png)
 
-    e. Aprire il certificato con codifica base 64 nel Blocco note, copiarne il contenuto negli appunti e quindi incollarlo nella casella di testo **Identity provider certificate** (Certificato del provider di identità).
+    e. Aprire il certificato con codifica in base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **Identity provider certificate**
 
     f. Nella casella di testo **Issuer** (Autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure. 
 
-    g. Fare clic su **Salva**.
+    g. Fare clic su **Salva modifiche**.
 
     > [!NOTE]
     > Per altre informazioni, visitare la documentazione relativa allo zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)

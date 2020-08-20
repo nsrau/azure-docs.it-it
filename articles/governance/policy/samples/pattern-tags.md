@@ -1,14 +1,14 @@
 ---
 title: 'Criterio: Uso di tag in una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce esempi di come aggiungere tag con parametri o ereditare tag da un gruppo di risorse in una definizione di criteri.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: sample
-ms.openlocfilehash: b71a21fadfc8dec3da2feabbce127303174a95d3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3016fc7889f68fd13e993c67ca645a4af055c651
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83704345"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545557"
 ---
 # <a name="azure-policy-pattern-tags"></a>Modello di Criteri di Azure: tag
 
