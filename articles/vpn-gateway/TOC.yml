@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sul gateway VPN
+    - name: Che cos'è un Gateway VPN?
       href: vpn-gateway-about-vpngateways.md
 - name: Esercitazioni
   items:

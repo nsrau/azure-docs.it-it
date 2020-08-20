@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035179"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606897"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Gestione dei lead per il Marketplace commerciale
 
@@ -170,7 +170,7 @@ Il lead viene scritto solo quando si seleziona l'archivio BLOB di Azure come des
 
 **È stato ricevuto un messaggio di posta elettronica dal Marketplace, perché non si riesce a trovare il lead nel sistema CRM?**  
 
-È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, le informazioni personali non vengono passate da questo tipo di domini. Inviare un ticket di supporto in [Guida e supporto tecnico](https://aka.ms/marketplacepublishersupport).
+È possibile che il dominio di posta elettronica dell'utente finale sia di tipo edu. Per motivi di privacy, i dati personali non vengono passati dal dominio edu. Inviare un ticket di supporto in [Guida e supporto tecnico](https://aka.ms/marketplacepublishersupport).
 
 **È stato configurato un BLOB di Azure o una tabella di Azure come destinazione dei lead. Perché i lead non sono visualizzati?** 
 

@@ -4,15 +4,15 @@ description: Informazioni sulla funzione di sistema SQL GetCurrentTimestamp in A
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/19/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9c35f83ce7a9a478f706e9ed560d884d9bf5e508
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c1e0a8d69edab0c01005268ee49c23625236f03a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261289"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606920"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
 
@@ -26,15 +26,15 @@ GetCurrentTimestamp ()
   
 ## <a name="return-types"></a>Tipi restituiti
   
-  Restituisce un valore numerico, il numero corrente di millisecondi trascorsi dal periodo UNIX, ovvero il numero di millisecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970.
+Restituisce un valore numerico con segno, il numero corrente di millisecondi trascorsi dal periodo UNIX, ovvero il numero di millisecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970.
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
-  GetCurrentTimestamp () è una funzione non deterministica.
-  
-  Il risultato restituito è UTC (Coordinated Universal Time).
+GetCurrentTimestamp () è una funzione non deterministica. Il risultato restituito è UTC (Coordinated Universal Time).
 
-## <a name="examples"></a>Esempio
+Questa funzione di sistema non utilizzerà l'indice.
+
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene illustrato come ottenere il timestamp corrente utilizzando la funzione predefinita GetCurrentTimestamp ().
   

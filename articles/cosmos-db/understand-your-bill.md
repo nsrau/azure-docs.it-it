@@ -5,29 +5,36 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964584"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606903"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
-In quanto servizio di database cloud nativo completamente gestito, Azure Cosmos DB semplifica la fatturazione, addebitando solo la velocità effettiva di cui è stato effettuato il provisioning e le risorse di archiviazione utilizzate. Non ci sono corrispettivi aggiuntivi per licenze, hardware, utenze o infrastrutture, a differenza delle alternative in locale o ospitate all'interno di sistemi IaaS. Se si considerano le funzionalità multiarea di Azure Cosmos DB, ci si rende conto che il servizio di database garantisce una riduzione sostanziale dei costi rispetto alle soluzioni locali o IaaS esistenti.
+In quanto servizio di database nativo del cloud completamente gestito, Azure Cosmos DB semplifica la fatturazione addebitando solo le operazioni di database e l'archiviazione utilizzata. Non ci sono corrispettivi aggiuntivi per licenze, hardware, utenze o infrastrutture, a differenza delle alternative in locale o ospitate all'interno di sistemi IaaS. Se si considerano le funzionalità multiarea di Azure Cosmos DB, ci si rende conto che il servizio di database garantisce una riduzione sostanziale dei costi rispetto alle soluzioni locali o IaaS esistenti.
 
-Con Azure Cosmos DB i costi vengono addebitati su base oraria a seconda della velocità effettiva di cui viene effettuato il provisioning e a seconda delle risorse di archiviazione utilizzate. Per la velocità effettiva con provisioning, l'unità per la fatturazione è 100 ur/sec all'ora, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) per le ultime informazioni sui prezzi. Per lo spazio di archiviazione utilizzato, la fatturazione viene addebitata per 1 GB di spazio di archiviazione al mese. per informazioni sui prezzi più recenti, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
+- **Operazioni di database**: il modo in cui vengono addebitate le operazioni di database dipende dal tipo di account Azure Cosmos usato.
 
-Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli della fattura mensile. I numeri visualizzati negli esempi possono essere diversi se per i contenitori di Azure Cosmos in uso è stato effettuato il provisioning di una quantità diversa di velocità effettiva, se i contenitori si estendono su più aree o vengono eseguiti per un periodo diverso nel corso di un mese. Tutti gli esempi in questo articolo calcolano la fattura in base alle informazioni sui prezzi indicate nella [pagina dei prezzi.](https://azure.microsoft.com/pricing/details/cosmos-db/)
+  - **Velocità effettiva con provisioning**: viene addebitata una tariffa oraria per la velocità effettiva massima con provisioning per un'ora specifica, con incrementi di 100 ur/sec.
+  - Senza **Server**: viene addebitata una fatturazione oraria per la quantità totale di unità richiesta utilizzate dalle operazioni del database.
+
+- **Archiviazione**: viene addebitata una tariffa fissa per la quantità totale di spazio di archiviazione (in GB) utilizzata dai dati e dagli indici per un'ora specifica.
+
+Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
+
+Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli della fattura mensile. I numeri visualizzati negli esempi possono essere diversi se per i contenitori di Azure Cosmos in uso è stato effettuato il provisioning di una quantità diversa di velocità effettiva, se i contenitori si estendono su più aree o vengono eseguiti per un periodo diverso nel corso di un mese. Tutti gli esempi in questo articolo calcolano la fattura in base alle informazioni sui prezzi indicate nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 > [!NOTE]
 > La fatturazione è per qualsiasi parte di un'ora, non per una durata di 60 minuti. Tutti gli esempi illustrati in questo documento sono basati sul prezzo di un account Azure Cosmos distribuito in un'area non governativa negli Stati Uniti. I prezzi e il calcolo variano a seconda dell'area in uso. per informazioni più aggiornate sui prezzi, vedere la pagina relativa ai [prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
 ## <a name="billing-examples"></a>Esempi di fatturazione
 
-### <a name="billing-example---throughput-on-a-container-full-month"></a>Esempio di fatturazione: velocità effettiva in un contenitore (mese completo)
+### <a name="billing-example---provisioned-throughput-on-a-container-full-month"></a>Esempio di fatturazione-velocità effettiva con provisioning in un contenitore (mese intero)
 
 * Si supponga di configurare una velocità effettiva di 1.000 UR/sec per un contenitore esistente 24 ore * 30 giorni al mese = 720 ore totali.  
 
@@ -39,13 +46,21 @@ Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli 
 
 * Il totale della fattura mensile indicherà 7.200 unità di 100 UR, con un costo di 57,60 dollari.
 
-### <a name="billing-example---throughput-on-a-container-partial-month"></a>Esempio di fatturazione: velocità effettiva in un contenitore (mese parziale)
+### <a name="billing-example---provisioned-throughput-on-a-container-partial-month"></a>Esempio di fatturazione-velocità effettiva con provisioning in un contenitore (mese parziale)
 
 * Si supponga di creare un contenitore con una velocità effettiva di cui è stato effettuato il provisioning di 2.500 UR/sec. Il contenitore esiste per 24 ore durante il mese (ad esempio, viene eliminato 24 ore dopo la sua creazione).  
 
 * La fattura quindi riporterà 600 unità (2.500 UR/sec / 100 UR/sec/unità * 24 ore). Il costo sarà di 4,80 dollari (600 unità * 0,008 dollari/unità).
 
 * L'importo totale della fattura per il mese sarà di 4,80 dollari.
+
+### <a name="billing-example---serverless-container"></a>Esempio di fatturazione-contenitore senza server
+
+* Supponiamo di creare un contenitore senza server. 
+
+* Nell'arco di un mese vengono rilasciate richieste di database che utilizzano un totale di 500.000 unità richiesta. Il costo sarà $0,125 (500.000 * $0,25/milioni).
+
+* La fattura totale per il mese sarà $0,125.
 
 ### <a name="billing-rate-if-storage-size-changes"></a>Tariffa di fatturazione in caso di modifica delle dimensioni di archiviazione
 
@@ -55,7 +70,7 @@ La capacità di archiviazione viene fatturata in unità della quantità oraria m
 
 Verrà addebitata una tariffa fissa per ogni ora di esistenza del contenitore o del database, indipendentemente dall'utilizzo o dal fatto che il contenitore o il database sia attivo per più o meno di un'ora. Se, ad esempio, si crea un contenitore o un database e lo si elimina dopo 5 minuti, la fattura riporterà un'ora.
 
-### <a name="billing-rate-when-throughput-on-a-container-or-database-scales-updown"></a>Tariffa di fatturazione in caso di aumento o riduzione della velocità effettiva di un contenitore o di un database
+### <a name="billing-rate-when-provisioned-throughput-on-a-container-or-database-scales-updown"></a>Frequenza di fatturazione quando la velocità effettiva con provisioning in un contenitore o in un database aumenta o diminuisce
 
 Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il provisioning da 400 UR/sec a 1.000 UR/sec e quindi si torna a 400 UR/sec alle 10:45, verranno addebitate due ore di 1.000 UR/sec. 
 
@@ -75,7 +90,7 @@ Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il pro
 
 :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Esempio di fattura con velocità effettiva dedicata":::
 
-### <a name="billing-example-containers-with-shared-throughput-mode"></a>Esempio di fatturazione: contenitori con velocità effettiva condivisa
+### <a name="billing-example-containers-with-shared-provisioned-throughput-mode"></a>Esempio di fatturazione: contenitori con modalità velocità effettiva condivisa (con provisioning)
 
 * Se si crea un account Azure Cosmos negli Stati Uniti orientali 2 con due database Azure Cosmos (con un set di contenitori che condividono la velocità effettiva a livello di database) con velocità effettiva di cui è stato effettuato il provisioning pari a 50 K UR/sec e 70 K UR/sec rispettivamente, la velocità effettiva di cui è stato effettuato il provisioning totale è di 120 K UR/sec.  
 

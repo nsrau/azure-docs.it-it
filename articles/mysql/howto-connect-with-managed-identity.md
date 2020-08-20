@@ -6,22 +6,23 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: af63ef6f33cc0e3dfe7f186ad2e36b854a728c6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3c13d37e62da8abfa860d5fdbdf186302519c93e
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120577"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606504"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Connettersi con l'identità gestita a Database di Azure per MySQL
 
-Questo articolo illustra come usare un'identità assegnata dall'utente per una macchina virtuale di Azure per accedere a un server di Database di Azure per MySQL. Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
+Questo articolo illustra come usare un'identità assegnata dall'utente per una macchina virtuale di Azure per accedere a un server di Database di Azure per MySQL. Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. 
 
-> [!div class="checklist"]
-> * Concedere l'accesso della macchina virtuale a un server di Database di Azure per MySQL
-> * Creare un utente nel database che rappresenta l'identità assegnata dall'utente della macchina virtuale
-> * Ottenere un token di accesso tramite l'identità della macchina virtuale e usarlo per eseguire query su un server di Database di Azure per MySQL
-> * Implementare il recupero dei token in un'applicazione C# di esempio
+Si apprenderà come:
+
+- Concedere l'accesso della macchina virtuale a un server di Database di Azure per MySQL
+- Creare un utente nel database che rappresenta l'identità assegnata dall'utente della macchina virtuale
+- Ottenere un token di accesso tramite l'identità della macchina virtuale e usarlo per eseguire query su un server di Database di Azure per MySQL
+- Implementare il recupero dei token in un'applicazione C# di esempio
 
 > [!IMPORTANT]
 > La connessione con identità gestita è disponibile solo per MySQL 5,7 e versioni successive.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e9fe02903d2dc76c931e58682a0d632d5e492963
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498022"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607386"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale
 
@@ -32,7 +32,7 @@ Si verrà contattati da un membro del team Rewards quando l'offerta sarà live, 
 
 Per i partner di transazione, man mano che si aumentano le vendite fatturate tramite la piattaforma del Marketplace commerciale, si sbloccano vantaggi maggiori per livello.
 
-Il requisito minimo per la pubblicazione nelle vetrine è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner è autorizzato a far crescere la propria azienda attraverso il Marketplace commerciale come piattaforma.
+Il requisito minimo per la pubblicazione nei negozi online è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner è autorizzato a far crescere la propria azienda attraverso il Marketplace commerciale come piattaforma.
 
 Si otterrà supporto per la comprensione delle risorse disponibili e per l'implementazione delle procedure consigliate, che è anche possibile [esaminare autonomamente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
@@ -87,7 +87,7 @@ Tutti i partner che hanno un'offerta Live possono collaborare con un responsabil
 
 ![Vantaggi tecnici](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\*La soglia venduta per le postazioni si applica solo alle app Microsoft 365 (le applicazioni SaaS con integrazioni con Microsoft teams, Office, Outlook o SharePoint) e i vantaggi devono essere completate entro il 30 giugno 2021.
+\* La soglia venduta per le postazioni si applica solo alle app Microsoft 365 (le applicazioni SaaS con integrazioni con Microsoft teams, Office, Outlook o SharePoint) e i vantaggi devono essere completate entro il 30 giugno 2021.
 
 Le descrizioni dettagliate di tutti questi vantaggi sono disponibili nella [presentazione del programma Marketplace Rewards](https://aka.ms/marketplacerewards).
 

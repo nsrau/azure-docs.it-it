@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304412"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606801"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Domande frequenti sulle API di evasione SaaS
 
@@ -63,13 +63,13 @@ La risposta all' `Resolve` API include le informazioni sull'offerta e sul piano 
 >[!Note]
 >Se non si desidera supportare percorsi di conversione specifici, è possibile bloccare i downgrade.
 
-La sequenza seguente acquisisce il flusso quando un piano di modifiche dei clienti di Azure nell'esperienza SaaS:
+La sequenza seguente acquisisce il flusso quando un cliente di Azure modifica un piano nell'esperienza SaaS:
 
 ![Flusso di modifica piano cliente](media/saas-metering-service-integration-flow-b.png)
 
-La sequenza seguente acquisisce il flusso quando un piano di modifiche dei clienti di Azure nella vetrina di Microsoft
+La sequenza seguente acquisisce il flusso quando un cliente di Azure modifica un piano nell'archivio online di Microsoft:
 
-![Flusso di modifica piano storefront cliente](media/saas-metering-service-integration-flow-c.png)
+![Flusso di modifica del piano di archiviazione online del cliente](media/saas-metering-service-integration-flow-c.png)
 
 ### <a name="how-can-the-azure-user-unsubscribe-from-the-plan-associated-with-azure-subscription"></a>In che modo l'utente di Azure Annulla la sottoscrizione al piano associato alla sottoscrizione di Azure?
 
@@ -79,9 +79,9 @@ La sequenza seguente acquisisce il flusso quando un cliente di Azure Annulla la 
 
 ![Il cliente annulla la sottoscrizione nell'esperienza SaaS](media/saas-metering-service-integration-flow-d.png)
 
-La sequenza seguente acquisisce il flusso quando l'utente di Azure Annulla la sottoscrizione nella vetrina di Microsoft:
+La sequenza seguente acquisisce il flusso quando l'utente di Azure Annulla la sottoscrizione nell'archivio online di Microsoft:
 
-![Il cliente annulla la sottoscrizione nella vetrina di Microsoft](media/saas-metering-service-integration-flow-e.png)
+![Annulla la sottoscrizione del cliente nel negozio online di Microsoft](media/saas-metering-service-integration-flow-e.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

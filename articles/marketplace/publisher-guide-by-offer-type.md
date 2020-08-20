@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9b23fbe55589bbbe6d560967119206fb1ea1d85c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119719"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607258"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guida alla pubblicazione per tipo di offerta
 
@@ -22,7 +22,7 @@ Prima di poter creare un'offerta e dopo aver scelto [un'opzione di pubblicazione
 
 Un unico tipo di offerta può essere configurato in modi diversi per abilitare diverse opzioni di pubblicazione, chiamate a azioni, provisioning o prezzi. L'opzione di pubblicazione e la configurazione del tipo di offerta si allineano anche ai requisiti tecnici e di idoneità.
 
-Prima di creare l'offerta, esaminare la vetrina, i requisiti di idoneità del tipo di offerta e i requisiti tecnici di pubblicazione.
+Prima di creare l'offerta, assicurarsi di esaminare i requisiti di idoneità per il tipo e il negozio online e i requisiti per la pubblicazione tecnica.
 
 ## <a name="list-of-offer-types"></a>Elenco di tipi di offerte
 
@@ -45,4 +45,4 @@ Per informazioni sui requisiti di Single Sign-On elencando le opzioni e i tipi d
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare i requisiti di idoneità nell'articolo corrispondente per il tipo di offerta (sezioni seguenti) per finalizzare la selezione e la configurazione dell'offerta.
-- Esaminare i modelli di pubblicazione in base alla vetrina per trovare esempi sul modo in cui la soluzione esegue il mapping a un tipo e a una configurazione di offerta.
+- Per esempi su come la soluzione è mappata a un tipo di offerta e a una configurazione, vedere la pagina relativa ai modelli di pubblicazione tramite Online Store.

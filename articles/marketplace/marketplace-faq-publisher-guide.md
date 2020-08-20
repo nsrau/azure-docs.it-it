@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036573"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607336"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Domande comuni sul Marketplace commerciale Microsoft
 
@@ -120,11 +120,11 @@ Gli editori del marketplace commerciale sono tenuti a fornire assistenza per il 
 
 Durante il processo di pubblicazione viene consentito l'accesso a un'anteprima dell'offerta. L'accesso è limitato agli utenti specificati nella scheda **Anteprima** e l'offerta non può essere visualizzata da nessun altro. È possibile acquistare un'anteprima e testare il processo, ma verrà addebitato l'importo totale in base alla configurazione dell'offerta.
 
-Per completare un acquisto a un prezzo molto basso, è consigliabile pubblicare un piano privato visualizzabile soltanto dall'utente e a un prezzo che l'utente può accettare come costo di test. Un prezzo pari a 0,00 USD è supportato, ma non rifletterà l'esperienza completa come nel caso di una sottoscrizione a pagamento, pertanto è consigliabile impostare il prezzo su 1,00 USD.
+Per completare un acquisto a un prezzo ridotto, è consigliabile pubblicare un piano privato visualizzabile da solo e con un prezzo che è possibile accettare come costo dei test. Un prezzo pari a 0,00 USD è supportato, ma non rifletterà l'esperienza completa come nel caso di una sottoscrizione a pagamento, pertanto è consigliabile impostare il prezzo su 1,00 USD.
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>Che cosa sono i clienti potenziali nel marketplace commerciale e in che modo è possibile interagire con loro?
 
-Quando i clienti usano le offerte nelle vetrine di Microsoft AppSource e Azure Marketplace, vengono acquisite informazioni. Dopo che i clienti hanno dimostrato sufficiente interesse, viene creato un cliente potenziale e inviata un'opportunità al sistema scelto. Gli editori con successo nel Marketplace commerciale spesso intendono i lead, lo sviluppo di relazioni e l'interesse per le offerte.
+Dato che i clienti usano le tue offerte nel Microsoft AppSource e nei negozi online di Azure Marketplace, le informazioni vengono acquisite. Dopo che i clienti hanno dimostrato sufficiente interesse, viene creato un cliente potenziale e inviata un'opportunità al sistema scelto. Gli editori con successo nel Marketplace commerciale spesso intendono i lead, lo sviluppo di relazioni e l'interesse per le offerte.
 
 Per altre informazioni, vedere [Clienti potenziali dall'offerta del marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -140,7 +140,7 @@ Le offerte vengono presentate ai clienti attraverso esperienze incluse nel prodo
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>Un'offerta può essere visualizzata sia in Microsoft AppSource sia in Azure Marketplace?
 
-Microsoft AppSource è la destinazione delle soluzioni aziendali e di settore, mentre Azure Marketplace è progettato per le soluzioni IT e per gli sviluppatori. Le offerte sono disponibili in ogni vetrina in base alle categorie e ai settori selezionati durante la creazione dell'offerta. L'offerta può essere visualizzata nelle due vetrine nel raro caso in cui sia pertinente per gli utenti di entrambi i marketplace.
+Microsoft AppSource è la destinazione delle soluzioni aziendali e di settore, mentre Azure Marketplace è progettato per le soluzioni IT e per gli sviluppatori. Le offerte sono disponibili in ogni negozio online in base alle categorie e ai settori selezionati durante la creazione dell'offerta. Nel raro caso in cui l'offerta sia pertinente per gli utenti di entrambi gli archivi online, può essere visualizzata in entrambi.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>Che cos'è il programma Cloud Solution Provider?
 

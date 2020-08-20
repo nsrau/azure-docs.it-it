@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 9ae6524dc1d53580d0dc7de1179ccf9db8cebc61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7496ffcc365a3e9178bcc3293b518ea790e56c78
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086133"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607058"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Guida introduttiva: Avviare un'app Azure Spring Cloud tramite il plug-in Maven
 
@@ -79,7 +79,7 @@ Per distribuire il servizio sono necessari circa 5 minuti. Dopo la distribuzione
 1. Clonare il repository Git eseguendo il comando seguente:
 
     ```console
-    git clone https://github.com/Azure-Samples/PiggyMetrics
+    git clone https://github.com/Azure-Samples/piggymetrics
     ```
   
 1. Cambiare directory e compilare il progetto eseguendo il comando seguente:

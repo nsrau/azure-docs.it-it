@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323282"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607142"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Dashboard Informazioni dettagliate sul marketplace nel Centro per i partner
 
-Questo articolo illustra il dashboard Informazioni dettagliate sul marketplace disponibile nel Centro per i partner. Questo dashboard Visualizza un riepilogo di analisi Web del Marketplace che consente agli editori di misurare il coinvolgimento dei clienti per le rispettive pagine dei dettagli del prodotto elencate nelle vetrine del Marketplace commerciale: Microsoft AppSource e Azure Marketplace.
+Questo articolo illustra il dashboard Informazioni dettagliate sul marketplace disponibile nel Centro per i partner. Questo dashboard Visualizza un riepilogo di analisi Web del Marketplace che consente agli editori di misurare il coinvolgimento dei clienti per le rispettive pagine dei dettagli del prodotto elencate nei negozi online del Marketplace commerciale: Microsoft AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Dashboard Informazioni dettagliate sul marketplace
 
@@ -42,11 +42,11 @@ La latenza massima tra gli utenti che visitano le offerte in Azure Marketplace o
 
 Visualizzare le metriche del Marketplace commerciale in diversi modi:
 
-- Schede di vetrine
+- Schede di archivio online
 - Filtri di pagina
 - Filtri per date
 
-**Schede di vetrine**: È possibile visualizzare le metriche delle offerte separatamente nelle schede di AppSource e Azure Marketplace. Selezionare le offerte dall'elenco a discesa a destra per vedere una visualizzazione delle metriche per le offerte selezionate. Per impostazione predefinita, sono selezionate tutte le offerte.
+**Schede Online Store**: è possibile visualizzare le metriche delle offerte separatamente tramite le schede AppSource & Azure Marketplace. Selezionare le offerte dall'elenco a discesa a destra per vedere una visualizzazione delle metriche per le offerte selezionate. Per impostazione predefinita, sono selezionate tutte le offerte.
 
 ![Elenco a discesa delle offerte nel dashboard Informazioni dettagliate del Centro per i partner](./media/insights-offer-dropdown.png)
 
@@ -96,7 +96,7 @@ La mappa termica include le funzionalità riportate di seguito:
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Visite alle pagine rispetto alla tendenza dei visitatori univoci
 
-Le colonne seguenti rappresentano il numero di visite mensili alle pagine, visualizzate sull'asse Y (asse sul lato sinistro del grafico). La linea di tendenza rappresenta la tendenza mensile dei visitatori univoci, visualizzata sull'asse Y secondario (asse sul lato destro del grafico), per le offerte pubblicate nelle vetrine: Azure Marketplace e AppSource.
+Le colonne seguenti rappresentano il numero di visite mensili alle pagine, visualizzate sull'asse Y (asse sul lato sinistro del grafico). La linea di tendenza rappresenta la tendenza mensile dei visitatori univoci, che viene visualizzata sull'asse Y secondario (asse sul lato destro del grafico), per le offerte pubblicate negli archivi online: Azure Marketplace e AppSource.
 
 ![Visite alle pagine rispetto alla tendenza dei visitatori univoci in Informazioni dettagliate del Centro per i partner](./media/insights-page-vists-unique-visitors.png)
 

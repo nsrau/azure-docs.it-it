@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5058f37fcf96c7c556b55f0afb8753390f51f4d1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503566"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607349"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -136,7 +136,7 @@ In questo scenario Microsoft fattura $ 100,00 per la licenza software e paga $ 9
 |Microsoft paga l'80% del costo della licenza <br> \* Per le app SaaS idonee, Microsoft paga il 90% del costo di licenza   |   $ 80,00 al mese <br> \* $ 90,00 al mese    |
 |Microsoft trattiene il 20% del costo della licenza <br> \* Per le app SaaS idonee, Microsoft trattiene il 10% del costo di licenza.  |  $ 20,00 al mese <br> \* 10,00 $     |
 
-Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa del servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica a SaaS incentivate, VM, app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
+Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa del servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica alle app SaaS incentivate, alle VM, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Fatturazione cliente, pagamento e riscossioni
 
@@ -148,7 +148,7 @@ Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il
 
 **Crediti gratuiti e impegno monetario**: alcuni clienti decidono di pagare in anticipo Azure con un impegno monetario nel contratto Enterprise Agreement o dispongono di crediti gratuiti da usare con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
 
-**Fatturazione e raccolta**: la fatturazione della licenza del software dell'editore viene visualizzata usando il metodo di fatturazione scelto dal cliente e segue la tempistica della fatturazione. Per i clienti senza un contratto Enterprise Agreement appropriato le licenze del software del marketplace vengono fatturate mensilmente. Per i clienti con Enterprise Agreement viene emessa una fattura mensile inviata ogni trimestre.
+**Fatturazione e raccolte** : la fatturazione delle licenze software dell'editore viene presentata usando il metodo di fatturazione selezionato dal cliente e segue la sequenza temporale per la fatturazione. Per i clienti senza un contratto Enterprise Agreement appropriato le licenze del software del marketplace vengono fatturate mensilmente. Per i clienti con Enterprise Agreement viene emessa una fattura mensile inviata ogni trimestre.
 
 Quando vengono scelti modelli di determinazione prezzi con pagamento in base al consumo o per la sottoscrizione, Microsoft agisce in funzione di agente dell'editore ed è responsabile di ogni aspetto della fatturazione, del pagamento e della riscossione.
 
@@ -191,4 +191,4 @@ L'opzione di pubblicazione delle transazioni è disponibile solo per l'uso con i
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare i requisiti di idoneità nelle opzioni di pubblicazione in base alla sezione del tipo di offerta per finalizzare la selezione e la configurazione dell'offerta.
-- Esaminare i modelli di pubblicazione in base alla vetrina per trovare esempi sul modo in cui la soluzione esegue il mapping a un tipo e a una configurazione di offerta.
+- Per esempi su come la soluzione è mappata a un tipo di offerta e a una configurazione, vedere la pagina relativa ai modelli di pubblicazione tramite Online Store.

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: ea5d975b73afcf03ad97bafd1c6f68f2b55263c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/19/2020
+ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084722"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606258"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Ottimizzare i costi di sviluppo e test in Azure Cosmos DB
 
@@ -25,6 +25,9 @@ L'[emulatore di Azure Cosmos DB](local-emulator.md) è una versione scaricabile 
 
 Azure Cosmos DB livello gratuito semplifica la creazione, lo sviluppo e il test delle applicazioni o anche l'esecuzione gratuita di piccoli carichi di lavoro di produzione. Quando il livello gratuito è abilitato per un account, otterrai le prime 400 ur/sec e 5 GB di spazio di archiviazione gratuitamente nell'account. È anche possibile creare un database con velocità effettiva condivisa con 25 contenitori che condividono 400 ur/s a livello di database, tutti coperti da livello gratuito (limite 5 database di velocità effettiva condivisa in un account di livello gratuito). Quando si usa il livello gratuito, se si esegue il provisioning di un database condiviso con una velocità effettiva minima di 400 ur/sec, tutti i contenitori all'interno del database possono condividere la velocità effettiva. I nuovi database con velocità effettiva condivisa o contenitori con velocità effettiva dedicata vengono fatturati a prezzi regolari.
 
+> [!NOTE]
+> Il livello gratuito è disponibile solo in modalità di velocità effettiva con provisioning.
+
 Il livello gratuito dura per un periodo illimitato per la durata dell'account ed è dotato di tutti i [vantaggi e le funzionalità](introduction.md#key-benefits) di un normale account Azure Cosmos DB, tra cui archiviazione e velocità effettiva illimitate (UR/sec), SLA, disponibilità elevata, distribuzione globale chiavi in mano in tutte le aree di Azure e altro ancora. È possibile avere fino a un account di livello gratuito per ogni sottoscrizione di Azure ed è necessario acconsentire esplicitamente al momento della creazione dell'account. Per iniziare, [creare un nuovo account in portale di Azure con il livello gratuito abilitato](create-cosmosdb-resources-portal.md) o usare un [modello ARM](manage-sql-with-resource-manager.md#free-tier). Per altri dettagli, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Prova gratuitamente Azure Cosmos DB
@@ -34,6 +37,10 @@ Il livello gratuito dura per un periodo illimitato per la durata dell'account ed
 ## <a name="azure-free-account"></a>Account Azure gratuito
 
 Azure Cosmos DB è incluso nell'[account Azure gratuito](https://azure.microsoft.com/free), che offre gratuitamente crediti e risorse di Azure per un periodo di tempo specifico. Per Azure Cosmos DB in particolare, l'account gratuito offre 5 GB di archiviazione e 400 UR di velocità effettiva sottoposta a provisioning per l'intero anno. Questa esperienza consente a qualsiasi sviluppatore di testare facilmente le funzionalità di Azure Cosmos DB o di integrare questo strumento con altri servizi di Azure a costo zero. Con un account Azure gratuito, si ottiene un credito di 200 dollari da spendere nei primi 30 giorni. Anche se si inizia a usare i servizi, verranno applicati addebiti solo quando si sceglierà di eseguire l'aggiornamento. Per iniziare, visitare la pagina [Account Azure gratuito](https://azure.microsoft.com/free).
+
+## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB senza server
+
+[Azure Cosmos DB senza server](serverless.md) consente di usare l'account Azure Cosmos in modo basato sul consumo, in cui vengono addebitate solo le unità di richiesta utilizzate dalle operazioni del database e la risorsa di archiviazione utilizzata dai dati. Non è previsto alcun addebito minimo quando si usa Azure Cosmos DB in modalità senza server. Poiché elimina il concetto di capacità di cui è stato effettuato il provisioning, è più adatto per attività di sviluppo o test in modo specifico quando il database è inattivo per la maggior parte del tempo.
 
 ## <a name="use-shared-throughput-databases"></a>Usare i database con velocità effettiva condivisa
 
@@ -45,8 +52,8 @@ Si supponga, ad esempio, che l'account di sviluppo o test disponga di quattro co
 
 È possibile iniziare a usare l'emulatore o gli account Azure Cosmos DB gratuiti con gli articoli seguenti:
 
-* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
+* Scopri di più su [Azure Cosmos DB senza server](serverless.md)
 * Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)

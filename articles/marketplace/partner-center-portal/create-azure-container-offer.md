@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9196bea663d037f269316dc108f99d3f2c282ec7
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166740"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606365"
 ---
-# <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta di contenitore di Azure in Azure Marketplace
+# <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta del contenitore di Azure in Azure Marketplace
 
 Questo articolo descrive come creare e pubblicare un'offerta di contenitori per Azure Marketplace. Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](create-account.md) se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
 
@@ -29,7 +29,7 @@ Questo articolo descrive come creare e pubblicare un'offerta di contenitori per 
    ![Menu di spostamento a sinistra.](./media/new-offer-azure-container.png)
 
 > [!TIP]
-> Dopo la pubblicazione di un'offerta, le modifiche apportate all'offerta nel Centro per i partner vengono visualizzate nelle vetrine solo dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
+> Dopo la pubblicazione di un'offerta, le modifiche apportate al centro per i partner vengono visualizzate solo negli archivi online dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
 
 ### <a name="offer-id-and-alias"></a>ID e alias dell'offerta
 

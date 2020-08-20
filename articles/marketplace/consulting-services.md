@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797866"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607453"
 ---
 # <a name="consulting-service-offers"></a>Offerte di servizi di consulenza
 
@@ -22,7 +22,7 @@ Queste offerte di servizi di consulenza sono engagement specifici del cliente. G
 
 ## <a name="compare-consulting-services"></a>Confrontare i servizi di consulenza
 
-Le vetrine del marketplace commerciale, Microsoft AppSource e Azure Marketplace, sono organizzate in base a gruppi di destinatari e prodotti cloud per consentire ai clienti di trovare la soluzione di cui hanno bisogno. Ogni vetrina ha specifiche opzioni di pubblicazione che consentono di sfruttare al massimo l'investimento nella pubblicazione, Per ulteriori informazioni sulla differenza tra le due vetrine, vedere [confronto tra Microsoft AppSource e Azure Marketplace](comparing-appsource-azure-marketplace.md).
+I negozi online del Marketplace commerciale, Microsoft AppSource e Azure Marketplace, sono allineati con i destinatari e i prodotti cloud per aiutare i clienti a trovare gli elementi necessari. In ogni negozio online sono disponibili opzioni di pubblicazione specializzate che consentono di ottimizzare l'investimento di pubblicazione. Per ulteriori informazioni sulla differenza tra i due archivi online, vedere [confronto tra Microsoft AppSource e Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Le offerte di servizi di consulenza basate su Dynamics 365, Power Apps e Power BI sono idonee alla presentazione in AppSource. Per altre informazioni, scaricare il file PDF [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) (Linee guida alla presentazione dei servizi di consulenza in Microsoft AppSource).
 
@@ -34,7 +34,7 @@ Le offerte di servizi di consulenza e servizi gestiti basate su Microsoft Azure 
 > I servizi di consulenza in AppSource devono concentrarsi su offerte rivolte a utenti con esperienza nella distribuzione di soluzioni di qualità per Dynamics 365, Power BI o Power Apps.
  
 > [!TIP]
-> Per pubblicare nella vetrina di Azure Marketplace, nel Centro per i partner nell'elenco a discesa **Prodotto principale** selezionare **Azure**.
+> Per pubblicare in Azure Marketplace, selezionare **Azure**nell'elenco a discesa **prodotto principale** del centro per i partner.
 >
 > Per pubblicare in AppSource, nel Centro per i partner nell'elenco a discesa **Prodotto principale** selezionare **Dynamics 365**, **Power BI** o **Power Apps**.
 
@@ -86,12 +86,12 @@ I partner System-Integrator possono inviare offerte di servizi di consulenza per
 Iniziare [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) le informazioni sulla società nel marketplace. Per un elenco di controllo completo dei requisiti di registrazione, vedere [Diventare un editore nel marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparare la pubblicazione degli elementi
-Prima della registrazione è possibile iniziare a raccogliere e preparare il contenuto che consentirà di specificare chiaramente il valore del servizio e della soluzione per il cliente di destinazione.
+Prima della registrazione è possibile iniziare a raccogliere e preparare il contenuto che consentirà di specificare chiaramente il valore del servizio e della soluzione per il cliente di destinazione. 
 
 |Configurazione per i nuovi editori  |
 |---------|
 |ID MPN     |
-|Logo della società: 48 x 48 pixel (facoltativo), 216 x 216 pixel-350 x 350 pixel (obbligatorio)  |
+|Logo della società (48 x 48, 216 x 216 pixel)     |
 |Clienti potenziali destinatari     |
 ||
 

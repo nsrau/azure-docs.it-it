@@ -1,32 +1,32 @@
 ---
 title: Confronto tra Microsoft AppSource e Azure Marketplace
-description: In questo articolo vengono illustrate le differenze tra le vetrine di Microsoft Commercial Marketplace-Microsoft AppSource e Azure Marketplace.
+description: In questo articolo vengono illustrate le differenze tra i negozi online di Microsoft Commercial Marketplace-Microsoft AppSource e Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121810"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607460"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Confronto tra Microsoft AppSource e Azure Marketplace
 
-Microsoft Commercial Marketplace include [Microsoft AppSource](https://appsource.microsoft.com) e [Azure Marketplace](https://azuremarketplace.microsoft.com). Ogni vetrina offre requisiti univoci per i clienti e destinatari diversi, quindi è possibile assicurarsi che la soluzione o il servizio sia disponibile per i clienti appropriati.
+Microsoft Commercial Marketplace include [Microsoft AppSource](https://appsource.microsoft.com) e [Azure Marketplace](https://azuremarketplace.microsoft.com). Ogni negozio online serve requisiti univoci per i clienti e destinatari diversi, quindi è possibile verificare che la soluzione o il servizio sia disponibile per i clienti appropriati.
 
-## <a name="understanding-the-differences-between-storefronts"></a>Differenze tra le vetrine
+## <a name="understanding-the-differences-between-online-stores"></a>Informazioni sulle differenze tra gli archivi online
 
-Per scegliere una vetrina, identificare prima di tutto i destinatari per l'offerta. Se ci si rivolge ai destinatari di più vetrine, è possibile pubblicare una sola volta per la vendita in tutte le vetrine.
+Per scegliere uno Store online, identificare prima di tutto i destinatari per l'offerta. Per i destinatari in più archivi online, è possibile pubblicare una volta per la vendita in più archivi.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
 | Sviluppatori e professionisti IT | Utenti aziendali e decision maker aziendali |
 
-Le tabelle seguenti descrivono i vantaggi che è possibile conseguire usando una vetrina:
+Nella tabella seguente vengono descritti i vantaggi derivanti dall'utilizzo di un negozio online:
 
 | Vantaggi | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |

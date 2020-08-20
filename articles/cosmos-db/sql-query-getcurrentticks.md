@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 6b3cd5ab5849c33172e4a629c79fb792b82f1255
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 2ca76d75edba6688dbe93f11a51a0ad67942677a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227372"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606943"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
 
-Restituisce la data e l'ora correnti, misurate in cicli.
+Restituisce il numero di cicli di 100-nanosecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970.
   
 ## <a name="syntax"></a>Sintassi
   
@@ -26,9 +26,11 @@ GetCurrentTicks ()
 
 ## <a name="return-types"></a>Tipi restituiti
 
-Restituisce un valore intero positivo.
+Restituisce un valore numerico con segno, il numero corrente di cicli di 100-nanosecondi trascorsi dal periodo UNIX. In altre parole, GetCurrentTicks restituisce il numero di cicli di 100 nanosecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970.
 
 ## <a name="remarks"></a>Osservazioni
+
+GetCurrentTicks () è una funzione non deterministica. Il risultato restituito è UTC (Coordinated Universal Time).
 
 Questa funzione di sistema non utilizzerà l'indice.
 

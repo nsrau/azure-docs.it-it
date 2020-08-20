@@ -3,30 +3,26 @@ title: Scaricare i risultati di un processo-servizi multimediali di Azure
 description: Questo articolo illustra come scaricare i risultati di un processo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
-ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: inhenkel
+ms.openlocfilehash: 0a2e4d1ac5cf0945ab75e58bb42d23d10d6c89aa
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80346308"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607246"
 ---
 # <a name="download-the-results-of-a-job"></a>Scaricare i risultati di un processo
 
 In servizi multimediali di Azure, quando si elaborano i video, ad esempio la codifica o l'analisi, è necessario creare un [Asset](assets-concept.md) di output per archiviare il risultato del [processo](transforms-jobs-concept.md). È quindi possibile scaricare questi risultati in una cartella locale usando le API di archiviazione e del servizio multimediale. 
 
 Questo articolo illustra come scaricare i risultati usando gli SDK Java e .NET.
-
-## <a name="prerequisites"></a>Prerequisiti 
-
-Vedere [Gestire gli asset](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 

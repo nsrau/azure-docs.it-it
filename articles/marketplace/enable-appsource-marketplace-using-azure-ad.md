@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323265"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607423"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrare l'inserzione del marketplace commerciale con Azure Active Directory
 
@@ -20,7 +20,7 @@ ms.locfileid: "87323265"
 
 ## <a name="azure-ad-benefits"></a>Vantaggi di Azure AD
 
-I clienti di Microsoft AppSource e Azure Marketplace usano esperienze nel prodotto per eseguire ricerche nei cataloghi di inserzioni in vetrina. Per poter eseguire queste azioni, tuttavia, devono eseguire l'accesso al prodotto. L'integrazione di Azure AD offre i vantaggi seguenti:
+Microsoft AppSource e i clienti di Azure Marketplace utilizzano esperienze nel prodotto per la ricerca di cataloghi online Store. Per poter eseguire queste azioni, tuttavia, devono eseguire l'accesso al prodotto. L'integrazione di Azure AD offre i vantaggi seguenti:
 
 - Engagement più veloce e un'esperienza di accesso dei clienti ottimizzata
 - Accesso Single Sign-On (SSO) per milioni di utenti aziendali
@@ -56,8 +56,8 @@ Durante l'autenticazione, Azure AD invia un token all'app o all'offerta. Le info
 
 Se si usa Azure AD per abilitare l'autenticazione con un solo clic nell'app o nell'inserzione relativa alla versione di valutazione, è possibile:
 
-- Ottimizzare l'esperienza di accesso dei clienti dal Marketplace all'inserzione relativa alla versione di valutazione.
-- Gestire l'aspetto di un'esperienza nel prodotto, anche quando l'utente viene reindirizzato dal Marketplace al dominio o all'ambiente di valutazione dell'editore.
+- Semplifica l'esperienza del cliente dal Marketplace commerciale all'inserzione della versione di valutazione.
+- Mantenere la sensazione di un'esperienza nel prodotto anche quando l'utente viene reindirizzato dal Marketplace commerciale al dominio o all'ambiente di valutazione.
 - Ridurre le probabilità di abbandono al momento del reindirizzamento poiché non sono richiesti altri passaggi di accesso.
 - Viene facilitata la distribuzione per l'ampia popolazione di utenti di Azure AD.
 
@@ -67,12 +67,12 @@ Se si usa Azure AD per abilitare l'autenticazione con un solo clic nell'app o ne
 
 Usare Azure AD per supportare le azioni seguenti:
 
-- Registrare l'app in una delle vetrine del Marketplace. Per altre informazioni, vedere [Registrazione delle app](../active-directory/develop/quickstart-register-app.md) o [Certificazione AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md).
+- Registrare l'app in uno dei negozi online del Marketplace commerciale. Per altre informazioni, vedere [Registrazione delle app](../active-directory/develop/quickstart-register-app.md) o [Certificazione AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md).
 - Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per ottenere un'esperienza di valutazione con un solo clic.
 
 Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato di Azure AD, seguire questa procedura:
 
-1. Registrare l'app nel Marketplace.
+1. Registrare l'app nel Marketplace commerciale.
 1. Sviluppare l'accesso Single Sign-On con Azure AD usando [OAuth 2.0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) o [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per fornire un'esperienza di valutazione con un solo clic.
 
@@ -89,7 +89,7 @@ Usare Azure AD per supportare una delle azioni seguenti:
 
 Se non è già stato fatto, 
 
-- [Vedere le informazioni](https://azuremarketplace.microsoft.com/sell) sul marketplace.
+- [Informazioni sul Marketplace](https://azuremarketplace.microsoft.com/sell) commerciale.
 
 Per eseguire la registrazione nel Centro per i partner, iniziare a creare una nuova offerta o a lavorare su una esistente:
 

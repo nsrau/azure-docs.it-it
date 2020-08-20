@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: fe909ba25191aa21e8a5bfa51c72690fd9c402eb
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056551"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607499"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Domande frequenti sulla transizione dalla portale Cloud Partner al centro per i partner
 
@@ -20,7 +20,7 @@ Il portale Cloud Partner è passato al centro per i partner. Il centro per i par
 
 ## <a name="what-does-the-transition-to-partner-center-mean-for-me"></a>Cosa significa la transizione al centro per i partner?
 
-È possibile continuare a lavorare come di consueto nel centro per i partner:
+È possibile continuare a lavorare nel centro per i partner:
 
 | Area<img src="" width=200px> | Modifiche |
 | --- | --- |
@@ -30,7 +30,7 @@ Il portale Cloud Partner è passato al centro per i partner. Il centro per i par
 | Nuovi acquisti e distribuzioni | Nessuna modifica. I clienti possono continuare l'acquisto e la distribuzione delle offerte senza interruzioni. |
 | Proventi | Eventuali acquisti e distribuzioni continueranno a essere pagati come di consueto. Scopri di più su [come ricevere pagamenti nel Marketplace commerciale](partner-center-portal/get-paid.md). |
 | Integrazioni di API con [API del portale Cloud Partner esistenti](cloud-partner-portal-api-overview.md) | Le API di portale Cloud Partner esistenti sono ancora supportate e le integrazioni esistenti continuano a funzionare. Per altre informazioni, vedere l'articolo relativo alle [API REST di portale cloud partner.](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analisi | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
+| Analytics | Puoi continuare a monitorare le vendite, valutare le prestazioni e ottimizzare le tue offerte nel Marketplace commerciale visualizzando le analisi nel centro per i partner. Esistono differenze tra la modalità di visualizzazione dei report di analisi in CPP e nel centro per i partner. Ad esempio, **Seller Insights** in CPP dispone di una scheda **Orders & Usage** che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo, mentre nel centro per i partner la pagina **Orders** include una scheda separata per le offerte SaaS. Per altre informazioni, vedere [Access Analytics Reports for the Commercial Marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>È necessario creare un nuovo account per gestire le offerte nel centro per i partner?
@@ -135,7 +135,7 @@ Di seguito sono riportate alcune differenze tra il portale Cloud Partner e il ce
 
 ### <a name="modular-publishing-capabilities"></a>Funzionalità di pubblicazione modulari
 
-Il Centro per i partner offre un'opzione di pubblicazione modulare che consente di selezionare le modifiche da pubblicare anziché pubblicare sempre tutti gli aggiornamenti in una sola volta. Ad esempio, la schermata seguente mostra che le uniche modifiche selezionate per la pubblicazione sono le modifiche apportate alle **Proprietà** e all' **elenco di offerte**. Le modifiche apportate nella pagina di anteprima non verranno pubblicate.
+Il Centro per i partner offre un'opzione di pubblicazione modulare che consente di selezionare le modifiche da pubblicare anziché pubblicare sempre tutti gli aggiornamenti in una sola volta. Ad esempio, la schermata seguente mostra che le uniche modifiche selezionate per la pubblicazione sono le modifiche apportate alle **Proprietà** e all'  **elenco di offerte**. Le modifiche apportate nella pagina di anteprima non verranno pubblicate.
 
 [![Screenshot che mostra la pagina di revisione e pubblicazione del centro per i partner.](media/cpp-pc-faq/review-page.png "Mostra la pagina di revisione e pubblicazione del centro per i partner")](media/cpp-pc-faq/review-page.png#lightbox)
 
@@ -153,7 +153,7 @@ Si noteranno alcune modifiche di personalizzazione. Ad esempio, gli *SKU* vengon
 
 [![Screenshot che mostra la pagina dei piani del centro per i partner.](media/cpp-pc-faq/plans.png "Mostra la pagina dei piani del centro per i partner")](media/cpp-pc-faq/plans.png#lightbox)
 
-Inoltre, le informazioni fornite in precedenza nel **Marketplace** o nelle pagine dei **Dettagli della vetrina** (servizio di consulenza, Power BI app) nell'portale cloud partner vengono ora raccolte nella pagina di presentazione dell' **offerta** nel centro per i partner:
+Inoltre, le informazioni fornite in precedenza nel **Marketplace** o nelle pagine dei **Dettagli della vetrina**  (servizio di consulenza, Power BI app) nell'portale cloud partner vengono ora raccolte nella pagina di presentazione dell' **offerta** nel centro per i partner:
 
 [![Screenshot che mostra la pagina dell'elenco di offerte del centro per i partner.](media/cpp-pc-faq/offer-listing.png "Mostra la pagina dell'elenco di offerte del centro per i partner")](media/cpp-pc-faq/offer-listing.png#lightbox)
 
@@ -181,6 +181,6 @@ Le API portale Cloud Partner sono integrate con il centro per i partner e contin
 
 | API <img src="" width=100px>| Descrizione modifica: | Impatto |
 | --- | --- | --- |
-| Pubblicazione POST, GoLive, annullamento | Per le offerte migrate, l'intestazione della risposta avrà un formato diverso ma continuerà a funzionare allo stesso modo, indicando un percorso relativo per recuperare lo stato dell'operazione. | Quando si inviano le richieste POST corrispondenti per un'offerta, l'intestazione Location avrà uno dei due formati a seconda dello stato di migrazione dell'offerta: <ul><li>Offerte senza migrazione:`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offerte migrate:`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
+| Pubblicazione POST, GoLive, annullamento | Per le offerte migrate, l'intestazione della risposta avrà un formato diverso ma continuerà a funzionare allo stesso modo, indicando un percorso relativo per recuperare lo stato dell'operazione. | Quando si inviano le richieste POST corrispondenti per un'offerta, l'intestazione Location avrà uno dei due formati a seconda dello stato di migrazione dell'offerta: <ul><li>Offerte senza migrazione: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offerte migrate: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Operazione GET | Per le offerte che in precedenza supportavano un campo "Notification-email" nella risposta, questo campo sarà deprecato e non verrà più restituito per le offerte migrate. | Per le offerte migrate, non verranno più inviate notifiche all'elenco dei messaggi di posta elettronica specificati nelle richieste. Al contrario, il servizio API si allineerà con il processo di posta elettronica di notifica nel Centro per i partner per inviare messaggi di posta elettronica. In particolare, le notifiche dello stato di avanzamento dell'operazione verranno inviate all'indirizzo di posta elettronica impostato nella sezione informazioni di contatto del venditore delle impostazioni dell'account nel centro per i partner.<br><br>Verificare che l'indirizzo di posta elettronica impostato nella sezione informazioni di contatto del venditore nelle [impostazioni dell'account](https://partner.microsoft.com/dashboard/account/management) nel centro partner sia corretto per la ricezione delle notifiche. |
 |||

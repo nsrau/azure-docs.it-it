@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5f8487126cd187ea66f9423a480c9a73151154c3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168015"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607191"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Offerte private in Microsoft Commercial Marketplace
 
@@ -54,7 +54,7 @@ Una volta che un'offerta è stata certificata e pubblicata, i clienti possono es
 
 ## <a name="deploying-private-offers"></a>Distribuzione di offerte private
 
-Le offerte private sono individuabili solo tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/) e non vengono visualizzate in [Microsoft AppSource](https://appsource.microsoft.com/) o in [Azure Marketplace](https://azuremarketplace.microsoft.com). Per altre informazioni sulla pubblicazione nelle diverse vetrine di Marketplace commerciali, vedere [determinare l'opzione di pubblicazione](./determine-your-listing-type.md).
+Le offerte private sono individuabili solo tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/) e non vengono visualizzate in [Microsoft AppSource](https://appsource.microsoft.com/) o in [Azure Marketplace](https://azuremarketplace.microsoft.com). Per altre informazioni sulla pubblicazione nei diversi negozi online del Marketplace commerciale, vedere [determinare l'opzione di pubblicazione](./determine-your-listing-type.md).
 
 Una volta effettuato l'accesso al portale di Azure, i clienti possono selezionare l'elemento di navigazione del Marketplace per accedere alle offerte private. Anche le offerte private verranno visualizzate nei risultati della ricerca e potranno essere distribuite tramite la riga di comando e Azure Resource Manager modelli come qualsiasi altra offerta.
 

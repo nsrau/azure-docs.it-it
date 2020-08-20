@@ -3,7 +3,7 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Caric
 description: Questo articolo mostra come usare lo script dell'interfaccia della riga di comando di Azure per caricare un file locale in un contenitore di archiviazione.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/18/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5a28cabfbc5cbba906a8c16451de801818b3fbed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2441aba7c7b83b379a9c80192fe72736ecebab8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489963"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606655"
 ---
 # <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Esempio di interfaccia della riga di comando di Azure: Caricare un file locale in un contenitore
 
@@ -29,7 +29,6 @@ Lo script dell'interfaccia della riga di comando di Azure in questo articolo mos
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
-* Vedere [Gestire gli asset](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

@@ -1,22 +1,22 @@
 ---
 title: Informazioni dettagliate sui proventi per area geografica - Marketplace commerciale Microsoft
-description: Informazioni sul tempo stimato per il trasferimento dei pagamenti e sulle vetrine Microsoft da cui è possibile ricevere pagamenti, variabili a seconda del paese/area geografica e del tipo di account relativo ai proventi.
+description: Informazioni sul tempo stimato per il trasferimento dei pagamenti e sui negozi online Microsoft da cui è possibile ricevere i pagamenti, variano a seconda del paese/area geografica e del tipo di account di pagamento.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327328"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607284"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Soglie, metodi e intervalli di pagamento
 
-Il tempo stimato per il trasferimento dei pagamenti e le vetrine da cui è possibile ricevere pagamenti possono variare a seconda del paese/area geografica e del tipo di account relativo ai proventi. Questo articolo illustra i metodi di pagamento supportati in ogni specifico paese e area geografica.
+Il tempo stimato per il trasferimento dei pagamenti e i negozi online a cui è possibile ricevere i pagamenti possono variare a seconda del paese/area geografica e del tipo di account di pagamento. Questo articolo illustra i metodi di pagamento supportati in ogni specifico paese e area geografica.
 
 Per qualsiasi paese e area geografica, il pagamento viene eseguito tramite trasferimento ACH/SEPA o bonifico bancario. Alcuni paesi e aree geografiche supportano anche il metodo di pagamento PayPal.
 

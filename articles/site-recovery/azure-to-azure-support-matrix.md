@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c8890afcdab1b6247fe072f2e34437d790185e58
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 823e116b659a582ceb9a09b752179ee5a78f4ebd
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88076929"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607039"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -98,18 +98,19 @@ Windows 7 (x64) con SP1 e versioni successive | Dalla versione [9.30](https://su
 
 **Sistema operativo** | **Dettagli**
 --- | ---
-Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609/)
-CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609)
+Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609/)
+CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), 8,0, 8,1, [8,2](https://support.microsoft.com/en-us/help/4570609)
 Server Ubuntu 14.04 LTS | [Versioni del kernel supportate](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Server Ubuntu 16.04 LTS | [Versioni del kernel supportate](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Per i server Ubuntu che usano l'accesso e l'autenticazione basati su password e il pacchetto cloud-init per configurare le macchine virtuali nel cloud, è possibile che l'accesso basato su password venga disabilitato in caso di failover, a seconda della configurazione di cloudinit. L'accesso basato su password può essere riabilitato nella macchina virtuale reimpostando la password da Supporto > Risoluzione dei problemi > menu Impostazioni della macchina virtuale con failover nel portale di Azure.
-Server Ubuntu 18.04 LTS | [Versioni del kernel supportate](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+Server Ubuntu 18.04 LTS | [Versioni del kernel supportate](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) </br> Ubuntu 18.4.03 (kernel v 5.4) è supportato da [9,36](https://support.microsoft.com/help/4578241/)|
+Server Ubuntu 20,04 LTS | [Versioni del kernel supportate](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Include il supporto per tutti i 7. versioni del [kernel supportate](#supported-debian-kernel-versions-for-azure-virtual-machines) per le versioni *x*
 Debian 8 | Include il supporto per tutti gli 8. versioni del [kernel supportate](#supported-debian-kernel-versions-for-azure-virtual-machines) per le versioni *x*
-SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5 [(versioni del kernel supportate)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines) </br> (* * SP5 è disponibile tramite la patch più recente 9,33 per lo scenario di ripristino di emergenza da Azure ad Azure).
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5  [(versioni del kernel supportate)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines) </br> (* * SP5 è disponibile tramite la patch più recente 9,33 per lo scenario di ripristino di emergenza da Azure ad Azure).
 SUSE Linux Enterprise Server 15 | 15 e 15 SP1. [(Versioni del kernel supportate)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> L'aggiornamento dei computer di replica da SP3 a SP4 non è supportato. Se un computer replicato è stato aggiornato, è necessario disabilitare la replica e riabilitarla dopo l'aggiornamento.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/)  <br/> Con kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3, 4 e 5 (UEK3, UEK4, UEK5)<br/><br/>[8.1](https://support.microsoft.com/help/4573888/)<br/>Sono supportati l'esecuzione in tutti i kernel UEK e RedHat kernel <= 3.10.0-1062. *. Il supporto per il resto dei kernel RedHat sarà disponibile in 9,36, previsto entro la fine di agosto.
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/)  <br/> Con kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3, 4 e 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>In esecuzione su tutti i kernel UEK e RedHat kernel <= 3.10.0-1062. * sono supportati in [9,35](https://support.microsoft.com/help/4573888/) il supporto per il resto dei kernel RedHat è disponibile in [9,36](https://support.microsoft.com/help/4578241/)
 
 * * Nota: per supportare i kernel Linux più recenti entro 30 giorni dal rilascio, Azure Site Recovery distribuisce patch di correzione a caldo oltre alla versione più recente dell'agente di mobilità. Questa correzione viene implementata tra due versioni principali. Per eseguire l'aggiornamento alla versione più recente dell'agente Mobility (inclusa patch per la correzione a caldo), seguire i passaggi descritti in [questo articolo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Questa patch è attualmente implementata per gli agenti di mobilità usati in uno scenario di ripristino di emergenza di Azure in Azure.
 
@@ -117,18 +118,19 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-14.04 LTS | 9,32, [9,33](https://support.microsoft.com/help/4564347/),[9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/)| Da 3.13.0-24 generica a 3.13.0-170 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-148 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1045 Azure |
-14.04 LTS | 9.31 | Da 3.13.0-24 generica a 3.13.0-170 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-148 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1045 Azure |
+14.04 LTS | 9,32, [9,33](https://support.microsoft.com/help/4564347/),[9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/)| Da 3.13.0-24 generica a 3.13.0-170 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-148 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1045 Azure |
 |||
+16.04 LTS | [9,36](https://support.microsoft.com/help/4578241/)| 4.4.0-21-generico per 4.4.0-187-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-generico a 4.15.0-112-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1092-Azure |
 16.04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | da 4.4.0-21-generico a 4.4.0-184-generico<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-106-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1089-Azure</br> 4.15.0-107-Generic, 4.4.0-185-Generic & 4.15.0-1091-Azure fino a 9,35 patch per la correzione a caldo * * |
 16.04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.4.0-21-generico per 4.4.0-178-generico,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>da 4.15.0-13-generico a 4.15.0-99-generico<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure in 4.15.0-1082-Azure </br> 4.15.0-101-Generic & 4.4.0-179-Generic fino a 9,33 patch per la correzione a caldo * *|
 16.04 LTS | 9.32 | Da 4.4.0-21 generica a 4.4.0-171 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-74 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1066 Azure|
-16.04 LTS | 9.31 | Da 4.4.0-21 generica a 4.4.0-170 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-72 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1063 Azure|
 |||
+18.04 LTS | [9,36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-generico a 4.15.0-112-generico </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> 5.0.0-15-generico a 5.0.0-58-generico </br> 5.3.0-19-generico a 5.3.0-65-generico </br> 5.4.0-37-generico a 5.4.0-42-generico</br> 4.15.0-1009-Azure a 4.15.0-1092-Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> 5.0.0-1012-Azure in 5.0.0-1036-Azure </br> 5.3.0-1007-da Azure a 5.3.0-1032-Azure </br> 5.4.0-1020-da Azure a 5.4.0-1022-Azure|
 18.04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-generico a 4.15.0-108-generico </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> 5.0.0-15-generico a 5.0.0-52-generico </br> 5.3.0-19-generico a 5.3.0-61-generico </br> 4.15.0-1009-Azure a 4.15.0-1089-Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> 5.0.0-1012-Azure in 5.0.0-1036-Azure </br> 5.3.0-1007-da Azure a 5.3.0-1031-Azure </br> 4.15.0-109-Generic, 5.0.0-53-Generic, 5.3.0-62-Generic, 4.15.0-1091-Azure & 5.3.0-1032-Azure 9,35 tramite patch di correzione a caldo * *|
 18.04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-generico a 4.15.0-99-generico </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> 5.0.0-15-generico a 5.0.0-47-generico </br> 5.3.0-19-generico a 5.3.0-51-generico </br> 4.15.0-1009-Azure a 4.15.0-1082-Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> 5.0.0-1012-Azure in 5.0.0-1036-Azure </br> 5.3.0-1007-da Azure a 5.3.0-1020-Azure </br> 4.15.0-101-Generic, 5.0.0-48-Generic, 5.3.0-1022-Azure & 5.3.0-53-Generic fino a 9,33 patch per la correzione a caldo * *|
 18.04 LTS | 9.32| Da 4.15.0-20 generica a 4.15.0-74 generica </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> Da 5.0.0-15 generica a 5.0.0-37 generica </br> Da 5.3.0-19 generica a 5.3.0-24 generica </br> Da 4.15.0-1009 Azure a 4.15.0-1037 Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> Da 5.0.0-1012 Azure a 5.0.0-1028 Azure </br> Da 5.3.0-1007 Azure a 5.3.0-1009 Azure|
-18.04 LTS | 9.31| Da 4.15.0-20 generica a 4.15.0-72 generica </br> Da 4.18.0-13 generica a 4.18.0-25 generica </br> Da 5.0.0-15 generica a 5.0.0-37 generica </br> Da 5.3.0-19 generica a 5.3.0-24 generica </br> Da 4.15.0-1009 Azure a 4.15.0-1037 Azure </br> Da 4.18.0-1006 Azure a 4.18.0-1025 Azure </br> Da 5.0.0-1012 Azure a 5.0.0-1025 Azure </br> 5.3.0-1007 Azure|
+|||
+20,04 LTS |[9,36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-generico a 5.4.0-42 </br> -Generic 5.4.0-1010-da Azure a 5.4.0-1022-Azure
 
 * * Nota: per supportare i kernel Linux più recenti entro 30 giorni dal rilascio, Azure Site Recovery distribuisce patch di correzione a caldo oltre alla versione più recente dell'agente di mobilità. Questa correzione viene implementata tra due versioni principali. Per eseguire l'aggiornamento alla versione più recente dell'agente Mobility (inclusa patch per la correzione a caldo), seguire i passaggi descritti in [questo articolo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Questa patch è attualmente implementata per gli agenti di mobilità usati in uno scenario di ripristino di emergenza di Azure in Azure.
 
@@ -136,24 +138,25 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-Debian 7 | 9,31, 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/) | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9,35](https://support.microsoft.com/help/4573888/) | da 3.16.0-4-amd64 a 3.16.0-11-amd64, 4.9.0-0. BPO. 4-amd64 a 4.9.0 0. BPO. 11-amd64 |
-Debian 8 | 9,31, 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609) | Da 3.16.0-4-amd64 a 3.16.0-10-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
+Debian 8 | [9,35](https://support.microsoft.com/help/4573888/, ), [9,36](https://support.microsoft.com/help/4578241/) | da 3.16.0-4-amd64 a 3.16.0-11-amd64, 4.9.0-0. BPO. 4-amd64 a 4.9.0 0. BPO. 11-amd64 |
+Debian 8 | 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609) | Da 3.16.0-4-amd64 a 3.16.0-10-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel SUSE Linux Enterprise Server 12 supportate per macchine virtuali di Azure
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,36](https://support.microsoft.com/help/4578241/) | Sono supportati tutti i [kernel di borsa SUSE 12 SP1, SP2, SP3 e SP4](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> Da 4.4.138-4.7 Azure a 4.4.180-4.31 Azure</br>da 4.12.14-6.3-Azure a 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure per 4.12.14-16.22-Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | Sono supportati tutti i [kernel di borsa SUSE 12 SP1, SP2, SP3 e SP4](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> Da 4.4.138-4.7 Azure a 4.4.180-4.31 Azure</br>da 4.12.14-6.3-Azure a 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure per 4.12.14-16.19-Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,32, [9,33](https://support.microsoft.com/help/4564347/) [9,35](https://support.microsoft.com/help/4573888/) | Sono supportati tutti i [kernel di borsa SUSE 12 SP1, SP2, SP3 e SP4](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> Da 4.4.138-4.7 Azure a 4.4.180-4.31 Azure</br>Da 4.12.14-6.3 Azure a 4.12.14-6.34 Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | patch correzione a caldo 9,33 | Sono supportati tutti i [kernel di borsa SUSE 12 SP1, SP2, SP3 e SP4](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> Da 4.4.138-4.7 Azure a 4.4.180-4.31 Azure</br>Da 4.12.14-6.3 Azure a 4.12.14-6.34 Azure </br> 4.12.14-16,7-Azure per 4.12.14-16.13-Azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.31 | Sono supportati tutti i [kernel di borsa SUSE 12 SP1, SP2, SP3 e SP4](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> Da 4.4.138-4.7 Azure a 4.4.180-4.31 Azure</br>Da 4.12.14-6.3 Azure a 4.12.14-6.29 Azure  |
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel SUSE Linux Enterprise Server 15 supportate per macchine virtuali di Azure
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9,36](https://support.microsoft.com/help/4578241/)  | Per impostazione predefinita, sono supportati tutti i [kernel stock SUSE 15 e 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-da Azure a 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-da Azure a 4.12.14-8.38-Azure
 SUSE Linux Enterprise Server 15 e 15 SP1 | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/)  | Per impostazione predefinita, sono supportati tutti i [kernel stock SUSE 15 e 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-da Azure a 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-da Azure a 4.12.14-8.33-Azure 
 |SUSE Linux Enterprise Server 15 e 15 SP1 | [9,33](https://support.microsoft.com/help/4564347/) | Per impostazione predefinita, sono supportati tutti i [kernel stock SUSE 15 e 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-da Azure a 4.12.14-5.47-Azure </br></br> da 4.12.14-8.5-da Azure a 4.12.14-8.30-Azure |
 SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Per impostazione predefinita, sono supportati tutti i [kernel stock SUSE 15 e 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> Da 4.12.14-5.5 Azure a 4.12.14-8.22 Azure |
@@ -183,7 +186,7 @@ Immagini personalizzate - Pubblicate da terze parti | Supportato | Supportate se
 Macchine virtuali migrate tramite Site Recovery | Supportato | Se una VM VMware o un computer fisico è stato migrato ad Azure tramite Site Recovery, è necessario disinstallare la versione precedente del servizio di mobilità in esecuzione nel computer e riavviare il computer prima di eseguirne la replica in un'altra area di Azure.
 Criteri di controllo degli accessi in base al ruolo | Non supportate | I criteri di controllo degli accessi in base al ruolo (RBAC) nelle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
 Estensioni | Non supportate | Le estensioni non vengono replicate nella macchina virtuale di failover nell'area di destinazione. L'estensione deve essere installata manualmente dopo il failover.
-Gruppi di posizionamento di prossimità | Supportato | Le macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità possono essere protette usando Site Recovery.
+Gruppi di posizionamento di prossimità | Funzionalità supportata | Le macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità possono essere protette usando Site Recovery.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Computer replicati - Azioni del disco
@@ -219,10 +222,10 @@ Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle
 Spazi di archiviazione | Supportato |
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.
 Crittografia dei dati inattivi (CMK) | Supportato | Sono supportate le chiavi s e le chiavi dei moduli di protezione hardware (HSM) per i dischi gestiti
-Crittografia a doppio inattivo | Supportato | Altre informazioni sulle aree supportate per [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
+Crittografia a doppio inattivo | Funzionalità supportata | Altre informazioni sulle aree supportate per [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
 Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi con protezione HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un unico disco non è supportata. |
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi con protezione HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un unico disco non è supportata. <br><br> Problema noto relativo all'abilitazione della replica. [Altre informazioni.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
-Rotazione della chiave SAS | Non supportato | Se la chiave SAS per gli account di archiviazione viene ruotata, il cliente deve disabilitare e riabilitare la replica. |
+Rotazione della chiave SAS | Non Supportato | Se la chiave SAS per gli account di archiviazione viene ruotata, il cliente deve disabilitare e riabilitare la replica. |
 Aggiunta a caldo    | Supportato | L'abilitazione della replica per un disco dati aggiunto a una macchina virtuale di Azure replicata è supportata per le macchine virtuali che usano dischi gestiti. <br/><br/> È possibile aggiungere a caldo un solo disco alla volta a una macchina virtuale di Azure. L'aggiunta parallela di più dischi non è supportata. |
 Rimozione a caldo del disco    | Non supportate | Se si rimuovono dischi dati nella macchina virtuale, è necessario disabilitare la replica e abilitarla nuovamente per la macchina virtuale.
 Esclusione disco | Supportato. È necessario usare [PowerShell](azure-to-azure-exclude-disks.md) per la configurazione. |    I dischi temporanei sono esclusi per impostazione predefinita.
@@ -239,7 +242,7 @@ Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) 
 Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
 Dischi condivisi di Azure | Non supportate
-Opzione di trasferimento sicuro | Supportato
+Opzione di trasferimento sicuro | Funzionalità supportata
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni del disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si usano le impostazioni predefinite, Site Recovery crea i dischi e gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni personalizzate, rispettare gli obiettivi di scalabilità e prestazioni dei dischi per le macchine virtuali.

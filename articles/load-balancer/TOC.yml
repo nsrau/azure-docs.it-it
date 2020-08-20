@@ -4,8 +4,6 @@
   items:
     - name: Informazioni su Azure Load Balancer
       href: load-balancer-overview.md
-    - name: Novità
-      href: whats-new.md
 - name: Avvi rapidi
   items:
     - name: Creare una risorsa Load Balancer pubblica - Portale
@@ -45,6 +43,8 @@
       href: powershell-samples.md
 - name: Concetti
   items:
+    - name: Novità
+      href: whats-new.md
     - name: Componenti
       href: components.md
     - name: Concetti

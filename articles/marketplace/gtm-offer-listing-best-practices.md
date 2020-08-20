@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: efe60079814958116d8042991e1cfd6e2f6f71f5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213885"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607407"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
 Questo articolo fornisce suggerimenti per la creazione e il coinvolgimento delle offerte di Marketplace commerciali Microsoft. Le tabelle seguenti illustrano le procedure consigliate per il completamento delle informazioni sull'offerta nel Centro per i partner. Per un'analisi delle prestazioni delle offerte, passare al [dashboard Informazioni dettagliate sul marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) nel Centro per i partner. 
 
-## <a name="storefront-offer-details"></a>Dettagli dell'offerta della vetrina
+## <a name="online-store-offer-details"></a>Dettagli offerta negozio online
 
-| Impostazione della vetrina | Procedura consigliata |
+| Impostazione | Procedura consigliata |
 |:--- |:--- |  
 | Nome offerta | Per le app, fornire un titolo chiaro che includa parole chiave di ricerca per aiutare i clienti a individuare l'offerta. <br> <br> Per i servizi di consulenza, seguire questo formato: [nome offerta: [durata] [tipo di offerta] (ad esempio, contoso: implementazione di 2 settimane) |
 | Descrizione dell'offerta | Fornire una descrizione chiara che descriva la proposta di valore dell'offerta nelle prime frasi.  Tenere presente che queste frasi possono essere usate nei risultati dei motori di ricerca. I componenti principali della proposta di valore devono includere: <ul> <li>Descrizione del prodotto o della soluzione. </li> <li> Utente persona che trae vantaggio dal prodotto o dalla soluzione. </li> <li> I clienti hanno bisogno o sono in sofferenza degli indirizzi del prodotto o della soluzione. </li> </ul> <br> Usare il vocabolario standard del settore o la formulazione basata sui vantaggi, quando possibile.  Per vendere un prodotto, non basarsi sulle funzionalità,  ma concentrarsi sul valore che può offrire. <br> <br> Per gli elenchi di servizi di consulenza, indicare chiaramente il servizio Professional fornito. |
@@ -28,11 +28,11 @@ Questo articolo fornisce suggerimenti per la creazione e il coinvolgimento delle
 > [!IMPORTANT]
 > Verificare che il nome dell'offerta e la descrizione dell'offerta siano conformi alle **[linee guida](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** per il marchio e il marchio Microsoft e altre linee guida specifiche per il prodotto, quando si fa riferimento a marchi Microsoft e ai nomi di software, prodotti e servizi Microsoft.
 
-## <a name="storefront-listing-details"></a>Dettagli dell'inserzione della vetrina
+## <a name="online-store-listing-details"></a>Dettagli dell'elenco di negozi online
 
-Le categorie e i settori per un'altra storefront saranno applicabili ai diversi tipi di offerta.
+Le categorie e i settori per un negozio online diverso saranno applicabili ai diversi tipi di offerta.
 
-| Vetrina | Categorie <br>di storefront | Categorie <br>di storefront | Settori <br> per AppSource |
+| Archivio online | Categorie <br>per archivio online | Categorie <br>per archivio online | Settori <br> per AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Tipo di offerta**   |  **Azure Marketplace**  | **AppSource**  |
 | App Azure | X | |
@@ -48,9 +48,9 @@ Le categorie e i settori per un'altra storefront saranno applicabili ai diversi 
 
 ### <a name="categories"></a>Categorie
 
-Microsoft AppSource e Azure Marketplace sono due vetrine diverse che soddisfano i requisiti specifici dei clienti. Azure Marketplace è destinato a professionisti IT e sviluppatori che sviluppano soluzioni in Azure.  Microsoft AppSource è destinata agli utenti aziendali che cercano applicazioni SaaS aziendali e/o del settore, componenti aggiuntivi di Dynamics 365, componenti aggiuntivi Microsoft 365 e app Power Platform.
+Microsoft AppSource e Azure Marketplace sono due diversi negozi online che soddisfano i requisiti dei clienti esclusivi. Azure Marketplace è destinato a professionisti IT e sviluppatori che sviluppano soluzioni in Azure.  Microsoft AppSource è destinata agli utenti aziendali che cercano applicazioni SaaS aziendali e/o del settore, componenti aggiuntivi di Dynamics 365, componenti aggiuntivi Microsoft 365 e app Power Platform.
 
-Le categorie e le sottocategorie sono mappate a ogni storefront in base ai destinatari. L'offerta verrà pubblicata in Microsoft AppSource o in Azure Marketplace a seconda del tipo di offerta, delle funzionalità di transazione dell'offerta e della selezione di categoria/sottocategoria. 
+Le categorie e le sottocategorie sono mappate a ogni negozio online in base ai destinatari. L'offerta verrà pubblicata in Microsoft AppSource o in Azure Marketplace a seconda del tipo di offerta, delle funzionalità di transazione dell'offerta e della selezione di categoria/sottocategoria. 
 
 Selezionare le categorie e le sottocategorie che meglio si allineano con l'offerta e con i destinatari desiderati. È possibile selezionare:
 
@@ -61,9 +61,9 @@ Selezionare le categorie e le sottocategorie che meglio si allineano con l'offer
 
 **IMPORTANTE: offerte SaaS e componenti aggiuntivi Microsoft 365**
 
-Per informazioni dettagliate sul modo in cui le funzionalità di transazione possono influire sulla modalità di visualizzazione e acquisto da parte dei clienti del Marketplace, vedere la [Guida in base al tipo di offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . Per le offerte SaaS, la funzionalità di transazione dell'offerta e la selezione della categoria determineranno la vetrina in cui verrà pubblicata l'offerta:
+Per informazioni dettagliate sul modo in cui le funzionalità di transazione possono influire sulla modalità di visualizzazione e acquisto da parte dei clienti del Marketplace, vedere la [Guida in base al tipo di offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . Per le offerte SaaS, la funzionalità di transazione dell'offerta e la selezione delle categorie determinano il negozio online in cui verrà pubblicata l'offerta:
 
-| Offerta SaaS    | Offerta SaaS   | Offerta SaaS  | Offerta SaaS   | Offerta SaaS   | Offerta SaaS   | Offerta SaaS    | Vetrina applicabile | Vetrina applicabile |
+| Offerta SaaS    | Offerta SaaS   | Offerta SaaS  | Offerta SaaS   | Offerta SaaS   | Offerta SaaS   | Offerta SaaS    | Negozio online applicabile| Negozio online applicabile |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Fatturazione a consumo | Microsoft 365 componenti aggiuntivi | Contact me (Contattami) | Transact (almeno 1 piano) | Piano solo privato | Piano solo pubblico | Piani privati & pubblici | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |
@@ -117,8 +117,8 @@ Selezionare i prodotti applicabili con cui funziona l'app per consentire la visu
 
 Le parole chiave consentono ai clienti di trovare l'offerta durante la ricerca. Identificare le parole chiave di ricerca principali per l'offerta, incorporarle nel riepilogo e nella descrizione dell'offerta, oltre che nella sezione relativa alle parole chiave nei dettagli della presentazione dell'offerta.
 
-## <a name="storefront-marketing-details"></a>Dettagli di marketing della vetrina
-| Impostazione della vetrina | Procedura consigliata |
+## <a name="online-store-marketing-details"></a>Dettagli di marketing dell'archivio online
+| Impostazione | Procedura consigliata |
 |:--- |:--- |  
 | Logo dell'offerta (formato PNG, 48&nbsp;&times;&nbsp;48): pagina di ricerca | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina di ricerca dell'offerta. |
 | Logo dell'offerta (formato PNG, 216&nbsp;&times;&nbsp;216): pagina dei dettagli dell'app | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina dell'inserzione con i dettagli dell'app dell'offerta. |

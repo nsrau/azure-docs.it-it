@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 20d14d656132b2809fe5a79d909c27799438a247
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9f488675e4f2437982e2426da73b4db1a713905d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280937"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607304"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione di offerte di applicazioni SaaS
 
@@ -21,10 +21,10 @@ ms.locfileid: "87280937"
 
 ## <a name="offer-overview"></a>Panoramica dell'offerta  
 
-Le applicazioni SaaS sono disponibili in Microsoft AppSource e in Azure Marketplace.  Entrambe le vetrine supportano offerte di tipo Elenco, Versione di valutazione e Transazione.
+Le applicazioni SaaS sono disponibili in Microsoft AppSource e in Azure Marketplace.  Entrambi gli archivi online supportano l'elenco, la versione di valutazione e le offerte di transazione.
 
 **Elenco**:  L'opzione di pubblicazione Elenco consiste in un'offerta di tipo Contattami e viene usata quando non è possibile una partecipazione a livello di valutazione o di transazione. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali che possono trasformarsi in ottimi affari per la crescita della loro azienda.  
-**Versione di valutazione/Transazione**:  il cliente ha la possibilità di acquistare direttamente o richiedere una versione di valutazione della soluzione. Un'esperienza di valutazione aumenta il livello di coinvolgimento offerto ai clienti e consente loro di esaminare la soluzione prima di acquistarla. Offrendo un'esperienza di valutazione, si hanno maggiori opportunità di promozione nelle vetrine e con molta probabilità si riesce a raggiungere un numero più ampio di clienti potenziali grazie a questa occasione di coinvolgimento. Le versioni di valutazione devono includere il supporto gratuito almeno per la durata del periodo di valutazione.  
+**Versione di valutazione/Transazione**:  il cliente ha la possibilità di acquistare direttamente o richiedere una versione di valutazione della soluzione. Un'esperienza di valutazione aumenta il livello di coinvolgimento offerto ai clienti e consente loro di esaminare la soluzione prima di acquistarla. Grazie a un'esperienza di valutazione, avrai maggiori possibilità di promozione nei negozi online e potrai aspettarti una maggiore e più ricca partecipazione ai clienti. Le versioni di valutazione devono includere il supporto gratuito almeno per la durata del periodo di valutazione.  
 
 | Offerta di app SaaS | Requisiti aziendali | Requisiti tecnici |  
 | --- | --- | --- |  
