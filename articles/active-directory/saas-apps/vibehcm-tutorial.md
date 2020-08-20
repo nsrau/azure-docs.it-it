@@ -2,25 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con Vibe HCM | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Vibe HCM.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4379bef7-adc9-4b6d-9384-c46d9a914bfe
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4267b75be72c1d162b4abaf7184afcdd02c38720
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8908b411155cbe3d4b2f3677d2305b2872574014
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68943098"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88532034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Esercitazione: Integrazione di Azure Active Directory con Vibe HCM
 

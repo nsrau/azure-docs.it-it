@@ -2,25 +2,21 @@
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Upwork Enterprise | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Upwork Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 254631e2-1a77-43e6-acb1-b26ba7e77efc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d9377ec88764f6f89bf486fe515a539c12077a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bc5da51410d4f5b0d2412196ffca93c8b87a8131
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747469"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88532801"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-upwork-enterprise"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Upwork Enterprise
 
