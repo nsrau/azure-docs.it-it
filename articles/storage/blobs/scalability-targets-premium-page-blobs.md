@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e134c69f5d602cb4369e9410e3e2b9d3478b11a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c238bf3911283db5d09fdd5679d784c5e5401f8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76756250"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654804"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Obiettivi di scalabilità e prestazioni per gli account di archiviazione BLOB di pagine Premium
 
@@ -25,7 +25,7 @@ ms.locfileid: "76756250"
 Un account di archiviazione BLOB di pagine con prestazioni Premium è ottimizzato per le operazioni di lettura/scrittura. Questo tipo di account di archiviazione esegue il backup di un disco non gestito per una macchina virtuale di Azure.
 
 > [!NOTE]
-> Se possibile, Microsoft consiglia di usare Managed disks con macchine virtuali di Azure (VM). Per altre informazioni su Managed disks, vedere [archiviazione su disco di Azure panoramica per le macchine virtuali Windows](../../virtual-machines/windows/managed-disks-overview.md).
+> Se possibile, Microsoft consiglia di usare Managed disks con macchine virtuali di Azure (VM). Per altre informazioni su Managed disks, vedere [archiviazione su disco di Azure panoramica per le macchine virtuali](../../virtual-machines/managed-disks-overview.md).
 
 Gli account di archiviazione BLOB di pagine Premium hanno i seguenti obiettivi di scalabilità:
 
@@ -39,7 +39,7 @@ Gli account di archiviazione BLOB di pagine Premium hanno i seguenti obiettivi d
 
 Un account BLOB di pagine Premium è un account per utilizzo generico configurato per le prestazioni Premium. Sono consigliati gli account di archiviazione per utilizzo generico V2.
 
-Se si usano account di archiviazione BLOB di pagine Premium per i dischi non gestiti e l'applicazione supera gli obiettivi di scalabilità di un singolo account di archiviazione, Microsoft consiglia di eseguire la migrazione a Managed Disks. Per altre informazioni su Managed disks, vedere [archiviazione su disco di Azure panoramica per le macchine virtuali Windows](../../virtual-machines/windows/managed-disks-overview.md) o [archiviazione su disco di Azure panoramica per le macchine virtuali Linux](../../virtual-machines/linux/managed-disks-overview.md).
+Se si usano account di archiviazione BLOB di pagine Premium per i dischi non gestiti e l'applicazione supera gli obiettivi di scalabilità di un singolo account di archiviazione, Microsoft consiglia di eseguire la migrazione a Managed Disks. Per altre informazioni su Managed disks, vedere [archiviazione su disco di Azure panoramica per le macchine virtuali](../../virtual-machines/managed-disks-overview.md).
 
 Se non è possibile eseguire la migrazione a Managed disks, compilare l'applicazione per usare più account di archiviazione e partizionare i dati tra gli account di archiviazione. Ad esempio, se si desidera collegare dischi da 51 TB tra più VM, distribuirli in due account di archiviazione. Il limite per un account di Archiviazione Premium singolo è 35 TB. Assicurarsi che un singolo account di archiviazione con prestazioni Premium non disponga mai di più di 35 TB di dischi sottoposti a provisioning.
 

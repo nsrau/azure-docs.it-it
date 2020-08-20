@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745787"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649415"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Domande frequenti
 
@@ -57,7 +57,24 @@ R.  Per visualizzare dove sono attualmente disponibili i dischi di Data Box, ved
 R. Azure Data Box Disk è supportato per tutte le aree degli Stati Uniti, del Canada, dell'Australia, dell'Europa occidentale e settentrionale, della Corea e del Giappone. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
 
 ### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>Q. Data Box Disk può essere spedito oltre i confini nazionali/regionali?
-R. Data Box Disk viene spedito all'interno dello stesso paese o area geografica e non può superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europea (UE), in cui i dischi possono essere spediti da e verso i paesi dell'Unione Europea.
+R. Data Box Disk viene spedito all'interno dello stesso paese/regione e non può superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europa (UE), in cui i dischi possono essere spediti da e verso i paesi/regioni dell'Unione Europa.
+
+### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>Q. Come si importano i dati di origine locali in un paese o in un'area geografica di Azure in un paese diverso?
+R. Data Box Disk supporta l'inserimento di dati solo all'interno della stessa area (limite commerciale). In tutti gli altri casi, potrebbe essere necessario eseguire un'azione aggiuntiva. 
+
+Se, ad esempio, si dispone di dati locali in Canada che si desidera spostare in un account di archiviazione di Azure Westus, è possibile ottenerlo nel modo seguente:
+
+### <a name="option-1"></a>Opzione 1: 
+
+Spedire un [disco supportato](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) contenente i dati usando il [servizio di importazione/esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) dalla posizione di origine in Canada al Data Center di Azure westus.
+
+### <a name="option-2"></a>Opzione 2:
+
+1. Per ordinare Data Box Disk in Canada, scegliere un account di archiviazione in Cananda Central. I dischi SSD vengono spediti dal Data Center di Azure in Canada centrale all'indirizzo di spedizione (in Canada) fornito durante la creazione dell'ordine.
+
+2. Dopo aver copiato i dati dal server locale nei dischi, restituirli al Data Center di Azure in Canada usando le etichette restituite fornite da Microsoft. I dati presenti nel Data Box Disk vengono quindi caricati nell'account di archiviazione di destinazione nell'area di Azure del Canada selezionata durante la creazione dell'ordine.
+
+3. È quindi possibile usare uno strumento come AzCopy per copiare i dati in un account di archiviazione in Westus. Questo passaggio comporta costi di archiviazione e [larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/) [standard](https://azure.microsoft.com/pricing/details/storage/) che non sono inclusi nel data box disk la fatturazione.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. A chi ci si può rivolgere in caso di problemi con i dischi di Data Box?
 R. Se si verificano problemi con i dischi di Data Box, [contattare il supporto tecnico Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).

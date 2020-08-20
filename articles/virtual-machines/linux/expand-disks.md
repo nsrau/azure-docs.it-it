@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdc5f56d4500581b36f366663dc3db915070ee2e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659734"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649846"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Espandere dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
@@ -56,7 +56,7 @@ Negli esempi seguenti sostituire i nomi dei parametri di esempio con i propri va
     ```
 
     > [!NOTE]
-    > Quando si espande un disco gestito, le dimensioni vengono arrotondate a quelle del disco gestito più vicino. Per consultare una tabella delle dimensioni e dei livelli dei dischi disponibili, vedere [Panoramica di Azure Managed Disks - Prezzi e fatturazione](../windows/managed-disks-overview.md).
+    > Quando si espande un disco gestito, le dimensioni vengono arrotondate a quelle del disco gestito più vicino. Per consultare una tabella delle dimensioni e dei livelli dei dischi disponibili, vedere [Panoramica di Azure Managed Disks - Prezzi e fatturazione](../managed-disks-overview.md).
 
 1. Avviare la macchina virtuale con [az vm start](/cli/azure/vm#az-vm-start). L'esempio seguente avvia la VM denominata *myVM* nel gruppo di risorse *myResourceGroup*:
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 50ab4b0f1e676ffcba0ce69ab6aa957e4c77ab88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f145dcf8d476009d81056b3f4f970460209a5bc
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058160"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649738"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione
 
@@ -28,7 +28,7 @@ In alcuni casi potrebbe verificarsi uno degli errori seguenti durante il tentati
 > 
 > **Non è stato possibile eliminare # di # BLOB:<br>BlobName.vhd: Sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.**
 
-I dischi rigidi virtuali usati in macchine virtuali di Azure sono file con estensione vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. Per altre informazioni sui dischi di Azure, vedere [Introduzione ai dischi gestiti](../linux/managed-disks-overview.md).
+I dischi rigidi virtuali usati in macchine virtuali di Azure sono file con estensione vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. Per altre informazioni sui dischi di Azure, vedere [Introduzione ai dischi gestiti](../managed-disks-overview.md).
 
 Azure impedisce l'eliminazione di un disco collegato a una macchina virtuale per evitare il danneggiamento. Impedisce anche l'eliminazione di contenitori e account di archiviazione che dispongono di un BLOB di pagine collegato a una macchina virtuale. 
 

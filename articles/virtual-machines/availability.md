@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 18d7755bf6bf9d09a8da30cb5c2892af6ed90c7d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 583e4d3a45d31b9c386b542d42d8e749b0c36bc1
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830649"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650214"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opzioni di disponibilità per le macchine virtuali in Azure
 
@@ -47,7 +47,7 @@ Questo approccio garantisce che almeno un'istanza dell'applicazione rimanga in e
 
 ## <a name="virtual-machines-scale-sets"></a>Set di scalabilità di macchine virtuali 
 
-I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di macchine virtuali con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono una disponibilità elevata per le applicazioni e consentono di gestire, configurare e aggiornare in modo centralizzato molte macchine virtuali. È consigliabile creare due o più macchine virtuali all'interno di un set di scalabilità per fornire un'applicazione a disponibilità elevata e per soddisfare il [99,95% del contratto](https://azure.microsoft.com/support/legal/sla/virtual-machines/)di base di Azure. Non sono previsti costi per il set di scalabilità, ma si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](./windows/disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. Le macchine virtuali in un set di scalabilità possono essere distribuite in più domini di aggiornamento e domini di errore per massimizzare la disponibilità e la resilienza a causa di interruzioni del data center e di eventi di manutenzione pianificata o non pianificata. Le macchine virtuali in un set di scalabilità possono anche essere distribuite in una singola zona di disponibilità o in un'area geografica. Le opzioni di distribuzione della zona di disponibilità possono variare in base alla modalità di orchestrazione.
+I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di macchine virtuali con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono una disponibilità elevata per le applicazioni e consentono di gestire, configurare e aggiornare in modo centralizzato molte macchine virtuali. È consigliabile creare due o più macchine virtuali all'interno di un set di scalabilità per fornire un'applicazione a disponibilità elevata e per soddisfare il [99,95% del contratto](https://azure.microsoft.com/support/legal/sla/virtual-machines/)di base di Azure. Non sono previsti costi per il set di scalabilità, ma si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](./disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. Le macchine virtuali in un set di scalabilità possono essere distribuite in più domini di aggiornamento e domini di errore per massimizzare la disponibilità e la resilienza a causa di interruzioni del data center e di eventi di manutenzione pianificata o non pianificata. Le macchine virtuali in un set di scalabilità possono anche essere distribuite in una singola zona di disponibilità o in un'area geografica. Le opzioni di distribuzione della zona di disponibilità possono variare in base alla modalità di orchestrazione.
 
 **Domini di errore e domini di aggiornamento**
 
@@ -55,7 +55,7 @@ I set di scalabilità di macchine virtuali semplificano la progettazione per la 
 
 
 ## <a name="availability-sets"></a>Set di disponibilità
-Un set di disponibilità è un raggruppamento logico di macchine virtuali in un data center che consente ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](./windows/disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure.
+Un set di disponibilità è un raggruppamento logico di macchine virtuali in un data center che consente ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](./disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure.
 
 In un set di disponibilità, le macchine virtuali vengono distribuite automaticamente in questi domini di errore. Questo approccio consente di limitare l'impatto di eventuali guasti dell'hardware fisico, interruzioni di rete o interruzioni dell'alimentazione.
 

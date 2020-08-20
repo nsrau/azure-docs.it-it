@@ -4,23 +4,23 @@ description: Informazioni su come abilitare e configurare dischi ultra in un clu
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986832"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650180"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usare i dischi di Azure ultra in Azure Kubernetes Service (anteprima)
 
-I [dischi di Azure ultra](../virtual-machines/linux/disks-enable-ultra-ssd.md) offrono velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per le applicazioni con stato. Uno dei vantaggi principali di ultra disks è la possibilità di modificare dinamicamente le prestazioni dell'unità SSD insieme ai carichi di lavoro senza dover riavviare i nodi dell'agente. I dischi Ultra sono adatti per carichi di lavoro con utilizzo intensivo di dati.
+I [dischi di Azure ultra](../virtual-machines/disks-enable-ultra-ssd.md) offrono velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per le applicazioni con stato. Uno dei vantaggi principali di ultra disks è la possibilità di modificare dinamicamente le prestazioni dell'unità SSD insieme ai carichi di lavoro senza dover riavviare i nodi dell'agente. I dischi Ultra sono adatti per carichi di lavoro con utilizzo intensivo di dati.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questa funzionalità può essere impostata solo in fase di creazione del cluster o di creazione del pool di nodi.
 
 > [!IMPORTANT]
-> Azure ultra disks richiede la distribuzione di nodepools in zone di disponibilità e aree che supportano questi dischi, oltre a specifiche serie di VM. Vedere [**ambito e limitazioni di ultra disks GA**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
+> Azure ultra disks richiede la distribuzione di nodepools in zone di disponibilità e aree che supportano questi dischi, oltre a specifiche serie di VM. Vedere [**ambito e limitazioni di ultra disks GA**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -64,7 +64,7 @@ az extension update --name aks-preview
 ``` 
 
 ### <a name="limitations"></a>Limitazioni
-- Vedere [ **ambito e limitazioni di ultra DISKs GA**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- Vedere [ **ambito e limitazioni di ultra DISKs GA**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 - L'intervallo di dimensioni supportato per un disco Ultra è compreso tra 100 e 1500
 
 ## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Creare un nuovo cluster che può usare dischi ultra
@@ -226,7 +226,7 @@ Events:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui dischi Ultra, vedere [uso di dischi ultra di Azure](../virtual-machines/linux/disks-enable-ultra-ssd.md).
+- Per altre informazioni sui dischi Ultra, vedere [uso di dischi ultra di Azure](../virtual-machines/disks-enable-ultra-ssd.md).
 - Per altre informazioni sulle procedure consigliate per l'archiviazione, vedere procedure consigliate [per l'archiviazione e i backup in Azure Kubernetes Service (AKS)][operator-best-practices-storage]
 
 <!-- LINKS - external -->
@@ -240,7 +240,7 @@ Events:
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create

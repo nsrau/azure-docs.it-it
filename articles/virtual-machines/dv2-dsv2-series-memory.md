@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bcefe19183ea5f511ce8255914b3ea8edd4306e8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2c1b9bb8d8fa1e7b82bebfa31963be19d9024af
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837092"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648497"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Dv2 con ottimizzazione per la memoria e serie Dsv2
 
@@ -66,7 +66,7 @@ Manutenzione con mantenimento della memoria: Supportato
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
 <sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DSv2 può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](./windows/premium-storage-performance.md).
-<sup>2</sup> l'istanza è isolata per l'hardware basato su Intel Haswell e dedicata a un singolo cliente.  
+<sup>2</sup>  l'istanza è isolata per l'hardware basato su Intel Haswell e dedicata a un singolo cliente.  
 <sup>3</sup> Disponibili dimensioni core vincolate.  
 <sup>4</sup> 25000 Mbps con rete accelerata.
 
@@ -83,7 +83,7 @@ Manutenzione con mantenimento della memoria: Supportato
 
 Calcolatore prezzi: [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
-Altre informazioni sui tipi di dischi: [tipi di disco](./linux/disks-types.md#ultra-disk)
+Altre informazioni sui tipi di dischi: [tipi di disco](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 81bfde964fa993b69bc464214dab0810a8f2bfe5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a5a3887efe9b8f19608fac63216ca53576d9ec3f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832587"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654736"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -58,7 +58,7 @@ Baseline: 270%
 
 ![Grafico dei dati relativi al traffico orario](./media/b-series-burstable/office-workload.png)
 
-| Scenario | Tempo | Utilizzo CPU (%) | Crediti accumulati<sup>1</sup> | Crediti disponibili |
+| Scenario | Ora | Utilizzo CPU (%) | Crediti accumulati<sup>1</sup> | Crediti disponibili |
 | --- | --- | --- | --- | --- |
 | Distribuzione di B16ms | Distribuzione | Distribuzione  | 480 (crediti iniziali) | 480 |
 | Nessun traffico | 0:00 | 0 | 162 | 642 |
@@ -88,7 +88,7 @@ Baseline: 270%
 
 <sup>1</sup> crediti accumulati/crediti utilizzati in un'ora equivale a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
-Per un D16s_v3 con 16 vCPU e 64 GiB di memoria la tariffa oraria è $0,936 all'ora ($673,92 mensile) e per B16ms con 16 vCPU e 64 GiB di memoria, la velocità è di $0,794 all'ora (mensile $547,86). <b>Questo comporta un risparmio del 15%.</b>
+Per un D16s_v3 con 16 vCPU e 64 GiB di memoria la tariffa oraria è $0,936 all'ora ($673,92 mensile) e per B16ms con 16 vCPU e 64 GiB di memoria, la velocità è di $0,794 all'ora (mensile $547,86). <b> Questo comporta un risparmio del 15%.</b>
 
 ## <a name="q--a"></a>Domande e risposte
 
@@ -149,7 +149,7 @@ ad esempio, nell'istanza precedente la linea di base è il 20% e se si usa il 10
 
 Calcolatore prezzi: [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
-Altre informazioni sui tipi di dischi: [tipi di disco](./linux/disks-types.md#ultra-disk)
+Altre informazioni sui tipi di dischi: [tipi di disco](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

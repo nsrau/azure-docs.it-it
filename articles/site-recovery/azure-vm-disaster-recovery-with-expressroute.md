@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954091"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654379"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare ExpressRoute con il ripristino di emergenza per macchine virtuali di Azure
 
@@ -22,7 +22,7 @@ Questo articolo descrive come integrare Azure ExpressRoute con [Azure Site Recov
 
 Site Recovery consente il ripristino di emergenza delle macchine virtuali di Azure tramite la replica in Azure dei dati delle macchine virtuali di Azure.
 
-- Se le macchine virtuali di Azure usano [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), i dati delle macchine virtuali vengono replicati in un disco gestito replicato nell'area secondaria.
+- Se le macchine virtuali di Azure usano [Azure Managed Disks](../virtual-machines/managed-disks-overview.md), i dati delle macchine virtuali vengono replicati in un disco gestito replicato nell'area secondaria.
 - Se le macchine virtuali di Azure non usano dischi gestiti, i dati delle macchine virtuali vengono replicati in un account di archiviazione di Azure.
 - Gli endpoint di replica sono pubblici, ma il traffico di replica per le macchine virtuali di Azure non attraversa Internet.
 
@@ -85,7 +85,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 ![Dall'ambiente locale ad Azure con ExpressRoute prima del failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-- **Area geografica**. Le app sono distribuite nell'area Asia orientale di Azure.
+- **Area**. Le app sono distribuite nell'area Asia orientale di Azure.
 - **Reti virtuali spoke**. Le app sono distribuite in due reti virtuali spoke:
     - **Rete virtuale 1 di origine**: 10.1.0.0/24.
     - **Rete virtuale 2 di origine**: 10.2.0.0/24.
@@ -106,10 +106,10 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 **Direzione** | **Impostazione** | **State**
 --- | --- | ---
-Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Abilitato
-Da spoke a hub | Consenti traffico inoltrato | Abilitato
-Da spoke a hub | Consenti transito gateway | Disabilitata
-Da spoke a hub | Usa gateway remoti | Abilitato
+Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
+Da spoke a hub | Consenti traffico inoltrato | Attivato
+Da spoke a hub | Consenti transito gateway | Disabled
+Da spoke a hub | Usa gateway remoti | Attivato
 
  ![Configurazione peering da spoke a hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,10 +117,10 @@ Da spoke a hub | Usa gateway remoti | Abilitato
 
 **Direzione** | **Impostazione** | **State**
 --- | --- | ---
-Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Abilitato
-Da hub a spoke | Consenti traffico inoltrato | Abilitato
-Da hub a spoke | Consenti transito gateway | Abilitato
-Da hub a spoke | Usa gateway remoti | Disabilitata
+Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
+Da hub a spoke | Consenti traffico inoltrato | Attivato
+Da hub a spoke | Consenti transito gateway | Attivato
+Da hub a spoke | Usa gateway remoti | Disabled
 
  ![Configurazione peering da hub a spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 

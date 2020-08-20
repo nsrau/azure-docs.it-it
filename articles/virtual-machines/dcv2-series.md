@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: a88804d85bde13a1e8b333e96053f7d85c4bd2d5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 41dbb42637db98dcd97e3487f252e88f2ba5f9a3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837126"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649891"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -58,7 +58,7 @@ Manutenzione con mantenimento della memoria: Non supportato
 
 Calcolatore prezzi: [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
-Altre informazioni sui tipi di dischi: [tipi di disco](./linux/disks-types.md#ultra-disk)
+Altre informazioni sui tipi di dischi: [tipi di disco](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

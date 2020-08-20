@@ -10,12 +10,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080506"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648565"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
 Questo articolo contiene una serie di considerazioni sulla progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](./overview.md).
@@ -42,7 +42,7 @@ Alcune funzionalità sono attualmente disponibili solo nelle macchine virtuali:
 ## <a name="storage"></a>Archiviazione
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Set di scalabilità con Azure Managed Disks
-Invece che con i tradizionali account di archiviazione di Azure, i set di scalabilità possono essere creati con [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md). Managed Disks offre i seguenti vantaggi:
+Invece che con i tradizionali account di archiviazione di Azure, i set di scalabilità possono essere creati con [Azure Managed Disks](../virtual-machines/managed-disks-overview.md). Managed Disks offre i seguenti vantaggi:
 - Non è necessario creare in precedenza un set di account di archiviazione di Azure per le macchine virtuali con set di scalabilità.
 - È possibile definire [i dischi dati collegati](virtual-machine-scale-sets-attached-disks.md) per le macchine virtuali nel set di scalabilità.
 - È possibile configurare i set di scalabilità per un [supporto di massimo 1.000 macchine virtuali per set](virtual-machine-scale-sets-placement-groups.md). 
