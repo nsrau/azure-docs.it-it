@@ -2,21 +2,21 @@
 title: Individuare e valutare le VM AWS (Amazon Web Services) EC2 ed eseguirne la migrazione ad Azure
 description: Questo articolo illustra come eseguire la migrazione di macchine virtuali AWS in Azure con Azure Migrate.
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066645"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611433"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
 
-Questa esercitazione illustra come individuare, valutare ed eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) in macchine virtuali di Azure usando Azure Migrate. Strumenti Valutazione server e Migrazione del server
+Questa esercitazione illustra come individuare, valutare ed eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) in macchine virtuali di Azure usando gli strumenti di migrazione Azure Migrate: Valutazione server e Azure Migrate: Migrazione del server.
 
 > [!NOTE]
-> Quando si esegue la migrazione di macchine virtuali AWS in Azure, le VM vengono trattate come server fisici. Si userà il flusso di Migrazione del server per la migrazione di computer fisici per eseguire la migrazione delle VM AWS in Azure.
+> Per eseguire la migrazione di macchine virtuali AWS ad Azure, è necessario considerarle come server fisici.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -33,20 +33,29 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
-## <a name="discover-and-assess-aws-vms"></a>Individuare e valutare le VM AWS  
+## <a name="discover-and-assess"></a>Individuazione e valutazione
 
-Prima di procedere con la migrazione ad Azure, è consigliabile eseguire un'individuazione delle macchine virtuali e una valutazione della migrazione. Questa valutazione consente di ridimensionare correttamente le VM AWS per la migrazione ad Azure e stimare i potenziali costi di esecuzione di Azure.
+Prima di procedere con la migrazione ad Azure, è consigliabile eseguire un'individuazione delle macchine virtuali e una valutazione della migrazione. Questa valutazione consente di definite le dimensioni corrette per le macchine virtuali AWS per la migrazione ad Azure e stimare i potenziali costi di esecuzione di Azure.
 
 Configurare una valutazione nel modo seguente:
 
-1. Una valutazione può essere eseguita trattando le VM AWS come computer fisici e usando lo strumento Azure Migrate: Valutazione server. Seguire questa [esercitazione](./tutorial-prepare-physical.md) per configurare Azure e preparare le VM AWS per la valutazione.
+1. Seguire questa [esercitazione](./tutorial-prepare-physical.md) per configurare Azure e preparare le VM AWS per la valutazione. Tenere presente quanto segue:
+
+    - Azure Migrate usa l'autenticazione della password durante l'individuazione delle istanze di AWS. Le istanze di AWS non supportano l'autenticazione della password per impostazione predefinita. Prima di poter individuare l'istanza, è necessario abilitare l'autenticazione della password.
+        - Per i computer Windows, consentire le porte 5986 (HTTPS) e 5985 (HTTP) di WinRM per permettere le chiamate WMI remote. Se si esegue la configurazione 
+        - Per i computer Linux:
+            1. Accedere a ogni computer Linux.
+            2. Aprire il file sshd_config: vi /etc/ssh/sshd_config
+            3. Nel file individuare la riga **PasswordAuthentication** e impostare il valore su **yes**.
+            4. Salvare il file e chiuderlo. Riavviare il servizio ssh.
+
 2. Quindi, seguire questa [esercitazione](./tutorial-assess-physical.md) per configurare un progetto e un'appliance di Azure Migrate per l'individuazione e la valutazione delle macchine virtuali AWS.
 
 Sebbene sia consigliabile provare a eseguire una valutazione, non è un passaggio obbligatorio per poter eseguire la migrazione delle macchine virtuali.
 
-## <a name="migrate-aws-vms"></a>Eseguire la migrazione delle VM AWS   
 
-## <a name="1-prerequisites-for-migration"></a>1. Prerequisiti per la migrazione
+
+## <a name="prerequisites"></a>Prerequisiti 
 
 - Assicurarsi che nelle VM AWS di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le VM AWS sono trattate come computer fisici ai fini della migrazione. Verificare i [sistemi operativi supportati](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) per il flusso di lavoro di migrazione dei server fisici. È consigliabile eseguire una migrazione di test (failover di test) per verificare se la VM funziona come previsto prima di procedere con la migrazione effettiva.
 - Assicurarsi che le VM AWS siano conformi alle [configurazioni supportate](./migrate-support-matrix-physical-migration.md#physical-server-requirements) per la migrazione ad Azure.
@@ -56,7 +65,7 @@ Sebbene sia consigliabile provare a eseguire una valutazione, non è un passaggi
     - È importante apportare queste modifiche prima di avviare la migrazione. Se si esegue la migrazione della VM prima di apportare la modifica, la VM potrebbe non avviarsi in Azure.
 Esaminare le modifiche che è necessario apportare in [Windows](prepare-for-migration.md#windows-machines) e [Linux](prepare-for-migration.md#linux-machines).
 
-## <a name="2-prepare-azure-resources-for-migration"></a>2. Preparare le risorse di Azure per la migrazione
+### <a name="prepare-azure-resources-for-migration"></a>Preparare le risorse di Azure per la migrazione
 
 Preparare Azure per la migrazione con lo strumento Azure Migrate: Migrazione del server.
 
@@ -85,7 +94,7 @@ Assegnare il ruolo Collaboratore Macchina virtuale all'account Azure. Questo ruo
 
 [Configurare](../virtual-network/manage-virtual-network.md#create-a-virtual-network) una rete virtuale di Azure. Quando si esegue la replica in Azure, le macchine virtuali di Azure create vengono aggiunte alla rete virtuale di Azure specificata durante la configurazione della migrazione.
 
-## <a name="3-prepare-aws-instances-for-migration"></a>3. Preparare le istanze di AWS per la migrazione
+## <a name="prepare-aws-instances-for-migration"></a>Preparare le istanze di AWS per la migrazione
 
 Per preparare la migrazione da AWS ad Azure, è necessario preparare e distribuire un'appliance di replica per la migrazione.
 
@@ -111,7 +120,7 @@ Preparare la distribuzione dell'appliance come indicato di seguito:
 - L'appliance di replica usa MySQL. Esaminare le [opzioni](migrate-replication-appliance.md#mysql-installation) per l'installazione di MySQL nell'appliance.
 - Esaminare gli URL di Azure necessari all'appliance di replica per accedere ai cloud [pubblico](migrate-replication-appliance.md#url-access) e per [enti pubblici](migrate-replication-appliance.md#azure-government-url-access).
 
-## <a name="4-add-the-server-migration-tool"></a>4. Aggiungere lo strumento Migrazione server
+## <a name="add-the-server-migration-tool"></a>Aggiungere lo strumento Migrazione server
 
 Configurare un progetto di Azure Migrate e quindi aggiungervi lo strumento Migrazione server.
 
@@ -135,7 +144,7 @@ Configurare un progetto di Azure Migrate e quindi aggiungervi lo strumento Migra
 10. In **Rivedi e aggiungi strumenti** rivedere le impostazioni e fare clic su **Aggiungi strumenti**
 11. Dopo l'aggiunta, lo strumento viene visualizzato nel progetto di Azure Migrate > **Server** > **Strumenti di migrazione**.
 
-## <a name="5-set-up-the-replication-appliance"></a>5. Configurare l'appliance di replica
+## <a name="set-up-the-replication-appliance"></a>Configurare l'appliance di replica
 
 La prima fase del processo di migrazione è la configurazione dell'appliance di replica. Per configurare l'appliance per la migrazione delle VM AWS, è necessario scaricare il file del programma di installazione per l'appliance e quindi eseguirlo nella [VM preparata](#prepare-a-machine-for-the-replication-appliance).
 
@@ -177,7 +186,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 
     ![Finalizzare la registrazione](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-## <a name="6-install-the-mobility-service"></a>6. Installare il servizio Mobility
+## <a name="install-the-mobility-service"></a>Installare il servizio Mobility
 
 È necessario installare un agente del servizio di mobilità nelle VM AWS di origine di cui eseguire la migrazione. I programmi di installazione degli agenti sono disponibili nell'appliance di replica. Individuare quello corretto e installare l'agente in ogni computer di cui eseguire la migrazione. Seguire questa procedura:
 
@@ -229,7 +238,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
     ```
 
-## <a name="7-enable-replication-for-aws-vms"></a>7. Abilitare la replica per le VM AWS
+## <a name="enable-replication-for-aws-vms"></a>Abilitare la replica per le VM AWS
 
 > [!NOTE]
 > Tramite il portale è possibile aggiungere fino a 10 VM contemporaneamente per la replica. Per replicare più VM contemporaneamente, è possibile aggiungerle in batch di 10.
@@ -276,7 +285,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 > [!NOTE]
 > È possibile aggiornare le impostazioni di replica in qualsiasi momento prima dell'avvio della replica, selezionando **Gestisci** > **Replica delle macchine virtuali**. Le impostazioni non possono essere modificate dopo l'avvio della replica.
 
-## <a name="8-track-and-monitor-replication-status"></a>8. Rilevare e monitorare lo stato della replica
+## <a name="track-and-monitor-replication-status"></a>Rilevare e monitorare lo stato della replica
 
 - Quando si fa clic su **Replica** viene avviato un processo Avvia replica.
 - Al termine del processo, viene avviata la replica iniziale delle VM in Azure.
@@ -288,7 +297,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 
 ![Monitorare la replica](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
-## <a name="9-run-a-test-migration"></a>9. Eseguire una migrazione di test
+## <a name="run-a-test-migration"></a>Eseguire una migrazione di test
 
 All'avvio della replica differenziale, è possibile eseguire una migrazione di test per le VM prima di eseguire una migrazione completa ad Azure. La migrazione di test è altamente consigliata e offre l'opportunità di individuare potenziali problemi e risolverli prima di procedere con la migrazione effettiva. È consigliabile eseguirla almeno una volta per ogni VM prima di eseguirne la migrazione.
 
@@ -314,7 +323,7 @@ Per eseguire una migrazione di test, seguire questa procedura:
     ![Eseguire la pulizia della migrazione](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
 
-## <a name="10-migrate-aws-vms"></a>10. Eseguire la migrazione delle VM AWS
+## <a name="migrate-aws-vms"></a>Eseguire la migrazione delle VM AWS
 
 Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è possibile procedere con la migrazione delle VM AWS.
 
@@ -340,6 +349,9 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
 5. Trasferire il traffico all'istanza della VM di Azure di cui è stata eseguita la migrazione.
 6. Aggiornare la documentazione interna con la nuova posizione e il nuovo indirizzo IP delle macchine virtuali di Azure. 
 
+
+
+
 ## <a name="post-migration-best-practices"></a>Procedure consigliate dopo la migrazione
 
 - Per una maggiore resilienza:
@@ -353,9 +365,7 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
 - Per il monitoraggio e la gestione:
     - È consigliabile distribuire [Gestione costi di Azure](../cost-management-billing/cloudyn/overview.md) per monitorare l'utilizzo delle risorse e le spese.
 
-## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare il [percorso di migrazione al cloud](/azure/architecture/cloud-adoption/getting-started/migrate) in Azure Cloud Adoption Framework.
 
 ## <a name="troubleshooting--tips"></a>Risoluzione dei problemi e suggerimenti
 
@@ -376,3 +386,7 @@ Esaminare il [percorso di migrazione al cloud](/azure/architecture/cloud-adoptio
 
 **Domanda:** Non è possibile individuare le istanze di AWS usando Azure Migrate a causa del codice di stato HTTP 504 dal servizio Gestione remota Windows    
 **Risposta:** Verificare i requisiti dell'appliance di Azure Migrate e le esigenze di accesso agli URL. Controllare che nessuna impostazione proxy blocchi la registrazione dell'appliance.   
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Esaminare il [percorso di migrazione al cloud](/azure/architecture/cloud-adoption/getting-started/migrate) in Azure Cloud Adoption Framework.

@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: e892bf2b943d35728b15a9354308e149af2e478e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3903630a657c2cf8a0b39f3e4c8fc22456097941
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810208"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611824"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -39,7 +39,7 @@ Prima di configurare i backup, eseguire la procedura seguente:
 * Eseguire lo script di configurazione di backup SAP HANA (script di pre-registrazione) come utente radice nella macchina virtuale in cui è installato HANA. [Questo script](https://aka.ms/scriptforpermsonhana) prepara il sistema HANA per il backup. Per altre informazioni sullo script di pre-registrazione, vedere la sezione [Funzionalità dello script di pre-registrazione](#what-the-pre-registration-script-does).
 
 >[!NOTE]
->Lo script di preregistrazione installa **compat-unixODBC234** per i carichi di lavoro SAP HANA in esecuzione in RHEL (7.4, 7.6 e 7.7) e **unixODBC** per RHEL 8.1. [Questo pacchetto si trova nel repository RHEL for SAP HANA (per RHEL 7 Server) Update Services for SAP Solutions (RPMs)](https://access.redhat.com/solutions/5094721).  Per l'immagine RHEL di Azure Marketplace, il repository è **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
+>Lo script di preregistrazione installa **compat-unixODBC234** per i carichi di lavoro SAP HANA in esecuzione in RHEL (7.4, 7.6 e 7.7) e **unixODBC** per RHEL 8.1. [Questo pacchetto si trova nel repository RHEL for SAP HANA (per RHEL 7 Server) Update Services for SAP Solutions (RPMs)](https://access.redhat.com/solutions/5094721).  Per un'immagine RHEL di Azure Marketplace, il repository è **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
 ## <a name="set-up-network-connectivity"></a>Configurare la connettività di rete
 

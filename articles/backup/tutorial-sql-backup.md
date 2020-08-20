@@ -3,12 +3,12 @@ title: Esercitazione - Eseguire il backup di database di SQL Server in Azure
 description: In questa esercitazione viene descritto come eseguire il backup di un database di SQL Server in esecuzione in una macchina virtuale di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17a8472da2595c08cb198baaf853faf110a619fa
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513326"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612453"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Eseguire il backup di un database di SQL Server in una VM di Azure
 
@@ -117,7 +117,7 @@ Configurare il backup come segue:
 
    ![Selezionare Configurare il backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Fare clic su **Configura backup**. Viene visualizzato il pannello **Seleziona elementi per backup**. Vi sono elencati tutti i gruppi di disponibilità registrati e i server SQL autonomi. Espandere la freccia di espansione a sinistra della riga per visualizzare tutti i database non protetti in tale istanza o gruppo di disponibilità Always On.  
+2. Selezionare **Configura backup**. Viene visualizzato il riquadro **Selezionare gli elementi di cui eseguire il backup**. Vi sono elencati tutti i gruppi di disponibilità registrati e i server SQL autonomi. Espandere la freccia di espansione a sinistra della riga per visualizzare tutti i database non protetti in tale istanza o gruppo di disponibilità Always On.  
 
     ![Visualizzazione di tutte le istanze di SQL Server con i database autonomi](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -129,11 +129,11 @@ Configurare il backup come segue:
 
      * In alternativa, è possibile abilitare la protezione automatica sull'intera istanza o sul gruppo di disponibilità Always On selezionando l'opzione **ON** nell'elenco a discesa corrispondente nella colonna **AUTOPROTECT**. La funzionalità di protezione automatica non solo abilita la protezione per tutti i database esistenti in un'unica operazione, ma protegge anche automaticamente tutti i nuovi database che verranno aggiunti in futuro a tale istanza o gruppo di disponibilità.  
 
-4. Fare clic su **OK** per aprire il pannello **Criteri di backup**.
+4. Selezionare **OK** per aprire il riquadro **Criteri di backup**.
 
     ![Abilitare la protezione automatica per il gruppo di disponibilità AlwaysOn](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In **Scegliere i criteri di backup** selezionare un criterio e quindi fare clic su **OK**.
+5. In **Scegliere i criteri di backup** selezionare un criterio e quindi selezionare **OK**.
 
    * Selezionare i criteri predefiniti: HourlyLogBackup.
    * Scegliere un criterio di backup creato in precedenza per SQL.
@@ -161,8 +161,8 @@ Un criterio di backup definisce quando vengono acquisiti i backup e per quanto t
 
 Per creare un criterio di backup:
 
-1. Nell'insieme di credenziali fare clic su **Criteri di Backup** > **Aggiungi**.
-2. Nel menu **Aggiungi** fare clic su **SQL Server nella macchina virtuale di Azure** per definire il tipo di criterio.
+1. Nell'insieme di credenziali selezionare **Criterio di backup** > **Aggiungi**.
+2. Nel menu **Aggiungi** selezionare **SQL Server in una macchina virtuale di Azure** per definire il tipo di criterio.
 
    ![Scegliere un tipo per il nuovo criterio di backup](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -171,7 +171,7 @@ Per creare un criterio di backup:
 
    * Per **Giornaliero**, scegliere l'ora e il fuso orario per l'inizio del processo di backup.
    * È necessario eseguire un backup completo, in quanto non è possibile disattivare l'opzione **Backup completo**.
-   * Fare clic su **Backup completo** per visualizzare il criterio.
+   * Selezionare **Backup completo** per visualizzare il criterio.
    * Se si sceglie di eseguire backup completi giornalieri, non è possibile creare backup differenziali.
    * Per **Settimanale**, selezionare il giorno della settimana, l'ora e il fuso orario per l'inizio del processo di backup.
 
@@ -214,7 +214,7 @@ Per creare un criterio di backup:
 ## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
 
 1. Nell'insieme di credenziali di Servizi di ripristino scegliere Elementi di backup.
-2. Fare clic su "SQL Server in una macchina virtuale di Azure".
+2. Selezionare "SQL in una macchina virtuale di Azure".
 3. Fare clic con il pulsante destro del mouse su un database e scegliere "Esegui backup ora".
 4. Scegliere un tipo di backup (completo/differenziale/del log/solo copia completa) e la compressione (Abilita/Disabilita)
 5. Scegliere OK per iniziare il backup.

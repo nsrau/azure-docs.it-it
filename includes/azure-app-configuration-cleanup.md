@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: e49f68f43044b93f329295181717ec2d3ade9fc6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116989"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88639032"
 ---
 Se non si vuole continuare a usare le risorse create in questo articolo, eliminare il gruppo di risorse creato qui per evitare addebiti.
 
@@ -22,7 +22,7 @@ Se non si vuole continuare a usare le risorse create in questo articolo, elimina
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
 1. Nella casella **Filtra per nome** immettere il nome del gruppo di risorse. 
-1. Nell'elenco di risultati selezionare il gruppo di risorse e fare clic con il pulsante destro del mouse sulla riga o usare il pulsante con i **puntini di sospensione** (**...**) per aprire il menu di scelta rapida.
+1. Nell'elenco dei risultati selezionare il nome del gruppo di risorse per visualizzare una panoramica.
 1. Selezionare **Elimina gruppo di risorse**.
 1. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e selezionare **Elimina**.
 
