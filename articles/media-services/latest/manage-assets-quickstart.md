@@ -3,12 +3,15 @@ title: Usare il portale per il caricamento, la codifica e lo streaming di conten
 description: Questa esercitazione illustra come usare il portale per il caricamento, la codifica e lo streaming di contenuto con Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: IngridAtMicrosoft
+ms.author: inhenkel
+manager: femila
+ms.openlocfilehash: 7aebc6e52ec7fac97c6f1e8fb9b30cc63b74e860
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053358"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605671"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Avvio rapido: Caricamento, codifica e streaming di contenuto con il portale
 
@@ -28,7 +31,6 @@ Questa esercitazione illustra come usare il portale di Azure per il caricamento,
 
   * [Caricamento e archiviazione nel cloud](storage-account-concept.md)
   * [Concetto di asset](assets-concept.md)
-  * [Gestione degli asset](manage-asset-concept.md)
 * Una volta caricato il file multimediale digitale di alta qualità in un asset (di input), è possibile elaborarlo, ossia codificarlo o analizzarlo. Il contenuto elaborato passa a un altro asset (di output). 
     * Scegliere [Codifica](encoding-concept.md) per codificare il file caricato in formati riproducibili in un'ampia varietà di browser e dispositivi.
     * Scegliere [Analizza](analyzing-video-audio-files-concept.md) per analizzare il file caricato. 

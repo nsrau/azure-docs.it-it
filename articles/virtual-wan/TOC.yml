@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sulla rete WAN virtuale
+    - name: Che cos'è una rete WAN virtuale?
       href: virtual-wan-about.md
     - name: Architecture
       items:

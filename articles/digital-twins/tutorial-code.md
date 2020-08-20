@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 6000bffb80c83ffce58605bcc7e5bfaf404329da
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: d063418bb8e78bf306dda8fc558bb0e3005dbd0a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986680"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88584897"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Scrivere codice con le API di Gemelli digitali di Azure
 
@@ -48,7 +48,7 @@ Aggiungere quindi due dipendenze necessarie per l'uso di Gemelli digitali di Azu
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
+dotnet add package Azure.identity --version 1.1.1
 ```
 
 La prima dipendenza è la [libreria client di Gemelli digitali IoT di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). La seconda dipendenza fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
