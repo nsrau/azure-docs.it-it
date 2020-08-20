@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea568acdf356064dc603d30ffba7df3c02bde621
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450461"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660909"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -99,7 +99,7 @@ La tabella seguente elenca i sistemi operativi non supportati:
 |Sistema operativo  |Note  |
 |---------|---------|
 |Client Windows     | I sistemi operativi client, ad esempio Windows 7 e Windows 10, non sono supportati.<br> Per Desktop virtuale Windows di Azure il metodo consigliato<br> per gestire gli aggiornamenti è [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) per gestione patch del computer client Windows 10. |
-|Windows Server 2016 Nano Server     | Non supportata.       |
+|Windows Server 2016 Nano Server     | Non supportato.       |
 |Nodi del Servizio Azure Kubernetes | Non supportato. Usare il processo di applicazione di patch illustrato in [Applicare gli aggiornamenti di sicurezza e kernel ai nodi Linux nel servizio Azure Kubernetes](../../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisiti per i client
@@ -180,7 +180,7 @@ Gestione aggiornamenti analizza i computer gestiti per individuare i dati usando
 
 * Ogni computer Linux - Gestione aggiornamenti esegue un'analisi ogni ora.
 
-L'utilizzo medio dei dati da parte dei log di Monitoraggio di Azure per un computer che usa Gestione aggiornamenti è di circa 25 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per tenere traccia dell'utilizzo esatto. Per altre informazioni per analizzare l'utilizzo dei dati, vedere [Gestire l'utilizzo e il costo](../../azure-monitor/platform/manage-cost-storage.md).
+L'utilizzo medio dei dati da parte dei log di Monitoraggio di Azure per un computer che usa Gestione aggiornamenti è di circa 25 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per tenere traccia dell'utilizzo esatto. Per altre informazioni sull'analisi dell'utilizzo dei dati dei log di monitoraggio di Azure, vedere [gestire l'utilizzo e i costi](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="network-planning"></a><a name="ports"></a>Pianificazione della rete
 

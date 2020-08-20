@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210511"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661419"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -223,12 +223,15 @@ Per ottimizzare le prestazioni di archiviazione, vedere [procedure consigliate d
 No, l'archiviazione di backup non viene dedotta dallo spazio di archiviazione dell'istanza gestita. L'archivio di backup è indipendente dallo spazio di archiviazione dell'istanza e non ha dimensioni limitate. L'archiviazione di backup è limitata al periodo di tempo per cui conservare il backup dei database dell'istanza, configurabile fino a 35 giorni. Per informazioni dettagliate, vedere [backup automatici](../database/automated-backups-overview.md).
 
 **Come è possibile vedere quando vengono eseguiti backup automatici nell'istanza gestita?**
+
 Per tenere traccia del momento in cui sono stati eseguiti i backup automatici in Istanza gestita, vedere [come tenere traccia del backup automatico per un istanza gestita SQL di Azure](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
 
 **Il backup su richiesta è supportato?**
+
 Sì, è possibile creare un backup completo di sola copia nell'archiviazione BLOB di Azure, ma sarà ripristinabile solo in Istanza gestita. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Il backup di sola copia, tuttavia, non è possibile se il database è crittografato da Transparent Service Management perché il certificato usato per la crittografia non è accessibile. In tal caso, utilizzare la funzionalità di ripristino temporizzato per spostare il database in un altro Istanza gestita SQL oppure passare alla chiave gestita dal cliente.
 
 **Il ripristino nativo (da file con estensione bak) a Istanza gestita supportato?**
+
 Sì, è supportato e disponibile per SQL Server versione 2005 +.  Per usare il ripristino nativo, caricare il file con estensione bak nell'archivio BLOB di Azure ed eseguire i comandi T-SQL. Per altri dettagli, vedere [ripristino nativo da URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Continuità aziendale
@@ -503,6 +506,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (sostituire ' test ' con il nome di accesso desiderato e modificare i criteri e i valori di scadenza)
+
+
+## <a name="service-updates"></a>Aggiornamenti del servizio
+
+**Che cos'è un evento di manutenzione pianificata per SQL Istanza gestita?**
+
+Vedere [pianificare gli eventi di manutenzione di Azure in SQL istanza gestita](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+
 
 ## <a name="azure-feedback-and-support"></a>Feedback e supporto di Azure
 

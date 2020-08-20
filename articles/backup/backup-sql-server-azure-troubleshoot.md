@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926485"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660138"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -56,13 +56,13 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 
 1. In SQL sono inoltre disponibili alcune linee guida per l'utilizzo dei programmi antivirus. Per informazioni dettagliate, vedere [questo articolo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) .
 
-## <a name="error-messages"></a>Messaggi di errore
+## <a name="error-messages"></a>messaggi di errore
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
 | Gravità | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
-| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
+| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Il backup differenziale e il backup del log delle transazioni non sono possibili. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -113,6 +113,13 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 |---|---|---|
 | Il ripristino non è riuscito perché non è stato possibile portare offline il database. | Quando si esegue un ripristino, il database di destinazione deve essere portato offline. Backup di Azure non è in grado di portare offline questi dati. | Per restringere le cause principali, utilizzare i dettagli aggiuntivi disponibili nel menu portale di Azure Error. Per altre informazioni, vedere la [documentazione di SQL Server](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
+### <a name="wlextgenericiofaultusererror"></a>WlExtGenericIOFaultUserError
+
+|Messaggio di errore |Possibili cause  |Azione consigliata  |
+|---------|---------|---------|
+|Si è verificato un errore di input/output durante l'operazione. Verificare la presenza di errori di IO comuni nella macchina virtuale.   |   Autorizzazioni di accesso o vincoli di spazio nella destinazione.       |  Verificare la presenza di errori di IO comuni nella macchina virtuale. Verificare che l'unità di destinazione o la condivisione di rete nel computer: <li> dispone dell'autorizzazione di lettura/scrittura per l'account NT AUTHORITY\SYSTEM nel computer. <li> dispone di spazio sufficiente per il corretto completamento dell'operazione.<br> Per ulteriori informazioni, vedere [Restore As files](restore-sql-database-azure-vm.md#restore-as-files).
+       |
+
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
@@ -159,13 +166,13 @@ L'operazione è bloccata perché è stato raggiunto il limite per il numero di o
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite massimo per le operazioni consentite in un intervallo di 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. Questo errore si verifica in genere quando sono presenti operazioni su larga scala, ad esempio la modifica dei criteri o la protezione automatica. A differenza di quanto accade per CloudDosAbsoluteLimitReached, non è possibile risolvere questo stato in realtà, il servizio backup di Azure tenterà di ritentare le operazioni internamente per tutti gli elementi in questione.<br> Ad esempio, se si dispone di un numero elevato di origini dati protette con un criterio e si tenta di modificare tale criterio, verrà attivata la configurazione dei processi di protezione per ciascuno degli elementi protetti e talvolta potrebbe verificarsi il limite massimo consentito per tali operazioni al giorno.| Il servizio backup di Azure tenterà automaticamente di ripetere l'operazione dopo 24 ore.
+L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite massimo per le operazioni consentite in un intervallo di 24 ore. | Quando è stato raggiunto il limite massimo consentito per un'operazione in un intervallo di 24 ore, viene visualizzato questo errore. Questo errore viene in genere visualizzato quando sono presenti operazioni su larga scala, ad esempio la modifica dei criteri o la protezione automatica. A differenza del caso di CloudDosAbsoluteLimitReached, non è possibile eseguire molte operazioni per risolvere questo stato. In realtà, il servizio backup di Azure tenterà di ritentare le operazioni internamente per tutti gli elementi in questione.<br> Ad esempio, se si dispone di un numero elevato di origini dati protette con un criterio e si tenta di modificare tale criterio, verrà attivata la configurazione dei processi di protezione per ciascuno degli elementi protetti e talvolta potrebbe verificarsi il limite massimo consentito per tali operazioni al giorno.| Il servizio backup di Azure tenterà automaticamente di ripetere l'operazione dopo 24 ore.
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-La macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet. | Per la macchina virtuale è necessaria la connettività in uscita al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory.| -Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio AzureBackup per consentire l'accesso in uscita a backup di Azure al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory. Per concedere l'accesso, seguire questa [procedura](./backup-sql-server-database-azure-vms.md#nsg-tags) .<br>-Assicurarsi che DNS stia risolvendo gli endpoint di Azure.<br>-Verificare se la macchina virtuale si trova dietro un servizio di bilanciamento del carico che blocca l'accesso a Internet. Assegnando un indirizzo IP pubblico alle macchine virtuali, l'individuazione funzionerà.<br>-Verificare che non esistano firewall/antivirus/proxy che bloccano le chiamate ai tre servizi di destinazione precedenti.
+La macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet. | Per la macchina virtuale è necessaria la connettività in uscita al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory.| -Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio AzureBackup per consentire l'accesso in uscita al servizio backup di Azure, all'archiviazione di Azure o ai servizi Azure Active Directory. Per concedere l'accesso, seguire questa [procedura](./backup-sql-server-database-azure-vms.md#nsg-tags) .<br>-Assicurarsi che DNS stia risolvendo gli endpoint di Azure.<br>-Verificare se la macchina virtuale si trova dietro un servizio di bilanciamento del carico che blocca l'accesso a Internet. Assegnando un indirizzo IP pubblico alle macchine virtuali, l'individuazione funzionerà.<br>-Verificare che non esistano firewall/antivirus/proxy che bloccano le chiamate ai tre servizi di destinazione precedenti.
 
 ## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
 
@@ -175,7 +182,7 @@ Prima di attivare l'operazione di ripetizione della registrazione, verificare la
 - Se nell'area **Stato backup** relativa all'elemento di backup è visualizzato il messaggio **Non raggiungibile**, escludere tutte le altre cause che potrebbero comportare lo stesso stato:
 
   - Mancanza di autorizzazioni per eseguire operazioni relative al backup nella macchina virtuale.
-  - Arresto della macchina virtuale, pertanto non è possibile eseguire i backup.
+  - Arrestare la macchina virtuale, quindi non è possibile eseguire i backup.
   - Problemi di rete.
 
    ![ripetizione della registrazione della macchina virtuale](./media/backup-azure-sql-database/re-register-vm.png)
@@ -261,7 +268,7 @@ Nel contenuto precedente è possibile ottenere il nome logico del file di databa
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
-  ```
+```
 
 Questo file deve essere inserito prima di attivare l'operazione di ripristino.
 

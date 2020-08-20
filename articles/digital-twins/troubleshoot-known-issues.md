@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 9130a3248e881c9d4e2c9bfe9017f43198d50f51
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590167"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661487"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -69,9 +69,9 @@ Per risolvere il comportamento, fare in modo che le applicazioni usino in modo e
 
 ### <a name="possible-causes"></a>Possibili cause
 
-Si tratta di un'incompatibilità tra i dispositivi gemelli digitali di Azure e la versione più recente di Azure. Identity Library, versione **1.2.0**. 
+Questo problema è correlato a un problema aperto con la versione più recente di Azure. Identity Library (versione **1.2.0**): [*non è possibile eseguire l'autenticazione quando si usa InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
-Questo problema si verifica se si usa la versione **1.2.0** nell'applicazione o se si aggiunge la libreria al progetto senza specificare una versione (come per impostazione predefinita la versione più recente).
+Questo problema verrà visualizzato se si usa la versione **1.2.0** nell'applicazione Digital gemelli di Azure o se si aggiunge la libreria al progetto senza specificare una versione (come per impostazione predefinita la versione più recente).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

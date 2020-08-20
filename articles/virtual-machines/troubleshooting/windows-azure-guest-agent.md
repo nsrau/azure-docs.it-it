@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/07/2020
 ms.author: genli
-ms.openlocfilehash: c3295365859ad3291a95b616cccc6fa265237a01
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263966"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659467"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Risoluzione dei problemi relativi all'agente guest di Microsoft Azure
 
@@ -102,7 +102,7 @@ L'agente guest di Windows Azure dispone di una funzionalità di aggiornamento au
 
 1. Spostare tutte le cartelle denominate Packages o GuestAgent nella cartella precedente.
 
-1. Scaricare e installare la versione più recente del pacchetto di installazione dell'agente da [qui](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409). Per completare l'installazione sono necessari i diritti di amministratore.
+1. Scaricare e installare la versione più recente del pacchetto di installazione dell'agente da [qui](https://go.microsoft.com/fwlink/?linkid=394789&clcid=0x409). Per completare l'installazione sono necessari i diritti di amministratore.
 
 1. Installare l'agente guest usando il comando seguente:
 

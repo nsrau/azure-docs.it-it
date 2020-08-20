@@ -2,13 +2,13 @@
 title: Configurare l'accesso pubblico al registro
 description: Configurare le regole IP per consentire l'accesso a un registro contenitori di Azure da indirizzi o intervalli di indirizzi IP pubblici selezionati.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523826"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660926"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurare le regole di rete per IP pubblico
 
@@ -61,12 +61,12 @@ az acr network-rule add \
 
 Facoltativamente, disabilitare l'endpoint pubblico nel registro di sistema. La disabilitazione dell'endpoint pubblico sostituisce tutte le configurazioni del firewall. Ad esempio, potrebbe essere necessario disabilitare l'accesso pubblico a un registro protetto in una rete virtuale usando un [collegamento privato](container-registry-private-link.md).
 
+> [!NOTE]
+> Se il registro di sistema è configurato in una rete virtuale con un [endpoint del servizio](container-registry-vnet.md), la disabilitazione dell'accesso all'endpoint pubblico del registro di sistema Disabilita anche l'accesso al registro di sistema all'interno della rete virtuale.
+
 ### <a name="disable-public-access---cli"></a>Disabilitare l'accesso pubblico - Interfaccia della riga di comando
 
-Per disabilitare l'accesso pubblico usando l'interfaccia della riga di comando di Azure, eseguire [az acr update][az-acr-update] e impostare `--public-network-enabled` su `false`. 
-
-> [!NOTE]
-> L'argomento `public-network-enabled` richiede l'interfaccia della riga di comando di Azure 2.6.0 o versione successiva. 
+Per disabilitare l'accesso pubblico usando l'interfaccia della riga di comando di Azure, eseguire [az acr update][az-acr-update] e impostare `--public-network-enabled` su `false`. L'argomento `public-network-enabled` richiede l'interfaccia della riga di comando di Azure 2.6.0 o versione successiva. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false
@@ -102,7 +102,7 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ![Accesso pubblico da tutte le reti][acr-access-all-networks]
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Se viene impostata una regola di rete pubblica o l'accesso pubblico al registro di sistema viene negato, i tentativi di accesso al registro di sistema da una rete pubblica non consentita avranno esito negativo. L'accesso client da dietro un proxy HTTPS avrà esito negativo anche se non è impostata una regola di accesso per il proxy. Verrà visualizzato un messaggio di errore simile a `Error response from daemon: login attempt failed with status: 403 Forbidden` o `Looks like you don't have access to registry` .
 

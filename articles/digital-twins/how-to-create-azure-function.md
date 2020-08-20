@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d9f9957209c6df91185059085f57636a16a3961c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ab013a310997f43d1019d849e87c0cf1b0d151ee
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589402"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661096"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connettere le app di funzioni di Azure per l'elaborazione dei dati
 
@@ -95,8 +95,8 @@ A seconda degli strumenti scelti, è possibile eseguire questa operazione con ge
 Aggiungere le istruzioni using seguenti alla funzione di Azure.
 
 ```csharp
-using Azure.Identity;
 using Azure.DigitalTwins.Core;
+using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
@@ -157,7 +157,7 @@ Usare il comando seguente per creare l'identità gestita dal sistema. Prendere n
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Usare il valore di *principalId* nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo di *proprietario* per l'istanza di Gemelli digitali di Azure:
+Usare il valore *PrincipalId* nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo *proprietario digitale gemelli di Azure (anteprima)* per l'istanza di Azure Digital gemelli. In questo modo si concede all'app per le funzioni l'autorizzazione per l'esecuzione di attività del piano dati.
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"

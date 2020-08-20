@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/4/2019
+ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921017"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661521"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -75,7 +75,7 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 **D: Le richieste sono limitate?**
 
-**R**: l'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative al [Riconoscimento vocale](speech-to-text.md).
+**R**: vedere [quote e limiti per i servizi di riconoscimento vocale](speech-services-quotas-and-limits.md).
 
 **D: come viene addebitato l'audio a doppio canale?**
 
@@ -85,52 +85,14 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 > In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
 
 ## <a name="increasing-concurrency"></a>Aumento della concorrenza
+Vedere [quote e limiti per i servizi di riconoscimento vocale](speech-services-quotas-and-limits.md).
 
-**D: Che cosa è necessario fare se serve una concorrenza più elevata per il modello distribuito rispetto a ciò che viene offerto nel portale?**
-
-**R**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee.
-
-Con le informazioni necessarie, creare una richiesta di supporto nel [portale di supporto di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Non pubblicare le informazioni in alcun canale pubblico (GitHub, StackOverflow,...) indicato nella [pagina del supporto tecnico](support.md).
-
-Per aumentare la concorrenza per un ***modello personalizzato***, sono necessarie le informazioni seguenti:
-
-- Area in cui viene distribuito il modello.
-- ID dell'endpoint del modello distribuito:
-  - Si è arrivati al [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech),
-  - Accedi (se necessario),
-  - Selezionare il progetto e la distribuzione,
-  - Selezionare l'endpoint per cui è necessario l'incremento della concorrenza,
-  - Copiare il `Endpoint ID` .
-
-Per aumentare la concorrenza per un ***modello di base***, sono necessarie le informazioni seguenti:
-
-- Area del servizio
-
-e uno
-
-- un token di accesso per la sottoscrizione (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
-
-o
-
-- ID risorsa per la sottoscrizione:
-  - Passare alla [portale di Azure](https://portal.azure.com),
-  - Selezionare `Cognitive Services` nella casella di ricerca.
-  - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
-  - visualizzare `Properties` per questo servizio.
-  - copiare l'oggetto completo `Resource ID` .
-  
-**D: aumentando il limite di concorrenza si aumenta il costo?**
-
-**R**: No, il costo è basato sull'utilizzo. L'aumento della concorrenza non comporta costi più elevati. Per informazioni dettagliate sui costi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) . 
-  
->[!NOTE]
->I [contenitori](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) non richiedono aumenti ai limiti di concorrenza, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati.
 
 ## <a name="importing-data"></a>Importazione di dati
 
 **D: Qual è il limite di dimensione per un set di dati e perché esiste tale limite?**
 
-**R**: Il limite attuale per un set di dati è 2 GB. Tale limite è dovuto ai vincoli di dimensione dei file per il caricamento HTTP.
+**R**: il limite è dovuto alla restrizione sulla dimensione di un file per il caricamento http. Vedere [quote e limiti per i servizi vocali](speech-services-quotas-and-limits.md) per il limite effettivo.
 
 **D**: È possibile comprimere i file di testo per poter caricare file più grandi?
 
@@ -198,7 +160,7 @@ o
 
 **D: quali esperienze vocali sono migliorate con il modello tenant?**
 
-**R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passano anche un token AAD utente che indica l'appartenenza all'azienda.
+**R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passano anche un token di Azure AD utente che indica l'appartenenza all'azienda.
 
 Le esperienze di sintesi vocale integrate in Office 365, ad esempio la dettatura e la didascalia di PowerPoint, non vengono modificate quando si crea un modello tenant per le applicazioni di servizio vocale.
 

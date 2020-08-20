@@ -3,12 +3,12 @@ title: Gestire e monitorare SQL Server database in una macchina virtuale di Azur
 description: Questo articolo descrive come gestire e monitorare SQL Server database in esecuzione in una macchina virtuale di Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537305"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659586"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -58,7 +58,7 @@ Per monitorare gli avvisi di backup del database:
 Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
 - Tutti i punti di ripristino rimarranno invariati per sempre, tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
-- Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione usato. Per altre informazioni, vedere [Prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+- Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione utilizzato. Per altre informazioni, vedere [Prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 - Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo. I punti di ripristino precedenti scadranno in base ai criteri, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si arrestano i backup ed eliminano i dati.
 
 Per interrompere la protezione per un database:
@@ -117,24 +117,6 @@ Anche se è necessario specificare la durata di conservazione per il backup comp
 
 Per ulteriori informazioni, vedere [SQL Server tipi di backup](backup-architecture.md#sql-server-backup-types).
 
-## <a name="unregister-a-sql-server-instance"></a>Annullare un’istanza SQL &Server
-
-Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la protezione ma prima di eliminare l'insieme di credenziali:
-
-1. Nel dashboard dell'insieme di credenziali, in **Gestisci**, selezionare **Infrastruttura di backup**.  
-
-   ![Selezionare Infrastruttura di backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
-
-2. In **Server di gestione** selezionare **Server protetti**.
-
-   ![Selezionare Server protetti](./media/backup-azure-sql-database/protected-servers.png)
-
-3. In **Server protetti** selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server.
-
-4. Fare clic con il pulsante destro del mouse sul server protetto e selezionare **Annulla registrazione**.
-
-   ![Selezionare Elimina](./media/backup-azure-sql-database/delete-protected-server.jpg)
-
 ## <a name="modify-policy"></a>Modifica dei criteri
 
 Modificare i criteri per modificare la frequenza di backup o il periodo di mantenimento dati.
@@ -160,11 +142,31 @@ In alcuni casi, un'operazione di modifica dei criteri può causare una versione 
 
   ![Correggi criteri non coerenti](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
+## <a name="unregister-a-sql-server-instance"></a>Annullare un’istanza SQL &Server
+
+Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la protezione ma prima di eliminare l'insieme di credenziali:
+
+1. Nel dashboard dell'insieme di credenziali, in **Gestisci**, selezionare **Infrastruttura di backup**.  
+
+   ![Selezionare Infrastruttura di backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+
+2. In **Server di gestione** selezionare **Server protetti**.
+
+   ![Selezionare Server protetti](./media/backup-azure-sql-database/protected-servers.png)
+
+3. In **Server protetti** selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server.
+
+4. Fare clic con il pulsante destro del mouse sul server protetto e selezionare **Annulla registrazione**.
+
+   ![Selezionare Elimina](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server
 
-In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può essere interessata per un motivo o l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrà quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino.
+In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può essere interessata per un motivo o un altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrà quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino. È possibile trovare questa opzione in **infrastruttura di backup** nell'insieme di credenziali di servizi di ripristino.
 
-Usare questa opzione con cautela. Quando viene attivato in una macchina virtuale con un'estensione già integra, questa operazione causerà il riavvio dell'estensione. Ciò può comportare l'esito negativo di tutti i processi in corso. Assicurarsi di verificare la presenza di uno o più [sintomi](backup-sql-server-azure-troubleshoot.md#re-registration-failures) prima di attivare l'operazione di ripetizione della registrazione.
+![Server protetti nell'infrastruttura di backup](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
+
+Questa opzione deve essere usata con attenzione. Quando viene attivato in una macchina virtuale con un'estensione già integra, questa operazione causerà il riavvio dell'estensione. Ciò può comportare l'esito negativo di tutti i processi in corso. Prima di attivare l'operazione di ripetizione della registrazione, verificare la presenza di uno o più [sintomi](backup-sql-server-azure-troubleshoot.md#re-registration-failures).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

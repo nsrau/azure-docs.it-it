@@ -9,15 +9,16 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/04/2020
+ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 754d456f557b6c9500cdb64ee01a42124a18ab9c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+metadata ms.custom: contperfq1
+ms.openlocfilehash: b21b2a9f2d2bd483ed48a4c30b504908bb54a101
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036675"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661438"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemi comuni con la verifica a due fattori e l'account aziendale o dell'istituto di istruzione
 
@@ -31,14 +32,10 @@ Quando 2FV è on, l'accesso dell'account richiede una combinazione dei dati segu
 
 2FV è più sicuro di una semplice password, perché 2FV richiede un elemento che si _conosce_ più qualcosa di cui si _dispone_. Nessun pirata informatico ha il telefono fisico.
 
-<center>
-
-![Immagine concettuale dei metodi di autenticazione](../authentication/media/concept-mfa-howitworks/methods.png)</center>
-
 >[!Important]
 >Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure AD nella [documentazione di Azure AD](https://docs.microsoft.com/azure/active-directory).
->
->Il contenuto di questo articolo fornisce informazioni solo per l'uso dell'account aziendale o dell'istituto di istruzione, ovvero l'account fornito dalla propria organizzazione, ad esempio alain@contoso.com. In caso di problemi con la verifica a due fattori e l'account Microsoft personale, ovvero l'account configurato per se stessi, ad esempio danielle@outlook.com, vedere [Abilitazione o disabilitazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+Questo contenuto è concepito come supporto per l'account aziendale o dell'Istituto di istruzione, che corrisponde all'account fornito dall'organizzazione, ad esempio dritan@contoso.com . Se si verificano problemi con la verifica a due fattori su un account Microsoft personale, ovvero un account configurato autonomamente (ad esempio, danielle@outlook.com ), vedere [attivazione o disattivazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Non si ha il dispositivo mobile con sé
 
@@ -71,7 +68,7 @@ Soluzione | Informazioni aggiuntive
 --------- | ------------
 Riavviare il dispositivo mobile | A volte il dispositivo necessita solo di un aggiornamento. Quando si riavvia il dispositivo, tutti i processi e i servizi in background vengono terminati. Il riavvio arresta anche i componenti principali del dispositivo. Ogni servizio o componente viene aggiornato al riavvio del dispositivo.
 Verificare la correttezza delle informazioni di sicurezza | Assicurarsi che le informazioni per il metodo di verifica di sicurezza siano accurate, in particolare i numeri di telefono. Se si specifica un numero di telefono errato, tutti gli avvisi verranno inviati a tale numero. Fortunatamente, l'utente di tale numero non sarà in grado di eseguire alcuna operazione con gli avvisi, ma si continuerà a non poter accedere al proprio account. Per assicurarsi che le informazioni siano corrette, vedere le istruzioni riportate nell'articolo [Gestire le impostazioni del metodo di verifica a due fattori](multi-factor-authentication-end-user-manage-settings.md).
-Verificare che le notifiche siano abilitate | Verificare che nel dispositivo mobile siano attivate le notifiche. Assicurarsi che siano consentite le modalità di notifica seguenti: <br/><br/> &bull;Chiamate telefoniche <br/> &bull;App di autenticazione <br/> &bull;App per la messaggistica testuale <br/><br/> Assicurarsi che queste modalità creino un avviso _visibile_ sul dispositivo.
+Verificare che le notifiche siano abilitate | Verificare che nel dispositivo mobile siano attivate le notifiche. Assicurarsi che siano consentite le modalità di notifica seguenti: <br/><br/> &bull; Chiamate telefoniche <br/> &bull; App di autenticazione <br/> &bull; App per la messaggistica testuale <br/><br/> Assicurarsi che queste modalità creino un avviso _visibile_ sul dispositivo.
 Assicurarsi che il dispositivo riceva il segnale e di disporre di una connessione Internet | Assicurarsi che il dispositivo mobile riceva le telefonate e gli SMS. Chiedere a un amico di telefonare e inviare un SMS per assicurarsi di ricevere entrambi. Se non si riceve la chiamata o il testo, verificare prima di tutto che il dispositivo mobile sia attivato. Se il dispositivo è acceso, ma non viene ancora ricevuta la chiamata o il testo, probabilmente si è verificato un problema con la rete. È necessario comunicare con il provider. Se si verificano spesso problemi di segnale, è consigliabile usare l'[app Microsoft Authenticator](user-help-auth-app-download-install.md) sul dispositivo mobile. Questa app può generare codici di sicurezza casuali per l'accesso, senza richiedere alcun segnale di rete né alcuna connessione Internet.
 Disabilitare Non disturbare | Assicurarsi di non aver abilitato la funzionalità **Non disturbare** per il dispositivo mobile. Quando questa funzionalità è abilitata, non è consentito l'invio di notifiche al dispositivo mobile. Per istruzioni su come disabilitare questa funzionalità, vedere il manuale del dispositivo mobile.
 Sbloccare i numeri di telefono | Nel Stati Uniti le chiamate vocali da Microsoft provengono dai numeri seguenti: +1 (866) 539 4191, +1 (855) 330 8653 e +1 (877) 668 6536.
