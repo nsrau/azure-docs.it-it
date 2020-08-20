@@ -1,15 +1,15 @@
 ---
 title: 'Avvio rapido: Nuova assegnazione di criteri con i modelli'
 description: In questo argomento di avvio rapido viene usato un modello di Azure Resource Manager (modello ARM) per creare un'assegnazione di criteri per identificare le risorse non conformi.
-ms.date: 05/21/2020
+ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: f4cb4cb1fc56d06ab1e061b2d0e9a031e0e511dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 93c8e907190a3e87c3c0ce3392ccfd7fd4d2e515
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242050"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520873"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
 
@@ -54,7 +54,7 @@ Nel modello è definita la risorsa seguente:
    | Subscription | Selezionare la sottoscrizione di Azure. |
    | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. Nello screenshot il nome del gruppo di risorse è _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Scegliere un'area, Ad esempio **Stati Uniti centrali**. |
-   | Nome assegnazione criteri | Specificare un nome per l'assegnazione di criteri. È anche possibile usare il nome visualizzato della definizione dei criteri, ad esempio **Controlla macchine virtuali che non usano dischi gestiti**. |
+   | Nome assegnazione criteri | Specificare un nome per l'assegnazione di criteri. È anche possibile usare il nome visualizzato della definizione dei criteri, ad esempio _Controlla macchine virtuali che non usano dischi gestiti_. |
    | Nome gruppo di risorse | Specificare il nome di un gruppo di risorse a cui si vogliono assegnare i criteri. In questo argomento di avvio rapido usare il valore predefinito **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** è una funzione di modello che recupera il gruppo di risorse. |
    | ID definizione criteri | Specificare **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Accetto le condizioni riportate sopra | (selezionare) |
@@ -70,7 +70,7 @@ Alcune risorse aggiuntive:
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 
-Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) creata.
+Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione dei criteri _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
 :::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Pagina di panoramica della conformità ai criteri" border="false":::
 
@@ -82,9 +82,9 @@ Per altre informazioni, vedere [Funzionamento della conformità](./how-to/get-co
 
 Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
-1. Selezionare **Conformità** (o **Assegnazioni**) a sinistra della pagina Criteri di Azure e individuare l'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) creata.
+1. Selezionare **Conformità** (o **Assegnazioni**) a sinistra della pagina Criteri di Azure e individuare l'assegnazione dei criteri _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
-1. Fare clic con il pulsante destro del mouse sull'assegnazione di criteri **Controlla macchine virtuali che non usano dischi gestiti** e scegliere **Elimina assegnazione**.
+1. Fare clic con il pulsante destro del mouse sull'assegnazione di criteri _Controlla macchine virtuali che non usano dischi gestiti_ e scegliere **Elimina assegnazione**.
 
    :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Eliminare un'assegnazione dalla pagina di panoramica della conformità" border="false":::
 
