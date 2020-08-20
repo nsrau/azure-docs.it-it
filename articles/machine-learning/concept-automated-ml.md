@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290032"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652101"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Informazioni su Machine Learning automatizzato
 
@@ -105,7 +105,7 @@ Informazioni su come usare una [destinazione di calcolo remota](how-to-auto-trai
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 
-## <a name="feature-engineering"></a>Progettazione di caratteristiche
+## <a name="feature-engineering"></a>Progettazione delle funzioni
 
 La progettazione di funzioni è il processo di utilizzo della conoscenza del dominio dei dati per creare funzionalità che consentono agli algoritmi di Machine Learning di ottenere risultati migliori. In Azure Machine Learning vengono applicate le tecniche di ridimensionamento e normalizzazione per semplificare la progettazione delle funzionalità. Insieme, queste tecniche e progettazione di funzionalità sono denominate conteggi.
 
@@ -202,8 +202,6 @@ Ad esempio, la creazione di un modello __per ogni istanza o unico__ negli scenar
 * Manutenzione predittiva per centinaia di pozzi di petrolio
 * Adattamento di un'esperienza ai singoli utenti
 
-Per altre informazioni, vedere [Acceleratore di soluzioni molti modelli](https://aka.ms/many-models) su GitHub.
-
 ## <a name="automl-in-azure-machine-learning"></a>Machine Learning automatizzato in Azure Machine Learning
 
 Azure Machine Learning offre due esperienze per l'uso di Machine Learning automatizzato
@@ -279,7 +277,7 @@ Le esercitazioni sono esempi introduttivi end-to-end di scenari AutoML.
 
  + **Per un'esperienza di basso o senza codice**, vedere l' [esercitazione: creare modelli di classificazione Machine Learning automatizzati con Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-Gli articoli illustrano in dettaglio le funzionalità offerte da AutoML. ad esempio: 
+Gli articoli illustrano in dettaglio le funzionalità offerte da AutoML. Ad esempio, 
 
 + Configurare le impostazioni per gli esperimenti di training automatici
     + In Azure Machine Learning Studio, [usare questi passaggi](how-to-use-automated-ml-for-ml-models.md). 

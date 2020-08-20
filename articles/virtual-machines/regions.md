@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
-ms.openlocfilehash: 44370b378899228949aa1bddcc92570ad282fe92
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284728"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650554"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Aree per le macchine virtuali in Azure
 
@@ -43,7 +43,7 @@ Ogni area di Azure è associata a un'altra area con la stessa collocazione geogr
 
 Esempi di coppie di aree includono:
 
-| Principale | Secondari |
+| Primaria | Secondari |
 |:--- |:--- |
 | Stati Uniti occidentali |Stati Uniti orientali |
 | Europa settentrionale |Europa occidentale |
@@ -75,11 +75,11 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 
 | Strategia di replica | LRS | ZRS | ARCHIVIAZIONE CON RIDONDANZA GEOGRAFICA | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| I dati vengono replicati in più strutture |No |Sì |sì |sì |
+| I dati vengono replicati in più strutture |No |Sì |Sì |Sì |
 | I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
-Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](./windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
+Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](./managed-disks-overview.md) (Panoramica di Azure Managed Disks).
 
 ### <a name="storage-costs"></a>Costi di archiviazione
 I prezzi variano a seconda del tipo di archiviazione e della disponibilità selezionata.

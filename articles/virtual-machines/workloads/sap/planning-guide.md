@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547410"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652203"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -242,7 +242,7 @@ ms.locfileid: "88547410"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -533,7 +533,7 @@ Quando si distribuiscono servizi o macchine virtuali in Azure, la distribuzione 
 
 ha svolto un ruolo importante nella pianificazione di una distribuzione SAP in Azure. Era necessario gestire il numero di dischi salvati in modo permanente in un account di archiviazione. È necessario gestire gli account di archiviazione e infine creare nuovi account di archiviazione per creare dischi salvati in modo permanente.
 
-Negli ultimi anni, l'introduzione di [Azure Managed disks](../../windows/managed-disks-overview.md) ha sollevato tali attività. La raccomandazione per le distribuzioni SAP consiste nell'usare Azure Managed disks invece di gestire gli account di archiviazione di Azure. Azure Managed disks distribuisce i dischi tra diversi account di archiviazione, quindi non vengono superati i limiti dei singoli account di archiviazione.
+Negli ultimi anni, l'introduzione di [Azure Managed disks](../../managed-disks-overview.md) ha sollevato tali attività. La raccomandazione per le distribuzioni SAP consiste nell'usare Azure Managed disks invece di gestire gli account di archiviazione di Azure. Azure Managed disks distribuisce i dischi tra diversi account di archiviazione, quindi non vengono superati i limiti dei singoli account di archiviazione.
 
 In un account di archiviazione è presente un tipo di cartella denominato "container" che può essere usato per raggruppare determinati dischi in contenitori specifici.
 
@@ -804,7 +804,7 @@ I requisiti per la preparazione del disco della VM di Azure sono:
 
 * In origine, il disco rigido virtuale contenente il sistema operativo può avere una dimensione massima di 127 GB. Questa limitazione è stata eliminata alla fine del mese di marzo 2015. A questo punto il disco rigido virtuale contenente il sistema operativo può avere dimensioni fino a 1 TB come qualsiasi altro disco rigido virtuale ospitato di archiviazione di Azure.
 * Deve essere nel formato disco rigido virtuale fisso. Il disco o i dischi rigidi virtuali dinamici in formato VHDx non sono ancora supportati in Azure. I dischi rigidi virtuali dinamici vengono convertiti in dischi rigidi virtuali statici quando si carica il disco rigido virtuale con i cmdlet di PowerShell o l'interfaccia della riga di comando
-* Anche i dischi rigidi virtuali montati nella macchina virtuale e che devono essere montati nuovamente nella macchina virtuale di Azure devono essere in formato disco rigido virtuale fisso. Leggere [questo articolo (Linux)](../../linux/managed-disks-overview.md) e [questo articolo (Windows)](../../windows/managed-disks-overview.md) per i limiti di dimensioni dei dischi dati. I dischi rigidi virtuali dinamici vengono convertiti in dischi rigidi virtuali statici quando si carica il disco rigido virtuale con i cmdlet di PowerShell o l'interfaccia della riga di comando
+* Anche i dischi rigidi virtuali montati nella macchina virtuale e che devono essere montati nuovamente nella macchina virtuale di Azure devono essere in formato disco rigido virtuale fisso. Leggere [questo articolo](../../managed-disks-overview.md) per i limiti di dimensioni dei dischi dati. I dischi rigidi virtuali dinamici vengono convertiti in dischi rigidi virtuali statici quando si carica il disco rigido virtuale con i cmdlet di PowerShell o l'interfaccia della riga di comando
 * Aggiungere un altro account locale con privilegi di amministratore, che può essere usato dal supporto tecnico Microsoft o assegnato come contesto in cui eseguire servizi e applicazioni finché non viene distribuita la macchina virtuale e non possono essere usati utenti più adatti.
 * Aggiungere altri account locali come quelli che potrebbero essere richiesti per lo scenario di distribuzione specifico.
 
@@ -831,7 +831,7 @@ I requisiti per la preparazione dell'immagine di VM di Azure sono:
 
 * In origine, il disco rigido virtuale contenente il sistema operativo può avere una dimensione massima di 127 GB. Questa limitazione è stata eliminata alla fine del mese di marzo 2015. A questo punto il disco rigido virtuale contenente il sistema operativo può avere dimensioni fino a 1 TB come qualsiasi altro disco rigido virtuale ospitato di archiviazione di Azure.
 * Deve essere nel formato disco rigido virtuale fisso. Il disco o i dischi rigidi virtuali dinamici in formato VHDx non sono ancora supportati in Azure. I dischi rigidi virtuali dinamici vengono convertiti in dischi rigidi virtuali statici quando si carica il disco rigido virtuale con i cmdlet di PowerShell o l'interfaccia della riga di comando
-* Anche i dischi rigidi virtuali montati nella macchina virtuale e che devono essere montati nuovamente nella macchina virtuale di Azure devono essere in formato disco rigido virtuale fisso. Leggere [questo articolo (Linux)](../../windows/managed-disks-overview.md) e [questo articolo (Windows)](../../linux/managed-disks-overview.md) per i limiti di dimensioni dei dischi dati. I dischi rigidi virtuali dinamici vengono convertiti in dischi rigidi virtuali statici quando si carica il disco rigido virtuale con i cmdlet di PowerShell o l'interfaccia della riga di comando
+* Anche i dischi rigidi virtuali montati nella macchina virtuale e che devono essere montati nuovamente nella macchina virtuale di Azure devono essere in formato disco rigido virtuale fisso. Leggere [questo articolo](../../managed-disks-overview.md) per i limiti di dimensioni dei dischi dati. I dischi rigidi virtuali dinamici vengono convertiti in dischi rigidi virtuali statici quando si carica il disco rigido virtuale con i cmdlet di PowerShell o l'interfaccia della riga di comando
 * Aggiungere altri account locali come quelli che potrebbero essere richiesti per lo scenario di distribuzione specifico.
 * Se l'immagine contiene un'installazione di SAP NetWeaver ed è probabile che il nome host venga modificato rispetto al nome originale al momento della distribuzione di Azure, si consiglia di copiare le versioni più recenti del DVD di SAP Software Provisioning Manager nel modello. Questo consentirà di usare facilmente la funzionalità di ridenominazione SAP fornita per adattare il nome host modificato e/o per modificare il SID del sistema SAP all'interno dell'immagine di VM distribuita non appena viene avviata una nuova copia.
 

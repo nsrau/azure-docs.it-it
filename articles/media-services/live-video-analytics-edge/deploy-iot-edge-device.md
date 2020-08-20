@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067905"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652458"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -51,7 +51,7 @@ az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name 
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Eseguire la procedura descritta in questo articolo per ottenere le credenziali per accedere alle API del servizio multimediale: [accedere alle API del servizio multimediale](../latest/access-api-howto.md#use-the-azure-portal).
+Eseguire la procedura descritta in questo articolo per ottenere le credenziali per accedere alle API del servizio multimediale: [accedere alle API del servizio multimediale](../latest/access-api-howto.md?tabs=portal) e selezionare la scheda portale.
 
 ## <a name="create-and-use-local-user-account-for-deployment"></a>Creare e usare un account utente locale per la distribuzione
 Per eseguire l'analisi video in tempo reale sul modulo IoT Edge creare un account utente locale con il minor numero di privilegi possibile. Eseguire ad esempio i comandi seguenti nel computer Linux:
@@ -168,7 +168,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     * {resourceGroupName}: il gruppo di risorse a cui appartiene l'account del servizio multimediale
     * {AMS-account-name}-questo è il nome dell'account di servizi multimediali
     
-    Per ottenere gli altri valori, vedere [accedere all'API di servizi multimediali di Azure](../latest/access-api-howto.md#use-the-azure-portal).  
+    Per ottenere gli altri valori, vedere [accedere all'API servizi multimediali di Azure](../latest/access-api-howto.md?tabs=portal) e selezionare la scheda portale.  
     * aadTenantId: ID del tenant ed è uguale a "AadTenantId" dal collegamento precedente.
     * aadServicePrincipalAppId: ID app dell'entità servizio per l'account del servizio multimediale ed è uguale a "AadClientId" dal collegamento precedente.
     * aadServicePrincipalSecret: si tratta della password dell'entità servizio ed è uguale a "AadSecret" dal collegamento precedente.

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/03/2020
-ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/19/2020
+ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475550"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650894"
 ---
 # <a name="monitor-data-flows"></a>Monitorare i flussi di dati
 
@@ -76,6 +76,10 @@ Ogni fase di trasformazione include il tempo totale necessario per completare la
          ]
 }
 ```
+
+### <a name="post-processing-time"></a>Tempo di post-elaborazione
+
+Quando si seleziona un'icona di trasformazione del sink nella mappa, il pannello scorrevole a destra indicherà un ulteriore punto dati denominato "tempo di elaborazione post" nella parte inferiore. Questa è la quantità di tempo impiegato per l'esecuzione del processo nel cluster Spark *dopo che* i dati sono stati caricati, trasformati e scritti. Questa volta può includere la chiusura dei pool di connessioni, l'arresto del driver, l'eliminazione di file, l'Unione di file e così via. Quando si eseguono azioni nel flusso, ad esempio "spostare file" e "output in un singolo file", è probabile che venga visualizzato un aumento del valore del tempo di elaborazione successivo.
   
 ## <a name="monitor-icons"></a>Icona di monitoraggio
 

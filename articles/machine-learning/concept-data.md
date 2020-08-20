@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff335cd6276083eb76efd74a4921d2bae96cd7c9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875303"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651795"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
@@ -118,5 +118,4 @@ Vedere l'articolo [creare un monitor del set](how-to-monitor-datasets.md) di dat
 ## <a name="next-steps"></a>Passaggi successivi 
 
 + Creare un set di dati in Azure Machine Learning Studio o con Python SDK [seguendo questa procedura.](how-to-create-register-datasets.md)
-+ Provare gli esempi di training del set di dati con i [notebook di esempio](https://aka.ms/dataset-tutorial).
-+ Per esempi di deriva dei dati, vedere questa [esercitazione sulla deviazione dei dati](https://aka.ms/datadrift-notebook).
++ Provare gli esempi di training del set di dati con i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

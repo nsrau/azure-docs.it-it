@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319491"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650418"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Attivazione di applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning (anteprima)
 
@@ -199,7 +199,7 @@ Questo esempio illustra come usare Griglia di eventi con un'app per la logica di
 
 Prima di iniziare, eseguire le azioni seguenti:
 
-* Configurare il monitoraggio di un set di dati per [rilevare la deriva dei dati]( https://aka.ms/datadrift) in un'area di lavoro
+* Configurare il monitoraggio di un set di dati per [rilevare la deriva dei dati](how-to-monitor-datasets.md) in un'area di lavoro
 * Creare una [pipeline di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) pubblicata.
 
 In questo esempio viene usata una semplice pipeline di Data Factory per copiare i file in un archivio BLOB ed eseguire una pipeline di Machine Learning pubblicata. Per altre informazioni su questo scenario, vedere come configurare un [Passaggio di Machine Learning in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)

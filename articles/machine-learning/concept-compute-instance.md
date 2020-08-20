@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f4938d517d9a5c244045798a79f31b96bacd03f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829442"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651916"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -145,36 +145,32 @@ Nell'area di lavoro in Azure Machine Learning Studio creare una nuova istanza di
 
 |Campo  |Descrizione  |
 |---------|---------|
-|Nome del calcolo     |  <li>Il nome è obbligatorio e deve avere una lunghezza compresa tra 3 e 24 caratteri.</li><li>I caratteri validi sono lettere maiuscole e minuscole, cifre e il **-** carattere.</li><li>Il nome deve iniziare con una lettera</li><li>Il nome deve essere univoco in tutti i calcoli esistenti all'interno di un'area di Azure. Se il nome scelto non è univoco, verrà visualizzato un avviso</li><li>Se **-** viene usato il carattere, deve essere seguito da almeno una lettera in un secondo momento nel nome</li>     |
+|Nome del calcolo     |  <li>Il nome è obbligatorio e deve avere una lunghezza compresa tra 3 e 24 caratteri.</li><li>I caratteri validi sono lettere maiuscole e minuscole, cifre e il  **-** carattere.</li><li>Il nome deve iniziare con una lettera</li><li>Il nome deve essere univoco in tutti i calcoli esistenti all'interno di un'area di Azure. Se il nome scelto non è univoco, verrà visualizzato un avviso</li><li>Se **-**  viene usato il carattere, deve essere seguito da almeno una lettera in un secondo momento nel nome</li>     |
 |Tipo di macchina virtuale |  Scegliere CPU o GPU. Questo tipo non può essere modificato dopo la creazione     |
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Abilitare/disabilitare l'accesso SSH     |   L'accesso SSH è disabilitato per impostazione predefinita.  L'accesso SSH non può essere. modificato dopo la creazione. Assicurarsi di abilitare l'accesso se si prevede di eseguire il debug in modo interattivo con [vs code remoto](how-to-set-up-vs-code-remote.md)   |
-|Impostazioni avanzate     |  facoltativo. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.        |
+|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.        |
 
 È anche possibile creare un'istanza nei modi seguenti:
 * Direttamente dall' [esperienza dei notebook integrati](tutorial-1st-experiment-sdk-setup.md#azure)
 * Nel portale di Azure
 * Da Azure Resource Manager modello. Per un modello di esempio, vedere la pagina relativa alla [creazione di un modello di istanza di calcolo Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Con [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Con Azure Machine Learning SDK
 * Dall'estensione dell'interfaccia della riga [di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 I core dedicati per area per ogni quota della famiglia di VM e la quota regionale totale, applicabile alla creazione dell'istanza di calcolo. è unificato e condiviso con Azure Machine Learning quota del cluster di calcolo del training. Se si arresta l'istanza di calcolo, la quota non viene rilasciata per garantire che sia possibile riavviare l'istanza di calcolo.
 
 ## <a name="compute-target"></a>Destinazione del calcolo
 
-Le istanze di calcolo possono essere usate come una [destinazione di calcolo di training](concept-compute-target.md#train) simile ai cluster di training di calcolo di Azure Machine Learning. 
+Le istanze di calcolo possono essere usate come [destinazione di calcolo di training](concept-compute-target.md#train) simile a Azure Machine Learning cluster di calcolo. 
 
 Un'istanza di calcolo:
 * Dispone di una coda di processi.
 * Esegue processi in modo sicuro in un ambiente di rete virtuale, senza richiedere alle aziende di aprire la porta SSH. Il processo viene eseguito in un ambiente in contenitori e inserisce le dipendenze del modello in un contenitore docker.
 * Può eseguire più processi di piccole dimensioni in parallelo (anteprima).  Due processi per core possono essere eseguiti in parallelo mentre il resto dei processi viene accodato.
+* Supporta processi di training distribuiti con più GPU a nodo singolo
 
 È possibile usare l'istanza di calcolo come destinazione di distribuzione di inferenza locale per gli scenari di test/debug.
-
-> [!NOTE]
-> I processi di training distribuiti non sono supportati nell'istanza di calcolo.  Usare (cluster di calcolo) (How-to-set-up-Training-targets. MD # amlcompute) per il training distribuito.
-
-Per altri dettagli, vedere il notebook [Train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Questo notebook è disponibile anche nella cartella **esempi** di studio in *Training/Train-on-computeinstance*.
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Cosa è successo alla macchina virtuale del notebook?
 

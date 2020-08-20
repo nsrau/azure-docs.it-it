@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510233"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650616"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -111,10 +111,7 @@ In generale, l'installazione e la configurazione di Windows, Linux e DBMS sono s
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Struttura delle risorse di archiviazione di una VM per le distribuzioni RDBMS
 Per seguire questo capitolo, è necessario leggere e conoscere le informazioni presenti in [questo capitolo][deployment-guide-3] della [Guida alla distribuzione][deployment-guide]. Prima di leggere questo capitolo, è necessario comprendere e conoscere le diverse serie di macchine virtuali e le differenze tra archiviazione Standard e Premium. 
 
-Per informazioni sull'archiviazione di Azure per le macchine virtuali di Azure, vedere:
-
-- [Introduzione ai dischi gestiti per le macchine virtuali Windows di Azure](../../windows/managed-disks-overview.md).
-- [Introduzione ai dischi gestiti per le macchine virtuali Linux di Azure](../../linux/managed-disks-overview.md).
+Per informazioni sull'archiviazione di Azure per macchine virtuali di Azure, vedere [Introduzione a Managed disks per macchine virtuali di Azure](../../managed-disks-overview.md).
 
 In una configurazione di base, è consigliabile di solito usare una struttura di distribuzione in cui il sistema operativo, il sistema DBMS ed eventuali file binari SAP siano separati dai file di database. Nei sistemi SAP in esecuzione in macchine virtuali di Azure, il disco rigido virtuale di base, o disco, deve preferibilmente essere installato con il sistema operativo, i file eseguibili del sistema di gestione di database e i file eseguibili SAP. 
 

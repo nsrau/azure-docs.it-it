@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 0c78245a64fa9bcb7faef2c07973d1d7b5080e76
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843097"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648786"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Informazioni su FPGA (Field-Programmable Gate Array) e su come eseguire la distribuzione
 
@@ -30,7 +30,7 @@ Un circuito FPGA contiene un array di blocchi programmabili per la logica e una 
 
 ![Diagramma del confronto Azure Machine Learning FPGA](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processore| Abbreviazione |Description|
+|Processore| Abbreviazione |Descrizione|
 |---|:-------:|------|
 |Application-specific integrated circuit|ASIC|I circuiti personalizzati, ad esempio Google TensorFlow Processor Unit (TPU), offrono la massima efficienza. Non possono essere riconfigurati in base alle esigenze.|
 |Field-programmable Gate Arrays|FPGA|I circuiti FPGA, ad esempio quelli disponibili in Azure, assicurano prestazioni simili a quelle dei circuiti ASIC. Sono flessibili e possono essere riconfigurati nel corso del tempo per implementare la nuova logica.|
@@ -163,7 +163,7 @@ Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/
    print(feature_tensor.shape)
    ```
 
-1. Aggiungere un classificatore. Questo classificatore è stato eseguito con training sul set di dati ImageNet.  Nel set di [notebook di esempio](https://aka.ms/aml-notebooks)sono disponibili esempi per il trasferimento dell'apprendimento e il training dei pesi personalizzati.
+1. Aggiungere un classificatore. Questo classificatore è stato eseguito con training sul set di dati ImageNet.  Nel set di [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks)sono disponibili esempi per il trasferimento dell'apprendimento e il training dei pesi personalizzati.
 
    ```python
    classifier_output = model_graph.get_default_classifier(feature_tensor)
@@ -405,7 +405,7 @@ converted_model.delete()
 
 Guarda i notebook, i video e i blog seguenti:
 
-+ Diversi [notebook di esempio](https://aka.ms/aml-accel-models-notebooks)
++ Diversi [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/accelerated-models)
 + Per proteggere i servizi Web di FPGA, vedere il documento relativo ai [servizi Web protetti](how-to-secure-web-service.md) .
 + [Hardware iperscalabile: ML su larga scala in Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063) (Informazioni sul cloud configurabile basato su Microsoft FPGA)

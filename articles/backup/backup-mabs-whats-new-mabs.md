@@ -3,12 +3,12 @@ title: Novità del server di Backup di Microsoft Azure
 description: Il server di Backup di Microsoft Azure offre funzionalità avanzate di backup per la protezione di macchine virtuali, file e cartelle, carichi di lavoro e altro ancora.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: a88b2926141092a9a1aeca988646aa3b69330f90
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190844"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648752"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novità di Backup di Microsoft Azure Server (MAB)
 
@@ -114,7 +114,7 @@ MABS V3 può essere installato con SQL 2017 come database di MABS. È possibile 
 
 ### <a name="windows-server-2019-support"></a>Supporto per Windows Server 2019
 
-MABS V3 può essere installato in Windows Server 2019. Per usare MABS V3 con WS2019, è possibile aggiornare il sistema operativo a WS2019 prima di installare/aggiornare MABS V3 oppure è possibile eseguire l'aggiornamento del sistema operativo successivamente all'installazione/aggiornamento di V3 su WS2016.
+MABS V3 può essere installato in Windows Server 2019. Per usare MAB V3 con WS2019, è possibile aggiornare il sistema operativo a WS2019 prima di installare/aggiornare a MAB V3 oppure è possibile aggiornare il sistema operativo dopo l'installazione o l'aggiornamento di V3 su WS2016.
 
 MABS V3 è una versione completa e può essere installato direttamente in Windows Server 2016, Windows Server 2019 o può essere aggiornato da MABS V2. Prima di eseguire l'aggiornamento o di installare il server di Backup V3, leggere i prerequisiti di installazione.
 In [questo articolo](./backup-azure-microsoft-azure-backup.md#software-package) sono disponibili altre informazioni sulla procedura di installazione/aggiornamento per MABS.

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 093f86f0373791326cf4658bdab7179fbca1307d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e0cb9492f6e0b52cb0816d16be5d67d3b92cfe56
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849659"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651404"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare destinazioni di calcolo per il training del modello 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,7 +127,7 @@ Un ambiente di calcolo di Azure Machine Learning può essere usato su più esecu
 
 Dopo aver collegato l'ambiente di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
 
- ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a>Abbassare il costo del cluster di calcolo
+ ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Abbassare il costo del cluster di calcolo
 
 È anche possibile scegliere di usare [macchine virtuali con priorità bassa](concept-plan-manage-cost.md#low-pri-vm) per eseguire alcuni o tutti i carichi di lavoro. Queste macchine virtuali non hanno una disponibilità garantita e possono essere terminate durante l'uso. Un processo interrotto viene riavviato, non ripreso. 
 
@@ -180,8 +180,6 @@ Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente d
      
     run = experiment.submit(config=src)
     ```
-
-Per altri comandi utili per l'istanza di calcolo, vedere il notebook [Train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Questo notebook è disponibile anche nella cartella **esempi** di studio in *Training/Train-on-computeinstance*.
 
 Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](#submit)
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: f6dc732a512368b007a289c3aaabc3123a696d96
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: c91e9832e4b415a59c12b71964a0da580e9fda21
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505258"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651132"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -59,7 +59,7 @@ Acceleratore di scrittura: [supportato](./how-to-enable-write-accelerator.md)
 
 Calcolatore prezzi: [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
-Altre informazioni sui tipi di dischi: [tipi di disco](./linux/disks-types.md#ultra-disk)
+Altre informazioni sui tipi di dischi: [tipi di disco](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

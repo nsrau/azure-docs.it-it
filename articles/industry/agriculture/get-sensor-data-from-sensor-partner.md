@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508788"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649160"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
@@ -66,13 +66,13 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
     cd
     ```
 
-6. Eseguire il comando seguente. In questo modo si connette un account autenticato da usare per le richieste di Azure AD
+6. Eseguire il comando indicato di seguito. In questo modo si connette un account autenticato da usare per le richieste di Azure AD
 
     ```azurepowershell-interactive
     Connect-AzureAD
     ```
 
-7. Eseguire il comando seguente. Verrà scaricato uno script nella Home Directory.
+7. Eseguire il comando indicato di seguito. Verrà scaricato uno script nella Home Directory.
 
     ```azurepowershell-interactive
 
@@ -87,6 +87,10 @@ Per generare le informazioni precedenti, attenersi alla procedura seguente:
     ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. Il nome dell'endpoint dell'API datahub deve essere in lettere minuscole.
+> 2. Se si copia l'URL del nome del sito Web farmbeats per l'endpoint API datahub, assicurarsi che non sia presente una barra finale (/).
 
 9. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
 

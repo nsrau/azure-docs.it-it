@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dee74c787f6546494d12ea582eab383fbd99079d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876904"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651761"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -90,7 +90,7 @@ Le pipeline di Machine Learning possono usare i metodi di training indicati in p
 * [Esercitazione: Usare le pipeline di Azure Machine Learning per l'assegnazione del punteggio batch](tutorial-pipeline-batch-scoring-classification.md)
 * [Esempi: Esempi per le pipeline di Machine Learning automatizzato con Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Esempi: Pipeline con Machine Learning automatizzato](https://aka.ms/pl-automl)
-* [Esempi: Pipeline con oggetti estimator](https://aka.ms/pl-estimator)
+* [Esempi: Pipeline con oggetti estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
 
 ### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Informazioni su cosa accade quando si invia un processo di training
 
@@ -108,7 +108,7 @@ Il ciclo di vita di formazione di Azure è composto da:
     1. Se non viene trovato, il sistema compila una nuova immagine (che verrà memorizzata nella cache e registrata con l'area di lavoro ACR)
 1. Download del file di progetto compresso nell'archiviazione temporanea nel nodo di calcolo
 1. Decompressione del file di progetto
-1. Nodo di calcolo in esecuzione`python <entry script> <arguments>`
+1. Nodo di calcolo in esecuzione `python <entry script> <arguments>`
 1. Salvataggio dei log, dei file di modello e di altri file scritti nell' `./outputs` account di archiviazione associato all'area di lavoro
 1. Ridimensionamento del calcolo, inclusa la rimozione dell'archiviazione temporanea 
 

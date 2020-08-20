@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284303"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651183"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisiti per la creazione di Gruppi di disponibilità Always On in SQL Server in macchine virtuali di Azure
 
@@ -54,7 +54,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
    ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Selezionare **gruppo di risorse**.
-5. Selezionare **Crea**.
+5. Selezionare **Create** (Crea).
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
 7. Se si hanno più sottoscrizioni di Azure, verificare che la sottoscrizione sia la sottoscrizione di Azure in cui si vuole creare il gruppo di disponibilità.
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
@@ -99,7 +99,7 @@ Per creare la rete virtuale nel portale di Azure:
 
    L'esempio usa il nome di subnet **Admin**. Questa subnet verrà usata per i controller di dominio.
 
-5. Selezionare **Crea**.
+5. Selezionare **Create** (Crea).
 
    ![Configurare la rete virtuale](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
@@ -130,7 +130,7 @@ La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
 | **Campo** | valore |
 | --- | --- |
-| **Name** (Nome) |**autoHAVNET** |
+| **Nome** |**autoHAVNET** |
 | **Spazio degli indirizzi** |Questo valore dipende dagli spazi indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/16. |
 | **Nome della subnet** |**admin** |
 | **Intervallo di indirizzi subnet** |Questo valore dipende dagli intervalli di indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/24 |
@@ -320,7 +320,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
     >Nella pagina **Opzioni DNS** è possibile che venga visualizzato un avviso indicante che non è possibile creare una delega per questo server DNS. È possibile ignorare questo avviso in ambienti non di produzione.
     >
 
-22. Selezionare **Avanti** finché la finestra di dialogo non raggiunge il controllo dei **prerequisiti** . Quindi selezionare **Installa**.
+22. Selezionare **Avanti** finché la finestra di dialogo non raggiunge il controllo dei **prerequisiti** . Selezionare quindi **Installa**.
 
 Quando il server completa le modifiche alla configurazione, riavviare il server.
 
@@ -380,7 +380,7 @@ Prima di procedere, considerare le seguenti decisioni di progettazione.
 
 * **Archiviazione - Azure Managed Disks**
 
-   Per l'archiviazione delle macchine virtuali, usare Azure Managed Disks. Microsoft consiglia Managed Disks per le macchine virtuali di SQL Server. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. Per altre informazioni, vedere [Panoramica di Azure Managed Disks](../../../virtual-machines/linux/managed-disks-overview.md). Per informazioni dettagliate sui dischi gestiti in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Per l'archiviazione delle macchine virtuali, usare Azure Managed Disks. Microsoft consiglia Managed Disks per le macchine virtuali di SQL Server. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. Per altre informazioni, vedere [Panoramica di Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Per informazioni dettagliate sui dischi gestiti in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Rete - Indirizzi IP privati nell'ambiente di produzione**
 

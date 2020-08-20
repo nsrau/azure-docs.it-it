@@ -3,12 +3,12 @@ title: Materiale sussidiario e procedure consigliate
 description: Scopri le procedure consigliate e le linee guida per il backup del carico di lavoro cloud e locale nel cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808628"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650877"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Eseguire il backup di carichi di lavoro cloud e locali nel cloud
 
@@ -175,7 +175,7 @@ Backup di Azure richiede lo spostamento dei dati dal carico di lavoro all'insiem
 
 * *Backup di macchine* virtuali di Azure: tutte le comunicazioni e il trasferimento dei dati necessari tra archiviazione e il servizio backup di Azure avvengono all'interno della rete di Azure senza dover accedere alla rete virtuale. Quindi, il backup delle macchine virtuali di Azure inserite all'interno di reti protette non richiede l'accesso a qualsiasi IP o FQDN.
 
-* *SAP Hana database in una macchina virtuale di Azure, SQL Server database in una macchina virtuale di Azure* : richiede la connettività al servizio backup di Azure, archiviazione di azure e Azure Active Directory. Questa operazione può essere eseguita usando endpoint privati oppure consentendo l'accesso agli indirizzi IP pubblici o FQDN richiesti. Non consentire una connettività corretta ai servizi di Azure necessari può causare errori nelle operazioni quali l'individuazione del database, la configurazione del backup, l'esecuzione di backup e il ripristino dei dati. Per informazioni complete sulla rete quando si usano i tag NSG, il firewall di Azure e il proxy HTTP, vedere questi articoli su [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) e [SAP Hana](./backup-azure-sap-hana-database.md#establish-network-connectivity) .
+* *SAP Hana database in una macchina virtuale di Azure, SQL Server database in una macchina virtuale di Azure* : richiede la connettività al servizio backup di Azure, archiviazione di azure e Azure Active Directory. Questa operazione può essere eseguita usando endpoint privati oppure consentendo l'accesso agli indirizzi IP pubblici o FQDN richiesti. Non consentire una connettività corretta ai servizi di Azure necessari può causare errori nelle operazioni quali l'individuazione del database, la configurazione del backup, l'esecuzione di backup e il ripristino dei dati. Per informazioni complete sulla rete quando si usano i tag NSG, il firewall di Azure e il proxy HTTP, vedere questi articoli relativi a [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) e [SAP Hana](./backup-azure-sap-hana-database.md#establish-network-connectivity) .
 
 * *Ibrido* : l'agente MARS (servizi di ripristino di Microsoft Azure) richiede l'accesso alla rete per tutte le operazioni critiche, ovvero installazione, configurazione, backup e ripristino. L'agente MARS può connettersi al servizio backup di Azure tramite [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) usando il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft, usando [endpoint privati](install-mars-agent.md#private-endpoints) o tramite [proxy/firewall con controlli di accesso appropriati](install-mars-agent.md#verify-internet-access).
 
@@ -189,7 +189,7 @@ Backup di Azure richiede lo spostamento dei dati dal carico di lavoro all'insiem
 
 ## <a name="governance-considerations"></a>Considerazioni sulla governance
 
-La governance in Azure viene implementata principalmente con [criteri di Azure](../governance/policy/overview.md) e [Gestione costi di Azure](../cost-management-billing/cost-management-billing-overview.md). [Criteri di Azure](../governance/policy/overview.md) consente di creare, assegnare e gestire le definizioni dei criteri per applicare le regole alle risorse. Questa funzionalità consente di mantenere tali risorse conformi agli standard dell'azienda. [Gestione costi di Azure](../cost-management-billing/cost-management-billing-overview.md) consente di tenere traccia dell'uso del cloud e delle spese per le risorse di Azure e altri provider di servizi cloud. Inoltre, gli strumenti seguenti, ad esempio [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) e [Azure Advisor](../advisor/advisor-overview.md) svolgono un ruolo importante nel processo di gestione dei costi.
+La governance in Azure viene implementata principalmente con [criteri di Azure](../governance/policy/overview.md) e [Gestione costi di Azure](../cost-management-billing/cost-management-billing-overview.md). [Criteri di Azure](../governance/policy/overview.md) consente di creare, assegnare e gestire le definizioni dei criteri per applicare le regole alle risorse. Questa funzionalità consente di mantenere tali risorse conformi agli standard dell'azienda. [Gestione costi di Azure](../cost-management-billing/cost-management-billing-overview.md) consente di tenere traccia dell'uso del cloud e delle spese per le risorse di Azure e altri provider di servizi cloud. Inoltre, gli strumenti seguenti, ad esempio [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) e [Azure Advisor](../advisor/advisor-overview.md)  svolgono un ruolo importante nel processo di gestione dei costi.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Backup di Azure supporta due scenari principali tramite criteri predefiniti di Azure
 

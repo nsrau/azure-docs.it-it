@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: acd030d8108ef3983be29fe85de6d7b3caf620af
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b20612756050ae2e9d39f59d049b8c097e3b8010
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849336"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651217"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -90,7 +90,7 @@ Questo codice crea un oggetto estimatore generico, `est` , che specifica
 
 * Directory di script per gli script. Tutti i file in questa directory vengono caricati nei nodi del cluster per l'esecuzione.
 * Script di training, *train_titanic. py*.
-* Set di dati di input per il training `titanic_ds` . `as_named_input()`è necessario per fare riferimento al set di dati di input in base al nome assegnato `titanic` nello script di training. 
+* Set di dati di input per il training `titanic_ds` . `as_named_input()` è necessario per fare riferimento al set di dati di input in base al nome assegnato `titanic` nello script di training. 
 * Destinazione di calcolo per l'esperimento.
 * Definizione dell'ambiente per l'esperimento.
 
@@ -115,7 +115,7 @@ Nell'esempio seguente viene creato un oggetto filedataset e il set di dati viene
 
 ### <a name="create-a-filedataset"></a>Creare un oggetto FileDataset
 
-Nell'esempio seguente viene creato un oggetto filedataset non registrato da URL Web. Altre informazioni su [come creare set di impostazioni](https://aka.ms/azureml/howto/createdatasets) da altre origini.
+Nell'esempio seguente viene creato un oggetto filedataset non registrato da URL Web. Altre informazioni su [come creare set di impostazioni](how-to-create-register-datasets.md) da altre origini.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -201,7 +201,7 @@ Quando si **Scarica** un set di dati, tutti i file a cui fa riferimento il set d
 
 Se lo script elabora tutti i file a cui fa riferimento il set di dati e il disco di calcolo può adattarsi al set di dati completo, è consigliabile scaricare il download per evitare il sovraccarico del flusso dei dati dai servizi di archiviazione. Se le dimensioni dei dati superano le dimensioni del disco di calcolo, il download non è possibile. Per questo scenario, è consigliabile montare poiché solo i file di dati usati dallo script vengono caricati al momento dell'elaborazione.
 
-Il codice seguente viene montato `dataset` sulla directory Temp in`mounted_path`
+Il codice seguente viene montato `dataset` sulla directory Temp in `mounted_path`
 
 ```python
 import tempfile

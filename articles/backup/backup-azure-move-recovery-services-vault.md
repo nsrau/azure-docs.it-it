@@ -4,12 +4,12 @@ description: Istruzioni su come spostare l'insieme di credenziali di servizi di 
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612572"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650914"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -141,7 +141,7 @@ Per spostare in una nuova sottoscrizione, inserire il parametro `--destination-s
 ## <a name="post-migration"></a>Dopo la migrazione
 
 1. Impostare/verificare i controlli di accesso per i gruppi di risorse.  
-2. La funzionalità di creazione di report e monitoraggio di Backup deve essere configurata nuovamente per l'insieme di credenziali dopo il completamento dello spostamento. La configurazione precedente andrà persa durante l'operazione di spostamento.
+2. Una volta completata la migrazione, è necessario configurare nuovamente la funzionalità di monitoraggio e creazione di report di backup per l'insieme di credenziali. La configurazione precedente andrà persa durante l'operazione di spostamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

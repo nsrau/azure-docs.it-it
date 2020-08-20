@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507829"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652186"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guida del backup di SAP HANA in macchine virtuali di Azure
 
@@ -45,7 +45,7 @@ Il primo scenario illustrato è uno scenario in cui il servizio backup di Azure 
 
 Backup di Azure si integra ed è certificato come soluzione di backup per SAP HANA usando l'interfaccia proprietaria SAP HANA denominata [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Per altri dettagli sulla soluzione, sulle funzionalità e sulle aree di Azure in cui è disponibile, leggere l'articolo [matrice di supporto per il backup di database SAP Hana nelle VM di Azure](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). Per informazioni dettagliate e principi relativi al servizio backup di Azure per HANA, vedere l'articolo [relativo al backup di database SAP Hana nelle VM di Azure](../../../backup/sap-hana-db-about.md). 
 
-La seconda possibilità per sfruttare il servizio backup di Azure consiste nel creare un backup coerente con l'applicazione usando snapshot del disco di archiviazione Premium di Azure. Altre archiviazioni di Azure certificate HANA, come [Azure ultra disk](../../linux/disks-enable-ultra-ssd.md) e [Azure NetApp files](https://azure.microsoft.com/services/netapp/) non supportano questo tipo di snapshot tramite il servizio backup di Azure. Leggere questi articoli:
+La seconda possibilità per sfruttare il servizio backup di Azure consiste nel creare un backup coerente con l'applicazione usando snapshot del disco di archiviazione Premium di Azure. Altre archiviazioni di Azure certificate HANA, come [Azure ultra disk](../../disks-enable-ultra-ssd.md) e [Azure NetApp files](https://azure.microsoft.com/services/netapp/) non supportano questo tipo di snapshot tramite il servizio backup di Azure. Leggere questi articoli:
 
 - [Pianificare l'infrastruttura di backup delle VM in Azure](../../../backup/backup-azure-vms-introduction.md)
 - [Backup coerente con le applicazioni per macchine virtuali Linux in Azure](../../../backup/backup-azure-linux-app-consistent.md) 

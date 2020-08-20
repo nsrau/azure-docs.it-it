@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 75573cb49bcc0aca206ad8f13f060121e70a0621
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: dd245ddfa7f6be90e37bacc0797a3af4adc8bb96
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760618"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650435"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver su macchine virtuali di Azure su SUSE Linux Enterprise Server con Azure NetApp Files per applicazioni SAP
 
@@ -163,7 +163,7 @@ L'architettura di SAP NetWeaver presentata in questo articolo usa un singolo poo
    7. volume sap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>aas)
 
    
-In questo esempio è stato usato Azure NetApp Files per tutti i file system di SAP NetWeaver per dimostrare come è possibile usare Azure NetApp Files. I file system SAP che non devono essere montati tramite NFS possono anche essere distribuiti come [archiviazione su disco di Azure](../../windows/disks-types.md#premium-ssd). In questo esempio <b>a-e</b> deve trovarsi in Azure NetApp Files e <b>f-g</b> (ovvero /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) può essere distribuito come archiviazione su disco di Azure. 
+In questo esempio è stato usato Azure NetApp Files per tutti i file system di SAP NetWeaver per dimostrare come è possibile usare Azure NetApp Files. I file system SAP che non devono essere montati tramite NFS possono anche essere distribuiti come [archiviazione su disco di Azure](../../disks-types.md#premium-ssd). In questo esempio <b>a-e</b> deve trovarsi in Azure NetApp Files e <b>f-g</b> (ovvero /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) può essere distribuito come archiviazione su disco di Azure. 
 
 ### <a name="important-considerations"></a>Considerazioni importanti
 

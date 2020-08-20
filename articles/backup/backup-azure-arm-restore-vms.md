@@ -4,12 +4,12 @@ description: Ripristinare una macchina virtuale di Azure da un punto di ripristi
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263011"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651149"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
@@ -184,7 +184,7 @@ L'esperienza utente per il ripristino dell'area secondaria sarà simile all'espe
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>Ripristino di macchine virtuali e dischi non gestiti gestiti
 
-Viene fornita un'opzione per ripristinare i [dischi non gestiti](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) come [dischi gestiti](../virtual-machines/windows/managed-disks-overview.md) durante il ripristino. Per impostazione predefinita, le VM o i dischi non gestiti vengono ripristinati come VM/dischi non gestiti. Tuttavia, se si sceglie di eseguire il ripristino come VM/dischi gestiti, è ora possibile eseguire questa operazione. Questi ripristini non vengono attivati dalla fase di snapshot, ma solo dalla fase dell'insieme di credenziali. Questa funzionalità non è disponibile per le macchine virtuali crittografate non gestite.
+Viene fornita un'opzione per ripristinare i [dischi non gestiti](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) come [dischi gestiti](../virtual-machines/managed-disks-overview.md) durante il ripristino. Per impostazione predefinita, le VM o i dischi non gestiti vengono ripristinati come VM/dischi non gestiti. Tuttavia, se si sceglie di eseguire il ripristino come VM/dischi gestiti, è ora possibile eseguire questa operazione. Questi ripristini non vengono attivati dalla fase di snapshot, ma solo dalla fase dell'insieme di credenziali. Questa funzionalità non è disponibile per le macchine virtuali crittografate non gestite.
 
 ![Ripristino come Managed Disks](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 
