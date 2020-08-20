@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali di servizi di ripristino di backup di Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257963"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652829"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -18,7 +18,7 @@ Questo articolo descrive come eliminare un insieme di credenziali di servizi di 
 
 Non è possibile eliminare un insieme di credenziali di Servizi di ripristino con una delle seguenti dipendenze:
 
-- Non è possibile eliminare un insieme di credenziali che contiene origini dati protette, ad esempio macchine virtuali IaaS, database SQL, condivisioni file di Azure e così via.  
+- Non è possibile eliminare un insieme di credenziali che contiene origini dati protette, ad esempio macchine virtuali IaaS, database SQL, condivisioni file di Azure.
 - Non è possibile eliminare un insieme di credenziali che contiene i dati di backup. Una volta eliminati, i dati di backup entrano nello stato di eliminazione temporanea.
 - Non è possibile eliminare un insieme di credenziali che contiene i dati di backup nello stato di eliminazione temporanea.
 - Non è possibile eliminare un insieme di credenziali con account di archiviazione registrati.
@@ -45,7 +45,7 @@ Per eliminare correttamente un insieme di credenziali, è necessario seguire i p
   - **Elementi protetti dal cloud**: andare al menu del dashboard dell'insieme di credenziali > **gli elementi di backup**. Tutti gli elementi elencati di seguito devono essere rimossi con **Interrompi backup** o **Elimina dati di backup** insieme ai relativi dati di backup.  Per rimuovere tali elementi, [attenersi alla seguente procedura](#delete-protected-items-in-the-cloud) .
   - **SQL Server istanza**: andare al menu del dashboard dell'insieme **Backup Infrastructure**di credenziali >  >  **server protetti**dell'infrastruttura di backup. In Server protetti selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server. Fare clic con il pulsante destro del mouse sul server protetto e selezionare **Annulla registrazione**.
   - **Server protetti Mars**: accedere al menu del dashboard dell'insieme **Backup Infrastructure**di credenziali >  >  **server protetti**dell'infrastruttura di backup. Se sono presenti server protetti da MARS, tutti gli elementi elencati di seguito devono essere eliminati insieme ai relativi dati di backup. Per eliminare server protetti da MARS, [seguire questa procedura](#delete-protected-items-on-premises) .
-   - **Server di gestione MAB o DPM**: andare al menu del dashboard dell'insieme di credenziali > **backup infrastruttura**  >  **backup server di gestione**. Se si dispone di DPM o server di Backup di Azure (MAB), è necessario eliminare o annullare la registrazione di tutti gli elementi elencati di seguito insieme ai relativi dati di backup. Per eliminare i server di gestione, [attenersi alla seguente procedura](#delete-protected-items-on-premises) .
+  - **Server di gestione MAB o DPM**: andare al menu del dashboard dell'insieme di credenziali > **backup infrastruttura**  >  **backup server di gestione**. Se si dispone di DPM o server di Backup di Azure (MAB), è necessario eliminare o annullare la registrazione di tutti gli elementi elencati di seguito insieme ai relativi dati di backup. Per eliminare i server di gestione, [attenersi alla seguente procedura](#delete-protected-items-on-premises) .
 
 - **Passaggio 4**: è necessario assicurarsi che tutti gli account di archiviazione registrati vengano eliminati. Passare al menu del dashboard dell'insieme di credenziali > account di archiviazione dell'infrastruttura di **backup**  >  **Storage Accounts**. Se gli account di archiviazione sono elencati qui, è necessario annullare la registrazione di tutti gli account. Per informazioni su come annullare la registrazione dell'account, vedere [annullare la registrazione di un account di archiviazione](manage-afs-backup.md#unregister-a-storage-account).
 
@@ -234,7 +234,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Post in cui viene visualizzato il messaggio seguente:
+    Successivamente, verrà visualizzato il messaggio seguente:
 
     *Backup di Microsoft Azure rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente. <br/> [Y] Sì [a] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*
 
@@ -244,7 +244,7 @@ Per arrestare la protezione ed eliminare i dati di backup:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Post in cui viene visualizzato il messaggio seguente:
+    Successivamente, verrà visualizzato il messaggio seguente:
 
    *Backup di Microsoft Azure* Rimuovere il criterio di backup? I dati di backup eliminati verranno conservati per 14 giorni. Dopo tale periodo, verranno eliminati definitivamente. <br/>
    [Y] Sì [A] Sì a tutti [N] no [L] no a tutti [S] Sospendi [?] Guida (il valore predefinito è "Y"):*

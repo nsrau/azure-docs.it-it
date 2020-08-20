@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835732"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652781"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -193,9 +193,8 @@ Le macchine virtuali di Azure usano dischi per archiviare il sistema operativo, 
 
 Per altre informazioni sull'archiviazione su disco e sui tipi di dischi disponibili per le macchine virtuali, vedere questi articoli:
 
-- [Azure Managed disks per macchine virtuali Windows](../virtual-machines/windows/managed-disks-overview.md)
-- [Azure Managed disks per macchine virtuali Linux](../virtual-machines/linux/managed-disks-overview.md)
-- [Tipi di dischi disponibili per le macchine virtuali](../virtual-machines/windows/disks-types.md)
+- [Azure Managed disks per macchine virtuali Linux](../virtual-machines/managed-disks-overview.md)
+- [Tipi di dischi disponibili per le macchine virtuali](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Eseguire il backup e il ripristino di macchine virtuali di Azure con archiviazione Premium
 
@@ -204,7 +203,7 @@ Per altre informazioni sull'archiviazione su disco e sui tipi di dischi disponib
 - Durante il processo di backup di macchine virtuali con archiviazione Premium, il servizio di backup crea un percorso di gestione temporanea, denominato *AzureBackup*, nell'account di archiviazione. Le dimensioni del percorso di gestione temporanea equivalgono alla dimensione dello snapshot del punto di ripristino.
 - Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. Per altre informazioni, vedere [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Non modificare il percorso di gestione temporanea.
 - Al termine del processo di backup, il percorso di gestione temporanea viene eliminato.
-- Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con i [prezzi dell'archiviazione Premium](../virtual-machines/windows/disks-types.md#billing).
+- Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con i [prezzi dell'archiviazione Premium](../virtual-machines/disks-types.md#billing).
 
 Quando si ripristinano le macchine virtuali di Azure usando archiviazione Premium, è possibile ripristinarle nell'archiviazione Premium o standard. In genere, è necessario ripristinarli in archiviazione Premium. Tuttavia, se è necessario solo un subset di file dalla macchina virtuale, potrebbe essere conveniente ripristinarli nell'archiviazione standard.
 

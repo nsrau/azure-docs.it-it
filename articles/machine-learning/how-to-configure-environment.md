@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09d82c4834e50e0dff74edb5ccd14287736b937e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844474"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652639"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Per abilitare questi componenti nell'ambiente Jupyter Notebook:
     conda activate myenv
     ```
 
-1. Clonare [il repository GitHub](https://aka.ms/aml-notebooks) per un set di notebook di esempio.
+1. Clonare [il repository GitHub](https://github.com/Azure/MachineLearningNotebooks) per un set di notebook di esempio.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
@@ -303,7 +303,7 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
 
 1. Scegliere **una sola** opzione (non sono supportate altre installazioni SDK)
 
-   |&nbsp;Funzionalità aggiuntive del pacchetto SDK &nbsp;|Origine|&nbsp;Nome pypi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |&nbsp;Funzionalità aggiuntive del pacchetto SDK &nbsp;|Source (Sorgente)|&nbsp;Nome pypi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Per databricks| Caricare Python Egg o PyPI | azureml-sdk[databricks]|
    |Per databricks-con-<br> funzionalità di Machine Learning automatiche| Caricare Python Egg o PyPI | azureml-SDK [automl]|
@@ -312,7 +312,7 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
    > Non è possibile installare altri SDK aggiuntivi. Scegliere solo una delle opzioni precedenti [databricks] o [automl].
 
    * Non selezionare **Connetti automaticamente a tutti i cluster**.
-   * Selezionare **Connetti** accanto al nome del cluster.
+   * Selezionare  **Connetti** accanto al nome del cluster.
 
 1. Consente di monitorare gli errori fino a quando lo stato non diventa **collegato**, operazione che può richiedere alcuni minuti.  Se questo passaggio ha esito negativo:
 
@@ -323,8 +323,8 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
 
    Prendere in considerazione anche:
    + In AutoML config, quando si usa Azure Databricks aggiungere i parametri seguenti:
-       1. ```max_concurrent_iterations```si basa sul numero di nodi del ruolo di lavoro nel cluster.
-        2. ```spark_context=sc```si basa sul contesto Spark predefinito.
+       1. ```max_concurrent_iterations``` si basa sul numero di nodi del ruolo di lavoro nel cluster.
+        2. ```spark_context=sc``` si basa sul contesto Spark predefinito.
    + In alternativa, se si dispone di una versione precedente dell'SDK, deselezionarla dalle librerie installate del cluster e spostarla nel Cestino. Installare la nuova versione dell'SDK e riavviare il cluster. Se si verifica un problema dopo il riavvio, scollegare e riconnettere il cluster.
 
 Se l'installazione ha avuto esito positivo, la libreria importata avrà un aspetto simile al seguente:
@@ -361,9 +361,9 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 
 È possibile creare il file di configurazione in tre modi:
 
-* **Usare [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: per scrivere un *config.jssul* file. che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
+* **Usare  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: per scrivere un *config.jssul* file. che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
 
-* **Scaricare il file**: nella [portale di Azure](https://ms.portal.azure.com)Selezionare **Scarica config.js** da nella sezione **Panoramica** dell'area di lavoro.
+* **Scaricare il file**: nella [portale di Azure](https://ms.portal.azure.com)Selezionare  **Scarica config.js** da nella sezione **Panoramica** dell'area di lavoro.
 
      ![Portale di Azure](./media/how-to-configure-environment/configure.png)
 
