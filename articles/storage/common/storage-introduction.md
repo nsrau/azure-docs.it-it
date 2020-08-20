@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133790"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653801"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure di base
 
@@ -33,7 +33,7 @@ La piattaforma di archiviazione di Azure include i servizi dati seguenti:
 - [File di Azure](../files/storage-files-introduction.md): condivisioni file gestite per distribuzioni cloud o locali.
 - [Code di Azure](../queues/storage-queues-introduction.md): archivio di messaggistica per una messaggistica affidabile tra i componenti delle applicazioni.
 - [Tabelle di Azure](../tables/table-storage-overview.md): archivio NoSQL per l'archiviazione senza schema di dati strutturati.
-- [Dischi di Azure](../../virtual-machines/windows/managed-disks-overview.md): volumi di archiviazione a livello di blocco per le macchine virtuali di Azure.
+- [Dischi di Azure](../../virtual-machines/managed-disks-overview.md): volumi di archiviazione a livello di blocco per le macchine virtuali di Azure.
 
 Ogni servizio è accessibile tramite un account di archiviazione. Per iniziare, vedere [Creare un account di archiviazione](storage-account-create.md).
 
@@ -53,11 +53,11 @@ Nella tabella seguente vengono confrontati i file, i BLOB, i dischi, le code e l
 
 L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archivio BLOB è ottimizzato per l'archiviazione di enormi quantità di dati non strutturati, come dati di testo o binari.
 
-L'archivio BLOB è ideale per le operazioni seguenti:
+È ideale per:
 
 - Invio di immagini o documenti direttamente in un browser.
 - Archiviazione di file per l'accesso distribuito.
-- Flussi audio e video.
+- Streaming di audio e video.
 - Archiviazione di dati per backup e ripristino, ripristino di emergenza e archiviazione.
 - Archiviazione di dati a scopo di analisi da parte di un servizio locale o ospitato in Azure.
 
@@ -67,7 +67,7 @@ Per altre informazioni sull'archiviazione BLOB, vedere [Introduzione all'archivi
 
 ## <a name="azure-files"></a>File di Azure
 
-[File di Azure](../files/storage-files-introduction.md) consente di configurare condivisioni file di rete a disponibilità elevata a cui è possibile accedere usando il protocollo Server Message Block (SMB) standard. Più VM possono quindi condividere gli stessi file con accesso sia in lettura che in scrittura. È possibile leggere i file usando l'interfaccia REST o le librerie dei client di archiviazione.
+[File di Azure](../files/storage-files-introduction.md) consente di configurare condivisioni file di rete a disponibilità elevata a cui è possibile accedere tramite il protocollo SMB (Server Message Block) standard. Più VM possono quindi condividere gli stessi file con accesso sia in lettura che in scrittura. È possibile leggere i file anche usando l'interfaccia REST o le librerie client di archiviazione.
 
 Una delle differenze tra File di Azure e i file in una condivisione file aziendale è la possibilità di accedere ai file da qualsiasi parte del mondo usando un URL che punta al file e include un token di firma di accesso condiviso. È possibile generare token di firma di accesso condiviso, che consentono l'accesso specifico a un asset privato per un periodo di tempo specifico.
 
@@ -83,15 +83,15 @@ Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](.
 
 Alcune funzionalità SMB non sono applicabili al cloud. Per altre informazioni, vedere [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Funzionalità non supportate da Servizio file di Azure).
 
-## <a name="queue-storage"></a>Archiviazione - Code
+## <a name="queue-storage"></a>Archiviazione code
 
-Il servizio di accodamento di Azure viene usato per archiviare e recuperare i messaggi. La dimensione massima dei messaggi nella coda può essere di 64 KB e una coda può contenere milioni di messaggi. Le code vengono in genere usate per archiviare elenchi di messaggi da elaborare in modo asincrono.
+Il Servizio di accodamento di Azure viene usato per archiviare e recuperare i messaggi. La dimensione massima dei messaggi nella coda può essere di 64 KB e una coda può contenere milioni di messaggi. Le code vengono in genere usate per archiviare elenchi di messaggi da elaborare in modo asincrono.
 
 Si supponga ad esempio che si voglia consentire ai clienti di caricare immagini e che si voglia creare un'anteprima per ogni immagine. È possibile creare le anteprime lasciando in attesa il cliente durante il caricamento delle immagini oppure usare una coda. Quando il cliente termina il caricamento, scrive un messaggio nella coda. Funzioni di Azure recupera quindi il messaggio dalla coda e crea le anteprime. Ogni parte di questa elaborazione può essere ridimensionata separatamente, offrendo un maggiore controllo per l'ottimizzazione ai fini dell'utilizzo.
 
 Per altre informazioni sulle code di Azure, vedere [Introduzione alle code](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Archiviazione - Tabelle
+## <a name="table-storage"></a>Archiviazione tabelle
 
 L'archiviazione tabelle di Azure è ora inclusa in Azure Cosmos DB. Per la documentazione sull'archiviazione tabelle di Azure, vedere [Panoramica di Archiviazione tabelle di Azure](../tables/table-storage-overview.md). Oltre al servizio di archiviazione tabelle di Azure esistente, è disponibile una nuova API Tabelle di Azure Cosmos DB che offre tabelle con ottimizzazione per la velocità effettiva, distribuzione globale e indici secondari automatici. Per ulteriori informazioni e per provare la nuova esperienza Premium, vedere [Azure Cosmos DB API tabella](https://aka.ms/premiumtables).
 
@@ -101,7 +101,7 @@ Per altre informazioni sull'archivio tabelle, vedere [Panoramica di Archiviazion
 
 Un disco gestito di Azure è un disco rigido virtuale. È possibile considerarlo come un disco fisico in un server locale, ma virtualizzato. I dischi gestiti di Azure vengono archiviati come BLOB di pagine, ovvero un oggetto di archiviazione IO casuale in Azure. Viene chiamato un disco gestito ' gestito ' perché è un'astrazione su BLOB di pagine, contenitori BLOB e account di archiviazione di Azure. Con i dischi gestiti, è sufficiente effettuare il provisioning del disco e Azure si occupa di tutto il resto.
 
-Per altre informazioni su Managed disks, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md).
+Per altre informazioni su Managed disks, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Tipi di account di archiviazione
 
@@ -147,7 +147,7 @@ Quando si decide la modalità di archiviazione e di accesso ai dati, è consigli
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Informazioni di riferimento su librerie e API di dati di Archiviazione di Azure
 
-- [API REST di archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/)
+- [API REST di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/)
 - [Libreria client di archiviazione di Azure per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Libreria client di archiviazione di Azure per Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
 - [Libreria client di archiviazione di Azure per Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)

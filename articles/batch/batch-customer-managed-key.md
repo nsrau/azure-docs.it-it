@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053746"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654889"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurare chiavi gestite dal cliente per l'account Azure Batch con Azure Key Vault e identità gestite
 
@@ -19,7 +19,7 @@ Per impostazione predefinita Azure Batch USA chiavi gestite dalla piattaforma pe
 Le chiavi fornite devono essere generate in [Azure Key Vault](../key-vault/general/basic-concepts.md)e gli account batch che si vuole configurare con le chiavi gestite dal cliente devono essere abilitati con l' [identità gestita di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Il supporto per le chiavi gestite dal cliente in Azure Batch è attualmente disponibile in anteprima pubblica per le aree Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, US Gov Virginia e US Gov Arizona.
+> Il supporto per le chiavi gestite dal cliente in Azure Batch è attualmente disponibile in anteprima pubblica per le aree Europa occidentale, Europa settentrionale, Svizzera settentrionale, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali 2, US Gov Virginia e US Gov Arizona.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -82,7 +82,7 @@ Nel campo **Seleziona** in **principale**, compilare il `principalId` precedente
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Generare una chiave in Azure Key Vault
 
-Nel portale di Azure passare all'istanza di Key Vault nella sezione **chiave** , selezionare **genera/importa**. Selezionare il **tipo di chiave** `RSA` e la **dimensione della chiave RSA** come almeno `2048` bit. `EC`i tipi di chiave non sono attualmente supportati come chiave gestita dal cliente in un account batch.
+Nel portale di Azure passare all'istanza di Key Vault nella sezione **chiave** , selezionare **genera/importa**. Selezionare il **tipo di chiave** `RSA` e la **dimensione della chiave RSA** come almeno `2048` bit. `EC` i tipi di chiave non sono attualmente supportati come chiave gestita dal cliente in un account batch.
 
 ![Creare una chiave](./media/batch-customer-managed-key/create-key.png)
 
@@ -110,7 +110,7 @@ az batch account set \
 
 ## <a name="update-the-customer-managed-key-version"></a>Aggiornare la versione della chiave gestita dal cliente
 
-Quando si crea una nuova versione di una chiave, aggiornare l'account batch per usare la nuova versione. A tale scopo, seguire questa procedura:
+Quando si crea una nuova versione di una chiave, aggiornare l'account batch per usare la nuova versione. Attenersi ai passaggi descritti di seguito.
 
 1. Passare all'account batch in portale di Azure e visualizzare le impostazioni di crittografia.
 2. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.

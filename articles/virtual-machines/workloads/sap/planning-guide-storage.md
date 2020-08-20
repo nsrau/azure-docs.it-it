@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510862"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653614"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
 Azure dispone di numerosi tipi di archiviazione che variano notevolmente in funzionalità, velocità effettiva, latenza e prezzi. Alcuni tipi di archiviazione non sono o di utilizzo limitato per gli scenari SAP. Mentre alcuni tipi di archiviazione di Azure sono particolarmente adatti o ottimizzati per scenari specifici del carico di lavoro SAP. In particolare per SAP HANA, alcuni tipi di archiviazione di Azure sono stati certificati per l'utilizzo con SAP HANA. In questo documento vengono esaminati i diversi tipi di archiviazione e ne viene descritta la funzionalità e l'usabilità con i carichi di lavoro SAP e i componenti SAP.
@@ -36,7 +36,7 @@ Sono disponibili diversi metodi di ridondanza, descritti nell'articolo replica d
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
 
-I dischi gestiti sono un tipo di risorsa in Azure Resource Manager che è possibile usare al posto dei dischi rigidi virtuali archiviati negli account di archiviazione di Azure. Managed Disks si allineano automaticamente al [set di disponibilità] [Virtual-Machines-Manage-availability] della macchina virtuale a cui sono collegati e pertanto aumentano la disponibilità della macchina virtuale e dei servizi in esecuzione nella macchina virtuale. Per altre informazioni, leggere l’[articolo introduttivo](../../windows/managed-disks-overview.md).
+I dischi gestiti sono un tipo di risorsa in Azure Resource Manager che è possibile usare al posto dei dischi rigidi virtuali archiviati negli account di archiviazione di Azure. Managed Disks si allineano automaticamente al [set di disponibilità] [Virtual-Machines-Manage-availability] della macchina virtuale a cui sono collegati e pertanto aumentano la disponibilità della macchina virtuale e dei servizi in esecuzione nella macchina virtuale. Per altre informazioni, leggere l’[articolo introduttivo](../../managed-disks-overview.md).
 
 Per quanto riguarda la resilienza, in questo esempio viene illustrato il vantaggio dei dischi gestiti:
 
@@ -61,7 +61,7 @@ Lo spazio di archiviazione permanente è necessario nel carico di lavoro SAP in 
 - Condivisioni file o dischi condivisi che contengono la directory di trasporto globale per NetWeaver o S/4HANA. Il contenuto di tali condivisioni viene utilizzato dal software in esecuzione in più macchine virtuali o viene utilizzato per compilare scenari di cluster di failover a disponibilità elevata
 - Directory/sapmnt o condivisioni file comuni per processi EDI o simili. Il contenuto di tali condivisioni viene utilizzato dal software in esecuzione in più macchine virtuali o viene utilizzato per compilare scenari di cluster di failover a disponibilità elevata
 
-Nelle prossime sezioni vengono illustrati i diversi tipi di archiviazione di Azure e la relativa usabilità per il carico di lavoro SAP che si applicano ai quattro scenari precedenti. Una categorizzazione generale del modo in cui devono essere usati i diversi tipi di archiviazione di Azure è documentata nell'articolo [quali tipi di dischi sono disponibili in Azure?](../../linux/disks-types.md) I consigli per l'uso dei diversi tipi di archiviazione di Azure per il carico di lavoro SAP non saranno molto diversi.
+Nelle prossime sezioni vengono illustrati i diversi tipi di archiviazione di Azure e la relativa usabilità per il carico di lavoro SAP che si applicano ai quattro scenari precedenti. Una categorizzazione generale del modo in cui devono essere usati i diversi tipi di archiviazione di Azure è documentata nell'articolo [quali tipi di dischi sono disponibili in Azure?](../../disks-types.md) I consigli per l'uso dei diversi tipi di archiviazione di Azure per il carico di lavoro SAP non saranno molto diversi.
 
 Per le restrizioni del supporto per i tipi di archiviazione di Azure per SAP NetWeaver/livello applicazione di S/4HANA, vedere la [Nota di supporto sap 2015553](https://launchpad.support.sap.com/#/notes/2015553) per SAP Hana tipi di archiviazione di Azure certificati e supportati leggere l'articolo [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md).
 
@@ -123,7 +123,7 @@ L'archiviazione SSD Premium di Azure è stata introdotta con l'obiettivo di forn
 * Contratti di contratto per IOPS e velocità effettiva
 * Minor variabilità nella latenza di I/O
 
-Questo tipo di archiviazione è destinato ai carichi di lavoro DBMS, al traffico di archiviazione che richiede una bassa latenza di millisecondi a singola cifra e ai contratti di licenza per IOPS e costo della velocità effettiva nel caso di archiviazione Premium di Azure non è il volume di dati effettivo archiviato in tali dischi, ma la categoria dimensioni di tale disco, indipendentemente dalla quantità di dati archiviati all'interno del disco. È anche possibile creare dischi in archiviazione Premium che non eseguono il mapping diretto alle categorie di dimensioni illustrate nell'articolo [SSD Premium](../../linux/disks-types.md#premium-ssd). Le conclusioni di questo articolo sono:
+Questo tipo di archiviazione è destinato ai carichi di lavoro DBMS, al traffico di archiviazione che richiede una bassa latenza di millisecondi a singola cifra e ai contratti di licenza per IOPS e costo della velocità effettiva nel caso di archiviazione Premium di Azure non è il volume di dati effettivo archiviato in tali dischi, ma la categoria dimensioni di tale disco, indipendentemente dalla quantità di dati archiviati all'interno del disco. È anche possibile creare dischi in archiviazione Premium che non eseguono il mapping diretto alle categorie di dimensioni illustrate nell'articolo [SSD Premium](../../disks-types.md#premium-ssd). Le conclusioni di questo articolo sono:
 
 - Lo spazio di archiviazione è organizzato in intervalli. Ad esempio, un disco nell'intervallo 513 GiB a 1024 GiB capacità condivide le stesse funzionalità e gli stessi costi mensili
 - Le operazioni di i/o al secondo per GiB non vengono tracciate lineari nelle categorie di dimensioni. I dischi più piccoli sotto 32 GiB hanno una velocità di IOPS superiore per GiB. Per i dischi oltre 32 GiB a 1024 GiB, il tasso di IOPS per GiB è compreso tra 4-5 IOPS e GiB. Per dischi di dimensioni maggiori fino a 32.767 GiB, il tasso di IOPS per GiB è inferiore a 1
@@ -184,8 +184,8 @@ I dischi Ultra di Azure offrono una velocità effettiva elevata, un numero eleva
 Quando si crea un disco Ultra, sono disponibili tre dimensioni che è possibile definire:
 
 - Capacità del disco. Gli intervalli sono compresi tra 4 GiB e 65.536 GiB
-- IOPS con provisioning per il disco. Per la capacità del disco si applicano valori massimi diversi. Per ulteriori informazioni, leggere l'articolo relativo all' [ultra disk](../../linux/disks-types.md#ultra-disk)
-- Larghezza di banda di archiviazione con provisioning. Viene applicata una larghezza di banda massima diversa a seconda della capacità del disco. Per ulteriori informazioni, leggere l'articolo relativo all' [ultra disk](../../linux/disks-types.md#ultra-disk)
+- IOPS con provisioning per il disco. Per la capacità del disco si applicano valori massimi diversi. Per ulteriori informazioni, leggere l'articolo relativo all' [ultra disk](../../disks-types.md#ultra-disk)
+- Larghezza di banda di archiviazione con provisioning. Viene applicata una larghezza di banda massima diversa a seconda della capacità del disco. Per ulteriori informazioni, leggere l'articolo relativo all' [ultra disk](../../disks-types.md#ultra-disk)
 
 Il costo di un singolo disco è determinato dalle tre dimensioni che è possibile definire separatamente per i dischi specifici. 
 
@@ -352,7 +352,7 @@ Quando si ridimensionano le macchine virtuali di Azure nel ciclo di vita di un s
 
 
 ## <a name="striping-or-not-striping"></a>Striping o non striping
-La creazione di un set di striping su più dischi di Azure in un volume più grande consente di accumulare i IOPS e la velocità effettiva dei singoli dischi in un unico volume. Viene usato solo per archiviazione standard di Azure e per archiviazione Premium di Azure. Azure ultra disk, in cui è possibile configurare la velocità effettiva e IOPS indipendentemente dalla capacità di un disco, non richiede l'uso di set di striping. Non è possibile eseguire lo striping di volumi condivisi basati su NFS o SMB. A causa della natura non lineare della velocità effettiva e delle operazioni di i/o al secondo di archiviazione Premium di Azure, è possibile effettuare il provisioning di una capacità ridotta con gli stessi IOPS e velocità effettiva rispetto ai dischi di archiviazione Premium Questo è il metodo per ottenere maggiore velocità effettiva o IOPS a costi ridotti usando archiviazione Premium di Azure. Ad esempio:
+La creazione di un set di striping su più dischi di Azure in un volume più grande consente di accumulare i IOPS e la velocità effettiva dei singoli dischi in un unico volume. Viene usato solo per archiviazione standard di Azure e per archiviazione Premium di Azure. Azure ultra disk, in cui è possibile configurare la velocità effettiva e IOPS indipendentemente dalla capacità di un disco, non richiede l'uso di set di striping. Non è possibile eseguire lo striping di volumi condivisi basati su NFS o SMB. A causa della natura non lineare della velocità effettiva e delle operazioni di i/o al secondo di archiviazione Premium di Azure, è possibile effettuare il provisioning di una capacità ridotta con gli stessi IOPS e velocità effettiva rispetto ai dischi di archiviazione Premium Questo è il metodo per ottenere maggiore velocità effettiva o IOPS a costi ridotti usando archiviazione Premium di Azure. Esempio:
 
 - Lo striping tra due dischi di archiviazione Premium P15 ti permette di ottenere una velocità effettiva 
 - 250 MiB/sec. Tale volume avrà una capacità di 512 GiB. Se si vuole avere un singolo disco che fornisce una velocità effettiva di 250 MiB al secondo, è necessario selezionare un disco P40 con capacità di 2 TiB. 

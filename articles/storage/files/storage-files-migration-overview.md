@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827861"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654260"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
@@ -26,7 +26,7 @@ Azure dispone di più tipi disponibili di archiviazione cloud. Un aspetto fondam
 
 Le [condivisioni file di Azure](storage-files-introduction.md) sono adatte per i dati di file per utilizzo generico. Questi dati includono tutto ciò che si usa una condivisione SMB o NFS locale per. Con [sincronizzazione file di Azure](storage-sync-files-planning.md), è possibile memorizzare nella cache il contenuto di più condivisioni file di Azure in server che eseguono Windows Server in locale.
 
-Per un'app che attualmente viene eseguita in un server locale, l'archiviazione dei file in una condivisione file di Azure può essere una scelta ottimale. È possibile spostare l'app in Azure e usare le condivisioni file di Azure come risorsa di archiviazione condivisa. È anche possibile prendere in considerazione i [dischi di Azure](../../virtual-machines/windows/managed-disks-overview.md) per questo scenario.
+Per un'app che attualmente viene eseguita in un server locale, l'archiviazione dei file in una condivisione file di Azure può essere una scelta ottimale. È possibile spostare l'app in Azure e usare le condivisioni file di Azure come risorsa di archiviazione condivisa. È anche possibile prendere in considerazione i [dischi di Azure](../../virtual-machines/managed-disks-overview.md) per questo scenario.
 
 Alcune app Cloud non dipendono da SMB o dall'accesso ai dati locale del computer o dall'accesso condiviso. Per queste app, l'archiviazione di oggetti come i [BLOB di Azure](../blobs/storage-blobs-overview.md) è spesso la scelta migliore.
 
@@ -78,7 +78,7 @@ Come usare la tabella:
 
 Uno scenario senza collegamento non dispone ancora di una guida alla migrazione pubblicata. Controllare occasionalmente questa tabella per gli aggiornamenti. Le nuove guide verranno pubblicate quando sono disponibili.
 
-| Origine | Destinazione: </br>Distribuzione ibrida | Destinazione: </br>Distribuzione solo cloud |
+| Source (Sorgente) | Destinazione: </br>Distribuzione ibrida | Destinazione: </br>Distribuzione solo cloud |
 |:---|:--|:--|
 | | Combinazione di strumenti:| Combinazione di strumenti: |
 | Windows Server 2012 R2 e versioni successive | <ul><li>[Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronizzazione file di Azure e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Sincronizzazione file di Azure e file con pre-seeding nel cloud](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li></ul> | <ul><li>Sincronizzazione file di Azure</li><li>Sincronizzazione file di Azure e Data Box</li><li>Servizio migrazione Sincronizzazione file di Azure e archiviazione</li><li>RoboCopy</li></ul> |
@@ -115,7 +115,7 @@ Sono disponibili diversi strumenti per la copia di file da Microsoft e da altri.
 
 La tabella seguente classifica gli strumenti Microsoft e la relativa idoneità corrente per le condivisioni file di Azure:
 
-| Implementazione consigliata | Strumento | Supporto per le condivisioni file di Azure | Conservazione della fedeltà dei file |
+| Consigliato | Strumento | Supporto per le condivisioni file di Azure | Conservazione della fedeltà dei file |
 | :-: | :-- | :---- | :---- |
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supportata. Le condivisioni file di Azure possono essere montate come unità di rete. | Fedeltà completa * |
 |![Sì, consigliato](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronizzazione file di Azure | Integrato in modo nativo nelle condivisioni file di Azure. | Fedeltà completa * |
@@ -126,7 +126,7 @@ La tabella seguente classifica gli strumenti Microsoft e la relativa idoneità c
 |![Non consigliata](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supportata. | Non copia i metadati. |
 |||||
 
-*\*Fedeltà completa: soddisfa o supera le funzionalità di condivisione file di Azure.*
+*\* Fedeltà completa: soddisfa o supera le funzionalità di condivisione file di Azure.*
 
 ### <a name="migration-helper-tools"></a>Strumenti di supporto per la migrazione
 

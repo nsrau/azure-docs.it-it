@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 823e116b659a582ceb9a09b752179ee5a78f4ebd
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6cb2f3d099c328f00fab335e1cbe9ea146c0fc55
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607039"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653648"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -186,7 +186,7 @@ Immagini personalizzate - Pubblicate da terze parti | Supportato | Supportate se
 Macchine virtuali migrate tramite Site Recovery | Supportato | Se una VM VMware o un computer fisico è stato migrato ad Azure tramite Site Recovery, è necessario disinstallare la versione precedente del servizio di mobilità in esecuzione nel computer e riavviare il computer prima di eseguirne la replica in un'altra area di Azure.
 Criteri di controllo degli accessi in base al ruolo | Non supportate | I criteri di controllo degli accessi in base al ruolo (RBAC) nelle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
 Estensioni | Non supportate | Le estensioni non vengono replicate nella macchina virtuale di failover nell'area di destinazione. L'estensione deve essere installata manualmente dopo il failover.
-Gruppi di posizionamento di prossimità | Funzionalità supportata | Le macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità possono essere protette usando Site Recovery.
+Gruppi di posizionamento di prossimità | Supportato | Le macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità possono essere protette usando Site Recovery.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Computer replicati - Azioni del disco
@@ -206,8 +206,8 @@ Questa tabella riepiloga il supporto per il disco del sistema operativo, il disc
 
 **Componente** | **Supporto** | **Dettagli**
 --- | --- | ---
-Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi delle VM.
-Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md)
+Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/managed-disks-overview.md) sui dischi delle VM.
+Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/managed-disks-overview.md)
 Dimensione massima del disco dati | 8192 GB per i dischi gestiti<br></br>4095 GB per i dischi non gestiti|
 Dimensione minima del disco dati | Nessuna restrizione per i dischi non gestiti. 2 GB per i dischi gestiti |
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/sizes.md) sulle dimensioni delle VM.
@@ -222,7 +222,7 @@ Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle
 Spazi di archiviazione | Supportato |
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.
 Crittografia dei dati inattivi (CMK) | Supportato | Sono supportate le chiavi s e le chiavi dei moduli di protezione hardware (HSM) per i dischi gestiti
-Crittografia a doppio inattivo | Funzionalità supportata | Altre informazioni sulle aree supportate per [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
+Crittografia a doppio inattivo | Supportato | Altre informazioni sulle aree supportate per [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
 Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi con protezione HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un unico disco non è supportata. |
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi con protezione HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un unico disco non è supportata. <br><br> Problema noto relativo all'abilitazione della replica. [Altre informazioni.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotazione della chiave SAS | Non Supportato | Se la chiave SAS per gli account di archiviazione viene ruotata, il cliente deve disabilitare e riabilitare la replica. |
@@ -242,7 +242,7 @@ Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) 
 Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
 Dischi condivisi di Azure | Non supportate
-Opzione di trasferimento sicuro | Funzionalità supportata
+Opzione di trasferimento sicuro | Supportato
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni del disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si usano le impostazioni predefinite, Site Recovery crea i dischi e gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni personalizzate, rispettare gli obiettivi di scalabilità e prestazioni dei dischi per le macchine virtuali.

@@ -3,15 +3,15 @@ title: Collegare o scollegare un disco dati a/da una macchina virtuale in Azure 
 description: Informazioni su come collegare o scollegare un disco dati a/da una macchina virtuale in Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a5faae56307639e369130ec7443c8bceab2f794d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 222bf06dc07cc2538bc0512b4a41b7bd91bc1ebf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287560"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653920"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Collegare o scollegare un disco dati a/da una macchina virtuale in Azure DevTest Labs
-[Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) consente di gestire gli account di archiviazione associati ai dischi dati delle macchine virtuali. Dopo che aver collegato un nuovo disco dati a una macchina virtuale e specificato il tipo e le dimensioni del disco necessario, il disco verrà creato e gestito automaticamente in Azure. Il disco dati può quindi essere scollegato dalla macchina virtuale e successivamente ricollegato alla stessa macchina virtuale o a una macchina virtuale diversa appartenente allo stesso utente.
+[Azure Managed Disks](../virtual-machines/managed-disks-overview.md) consente di gestire gli account di archiviazione associati ai dischi dati delle macchine virtuali. Dopo che aver collegato un nuovo disco dati a una macchina virtuale e specificato il tipo e le dimensioni del disco necessario, il disco verrà creato e gestito automaticamente in Azure. Il disco dati può quindi essere scollegato dalla macchina virtuale e successivamente ricollegato alla stessa macchina virtuale o a una macchina virtuale diversa appartenente allo stesso utente.
 
 Questa funzionalità è utile per la gestione delle risorse di archiviazione o software esterne a ciascuna macchina virtuale. Se le risorse di archiviazione o software esistono già in un disco dati, il disco può essere collegato, scollegato e ricollegato in modo semplice e rapido a qualsiasi macchina virtuale di proprietà dell'utente proprietario del disco dati stesso.
 

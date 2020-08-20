@@ -3,12 +3,12 @@ title: Novità di Azure Site Recovery
 description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamenti più recenti nel servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: d7e3a8e29800943b28c64848fc66f27f888d439f
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 09afd4416efc8e6904b7c487d5ed2f3be22db081
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611739"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654821"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -378,7 +378,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 **Funzionalità** | **Dettagli**
 --- | ---
 **Mapping di rete** | Per il ripristino di emergenza di macchine virtuali di Azure, è ora possibile usare qualsiasi rete di destinazione disponibile quando si Abilita la replica.
-**SSD Standard** | È ora possibile configurare il ripristino di emergenza per le macchine virtuali di Azure con [SDD standard dischi](../virtual-machines/windows/disks-types.md#standard-ssd).
+**SSD Standard** | È ora possibile configurare il ripristino di emergenza per le macchine virtuali di Azure con [SDD standard dischi](../virtual-machines/disks-types.md#standard-ssd).
 **Spazi di archiviazione diretta** | È possibile configurare il ripristino di emergenza per le app in esecuzione in app VM di Azure usando [spazi di archiviazione diretta](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) per la disponibilità elevata.  L'uso di Spazi di archiviazione diretta (S2D) insieme a Site Recovery offre una protezione completa dei carichi di lavoro delle macchine virtuali di Azure. S2D consente di ospitare un cluster guest in Azure. Questa operazione è particolarmente utile quando una macchina virtuale ospita un'applicazione critica, ad esempio SAP ASC layer, SQL Server o file server con scalabilità orizzontale.
 
 

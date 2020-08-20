@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5994e9741340c6fef662f7037efa142c5684b6cb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544536"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655105"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -21,7 +21,7 @@ Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD 
 
 **Che cos'è Azure Managed Disks?**
 
-Managed Disks è una funzionalità che semplifica la gestione dei dischi per le macchine virtuali IaaS di Azure, gestendo l'account di archiviazione per conto dell'utente. Per altre informazioni, vedere [Panoramica di Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Managed Disks è una funzionalità che semplifica la gestione dei dischi per le macchine virtuali IaaS di Azure, gestendo l'account di archiviazione per conto dell'utente. Per altre informazioni, vedere [Panoramica di Azure Managed Disks](../articles/virtual-machines/managed-disks-overview.md).
 
 **Se si crea un disco gestito Standard da un disco rigido virtuale esistente da 80 GB, qual è il costo?**
 
@@ -212,7 +212,7 @@ Oltre alla limitazione del disco, viene applicata una limitazione delle operazio
 No, i dischi Ultra non supportano i diversi metodi di memorizzazione nella cache supportati in altri tipi di dischi. Impostare la memorizzazione nella cache del disco su **nessuno**.
 
 **È possibile collegare un disco Ultra alla macchina virtuale esistente?**
-Solo se la macchina virtuale si trova in un'area e una zona di disponibilità che supportano i dischi Ultra. Per informazioni dettagliate, vedere [Introduzione ai dischi Ultra](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md).
+Solo se la macchina virtuale si trova in un'area e una zona di disponibilità che supportano i dischi Ultra. Per informazioni dettagliate, vedere [Introduzione ai dischi Ultra](../articles/virtual-machines/disks-enable-ultra-ssd.md).
 
 **È possibile usare un disco Ultra come disco del sistema operativo per una macchina virtuale?**
 No, i dischi Ultra sono supportati solo come dischi dati e sono supportati solo come dischi nativi 4K.

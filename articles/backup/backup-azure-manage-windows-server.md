@@ -3,12 +3,12 @@ title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Questo articolo illustra come usare il dashboard di panoramica dell'insieme di credenziali di servizi di ripristino per monitorare e gestire gli insiemi di credenziali dei servizi di ripristino.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 68c6354fa15ee2a6873b57e5c1622afb108b9a10
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263329"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654209"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -70,8 +70,8 @@ I controlli preliminari di backup controllano la configurazione delle VM per ind
 I controlli preliminari di backup vengono eseguiti come parte delle operazioni di backup pianificate per le macchine virtuali di Azure. Concludono con uno degli Stati seguenti:
 
 * **Passato**: questo stato indica che la configurazione della macchina virtuale deve condurre a backup completati e non è necessario eseguire alcuna azione correttiva.
-* **Avviso**: questo stato indica uno o più problemi nella configurazione della macchina virtuale che *potrebbero* causare errori di backup. Sono disponibili procedure *consigliate* per garantire la riuscita dei backup. Se, ad esempio, non è installato l'agente VM più recente, i backup non vengono eseguiti in modo intermittente. Questa situazione fornirebbe uno stato di avviso.
-* **Critico**: questo stato indica uno o più problemi critici nella configurazione della macchina *virtuale che comporteranno* errori di backup e fornirà i passaggi *necessari* per garantire il corretto backup. Un problema di rete, ad esempio, causato da un aggiornamento alle regole NSG di una macchina virtuale, provocherà l'esito negativo dei backup, in quanto impedisce alla macchina virtuale di comunicare con il servizio backup di Azure. Questa situazione fornirebbe uno stato critico.
+* **Avviso**: questo stato indica uno o più problemi nella configurazione della macchina virtuale che *potrebbero* causare errori di backup. Sono disponibili procedure *consigliate* per garantire la riuscita dei backup. Se, ad esempio, non è installato l'agente VM più recente, i backup non vengono eseguiti in modo intermittente. Questa situazione fornirà uno stato di avviso.
+* **Critico**: questo stato indica uno o più problemi critici nella configurazione della macchina *virtuale che comporteranno* errori di backup e fornirà i passaggi *necessari* per garantire il corretto backup. Un problema di rete, ad esempio, causato da un aggiornamento alle regole NSG di una macchina virtuale, provocherà l'esito negativo dei backup, in quanto impedisce alla macchina virtuale di comunicare con il servizio backup di Azure. Questa situazione fornirà uno stato critico.
 
 Attenersi alla procedura seguente per iniziare a risolvere gli eventuali problemi segnalati dai controlli preliminari di backup per i backup delle VM nell'insieme di credenziali di servizi di ripristino.
 
@@ -96,7 +96,7 @@ L'elenco Avvisi di backup visualizza le informazioni selezionate per gli avvisi 
 | Livello avviso | Eventi che generano avvisi |
 | ----------- | ----------- |
 | Critico | Si ricevono avvisi critici quando: i processi di backup hanno esito negativo, i processi di ripristino hanno esito negativo e quando si arresta la protezione su un server, ma si conservano i dati.|
-| Avviso | Si ricevono avvisi quando: i processi di backup vengono completati con avvisi, ad esempio quando non viene eseguito il backup di meno di 100 file a causa di problemi di danneggiamento o quando viene eseguito il backup di più di 1 milione file. |
+| Avviso | Si ricevono avvisi quando: i processi di backup sono stati completati con avvisi. Ad esempio, quando non viene eseguito il backup di meno di 100 file a causa di problemi di danneggiamento o quando viene eseguito il backup di più di 1 milione file. |
 | Informativo | Non sono attualmente in uso avvisi informativi. |
 
 ### <a name="viewing-alert-details"></a>Visualizzazione dei dettagli dell'avviso

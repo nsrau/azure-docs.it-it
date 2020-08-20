@@ -4,12 +4,12 @@ description: Informazioni sulla gestione dei certificati in un cluster Service F
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246708"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653665"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestione dei certificati nei cluster Service Fabric
 
@@ -91,7 +91,7 @@ A questo punto, un certificato esiste nell'insieme di credenziali, pronto per l'
 È stato indicato un "agente di provisioning", ovvero l'entità che recupera il certificato, comprensivo della relativa chiave privata, dall'insieme di credenziali e lo installa in ogni host del cluster. Ricordare che Service Fabric non esegue il provisioning dei certificati. In questo contesto, il cluster verrà ospitato in una raccolta di VM di Azure e/o set di scalabilità di macchine virtuali. In Azure il provisioning di un certificato da un insieme di credenziali a una macchina virtuale/VMSS può essere ottenuto con i meccanismi seguenti, presupponendo, come sopra, che l'agente di provisioning abbia precedentemente concesso le autorizzazioni ' Get ' nell'insieme di credenziali per il proprietario dell'insieme di credenziali: 
   - ad hoc: un operatore Recupera il certificato dall'insieme di credenziali (come PFX/PKCS #12 o PEM) e lo installa in ogni nodo
   - come set di scalabilità di macchine virtuali ' Secret ' durante la distribuzione: il servizio di calcolo recupera, usando la relativa identità di prima entità per conto dell'operatore, il certificato da un insieme di credenziali abilitato per la distribuzione di modelli e lo installa in ogni nodo del set di scalabilità di macchine virtuali ([come in questo](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates)caso); Si noti che questo consente il provisioning dei soli segreti con versione
-  - uso dell' [estensione della macchina virtuale Key Vault](../virtual-machines/extensions/key-vault-windows.md); in questo modo è possibile eseguire il provisioning dei certificati utilizzando dichiarazioni senza versione, con aggiornamento periodico dei certificati osservati. In questo caso, la macchina virtuale/VMSS dovrebbe avere un' [identità gestita](../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources), un'identità a cui è stato concesso l'accesso agli insiemi di credenziali contenenti i certificati osservati.
+  - uso dell' [estensione della macchina virtuale Key Vault](../virtual-machines/extensions/key-vault-windows.md); in questo modo è possibile eseguire il provisioning dei certificati utilizzando dichiarazioni senza versione, con aggiornamento periodico dei certificati osservati. In questo caso, la macchina virtuale/VMSS dovrebbe avere un' [identità gestita](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), un'identità a cui è stato concesso l'accesso agli insiemi di credenziali contenenti i certificati osservati.
 
 Il meccanismo ad hoc non è consigliato per diversi motivi, a partire dalla sicurezza alla disponibilità e non verrà discusso più avanti. per informazioni dettagliate, vedere [certificati nei set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).
 

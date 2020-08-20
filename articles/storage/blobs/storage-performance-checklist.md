@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4471994f7e691466449125a74cf3f7d46607be01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40814ca54d31ff1fff6e3bd773564748392bf5b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495132"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654073"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità dell'archiviazione BLOB
 
@@ -64,7 +64,7 @@ Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accoda
 
 Se si sta per raggiungere il numero massimo di account di archiviazione consentiti per una determinata combinazione di sottoscrizione/area, valutare lo scenario e determinare se si applica una delle condizioni seguenti:
 
-- Si usano gli account di archiviazione per archiviare dischi non gestiti e aggiungere tali dischi alle macchine virtuali (VM)? Per questo scenario, Microsoft consiglia di usare Managed Disks. I dischi gestiti vengono ridimensionati automaticamente e senza la necessità di creare e gestire singoli account di archiviazione. Per altre informazioni, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md)
+- Si usano gli account di archiviazione per archiviare dischi non gestiti e aggiungere tali dischi alle macchine virtuali (VM)? Per questo scenario, Microsoft consiglia di usare Managed Disks. I dischi gestiti vengono ridimensionati automaticamente e senza la necessità di creare e gestire singoli account di archiviazione. Per altre informazioni, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/managed-disks-overview.md)
 - Si sta usando un account di archiviazione per cliente per l'isolamento dei dati? Per questo scenario, Microsoft consiglia di usare un contenitore BLOB per ogni cliente, anziché un intero account di archiviazione. Archiviazione di Azure consente ora di assegnare i ruoli di Azure in base ai singoli contenitori. Per altre informazioni, vedere [Concedere l'accesso ai dati dei BLOB e delle code di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](../common/storage-auth-aad-rbac-portal.md).
 - Si usano più account di archiviazione per la partizione per aumentare il traffico in ingresso, in uscita, le operazioni di I/O al secondo (IOPS) o la capacità? In questo scenario, se possibile Microsoft consiglia di sfruttare l'innalzamento dei limiti degli account di archiviazione per ridurre il numero di account di archiviazione necessari per il carico di lavoro. Contattare il [supporto di Azure](https://azure.microsoft.com/support/options/) per richiedere l'espansione dei limiti dell'account di archiviazione. Per altre informazioni, vedere [Annuncio di account di archiviazione di dimensioni maggiori a scalabilità più elevata](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
@@ -194,7 +194,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Per altri linguaggi di programmazione, vedere la documentazione per determinare come impostare il limite di connessione.  
 
-Per ulteriori informazioni, vedere il post di Blog relativo ai [servizi Web: connessioni simultanee](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
 

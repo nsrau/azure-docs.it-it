@@ -1,21 +1,21 @@
 ---
 title: Registrazione di Azure Key Vault | Microsoft Docs
-description: Usare questa esercitazione per un'introduzione alla registrazione dell'insieme di credenziali delle chiavi di Azure.
+description: Informazioni su come monitorare l'accesso agli insiemi di credenziali delle chiavi mediante l'abilitazione della registrazione per Azure Key Vault, che salva le informazioni in un account di archiviazione di Azure specificato.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090587"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585917"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 

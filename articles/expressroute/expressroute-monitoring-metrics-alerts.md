@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 49e5acb7fc0cfe947d846f2943fb5071d6554ea5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b3c42901b4ef503a6099b49db84012521a7eba9f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192467"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654566"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoraggio, metriche e avvisi di ExpressRoute
 
@@ -33,8 +33,10 @@ Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. F
 | --- | --- | --- | --- |
 |Disponibilità ARP|Disponibilità|<ui><li>Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering (privato/pubblico/Microsoft)</ui></li>|ExpressRoute|
 |Bgp Availability (Disponibilità BGP)|Disponibilità|<ui><li> Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering</ui></li>|ExpressRoute|
-|BitsInPerSecond|Traffico|<ui><li> Tipo di peering (ExpressRoute)</ui></li><ui><li>Collegamento (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Traffico| <ui><li>Tipo di peering (ExpressRoute)</ui></li><ui><li> Collegamento (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|BitsInPerSecond|Traffico|<ui><li> Tipo di peering (ExpressRoute)</ui></li><ui><li>Collegamento (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Traffico| <ui><li>Tipo di peering (ExpressRoute)</ui></li><ui><li> Collegamento (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|Utilizzo CPU|Prestazioni| <ui><li>Istanza</ui></li>|Gateway di rete virtuale ExpressRoute|
+|Pacchetti al secondo|Prestazioni| <ui><li>Istanza</ui></li>|Gateway di rete virtuale ExpressRoute|
 |GlobalReachBitsInPerSecond|Traffico|<ui><li>Skey del circuito con peering (chiave del servizio)</ui></li>|Copertura globale|
 |GlobalReachBitsOutPerSecond|Traffico|<ui><li>Skey del circuito con peering (chiave del servizio)</ui></li>|Copertura globale|
 |AdminState|Connettività fisica|Collegamento|ExpressRoute Direct|
@@ -102,6 +104,14 @@ Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. F
 È possibile visualizzare il livello di luce del TX (il livello di luce che la porta diretta ExpressRoute **trasmette**) per ogni porta. I livelli Light TX integri in genere rientrano in un intervallo compreso tra-10 e 0 dBm
 
 ![Livello chiaro RX linea er](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
+## <a name="expressroute-virtual-network-gateway-metrics"></a>Metriche del gateway di rete virtuale ExpressRoute
+
+### <a name="cpu-utilization---split-instance"></a>Utilizzo CPU-istanza divisa
+È possibile visualizzare l'utilizzo della CPU delle istanze del gateway.
+
+### <a name="packets-per-second---split-by-instance"></a>Pacchetti al secondo-divisione per istanza
+È possibile visualizzare i pacchetti al secondo attraversando il gateway.
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Connessioni gateway di ExpressRoute in bit al secondo
 

@@ -3,12 +3,12 @@ title: Presentazione di Azure Advisor
 description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057694"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654022"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
@@ -55,7 +55,7 @@ Se non si intende agire immediatamente, è possibile posporre il consiglio per u
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
-Advisor fornisce consigli per gateway applicazione, servizi app, set di disponibilità, cache di Azure, Azure Data Factory, database di Azure per MySQL, database di Azure per PostgreSQL, database di Azure per MariaDB, Azure ExpressRoute, Azure Cosmos DB, indirizzi IP pubblici di Azure, SQL Data Warehouse, server SQL, account di archiviazione, profili di gestione traffico e macchine virtuali.
+Advisor fornisce consigli per gateway applicazione, servizi app, set di disponibilità, cache di Azure, Azure Data Factory, database di Azure per MySQL, database di Azure per PostgreSQL, database di Azure per MariaDB, Azure ExpressRoute, Azure Cosmos DB, indirizzi IP pubblici di Azure, analisi sinapsi di Azure, SQL Server, account di archiviazione, profili di gestione traffico e macchine virtuali.
 
 Azure Advisor include anche le raccomandazioni del [Centro sicurezza di Azure](../security-center/security-center-recommendations.md) che possono includere consigli per altri tipi di risorse.
 

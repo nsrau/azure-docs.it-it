@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432861"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654702"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -25,11 +25,11 @@ Questo articolo aiuta a comprendere il processo di creazione di endpoint privati
 - Mentre un insieme di credenziali di servizi di ripristino viene usato da (entrambi) backup di Azure e Azure Site Recovery, questo articolo illustra l'uso degli endpoint privati solo per il backup di Azure.
 - Azure Active Directory attualmente non supporta endpoint privati. Gli indirizzi IP e i nomi di dominio completi necessari per il funzionamento di Azure Active Directory in un'area dovranno quindi consentire l'accesso in uscita dalla rete protetta durante l'esecuzione del backup dei database in macchine virtuali di Azure e di backup con l'agente MARS. È anche possibile usare i tag NSG e i tag del firewall di Azure per consentire l'accesso ai Azure AD, come applicabile.
 - Le reti virtuali con criteri di rete non sono supportate per gli endpoint privati. Prima di continuare, è necessario disabilitare i criteri di rete.
-- È necessario registrare di nuovo il provider di risorse di servizi di ripristino con la sottoscrizione, se è stato registrato prima del 1 2020 maggio. Per registrare di nuovo il provider, passare alla sottoscrizione nel portale di Azure, passare a provider di **risorse** nella barra di spostamento a sinistra, quindi selezionare **Microsoft. RecoveryServices** e fare clic su **registra di nuovo**.
+- È necessario registrare di nuovo il provider di risorse di servizi di ripristino con la sottoscrizione, se è stato registrato prima del 1 2020 maggio. Per registrare di nuovo il provider, passare alla sottoscrizione nel portale di Azure, passare a provider di **risorse** nella barra di spostamento a sinistra, quindi selezionare **Microsoft. RecoveryServices** e selezionare **Re-Register**.
 
 ## <a name="recommended-and-supported-scenarios"></a>Scenari consigliati e supportati
 
-Mentre gli endpoint privati sono abilitati per l'insieme di credenziali, vengono usati per il backup e il ripristino dei carichi di lavoro SQL e SAP HANA in una macchina virtuale di Azure e il backup dell'agente MARS. È anche possibile usare l'insieme di credenziali per eseguire il backup di altri carichi di lavoro (non richiedono endpoint privati). Oltre al backup di carichi di lavoro SQL e SAP HANA e al backup con l'agente MARS, gli endpoint privati vengono usati anche per eseguire il ripristino dei file nel caso di backup di macchine virtuali di Azure. Per altre informazioni, vedere la tabella seguente:
+Mentre gli endpoint privati sono abilitati per l'insieme di credenziali, vengono usati per il backup e il ripristino dei carichi di lavoro SQL e SAP HANA in una macchina virtuale di Azure e il backup dell'agente MARS. È anche possibile usare l'insieme di credenziali per il backup di altri carichi di lavoro, ma non richiedono endpoint privati. Oltre al backup dei carichi di lavoro SQL e SAP HANA e al backup con l'agente MARS, gli endpoint privati vengono usati anche per eseguire il ripristino del file per il backup delle macchine virtuali di Azure. Per altre informazioni, vedere la tabella seguente:
 
 | Backup dei carichi di lavoro in una macchina virtuale di Azure (SQL, SAP HANA), backup con l'agente MARS | L'uso di endpoint privati è consigliato per consentire il backup e il ripristino senza che sia necessario consentire l'elenco di indirizzi IP/FQDN per backup di Azure o archiviazione di Azure dalle reti virtuali. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -55,7 +55,7 @@ Le identità gestite consentono all'insieme di credenziali di creare e usare end
 
     ![Modificare lo stato dell'identità su on](./media/private-endpoints/identity-status-on.png)
 
-1. Impostare lo **stato** **su on** , quindi fare clic su **Salva**.
+1. Modificare lo **stato** **su on** e selezionare **Salva**.
 
 1. Viene generato un **ID oggetto** , ovvero l'identità gestita dell'insieme di credenziali.
 
@@ -72,14 +72,14 @@ L'uso di endpoint privati richiede DNS privato zone per consentire all'estension
 
 È necessario creare due zone DNS obbligatorie:
 
-- `privatelink.blob.core.windows.net`(per i dati di backup/ripristino)
-- `privatelink.queue.core.windows.net`(per la comunicazione dei servizi)
+- `privatelink.blob.core.windows.net` (per i dati di backup/ripristino)
+- `privatelink.queue.core.windows.net` (per la comunicazione dei servizi)
 
 1. Cercare **area DNS privato** nella barra di ricerca **tutti i servizi** e selezionare **DNS privato area** nell'elenco a discesa.
 
     ![Selezionare la zona DNS privato](./media/private-endpoints/private-dns-zone.png)
 
-1. Nel riquadro **zona DNS privato** fare clic sul pulsante **+ Aggiungi** per avviare la creazione di una nuova zona.
+1. Nel riquadro **zona DNS privato** selezionare il pulsante **+ Aggiungi** per avviare la creazione di una nuova zona.
 
 1. Nel riquadro **Crea zona DNS privata** immettere i dettagli necessari. La sottoscrizione deve corrispondere a quella in cui verrà creato l'endpoint privato.
 
@@ -90,7 +90,7 @@ L'uso di endpoint privati richiede DNS privato zone per consentire all'estension
 
     | **Zona**                           | **Service** | **Dettagli di sottoscrizione e gruppo di risorse (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | BLOB        | **Sottoscrizione**: uguale a quello in cui deve essere creato l'endpoint privato **RG**: il RG del VNET o quello dell'endpoint privato |
+    | `privatelink.blob.core.windows.net`  | BLOB        | **Sottoscrizione**: uguale a quello in cui deve essere creato l'endpoint privato  **RG**: il RG del VNET o quello dell'endpoint privato |
     | `privatelink.queue.core.windows.net` | Coda       | **RG**: il RG di VNET o quello dell'endpoint privato |
 
     ![Crea zona DNS privato](./media/private-endpoints/create-private-dns-zone.png)
@@ -105,7 +105,7 @@ Se si vuole creare una zona DNS privata separata in Azure, è possibile eseguire
 
 | **Zona**                                                     | **Service** | **Dettagli relativi a sottoscrizione e gruppo di risorse**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Nota**: la posizione *geografica* si riferisce al codice dell'area geografica. Ad esempio, *wcus* e *ne* per Stati Uniti centro-occidentali ed Europa settentrionale. | Backup      | **Sottoscrizione**: uguale a quello in cui deve essere creato l'endpoint privato **RG**: qualsiasi RG nella sottoscrizione |
+| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Nota**: la posizione *geografica* si riferisce al codice dell'area geografica. Ad esempio, *wcus* e *ne* per Stati Uniti centro-occidentali ed Europa settentrionale. | Backup      | **Sottoscrizione**: uguale a quello in cui deve essere creato l'endpoint privato  **RG**: qualsiasi RG nella sottoscrizione |
 
 Per i codici di area, fare riferimento a [questo elenco](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) .
 
@@ -119,7 +119,7 @@ Per le convenzioni di denominazione degli URL nelle aree nazionali:
 
 Le zone DNS create sopra devono ora essere collegate alla rete virtuale in cui si trovano i server di cui eseguire il backup. Questa operazione deve essere eseguita per tutte le zone DNS create.
 
-1. Passare alla zona DNS (creata nel passaggio precedente) e passare a **collegamenti di rete virtuale** sulla barra a sinistra. Al termine, fare clic sul pulsante **+ Aggiungi**
+1. Passare alla zona DNS (creata nel passaggio precedente) e passare a **collegamenti di rete virtuale** sulla barra a sinistra. Al termine, selezionare il pulsante **+ Aggiungi**
 1. Immettere i dettagli necessari. I campi **sottoscrizione** e **rete virtuale** devono essere riempiti con i dettagli corrispondenti della rete virtuale in cui si trovano i server. Gli altri campi devono essere lasciati invariati.
 
     ![Aggiungere un collegamento di rete virtuale](./media/private-endpoints/add-virtual-network-link.png)
@@ -139,7 +139,7 @@ Si consiglia di concedere al ruolo **collaboratore** per questi tre gruppi di ri
 
     ![Aggiungi un'assegnazione di ruolo](./media/private-endpoints/add-role-assignment.png)
 
-1. Nel riquadro **Aggiungi assegnazione ruolo** scegliere **collaboratore** come **ruolo**e usare il **nome** dell'insieme di credenziali come **entità**. Selezionare l'insieme di credenziali e fare clic su **Salva** al termine.
+1. Nel riquadro **Aggiungi assegnazione ruolo** scegliere **collaboratore** come **ruolo**e usare il **nome** dell'insieme di credenziali come **entità**. Selezionare l'insieme di credenziali e selezionare **Salva** al termine.
 
     ![Scegliere il ruolo e l'entità](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -155,7 +155,7 @@ Questa sezione descrive il processo di creazione di un endpoint privato per l'in
 
     ![Cerca collegamento privato](./media/private-endpoints/search-for-private-link.png)
 
-1. Sulla barra di spostamento a sinistra fare clic su **endpoint privati**. Nel riquadro **endpoint privati** fare clic su **+ Aggiungi** per avviare la creazione di un endpoint privato per l'insieme di credenziali.
+1. Sulla barra di spostamento a sinistra selezionare **endpoint privati**. Nel riquadro **endpoint privati** selezionare **+ Aggiungi** per avviare la creazione di un endpoint privato per l'insieme di credenziali.
 
     ![Aggiungi endpoint privato in centro collegamenti privati](./media/private-endpoints/add-private-endpoint.png)
 
@@ -169,13 +169,13 @@ Questa sezione descrive il processo di creazione di un endpoint privato per l'in
 
         ![Scheda Compila risorsa](./media/private-endpoints/resource-tab.png)
 
-    1. **Configurazione**: in configurazione specificare la rete virtuale e la subnet in cui si vuole creare l'endpoint privato. Si tratta della VNET in cui è presente la macchina virtuale. È possibile scegliere di **integrare l'endpoint privato** con una zona DNS privata. In alternativa, è anche possibile usare il server DNS personalizzato o creare una zona DNS privata.
+    1. **Configurazione**: in configurazione specificare la rete virtuale e la subnet in cui si vuole creare l'endpoint privato. Si tratta del VNET in cui è presente la macchina virtuale. È possibile scegliere di **integrare l'endpoint privato** con una zona DNS privata. In alternativa, è anche possibile usare il server DNS personalizzato o creare una zona DNS privata.
 
         ![Scheda Compila configurazione](./media/private-endpoints/configuration-tab.png)
 
     1. Facoltativamente, è possibile aggiungere **tag** per l'endpoint privato.
 
-    1. Passare a **Verifica + crea** una volta completato l'immissione dei dettagli. Al termine della convalida, fare clic su **Crea** per creare l'endpoint privato.
+    1. Continua a **esaminare + crea** una volta completata l'immissione dei dettagli. Al termine della convalida, selezionare **Crea** per creare l'endpoint privato.
 
 ## <a name="approving-private-endpoints"></a>Approvazione di endpoint privati
 
@@ -200,7 +200,7 @@ Dopo aver creato la zona DNS privata facoltativa e gli endpoint privati per l'in
 
 A questo scopo, è necessario creare voci per ogni FQDN nell'endpoint privato nella zona DNS privato.
 
-1. Passare alla **zona DNS privata** e passare all'opzione **Panoramica** sulla barra a sinistra. Al termine, fare clic su **+ set di record** per iniziare ad aggiungere i record.
+1. Passare alla **zona DNS privata** e passare all'opzione **Panoramica** sulla barra a sinistra. Al termine, selezionare **+ set di record** per iniziare ad aggiungere i record.
 
     ![Selezionare + set di record per aggiungere record](./media/private-endpoints/select-record-set.png)
 
@@ -332,9 +332,9 @@ JSON risposta:
 
 L'identità gestita per l'insieme di credenziali deve avere le autorizzazioni seguenti per il gruppo di risorse e la rete virtuale in cui verranno creati gli endpoint privati:
 
-- `Microsoft.Network/privateEndpoints/*`Questa operazione è necessaria per eseguire CRUD sugli endpoint privati nel gruppo di risorse. Deve essere assegnato al gruppo di risorse.
-- `Microsoft.Network/virtualNetworks/subnets/join/action`Questa operazione è necessaria nella rete virtuale in cui l'indirizzo IP privato viene collegato all'endpoint privato.
-- `Microsoft.Network/networkInterfaces/read`Questa operazione è necessaria per il gruppo di risorse per ottenere l'interfaccia di rete creata per l'endpoint privato.
+- `Microsoft.Network/privateEndpoints/*` Questa operazione è necessaria per eseguire CRUD sugli endpoint privati nel gruppo di risorse. Deve essere assegnato al gruppo di risorse.
+- `Microsoft.Network/virtualNetworks/subnets/join/action` Questa operazione è necessaria nella rete virtuale in cui l'indirizzo IP privato viene collegato all'endpoint privato.
+- `Microsoft.Network/networkInterfaces/read` Questa operazione è necessaria per il gruppo di risorse per ottenere l'interfaccia di rete creata per l'endpoint privato.
 - Ruolo di collaboratore zona DNS privato questo ruolo esiste già e può essere usato per fornire `Microsoft.Network/privateDnsZones/A/*` le `Microsoft.Network/privateDnsZones/virtualNetworkLinks/read` autorizzazioni e.
 
 Per creare ruoli con le autorizzazioni necessarie, è possibile usare uno dei metodi seguenti:
@@ -545,26 +545,26 @@ Zona DNS per il Servizio di accodamento ( `privatelink.queue.core.windows.net` )
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-D: È possibile creare un endpoint privato per un insieme di credenziali di backup esistente?<br>
-A. No, è possibile creare endpoint privati solo per i nuovi insiemi di credenziali di backup. Quindi, l'insieme di credenziali non deve avere mai elementi protetti. In realtà, nessun tentativo di proteggere gli elementi nell'insieme di credenziali può essere eseguito prima di creare endpoint privati.
+Q. È possibile creare un endpoint privato per un insieme di credenziali di backup esistente?<br>
+R. No, è possibile creare endpoint privati solo per i nuovi insiemi di credenziali di backup. Quindi, l'insieme di credenziali non deve avere mai elementi protetti. In realtà, nessun tentativo di proteggere gli elementi nell'insieme di credenziali può essere eseguito prima di creare endpoint privati.
 
-D: Ho provato a proteggere un elemento nell'insieme di credenziali, ma non è riuscito e l'insieme di credenziali non contiene ancora elementi protetti. È possibile creare endpoint privati per questo insieme di credenziali?<br>
-A. No, l'insieme di credenziali non deve avere alcun tentativo di proteggere gli elementi nel passato.
+Q. Ho provato a proteggere un elemento nell'insieme di credenziali, ma non è riuscito e l'insieme di credenziali non contiene ancora elementi protetti. È possibile creare endpoint privati per questo insieme di credenziali?<br>
+R. No, l'insieme di credenziali non deve avere alcun tentativo di proteggere gli elementi nel passato.
 
-D: Ho un insieme di credenziali che usa endpoint privati per il backup e il ripristino. In seguito è possibile aggiungere o rimuovere endpoint privati per questo insieme di credenziali anche se si dispone di elementi di backup protetti?<br>
+Q. Ho un insieme di credenziali che usa endpoint privati per il backup e il ripristino. In seguito è possibile aggiungere o rimuovere endpoint privati per questo insieme di credenziali anche se si dispone di elementi di backup protetti?<br>
 R. Sì. Se sono già stati creati endpoint privati per un insieme di credenziali e gli elementi di backup protetti, sarà possibile aggiungere o rimuovere gli endpoint privati in un secondo momento, se necessario.
 
-D: È possibile usare anche l'endpoint privato per backup di Azure per Azure Site Recovery?<br>
-A. No, l'endpoint privato per il backup può essere usato solo per backup di Azure. È necessario creare un nuovo endpoint privato per Azure Site Recovery, se è supportato dal servizio.
+Q. È possibile usare anche l'endpoint privato per backup di Azure per Azure Site Recovery?<br>
+R. No, l'endpoint privato per il backup può essere usato solo per backup di Azure. È necessario creare un nuovo endpoint privato per Azure Site Recovery, se è supportato dal servizio.
 
-D: Ho perso una delle procedure descritte in questo articolo e ho continuato a proteggere l'origine dati. Posso ancora usare endpoint privati?<br>
-A. Non seguire i passaggi nell'articolo e continuare a proteggere gli elementi può comportare l'uso di endpoint privati da parte dell'insieme di credenziali. È quindi consigliabile fare riferimento a questo elenco di controllo prima di procedere con la protezione degli elementi.
+Q. Ho perso una delle procedure descritte in questo articolo e ho continuato a proteggere l'origine dati. Posso ancora usare endpoint privati?<br>
+R. Non seguire i passaggi nell'articolo e continuare a proteggere gli elementi può comportare l'uso di endpoint privati da parte dell'insieme di credenziali. È quindi consigliabile fare riferimento a questo elenco di controllo prima di procedere con la protezione degli elementi.
 
-D: È possibile usare un server DNS personalizzato invece di usare la zona DNS privata di Azure o una zona DNS privata integrata?<br>
-A. Sì, è possibile usare i propri server DNS. Tuttavia, verificare che tutti i record DNS necessari vengano aggiunti come suggerito in questa sezione.
+Q. È possibile usare un server DNS personalizzato invece di usare la zona DNS privata di Azure o una zona DNS privata integrata?<br>
+R. Sì, è possibile usare i propri server DNS. Tuttavia, verificare che tutti i record DNS necessari vengano aggiunti come suggerito in questa sezione.
 
-D: È necessario eseguire altri passaggi nel server dopo aver seguito il processo in questo articolo?<br>
-A. Dopo aver seguito il processo descritto in questo articolo, non è necessario eseguire ulteriori operazioni per usare endpoint privati per il backup e il ripristino.
+Q. È necessario eseguire altri passaggi nel server dopo aver seguito il processo in questo articolo?<br>
+R. Dopo aver seguito il processo descritto in questo articolo, non è necessario eseguire ulteriori operazioni per usare endpoint privati per il backup e il ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e44edff9ac81588e4f861b7a1d1ae1a1628d5e04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3589b4af06bc27a79c429bb0ccd743857651db97
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035639"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653546"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Disponibilità elevata di SAP HANA per macchine virtuali di Azure
 
@@ -60,7 +60,7 @@ Azure offre contratti di servizio di disponibilità differenti per i diversi com
 
 Il [contratto di contratto per le macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) descrive tre diversi contratti di Service per tre diverse configurazioni:
 
-- Una macchina virtuale singola che usa [dischi SSD Premium di Azure](../../windows/managed-disks-overview.md) per il disco del sistema operativo e tutti i dischi dati. Questa opzione offre un tempo di attività mensile del 99,9%.
+- Una macchina virtuale singola che usa [dischi SSD Premium di Azure](../../managed-disks-overview.md) per il disco del sistema operativo e tutti i dischi dati. Questa opzione offre un tempo di attività mensile del 99,9%.
 - Più macchine virtuali (almeno due) organizzate in un [set di disponibilità di Azure](../../windows/tutorial-availability-sets.md). Questa opzione offre un tempo di attività mensile del 99,95%.
 - Più macchine virtuali (almeno due) organizzate in una [zona disponibilità](../../../availability-zones/az-overview.md). Questa opzione ha fornito un tempo di indisponibilità mensile del 99,99%.
 

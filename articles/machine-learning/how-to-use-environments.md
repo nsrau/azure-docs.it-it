@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e6e4b8d7cc3b22737e7e76c31fd1377912fe28cb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd5aaea5e7f176a0741671d4815188a5fb94830e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167148"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653563"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creare & usare gli ambienti software in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -422,10 +422,6 @@ service = Model.deploy(
 ## <a name="notebooks"></a>Notebook
 
 Questo [articolo](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) fornisce informazioni su come installare un ambiente conda come un kernel in un notebook.
-
-Questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) si espande in base ai concetti e ai metodi illustrati in questo articolo.
-
-Questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) illustra come eseguire il training di un modello localmente con diversi tipi di ambienti.
 
 [Distribuire un modello usando un'immagine di base Docker personalizzata](how-to-deploy-custom-docker-image.md) illustra come distribuire un modello usando un'immagine di base Docker personalizzata.
 

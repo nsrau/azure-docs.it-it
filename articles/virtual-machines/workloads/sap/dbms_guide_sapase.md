@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82dbb73da06097407d91f23d4d372aaa4cc76e99
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510896"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654600"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -71,7 +71,7 @@ SAP ASE scrive i dati in sequenza nei dispositivi di archiviazione su disco, a m
 Si consiglia di configurare l'espansione automatica del database, come descritto nell'articolo [configurazione dell'espansione automatica dello spazio del database in SAP Adaptive Server Enterprise e della](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  nota di [supporto SAP #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Esempio di SAP ASE in macchine virtuali di Azure, configurazioni di dischi e file system 
-I modelli seguenti illustrano le configurazioni di esempio per Linux e Windows. Prima di confermare la configurazione della macchina virtuale e del disco, assicurarsi che le quote della larghezza di banda di rete e di archiviazione della singola VM siano sufficienti per soddisfare i requisiti aziendali. Tenere inoltre presente che i diversi tipi di VM di Azure hanno un numero massimo di dischi diverso che possono essere collegati alla macchina virtuale. Ad esempio, una macchina virtuale E4s_v3 ha una velocità effettiva di i/o di archiviazione limitata di 48 MB/sec. Se la velocità effettiva di archiviazione richiesta dall'attività di backup del database richiede più di 48 MB/sec, un tipo di macchina virtuale più grande con una maggiore velocità effettiva della larghezza di banda è inevitabile. Quando si configura archiviazione di Azure, è anche necessario tenere presente che, soprattutto con [archiviazione Premium di Azure](../../windows/premium-storage-performance.md) , la velocità effettiva e i IOPS per GB di capacità cambiano. Per altre informazioni su questo argomento, vedere [quali tipi di dischi sono disponibili in Azure](../../windows/disks-types.md). Le quote per specifici tipi di VM di Azure sono documentate nell'articolo dimensioni e articoli di [macchine virtuali con ottimizzazione](../../sizes-memory.md) per la memoria collegati. 
+I modelli seguenti illustrano le configurazioni di esempio per Linux e Windows. Prima di confermare la configurazione della macchina virtuale e del disco, assicurarsi che le quote della larghezza di banda di rete e di archiviazione della singola VM siano sufficienti per soddisfare i requisiti aziendali. Tenere inoltre presente che i diversi tipi di VM di Azure hanno un numero massimo di dischi diverso che possono essere collegati alla macchina virtuale. Ad esempio, una macchina virtuale E4s_v3 ha una velocità effettiva di i/o di archiviazione limitata di 48 MB/sec. Se la velocità effettiva di archiviazione richiesta dall'attività di backup del database richiede più di 48 MB/sec, un tipo di macchina virtuale più grande con una maggiore velocità effettiva della larghezza di banda è inevitabile. Quando si configura archiviazione di Azure, è anche necessario tenere presente che, soprattutto con [archiviazione Premium di Azure](../../windows/premium-storage-performance.md) , la velocità effettiva e i IOPS per GB di capacità cambiano. Per altre informazioni su questo argomento, vedere [quali tipi di dischi sono disponibili in Azure](../../disks-types.md). Le quote per specifici tipi di VM di Azure sono documentate nell'articolo dimensioni e articoli di [macchine virtuali con ottimizzazione](../../sizes-memory.md) per la memoria collegati. 
 
 > [!NOTE]
 >  Se è in corso lo spostamento di un sistema DBMS dall'ambiente locale ad Azure, è consigliabile eseguire il monitoraggio della macchina virtuale e valutare la velocità effettiva di CPU, memoria, IOPS e archiviazione. Confrontare i valori di picco osservati con i limiti di quota della VM documentati negli articoli sopra indicati

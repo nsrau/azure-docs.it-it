@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 37d9cf0b0ac7145e389f9fc768ff0b593b27ae1a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 93c97c70a65be40b5801b202ba277b8f86ad1566
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515278"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655284"
 ---
 ## <a name="limitations"></a>Limitazioni
 
@@ -137,7 +137,7 @@ Prima di usare il modello seguente, sostituire,,,, `[parameters('dataDiskName')]
 Una volta distribuito un disco condiviso con `maxShares>1` , è possibile montare il disco in una o più macchine virtuali.
 
 > [!NOTE]
-> Se si distribuisce un disco Ultra, assicurarsi che corrisponda ai requisiti necessari. Per informazioni dettagliate, vedere la sezione [PowerShell](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) o l' [interfaccia](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) della riga di comando dell'articolo su disco Ultra.
+> Se si distribuisce un disco Ultra, assicurarsi che corrisponda ai requisiti necessari. Per informazioni dettagliate, vedere la sezione [PowerShell](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) o l' [interfaccia](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) della riga di comando dell'articolo su disco Ultra.
 
 ```azurepowershell-interactive
 

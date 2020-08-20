@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 666f84da8f0999268b09dfd06ff5b3fe21bbef96
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82554982cd55b6c5fb2b96b2752b00401cb896d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525569"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653631"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2
+# <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Ottimizzare le prestazioni nelle macchine virtuali Windows serie Lsv2
 
 Le macchine virtuali della serie Lsv2 supportano un'ampia gamma di carichi di lavoro che necessitano di un elevato livello di I/O e velocità effettiva nell'archiviazione locale in un'ampia gamma di applicazioni e settori.  La serie Lsv2 è ideale per i database Big Data, SQL, NoSQL, data warehousing e database transazionali di grandi dimensioni, tra cui Cassandra, MongoDB, Cloudera e Redis.
 
@@ -75,7 +75,7 @@ Gli scenari che cancellano in modo sicuro i dati per proteggere il cliente inclu
 - La macchina virtuale diventa non integra ed è necessario correggere il servizio in un altro nodo a causa di un problema hardware.
 - Un numero ridotto di operazioni di manutenzione pianificate che richiedono la riallocazione della macchina virtuale a un altro host per la manutenzione.
 
-Per altre informazioni sulle opzioni di backup dei dati nell'archiviazione locale, vedere [Backup e ripristino di emergenza per dischi IaaS di Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Per altre informazioni sulle opzioni di backup dei dati nell'archiviazione locale, vedere [Backup e ripristino di emergenza per dischi IaaS di Azure](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

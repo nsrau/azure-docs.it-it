@@ -1,21 +1,21 @@
 ---
 title: Concedere alle applicazioni l'autorizzazione ad accedere a un insieme di credenziali delle chiavi di Azure - Azure Key Vault | Microsoft Docs
-description: Informazioni su come concedere a molte applicazioni l'autorizzazione per accedere a Key Vault
+description: Informazioni su come registrare manualmente un'entità servizio e fornire l'accesso ad Azure Key Vault usando un criterio di controllo di accesso, che potrebbe essere necessario in alcuni casi.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8369c507ee7a9e11969c17bbaac7c6e31892e196
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: d0607b1adb76fd32ce9f4dc9ebede92c7aa96862
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406249"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588739"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornire un'autenticazione di Key Vault con un criterio di controllo di accesso
 

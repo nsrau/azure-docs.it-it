@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: dbd040bf7caf3dbe9ed9820bf189bc1f74475c09
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 7bec65867373293ff06a2295f08a05db6ffaa480
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586895"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653835"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -38,6 +38,7 @@ Gli aggiornamenti di agosto includono:
 - [Aggiunta del supporto per le impostazioni predefinite di sicurezza Azure Active Directory (per l'autenticazione a più fattori)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Aggiunta raccomandazione entità servizio](#service-principals-recommendation-added)
 - [Valutazione della vulnerabilità sulle macchine virtuali-raccomandazioni e criteri consolidati](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+- [Nuovi criteri di sicurezza AKS aggiunti a ASC_default Initiative: per l'uso da soli clienti con anteprima privata](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
 
 
 ### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventario asset: nuova e potente visualizzazione del comportamento di sicurezza degli asset
@@ -59,7 +60,7 @@ Le impostazioni predefinite di sicurezza forniscono impostazioni di sicurezza de
 
 Il Centro sicurezza offre ora una raccomandazione di sicurezza ogni volta che identifica una sottoscrizione di Azure senza che siano abilitate le impostazioni predefinite di sicurezza. Fino ad ora, il Centro sicurezza consiglia di abilitare la funzionalità di autenticazione a più fattori tramite l'accesso condizionale, che fa parte della licenza di Azure Active Directory (AD) Premium. Per i clienti che usano Azure AD gratuita, è ora consigliabile abilitare le impostazioni predefinite di sicurezza. 
 
-Il nostro obiettivo è incoraggiare più clienti a proteggere gli ambienti cloud con l'autenticazione a più fattori e mitigare uno dei rischi più elevati che è anche il più significativo per il proprio [Punteggio sicuro](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+Il nostro obiettivo è incoraggiare più clienti a proteggere gli ambienti cloud con l'autenticazione a più fattori e mitigare uno dei rischi più elevati che è anche il più significativo per il [Punteggio sicuro](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
 
 Altre informazioni sulle [impostazioni predefinite di sicurezza](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
@@ -126,6 +127,17 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 |[**La valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9 |Incorporato + BYOL|
 ||||
 
+
+### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Nuovi criteri di sicurezza AKS aggiunti a ASC_default Initiative: per l'uso da soli clienti con anteprima privata
+
+Per assicurarsi che i carichi di lavoro Kubernetes siano protetti per impostazione predefinita, il Centro sicurezza aggiunge i criteri a livello di Kubernetes e le raccomandazioni per la protezione avanzata, incluse le opzioni di imposizione con il controllo di ammissione Kubernetes.
+
+La fase iniziale di questo progetto include un'anteprima privata e l'aggiunta di nuovi criteri (disabilitati per impostazione predefinita) al ASC_default Initiative.
+
+È possibile ignorare questi criteri in modo sicuro e non vi sarà alcun impatto sull'ambiente. Se si vuole abilitarli, iscriversi per l'anteprima in https://aka.ms/SecurityPrP e selezionare una delle opzioni seguenti:
+
+1. **Anteprima singola** : per partecipare solo a questa anteprima privata. Specificare in modo esplicito "ASC Continuous Scan" come anteprima che si desidera aggiungere.
+1. **Programma in corso** : da aggiungere a questa e alle anteprime private future. Sarà necessario completare un profilo e un contratto di privacy.
 
 
 ## <a name="july-2020"></a>Luglio 2020

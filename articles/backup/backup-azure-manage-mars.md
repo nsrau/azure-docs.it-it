@@ -4,12 +4,12 @@ description: Informazioni su come gestire e monitorare i backup degli agenti Ser
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 71cec82550ae8ca2bc6ddd7bda6452870e5e0818
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263300"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654226"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup degli agenti Servizi di ripristino di Microsoft Azure (MARS) con il servizio backup di Azure
 
@@ -92,7 +92,7 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
   - Questa opzione consente di arrestare tutti i processi di backup futuri dalla protezione dati.
   - Il servizio backup di Azure continuerà a mantenere tutti i punti di ripristino esistenti.  
   - Sarà possibile ripristinare i dati di cui è stato eseguito il backup per i punti di ripristino non scaduti.
-  - Se si decide di riprendere la protezione, è possibile usare l'opzione *riabilita pianificazione backup* . Successivamente, i dati verrebbero mantenuti in base ai nuovi criteri di conservazione.
+  - Se si decide di riprendere la protezione, è possibile usare l'opzione *riabilita pianificazione backup* . Successivamente, i dati verranno conservati in base ai nuovi criteri di conservazione.
 - **Arrestare la protezione ed eliminare i dati di backup**.
   - Questa opzione consente di arrestare tutti i processi di backup futuri per proteggere i dati ed eliminare tutti i punti di ripristino.
   - Si riceverà un messaggio di posta elettronica di avviso per l'eliminazione dei dati di backup con un messaggio che *i dati per questo elemento di backup sono stati eliminati. Questi dati saranno temporaneamente disponibili per 14 giorni, dopo i quali verranno eliminati definitivamente* e l'azione consigliata *riproteggere l'elemento di backup entro 14 giorni per ripristinare i dati.*

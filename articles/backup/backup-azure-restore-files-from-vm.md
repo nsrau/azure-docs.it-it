@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611841"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654158"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -169,7 +169,7 @@ La prima colonna (PV) Mostra il volume fisico, le colonne successive mostrano il
 
 ###### <a name="duplicate-volume-groups"></a>Gruppi di volumi duplicati
 
-Esistono scenari in cui i nomi dei gruppi di volumi possono avere 2 UUID dopo l'esecuzione dello script. Significa che i nomi dei gruppi di volumi nel computer in cui viene eseguito lo script e nella VM di cui è stato eseguito il backup sono uguali. Quindi, è necessario rinominare i gruppi di volumi di macchine virtuali di cui è stato eseguito il backup. Esaminare l'esempio seguente.
+Esistono scenari in cui i nomi dei gruppi di volumi possono avere 2 UUID dopo l'esecuzione dello script. Significa che i nomi dei gruppi di volumi nel computer in cui viene eseguito lo script e nella VM di cui è stato eseguito il backup sono uguali. Quindi, è necessario rinominare i gruppi di volumi di macchine virtuali di cui è stato eseguito il backup. Vedere l'esempio seguente.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -398,7 +398,7 @@ Il flusso di dati tra il servizio di ripristino e il computer è protetto dalla 
 
 Anche tutti gli elenchi di controllo di accesso (ACL) dei file presenti nella macchina virtuale padre/di cui è stato eseguito il backup vengono conservati nel file system montato.
 
-Lo script concede l'accesso in sola lettura a un punto di ripristino ed è valido solo per 12 ore. Se si intende rimuovere l'accesso in modo preventivo, accedere al portale di Azure/PowerShell/CLI ed eseguire l'operazione di **smontaggio dei dischi** per uno specifico punto di ripristino. Lo script verrà immediatamente invalidato.
+Lo script concede l'accesso in sola lettura a un punto di ripristino ed è valido solo per 12 ore. Se si vuole rimuovere l'accesso in precedenza, accedere portale di Azure/PowerShell/CLI ed eseguire lo **smontaggio dei dischi** per quel particolare punto di ripristino. Lo script verrà immediatamente invalidato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

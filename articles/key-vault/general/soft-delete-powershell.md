@@ -1,20 +1,20 @@
 ---
 title: Azure Key Vault - Come usare la funzionalità di eliminazione temporanea con PowerShell
-description: Esempi di casi d'uso della funzionalità di eliminazione temporanea con frammenti di codice di PowerShell
+description: Informazioni su come usare Azure PowerShell per usare la funzionalità di eliminazione temporanea di Azure Key Vault che consente il ripristino degli insiemi di credenziali delle chiavi e degli oggetti dell'insieme di credenziali delle chiavi.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 55e4bd20b6cc17a5cbad620d3a404d6ada41b81a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6ec784048d2c30d215fe046ccda39ef6f8a3daa5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136474"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585543"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
 

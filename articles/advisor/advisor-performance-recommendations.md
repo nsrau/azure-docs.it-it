@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257467"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653308"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -51,32 +51,32 @@ Advisor identifica le macchine virtuali con dischi standard con un volume elevat
 
 Archiviazione Premium di Azure offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con attività di I/O intensive. I dischi delle macchine virtuali che usano account di archiviazione Premium archiviano i dati in unità SSD (Solid-State Drive). Per ottenere prestazioni ottimali per l'applicazione, è consigliabile eseguire la migrazione di tutti i dischi delle macchine virtuali che richiedono un elevato livello di IOPS ad archiviazione Premium.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Rimuovere l'asimmetria dei dati nelle tabelle SQL Data Warehouse per aumentare le prestazioni delle query
+## <a name="remove-data-skew-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Rimuovere l'asimmetria dei dati nelle tabelle di analisi delle sinapsi di Azure per migliorare le prestazioni delle query
 
 L'asimmetria dei dati può causare lo spostamento dei dati o i colli di bottiglia delle risorse non necessari quando si esegue il carico di lavoro Advisor rileva l'asimmetria dei dati di distribuzione superiore al 15%. È consigliabile ridistribuire i dati e rivedere le selezioni della chiave di distribuzione della tabella. Per altre informazioni sull'identificazione e la rimozione dell'asimmetria, vedere [risoluzione dei problemi di asimmetria](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Creare o aggiornare le statistiche delle tabelle obsolete nelle tabelle di SQL Data Warehouse per aumentare le prestazioni delle query
+## <a name="create-or-update-outdated-table-statistics-in-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Creare o aggiornare le statistiche delle tabelle obsolete nelle tabelle di analisi delle sinapsi di Azure per migliorare le prestazioni delle query
 
-Advisor identifica le tabelle che non dispongono di [statistiche di tabella](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) aggiornate e consiglia di creare o aggiornare le statistiche. Il Query Optimizer in Azure SQL Data Warehouse usa le statistiche aggiornate per stimare la cardinalità o il numero di righe nei risultati della query. Queste stime consentono al Query Optimizer di creare un piano di query per offrire le prestazioni più rapide.
+Advisor identifica le tabelle che non dispongono di [statistiche di tabella](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) aggiornate e consiglia di creare o aggiornare le statistiche. Il Query Optimizer in Azure sinapsi Analytics usa le statistiche aggiornate per stimare la cardinalità o il numero di righe nei risultati della query. Queste stime consentono al Query Optimizer di creare un piano di query per offrire le prestazioni più rapide.
 
 ## <a name="improve-mysql-connection-management"></a>Migliorare la gestione delle connessioni a MySQL
 
 L'analisi di Advisor può indicare che l'applicazione che si connette a un server MySQL potrebbe non gestire le connessioni in modo efficiente. Questa condizione può causare un consumo di risorse superfluo e una latenza dell'applicazione complessiva superiore. Per migliorare la gestione delle connessioni, è consigliabile ridurre il numero di connessioni di breve durata ed eliminare le connessioni inattive non necessarie. È possibile apportare questi miglioramenti configurando una connessione lato server pool, ad esempio ProxySQL.
 
 
-## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Per migliorare le prestazioni delle query, è possibile passare a un livello superiore per ottimizzare l'utilizzo della cache nelle tabelle di SQL Data Warehouse.
+## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Scalabilità verticale per ottimizzare l'utilizzo della cache nelle tabelle di analisi delle sinapsi di Azure per migliorare le prestazioni delle query
 
-Azure Advisor rileva se le tabelle SQL Data Warehouse hanno una percentuale di utilizzo elevato della cache e una percentuale di hit bassa. Questa condizione indica una rimozione della cache elevata, che può influire sulle prestazioni dell'istanza di SQL Data Warehouse. Advisor consiglia di scalare verticalmente l'istanza di SQL Data Warehouse per assicurarsi di allocare una capacità di cache sufficiente per il carico di lavoro.
+Azure Advisor rileva se le tabelle di Azure sinapsi Analytics hanno una percentuale di utilizzo elevato della cache e una percentuale di hit bassa. Questa condizione indica una rimozione della cache elevata, che può influire sulle prestazioni dell'istanza di Azure sinapsi Analytics. Advisor consiglia di eseguire la scalabilità verticale dell'istanza di Azure sinapsi Analytics per assicurarsi di allocare una capacità di cache sufficiente per il carico di lavoro.
 
-## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Convertire le tabelle di SQL Data Warehouse in tabelle replicate per aumentare le prestazioni delle query
+## <a name="convert-azure-synapse-analytics-tables-to-replicated-tables-to-increase-query-performance"></a>Convertire le tabelle di analisi delle sinapsi di Azure in tabelle replicate per migliorare le prestazioni delle query
 
 Advisor identifica le tabelle che non sono tabelle replicate, ma che potrebbero trarre vantaggio dalla conversione. Si consiglia di convertire queste tabelle. Le indicazioni sono basate su:
 - Dimensione della tabella replicata. 
 - Numero di colonne. 
 - Tipo di distribuzione della tabella. 
-- Numero di partizioni nella tabella SQL Data Warehouse. 
+- Il numero di partizioni nella tabella di analisi delle sinapsi di Azure. 
 
-È possibile che venga fornita un'euristica aggiuntiva nell'indicazione del contesto. Per altre informazioni su come viene determinata questa raccomandazione, vedere [SQL data warehouse raccomandazioni](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
+È possibile che venga fornita un'euristica aggiuntiva nell'indicazione del contesto. Per altre informazioni su come viene determinata questa raccomandazione, vedere le [raccomandazioni di Azure sinapsi Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Eseguire la migrazione dell'account di archiviazione a Azure Resource Manager per ottenere le funzionalità più recenti di Azure
 
@@ -160,7 +160,7 @@ Azure Advisor analizza i registri di sistema negli ultimi 7 giorni e identifica 
 Queste condizioni indicano che il cluster è soggetto a latenze di scrittura elevate. Il problema potrebbe essere dovuto a carichi di lavoro intensivi eseguiti nel cluster. Per migliorare le prestazioni del cluster, è consigliabile usare la funzionalità di scrittura accelerata fornita da Azure HDInsight HBase. La funzionalità scritture accelerate per i cluster HDInsight Apache HBase collega i dischi gestiti da SSD Premium a ogni RegionServer (nodo di lavoro) invece di usare l'archiviazione cloud. Di conseguenza, offre bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni su questa funzionalità, vedere [altre informazioni](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 
 ## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Esaminare la cache della tabella Esplora dati di Azure-periodo (criteri) per migliorare le prestazioni (anteprima)
-Questa raccomandazione presenta le tabelle di Esplora dati di Azure con un numero elevato di query che riportano oltre il periodo di memorizzazione nella cache configurato (criteri). le prime 10 tabelle vengono visualizzate per percentuale di query che accedono a dati fuori dalla cache. Azione consigliata per migliorare le prestazioni del cluster: limitare le query su questa tabella all'intervallo di tempo minimo necessario (entro i criteri definiti). In alternativa, se i dati dell'intero intervallo di tempo sono obbligatori, aumentare il periodo della cache con il valore consigliato.
+Questo consiglio fa emergere le tabelle di Esplora dati di Azure con un numero più elevato di query che si riferiscono al periodo (criteri) configurato per la permanenza nella cache. Verranno visualizzate le 10 tabelle principali per percentuale di cache che accedono ai dati non appartenenti alla cache. Azione consigliata per migliorare le prestazioni del cluster: Limitare le query nella tabella all'intervallo di tempo minimo necessario (entro i criteri definiti). In alternativa, se servono i dati dell'intero intervallo di tempo, aumentare il periodo della cache al valore consigliato.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Migliorare le prestazioni ottimizzando il dimensionamento della tabella temporanea MySQL
 L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Altre informazioni](https://aka.ms/azure_mysql_tmp_table)

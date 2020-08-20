@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f6175a797b14077cafacaca1f2fd48f36e945d9e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4a204be0730a0ce4edcd2e343364ed8fc724430e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425214"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655272"
 ---
 L'abilitazione dei dischi condivisi è disponibile solo per un subset di tipi di disco. Attualmente solo dischi e SSD Premium possono abilitare i dischi condivisi. Ogni disco gestito con dischi condivisi abilitati è soggetto alle limitazioni seguenti, organizzati in base al tipo di disco:
 
 ### <a name="ultra-disks"></a>Dischi Ultra
 
-I dischi Ultra includono un elenco separato di limitazioni, non correlate ai dischi condivisi. Per le limitazioni del disco Ultra, vedere [uso di dischi ultra di Azure](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
+I dischi Ultra includono un elenco separato di limitazioni, non correlate ai dischi condivisi. Per le limitazioni del disco Ultra, vedere [uso di dischi ultra di Azure](../articles/virtual-machines/disks-enable-ultra-ssd.md).
 
 Quando si condividono dischi Ultra, presentano le seguenti limitazioni aggiuntive:
 

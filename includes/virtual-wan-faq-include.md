@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507579"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604677"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -119,7 +119,7 @@ Soluzioni di connettività definite dal software gestiscono in genere i propri d
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Cosa succede se un dispositivo in uso non è incluso nell'elenco di partner della rete WAN virtuale? È comunque possibile usarlo per connettersi alla VPN della rete WAN virtuale di Azure?
 
-Sì, purché il dispositivo supporti IPsec IKEv1 o IKEv2. I partner della rete WAN virtuale automatizzano la connettività dal dispositivo agli endpoint VPN. Ciò implica l'automazione di passaggi come 'caricamento di informazioni sui rami', 'IPsec e configurazione' e 'connettività'. Poiché il dispositivo in uso non proviene da un ecosistema di partner della rete WAN virtuale, sarà necessario assumersi il carico di effettuare manualmente la configurazione di Azure e aggiornare il dispositivo per configurare la connettività IPsec.
+Sì, purché il dispositivo supporti IPsec IKEv1 o IKEv2. I partner della rete WAN virtuale automatizzano la connettività dal dispositivo agli endpoint VPN. Ciò implica l'automazione di passaggi quali il "caricamento di informazioni sui rami", "IPsec e configurazione" e "connettività". Poiché il dispositivo in uso non proviene da un ecosistema di partner della rete WAN virtuale, sarà necessario assumersi il carico di effettuare manualmente la configurazione di Azure e aggiornare il dispositivo per configurare la connettività IPsec.
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>In che modo vengono accettati i nuovi partner non inclusi nell'elenco dei partner iniziale?
 
@@ -215,7 +215,7 @@ Il traffico segue il modello: dispositivo del ramo -> ISP -> rete perimetrale Mi
 
 Sì. Una connessione a Internet e un dispositivo fisico che supporti IPsec, preferibilmente dei [partner di WAN virtuale](../articles/virtual-wan/virtual-wan-locations-partners.md) integrati Microsoft. Facoltativamente è possibile gestire manualmente la configurazione e la connettività ad Azure dal dispositivo preferito.
 
-### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Come abilitare la route predefinita (0.0.0.0/0) in una connessione (VPN, ExpressRoute o Rete virtuale):
+### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Come si abilita la route predefinita (0.0.0.0/0) in una connessione (VPN, ExpressRoute o Rete virtuale)?
 
 Un hub virtuale può propagare una route predefinita appresa a una connessione di rete virtuale/VPN da sito a sito/ExpressRoute se il flag è su "Abilitato" nella connessione. Questo flag è visibile quando l'utente modifica una connessione di rete virtuale, VPN o ExpressRoute. Per impostazione predefinita, questo flag è disabilitato quando un sito o un circuito ExpressRoute sono connessi a un hub. Questa funzionalità è abilitata per impostazione predefinita quando si aggiunge una connessione di rete virtuale per connettere una rete virtuale a un hub virtuale. La route predefinita non ha origine nell'hub della rete WAN virtuale; la route predefinita viene propagata se è già stata appresa dall'hub della rete WAN virtuale a seguito della distribuzione di un firewall nell'hub o se per un altro sito connesso è abilitato il tunneling forzato.
 
@@ -239,11 +239,11 @@ Quando più circuiti ExpressRoute sono connessi a un hub virtuale, il peso del r
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>La rete WAN virtuale preferisce ExpressRoute rispetto a VPN per il traffico in uscita da Azure?
 
-Sì 
+Sì.
 
-### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Quando un hub della rete WAN virtuale include un circuito ExpressRoute a cui è connesso un sito VPN, per quale motivo una route di connessione VPN verrebbe preferita rispetto a ExpressRoute?
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-preferred-over-expressroute"></a>Quando un hub della rete WAN virtuale include un circuito ExpressRoute a cui è connesso un sito VPN, per quale motivo una route di connessione VPN verrebbe preferita rispetto a ExpressRoute?
 
-Quando un circuito ExpressRoute è connesso all'hub virtuale, i router perimetrali Microsoft rappresentano il primo nodo per la comunicazione tra ambiente locale e Azure. Questi router perimetrali comunicano con i gateway ExpressRoute della rete WAN virtuale, che a loro volta riconoscono le route del router dell'hub virtuale che controlla tutte le route tra qualsiasi gateway nella rete WAN virtuale. I router perimetrali Microsoft elaborano le route ExpressRoute dell'hub virtuale con una priorità più alta rispetto alle route riconosciute dall'ambiente locale. Se per qualsiasi motivo la connessione VPN diventa il mezzo principale da cui l'hub virtuale riconosce le route (ad esempio negli scenari di failover tra ExpressRoute e VPN), a meno che il sito VPN non abbia un percorso di routing simmetrico più lungo, l'hub virtuale continuerà a condividere le route riconosciute dalla VPN con il gateway ExpressRoute, per cui i router perimetrali Microsoft preferiranno le route VPN rispetto a quelle locali. 
+Quando un circuito ExpressRoute è connesso all'hub virtuale, i router perimetrali Microsoft rappresentano il primo nodo per la comunicazione tra ambiente locale e Azure. Questi router perimetrali comunicano con i gateway ExpressRoute della rete WAN virtuale, che a loro volta riconoscono le route del router dell'hub virtuale che controlla tutte le route tra qualsiasi gateway nella rete WAN virtuale. I router perimetrali Microsoft elaborano le route ExpressRoute dell'hub virtuale con una priorità più alta rispetto alle route riconosciute dall'ambiente locale. Se per qualsiasi motivo la connessione VPN diventa il mezzo principale da cui l'hub virtuale riconosce le route (ad esempio negli scenari di failover tra ExpressRoute e VPN), a meno che il sito VPN non abbia un percorso di routing simmetrico più lungo, l'hub virtuale continuerà a condividere le route riconosciute dalla VPN con il gateway ExpressRoute, per cui i router di Microsoft Edge preferiranno le route VPN rispetto a quelle locali.
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Quando due hub (hub 1 e 2) sono connessi e un circuito ExpressRoute è connesso a entrambi, qual è il percorso con cui una rete virtuale connessa all'hub 1 raggiunge una rete virtuale connessa all'hub 2?
 
@@ -253,9 +253,13 @@ Il comportamento corrente è quello di preferire il percorso del circuito Expres
 
 IPv6 non è supportato nell'hub della rete WAN virtuale e nei relativi gateway. Attualmente non è neanche supportata la connessione di una rete virtuale con supporto per IPv6 a una rete WAN virtuale.
 
-### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Qual è la versione consigliata dell'API da usare per gli script che automatizzano varie funzionalità della rete WAN virtuale?
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Qual è la versione consigliata dell'API da usare per gli script che automatizzano varie funzionalità della rete WAN virtuale?
 
 È necessaria almeno la versione 05-01-2020 (1° maggio 2020). 
+
+### <a name="are-there-any-virtual-wan-limits"></a>Sono previsti limiti per la rete WAN virtuale?
+
+Vedere la sezione [Limiti della rete WAN virtuale](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) nella pagina Limiti della sottoscrizione e del servizio.
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quali sono le differenze tra i tipi di rete WAN virtuale (Basic e Standard)?
 

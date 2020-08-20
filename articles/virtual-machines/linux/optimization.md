@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 662475bdcb6b1ea9809f4501d144fb94e21e945e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659465"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654192"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
 La creazione di una macchina virtuale (VM) di Linux è facile da eseguire dalla riga di comando o dal portale. Questa esercitazione illustra come assicurarsi di averla configurata in modo da ottimizzarne le prestazioni sulla piattaforma Microsoft Azure. Questo argomento usa una VM di Ubuntu Server, ma è anche possibile creare una macchina virtuale Linux usando le [proprie immagini come modelli](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ Per ottenere i valori IOps più elevati nei dischi di Archiviazione Premium in c
 * Se si usa **XFS**, disabilitare le barriere tramite l'opzione di montaggio `nobarrier`. Per abilitarle usare l'opzione `barrier`.
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerazioni sull'account di archiviazione non gestito
-L'azione predefinita quando si crea una macchina virtuale con l'interfaccia della riga di comando di Azure consiste nell'uso di Azure Managed Disks.  Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione.  I dischi non gestiti richiedono un account di archiviazione e presentano alcune considerazioni aggiuntive sulle prestazioni.  Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).  Nella sezione seguente vengono descritte le considerazioni sulle prestazioni applicabili solo quando si usano dischi non gestiti.  Anche in questo caso la soluzione di archiviazione predefinita e consigliata consiste nell'usare dischi gestiti.
+L'azione predefinita quando si crea una macchina virtuale con l'interfaccia della riga di comando di Azure consiste nell'uso di Azure Managed Disks.  Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione.  I dischi non gestiti richiedono un account di archiviazione e presentano alcune considerazioni aggiuntive sulle prestazioni.  Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../managed-disks-overview.md) (Panoramica di Azure Managed Disks).  Nella sezione seguente vengono descritte le considerazioni sulle prestazioni applicabili solo quando si usano dischi non gestiti.  Anche in questo caso la soluzione di archiviazione predefinita e consigliata consiste nell'usare dischi gestiti.
 
 Quando si crea una macchina virtuale con dischi non gestiti è consigliabile assicurarsi di collegare dischi da account di archiviazione che si trovano nella stessa area della macchina virtuale, per garantire la prossimità e ridurre al minimo la latenza di rete.  Ogni account di archiviazione Standard ha capacitò pari ad almeno 20.000 IOps e a dimensioni di 500 TB.  Ciò consente di ottenere circa 40 dischi a uso elevato, inclusi il disco del sistema operativo ed eventuali dischi dati creati. Per gli account di archiviazione Premium non sono previsti limiti massimi per IOps ma è previsto un limite di 32 TB per le dimensioni. 
 

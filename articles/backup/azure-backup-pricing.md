@@ -3,12 +3,12 @@ title: Prezzi di Backup di Azure
 description: Informazioni su come stimare i costi per il budget dei prezzi di backup di Azure.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035757"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654532"
 ---
 # <a name="azure-backup-pricing"></a>Prezzi di Backup di Azure
 
@@ -100,7 +100,7 @@ Per stimare i costi del backup di SQL Server in esecuzione in macchine virtuali 
 
   - Tipo di backup
 
-    - I criteri più efficaci che è possibile scegliere sono i **differenziali giornalieri** con backup completi settimanali/mensili/annuali. Backup di Azure può essere ripristinato anche da differenziali tramite un singolo clic.
+    - I criteri più efficaci che è possibile scegliere sono i **differenziali giornalieri** con backup completi settimanali/mensili/annuali. Backup di Azure è in grado di eseguire il ripristino da differenziali anche tramite un singolo clic.
 
     - È anche possibile scegliere di disporre di un criterio con backup completi giornalieri/settimanali/mensili/annuali. Questa opzione utilizzerà una quantità di spazio di archiviazione leggermente superiore a quella della prima opzione.
 
@@ -137,7 +137,7 @@ Per stimare i costi del backup di SAP HANA server in esecuzione in macchine virt
   - Se si conosce la **varianza%**, è possibile usare l'opzione **immettere il proprio%**
 - Scegliere i criteri di backup
   - Tipo di backup
-    - I criteri più efficaci che è possibile scegliere sono i **differenziali giornalieri** con backup completi **settimanali/mensili/annuali** . Backup di Azure può essere ripristinato anche da differenziali tramite un singolo clic.
+    - I criteri più efficaci che è possibile scegliere sono i **differenziali giornalieri** con backup completi **settimanali/mensili/annuali** . Backup di Azure è in grado di eseguire il ripristino da differenziali anche tramite un singolo clic.
     - È anche possibile scegliere di disporre di un criterio con backup completi **giornalieri/settimanali/mensili/annuali** . Questa opzione utilizzerà una quantità di spazio di archiviazione leggermente superiore a quella della prima opzione.
   - Quanto tempo si prevede di mantenere i backup "log"? (in giorni) [7-35]
   - Quanto tempo si prevede di mantenere i backup giornalieri? (in giorni)
@@ -160,7 +160,7 @@ Per stimare i costi del backup delle condivisioni file di Azure con la [soluzion
 - Se si vuole eseguire il backup delle condivisioni file distribuite tra più account di archiviazione, specificare il numero di account di archiviazione che ospitano le condivisioni file con le dimensioni precedenti.
 
 - Quantità prevista di varianza dei dati nelle condivisioni file di cui si desidera eseguire il backup. <br>La varianza si riferisce alla quantità di modifiche nei dati e influisca direttamente sulle dimensioni di archiviazione dello snapshot. Ad esempio, se si dispone di una condivisione file con 200 GB di dati di cui eseguire il backup e 10 GB di modifiche ogni giorno, la varianza giornaliera sarà pari al 5%.
-  - Una varianza più elevata significa che la quantità di dati modificati nel contenuto della condivisione file ogni giorno è elevata, quindi anche lo snapshot incrementale (acquisendo solo le modifiche ai dati) potrebbe essere maggiore.
+  - Una varianza più elevata indica che la quantità di dati modificati nel contenuto della condivisione file ogni giorno è elevata, quindi anche lo snapshot incrementale (che acquisisce solo le modifiche ai dati) potrebbe essere maggiore.
   - Seleziona bassa (1%), moderata (3%) o alta (5%) in base alle caratteristiche e all'utilizzo della condivisione file.
   - Se si conosce la **varianza esatta%** per la condivisione file, è possibile selezionare l'opzione **immettere il proprio%** dall'elenco a discesa. Specificare i valori (in%) per la varianza giornaliera, settimanale, mensile e annuale.
 

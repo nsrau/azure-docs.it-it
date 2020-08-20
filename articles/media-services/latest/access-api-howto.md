@@ -3,7 +3,7 @@ title: Introduzione all'autenticazione di Azure AD
 description: Informazioni su come accedere all'autenticazione di Azure Active Directory (Azure AD) per usare l'API Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: juliako
-ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.author: inhenkel
+ms.openlocfilehash: 9528efb0ce7dd9df57db21ccdcf19e54a969d2e4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035805"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654838"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Ottenere le credenziali per accedere all'API Servizi multimediali  
 
@@ -38,9 +38,9 @@ Questo articolo descrive i passaggi per ottenere le credenziali per accedere all
 - Un account Azure. Se non si dispone di un account, iniziare con una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Account di Servizi multimediali. Per altre informazioni, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](create-account-howto.md).
 
-## <a name="use-the-azure-portal"></a>Usare il portale di Azure
+## <a name="portal"></a>[Portale](#tab/portal/)
 
-### <a name="api-access"></a>Accesso all'API 
+### <a name="api-access"></a>Accesso all'API
 
 La pagina di **accesso all'API** consente di selezionare il metodo di autenticazione che si vuole usare per connettersi all'API. La pagina fornisce anche i valori necessari per la connessione all'API.
 
@@ -70,7 +70,7 @@ Questa opzione può essere usata per autenticare un dipendente o un membro di Az
 
 Copiare le credenziali per connettere l'applicazione utente dalla sezione **Connettersi all'API Servizi multimediali**. È possibile ottenere valori di testo o copiare i blocchi JSON o XML.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+## <a name="cli"></a>[CLI](#tab/cli/)
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

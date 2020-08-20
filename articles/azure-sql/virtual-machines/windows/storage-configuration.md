@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667370"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653342"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Per usare le impostazioni di configurazione automatica dell'archiviazione, la ma
 
 * Provisioning eseguito con un' [immagine della raccolta di SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 * Uso del [modello di distribuzione Azure Resource Manager](../../../azure-resource-manager/management/deployment-models.md).
-* Uso di [unità SSD Premium](../../../virtual-machines/windows/disks-types.md).
+* Uso di [unità SSD Premium](../../../virtual-machines/disks-types.md).
 
 ## <a name="new-vms"></a>Nuove VM
 
@@ -115,7 +115,7 @@ Per modificare le impostazioni di archiviazione, selezionare **Configura** in **
 Questa sezione fornisce un riferimento per le modifiche di configurazione dell'archiviazione eseguite automaticamente da Azure durante SQL Server provisioning o configurazione della macchina virtuale nel portale di Azure.
 
 * Azure configura un pool di archiviazione dallo spazio di archiviazione selezionato dalla VM. La sezione successiva di questo argomento contiene informazioni dettagliate sulla configurazione del pool di archiviazione.
-* Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 [SSD Premium](../../../virtual-machines/windows/disks-types.md). Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
+* Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 [SSD Premium](../../../virtual-machines/disks-types.md). Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
 
 Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage) nella scheda **Archiviazione su disco** .
 

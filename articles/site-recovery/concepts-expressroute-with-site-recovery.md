@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46db5f7d3e5d3844fb297e512d8d701e6da79de9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700886"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654311"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Microsoft Azure ExpressRoute con Azure Site Recovery
 
@@ -50,7 +50,7 @@ Lo scenario combinato è rappresentato nel diagramma seguente: ![Da locale ad Az
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Replica da Azure ad Azure con ExpressRoute
 
-Azure Site Recovery consente il ripristino di emergenza di [macchine virtuali di Azure](azure-to-azure-architecture.md). I dati di replica vengono inviati a un account di archiviazione di Azure o a un disco gestito di replica nella regione di Azure di destinazione, a seconda che le macchine virtuali di Azure macchine usino o meno [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md). Anche se gli endpoint di replica sono pubblici, per impostazione predefinita il traffico di replica per la replica delle macchine virtuali di Azure non attraversa Internet, indipendentemente dall'area di Azure in cui è presente la rete virtuale di origine. È possibile eseguire l'override della route di sistema predefinita di Azure per il prefisso dell'indirizzo 0.0.0.0/0 con una [route personalizzata](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e deviare il traffico delle macchine virtuali a un'appliance virtuale di rete locale (NVA), ma questa configurazione non è consigliata per la replica Site Recovery. Se si usano route personalizzate, [creare un endpoint servizio di rete virtuale](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) nella rete virtuale per "Archiviazione" in modo che il traffico di replica non lasci il limite di Azure.
+Azure Site Recovery consente il ripristino di emergenza di [macchine virtuali di Azure](azure-to-azure-architecture.md). I dati di replica vengono inviati a un account di archiviazione di Azure o a un disco gestito di replica nella regione di Azure di destinazione, a seconda che le macchine virtuali di Azure macchine usino o meno [Azure Managed Disks](../virtual-machines/managed-disks-overview.md). Anche se gli endpoint di replica sono pubblici, per impostazione predefinita il traffico di replica per la replica delle macchine virtuali di Azure non attraversa Internet, indipendentemente dall'area di Azure in cui è presente la rete virtuale di origine. È possibile eseguire l'override della route di sistema predefinita di Azure per il prefisso dell'indirizzo 0.0.0.0/0 con una [route personalizzata](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e deviare il traffico delle macchine virtuali a un'appliance virtuale di rete locale (NVA), ma questa configurazione non è consigliata per la replica Site Recovery. Se si usano route personalizzate, [creare un endpoint servizio di rete virtuale](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) nella rete virtuale per "Archiviazione" in modo che il traffico di replica non lasci il limite di Azure.
 
 Per il ripristino di emergenza di VM di Azure, per impostazione predefinita ExpressRoute non è necessario per la replica. Dopo il failover nell'area di Azure di destinazione, è possibile accedere alle macchine virtuali tramite [peering privato](../expressroute/expressroute-circuit-peerings.md#privatepeering). Si noti che i prezzi per il trasferimento dei dati si applicano indipendentemente dalla modalità di replica dei dati tra aree di Azure.
 

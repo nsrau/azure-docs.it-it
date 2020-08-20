@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505560"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654583"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione DBMS per SQL Server di macchine virtuali di Azure per un SAP NetWeaver
 
@@ -247,7 +247,7 @@ ms.locfileid: "88505560"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -381,7 +381,7 @@ In SQL Server 2014 e versioni successive è possibile archiviare file di databas
 * Le considerazioni elencate in precedenza in merito alla distribuzione di dischi rigidi virtuali in diversi account di archiviazione di Azure sono valide anche per questo metodo di distribuzione. Questo significa che il numero di operazioni di I/O viene tenuto in considerazione ai fini dei limiti dell'account di archiviazione di Azure.
 * Invece di considerare la quota di operazioni di I/O di archiviazione della VM, il traffico rispetto ai BLOB di archiviazione che rappresenta i file di log e i file di dati SQL Server viene tenuto in considerazione nella larghezza di banda della rete della VM del tipo di VM specifico. Per la larghezza di banda della rete e della risorsa di archiviazione di un tipo di VM specifico, vedere l'articolo [Dimensioni per le macchine virtuali Windows in Azure](../../sizes.md).
 * Come risultato dell'esecuzione del push dei file I/O tramite la quota di rete, si ripercuote principalmente la quota di archiviazione e con questa la larghezza di banda complessiva della macchina virtuale solo parzialmente.
-* Gli obiettivi di prestazione delle operazioni di I/O al secondo e della velocità effettiva delle operazioni di I/O che Archiviazione Premium di Azure specifica per le diverse dimensioni di disco non si applicano più. Ciò vale anche se i BLOB creati si trovano in Archiviazione Premium di Azure. Gli obiettivi sono documentati nell'articolo [Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM](../../windows/disks-types.md#premium-ssd). In conseguenza della memorizzazione di file di dati e dei file di log SQL Server direttamente in BLOB che sono memorizzati in Archiviazione Premium di Azure, le caratteristiche delle prestazioni possono essere diverse in confronto ai dischi rigidi virtuali in Archiviazione Premium di Azure.
+* Gli obiettivi di prestazione delle operazioni di I/O al secondo e della velocità effettiva delle operazioni di I/O che Archiviazione Premium di Azure specifica per le diverse dimensioni di disco non si applicano più. Ciò vale anche se i BLOB creati si trovano in Archiviazione Premium di Azure. Gli obiettivi sono documentati nell'articolo [Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM](../../disks-types.md#premium-ssd). In conseguenza della memorizzazione di file di dati e dei file di log SQL Server direttamente in BLOB che sono memorizzati in Archiviazione Premium di Azure, le caratteristiche delle prestazioni possono essere diverse in confronto ai dischi rigidi virtuali in Archiviazione Premium di Azure.
 * La cache basata su host disponibile per i dischi di Archiviazione Premium di Azure non è disponibile quando si inseriscono file di dati di SQL Server direttamente su BLOB di Azure.
 * Nelle macchine virtuali serie M l'acceleratore di scrittura di Azure non può essere usato per supportare operazioni di scrittura inferiori al millisecondo rispetto al file registro transazioni di SQL Server. 
 

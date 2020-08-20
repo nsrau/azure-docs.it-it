@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: dbcb39641f35ad0f997db30b320826764a08bff1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082257"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653512"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -133,7 +133,7 @@ ms.locfileid: "87082257"
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Risoluzione dei problemi relativi all'estensione di Azure per SAP-contattare il supporto tecnico)
 [deployment-guide-run-the-script]:deployment-guide.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Risoluzione dei problemi relativi all'estensione di Azure per SAP: eseguire lo script di installazione)
 [deployment-guide-redeploy-after-sysprep]:deployment-guide.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Risoluzione dei problemi relativi all'estensione di Azure per SAP-ridistribuzione dopo Sysprep)
-[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 (Risoluzione dei problemi relativi all'estensione di Azure per SAP-correzione della connessione Internet)
+[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 ( Risoluzione dei problemi relativi all'estensione di Azure per SAP-correzione della connessione Internet)
 
 
 [deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configurare l'estensione VM)
@@ -256,7 +256,7 @@ ms.locfileid: "87082257"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -543,7 +543,7 @@ Poiché le diverse versioni di un sistema operativo o DBMS richiedono patch dive
 La procedura per creare un'immagine privata per Linux è diversa da quella per crearne una per Windows.
 
 ---
-> ![WINDOWS][Logo_Windows] Windows
+> ![Windows][Logo_Windows] Windows
 >
 > Per preparare un'immagine Windows da poter usare per distribuire più macchine virtuali, è necessario eseguire l'astrazione o la generalizzazione delle impostazioni di Windows (come il nome host e il SID di Windows) nella VM locale. A tale scopo, è possibile usare [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)).
 >
@@ -1203,7 +1203,7 @@ Questo controllo verifica che tutte le metriche delle prestazioni che vengono vi
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Eseguire il controllo dello stato di preparazione in una VM Windows
 
 1. Accedere alla macchina virtuale Azure. Non è necessario usare un account amministratore.
-1. Aprire un Web browser e passare ahttp://127.0.0.1:11812/azure4sap/metrics
+1. Aprire un Web browser e passare a http://127.0.0.1:11812/azure4sap/metrics
 1. Il browser deve visualizzare o scaricare un file XML che contiene i dati di monitoraggio della macchina virtuale. In caso contrario, assicurarsi che sia installata l'estensione Azure per SAP.
 
 ##### <a name="check-the-content-of-the-xml-file"></a>Controllare il contenuto del file XML
@@ -1319,7 +1319,7 @@ Il servizio di Windows AzureEnhancedMonitoring raccoglie le metriche delle prest
 
 La directory di installazione C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versione>\\drop è vuota.
 
-###### <a name="solution"></a>Solution
+###### <a name="solution"></a>Soluzione
 
 L'estensione non è installata. Determinare se si tratta di un problema del proxy (come descritto prima). Potrebbe essere necessario riavviare il computer o eseguire di nuovo lo script di configurazione `Set-AzVMAEMExtension`.
 
@@ -1346,7 +1346,7 @@ Dopo avere distribuito l'estensione, dopo un'ora controllare di nuovo se i conta
 
 Il servizio di Windows AzureEnhancedMonitoring esiste ed è abilitato, ma non si avvia. Per altre informazioni, controllare il log eventi dell'applicazione.
 
-###### <a name="solution"></a>Solution
+###### <a name="solution"></a>Soluzione
 
 La configurazione non è corretta. Riavviare l'estensione Azure per SAP nella VM, come descritto in [Configurare l'estensione Azure per SAP][deployment-guide-4.5].
 
@@ -1366,7 +1366,7 @@ Le metriche delle prestazioni in Azure vengono raccolte da un daemon. Se il daem
 
 La directory \\var\\lib\\waagent\\ non ha una sottodirectory per l'estensione Azure per SAP.
 
-###### <a name="solution"></a>Solution
+###### <a name="solution"></a>Soluzione
 
 L'estensione non è installata. Determinare se si tratta di un problema del proxy (come descritto prima). Potrebbe essere necessario riavviare il computer e/o eseguire di nuovo lo script di configurazione `Set-AzVMAEMExtension`.
 
@@ -1412,7 +1412,7 @@ Il processo AzureEnhancedMonitoring raccoglie le metriche delle prestazioni in A
 
 La directory di installazione C: \\ packages \\ plugins \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. MonitorX64Windows \\ &lt; Version> è vuota.
 
-###### <a name="solution"></a>Solution
+###### <a name="solution"></a>Soluzione
 
 L'estensione non è installata. Determinare se si tratta di un problema del proxy (come descritto prima). Potrebbe essere necessario riavviare il computer o installare di nuovo l'estensione della macchina virtuale.
 
@@ -1432,7 +1432,7 @@ Le metriche delle prestazioni in Azure vengono raccolte da un daemon. Se il daem
 
 La directory \\var\\lib\\waagent\\ non ha una sottodirectory per l'estensione Azure per SAP.
 
-###### <a name="solution"></a>Solution
+###### <a name="solution"></a>Soluzione
 
 L'estensione non è installata. Determinare se si tratta di un problema del proxy (come descritto prima). Potrebbe essere necessario riavviare il computer e/o installare di nuovo l'estensione della macchina virtuale.
 
@@ -1446,7 +1446,7 @@ Se la risoluzione dei problemi con la nota SAP [1999351] non risolve il problema
 
 ## <a name="azure-extension-error-codes"></a>Codici di errore dell'estensione di Azure
 
-| ID errore | Descrizione errore | Solution |
+| ID errore | Descrizione errore | Soluzione |
 |---|---|---|
 | <a name="cfg_018"></a>cfg/018 | Manca la configurazione dell'app. | [Esegui script di installazione][deployment-guide-run-the-script] |
 | <a name="cfg_019"></a>cfg/019 | Nessun ID distribuzione nella configurazione dell'app. | [Contatta il supporto tecnico][deployment-guide-contact-support] |

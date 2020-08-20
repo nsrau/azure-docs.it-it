@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710270"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653580"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
 Questo articolo descrive i fogli contenuti nel report Excel generato da Azure Site Recovery Deployment Planner per uno scenario di distribuzione da Hyper-V ad Azure.
@@ -179,7 +179,7 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 
 **VM Name** (Nome macchina virtuale): nome della macchina virtuale usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (dischi rigidi virtuali) collegati alle macchine virtuali. I nomi includono i nomi host Hyper-V in cui si trovavano le macchine virtuali quando lo strumento le ha rilevate durante il periodo di profilatura.
 
-**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Sì** \* è per le istanze in cui la macchina virtuale è adatta per le unità [SSD Premium](../virtual-machines/windows/disks-types.md). In questo caso, il disco profilato per valori elevati di operazioni di I/O al secondo o varianza rientra in una categoria di dimensioni del disco Premium più elevata rispetto a quella mappata al disco. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco: 
+**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Sì** \* è per le istanze in cui la macchina virtuale è adatta per le unità [SSD Premium](../virtual-machines/disks-types.md). In questo caso, il disco profilato per valori elevati di operazioni di I/O al secondo o varianza rientra in una categoria di dimensioni del disco Premium più elevata rispetto a quella mappata al disco. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco: 
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 256 GB rientrano nella categoria P15.
 * Da 256 GB a 512 GB rientrano nella categoria P20.

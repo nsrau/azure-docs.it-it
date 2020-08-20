@@ -3,16 +3,16 @@ title: Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 description: Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192304"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653699"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 
-[Azure Managed disks](../virtual-machines/windows/managed-disks-overview.md) è l'offerta di archiviazione su disco consigliata per l'uso con macchine virtuali di Azure per l'archiviazione permanente dei dati. Per migliorare la resilienza dei carichi di lavoro di Service Fabric, è possibile aggiornare i set di scalabilità di macchine virtuali sottostanti ai tipi di nodo per l'uso di Managed Disks. Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
+[Azure Managed disks](../virtual-machines/managed-disks-overview.md) è l'offerta di archiviazione su disco consigliata per l'uso con macchine virtuali di Azure per l'archiviazione permanente dei dati. Per migliorare la resilienza dei carichi di lavoro di Service Fabric, è possibile aggiornare i set di scalabilità di macchine virtuali sottostanti ai tipi di nodo per l'uso di Managed Disks. Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
 
 La strategia generale per l'aggiornamento di un nodo del cluster Service Fabric per l'uso di Managed disks è:
 
