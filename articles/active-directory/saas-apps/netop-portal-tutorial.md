@@ -2,26 +2,21 @@
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Netop Portal | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Netop Portal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 63f7eab5-412a-4a5c-84bc-7473087abb49
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2e456114d186e548cede656da8e8d227efa09aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f316d7bab4b9d5b1f08d7a12cdc892be252128ae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75550112"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549008"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Netop Portal
 
@@ -142,7 +137,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-netop-portal-sso"></a>Configurare l'accesso Single Sign-On di Netop Portal
 
-Per configurare l'accesso Single Sign-On sul lato **Netop Portal**, è necessario il file di **XML metadati federazione** scaricato e l'URL di accesso copiato dal portale di Azure. Seguire le istruzioni nel passaggio 3 della documentazione disponibile [qui](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) per configurare NetOp Portal per l'autenticazione di Azure AD.
+Per configurare l'accesso Single Sign-On sul lato **Netop Portal**, è necessario il file di **XML metadati federazione** scaricato e l'URL di accesso copiato dal portale di Azure. Seguire le istruzioni nel passaggio 3 della documentazione disponibile [qui](https://kb.netop.com/article/netop-remote-control-portal-adfs-and-azure-ad-integration-456.html) per configurare NetOp Portal per l'autenticazione di Azure AD.
 
 ### <a name="create-netop-portal-test-user"></a>Creare l'utente di test di Netop Portal
 

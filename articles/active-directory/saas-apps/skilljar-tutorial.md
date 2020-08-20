@@ -2,25 +2,21 @@
 title: 'Esercitazione: integrazione di Azure Active Directory con Skilljar | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Skilljar.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c572f556-98a3-48e6-8e4c-e634b7a2ba70
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e4df5e259ce1cf2cd10d6ec514fa9091a6bd2d76
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 53d2cd8a2494288134d4cdabd668b5449e11fcbe
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090650"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Esercitazione: integrazione di Azure Active Directory con Skilljar
 

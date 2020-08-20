@@ -2,25 +2,21 @@
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub Enterprise Cloud - Enterprise Account | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e GitHub Enterprise Cloud - Enterprise Account.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 544b1e8c-f633-4d9b-92fe-077d4c51885a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c29de2d8150bce590d19f3af474dda87d17a47
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4e23c8a8497459ce7cb3cab3d1469359f80ad846
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082311"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550776"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub Enterprise Cloud - Enterprise Account
 

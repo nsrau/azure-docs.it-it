@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526997"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551708"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Linux in Azure
 
@@ -45,7 +45,7 @@ Creare un backup giornaliero pianificato per un insieme di credenziali di Serviz
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Macchine virtuali**. 
 3. Dall'elenco selezionare la macchina virtuale di cui eseguire il backup.
-4. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà aperto il pannello **Abilita backup**.
+4. Nel pannello della macchina virtuale, nella sezione **Operazioni**, fare clic su **Backup**. Verrà aperto il pannello **Abilita backup**.
 5. In **Insieme di credenziali dei servizi di ripristino** fare clic su **Crea nuovo** e inserire un nome per il nuovo insieme di credenziali. Viene creato un nuovo insieme di credenziali nello stesso gruppo di risorse e nello stesso percorso della macchina virtuale.
 6. Fare clic su **Criterio di Backup**. Per questo esempio, mantenere le impostazioni predefinite e fare clic su **OK**.
 7. Nel pannello **Abilita backup** fare clic su **Abilita backup**. Verrà creato un backup giornaliero in base alla pianificazione predefinita.

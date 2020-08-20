@@ -2,26 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con Compliance ELF | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Compliance ELF.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f3e23a4c3c3b668939c9f0ac1331214ddbb7cdf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b87e7a6ef4b4ba24e6a7d7b71ba6602ed76e0036
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159361"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551267"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Esercitazione: Integrazione di Azure Active Directory con Compliance ELF
 

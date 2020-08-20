@@ -2,25 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con EY GlobalOne | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e EY GlobalOne.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: a4bf1d6e-8af8-49d7-85d2-60f72d3c4633
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a86bb8d2a9785aca3317924ce2a1edc41dfc8a70
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7079ffd5cb2fe643d93dea0f5c9384a7931dc8a6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008679"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550660"
 ---
 # <a name="tutorial-integrate-ey-globalone-with-azure-active-directory"></a>Esercitazione: Integrare EY GlobalOne con Azure Active Directory
 

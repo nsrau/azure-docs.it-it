@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 01a5714cb78959a982ad73deb401edbafeebe8f9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834457"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549548"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Guida introduttiva: Come creare un rilevatore di oggetti con Visione personalizzata
 
 In questa esercitazione dell'avvio rapido, si apprenderà a creare un rilevatore di oggetti tramite il sito Web di Visione personalizzata. Dopo aver creato un modello di rilevatore, è possibile usare il servizio Visione personalizzata per il rilevamento oggetti.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

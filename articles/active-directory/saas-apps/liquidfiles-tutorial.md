@@ -2,26 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con LiquidFiles | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e LiquidFiles.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: cb517134-0b34-4a74-b40c-5a3223ca81b6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6514594d3119ebf8fab774c3e84c85e34bdfeaf4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 50785fb721a5d2af04504931a78f80a9796c7f2e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67097941"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Esercitazione: Integrazione di Azure Active Directory con LiquidFiles
 

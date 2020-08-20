@@ -2,25 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con RolePoint | Documentazione Microsoft'
 description: Questa esercitazione descrive come configurare l'accesso Single Sign-On tra Azure Active Directory e RolePoint.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 68d37f40-15da-45f5-a9e1-d53f78e786d1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 0b6fd17d2f8577532778733866260f43e9ac7685
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 235010cbcdde326cf17643cec81f3b6fcb1eea59
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092726"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548770"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Esercitazione: Integrazione di Azure Active Directory con RolePoint
 
@@ -152,7 +148,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Nella casella **Nome** immettere **BrittaSimon**.
   
-    1. Nella casella **Nome utente** immettere **BrittaSimon@\<dominioaziendale>.\<estensione>** , ad esempio BrittaSimon@contoso.com.
+    1. Nella casella **Nome utente** immettere **BrittaSimon@\<yourcompanydomain>.\<extension>** . ad esempio BrittaSimon@contoso.com.
 
     1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 

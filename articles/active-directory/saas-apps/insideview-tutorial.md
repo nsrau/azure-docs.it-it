@@ -2,25 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con InsideView | Microsoft Docs'
 description: Questa esercitazione descrive come configurare l'accesso Single Sign-On tra Azure Active Directory e InsideView.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c489a7ab-6b1f-4efb-8a66-8bc13bca78c3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 4278f00b1026fe4d1b95634540d6d035d43ca5ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 17c9672663cae4df7eacb72779e6caf6476e3d24
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202384"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550484"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Esercitazione: Integrazione di Azure Active Directory con InsideView
 
@@ -171,7 +167,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Nella casella **Nome** immettere **BrittaSimon**.
   
-    1. Nella casella **Nome utente** immettere **BrittaSimon@\<dominioaziendale>.\<estensione>** , ad esempio BrittaSimon@contoso.com.
+    1. Nella casella **Nome utente** immettere **BrittaSimon@\<yourcompanydomain>.\<extension>** . ad esempio BrittaSimon@contoso.com.
 
     1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 

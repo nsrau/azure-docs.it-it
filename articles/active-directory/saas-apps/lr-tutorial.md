@@ -2,26 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con LoginRadius | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e LoginRadius.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5715579e-598f-4d2e-970a-107b80b97be4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0087288bed06a09b3a78b190f3d60e8985d7ad29
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: be1cdac0ee8cd27f54cb069939e980173702061a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67097758"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Esercitazione: Integrazione di Azure Active Directory con LoginRadius
 

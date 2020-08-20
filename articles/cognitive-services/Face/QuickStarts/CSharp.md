@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 050ff882e70d162749e1c4e913b523e79c81a7a2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 781fecd199d23ffd6c338d767e52479c07d23387
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834100"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549508"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e C#
 
 In questa guida di avvio rapido si userà l'API REST Viso di Azure con C# per rilevare i visi umani in un'immagine.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

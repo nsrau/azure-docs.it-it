@@ -2,25 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con Insignia SAML SSO | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Insignia SAML SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 828c981c-c3dd-4eb2-8699-0f732baa43f6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: c7b62a65d3f0b3b4006c55f5323b1feb69cca9f1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 9d3463e04f06e02f8d27e633a10c22069ad9b57f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799852"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Insignia SAML SSO
 
@@ -116,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Insignia SAML SSO, segu
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -134,7 +130,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Insignia SAML SSO, segu
 
 ### <a name="configure-insignia-saml-sso-single-sign-on"></a>Configurare l'accesso Single Sign-On per Insignia SAML SSO
 
-Per configurare l'accesso Single Sign-On sul lato **Insignia SAML SSO** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Insignia SAML SSO** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -189,7 +185,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-insignia-saml-sso-test-user"></a>Creare un utente di test di Insignia SAML SSO
 
-In questa sezione viene creato un utente di nome Britta Simon in Insignia SAML SSO. Rivolgersi al  [team di supporto di Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx) per aggiungere gli utenti nella piattaforma Insignia SAML SSO. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Insignia SAML SSO. Rivolgersi al  [team di supporto di Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx) per aggiungere gli utenti nella piattaforma Insignia SAML SSO. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
