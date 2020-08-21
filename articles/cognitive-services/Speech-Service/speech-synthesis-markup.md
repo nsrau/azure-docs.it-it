@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3394882574f94e4a1af3aa942f3b0bd87be55368
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533394"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690086"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -46,7 +46,7 @@ Ogni documento SSML viene creato con elementi SSML (o tag). Questi elementi veng
 
 ## <a name="create-an-ssml-document"></a>Creare un documento SSML
 
-`speak`è l'elemento radice ed è **obbligatorio** per tutti i documenti SSML. L' `speak` elemento contiene informazioni importanti, ad esempio la versione, la lingua e la definizione del vocabolario di markup.
+`speak` è l'elemento radice ed è **obbligatorio** per tutti i documenti SSML. L' `speak` elemento contiene informazioni importanti, ad esempio la versione, la lingua e la definizione del vocabolario di markup.
 
 **Sintassi**
 
@@ -58,9 +58,9 @@ Ogni documento SSML viene creato con elementi SSML (o tag). Questi elementi veng
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `version` | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Necessario |
-| `xml:lang` | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, `en` ) o il codice lingua e il paese/regione maiuscola (ad esempio, `en-US` ). | Necessario |
-| `xmlns` | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è http://www.w3.org/2001/10/synthesis . | Necessario |
+| `version` | Indica la versione della specifica SSML usata per interpretare il markup del documento. La versione corrente è 1,0. | Obbligatoria |
+| `xml:lang` | Specifica la lingua del documento radice. Il valore può contenere un codice di lingua minuscolo di due lettere (ad esempio, `en` ) o il codice lingua e il paese/regione maiuscola (ad esempio, `en-US` ). | Obbligatoria |
+| `xmlns` | Specifica l'URI del documento che definisce il vocabolario di markup (i tipi di elemento e i nomi di attributo) del documento SSML. L'URI corrente è http://www.w3.org/2001/10/synthesis . | Obbligatoria |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Scegliere una voce per la sintesi vocale
 
@@ -101,7 +101,7 @@ All'interno dell' `speak` elemento è possibile specificare più voci per l'outp
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `name` | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Necessario |
+| `name` | Identifica la voce utilizzata per l'output da sintesi vocale. Per un elenco completo delle voci supportate, vedere [supporto](language-support.md#text-to-speech)per le lingue. | Obbligatoria |
 
 > [!IMPORTANT]
 > Più voci non sono compatibili con la funzionalità per i confini di parola. Per poter usare più voci, è necessario disabilitare la funzionalità di confine di parola.
@@ -192,7 +192,7 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > La regolazione degli stili di lingua funzionerà solo con le voci neurali.
 
-Per impostazione predefinita, il servizio Text-to-Speech sintetizza il testo usando uno stile di pronuncia neutro per le voci standard e neurali. Con le voci neurali è possibile modificare lo stile di pronuncia per esprimere emozioni diverse, ad esempio allegria, empatia e tranquillità, oppure ottimizzare la voce per diversi scenari, ad esempio servizio personalizzato, telegiornalismo e Assistente vocale, usando l'elemento <mstts: Express-As>. Si tratta di un elemento facoltativo univoco per il servizio di riconoscimento vocale.
+Per impostazione predefinita, il servizio Text-to-Speech sintetizza il testo usando uno stile di pronuncia neutro per le voci standard e neurali. Con le voci neurali è possibile modificare lo stile di pronuncia per esprimere emozioni diverse, ad esempio allegria, empatia e tranquillità, oppure ottimizzare la voce per diversi scenari come servizio personalizzato, telegiornalismo e Assistente vocale, usando l'  `mstts:express-as`   elemento. Si tratta di un elemento facoltativo univoco per il servizio di riconoscimento vocale.
 
 Attualmente sono supportate le rettifiche di stile per le voci neurali seguenti:
 * `en-US-AriaNeural`
@@ -215,7 +215,7 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 
 Usare questa tabella per determinare quali stili di pronuncia sono supportati per ogni voce neurale.
 
-| Chiamata vocale                   | Stile                     | Description                                                 |
+| Chiamata vocale                   | Stile                     | Descrizione                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Un tono formale, sicuro e autorevole per la distribuzione di notizie|
 |                         | `style="newscast-casual"` | Un tono versatile e informale per la distribuzione di notizie generali       |
@@ -263,9 +263,9 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `strength` | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>Nessuno</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
-| `time` | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono `2s` e`500` | Facoltativo |
+| `time` | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono `2s` e `500` | Facoltativo |
 
-| Forza                      | Description |
+| Forza                      | Descrizione |
 |-------------------------------|-------------|
 | None oppure se non viene specificato alcun valore | 0 ms        |
 | x-debole                        | 250 ms      |
@@ -564,7 +564,7 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
 ```
 ## <a name="say-as-element"></a>elemento Say-As
 
-`say-as`è un elemento facoltativo che indica il tipo di contenuto (ad esempio, Number o date) del testo dell'elemento. Vengono fornite informazioni aggiuntive sul motore di sintesi vocale su come pronunciare il testo.
+`say-as` è un elemento facoltativo che indica il tipo di contenuto (ad esempio, Number o date) del testo dell'elemento. Vengono fornite informazioni aggiuntive sul motore di sintesi vocale su come pronunciare il testo.
 
 **Sintassi**
 
@@ -576,7 +576,7 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Necessario |
+| `interpret-as` | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Obbligatoria |
 | `format` | Fornisce informazioni aggiuntive sulla formattazione precisa del testo dell'elemento per i tipi di contenuto che possono avere formati ambigui. SSML definisce i formati per i tipi di contenuto che li usano (vedere la tabella riportata di seguito). | Facoltativo |
 | `detail` | Indica il livello di dettaglio da pronunciare. Questo attributo, ad esempio, può richiedere che il motore di sintesi vocale pronunci segni di punteggiatura. Nessun valore standard definito per `detail` . | Facoltativo |
 
@@ -617,7 +617,7 @@ Il motore di sintesi vocale si riferisce all'esempio seguente: "la prima richies
 
 ## <a name="add-recorded-audio"></a>Aggiungi audio registrato
 
-`audio`è un elemento facoltativo che consente di inserire audio MP3 in un documento SSML. Il corpo dell'elemento audio può contenere testo normale o markup SSML che viene parlato se il file audio non è disponibile o non è riproducibile. Inoltre, l' `audio` elemento può contenere testo e gli elementi seguenti: `audio` , `break` , `p` , `s` , `phoneme` , `prosody` , `say-as` e `sub` .
+`audio` è un elemento facoltativo che consente di inserire audio MP3 in un documento SSML. Il corpo dell'elemento audio può contenere testo normale o markup SSML che viene parlato se il file audio non è disponibile o non è riproducibile. Inoltre, l' `audio` elemento può contenere testo e gli elementi seguenti: `audio` , `break` , `p` , `s` , `phoneme` , `prosody` , `say-as` e `sub` .
 
 Qualsiasi audio incluso nel documento SSML deve soddisfare i requisiti seguenti:
 

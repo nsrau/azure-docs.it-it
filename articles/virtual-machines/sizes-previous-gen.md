@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 01c7d5610daa703e910fb485b5e9d945a6cdc940
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 37a687a17df266fe0589c24b392c0527e001f976
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831295"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683896"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 
@@ -59,7 +59,7 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 
 MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
-<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una macchina virtuale serie Fs può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per informazioni dettagliate, vedere progettazione per prestazioni elevate per [Windows](windows/premium-storage-performance.md) o [Linux](linux/premium-storage-performance.md).  
+<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una macchina virtuale serie Fs può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per informazioni dettagliate, vedere [progettazione per prestazioni elevate (/Premium-storage-performance.MD).
 
 
 ## <a name="nvv2-series"></a>Serie NVv2
@@ -96,7 +96,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria.
 
-| Dimensioni – Dimensioni\Nome | vCPU | Memory|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
+| Dimensioni – Dimensioni\Nome | vCPU | Memoria|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
 |---|---|---|---|---|---|---|
 | A0\Basic_A0 | 1 | 768 MB  | 2 | 20 GB  | 1  | 1x300  |
 | A1\Basic_A1 | 1 | 1,75 GB | 2 | 40 GB  | 2  | 2x300  |
@@ -267,7 +267,7 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 | Standard_DS13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
 | Standard_DS14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
 
-<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per informazioni dettagliate, vedere progettazione per prestazioni elevate per [Windows](windows/premium-storage-performance.md) o [Linux](linux/premium-storage-performance.md).
+<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per informazioni dettagliate, vedere [progettazione per prestazioni elevate (/Premium-storage-performance.MD).
 <sup>2</sup> la famiglia di macchine virtuali può essere eseguita su una delle CPU seguenti: 2,2 GHz intel Xeon® E5-2660 v2, 2,4 GHz intel Xeon® E5-2673 V3 (Haswell) o 2,3 GHz intel Xeon® E5-2673 V4 (Broadwell)  
 
 <br>
@@ -293,7 +293,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
 | Standard_L32s &nbsp; <sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
-La massima velocità effettiva del disco possibile con le macchine virtuali serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per informazioni dettagliate, vedere progettazione per prestazioni elevate per [Windows](windows/premium-storage-performance.md) o [Linux](linux/premium-storage-performance.md).
+La massima velocità effettiva del disco possibile con le macchine virtuali serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per informazioni dettagliate, vedere [progettazione per prestazioni elevate (/Premium-storage-performance.MD).
 
 <sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 
@@ -315,7 +315,7 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 | Standard_GS4&nbsp;<sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
-<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie GS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per informazioni dettagliate, vedere progettazione per prestazioni elevate per [Windows](windows/premium-storage-performance.md) o [Linux](linux/premium-storage-performance.md).
+<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie GS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per informazioni dettagliate, vedere [progettazione per prestazioni elevate (/Premium-storage-performance.MD).
 
 <sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 

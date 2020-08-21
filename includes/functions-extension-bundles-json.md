@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: glenga
-ms.openlocfilehash: f64892193eb6cfcce8f948b54e5557b5fa3d90ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: b67e2bf2ae5af2feb334e898ce69fd5b959c7cf0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80878247"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689558"
 ---
 ```json
 {
@@ -21,13 +21,9 @@ ms.locfileid: "80878247"
 }
 ```
 
-In sono disponibili le proprietà seguenti `extensionBundle` :
+In `extensionBundle` sono disponibili le proprietà seguenti:
 
 | Proprietà | Descrizione |
 | -------- | ----------- |
-| id | Spazio dei nomi per i bundle di estensioni di funzioni Microsoft Azure. |
-| version | Versione del bundle da installare. Il runtime di funzioni sceglie sempre la versione massima consentita definita dall'intervallo o dall'intervallo di versioni. Il valore della versione precedente consente a tutte le versioni del bundle da 1.0.0 fino a, ma non incluso 2.0.0. Per ulteriori informazioni, vedere la [notazione intervallo per specificare gli intervalli di versione](/nuget/reference/package-versioning#version-ranges). |
-
-Le versioni del bundle vengono incrementate come pacchetti nella modifica del bundle. Le modifiche alla versione principale si verificano quando i pacchetti nel bundle vengono incrementati di una versione principale. Le modifiche alla versione principale del bundle coincidono in genere con una modifica nella versione principale del runtime di funzioni.  
-
-Il set corrente di estensioni installate dal bundle predefinito viene enumerato in questo [extensions.jssul file](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+| id | Spazio dei nomi per i bundle di estensioni di Funzioni di Azure Microsoft. |
+| version | Versione del bundle da installare. Il runtime di Funzioni sceglie sempre la versione massima consentita definita dall'intervallo o dall'intervallo di versioni. Il valore version precedente consente tutte le versioni del bundle a partire dalla 1.0.0 fino alla 2.0.0 esclusa. Per altre informazioni, vedere la [notazione degli intervalli per specificare gli intervalli di versione](/nuget/reference/package-versioning#version-ranges). |

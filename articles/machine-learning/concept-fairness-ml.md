@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829374"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689678"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Attenuare l'equità nei modelli di Machine Learning (anteprima)
 
@@ -51,7 +51,7 @@ Insieme, questi componenti consentono a data scientist e leader aziendali di sce
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Valutazione dell'equità nei modelli di Machine Learning
 
-Nel pacchetto open source di Fairlearn, l'equità viene concettuale anche se si tratta di un approccio noto come **equità del gruppo**, che chiede: quali gruppi di persone rischiano di subire danni? I gruppi rilevanti, anche noti come sottopopolazioni, vengono definiti tramite **caratteristiche sensibili** o attributi sensibili. Le funzionalità sensibili vengono passate a uno strumento di stima nel pacchetto open source Fairlearn come vettore o matrice denominata `sensitive_features` . Il termine suggerisce che la finestra di progettazione del sistema debba essere sensibile a queste caratteristiche durante la valutazione dell'equità di gruppo. 
+Nel pacchetto open source di Fairlearn, l'equità viene concettuale anche se si tratta di un approccio noto come **equità del gruppo**, che chiede: quali gruppi di persone rischiano di subire danni? I gruppi rilevanti, anche noti come sottopopolazioni, vengono definiti tramite **caratteristiche sensibili** o attributi sensibili. Le funzionalità sensibili vengono passate a uno strumento di stima nel pacchetto open source Fairlearn come vettore o matrice denominata  `sensitive_features` . Il termine suggerisce che la finestra di progettazione del sistema debba essere sensibile a queste caratteristiche durante la valutazione dell'equità di gruppo. 
 
 Un aspetto da tenere presente è se queste funzionalità contengono implicazioni sulla privacy dovute a dati privati. Tuttavia, la parola "sensibile" non implica che queste caratteristiche non debbano essere usate per realizzare stime.
 
@@ -108,6 +108,6 @@ Il pacchetto open source Fairlearn fornisce algoritmi di mitigazione della riela
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come usare i diversi componenti, vedere la pagina relativa a [GitHub](https://github.com/fairlearn/fairlearn/), [Guida dell'utente](https://fairlearn.github.io/user_guide/index.html), [esempi](https://fairlearn.github.io/auto_examples/notebooks/index.html)e [notebook di esempio](https://github.com/fairlearn/fairlearn/tree/master/notebooks)di Fairlearn.
+- Per informazioni su come usare i diversi componenti, vedere la pagina relativa a [GitHub](https://github.com/fairlearn/fairlearn/), [Guida dell'utente](https://fairlearn.github.io/user_guide/index.html), [esempi](https://fairlearn.github.io/auto_examples/)e [notebook di esempio](https://github.com/fairlearn/fairlearn/tree/master/notebooks)di Fairlearn.
 - Informazioni [su come abilitare la](how-to-machine-learning-fairness-aml.md) valutazione dell'equità dei modelli di machine learning in Azure Machine Learning.
 - Vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) per altri scenari di valutazione dell'equità in Azure Machine Learning. 

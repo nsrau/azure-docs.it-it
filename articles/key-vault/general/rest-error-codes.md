@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: f0673732bd657b237ed0f4b4db276b8bf9a3a2b5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95fb9798bc62236d785c911ec75db8d6e11f6e97
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424376"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685715"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Key Vault
  
@@ -89,7 +89,7 @@ I token sono con codifica Base64 e i valori possono essere decodificati in siti 
 
 In questo token è possibile vedere molte parti importanti:
 
-- AUD (audience): risorsa del token. Si noti che questo è <https://vault.azure.net> . Questo token non funzionerà per tutte le risorse che non corrispondono in modo esplicito a questo valore, ad esempio Graph.
+- AUD (audience): risorsa del token. Si noti che questo è `https://vault.azure.net` . Questo token non funzionerà per tutte le risorse che non corrispondono in modo esplicito a questo valore, ad esempio Graph.
 - IAT (rilasciato a): numero di cicli dall'inizio dell'epoca in cui è stato emesso il token.
 - NBF (not before): numero di cicli trascorsi dall'inizio dell'epoca in cui questo token diventa valido.
 - Exp (scadenza): numero di cicli trascorsi dall'inizio dell'epoca in cui questo token scade.

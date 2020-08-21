@@ -9,19 +9,19 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 7918f684fea1092cbd7c11fade3d8f40c1e44240
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431205"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691259"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
 
-**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 **[Azure AI Gallery](https://gallery.azure.ai)** è un sito basato su community per l'individuazione e la condivisione delle soluzioni create con Azure AI.
 Questo sito include diverse risorse che è possibile usare per sviluppare soluzioni di analisi.
@@ -34,7 +34,6 @@ Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo 
 * **Esercitazioni**: sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.
 * **Raccolte**: una raccolta consente di raggruppare esperimenti, API e altre risorse di Gallery dedicati a un concetto o una soluzione specifici.
 * **Moduli personalizzati** : è possibile scaricare moduli personalizzati nell'area di lavoro di studio (classica) da usare nei propri esperimenti.
-* **Notebook di Jupyter**: i notebook di Jupyter includono codice, visualizzazioni di dati e documentazione in un'unica area di disegno interattiva. I notebook in Cortana Intelligence Gallery offrono esercitazioni e spiegazioni dettagliate su tecniche e soluzioni avanzate di apprendimento automatico.
 
 ## <a name="discover-and-contribute"></a>Scoprire e contribuire
 
@@ -49,12 +48,12 @@ Nella pagina di ogni risorsa è disponibile una sezione dedicata ai commenti in 
 
 Quando si esegue l'accesso si diventa membri della community di Cortana Intelligence Gallery. Questo permette di scaricare le risorse o di pubblicare i propri elementi di Gallery e consentire agli altri di trarre vantaggio dalle soluzioni scoperte.
 
-È possibile scaricare **esperimenti**, **moduli personalizzati** e **notebook di Jupyter** da usare nello sviluppo di soluzioni personalizzate di analisi.
+È possibile scaricare gli **esperimenti**, i **moduli personalizzati** da usare per lo sviluppo di soluzioni di analisi personalizzate.
 È possibile contribuire con **esperimenti**, **esercitazioni** e **raccolte** pubblicandoli in Gallery.
 
-## <a name="download-experiments-modules-notebooks"></a>Scaricare esperimenti, moduli e notebook
+## <a name="download-experiments-modules"></a>Scarica esperimenti, moduli
 
-È possibile scaricare gli **esperimenti**, i **moduli personalizzati**e i **notebook di Jupyter** nell'area di lavoro Machine Learning Studio (classica) da usare per lo sviluppo di soluzioni personalizzate.
+È possibile scaricare **esperimenti**, **moduli personalizzati** nell'area di lavoro Machine Learning Studio (classica) da usare per lo sviluppo di soluzioni personalizzate.
 
 Per scaricare una risorsa da AI Gallery:
 
@@ -98,7 +97,7 @@ Gli utenti possono anche aggiungere commenti e condividere il contributo con alt
    * Screenshot del grafico dell'esperimento
    * Origini dati e spiegazione
    * Elaborazione dati
-   * Progettazione di caratteristiche
+   * Progettazione delle funzioni
    * Descrizione del modello
    * Risultati e valutazione delle prestazioni del modello
 
@@ -162,7 +161,7 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
    > [!TIP]
    > Per assicurarsi che la documentazione sia corretta prima di pubblicarla, è possibile usare l'opzione **Unlisted** (Non in elenco) prima di rendere pubblico l'esperimento. In un secondo momento sarà possibile modificare l'impostazione di visibilità su **Public** (Pubblico) nella pagina dei dettagli dell'esperimento. Si noti che, dopo aver impostato un esperimento su **Public** (Pubblico), successivamente non è possibile impostarlo su **Unlisted** (Non in elenco).
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 Il contributo si trova ora in Azure AI Gallery. I contributi vengono elencati nella pagina del proprio account, all'interno della scheda **Elementi**.
 

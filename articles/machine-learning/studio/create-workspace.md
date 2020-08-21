@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 89c79f668da3ff924dbb7f27574260118003655f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c283ef2f6eb28dca7ca5bc5e391ef30465c65dc0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433247"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691276"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Creare e condividere un'area di lavoro di Machine Learning Studio (classica)
 
-**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 
@@ -70,7 +70,7 @@ Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Gui
 
 
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Condividere un'area di lavoro di Azure Machine Learning Studio (classica)
-Una volta creata un'area di lavoro di Machine Learning Studio (classica), è possibile invitare gli utenti nell'area di lavoro per condividere l'accesso all'area di lavoro e a tutti i relativi esperimenti, set di impostazioni, notebook e così via. È possibile aggiungere utenti in uno dei due ruoli seguenti:
+Una volta creata un'area di lavoro di Machine Learning Studio (classica), è possibile invitare gli utenti nell'area di lavoro per condividere l'accesso all'area di lavoro e a tutti i relativi esperimenti, set di impostazioni e così via. È possibile aggiungere utenti in uno dei due ruoli seguenti:
 
 * **Utente**: un utente dell'area di lavoro può creare, aprire, modificare ed eliminare esperimenti, dataset e così via nell'area di lavoro.
 * **Proprietario**: un proprietario può invitare e rimuovere gli utenti dell'area di lavoro in aggiunta alle operazioni consentite a un utente.
@@ -82,7 +82,7 @@ Una volta creata un'area di lavoro di Machine Learning Studio (classica), è pos
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Per condividere un'area di lavoro di studio (classica)
 
-1. Accedi a Machine Learning Studio (versione classica) all'indirizzo[https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Accedi a Machine Learning Studio (versione classica) all'indirizzo [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. Nel pannello sinistro fare clic su **IMPOSTAZIONI**
 

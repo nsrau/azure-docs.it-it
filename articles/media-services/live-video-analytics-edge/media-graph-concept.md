@@ -3,12 +3,12 @@ title: Concetto di grafico multimediale-Azure
 description: Un grafico multimediale consente di definire la posizione in cui devono essere acquisiti i supporti, la modalità di elaborazione e la posizione in cui devono essere recapitati i risultati. Questo articolo fornisce una descrizione dettagliata del concetto di grafico multimediale.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300808"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690681"
 ---
 # <a name="media-graph"></a>Grafico multimediale
 
@@ -80,6 +80,10 @@ Il nodo processore filtro frequenza frame consente di campionare i frame dal flu
 #### <a name="http-extension-processor"></a>Processore di estensione HTTP
 
 Il nodo processore di estensione HTTP consente di connettere il proprio modulo di IoT Edge a un grafico multimediale. Questo nodo accetta i fotogrammi video decodificati come input e inoltra tali frame a un endpoint HTTP REST esposto dal modulo. Questo nodo è in grado di eseguire l'autenticazione con l'endpoint REST, se necessario. Inoltre, il nodo dispone di un formattatore di immagine incorporato per la scalabilità e la codifica dei fotogrammi video prima che vengano inoltrati all'endpoint REST. Scaler dispone di opzioni per le proporzioni dell'immagine da mantenere, imbottire o allungare. Il codificatore di immagini supporta formati JPEG, PNG o BMP.
+
+#### <a name="grpc-extension-processor"></a>processore di estensione gRPC
+
+Il nodo del processore di estensione gRPC accetta i fotogrammi video decodificati come input e inoltra tali frame a un endpoint gRPC esposto dal modulo. Inoltre, il nodo dispone di un formattatore di immagine incorporato per la scalabilità e la codifica dei fotogrammi video prima che vengano inoltrati all'endpoint gRPC. Scaler dispone di opzioni per le proporzioni dell'immagine da mantenere, imbottire o allungare. Il codificatore di immagini supporta formati JPEG, PNG o BMP.
 
 #### <a name="signal-gate-processor"></a>Processore Gate Signal  
 

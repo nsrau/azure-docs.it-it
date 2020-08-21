@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0754c8e2be62c0a5568e97e7e5cf4376fb3c593
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d1f77d6189e5b32ca771d17ae9902341bcaa1871
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210918"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688131"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -73,6 +73,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 - Limitare l'accesso amministrativo al server Azure AD Connect solo agli amministratori di dominio o ad altri gruppi di sicurezza strettamente controllati.
 - Creare un [account dedicato per tutto il personale con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Gli amministratori non dovrebbero esplorare il Web, controllare la posta elettronica e svolgere attività quotidiane per la produttività con account con privilegi elevati.
 - Seguire le istruzioni fornite nella pagina relativa alla [protezione dell'accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
+- Negare l'utilizzo dell'autenticazione NTLM con il server AADConnect. Di seguito sono riportati alcuni modi per eseguire questa operazione: [limitazione di NTLM nel server AADConnect](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) e [restrizione di NTLM in un dominio](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
 - Verificare che ogni computer disponga di una password di amministratore locale univoca. Per ulteriori informazioni, vedere la pagina relativa alla [soluzione di password di amministratore locale (giri)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) può configurare password casuali univoche in ogni workstation e server archiviarle in Active Directory protette da un ACL. Solo gli utenti autorizzati idonei possono leggere o richiedere la reimpostazione di queste password di account amministratore locale. È possibile ottenere i giri da usare nelle workstation e nei server dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Indicazioni aggiuntive per la gestione di un ambiente con i giri e le workstation con accesso con privilegi (Paw) sono disponibili negli [standard operativi basati sul principio di origine pulita](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implementare [workstation con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) dedicati per tutto il personale con accesso con privilegi ai sistemi informativi dell'organizzazione. 
 - Seguire queste [linee guida aggiuntive](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) per ridurre la superficie di attacco dell'ambiente Active Directory.
@@ -131,7 +132,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 Per ulteriori informazioni, vedere MSDN sull' [elemento proxy predefinito](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 Facoltativo: usare un account utente di test per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti

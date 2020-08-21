@@ -3,17 +3,17 @@ title: Usare Creator per creare piante di interni
 description: Usare Creator di Mappe di Azure per creare piante di interni.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 08/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075402"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688088"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Usare Creator per creare piante di interni
 
@@ -64,13 +64,13 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 
 5. Fare clic sul pulsante blu **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda di risposta **Headers** (Intestazioni). Copiare il valore della chiave **Location** (Posizione), ovvero lo `status URL`.
 
-6. Per controllare lo stato della chiamata API, creare una richiesta HTTP **Get** in `status URL` . È necessario accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **Get** dovrebbe essere simile all'URL seguente:
+6. Per controllare lo stato della chiamata API, creare una richiesta HTTP **GET** sullo `status URL`. È necessario accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **Get** dovrebbe essere simile all'URL seguente:
 
     ```http
     https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. Quando la richiesta **Get** http viene completata correttamente, viene restituito `resourceLocation` . `resourceLocation`Contiene l'oggetto univoco `udid` per il contenuto caricato. Facoltativamente, è possibile usare l' `resourceLocation` URL per recuperare i metadati da questa risorsa nel passaggio successivo.
+7. Quando la richiesta HTTP **GET** viene completata correttamente, restituisce un `resourceLocation`. `resourceLocation` contiene il valore `udid` univoco per il contenuto caricato. Se si vuole, è possibile usare l'URL `resourceLocation` per recuperare i metadati da questa risorsa nel passaggio successivo.
 
     ```json
     {
@@ -79,13 +79,13 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
     }
     ```
 
-8. Per recuperare i metadati del contenuto, creare una richiesta HTTP **Get** sull' `resourceLocation` URL recuperato nel passaggio 7. Assicurarsi di aggiungere la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **Get** dovrebbe essere simile all'URL seguente:
+8. Per recuperare i metadati del contenuto, creare una richiesta HTTP **GET** sull'URL `resourceLocation` recuperato nel passaggio 7. Assicurarsi di accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **GET** dovrebbe essere simile all'URL seguente:
 
     ```http
    https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. Quando la richiesta **Get** http viene completata correttamente, il corpo della risposta conterrà l' `udid` oggetto specificato nel `resourceLocation` passaggio 7, il percorso per accedere/scaricare il contenuto in futuro e altri metadati sul contenuto, ad esempio la data di creazione/aggiornamento, le dimensioni e così via. Un esempio di risposta complessiva è:
+9. Quando la richiesta HTTP **GET** viene completata correttamente, il corpo della risposta conterrà il valore `udid` specificato nel `resourceLocation` del passaggio 7, il percorso per accedere al contenuto in futuro e scaricarlo e altri metadati sul contenuto, come data di creazione/aggiornamento, dimensioni e così via. Un esempio di risposta complessiva è:
 
     ```json
     {
@@ -109,16 +109,25 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+
     >[!IMPORTANT]
     > Gli URL dell'API in questo documento possono essere modificati in base alla posizione della risorsa dell'autore. Per altri dettagli, vedere [accesso ai servizi Creator](how-to-manage-creator.md#access-to-creator-services).
 
-3. Fare clic su **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda della risposta **Headers** (Intestazioni) e cercare la chiave **Location** (Posizione). Copiare il valore della chiave **Location** (Posizione), che è lo `status URL` per la richiesta di conversione.
+3. Fare clic su **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda della risposta **Headers** (Intestazioni) e cercare la chiave **Location** (Posizione). Copiare il valore della chiave **Location** (Posizione), che è lo `status URL` per la richiesta di conversione. Che verrà usato nel passaggio successivo.
 
-4. Selezionare il metodo HTTP **GET** nella scheda del generatore. Accodare la chiave di sottoscrizione primaria di Mappe di Azure allo `status URL`. Effettuare una richiesta **GET** per lo `status URL` ottenuto nel passaggio precedente. Se il processo di conversione non è ancora stato completato, è possibile che venga visualizzata una risposta JSON simile alla seguente:
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copiare il valore della chiave location":::
+
+4. Selezionare il metodo HTTP **GET** nella scheda del generatore. Accodare la chiave di sottoscrizione primaria di Mappe di Azure allo `status URL`. Eseguire una richiesta **Get** in `status URL` copiata nel passaggio 3. L' `status URL` aspetto dell'URL è simile al seguente:
+
+    ```http
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    ```
+
+    Se il processo di conversione non è ancora stato completato, è possibile che venga visualizzata una risposta JSON simile alla seguente:
 
     ```json
     {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Running"
     }
@@ -128,7 +137,7 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 
     ```json
    {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -143,7 +152,7 @@ Il pacchetto di disegno di esempio deve essere convertito senza errori o avvisi.
 
 ```json
 {
-    "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+    "operationId": "<operationId>",
     "created": "2020-04-22T19:39:54.9518496+00:00",
     "status": "Failed",
     "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -177,7 +186,7 @@ Il set di dati è una raccolta di funzionalità della pianta come edifici, livel
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
@@ -206,7 +215,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"

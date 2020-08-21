@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289025"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690205"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi vocali
 
@@ -305,7 +305,7 @@ Il carbonio è stato risolto nella versione 1,8.
 - Il carbonio con le asserzioni viene attivato nelle build di rilascio (terminando il processo).
 
 La soluzione alternativa è passare all'uso del riconoscimento continuo nel codice o (più veloce) connettersi agli endpoint interattivi o continui nel contenitore.
-Per il codice, impostare l'endpoint su <host: porta>/Speech/Recognition/Interactive/cognitiveservices/V1
+Per il codice, impostare l'endpoint su `host:port` /Speech/Recognition/Interactive/cognitiveservices/V1
 
 Per le varie modalità, vedere modalità di riconoscimento vocale-vedere di seguito:
 
@@ -396,25 +396,25 @@ Quante richieste simultanee sono gestite da 4 core, 4 GB di RAM? Se è necessari
 
 # <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore      | Minima             | Implementazione consigliata         |
+| Contenitore      | Minima             | Consigliato         |
 |----------------|---------------------|---------------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore             | Minima             | Implementazione consigliata         |
+| Contenitore             | Minima             | Consigliato         |
 |-----------------------|---------------------|---------------------|
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore      | Minima             | Implementazione consigliata         |
+| Contenitore      | Minima             | Consigliato         |
 |----------------|---------------------|---------------------|
 | Sintesi vocale | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore             | Minima             | Implementazione consigliata         |
+| Contenitore             | Minima             | Consigliato         |
 |-----------------------|---------------------|---------------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
@@ -559,8 +559,8 @@ Sono destinati a scopi diversi e vengono usati in modo diverso.
 
 Per abilitare la dettatura in C#, richiamare la `SpeechConfig.EnableDictation()` funzione.
 
-### <a name="fromendpoint-apis"></a>`FromEndpoint`API
-| Lingua | Dettagli dell'API |
+### <a name="fromendpoint-apis"></a>`FromEndpoint` API
+| Linguaggio | Dettagli dell'API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -579,9 +579,9 @@ Per abilitare la dettatura in C#, richiamare la `SpeechConfig.EnableDictation()`
 
 **Risposta:** È disponibile una nuova `FromHost` API. Questa operazione non sostituisce o modifica le API esistenti. Viene semplicemente aggiunto un metodo alternativo per creare una configurazione vocale usando un host personalizzato.
 
-### <a name="fromhost-apis"></a>`FromHost`API
+### <a name="fromhost-apis"></a>`FromHost` API
 
-| Lingua | Dettagli dell'API |
+| Linguaggio | Dettagli dell'API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -597,8 +597,8 @@ Il formato per l'host è `protocol://hostname:port` dove `:port` è facoltativo 
 - Se il contenitore è in esecuzione in un server remoto, utilizzare il nome host o l'indirizzo IPv4 del server.
 
 Esempi di parametri host per la sintesi vocale:
-- `ws://localhost:5000`-connessione non sicura a un contenitore locale con la porta 5000
-- `ws://some.host.com:5000`-connessione non sicura a un contenitore in esecuzione in un server remoto
+- `ws://localhost:5000` -connessione non sicura a un contenitore locale con la porta 5000
+- `ws://some.host.com:5000` -connessione non sicura a un contenitore in esecuzione in un server remoto
 
 Esempi di Python precedenti, ma usare il `host` parametro invece di `endpoint` :
 

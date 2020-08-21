@@ -5,12 +5,12 @@ description: Informazioni su come creare dinamicamente un volume permanente con 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3d01b2c2098dcbe896ecaa7f854d91477eba2cab
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648769"
+ms.locfileid: "88683607"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con i dischi di Azure nel servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ Ogni cluster AKS include quattro classi di archiviazione create in precedenza, d
     
 Se si usa una delle classi di archiviazione predefinite, non è possibile aggiornare la dimensione del volume dopo la creazione della classe di archiviazione. Per poter aggiornare le dimensioni del volume dopo la creazione di una classe di archiviazione, aggiungere la riga `allowVolumeExpansion: true` a una delle classi di archiviazione predefinite oppure è possibile creare una classe di archiviazione personalizzata. Si noti che non è supportato per ridurre le dimensioni di un PVC (per evitare la perdita di dati). È possibile modificare una classe di archiviazione esistente usando il `kubectl edit sc` comando. 
 
-Se ad esempio si vuole usare un disco di dimensioni 4 TiB, è necessario creare una classe di archiviazione che definisce `cachingmode: None` perché la [memorizzazione nella cache del disco non è supportata per i dischi 4 TIB e superiori](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+Se ad esempio si vuole usare un disco di dimensioni 4 TiB, è necessario creare una classe di archiviazione che definisce `cachingmode: None` perché la [memorizzazione nella cache del disco non è supportata per i dischi 4 TIB e superiori](../virtual-machines/premium-storage-performance.md#disk-caching).
 
 Per altre informazioni sulle classi di archiviazione e sulla creazione di una classe di archiviazione personalizzata, vedere [Opzioni di archiviazione per le applicazioni in AKS][storage-class-concepts].
 

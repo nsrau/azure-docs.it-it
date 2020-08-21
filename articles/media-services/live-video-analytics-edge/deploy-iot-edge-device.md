@@ -3,17 +3,16 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652458"
+ms.locfileid: "88684100"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
 Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,6 +22,7 @@ Questo articolo elenca i passaggi che consentono di distribuire analisi video in
 * [Registrare IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
 * [Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Creare un account di Servizi multimediali di Azure](../latest/create-account-howto.md)
+
     * Usare una di queste aree: Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali, Giappone orientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
     * Si consiglia di usare gli account di archiviazione GPv2 (General-Purpose v2)
 
@@ -190,6 +190,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
+
    > [!Note]
    > La proprietà del dispositivo gemello **allowUnsecuredEndpoints** è impostata su true per lo scopo delle esercitazioni e delle guide introduttive.   
    È necessario impostare questa proprietà su **false** durante l'esecuzione nell'ambiente di produzione. In questo modo, l'applicazione bloccherà tutti gli endpoint non protetti e per eseguire le topologie del grafico saranno necessarie le credenziali di connessione valide.  
@@ -210,8 +211,8 @@ Esaminare le informazioni di distribuzione e quindi selezionare Crea.
 
 Dopo aver creato la distribuzione, tornare alla pagina IoT Edge dell'hub Internet.
 
-1.  Selezionare il dispositivo IoT Edge impostato come destinazione della distribuzione per aprirne i dettagli.
-2.  Nei dettagli del dispositivo verificare che il modulo di archiviazione BLOB sia elencato sia come **Specificato nella distribuzione che come Segnalato dal dispositivo**.
+1. Selezionare il dispositivo IoT Edge impostato come destinazione della distribuzione per aprirne i dettagli.
+2. Nei dettagli del dispositivo verificare che il modulo di archiviazione BLOB sia elencato sia come **Specificato nella distribuzione che come Segnalato dal dispositivo**.
 
 Per l'avvio del modulo e per il rilevamento da parte dell'hub IoT può essere richiesto un po' di tempo. Aggiornare la pagina per visualizzare lo stato aggiornato.
 Codice di stato: 200 – OK significa che [il runtime di IOT Edge](../../iot-edge/iot-edge-runtime.md) è integro e funziona correttamente.
@@ -247,6 +248,7 @@ Successivamente, è possibile testare l'esempio richiamando un metodo diretto. L
     ![Messaggio di stato 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Esercitazione [introduttiva: introduzione ad analisi video in tempo reale su IOT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]

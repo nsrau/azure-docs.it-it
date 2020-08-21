@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: faf46a90a04e35eb041deb31913980575b1e0d28
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236472"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688046"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB
 
@@ -100,8 +100,8 @@ Vengono addebitati i costi per le UR utilizzate, in quanto lo spostamento dei da
 Il processore del feed delle modifiche può essere ospitato in qualsiasi piattaforma che supporti processi o attività a esecuzione prolungata:
 
 * Una processo Web di [Azure](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/)con esecuzione continua.
-* Un processo in una [macchina virtuale di Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
-* Un processo in background nel [servizio Azure Kubernetes](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* Un processo in una [macchina virtuale di Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Un processo in background nel [servizio Azure Kubernetes](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * [Servizio ospitato ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
 Mentre il processore del feed delle modifiche può essere eseguito in ambienti di breve durata, perché il contenitore di lease gestisce lo stato, il ciclo di avvio e arresto di questi ambienti aggiungerà un ritardo alla ricezione delle notifiche (a causa dell'overhead di avvio del processore a ogni avvio dell'ambiente).

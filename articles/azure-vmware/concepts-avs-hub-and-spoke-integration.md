@@ -2,13 +2,13 @@
 title: "Concetto: integrare una distribuzione della soluzione VMware di Azure in un'architettura Hub e spoke"
 description: Informazioni sulle raccomandazioni per l'integrazione di una distribuzione della soluzione VMware di Azure in una nuova architettura di hub e spoke in Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: a1ba75369a1d6f19ca7ae1f36107170f219f72d0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/20/2020
+ms.openlocfilehash: deb2756f7e83250ff58836098dc4954ec482fbda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649585"
+ms.locfileid: "88684514"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrare la soluzione VMware di Azure in un'architettura Hub e spoke
 
@@ -28,10 +28,7 @@ Il traffico tra il Data Center locale, il cloud privato della soluzione VMware d
 
 Il diagramma mostra un esempio di una distribuzione Hub e spoke in Azure connessa alla soluzione locale e VMware di Azure tramite ExpressRoute.
 
-:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure":::
-
-
-
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false":::
 
 L'architettura include i componenti principali seguenti:
 
@@ -64,12 +61,12 @@ La connettività locale può usare anche ExpressRoute Copertura globale, ma non 
 
 * **Flusso del traffico della soluzione VMware da sito locale ad Azure**
 
-  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="Flusso del traffico della soluzione VMware da sito locale ad Azure":::
+  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="Flusso del traffico della soluzione VMware da sito locale ad Azure" border="false":::
 
 
 * **Flusso del traffico di VNET di Azure da soluzione VMware a hub**
 
-  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Flusso di traffico della rete virtuale di Azure da soluzione VMware a hub":::
+  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Flusso di traffico della rete virtuale di Azure da soluzione VMware a hub" border="false":::
 
 
 Per ulteriori informazioni sui concetti relativi alla rete e alla connettività della soluzione VMware di Azure, vedere la [documentazione del prodotto della soluzione VMware di Azure](./concepts-networking.md).
@@ -97,7 +94,7 @@ Un secondo livello di segmentazione del traffico che usa i gruppi di sicurezza d
 
 Applicazione Azure gateway V1 e V2 sono stati testati con app Web eseguite in macchine virtuali della soluzione VMware di Azure come pool back-end. Il gateway applicazione è attualmente l'unico metodo supportato per esporre le app Web in esecuzione su macchine virtuali della soluzione VMware di Azure a Internet. Può inoltre esporre le app agli utenti interni in modo sicuro.
 
-:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Secondo livello di segmentazione del traffico con i gruppi di sicurezza di rete":::
+:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Secondo livello di segmentazione del traffico con i gruppi di sicurezza di rete" border="false":::
 
 
 ### <a name="jumpbox-and-azure-bastion"></a>JumpBox e Azure Bastion
@@ -110,7 +107,7 @@ Come procedura di sicurezza consigliata, distribuire [Microsoft Azure servizio B
 > Non assegnare un indirizzo IP pubblico alla VM JumpBox o esporre la porta 3389/TCP alla rete Internet pubblica. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Rete virtuale dell'hub Bastion di Azure":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Rete virtuale dell'hub Bastion di Azure" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Considerazioni sulla risoluzione DNS di Azure

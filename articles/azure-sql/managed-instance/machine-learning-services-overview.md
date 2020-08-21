@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad25a9a62757e1e031ce8b93a44e6f2ada4d9964
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708740"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689508"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services in Istanza gestita SQL di Azure (anteprima)
 
@@ -52,7 +52,23 @@ Le distribuzioni di base di Python e R sono incluse in Machine Learning Services
 
 Questa versione di anteprima pubblica limitata è soggetta alle condizioni per l' [Anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Se si è interessati a partecipare al programma di anteprima e accettare le presenti condizioni, è possibile richiedere la registrazione creando un ticket di supporto di Azure all'indirizzo [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . Per "tipo di problema" selezionare "tecnico", per "servizio" selezionare "Istanza gestita di database SQL" e per "tipo di problema" selezionare "altro". Nella richiesta, indicare che si desidera iscriversi in un'anteprima pubblica limitata di Machine Learning per Istanza gestita di SQL con questi dettagli: nome del server logico, area e ID sottoscrizione.
+Se si è interessati a partecipare al programma di anteprima e accettare le presenti condizioni, è possibile richiedere la registrazione creando un ticket di supporto di Azure all'indirizzo [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
+
+1. Selezionare le opzioni seguenti:
+   - Tipo di problema- **tecnico**
+   - Sottoscrizione: *selezionare la sottoscrizione*
+   - **Istanza gestita di database SQL** di servizio
+   - Riepilogo: *immettere una breve descrizione della richiesta*
+   - Tipo di problema- **Machine Learning Services per SQL istanza gestita (anteprima)**
+   - Sottotipo di problema: **altro problema o domande "procedura"**
+
+1. Fare clic su **Avanti: soluzioni**.
+
+1. Leggere le informazioni sull'anteprima, quindi fare clic su **Dettagli**.
+
+1. In **Descrizione**immettere le specifiche della richiesta, inclusi il nome del server logico, l'area e l'ID sottoscrizione che si desidera registrare nell'anteprima. Immettere altri dettagli in base alle esigenze.
+
+1. Al termine, fare clic su **Avanti: rivedere + crea**, quindi fare clic su **Crea**.
 
 Dopo la registrazione nel programma, Microsoft eseguirà l'onboarding all'anteprima pubblica e abiliterà Machine Learning Services per il database nuovo o esistente.
 

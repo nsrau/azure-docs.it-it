@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4489aae873c3fa4153974209074e14959307c772
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052141"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690341"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini delle macchine virtuali Oracle e rispettiva distribuzione in Microsoft Azure
 
@@ -112,7 +112,7 @@ Queste funzionalità sono possibili perché Azure NetApp Files si basa sui siste
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licenze Oracle Database e software in Azure
 
 Microsoft Azure è un ambiente cloud autorizzato per l'esecuzione di Oracle Database. La tabella Core Factor di Oracle non è applicabile alle licenze di database Oracle nel cloud. Al contrario, quando si usano macchine virtuali con tecnologia Hyper-Threading abilitata per i database Enterprise Edition, se la tecnologia è abilitata due vCPU equivalgono a una licenza del processore Oracle (come indicato nel documento dei criteri). Le informazioni dettagliate relative al criterio sono disponibili [qui](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-I database Oracle richiedono in genere una maggiore quantità di memoria e I/O. Per questo motivo, per questi carichi di lavoro sono consigliabili [macchine virtuali ottimizzate per la memoria](../../sizes-memory.md). Per ottimizzare ulteriormente i carichi di lavoro, sono consigliabili [vCPU core vincolate](../../linux/constrained-vcpu.md) per carichi di lavoro Oracle Database che richiedono memoria, archiviazione e larghezza di banda I/O elevate, ma non un numero elevato di core.
+I database Oracle richiedono in genere una maggiore quantità di memoria e I/O. Per questo motivo, per questi carichi di lavoro sono consigliabili [macchine virtuali ottimizzate per la memoria](../../sizes-memory.md). Per ottimizzare ulteriormente i carichi di lavoro, sono consigliabili [vCPU core vincolate](../../constrained-vcpu.md) per carichi di lavoro Oracle Database che richiedono memoria, archiviazione e larghezza di banda I/O elevate, ma non un numero elevato di core.
 
 Quando si esegue la migrazione di carichi di lavoro e software Oracle dall'ambiente locale a Microsoft Azure, Oracle fornisce la mobilità delle licenze come indicato nelle [Domande frequenti su Oracle in Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 

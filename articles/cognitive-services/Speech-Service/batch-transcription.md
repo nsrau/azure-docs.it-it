@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/20/2020
 ms.author: wolfma
-ms.openlocfilehash: 519a9cdac678e8852bef9bd66e3fbb98278cbb3b
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b30a314977755b94bdcfdf7526d1b9ae61fcf100
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660875"
+ms.locfileid: "88689746"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -174,7 +174,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 
 ### <a name="storage"></a>Archiviazione
 
-La trascrizione batch può leggere l'audio da un URI Internet ed è in grado di leggere le trascrizioni audio o Write usando l' [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+La trascrizione batch può leggere l'audio da un URI Internet visibile pubblicamente ed è in grado di leggere audio o scrivere trascrizioni usando un URI SAS con [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
 ## <a name="batch-transcription-result"></a>Risultato trascrizione batch
 
@@ -243,7 +243,7 @@ Il formato di ogni file di risultati della trascrizione è il seguente:
 }
 ```
 
-Il risultato contiene i formati seguenti:
+Il risultato contiene i campi seguenti:
 
 :::row:::
    :::column span="1":::
@@ -309,7 +309,8 @@ I timestamp a livello di parola devono essere abilitati perché i parametri nell
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-Il servizio di trascrizione batch può gestire un numero elevato di trascrizioni inviate. È possibile eseguire una query sullo stato delle trascrizioni tramite un oggetto `GET` sulle [trascrizioni Get](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Chiamare la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regolarmente dal servizio una volta recuperati i risultati. In alternativa `timeToLive` , impostare la proprietà su un valore ragionevole per garantire l'eventuale eliminazione dei risultati.
+Il servizio di trascrizione batch può gestire un numero elevato di trascrizioni inviate. È possibile eseguire una query sullo stato delle trascrizioni con le [trascrizioni Get](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions).
+Chiamare la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regolarmente dal servizio una volta recuperati i risultati. In alternativa `timeToLive` , impostare la proprietà per garantire l'eventuale eliminazione dei risultati.
 
 ## <a name="sample-code"></a>Codice di esempio
 

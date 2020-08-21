@@ -3,17 +3,17 @@ title: Gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (ant
 description: Informazioni su come usare i tag degli indici BLOB per categorizzare, gestire ed eseguire query per individuare gli oggetti BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 08/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ed70a05e0a6213ce00a6e0514f0741e8abbaeef9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499875"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690375"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)
 
@@ -105,7 +105,7 @@ La tabella seguente mostra tutti gli operatori validi per FindBlobsByTags:
 |     <      |  Minore di    | "Age" < "32" |
 |     <=     |  Minore o uguale a  | "Company" <= "contoso" |
 |    AND     |  And logico  | "Rank" >=' 010' è Rank ' <' 100' |
-| @container |  Ambito per un contenitore specifico   | @container=' videofiles ' è status ' =' done ' |
+| @container |  Ambito per un contenitore specifico   | @container =' videofiles ' è status ' =' done ' |
 
 > [!NOTE]
 > Acquisire familiarità con l'ordinamento di lessicografico durante l'impostazione e l'esecuzione di query sui tag.
@@ -130,7 +130,7 @@ La tabella seguente mostra tutti gli operatori validi per le operazioni condizio
 |     <      |  Minore di    | "Age" < "32" |
 |     <=     |  Minore o uguale a  | "Company" <= "contoso" |
 |    AND     |  And logico  | "Rank" >=' 010' è Rank ' <' 100' |
-|     o     |  OR logico   | "Status" = "Done" o "Priority" >= "05" |
+|     OR     |  OR logico   | "Status" = "Done" o "Priority" >= "05" |
 
 > [!NOTE]
 > Sono disponibili due operatori aggiuntivi, non uguali e logici, che sono consentiti nell'intestazione x-ms-if-Tags condizionale per l'operazione BLOB, ma non esistono nell'operazione FindBlobsByTags.

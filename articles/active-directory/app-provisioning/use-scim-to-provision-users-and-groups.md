@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235469"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690256"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -153,6 +153,7 @@ Nell'ambito della [specifica del protocollo SCIM 2.0](http://www.simplecloud.inf
 * Supportare query sugli utenti in base all'ID o al manager, come indicato nella sezione 3.4.2 del protocollo SCIM.  
 * Supportare query sui gruppi in base all'ID e ai membri, come indicato nella sezione 3.4.2 del protocollo SCIM.  
 * Accettare un singolo token di connessione per l'autenticazione e l'autorizzazione di Azure AD per l'applicazione.
+* Supporta l'eliminazione temporanea di un utente `active=false` e il ripristino dell'utente `active=true` .
 
 Quando si implementa un endpoint SCIM, per garantire la compatibilità con Azure AD seguire queste linee guida generali:
 

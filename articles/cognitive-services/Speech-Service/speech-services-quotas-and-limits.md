@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: alexeyo
-ms.openlocfilehash: 86182130daf5cbb61df7a751aaeff392dd608a67
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88662587"
+ms.locfileid: "88690137"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
 
@@ -132,7 +132,7 @@ Avviare l'aumento del limite di richieste simultanee per la risorsa o, se necess
   - "Convalida della quota o dell'utilizzo" per verificare il limite esistente
 - Fare clic su *Avanti: soluzioni*
 - Continua con la creazione della richiesta
-- Quando in campi *Dettagli* immettere nel campo *Descrizione* :
+- Nella scheda *Dettagli* immettere nel campo *Descrizione* :
   - Si noti che la richiesta è relativa **alla quota vocale-testo**
   - Modello di **base** o **personalizzato**
   - Informazioni sulle risorse di Azure [raccolte prima](#have-the-required-information-ready) 
@@ -184,7 +184,7 @@ Avviare l'aumento del limite di richieste simultanee per la risorsa o, se necess
   - "Convalida della quota o dell'utilizzo" per verificare il limite esistente
 - Fare clic su *Avanti: soluzioni*
 - Continua con la creazione della richiesta
-- Quando in campi *Dettagli* immettere nel campo *Descrizione* :
+- Nella scheda *Dettagli* immettere nel campo *Descrizione* :
   - Si noti che la richiesta è relativa **alla quota di sintesi vocale**
   - Informazioni sulle risorse di Azure [raccolte prima](#prepare-the-required-information) 
   - Completare l'immissione delle informazioni necessarie e fare clic sul pulsante *Crea* nella scheda *Verifica + crea*
