@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.openlocfilehash: 2a35180e4c5ca26d53be135718e345f9657af6a2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323884"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655254"
 ---
 | **Risorsa** | **Limite predefinito** | **Limite massimo** |
 | --- | --- | --- |
@@ -32,4 +32,4 @@ ms.locfileid: "84323884"
 > I limiti predefiniti variano a seconda del tipo di sottoscrizione usata per creare un account Batch. Le quote di core indicate sono per gli account in modalità servizio Batch. [Visualizzare le quote nell'account Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
 > [!IMPORTANT]
-> Per una migliore gestione della capacità durante la pandemia sanitaria, in alcune aree e per alcuni tipi di sottoscrizione le quote predefinite di core per i nuovi account Batch sono state ridotte rispetto all'intervallo di valori indicato sopra, in alcuni casi fino a zero core. Quando si crea un nuovo account Batch, [controllare la quota di core](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [richiedere un aumento](../articles/batch/batch-quota-limit.md#increase-a-quota), se necessario. 
+> Per una migliore gestione della capacità durante la pandemia sanitaria, in alcune aree e per alcuni tipi di sottoscrizione le quote predefinite di core per i nuovi account Batch sono state ridotte rispetto all'intervallo di valori indicato sopra, in alcuni casi fino a zero core. Quando si crea un nuovo account Batch, [controllare la quota di core](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [richiedere un aumento](../articles/batch/batch-quota-limit.md#increase-a-quota), se necessario. In alternativa, provare a riutilizzare gli account Batch che hanno già una quota sufficiente. 
