@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d949f4b10bc6b7b592556d78edfcf02a05ec7144
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 433cfa3789aa37f4145982da97719526c0abfc47
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565775"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719496"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Abilitare Azure Multi-Factor Authentication per singolo utente per proteggere gli eventi di accesso
 
@@ -76,7 +76,7 @@ Per modificare lo stato di Azure Multi-Factor Authentication per utente per un u
 
 1. Confermare la selezione nella finestra popup che viene visualizzata.
 
-È consigliabile inviare una notifica tramite posta elettronica agli utenti dopo averli abilitati. Informare gli utenti che viene visualizzato un messaggio per richiedere la registrazione al successivo accesso. se l'organizzazione usa app non basate su browser che non supportano l'autenticazione moderna, devono creare password per l'app. Per altre informazioni, consultare la [guida per l'utente finale di Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user.md) come supporto introduttivo all'uso.
+È consigliabile inviare una notifica tramite posta elettronica agli utenti dopo averli abilitati. Informare gli utenti che viene visualizzato un messaggio per richiedere la registrazione al successivo accesso. se l'organizzazione usa app non basate su browser che non supportano l'autenticazione moderna, devono creare password per l'app. Per altre informazioni, consultare la [guida per l'utente finale di Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md) come supporto introduttivo all'uso.
 
 ## <a name="change-state-using-powershell"></a>Modificare lo stato con PowerShell
 

@@ -3,12 +3,12 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 21034aaae42aa4abfa6848ce22db5fa4c21a11ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685766"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717577"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -70,7 +70,7 @@ La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azur
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3 e versioni successive|
 |Red Hat|Red Hat Enterprise Linux|7,4-7,8|
-|SUSE|SLES|12 SP3 e versioni successive|
+|SUSE|SLES|12 SP3-SP5|
 
 Le immagini di macchine virtuali personalizzate sono supportate dai criteri di Configurazione guest a condizione che il sistema operativo sia uno di quelli indicati nella tabella precedente.
 
@@ -95,6 +95,11 @@ Il traffico viene instradato tramite l' [indirizzo IP pubblico virtuale](../../.
 I nodi che si trovano all'esterno di Azure connessi da Azure Arc richiedono la connettività al servizio di configurazione Guest. Informazioni dettagliate sui requisiti di rete e proxy forniti nella [documentazione di Azure Arc](../../../azure-arc/servers/overview.md).
 
 Per comunicare con il provider di risorse di Configurazione guest in Azure, i computer devono disporre di accesso in uscita verso i data center di Azure sulla porta **443**. Se una rete in Azure non consente il traffico in uscita, configurare le eccezioni con le regole del [gruppo di sicurezza di rete](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). È possibile usare il [tag del servizio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" per fare riferimento al servizio Configurazione guest.
+
+Per i server con connessione ARC nei data center privati, consentire il traffico usando i modelli seguenti:
+
+- Porta: è necessaria solo la porta TCP 443 per l'accesso a Internet in uscita
+- URL globale: `*.guestconfiguration.azure.com`
 
 ## <a name="managed-identity-requirements"></a>Requisiti delle identità gestite
 
@@ -139,9 +144,12 @@ Se si assegnano i criteri usando un modello di Azure Resource Manager (modello A
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Applicazione di configurazioni con Configurazione guest
 
-La funzionalità più recente di Criteri di Azure consente di configurare le impostazioni all'interno dei computer. La definizione _Configura il fuso orario nelle macchine Windows_ consente di apportare modifiche nel computer configurando il fuso orario.
+Solo la definizione _Configura il fuso orario sui computer Windows_ apporta modifiche al computer configurando il fuso orario. Le definizioni dei criteri personalizzati per la configurazione delle impostazioni all'interno dei computer non sono supportate.
 
 Quando si assegnano definizioni che iniziano con _Configura_, è necessario assegnare anche la definizione _Distribuisci i prerequisiti per abilitare i criteri di Configurazione guest nelle macchine virtuali Windows_. Se lo si desidera, è possibile combinare queste definizioni in un'iniziativa.
+
+> [!NOTE]
+> Il criterio di fuso orario predefinito è l'unica definizione che supporta la configurazione delle impostazioni all'interno dei computer e i criteri personalizzati che configurano le impostazioni all'interno dei computer non sono supportati.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Assegnazione di criteri a computer esterni ad Azure
 

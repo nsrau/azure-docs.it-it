@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051294"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716334"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Domande frequenti sulla reimpostazione della password self-service
 
 Di seguito sono riportate alcune domande frequenti per tutti gli aspetti correlati alla reimpostazione della password self-service.
 
-Per domande generali su Azure Active Directory (Azure AD) e sulla reimpostazione della password self-service per cui non è disponibile una risposta in questo articolo, è possibile richiedere assistenza nella [pagina di domande e risposte Microsoft per Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). La community è composta da ingegneri, responsabili di prodotto, MVP e informatici.
+Per domande generali su Azure Active Directory (Azure AD) e sulla reimpostazione della password self-service per cui non è disponibile una risposta in questo articolo, è possibile richiedere assistenza nella [pagina di domande e risposte Microsoft per Azure Active Directory](/answers/topics/azure-active-directory.html). La community è composta da ingegneri, responsabili di prodotto, MVP e informatici.
 
 Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
@@ -197,7 +197,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  Gli utenti possono ricevere una notifica nel portale di Office alla scadenza della password locale?**
 
-  > **R:** Sì, questo è attualmente possibile se si usa Active Directory Federation Services (AD FS). Se si usa AD FS, seguire le istruzioni riportate nell'articolo relativo all'[invio di attestazioni per i criteri password con AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se si usa la sincronizzazione dell'hash delle password, al momento non è possibile. I criteri password delle directory locali non vengono sincronizzati e non è quindi possibile pubblicare notifiche di scadenza nelle esperienze cloud. In entrambi i casi, è anche possibile [inviare notifiche agli utenti con password in scadenza tramite PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **R:** Sì, questo è attualmente possibile se si usa Active Directory Federation Services (AD FS). Se si usa AD FS, seguire le istruzioni riportate nell'articolo relativo all'[invio di attestazioni per i criteri password con AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se si usa la sincronizzazione dell'hash delle password, al momento non è possibile. I criteri password delle directory locali non vengono sincronizzati e non è quindi possibile pubblicare notifiche di scadenza nelle esperienze cloud. In entrambi i casi, è anche possibile [inviare notifiche agli utenti con password in scadenza tramite PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **D:  È possibile impedire agli utenti di modificare la password?**
@@ -243,7 +243,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 * **D:  Come funziona il writeback delle password in background?**
 
-  > **R:** Per una spiegazione di quello che accade quando si abilita il writeback delle password e del flusso dei dati dal sistema all'ambiente locale, vedere [Funzionamento del writeback delle password](howto-sspr-writeback.md).
+  > **R:** Per una spiegazione di quello che accade quando si abilita il writeback delle password e del flusso dei dati dal sistema all'ambiente locale, vedere [Funzionamento del writeback delle password](./tutorial-enable-sspr-writeback.md).
   >
   >
 * **D:  Entro quanto tempo si attiva il funzionamento del writeback delle password? Esiste un ritardo di sincronizzazione come nel caso della sincronizzazione dell'hash delle password?**
@@ -273,7 +273,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  Il writeback delle password è sicuro?  Come si può essere certi di non essere oggetto di un attacco?**
 
-  > **R:** Sì, il writeback delle password è sicuro. Per altre informazioni sui molti livelli di sicurezza implementati dal servizio di writeback delle password, vedere la sezione [Sicurezza del writeback delle password](concept-sspr-writeback.md#password-writeback-security) dell'articolo [Panoramica del writeback delle password](howto-sspr-writeback.md).
+  > **R:** Sì, il writeback delle password è sicuro. Per altre informazioni sui molti livelli di sicurezza implementati dal servizio di writeback delle password, vedere la sezione [Sicurezza del writeback delle password](concept-sspr-writeback.md#password-writeback-security) dell'articolo [Panoramica del writeback delle password](./tutorial-enable-sspr-writeback.md).
   >
   >
 
@@ -286,7 +286,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
-* [Panoramica del writeback delle password](howto-sspr-writeback.md)
+* [Panoramica del writeback delle password](./tutorial-enable-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
 * [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)

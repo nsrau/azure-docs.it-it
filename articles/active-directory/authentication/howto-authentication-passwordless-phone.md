@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6ed1c3628b33d3ed29c3af3b773f2b635e684a67
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428026"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717048"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -62,7 +62,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 1. In **Microsoft Authenticator**scegliere **Abilita l'accesso tramite telefono** dal menu a discesa account
 1. Seguire le istruzioni nell'app per completare la registrazione per l'accesso tramite telefono senza password. 
 
-Le organizzazioni possono indirizzare gli utenti all'articolo [accesso con il telefono, non alla password](../user-help/microsoft-authenticator-app-phone-signin-faq.md) per ulteriori interventi di configurazione nell'app Microsoft Authenticator e abilitazione dell'accesso tramite telefono. Per applicare queste impostazioni, potrebbe essere necessario disconnettersi e accedere di nuovo al tenant. 
+Le organizzazioni possono indirizzare gli utenti all'articolo [accesso con il telefono, non alla password](../user-help/user-help-auth-app-sign-in.md) per ulteriori interventi di configurazione nell'app Microsoft Authenticator e abilitazione dell'accesso tramite telefono. Per applicare queste impostazioni, potrebbe essere necessario disconnettersi e accedere di nuovo al tenant. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Accedi con credenziali senza password
 

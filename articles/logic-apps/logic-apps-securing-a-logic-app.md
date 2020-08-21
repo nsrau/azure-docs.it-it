@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/20/2020
+ms.openlocfilehash: 883eede5296f3f280bf30c9a459c02a9243f9081
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566081"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719530"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -725,7 +725,7 @@ Ecco alcuni modi in cui è possibile proteggere gli endpoint che ricevono chiama
 
 * Aggiunta dell'autenticazione nelle richieste in uscita.
 
-  Quando si lavora con un trigger basato su HTTP o un'azione che esegue chiamate in uscita, ad esempio HTTP, HTTP + Swagger o Webhook, è possibile aggiungere l'autenticazione alla richiesta inviata dall'app per la logica. È ad esempio possibile selezionare i tipi di autenticazione seguenti:
+  Quando si usa un trigger o un'azione basata su HTTP che effettua chiamate in uscita, ad esempio HTTP, è possibile aggiungere l'autenticazione alla richiesta inviata dall'app per la logica. È ad esempio possibile selezionare i tipi di autenticazione seguenti:
 
   * [Autenticazione di base](#basic-authentication)
 
@@ -792,7 +792,7 @@ Questa tabella identifica i tipi di autenticazione disponibili per i trigger e l
 | [Certificato client](#client-certificate-authentication) | Gestione API di Azure, servizio app di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Identità gestita](#managed-identity-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Identità gestita](#managed-identity-authentication) | Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP |
 |||
 
 <a name="basic-authentication"></a>

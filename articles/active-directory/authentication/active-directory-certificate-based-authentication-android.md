@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9760624afec111a271ae5aa0ebbe5533d6ba8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dd4c95c3c02f4b4a807b5238aa61e76ecb56e3e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680203"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716419"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticazione basata su certificati di Azure Active Directory in Android
 
@@ -64,7 +64,7 @@ Come procedura consigliata, è necessario aggiornare le pagine di errore di AD F
 * Il requisito dell'installazione di Microsoft Authenticator in Android.
 * Istruzioni su come ottenere un certificato utente.
 
-Per altre informazioni, vedere [Personalizzazione delle pagine di accesso ad AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Per altre informazioni, vedere [Personalizzazione delle pagine di accesso ad AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 Alcune app di Office (con autenticazione moderna abilitata) inviano '*prompt = login*' per Azure ad nella richiesta. Per impostazione predefinita, Azure AD converte '*prompt = login*' nella richiesta ad ADFS come '*wauth = usernamepassworduri*' (chiede ad ADFS di eseguire l'autenticazione U/P) è*wfresh = 0*' (chiede ad ADFS di ignorare lo stato SSO ed eseguire una nuova autenticazione). Per abilitare l'autenticazione basata su certificati per queste applicazioni, è necessario modificare il comportamento predefinito di Azure AD. Impostare '*PromptLoginBehavior*' nelle impostazioni del dominio federato su'*disabled*'.
 Per eseguire questa operazione è possibile usare il cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0):

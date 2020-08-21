@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d9d06433e2b915b8a96375bb39157adbce6ef2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027659"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716317"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -139,7 +139,7 @@ Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili 
 >
 > Quando si configurano i criteri di SSPR che includono l'app Authenticator come metodo, è necessario selezionare almeno un metodo aggiuntivo quando è necessario un metodo ed è necessario selezionare almeno due metodi aggiuntivi quando si configurano due metodi.
 >
-> Questo requisito è dovuto al fatto che l'esperienza di registrazione di SSPR corrente non include l'opzione per registrare l'app di autenticazione. L'opzione per registrare l'app Authenticator è inclusa nella nuova esperienza di [registrazione combinata](concept-registration-mfa-sspr-converged.md).
+> Questo requisito è dovuto al fatto che l'esperienza di registrazione di SSPR corrente non include l'opzione per registrare l'app di autenticazione. L'opzione per registrare l'app Authenticator è inclusa nella nuova esperienza di [registrazione combinata](./concept-registration-mfa-sspr-combined.md).
 >
 > Consentendo ai criteri che usano solo l'app Authenticator (quando è richiesto un metodo) o l'app Authenticator e un solo metodo aggiuntivo (quando sono necessari due metodi), potrebbe impedire agli utenti di registrarsi per SSPR fino a quando non sono configurati per l'uso della nuova esperienza di registrazione combinata.
 
@@ -191,13 +191,13 @@ Azure AD verifica la connettività ibrida corrente e fornisce uno dei messaggi s
 * Azure AD è online e connesso al client di writeback locale. Tuttavia sembra che la versione installata di Azure AD Connect non sia aggiornata. Prendere in considerazione l'[aggiornamento di Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) per assicurarsi di disporre delle funzionalità di connettività più recenti e di importanti correzioni di bug.
 * Sfortunatamente, non è possibile controllare lo stato del client di writeback locale perché la versione installata di Azure AD Connect è obsoleta. [Aggiornare Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) per essere in grado di controllare lo stato della connessione.
 * Purtroppo al momento non è possibile connettersi al client di writeback locale. [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
-* Purtroppo non è possibile eseguire la connessione al client di writeback locale perché il writeback delle password non è stato configurato correttamente. [Configurare il writeback delle password](howto-sspr-writeback.md) per ripristinare la connessione.
+* Purtroppo non è possibile eseguire la connessione al client di writeback locale perché il writeback delle password non è stato configurato correttamente. [Configurare il writeback delle password](./tutorial-enable-sspr-writeback.md) per ripristinare la connessione.
 * Purtroppo al momento non è possibile connettersi al client di writeback locale. Ciò può essere dovuto a errori temporanei nel sistema. Se il problema persiste, vedere [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
 
 Per iniziare a usare il writeback della reimpostazione della password self-service, completare l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Abilitare il writeback della reimpostazione della password self-service](tutorial-enable-writeback.md)
+> [Esercitazione: Abilitare il writeback della reimpostazione della password self-service](./tutorial-enable-sspr-writeback.md)
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Writeback delle password nella directory locale
 
@@ -223,7 +223,7 @@ La modifica e la reimpostazione della password sono completamente supportate in 
 
 * **Utenti di un'organizzazione partner con un tenant di Azure ad esistente**: se l'organizzazione partner ha un tenant di Azure ad esistente, verranno rispettati i criteri di reimpostazione della password abilitati in tale tenant. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365.
 * **Utenti che si iscrivono** all'iscrizione self-service: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, è possibile reimpostare la password con l'indirizzo di posta elettronica registrato.
-* **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure ad](../b2b/what-is-b2b.md) possono anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
+* **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure ad](../external-identities/what-is-b2b.md) possono anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
 
 Per testare questo scenario, passare a https://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.
 

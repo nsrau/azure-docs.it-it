@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641076"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717031"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Pianificare una distribuzione di Azure Multi-Factor Authentication
 
@@ -74,7 +74,7 @@ Usare i poster personalizzabili e i modelli di messaggi di posta elettronica nei
 
 I criteri di accesso condizionale applicano la registrazione, richiedendo agli utenti non registrati di completare la registrazione al primo accesso, una considerazione importante per la sicurezza.
 
-[Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) offre sia criteri di registrazione che criteri di rilevamento e correzione automatici dei rischi per Azure Multi-Factor Authentication. È possibile creare criteri per forzare la modifica delle password quando esiste una minaccia di identità compromessa o per richiedere l'autenticazione a più fattori quando un accesso viene considerato rischioso in base agli [eventi](../reports-monitoring/concept-risk-events.md) seguenti:
+[Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) offre sia criteri di registrazione che criteri di rilevamento e correzione automatici dei rischi per Azure Multi-Factor Authentication. È possibile creare criteri per forzare la modifica delle password quando esiste una minaccia di identità compromessa o per richiedere l'autenticazione a più fattori quando un accesso viene considerato rischioso in base agli [eventi](../identity-protection/overview-identity-protection.md) seguenti:
 
 * Credenziali perse
 * Accessi da indirizzi IP anonimi
@@ -151,7 +151,7 @@ Gli amministratori devono determinare il modo in cui gli utenti registreranno i 
 
 ### <a name="registration-with-identity-protection"></a>Registrazione con Identity Protection
 
-Se l'organizzazione usa Azure Active Directory Identity Protection, [configurare i criteri di registrazione MFA](../identity-protection/howto-mfa-policy.md) per richiedere agli utenti di registrarsi al successivo accesso interattivo.
+Se l'organizzazione usa Azure Active Directory Identity Protection, [configurare i criteri di registrazione MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) per richiedere agli utenti di registrarsi al successivo accesso interattivo.
 
 ### <a name="registration-without-identity-protection"></a>Registrazione senza Identity Protection
 
@@ -165,7 +165,7 @@ Usando i passaggi seguenti, un criterio di accesso condizionale può obbligare g
 2. Usando l'accesso condizionale, applicare l'autenticazione a più fattori per questo gruppo per l'accesso a tutte le risorse.
 3. Periodicamente, riconsiderare l'appartenenza al gruppo e rimuovere gli utenti che hanno eseguito la registrazione dal gruppo.
 
-È possibile identificare gli utenti registrati e non registrati di Azure MFA con i comandi di PowerShell che si basano sul [modulo di PowerShell MSOnline](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+È possibile identificare gli utenti registrati e non registrati di Azure MFA con i comandi di PowerShell che si basano sul [modulo di PowerShell MSOnline](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 
 #### <a name="identify-registered-users"></a>Identificare gli utenti registrati
 
@@ -281,7 +281,7 @@ L'estensione NPS funge da adattatore tra RADIUS e Azure MFA basata sul cloud per
 
 #### <a name="implementing-your-nps-server"></a>Implementazione del server NPS
 
-Se è già stata distribuita ed è in uso un'istanza di NPS, vedere [Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Se si sta configurando NPS per la prima volta, fare riferimento a [Server dei criteri di rete (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) per le istruzioni. Indicazioni utili per la risoluzione dei problemi sono contenute nell'articolo [Risolvere i messaggi di errore dall'estensione NPS per Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+Se è già stata distribuita ed è in uso un'istanza di NPS, vedere [Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Se si sta configurando NPS per la prima volta, fare riferimento a [Server dei criteri di rete (NPS)](/windows-server/networking/technologies/nps/nps-top) per le istruzioni. Indicazioni utili per la risoluzione dei problemi sono contenute nell'articolo [Risolvere i messaggi di errore dall'estensione NPS per Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Impostazioni di NPS per gli utenti che non sono registrati per MFA
 
@@ -325,7 +325,7 @@ La registrazione standard di AD FS 2016 e 2019 nel log di sicurezza di Windows e
 
 In ogni server AD FS, nell'archivio personale del computer locale, sarà presente un certificato di Azure MFA autofirmato dal titolo OU=Microsoft AD FS Azure MFA, che contiene la data di scadenza del certificato. Verificare il periodo di validità del certificato in ogni server AD FS per determinare la data di scadenza.
 
-Se il periodo di validità dei certificati è prossimo alla scadenza, [generare e verificare un nuovo certificato MFA in ogni server AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
+Se il periodo di validità dei certificati è prossimo alla scadenza, [generare e verificare un nuovo certificato MFA in ogni server AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
 Le linee guida seguenti illustrano come gestire i certificati di Azure MFA nei server AD FS. Quando si configura AD FS con Azure MFA, i certificati generati usando il cmdlet `New-AdfsAzureMfaTenantCertificate` di PowerShell sono validi per due anni. Rinnovare e installare i certificati rinnovati prima della scadenza per evitare interruzioni del servizio MFA.
 
@@ -336,7 +336,7 @@ Ora che è stata pianificata la soluzione, è possibile implementarla attenendos
 1. Soddisfare eventuali prerequisiti necessari
    1. Distribuire [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) per tutti gli scenari ibridi
    1. Distribuire il [proxy di applicazione di Azure AD](../manage-apps/application-proxy.md) per tutte le app locali pubblicate per l'accesso al cloud
-   1. Distribuire [NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) per l'autenticazione RADIUS
+   1. Distribuire [NPS](/windows-server/networking/technologies/nps/nps-top) per l'autenticazione RADIUS
    1. Verificare che gli utenti abbiano eseguito l'aggiornamento alle versioni supportate di Microsoft Office con l'autenticazione moderna abilitata
 1. Configurare i [metodi di autenticazione](#choose-verification-options) scelti
 1. Definire i [percorsi di rete denominati](../conditional-access/location-condition.md#named-locations)
@@ -344,7 +344,7 @@ Ora che è stata pianificata la soluzione, è possibile implementarla attenendos
 1. Configurare i [criteri di accesso condizionale](#create-conditional-access-policy)
 1. Configurare i criteri di registrazione MFA
    1. [Combinazione di MFA e SSPR](howto-registration-mfa-sspr-combined.md)
-   1. Con [Identity Protection](../identity-protection/howto-mfa-policy.md)
+   1. Con [Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
 1. Inviare le comunicazioni agli utenti e invitarli a registrarsi all'indirizzo [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Tenere traccia degli utenti registrati](#identify-non-registered-users)
 

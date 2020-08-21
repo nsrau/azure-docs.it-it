@@ -3,12 +3,12 @@ title: Come creare criteri di Configurazione guest per Linux
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Linux.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7510cf378bc7e2d999de122be27662a7ccf0ba92
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547721"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717541"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -25,17 +25,16 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 > [!IMPORTANT]
 > I criteri personalizzati con Configurazione guest sono una funzionalità di anteprima.
 >
-> L'estensione Configurazione guest è necessaria per eseguire controlli in macchine virtuali di Azure. Per distribuire l'estensione su larga scala in tutti i computer Linux, assegnare la definizione dei criteri seguente:
-> - [Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> L'estensione Configurazione guest è necessaria per eseguire controlli in macchine virtuali di Azure. Per distribuire l'estensione su larga scala in tutti i computer Linux, assegnare la definizione dei criteri seguente: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
 
-Il modulo Configurazione guest automatizza il processo di creazione di contenuto personalizzato, tra cui:
+Il modulo Configurazione guest automatizza il processo di creazione di contenuti personalizzati, tra cui:
 
-- La creazione di un artefatto del contenuto di Configurazione guest (.ZIP)
-- Il test automatizzato dell'artefatto
-- La creazione di una definizione di criteri
-- La pubblicazione dei criteri
+- Creazione di un artefatto del contenuto di Configurazione guest (ZIP)
+- Test automatizzato dell'artefatto
+- Creazione di una definizione dei criteri
+- Pubblicazione dei criteri
 
 Il modulo può essere installato in un computer che esegue Windows, macOS o Linux con PowerShell 6.2 o versioni successive in esecuzione in locale oppure con [Azure Cloud Shell](https://shell.azure.com) o con l'[immagine Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027598"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717439"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Come funziona il writeback per la reimpostazione della password self-service in Azure Active Directory?
 
@@ -47,7 +47,7 @@ Il writeback delle password offre le funzionalità seguenti:
 Per iniziare a usare il writeback della reimpostazione della password self-service, completare l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Abilitare il writeback della reimpostazione della password self-service](tutorial-enable-writeback.md)
+> [Esercitazione: Abilitare il writeback della reimpostazione della password self-service](./tutorial-enable-sspr-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>Funzionamento del writeback delle password
 
@@ -140,7 +140,7 @@ Il writeback delle password viene eseguito in tutte le situazioni seguenti:
    * Qualsiasi operazione self-service forzata di modifica della password dell'amministratore, ad esempio in seguito a scadenza della password.
    * Qualsiasi reimpostazione password self-service dell'amministratore originata dal [portale di reimpostazione password](https://passwordreset.microsoftonline.com).
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dal [portale di Azure](https://portal.azure.com).
-   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dall'[API Graph di Microsoft versione beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dall'[API Graph di Microsoft versione beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
 
 ## <a name="unsupported-writeback-operations"></a>Operazioni di writeback non supportate
 
@@ -149,7 +149,7 @@ Il writeback delle password non viene eseguito nelle situazioni seguenti:
 * **Attività degli utenti finali non supportate**
    * Qualsiasi reimpostazione, da parte dell'utente finale, della propria password tramite PowerShell versione 1, versione 2 o l'API Graph di Microsoft.
 * **Operazioni degli amministratori non supportate**
-   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore da PowerShell versione 1, versione 2 o dall'API Graph di Microsoft (l'[API Graph di Microsoft versione beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) è supportata).
+   * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore da PowerShell versione 1, versione 2 o dall'API Graph di Microsoft (l'[API Graph di Microsoft versione beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) è supportata).
    * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dall'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com).
    * Qualsiasi amministratore non può usare lo strumento di reimpostazione della password per reimpostare la propria password per il writeback delle password.
 
@@ -161,4 +161,4 @@ Il writeback delle password non viene eseguito nelle situazioni seguenti:
 Per iniziare a usare il writeback della reimpostazione della password self-service, completare l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Abilitare il writeback della reimpostazione della password self-service](tutorial-enable-writeback.md)
+> [Esercitazione: Abilitare il writeback della reimpostazione della password self-service](./tutorial-enable-sspr-writeback.md)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904820"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718102"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 
@@ -56,7 +56,7 @@ Il numero di nodi iniziali dipende dallo scopo del cluster e dalle applicazioni 
 
     Service Fabric supporta i cluster che si estendono tra [zone di disponibilità](../availability-zones/az-overview.md) distribuendo i tipi di nodo aggiunti a zone specifiche, garantendo una disponibilità elevata delle applicazioni. Zone di disponibilità richiedono la pianificazione del tipo di nodo e i requisiti minimi. Per informazioni dettagliate, vedere [topologia consigliata per il tipo di nodo primario di Service Fabric cluster](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones)che si estendono tra zone di disponibilità. 
 
-Quando si determinano il numero e le proprietà dei tipi di nodo per la creazione iniziale del cluster, tenere presente che è sempre possibile aggiungere, modificare o rimuovere i tipi di nodo (non primari) dopo che il cluster è stato distribuito. I [tipi di nodo primari possono anche essere modificati](service-fabric-scale-up-node-type.md) nei cluster in esecuzione (anche se tali operazioni richiedono una grande quantità di pianificazione e attenzione negli ambienti di produzione).
+Quando si determinano il numero e le proprietà dei tipi di nodo per la creazione iniziale del cluster, tenere presente che è sempre possibile aggiungere, modificare o rimuovere i tipi di nodo (non primari) dopo che il cluster è stato distribuito. I [tipi di nodo primari possono anche essere modificati](service-fabric-scale-up-primary-node-type.md) nei cluster in esecuzione (anche se tali operazioni richiedono una grande quantità di pianificazione e attenzione negli ambienti di produzione).
 
 Un'ulteriore considerazione per le proprietà del tipo di nodo è il livello di durabilità, che determina i privilegi che le VM di un tipo di nodo hanno all'interno dell'infrastruttura di Azure. Usare le dimensioni delle VM selezionate per il cluster e il numero di istanze assegnato per i singoli tipi di nodo per determinare il livello di durabilità appropriato per ogni tipo di nodo, come descritto di seguito.
 
@@ -105,7 +105,7 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano i servi
 Seguire questi consigli per la gestione dei tipi di nodo con durabilità Silver o Gold:
 
 * Mantenere sempre integri il cluster e le applicazioni e verificare che le applicazioni rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-lifecycle.md), ad esempio al blocco della replica in compilazione.
-* Adottare modi più sicuri per apportare una modifica alle dimensioni della macchina virtuale (scalabilità verticale/verticale). Per modificare le dimensioni della VM di un set di scalabilità di macchine virtuali, è necessario prestare attenzione. Per informazioni dettagliate, vedere [aumentare il livello di un nodo di tipo Service Fabric](service-fabric-scale-up-node-type.md)
+* Adottare modi più sicuri per apportare una modifica alle dimensioni della macchina virtuale (scalabilità verticale/verticale). Per modificare le dimensioni della VM di un set di scalabilità di macchine virtuali, è necessario prestare attenzione. Per informazioni dettagliate, vedere [aumentare il livello di un nodo di tipo Service Fabric](service-fabric-scale-up-primary-node-type.md)
 * Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato. Se si ridimensiona al di sotto di questa soglia, il cluster immetterà lo stato di errore e sarà necessario eseguire manualmente la pulizia dello stato ( `Remove-ServiceFabricNodeState` ) per i nodi rimossi.
 * Ogni set di scalabilità di macchine virtuali con livello di durabilità Silver o Gold deve essere mappato al proprio tipo di nodo del cluster di Service Fabric. Il mapping di più set di scalabilità di macchine virtuali a un singolo tipo di nodo impedirà il corretto funzionamento del coordinamento tra il cluster di Service Fabric e l'infrastruttura di Azure.
 * Non eliminare istanze di VM casuali. usare sempre la funzionalità di scalabilità del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM casuali può creare squilibri nell'istanza di macchina virtuale distribuita in domini di [aggiornamento](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e [domini di errore](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Questo squilibrio potrebbe influire negativamente sulla capacità del sistema di bilanciare correttamente il carico tra le istanze del servizio o le repliche del servizio.

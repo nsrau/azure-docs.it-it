@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebcb79088ebac761632e882e98e00f165cc4bd05
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035232"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717354"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Abilitare la reimpostazione della password self-service Azure Active Directory nella schermata di accesso di Windows
 
@@ -35,7 +35,7 @@ Le limitazioni seguenti si applicano all'uso di SSPR dalla schermata di accesso 
 
 - La reimpostazione della password non è attualmente supportata da un Desktop remoto o da sessioni avanzate di Hyper-V.
 - Alcuni provider di credenziali di terze parti sono noti per causare problemi con questa funzionalità.
-- La disabilitazione del controllo dell'account utente tramite la modifica della [chiave del registro di sistema EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) è nota per causare problemi.
+- La disabilitazione del controllo dell'account utente tramite la modifica della [chiave del registro di sistema EnableLUA](/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) è nota per causare problemi.
 - Questa funzionalità non funziona per le reti con autenticazione di rete 802.1 x distribuita e l'opzione "Esegui immediatamente prima dell'accesso utente". Per le reti con autenticazione di rete 802.1 x distribuita, è consigliabile usare l'autenticazione del computer per abilitare questa funzionalità.
 - Per usare la nuova password e aggiornare le credenziali memorizzate nella cache, è necessario che i computer aggiunti ad Azure AD ibrido abbiano la connettività di rete associata a un controller di dominio. Ciò significa che i dispositivi devono trovarsi nella rete interna dell'organizzazione o in una VPN con accesso di rete a un controller di dominio locale.
 - Se si usa un'immagine, assicurarsi che la cache Web sia stata cancellata per l'amministratore predefinito prima di eseguire il passaggio CopyProfile di Sysprep. Per altre informazioni su questo passaggio, vedere l'articolo di supporto [Prestazioni insufficienti quando si usa il profilo utente predefinito personalizzato](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
@@ -59,7 +59,7 @@ Per configurare un dispositivo Windows 10 per SSPR nella schermata di accesso, e
 ### <a name="windows-10-prerequisites"></a>Prerequisiti di Windows 10
 
 - Un amministratore [deve abilitare Azure ad la reimpostazione della password self-service dall'portale di Azure](tutorial-enable-sspr.md).
-- Prima di usare questa funzionalità, gli utenti devono registrarsi a SSPR[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Prima di usare questa funzionalità, gli utenti devono registrarsi a SSPR [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Non univoco per l'uso di SSPR dalla schermata di accesso di Windows, tutti gli utenti devono fornire le informazioni di contatto per l'autenticazione prima di poter reimpostare la password.
 - Requisiti del proxy di rete:
     - Porta 443 per `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
@@ -126,7 +126,7 @@ Per configurare un dispositivo Windows 7, 8 o 8,1 per SSPR nella schermata di ac
 ### <a name="windows-7-8-and-81-prerequisites"></a>Prerequisiti di Windows 7, 8 e 8.1
 
 - Un amministratore [deve abilitare Azure ad la reimpostazione della password self-service dall'portale di Azure](tutorial-enable-sspr.md).
-- Prima di usare questa funzionalità, gli utenti devono registrarsi a SSPR[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Prima di usare questa funzionalità, gli utenti devono registrarsi a SSPR [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Non univoco per l'uso di SSPR dalla schermata di accesso di Windows, tutti gli utenti devono fornire le informazioni di contatto per l'autenticazione prima di poter reimpostare la password.
 - Requisiti del proxy di rete:
     - Porta 443 per `passwordreset.microsoftonline.com`
@@ -143,7 +143,7 @@ Per Windows 7, 8 e 8,1, è necessario che nel computer sia installato un piccolo
 
 1. Scaricare il programma di installazione appropriato per la versione di Windows che si vuole abilitare.
 
-    Il programma di installazione software è disponibile nell'area download Microsoft all'indirizzo[https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+    Il programma di installazione software è disponibile nell'area download Microsoft all'indirizzo [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
 1. Accedere al computer in cui si vuole effettuare l'installazione ed eseguire il programma di installazione.
 1. Al termine dell'installazione è consigliabile riavviare il computer.
 1. Dopo il riavvio, nella schermata di accesso scegliere un utente e selezionare "password dimenticata?". per avviare il flusso di lavoro di reimpostazione della password.

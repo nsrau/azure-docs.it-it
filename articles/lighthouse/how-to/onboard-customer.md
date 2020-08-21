@@ -1,14 +1,14 @@
 ---
 title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
-ms.date: 08/12/2020
+ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167318"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719054"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -121,7 +121,7 @@ Per eseguire l'onboarding del cliente, sarà necessario creare un modello di [Az
 
 |Campo  |Definizione  |
 |---------|---------|
-|**mspOfferName**     |Nome che descrive questa definizione. Questo valore viene visualizzato al cliente come titolo dell'offerta.         |
+|**mspOfferName**     |Nome che descrive questa definizione. Questo valore viene visualizzato al cliente come titolo dell'offerta e deve essere un valore univoco.        |
 |**mspOfferDescription**     |Breve descrizione dell'offerta, ad esempio "Offerta di gestione di macchine virtuali Contoso".      |
 |**managedByTenantId**     |ID tenant.          |
 |**authorizations**     |Valori **principalId** per gli utenti, i gruppi o i nomi dell'entità servizio del tenant, ognuno dei quali ha un **principalIdDisplayName** per consentire ai clienti di comprendere lo scopo dell'autorizzazione ed è associato a un valore **roleDefinitionId** predefinito per specificare il livello di accesso.      |
@@ -138,7 +138,7 @@ Il modello scelto dipenderà dal fatto che si esegua l'onboarding di un'intera s
 |Sottoscrizione (quando si usa un'offerta pubblicata in Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> Il processo descritto di seguito richiede una distribuzione separata a livello di sottoscrizione per ogni sottoscrizione di cui si esegue l'onboarding, anche l'onboarding delle sottoscrizioni viene eseguito nello stesso tenant del cliente. Le distribuzioni separate sono necessarie anche se si esegue l'onboarding di più gruppi di risorse all'interno di sottoscrizioni diverse nello stesso tenant del cliente. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguito in una sola distribuzione a livello di sottoscrizione.
+> Il processo descritto di seguito richiede una distribuzione separata per ogni sottoscrizione da caricare, anche se si esegue il caricamento di sottoscrizioni nello stesso tenant del cliente. Le distribuzioni separate sono necessarie anche se si esegue l'onboarding di più gruppi di risorse all'interno di sottoscrizioni diverse nello stesso tenant del cliente. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguito in una sola distribuzione.
 >
 > Le distribuzioni separate sono necessarie anche se si applicano più offerte alla stessa sottoscrizione (o gruppi di risorse all'interno di una sottoscrizione). Ogni offerta applicata deve usare un diverso **mspOfferName**.
 
@@ -199,12 +199,22 @@ L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con 
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuire i modelli di Azure Resource Manager
 
-Dopo aver aggiornato il file dei parametri, un utente del tenant del cliente deve distribuire il modello di Azure Resource Manager nel proprio tenant come distribuzione a livello di sottoscrizione. È necessaria una distribuzione separata per ogni sottoscrizione di cui si vuole eseguire l'onboarding (o per ogni sottoscrizione che contiene i gruppi di risorse che si vuole caricare). È possibile eseguire la distribuzione tramite PowerShell o l'interfaccia della riga di comando di Azure, come illustrato di seguito.
+Dopo aver aggiornato il file dei parametri, un utente nel tenant del cliente deve distribuire il modello di Azure Resource Manager all'interno del tenant. È necessaria una distribuzione separata per ogni sottoscrizione di cui si vuole eseguire l'onboarding (o per ogni sottoscrizione che contiene i gruppi di risorse che si vuole caricare).
 
 > [!IMPORTANT]
-> Questa distribuzione a livello di sottoscrizione deve essere eseguita da un account non guest nel tenant del cliente con il [ruolo predefinito Proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione di cui eseguire l'onboarding (o che contiene i gruppi di risorse di cui eseguire l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Questa distribuzione deve essere eseguita da un account non Guest nel tenant del cliente che ha il [ruolo predefinito proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione da caricare (o che contiene i gruppi di risorse sottoposto a onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > Se la sottoscrizione è stata creata usando il [programma Cloud Solution Provider (CSP)](../concepts/cloud-solution-provider.md), tutti gli utenti con il ruolo [Agente amministratore](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) nel tenant del provider di servizi possono eseguire la distribuzione.
+
+La distribuzione può essere eseguita nel portale di Azure, tramite PowerShell o tramite l'interfaccia della riga di comando di Azure, come illustrato di seguito.
+
+### <a name="azure-portal"></a>Portale di Azure
+
+1. Nel [repository GitHub](https://github.com/Azure/Azure-Lighthouse-samples/)selezionare il pulsante **Distribuisci in Azure** visualizzato accanto al modello che si vuole usare. Il modello verrà aperto nel portale di Azure.
+1. Immettere i valori per **nome dell'offerta msp**, **Descrizione dell'offerta msp**, **gestito da ID tenant**e **autorizzazioni**. Se si preferisce, è possibile selezionare **modifica parametri** per immettere i valori per `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` e `authorizations` direttamente nel file dei parametri. Assicurarsi di aggiornare questi valori invece di usare i valori predefiniti del modello.
+1. Selezionare **revisione e creazione**, quindi selezionare **Crea**.
+
+Dopo alcuni minuti verrà visualizzata una notifica che segnala che la distribuzione è stata completata.
 
 ### <a name="powershell"></a>PowerShell
 

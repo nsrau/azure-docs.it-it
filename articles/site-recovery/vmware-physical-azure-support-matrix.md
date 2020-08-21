@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 8ffc07d38e3a04cd4cf71aaa8e80d69066f044f6
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 288cebc4d4097ff40b618e2f1976039359458ecf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607095"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719020"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -86,8 +86,8 @@ Windows 7 con SP1 64 bit | Supportato dall' [aggiornamento cumulativo 36](https:
 **Sistema operativo** | **Dettagli**
 --- | ---
 Linux | È supportato solo il sistema a 64 bit. il sistema a 32 bit non è supportato.<br/><br/>Ogni server Linux deve avere [componenti di linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) installati. È necessario avviare il server in Azure dopo il failover o il failover di test. Se i componenti LIS incorporati sono mancanti, assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure. <br/><br/> Site Recovery orchestra il failover per l'esecuzione di server Linux in Azure. Tuttavia i fornitori di Linux potrebbero limitare il supporto solo alle versioni di distribuzione che non hanno raggiunto la fine del ciclo di vita.<br/><br/> Nelle distribuzioni di Linux sono supportati solo i kernel di scorta che fanno parte di una versione/aggiornamento secondaria della distribuzione.<br/><br/> L'aggiornamento di computer protetti tra versioni di distribuzione principali di Linux non è supportato. Per eseguire l'aggiornamento, disabilitare la replica, aggiornare il sistema operativo e quindi abilitare nuovamente la replica.<br/><br/> [Scopri di più](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sul supporto per Linux e tecnologia open source in Azure.
-Linux Red Hat Enterprise | da 5,2 a 5,11</b><br/> da 6,1 a 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/> Pochi kernel meno recenti sui server che eseguono Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 non dispongono di [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) pre-installati. Se i componenti LIS incorporati sono mancanti, assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure.
-Linux: CentOS | da 5,2 a 5,11</b><br/> da 6,1 a 6,10</b><br/> da 7,0 a [7,9](https://support.microsoft.com/help/4578241/)<br/> <br/> 8,0, 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/><br/> Pochi kernel meno recenti nei server che eseguono CentOS 5.2-5.11 & 6.1-6.10 non hanno  [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) preinstallati. Se i componenti LIS incorporati sono mancanti, assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure.
+Linux Red Hat Enterprise | da 5,2 a 5,11</b><br/> da 6,1 a 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/> Pochi kernel meno recenti sui server che eseguono Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 non dispongono di [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) pre-installati. Se i componenti LIS incorporati sono mancanti, assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure.
+Linux: CentOS | da 5,2 a 5,11</b><br/> da 6,1 a 6,10</b><br/> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/) </br> [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609) <br/><br/> Pochi kernel meno recenti nei server che eseguono CentOS 5.2-5.11 & 6.1-6.10 non hanno  [componenti di Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) preinstallati. Se i componenti LIS incorporati sono mancanti, assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure.
 Ubuntu | Server Ubuntu 14,04 LTS [(rivedere le versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Server Ubuntu 16,04 LTS [(rivedere le versioni del kernel supportate)](#ubuntu-kernel-versions) </br> Server Ubuntu 18,04 LTS [(rivedere le versioni del kernel supportate)](#ubuntu-kernel-versions); Ubuntu 18.4.03 (kernel v 5.4) è supportato da [9,36](https://support.microsoft.com/help/4578241/) </br> Server Ubuntu 20,04 LTS [(rivedere le versioni del kernel supportate)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 (include il supporto per tutti i 7. *x*, 8. versioni *x* ) [(rivedere le versioni del kernel supportate)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(rivedere le versioni del kernel supportate)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(rivedere le versioni del kernel supportate)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Assicurarsi di scaricare il programma di installazione dell'agente Mobility più recente nel server di configurazione](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Nota**: l'aggiornamento dei computer replicati da SUSE Linux Enterprise Server 11 SP3 a SP4 non è supportato. Per eseguire l'aggiornamento, disabilitare la replica e riabilitarla dopo l'aggiornamento. <br/>|
@@ -147,7 +147,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | [9.32](https://support.microsoft.com/
 
 ## <a name="linux-file-systemsguest-storage"></a>File system/archiviazione guest Linux
 
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 File system | ext3, ext4, XFS, BTRFS (condizioni applicabili in base a questa tabella)
 Provisioning di gestione volumi logici (LVM)| Provisioning Thick-Sì <br></br> Thin provisioning-No
@@ -174,7 +174,7 @@ Aggiunta del disco alla macchina virtuale replicata | Non supportato.<br/> Disab
 
 ## <a name="network"></a>Rete
 
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 Gruppo NIC della rete host | Supportato per le macchine virtuali VMware. <br/><br/>Non supportato per la replica di computer fisici.
 VLAN rete host | Sì.
@@ -191,7 +191,7 @@ Accesso a collegamento privato al servizio Site Recovery | Sì. [Altre informazi
 
 ## <a name="azure-vm-network-after-failover"></a>Rete VM di Azure (dopo il failover)
 
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 Azure ExpressRoute | Sì
 ILB | Sì
@@ -205,7 +205,7 @@ Endpoint servizio di rete virtuale di Azure<br/> | Sì
 Rete accelerata | No
 
 ## <a name="storage"></a>Archiviazione
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 Disco dinamico | Il disco del sistema operativo deve essere un disco di base. <br/><br/>I dischi dati possono essere dinamici
 Configurazione dei dischi Docker | No
@@ -236,7 +236,7 @@ Avvio EFI/UEFI Guest/server | -Supportato per tutti i [sistemi operativi UEFI di
 
 ## <a name="replication-channels"></a>Canali di replica
 
-|**Tipo di replica**   |**Supportato**  |
+|**Tipo di replica**   |**Supporto**  |
 |---------|---------|
 |Trasferimenti di dati con offload (ODX)    |       No  |
 |Seeding offline        |   No      |
@@ -244,7 +244,7 @@ Avvio EFI/UEFI Guest/server | -Supportato per tutti i [sistemi operativi UEFI di
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 Archiviazione con ridondanza locale | Sì
 Archiviazione con ridondanza geografica | Sì
@@ -263,7 +263,7 @@ Account di archiviazione per utilizzo generico V2 (livelli ad accesso frequente 
 
 ## <a name="azure-compute"></a>Calcolo di Azure
 
-**Funzionalità** | **Supportato**
+**Funzionalità** | **Supporto**
 --- | ---
 Set di disponibilità | Sì
 Zone di disponibilità | No
@@ -320,7 +320,7 @@ Varianza massima dei dati al giorno supportata da un server di elaborazione | 2 
 
 ## <a name="vault-tasks"></a>Attività di insieme di credenziali
 
-**Azione** | **Supportato**
+**Azione** | **Supporto**
 --- | ---
 Spostamento insieme di credenziali tra gruppi di risorse | No
 Spostare l'insieme di credenziali in e tra sottoscrizioni | No

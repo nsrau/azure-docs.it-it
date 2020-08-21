@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903341"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718816"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Eseguire il backup e il ripristino dei modelli di riconoscimento moduli
 
@@ -39,6 +39,9 @@ Il processo per la copia di un modello personalizzato è costituito dai passaggi
 1. Viene prima di tutto eseguita una richiesta di autorizzazione di copia alla risorsa di destinazione &mdash; , ovvero la risorsa che riceverà il modello copiato. Si ottiene l'URL del modello di destinazione appena creato, che riceverà i dati copiati.
 1. Successivamente si invia la richiesta di copia alla risorsa di origine &mdash; che contiene il modello da copiare. Verrà restituito un URL su cui è possibile eseguire una query per tenere traccia dell'avanzamento dell'operazione.
 1. Si useranno le credenziali della risorsa di origine per eseguire una query sull'URL di stato fino a quando l'operazione ha esito positivo. È anche possibile eseguire una query sul nuovo ID modello nella risorsa di destinazione per ottenere lo stato del nuovo modello.
+
+> [!CAUTION]
+> L'API di copia non supporta attualmente gli ID modello per i [modelli personalizzati composti](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Il modello compose è una funzionalità di anteprima della versione 2.1-Preview. 1 Preview. 
 
 ## <a name="generate-copy-authorization-request"></a>Genera richiesta di autorizzazione copia
 
@@ -90,7 +93,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 |Errore|Risoluzione|
 |:--|:--|
-| 400/richiesta non valida con`"code:" "1002"` | Indica un errore di convalida o una richiesta di copia non formattata correttamente. I problemi comuni includono: a) payload non valido o modificato `copyAuthorization` . b) valore scaduto per il `expirationDateTimeTicks` token (il `copyAuhtorization` payload è valido per 24 ore). c) non valido o non supportato `targetResourceRegion` . d) stringa non valida o con formato non valido `targetResourceId` .
+| 400/richiesta non valida con `"code:" "1002"` | Indica un errore di convalida o una richiesta di copia non formattata correttamente. I problemi comuni includono: a) payload non valido o modificato `copyAuthorization` . b) valore scaduto per il `expirationDateTimeTicks` token (il `copyAuhtorization` payload è valido per 24 ore). c) non valido o non supportato `targetResourceRegion` . d) stringa non valida o con formato non valido `targetResourceId` .
 |
 
 ## <a name="track-copy-progress"></a>Traccia stato copia

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8143149332a4a493a9a4d8d4a0d403420b87f75a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653361"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719479"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurare il server Azure Multi-Factor Authentication per l'uso con AD FS in Windows Server
 
@@ -84,7 +84,7 @@ A questo punto, il server Multi-Factor Authentication è configurato per essere 
 Per modificare il file MultiFactorAuthenticationAdfsAdapter.config, seguire questa procedura:
 
 1. Impostare il nodo **UseWebServiceSdk** su **true**.  
-2. Impostare il valore di **WebServiceSdkUrl** sull'URL dell'SDK del servizio Web Multi-Factor Authentication. Ad esempio: *https:\/\/contoso.com/\<nomecertificato>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, dove *\<nomecertificato>* è il nome del certificato.  
+2. Impostare il valore di **WebServiceSdkUrl** sull'URL dell'SDK del servizio Web Multi-Factor Authentication. Ad esempio: *https: \/ \/ contoso.com/ \<certificatename> /MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, dove *\<certificatename>* è il nome del certificato.  
 3. Modificare lo script Register-MultiFactorAuthenticationAdfsAdapter.ps1 aggiungendo alla fine del comando `Register-AdfsAuthenticationProvider``-ConfigurationFilePath &lt;path&gt;`, dove *&lt;path&gt;* è il percorso completo del file MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurare l'SDK del servizio Web con un nome utente e una password
@@ -98,7 +98,7 @@ Per configurare l'SDK del servizio Web è possibile procedere in due modi: usand
 
 Se si preferisce non usare un nome utente e una password, seguire questa procedura per configurare l'SDK del servizio Web con un certificato client.
 
-1. Ottenere un certificato client da un'autorità di certificazione per il server che esegue l'SDK del servizio Web. Informazioni su come [ottenere certificati client](https://technet.microsoft.com/library/cc770328.aspx).  
+1. Ottenere un certificato client da un'autorità di certificazione per il server che esegue l'SDK del servizio Web. Informazioni su come [ottenere certificati client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770328(v=ws.10)).  
 2. Importare il certificato client nell'archivio certificati personali del computer locale nel server che esegue l'SDK del servizio Web. Verificare che il certificato pubblico dell'autorità di certificazione si trovi nell'archivio dei certificati radice attendibili.  
 3. Esportare le chiavi pubbliche e private del certificato client in un file PFX.  
 4. Esportare la chiave pubblica con codifica Base64 in un file CER.  

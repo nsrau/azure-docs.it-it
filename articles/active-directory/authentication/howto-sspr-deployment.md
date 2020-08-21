@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9f59c7bb9b3977bdff7e3fd1ab78ed6fa2e412
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338567"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717745"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active Directory
 
@@ -30,7 +30,7 @@ La [reimpostazione della password self-service](https://www.youtube.com/watch?v=
 La reimpostazione della password self-service offre le funzionalità chiave seguenti:
 
 * L'operazione in modalità self-service consente agli utenti finali di reimpostare le password scadute o non scadute senza rivolgersi a un amministratore o al supporto tecnico per assistenza.
-* Il [writeback delle password](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) consente la gestione delle password locali e la risoluzione del blocco dell'account tramite il cloud.
+* Il [writeback delle password](./concept-sspr-writeback.md) consente la gestione delle password locali e la risoluzione del blocco dell'account tramite il cloud.
 * I report sulle attività di gestione delle password forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione e registrazione delle password all'interno dell'organizzazione.
 
 Questa guida alla distribuzione illustra come pianificare e quindi testare un'implementazione della reimpostazione della password self-service.
@@ -42,7 +42,7 @@ Per vedere rapidamente come funziona la reimpostazione della password self-servi
 
 ## <a name="learn-about-sspr"></a>Informazioni sulla reimpostazione della password self-service
 
-Informazioni sulla reimpostazione della password self-service. Vedere [Funzionamento: Reimpostazione della password self-service di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks).
+Informazioni sulla reimpostazione della password self-service. Vedere [Funzionamento: Reimpostazione della password self-service di Azure AD](./concept-sspr-howitworks.md).
 
 ### <a name="key-benefits"></a>Vantaggi principali
 
@@ -60,7 +60,7 @@ I principali vantaggi dell'abilitazione della reimpostazione della password self
 
 Azure Active Directory prevede un modello di licenza per utente, ovvero per ogni utente è necessaria una licenza appropriata in base alle funzionalità usate. Per la reimpostazione della password self-service è consigliabile usare licenze basate sui gruppi. 
 
-Per confrontare le edizioni e le funzionalità e abilitare le licenze basate sui gruppi o sugli utenti, vedere [Requisiti di licenza per la reimpostazione della password self-service di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-licensing).
+Per confrontare le edizioni e le funzionalità e abilitare le licenze basate sui gruppi o sugli utenti, vedere [Requisiti di licenza per la reimpostazione della password self-service di Azure AD](./concept-sspr-licensing.md).
 
 Per altre informazioni sui prezzi, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -83,10 +83,10 @@ Per altre informazioni sui prezzi, vedere [Prezzi di Azure Active Directory](htt
 | Corsi online|[Managing Identities in Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) (Gestione delle identità in Microsoft Azure Active Directory). Usare la reimpostazione della password self-service per offrire agli utenti un'esperienza moderna e protetta. Vedere in particolare il modulo "[Managing Azure Active Directory Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" (Gestione di utenti e gruppi di Azure Active Directory). |
 |Corsi Pluralsight a pagamento |[The Issues of Identity and Access Management](https://www.pluralsight.com/courses/identity-access-management-issues) (I problemi della gestione delle identità e degli accessi). Informazioni su IAM e sui problemi di sicurezza a cui fare attenzione nell'organizzazione. Vedere in particolare il modulo "Other Authentication Methods" (Altri metodi di autenticazione).|
 | |[Getting Started with the Microsoft Enterprise Mobility Suite](https://www.pluralsight.com/courses/microsoft-enterprise-mobility-suite-getting-started) (Introduzione a Microsoft Enterprise Mobility Suite). Informazioni sulle procedure consigliate per estendere gli asset locali nel cloud così da consentire autenticazione, autorizzazione, crittografia e sicurezza nell'esperienza con i dispositivi mobili. Vedere in particolare il modulo "Configuring Advanced Features of Microsoft Azure Active Directory Premium" (Configurazione delle funzionalità avanzate di Microsoft Azure Active Directory Premium).
-|Esercitazioni |[Completare l'implementazione di un gruppo pilota per la reimpostazione della password self-service di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
-| |[Abilitazione del writeback delle password](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback) |
-| |[Reimpostazione della password di Azure AD dalla schermata di accesso per Windows 10](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows) |
-| Domande frequenti|[Domande frequenti sulla gestione delle password](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
+|Esercitazioni |[Completare l'implementazione di un gruppo pilota per la reimpostazione della password self-service di Azure AD](./tutorial-enable-sspr.md) |
+| |[Abilitazione del writeback delle password](./tutorial-enable-sspr-writeback.md) |
+| |[Reimpostazione della password di Azure AD dalla schermata di accesso per Windows 10](./howto-sspr-windows.md) |
+| Domande frequenti|[Domande frequenti sulla gestione delle password](./active-directory-passwords-faq.md) |
 
 
 ### <a name="solution-architecture"></a>Architettura della soluzione
@@ -103,7 +103,7 @@ Per reimpostare la password, gli utenti devono usare il [portale di reimpostazio
 
 * Per gli utenti ibridi, la reimpostazione della password self-service esegue il writeback della password nell'istanza di Active Directory locale tramite il servizio Azure AD Connect. 
 
-Nota: per gli utenti che hanno la [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) disabilitata, la reimpostazione della password self-service archivia le password solo nell'istanza di Active Directory locale.
+Nota: per gli utenti che hanno la [sincronizzazione dell'hash delle password](../hybrid/whatis-phs.md) disabilitata, la reimpostazione della password self-service archivia le password solo nell'istanza di Active Directory locale.
 
 ### <a name="best-practices"></a>Procedure consigliate
 
@@ -141,9 +141,9 @@ La comunicazione è fondamentale per il successo di un nuovo servizio. Comunicar
 
 ### <a name="plan-a-pilot"></a>Pianificare un progetto pilota
 
-È consigliabile eseguire la configurazione iniziale della reimpostazione della password self-service in un ambiente di test. Iniziare con un gruppo pilota abilitando la reimpostazione della password self-service per un subset di utenti nell'organizzazione. Vedere [Procedure consigliate per un progetto pilota](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
+È consigliabile eseguire la configurazione iniziale della reimpostazione della password self-service in un ambiente di test. Iniziare con un gruppo pilota abilitando la reimpostazione della password self-service per un subset di utenti nell'organizzazione. Vedere [Procedure consigliate per un progetto pilota](../fundamentals/active-directory-deployment-plans.md).
 
-Per creare un gruppo, vedere le informazioni in [Creare un gruppo e aggiungere membri in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal). 
+Per creare un gruppo, vedere le informazioni in [Creare un gruppo e aggiungere membri in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md). 
 
 ## <a name="plan-configuration"></a>Pianificare la configurazione
 
@@ -172,7 +172,7 @@ Quando si abilita la reimpostazione della password self-service, scegliere un gr
 
 ### <a name="authentication-methods"></a>Metodi di autenticazione
 
-Quando la reimpostazione della password self-service è abilitata, gli utenti possono reimpostare la password solo se dispongono di dati presenti nei metodi di autenticazione abilitati dall'amministratore. I metodi includono telefono, notifica dell'app Authenticator, domande di sicurezza e così via. Per altre informazioni, vedere [Cosa sono i metodi di autenticazione?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods).
+Quando la reimpostazione della password self-service è abilitata, gli utenti possono reimpostare la password solo se dispongono di dati presenti nei metodi di autenticazione abilitati dall'amministratore. I metodi includono telefono, notifica dell'app Authenticator, domande di sicurezza e così via. Per altre informazioni, vedere [Cosa sono i metodi di autenticazione?](./concept-authentication-methods.md).
 
 È consigliabile usare le impostazioni dei metodi di autenticazione seguenti:
 
@@ -180,7 +180,7 @@ Quando la reimpostazione della password self-service è abilitata, gli utenti po
 
 * Impostare **Numero di metodi da reimpostare** su un livello appropriato per l'organizzazione. Un valore di uno comporta il minor attrito, mentre un valore pari a due può migliorare la postura di sicurezza. 
 
-Nota: l'utente deve avere i metodi di autenticazione configurati come descritto in [Restrizioni e criteri password in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+Nota: l'utente deve avere i metodi di autenticazione configurati come descritto in [Restrizioni e criteri password in Azure Active Directory](./concept-sspr-policy.md).
 
 ### <a name="registration-settings"></a>Impostazioni di registrazione
 
@@ -196,11 +196,11 @@ Impostare entrambe le opzioni **Notificare agli utenti le reimpostazioni delle p
 
 È fondamentale personalizzare l'URL o l'indirizzo di posta elettronica del supporto tecnico per assicurarsi che gli utenti che riscontrano problemi possano ottenere assistenza immediata. Impostare questa opzione su un indirizzo di posta elettronica o una pagina Web del supporto tecnico comune con cui gli utenti hanno familiarità. 
 
-Per altre informazioni, vedere [Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization).
+Per altre informazioni, vedere [Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service](./howto-sspr-customization.md).
 
 ### <a name="password-writeback"></a>Writeback password
 
-Il **writeback delle password** è una funzionalità abilitata con [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) che consente di riscrivere le reimpostazioni delle password nel cloud in una directory locale esistente in tempo reale. Per altre informazioni, vedere [Che cos'è il writeback delle password?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
+Il **writeback delle password** è una funzionalità abilitata con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) che consente di riscrivere le reimpostazioni delle password nel cloud in una directory locale esistente in tempo reale. Per altre informazioni, vedere [Che cos'è il writeback delle password?](./concept-sspr-writeback.md)
 
 È consigliabile usare le impostazioni seguenti:
 
@@ -220,7 +220,7 @@ Gli account amministratore hanno autorizzazioni elevate. Gli amministratori di d
 
 ### <a name="environments-with-multiple-identity-management-systems"></a>Ambienti con più sistemi di gestione delle identità
 
-Alcuni ambienti presentano più sistemi di gestione delle identità. Gli strumenti di gestione delle identità locali come Oracle AM e SiteMinder richiedono la sincronizzazione con Active Directory per le password. A tale scopo, è possibile usare uno strumento come il servizio di notifica di modifica della password (PCNS, Password Change Notification Service) con Microsoft Identity Manager (MIM). Per trovare informazioni su questo scenario più complesso, vedere l'articolo [Distribuire il servizio di notifica di modifica della password di MIM in un controller di dominio](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+Alcuni ambienti presentano più sistemi di gestione delle identità. Gli strumenti di gestione delle identità locali come Oracle AM e SiteMinder richiedono la sincronizzazione con Active Directory per le password. A tale scopo, è possibile usare uno strumento come il servizio di notifica di modifica della password (PCNS, Password Change Notification Service) con Microsoft Identity Manager (MIM). Per trovare informazioni su questo scenario più complesso, vedere l'articolo [Distribuire il servizio di notifica di modifica della password di MIM in un controller di dominio](/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
 ## <a name="plan-testing-and-support"></a>Pianificare i test e il supporto
 
@@ -228,7 +228,7 @@ In ogni fase della distribuzione, dai gruppi pilota iniziali fino al coinvolgime
 
 ### <a name="plan-testing"></a>Panificare i test
 
-Per assicurarsi che la distribuzione funzioni come previsto, pianificare un set di test case per convalidare l'implementazione. Per valutare i test case, è necessario un utente di test non amministratore con una password. Se è necessario creare un utente, vedere [Aggiungere nuovi utenti in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Per assicurarsi che la distribuzione funzioni come previsto, pianificare un set di test case per convalidare l'implementazione. Per valutare i test case, è necessario un utente di test non amministratore con una password. Se è necessario creare un utente, vedere [Aggiungere nuovi utenti in Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
 La tabella seguente include utili scenari di test che è possibile usare per documentare i risultati previsti per l'organizzazione in base ai criteri.
 <br>
@@ -246,7 +246,7 @@ La tabella seguente include utili scenari di test che è possibile usare per doc
 | Reimpostazione della password utente dalla schermata di blocco di un dispositivo Windows 10 aggiunto ad Azure AD o aggiunto ad Azure AD ibrido| L'utente può reimpostare la password |
 | I dati sull'utilizzo e sulla registrazione della reimpostazione della password self-service sono disponibili per gli amministratori quasi in tempo reale| Disponibilità tramite log di controllo |
 
-Vedere anche [Completare l'implementazione di un gruppo pilota per la reimpostazione della password self-service di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot). In questa esercitazione viene abilitata un'implementazione pilota della reimpostazione della password self-service nell'organizzazione e la soluzione viene testata con un account non amministratore.
+Vedere anche [Completare l'implementazione di un gruppo pilota per la reimpostazione della password self-service di Azure AD](./tutorial-enable-sspr.md). In questa esercitazione viene abilitata un'implementazione pilota della reimpostazione della password self-service nell'organizzazione e la soluzione viene testata con un account non amministratore.
 
 ### <a name="plan-support"></a>Pianificare il supporto
 
@@ -289,20 +289,20 @@ Prima della distribuzione, assicurarsi di aver eseguito queste operazioni:
 
 **È ora possibile distribuire la reimpostazione della password self-service**
 
-Vedere [Abilitare la reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot#enable-self-service-password-reset) per istruzioni dettagliate complete sulla configurazione delle aree seguenti.
+Vedere [Abilitare la reimpostazione della password self-service](./tutorial-enable-sspr.md#enable-self-service-password-reset) per istruzioni dettagliate complete sulla configurazione delle aree seguenti.
 
-1. [Metodi di autenticazione](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
+1. [Metodi di autenticazione](./concept-authentication-methods.md)
 
-1. [Impostazioni di registrazione](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)
+1. [Impostazioni di registrazione](./concept-registration-mfa-sspr-combined.md)
 
 1. [Impostazioni delle notifiche](#notifications-settings)
 
-1. [Impostazioni di personalizzazione](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+1. [Impostazioni di personalizzazione](./howto-sspr-customization.md)
 
-1. [Integrazione locale](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback)
+1. [Integrazione locale](./tutorial-enable-sspr-writeback.md)
 
 ### <a name="enable-sspr-in-windows"></a>Abilitare la reimpostazione della password self-service in Windows
-Per i computer che eseguono Windows 7, 8, 8.1 e 10 è possibile [consentire agli utenti di reimpostare la password nella schermata di accesso di Windows](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows)
+Per i computer che eseguono Windows 7, 8, 8.1 e 10 è possibile [consentire agli utenti di reimpostare la password nella schermata di accesso di Windows](./howto-sspr-windows.md)
 
 ## <a name="manage-sspr"></a>Gestire la reimpostazione della password self-service
 
@@ -310,41 +310,41 @@ Azure AD può fornire informazioni aggiuntive sulle prestazioni della reimpostaz
 
 ### <a name="password-management-activity-reports"></a>Report sulle attività di gestione delle password 
 
-È possibile usare i report predefiniti disponibili nel portale di Azure per misurare le prestazioni della reimpostazione della password self-service. Se si dispone di una licenza appropriata, è anche possibile creare query personalizzate. Per altre informazioni, vedere [Opzioni di creazione di report per la gestione delle password di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting)
+È possibile usare i report predefiniti disponibili nel portale di Azure per misurare le prestazioni della reimpostazione della password self-service. Se si dispone di una licenza appropriata, è anche possibile creare query personalizzate. Per altre informazioni, vedere [Opzioni di creazione di report per la gestione delle password di Azure AD](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  È necessario essere [un amministratore globale](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) e acconsentire esplicitamente alla raccolta di questi dati per l'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda Report o i log di controllo nel portale di Azure. Fino a che non si eseguono queste operazioni, i dati per l'organizzazione non vengono raccolti.
+>  È necessario essere [un amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) e acconsentire esplicitamente alla raccolta di questi dati per l'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda Report o i log di controllo nel portale di Azure. Fino a che non si eseguono queste operazioni, i dati per l'organizzazione non vengono raccolti.
 
-I log di controllo per la registrazione e la reimpostazione della password sono disponibili per 30 giorni. Se il controllo di sicurezza all'interno dell'azienda richiede un periodo di conservazione più lungo, i log devono essere esportati e utilizzati in uno strumento SIEM, ad esempio [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-active-directory), Splunk o ArcSight.
+I log di controllo per la registrazione e la reimpostazione della password sono disponibili per 30 giorni. Se il controllo di sicurezza all'interno dell'azienda richiede un periodo di conservazione più lungo, i log devono essere esportati e utilizzati in uno strumento SIEM, ad esempio [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o ArcSight.
 
 ![Screenshot dei report di reimpostazione della password self-service](./media/howto-sspr-deployment/sspr-reporting.png)
 
 ### <a name="authentication-methods--usage-and-insights"></a>Metodi di autenticazione - Utilizzo e informazioni dettagliate
 
-La pagina [Utilizzo e informazioni dettagliate](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) consente di comprendere come funzionano i metodi di autenticazione per funzionalità come Azure MFA e la reimpostazione della password self-service nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di capire quali metodi registrare e come usarli.
+La pagina [Utilizzo e informazioni dettagliate](./howto-authentication-methods-usage-insights.md) consente di comprendere come funzionano i metodi di autenticazione per funzionalità come Azure MFA e la reimpostazione della password self-service nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di capire quali metodi registrare e come usarli.
 
 ### <a name="troubleshoot"></a>Risolvere problemi
 
-* Vedere [Risolvere i problemi di reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
+* Vedere [Risolvere i problemi di reimpostazione della password self-service](./active-directory-passwords-troubleshoot.md) 
 
-* Vedere [Domande frequenti sulla gestione delle password](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) 
+* Vedere [Domande frequenti sulla gestione delle password](./active-directory-passwords-faq.md) 
 
 ### <a name="helpful-documentation"></a>Documentazione utile
 
-* [Cosa si intende per metodi di autenticazione?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
+* [Cosa si intende per metodi di autenticazione?](./concept-authentication-methods.md)
 
-* [Funzionamento: Reimpostazione della password self-service di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks)
+* [Funzionamento: Reimpostazione della password self-service di Azure AD](./concept-sspr-howitworks.md)
 
-* [Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+* [Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service](./howto-sspr-customization.md)
 
-* [Restrizioni e criteri password in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy)
+* [Restrizioni e criteri password in Azure Active Directory](./concept-sspr-policy.md)
 
-* [Che cos'è il writeback delle password?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
+* [Che cos'è il writeback delle password?](./concept-sspr-writeback.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulla distribuzione della reimpostazione della password self-service, vedere [Abilitare la reimpostazione della password self-service di Azure AD](tutorial-enable-sspr.md)
 
-* [Considerare l'implementazione delle password di protezione di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
+* [Considerare l'implementazione delle password di protezione di Azure AD](./concept-password-ban-bad.md)
 
-* [Considerare l'implementazione del blocco intelligente di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)
+* [Considerare l'implementazione del blocco intelligente di Azure AD](./howto-password-smart-lockout.md)

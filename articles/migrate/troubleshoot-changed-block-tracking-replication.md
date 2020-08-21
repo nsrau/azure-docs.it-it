@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5748f758d8ac2f1723a20858920a4f261c07f938
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: a1ef0e9fe3805f1c6d4d1000a9ea70accc64f4d2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608819"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718697"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Risoluzione dei problemi di replica nella migrazione di macchine virtuali VMware senza agente
 
@@ -59,7 +59,7 @@ Il componente che tenta di replicare i dati in Azure è inattivo o non risponde.
 
    2.  Aprire lo snap-in MMC Servizi Microsoft (eseguire > Services. msc) e verificare se il "Microsoft Azure gateway servizio" è in esecuzione. Se il servizio è stato interrotto o non è in esecuzione, avviare il servizio. In alternativa, è possibile aprire il prompt dei comandi o PowerShell e procedere come segue: "net start asrgwy"
 
-3. Verificare la presenza di problemi di connettività tra Azure Migrate Appliance e l'account di archiviazione della cache: 
+3. Verificare la presenza di problemi di connettività tra Azure Migrate Appliance e l'account di archiviazione Appliance: 
 
     Eseguire il comando seguente dopo aver scaricato azcopy nell'appliance Azure Migrate:
     
@@ -149,7 +149,7 @@ Di seguito sono riportate le possibili cause:
     
       1. [Scarica](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
         
-      2. Cercare l'account di archiviazione Appliance nel gruppo di risorse. Il nome dell'account di archiviazione è simile a migrategwsa \* \* \* \* \* \* \* \* \* \* . Si tratta del valore del parametro [account] del comando precedente.
+      2. Cercare l'account di archiviazione Appliance nel gruppo di risorse. Il nome dell'account di archiviazione è simile a migratelsa \* \* \* \* \* \* \* \* \* \* . Si tratta del valore del parametro [account] del comando precedente.
         
       3. Cercare l'account di archiviazione nell'portale di Azure. Assicurarsi che la sottoscrizione usata per la ricerca sia la stessa sottoscrizione (sottoscrizione di destinazione) in cui viene creato l'account di archiviazione. Passare a contenitori nella sezione servizio BLOB. Fare clic su + contenitore e creare un contenitore. Lasciare il livello di accesso pubblico al valore predefinito selezionato.
         
@@ -226,7 +226,7 @@ Esempio: messaggio di errore: si è verificato un errore interno. [È stata rile
 
 Nella sezione seguente sono elencati alcuni degli errori più comuni di VMware e il modo in cui è possibile attenuarli.
 
-## <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Messaggio di errore: si è verificato un errore interno. [Connessione rifiutata dal server]
+### <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Messaggio di errore: si è verificato un errore interno. [Connessione rifiutata dal server]
 
 Il problema è un problema noto di VMware e si verifica in VDDK 6,7. È necessario arrestare il servizio gateway in esecuzione nell'appliance Azure Migrate, [scaricare un aggiornamento da VMware KB](https://go.microsoft.com/fwlink/?linkid=2138889)e riavviare il servizio gateway.
 
@@ -240,33 +240,33 @@ Passaggi per avviare il servizio gateway:
 1. Premere Windows + R, aprire Services. msc. Fare clic con il pulsante destro del mouse su "Microsoft Azure servizio gateway" e avviarlo.
 2. In alternativa, è possibile aprire il prompt dei comandi o PowerShell e: net start asrgwy.
 
-## <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Messaggio di errore: si è verificato un errore interno. [' È stata rilevata una configurazione di snapshot non valida .']
+### <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Messaggio di errore: si è verificato un errore interno. [' È stata rilevata una configurazione di snapshot non valida .']
 
 Se si dispone di una macchina virtuale con più dischi, è possibile che si verifichi questo errore se si rimuove un disco dalla macchina virtuale. Per risolvere il problema, fare riferimento ai passaggi descritti in [questo articolo di VMware](https://go.microsoft.com/fwlink/?linkid=2138890).
 
-## <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Messaggio di errore: si è verificato un errore interno. [Genera snapshot bloccato]
+### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Messaggio di errore: si è verificato un errore interno. [Genera snapshot bloccato]
 
 Questo problema si verifica quando la generazione di snapshot è bloccata. Quando si verifica questo problema, è possibile vedere la pagina relativa all'interruzione dell'attività create snapshot al 95% o al 99%. Per risolvere il problema, fare riferimento a questa [KB di VMware](https://go.microsoft.com/fwlink/?linkid=2138969) .
 
-## <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Messaggio di errore: si è verificato un errore interno. [Non è stato possibile consolidare i dischi nella macchina virtuale _[motivi]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Messaggio di errore: si è verificato un errore interno. [Non è stato possibile consolidare i dischi nella macchina virtuale _[motivi]_]
 
 Quando si consolidano i dischi alla fine del ciclo di replica, l'operazione ha esito negativo. Seguire le istruzioni in [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) selezionando il _motivo_ appropriato per risolvere il problema.
 
 Si verificano gli errori seguenti quando le operazioni relative agli snapshot di VMware, ovvero creazione, eliminazione o consolidamento dei dischi, hanno esito negativo. Seguire le istruzioni nella sezione successiva per correggere gli errori:
 
-## <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Messaggio di errore: si è verificato un errore interno. [Un'altra attività è già in corso]
+### <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Messaggio di errore: si è verificato un errore interno. [Un'altra attività è già in corso]
 
 Questo problema si verifica in presenza di attività di macchine virtuali in conflitto in esecuzione in background o quando si verifica il timeout di un'attività all'interno del server vCenter. Seguire la risoluzione fornita nei seguenti [KB di VMware](https://go.microsoft.com/fwlink/?linkid=2138891).
 
-## <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Messaggio di errore: si è verificato un errore interno. [Operazione non consentita nello stato corrente]
+### <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Messaggio di errore: si è verificato un errore interno. [Operazione non consentita nello stato corrente]
 
 Questo problema si verifica quando server vCenter gli agenti di gestione smettono di funzionare. Per risolvere questo problema, fare riferimento alla soluzione nei seguenti [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138971).
 
-## <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Messaggio di errore: si è verificato un errore interno. [Dimensioni del disco snapshot non valide]
+### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Messaggio di errore: si è verificato un errore interno. [Dimensioni del disco snapshot non valide]
 
 Si tratta di un problema noto di VMware in cui le dimensioni del disco indicate dallo snapshot diventeranno zero. Seguire la risoluzione fornita in [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
 
-## <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Messaggio di errore: si è verificato un errore interno. [Allocazione di memoria non riuscita. Memoria insufficiente.]
+### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Messaggio di errore: si è verificato un errore interno. [Allocazione di memoria non riuscita. Memoria insufficiente.]
 
 Questo errore si verifica quando il buffer dell'host NFC ha esaurito la memoria. Per risolvere questo problema, è necessario spostare la VM (Compute vMotion) in un host diverso, che dispone di risorse gratuite.
 

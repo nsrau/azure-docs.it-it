@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 05/28/2020
-ms.openlocfilehash: 7a6a672cef42eb15cbd8f2f254207e0a9d96ee33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/13/2020
+ms.openlocfilehash: 5c3586e9ba405cb5a7338b8f7f22858a238b9271
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736204"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717252"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componenti e versioni di Apache disponibili per Azure HDInsight
 
@@ -43,9 +43,9 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 | Apache Storm           | -             | 1.1.0                       |
 | Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.4.4         | 2.3.2, 2.2.0, 2.1.0         |
-| Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
-| Apache Kafka           | 2.1.1         | 1.1                        |
+| Apache Spark           | 2.4.4         | 2.3.2.                      |
+| Apache Livy            | 0.5           | 0,4.                        |
+| Apache Kafka           | 2.1.1         | 1.1                         |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
@@ -78,9 +78,22 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 | Versione HDInsight | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |Sì |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | 31 dicembre 2020 |31 dicembre 2020 |Sì |Sì |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 aprile 2017      | * 31 giugno 2021 |31 giugno 2021 |Sì |Sì |
 
-Il supporto per cluster Spark 2,1, 2,2 e Kafka 1,0 scade il 30 giugno 2020.
+* Si sta estendendo l'intervallo di tempo del supporto per determinati tipi di cluster HDInsight 3,6
+
+| Tipo di cluster                    | Versione del Framework | Scadenza supporto corrente        | Nuova data di scadenza del supporto |
+|---------------------------------|-------------------|-----------------------------------|-----------------------------|
+| HDInsight 3,6 Hadoop            | 2.7.3             | 31 dicembre 2020                      | 30 giugno 2021               |
+| HDInsight 3,6 Spark             | 2.3               | 31 dicembre 2020                      | 30 giugno 2021               |
+| HDInsight 3,6 Spark             | 2.2               | Ritirato il 30 giugno 2020          |                             |
+| HDInsight 3,6 Spark             | 2.1               | Ritirato il 30 giugno 2020          |                             |
+| HDInsight 3,6 Kafka             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |
+| HDInsight 3,6 Kafka             | 1.0               | Ritirato il 30 giugno 2020.         |                             |
+| HDInsight 3,6 HBase             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |
+| HDInsight 3,6-query interattiva | 2.1               | 31 dicembre 2020                      | 30 giugno 2021               |
+| HDInsight 3,6 Storm             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |
+| Servizi HDInsight 3,6 ML      | 9.3               | 31 dicembre 2020                      | 31 dicembre 2020                |
 
 > [!NOTE]
 > Dopo la scadenza del supporto per una versione del cluster, è possibile che non sia disponibile tramite il portale di Azure. In alcuni casi, le versioni del cluster continuano a essere disponibili usando il parametro **Version** nel comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) di Windows PowerShell e .NET SDK fino alla data di ritiro della versione.

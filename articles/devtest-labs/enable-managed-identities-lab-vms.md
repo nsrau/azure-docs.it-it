@@ -3,12 +3,12 @@ title: Abilitare le identità gestite nelle macchine virtuali del Lab in Azure D
 description: Questo articolo illustra come un proprietario del Lab può abilitare le identità gestite assegnate dall'utente nelle macchine virtuali del Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 886dc3b541c624d9f7a300fbbe696e1d2e143641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476003"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717634"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Abilitare le identità gestite assegnate dall'utente nelle macchine virtuali del Lab in Azure DevTest Labs
 In qualità di proprietario del Lab, è possibile abilitare le identità gestite assegnate dall'utente nelle macchine virtuali (VM) Lab in Azure DevTest Labs.
@@ -25,14 +25,16 @@ Per aggiungere un'identità gestita assegnata dall'utente per le macchine virtua
 
 1. [Creare un'identità gestita assegnata dall'utente nella sottoscrizione](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Passare alla pagina **configurazione e criteri** per il Lab.
-2. Selezionare **Identity (anteprima)** nel menu a sinistra.
-3. Selezionare la scheda **macchina virtuale** .
-4. Selezionare **Aggiungi** per selezionare un'identità esistente da un elenco a discesa pre-popolato. 
+1. Selezionare **Identity (anteprima)** nel menu a sinistra.
+1. Selezionare la scheda **macchina virtuale** .
+1. Selezionare **Aggiungi** per selezionare un'identità esistente da un elenco a discesa pre-popolato. 
 
-    ![Pulsante Aggiungi identità](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Selezionare un' **identità gestita dall'utente** esistente dall'elenco a discesa e fare clic su **OK**. 
+    > [!div class="mx-imgBorder"]
+    > ![Pulsante Aggiungi identità](./media/enable-managed-identities-lab-vms/add-identity-button.png)
+1. Selezionare un' **identità gestita dall'utente** esistente dall'elenco a discesa e fare clic su **OK**. 
 
-    ![Aggiungi identità](./media/enable-managed-identities-lab-vms/add-identity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Aggiungi identità](./media/enable-managed-identities-lab-vms/add-identity.png)
 
 ## <a name="use-api"></a>USA API
 

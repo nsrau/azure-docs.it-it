@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 584fb5c370fa0be629d057eb94dc4c2a8b9edc15
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144077"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716436"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticazione basata su certificati di Azure Active Directory in iOS
 
@@ -30,7 +30,7 @@ Questo articolo illustra in dettaglio i requisiti e gli scenari supportati per l
 
 ## <a name="microsoft-mobile-applications-support"></a>Supporto delle applicazioni per dispositivi mobili Microsoft
 
-| App | Supporto tecnico |
+| App | Supporto |
 | --- | --- |
 | App Azure Information Protection |![Segno di spunta che significa supporto per questa applicazione][1] |
 | Intune Portale aziendale |![Segno di spunta che significa supporto per questa applicazione][1] |
@@ -61,15 +61,15 @@ Si applicano i requisiti e le considerazioni seguenti Active Directory Federatio
 
 Per Azure AD revocare un certificato client, il token ADFS deve disporre delle attestazioni seguenti. Azure AD aggiunge le attestazioni al token di aggiornamento se sono disponibili nel token ADFS (o in qualsiasi altro token SAML). Quando è necessario convalidare il token di aggiornamento, queste informazioni vengono usate per controllare la revoca:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`-aggiungere il numero di serie del certificato client
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`-aggiungere la stringa per l'emittente del certificato client
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` -aggiungere il numero di serie del certificato client
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` -aggiungere la stringa per l'emittente del certificato client
 
 Come procedura consigliata, è necessario aggiornare anche le pagine di errore ADFS dell'organizzazione con le seguenti informazioni:
 
 * Il requisito per l'installazione del Microsoft Authenticator in iOS.
 * Istruzioni su come ottenere un certificato utente.
 
-Per ulteriori informazioni, vedere [personalizzazione della pagina di accesso ad FS](https://technet.microsoft.com/library/dn280950.aspx).
+Per ulteriori informazioni, vedere [personalizzazione della pagina di accesso ad FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Usare l'autenticazione moderna con le app di Office
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035078"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718867"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -234,7 +234,7 @@ Esistono diversi motivi per cui agli utenti potrebbe essere chiesto di registrar
 - L'organizzazione ha creato e attivato un criterio di registrazione MFA che è stato applicato all'utente.
 - L'utente è stato registrato in precedenza per MFA, ma ha scelto un metodo di verifica che un amministratore ha poi disabilitato. Pertanto l'utente deve eseguire di nuovo la registrazione MFA per scegliere un nuovo metodo di verifica predefinito.
 
-## <a name="errors"></a>Errori
+## <a name="errors"></a>Errors
 
 * [Cosa dovrebbero fare gli utenti se viene visualizzato un messaggio di errore "richiesta di autenticazione non per un account attivato" quando si usano le notifiche di app per dispositivi mobili?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
 * [Cosa possono fare gli utenti se visualizzano un messaggio di errore 0x800434D4L durante l'accesso a un'applicazione non basata su browser?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)
@@ -259,6 +259,6 @@ Una soluzione alternativa per questo errore consiste nel disporre di account ute
 Se la domanda non risponde qui, sono disponibili le opzioni di supporto seguenti:
 
 * Cercare nella [Knowledge Base del supporto tecnico Microsoft](https://support.microsoft.com) le soluzioni ai problemi tecnici comuni.
-* Cercare e consultare le domande e le risposte tecniche della community o porre una domanda nel [Azure Active Directory domande e risposte&a](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Cercare e consultare le domande e le risposte tecniche della community o porre una domanda nel [Azure Active Directory domande e risposte&a](/answers/topics/azure-active-directory.html).
 * Contattare Microsoft Professional tramite il [supporto server multi-factor authentication di Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando si contatta Microsoft, è utile includere il maggior numero possibile di informazioni relative al problema. Tali informazioni includono la pagina in cui viene visualizzato l'errore, il codice dell'errore specifico, l'ID della sessione specifico e l'ID dell'utente che visualizza l'errore.
 * Se si è un cliente legacy di PhoneFactor e si hanno domande o se è necessario assistenza per la reimpostazione di una password, usare l' [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) indirizzo di posta elettronica per aprire un caso di supporto.

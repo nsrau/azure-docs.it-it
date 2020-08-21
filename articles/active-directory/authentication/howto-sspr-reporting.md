@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c8557457e3a1dc7d0ed1e50da3070360b1fd76f
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035299"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717728"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -53,7 +53,7 @@ Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpos
 
 ### <a name="combined-registration"></a>Registrazione combinata
 
-Se è stata abilitata la [registrazione combinata](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in metodi di autenticazione di **sicurezza**  >  **Authentication Methods**.
+Se è stata abilitata la [registrazione combinata](./concept-registration-mfa-sspr-combined.md), le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in metodi di autenticazione di **sicurezza**  >  **Authentication Methods**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 
@@ -179,7 +179,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
-* [Panoramica del writeback delle password](howto-sspr-writeback.md)
+* [Panoramica del writeback delle password](./tutorial-enable-sspr-writeback.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
 * [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)

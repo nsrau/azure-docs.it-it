@@ -3,14 +3,14 @@ title: Come creare distribuzioni di aggiornamenti per Gestione aggiornamenti di 
 description: Questo articolo descrive come pianificare le distribuzioni degli aggiornamenti e controllarne lo stato.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a81376b284e0d1df84a69b969335c0e63999a00
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4336ba272dd83ad2a35060c1c7524a564b928484
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450685"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717694"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Come distribuire gli aggiornamenti ed esaminare i risultati
 
@@ -41,8 +41,10 @@ Per pianificare una nuova distribuzione di aggiornamenti:
 
 6. Usare l'area **Classificazioni aggiornamenti** per specificare [classificazioni degli aggiornamenti](update-mgmt-view-update-assessments.md#work-with-update-classifications) per i prodotti. Per ogni prodotto, deselezionare tutte le classificazioni degli aggiornamenti supportate, tranne quelle da includere nella distribuzione degli aggiornamenti.
 
-7. Usare l'area **Includi/Escludi aggiornamenti** per selezionare aggiornamenti specifici per la distribuzione. La pagina Includi/Escludi visualizza gli aggiornamenti in base agli ID degli articoli della Knowledge Base da includere o escludere.
-    
+    Se la distribuzione ha lo scopo di applicare solo un set di aggiornamenti selezionato, è necessario deselezionare tutte le classificazioni degli aggiornamenti preselezionate quando si configura l'opzione **Includi/Escludi aggiornamenti** come descritto nel passaggio successivo. In questo modo si garantisce che nei computer di destinazione siano installati solo gli aggiornamenti specificati per *includere* in questa distribuzione.
+
+7. Usare l'area **Includi/Escludi aggiornamenti** per aggiungere o escludere gli aggiornamenti selezionati dalla distribuzione. Nella pagina **Includi/Escludi** immettere i numeri ID degli articoli della KB da includere o escludere.
+
    > [!IMPORTANT]
    > Tenere presente che le esclusioni eseguono l'override delle inclusioni. Se, ad esempio, si definisce la regola di esclusione `*`, Gestione aggiornamenti esclude tutte le patch o i pacchetti dall'installazione. Le patch escluse vengono ancora visualizzate come mancanti dai computer. Per i computer Linux, se si include un pacchetto contenente un pacchetto dipendente che è stato escluso, Gestione aggiornamenti non installa il pacchetto principale.
 

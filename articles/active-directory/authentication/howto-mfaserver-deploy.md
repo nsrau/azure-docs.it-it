@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4bd817fda762e62e791542aea2df65deb0dae3
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 763c02cca954f7bcd3f9763bfe45f3954dacf0a7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054052"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719445"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 
@@ -209,7 +209,7 @@ Il nuovo server è ora operativo con i dati utente e la configurazione di backup
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestione dei protocolli TLS/SSL e dei pacchetti di crittografia
 
-Dopo avere eseguito l'aggiornamento o avere installato il server MFA 8.x o versione successiva, è consigliabile disabilitare o rimuovere i pacchetti di crittografia meno recenti e meno sicuri, a meno che non siano richiesti dall'organizzazione. Altre informazioni sul completamento di questa attività sono disponibili nell'articolo [Gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
+Dopo avere eseguito l'aggiornamento o avere installato il server MFA 8.x o versione successiva, è consigliabile disabilitare o rimuovere i pacchetti di crittografia meno recenti e meno sicuri, a meno che non siano richiesti dall'organizzazione. Altre informazioni sul completamento di questa attività sono disponibili nell'articolo [Gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

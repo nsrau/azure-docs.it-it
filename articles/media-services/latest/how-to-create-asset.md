@@ -15,30 +15,26 @@ ms.workload: na
 ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b40c936006fa47964ef67ffda37c80eb5732bdf0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 65b0b276dcda58810f44494c14f06dd412d633f6
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653887"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719292"
 ---
 # <a name="create-an-asset"></a>Creare un asset
 
-Questo articolo illustra come creare un asset di servizi multimediali.  Si userà un asset per conservare il contenuto multimediale per la codifica e lo streaming.  Per altre informazioni sugli asset di servizi multimediali, vedere [asset in servizi multimediali di Azure V3](assets-concept.md)
+Questo articolo illustra come creare un asset di Servizi multimediali.  L'asset verrà usato per includere contenuti multimediali per la codifica e lo streaming.  Per altre informazioni sugli asset di Servizi multimediali, leggere [Asset in Servizi multimediali di Azure v3](assets-concept.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare un asset, seguire la procedura descritta in [creare un account di servizi multimediali](./create-account-howto.md) per creare l'account di servizi multimediali e il gruppo di risorse necessari.
+Seguire la procedura disponibile in [Creare un account di Servizi multimediali](./create-account-howto.md) per creare l'account e il gruppo di risorse di Servizi multimediali necessari per creare un asset.
 
 ## <a name="methods"></a>Metodi
 
 ## <a name="cli"></a>[CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
-
-## <a name="cli-shell"></a>[Shell dell'interfaccia della riga di comando](#tab/clishell/)
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script di esempio
 

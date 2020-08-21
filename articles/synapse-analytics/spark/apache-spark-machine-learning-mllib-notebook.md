@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: f31e238c705a4b03c400a38fa6eb5f42db7204b0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535026"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719343"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Creare un'app di Machine Learning con MLlib di Apache Spark e Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Nei passaggi seguenti viene sviluppato un modello per stimare se una particolare
 
 Poiché i dati non elaborati sono in formato Parquet, è possibile usare il contesto di Spark per eseguire direttamente il pull del file in memoria come dataframe. Anche se nel codice riportato di seguito vengono usate le opzioni predefinite, se necessario è possibile forzare il mapping dei tipi di dati e di altri attributi dello schema.
 
-1. Eseguire le righe seguenti per creare un dataframe di Spark incollando il codice in una nuova cella. I dati vengono recuperati tramite l'API set di dati aperti. Il pull di tutti questi dati genera circa 1,5 miliardi righe. A seconda delle dimensioni del pool di Spark (anteprima), i dati non elaborati potrebbero essere troppo grandi o richiedere troppo tempo per poter essere usati. È possibile filtrare i dati fino a ottenere un valore inferiore. L'uso di start_date e end_date applica un filtro che restituisce un mese di dati.
+1. Eseguire le righe seguenti per creare un dataframe di Spark incollando il codice in una nuova cella. I dati vengono recuperati tramite l'API set di dati aperti. Il pull di tutti questi dati genera circa 1,5 miliardi righe. A seconda delle dimensioni del pool di Spark (anteprima), i dati non elaborati potrebbero essere troppo grandi o richiedere troppo tempo per poter essere usati. È possibile filtrare i dati fino a ottenere un valore inferiore. Nell'esempio di codice seguente vengono utilizzati start_date e end_date per applicare un filtro che restituisce un singolo mese di dati.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -126,7 +126,7 @@ ax1.set_ylabel('Counts')
 plt.suptitle('')
 plt.show()
 
-# How many passengers tip'd by various amounts
+# How many passengers tipped by various amounts
 ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
 ax2.set_title('Tip amount by Passenger count')
 ax2.set_xlabel('Passenger count')
@@ -157,7 +157,7 @@ Nel codice riportato di seguito vengono eseguite quattro classi di operazioni:
 - Rimozione dei valori outlier/non corretti tramite filtro.
 - Rimozione delle colonne non necessarie.
 - Creazione di nuove colonne derivate dai dati non elaborati per far funzionare il modello in modo più efficace. Tale operazione è talvolta definita "ingegneria delle funzionalità".
-- Assegnazione di etichette, dato che, quando si esegue la classificazione binaria (una determinata corsa prevederà o meno una mancia?), è necessario convertire l'importo della mancia in un valore 0 o 1.
+- Assegnazione di etichette: poiché si sta intraprendendo la classificazione binaria (sarà presente una mancia o meno in una determinata corsa), è necessario convertire l'importo della mancia in un valore 0 o 1.
 
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
@@ -196,7 +196,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 L'ultima attività è la conversione dei dati con etichetta in un formato che possa essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica deve essere un set di *coppie etichetta-vettore di funzionalità*, dove il *vettore di funzionalità* è un vettore di numeri che rappresenta il punto di ingresso. Quindi, è necessario convertire le colonne categoriche in numeri. Le colonne `trafficTimeBins` e `weekdayString` devono essere convertite in rappresentazioni di tipo integer. Esistono diversi approcci per eseguire la conversione. L'approccio adottato in questo esempio è *OneHotEncoding*, un approccio comune.
 
 ```python
-# The sample uses an algorithm that only works with numeric features convert them so they can be consumed
+# Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
 sI1 = StringIndexer(inputCol="trafficTimeBins", outputCol="trafficTimeBinsIndex")
 en1 = OneHotEncoder(dropLast=False, inputCol="trafficTimeBinsIndex", outputCol="trafficTimeBinsVec")
 sI2 = StringIndexer(inputCol="weekdayString", outputCol="weekdayIndex")
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Ora che sono presenti due dataframe, l'attività successiva consiste nel creare la formula del modello ed eseguirla nel dataframe di training, quindi convalidare il dataframe di test. È consigliabile provare versioni diverse della formula del modello per vedere l'effetto di combinazioni diverse.
 
 > [!Note]
-> Per salvare il modello, è necessario il ruolo di Azure collaboratore dati BLOB di archiviazione. Quando si è posizionati nell'account di archiviazione, passare a Controllo di accesso (IAM) e selezionare Aggiungi un'assegnazione di ruolo. Assegnare al server del database SQL un ruolo di Azure con collaboratore dati BLOB di archiviazione. Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti di Azure, fare riferimento a questa [Guida](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Per salvare il modello, è necessario il ruolo di Azure collaboratore dati BLOB di archiviazione. Nell'account di archiviazione passare a controllo di accesso (IAM) e selezionare **Aggiungi assegnazione ruolo**. Assegnare al server del database SQL un ruolo di Azure con collaboratore dati BLOB di archiviazione. Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per informazioni sui diversi ruoli predefiniti di Azure, vedere questa [guida](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model
@@ -250,7 +250,7 @@ metrics = BinaryClassificationMetrics(predictionAndLabels)
 print("Area under ROC = %s" % metrics.areaUnderROC)
 ```
 
-L'output di questa cella è
+L'output di questa cella è:
 
 ```shell
 Area under ROC = 0.9779470729751403

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500964"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719275"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Ottimizzare l'elaborazione dei dati con Azure Machine Learning
 
@@ -33,9 +33,9 @@ I file CSV vengono comunemente usati per importare ed esportare dati, perché so
 
 ## <a name="pandas-dataframe"></a>Dataframe Pandas
 
-I frame di dati [Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) vengono comunemente usati per la manipolazione e l'analisi dei dati. `Pandas`funziona bene per le dimensioni dei dati inferiori a 1 GB, ma i tempi di elaborazione per i frame di dati `pandas` rallentano quando le dimensioni dei file raggiungono circa 1 GB. Questo rallentamento è dovuto al fatto che le dimensioni dei dati nell'archiviazione non corrispondono alle dimensioni dei dati in un frame di dati. Ad esempio, i dati nei file CSV possono espandersi fino a 10 volte in un frame di dati, quindi un file CSV da 1 GB può diventare 10 GB in un frame di dati.
+I frame di dati [Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) vengono comunemente usati per la manipolazione e l'analisi dei dati. `Pandas` funziona bene per le dimensioni dei dati inferiori a 1 GB, ma i tempi di elaborazione per i frame di dati `pandas` rallentano quando le dimensioni dei file raggiungono circa 1 GB. Questo rallentamento è dovuto al fatto che le dimensioni dei dati nell'archiviazione non corrispondono alle dimensioni dei dati in un frame di dati. Ad esempio, i dati nei file CSV possono espandersi fino a 10 volte in un frame di dati, quindi un file CSV da 1 GB può diventare 10 GB in un frame di dati.
 
-`Pandas`è a thread singolo, ovvero le operazioni vengono eseguite una alla volta su una singola CPU. È possibile parallelizzare facilmente i carichi di lavoro a più CPU virtuali in una singola istanza di calcolo Azure Machine Learning con pacchetti come [Modin](https://modin.readthedocs.io/en/latest/) che esegue `Pandas` il wrapping usando un back-end distribuito.
+`Pandas` è a thread singolo, ovvero le operazioni vengono eseguite una alla volta su una singola CPU. È possibile parallelizzare facilmente i carichi di lavoro a più CPU virtuali in una singola istanza di calcolo Azure Machine Learning con pacchetti come [Modin](https://modin.readthedocs.io/en/latest/) che esegue `Pandas` il wrapping usando un back-end distribuito.
 
 Per parallelizzare le attività con `Modin` e [Dask](https://dask.org), è sufficiente modificare questa riga di codice `import pandas as pd` in `import modin.pandas as pd` .
 
@@ -46,6 +46,16 @@ In genere si verifica un errore *di memoria insufficiente* quando il frame di fr
 Una soluzione consiste nell'aumentare la RAM per adattarsi al frame di dataframe in memoria. È consigliabile che le dimensioni di calcolo e la potenza di elaborazione includano due volte le dimensioni della RAM. Quindi, se il dataframe è 10 GB, usare una destinazione di calcolo con almeno 20 GB di RAM per garantire che il frame di frame possa adattarsi alla memoria ed essere elaborato. 
 
 Per più CPU virtuali, vCPU, tenere presente che una partizione può adattarsi comodamente alla RAM di ogni vCPU nel computer. Ovvero, se si dispone di 16 GB di RAM 4 vCPU, si desiderano circa 2 GB di dataframe per ogni vCPU.
+
+### <a name="local-vs-remote"></a>Confronto tra locale e remoto
+
+È possibile notare che alcuni comandi di dataframe Pandas vengono eseguiti più velocemente quando si lavora sul computer locale rispetto a una macchina virtuale remota di cui è stato effettuato il provisioning con Azure Machine Learning Il computer locale ha in genere un file di paging abilitato, che consente di caricare più di quello che si trova nella memoria fisica, ovvero il disco rigido viene usato come estensione della RAM. Attualmente, Azure Machine Learning le macchine virtuali vengono eseguite senza un file di paging, di conseguenza è possibile caricare solo la quantità di dati di RAM fisica disponibile. 
+
+Per i processi a elevato utilizzo di calcolo, è consigliabile scegliere una macchina virtuale di dimensioni maggiori per migliorare le velocità di elaborazione.
+
+Scopri di più sulle [serie di VM e le dimensioni disponibili](concept-compute-target.md#supported-vm-series-and-sizes) per Azure Machine Learning. 
+
+Per le specifiche RAM, vedere le pagine della serie di VM corrispondenti, ad esempio, [serie dv2-Dsv2](../virtual-machines/dv2-dsv2-series-memory.md) o [serie NC](../virtual-machines/nc-series.md).
 
 ### <a name="minimize-cpu-workloads"></a>Ridurre al minimo i carichi di lavoro della CPU
 
@@ -69,12 +79,12 @@ Se le indicazioni precedenti non sono sufficienti e non è possibile ottenere un
 
 La tabella seguente consiglia i Framework distribuiti integrati con Azure Machine Learning in base alla preferenza del codice o alla dimensione dei dati.
 
-Esperienza o dimensione dei dati | Raccomandazione
+Esperienza o dimensione dei dati | Recommendation
 ------|------
-Se si ha familiarità con`Pandas`| `Modin`o `Dask` dataframe
-Se si preferisce`Spark` | `PySpark`
-Per i dati inferiori a 1 GB | `Pandas`istanza di calcolo Azure Machine Learning locale **o** remota
-Per dati di dimensioni superiori a 10 GB| Passare a un cluster usando `Ray` , `Dask` o`Spark`
+Se si ha familiarità con `Pandas`| `Modin` o `Dask` dataframe
+Se si preferisce `Spark` | `PySpark`
+Per i dati inferiori a 1 GB | `Pandas` istanza di calcolo Azure Machine Learning locale **o** remota
+Per dati di dimensioni superiori a 10 GB| Passare a un cluster usando `Ray` , `Dask` o `Spark`
 
 È possibile creare `Dask` cluster nel cluster di calcolo di Azure ml con il pacchetto [Dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) . In alternativa, è possibile eseguire `Dask` localmente su un'istanza di calcolo.
 

@@ -3,12 +3,12 @@ title: Integrare Hub eventi di Azure con il servizio Collegamento privato di Azu
 description: Informazioni su come integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185469"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716792"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure tramite endpoint privati 
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio Hub eventi di Azure, Archiviazione di Azure e Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
@@ -222,7 +222,7 @@ Sono disponibili quattro stati di provisioning:
 2. Selezionare l'**endpoint privato** che si vuole approvare
 3. Selezionare il pulsante **Approva**.
 
-    ![Immagine](./media/private-link-service/approve-private-endpoint.png)
+    ![Approvare un endpoint privato](./media/private-link-service/approve-private-endpoint.png)
 4. Nella pagina **Approva la connessione** aggiungere un commento (facoltativo) e selezionare **Sì**. Se si seleziona **No**, non accade nulla. 
 5. Si noterà che lo stato della connessione endpoint privato nell'elenco è diventato **Approvata**. 
 
@@ -230,7 +230,7 @@ Sono disponibili quattro stati di provisioning:
 
 1. Se sono presenti connessioni endpoint privato da rifiutare, sia che si tratti di una richiesta in sospeso o di una connessione esistente, selezionare la connessione e fare clic sul pulsante **Rifiuta**.
 
-    ![Immagine](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Rifiuta endpoint privato](./media/private-link-service/private-endpoint-reject-button.png)
 2. Nella pagina **Rifiuta la connessione** immettere un commento (facoltativo) e selezionare **Sì**. Se si seleziona **No**, non accade nulla. 
 3. Si noterà che lo stato della connessione endpoint privato nell'elenco è diventato **Rifiutata**. 
 
@@ -242,7 +242,7 @@ Sono disponibili quattro stati di provisioning:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Verificare il funzionamento della connessione di collegamento privato
 
-È necessario verificare che le risorse all'interno della stessa subnet della risorsa endpoint privato si connettano allo spazio dei nomi di Hub eventi tramite un indirizzo IP privato e che abbiano l'integrazione con la zona DNS privato corretta.
+È necessario verificare che le risorse all'interno della rete virtuale dell'endpoint privato si connettano allo spazio dei nomi di hub eventi tramite un indirizzo IP privato e che dispongano dell'integrazione della zona DNS privata corretta.
 
 Creare prima di tutto una macchina virtuale seguendo la procedura descritta nell'articolo [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md).
 

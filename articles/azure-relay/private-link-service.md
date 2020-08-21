@@ -3,12 +3,12 @@ title: Integrare Inoltro di Azure con il servizio Collegamento privato di Azure
 description: Informazioni su come integrare Inoltro di Azure con il servizio Collegamento privato di Azure
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317309"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719428"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrare Inoltro di Azure con Collegamento privato di Azure (anteprima)
 Il **servizio Collegamento privato** di Azure consente di accedere ai servizi di Azure, come ad esempio a Inoltro di Azure, al bus di servizio di Azure, ad Hub eventi di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, nonché ai servizi di clienti/partner ospitati in Azure tramite un endpoint privato nella rete virtuale. Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure? (Anteprima)](../private-link/private-link-overview.md).
@@ -207,7 +207,7 @@ Sono disponibili quattro stati di provisioning:
 3. Si noterà che lo stato è diventato **Disconnessa** e che l'endpoint non è più presente nell'elenco. 
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Verificare il funzionamento della connessione di collegamento privato
-È necessario verificare che le risorse all'interno della stessa subnet dell'endpoint privato si connettano allo spazio dei nomi di Inoltro di Azure tramite il relativo indirizzo IP privato.
+È necessario verificare che le risorse all'interno della rete virtuale dell'endpoint privato si connettano allo spazio dei nomi di inoltro di Azure tramite l'indirizzo IP privato.
 
 Per questo test, creare una macchina virtuale seguendo la procedura descritta nell'articolo [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md)
 

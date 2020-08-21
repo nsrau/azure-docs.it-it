@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212446"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717898"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
@@ -34,8 +34,8 @@ Il modo più rapido per avviare l'assegnazione di etichette ai dati consiste nel
 
 Prima di iniziare, è importante tenere presente che esistono due modi per distribuire lo strumento di assegnazione di etichette di esempio in un'istanza di contenitore di Azure (ACI). Entrambe le opzioni vengono usate per eseguire lo strumento di assegnazione di etichette di esempio con ACI: 
 
-* [Uso della portale di Azure](#azure-portal)
-* [Uso dell'interfaccia della riga di comando di Azure](#azure-cli)
+* [Uso del portale di Azure](#azure-portal)
+* [Con l'interfaccia della riga di comando di Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -70,14 +70,27 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
 
 6. A questo punto è possibile configurare il contenitore docker. Tutti i campi sono obbligatori se non diversamente specificato:
 
+    # <a name="v20"></a>[v2.0](#tab/v2-0)  
    * Opzioni-selezionare un **singolo contenitore**
    * Origine immagine-selezionare il **Registro di sistema privato** 
-   * URL server: impostare questa impostazione su`https://mcr.microsoft.com`
+   * URL server: impostare questa impostazione su `https://mcr.microsoft.com`
    * Username (facoltativo): creare un nome utente. 
    * Password (facoltativo): creare una password sicura da ricordare.
-   * Image e Tag: impostare questa impostazione su`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Image e Tag: impostare questa impostazione su `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
    * Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
-   * Comando di avvio: impostare questa impostazione su`./run.sh eula=accept`
+   * Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
+
+    # <a name="v21-preview"></a>[versione 2.1 Preview](#tab/v2-1) 
+   * Opzioni-selezionare un **singolo contenitore**
+   * Origine immagine-selezionare il **Registro di sistema privato** 
+   * URL server: impostare questa impostazione su `https://mcr.microsoft.com`
+   * Username (facoltativo): creare un nome utente. 
+   * Password (facoltativo): creare una password sicura da ricordare.
+   * Image e Tag: impostare questa impostazione su `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
+   * Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
+    
+    ---
 
    > [!div class="mx-imgBorder"]
    > ![Configurare Docker](./media/quickstarts/formre-configure-docker.png)
@@ -93,13 +106,15 @@ In alternativa all'uso del portale di Azure, è possibile creare una risorsa usa
 
 È necessario conoscere alcuni aspetti di questo comando:
 
-* `DNS_NAME_LABEL=aci-demo-$RANDOM`genera un nome DNS casuale. 
+* `DNS_NAME_LABEL=aci-demo-$RANDOM` genera un nome DNS casuale. 
 * Questo esempio presuppone che si disponga di un gruppo di risorse che è possibile usare per creare una risorsa. Sostituire `<resource_group_name>` con un gruppo di risorse valido associato alla sottoscrizione. 
 * È necessario specificare la posizione in cui si vuole creare la risorsa. Sostituire `<region name>` con l'area desiderata per l'app Web. 
 * Questo comando accetta automaticamente il contratto di licenza.
 
 Dall'interfaccia della riga di comando di Azure eseguire questo comando per creare una risorsa dell'app Web per lo strumento di assegnazione di etichette di esempio: 
 
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -113,7 +128,24 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
+``` 
+# <a name="v21-preview"></a>[versione 2.1 Preview](#tab/v2-1)    
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
 ```
+
+---
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Connetti a Azure AD per l'autorizzazione
 

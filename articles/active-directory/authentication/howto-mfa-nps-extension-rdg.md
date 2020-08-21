@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117023"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717847"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
 
 Questo articolo contiene i dettagli relativi all'integrazione dell'infrastruttura Gateway Desktop remoto con Azure Multi-Factor Authentication (MFA) usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) per Microsoft Azure.
 
-L'estensione NPS (Network Policy Server) per Azure consente ai clienti di proteggere Remote Authentication Dial-In User Service autenticazione client (RADIUS) usando l' [multi-factor authentication](multi-factor-authentication.md)basato sul cloud di Azure. Questa soluzione fornisce la verifica in due passaggi per l'aggiunta di un secondo livello di sicurezza agli accessi e alle transazioni degli utenti.
+L'estensione NPS (Network Policy Server) per Azure consente ai clienti di proteggere Remote Authentication Dial-In User Service autenticazione client (RADIUS) usando l' [multi-factor authentication](./concept-mfa-howitworks.md)basato sul cloud di Azure. Questa soluzione fornisce la verifica in due passaggi per l'aggiunta di un secondo livello di sicurezza agli accessi e alle transazioni degli utenti.
 
 Questo articolo contiene istruzione dettagliate per l'integrazione dell'infrastruttura Gateway Desktop remoto con Azure MFA tramite l'estensione NPS per Azure. Questo consente la verifica sicura per gli utenti che tentano di accedere a Gateway Desktop remoto.
 
@@ -75,7 +75,7 @@ Questa sezione illustra in modo dettagliato i prerequisiti necessari per l'integ
 Deve essere presente un'infrastruttura Servizi Desktop remoto funzionante. In caso contrario, è possibile creare rapidamente questa infrastruttura in Azure usando il modello di avvio rapido seguente: [creare desktop remoto distribuzione della raccolta di sessioni](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment).
 
 Se si vuole creare manualmente un'infrastruttura Servizi Desktop remoto locale per scopi di test, completare i passaggi di distribuzione.
-**Altre informazioni**: distribuire Servizi Desktop remoto [con avvio rapido di Azure e la](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) [distribuzione dell'infrastruttura RDS di base](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+**Altre informazioni**: distribuire Servizi Desktop remoto [con avvio rapido di Azure e la](/windows-server/remote/remote-desktop-services/rds-in-azure) [distribuzione dell'infrastruttura RDS di base](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 ### <a name="azure-mfa-license"></a>Licenza di Azure MFA
 
@@ -89,7 +89,7 @@ L'estensione NPS richiede Windows Server 2008 R2 SP1 o versione successiva con i
 
 Il servizio ruolo NPS fornisce le funzionalità di client e server RADIUS, nonché il servizio di integrità Protezione accesso alla rete. Questo ruolo deve essere installato in almeno due computer dell'infrastruttura: il computer Gateway Desktop remoto e un altro server membro o controller di dominio. Per impostazione predefinita, il ruolo è già presente nel computer configurato come Gateway Desktop remoto.  È necessario installare il ruolo NPS almeno anche in un altro computer, ad esempio un controller di dominio o un server membro.
 
-Per informazioni sull'installazione del servizio ruolo NPS di Windows Server 2012 o versioni successive, vedere [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx) (Installare un server criteri di integrità Protezione accesso alla rete). Per una descrizione delle procedure consigliate per NPS, inclusa la raccomandazione per l'installazione di NPS in un controller di dominio, vedere procedure consigliate [per NPS](https://technet.microsoft.com/library/cc771746).
+Per informazioni sull'installazione del servizio ruolo NPS di Windows Server 2012 o versioni successive, vedere [Install a NAP Health Policy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)) (Installare un server criteri di integrità Protezione accesso alla rete). Per una descrizione delle procedure consigliate per NPS, inclusa la raccomandazione per l'installazione di NPS in un controller di dominio, vedere procedure consigliate [per NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory con sincronizzazione con Active Directory locale
 
@@ -109,7 +109,7 @@ Per informazioni su come abilitare MFA per gli utenti di Azure AD, seguire i pas
 
 Dopo aver abilitato un account per MFA, è possibile accedere alle risorse governate dai criteri MFA solo dopo aver configurato correttamente un dispositivo attendibile da usare per il secondo fattore di autenticazione e averlo autenticato con la verifica in due passaggi.
 
-Per comprendere al meglio e configurare correttamente i dispositivi per MFA con il proprio account utente, seguire i passaggi descritti in [Quali sono i vantaggi di Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user.md).
+Per comprendere al meglio e configurare correttamente i dispositivi per MFA con il proprio account utente, seguire i passaggi descritti in [Quali sono i vantaggi di Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 > [!IMPORTANT]
 > Il comportamento di accesso per Desktop remoto Gateway non offre la possibilità di immettere un codice di verifica con Multi-Factor Authentication di Azure. È necessario configurare un account utente per la verifica telefonica o l'app Microsoft Authenticator con notifiche push.
@@ -250,7 +250,7 @@ Per impostazione predefinita, quando si configura Gateway Desktop remoto per l'u
 1. Fare clic su **Annulla**.
 
 >[!NOTE]
-> Per ulteriori informazioni sulla creazione di un criterio di richiesta di connessione, vedere l'articolo configurare la documentazione relativa ai [criteri di richiesta di connessione](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) per lo stesso. 
+> Per ulteriori informazioni sulla creazione di un criterio di richiesta di connessione, vedere l'articolo configurare la documentazione relativa ai [criteri di richiesta di connessione](/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) per lo stesso. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configurare Server dei criteri di rete nel server in cui è installata l'estensione NPS
 
@@ -378,13 +378,13 @@ Di seguito è illustrato un evento correlato dei log di Azure MFA:
 
 Per opzioni avanzate di risoluzione dei problemi, consultare i file di log in formato database di Server dei criteri di rete nella posizione in cui è installato il servizio Server dei criteri di rete. Questi file di log vengono creati nella cartella _%SystemRoot%\System32\Logs_ come file di testo con valori delimitati da virgole.
 
-Per una descrizione di questi file di log, vedere [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx) (Interpretare i file di log in formato database di Server dei criteri di rete). Le voci di questi file di log sono difficili da interpretare senza importarle in un foglio di calcolo o in un database. Online sono disponibili diversi parser IAS che possono aiutare a interpretare i file di log.
+Per una descrizione di questi file di log, vedere [Interpret NPS Database Format Log Files](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)) (Interpretare i file di log in formato database di Server dei criteri di rete). Le voci di questi file di log sono difficili da interpretare senza importarle in un foglio di calcolo o in un database. Online sono disponibili diversi parser IAS che possono aiutare a interpretare i file di log.
 
 L'immagine seguente mostra l'output di una di queste [applicazioni shareware](https://www.deepsoftware.com/iasviewer) che è possibile scaricare.
 
 ![Parser IAS dell'app shareware di esempio](./media/howto-mfa-nps-extension-rdg/image35.png)
 
-Infine, per altre opzioni di risoluzione dei problemi, è possibile usare uno strumento di analisi di protocolli, ad esempio [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
+Infine, per altre opzioni di risoluzione dei problemi, è possibile usare uno strumento di analisi di protocolli, ad esempio [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide).
 
 L'immagine seguente di Microsoft Message Analyzer Mostra il traffico di rete filtrato in base al protocollo RADIUS che contiene il nome utente **CONTOSO\AliceC**.
 

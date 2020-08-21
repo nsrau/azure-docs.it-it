@@ -3,12 +3,12 @@ title: Come creare criteri di Configurazione guest per Windows
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 4ee0c9d1912338235e53eb287bfc86a14b75cc97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547665"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719394"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di Configurazione guest per Windows
 
@@ -26,8 +26,7 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 > I criteri personalizzati con Configurazione guest sono una funzionalità di anteprima.
 >
 > L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.
-> Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti:
->   - [Distribuisci i prerequisiti per abilitare i criteri di Configurazione guest nelle macchine virtuali Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
 ## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81451432"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717150"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
 
@@ -43,9 +43,9 @@ Con password, la password viene sostituita con un elemento più simile a quello 
 ## <a name="passwordless-authentication-methods"></a>Metodi di autenticazione con password
 Microsoft offre tre opzioni di autenticazione con password che coprono molti scenari. Questi metodi possono essere usati in tandem:
 
-- [Windows Hello for business](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) è la scelta migliore per gli utenti nei computer Windows dedicati.
-- L'accesso alla chiave di sicurezza con [chiavi di sicurezza FIDO2](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) è particolarmente utile per gli utenti che effettuano l'accesso a computer condivisi, ad esempio chioschi multimediali, in situazioni in cui l'uso di telefoni è limitato e per le identità con privilegi elevati.
-- L'accesso tramite telefono con l' [app Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) è utile per fornire un'opzione senza password agli utenti con dispositivi mobili. L'app Authenticator converte qualsiasi telefono iOS o Android in una credenziale complessa senza password consentendo agli utenti di accedere a qualsiasi piattaforma o browser. Gli utenti effettuano l'accesso ricevendo una notifica al telefono, abbinando un numero visualizzato sullo schermo a quello sul telefono e quindi usando i dati biometrici o il PIN per confermare.
+- [Windows Hello for business](./concept-authentication-passwordless.md) è la scelta migliore per gli utenti nei computer Windows dedicati.
+- L'accesso alla chiave di sicurezza con [chiavi di sicurezza FIDO2](./concept-authentication-passwordless.md) è particolarmente utile per gli utenti che effettuano l'accesso a computer condivisi, ad esempio chioschi multimediali, in situazioni in cui l'uso di telefoni è limitato e per le identità con privilegi elevati.
+- L'accesso tramite telefono con l' [app Microsoft Authenticator](./concept-authentication-passwordless.md) è utile per fornire un'opzione senza password agli utenti con dispositivi mobili. L'app Authenticator converte qualsiasi telefono iOS o Android in una credenziale complessa senza password consentendo agli utenti di accedere a qualsiasi piattaforma o browser. Gli utenti effettuano l'accesso ricevendo una notifica al telefono, abbinando un numero visualizzato sullo schermo a quello sul telefono e quindi usando i dati biometrici o il PIN per confermare.
 
 ### <a name="passwordless-authentication-scenarios"></a>Scenari di autenticazione con password
 
@@ -59,7 +59,7 @@ I metodi di autenticazione con password di Microsoft abilitano scenari diversi. 
 | **Accesso all'app Web**: <br> da un dispositivo mobile o non Windows | **Sì** | **No** | **No** |
 | **Accesso del computer**: <br> Computer non Windows | **No** | **No** | **No** |
 
-Per informazioni sulla selezione del metodo migliore per l'organizzazione, vedere [decisione di un metodo con password](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
+Per informazioni sulla selezione del metodo migliore per l'organizzazione, vedere [decisione di un metodo con password](./concept-authentication-passwordless.md#choose-a-passwordless-method).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -72,11 +72,11 @@ Prima di iniziare una distribuzione con password non è necessario che le organi
 | [Utenti registrati per Azure Multifactor Authentication e SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Gli utenti hanno registrato i dispositivi mobili in Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 versione 1809 o successiva con un browser supportato come Microsoft Edge o Mozilla Firefox <br> (versione 67 o successiva). <br> *Microsoft consiglia la versione 1903 o una versione successiva per il supporto nativo*. |   | √ |
-| Chiavi di sicurezza FIDO2 compatibili. Assicurarsi di usare un dispositivo di sicurezza FIDO2 [testato e verificato da Microsoft](howto-authentication-passwordless-enable.md) o un altro dispositivo di sicurezza FIDO2 compatibile. |   | √ |
+| Chiavi di sicurezza FIDO2 compatibili. Assicurarsi di usare un dispositivo di sicurezza FIDO2 [testato e verificato da Microsoft](./concept-authentication-passwordless.md) o un altro dispositivo di sicurezza FIDO2 compatibile. |   | √ |
 
 ### <a name="prerequisites-for-windows-hello-for-business"></a>Prerequisiti per Windows Hello for business
 
-I prerequisiti per Windows Hello dipendono fortemente dal fatto che la distribuzione sia in una configurazione locale, ibrida o solo cloud. Per ulteriori informazioni, vedere l' [elenco completo dei prerequisiti per Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+I prerequisiti per Windows Hello dipendono fortemente dal fatto che la distribuzione sia in una configurazione locale, ibrida o solo cloud. Per ulteriori informazioni, vedere l' [elenco completo dei prerequisiti per Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -132,7 +132,7 @@ Vedere le [procedure consigliate per un progetto pilota](https://aka.ms/deployme
 
 L'app Microsoft Authenticator è un download gratuito da Google Play o dall'App Store di Apple. [Altre informazioni sul download dell'app Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Chiedere agli utenti di scaricare l'app Microsoft Authenticator. e seguire le istruzioni per abilitare l'accesso tramite telefono. 
 
-Ogni telefono iOS o Android viene trasformato in una credenziale complessa senza password. Gli utenti effettuano l'accesso a qualsiasi piattaforma o browser ricevendo una notifica al telefono, abbinando un numero visualizzato sullo schermo a quello sul telefono e quindi usando la biometria o un PIN per confermare. [Vedere i dettagli sul funzionamento dell'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app).
+Ogni telefono iOS o Android viene trasformato in una credenziale complessa senza password. Gli utenti effettuano l'accesso a qualsiasi piattaforma o browser ricevendo una notifica al telefono, abbinando un numero visualizzato sullo schermo a quello sul telefono e quindi usando la biometria o un PIN per confermare. [Vedere i dettagli sul funzionamento dell'app Microsoft Authenticator](./concept-authentication-passwordless.md#microsoft-authenticator-app).
 
 ![accedere con l'app Authenticator](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 
@@ -150,7 +150,7 @@ Sono disponibili tre tipi di distribuzioni di accesso senza password con chiavi 
 -    Azure Active Directory app Web in un browser supportato
 -    Dispositivi Azure Active Directory aggiunti a Windows 10
 -    Dispositivi Windows 10 aggiunti a Azure Active Directory ibrido (anteprima)
-     -    Fornisce l'accesso alle risorse basate su cloud e locali. Per altre informazioni sull'accesso alle risorse locali, vedere [SSO to locale resources using FIDOP2 Keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises) .
+     -    Fornisce l'accesso alle risorse basate su cloud e locali. Per altre informazioni sull'accesso alle risorse locali, vedere [SSO to locale resources using FIDOP2 Keys](./howto-authentication-passwordless-security-key-on-premises.md) .
 
 È necessario abilitare le **chiavi di sicurezza FIDO2 compatibili**. Microsoft ha annunciato una [partnership chiave con i fornitori di chiavi di FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
@@ -164,7 +164,7 @@ Sono disponibili tre tipi di distribuzioni di accesso senza password con chiavi 
 -    Server di dominio con patch completa che eseguono Windows Server 2016 o 2019.
 -    Ultima versione di Azure AD Connect
 
-Per un elenco completo dei requisiti, vedere [abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows#requirements).
+Per un elenco completo dei requisiti, vedere [abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory](./howto-authentication-passwordless-security-key-windows.md#requirements).
 
 
 ### <a name="security-key-life-cycle"></a>Ciclo di vita della chiave di sicurezza
@@ -320,7 +320,7 @@ Seguire i passaggi descritti nell'articolo [abilitare la chiave di sicurezza sen
 | --- | --- |
 | L'utente non può eseguire la registrazione combinata. | Assicurarsi che la [registrazione combinata](concept-registration-mfa-sspr-combined.md) sia abilitata. |
 | L'utente non può aggiungere una chiave di sicurezza nelle [impostazioni di sicurezza](https://aka.ms/mysecurityinfo). | Verificare che le [chiavi di sicurezza](howto-authentication-passwordless-security-key.md) siano abilitate. |
-| L'utente non può aggiungere la chiave di sicurezza nelle opzioni di accesso a Windows 10. | [Verificare che le chiavi di sicurezza per l'accesso a Windows](howto-authentication-passwordless-enable.md) |
+| L'utente non può aggiungere la chiave di sicurezza nelle opzioni di accesso a Windows 10. | [Verificare che le chiavi di sicurezza per l'accesso a Windows](./concept-authentication-passwordless.md) |
 | **Messaggio di errore**: è stato rilevato che il browser o il sistema operativo non supporta le chiavi di sicurezza FIDO2. | I dispositivi di sicurezza FIDO2 con password possono essere registrati solo nei browser supportati (Microsoft Edge, Firefox versione 67) in Windows 10 versione 1809 o successiva. |
 | **Messaggio di errore**: per i criteri aziendali è necessario usare un metodo diverso per eseguire l'accesso. | Nel tenant sono abilitate le chiavi di sicurezza non sicure. |
 | L'utente non è in grado di gestire la chiave di sicurezza in Windows 10 versione 1809 | La versione 1809 richiede l'uso del software di gestione delle chiavi di sicurezza fornito dal fornitore della chiave FIDO2. Per assistenza, contattare il fornitore. |
@@ -331,4 +331,3 @@ Seguire i passaggi descritti nell'articolo [abilitare la chiave di sicurezza sen
 - [Abilitare le chiavi di sicurezza senza password per l'accesso per Azure AD](howto-authentication-passwordless-security-key.md)
 - [Abilitare l'accesso senza password con l'app Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Altre informazioni sull'utilizzo dei metodi di autenticazione & Insights](howto-authentication-methods-usage-insights.md)
-

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 35842520b26d3a98342660244295e26e934e7d3c
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848489"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717371"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -50,7 +50,7 @@ L'estensione di Server dei criteri di rete è progettata per funzionare con l'in
 
 ### <a name="licenses"></a>Licenze
 
-L'estensione di Server dei criteri di rete per Azure MFA è disponibile per i clienti dotati di [licenze per Multi-Factor Authentication di Azure](multi-factor-authentication.md), tra cui una licenza autonoma di Azure AD Premium, EMS o MFA. Le licenze in base al consumo per Azure MFA, ad esempio le licenze per utente o per autenticazione, non sono compatibili con l'estensione Server dei criteri di rete. 
+L'estensione di Server dei criteri di rete per Azure MFA è disponibile per i clienti dotati di [licenze per Multi-Factor Authentication di Azure](./concept-mfa-howitworks.md), tra cui una licenza autonoma di Azure AD Premium, EMS o MFA. Le licenze in base al consumo per Azure MFA, ad esempio le licenze per utente o per autenticazione, non sono compatibili con l'estensione Server dei criteri di rete. 
 
 ### <a name="software"></a>Software
 
@@ -290,7 +290,7 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 
 Lo script seguente è disponibile per eseguire i passaggi di base del controllo integrità durante la risoluzione dei problemi relativi all'estensione Server dei criteri di rete.
 
-[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -365,7 +365,7 @@ Per verificare se è disponibile un certificato valido, controllare l'archivio c
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestione dei protocolli TLS/SSL e dei pacchetti di crittografia
 
-È consigliabile disabilitare o rimuovere i pacchetti di crittografia meno recenti e meno sicuri, a meno che non siano richiesti dall'organizzazione. Altre informazioni sul completamento di questa attività sono disponibili nell'articolo [Gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
+È consigliabile disabilitare o rimuovere i pacchetti di crittografia meno recenti e meno sicuri, a meno che non siano richiesti dall'organizzazione. Altre informazioni sul completamento di questa attività sono disponibili nell'articolo [Gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
 
 ### <a name="additional-troubleshooting"></a>Risoluzione dei problemi aggiuntiva
 
@@ -373,7 +373,7 @@ Altre indicazioni per la risoluzione dei problemi e le possibili soluzioni sono 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica e configurazione di Server dei criteri di rete in Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Panoramica e configurazione di Server dei criteri di rete in Windows Server](/windows-server/networking/technologies/nps/nps-top)
 
 - Configurare gli ID alternativi per l'accesso o impostare un elenco di eccezioni per gli indirizzi IP che non devono eseguire la verifica in due passaggi in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md) (Opzioni di configurazione avanzate per l'estensione del server dei criteri di rete per Multi-Factor Authentication).
 

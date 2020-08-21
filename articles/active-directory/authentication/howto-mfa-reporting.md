@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c550576a5bd762d3333aa8a533ee6106369193c3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418237"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719513"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Usare il report delle attività di accesso per esaminare gli eventi di Azure Multi-Factor Authentication
 
@@ -90,7 +90,7 @@ Per un evento di accesso che indica se la richiesta di autenticazione a più fat
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Report di PowerShell per utenti registrati per l'autenticazione a più fattori
 
-Verificare innanzitutto che il [modulo MSOnline V1 PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) sia installato.
+Verificare innanzitutto che il [modulo MSOnline V1 PowerShell](/powershell/azure/active-directory/overview?view=azureadps-1.0) sia installato.
 
 Identificare gli utenti che hanno eseguito la registrazione per MFA usando il codice di PowerShell seguente. Questo set di comandi esclude gli utenti disabilitati perché tali account non possono eseguire l'autenticazione per Azure AD:
 
@@ -145,8 +145,8 @@ La tabella seguente consente di risolvere i problemi relativi agli eventi usando
 | FAILED_INVALID_EXTENSION | Interno non valido | L'interno contiene caratteri non validi.  Sono consentiti solo numeri, virgole, * e #.  È inoltre possibile usare un prefisso @. |
 | FAILED_FRAUD_CODE_ENTERED | Codice illecito immesso | L'utente ha scelto di segnalare un illecito durante la chiamata, pertanto l'autenticazione è stata negata e il numero di telefono bloccato.| 
 | FAILED_SERVER_ERROR | Impossibile effettuare chiamate | Il servizio Multi-Factor Authentication non è stato in grado di effettuare la chiamata. |
-| FAILED_SMS_NOT_SENT | Impossibile inviare SMS. | Impossibile inviare il messaggio SMS. Autenticazione negata. |
-| FAILED_SMS_OTP_INCORRECT | OTP SMS non corretto | L'utente ha immesso un passcode monouso (OTP) errato dal messaggio SMS ricevuto. Autenticazione negata. |
+| FAILED_SMS_NOT_SENT | Impossibile inviare SMS. | Impossibile inviare il messaggio SMS.  Autenticazione negata. |
+| FAILED_SMS_OTP_INCORRECT | OTP SMS non corretto | L'utente ha immesso un passcode monouso (OTP) errato dal messaggio SMS ricevuto.  Autenticazione negata. |
 | FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN SMS non corretti | L'utente ha immesso un passcode monouso (OTP) errato e/o un PIN utente errato.  Autenticazione negata. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | È stato superato il numero massimo di tentativi OTP per SMS | L'utente ha superato il numero massimo di tentativi di inserire un passcode monouso. |
 | FAILED_PHONE_APP_DENIED | App mobile negata | L'utente ha negato l'autenticazione nell'app mobile facendo clic sul pulsante Nega. |

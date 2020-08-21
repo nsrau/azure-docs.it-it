@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680194"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717167"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Metodi di autenticazione utilizzo & Insights (anteprima)
 
@@ -33,7 +33,7 @@ I ruoli seguenti possono accedere all'utilizzo e alle informazioni dettagliate:
 
 Non è necessaria alcuna licenza aggiuntiva per accedere all'utilizzo e alle informazioni dettagliate. Le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) e Multi-Factor Authentication di Azure sono reperibili nel [sito dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Per accedere all'utilizzo del metodo di autenticazione e alle informazioni dettagliate:
 
@@ -98,6 +98,6 @@ Attualmente non è possibile filtrare il report per escludere gli utenti esterni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Utilizzo dell'API report utilizzo metodi di autenticazione](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Utilizzo dell'API report utilizzo metodi di autenticazione](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Scelta dei metodi di autenticazione per l'organizzazione](concept-authentication-methods.md)
 - [Esperienza di registrazione combinata](concept-registration-mfa-sspr-combined.md)

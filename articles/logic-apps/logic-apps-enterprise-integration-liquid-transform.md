@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
-ms.openlocfilehash: 5aa6b3717925146607f3785ad5ea5fb940e8c236
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b3919cbbe0ba7a796a21ae566afb8e2d9fa784db
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503394"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716674"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Trasformare JSON e XML usando i modelli Liquid come mappe in app per la logica di Azure
 
@@ -39,7 +39,7 @@ Questo articolo illustra come completare queste attività:
 * Informazioni di base sul [linguaggio del modello Liquid](https://shopify.github.io/liquid/)
 
   > [!NOTE]
-  > L'azione **trasforma JSON in JSON-Liquid** segue l' [implementazione di DotLiquid per Liquid](https://github.com/dotliquid/dotliquid), che differisce da casi specifici dell' [implementazione di Shopify per Liquid](https://shopify.github.io/liquid). Per altre informazioni, vedere [considerazioni sui modelli Liquid](#template-considerations).
+  > L'azione **trasforma JSON in JSON-Liquid** segue l' [implementazione di DotLiquid per Liquid](https://github.com/dotliquid/dotliquid), che differisce da casi specifici dell' [implementazione di Shopify per Liquid](https://shopify.github.io/liquid). Per altre informazioni, vedere [considerazioni sui modelli Liquid](#liquid-template-considerations).
 
 ## <a name="create-the-template"></a>Creare il modello
 
