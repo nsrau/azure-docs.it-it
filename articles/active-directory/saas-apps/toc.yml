@@ -165,7 +165,7 @@
           href: awardspring-tutorial.md
         - name: Axiad Cloud
           href: axiad-cloud-tutorial.md
-    - name: b
+    - name: B
       items:
         - name: BambooHR
           href: bamboo-hr-tutorial.md
@@ -637,6 +637,8 @@
           href: formcom-tutorial.md
         - name: Fortes Change Cloud
           href: fortes-change-cloud-tutorial.md
+        - name: FortiGate SSL VPN
+          href: fortigate-ssl-vpn-tutorial.md
         - name: Freedcamp
           href: freedcamp-tutorial.md
         - name: FreshDesk

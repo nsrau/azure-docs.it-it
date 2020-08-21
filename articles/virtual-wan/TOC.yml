@@ -36,11 +36,7 @@
           href: virtual-wan-locations-partners.md
         - name: Linee guida sull'automazione per i partner
           href: virtual-wan-configure-automation-providers.md
-    - name: Concetti relativi ai prezzi
-      href: pricing-concepts.md
-    - name: Informazioni sull'appliance virtuale di rete in un hub virtuale
-      href: about-nva-hub.md
-    - name: Routing.
+    - name: Routing
       items:
         - name: Informazioni sul routing dell'hub virtuale
           href: about-virtual-hub-routing.md
@@ -48,21 +44,21 @@
           items:
             - name: Any-to-any
               href: scenario-any-to-any.md
-            - name: Isolare reti virtuali
+            - name: Isolamento delle reti virtuali
               href: scenario-isolate-vnets.md
-            - name: Isolare reti virtuali - personalizzato
+            - name: Isolamento delle reti virtuali - personalizzato
               href: scenario-isolate-vnets-custom.md
             - name: Reti virtuali di servizi condivisi
               href: scenario-shared-services-vnet.md
-            - name: Routing tramite appliance virtuale di rete
+            - name: Routing tramite un'appliance virtuale di rete
               href: scenario-route-through-nva.md
-            - name: Routing tramite appliance virtuale di dispositivo - personalizzato (anteprima)
+            - name: Routing tramite un'appliance virtuale di rete - personalizzato
               href: scenario-route-through-nvas-custom.md
             - name: Firewall di Azure - personalizzato
               href: scenario-route-between-vnets-firewall.md
     - name: Monitoraggio
       items:
-        - name: Informazioni su Dati analitici di Monitoraggio di Azure per la rete WAN virtuale (anteprima)
+        - name: Informazioni su Dati analitici di Monitoraggio di Azure per la rete WAN virtuale
           href: azure-monitor-insights.md
     - name: Da sito a sito
       items:
@@ -70,11 +66,15 @@
           href: virtual-wan-ipsec.md
         - name: Più collegamenti ISP - Selezione del percorso di Azure
           href: path-selection-multiple-links.md
+    - name: Concetti relativi ai prezzi
+      href: pricing-concepts.md
+    - name: Informazioni sull'appliance virtuale di rete in un hub virtuale
+      href: about-nva-hub.md
 - name: Guide pratiche
   items:
     - name: Aggiornare uno SKU di rete WAN virtuale
       href: upgrade-virtual-wan.md
-    - name: Creare l'appliance virtuale di rete in un hub virtuale (anteprima)
+    - name: Creare un'appliance virtuale di rete in un hub virtuale
       href: How-to-nva-hub.md
     - name: ExpressRoute
       items:
@@ -154,14 +154,18 @@
   items:
     - name: Domande frequenti
       href: virtual-wan-faq.md
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Sottoscrizione e limiti dei servizi
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Annunci di aggiornamento
+      href: 'https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
+    - name: Sottoscrizione e limiti dei servizi
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Roadmap di Rete
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog sulle reti
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Annunci di aggiornamento di Rete
+      href: 'https://azure.microsoft.com/updates/?category=networking'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Contratto di servizio

@@ -39,6 +39,8 @@
       href: security-center-enable-data-collection.md
     - name: Configurare le notifiche tramite posta elettronica
       href: security-center-provide-security-contact-details.md
+    - name: Creare una risposta automatica a un avviso con un modello di Resource Manager
+      href: quickstart-automation-alert.md
 - name: Esercitazioni
   items:
     - name: Guida alla pianificazione e alle operazioni

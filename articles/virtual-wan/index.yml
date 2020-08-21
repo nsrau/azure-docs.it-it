@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 05/08/2020
-  ms.openlocfilehash: 14336a28630e7a62a19e2b3a51934950cf12e2f8
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 08/19/2020
+  ms.openlocfilehash: 1a0a64864c4e8229b4a0f2211af06920fc1e73cc
+  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85564025"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88654549"
 landingContent:
 - title: Informazioni sulla rete WAN virtuale
   linkLists:
@@ -39,24 +39,60 @@ landingContent:
       url: virtual-wan-expressroute-portal.md
     - text: Creare una connessione VPN utente (da punto a sito)
       url: virtual-wan-point-to-site-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurare l'automazione per i partner della rete WAN virtuale
-      url: virtual-wan-configure-automation-providers.md
   - linkListType: concept
     links:
     - text: Criteri predefiniti per la connettività IPsec
       url: virtual-wan-ipsec.md
+    - text: Linee guida dell'automazione per i partner della rete WAN virtuale
+      url: virtual-wan-configure-automation-providers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un'appliance virtuale di rete in un hub
+      url: how-to-nva-hub.md
+    - text: Configurare IPsec su ExpressRoute per la rete WAN virtuale
+      url: vpn-over-expressroute.md
+    - text: Connettere un'istanza di Gateway VPN alla rete WAN virtuale
+      url: connect-virtual-network-gateway-vwan.md
 - title: Architecture
   linkLists:
   - linkListType: concept
     links:
     - text: Eseguire la migrazione alla rete WAN virtuale
       url: migrate-from-hub-spoke-topology.md
+  - linkListType: architecture
+    links:
     - text: Architettura della rete di transito globale
       url: virtual-wan-global-transit-network-architecture.md
     - text: Architettura della connettività SD-WAN
       url: sd-wan-connectivity-architecture.md
+- title: Routing
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Informazioni sul routing dell'hub virtuale
+      url: about-virtual-hub-routing.md
+    - text: Scenario - Routing del traffico tramite un'appliance virtuale di rete
+      url: scenario-route-through-nva.md
+    - text: Scenario - Any-to-any
+      url: scenario-any-to-any.md
+    - text: Scenario - Isolare reti virtuali
+      url: scenario-isolate-vnets.md
+    - text: Scenario - Reti virtuali di servizi condivisi
+      url: scenario-shared-services-vnet.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare il routing dell'hub virtuale
+      url: how-to-virtual-hub-routing.md
+- title: Monitoraggio
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Eseguire il monitoraggio con Dati analitici di Monitoraggio di Azure
+      url: azure-monitor-insights.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare metriche e log di Monitoraggio di Azure
+      url: azure-monitor-insights.md
 - title: Informazioni di riferimento
   linkLists:
   - linkListType: reference

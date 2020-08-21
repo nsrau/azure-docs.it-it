@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentazione di Azure Lighthouse
-summary: Azure Lighthouse consente ai provider di servizi di gestire le risorse di Azure tra tutti i loro clienti con livelli superiori di automazione, scalabilità e governance ottimizzata.
+summary: Azure Lighthouse consente una gestione tra tenant e multi-tenant, offrendo una maggiore automazione, scalabilità e una migliore governance tra risorse e tenant.
 metadata:
   title: Documentazione di Azure Lighthouse
   description: Azure Lighthouse consente ai provider di servizi di gestire le risorse di Azure tra tutti i loro clienti con livelli superiori di automazione, scalabilità e governance ottimizzata.
@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 07/20/2020
-  ms.openlocfilehash: f30f07fd200a5ac14e9733e5def7541b197004b2
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 40352965db20c12e589f52f76869032d1f5f1b10
+  ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87072674"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88659875"
 landingContent:
 - title: Informazioni su Azure Lighthouse
   linkLists:

@@ -40,6 +40,8 @@
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
     - name: Usare l'identità gestita per connettere Key Vault all'app di Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
+    - name: Distribuire Azure Spring Cloud nella rete virtuale
+      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
 - name: Esempi
   items:
     - name: Criteri di Azure predefiniti
