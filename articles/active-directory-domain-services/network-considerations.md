@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 0b857cb853add1920e6933a9f1ebfd7a0f61b57f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 307b1a6838c3a78c04ba6a36ffd52bd6b98aae04
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054273"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722824"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure Active Directory Domain Services
 
@@ -94,7 +94,7 @@ Un dominio gestito crea alcune risorse di rete durante la distribuzione. Queste 
 | Risorsa di Azure                          | Descrizione |
 |:----------------------------------------|:---|
 | Scheda di interfaccia di rete                  | Azure AD DS ospita il dominio gestito in due controller di dominio (DCs) che vengono eseguiti in Windows Server come macchine virtuali di Azure. Ogni macchina virtuale dispone di un'interfaccia di rete virtuale che si connette alla subnet della rete virtuale. |
-| Indirizzo IP pubblico standard dinamico      | Azure AD DS comunica con il servizio di sincronizzazione e gestione usando un indirizzo IP pubblico dello SKU standard. Per altre informazioni sugli indirizzi IP pubblici, vedere [tipi di indirizzi IP e metodi di allocazione in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Indirizzo IP pubblico standard dinamico      | Azure AD DS comunica con il servizio di sincronizzazione e gestione usando un indirizzo IP pubblico dello SKU standard. Per altre informazioni sugli indirizzi IP pubblici, vedere [tipi di indirizzi IP e metodi di allocazione in Azure](../virtual-network/public-ip-addresses.md). |
 | Azure Load Balancer standard            | Azure AD DS usa un servizio di bilanciamento del carico SKU standard per Network Address Translation (NAT) e bilanciamento del carico (se usato con LDAP sicuro). Per altre informazioni sui bilanciamenti del carico di Azure, vedere [che cos'è Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Regole NAT (Network Address Translation) | Azure AD DS crea e usa tre regole NAT nel servizio di bilanciamento del carico: una regola per il traffico HTTP protetto e due regole per la comunicazione remota di PowerShell sicura. |
 | Regole del servizio di bilanciamento del carico                     | Quando un dominio gestito è configurato per l'LDAP sicuro sulla porta TCP 636, vengono create tre regole e usate in un servizio di bilanciamento del carico per distribuire il traffico. |
@@ -104,11 +104,11 @@ Un dominio gestito crea alcune risorse di rete durante la distribuzione. Queste 
 
 ## <a name="network-security-groups-and-required-ports"></a>Gruppi di sicurezza di rete e porte obbligatorie
 
-Un [gruppo di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md) contiene un elenco di regole che consentono o negano il traffico di rete al traffico in una rete virtuale di Azure. Un gruppo di sicurezza di rete viene creato quando si distribuisce un dominio gestito che contiene un set di regole che consentono al servizio di fornire funzioni di autenticazione e di gestione. Questo gruppo di sicurezza di rete predefinito è associato alla subnet della rete virtuale in cui è distribuito il dominio gestito.
+Un [gruppo di sicurezza di rete (NSG)](../virtual-network/virtual-network-vnet-plan-design-arm.md) contiene un elenco di regole che consentono o negano il traffico di rete al traffico in una rete virtuale di Azure. Un gruppo di sicurezza di rete viene creato quando si distribuisce un dominio gestito che contiene un set di regole che consentono al servizio di fornire funzioni di autenticazione e di gestione. Questo gruppo di sicurezza di rete predefinito è associato alla subnet della rete virtuale in cui è distribuito il dominio gestito.
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie affinché il dominio gestito fornisca servizi di autenticazione e gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito.
 
-| Numero della porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Richiesto | Scopo |
+| Numero porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Necessario | Scopo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |

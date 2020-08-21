@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 4489aae873c3fa4153974209074e14959307c772
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c22c5fa9c1a1680734a8cf5d8f4079e8c7b5c5f7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690341"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723417"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini delle macchine virtuali Oracle e rispettiva distribuzione in Microsoft Azure
 
@@ -118,7 +118,7 @@ Quando si esegue la migrazione di carichi di lavoro e software Oracle dall'ambie
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 
-Oracle Real Application cluster (Oracle RAC) è progettato per ridurre l'errore di un singolo nodo in una configurazione cluster a più nodi locale. Si basa su due tecnologie locali, non native agli ambienti cloud pubblici su vasta scala, ovvero il multicast di rete e i dischi condivisi. Se la soluzione di database richiede Oracle RAC in Azure, è necessario un software di terze parti per abilitare queste tecnologie. Per altre informazioni su Oracle Real Application Cluster, vedere la [pagina relativa alla soluzione SkyCluster ](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle Real Application cluster (Oracle RAC) è progettato per ridurre l'errore di un singolo nodo in una configurazione cluster a più nodi locale. Si basa su due tecnologie locali, non native agli ambienti cloud pubblici su vasta scala, ovvero il multicast di rete e i dischi condivisi. Se per la soluzione di database è necessario Oracle RAC in Azure, è necessario un software di terze parti per abilitare tali tecnologie. Per altre informazioni su Oracle Real Application Cluster, vedere la [pagina relativa alla soluzione SkyCluster ](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerazioni sulla disponibilità elevata e sul ripristino di emergenza
 

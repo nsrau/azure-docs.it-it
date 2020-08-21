@@ -9,29 +9,53 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 22eab216714d45e4b8a91fd58325424d4baef95e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3a48511c896a3e4c677c35ca3069ff236761c444
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272947"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724133"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
 Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare questo articolo per rimanere sempre aggiornati sui miglioramenti delle funzionalità, sulle correzioni e sugli aggiornamenti della documentazione.
 
-> [!NOTE]
-> Le guide introduttive e le guide per il riconoscimento moduli utilizzano sempre la versione più recente dell'API, a meno che non sia specificato.
+## <a name="august-2020"></a>Agosto 2020
+
+### <a name="new-features"></a>Nuove funzionalità
+
+**È ora disponibile l'anteprima pubblica form Recognizer v 2.1.** V 2.1-Preview. 1 è stato rilasciato, incluse le funzionalità seguenti: 
+
+
+- Per **informazioni di riferimento sull'API REST** , vedere il [riferimento v 2.1-Preview. 1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
+- Sono ora supportate le **nuove lingue supportate oltre all'inglese**, le seguenti lingue: per `Layout` e `Train Custom Model` : inglese (en), cinese (semplificato) (ZH-ZH), olandese (NL), francese (FR), tedesco (de), Italiano (it), portoghese (PT) e spagnolo (es).
+- **Rilevamento del contrassegno della casella** di controllo: il riconoscimento del modulo supporta il rilevamento e l'estrazione dei contrassegni di selezione, ad esempio caselle di controllo e pulsanti di opzione. I contrassegni di selezione vengono estratti in `Layout` ed è ora possibile anche etichettare e eseguire il training in `Train Custom Model`  -  _Train con etichette_ per estrarre le coppie chiave-valore per i contrassegni di selezione. 
+- Il **modello compose** consente la composizione e la chiamata di più modelli con un unico ID modello. Quando un documento viene inviato per essere analizzato con un ID di modello composto, viene innanzitutto eseguito un passaggio di classificazione per indirizzarlo al modello personalizzato corretto. La composizione del modello è disponibile per il `Train Custom Model`  -  _training con etichette_.
+- **Nome modello** consente di aggiungere un nome descrittivo ai modelli personalizzati per semplificare la gestione e il rilevamento.
+- **Nuovo modello predefinito per i biglietti** da visita per l'estrazione di campi comuni in lingua inglese, business card.
+- **Nuove impostazioni locali per le ricevute** predefinite, oltre a en-US, è ora disponibile il supporto per en-au, en-CA, en-GB, en-in
+- **Miglioramenti qualitativi** per `Layout` , il `Train Custom Model`  -  _training senza etichette_ e il _training con etichette_.
+
+
+**v 2.0** include l'aggiornamento seguente:
+-   Le [librerie client](quickstarts/client-library.md) per NET, Python, Java e JavaScript hanno immesso la disponibilità a livello generale. 
+
+
+I **nuovi esempi** sono disponibili in GitHub. 
+- Le [ricette di estrazione delle informazioni](https://github.com/microsoft/knowledge-extraction-recipes-forms) , ovvero i moduli PlayBook, raccolgono le procedure consigliate dagli impegni dei clienti riconoscibili in forma reale e forniscono esempi di codice, elenchi di controllo e pipeline di esempio utilizzabili per lo sviluppo di questi progetti. 
+- L'esempio di riconoscimento in modalità [chiosco intelligente](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Mostra come eseguire l'integrazione `Analyze Receipt` e il `Train Custom Model`  -  _training senza etichette_.
+
+
 
 ## <a name="july-2020"></a>Luglio 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
 * **riferimento v 2.0 disponibile** Visualizzare le informazioni di [riferimento sulle API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e gli SDK aggiornati per [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
-* I miglioramenti apportati alle tabelle e ai miglioramenti dell' **estrazione** includono miglioramenti di accuratezza ed estrazioni di tabelle, in particolare la possibilità di apprendere le intestazioni e le strutture delle tabelle in un training personalizzato senza etichette. 
+* I miglioramenti apportati alle tabelle e ai miglioramenti dell' **estrazione** includono miglioramenti di accuratezza ed estrazioni di tabelle, in particolare la possibilità di apprendere le intestazioni e le strutture delle tabelle in un _training personalizzato senza etichette_. 
 * **Supporto** per la valuta Rilevamento ed estrazione dei simboli di valuta globali.
 * **Azure gov** Il riconoscimento del modulo è ora disponibile anche in Azure gov.
 * **Funzionalità di sicurezza avanzate**: 
-   * **Bring your own key**  Il riconoscitore di form crittografa automaticamente i dati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione USA chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente (CMK), note anche come Bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
+   * **Bring your own key**  Il riconoscitore di form crittografa automaticamente i dati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente (CMK), note anche come Bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
    * **Endpoint privati** : consente di accedere in modo [sicuro ai dati tramite un collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-overview) in una rete virtuale (VNet).
 
 
@@ -39,7 +63,7 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 
 ### <a name="new-features"></a>Nuove funzionalità
 * **API CopyModel aggiunta agli SDK client** È ora possibile usare gli SDK client per copiare i modelli da una sottoscrizione a un'altra. Per informazioni generali su questa funzionalità, vedere [eseguire il backup e il ripristino dei modelli](./disaster-recovery.md) .
-* **Integrazione di Azure Active Directory** È ora possibile usare le credenziali di AAD per autenticare gli oggetti client del riconoscimento del modulo negli SDK.
+* **Integrazione di Azure Active Directory** È ora possibile usare le credenziali di Azure AD per autenticare gli oggetti client del riconoscimento del modulo negli SDK.
 * **Modifiche specifiche dell'SDK** Sono incluse le aggiunte di funzionalità secondarie e le modifiche di rilievo. Per ulteriori informazioni, vedere i log delle modifiche dell'SDK.
   * [Log delle modifiche anteprima 3 di C# SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Log delle modifiche di Python SDK Preview 3](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)

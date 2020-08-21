@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254844"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723946"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -82,7 +82,7 @@ Per generare una password, verificare prima di tutto che il campo **Expiry** (Sc
 
 Gli esempi seguenti usano lo strumento Git Bash di [Git per Windows](https://www.git-scm.com/downloads) ma è possibile usare qualsiasi strumento Git con cui si abbia familiarità.
 
-Aprire lo strumento Git nella cartella desiderata ed eseguire il comando seguente per clonare il repository Git nel computer locale, usando il comando fornito dal portale di Azure.
+Aprire lo strumento git nella cartella desiderata ed eseguire il comando seguente per clonare il repository git nel computer locale, usando il comando fornito dal portale di Azure.
 
 ```
 git clone https://{name}.scm.azure-api.net/
@@ -146,7 +146,7 @@ Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale
 
-I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
+I file e le cartelle nel repository git locale contengono le informazioni di configurazione relative all'istanza del servizio.
 
 | Elemento | Descrizione |
 | --- | --- |

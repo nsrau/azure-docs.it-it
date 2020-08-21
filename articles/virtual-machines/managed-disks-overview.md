@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ad7101bb61324db033f57bb25c068e1ba625ef8c
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 03a7a1929e591216255c10f35d31c1a282a7e06a
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718068"
+ms.locfileid: "88723283"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduzione ad Azure Managed Disks
 
@@ -95,7 +95,7 @@ Questo disco ha una capacità massima di 2,048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporaneo
 
-La maggior parte delle macchine virtuali contiene un disco temporaneo, che non è un disco gestito. Il disco temporaneo fornisce l'archiviazione a breve termine per le applicazioni e i processi ed è destinato solo a archiviare i dati, ad esempio file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](~/articles/virtual-machines/windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un riavvio standard della VM, i dati sul disco temporaneo rimarranno in modo permanente. Per altre informazioni sulle macchine virtuali senza dischi temporanei, vedere [dimensioni delle VM di Azure senza disco temporaneo locale](~/articles/virtual-machines/azure-vms-no-temp-disk.md)
+La maggior parte delle macchine virtuali contiene un disco temporaneo, che non è un disco gestito. Il disco temporaneo fornisce l'archiviazione a breve termine per le applicazioni e i processi ed è destinato solo a archiviare i dati, ad esempio file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](~/articles/virtual-machines/windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un riavvio standard della VM, i dati sul disco temporaneo rimarranno in modo permanente. Per altre informazioni sulle macchine virtuali senza dischi temporanei, vedere dimensioni delle macchine virtuali [di Azure senza dischi temporanei locali](~/articles/virtual-machines/azure-vms-no-temp-disk.md).
 
 Nelle VM Linux di Azure il disco temporaneo è in genere /dev/sdb e nelle VM Windows è D: per impostazione predefinita. Il disco temporaneo non viene crittografato dalla crittografia lato server a meno che non si abiliti la crittografia a livello di host.
 

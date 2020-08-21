@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 0880f697ceea9c10a070ede0a73235022ce0529d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f02f8c0c5aabc48e7b9966898028485a4687f413
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220290"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723079"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Distribuire Azure AD proxy di applicazione per l'accesso sicuro alle applicazioni interne in un dominio gestito Azure Active Directory Domain Services
 
@@ -113,7 +113,7 @@ Se si distribuiscono più connettori proxy di applicazione Azure AD, è necessar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Con il Azure AD proxy di applicazione integrato con Azure AD DS, pubblicare le applicazioni per consentire agli utenti di accedere a. Per altre informazioni, vedere [pubblicare applicazioni con Azure ad proxy di applicazione](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
+Con il Azure AD proxy di applicazione integrato con Azure AD DS, pubblicare le applicazioni per consentire agli utenti di accedere a. Per altre informazioni, vedere [pubblicare applicazioni con Azure ad proxy di applicazione](../active-directory/manage-apps/application-proxy-add-on-premises-application.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

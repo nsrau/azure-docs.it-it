@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 29bd7490ea9a03118f134ba11923ede2075e6fd5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222973"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722586"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemi noti: avvisi comuni e risoluzioni in Azure Active Directory Domain Services
 
@@ -106,7 +106,7 @@ Azure AD DS richiede una sottoscrizione attiva e non può essere spostata in una
 
 Azure AD DS richiede una sottoscrizione attiva. Se la sottoscrizione di Azure a cui è stato associato il dominio gestito non è attiva, è necessario rinnovarla per riattivare la sottoscrizione.
 
-1. [Rinnovare la sottoscrizione di Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Rinnovare la sottoscrizione di Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Una volta rinnovata la sottoscrizione, una notifica Azure AD DS consente di riabilitare il dominio gestito.
 
 Quando il dominio gestito viene nuovamente abilitato, l'integrità del dominio gestito si aggiorna automaticamente entro due ore e rimuove l'avviso.
@@ -162,7 +162,7 @@ Questo errore è irreversibile. Per risolvere l'avviso, [eliminare il dominio ge
 
 Alcune entità servizio generate automaticamente vengono usate per gestire e creare risorse per un dominio gestito. Se le autorizzazioni di accesso per una di queste entità servizio sono state modificate, il dominio non è in grado di gestire correttamente le risorse. Nei passaggi seguenti viene illustrato come comprendere e quindi concedere le autorizzazioni di accesso a un'entità servizio:
 
-1. Informazioni sul [controllo degli accessi in base al ruolo e su come concedere l'accesso alle applicazioni nel portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Informazioni sul [controllo degli accessi in base al ruolo e su come concedere l'accesso alle applicazioni nel portale di Azure](../role-based-access-control/role-assignments-portal.md).
 2. Verificare l'accesso dell'entità servizio con ID *abba844e-BC0E-44b0-947A-dc74e5d09022* e concedere l'accesso negato a una data precedente.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Gli indirizzi IP disponibili nel dominio gestito non sono sufficienti
@@ -276,7 +276,7 @@ I motivi comuni seguenti causano l'arresto della sincronizzazione in un dominio 
 
 Azure AD DS richiede una sottoscrizione attiva. Se la sottoscrizione di Azure a cui è stato associato il dominio gestito non è attiva, è necessario rinnovarla per riattivare la sottoscrizione.
 
-1. [Rinnovare la sottoscrizione di Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Rinnovare la sottoscrizione di Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Una volta rinnovata la sottoscrizione, una notifica Azure AD DS consente di riabilitare il dominio gestito.
 
 Quando il dominio gestito viene nuovamente abilitato, l'integrità del dominio gestito si aggiorna automaticamente entro due ore e rimuove l'avviso.

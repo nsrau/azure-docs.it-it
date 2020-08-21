@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: iainfou
-ms.openlocfilehash: 4cd6a37ad2d5081cdc587290c361fbc992c69bfb
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: a27d97e7e030da216b2296f11b6876ccf28c8ad0
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245163"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722756"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casi d'uso comuni e scenari per Azure Active Directory Domain Services
 
@@ -162,7 +162,7 @@ Per altre informazioni su questo scenario di distribuzione, vedere [come configu
 Per iniziare, [creare e configurare un Azure Active Directory Domain Services dominio gestito][tutorial-create-instance].
 
 <!-- INTERNAL LINKS -->
-[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
+[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md
 [tutorial-create-instance]: tutorial-create-instance.md
 [custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md

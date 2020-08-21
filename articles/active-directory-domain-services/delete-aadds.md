@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: bece22fa0b9d41f29f8829d47a26f4ae2075feac
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 993a73a42887b3869c097d14b6945a1093ac6889
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040113"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723062"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Eliminare un Azure Active Directory Domain Services dominio gestito utilizzando il portale di Azure
 
@@ -37,7 +37,7 @@ Questo articolo illustra come usare la portale di Azure per eliminare un dominio
 
 Per eliminare un dominio gestito, attenersi alla procedura seguente:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
+1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**.
 1. Selezionare il nome del dominio gestito, ad esempio *aaddscontoso.com*.
 1. Nella pagina **Panoramica** selezionare **Elimina**. Per confermare l'eliminazione, digitare di nuovo il nome di dominio del dominio gestito e quindi selezionare **Elimina**.
 
@@ -50,5 +50,5 @@ Valutare la possibilità di [condividere commenti e suggerimenti][feedback] per 
 Per iniziare a usare nuovamente Azure AD DS, vedere [creare e configurare un dominio gestito Azure Active Directory Domain Services][create-instance].
 
 <!-- INTERNAL LINKS -->
-[feedback]: contact-us.md
+[feedback]: https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593%3fcategory_id%3d160593
 [create-instance]: tutorial-create-instance.md

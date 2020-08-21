@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 7bec65867373293ff06a2295f08a05db6ffaa480
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653835"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723963"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -43,7 +43,7 @@ Gli aggiornamenti di agosto includono:
 
 ### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventario asset: nuova e potente visualizzazione del comportamento di sicurezza degli asset
 
-L'inventario degli asset del Centro sicurezza consente di visualizzare il comportamento di sicurezza delle risorse connesse al centro sicurezza.
+Inventario asset del Centro sicurezza (attualmente in anteprima) consente di visualizzare il comportamento di sicurezza delle risorse connesse al centro sicurezza.
 
 Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Vengono quindi fornite indicazioni su come correggere tali vulnerabilità. Quando una risorsa presenta raccomandazioni in attesa, verranno visualizzate nell'inventario.
 
@@ -98,7 +98,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 
 ##### <a name="before-august-2020"></a>Prima del 2020 agosto
 
-|Recommendation|Scope|
+|Recommendation|Ambito|
 |----|:----|
 |**Abilitare la soluzione di valutazione della vulnerabilità incorporata nelle macchine virtuali (con tecnologia Qualys)**<br>Chiave: 550e890b-E652-4D22-8274-60b3bdb24c63|Predefinito|
 |**Correggere le vulnerabilità rilevate nelle macchine virtuali (con tecnologia Qualys)**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Predefinito|
@@ -107,7 +107,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 ||||
 
 
-|Criteri|Scope|
+|Criteri|Ambito|
 |----|:----|
 |**La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9|Predefinito|
 |**Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità**<br>ID criterio: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
@@ -116,13 +116,13 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 
 ##### <a name="from-august-2020"></a>Da agosto 2020
 
-|Recommendation|Scope|
+|Recommendation|Ambito|
 |----|:----|
 |**Una soluzione di valutazione della vulnerabilità dovrebbe essere abilitata nelle macchine virtuali**<br>Chiave: ffff0522-1e88-47FC-8382-2a80ba848f5d|Incorporato + BYOL|
 |**È necessario correggere le vulnerabilità nelle macchine virtuali**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Incorporato + BYOL|
 ||||
 
-|Criteri|Scope|
+|Criteri|Ambito|
 |----|:----|
 |[**La valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9 |Incorporato + BYOL|
 ||||

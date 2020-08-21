@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: d43df68f48273b03fa9bde9633b487d69c0834ed
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 29bec00916f4cc3683dae5b6d3065e02a3cbe10f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905381"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724167"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chiamare le operazioni dell'API REST con l'autorizzazione della chiave condivisa
 
@@ -65,7 +65,7 @@ Esaminare il riferimento per l'operazione [ListContainers](/rest/api/storageserv
 
 **Metodo di richiesta**: Get. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
 
-**URI della richiesta**: `https://myaccount.blob.core.windows.net/?comp=list` .L'URI della richiesta viene creato dall'endpoint dell'account di archiviazione BLOB `http://myaccount.blob.core.windows.net` e dalla stringa di risorsa `/?comp=list` .
+**URI della richiesta**: `https://myaccount.blob.core.windows.net/?comp=list` .L'URI della richiesta viene creato dall'endpoint dell'account di archiviazione BLOB `https://myaccount.blob.core.windows.net` e dalla stringa di risorsa `/?comp=list` .
 
 [Parametri dell'URI](/rest/api/storageservices/List-Containers2#uri-parameters): quando si chiama ListContainers è possibile usare parametri di query aggiuntivi, ad esempio *timeout* per definire il timeout della chiamata (in secondi) e *prefix* per applicare un filtro.
 

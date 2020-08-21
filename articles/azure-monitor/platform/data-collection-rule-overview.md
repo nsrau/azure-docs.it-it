@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 32993ba41a612ccf0f02a242ed610feab2fac78f
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640736"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723861"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regole di raccolta dati in monitoraggio di Azure (anteprima)
 Le regole di raccolta dati (DCR) definiscono i dati in arrivo in monitoraggio di Azure e specificano la posizione in cui devono essere inviati o archiviati i dati. Questo articolo fornisce una panoramica delle regole di raccolta dei dati, inclusi il contenuto e la struttura e il modo in cui è possibile crearli e utilizzarli.
@@ -28,7 +28,7 @@ Una regola di raccolta dati include i componenti seguenti.
 
 | Componente | Descrizione |
 |:---|:---|
-| Origini dati | Origine univoca dei dati di monitoraggio con il proprio formato e metodo che espongono i dati. Esempi di un'origine dati includono registro eventi di Windows, contatori delle prestazioni e syslog. Ogni origine dati corrisponde a un determinato tipo di origine dati, come descritto di seguito. |
+| Origini dati | Origine univoca dei dati di monitoraggio con il proprio formato e metodo per esporre i dati. Esempi di un'origine dati includono registro eventi di Windows, contatori delle prestazioni e syslog. Ogni origine dati corrisponde a un determinato tipo di origine dati, come descritto di seguito. |
 | Flussi | Handle univoco che descrive un set di origini dati che verranno trasformate e schematizzato come un unico tipo. Ogni origine dati richiede uno o più flussi e un flusso può essere usato da più origini dati. Tutte le origini dati in un flusso condividono uno schema comune. Usare più flussi, ad esempio, quando si vuole inviare una determinata origine dati a più tabelle nella stessa area di lavoro Log Analytics. |
 | Destinations | Set di destinazioni in cui devono essere inviati i dati. Gli esempi includono Log Analytics area di lavoro, le metriche di monitoraggio di Azure e hub eventi di Azure. | 
 | Flussi di dati | Definizione dei flussi da inviare a quali destinazioni. | 
@@ -44,7 +44,7 @@ Ogni origine dati ha un tipo di origine dati. Ogni tipo definisce un set univoco
 |:---|:---|
 | estensione | Origine dati basata sull'estensione della macchina virtuale |
 | performanceCounters | Contatori delle prestazioni per Windows e Linux |
-| syslog | Eventi Syslog in una macchina virtuale Linux |
+| syslog | Eventi Syslog in Linux |
 | windowsEventLogs | Registro eventi di Windows |
 
 
@@ -54,8 +54,8 @@ Nella tabella seguente sono elencati i limiti attualmente applicabili a ogni reg
 | Limite | valore |
 |:---|:---|
 | Numero massimo di origini dati | 10 |
-| Numero massimo di identificatori di contatori nelle prestazioni | 100 |
-| Numero massimo di nomi di strutture in SysLog | 20 |
+| Numero massimo di identificatori di contatori nel contatore delle prestazioni | 100 |
+| Numero massimo di nomi di strutture in syslog | 20 |
 | Numero massimo di query XPath nel registro eventi | 100 |
 | Numero massimo di flussi di dati | 10 |
 | Numero massimo di flussi di dati | 10 |
@@ -83,8 +83,7 @@ La regola di raccolta dati di esempio riportata di seguito è per le macchine vi
   - Raccoglie gli eventi di debug, critici e di emergenza dalla funzionalità cron.
   - Raccoglie gli eventi di avviso, critici e di emergenza dalla funzionalità syslog.
 - Destinations
-  - Invia tutti i dati a un'area di lavoro Log Analytics denominata centralTeamWorkspace.
-  - Invia i dati sulle prestazioni alle metriche di monitoraggio di Azure nella sottoscrizione corrente.
+  - Invia tutti i dati a un'area di lavoro Log Analytics denominata centralWorkspace.
 
 ```json
 {
@@ -157,7 +156,7 @@ La regola di raccolta dati di esempio riportata di seguito è per le macchine vi
             ]
           },
           {
-            "name": "sylogBase",
+            "name": "syslogBase",
             "streams": [
               "Microsoft-Syslog"
             ],

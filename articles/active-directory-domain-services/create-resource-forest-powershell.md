@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506329"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723164"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Creare una foresta di risorse Azure Active Directory Domain Services e un trust tra foreste in uscita per un dominio locale usando Azure PowerShell
 
@@ -106,7 +106,7 @@ Per creare una foresta di risorse di dominio gestito, usare lo `New-AzureAaddsFo
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | ID sottoscrizione usato per la fatturazione Azure AD DS. Per ottenere l'elenco delle sottoscrizioni, è possibile usare il cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
     | Gruppo di risorse               | *-aaddsResourceGroupName* | Nome del gruppo di risorse per il dominio gestito e le risorse associate. |
-    | Location                     | *-aaddsLocation*          | Area di Azure in cui ospitare il dominio gestito. Per le aree disponibili, vedere [aree supportate per Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Percorso                     | *-aaddsLocation*          | Area di Azure in cui ospitare il dominio gestito. Per le aree disponibili, vedere [aree supportate per Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Amministratore di Azure AD DS    | *-aaddsAdminUser*         | Nome dell'entità utente del primo amministratore di dominio gestito. Questo account deve essere un account utente cloud esistente nel Azure Active Directory. L'utente e l'utente che esegue lo script vengono aggiunti al gruppo di *amministratori di AAD DC* . |
     | Nome di dominio Azure AD DS      | *-aaddsDomainName*        | FQDN del dominio gestito, in base alle indicazioni precedenti su come scegliere il nome di una foresta. |
 
@@ -148,15 +148,15 @@ Prima di iniziare, assicurarsi di comprendere le [considerazioni e le raccomanda
 
 1. Creare la connettività ibrida alla rete locale in Azure usando una connessione VPN di Azure o Azure ExpressRoute. La configurazione di rete ibrida esula dall'ambito di questa documentazione e potrebbe essere già presente nell'ambiente in uso. Per informazioni dettagliate su scenari specifici, vedere gli articoli seguenti:
 
-    * [VPN da sito a sito di Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Panoramica di Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
+    * [VPN da sito a sito di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+    * [Panoramica di Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > Se si crea la connessione direttamente alla rete virtuale del dominio gestito, usare una subnet del gateway separata. Non creare il gateway nella subnet del dominio gestito.
 
 1. Per amministrare un dominio gestito, creare una macchina virtuale di gestione, aggiungerla al dominio gestito e installare gli strumenti di gestione di servizi di dominio Active Directory necessari.
 
-    Durante la distribuzione della foresta di risorse del dominio gestito, [creare una macchina virtuale Windows Server](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm) e installare gli strumenti di gestione di servizi di dominio [Active Directory di base](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) per installare gli strumenti di gestione necessari. Attendere per aggiungere la macchina virtuale di gestione al dominio gestito fino a quando non viene distribuito correttamente uno dei passaggi seguenti.
+    Durante la distribuzione della foresta di risorse del dominio gestito, [creare una macchina virtuale Windows Server](./join-windows-vm.md) e installare gli strumenti di gestione di servizi di dominio [Active Directory di base](./tutorial-create-management-vm.md) per installare gli strumenti di gestione necessari. Attendere per aggiungere la macchina virtuale di gestione al dominio gestito fino a quando non viene distribuito correttamente uno dei passaggi seguenti.
 
 1. Convalidare la connettività di rete tra la rete locale e la rete virtuale di Azure.
 
@@ -260,7 +260,7 @@ Gli scenari comuni seguenti consentono di verificare che il trust tra foreste es
 1. Connettersi alla macchina virtuale Windows Server aggiunta alla foresta delle risorse del dominio gestito usando Desktop remoto e le credenziali di amministratore di dominio gestito. Se viene ricevuto un errore di Autenticazione a livello di rete (NLA), controllare che l'account utente usato non sia un account utente di dominio.
 
     > [!TIP]
-    > Per connettersi in modo sicuro alle macchine virtuali Unite a Azure AD Domain Services, è possibile usare il [servizio host di Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) in aree di Azure supportate.
+    > Per connettersi in modo sicuro alle macchine virtuali Unite a Azure AD Domain Services, è possibile usare il [servizio host di Azure Bastion](../bastion/bastion-overview.md) in aree di Azure supportate.
 
 1. Aprire un prompt dei comandi e usare il comando `whoami` per visualizzare il nome distinto dell'utente attualmente autenticato:
 
@@ -286,7 +286,7 @@ Usando la macchina virtuale Windows Server aggiunta alla foresta delle risorse d
 1. Connettersi alla macchina virtuale Windows Server aggiunta alla foresta delle risorse del dominio gestito usando Desktop remoto e le credenziali di amministratore di dominio gestito. Se viene ricevuto un errore di Autenticazione a livello di rete (NLA), controllare che l'account utente usato non sia un account utente di dominio.
 
     > [!TIP]
-    > Per connettersi in modo sicuro alle macchine virtuali Unite a Azure AD Domain Services, è possibile usare il [servizio host di Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) in aree di Azure supportate.
+    > Per connettersi in modo sicuro alle macchine virtuali Unite a Azure AD Domain Services, è possibile usare il [servizio host di Azure Bastion](../bastion/bastion-overview.md) in aree di Azure supportate.
 
 1. Aprire **Impostazioni di Windows**, quindi cercare e selezionare **Centro connessioni di rete e condivisione**.
 1. Scegliere l'opzione per **Modifica impostazioni di condivisione avanzate**.

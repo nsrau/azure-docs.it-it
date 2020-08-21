@@ -2,17 +2,17 @@
 title: Abilitazione di TLS end-to-end nel gateway applicazione di Azure
 description: Questo articolo offre un'introduzione al supporto di TLS end-to-end del gateway applicazione.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962102"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723300"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Panoramica della terminazione TLS e di TLS end-to-end con il gateway applicazione
 
@@ -30,7 +30,7 @@ Il gateway applicazione supporta la terminazione TLS nel gateway, dopo la quale 
 Per configurare la terminazione TLS, è necessario aggiungere un certificato TLS/SSL al listener per consentire al gateway applicazione di derivare una chiave simmetrica in base alla specifica del protocollo TLS/SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato TLS/SSL deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
 
 > [!IMPORTANT] 
-> Si noti che il certificato nel listener richiede il caricamento dell'intera catena di certificati. 
+> Il certificato nel listener richiede che l'intera catena di certificati venga caricata (il certificato radice dalla CA, i intermedi e il certificato foglia) per stabilire la catena di attendibilità. 
 
 
 > [!NOTE] 

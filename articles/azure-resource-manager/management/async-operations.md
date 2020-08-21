@@ -2,14 +2,14 @@
 title: Stato delle operazioni asincrone
 description: Viene descritto come tenere traccia delle operazioni asincrone in Azure. Mostra i valori usati per ottenere lo stato di un'operazione a esecuzione prolungata.
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68a00e50c7d3e0da757ee7a3a09274c5f1dbecad
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718425"
+ms.locfileid: "88723453"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Tenere traccia delle operazioni asincrone
 
@@ -31,7 +31,7 @@ Consultare la [documentazione dell'API REST](/rest/api/azure/) per visualizzare 
 
 Dopo aver ricevuto il codice di risposta 201 o 202, si è pronti per monitorare lo stato dell'operazione.
 
-## <a name="use-url-to-monitor-status"></a>Usa URL per monitorare lo stato
+## <a name="url-to-monitor-status"></a>URL per il monitoraggio dello stato
 
 Esistono due modi diversi per monitorare lo stato dell'operazione asincrona. Per determinare l'approccio corretto, esaminare i valori dell'intestazione restituiti dalla richiesta originale. Per prima cosa, cercare:
 
@@ -45,7 +45,9 @@ Se `Azure-AsyncOperation` non è uno dei valori di intestazione, cercare:
 
 ## <a name="azure-asyncoperation-request-and-response"></a>Richiesta e risposta di Azure AsyncOperation
 
-Se si dispone di un URL dal `Azure-AsyncOperation` valore dell'intestazione, inviare una richiesta Get a tale URL. Usare il valore di `Retry-After` per pianificare la frequenza di controllo dello stato. Le proprietà della risposta possono variare, ma includono sempre lo stato dell'operazione asincrona.
+Se si dispone di un URL dal `Azure-AsyncOperation` valore dell'intestazione, inviare una richiesta Get a tale URL. Usare il valore di `Retry-After` per pianificare la frequenza di controllo dello stato. Si otterrà un oggetto risposta che indica lo stato dell'operazione. Viene restituita una risposta diversa quando si verifica lo stato dell'operazione con l' `Location` URL. Per ulteriori informazioni sulla risposta da un URL località, vedere [creare un account di archiviazione (202 con percorso e riprovare-dopo)](#create-storage-account-202-with-location-and-retry-after).
+
+Le proprietà della risposta possono variare, ma includono sempre lo stato dell'operazione asincrona.
 
 ```json
 {

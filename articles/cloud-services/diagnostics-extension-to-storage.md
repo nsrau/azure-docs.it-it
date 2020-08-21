@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e16d77c36f382e72d5e9902b07afbbec50b6876
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77472674"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723255"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
-I dati di diagnostica non vengono archiviati definitivamente a meno che non vengano trasferiti nell'Emulatore di archiviazione di Microsoft Azure o nell'account di archiviazione di Azure. Una volta trasferiti nella risorsa di archiviazione, sono disponibili diversi strumenti per visualizzarli.
+I dati di diagnostica non vengono archiviati in modo permanente, a meno che non vengano trasferiti nell'Emulatore di archiviazione di Microsoft Azure o nell'archiviazione di Azure. Una volta trasferiti nella risorsa di archiviazione, sono disponibili diversi strumenti per visualizzarli.
 
 ## <a name="specify-a-storage-account"></a>Specificare un account di archiviazione
 Specificare l'account di archiviazione da usare nel file ServiceConfiguration.cscfg. Le informazioni account vengono definite come stringa di connessione in un'impostazione di configurazione. L'esempio seguente mostra la stringa di connessione predefinita creata per un nuovo progetto di servizio cloud in Visual Studio:

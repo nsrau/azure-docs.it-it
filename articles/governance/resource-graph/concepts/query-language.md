@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 08/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ea274c349c968852b77f3c3f2d39637f91484335
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541822"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723435"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -93,7 +93,7 @@ Questa query USA prima di tutto la query condivisa, quindi usa `limit` per limit
 
 ## <a name="supported-kql-language-elements"></a>Elementi supportati del linguaggio KQL
 
-Resource Graph supporta tutti i [tipi di dati](/azure/kusto/query/scalar-data-types/), le [funzioni scalari](/azure/kusto/query/scalarfunctions), gli [operatori scalari](/azure/kusto/query/binoperators) e le [funzioni di aggregazione](/azure/kusto/query/any-aggfunction) di KQL. Resource Graph supporta [operatori tabulari](/azure/kusto/query/queries) specifici, alcuni dei quali con comportamenti diversi.
+Il grafico risorse supporta un subset di [tipi di dati](/azure/kusto/query/scalar-data-types/)KQL, [funzioni scalari](/azure/kusto/query/scalarfunctions), [operatori scalari](/azure/kusto/query/binoperators)e [funzioni di aggregazione](/azure/kusto/query/any-aggfunction). Resource Graph supporta [operatori tabulari](/azure/kusto/query/queries) specifici, alcuni dei quali con comportamenti diversi.
 
 ### <a name="supported-tabulartop-level-operators"></a>Operatori tabulari/di livello superiore supportati
 
@@ -124,7 +124,7 @@ L'ambito delle sottoscrizioni da cui le risorse vengono restituite da una query 
 Nell'API REST e in tutti gli altri SDK, l'elenco di sottoscrizioni per includere le risorse da deve essere definito in modo esplicito come parte della richiesta.
 
 Come **Anteprima**, la versione dell'API REST `2020-04-01-preview` aggiunge una proprietà per definire l'ambito della query a un [gruppo di gestione](../../management-groups/overview.md). Questa API di anteprima rende inoltre la proprietà della sottoscrizione facoltativa. Se non è stato definito né l'elenco di sottoscrizioni né il gruppo di gestione, l'ambito della query corrisponde a tutte le risorse a cui l'utente autenticato può accedere. La nuova `managementGroupId` proprietà accetta l'ID del gruppo di gestione, che è diverso dal nome del gruppo di gestione.
-Quando `managementGroupId` si specifica, vengono incluse le risorse della prima sottoscrizioni 5000 in o sotto la gerarchia del gruppo di gestione specificata. `managementGroupId`non può essere usato contemporaneamente a `subscriptions` .
+Quando `managementGroupId` si specifica, vengono incluse le risorse della prima sottoscrizioni 5000 in o sotto la gerarchia del gruppo di gestione specificata. `managementGroupId` non può essere usato contemporaneamente a `subscriptions` .
 
 Esempio: eseguire una query su tutte le risorse nella gerarchia del gruppo di gestione denominato "My Management Group" con ID "myMG".
 

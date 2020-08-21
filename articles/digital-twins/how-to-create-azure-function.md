@@ -2,17 +2,17 @@
 title: Configurare una funzione di Azure per l'elaborazione dei dati
 titleSuffix: Azure Digital Twins
 description: Vedere come creare una funzione di Azure che possa accedere e essere attivata da dispositivi gemelli digitali.
-author: cschormann
-ms.author: cschorm
+author: baanders
+ms.author: baanders
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ab013a310997f43d1019d849e87c0cf1b0d151ee
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: f371f52b0a110afeef6f3f72fb459b30842f77eb
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661096"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723708"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connettere le app di funzioni di Azure per l'elaborazione dei dati
 

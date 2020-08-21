@@ -2,17 +2,17 @@
 title: Componenti del gateway applicazione
 description: Questo articolo fornisce informazioni sui vari componenti in un gateway applicazione
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.author: absha
-ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/21/2020
+ms.author: surmb
+ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088088"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723317"
 ---
 # <a name="application-gateway-components"></a>Componenti del gateway applicazione
 
@@ -69,9 +69,9 @@ Esistono due tipi di listener:
 
 - **Basic**. Questo tipo di listener è in ascolto su un singolo sito di dominio, in cui è presente un singolo mapping DNS all'indirizzo IP del gateway applicazione. Questa configurazione del listener è necessaria quando si ospita un sito singolo dietro un gateway applicazione.
 
-- **Multisito**. Questa configurazione del listener è necessaria quando si desidera configurare il routing in base al nome host o al nome di dominio per più di un'applicazione Web nello stesso gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre domini, contoso.com, fabrikam.com e adatum.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre [listener multisito](multiple-site-overview.md) e si configureranno ogni listener per la rispettiva porta e impostazione del protocollo. 
+- **Multisito**. Questa configurazione del listener è necessaria quando si desidera configurare il routing in base al nome host o al nome di dominio per più di un'applicazione Web nello stesso gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a più di 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre domini, contoso.com, fabrikam.com e adatum.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre [listener multisito](multiple-site-overview.md) e si configureranno ogni listener per la rispettiva porta e impostazione del protocollo. 
 
-    È anche possibile definire nomi host con caratteri jolly in un listener multisito e fino a 5 nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener (anteprima)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+    È anche possibile definire nomi host con caratteri jolly in un listener multisito e fino a cinque nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener (anteprima)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
     Per altre informazioni su come configurare un listener multisito, vedere [hosting di più siti nel gateway applicazione con portale di Azure](create-multiple-sites-portal.md).
 
@@ -99,7 +99,7 @@ La regola di routing delle richieste consente anche di reindirizzare il traffico
 
 Per altre informazioni, vedere [reindirizzare il traffico sul gateway applicazione](redirect-overview.md).
 
-### <a name="rewrite-http-headers-and-url"></a>Riscrivere le intestazioni HTTP e l'URL
+### <a name="rewrite-http-headers-and-url"></a>Riscrivere l'URL e le intestazioni HTTP
 
 Con le regole di riscrittura è possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP (S), nonché il percorso URL e i parametri della stringa di query, perché i pacchetti di richiesta e risposta passano tra il client e i pool back-end tramite il gateway applicazione.
 
