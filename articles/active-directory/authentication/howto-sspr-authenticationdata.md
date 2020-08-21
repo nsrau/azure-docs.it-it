@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 116fa2a4c71fc8ebc67387cf02090bbd664b862a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22037468c47de45513351e1d6126d3f3e5fccadc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035384"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717796"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Popolamento preliminare delle informazioni di contatto per l'autenticazione utente per Azure Active Directory reimpostazione della password self-service (SSPR)
 
@@ -88,7 +88,7 @@ I campi seguenti possono essere impostati tramite PowerShell:
 
 ### <a name="use-powershell-version-1"></a>Usare PowerShell versione 1
 
-Per iniziare, [scaricare e installare il modulo Azure ad PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Al termine dell'installazione, attenersi alla procedura seguente per configurare ogni campo.
+Per iniziare, [scaricare e installare il modulo Azure ad PowerShell](/previous-versions/azure/jj151815(v=azure.100)#bkmk_installmodule). Al termine dell'installazione, attenersi alla procedura seguente per configurare ogni campo.
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Impostare i dati di autenticazione con PowerShell versione 1
 
@@ -126,7 +126,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Usare PowerShell versione 2
 
-Per iniziare, [scaricare e installare il modulo di PowerShell Azure ad versione 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
+Per iniziare, [scaricare e installare il modulo di PowerShell Azure ad versione 2](/powershell/module/azuread/?view=azureadps-2.0).
 
 Per eseguire rapidamente l'installazione da versioni recenti di PowerShell che supportano `Install-Module` , eseguire i comandi seguenti. La prima riga verifica se il modulo è già installato:
 

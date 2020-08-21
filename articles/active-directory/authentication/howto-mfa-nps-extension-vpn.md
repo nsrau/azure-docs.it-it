@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507179"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717878"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -41,7 +41,7 @@ Servizi di accesso e criteri di rete consente alle organizzazioni di:
 * Stabilire e applicare criteri di integrità client di Protezione accesso alla rete che determinano se ai dispositivi viene concesso l'accesso alle risorse di rete con o senza restrizioni.
 
 * Indicare un modo per imporre l'autenticazione e l'autorizzazione per l'accesso a commutatori Ethernet e punti di accesso wireless che supportano 802.1x.
-  Per altre informazioni, vedere [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) (Server dei criteri di rete).
+  Per altre informazioni, vedere [Network Policy Server](/windows-server/networking/technologies/nps/nps-top) (Server dei criteri di rete).
 
 Per migliorare la sicurezza e offrire un elevato livello di conformità, le organizzazioni possono integrare Server dei criteri di rete con Azure Multi-Factor Authentication per garantire che gli utenti usino la verifica in due passaggi per connettersi alla porta virtuale sul server VPN. Affinché venga concesso loro l'accesso, gli utenti devono specificare la combinazione di nome utente e password con informazioni sotto il controllo dell'utente. Queste informazioni devono essere attendibili e non facilmente duplicabili. Possono includere un numero di cellulare, un numero di rete fissa o un'applicazione su un dispositivo mobile.
 
@@ -94,7 +94,7 @@ Se non si dispone di un'infrastruttura VPN funzionante, è possibile crearne rap
 
 Servizi di accesso e criteri di rete offre le funzionalità di client e server RADIUS. Questo articolo presuppone che sia stato installato il ruolo Servizi di accesso e criteri di rete in un server membro o un controller di dominio nell'ambiente in uso. In questa guida si configurerà il protocollo RADIUS per una configurazione VPN. Installare il ruolo Servizi di accesso e criteri di rete in un server *diverso dal* server VPN.
 
-Per informazioni sull'installazione del servizio ruolo Servizi di accesso e criteri di rete di Windows Server 2012 o versioni successive, vedere [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx) (Installare un server criteri di integrità Protezione accesso alla rete). Lo strumento Protezione accesso alla rete è deprecato in Windows Server 2016. Per una descrizione delle procedure consigliate per Server dei criteri di rete, inclusi i consigli sull'installazione di Server dei criteri di rete in un controller di dominio, vedere [Best Practices for NPS](https://technet.microsoft.com/library/cc771746) (Procedure consigliate per Server dei criteri di rete).
+Per informazioni sull'installazione del servizio ruolo Servizi di accesso e criteri di rete di Windows Server 2012 o versioni successive, vedere [Install a NAP Health Policy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)) (Installare un server criteri di integrità Protezione accesso alla rete). Lo strumento Protezione accesso alla rete è deprecato in Windows Server 2016. Per una descrizione delle procedure consigliate per Server dei criteri di rete, inclusi i consigli sull'installazione di Server dei criteri di rete in un controller di dominio, vedere [Best Practices for NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)) (Procedure consigliate per Server dei criteri di rete).
 
 ### <a name="azure-mfa-license"></a>Licenza di Azure MFA
 
@@ -446,13 +446,13 @@ Un evento correlato dal log di Azure Multi-Factor Authentication è illustrato d
 
 ![Log di Azure Multi-Factor Authentication](./media/howto-mfa-nps-extension-vpn/image48.png)
 
-Per la risoluzione dei problemi avanzata, consultare i file di log in formato database di Server dei criteri di rete nella posizione in cui è installato il servizio Server dei criteri di rete. I file di log vengono creati nella cartella _%SystemRoot%\System32\Logs_ come file di testo con valori delimitati da virgole. Per una descrizione dei file di log, vedere [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx) (Interpretare i file di log in formato database di Server dei criteri di rete).
+Per la risoluzione dei problemi avanzata, consultare i file di log in formato database di Server dei criteri di rete nella posizione in cui è installato il servizio Server dei criteri di rete. I file di log vengono creati nella cartella _%SystemRoot%\System32\Logs_ come file di testo con valori delimitati da virgole. Per una descrizione dei file di log, vedere [Interpret NPS Database Format Log Files](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)) (Interpretare i file di log in formato database di Server dei criteri di rete).
 
 Le voci di questi file di log sono difficili da interpretare senza esportarle in un foglio di calcolo o in un database. È possibile trovare molti strumenti di analisi Servizio Autenticazione Internet online per semplificare l'interpretazione dei file di log. Di seguito è riportato l'output di una di queste [applicazioni shareware](https://www.deepsoftware.com/iasviewer) che è possibile scaricare:
 
 ![Parser IAS dell'app shareware di esempio](./media/howto-mfa-nps-extension-vpn/image49.png)
 
-Per altre opzioni di risoluzione dei problemi, è possibile usare uno strumento di analisi di protocolli, ad esempio Wireshark o [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). L'immagine seguente relativa a Wireshark mostra i messaggi RADIUS tra il server VPN e il Server dei criteri di rete.
+Per altre opzioni di risoluzione dei problemi, è possibile usare uno strumento di analisi di protocolli, ad esempio Wireshark o [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide). L'immagine seguente relativa a Wireshark mostra i messaggi RADIUS tra il server VPN e il Server dei criteri di rete.
 
 ![Visualizzazione del traffico filtrato in Microsoft Message Analyzer](./media/howto-mfa-nps-extension-vpn/image50.png)
 

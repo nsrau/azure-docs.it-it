@@ -3,12 +3,12 @@ title: Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 description: Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653699"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717524"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 
@@ -205,7 +205,7 @@ Aggiungere i parametri per il nome dell'istanza, il numero e le dimensioni del n
 }
 ```
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>Variabili
 
 Nella sezione modello di distribuzione `variables` aggiungere una voce per il pool di indirizzi NAT in ingresso del nuovo set di scalabilità.
 
@@ -365,7 +365,7 @@ In questa procedura dettagliata si è appreso come aggiornare i set di scalabili
 
 Viene illustrato come:
 
-* [Aumentare le prestazioni di un tipo di nodo primario di un cluster di Service Fabric](service-fabric-scale-up-node-type.md)
+* [Aumentare le prestazioni di un tipo di nodo primario di un cluster di Service Fabric](service-fabric-scale-up-primary-node-type.md)
 
 * [Convertire un modello di set di scalabilità per usare Managed Disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

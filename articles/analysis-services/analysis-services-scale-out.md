@@ -4,15 +4,15 @@ description: Eseguire la replica di Azure Analysis Services server con scalabili
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 08/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78247986"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716929"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -30,7 +30,7 @@ Indipendentemente dal numero di repliche di query presenti in un pool di query, 
 
 Quando si aumenta la scalabilità orizzontale, possono essere necessari fino a cinque minuti per aggiungere le nuove repliche di query al pool di query. Quando tutte le nuove repliche di query sono in esecuzione, le nuove connessioni client vengono sottoposte a bilanciamento del carico tra le risorse nel pool di query. Le connessioni client esistenti non vengono modificate dalla risorsa alla quale sono attualmente connesse. Durante il ridimensionamento verticale, tutte le connessioni client esistenti a una risorsa del pool di query che viene rimossa dal pool di query vengono terminate. I client possono riconnettersi a una risorsa del pool di query rimanente.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si configura la scalabilità orizzontale per la prima volta, i database modello nel server primario vengono sincronizzati *automaticamente* con le nuove repliche in un nuovo pool di query. La sincronizzazione automatica viene eseguita una sola volta. Durante la sincronizzazione automatica, i file di dati del server primario (crittografati inattivi nell'archivio BLOB) vengono copiati in una seconda posizione, crittografati anche inattivi nell'archivio BLOB. Le repliche nel pool di query vengono quindi *idratate* con i dati del secondo set di file. 
 
@@ -50,7 +50,7 @@ Quando si esegue un'operazione di scalabilità orizzontale successiva, ad esempi
 
 ### <a name="synchronization-mode"></a>Modalità di sincronizzazione
 
-Per impostazione predefinita, le repliche di query vengono reidratate in modo completo e non incrementale. La riattivazione avviene nelle fasi. Vengono scollegati e collegati due alla volta (presupponendo che siano presenti almeno tre repliche) per garantire che almeno una replica venga mantenuta online per le query in un determinato momento. In alcuni casi, è possibile che i client debbano riconnettersi a una delle repliche online durante l'esecuzione del processo. Utilizzando l'impostazione di **ReplicaSyncMode** (in anteprima), è ora possibile specificare la sincronizzazione della replica delle query in parallelo. La sincronizzazione parallela offre i vantaggi seguenti: 
+Per impostazione predefinita, le repliche di query vengono reidratate in modo completo e non incrementale. La riattivazione avviene nelle fasi. Vengono scollegati e collegati due alla volta (presupponendo che siano presenti almeno tre repliche) per garantire che almeno una replica venga mantenuta online per le query in un determinato momento. In alcuni casi, è possibile che i client debbano riconnettersi a una delle repliche online durante l'esecuzione del processo. Utilizzando l'impostazione **ReplicaSyncMode** , è ora possibile specificare la sincronizzazione della replica delle query in parallelo. La sincronizzazione parallela offre i vantaggi seguenti: 
 
 - Riduzione significativa del tempo di sincronizzazione. 
 - È più probabile che i dati tra le repliche siano coerenti durante il processo di sincronizzazione. 
@@ -61,7 +61,7 @@ Per impostazione predefinita, le repliche di query vengono reidratate in modo co
 
 Usare SSMS per impostare ReplicaSyncMode in proprietà avanzate. I valori possibili sono: 
 
-- `1`(impostazione predefinita): reidratazione completa del database di replica nelle fasi (incrementale). 
+- `1` (impostazione predefinita): reidratazione completa del database di replica nelle fasi (incrementale). 
 - `2`: Sincronizzazione ottimizzata in parallelo. 
 
 ![Impostazione RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
@@ -136,8 +136,8 @@ Codici di stato restituiti:
 |-1     |  Non valido       |
 |0     | Replicating        |
 |1     |  Reidratanti       |
-|2     |   Completed       |
-|3     |   Operazione non riuscita      |
+|2     |   Completato       |
+|3     |   Non riuscito      |
 |4     |    Finalizzazione     |
 |||
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d49331f08a83eb48c232ced2c565935eb2abd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5f8d08f0814ec69719c002ea9efd39bb38b7d16
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051218"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718017"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Funzionamento di Azure Multi-Factor Authentication
 
@@ -66,4 +66,4 @@ Per informazioni sulle licenze, vedere [funzionalità e licenze per Azure multi-
 Per vedere l'autenticazione a più fattori in azione, abilitare Multi-Factor Authentication di Azure per un set di utenti di test nell'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Abilitare Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Abilitare Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

@@ -3,43 +3,46 @@ title: Usare le identità gestite di Azure per creare ambienti in DevTest Labs |
 description: Informazioni su come usare le identità gestite in Azure per distribuire gli ambienti in un Lab in Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d4df9cab17289eba21caf9d7c88eb37626b3349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478876"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718978"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usare le identità gestite di Azure per distribuire gli ambienti in un Lab 
+
 In qualità di proprietario del Lab, è possibile usare un'identità gestita per distribuire gli ambienti in un Lab. Questa funzionalità è utile negli scenari in cui l'ambiente contiene o contiene riferimenti alle risorse di Azure, ad esempio insiemi di credenziali delle chiavi, raccolte di immagini condivise e reti esterne al gruppo di risorse dell'ambiente. Consente la creazione di ambienti sandbox che non sono limitati al gruppo di risorse dell'ambiente.
 
 > [!NOTE]
 > Attualmente, per Lab è supportata una singola identità assegnata dall'utente. 
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 - [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente usando il portale di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+    
+    Assicurarsi che l'identità gestita sia stata creata nella stessa area e nella stessa sottoscrizione del Lab. Non è necessario che l'identità gestita si trovi nello stesso gruppo di risorse.
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
+
 In questa sezione, in qualità di proprietario del Lab, usare il portale di Azure per aggiungere un'identità gestita dall'utente al Lab. 
 
-1. Nella pagina Lab selezionare **configurazione e criteri**. 
-1. Selezionare **Identity (identità** ) nella sezione **Settings (impostazioni** ).
-1. Per aggiungere un'identità assegnata a un utente, selezionare **Aggiungi** sulla barra degli strumenti. 
-1. Selezionare un' **identità** da un elenco a discesa pre-popolato.
-1. Selezionare **OK**.
-
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Cercare **DevTest Labs**.
+1. Dall'elenco dei Lab selezionare il Lab desiderato.
+1. Selezionare **configurazione e criteri**  ->  **identità (anteprima)**. 
+1. Per aggiungere un'identità assegnata a un utente, selezionare la scheda **assegnato dall'utente** .
+1. Premere **Aggiungi** .
+1. Selezionare un utente esistente che è stato creato e/o a cui si ha accesso dall'elenco a discesa.
+ 
     ![Aggiungi identità gestita dall'utente](./media/use-managed-identities-environments/add-user-managed-identity.png)
-2. Nell'elenco viene visualizzata l'identità gestita dall'utente aggiunta. 
+1. Fare clic su **Salva** nella parte superiore della pagina.
 
-    ![Identità gestita dall'utente nell'elenco](./media/use-managed-identities-environments/identity-in-list.png)
-
-Una volta salvato, il Lab utilizzerà questa identità durante la distribuzione di tutti gli ambienti Lab. È anche possibile accedere alla risorsa di identità in Azure selezionando l'identità dall'elenco. 
+    Una volta salvato, il Lab utilizzerà questa identità durante la distribuzione di tutti gli ambienti Lab. È anche possibile accedere alla risorsa di identità in Azure selezionando l'identità dall'elenco. 
 
 Il proprietario del Lab non deve eseguire alcuna operazione speciale durante la distribuzione di un ambiente purché l'identità aggiunta al lab disponga delle autorizzazioni per le risorse esterne a cui l'ambiente deve accedere. 
 
 Per modificare l'identità gestita dall'utente assegnata al Lab, rimuovere prima l'identità collegata al Lab, quindi aggiungerne un'altra al Lab. Per rimuovere un'identità collegata al Lab, selezionare **... (puntini**di sospensione) e fare clic su **Rimuovi**. 
-
-![Identità gestita dall'utente nell'elenco](./media/use-managed-identities-environments/replace-identity.png)  
 
 ## <a name="use-api"></a>USA API
 
@@ -66,7 +69,7 @@ Per modificare l'identità gestita dall'utente assegnata al Lab, rimuovere prima
     }
     ```
  
-    Ad esempio: 
+    Ecco un esempio: 
 
     ```json
     PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity

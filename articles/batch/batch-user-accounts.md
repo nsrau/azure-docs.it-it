@@ -2,14 +2,14 @@
 title: Eseguire attività con account utente
 description: Informazioni sui tipi di account utente e su come configurarli.
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 08/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142685"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719360"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
 
@@ -49,18 +49,13 @@ Il livello di elevazione dei privilegi dell'account utente indica se un'attivit�
 
 ## <a name="auto-user-accounts"></a>Account utente automatici
 
-Per impostazione predefinita, in Batch le attività vengono eseguite con un account utente automatico, come utente standard senza accesso con privilegi elevati e con un ambito di attività. Quando per l'ambito di attività è configurata la specifica di utente automatico, il servizio Batch crea un account utente di questo tipo solo per l'attività.
+Per impostazione predefinita, le attività vengono eseguite in batch con un account utente automatico, come utente standard senza accesso con privilegi elevati e con ambito del pool. L'ambito del pool indica che l'attività viene eseguita con un account utente automatico disponibile per qualsiasi attività nel pool. Per altre informazioni sull'ambito del pool, vedere [eseguire un'attività come utente automatico con ambito del pool](#run-a-task-as-an-auto-user-with-pool-scope).
 
-L'alternativa all'ambito di attività è l'ambito di pool. Quando per l'ambito di pool è configurata la specifica di utente automatico, l'attività viene eseguita con un account di questo tipo disponibile per qualsiasi attività nel pool. Per altre informazioni sull'ambito del pool, vedere [eseguire un'attività come utente automatico con ambito del pool](#run-a-task-as-an-auto-user-with-pool-scope).
-
-L'ambito predefinito è diverso in nodi Windows e Linux:
-
-- Nei nodi Windows le attività vengono eseguite nell'ambito di attività per impostazione predefinita.
-- I nodi Linux vengono sempre eseguiti nell'ambito di pool.
+L'alternativa all'ambito del pool è l'ambito dell'attività. Quando per l'ambito di attività è configurata la specifica di utente automatico, il servizio Batch crea un account utente di questo tipo solo per l'attività.
 
 Esistono quattro possibili configurazioni per la specifica di utente automatico, ognuna delle quali corrisponde a un account utente automatico univoco:
 
-- Accesso senza privilegi di amministratore con ambito di attività (specifica di utente automatico predefinito)
+- Accesso non amministratore con ambito attività
 - Accesso con privilegi di amministratore (elevati) con ambito di attività
 - Accesso senza privilegi di amministratore con ambito di pool
 - Accesso con privilegi di amministratore con ambito di pool
@@ -75,7 +70,7 @@ Quando è necessario eseguire un'attività con accesso con privilegi elevati, è
 > [!NOTE]
 > Usare l'accesso con privilegi elevati solo quando necessario. e concedere esclusivamente i privilegi minimi necessari per ottenere il risultato desiderato. Se ad esempio un'attività di avvio consente di installare software per l'utente corrente, anziché per tutti gli utenti, è possibile evitare di concedere l'accesso con privilegi elevati alle attività. È possibile configurare la specifica di utente automatico per l'ambito di pool e senza privilegi di amministratore per tutte le attività che devono essere eseguite con lo stesso account, tra cui l'attività di avvio.
 
-I frammenti di codice seguente illustrano come configurare la specifica di utente automatico. Gli esempi impostano il livello di elevazione dei privilegi su `Admin` e su `Task`. L'ambito di attività è l'impostazione predefinita, ma in questo caso viene inclusa a scopo di esempio.
+I frammenti di codice seguente illustrano come configurare la specifica di utente automatico. Gli esempi impostano il livello di elevazione dei privilegi su `Admin` e su `Task`.
 
 #### <a name="batch-net"></a>Batch .NET
 
@@ -90,7 +85,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### <a name="batch-python"></a>Batch Python
@@ -113,7 +108,7 @@ Quando viene eseguito il provisioning di un nodo, a livello di pool vengono crea
 
 Quando si specifica l'ambito di pool per l'utente automatico, tutte le attività eseguite con privilegi di amministratore vengono eseguite con lo stesso account utente automatico a livello di pool. In modo analogo, le attività eseguite senza privilegi di amministratore vengono eseguite anche con un unico account utente automatico a livello di pool.
 
-> [!NOTE] 
+> [!NOTE]
 > I due account utente automatici a livello di pool sono account separati. Le attività in esecuzione con l'account amministrativo a livello di pool non possono condividere dati con attività in esecuzione con l'account standard e viceversa.
 
 Il vantaggio di eseguire attività con lo stesso account utente automatico consiste nel fatto che le attività sono in grado di condividere dati con altre attività in esecuzione nello stesso nodo.

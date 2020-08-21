@@ -11,19 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550628"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717966"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory (anteprima)
 
 Questo documento è incentrato sull'abilitazione dell'autenticazione senza password basata sulla chiave di sicurezza FIDO2 con i dispositivi Windows 10. Alla fine di questo articolo, sarà possibile accedere ai dispositivi Azure AD e ibridi Azure AD aggiunti a Windows 10 con l'account Azure AD usando una chiave di sicurezza FIDO2.
 
 > [!NOTE]
-> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle  [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisiti
 
@@ -37,7 +37,7 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 | [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) richiedono Windows 10 versione 2004 o successiva |   | X |
 | Controller di dominio Windows Server 2016/2019 con patch complete. |   | X |
 | [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versione 1.4.32.0 o successiva |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (facoltativo) | X | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (facoltativo) | X | X |
 | Pacchetto di provisioning (facoltativo) | X | X |
 | Criteri di gruppo (facoltativo) |   | X |
 
@@ -100,7 +100,7 @@ Per specificare come destinazione gruppi di dispositivi specifici per abilitare 
       - URI OMA:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Tipo di dati: integer
       - Valore: 1
-1. Questo criterio può essere assegnato a utenti, dispositivi o gruppi specifici. Per altre informazioni, vedere [assegnare profili utente e dispositivo in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Questo criterio può essere assegnato a utenti, dispositivi o gruppi specifici. Per altre informazioni, vedere [assegnare profili utente e dispositivo in Microsoft Intune](/intune/device-profile-assign).
 
 ![Creazione dei criteri di configurazione del dispositivo personalizzati di Intune](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
@@ -122,10 +122,10 @@ Per i dispositivi non gestiti da Intune, è possibile installare un pacchetto di
 1. Prendere nota di o modificare il percorso nelle finestre di **compilazione** in **selezionare dove salvare il pacchetto di provisioning** e selezionare **Avanti**.
 1. Selezionare **Compila** nella pagina **Compila il pacchetto di provisioning** .
 1. Salvare i due file creati (*ppkg* e *Cat*) in un percorso in cui è possibile applicarli ai computer in un secondo momento.
-1. Per applicare il pacchetto di provisioning creato, vedere [applicare un pacchetto di provisioning](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package).
+1. Per applicare il pacchetto di provisioning creato, vedere [applicare un pacchetto di provisioning](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> I dispositivi che eseguono Windows 10 versione 1809 devono abilitare anche la modalità*EnableSharedPCMode*(Shared PC Mode). Per ulteriori informazioni sull'abilitazione di questa funzionalità, vedere [configurare un PC condiviso o Guest con Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
+> I dispositivi che eseguono Windows 10 versione 1809 devono abilitare anche la modalità*EnableSharedPCMode*(Shared PC Mode). Per ulteriori informazioni sull'abilitazione di questa funzionalità, vedere [configurare un PC condiviso o Guest con Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Abilita con Criteri di gruppo
 

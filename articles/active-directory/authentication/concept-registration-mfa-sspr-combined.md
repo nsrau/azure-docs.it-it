@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512976"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718918"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registrazione di informazioni di sicurezza combinate per Azure Active Directory Panoramica
 
@@ -32,7 +32,7 @@ Questo articolo illustra la registrazione di sicurezza combinata. Per iniziare a
 
 ![Profilo personale che mostra le informazioni di sicurezza registrate per un utente](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Prima di abilitare la nuova esperienza, esaminare questa documentazione incentrata sull'amministratore e la documentazione incentrata sull'utente per assicurarsi di comprendere la funzionalità e l'effetto di questa funzionalità. Basare il training sulla [documentazione dell'utente](../user-help/user-help-security-info-overview.md) per preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione.
+Prima di abilitare la nuova esperienza, esaminare questa documentazione incentrata sull'amministratore e la documentazione incentrata sull'utente per assicurarsi di comprendere la funzionalità e l'effetto di questa funzionalità. Basare il training sulla [documentazione dell'utente](../user-help/security-info-setup-signin.md) per preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione.
 
 Azure AD registrazione di informazioni di sicurezza combinata non è attualmente disponibile per i cloud nazionali come Azure US Government, Azure Germania o Azure Cina 21Vianet.
 
@@ -56,13 +56,13 @@ La registrazione combinata supporta le azioni e i metodi di autenticazione segue
 | Microsoft Authenticator | Sì (massimo 5) | No | Sì |
 | Altra app di autenticazione | Sì (massimo 5) | No | Sì |
 | Token hardware | No | No | Sì |
-| Telefono | sì | sì | sì |
-| Telefono alternativo | sì | sì | sì |
+| Telefono | Sì | Sì | Sì |
+| Telefono alternativo | Sì | Sì | Sì |
 | Telefono ufficio | No | No | No |
-| E-mail | sì | sì | sì |
+| E-mail | Sì | Sì | Sì |
 | Domande di sicurezza | Sì | No | Sì |
 | Password dell'app | Sì | No | Sì |
-| Chiavi di sicurezza FIDO2<br />*Modalità gestita solo dalla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info)*| sì | sì | sì |
+| Chiavi di sicurezza FIDO2<br />*Modalità gestita solo dalla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info)*| Sì | Sì | Sì |
 
 > [!NOTE]
 > Le password dell'app sono disponibili solo per gli utenti che sono stati applicati per Multi-Factor Authentication. Le password dell'app non sono disponibili per gli utenti abilitati per Multi-Factor Authentication tramite criteri di accesso condizionale.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027615"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716300"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -55,7 +55,7 @@ La riduzione di un'interruzione reale deve essere l'obiettivo principale di un'o
 
 ### <a name="administrator-lockout-contingency"></a>Piano di emergenza per il blocco dell'amministratore
 
-Per sbloccare l'accesso dell'amministratore al tenant, è consigliabile creare account di accesso di emergenza. Questi account, noti anche come account *break glass*, consentono l'accesso per gestire la configurazione di Azure AD quando non sono disponibili le normali procedure di accesso con privilegi. Devono essere creati almeno due account di accesso di emergenza seguendo le [indicazioni relative agli account di accesso di emergenza]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
+Per sbloccare l'accesso dell'amministratore al tenant, è consigliabile creare account di accesso di emergenza. Questi account, noti anche come account *break glass*, consentono l'accesso per gestire la configurazione di Azure AD quando non sono disponibili le normali procedure di accesso con privilegi. Devono essere creati almeno due account di accesso di emergenza seguendo le [indicazioni relative agli account di accesso di emergenza]( ../users-groups-roles/directory-emergency-access.md).
 
 ### <a name="mitigating-user-lockout"></a>Riduzione del blocco dell'utente
 
@@ -65,11 +65,11 @@ Per sbloccare l'accesso dell'amministratore al tenant, è consigliabile creare a
 
 Incorporare i controlli di accesso seguenti nei criteri di accesso condizionale esistenti per l'organizzazione:
 
-1. Effettuare il provisioning di più metodi di autenticazione per ogni utente che si basano su canali di comunicazione diversi, ad esempio l'app Microsoft Authenticator (basata su internet), il token OATH (generato sul dispositivo) e l'autenticazione via SMS (telefonica). Il seguente script di PowerShell consentirà di identificare in anticipo i metodi aggiuntivi che gli utenti devono registrare: [script per l'analisi del metodo di autenticazione a più fattori di Azure](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+1. Effettuare il provisioning di più metodi di autenticazione per ogni utente che si basano su canali di comunicazione diversi, ad esempio l'app Microsoft Authenticator (basata su internet), il token OATH (generato sul dispositivo) e l'autenticazione via SMS (telefonica). Il seguente script di PowerShell consentirà di identificare in anticipo i metodi aggiuntivi che gli utenti devono registrare: [script per l'analisi del metodo di autenticazione a più fattori di Azure](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Distribuire Windows Hello for Business nei dispositivi Windows 10 per soddisfare i requisiti di autenticazione a più fattori direttamente dall'accesso del dispositivo.
-3. Usare dispositivi attendibili tramite [Aggiunta ad Azure AD ibrido](https://docs.microsoft.com/azure/active-directory/devices/overview) o [ dispositivi gestiti di Microsoft Intune](https://docs.microsoft.com/intune/planning-guide). Un dispositivo attendibile migliorerà l'esperienza dell'utente, in quanto il dispositivo stesso è in grado di soddisfare i requisiti avanzati di autenticazione dei criteri senza una richiesta di autenticazione a più fattori per l'utente. L'autenticazione a più fattori sarà poi necessaria durante la registrazione di un nuovo dispositivo e durante l'accesso alle app o risorse da dispositivi non attendibili.
+3. Usare dispositivi attendibili tramite [Aggiunta ad Azure AD ibrido](../devices/overview.md) o [ dispositivi gestiti di Microsoft Intune](/intune/planning-guide). Un dispositivo attendibile migliorerà l'esperienza dell'utente, in quanto il dispositivo stesso è in grado di soddisfare i requisiti avanzati di autenticazione dei criteri senza una richiesta di autenticazione a più fattori per l'utente. L'autenticazione a più fattori sarà poi necessaria durante la registrazione di un nuovo dispositivo e durante l'accesso alle app o risorse da dispositivi non attendibili.
 4. Usare criteri di protezione dell'identità di Azure AD basati sul rischio, i quali impediscono l'accesso quando l'utente o l'accesso è a rischio, piuttosto che criteri di autenticazione a più fattori fissi.
-5. Se si sta proteggendo l'accesso VPN usando l'estensione server dei criteri di rete di Azure, è consigliabile eseguire la Federazione della soluzione VPN come [app SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) e determinare la categoria dell'app come indicato di seguito. 
+5. Se si sta proteggendo l'accesso VPN usando l'estensione server dei criteri di rete di Azure, è consigliabile eseguire la Federazione della soluzione VPN come [app SAML](../manage-apps/view-applications-portal.md) e determinare la categoria dell'app come indicato di seguito. 
 
 >[!NOTE]
 > I criteri basati sul rischio richiedono licenze di [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -92,7 +92,7 @@ Questo set di criteri di esempio concederà, agli utenti selezionati in **AppUse
 
 ### <a name="contingencies-for-user-lockout"></a>Contingenze per blocco dell'utente
 
-In alternativa, l'organizzazione può anche creare dei criteri di emergenza. Per creare i criteri di emergenza, è necessario definire i criteri di compromesso tra continuità aziendale, costo operativo, costo finanziario e rischi relativi alla sicurezza. Ad esempio, è possibile attivare un criterio di emergenza solo in un subset di utenti, per un subset di app, per un subset di client o da un subset di percorsi. I criteri di emergenza forniranno l'accesso ad app e risorse agli amministratori e agli utenti finali durante un'interruzione se non è stato implementato alcun metodo di mitigazione dei rischi. Microsoft consiglia di abilitare i criteri di contingenza in [modalità solo rapporto](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only) quando non è in uso, in modo che gli amministratori possano monitorare il potenziale impatto dei criteri qualora debbano essere attivati.
+In alternativa, l'organizzazione può anche creare dei criteri di emergenza. Per creare i criteri di emergenza, è necessario definire i criteri di compromesso tra continuità aziendale, costo operativo, costo finanziario e rischi relativi alla sicurezza. Ad esempio, è possibile attivare un criterio di emergenza solo in un subset di utenti, per un subset di app, per un subset di client o da un subset di percorsi. I criteri di emergenza forniranno l'accesso ad app e risorse agli amministratori e agli utenti finali durante un'interruzione se non è stato implementato alcun metodo di mitigazione dei rischi. Microsoft consiglia di abilitare i criteri di contingenza in [modalità solo rapporto](../conditional-access/howto-conditional-access-report-only.md) quando non è in uso, in modo che gli amministratori possano monitorare il potenziale impatto dei criteri qualora debbano essere attivati.
 
  Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è una parte essenziale del processo di pianificazione. Per creare il piano di emergenza, determinare innanzitutto i seguenti requisiti aziendali dell'organizzazione:
 
@@ -119,7 +119,7 @@ Un criterio di accesso condizionale di emergenza è un **criterio di backup** ch
 
 * Configurare un set di criteri di fallback se un'interruzione in un tipo di credenziali o in un meccanismo di controllo di accesso ha effetti sull'accesso alle app. Configurare un criterio nello stato solo report che richiede l'aggiunta a un dominio come controllo, come backup per un criterio attivo che richiede un provider di autenticazione a più fattori di terze parti.
 * Ridurre il rischio di password indovinate da malintenzionati, quando l'autenticazione a più fattori non è necessaria, seguendo le procedure consigliate nel white paper relativo alle [indicazioni sulle password](https://aka.ms/passwordguidance).
-* Distribuire [Reimpostazione self-service delle password di Azure AD (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) e [Protezione della password di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) per assicurarsi che gli utenti non usino password comuni e termini esclusi.
+* Distribuire [Reimpostazione self-service delle password di Azure AD (SSPR)](./tutorial-enable-sspr.md) e [Protezione della password di Azure AD](./howto-password-ban-bad-on-premises-deploy.md) per assicurarsi che gli utenti non usino password comuni e termini esclusi.
 * Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Ad esempio:
   * Configurare un criterio di backup che invia l'attestazione di sessione con restrizioni a Exchange e SharePoint.
   * Se l'organizzazione usa Microsoft Cloud App Security, è consigliabile eseguire il fallback a un criterio che coinvolga MCAS, quindi che MCAS consenta l'accesso di sola lettura, ma non il caricamento.
@@ -208,7 +208,7 @@ Ordine di attivazione:
 
 ### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Contingenze per il blocco degli utenti da risorse locali (estensione NPS)
 
-Se si sta proteggendo l'accesso VPN usando l'estensione server dei criteri di rete di Azure, è consigliabile eseguire la Federazione della soluzione VPN come [app SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) e determinare la categoria dell'app come indicato di seguito. 
+Se si sta proteggendo l'accesso VPN usando l'estensione server dei criteri di rete di Azure, è consigliabile eseguire la Federazione della soluzione VPN come [app SAML](../manage-apps/view-applications-portal.md) e determinare la categoria dell'app come indicato di seguito. 
 
 Se è stata distribuita Azure AD estensione di server dei criteri di rete multi-factor authentication per proteggere le risorse locali, ad esempio VPN e gateway di Desktop remoto, con l'autenticazione a più fattori, è consigliabile prendere in considerazione se si è pronti per disabilitare l'autenticazione a più fattori in caso di emergenza.
 
@@ -233,7 +233,7 @@ Il blocco dell'utente può inoltre verificarsi se sussistono le condizioni segue
 - L'organizzazione usa una soluzione a identità ibrida con autenticazione pass-through o federazione.
 - I sistemi di identità in locale (ad esempio Active Directory, AD FS o un componente dipendente) non sono disponibili. 
  
-Per essere più resiliente, l'organizzazione dovrebbe [abilitare la sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), in quanto consente di [passare all'uso della sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) se i sistemi di identità in locale sono inattivi.
+Per essere più resiliente, l'organizzazione dovrebbe [abilitare la sincronizzazione dell'hash delle password](../hybrid/choose-ad-authn.md), in quanto consente di [passare all'uso della sincronizzazione dell'hash delle password](../hybrid/plan-connect-user-signin.md) se i sistemi di identità in locale sono inattivi.
 
 #### <a name="microsoft-recommendations"></a>Elementi consigliati di Microsoft
  Abilitare la sincronizzazione dell'hash delle password usando la procedura guidata di Azure AD Connect, indipendentemente dal fatto che l'organizzazione usi l'autenticazione pass-through o la federazione.
@@ -255,7 +255,7 @@ A seconda delle mitigazioni o emergenze usate durante un'interruzione, l'organiz
 1. Come parte della strategia di controllo modifiche, documentare tutte le modifiche e lo stato precedente per poter eseguire il rollback di qualsiasi emergenza implementata non appena i controlli di accesso sono completamente operativi.
 2. Presupporre che i malintenzionati tenteranno di rubare password tramite attacchi di tipo password spray o phishing quando si disabilita l'autenticazione a più fattori. Inoltre, i malintenzionati potrebbero avere già password che, se in precedenza non consentivano l'accesso a nessuna risorsa, possono essere tentate durante questo intervallo. Per gli utenti fondamentali, come i dirigenti, è possibile ridurre parzialmente questo rischio reimpostando le loro password prima di disabilitare l'autenticazione a più fattori.
 3. Archiviare tutte le attività di accesso per identificare chi accede a cosa durante la fase in cui l'autenticazione a più fattori è disabilitata.
-4. [Valutazione di tutti i rilevamenti di rischio segnalati](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) durante questa finestra.
+4. [Valutazione di tutti i rilevamenti di rischio segnalati](../reports-monitoring/concept-sign-ins.md) durante questa finestra.
 
 ## <a name="after-a-disruption"></a>Dopo un'interruzione
 
@@ -265,8 +265,8 @@ Annullare le modifiche apportate nell'ambito del piano di emergenza attivato una
 2. Disabilitare i criteri di emergenza in modalità di sola segnalazione. 
 3. Eseguire il rollback delle modifiche apportate e documentate durante l'interruzione.
 4. Se si usa un account di accesso di emergenza, ricordarsi di rigenerare le credenziali e proteggere fisicamente i dettagli delle nuove credenziali come parte delle procedure di account di accesso di emergenza.
-5. Continua a valutare [tutti i rilevamenti dei rischi segnalati](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) dopo l'interferenza per attività sospette.
-6. Revocare tutti i token di aggiornamento rilasciati [usando PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) e destinati a un set di utenti. La revoca di tutti i token di aggiornamento è importante per gli account con privilegi usati durante l'interruzione. Questa operazione costringerà gli utenti a ripetere l'autenticazione e rispettare il controllo dei criteri ripristinati.
+5. Continua a valutare [tutti i rilevamenti dei rischi segnalati](../reports-monitoring/concept-sign-ins.md) dopo l'interferenza per attività sospette.
+6. Revocare tutti i token di aggiornamento rilasciati [usando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) e destinati a un set di utenti. La revoca di tutti i token di aggiornamento è importante per gli account con privilegi usati durante l'interruzione. Questa operazione costringerà gli utenti a ripetere l'autenticazione e rispettare il controllo dei criteri ripristinati.
 
 ## <a name="emergency-options"></a>Opzioni di emergenza
 
@@ -280,17 +280,17 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
  > Se si ampliano gli indirizzi IP attendibili per sbloccare l'accesso, i rilevamenti dei rischi associati a indirizzi IP (ad esempio, spostamento impossibile o posizioni non note) non verranno generati.
 
 >[!NOTE]
- > La configurazione di [indirizzi IP attendibili](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) per l'autenticazione a più fattori di Azure è disponibile solo con [licenze Azure AD Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).
+ > La configurazione di [indirizzi IP attendibili](./howto-mfa-mfasettings.md) per l'autenticazione a più fattori di Azure è disponibile solo con [licenze Azure AD Premium](./concept-mfa-licensing.md).
 
 ## <a name="learn-more"></a>Altre informazioni
 
-* [Documentazione di Autenticazione di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
-* [Gestire gli account amministrativi di accesso di emergenza in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
-* [Configurare località denominate in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
-  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
-* [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide) (Guida alla distribuzione di Windows Hello fo Business)
+* [Documentazione di Autenticazione di Azure AD](./howto-mfaserver-iis.md)
+* [Gestire gli account amministrativi di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Configurare località denominate in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+* [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](../devices/hybrid-azuread-join-plan.md)
+* [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide) (Guida alla distribuzione di Windows Hello fo Business)
   * [Materiale sussidiario sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Quali sono le condizioni in Azure Active Directory l'accesso condizionale?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Che cosa sono i controlli di accesso nell'accesso condizionale Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
-* [Che cos'è la modalità solo report di accesso condizionale?](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only)
+* [Quali sono le condizioni in Azure Active Directory l'accesso condizionale?](../conditional-access/concept-conditional-access-conditions.md)
+* [Che cosa sono i controlli di accesso nell'accesso condizionale Azure Active Directory?](../conditional-access/controls.md)
+* [Che cos'è la modalità solo report di accesso condizionale?](../conditional-access/concept-conditional-access-report-only.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b610748e425b9497e12c389cca4d797d6da54087
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261410"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719003"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Eseguire la migrazione dalla libreria del processore dei feed delle modifiche al Azure Cosmos DB .NET V3 SDK
 
@@ -46,10 +46,6 @@ Analogamente alla libreria del processore dei feed delle modifiche, la funzional
 Il processore di feed di modifiche di SDK V3 rileverà qualsiasi stato della libreria precedente ed eseguirà la migrazione automatica al nuovo schema al momento della prima esecuzione del codice dell'applicazione migrata. 
 
 È possibile arrestare tranquillamente l'applicazione usando il codice precedente, eseguire la migrazione del codice alla nuova versione, avviare l'applicazione migrata e tutte le modifiche apportate durante l'arresto dell'applicazione verranno selezionate ed elaborate dalla nuova versione.
-
-> [!NOTE]
-> Le migrazioni dalle applicazioni che usano la libreria a .NET V3 SDK sono unidirezionali, perché lo stato (lease) verrà migrato al nuovo schema. La migrazione non è compatibile con le versioni precedenti.
-
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

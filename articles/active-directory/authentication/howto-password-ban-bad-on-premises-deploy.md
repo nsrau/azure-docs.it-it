@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82143215"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718952"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
 
-Spesso gli utenti creano password che usano parole locali comuni, ad esempio una scuola, un team sportivo o una persona famosa. Queste password sono facili da indovinare e vulnerabili dagli attacchi basati su dizionario. Per applicare password complesse nell'organizzazione, la protezione con password Azure Active Directory (Azure AD) fornisce un elenco di password vietate globali e personalizzate. Una richiesta di modifica della password ha esito negativo se è presente una corrispondenza nell'elenco delle password escluse.
+Gli utenti creano spesso password che usano parole locali comuni, ad esempio il nome di una scuola, una squadra sportiva o un personaggio famoso. Queste password sono facili da indovinare e vulnerabili ad attacchi basati su dizionario. Per applicare password complesse nell'organizzazione, la protezione con password Azure Active Directory (Azure AD) fornisce un elenco di password vietate globali e personalizzate. Una richiesta di modifica della password ha esito negativo se è presente una corrispondenza nell'elenco delle password escluse.
 
 Per proteggere l'ambiente di Active Directory Domain Services locale (AD DS), è possibile installare e configurare Azure AD la protezione delle password per l'uso con il controller di dominio locale. Questo articolo illustra come installare e registrare il servizio proxy Azure AD Password Protection e Azure AD agente di controller di dominio per la protezione delle password nell'ambiente locale.
 
@@ -101,7 +101,7 @@ I requisiti seguenti si applicano all'agente di controller di dominio Azure AD p
     * Il dominio o la foresta Active Directory non deve trovarsi nel livello di funzionalità del dominio di Windows Server 2012 (DFL) o nel livello di funzionalità della foresta (FFL). Come indicato nei [principi di progettazione](concept-password-ban-bad-on-premises.md#design-principles), non è necessario alcun valore minimo di DFL o FFL per l'esecuzione del software proxy o dell'agente DC.
 * Per tutti i computer in cui è in esecuzione Azure AD Password Protection Agent è necessario che sia installato .NET 4,5.
 * Qualsiasi Active Directory dominio in cui è in esecuzione il servizio agente di Azure AD password protection controller di dominio deve utilizzare la replica file system distribuito (DFSR) per la replica SYSVOL.
-   * Se il dominio non usa già DFSR, è necessario eseguire la migrazione prima di installare Azure AD la protezione delle password. Per ulteriori informazioni, vedere [Guida alla migrazione della replica SYSVOL: FRS a replica DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * Se il dominio non usa già DFSR, è necessario eseguire la migrazione prima di installare Azure AD la protezione delle password. Per ulteriori informazioni, vedere [Guida alla migrazione della replica SYSVOL: FRS a replica DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
     > [!WARNING]
     > Il software dell'agente del controller di dominio Azure AD Password Protection verrà attualmente installato nei controller di dominio in domini che usano ancora FRS (la tecnologia predecessore per DFSR) per la replica SYSVOL, ma il software non funzionerà correttamente in questo ambiente.
@@ -124,14 +124,14 @@ I requisiti seguenti si applicano al servizio proxy Azure AD password protection
 * Tutti i computer che ospitano il servizio proxy Azure AD Password Protection devono essere configurati in modo da concedere ai controller di dominio la possibilità di accedere al servizio proxy. Questa possibilità viene controllata tramite l'assegnazione dei privilegi "accedi al computer dalla rete".
 * Tutti i computer che ospitano il servizio proxy Azure AD Password Protection devono essere configurati per consentire il traffico HTTP di TLS 1,2 in uscita.
 * Un account *amministratore globale* per la registrazione del servizio proxy Azure ad Password Protection e della foresta con Azure ad.
-* L'accesso alla rete deve essere abilitato per il set di porte e URL specificati nelle [procedure di configurazione dell'ambiente del proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+* L'accesso alla rete deve essere abilitato per il set di porte e URL specificati nelle [procedure di configurazione dell'ambiente del proxy di applicazione](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Prerequisiti di Microsoft Azure AD Connect Agent Updater
 
 Il servizio Microsoft Azure AD Connect Agent Updater è installato side-by-side con il servizio proxy Azure AD password protection. È necessaria una configurazione aggiuntiva per consentire al servizio Microsoft Azure AD Connect Agent Updater di funzionare:
 
-* Se l'ambiente usa un server proxy HTTP, seguire le linee guida specificate in [usare i server proxy locali esistenti](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-* Il servizio di aggiornamento dell'agente di Microsoft Azure AD Connect richiede anche la procedura TLS 1,2 specificata nei [requisiti TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* Se l'ambiente usa un server proxy HTTP, seguire le linee guida specificate in [usare i server proxy locali esistenti](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* Il servizio di aggiornamento dell'agente di Microsoft Azure AD Connect richiede anche la procedura TLS 1,2 specificata nei [requisiti TLS](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > Azure AD proxy di protezione delle password e Azure AD proxy di applicazione installano versioni diverse del servizio Microsoft Azure AD Connect Agent Updater, motivo per cui le istruzioni fanno riferimento al contenuto del proxy di applicazione. Queste versioni diverse sono incompatibili quando vengono installate side-by-side e questa operazione impedirà al servizio Agent Updater di contattare Azure per gli aggiornamenti software, pertanto è consigliabile non installare mai Azure AD proxy e proxy di applicazione della protezione delle password nello stesso computer.
