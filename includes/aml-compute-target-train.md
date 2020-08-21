@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 12/04/2019
-ms.openlocfilehash: 764e4c33182499b922499c798d57fd05d8859742
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 6ddff84de6b8ffd5bc8f7c7dcaa7cb4df3d71f81
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673391"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88703075"
 ---
 **Le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi.  Per le pipeline di Machine Learning, usare il [passaggio della pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) appropriato per ogni destinazione di calcolo.
 
@@ -22,7 +22,7 @@ ms.locfileid: "83673391"
 |----|:----:|:----:|:----:|
 |[Computer locale](../articles/machine-learning/how-to-set-up-training-targets.md#local)| sì | &nbsp; | &nbsp; |
 |[Cluster di calcolo di Azure Machine Learning](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute)| sì e <br/>ottimizzazione&nbsp;degli iperparametri | sì | sì |
-|[Istanza di calcolo di Azure Machine Learning](../articles/machine-learning/concept-compute-instance.md) | sì e <br/>ottimizzazione degli iperparametri | sì |  |
+|[Istanza di calcolo di Azure Machine Learning](../articles/machine-learning/how-to-set-up-training-targets.md#instance) | sì e <br/>ottimizzazione degli iperparametri | sì |  |
 |[Macchina virtuale remota](../articles/machine-learning/how-to-set-up-training-targets.md#vm) | sì e <br/>ottimizzazione degli iperparametri | sì | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| sì (solo modalità locale SDK) | sì | &nbsp; |
 |[Azure Data Lake Analytics.](../articles/machine-learning/how-to-create-your-first-pipeline.md#adla) | &nbsp; | sì | &nbsp; |

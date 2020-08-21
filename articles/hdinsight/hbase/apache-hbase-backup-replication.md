@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: b1830ddef44ef33d19c953622951779632e33e71
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5a3760956dfe9a713d344fd6684d75ea240ab7de
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076743"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705725"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurare il backup e la replica per Apache HBase e Apache Phoenix in HDInsight
 
@@ -213,7 +213,13 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
-Dopo l'esportazione dello snapshot, connettersi tramite SSH al nodo head del cluster di destinazione e ripristinare lo snapshot usando il comando restore_snapshot come descritto in precedenza.
+Se non si ha un account di archiviazione di Azure secondario collegato al cluster di origine o se il cluster di origine è un cluster locale (o un cluster non HDI), è possibile che si verifichino problemi di autorizzazione quando si tenta di accedere all'account di archiviazione del cluster HDI. Per risolvere questo problema, specificare la chiave per l'account di archiviazione come parametro della riga di comando, come illustrato nell'esempio seguente. È possibile ottenere la chiave per l'account di archiviazione nell'portale di Azure.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+Dopo l'esportazione dello snapshot, connettersi tramite SSH al nodo head del cluster di destinazione e ripristinare lo snapshot utilizzando il `restore_snapshot` comando come descritto in precedenza.
 
 Gli snapshot forniscono un backup completo di una tabella al momento dell'esecuzione del comando `snapshot`. Gli snapshot non offrono la possibilità di eseguire snapshot incrementali in base all'intervallo di tempo, né di specificare subset di colonne da includere nello snapshot.
 

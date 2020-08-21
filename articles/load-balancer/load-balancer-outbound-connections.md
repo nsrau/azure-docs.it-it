@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: ea73a4164a2f23a51ce1702cd85d29d7fb4c6790
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650401"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706065"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -136,7 +136,7 @@ Se un gruppo di sicurezza di rete blocca le richieste di probe di integrità dal
 - Il numero massimo di porte temporanee utilizzabili per ogni indirizzo IP front-end è 64.000.
 - L'intervallo del timeout di inattività in uscita configurabile è compreso tra 4 a 120 minuti (da 240 a 7200 secondi).
 - Load Balancer non supporta ICMP per NAT in uscita.
-- Le regole in uscita possono essere applicate solo alla configurazione IP primaria di una scheda di interfaccia di rete.  Sono supportate più schede di rete.
+- Le regole in uscita possono essere applicate solo alla configurazione IP primaria di una scheda di interfaccia di rete.  Non è possibile creare una regola in uscita per l'IP secondario di una VM o di un appliance virtuale di dispositivo. Sono supportate più schede di rete.
 - I ruoli di lavoro Web senza una rete virtuale e altri servizi della piattaforma Microsoft possono essere accessibili quando si usa solo Load Balancer Standard interno a causa di un effetto collaterale della modalità di funzionamento dei servizi pre-VNet e altre piattaforme di servizi. Non è necessario basarsi su questo effetto collaterale poiché il servizio stesso o la piattaforma sottostante sono soggetti a modifiche senza preavviso. Presupporre sempre che è necessario creare una connettività in uscita in modo esplicito se desiderato quando si usa solo Load Balancer Standard interno. Lo scenario 3 descritto in questo articolo non è disponibile.
 
 ## <a name="next-steps"></a>Passaggi successivi

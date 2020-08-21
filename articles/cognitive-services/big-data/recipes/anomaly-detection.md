@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 823d61d94913122fc279e81698933b7e648dd114
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244347"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691463"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Ricetta: manutenzione predittiva con servizi cognitivi per Big Data
 
@@ -33,7 +33,7 @@ Potrebbero essere presenti outlier nei dati in frequenza casuale. In questi casi
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Area di lavoro sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurata con un [pool Spark](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
-## <a name="setup"></a>Configurazione
+## <a name="setup"></a>Eseguire la configurazione
 
 ### <a name="create-an-anomaly-detector-resource"></a>Creare una risorsa di Rilevamento anomalie
 
@@ -151,4 +151,4 @@ Se l'operazione ha esito positivo, l'output avrà un aspetto simile al seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come eseguire la manutenzione predittiva su larga scala con servizi cognitivi di Azure, Azure sinapsi Analytics e Azure CosmosDB. Per altre informazioni, vedere l'esempio completo su [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT).
+Informazioni su come eseguire la manutenzione predittiva su larga scala con servizi cognitivi di Azure, Azure sinapsi Analytics e Azure CosmosDB. Per altre informazioni, vedere l'esempio completo su [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples).

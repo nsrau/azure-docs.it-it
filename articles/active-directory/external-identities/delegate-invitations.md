@@ -5,22 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 08/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a2c1a9b908503ee5afc2687ebef473ffed626a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909542"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705996"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire chi può invitare utenti guest
 
-Questo articolo descrive come abilitare la collaborazione B2B di Azure Active Directory (Azure AD) e determinare chi può invitare utenti guest. Per impostazione predefinita, tutti gli utenti e gli utenti guest nella directory possono invitare utenti guest anche se non sono assegnati a un ruolo di amministratore. Le impostazioni di collaborazione esterna consentono di attivare o disattivare gli inviti guest per diversi tipi di utenti dell'organizzazione. È anche possibile delegare gli inviti a singoli utenti assegnando ruoli che consentono loro di invitare utenti guest.
+Questo articolo descrive come abilitare la collaborazione B2B Azure Active Directory (Azure AD), indicare gli utenti che possono invitare i guest e determinare le autorizzazioni di cui dispongono gli utenti guest nel Azure AD. 
+
+Per impostazione predefinita, tutti gli utenti e gli utenti guest nella directory possono invitare utenti guest anche se non sono assegnati a un ruolo di amministratore. Le impostazioni di collaborazione esterna consentono di attivare o disattivare gli inviti guest per diversi tipi di utenti dell'organizzazione. È anche possibile delegare gli inviti a singoli utenti assegnando ruoli che consentono loro di invitare utenti guest.
+
+Azure AD consente di limitare le informazioni che gli utenti Guest esterni possono visualizzare nella directory Azure AD. Per impostazione predefinita, gli utenti Guest sono impostati su un livello di autorizzazione limitato che impedisce l'enumerazione di utenti, gruppi o altre risorse della directory, ma consente di visualizzare l'appartenenza di gruppi non nascosti. Una nuova impostazione di anteprima consente di limitare ulteriormente l'accesso guest, in modo che i guest possano visualizzare solo le proprie informazioni sul profilo. 
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configurare le impostazioni di collaborazione esterna B2B
 
@@ -38,19 +42,38 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore tenant.
 2. Selezionare **Azure Active Directory**.
 3. Selezionare **Identità esterne** > **Impostazioni di collaborazione esterna**.
-6. Nella pagina **Impostazioni di collaborazione esterna** selezionare i criteri che si intende abilitare.
 
-   ![Impostazioni di collaborazione esterna](./media/delegate-invitations/control-who-to-invite.png)
+4. In **restrizioni di accesso utente Guest (anteprima)** scegliere il livello di accesso che si desidera che gli utenti Guest dispongano di:
 
-  - **Le autorizzazioni degli utenti guest sono limitate**: questo criterio determina le autorizzazioni per gli utenti guest nella directory. Selezionare **Sì** per non consentire agli utenti guest di eseguire determinate attività sulla directory, ad esempio l'enumerazione di utenti, gruppi o altre risorse della directory. Selezionare **No** per concedere agli utenti guest lo stesso accesso degli utenti normali ai dati della directory.
+   > [!IMPORTANT]
+   > Per un breve periodo di tempo, questi nuovi controlli del portale per le autorizzazioni utente Guest saranno visibili solo tramite l'URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . Per altre informazioni, vedere [limitare le autorizzazioni di accesso Guest (anteprima)](https://aka.ms/exid-users-restrict-guest-permissions).
+
+   - **Gli utenti Guest hanno lo stesso accesso dei membri (più inclusivo)**: questa opzione consente agli utenti Guest lo stesso accesso alle risorse Azure ad e ai dati di directory come utenti membro.
+
+   - **Gli utenti Guest hanno accesso limitato alle proprietà e alle appartenenze degli oggetti directory**: (impostazione predefinita) questa impostazione blocca i guest da determinate attività di directory, ad esempio l'enumerazione di utenti, gruppi o altre risorse di directory. I guest possono visualizzare l'appartenenza di tutti i gruppi non nascosti.
+
+   - **L'accesso utente Guest è limitato alle proprietà e alle appartenenze dei propri oggetti directory (più restrittivi)**: con questa impostazione, i guest possono accedere solo ai propri profili. Ai guest non è consentito visualizzare i profili, i gruppi o le appartenenze ai gruppi di altri utenti.
+  
+    ![Impostazioni delle restrizioni di accesso utente Guest](./media/delegate-invitations/guest-user-access.png)
+
+5. In **Impostazioni invito Guest**scegliere le impostazioni appropriate:
+
    - **Amministratori e utenti nel ruolo mittente dell'invito guest possono invitare**: per consentire solo agli amministratori e agli utenti del ruolo "Mittente dell'invito guest" di invitare utenti guest, impostare questo criterio su **Sì**.
+
    - **I membri possono invitare**: per consentire ai membri non amministratori della directory di invitare utenti guest, impostare questo criterio su **Sì**.
+
    - **Gli utenti guest possono invitare**: per consentire agli utenti guest di invitare altri utenti guest, impostare questo criterio su **Sì**.
-   - **Abilita passcode monouso tramite posta elettronica per gli utenti guest (anteprima)** : Per altre informazioni sulla funzionalità passcode monouso, vedere [Autenticazione con passcode monouso tramite posta elettronica (anteprima)](one-time-passcode.md).
-   - **Restrizioni di collaborazione**: per altre informazioni su come consentire o bloccare gli inviti a specifici domini, vedere [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
-   
+
+   - **Abilita il codice di accesso monouso per i Guest (anteprima)**: per altre informazioni sulla funzionalità di accesso monouso, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](one-time-passcode.md).
+
+   - **Abilitare l'iscrizione self-service Guest tramite flussi utente (anteprima)**: per altre informazioni su questa impostazione, vedere [aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)](self-service-sign-up-user-flow.md).
+
    > [!NOTE]
    > Se **i membri possono invitare** è impostato su **No** e **gli amministratori e gli utenti nel ruolo mittente dell'invito Guest possono invitare** è impostato su **Sì**, gli utenti del ruolo di **invito Guest** saranno comunque in grado di invitare i guest.
+
+    ![Impostazioni di invito Guest](./media/delegate-invitations/guest-invite-settings.png)
+
+6. In **restrizioni di collaborazione**scegliere se consentire o negare gli inviti ai domini specificati. Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Assegnare il ruolo Mittente dell'invito guest a un utente
 

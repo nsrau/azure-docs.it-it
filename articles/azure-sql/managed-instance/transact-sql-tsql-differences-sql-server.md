@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298448"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705385"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,9 +26,9 @@ Questo articolo riepiloga e spiega le differenze nella sintassi e nel comportame
 
 SQL Istanza gestita garantisce una compatibilità elevata con il motore di database di SQL Server e la maggior parte delle funzionalità è supportata in un Istanza gestita SQL.
 
-![Migrazione](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Facile migrazione da SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
-Esistono alcune limitazioni di PaaS introdotte in SQL Istanza gestita e alcune modifiche del comportamento rispetto a SQL Server. Le differenze sono divise nelle categorie seguenti:<a name="Differences"></a>
+Esistono alcune limitazioni di PaaS introdotte in SQL Istanza gestita e alcune modifiche del comportamento rispetto a SQL Server. Le differenze sono divise nelle categorie seguenti: <a name="Differences"></a>
 
 - La [disponibilità](#availability) include le differenze nei [gruppi di disponibilità always on](#always-on-availability-groups) e nei [backup](#backup).
 - La [protezione](#security) include le differenze tra il [controllo](#auditing), i [certificati](#certificates), le [credenziali](#credential), i [provider di crittografia](#cryptographic-providers), [gli account di accesso e gli utenti](#logins-and-users)e la [chiave del servizio e la chiave master del servizio](#service-key-and-service-master-key).
@@ -42,12 +42,12 @@ I problemi noti temporanei individuati in SQL Istanza gestita e verranno risolti
 
 ## <a name="availability"></a>Disponibilità
 
-### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Gruppi di disponibilità Always On
+### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Gruppi di disponibilità AlwaysOn
 
 La [disponibilità elevata](../database/high-availability-sla.md) è incorporata in SQL istanza gestita e non può essere controllata dagli utenti. Le istruzioni seguenti non sono supportate:
 
 - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](/sql/t-sql/statements/create-endpoint-transact-sql)
-- [CREA GRUPPO DI DISPONIBILITÀ](/sql/t-sql/statements/create-availability-group-transact-sql)
+- [CREATE AVAILABILITY GROUP](/sql/t-sql/statements/create-availability-group-transact-sql)
 - [ALTER AVAILABILITY GROUP](/sql/t-sql/statements/alter-availability-group-transact-sql)
 - [DROP AVAILABILITY GROUP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - Clausola [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) dell'istruzione [ALTER database](/sql/t-sql/statements/alter-database-transact-sql)
@@ -60,7 +60,7 @@ SQL Istanza gestita dispone di backup automatici, in modo che gli utenti possano
   - È supportato solo `BACKUP TO URL`.
   - `FILE`i `TAPE` dispositivi di backup, e non sono supportati.
 - La maggior parte delle `WITH` Opzioni generali sono supportate.
-  - `COPY_ONLY`è obbligatorio.
+  - `COPY_ONLY` è obbligatorio.
   - `FILE_SNAPSHOT` non è supportata.
   - Opzioni nastro: `REWIND` , `NOREWIND` , `UNLOAD` e `NOUNLOAD` non sono supportate.
   - Opzioni specifiche per i log: `NORECOVERY` , `STANDBY` e `NO_TRUNCATE` non sono supportate.
@@ -230,7 +230,7 @@ Le limitazioni seguenti si applicano a `CREATE DATABASE` :
 
 - Non possono essere definiti file e filegroup. 
 - L' `CONTAINMENT` opzione non è supportata. 
-- `WITH`le opzioni non sono supportate. 
+- `WITH` le opzioni non sono supportate. 
    > [!TIP]
    > Come soluzione alternativa, usare `ALTER DATABASE` after `CREATE DATABASE` per impostare le opzioni di database per aggiungere file o per impostare l'indipendenza. 
 
@@ -327,9 +327,9 @@ Per informazioni su come creare e modificare le tabelle, vedere [Create Table](/
 
 SQL Istanza gestita non può accedere alle condivisioni file e alle cartelle di Windows, quindi i file devono essere importati dall'archivio BLOB di Azure:
 
-- `DATASOURCE`è necessario nel `BULK INSERT` comando quando si importano file dall'archiviazione BLOB di Azure. Vedere [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE`è obbligatorio nella `OPENROWSET` funzione quando si legge il contenuto di un file dall'archiviazione BLOB di Azure. Vedere [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENROWSET`può essere usato per leggere dati dal database SQL di Azure, da Istanza gestita di Azure SQL o da istanze di SQL Server. Altre origini, ad esempio i database Oracle o i file di Excel, non sono supportate.
+- `DATASOURCE` è necessario nel `BULK INSERT` comando quando si importano file dall'archiviazione BLOB di Azure. Vedere [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` è obbligatorio nella `OPENROWSET` funzione quando si legge il contenuto di un file dall'archiviazione BLOB di Azure. Vedere [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
+- `OPENROWSET` può essere usato per leggere dati dal database SQL di Azure, da Istanza gestita di Azure SQL o da istanze di SQL Server. Altre origini, ad esempio i database Oracle o i file di Excel, non sono supportate.
 
 ### <a name="clr"></a>CLR
 
@@ -340,7 +340,7 @@ Un Istanza gestita SQL non può accedere a condivisioni file e cartelle di Windo
 - `ALTER ASSEMBLY` non può fare riferimento a file. Vedere [ALTER assembly](/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Posta elettronica database (db_mail)
- - `sp_send_dbmail`Impossibile inviare allegati utilizzando il @file_attachments parametro. Le file system locali e le condivisioni esterne o l'archiviazione BLOB di Azure non sono accessibili da questa procedura.
+ - `sp_send_dbmail` Impossibile inviare allegati utilizzando il @file_attachments parametro. Le file system locali e le condivisioni esterne o l'archiviazione BLOB di Azure non sono accessibili da questa procedura.
  - Vedere i problemi noti relativi al `@query` parametro e all'autenticazione.
  
 ### <a name="dbcc"></a>DBCC
@@ -364,7 +364,7 @@ Alcune destinazioni specifiche di Windows per gli eventi estesi (XEvent) non son
 
 ### <a name="external-libraries"></a>Librerie esterne
 
-R e Python nel database, le librerie esterne non sono ancora supportate. Vedere [SQL Server Machine Learning Services](/sql/advanced-analytics/r/sql-server-r-services).
+Le librerie esterne in-database R e Python sono supportate in un'anteprima pubblica limitata. Vedere [Machine Learning Services in istanza gestita SQL di Azure (anteprima)](machine-learning-services-overview.md).
 
 ### <a name="filestream-and-filetable"></a>FileStream e FileTable
 
@@ -429,28 +429,28 @@ Per ulteriori informazioni sulla configurazione della replica transazionale, ved
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Origine: 
-  - `FROM URL`(Archiviazione BLOB di Azure) è l'unica opzione supportata.
+  - `FROM URL` (Archiviazione BLOB di Azure) è l'unica opzione supportata.
   - `FROM DISK`/`TAPE`/dispositivo di backup non è supportata.
   - I set di backup non sono supportati.
-- `WITH`le opzioni non sono supportate. I tentativi di ripristino, tra cui like,, e così `WITH` `DIFFERENTIAL` `STATS` `REPLACE` via, avranno esito negativo.
+- `WITH` le opzioni non sono supportate. I tentativi di ripristino, tra cui like,, e così `WITH` `DIFFERENTIAL` `STATS` `REPLACE` via, avranno esito negativo.
 - `ASYNC RESTORE`: Il ripristino continua anche se la connessione client si interrompe. Se la connessione viene eliminata, è possibile controllare la `sys.dm_operation_status` vista per lo stato di un'operazione di ripristino e per creare ed eliminare un database. Vedere [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Le opzioni di database seguenti sono impostate o sottoposte a override e non possono essere modificate in un secondo momento: 
 
-- `NEW_BROKER`Se il broker non è abilitato nel file con estensione bak. 
-- `ENABLE_BROKER`Se il broker non è abilitato nel file con estensione bak. 
-- `AUTO_CLOSE=OFF`Se è presente un database nel file con estensione bak `AUTO_CLOSE=ON` . 
-- `RECOVERY FULL`Se un database nel file con estensione bak ha `SIMPLE` o `BULK_LOGGED` modalità di ripristino.
+- `NEW_BROKER` Se il broker non è abilitato nel file con estensione bak. 
+- `ENABLE_BROKER` Se il broker non è abilitato nel file con estensione bak. 
+- `AUTO_CLOSE=OFF` Se è presente un database nel file con estensione bak `AUTO_CLOSE=ON` . 
+- `RECOVERY FULL` Se un database nel file con estensione bak ha `SIMPLE` o `BULK_LOGGED` modalità di ripristino.
 - Un filegroup ottimizzato per la memoria viene aggiunto e denominato XTP se non era presente nel file con estensione bak di origine. 
 - Qualsiasi filegroup ottimizzato per la memoria esistente viene rinominato in XTP. 
-- `SINGLE_USER`le `RESTRICTED_USER` Opzioni e vengono convertite in `MULTI_USER` .
+- `SINGLE_USER` le `RESTRICTED_USER` Opzioni e vengono convertite in `MULTI_USER` .
 
 Limitazioni 
 
 - I backup dei database danneggiati potrebbero essere ripristinati a seconda del tipo di danneggiamento, ma i backup automatici non verranno eseguiti finché il danneggiamento non viene risolto. Assicurarsi di eseguire nel `DBCC CHECKDB` istanza gestita SQL di origine e usare il backup per `WITH CHECKSUM` evitare questo problema.
 - Il ripristino del `.BAK` file di un database che contiene qualsiasi limitazione descritta in questo documento (ad esempio `FILESTREAM` , `FILETABLE` oggetti o) non può essere ripristinato in SQL istanza gestita.
-- `.BAK`non è possibile ripristinare i file che contengono più set di backup. 
-- `.BAK`i file che contengono più file di log non possono essere ripristinati.
+- `.BAK` non è possibile ripristinare i file che contengono più set di backup. 
+- `.BAK` i file che contengono più file di log non possono essere ripristinati.
 - Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 8 TB, oggetti OLTP in memoria attivi o numero di file che superano 280 file per ogni istanza in un'istanza di per utilizzo generico. 
 - Non è possibile ripristinare i backup che contengono database di dimensioni maggiori di 4 TB o di oggetti OLTP in memoria con dimensioni totali superiori alle dimensioni descritte nei [limiti delle risorse](resource-limits.md) in business critical istanza.
 Per informazioni sulle istruzioni RESTORE, vedere [istruzioni RESTORE](/sql/t-sql/statements/restore-statements-transact-sql).
@@ -468,7 +468,7 @@ Il broker di servizio tra istanze non è supportato:
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Stored procedure, funzioni e trigger
 
-- `NATIVE_COMPILATION`non è supportato nel livello per utilizzo generico.
+- `NATIVE_COMPILATION` non è supportato nel livello per utilizzo generico.
 - Le opzioni [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) seguenti non sono supportate: 
   - `allow polybase export`
   - `allow updates`
@@ -485,11 +485,11 @@ Il broker di servizio tra istanze non è supportato:
 
 Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
-- `SERVERPROPERTY('EngineEdition')`Restituisce il valore 8. Questa proprietà identifica in modo univoco un Istanza gestita SQL. Vedere [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')`restituisce NULL perché il concetto di istanza esistente per SQL Server non si applica a SQL Istanza gestita. Vedere [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME`Restituisce un nome DNS "connettibile" completo, ad esempio my-managed-instance.wcus17662feb9ce98.database.windows.net. Vedere [@ @SERVERNAME ](/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS`Restituisce un nome DNS "connettibile" completo, ad esempio `myinstance.domain.database.windows.net` per le proprietà "Name" e "data_source". Vedere [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`restituisce NULL perché il concetto di servizio esistente per SQL Server non si applica a SQL Istanza gestita. Vedere [@ @SERVICENAME ](/sql/t-sql/functions/servicename-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` Restituisce il valore 8. Questa proprietà identifica in modo univoco un Istanza gestita SQL. Vedere [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` restituisce NULL perché il concetto di istanza esistente per SQL Server non si applica a SQL Istanza gestita. Vedere [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` Restituisce un nome DNS "connettibile" completo, ad esempio my-managed-instance.wcus17662feb9ce98.database.windows.net. Vedere [@ @SERVERNAME ](/sql/t-sql/functions/servername-transact-sql). 
+- `SYS.SERVERS` Restituisce un nome DNS "connettibile" completo, ad esempio `myinstance.domain.database.windows.net` per le proprietà "Name" e "data_source". Vedere [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME` restituisce NULL perché il concetto di servizio esistente per SQL Server non si applica a SQL Istanza gestita. Vedere [@ @SERVICENAME ](/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` è supportato. Restituisce NULL se l'account di accesso Azure AD non è incluso in sys.sysaccount di accesso. Vedere [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - `SUSER_SID` non è supportata. Vengono restituiti dati errati, ovvero un problema noto temporaneo. Vedere [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
@@ -515,7 +515,7 @@ I database di sistema non vengono replicati nell'istanza secondaria in un gruppo
 
 ### <a name="tempdb"></a>TEMPDB
 
-La dimensione massima del file `tempdb` non può essere maggiore di 24 GB per core in un livello per utilizzo generico. Le dimensioni massime di `tempdb` un livello business critical sono limitate dalle dimensioni di archiviazione di SQL istanza gestita. `Tempdb`le dimensioni del file di log sono limitate a 120 GB nel livello per utilizzo generico. Alcune query potrebbero restituire un errore se hanno bisogno di più di 24 GB per core in `tempdb` o se producono più di 120 GB di dati di log.
+La dimensione massima del file `tempdb` non può essere maggiore di 24 GB per core in un livello per utilizzo generico. Le dimensioni massime di `tempdb` un livello business critical sono limitate dalle dimensioni di archiviazione di SQL istanza gestita. `Tempdb` le dimensioni del file di log sono limitate a 120 GB nel livello per utilizzo generico. Alcune query potrebbero restituire un errore se hanno bisogno di più di 24 GB per core in `tempdb` o se producono più di 120 GB di dati di log.
 
 ### <a name="msdb"></a>MSDB
 

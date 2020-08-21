@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/30/2020
-ms.openlocfilehash: 1b0846c68f6860b5c7dac9e93808088dac4f6a05
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607442"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705878"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 
@@ -47,9 +47,9 @@ La tabella seguente illustra le opzioni di pubblicazione per i tipi di offerta i
 
 &#42;&#42; Le offerte di Microsoft 365 sono gratuite per l'installazione e possono essere monetizzate tramite l'offerta SaaS come servizio di licenza. Per altre informazioni, vedere [Monetizzare il componente aggiuntivo Office 365 tramite il marketplace commerciale Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="choose-a-call-to-action"></a>Scegliere una chiamata a Action
+## <a name="choose-a-listing-option"></a>Scegliere un'opzione di elenco
 
-Le opzioni di pubblicazione disponibili offrono un engagement differenziato dei clienti e consentono nel contempo di accedere alla condivisione dei lead e ai [vantaggi del marketplace commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Si noti l'invito all'azione che corrisponde all'opzione di pubblicazione:
+Le opzioni di inserzione disponibili offrono un impegno differenziato per i clienti, offrendo al contempo l'accesso ai vantaggi di condivisione di lead e [Marketplace commerciali](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Si notino le opzioni di inserzione che corrispondono all'opzione di pubblicazione:
 
 | **Opzione di pubblicazione**    | **Descrizione**  |
 | :------------------- | :-------------------|

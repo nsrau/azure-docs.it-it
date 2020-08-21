@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4cb24a89d19abb753e2be704dbad7fd5b2ddcad
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 64fc4e1192a1ec33b1d13c38d66e9aab5cbe256b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236557"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705623"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Creare utenti in blocco in Azure Active Directory
 
@@ -35,7 +35,7 @@ Scaricare e compilare il modello CSV di caricamento in blocco per creare corrett
 ![Foglio di calcolo per il caricamento con callout che illustrano lo scopo e i valori di ogni riga e colonna](./media/users-bulk-add/create-template-example.png)
 
 > [!WARNING]
-> Se si tenta di aggiungere una sola voce nel modello CSV, è necessario mantenere la riga 3 e aggiungere la nuova voce alla riga 4. 
+> Se si aggiunge una sola voce usando il modello CSV, è necessario mantenere la riga 3 e aggiungere la nuova voce alla riga 4.
 
 ### <a name="csv-template-structure"></a>Struttura del modello CSV
 

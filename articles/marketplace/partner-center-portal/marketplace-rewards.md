@@ -8,30 +8,30 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606746"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705045"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
-Il ricompense del Marketplace ti aiuta in una fase specifica di crescita, a partire dalle attività di sensibilizzazione per ottenere i primi clienti. Man mano che si aumenta il mercato commerciale, si sbloccano i nuovi vantaggi progettati per convertire i clienti e chiudere le offerte.
+Il ricompense del Marketplace ti aiuta in una fase specifica di crescita, a partire dalle attività di sensibilizzazione per ottenere i primi clienti. Man mano che si aumenta il mercato commerciale Microsoft, è possibile sbloccare i nuovi vantaggi progettati per convertire i clienti e chiudere le offerte.
 
 Il programma crea un ciclo di feedback positivo: i vantaggi di ogni fase di crescita consentono di passare alla fase successiva, consentendo di far crescere la propria azienda ai clienti Microsoft, con il campo di Microsoft e tramite il canale di Microsoft sfruttando il Marketplace commerciale come piattaforma.
 
-I vantaggi sono diversi a seconda del tipo di offerta: [Inserzione, Valutazione o Transazione](../determine-your-listing-type.md#choose-a-call-to-action).
+I vantaggi sono diversi a seconda del tipo di offerta: [Inserzione, Valutazione o Transazione](../determine-your-listing-type.md#choose-a-listing-option).
 
 Si verrà contattati da un membro del team Rewards quando l'offerta sarà live, in base all'idoneità.
 
-I partner delle offerte Transazione, aumentando le vendite fatturate nella piattaforma del marketplace, usufruiranno di vantaggi maggiori a ogni livello.
+Per i partner di transazione, man mano che si aumentano le vendite fatturate tramite la piattaforma del Marketplace commerciale, si sbloccano vantaggi maggiori per livello.
 
-Il requisito minimo per la pubblicazione nei negozi online è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner può sfruttare il marketplace come piattaforma per far crescere il proprio business.
+Il requisito minimo per la pubblicazione nei negozi online è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner è autorizzato a far crescere la propria azienda attraverso il Marketplace commerciale come piattaforma.
 
 Sarà possibile ricevere supporto per conoscere le risorse disponibili e implementare le procedura consigliate, che è anche possibile [consultare personalmente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Verificare la propria idoneità per il programma Marketplace Rewards [qui](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
+Per verificare l'idoneità per il programma Marketplace Rewards, vedere la pagina dei [vantaggi del Marketplace](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) nel centro per i partner.
 
 La procedura per iniziare è semplice:
 

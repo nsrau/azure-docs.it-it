@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009189"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691412"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuire lo strumento di diagnostica desktop virtuale di Windows (classico)
 
@@ -112,7 +112,7 @@ Di seguito viene illustrato come configurare manualmente i contatori delle prest
 
 1. Aprire il browser Internet e accedere al [portale di Azure](https://portal.azure.com/) con l'account amministrativo.
 2. Passare quindi a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
-3. Nella sezione **Impostazioni** selezionare **Impostazioni avanzate**.
+3. Nella sezione **Impostazioni** selezionare  **Impostazioni avanzate**.
 4. Passare quindi ai **Data**  >  **contatori delle prestazioni di Windows** data e aggiungere i contatori seguenti:
 
     -   Disco logico ( \* ) \\ % di spazio disponibile
@@ -196,7 +196,7 @@ Per impostare l'URI di reindirizzamento:
    > [!div class="mx-imgBorder"]
    > ![Pagina URI di Reindirizzamento](../media/redirect-uri-page.png)
 
-8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello era `contosoapp45` , l'URL associato è <https://contosoapp45.azurewebsites.net> .
+8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello era `contosoapp45` , l'URL associato è <http://contoso.azurewebsites.net> .
 9. Accedere usando l'account utente appropriato di Azure Active Directory.
 10.   Selezionare **Accetto**.
 

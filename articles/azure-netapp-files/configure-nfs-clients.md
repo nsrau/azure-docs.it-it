@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/19/2020
 ms.author: b-juche
-ms.openlocfilehash: 4a54858f4a09cd62bb555a6df2c12efa2290dd69
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 20cbc9b33e567ffe306aae694bb835d95c2d861e
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653172"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88704978"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configurare un client NFS per Azure NetApp Files
 
-È disponibile un'ampia gamma di distribuzioni Linux da usare con Azure NetApp Files. Questo articolo descrive le configurazioni per due degli ambienti usati più di frequente: RHEL 8 e Ubuntu 18,04. La configurazione del client NFS descritta in questo articolo fa parte del programma di installazione quando si [Configura la crittografia Kerberos NFSv 4.1](configure-kerberos-encryption.md) o si [Crea un volume a doppio protocollo](create-volumes-dual-protocol.md).  
+La configurazione del client NFS descritta in questo articolo fa parte del programma di installazione quando si [Configura la crittografia Kerberos NFSv 4.1](configure-kerberos-encryption.md) o si [Crea un volume a doppio protocollo](create-volumes-dual-protocol.md). È disponibile un'ampia gamma di distribuzioni Linux da usare con Azure NetApp Files. Questo articolo descrive le configurazioni per due degli ambienti usati più di frequente: RHEL 8 e Ubuntu 18,04. 
 
 Indipendentemente dal sapore di Linux usato, sono necessarie le configurazioni seguenti:
 * Configurare un client NTP per evitare problemi con sfasamento dell'ora.

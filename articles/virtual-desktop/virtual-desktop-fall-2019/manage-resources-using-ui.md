@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ed6587cab1e90c9b4bd4ceffa64c77fa5d8de574
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005704"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691395"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Distribuire uno strumento di gestione di desktop virtuali Windows (classico) con un modello di Azure Resource Manager
 
@@ -83,7 +83,7 @@ Per determinare quale utente è possibile usare per accedere allo strumento, pas
 
 Dopo aver deciso quale utente usare, seguire queste istruzioni per fornire il consenso allo strumento:
 
-1. Passare alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello (ad esempio, Apr3UX) e passare all'URL associato. ad esempio, <https://rdmimgmtweb-210520190304.azurewebsites.net> .
+1. Passare alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello (ad esempio, Apr3UX) e passare all'URL associato. ad esempio,  `https://rdmimgmtweb-210520190304.azurewebsites.net` .
 2. Accedere usando l'account utente appropriato di Azure Active Directory.
 3. Se l'autenticazione è stata eseguita con un amministratore globale, è ora possibile selezionare la casella di controllo accanto a **Acconsenti per conto dell'organizzazione**. Selezionare **Accetto** per fornire il consenso.
 

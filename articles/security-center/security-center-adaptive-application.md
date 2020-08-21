@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: cbbfddca1a6a07625a69be8ffb0409640d825793
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036975"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691480"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -83,7 +83,7 @@ Selezionare la raccomandazione oppure aprire la pagina controlli applicazione ad
     - **Nessuna raccomandazione** -computer senza un elenco di applicazioni consentite definito e che non supportano la funzionalità. Il computer potrebbe trovarsi in questa scheda per i motivi seguenti:
       - Manca un agente Log Analytics
       - L'agente di Log Analytics non invia eventi
-      - Si tratta di un computer Windows con criteri di [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) preesistenti abilitati da un oggetto Criteri di gruppo o criteri di sicurezza locali
+      - Si tratta di un computer Windows con criteri di [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) preesistenti abilitati da un oggetto Criteri di gruppo o criteri di sicurezza locali
 
       > [!TIP]
       > Il Centro sicurezza necessita di almeno due settimane di dati per definire le raccomandazioni univoche per ogni gruppo di computer. I computer che sono stati creati di recente o che appartengono alle sottoscrizioni abilitate solo di recente con il livello standard verranno visualizzati nella scheda **Nessuna raccomandazione** .
@@ -187,7 +187,7 @@ Quando si sposta un computer da un gruppo a un altro, il criterio di controllo d
 
 1. Dalla scheda **configurato** della pagina **controlli applicazione adattivi** selezionare il gruppo che contiene il computer da spostare.
 
-1. Aprire l'elenco dei **computer configurati**.
+1. Aprire l'elenco dei  **computer configurati**.
 
 1. Aprire il menu del computer da tre punti alla fine della riga e selezionare **Sposta**. Viene visualizzato il riquadro **Sposta computer in un gruppo diverso** .
 
