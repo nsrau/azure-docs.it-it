@@ -283,7 +283,7 @@
             - name: Esplora dati
               href: /azure/data-explorer/pricing-reserved-capacity
             - name: Archiviazione su disco
-              href: ../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+              href: ../virtual-machines/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
             - name: Host dedicato
               href: ../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/toc.json
             - name: Piani software

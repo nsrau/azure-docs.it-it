@@ -638,10 +638,12 @@
     - name: Cloud sovrani
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
-    - name: Prezzi e limiti
+    - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
+    - name: Quote e limitazioni
+      href: speech-services-quotas-and-limits.md
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Crittografia

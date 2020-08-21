@@ -13,12 +13,12 @@ metadata:
   ms.date: 07/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 084dd49726dec837fc4135f272802b1023ba5aac
-  ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+  ms.openlocfilehash: 5f6ba56347f76cc707bea2b30fab16e46f8be963
+  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87324064"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88651506"
 highlightedContent:
   items:
   - title: Guida introduttiva per gli sviluppatori in Azure
@@ -604,7 +604,7 @@ productDirectory:
     - hybrid
     - databases
     url: azure-sql/index.yml
-  - title: database SQL di Azure
+  - title: Database SQL di Azure
     summary: Database SQL intelligente gestito nel cloud
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:
@@ -1218,7 +1218,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/disk-storage.svg
     azureCategories:
     - storage
-    url: virtual-machines/windows/managed-disks-overview.md
+    url: virtual-machines/managed-disks-overview.md
   - title: File di Azure
     summary: Condivisioni file che usano il protocollo SMB 3.0 standard
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
@@ -1230,7 +1230,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/disk.svg
     azureCategories:
     - storage
-    url: virtual-machines/windows/managed-disks-overview.md
+    url: virtual-machines/managed-disks-overview.md
   - title: Archiviazione code
     summary: Scalabilità efficace delle app in base al traffico
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg

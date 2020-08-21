@@ -134,7 +134,7 @@
           maintainContext: true
           items:
             - name: vCPU vincolate
-              href: ../virtual-machines/windows/constrained-vcpu.md
+              href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
         - name: Ottimizzate per l'archiviazione
           href: ../virtual-machines/sizes-storage.md
@@ -173,16 +173,16 @@
     - name: Archiviazione su disco
       items:
         - name: Managed Disks
-          href: ../virtual-machines/windows/managed-disks-overview.md
+          href: ../virtual-machines/managed-disks-overview.md
           maintainContext: true
         - name: Selezionare un tipo di disco
-          href: ../virtual-machines/windows/disks-types.md
+          href: ../virtual-machines/disks-types.md
           maintainContext: true
         - name: Crittografia
           href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
           maintainContext: true
         - name: Prestazioni di Archiviazione Premium
-          href: ../virtual-machines/windows/premium-storage-performance.md
+          href: ../virtual-machines/premium-storage-performance.md
           maintainContext: true
         - name: Dischi del sistema operativo temporanei
           href: ../virtual-machines/ephemeral-os-disks.md
@@ -190,7 +190,7 @@
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
         - name: Backup e ripristino di emergenza per i dischi
-          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
           maintainContext: true
     - name: Rete
       href: ../virtual-machines/network-overview.md
@@ -201,7 +201,7 @@
     - name: Sicurezza
       items:
         - name: Sicurezza e criteri
-          href: ../virtual-machines/windows/security-policy.md
+          href: ../virtual-machines/security-policy.md
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Baseline di sicurezza di Azure

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: f31782fb4e91b72f51d6f0550fe9010cba7ca3d6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 270e5ba1879b229fbe9f5e6c8692bd8b4e9eebc7
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585458"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688641"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Risoluzione dei problemi relativi ai criteri di accesso di Azure Key Vault
 
@@ -25,7 +25,7 @@ Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere uti
 Quando si inizia a ridimensionare il servizio, il numero di richieste inviate all'insieme di credenziali delle chiavi aumenta. Di conseguenza, può aumentare anche la latenza delle richieste e, in casi estremi, le richieste possono venire limitate, con un impatto sulle prestazioni del servizio. È possibile monitorare le metriche delle prestazioni dell'insieme di credenziali delle chiavi e ricevere avvisi per soglie specifiche. Per una guida dettagliata per configurare il monitoraggio, [leggere altre informazioni](https://docs.microsoft.com/azure/key-vault/general/alert).
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>In che modo è possibile assegnare il controllo di accesso per ogni oggetto dell'insieme di credenziali delle chiavi? 
-La disponibilità della funzionalità di controllo di accesso per ogni segreto, chiave o certificato verrà segnalata qui. [Altre informazioni](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/.32213176-per-secret-key-certificate-access-control)
+La disponibilità della funzionalità di controllo di accesso per ogni segreto, chiave o certificato verrà segnalata qui. [Altre informazioni](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)
 
 ### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>In che modo è possibile fornire l'autenticazione dell'insieme di credenziali delle chiavi usando criteri di controllo di accesso?
 Il modo più semplice per autenticare un'applicazione basata sul cloud in Key Vault consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del servizio app per accedere ad Azure Key Vault]( https://docs.microsoft.com/azure/key-vault/general/managed-identity).

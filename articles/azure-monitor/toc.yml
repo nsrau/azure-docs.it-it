@@ -482,16 +482,12 @@
           href: platform/autoscale-resource-log-schema.md
     - name: Avvisi
       items:
-        - name: Regole di avviso per applicazioni
-          items:
-            - name: Disponibilità
-              href: app/monitor-web-app-availability.md
-            - name: Avvisi delle metriche
-              href: ./platform/alerts-log.md
         - name: Regole di avviso per le metriche
           items:
             - name: Gestire gli avvisi per le metriche
               href: platform/alerts-metric.md
+            - name: Disponibilità
+              href: app/monitor-web-app-availability.md
             - name: Usare soglie dinamiche
               href: platform/alerts-dynamic-thresholds.md
             - name: Avvisi singoli per più serie temporali

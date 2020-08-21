@@ -193,7 +193,7 @@
 - name: Problemi di gestione del disco virtuale
   items:
     - name: Panoramica
-      href: ../windows/managed-disks-overview.md
+      href: ../managed-disks-overview.md
     - name: Domande frequenti
       href: ../windows/faq-for-disks.md
     - name: Errori durante l'eliminazione di risorse di archiviazione

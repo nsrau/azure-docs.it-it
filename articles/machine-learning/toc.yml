@@ -72,9 +72,6 @@
       items:
         - name: Eseguire il training e la distribuzione con l'interfaccia della riga di comando
           href: tutorial-train-deploy-model-cli.md
-        - name: Creare aree di lavoro con un modello di Resource Manager
-          displayName: Resource Manager
-          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
         - name: Configurare l'estensione di Azure Machine Learning
