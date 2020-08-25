@@ -6,12 +6,12 @@ ms.author: rkarlin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 9a13ede1c9dcd23b829d08ed9e3c6fc10248e191
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 1942576037c7367612580a04d4187ccf4655aade
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510046"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685885"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -107,7 +107,7 @@ Per creare un'istanza di Key Vault e impostare i segreti, seguire le istruzioni 
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Creare un oggetto SecretProviderClass personale
 
-Per creare un oggetto SecretProviderClass personalizzato con parametri specifici del provider per il driver CSI dell'archivio segreti, [usare questo modello](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass.yaml). Questo oggetto fornirà all'identità l'accesso all'istanza di Key Vault.
+Per creare un oggetto SecretProviderClass personalizzato con parametri specifici del provider per il driver CSI dell'archivio segreti, [usare questo modello](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml). Questo oggetto fornirà all'identità l'accesso all'istanza di Key Vault.
 
 Nel file YAML SecretProviderClass di esempio compilare i parametri mancanti. I parametri seguenti sono obbligatori:
 
@@ -141,12 +141,12 @@ spec:
     keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
                                               #     az keyvault show --name contosoKeyVault5
                                               #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
-    cloudName: ""                             # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud
+    cloudName: ""                                # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud
     objects:  |
       array:
         - |
           objectName: secret1                 # [REQUIRED] object name
-                                              #     az keyvault secret list --vault-name “contosoKeyVault5”
+                                              #     az keyvault secret list --vault-name "contosoKeyVault5"
                                               #     the above command will display a list of secret names from your key vault
           objectType: secret                  # [REQUIRED] object types: secret, key, or cert
           objectVersion: ""                   # [OPTIONAL] object versions, default to latest if empty

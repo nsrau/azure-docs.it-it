@@ -5,10 +5,10 @@ author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.openlocfilehash: fd3965c42679c8435348a66cc7eeab90d1eeb1b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85374670"
 ---
 Per eseguire questo esempio, installare l'ultima versione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Per iniziare, eseguire `az login` per creare una connessione con Azure.

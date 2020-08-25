@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperfq1
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 8bc99be12b4bd4e56163150f939e5d9ace4b59bd
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ae8dcc02618220750e2d15d815da4b36ea64da2d
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652560"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782193"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creare set di dati di Azure Machine Learning
 
@@ -163,9 +163,9 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|Indice|PassengerId|Survived|Pclass|NOME|Sesso|Età|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
+|Indice|PassengerId|Survived|Pclass|Name|Sesso|Età|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
+0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|Vero|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 

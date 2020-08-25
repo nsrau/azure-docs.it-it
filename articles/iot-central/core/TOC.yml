@@ -163,6 +163,10 @@
               href: howto-manage-preferences.md
             - name: Attivare e disattivare la live chat
               href: howto-show-hide-chat.md
+    - name: Risolvere problemi
+      items: null
+      '-name': Device connections
+      href: troubleshoot-connection.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

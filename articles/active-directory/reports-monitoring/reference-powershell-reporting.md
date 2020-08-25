@@ -17,12 +17,12 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0510184e2471d61c8911b5fcd484fd5dec0bce28
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6a198a63d633573ad683a3f8e8215b2975721bc9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144485"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794929"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlet di Azure AD PowerShell per la creazione di report
 
@@ -34,6 +34,7 @@ Per installare la versione di anteprima pubblica, usare il codice seguente.
 ```powershell
 Install-module AzureADPreview
 ```
+
 Per altre informazioni su come connettersi a Azure AD tramite PowerShell, vedere l'articolo [Azure ad PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 Con Azure Active Directory (Azure AD) report è possibile ottenere informazioni dettagliate sulle attività relative a tutte le operazioni di scrittura nella direzione (log di controllo) e i dati di autenticazione (log di accesso). Sebbene le informazioni siano disponibili tramite il API Graph MS, ora è possibile recuperare gli stessi dati utilizzando i cmdlet di Azure AD PowerShell per la creazione di report.
@@ -42,7 +43,7 @@ Questo articolo fornisce una panoramica dei cmdlet di PowerShell da usare per i 
 
 ## <a name="audit-logs"></a>Log di controllo
 
-I [log di controllo](concept-audit-logs.md) forniscono la tracciabilità tramite i log per tutte le modifiche apportate dalle diverse funzionalità all'interno Azure ad. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
+I [log di controllo](concept-audit-logs.md) forniscono la tracciabilità tramite i log per tutte le modifiche apportate dalle diverse funzionalità all'interno Azure ad. Esempi di log di controllo includono le modifiche apportate alle risorse all'interno Azure AD come l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
 
 Per ottenere l'accesso ai log di controllo, usare il cmdlet "Get-AzureADAuditDirectoryLogs".
 
@@ -50,7 +51,7 @@ Per ottenere l'accesso ai log di controllo, usare il cmdlet "Get-AzureADAuditDir
 | Scenario                      | Comando di PowerShell |
 | :--                           | :--                |
 | Nome visualizzato dell'applicazione      | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "" |
-| Categoria                      | Get-AzureADAuditDirectoryLogs-Filter "Category EQ ' ApplicationManagement '" |
+| Category                      | Get-AzureADAuditDirectoryLogs-Filter "Category EQ ' ApplicationManagement '" |
 | Data/ora attività            | Get-AzureADAuditDirectoryLogs-Filter "activityDateTime gt 2019-04-18" |
 | Tutte le risposte precedenti              | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "e Category EQ" ApplicationManagement "e activityDateTime gt 2019-04-18"|
 

@@ -9,10 +9,10 @@ ms.date: 03/02/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78251495"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico Internet in ingresso con DNAT di Firewall di Azure tramite il portale di Azure
@@ -144,10 +144,10 @@ Al termine della distribuzione, prendere nota dell'indirizzo IP privato della ma
    |Impostazione  |valore  |
    |---------|---------|
    |Nome     |FW-DNAT-test|
-   |Subscription     |\<sottoscrizione in uso\>|
-   |Resource group     |**Use existing** (Usa esistente): RG-DNAT-Test |
+   |Subscription     |\<your subscription\>|
+   |Resource group     |**Usa esistente**: RG-DNAT-Test |
    |Location     |Selezionare la stessa località usata in precedenza|
-   |Scegliere una rete virtuale     |**Use existing** (Usa esistente): VN-Hub|
+   |Scegliere una rete virtuale     |**Usa esistente**: VN-Hub|
    |Indirizzo IP pubblico     |**Creare un nuovo gruppo di risorse**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 
 5. Selezionare **Rivedi e crea**.
@@ -168,7 +168,7 @@ Per la subnet **SN-Workload** configurare la route predefinita in uscita per pas
 5. In **Sottoscrizione** selezionare la propria sottoscrizione.
 6. In **Gruppo di risorse** selezionare **Usa esistente** e selezionare **RG-DNAT-Test**.
 7. In **Località** selezionare la stessa località usata in precedenza.
-8. Selezionare **Create** (Crea).
+8. Selezionare **Crea**.
 9. Selezionare **Aggiorna** e quindi selezionare la tabella di route **RT-FWroute**.
 10. Selezionare **Subnet** e quindi **Associa**.
 11. Selezionare **Rete virtuale** e quindi selezionare **VN-Spoke**.

@@ -2,25 +2,21 @@
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con 8x8 | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e 8x8.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c81e63a073882dea3a7aea32d5e9f4d3d5c48f7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018614"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538655"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con 8x8
 
@@ -64,7 +60,7 @@ Per configurare l'integrazione di 8x8 in Azure AD è necessario aggiungere 8x8 d
 1. Nella sezione **Aggiungi dalla raccolta** digitare **8x8** nella casella di ricerca.
 1. Selezionare **8x8** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-8x8"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per 8x8
+## <a name="configure-and-test-azure-ad-sso-for-8x8"></a>Configurare e testare l'accesso SSO di Azure AD per 8x8
 
 Configurare e testare l'accesso SSO di Azure AD con 8x8 usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in 8x8.
 
@@ -139,7 +135,15 @@ La parte successiva dell'esercitazione dipende dal tipo di sottoscrizione 8x8 sc
 
 ### <a name="configure-8x8-configuration-manager"></a>Configurare Configuration Manager per 8x8
 
-1. Accedere a [Configuration Manager](https://vo-cm.8x8.com/) in 8x8.
+1. Per automatizzare la configurazione all'interno di 8x8, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura 8x8** per passare direttamente all'applicazione 8x8. Nell'applicazione fornire le credenziali di amministratore per accedere a 8x8. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 6.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+1. Se si vuole configurare 8x8 manualmente, accedere alla pagina [Configuration Manager](https://vo-cm.8x8.com/) di 8x8 come amministratore.
 
 1. Nella home page fare clic su **Identity Management** (Gestione identità).
 

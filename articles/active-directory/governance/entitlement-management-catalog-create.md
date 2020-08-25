@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339573"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783536"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti
 
@@ -53,7 +53,7 @@ Un catalogo è un contenitore di risorse e pacchetti di accesso. Si crea un cata
 
 ### <a name="creating-a-catalog-programmatically"></a>Creazione di un catalogo a livello di codice
 
-È anche possibile creare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [creare un accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+È anche possibile creare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [creare un accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
 
 ## <a name="add-resources-to-a-catalog"></a>Aggiungere risorse a un catalogo
 
@@ -83,7 +83,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Aggiunta di una risorsa a un catalogo a livello di codice
 
-È anche possibile aggiungere una risorsa a un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato o un catalogo e un proprietario di risorse con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [creare un accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+È anche possibile aggiungere una risorsa a un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato o un catalogo e un proprietario di risorse con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [creare un accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Rimuovere risorse da un catalogo
 
@@ -155,7 +155,7 @@ Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla pr
 
 ### <a name="deleting-a-catalog-programmatically"></a>Eliminazione di un catalogo a livello di codice
 
-È anche possibile eliminare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [eliminare un accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+È anche possibile eliminare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [eliminare un accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
