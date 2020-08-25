@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300607"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798466"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
@@ -24,7 +24,7 @@ Questo capitolo elenca i requisiti di sistema minimi per l'uso di *Azure Remote 
 
 * Windows 10 versione 1903 o successiva.
 * Driver grafici aggiornati.
-* Facoltativo: decodificatore video hardware H265 se si vuole usare l'anteprima locale del contenuto sottoposto a rendering remoto, ad esempio in Unity.
+* Facoltativo: [decodificatore video hardware H265](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7)se si vuole usare l'anteprima locale del contenuto sottoposto a rendering remoto, ad esempio in Unity.
 
 > [!IMPORTANT]
 > Windows Update non fornisce sempre i driver GPU più recenti, controllare il sito Web del produttore della GPU per i driver più recenti:
@@ -52,7 +52,7 @@ Il rendering remoto di Azure attualmente supporta solo **HoloLens 2** e Windows 
 1. Avviare il **Microsoft Store**.
 1. Fare clic sul pulsante **"..."** in alto a destra.
 1. Selezionare **download e aggiornamenti**.
-1. Cercare nell'elenco le **estensioni video di HEVC dal produttore del dispositivo**.
+1. Cercare nell'elenco le **estensioni video di HEVC dal produttore del dispositivo**. Se questo elemento non è elencato in aggiornamenti, la versione più recente è già installata.
 1. Verificare che il codec elencato includa almeno la versione **1.0.21821.0**.
 1. Fai clic sul pulsante **Ottieni aggiornamenti** e attendi l'installazione.
 
@@ -74,7 +74,7 @@ Per la risoluzione dei problemi di rete, vedere la [Guida alla risoluzione dei](
   * **Sviluppo di app UWP (Universal Windows Platform)**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **Git** [(download)](https://git-scm.com/downloads)
-* Facoltativo: per visualizzare il flusso video dal server su un PC desktop, è necessario **HEVC video Extensions** [(collegamento Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Facoltativo: per visualizzare il flusso video dal server su un PC desktop, è necessario **HEVC video Extensions** [(collegamento Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Verificare che la versione più recente sia installata controllando la disponibilità di aggiornamenti nell'archivio.
 
 ## <a name="unity"></a>Unity
 

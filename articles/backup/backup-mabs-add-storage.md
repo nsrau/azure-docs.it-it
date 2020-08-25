@@ -3,12 +3,12 @@ title: Usare Modern Backup Storage con il server di Backup di Azure
 description: Informazioni sulle nuove funzionalità del server di Backup di Azure. In questo articolo viene descritto come aggiornare l'installazione del server di backup.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c7533a5ee2fc65beb86c0c803a522e0acb1df6d
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513711"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762437"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
 
@@ -28,9 +28,9 @@ Il server di Backup V2 o versione successiva accetta volumi di archiviazione. Qu
 2. Creare un volume su un disco virtuale in un pool di archiviazione:
     1. Aggiungere un disco a un pool di archiviazione e creare un disco virtuale con layout semplice.
     2. Aggiungere altri dischi ed estendere il disco virtuale.
-    3. Creare volumi nel disco virtuale.
+    3. Creare i volumi nel disco virtuale.
 3. Aggiungere i volumi al server di backup.
-4. Configurare l'archiviazione con riconoscimento del carico di lavoro.
+4. Configurare l'archiviazione con riconoscimento dei carichi di lavoro.
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>Creare un volume per Modern Backup Storage
 

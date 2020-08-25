@@ -2,18 +2,18 @@
 title: Esercitazione per esportare i dati da Azure Data Box | Microsoft Docs
 description: Informazioni sui prerequisiti di distribuzione e su come esportare i dati da un Azure Data Box
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.author: v-grpr
-ms.openlocfilehash: 5b17488ebab8dc29221723fabf8efe0c00467509
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.author: twooley
+ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209456"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783621"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box (anteprima)
 
@@ -48,7 +48,7 @@ Prima di iniziare, verificare che:
 
 * Sia disponibile un computer host connesso alla rete del data center. I dati vengono copiati da Azure Data Box a questo computer. Il computer host deve eseguire un sistema operativo supportato come descritto nei [requisiti di sistema per Azure Data Box](data-box-system-requirements.md).
 
-* Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. Se non è disponibile una connessione da 10 GbE, è possibile usare un collegamento dati da 1 GbE, ma le velocità di copia hanno effetto.
+* Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà.
 
 ## <a name="order-data-box-for-export"></a>Data Box di ordine per l'esportazione
 
@@ -66,7 +66,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 4. Controllare se Azure Data Box servizio è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi selezionare **Applica**.
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
     |Tipo di trasferimento     | Selezionare **Esporta in Azure**.        |
     |Subscription     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
@@ -84,7 +84,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     |Impostazione  |valore  |
     |---------|---------|
-    |Subscription     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
+    |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
     |Nome dell'ordine di esportazione     |  Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.      |
 

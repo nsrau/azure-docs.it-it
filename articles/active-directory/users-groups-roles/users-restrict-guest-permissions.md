@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8cba89abd65844d238120726572481457f27cb
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706157"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798432"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory
 
@@ -54,7 +54,7 @@ Sono state apportate modifiche ai controlli portale di Azure esistenti per le au
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Aggiornare con l'API Microsoft Graph
 
-È stata aggiunta una nuova API Microsoft Graph per configurare le autorizzazioni guest nell'organizzazione Azure AD. È possibile effettuare le chiamate API seguenti per assegnare qualsiasi livello di autorizzazione. Il valore di guestUserRoleId usato in questo articolo è illustrare l'impostazione utente guest più limitata. Per ulteriori informazioni sull'utilizzo del Microsoft Graph per impostare le autorizzazioni Guest, vedere [tipo di risorsa authorizationPolicy](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+È stata aggiunta una nuova API Microsoft Graph per configurare le autorizzazioni guest nell'organizzazione Azure AD. È possibile effettuare le chiamate API seguenti per assegnare qualsiasi livello di autorizzazione. Il valore di guestUserRoleId usato in questo articolo è illustrare l'impostazione utente guest più limitata. Per ulteriori informazioni sull'utilizzo del Microsoft Graph per impostare le autorizzazioni Guest, vedere [tipo di risorsa authorizationPolicy](/graph/api/resources/authorizationpolicy).
 
 ### <a name="configuring-for-the-first-time"></a>Configurazione per la prima volta
 
@@ -168,5 +168,5 @@ Sono previsti requisiti di licenza per questa funzionalità? | No, non sono prev
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per ulteriori informazioni sulle autorizzazioni Guest esistenti in Azure AD, vedere [quali sono le autorizzazioni utente predefinite in Azure Active Directory?](../fundamentals/users-default-permissions.md).
-- Per visualizzare i metodi API Microsoft Graph per limitare l'accesso guest, vedere [tipo di risorsa authorizationPolicy](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+- Per visualizzare i metodi API Microsoft Graph per limitare l'accesso guest, vedere [tipo di risorsa authorizationPolicy](/graph/api/resources/authorizationpolicy).
 - Per revocare tutti gli accessi per un utente, vedere [revocare l'accesso utente in Azure ad](users-revoke-access.md).

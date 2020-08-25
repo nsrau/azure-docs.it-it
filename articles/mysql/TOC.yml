@@ -262,6 +262,8 @@
           href: howto-read-replicas-powershell.md
     - name: Risolvere problemi
       items:
+        - name: Risoluzione dei problemi comuni
+          href: howto-troubleshoot-common-errors.md
         - name: Risolvere gli errori di connessione
           href: howto-troubleshoot-common-connection-issues.md
         - name: Risoluzione dei problemi di prestazioni delle query

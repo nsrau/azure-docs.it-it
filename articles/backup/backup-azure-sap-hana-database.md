@@ -3,12 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 0efd26272bbfc4c8f63f7f02a605d48e53577390
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b4917129b7b6dd3799f5e79dab881a1bcaa130d5
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809137"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761662"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -25,7 +25,7 @@ In questo articolo si apprenderà come:
 > * Eseguire un processo di backup su richiesta
 
 >[!NOTE]
->A partire dal 1 ° agosto 2020 SAP HANA backup per RHEL (7,4, 7,6, 7,7 & 8,1) è disponibile a livello generale.
+>A partire dal 1° agosto 2020, il backup di SAP HANA per RHEL (7.4, 7.6, 7.7 e 8.1) è disponibile a livello generale.
 
 >[!NOTE]
 >L'**eliminazione temporanea per SQL Server nella macchina virtuale di Azure e l'eliminazione temporanea per SAP HANA nei carichi di lavoro delle macchine virtuali di Azure** ora sono disponibili in anteprima.<br>
@@ -191,7 +191,7 @@ I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile 
 
 1. Selezionare **Elementi di backup** dal menu dell'insieme di credenziali.
 2. In **Elementi di backup** selezionare la macchina virtuale che esegue il database SAP HANA, quindi fare clic su **Esegui backup**.
-3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Quindi fare clic su **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
+3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Fare quindi clic su **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Eseguire il backup di SAP HANA Studio in un database con Backup di Azure abilitato

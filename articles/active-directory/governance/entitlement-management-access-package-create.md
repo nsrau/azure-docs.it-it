@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f5c88de72bcd241f0cd42d338acbe707de6f34
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a80dafda39c0b37b1a7477b93d7f649fa1beeade
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798784"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783638"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -67,7 +67,7 @@ Ecco i passaggi di alto livello per creare un nuovo pacchetto di accesso.
    
     ![Gestione entitlement nel portale di Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Operazioni di base
+## <a name="basics"></a>Nozioni di base
 
 Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e specificare il catalogo in cui creare il pacchetto di accesso.
 
@@ -135,11 +135,11 @@ Nella scheda **Verifica e crea** è possibile esaminare le impostazioni e verifi
 
 È inoltre possibile creare un pacchetto di accesso utilizzando Microsoft Graph.  Un utente in un ruolo appropriato con un'applicazione con l'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per
 
-1. [Elencare accessPackageResources nel catalogo](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) e [creare un accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) per tutte le risorse che non sono ancora presenti nel catalogo.
-1. [Elencare il accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) di ogni accessPackageResource in un accessPackageCatalog. Questo elenco di ruoli verrà quindi usato per selezionare un ruolo, quando successivamente si crea un accessPackageResourceRoleScope.
-1. [Creare un accessPackage](https://docs.microsoft.com/graph/api/accesspackage-post?view=graph-rest-beta).
-1. [Creare un accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
-1. [Creare un accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) per ogni ruolo risorsa necessario nel pacchetto di accesso.
+1. [Elencare accessPackageResources nel catalogo](/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) e [creare un accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) per tutte le risorse che non sono ancora presenti nel catalogo.
+1. [Elencare il accessPackageResourceRoles](/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) di ogni accessPackageResource in un accessPackageCatalog. Questo elenco di ruoli verrà quindi usato per selezionare un ruolo, quando successivamente si crea un accessPackageResourceRoleScope.
+1. [Creare un accessPackage](/graph/api/accesspackage-post?view=graph-rest-beta).
+1. [Creare un accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
+1. [Creare un accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) per ogni ruolo risorsa necessario nel pacchetto di accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

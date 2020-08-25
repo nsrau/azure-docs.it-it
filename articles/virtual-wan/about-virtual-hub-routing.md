@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513724"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762318"
 ---
 # <a name="about-virtual-hub-routing"></a>Informazioni sul routing dell'hub virtuale
 
@@ -25,10 +25,6 @@ Per configurare il routing, vedere [How to Configure Virtual Hub routing](how-to
 ## <a name="routing-concepts"></a><a name="concepts"></a>Concetti di routing
 
 Le sezioni seguenti descrivono i concetti chiave del routing dell'hub virtuale.
-
-> [!NOTE]
-> Alcuni di questi nuovi concetti per la tabella di route Hub, l'associazione, la propagazione e le route statiche in una connessione di rete virtuale potrebbero ancora essere implementati e dovrebbero essere completati nella settimana del 17 agosto.
->
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabella di route Hub
 
@@ -77,9 +73,9 @@ Le tabelle di route includono ora funzionalità per l'associazione e la propagaz
 
 * **Clienti WAN virtuali standard con route preesistenti nell'hub virtuale**:
 
-Per utilizzare le nuove funzionalità della tabella di route, attendere fino alla settimana del 17 agosto per il completamento della distribuzione in Azure. Se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle e quindi provare a creare nuove tabelle di route (disponibili nella sezione tabelle di route per l'hub in portale di Azure)
+Se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle e quindi provare a creare nuove tabelle di route (disponibili nella sezione tabelle di route per l'hub in portale di Azure)
 
-* **Clienti WAN virtuali di base con route preesistenti nell'hub virtuale**: per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 17 agosto per il completamento della distribuzione in Azure. Se nella sezione Routing per l'hub del portale di Azure sono presenti route preesistenti, è necessario eliminarle e quindi **aggiornare** la rete WAN virtuale Basic alla rete WAN virtuale Standard. Vedere [Aggiornare una rete WAN virtuale da Basic a Standard](upgrade-virtual-wan.md).
+* **Clienti WAN virtuali di base con route preesistenti nell'hub virtuale**: se sono presenti route preesistenti nella sezione di routing per l'hub in portale di Azure, sarà necessario prima eliminarle, quindi **aggiornare** la rete WAN virtuale di base alla rete WAN virtuale standard. Vedere [Aggiornare una rete WAN virtuale da Basic a Standard](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considerazioni sul routing della rete WAN virtuale
 
@@ -89,6 +85,8 @@ Quando si configura il routing WAN virtuale, tenere presente quanto segue:
 * Tutte le connessioni a rami devono propagare le route allo stesso set di tabelle di route. Se, ad esempio, si decide che i rami devono propagarsi alla tabella di route predefinita, questa configurazione deve essere coerente in tutti i rami. Di conseguenza, tutte le connessioni associate alla tabella di route predefinita saranno in grado di raggiungere tutti i rami.
 * Il ramo da ramo a ramo tramite il firewall di Azure non è attualmente supportato.
 * Quando si usa il firewall di Azure in più aree, tutte le reti virtuali spoke devono essere associate alla stessa tabella di route. Ad esempio, se si ha un subset di reti virtuali che passano attraverso il firewall di Azure mentre altri reti virtuali ignorano il firewall di Azure nello stesso hub virtuale, non è possibile.
+* È possibile configurare un singolo IP hop successivo per ogni connessione VNet.
+* Hub virtuale non supporta la route statica per 0.0.0.0/0 e la connessione di rete virtuale hop successivo (o un indirizzo IP di un dispositivo nella connessione VNet)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

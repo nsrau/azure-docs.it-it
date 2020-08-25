@@ -366,6 +366,8 @@
           href: ssh.md
         - name: Strumenti per le prestazioni Linux
           href: troubleshoot-linux.md
+        - name: Verificare la presenza di eventi di Integrità risorse (anteprima)
+          href: aks-resource-health.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

@@ -4,13 +4,13 @@ description: Informazioni sui passaggi necessari per abilitare le nuove risorse 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/24/2020
+ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824988"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783842"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Risorse di Application Insights basate sull'area di lavoro (anteprima)
 
@@ -27,7 +27,7 @@ Per testare la nuova esperienza, accedere al [portale di Azure](https://portal.a
 
 Se non si dispone di un'area di lavoro Log Analytics esistente, [consultare la documentazione relativa alla creazione dell'area di lavoro Log Analytics](../learn/quick-create-workspace.md).
 
-Per l'anteprima pubblica **le risorse basate sull'area di lavoro sono attualmente limitate agli Stati Uniti occidentali 2, agli Stati Uniti orientali e agli Stati Uniti centro-meridionali.**
+**Le risorse basate sull'area di lavoro sono attualmente disponibili in tutte le aree commerciali e in Azure per enti pubblici**
 
 Dopo aver creato la risorsa, le informazioni corrispondenti sull'area di lavoro vengono visualizzate nel riquadro **Panoramica**:
 
@@ -184,6 +184,14 @@ Il comando di PowerShell `New-AzApplicationInsights` non supporta attualmente la
 }
 
 ```
+
+## <a name="new-capabilities"></a>Nuove funzionalità
+
+Application Insights basato sull'area di lavoro consente di sfruttare tutte le funzionalità più recenti di monitoraggio di Azure, tra cui:
+
+* [Chiavi gestite dal cliente (CMK)](../platform/customer-managed-keys.md) fornisce la crittografia dei dati inattivi per i dati con chiavi di crittografia solo a cui si ha accesso.
+* [Collegamento privato di Azure](../platform/private-link-security.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati.
+* [Bring your own Storage (BYOS) per Profiler e snapshot debugger](./profiler-bring-your-own-storage.md) offre il controllo completo sui criteri di crittografia dei dati inattivi, sui criteri di gestione della durata e sull'accesso alla rete per tutti i dati associati a Application Insights Profiler e snapshot debugger. 
 
 ## <a name="modifying-the-associated-workspace"></a>Modifica dell'area di lavoro associata
 

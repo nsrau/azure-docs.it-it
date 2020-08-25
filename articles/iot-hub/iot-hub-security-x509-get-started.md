@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: e9fd4308f89873183e4f5f57cee56887ce181fae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d7bf31f7b16fa987bb9c710835d1a3aff8214604
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307285"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783264"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurare la sicurezza X.509 nell'hub IoT di Azure
 
@@ -50,6 +50,9 @@ Per ottenere i certificati, è possibile scegliere uno dei modi seguenti:
 
 Questi passaggi illustrano come aggiungere una nuova autorità di certificazione all'hub IoT tramite il portale.
 
+> [!NOTE]
+> Il numero massimo di certificati della CA X. 509 che è possibile registrare per un hub Internet è 25. Per altre informazioni, vedere [quote e limitazioni dell'hub Azure](iot-hub-devguide-quotas-throttling.md).
+
 1. Nella portale di Azure passare all'hub Internet e selezionare **Impostazioni**  >  **certificati** per l'hub.
 
 1. Selezionare **Aggiungi** per aggiungere un nuovo certificato.
@@ -64,7 +67,7 @@ Questi passaggi illustrano come aggiungere una nuova autorità di certificazione
 
 1. Selezionare il certificato appena aggiunto per visualizzare **i dettagli del certificato**e quindi selezionare **genera codice di verifica**.
 
-   ![Verificare il certificato](./media/iot-hub-security-x509-get-started/copy-verification-code.png)  
+   ![Verifica il certificato](./media/iot-hub-security-x509-get-started/copy-verification-code.png)  
 
 1. Copiare il **codice di verifica** negli Appunti. Viene usato per convalidare la proprietà del certificato.
 

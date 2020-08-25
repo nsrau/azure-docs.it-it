@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 1e66774d4239bdad6c8af426a28af6081bb0da3c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137655"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782176"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modulo di albero delle decisioni con boosting a due classi
 
@@ -22,9 +22,11 @@ Questo articolo descrive un modulo disponibile nella finestra di progettazione d
 
 Usare questo modulo per creare un modello di machine learning basato sull'algoritmo degli alberi delle decisioni con boosting. 
 
-Un albero delle decisioni con boosting è un metodo di apprendimento dell'insieme in cui il secondo albero corregge gli errori del primo albero, il terzo albero corregge gli errori del primo e del secondo albero e così via.  Le stime si basano sull'intero insieme di alberi che esegue la stima.
+Un albero delle decisioni con boosting è un metodo di apprendimento dell'insieme in cui il secondo albero corregge gli errori del primo albero, il terzo albero corregge gli errori del primo e del secondo albero e così via. Le stime si basano sull'intero insieme di alberi che esegue la stima.
   
 In genere, quando sono configurati correttamente, gli alberi delle decisioni con boosting sono i metodi più semplici per ottenere prestazioni ottimali in un'ampia gamma di attività di machine learning. Tuttavia, sono anche uno degli strumenti di apprendimento più intensivo di memoria e l'implementazione corrente contiene tutti gli elementi in memoria. Pertanto, un modello di albero delle decisioni con boosting potrebbe non essere in grado di elaborare i set di impostazioni di grandi dimensioni che alcuni elementi di apprendimento lineari possono gestire.
+
+Questo modulo è basato sull'algoritmo LightGBM.
 
 ## <a name="how-to-configure"></a>Modalità di configurazione
 

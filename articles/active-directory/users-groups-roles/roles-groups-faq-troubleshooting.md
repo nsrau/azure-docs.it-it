@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208196"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798296"
 ---
-# <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Risoluzione dei problemi assegnati ai gruppi di cloud
+# <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud
 
 Di seguito sono riportate alcune domande comuni e suggerimenti per la risoluzione dei problemi per l'assegnazione di ruoli a gruppi in Azure Active Directory (Azure AD).
 
@@ -40,8 +40,8 @@ Di seguito sono riportate alcune domande comuni e suggerimenti per la risoluzion
 
 **R:** L'utente può essere un proprietario di un gruppo assegnabile al ruolo. Proteggiamo i proprietari dei gruppi assegnabili ai ruoli per evitare l'elevazione dei privilegi. Un esempio potrebbe essere se un gruppo Contoso_Security_Admins viene assegnato al ruolo di amministratore della sicurezza, dove Bob è il proprietario del gruppo e Alice è amministratore password nell'organizzazione. Se questa protezione non fosse presente, Alice poteva reimpostare le credenziali di Bob e prendere il sopravvento sulla propria identità. Successivamente, Alice potrebbe aggiungere se stesso o chiunque al gruppo Contoso_Security_Admins gruppo per diventare amministratore della sicurezza nell'organizzazione. Per sapere se un utente è un proprietario del gruppo, ottenere l'elenco di oggetti di proprietà dell'utente e verificare se uno dei gruppi ha isAssignableToRole impostato su true. In caso affermativo, l'utente è protetto e il comportamento è di progettazione. Fare riferimento a queste documentazioni per ottenere oggetti di proprietà:
 
-- [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Elencare ownedObjects](https://docs.microsoft.com/graph/api/user-list-ownedobjects?view=graph-rest-1.0&tabs=http)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
+- [Elencare ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
 
 **D:** È possibile creare una verifica di accesso nei gruppi che possono essere assegnati ai ruoli Azure AD (in particolare, gruppi con la proprietà isAssignableToRole impostata su true)?  
 

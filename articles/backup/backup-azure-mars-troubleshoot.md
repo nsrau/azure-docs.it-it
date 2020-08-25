@@ -3,12 +3,12 @@ title: Risolvere i problemi dell'agente di backup di Azure
 description: Questo articolo illustra come risolvere i problemi di installazione e registrazione dell'agente di backup di Azure.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564113"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763508"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -65,19 +65,19 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 
 ## <a name="unable-to-download-vault-credential-file"></a>Non è possibile scaricare il file di credenziali dell'insieme di credenziali
 
-| Error   | Azioni consigliate |
+| Errore   | Azioni consigliate |
 | ---     | ---    |
 |Non è stato possibile scaricare il file dell'insieme di credenziali. (ID: 403) | <ul><li> Provare a scaricare le credenziali dell'insieme di credenziali usando un browser diverso o eseguire le operazioni seguenti: <ul><li> Avviare Internet Explorer. Selezionare F12. </li><li> Passare alla scheda **rete** e deselezionare la cache e i cookie. </li> <li> Aggiornare la pagina.<br></li></ul> <li> Controllare se la sottoscrizione è disabilitata/scaduta.<br></li> <li> Controllare se una regola del firewall sta bloccando il download. <br></li> <li> Assicurarsi di non aver esaurito il limite nell'insieme di credenziali (50 computer per ogni insieme di credenziali).<br></li>  <li> Verificare che l'utente disponga delle autorizzazioni di backup di Azure necessarie per scaricare le credenziali dell'insieme di credenziali e registrare un server con l'insieme di credenziali. Vedere [usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di backup di Azure](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>L'agente di Servizi di ripristino di Microsoft Azure non è riuscito a connettersi a Backup di Microsoft Azure
 
-| Error  | Possibile causa | Azioni consigliate |
+| Errore  | Possibile causa | Azioni consigliate |
 | ---     | ---     | ---    |
 | <br /><ul><li>L'agente del servizio di ripristino Microsoft Azure non è riuscito a connettersi al Backup di Microsoft Azure. (ID: 100050) Controllare le impostazioni di rete e assicurarsi di essere in grado di connettersi a Internet.<li>(407) Necessaria autenticazione proxy. |Un proxy blocca la connessione. |  <ul><li>In Internet Explorer passare a **strumenti**  >  **Opzioni Internet**  >  **sicurezza**  >  **Internet**. Selezionare **livello personalizzato** e scorrere verso il basso fino alla sezione **download del file** . Selezionare **Abilita**.<p>Potrebbe inoltre essere necessario aggiungere [URL e indirizzi IP](install-mars-agent.md#verify-internet-access) ai siti attendibili in Internet Explorer.<li>Modificare le impostazioni per l'utilizzo di un server proxy. Indicare quindi i dettagli del server proxy.<li> Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano questi [URL e indirizzi IP](install-mars-agent.md#verify-internet-access). <li>Se nel server è installato un software antivirus, escludere questi file dall'analisi antivirus: <ul><li>CBengine.exe (anziché dpmra.exe).<li>CSC.exe (correlato a .NET Framework). È presente un CSC.exe per ogni versione di .NET Framework installata nel server. Escludere CSC.exe file per tutte le versioni di .NET Framework nel server interessato. <li>Percorso della cartella scratch o della cache. <br>Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch.<li>La cartella bin in C:\Programmi\Microsoft Azure Recovery Services Agent\Bin.
 
 ## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>Non è possibile usare il file di credenziali dell'insieme di credenziali specificato perché non è stato scaricato dall'insieme di credenziali associato a questo server
 
-| Error  | Possibile causa | Azioni consigliate |
+| Errore  | Possibile causa | Azioni consigliate |
 | ---     | ---     | ---    |
 | Non è possibile usare il file di credenziali dell'insieme di credenziali specificato perché non viene scaricato dall'insieme di credenziali associato a questo server. (ID: 100110) Fornire le credenziali appropriate per l'insieme di credenziali. | Il file delle credenziali dell'insieme di credenziali si trova in un insieme di credenziali diverso da quello in cui questo server è già registrato. | Assicurarsi che il computer di destinazione e il computer di origine siano registrati nello stesso insieme di credenziali dei servizi di ripristino. Se il server di destinazione è già stato registrato in un insieme di credenziali diverso, usare l'opzione **Registra server** per eseguire la registrazione nell'insieme di credenziali corretto.  
 
@@ -109,19 +109,19 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Impossibile impostare la chiave di crittografia per i backup protetti
 
-| Error | Possibili cause | Azioni consigliate |
+| Errore | Possibili cause | Azioni consigliate |
 | ---     | ---     | ---    |
 | <br />Impossibile impostare la chiave di crittografia per i backup protetti. L'attivazione non è stata completata, ma la passphrase di crittografia è stata salvata nel file seguente. |<li>Il server è già registrato con un altro insieme di credenziali.<li>Durante la configurazione la passphrase è stata danneggiata.| Annullare la registrazione del server dall'insieme di credenziali e registrarlo nuovamente con una nuova passphrase.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>L'attivazione non è stata completata
 
-| Error  | Possibili cause | Azioni consigliate |
+| Errore  | Possibili cause | Azioni consigliate |
 |---------|---------|---------|
 |<br />L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione dopo alcuni minuti. Se il problema persiste, contattare il supporto tecnico Microsoft.     | <li> La cartella Scratch si trova in un volume che non dispone di spazio sufficiente. <li> La cartella Scratch è stata spostata in modo errato. <li> Il file OnlineBackup.KEK è mancante.         | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'agente Mars.<li>Spostare la cartella scratch o la posizione della cache in un volume con spazio libero compreso tra 5% e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi in [domande frequenti sul backup di file e cartelle](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La passphrase di crittografia non è configurata correttamente
 
-| Error  | Possibili cause | Azioni consigliate |
+| Errore  | Possibili cause | Azioni consigliate |
 |---------|---------|---------|
 | <br />Errore 34506. La passphrase di crittografia archiviata su questo computer non è configurata correttamente.    | <li> La cartella Scratch si trova in un volume che non dispone di spazio sufficiente. <li> La cartella Scratch è stata spostata in modo errato. <li> Il file OnlineBackup.KEK è mancante.        | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare la cartella scratch o la posizione della cache in un volume con spazio libero compreso tra 5% e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi in [domande frequenti sul backup di file e cartelle](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
@@ -167,7 +167,7 @@ Set-ExecutionPolicy Unrestricted
 
 ## <a name="resource-not-provisioned-in-service-stamp"></a>Risorsa di cui non è stato effettuato il provisioning nel timbro
 
-Error | Possibili cause | Azioni consigliate
+Errore | Possibili cause | Azioni consigliate
 --- | --- | ---
 L'operazione corrente non è riuscita a causa di un errore di servizio interno "Impossibile eseguire il provisioning della risorsa nel timbro del servizio". Ripetere l'operazione dopo alcuni minuti. (ID: 230006) | Il server protetto è stato rinominato. | <li> Rinominare nuovamente il server con il nome originale come registrato con l'insieme di credenziali. <br> <li> Registrare nuovamente il server nell'insieme di credenziali con il nuovo nome.
 
@@ -245,8 +245,8 @@ Le operazioni di backup potrebbero non riuscire se non è disponibile spazio di 
 
 Se nel server è installato un software antivirus, aggiungere le regole di esclusione necessarie all'analisi antivirus per i file e le cartelle seguenti:  
 
-- Cartella Scratch. Il percorso predefinito è`C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
-- La cartella bin in`C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
+- Cartella Scratch. Il percorso predefinito è `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+- La cartella bin in `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
 - CBengine.exe
 - CSC.exe
 
@@ -258,13 +258,13 @@ Questa sezione descrive gli errori comuni che si verificano durante l'uso dell'a
 
 Messaggio di errore | Azione consigliata
 --|--
-Agente di Servizi di ripristino di Microsoft Azure non è riuscito ad accedere al checksum di backup archiviato nell'area di lavoro | Per risolvere il problema, eseguire le operazioni seguenti e riavviare il server <br/> - [Controllare se è presente un antivirus o altri processi che bloccano i file del percorso dei file temporanei](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Controllare se il percorso dei file temporanei è valido e accessibile all'agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Agente di Servizi di ripristino di Microsoft Azure non è riuscito ad accedere al checksum di backup archiviato nell'area di lavoro | Per risolvere questo problema, eseguire la procedura seguente e riavviare il server <br/> - [Controllare se è presente un antivirus o altri processi che bloccano i file del percorso dei file temporanei](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Controllare se il percorso dei file temporanei è valido e accessibile all'agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Messaggio di errore | Azione consigliata
 --|--
-Agente di Servizi di ripristino di Microsoft Azure non è riuscito ad accedere al percorso dei file temporanei per inizializzare VHD | Per risolvere il problema, eseguire le operazioni seguenti e riavviare il server <br/> - [Controllare se i file del percorso dei file temporanei sono stati bloccati da antivirus o altri processi](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Controllare se il percorso dei file temporanei è valido e accessibile all'agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Agente di Servizi di ripristino di Microsoft Azure non è riuscito ad accedere al percorso dei file temporanei per inizializzare VHD | Per risolvere questo problema, eseguire la procedura seguente e riavviare il server <br/> - [Controllare se i file del percorso dei file temporanei sono stati bloccati da antivirus o altri processi](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Controllare se il percorso dei file temporanei è valido e accessibile all'agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 

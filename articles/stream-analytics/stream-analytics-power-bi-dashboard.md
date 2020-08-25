@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2019
-ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 8/6/2020
+ms.openlocfilehash: 5b5840c1b668e9a509f58d7edf65175f621d9e4c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314221"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794305"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
 
@@ -39,7 +39,10 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
 
 2. Nel menu a sinistra selezionare **Output** in **Topologia processo**. Selezionare quindi **+ Aggiungi** e scegliere **Power BI** dal menu a discesa.
 
-3. Selezionare **+ Aggiungi** > **Power BI**. Compilare quindi il modulo con i dettagli seguenti e selezionare **Autorizza**:
+3. Selezionare **+ Aggiungi** > **Power BI**. Compilare quindi il modulo con i dettagli seguenti e selezionare **autorizza** per usare la propria identità utente per connettersi a Power BI (il token è valido per 90 giorni). 
+
+>[!NOTE]
+>Per i processi di produzione, è consigliabile connettersi per [usare identità gestita per autenticare il processo di analisi di flusso di Azure per Power bi](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
    |**Impostazione**  |**Valore consigliato**  |
    |---------|---------|
@@ -230,3 +233,4 @@ Dopo aver aggiornato l'autorizzazione con Power BI, viene visualizzato un avviso
 * [Output di Analisi di flusso](stream-analytics-define-outputs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)

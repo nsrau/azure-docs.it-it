@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38b474d4b454c61b83bfb1d62230930a0b569b1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ba22720901cf4b7505d8d5b5295ca4e0c271953f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164224"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798398"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 
@@ -59,7 +59,7 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 * Agente di password Single Sign-On
 * [Assegnazione di gruppi](groups-self-service-management.md)
 * App personalizzate basate su password
-* [Dashboard/report sull'utilizzo di app](../active-directory-passwords-get-insights.md)
+* [Dashboard/report sull'utilizzo di app](../authentication/howto-sspr-reporting.md)
 * Portali di accesso dell'utente finale
 * [Proxy di app](../manage-apps/application-proxy.md)
 * [Marketplace di Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
@@ -72,10 +72,10 @@ Per usare Azure AD per la condivisione di un account è necessario:
 * Configurare l'applicazione per l'accesso Single Sign-On basato su password
 * Usare un' [assegnazione basata su gruppi](groups-saasapps.md) e selezionare l'opzione per immettere le credenziali condivise
 
-Con Azure AD è possibile rendere più sicuro l'account condiviso tramite Multi-Factor Authentication (MFA) (vedere altre informazioni sulla [sicurezza delle applicazioni con Azure AD](../authentication/concept-mfa-whichversion.md)) ed è possibile delegare la capacità di gestire chi può accedere all'applicazione tramite la gestione dei gruppi in [modalità self-service di Azure AD](groups-self-service-management.md).
+Con Azure AD è possibile rendere più sicuro l'account condiviso tramite Multi-Factor Authentication (MFA) (vedere altre informazioni sulla [sicurezza delle applicazioni con Azure AD](../authentication/concept-mfa-howitworks.md)) ed è possibile delegare la capacità di gestire chi può accedere all'applicazione tramite la gestione dei gruppi in [modalità self-service di Azure AD](groups-self-service-management.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Protezione delle app con l'accesso condizionale](../active-directory-conditional-access-azure-portal.md)
+* [Protezione delle app con l'accesso condizionale](../conditional-access/overview.md)
 * [Gestione di gruppi self-service/SSAA](groups-self-service-management.md)

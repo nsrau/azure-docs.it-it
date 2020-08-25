@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256629"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784012"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funzionalità di gestione per i ruoli di Azure AD in Privileged Identity Management
 
@@ -52,11 +52,11 @@ Non appena si scopre l'assegnazione temporale, la prima domanda che si potrebbe 
 - **Estendi**: quando un'assegnazione di ruolo si avvicina alla scadenza, l'utente può usare Privileged Identity Management per richiedere un'estensione per tale assegnazione di ruolo
 - **Rinnovo**: quando un'assegnazione di ruolo è scaduta, l'utente può usare Privileged Identity Management per richiedere un rinnovo per tale assegnazione di ruolo
 
-Per entrambe le azioni avviate dall'utente è richiesta un'approvazione da un amministratore globale o da un amministratore del ruolo con privilegi. Gli amministratori non dovranno più occuparsi della gestione di queste scadenze. È sufficiente attendere le richieste di estensione o rinnovo e approvarle se la richiesta è valida.
+Per entrambe le azioni avviate dall'utente è necessaria l'approvazione di un amministratore globale o di un amministratore ruolo con privilegi. Gli amministratori non dovranno più occuparsi della gestione di queste scadenze. È sufficiente attendere le richieste di estensione o rinnovo e approvarle se la richiesta è valida.
 
 ## <a name="api-changes"></a>Modifiche all'API
 
-Quando la versione aggiornata dei clienti viene implementata nell'organizzazione Azure AD, l'API Graph esistente smette di funzionare. È necessario eseguire la transizione per usare la [API Graph per i ruoli delle risorse di Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Per gestire i ruoli Azure AD usando tale API, scambiare `/azureResources` con `/aadroles` nella firma e usare l'ID directory per `resourceId` .
+Quando la versione aggiornata dei clienti viene implementata nell'organizzazione Azure AD, l'API Graph esistente smette di funzionare. È necessario eseguire la transizione per usare la [API Graph per i ruoli delle risorse di Azure](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Per gestire i ruoli Azure AD usando tale API, scambiare `/azureResources` con `/aadroles` nella firma e usare l'ID directory per `resourceId` .
 
 Abbiamo provato il nostro meglio per raggiungere tutti i clienti che usano l'API precedente per informare in anticipo questa modifica. Se il Azure AD organizzazione è stato spostato nella nuova versione e si dipende ancora dalla vecchia API, contattare il team all'indirizzo pim_preview@microsoft.com .
 

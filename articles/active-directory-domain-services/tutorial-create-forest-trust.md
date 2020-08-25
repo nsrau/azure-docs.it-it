@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 24928ec4117b321cfec7177fdad40f2a3ab7a1f4
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87492157"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722722"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Esercitazione: Creare un trust tra foreste in uscita per un dominio locale in Azure Active Directory Domain Services
 
@@ -128,7 +128,7 @@ Gli scenari comuni seguenti consentono di verificare che il trust tra foreste es
 
 È necessario che la macchina virtuale Windows Server sia stata aggiunta al dominio gestito. Usare questa macchina virtuale per verificare che l'utente locale possa eseguire l'autenticazione in una macchina virtuale. Se necessario, [creare una macchina virtuale Windows e aggiungerla al dominio gestito][join-windows-vm].
 
-1. Connettersi alla macchina virtuale Windows Server aggiunta alla foresta di risorse Azure AD Domain Services usando [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e le credenziali di amministratore di Azure AD Domain Services.
+1. Connettersi alla macchina virtuale Windows Server aggiunta alla foresta di risorse Azure AD Domain Services usando [Azure Bastion](../bastion/bastion-overview.md) e le credenziali di amministratore di Azure AD Domain Services.
 1. Aprire un prompt dei comandi e usare il comando `whoami` per visualizzare il nome distinto dell'utente attualmente autenticato:
 
     ```console
@@ -150,7 +150,7 @@ Usando la macchina virtuale Windows Server aggiunta alla foresta di risorse Azur
 
 #### <a name="enable-file-and-printer-sharing"></a>Abilitare la condivisione di file e stampanti
 
-1. Connettersi alla macchina virtuale Windows Server aggiunta alla foresta di risorse Azure AD Domain Services usando [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e le credenziali di amministratore di Azure AD Domain Services.
+1. Connettersi alla macchina virtuale Windows Server aggiunta alla foresta di risorse Azure AD Domain Services usando [Azure Bastion](../bastion/bastion-overview.md) e le credenziali di amministratore di Azure AD Domain Services.
 
 1. Aprire **Impostazioni di Windows**, quindi cercare e selezionare **Centro connessioni di rete e condivisione**.
 1. Scegliere l'opzione per **Modifica impostazioni di condivisione avanzate**.

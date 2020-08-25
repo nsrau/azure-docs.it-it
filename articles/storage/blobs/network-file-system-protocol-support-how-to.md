@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 985fbc70f15c0806c45ae43d62995590e10b1bb2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167029"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798925"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
@@ -92,14 +92,14 @@ Quando si configura l'account, scegliere i valori seguenti:
 
 |Impostazione | valore|
 |----|---|
-|Location|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale |
+|Percorso|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale |
 |Prestazioni|Premium|
 |Tipo di account|BlockBlobStorage|
 |Replica|Archiviazione con ridondanza locale|
 |Metodo di connettività|Endpoint pubblico (reti selezionate) o endpoint privato|
 |Trasferimento sicuro obbligatorio|Disabled|
-|Spazio dei nomi gerarchico|Attivato|
-|NFS V3|Attivato|
+|Spazio dei nomi gerarchico|Abilitato|
+|NFS V3|Abilitato|
 
 È possibile accettare i valori predefiniti per tutte le altre impostazioni. 
 
@@ -153,6 +153,15 @@ Creare una directory nel sistema Windows o Linux e quindi montare un contenitore
    - Sostituire il `<storage-account-name>` segnaposto visualizzato in questo comando con il nome dell'account di archiviazione.  
 
    - Sostituire il `<container-name>` segnaposto con il nome del contenitore.
+
+3. Se sono necessarie autorizzazioni di scrittura, potrebbe essere necessario modificare l'UID e il GID predefiniti usati da Windows per connettersi alla condivisione. A tale scopo, eseguire i seguenti comandi di PowerShell come amministratore:
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - Riavviare il servizio client NFS o riavviare il server dopo avere apportato questa modifica.
 
 ---
 
