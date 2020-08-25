@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21e0358e2226f93a6c7088906d1146e5e2cf740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729031"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795423"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminare un tenant in Azure Active Directory
 
@@ -85,7 +85,7 @@ Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eli
 
    ![Eliminare il collegamento per l'eliminazione della sottoscrizione](./media/directory-delete-howto/delete-command.png)
 
-6. Selezionare **Elimina sottoscrizione** per eliminare la sottoscrizione e accettare le condizioni. Tutti i dati verranno definitivamente eliminati entro tre giorni. Se si cambia idea, è possibile [riattivare la sottoscrizione](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) entro un periodo di tre giorni.
+6. Selezionare **Elimina sottoscrizione** per eliminare la sottoscrizione e accettare le condizioni. Tutti i dati verranno definitivamente eliminati entro tre giorni. Se si cambia idea, è possibile [riattivare la sottoscrizione](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) entro un periodo di tre giorni.
   
    ![leggere attentamente le condizioni](./media/directory-delete-howto/delete-terms.png)
 
@@ -97,18 +97,18 @@ Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eli
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Ho una sottoscrizione di valutazione che blocca l'eliminazione
 
-Per alcuni [prodotti con iscrizione self-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide), ad esempio Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365, i singoli utenti possono effettuare l'iscrizione tramite Office 365. Questa procedura crea anche un utente guest per l'autenticazione nell'organizzazione di Azure AD. Questi prodotti self-service bloccano le eliminazioni di directory fino a quando i prodotti non vengono eliminati completamente dall'organizzazione, per evitare la perdita di dati. Possono essere eliminati solo dall'amministratore di Azure AD, indipendentemente dal fatto che l'utente abbia effettuato l'iscrizione singolarmente o che sia stato assegnato al prodotto.
+Per alcuni [prodotti con iscrizione self-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide), ad esempio Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365, i singoli utenti possono effettuare l'iscrizione tramite Office 365. Questa procedura crea anche un utente guest per l'autenticazione nell'organizzazione di Azure AD. Questi prodotti self-service bloccano le eliminazioni di directory fino a quando i prodotti non vengono eliminati completamente dall'organizzazione, per evitare la perdita di dati. Possono essere eliminati solo dall'amministratore di Azure AD, indipendentemente dal fatto che l'utente abbia effettuato l'iscrizione singolarmente o che sia stato assegnato al prodotto.
 
 Esistono due tipi di prodotti con iscrizione self-service con modalità di assegnazione diverse: 
 
 * Assegnazione a livello di organizzazione: Un amministratore di Azure AD assegna il prodotto all'intera organizzazione e un utente può usare attivamente il servizio con questa assegnazione a livello di organizzazione anche se non gli è stata concessa una licenza individuale.
 * Assegnazione a livello di utente: Un utente singolo durante l'iscrizione self-service assegna il prodotto a se stesso senza un amministratore. Quando l'organizzazione diventa gestita da un amministratore (vedere [Acquisizione di un'organizzazione non gestita da parte di un amministratore](domains-admin-takeover.md)), l'amministratore può assegnare direttamente il prodotto agli utenti senza l'iscrizione self-service.  
 
-Quando si avvia l'eliminazione del prodotto con iscrizione self-service, l'azione elimina definitivamente i dati e rimuove tutti gli accessi utente al servizio. A tutti gli utenti a cui è stata assegnata l'offerta singolarmente o a livello di organizzazione viene quindi impedito l'accesso al servizio e a tutti i dati esistenti. Per impedire la perdita di dati per il prodotto con iscrizione self-service, ad esempio i [dashboard di Microsoft Power BI](https://docs.microsoft.com/power-bi/service-export-to-pbix) o la [configurazione dei criteri di Rights Management Services](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), assicurarsi che i dati vengano sottoposti a backup e salvati altrove.
+Quando si avvia l'eliminazione del prodotto con iscrizione self-service, l'azione elimina definitivamente i dati e rimuove tutti gli accessi utente al servizio. A tutti gli utenti a cui è stata assegnata l'offerta singolarmente o a livello di organizzazione viene quindi impedito l'accesso al servizio e a tutti i dati esistenti. Per impedire la perdita di dati per il prodotto con iscrizione self-service, ad esempio i [dashboard di Microsoft Power BI](/power-bi/service-export-to-pbix) o la [configurazione dei criteri di Rights Management Services](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), assicurarsi che i dati vengano sottoposti a backup e salvati altrove.
 
-Per ulteriori informazioni sui prodotti e i servizi con iscrizione self-service attualmente disponibili, vedere [Programmi self-service disponibili](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+Per ulteriori informazioni sui prodotti e i servizi con iscrizione self-service attualmente disponibili, vedere [Programmi self-service disponibili](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Per sapere come comportarsi quando una sottoscrizione della versione di prova gratuita di Office 365 scade (esclusi Partner/CSP a pagamento, Enterprise Agreement o Contratti multilicenza), vedere la tabella seguente. Per altre informazioni sulla conservazione dei dati di Office 365 dati e il ciclo di vita della sottoscrizione, vedere [Cosa accade ai dati e all'accesso quando la sottoscrizione aziendale a Office 365 termina?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Per sapere come comportarsi quando una sottoscrizione della versione di prova gratuita di Office 365 scade (esclusi Partner/CSP a pagamento, Enterprise Agreement o Contratti multilicenza), vedere la tabella seguente. Per altre informazioni sulla conservazione dei dati di Office 365 dati e il ciclo di vita della sottoscrizione, vedere [Cosa accade ai dati e all'accesso quando la sottoscrizione aziendale a Office 365 termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Stato del prodotto | Data | Accesso ai dati
 ------------- | ---- | --------------
@@ -143,4 +143,4 @@ Deleted | Dati eliminati | Gli utenti non possono accedere al prodotto con iscri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+[Documentazione di Azure Active Directory](../index.yml)

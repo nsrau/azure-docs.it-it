@@ -3,12 +3,12 @@ title: Eliminazione temporanea per backup di Azure
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538837"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763440"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminazione temporanea per backup di Azure
 
@@ -69,7 +69,7 @@ I dati di backup in stato di eliminazione temporanea prima della disabilitazione
 
 ### <a name="using-azure-portal"></a>Uso del portale di Azure
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 
 1. Seguire i passaggi per [disabilitare l'eliminazione](#enabling-and-disabling-soft-delete)temporanea.
 
@@ -136,7 +136,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 Se gli elementi sono stati eliminati prima della disabilitazione dell'eliminazione temporanea, saranno in uno stato di eliminazione temporanea. Per eliminare immediatamente tali elementi, è necessario invertire l'operazione di eliminazione e quindi eseguire di nuovo l'operazione.
 
-1. Per prima cosa, annullare le operazioni di eliminazione con i passaggi indicati di [seguito](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+1. Per prima cosa, annullare le operazioni di eliminazione con i passaggi indicati di [seguito](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Disabilitare quindi la funzionalità di eliminazione temporanea usando l'API REST usando la procedura descritta [qui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Eliminare quindi i backup usando l'API REST come indicato [qui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 

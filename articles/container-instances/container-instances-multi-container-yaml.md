@@ -3,12 +3,12 @@ title: Esercitazione - Distribuire un gruppo multi-contenitore- YAML
 description: In questa esercitazione si apprenderà come distribuire un gruppo di contenitori con più contenitori in istanze di Azure Container usando un file YAML con l'interfaccia della riga di comando di Azure.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 2673f1066db705e4d2e850230c5f96dc2690a85c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6ba9152003c68192ddc0fdffa5652bc0b6daa86
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259557"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750912"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando un file YAML
 
@@ -76,7 +76,7 @@ properties:
       port: 80
     - protocol: tcp
       port: 8080
-tags: null
+tags: {exampleTag: tutorial}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 

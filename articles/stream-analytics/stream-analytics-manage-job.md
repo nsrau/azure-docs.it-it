@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83697391"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Esercitazione: Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
@@ -52,9 +52,9 @@ Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la proce
    |**Impostazione**  |**Valore consigliato** |**Descrizione**  |
    |---------|---------|---------|
    |Nome     | myEventHubsNS        |  Nome univoco che identifica lo spazio dei nomi dell'hub eventi.       |
-   |Subscription     |   \<Sottoscrizione in uso\>      |   Selezionare una sottoscrizione di Azure in cui creare l'hub eventi.      |
+   |Subscription     |   \<Your subscription\>      |   Selezionare una sottoscrizione di Azure in cui creare l'hub eventi.      |
    |Resource group     |   MyASADemoRG      |  Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account.       |
-   |Location     |   Stati Uniti occidentali 2      |    Località in cui lo spazio dei nomi dell'hub eventi può essere distribuito.     |
+   |Percorso     |   Stati Uniti occidentali 2      |    Località in cui lo spazio dei nomi dell'hub eventi può essere distribuito.     |
 
 4. Usare le opzioni predefinite per le restanti impostazioni e selezionare **Crea**.
 
@@ -135,9 +135,9 @@ Dopo aver creato un flusso di eventi di chiamata, è possibile creare un process
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Nome processo     |  ASATutorial       |   Nome univoco che identifica lo spazio dei nomi dell'hub eventi.      |
-   |Subscription    |  \<Sottoscrizione in uso\>   |   Selezionare una sottoscrizione di Azure in cui creare il processo.       |
+   |Sottoscrizione    |  \<Your subscription\>   |   Selezionare una sottoscrizione di Azure in cui creare il processo.       |
    |Resource group   |   MyASADemoRG      |   Selezionare **Usa esistente** e immettere il nome di un nuovo gruppo di risorse per l'account.      |
-   |Location   |    Stati Uniti occidentali 2     |      Località in cui il processo può essere distribuito. È consigliabile posizionare il processo e l'hub eventi nella stessa area per ottenere prestazioni ottimali ed evitare di pagare il trasferimento dei dati tra aree.      |
+   |Percorso   |    Stati Uniti occidentali 2     |      Località in cui il processo può essere distribuito. È consigliabile posizionare il processo e l'hub eventi nella stessa area per ottenere prestazioni ottimali ed evitare di pagare il trasferimento dei dati tra aree.      |
    |Ambiente di hosting    | Cloud        |     Per la distribuzione dei processi di Analisi di flusso è possibile scegliere tra Cloud o Edge. L'opzione Cloud consente di eseguire la distribuzione nel cloud di Azure, mentre l'opzione Edge consente di eseguire la distribuzione in un dispositivo IoT Edge.    |
    |Unità di streaming     |    1       |      Le unità di streaming rappresentano le risorse di calcolo necessarie per eseguire un processo. Il valore predefinito di questa impostazione è 1. Per informazioni sul ridimensionamento delle unità di streaming, vedere [Informazioni sulle unità di flusso e su come modificarle](stream-analytics-streaming-unit-consumption.md).      |
 
@@ -158,7 +158,7 @@ Il passaggio successivo consiste nel definire un'origine di input da cui il proc
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di input     |  CallStream       |  Specificare un nome descrittivo per identificare l'input. L'alias di input può contenere solo caratteri alfanumerici, trattini e caratteri di sottolineatura e deve avere una lunghezza compresa tra 3 e 63 caratteri.       |
-   |Subscription    |   \<Sottoscrizione in uso\>      |   Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi. L'hub eventi può trovarsi nella stessa sottoscrizione del processo di Analisi di flusso o in una sottoscrizione diversa.       |
+   |Sottoscrizione    |   \<Your subscription\>      |   Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi. L'hub eventi può trovarsi nella stessa sottoscrizione del processo di Analisi di flusso o in una sottoscrizione diversa.       |
    |Spazio dei nomi dell'hub eventi    |  myEventHubsNS       |  Selezionare lo spazio dei nomi dell'hub eventi creato nella sezione precedente. Nell'elenco a discesa sono presenti tutti gli spazi dei nomi degli hub eventi disponibili nella sottoscrizione corrente.       |
    |Nome dell'hub eventi    |   MyEventHub      |  Selezionare l'hub eventi creato nella sezione precedente. Nell'elenco a discesa sono presenti tutti gli hub eventi disponibili nella sottoscrizione corrente.       |
    |Nome criteri hub eventi   |  MyPolicy       |  Selezionare i criteri di accesso condiviso dell'hub eventi creati nella sezione precedente. Nell'elenco a discesa sono presenti tutti i criteri degli hub eventi disponibili nella sottoscrizione corrente.       |

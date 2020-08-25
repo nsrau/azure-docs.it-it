@@ -4,12 +4,12 @@ description: Questo articolo illustra le funzionalità di monitoraggio e notific
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ec0453725186ddef359f85f8c3e5554ff240d3e3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 9a4558367d3af6858310ce4455cbf1df2a596312
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755722"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763474"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 

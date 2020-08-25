@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612436"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755263"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -82,14 +82,14 @@ Usare questa scheda per visualizzare le informazioni e le tendenze sull'archivia
 
    ![Scheda Elementi di backup](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-##### <a name="usage"></a>Uso
+##### <a name="usage"></a>Utilizzo
 
 Usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. Le informazioni visualizzate in questa scheda sono a livello di entità di fatturazione (contenitore protetto). Se, ad esempio, viene eseguito il backup di un server DPM in Azure, è possibile visualizzare la tendenza delle istanze protette e dello spazio di archiviazione cloud utilizzato per il server DPM. Analogamente, se si usa SQL in Backup di Azure o SAP HANA in Backup di Azure, questa scheda fornisce informazioni relative all'utilizzo a livello della macchina virtuale che contiene questi database.
 
    ![Scheda Utilizzo](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> Per i carichi di lavoro DPM, gli utenti potrebbero vedere una lieve differenza (dell'ordine di 20 MB per ogni server DPM) tra i valori di utilizzo indicati nei report e il valore di utilizzo aggregato visualizzato nella scheda Panoramica dell'insieme di credenziali di Servizi di ripristino. Questa differenza è dovuta al fatto che a ogni server DPM registrato per il backup è associata un'origine dati di "metadati" che non viene rilevata come elemento per la creazione dei report.
+> Per i carichi di lavoro DPM, è possibile che gli utenti visualizzino una lieve differenza (dell'ordine di 20 MB per ogni server DPM) tra i valori di utilizzo indicati nei report rispetto al valore di utilizzo aggregato, come illustrato nella scheda **Panoramica dell'insieme** di credenziali di servizi di ripristino. Questa differenza è rappresentata dal fatto che a ogni server DPM registrato per il backup è associata un'origine dati ' Metadata ', che non viene rilevata come artefatto per la creazione di report.
 
 ##### <a name="jobs"></a>Processi
 

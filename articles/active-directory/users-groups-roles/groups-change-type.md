@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bcf589e685d0a35a58bb1e8069a6ce3699b61c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6ee5af5d7489835f125319050d291a89ab252a6
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728385"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797123"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Modificare l'appartenenza a gruppi statica in dinamica in Azure Active Directory
 
@@ -33,7 +33,7 @@ In Azure Active Directory (Azure AD) è possibile modificare l'appartenenza a un
 ## <a name="change-the-membership-type-for-a-group"></a>Modificare il tipo di appartenenza per un gruppo
 
 1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account di amministratore globale o di amministratore dell'organizzazione Azure ad.
-2. Selezionare **gruppi**.
+2. Selezionare **Gruppi**.
 3. Dall'elenco **Tutti i gruppi** aprire il gruppo che si vuole modificare.
 4. Selezionare **Proprietà**.
 5. Nella pagina **Proprietà** del gruppo selezionare Assegnato (statico), Utente dinamico o Dispositivo dinamico come **Tipo di appartenenza**, a seconda del tipo di appartenenza desiderato. Per l'appartenenza dinamica è possibile usare il generatore di regole per selezionare le opzioni per una regola semplice oppure scrivere manualmente una regola di appartenenza. 
@@ -57,7 +57,7 @@ I passaggi seguenti offrono un esempio della procedura da seguire per modificare
 ## <a name="change-membership-type-for-a-group-powershell"></a>Modificare il tipo di appartenenza per un gruppo (PowerShell)
 
 > [!NOTE]
-> Per modificare le proprietà dei gruppi dinamici, sarà necessario usare i cmdlet della **versione di anteprima di** [Azure AD PowerShell versione 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). È possibile installare l'anteprima da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
+> Per modificare le proprietà dei gruppi dinamici, sarà necessario usare i cmdlet della **versione di anteprima di** [Azure AD PowerShell versione 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). È possibile installare l'anteprima da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Di seguito è riportato un esempio delle funzioni che cambiano la gestione delle appartenenze in un gruppo esistente. In questo esempio è necessario prestare attenzione a modificare correttamente la proprietà GroupTypes e a mantenere i valori eventualmente non correlati all'appartenenza dinamica.
 

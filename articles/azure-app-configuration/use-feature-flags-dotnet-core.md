@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 08/12/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 3182961f928a9befc5a55fb6d58e22c74ba81089
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79473439"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224714"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -37,7 +37,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="set-up-feature-management"></a>Configurare la gestione delle funzionalità
 
-Aggiungere un riferimento al pacchetto NuGet `Microsoft.FeatureManagement` per usare la gestione funzionalità di .NET Core.
+Aggiungere un riferimento ai pacchetti NuGet `Microsoft.FeatureManagement.AspNetCore` e `Microsoft.FeatureManagement` per usare Gestione funzionalità di .NET Core.
     
 La gestione funzionalità di .NET Core `IFeatureManager` ottiene i flag di funzionalità dal sistema di configurazione nativo del framework. Di conseguenza, è possibile definire i flag di funzionalità dell'applicazione usando qualsiasi origine di configurazione supportata da .NET Core, tra cui il file locale *appSettings.JSON* o le variabili di ambiente. `IFeatureManager` si basa sull'inserimento delle dipendenze di .NET Core. È possibile registrare i servizi di gestione di funzionalità usando le convenzioni standard:
 
@@ -206,6 +206,8 @@ public class HomeController : Controller
 Nei controller MVC è possibile usare l'attributo `FeatureGate` per controllare se è stata abilitata un'intera classe controller o un'azione specifica. Il controller `HomeController` seguente richiede che il flag `FeatureA` sia *attivo* prima che venga eseguita qualsiasi azione contenuta nella classe controller:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
@@ -216,6 +218,8 @@ public class HomeController : Controller
 Per poter eseguire l'azione `Index` seguente, il flag`FeatureA` deve essere *attivo*:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {

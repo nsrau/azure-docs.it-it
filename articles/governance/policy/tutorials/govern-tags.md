@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Gestire la governance dei tag'
 description: In questa esercitazione si usa l'effetto Modify di Criteri di Azure per creare e applicare un modello di governance dei tag alle risorse nuove ed esistenti.
-ms.date: 04/21/2020
+ms.date: 08/17/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142266"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545506"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Esercitazione: Gestire la governance dei tag con Criteri di Azure
 
@@ -45,7 +45,7 @@ Analogamente a qualsiasi implementazione efficace dei controlli di governance, i
 
 ## <a name="configure-the-costcenter-tag"></a>Configurare il tag CostCenter
 
-In termini specifici per un ambiente Azure gestito da Criteri di Azure, i requisiti del tag _CostCenter_ necessitano degli elementi seguenti:
+In termini specifici per un ambiente Azure gestito da Criteri di Azure, i requisiti del tag _CostCenter_ necessitano dei risultati seguenti:
 
 - Rifiuto dei gruppi di risorse a cui manca il tag _CostCenter_
 - Modifica delle risorse per aggiungere il tag _CostCenter_ dal gruppo di risorse padre, se mancante
@@ -107,7 +107,7 @@ Questa regola dei criteri usa l'operazione **add** invece di **addOrReplace** po
 
 ## <a name="configure-the-env-tag"></a>Configurare il tag Env
 
-In termini specifici per un ambiente Azure gestito da Criteri di Azure, i requisiti del tag _Env_ necessitano degli elementi seguenti:
+In termini specifici per un ambiente Azure gestito da Criteri di Azure, i requisiti del tag _Env_ necessitano dei risultati seguenti:
 
 - Modifica del tag _Env_ nel gruppo di risorse in base allo schema di denominazione del gruppo stesso
 - Modifica del tag _Env_ per tutte le risorse nel gruppo di risorse in modo analogo al gruppo di risorse padre

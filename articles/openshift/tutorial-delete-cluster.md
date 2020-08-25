@@ -7,12 +7,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 6fdc36dbf270be61457dcd00dd1988808a80d062
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 019e40b5ce7d3feb5b2be990d5e8a648b08302b2
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030097"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587702"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: Eliminare un cluster di Azure Red Hat OpenShift 4
 
@@ -26,7 +26,7 @@ In questa esercitazione, parte tre di tre, viene eliminato un cluster Azure Red 
 
 Nelle esercitazioni precedenti è stato creato e connesso un cluster Azure Red Hat OpenShift con la console Web di OpenShift. Se questi passaggi non sono stati eseguiti e si vuole procedere, iniziare con [Esercitazione 1: Creare un cluster di Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.75 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.6.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -40,7 +40,7 @@ Se si ha accesso a più sottoscrizioni, eseguire `az account set -s {subscriptio
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 
-Nelle esercitazioni precedenti sono state impostate le variabili seguenti. 
+Nelle esercitazioni precedenti sono state impostate le variabili seguenti.
 
 ```bash
 CLUSTER=yourclustername

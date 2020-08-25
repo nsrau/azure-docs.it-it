@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: 1816170da0fb6e5120f8cec6b6dda68d2ea1c678
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543204"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798126"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Visualizza e cerca le attività di accesso recenti dalla pagina di accesso personale
 
@@ -72,7 +72,7 @@ Gli accessi contrassegnati come attività insolita possono essere confermati nel
 
 Dopo aver verificato le attività di accesso recenti è possibile:
 
-- Visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md).
+- Visualizzare o gestire le [informazioni di sicurezza](./security-info-setup-signin.md).
 
 - Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md) connessi.
 

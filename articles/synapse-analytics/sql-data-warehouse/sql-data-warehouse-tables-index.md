@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ac32c41bd6b30c3edce68d67adc376e066d0bf5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213959"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797599"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Indicizzazione di tabelle nel pool SQL sinapsi
 
@@ -142,6 +142,9 @@ GROUP BY
 ,       t.[name]
 ;
 ```
+
+>[!TIP]
+> Per migliorare le prestazioni in sinapsi SQL, provare a usare **sys. pdw_permanent_table_mappings** anziché **sys. pdw_table_mappings** su tabelle utente permanenti. Per ulteriori informazioni, vedere **[sys. pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 Dopo aver creato la vista, eseguire la query per identificare le tabelle con gruppi di righe con meno di 100.000 righe. Per una qualità ancora superiore dei segmenti, è consigliabile aumentare la soglia oltre le 100.000 righe.
 

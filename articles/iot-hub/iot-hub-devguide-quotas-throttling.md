@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: f8522171fca6a88f81c3b8f0161fc382041aae1e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782567"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797803"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -112,7 +112,7 @@ L'hub IoT applica altri limiti operativi:
 | IoT Edge le distribuzioni automatiche<sup>1</sup> | 50 moduli per distribuzione. 100 distribuzioni (incluse le distribuzioni su più livelli) per hub SKU a pagamento. 10 distribuzioni per hub SKU gratuito. |
 | Dispositivi gemelli<sup>1</sup> | Le sezioni dimensioni massime delle proprietà desiderate e delle proprietà segnalate sono 32 KB ognuna. La dimensione massima della sezione dei tag è 8 KB. |
 | Criteri di accesso condivisi | Il numero massimo di criteri di accesso condiviso è 16. |
-| Certificati di CA | Il numero massimo di certificati della CA X. 509 che è possibile registrare è 25. |
+| certificati CA X509 | Il numero massimo di certificati CA X509 che è possibile registrare nell'hub Internet è 25. |
 
 <sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto).
 

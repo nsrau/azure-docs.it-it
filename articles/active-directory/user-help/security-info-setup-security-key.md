@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: 91138f104c787148042b187f4cf59a60bc1448d3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744423"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797667"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurare una chiave di sicurezza come metodi di verifica
 
@@ -158,13 +158,13 @@ Per eliminare tutte le informazioni dell'account archiviate nella chiave di sicu
 
 ## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
 
-Per registrare una chiave di sicurezza, è necessario avere almeno un metodo di verifica aggiuntiva di sicurezza registrato. Per altre informazioni, vedere la sezione [Panoramica](security-info-add-update-methods-overview.md). 
+Per registrare una chiave di sicurezza, è necessario avere almeno un metodo di verifica aggiuntiva di sicurezza registrato. Per altre informazioni, vedere la sezione [Panoramica](./security-info-setup-auth-app.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sui metodi di verifica senza password, vedere il [blog Microsoft's Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) oppure gli articoli [Che cos'è l'app Microsoft Authenticator?](user-help-auth-app-overview.md) e [Panoramica di Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
-- Leggere informazioni più dettagliate sulle [chiavi di sicurezza compatibili con Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- Leggere informazioni più dettagliate sulle [chiavi di sicurezza compatibili con Microsoft](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md).
 

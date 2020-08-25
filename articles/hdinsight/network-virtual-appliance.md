@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 805be8d5c9ab4f6316251adbb9bce3e99f4fa01d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b9e33ba8d9610067cb9e844477ec273391fbdb0b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086671"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751717"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurare l'appliance virtuale di rete in Azure HDInsight
 
@@ -47,7 +47,7 @@ Facoltativamente, è possibile abilitare uno o più degli endpoint di servizio s
 ### <a name="fqdn-httphttps-dependencies"></a>Dipendenze HTTP/HTTPS con nome di dominio completo
 
 > [!Important]
-> L'elenco seguente fornisce solo alcuni dei nomi di dominio completi più importanti. È possibile ottenere un elenco completo di FQDN (principalmente archiviazione di Azure e bus di servizio di Azure) per la configurazione dell'appliance virtuale di sistema [in questo file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Queste dipendenze vengono usate dalle operazioni del piano di controllo HDInsight per creare correttamente un cluster.
+> L'elenco seguente fornisce solo alcuni FQDN che potrebbero essere necessari per l'applicazione di patch per il sistema operativo e per la sicurezza o le convalide dei certificati dopo la creazione del cluster e durante il ciclo di vita delle operazioni del cluster. È possibile ottenere l'elenco delle dipendenze FQDN (principalmente archiviazione di Azure e il bus di servizio di Azure) per la configurazione dell'appliance virtuale [di sistema in questo file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Queste dipendenze vengono usate da HDInsight Resource Provider (RP) per creare e monitorare/gestire correttamente i cluster. Sono inclusi i dati di telemetria/diagnostica, i metadati di provisioning, le configurazioni correlate ai cluster, gli script, i modelli ARM e così via. L'elenco di dipendenze FQDN potrebbe cambiare con il rilascio di aggiornamenti HDIngisht futuri.
 
 | **Endpoint**                                                          |
 |---|

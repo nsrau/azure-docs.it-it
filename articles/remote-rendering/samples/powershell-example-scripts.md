@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 07055025eff9ab81c7321624daed9b4a6e993a60
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052283"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506512"
 ---
 # <a name="example-powershell-scripts"></a>Script di Azure PowerShell di esempio
 
@@ -26,21 +26,21 @@ Il [repository di esempi di Rendering remoto di Azure](https://github.com/Azure/
 Per eseguire gli script di esempio, è necessario procedere a un'installazione funzionale di [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 1. Installare Azure PowerShell:
-    1. Aprire una sessione di PowerShell con diritti di amministratore
+    1. Aprire una finestra di PowerShell con diritti di amministratore.
     1. Eseguire: `Install-Module -Name Az -AllowClobber`
 
 1. Se si ricevono errori relativi all'esecuzione di script, assicurarsi che i [criteri di esecuzione](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) siano impostati nel modo appropriato:
-    1. Aprire una sessione di PowerShell con diritti di amministratore
+    1. Aprire una finestra di PowerShell con diritti di amministratore.
     1. Eseguire: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
 1. [Preparare un account di archiviazione di Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
 1. Accedere alla sottoscrizione contenente l'account di Rendering remoto di Azure:
-    1. Aprire una sessione di PowerShell
+    1. Aprire una finestra di PowerShell.
     1. Eseguire `Connect-AzAccount` e seguire le istruzioni visualizzate.
 
-> [!NOTE]
-> Se l'organizzazione ha più di una sottoscrizione, può essere necessario specificare gli argomenti SubscriptionId e Tenant. Per i dettagli, vedere la [documentazione di Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > [!NOTE]
+    > Se l'organizzazione ha più di una sottoscrizione, può essere necessario specificare gli argomenti SubscriptionId e Tenant. Per i dettagli, vedere la [documentazione di Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 1. Scaricare la cartella *Scripts* dal [repository GithHub Azure di Rendering remoto di Azure](https://github.com/Azure/azure-remote-rendering).
 
@@ -86,9 +86,9 @@ Per `region` vedere l'[elenco di aree disponibili](../reference/regions.md).
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Questa struttura deve essere completata se si vuole eseguire **RenderingSession.ps1**.
+Questa struttura deve essere completata se si vuole eseguire **RenderingSession.ps1**:
 
-- **vmSize:** selezionare le dimensioni della macchina virtuale, *Standard* o *Premium*. Arrestare le sessioni di rendering quando non sono più necessarie.
+- **vmSize:** selezionare le dimensioni della macchina virtuale, [*Standard*](../reference/vm-sizes.md) o [*Premium*](../reference/vm-sizes.md). Arrestare le sessioni di rendering quando non sono più necessarie.
 - **maxLeaseTime:** la durata desiderata del lease della VM. Verrà arrestata alla scadenza del lease. La durata del lease può essere prolungata in seguito (vedere più avanti).
 
 ### <a name="assetconversionsettings"></a>assetConversionSettings
@@ -189,10 +189,10 @@ L'uso di un account di archiviazione collegato è il modo consigliato per usare 
 .\Conversion.ps1
 ```
 
-1. Tutti i file contenuti in `assetConversionSettings.modelLocation` vengono caricati nel contenitore BLOB di input nel percorso `inputFolderPath` specificato
+1. Tutti i file contenuti in `assetConversionSettings.modelLocation` vengono caricati nel contenitore BLOB di input nel percorso `inputFolderPath` specificato.
 1. Viene chiamata l'[API REST di conversione di modelli](../how-tos/conversion/conversion-rest-api.md) per avviare la [conversione del modello](../how-tos/conversion/model-conversion.md)
-1. Viene eseguito il polling dello stato della conversione finché l'operazione non riesce o si verifica un errore
-1. Vengono restituiti i dettagli della posizione del file convertito (account di archiviazione, contenitore di output, percorso del file nel contenitore)
+1. Viene eseguito il polling dello stato della conversione finché l'operazione non riesce o si verifica un errore.
+1. Vengono restituiti i dettagli della posizione del file convertito (account di archiviazione, contenitore di output, percorso del file nel contenitore).
 
 ### <a name="access-to-storage-via-shared-access-signatures"></a>Accedere all'archiviazione tramite firme di accesso condiviso
 
@@ -202,13 +202,13 @@ L'uso di un account di archiviazione collegato è il modo consigliato per usare 
 
 In tal modo, si verificheranno i seguenti eventi:
 
-1. Il file locale viene caricato da `assetConversionSettings.localAssetDirectoryPath` al contenitore BLOB di input
-1. Viene generato un URI di firma di accesso condiviso per il contenitore di input
-1. Viene generato un URI di firma di accesso condiviso per il contenitore di output
-1. Viene chiamata l'[API REST di conversione di modelli](../how-tos/conversion/conversion-rest-api.md) per avviare la [conversione del modello](../how-tos/conversion/model-conversion.md)
-1. Viene eseguito il polling dello stato della conversione finché l'operazione non riesce o si verifica un errore
-1. Vengono restituiti i dettagli della posizione del file convertito (account di archiviazione, contenitore di output, percorso del file nel contenitore)
-1. Viene restituito un URI di firma di accesso condiviso del modello convertito nel contenitore BLOB di output
+1. Il file locale viene caricato da `assetConversionSettings.localAssetDirectoryPath` al contenitore BLOB di input.
+1. Viene generato un URI di firma di accesso condiviso per il contenitore di input.
+1. Viene generato un URI di firma di accesso condiviso per il contenitore di output.
+1. Viene chiamata l'[API REST di conversione di modelli](../how-tos/conversion/conversion-rest-api.md) per avviare la [conversione del modello](../how-tos/conversion/model-conversion.md).
+1. Viene eseguito il polling dello stato della conversione finché l'operazione non riesce o si verifica un errore.
+1. Vengono restituiti i dettagli della posizione del file convertito (account di archiviazione, contenitore di output, percorso del file nel contenitore).
+1. Viene restituito un URI di firma di accesso condiviso del modello convertito nel contenitore BLOB di output.
 
 ### <a name="additional-command-line-options"></a>Altre opzioni della riga di comando
 
@@ -249,7 +249,7 @@ Per limitarsi ad **avviare la conversione del modello senza polling**, è possib
 
 Se si vogliono eseguire singoli passaggi del processo, è possibile usare:
 
-Caricare solo i dati dal percorso LocalAssetDirectoryPath specificato
+Caricare solo i dati dal percorso LocalAssetDirectoryPath specificato.
 
 ```PowerShell
 .\Conversion.ps1 -Upload

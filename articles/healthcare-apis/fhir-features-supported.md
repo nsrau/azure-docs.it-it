@@ -8,26 +8,26 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142520"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796562"
 ---
-# <a name="features"></a>Funzionalità
+# <a name="features"></a>Caratteristiche
 
 API di Azure per FHIR offre una distribuzione completamente gestita del server Microsoft FHIR per Azure. Il server è un'implementazione dello standard [FHIR](https://hl7.org/fhir) . Questo documento elenca le funzionalità principali del server FHIR.
 
 ## <a name="fhir-version"></a>Versione di FHIR
 
-Ultima versione supportata:`4.0.1`
+Ultima versione supportata: `4.0.1`
 
-Le versioni precedenti sono attualmente supportate anche:`3.0.2`
+Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 
 ## <a name="rest-api"></a>API REST
 
-| API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment                                             |
+| API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | read                           | Sì       | Sì       | Sì       |                                                     |
 | VREAD                          | Sì       | Sì       | Sì       |                                                     |
@@ -46,14 +46,14 @@ Le versioni precedenti sono attualmente supportate anche:`3.0.2`
 | o batch                          | Sì       | Sì       | Sì       |                                                     |
 | transaction                    | No        | Sì       | No        |                                                     |
 | history                        | Sì       | Sì       | Sì       |                                                     |
-| paging                         | Parziale   | Parziale   | Parziale   | `self`e `next` sono supportati                     |
+| paging                         | Parziale   | Parziale   | Parziale   | `self` e `next` sono supportati                     |
 | intermediari                 | No        | No        | No        |                                                     |
 
 ## <a name="search"></a>Ricerca
 
 Sono supportati tutti i tipi di parametro di ricerca. 
 
-| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
+| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
 |-----------------------|-----------|-----------|-----------|---------|
 | Number                | Sì       | Sì       | Sì       |         |
 | Date/DateTime         | Sì       | Sì       | Sì       |         |
@@ -72,14 +72,14 @@ Sono supportati tutti i tipi di parametro di ricerca.
 |`:exact`               | Sì       | Sì       | Sì       |         |
 |`:contains`            | Sì       | Sì       | Sì       |         |
 |`:text`                | Sì       | Sì       | Sì       |         |
-|`:in`token          | No        | No        | No        |         |
-|`:below`token       | No        | No        | No        |         |
-|`:above`token       | No        | No        | No        |         |
-|`:not-in`token      | No        | No        | No        |         |
-|`:[type]`riferimento  | No        | No        | No        |         |
-|`:below`URI         | Sì       | Sì       | Sì       |         |
+|`:in` token          | No        | No        | No        |         |
+|`:below` token       | No        | No        | No        |         |
+|`:above` token       | No        | No        | No        |         |
+|`:not-in` token      | No        | No        | No        |         |
+|`:[type]` riferimento  | No        | No        | No        |         |
+|`:below` URI         | Sì       | Sì       | Sì       |         |
 |`:not`                 | No        | No        | No        |         |
-|`:above`URI         | No        | No        | No        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problema |
+|`:above` URI         | No        | No        | No        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problema |
 
 | Parametro di ricerca comune | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -90,12 +90,12 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | `_security`             | Sì       | Sì       | Sì       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
-| `_list`                 | No        | Sì       | Sì       |         |
+| `_list`                 | Sì       | Sì       | Sì       |         |
 | `_has`                  | No        | No        | No        |         |
 | `_type`                 | Sì       | Sì       | Sì       |         |
 | `_query`                | No        | No        | No        |         |
 
-| Operazioni di ricerca       | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
+| Operazioni di ricerca       | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
 | `_sort`                 | No        | No        | No        |         |

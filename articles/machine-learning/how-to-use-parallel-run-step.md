@@ -9,21 +9,23 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 960b59275885efd547df63febab37d2403c1c7cf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: dddb332498f41437eba77d75c38218c58b8c8379
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847705"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507115"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Eseguire l'inferenza batch su grandi quantità di dati usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Informazioni su come eseguire l'inferenza batch su grandi quantità di dati in modo asincrono e in parallelo usando Azure Machine Learning. ParallelRunStep offre funzionalità di elaborazione parallela predefinite.
+Questo articolo illustra come eseguire il modello di Azure Machine Learning in parallelo, per valutare rapidamente grandi quantità di dati. 
 
-Con ParallelRunStep è facile aumentare le dimensioni delle inferenze offline fino a grandi cluster di computer su terabyte di dati strutturati o non strutturati, ottenendo una maggiore produttività e ottimizzando i costi.
+L'inferenza di set di dati di grandi dimensioni o con modelli complessi può richiedere molto tempo. La classe `ParallelRunStep` consente di eseguire l'elaborazione in parallelo e, potenzialmente, ottenere i risultati complessivi più velocemente. Anche se l'esecuzione di una singola valutazione è piuttosto rapida, molti scenari (rilevamento di oggetti, elaborazione video, elaborazione del linguaggio naturale e così via) implicano l'esecuzione di molte valutazioni. 
+
+Con `ParallelRunStep`, è facile dimensionare le inferenze di batch fino a grandi cluster di computer. Tali cluster possono gestire terabyte di dati strutturati o non strutturati con una maggiore produttività e costi ottimizzati.
 
 In questo articolo si apprenderà come eseguire le attività seguenti:
 

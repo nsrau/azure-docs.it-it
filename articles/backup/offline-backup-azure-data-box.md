@@ -3,19 +3,19 @@ title: Backup non in linea tramite Azure Data Box
 description: Informazioni su come usare Azure Data Box per inizializzare i dati di backup iniziali di grandi dimensioni offline dall'agente MARS a un insieme di credenziali di servizi di ripristino.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091029"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761560"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline di Backup di Azure tramite Azure Data Box
 
-È possibile usare [Azure Data Box](../databox/data-box-overview.md) per eseguire il seeding dei backup iniziali di servizi di ripristino di Microsoft Azure (Mars) in modalità offline (senza usare la rete) in un insieme di credenziali di servizi di ripristino. Questo processo consente di risparmiare tempo e larghezza di banda di rete che altrimenti verrebbero utilizzati per lo trasferimento di grandi quantità di dati di backup online su una rete ad alta latenza. Questa funzionalità avanzata è attualmente in fase di anteprima. Il backup offline basato su Azure Data Box offre due vantaggi distinti rispetto [al backup offline basato sul servizio importazione/esportazione di Azure](./backup-azure-backup-import-export.md):
+È possibile usare [Azure Data Box](../databox/data-box-overview.md) per eseguire il seeding dei backup iniziali di servizi di ripristino di Microsoft Azure (Mars) in modalità offline (senza usare la rete) in un insieme di credenziali di servizi di ripristino. Questo processo consente di risparmiare tempo e larghezza di banda di rete che altrimenti verrebbero usati per spostare grandi quantità di dati di backup online tramite una rete ad alta latenza. Questa funzionalità avanzata è attualmente in fase di anteprima. Il backup offline basato su Azure Data Box offre due vantaggi diversi rispetto al [backup offline basato sul servizio Importazione/Esportazione di Azure](./backup-azure-backup-import-export.md):
 
-- Non è necessario acquistare dischi e connettori compatibili con Azure. Azure Data Box fornisce i dischi associati allo [SKU data box](https://azure.microsoft.com/services/databox/data/)selezionato.
-- Backup di Azure (agente MARS) può scrivere direttamente i dati di backup sugli SKU supportati di Azure Data Box. Questa funzionalità Elimina la necessità di effettuare il provisioning di un percorso di gestione temporanea per i dati di backup iniziali. Non sono inoltre necessarie utilità per formattare e copiare i dati sui dischi.
+- Non è necessario acquistare dischi e connettori compatibili con Azure. Azure Data Box include i dischi associati allo [SKU Data Box](https://azure.microsoft.com/services/databox/data/) selezionato.
+- Backup di Azure (agente MARS) può scrivere direttamente i dati di backup negli SKU supportati di Azure Data Box. Questa funzionalità elimina la necessità di effettuare il provisioning di una posizione di staging per i dati di backup iniziali. Non sono neppure necessarie utilità per formattare e copiare i dati sui dischi.
 
 ## <a name="azure-data-box-with-the-mars-agent"></a>Azure Data Box con l'agente MARS
 
@@ -208,7 +208,7 @@ Per assicurarsi che sia possibile montare il dispositivo Data Box come sistema l
     ![Immettere il percorso di rete](./media/offline-backup-azure-data-box/enter-network-path.png)
 
     >[!IMPORTANT]
-    > Consente di specificare il percorso di rete della directory radice del disco Azure Data Box. Questa directory deve contenere una directory con il nome *PageBlob*.
+    > Specificare il percorso di rete della directory radice del disco Azure Data Box. Questa directory deve contenere una directory con il nome *PageBlob*.
     >
     >![Directory radice del disco Azure Data Box](./media/offline-backup-azure-data-box/root-directory.png)
     >
@@ -234,13 +234,13 @@ Al termine del backup dei dati, verrà visualizzata una pagina sull'agente MARS 
 
 ![Stato di avanzamento del backup](./media/offline-backup-azure-data-box/backup-progress.png)
 
-## <a name="post-backup-steps"></a>Passaggi successivi al backup
+## <a name="post-backup-steps"></a>Passaggi da eseguire dopo il backup
 
 In questa sezione vengono illustrati i passaggi da eseguire dopo il completamento del backup dei dati nel Azure Data Box Disk.
 
 - Seguire la procedura descritta in questo articolo per [distribuire il disco Azure Data Box ad Azure](../databox/data-box-disk-deploy-picked-up.md). Se è stato usato un dispositivo Azure Data Box 100 TB, seguire questa procedura per [inviare il dispositivo Azure Data Box ad Azure](../databox/data-box-deploy-picked-up.md).
 
-- [Monitorare il processo di data box](../databox/data-box-disk-deploy-upload-verify.md) nel portale di Azure. Al termine del processo di Azure Data Box, l'agente MARS sposta automaticamente i dati dall'account di archiviazione all'insieme di credenziali di servizi di ripristino al momento del backup pianificato successivo. Il processo di backup viene quindi contrassegnato come *processo completato* se un punto di ripristino viene creato correttamente.
+- [Monitorare il processo Data Box](../databox/data-box-disk-deploy-upload-verify.md) nel portale di Azure. Al termine del processo di Azure Data Box, l'agente MARS sposta automaticamente i dati dall'account di archiviazione all'insieme di credenziali di servizi di ripristino al momento del backup pianificato successivo. Il processo di backup viene quindi contrassegnato come *processo completato* se un punto di ripristino viene creato correttamente.
 
     >[!NOTE]
     >L'agente MARS attiva i backup negli orari pianificati durante la creazione dei criteri. Questi processi contrassegnano "in attesa del completamento Azure Data Box processo" fino al termine del processo.
@@ -259,13 +259,13 @@ Quando si configura il backup offline, potrebbe verificarsi un problema a causa 
 
 Per verificare se il problema è identico a quello descritto in precedenza, eseguire una delle operazioni seguenti.
 
-#### <a name="step-1"></a>Step 1
+#### <a name="step-1-of-verification"></a>Passaggio 1 della verifica
 
 Verificare se il messaggio di errore seguente viene visualizzato nella console MAB quando è stato configurato il backup offline.
 
 ![Non è possibile creare i criteri di backup offline per l'account Azure corrente](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### <a name="step-2"></a>Passaggio 2
+#### <a name="step-2-of-verification"></a>Passaggio 2 della verifica
 
 1. Aprire la cartella **Temp** nel percorso di installazione. Il percorso predefinito della cartella temporanea è *C:\Programmi\Microsoft Azure Recovery Services Agent\Temp*. Cercare il file *CBUICurr* e aprire il file.
 
@@ -275,11 +275,11 @@ Verificare se il messaggio di errore seguente viene visualizzato nella console M
 
 Per risolvere il problema, eseguire la procedura seguente e riprovare la configurazione dei criteri.
 
-#### <a name="step-1"></a>Step 1
+#### <a name="step-1-of-workaround"></a>Passaggio 1 della soluzione alternativa
 
 Accedere a PowerShell che viene visualizzato nell'interfaccia utente di MAB usando un account diverso con accesso amministrativo alla sottoscrizione in cui verrà creato il processo di importazione o esportazione.
 
-#### <a name="step-2"></a>Passaggio 2
+#### <a name="step-2-of-workaround"></a>Passaggio 2 della soluzione alternativa
 
 Se nessun altro server dispone di un seeding offline configurato e nessun altro server dipende dall' `AzureOfflineBackup_<Azure User Id>` applicazione, eliminare questa applicazione. Selezionare **portale di Azure**  >  **Azure Active Directory**  >  **registrazioni app**Azure Active Directory.
 
@@ -305,9 +305,9 @@ Dal server che si sta tentando di configurare per il backup offline, eseguire le
 5. Accedere al computer del registro di sistema *\ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Fare clic con il pulsante destro del mouse su **CloudBackupProvider**e aggiungere un nuovo valore stringa con il nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
-    > Per ottenere l'ID utente di Azure, eseguire una delle operazioni seguenti:
+    > Per ottenere l'ID utente di Azure, eseguire una di queste azioni:
     >
-    >- Da PowerShell connesso ad Azure, eseguire il `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` comando.
+    >- In PowerShell connesso ad Azure eseguire il comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
     > - Passare al percorso del registro `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` di sistema con il nome *CurrentUserId*.
 
 6. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 2. Selezionare **OK**.

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727195"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797990"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrare le connessioni dell'account LinkedIn in Azure Active Directory
 
@@ -33,14 +33,14 @@ ms.locfileid: "84727195"
 > * Per impostazione predefinita, l'impostazione è disattivata per le organizzazioni Azure AD provisioning in Germania. L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per la Germania.
 > * Per impostazione predefinita, l'impostazione è disattivata per le organizzazioni con provisioning in Francia.
 >
-> Una volta abilitate le connessioni dell'account LinkedIn per l'organizzazione, le connessioni dell'account funzionano dopo che gli utenti hanno concesso il consenso alle app che accedono ai dati aziendali per loro conto. Per informazioni sull'impostazione di consenso dell'utente, vedere [come rimuovere l'accesso di un utente a un'applicazione](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+> Una volta abilitate le connessioni dell'account LinkedIn per l'organizzazione, le connessioni dell'account funzionano dopo che gli utenti hanno concesso il consenso alle app che accedono ai dati aziendali per loro conto. Per informazioni sull'impostazione di consenso dell'utente, vedere [come rimuovere l'accesso di un utente a un'applicazione](../manage-apps/methods-for-removing-user-access.md).
 
 ## <a name="enable-linkedin-account-connections-in-the-azure-portal"></a>Abilitare le connessioni dell'account LinkedIn nel portale di Azure
 
 È possibile abilitare le connessioni dell'account LinkedIn solo per gli utenti a cui si vuole accedere, dall'intera organizzazione ai soli utenti selezionati nell'organizzazione.
 
 1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com/) con un account amministratore globale per l'organizzazione Azure ad.
-1. Selezionare **utenti**.
+1. Selezionare **Utenti**.
 1. Nella pagina **utenti** selezionare **impostazioni utente**.
 1. In **connessioni account LinkedIn**, consentire agli utenti di connettere i propri account per accedere alle proprie connessioni LinkedIn in alcune app Microsoft. I dati non vengono condivisi finché gli utenti non acconsentono a connettere i propri account.
 
@@ -71,8 +71,8 @@ ms.locfileid: "84727195"
 1. Creare un file CSV degli utenti selezionati per le connessioni dell'account LinkedIn.
 1. Accedere Microsoft 365 con l'account amministratore.
 1. Avviare PowerShell.
-1. Installare il modulo Azure AD eseguendo`Install-Module AzureAD`
-1. Eseguire lo script riportato di seguito:
+1. Installare il modulo Azure AD eseguendo `Install-Module AzureAD`
+1. Eseguire lo script seguente:
 
   ``` PowerShell
   $groupId = "GUID of the target group"

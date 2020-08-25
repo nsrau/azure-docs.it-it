@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3aa45050286888dd8ae1d26d96c8ed02da197326
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876734"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509910"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Esercitazione: Usare Personalizza esperienze in Azure Notebooks
 
@@ -623,7 +623,7 @@ Coffee count 4
 
 ## <a name="validate-new-learning-policy"></a>Convalidare i nuovi criteri di apprendimento
 
-Tornare al notebook di Azure ed eseguire lo stesso ciclo, ma solo per 2.000 iterazioni. Aggiornare periodicamente il grafico delle metriche nel portale di Azure per visualizzare le chiamate totali al servizio. Quando si raggiungono circa 4.000 chiamate, una chiamata di classificazione e ricompensa per ogni iterazione del ciclo, le iterazioni sono terminate.
+Tornare al file di Azure Notebooks ed eseguire lo stesso ciclo, ma solo per 2.000 iterazioni. Aggiornare periodicamente il grafico delle metriche nel portale di Azure per visualizzare le chiamate totali al servizio. Quando si raggiungono circa 4.000 chiamate, una chiamata di classificazione e ricompensa per ogni iterazione del ciclo, le iterazioni sono terminate.
 
 ```python
 # max iterations

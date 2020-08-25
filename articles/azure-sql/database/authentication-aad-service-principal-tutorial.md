@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
-ms.openlocfilehash: 10d1fe9e47b7a3bf2d921f86703d5ae6d067813c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/17/2020
+ms.openlocfilehash: 61cb5384fd4d935ef4038c18b391b5da5fbc96b1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293514"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516691"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Esercitazione: Creare utenti Azure AD con applicazioni di Azure AD
 
@@ -94,6 +94,8 @@ Per concedere questa autorizzazione obbligatoria, eseguire lo script seguente.
 
 > [!NOTE] 
 > Questo script deve essere eseguito da un utente `Global Administrator` o `Privileged Roles Administrator` di Azure AD.
+>
+> Nell'**anteprima pubblica** è possibile assegnare il ruolo `Directory Readers` a un gruppo in Azure AD. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando così la necessità di un `Global Administrator` o `Privileged Roles Administrator` che conceda il ruolo `Directory Readers`. Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 
 - Sostituire `<TenantId>` con il valore `TenantId` raccolto in precedenza.
 - Sostituire `<server name>` con il nome del server logico SQL. Se il nome del server è `myserver.database.windows.net`, sostituire `<server name>` con `myserver`.
@@ -304,3 +306,4 @@ Una volta creata un'entità servizio in Azure AD, creare l'utente nel database S
 - [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467) (Autenticazione dell'entità servizio di Azure AD nel database SQL - Esempio di codice)
 - [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
 - [Creare un'entità servizio di Azure con Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md)

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422445"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798177"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gestire le organizzazioni connesse dalla pagina Organizzazioni
 
@@ -30,7 +30,7 @@ La pagina **Organizzazioni** del portale **Account personale** consente di gesti
 - **Altre organizzazioni.** Le altre organizzazioni sono costituite da qualsiasi gruppo a cui ci si è connessi in precedenza usando il proprio account aziendale o dell'istituto di istruzione. È possibile uscire da queste organizzazioni in qualsiasi momento.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni sull'organizzazione connessa a un account aziendale o dell'istituto di istruzione esistente. Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni sull'organizzazione connessa a un account aziendale o dell'istituto di istruzione esistente. Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Visualizzare le organizzazioni
 
@@ -61,7 +61,7 @@ La pagina **Organizzazioni** del portale **Account personale** consente di gesti
 
 Dopo aver visualizzato le organizzazioni, è possibile:
 
-- Visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md).
+- Visualizzare o gestire le [informazioni di sicurezza](./security-info-setup-signin.md).
 
 - Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md) connessi.
 
@@ -69,4 +69,4 @@ Dopo aver visualizzato le organizzazioni, è possibile:
 
 - Visualizzare in che modo l'organizzazione [usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
 
-- Modificare [le impostazioni del portale per gli account personali](my-account-portal-settings.md)
+- Modificare le [impostazioni del portale Account personale](my-account-portal-settings.md)

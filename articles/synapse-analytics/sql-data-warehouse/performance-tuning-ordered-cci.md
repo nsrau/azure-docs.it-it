@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6cd81031f27d772912383fa050e0f946bf9964c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204660"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795610"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
@@ -48,6 +48,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 
 ```
+
+>[!TIP]
+> Per migliorare le prestazioni in sinapsi SQL, provare a usare **sys. pdw_permanent_table_mappings** anziché **sys. pdw_table_mappings** su tabelle utente permanenti. Per ulteriori informazioni, vedere **[sys. pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 > [!NOTE] 
 > In una tabella CCI ordinata, i nuovi dati risultanti dallo stesso batch di operazioni DML o di caricamento dei dati vengono ordinati all'interno del batch, non esiste alcun ordinamento globale in tutti i dati della tabella.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  In sinapsi SQL la ricompilazione dell'indice columnstore è un'operazione offline.  Per una tabella partizionata, la ricompilazione viene eseguita una partizione alla volta.  I dati della partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento della ricompilazione per la partizione. 
@@ -109,7 +112,7 @@ Il numero di segmenti sovrapposti dipende dalle dimensioni dei dati da ordinare,
 
 - Usare la classe di risorse xlargerc in un DWU superiore per consentire una maggiore quantità di memoria per l'ordinamento dei dati prima che il generatore di indici comprime i dati in segmenti.  Una volta in un segmento di indice, la posizione fisica dei dati non può essere modificata.  Nessun ordinamento dei dati all'interno di un segmento o tra più segmenti.  
 
-- Creare una CCI ordinata con MAXDOP = 1.  Ogni thread usato per la creazione di CCI ordinati funziona su un subset di dati e lo ordina localmente.  Non esiste alcun ordinamento globale tra i dati ordinati in base a thread diversi.  L'uso di thread paralleli può ridurre il tempo necessario per creare un'CCI ordinata, ma genererà più segmenti sovrapposti rispetto all'uso di un singolo thread.  Attualmente, l'opzione MAXDOP è supportata solo per la creazione di una tabella CCI ordinata usando CREATE TABLE come comando SELECT.  La creazione di una CCI ordinata tramite i comandi CREATE INDEX o CREATE TABLE non supporta l'opzione MAXDOP. Ad esempio,
+- Creare una CCI ordinata con MAXDOP = 1.  Ogni thread usato per la creazione di CCI ordinati funziona su un subset di dati e lo ordina localmente.  Non esiste alcun ordinamento globale tra i dati ordinati in base a thread diversi.  L'uso di thread paralleli può ridurre il tempo necessario per creare un'CCI ordinata, ma genererà più segmenti sovrapposti rispetto all'uso di un singolo thread.  Attualmente, l'opzione MAXDOP è supportata solo per la creazione di una tabella CCI ordinata usando CREATE TABLE come comando SELECT.  La creazione di una CCI ordinata tramite i comandi CREATE INDEX o CREATE TABLE non supporta l'opzione MAXDOP. Ad esempio:
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )

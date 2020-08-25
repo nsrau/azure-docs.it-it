@@ -3,12 +3,12 @@ title: Gestire e monitorare SQL Server database in una macchina virtuale di Azur
 description: Questo articolo descrive come gestire e monitorare SQL Server database in esecuzione in una macchina virtuale di Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659586"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756317"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -16,15 +16,11 @@ Questo articolo descrive le attività comuni per la gestione e il monitoraggio d
 
 Se non sono ancora stati configurati backup per i database di SQL Server, vedere [eseguire il backup di SQL Server database in macchine virtuali di Azure](backup-azure-sql-database.md)
 
-## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorare i processi di backup manuali nel portale
+## <a name="monitor-backup-jobs-in-the-portal"></a>Monitorare i processi di backup nel portale
 
-Backup di Azure Mostra tutti i processi attivati manualmente nel portale dei **processi di backup** . I processi visualizzati in questo portale includono l'individuazione e la registrazione dei database, nonché le operazioni di backup e ripristino.
+Backup di Azure Mostra tutte le operazioni pianificate e su richiesta nei **processi di backup** nel portale, ad eccezione dei backup del log pianificati, poiché possono essere molto frequenti. I processi visualizzati in questo portale includono l'individuazione e la registrazione del database, la configurazione del backup e le operazioni di backup e ripristino.
 
 ![Portale dei processi di backup](./media/backup-azure-sql-database/jobs-list.png)
-
-> [!NOTE]
-> Il portale dei **processi di backup** non Mostra i processi di backup pianificati. Usare SQL Server Management Studio per monitorare i processi di backup pianificati, come descritto nella sezione successiva.
->
 
 Per informazioni dettagliate sugli scenari di monitoraggio, vedere [monitoraggio nella portale di Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoraggio tramite](backup-azure-monitoring-use-azuremonitor.md)monitoraggio di Azure.  
 
@@ -162,7 +158,7 @@ Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server
 
-In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può essere interessata per un motivo o un altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrà quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino. È possibile trovare questa opzione in **infrastruttura di backup** nell'insieme di credenziali di servizi di ripristino.
+In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può subire un determinato motivo o un altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrà quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino. Questa opzione è reperibile in **infrastruttura di backup** nell'insieme di credenziali di servizi di ripristino.
 
 ![Server protetti nell'infrastruttura di backup](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
 

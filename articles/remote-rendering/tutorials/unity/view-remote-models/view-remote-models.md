@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: bd9e9b6754c8626a8d858b9832a8e3547b72352d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e9c29edb28700d0f2d3411925c0985adc0f53e92
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231906"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225802"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto
 
@@ -220,11 +220,28 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
     // For most people '<region>' is either 'westus2' or 'westeurope'
-    public string AccountDomain = "westus2.mixedreality.azure.com";
+    [SerializeField]
+    private string accountDomain = "westus2.mixedreality.azure.com";
+    public string AccountDomain
+    {
+        get => accountDomain.Trim();
+        set => accountDomain = value;
+    }
 
     [Header("Development Account Credentials")]
-    public string AccountId = "<enter your account id here>";
-    public string AccountKey = "<enter your account key here>";
+    [SerializeField]
+    private string accountId = "<enter your account id here>";
+    public string AccountId {
+        get => accountId.Trim();
+        set => accountId = value;
+    }
+
+    [SerializeField]
+    private string accountKey = "<enter your account key here>";
+    public string AccountKey {
+        get => accountKey.Trim();
+        set => accountKey = value;
+    }
 
     // These settings are important. All three should be set as low as possible, while maintaining a good user experience
     // See the documentation around session management and the technical differences in session VM size
@@ -237,7 +254,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     [Header("Other Configuration")]
 
     [Tooltip("If you have a known active SessionID, you can fill it in here before connecting")]
-    public string sessionIDOverride;
+    [SerializeField]
+    private string sessionIDOverride;
+    public string SessionIDOverride {
+        get => sessionIDOverride.Trim();
+        set => sessionIDOverride = value;
+    }
 
     // When Automatic Mode is true, the coordinator will attempt to automatically proceed through the process of connecting and loading a model
     public bool automaticMode = true;
@@ -313,8 +335,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     {
         get
         {
-            if (!string.IsNullOrEmpty(sessionIDOverride))
-                return sessionIDOverride;
+            if (!string.IsNullOrEmpty(SessionIDOverride))
+                return SessionIDOverride;
 
             if (PlayerPrefs.HasKey("LastUsedSessionID"))
                 return PlayerPrefs.GetString("LastUsedSessionID");
@@ -582,7 +604,7 @@ La seconda fase consiste nel creare o partecipare a una sessione di rendering re
 
 ![Rendering remoto di Azure, stack 2](./media/remote-render-stack-2.png)
 
-La sessione remota è quella in cui verrà eseguito il rendering dei modelli. Il metodo **JoinRemoteSession( )** proverà a partecipare a una sessione esistente, monitorata con la proprietà **LastUsedSessionID** oppure se è presente un ID sessione attivo assegnato in **sessionIDOverride**. **sessionIDOverride** è destinato solo a scopi di debug e deve essere usato solo quando si sa che la sessione esiste e ci si vuole connettere esplicitamente.
+La sessione remota è quella in cui verrà eseguito il rendering dei modelli. Il metodo **JoinRemoteSession( )** proverà a partecipare a una sessione esistente, monitorata con la proprietà **LastUsedSessionID** oppure se è presente un ID sessione attivo assegnato in **SessionIDOverride**. **SessionIDOverride** è destinato solo a scopi di debug e deve essere usato esclusivamente quando si sa che la sessione esiste e si vuole stabilire una connessione in modo esplicito.
 
 Se non sono disponibili sessioni, ne verrà creata una nuova. La creazione di una nuova sessione è, tuttavia, un'operazione che richiede molto tempo. Pertanto, è consigliabile provare a creare sessioni solo quando è necessario e riutilizzarle quando possibile. Vedere [Applicazioni pronte per la commercializzazione: pool di sessioni, pianificazione e procedure consigliate](../commercial-ready/commercial-ready.md#fast-startup-time-strategies) per altre informazioni sulla gestione delle sessioni.
 
@@ -620,8 +642,8 @@ public async void JoinRemoteSession()
     {
         //The session should be ready or starting, if it's not, something went wrong
         await ARRSessionService.StopSession();
-        if(LastUsedSessionID == sessionIDOverride)
-            sessionIDOverride = "";
+        if(LastUsedSessionID == SessionIDOverride)
+            SessionIDOverride = "";
         CurrentCoordinatorState = RemoteRenderingState.NoSession;
     }
 }

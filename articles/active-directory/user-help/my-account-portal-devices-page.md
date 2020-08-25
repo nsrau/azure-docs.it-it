@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: e150143e726c75d96372b11fb3d451f0dc9956bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422480"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798211"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gestire i dispositivi connessi dalla pagina Dispositivi
 
@@ -27,7 +27,7 @@ La pagina **Dispositivi** del portale **Account personale** consente di gestire 
 - Disabilitare i dispositivi di cui non si è più proprietari, quelli smarriti o che sono stati rubati.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni su un dispositivo connesso a un account aziendale o dell'istituto di istruzione esistente. Se si è un amministratore in cerca di informazioni sulla gestione dei dispositivi per i dipendenti e altri usi, vedere la [documentazione relativa alle identità dei dispositivi](https://docs.microsoft.com/azure/active-directory/devices/index).
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni su un dispositivo connesso a un account aziendale o dell'istituto di istruzione esistente. Se si è un amministratore in cerca di informazioni sulla gestione dei dispositivi per i dipendenti e altri usi, vedere la [documentazione relativa alle identità dei dispositivi](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Visualizzare i dispositivi connessi
 
@@ -68,7 +68,7 @@ Se si è bloccati dal dispositivo o si è verificato un'errore irreversibile, è
 
 Dopo aver visualizzato i dispositivi connessi, è possibile:
 
-- scegliere di visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md);
+- scegliere di visualizzare o gestire le [informazioni di sicurezza](./security-info-setup-signin.md);
 
 - visualizzare e gestire le [organizzazioni](my-account-portal-organizations-page.md);
 
@@ -76,7 +76,7 @@ Dopo aver visualizzato i dispositivi connessi, è possibile:
 
 - visualizzare in che modo l'organizzazione [usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
 
-- Modificare [le impostazioni del portale per gli account personali](my-account-portal-settings.md)
+- Modificare le [impostazioni del portale Account personale](my-account-portal-settings.md)
 
 ## <a name="related-office-content"></a>Contenuto di Office correlato
 

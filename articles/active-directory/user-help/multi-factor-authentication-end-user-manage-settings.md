@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983306"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798381"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Modificare le impostazioni e il metodo di verifica a due fattori
 
@@ -31,10 +31,10 @@ Dopo aver configurato i metodi di verifica di sicurezza per l'account aziendale 
 
 ## <a name="using-the-additional-security-verification-page"></a>Uso della pagina Verifica aggiuntiva di sicurezza
 
-Se l'organizzazione ha fornito passaggi specifici su come attivare e gestire la verifica a due fattori, è consigliabile seguire prima tali istruzioni. In caso contrario, è possibile ottenere le impostazioni del metodo di verifica di sicurezza dalla pagina [Verifica aggiuntiva di sicurezza](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time).
+Se l'organizzazione ha fornito passaggi specifici su come attivare e gestire la verifica a due fattori, è consigliabile seguire prima tali istruzioni. In caso contrario, è possibile ottenere le impostazioni del metodo di verifica di sicurezza dalla pagina [Verifica aggiuntiva di sicurezza](./multi-factor-authentication-end-user-first-time.md).
 
 >[!Note]
->Se quanto visualizzato sullo schermo non corrisponde alle descrizioni di questo articolo, significa che l'amministratore ha attivato l'esperienza **Informazioni di sicurezza (anteprima)** o che l'organizzazione ha fornito un portale personalizzato. Per altri dettagli sull'esperienza relativa alle informazioni di sicurezza, vedere [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md). Per altre informazioni sul portale personalizzato dell'organizzazione, è necessario contattare il supporto tecnico dell'organizzazione.
+>Se quanto visualizzato sullo schermo non corrisponde alle descrizioni di questo articolo, significa che l'amministratore ha attivato l'esperienza **Informazioni di sicurezza (anteprima)** o che l'organizzazione ha fornito un portale personalizzato. Per altri dettagli sull'esperienza relativa alle informazioni di sicurezza, vedere [Panoramica delle informazioni di sicurezza (anteprima)](./security-info-setup-signin.md). Per altre informazioni sul portale personalizzato dell'organizzazione, è necessario contattare il supporto tecnico dell'organizzazione.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>Per visualizzare la pagina Verifica aggiuntiva di sicurezza
 
