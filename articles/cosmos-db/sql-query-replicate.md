@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 19fcde522c5cb0355e53a5616145f27fada7dad9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aea29cfff6b3827cfb9169722e48120e3a5a3709
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302186"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794323"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICA (Azure Cosmos DB)
  Ripete un valore stringa il numero di volte specificato.
@@ -35,8 +35,9 @@ REPLICATE(<str_expr>, <num_expr>)
   
   Restituisce un'espressione di stringa.
   
-## <a name="remarks"></a>Osservazioni
-  La lunghezza massima del risultato è di 10.000 caratteri, ad esempio (length (*str_expr*) * *num_expr*) <= 10.000.
+## <a name="remarks"></a>Commenti
+
+  La lunghezza massima del risultato è di 10.000 caratteri, ad esempio (length (*str_expr*) *  *num_expr*) <= 10.000. Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="examples"></a>Esempi
   
@@ -51,10 +52,6 @@ SELECT REPLICATE("a", 3) AS replicate
 ```json
 [{"replicate": "aaa"}]
 ```  
-
-## <a name="remarks"></a>Osservazioni
-
-Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

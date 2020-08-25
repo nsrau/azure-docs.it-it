@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/30/2020
+ms.date: 08/24/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ff3e2c9f989a6688e200a1c34e85ef3a22860840
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115731"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794668"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -59,8 +59,8 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `verified_secondary_email` | Originato dall'indirizzo di posta elettronica SecondaryAuthoritativeEmail dell'utente   | Token JSON Web        |           |        |
 | `vnet`                     | Informazioni sull'identificatore di rete virtuale. | Token JSON Web        |           |      |
 | `fwd`                      | Indirizzo IP.| Token JSON Web    |   | Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale). |
-| `ctry`                     | Paese/Area geografica dell'utente | Token JSON Web |  | Azure AD restituisce l'attestazione facoltativa `ctry` se presente e il valore dell'attestazione è un codice paese/area geografica a due lettere standard, ad esempio FR, JP, SZ e così via. |
-| `tenant_ctry`              | Paese/Area geografica del tenant della risorsa | Token JSON Web | | |
+| `ctry`                     | Paese/Area geografica dell'utente | Token JSON Web |  | Azure AD restituisce l' `ctry` attestazione facoltativa se è presente e il valore del campo è un codice di paese/area geografica di due lettere standard, ad esempio fr, JP, SZ e così via. |
+| `tenant_ctry`              | Paese del tenant della risorsa | Token JSON Web | | Uguale a `ctry` eccetto impostare a livello di tenant da un amministratore.  Deve essere anche un valore di due lettere standard. |
 | `xms_pdl`             | Posizione dei dati preferita   | Token JSON Web | | Per i tenant multi-geografici, la posizione dei dati preferita è il codice a tre lettere che mostra l'area geografica in cui si trova l'utente. Per altre informazioni, vedere la [documentazione di Azure AD Connect sulla posizione dei dati preferita](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Ad esempio: `APC` per Asia Pacifico. |
 | `xms_pl`                   | Lingua preferita dell'utente  | Token JSON Web ||Lingua preferita dell'utente, se impostata. Originato dal proprio tenant principale, negli scenari di accesso guest. Nel formato LL-PP ("it-it"). |
 | `xms_tpl`                  | Lingua preferita del tenant| Token JSON Web | | Lingua preferita del tenant delle risorse, se impostata. Nel formato LL ("it"). |
@@ -183,7 +183,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Type                       | Descrizione                                           |
+| Nome          | Tipo                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -196,7 +196,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |

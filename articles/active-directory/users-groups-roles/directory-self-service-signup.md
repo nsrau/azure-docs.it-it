@@ -10,40 +10,44 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: overview
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b23d3d287238d2813f7381941dc279851bc3afdd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: d52384f04fd8a2a2bc3c42af713378ad15d01c42
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84728827"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192706"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 
 Questo articolo illustra come usare l'iscrizione self-service per popolare un'organizzazione in Azure Active Directory (Azure AD). Se si intende acquisire il controllo di un nome di dominio da un'organizzazione di Azure AD non gestita, vedere [Acquisire il controllo di una directory non gestita come amministratore](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-sign-up"></a>Perché usare l'iscrizione self-service?
+
 * Acquisire più velocemente clienti su servizi da loro richiesti
 * Creare offerte basate sulla posta elettronica per un servizio
 * Creare flussi di iscrizione basati sulla posta elettronica che consentono rapidamente agli utenti di creare identità usando i relativi alias di posta elettronica aziendali facili da ricordare
 * Una directory di Azure AD creata in modo self-service può essere trasformata in una directory gestita che può essere usata per altri servizi
 
 ## <a name="terms-and-definitions"></a>Termini e definizioni
+
 * **Iscrizione self-service**: si tratta del metodo in base al quale un utente si iscrive a un servizio cloud e ha un'identità creata automaticamente in Azure AD in base al dominio di posta elettronica.
 * **Directory di Azure non gestita**: si tratta della directory in cui viene creata tale identità. È una directory priva di un amministratore globale.
 * **Utente verificato per la posta elettronica**: si tratta di un tipo di account utente in Azure AD. Un utente che dispone di un'identità creata automaticamente a seguito dell'iscrizione per un'offerta self-service è noto come utente di posta elettronica verificato. Un utente di posta elettronica verificato è un membro regolare di una directory contrassegnata con creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Come controllare le impostazioni di self-service?
+
 Gli amministratori attualmente dispongono di due controlli self-service. Possono controllare:
 
 * Se gli utenti possono essere aggiunti alla directory tramite posta elettronica
 * Se gli utenti possono ottenere autonomamente una licenza per applicazioni e servizi
 
 ### <a name="how-can-i-control-these-capabilities"></a>Come è possibile controllare queste funzionalità?
+
 Un amministratore può configurare queste funzionalità usando i parametri seguenti del cmdlet Set-MsolCompanySettings di Azure AD:
 
 * **AllowEmailVerifiedUsers** controlla se un utente può essere aggiunto a una directory o crearne una. Se tale parametro è impostato su $false, nessun utente verificato tramite posta elettronica può essere aggiunto alla directory.
@@ -57,7 +61,7 @@ AllowEmailVerifiedUsers e AllowAdHocSubscriptions sono impostazioni a livello di
 
 Se le condizioni precedenti sono vere, verrà creato un utente membro nella home directory e un utente guest B2B nella directory di invito.
 
-Le iscrizioni di valutazione per Flow e PowerApps non sono controllate dall'impostazione **AllowAdHocSubscriptions**. Per altre informazioni, vedere gli articoli seguenti:
+Per altre informazioni sulle iscrizioni per le versioni di valutazione di Flow e PowerApps, vedere gli articoli seguenti:
 
 * [Come è possibile impedire agli utenti di iniziare a usare Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
 * [Domande e risposte riguardo alla registrazione a Microsoft Flow nell'organizzazione](https://docs.microsoft.com/flow/organization-q-and-a)
@@ -78,8 +82,8 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md)
-* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 * [Chiudere l'account aziendale o dell'istituto di istruzione in una directory non gestita](users-close-account.md)

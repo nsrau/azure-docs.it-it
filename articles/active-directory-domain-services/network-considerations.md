@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 307b1a6838c3a78c04ba6a36ffd52bd6b98aae04
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722824"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749619"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure Active Directory Domain Services
 
@@ -104,11 +104,11 @@ Un dominio gestito crea alcune risorse di rete durante la distribuzione. Queste 
 
 ## <a name="network-security-groups-and-required-ports"></a>Gruppi di sicurezza di rete e porte obbligatorie
 
-Un [gruppo di sicurezza di rete (NSG)](../virtual-network/virtual-network-vnet-plan-design-arm.md) contiene un elenco di regole che consentono o negano il traffico di rete al traffico in una rete virtuale di Azure. Un gruppo di sicurezza di rete viene creato quando si distribuisce un dominio gestito che contiene un set di regole che consentono al servizio di fornire funzioni di autenticazione e di gestione. Questo gruppo di sicurezza di rete predefinito è associato alla subnet della rete virtuale in cui è distribuito il dominio gestito.
+Un [gruppo di sicurezza di rete (NSG)](../virtual-network/security-overview.md) contiene un elenco di regole che consentono o negano il traffico di rete al traffico in una rete virtuale di Azure. Un gruppo di sicurezza di rete viene creato quando si distribuisce un dominio gestito che contiene un set di regole che consentono al servizio di fornire funzioni di autenticazione e di gestione. Questo gruppo di sicurezza di rete predefinito è associato alla subnet della rete virtuale in cui è distribuito il dominio gestito.
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie affinché il dominio gestito fornisca servizi di autenticazione e gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito.
 
-| Numero porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Necessario | Scopo |
+| Numero porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Obbligatoria | Scopo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
 | 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |

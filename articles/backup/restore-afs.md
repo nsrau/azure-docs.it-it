@@ -3,12 +3,12 @@ title: Ripristinare le condivisioni file di Azure
 description: Informazioni su come usare la portale di Azure per ripristinare un'intera condivisione file o file specifici da un punto di ripristino creato da backup di Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503643"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761849"
 ---
 # <a name="restore-azure-file-shares"></a>Ripristinare le condivisioni file di Azure
 
@@ -66,7 +66,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
     * **Percorso originale**: ripristinare la condivisione file completa nello stesso percorso dell'origine originale.
     * **Percorso alternativo**: ripristinare la condivisione file completa in un percorso alternativo e mantengono la condivisione file originale così come è.
 
-#### <a name="restore-to-the-original-location"></a>Ripristina nel percorso originale
+#### <a name="restore-to-the-original-location-full-share-recovery"></a>Ripristino nel percorso originale (recupero con condivisione completa)
 
 1. Selezionare **percorso originale** come **destinazione di ripristino**e selezionare se ignorare o sovrascrivere in caso di conflitti, scegliendo l'opzione appropriata nell'elenco **a discesa in caso di conflitti** .
 
@@ -74,7 +74,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
 
     ![Selezionare Ripristina per avviare](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Ripristinare in un percorso alternativo
+#### <a name="restore-to-an-alternate-location-full-share-recovery"></a>Ripristino in un percorso alternativo (recupero con condivisione completa)
 
 1. Selezionare il **percorso alternativo** come **destinazione di ripristino**.
 1. Selezionare l'account di archiviazione di destinazione in cui si vuole ripristinare il contenuto di cui è stato eseguito il backup dall'elenco a discesa **account di archiviazione** .
@@ -106,7 +106,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
     * **Percorso originale**: ripristinare i file o le cartelle selezionati nella stessa condivisione file dell'origine originale.
     * **Percorso alternativo**: ripristinare i file o le cartelle selezionati in un percorso alternativo e mantengono il contenuto della condivisione file originale così come sono.
 
-#### <a name="restore-to-the-original-location"></a>Ripristina nel percorso originale
+#### <a name="restore-to-the-original-location-item-level-recovery"></a>Ripristinare il percorso originale (ripristino a livello di elemento)
 
 1. Selezionare **percorso originale** come **destinazione di ripristino**e selezionare se ignorare o sovrascrivere se sono presenti conflitti scegliendo l'opzione appropriata nell'elenco **a discesa in caso di conflitti** .
 
@@ -125,7 +125,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
 
     ![Selezionare Ripristina per avviare](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Ripristinare in un percorso alternativo
+#### <a name="restore-to-an-alternate-location-item-level-recovery"></a>Ripristino in un percorso alternativo (ripristino a livello di elemento)
 
 1. Selezionare il **percorso alternativo** come **destinazione di ripristino**.
 1. Selezionare l'account di archiviazione di destinazione in cui si vuole ripristinare il contenuto di cui è stato eseguito il backup dall'elenco a discesa **account di archiviazione** .

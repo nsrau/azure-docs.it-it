@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 1755c2d572b44f1e0d8597a108ca83d429405f25
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 515e23fa318e8e77024dadefe9a13e795999f820
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565656"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761696"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Trigger di archiviazione code di Azure per funzioni di Azure
 
@@ -408,7 +408,7 @@ Il file [host.json](functions-host-json.md#queues) contiene le impostazioni che 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scrivi messaggi di archiviazione code (associazione di output)](./functions-bindings-storage-blob-output.md)
+- [Scrivi messaggi di archiviazione BLOB (associazione di output)](./functions-bindings-storage-blob-output.md)
 
 <!-- LINKS -->
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905203"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749015"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -53,7 +53,7 @@ Le tabelle seguenti descrivono le metriche registrate da ogni istanza di Azure D
 
 Metriche che è necessario eseguire con le richieste API:
 
-| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | Richieste API (anteprima) | Conteggio | Totale | Il numero di richieste API effettuate per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. |  Autenticazione <br>Operazione <br>Protocollo <br>Codice di stato, <br>Classe di codice di stato, <br>Testo stato |
 | ApiRequestsFailureRate | Frequenza errori richieste API (anteprima) | Percentuale | Media | Percentuale di richieste API ricevute dal servizio per l'istanza che forniscono un codice di risposta errore interno (500) per le operazioni di lettura, scrittura, eliminazione e query dei dispositivi gemelli digitali. | Autenticazione <br>Operazione <br>Protocollo <br>Codice di stato, <br>Classe di codice di stato, <br>Testo stato
@@ -66,7 +66,7 @@ Metriche che è necessario eseguire con la fatturazione:
 >[!NOTE]
 > Durante l'anteprima, **la fatturazione è a costo zero**. Sebbene queste metriche siano ancora visualizzate nell'elenco selezionabile, non si applicano durante la fase di anteprima e rimarranno azzerate fino a quando il servizio non verrà spostato oltre l'anteprima.
 
-| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operazioni dell'API di fatturazione (anteprima) | Conteggio | Totale | Metrica di fatturazione per il conteggio di tutte le richieste API effettuate nel servizio Azure Digital Twins. | ID contatore |
 | BillingMessagesProcessed | Messaggi di fatturazione elaborati (anteprima) | Conteggio | Totale | Metrica di fatturazione per il numero di messaggi inviati dai dispositivi gemelli digitali di Azure agli endpoint esterni. | ID contatore |
@@ -76,7 +76,7 @@ Metriche che è necessario eseguire con la fatturazione:
 
 Metriche che è necessario eseguire con l'ingresso dei dati:
 
-| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | IngressEvents | Eventi in ingresso (anteprima) | Conteggio | Totale | Il numero di eventi di telemetria in ingresso nei dispositivi gemelli digitali di Azure. | Risultato |
 | IngressEventsFailureRate | Frequenza degli errori degli eventi in ingresso (anteprima) | Percentuale | Media | Percentuale di eventi di telemetria in ingresso per i quali il servizio restituisce un codice di risposta errore interno (500). | Risultato |
@@ -86,11 +86,11 @@ Metriche che è necessario eseguire con l'ingresso dei dati:
 
 Metriche che è necessario eseguire con il routing:
 
-| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Description | Dimensioni |
+| Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Messaggi instradati (anteprima) | Conteggio | Totale | Il numero di messaggi indirizzati a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Operazione <br>Risultato |
-| RoutingFailureRate | Frequenza errori di routing (anteprima) | Percentuale | Media | Percentuale di eventi che generano un errore quando vengono instradati da dispositivi gemelli digitali di Azure a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Operazione <br>Risultato |
-| RoutingLatency | Latenza routing (anteprima) | Millisecondi | Media | Tempo trascorso tra un evento che viene indirizzato dai dispositivi gemelli digitali di Azure a quando viene inviato al servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Operazione <br>Risultato |
+| MessagesRouted | Messaggi instradati (anteprima) | Conteggio | Totale | Il numero di messaggi indirizzati a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
+| RoutingFailureRate | Frequenza errori di routing (anteprima) | Percentuale | Media | Percentuale di eventi che generano un errore quando vengono instradati da dispositivi gemelli digitali di Azure a un servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
+| RoutingLatency | Latenza routing (anteprima) | Millisecondi | Media | Tempo trascorso tra un evento che viene indirizzato dai dispositivi gemelli digitali di Azure a quando viene inviato al servizio endpoint di Azure, ad esempio hub eventi, bus di servizio o griglia di eventi. | Tipo di endpoint, <br>Risultato |
 
 ## <a name="dimensions"></a>Dimensioni
 
@@ -98,9 +98,9 @@ Le dimensioni consentono di identificare altri dettagli sulle metriche. Alcune m
 
 | Dimension | Valori |
 | --- | --- |
-| Autenticazione | OAuth |
+| Authentication | OAuth |
 | Operazione (per le richieste API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/Read, <br>Microsoft. DigitalTwins/eventroutes/Read, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/Models/Read, <br>Microsoft. DigitalTwins/Models/Write, <br>Microsoft. DigitalTwins/Models/Delete, <br>Microsoft. DigitalTwins/query/Action |
-| Operazione (per il routing) | Griglia di eventi, <br>Hub eventi, <br>Bus di servizio |
+| Tipo di endpoint | Griglia di eventi, <br>Hub eventi, <br>Bus di servizio |
 | Protocollo | HTTPS |
 | Risultato | Successo <br>Errore |
 | Codice di stato | 200, 404, 500 e così via. |

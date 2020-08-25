@@ -4,12 +4,12 @@ description: Informazioni su come applicare la scalabilità della risorsa app We
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 67b041476ecc5b5da389ab1377025a94675fc42a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 710d4e1aa77f8ab3153dafc77a72eec2192cf205
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078887"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794540"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -59,7 +59,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
    ![Scalabilità in base alla CPU][8]
 1. Fare clic su **Salva**.
 
-La procedura è stata completata. A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
+Congratulazioni. A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
 > [!NOTE]
 > Gli stessi passaggi sono applicabili ai set di scalabilità di macchine virtuali e al ruolo del servizio cloud.
@@ -112,6 +112,28 @@ Fare clic sul pulsante **Disabilita scalabilità automatica** nella parte superi
 ![Impostare la scalabilità manuale][14]
 
 È sempre possibile impostare nuovamente la scalabilità automatica facendo clic su **Abilita scalabilità automatica** e quindi su **Salva**.
+
+## <a name="route-traffic-to-healthy-instances-app-service"></a>Instradare il traffico a istanze integre (servizio app)
+
+Quando si aumenta la scalabilità orizzontale a più istanze, il servizio app può eseguire controlli di integrità sulle istanze per instradare il traffico solo alle istanze integre. A tale scopo, aprire il portale per il servizio app, quindi selezionare **controllo integrità** in **monitoraggio**. Selezionare **Abilita** e specificare un percorso URL valido nell'applicazione, ad esempio `/health` o `/api/health` . Fare clic su **Salva**.
+
+### <a name="health-check-path"></a>Percorso controllo integrità
+
+Il percorso deve rispondere entro due minuti con un codice di stato compreso tra 200 e 299 (inclusi). Se il percorso non risponde entro due minuti o restituisce un codice di stato non compreso nell'intervallo, l'istanza viene considerata "non integro". Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. il sistema raggiungerà l'endpoint anche se queste funzionalità Secuity sono abilitate. Se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se il sito dispone di HTTP**s** abilitato, il Healthcheck rispetterà http**s** e invierà la richiesta usando tale protocollo.
+
+Il percorso di controllo integrità deve controllare i componenti critici dell'applicazione. Se, ad esempio, l'applicazione dipende da un database e da un sistema di messaggistica, l'endpoint di controllo integrità deve connettersi a tali componenti. Se l'applicazione non è in grado di connettersi a un componente critico, il percorso deve restituire un codice di risposta a 500 per indicare che l'app non è integra.
+
+### <a name="behavior"></a>Comportamento
+
+Quando viene fornito il percorso di controllo integrità, il servizio app effettuerà il ping del percorso in tutte le istanze. Se dopo 5 ping non viene ricevuto un codice di risposta con esito positivo, l'istanza viene considerata "non integra". Le istanze non integre verranno escluse dalla rotazione del servizio di bilanciamento del carico. Inoltre, quando si esegue la scalabilità orizzontale, il servizio app effettuerà il ping del percorso di controllo integrità per assicurarsi che le nuove istanze siano pronte per le richieste.
+
+Le istanze rimanenti integre potrebbero riscontrare un aumento del carico. Per evitare di sovraccaricare le istanze rimanenti, non verranno escluse più della metà delle istanze. Se, ad esempio, un piano di servizio app viene scalato in orizzontale a 4 istanze e 3 di quelle non integre, al massimo 2 verranno escluse dalla rotazione del LoadBalancer. Le altre 2 istanze (1 integro e 1 non integro) continueranno a ricevere le richieste. Nello scenario peggiore in cui tutte le istanze non sono integre, nessuna verrà esclusa.
+
+Se un'istanza rimane non integra per un'ora, verrà sostituita con una nuova istanza. Al massimo un'istanza verrà sostituita all'ora, con un massimo di tre istanze al giorno per ogni piano di servizio app.
+
+### <a name="monitoring"></a>Monitoraggio
+
+Dopo aver fornito il percorso di controllo integrità dell'applicazione, è possibile monitorare l'integrità del sito usando monitoraggio di Azure. Nel pannello **controllo integrità** nel portale fare clic sulle **metriche** nella barra degli strumenti superiore. Verrà aperto un nuovo pannello in cui è possibile visualizzare lo stato di integrità cronologico del sito e creare una nuova regola di avviso. Per ulteriori informazioni sul monitoraggio dei siti, [vedere la Guida di monitoraggio di Azure](../../app-service/web-sites-monitor.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

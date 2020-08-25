@@ -4,11 +4,18 @@
   items:
     - name: Informazioni sulle app Web statiche
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Sviluppare la prima app Web statica
-      href: getting-started.md
+      expanded: true
+      items:
+        - name: Visual Studio Code
+          href: getting-started.md
+        - name: Portale di Azure
+          href: get-started-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: get-started-cli.md
 - name: Concetti
   items:
     - name: Supporto delle API con Funzioni di Azure

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/18/2020
+ms.date: 08/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 538ea1746e92b3ec7d45f06031cfdc965e286d7a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4b1705fbfae297c7f92de6b4080569deaad3de98
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603850"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749660"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -88,6 +88,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 ## <a name="change-log"></a>Registro modifiche
 
+- 08/21/2020: aggiunta di una nuova versione del sistema operativo nei [sistemi operativi compatibili per le istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) come sistema operativo disponibile per le unità HLI di tipo i e II
 - 08/18/2020: versione di [disponibilità elevata per SAP Hana scalabilità verticale con e in RHEL](./sap-hana-high-availability-netapp-files-red-hat.md)
 - 08/17/2020: aggiungere informazioni sull'uso di Azure Site Recovery per lo sviluppo di sistemi SAP NetWeaver da locale ad Azure nell'articolo [pianificazione e implementazione di macchine virtuali di Azure per SAP NetWeaver](./planning-guide.md)
 - 08/14/2020: aggiunta di suggerimenti per la configurazione del disco per DB2 nell'articolo [distribuzione DBMS di macchine virtuali di Azure in IBM DB2 per il carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: cc23e32db71439067421a9be8b18a1827515bd9c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563280"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749125"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -25,9 +25,8 @@ I clienti possono comunque creare cluster gratuiti senza limiti con un obiettivo
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Il contratto di servizio per il tempo di esecuzione è disponibile nelle aree pubbliche in cui [è supportato AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Il contratto di servizio per il tempo di esecuzione è disponibile nelle aree pubbliche e nelle aree di Azure per enti pubblici in cui [è supportato](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
 
-* Azure Government attualmente non è supportato.
 * Azure Cina 21Vianet attualmente non è supportato.
 
 ## <a name="limitations"></a>Limitazioni

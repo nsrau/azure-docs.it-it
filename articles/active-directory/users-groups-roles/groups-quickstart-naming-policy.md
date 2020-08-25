@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582829"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213682"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Avvio rapido: Criteri di denominazione per i gruppi in Azure Active Directory
 
-In questa guida di avvio rapido vengono configurati i criteri di denominazione nell'organizzazione di Azure Active Directory (Azure AD) per i gruppi di Office 365 creati dall'utente, con lo scopo di ordinare i gruppi dell'organizzazione ed eseguire ricerche al loro interno. È possibile, ad esempio, usare i criteri di denominazione per:
+In questa guida di avvio rapido si configureranno i criteri di denominazione nell'organizzazione di Azure Active Directory (Azure AD) per i gruppi di Microsoft 365 creati dall'utente, allo scopo di ordinare i gruppi dell'organizzazione ed eseguire ricerche su di essi. È possibile, ad esempio, usare i criteri di denominazione per:
 
 * Comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo.
 * Agevolare la classificazione dei gruppi nella Rubrica.

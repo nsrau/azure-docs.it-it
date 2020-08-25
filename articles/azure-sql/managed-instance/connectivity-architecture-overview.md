@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706206"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761866"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architettura della connettività per Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,12 @@ Per soddisfare i requisiti di sicurezza e gestibilità dei clienti, SQL Istanza 
 
 Con la configurazione della subnet assistita da servizi, l'utente è in un traffico TDS (Full Control of data), mentre SQL Istanza gestita si assume la responsabilità di garantire un flusso ininterrotto del traffico di gestione per soddisfare un contratto di servizio.
 
-La configurazione della subnet assistita da servizi si basa sulla funzionalità di [delega della subnet](../../virtual-network/subnet-delegation-overview.md) della rete virtuale per fornire la gestione automatica della configurazione di rete e abilitare gli endpoint di servizio. Gli endpoint di servizio possono essere usati per configurare le regole del firewall per la rete virtuale negli account di archiviazione che conservano i backup e i log di controllo.
+La configurazione della subnet assistita da servizi si basa sulla funzionalità di [delega della subnet](../../virtual-network/subnet-delegation-overview.md) della rete virtuale per fornire la gestione automatica della configurazione di rete e abilitare gli endpoint di servizio. 
+
+Gli endpoint di servizio possono essere usati per configurare le regole del firewall per la rete virtuale negli account di archiviazione che conservano i backup e i log di controllo. Anche con gli endpoint di servizio abilitati, i clienti sono invitati a usare un [collegamento privato](../../private-link/private-link-overview.md) che fornisce sicurezza aggiuntiva sugli endpoint di servizio.
+
+> [!IMPORTANT]
+> A causa delle specifiche della configurazione del piano di controllo, la configurazione della subnet assistita dal servizio non Abilita gli endpoint di servizio nei cloud nazionali. 
 
 ### <a name="network-requirements"></a>Requisiti di rete
 
@@ -108,11 +113,11 @@ Distribuire Istanza gestita SQL in una subnet dedicata all'interno della rete vi
 
 | Nome       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |Consenti |
-|            |9000, 9003                  |TCP     |CorpNetSaw       |MI SUBNET  |Consenti |
-|            |9000, 9003                  |TCP     |CorpnetPublic    |MI SUBNET  |Consenti |
-|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |Consenti |
-|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |Consenti |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |CorpNetSaw       |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetPublic    |MI SUBNET  |Allow |
+|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |Allow |
+|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regole di sicurezza in uscita obbligatorie con la configurazione della subnet con il supporto del servizio
 
@@ -328,8 +333,8 @@ Distribuire Istanza gestita SQL in una subnet dedicata all'interno della rete vi
 
 | Nome       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |Consenti |
-|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |Consenti |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |Allow |
+|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |Allow |
 |health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
@@ -337,7 +342,7 @@ Distribuire Istanza gestita SQL in una subnet dedicata all'interno della rete vi
 | Nome       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
-|mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |Consenti |
+|mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |Allow |
 
 > [!IMPORTANT]
 > Verificare che sia presente solo una regola in ingresso per le porte 9000, 9003, 1438, 1440 e 1452 e una regola in uscita per le porte 443 e 12000. Il provisioning di SQL Istanza gestita tramite Azure Resource Manager distribuzioni non riuscirà se le regole in ingresso e in uscita vengono configurate separatamente per ogni porta. Se queste porte sono in regole separate, la distribuzione avrà esito negativo con il codice di errore `VnetSubnetConflictWithIntendedPolicy` .
