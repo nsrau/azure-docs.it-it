@@ -3,12 +3,12 @@ title: Configurare server di Backup di Azure per la soluzione VMware di Azure
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079537"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750626"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurare server di Backup di Azure per la soluzione VMware di Azure
 
@@ -56,7 +56,7 @@ Per configurare server di Backup di Azure per la soluzione VMware di Azure, è n
 
 Server di Backup di Azure viene distribuito come macchina virtuale IaaS (Infrastructure as a Service) di Azure per proteggere le macchine virtuali della soluzione VMware di Azure.
 
-:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Architettura di distribuzione AVS" border="false":::
+:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Server di Backup di Azure viene distribuito come macchina virtuale IaaS (Infrastructure as a Service) di Azure per proteggere le macchine virtuali della soluzione VMware di Azure." border="false":::
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Prerequisiti per l'ambiente del server di Backup di Azure
 
@@ -138,38 +138,38 @@ Un insieme di credenziali di servizi di ripristino è un'entità di archiviazion
 
 1. Accedere alla propria sottoscrizione nel [portale di Azure](https://portal.azure.com/).
 
-1. Nel menu a sinistra selezionare **tutti i servizi**.
+1. Nel menu a sinistra selezionare **Tutti i servizi**.
 
-   ![Selezionare tutti i servizi](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![Nel menu a sinistra selezionare tutti i servizi.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. Nella finestra di dialogo **tutti i servizi** immettere **servizi di ripristino** e selezionare insiemi di credenziali **dei servizi di ripristino** dall'elenco.
 
-   ![Inserire e selezionare le insiemi di credenziali di Servizi di ripristino](../backup/media/backup-create-rs-vault/all-services.png)
+   ![Immettere e scegliere insiemi di credenziali dei servizi di ripristino.](../backup/media/backup-create-rs-vault/all-services.png)
 
    Viene visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
 
-1. Nel dashboard di insiemi di credenziali **dei servizi di ripristino** selezionare **Aggiungi**.
+1. Nel dashboard di **Insiemi di credenziali dei Servizi di ripristino** selezionare **Aggiungi**.
 
-   ![Aggiungere un insieme di credenziali di Servizi di ripristino](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
+   ![Aggiungere un insieme di credenziali di servizi di ripristino.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
    Si apre la finestra di dialogo **Insieme di credenziali dei Servizi di ripristino**.
 
 1. Immettere i valori per **nome**, **sottoscrizione**, **gruppo di risorse**e **località**.
 
-   ![Configurare l'insieme di credenziali di Servizi di ripristino](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
+   ![Configurare l'insieme di credenziali di servizi di ripristino.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Nome**: immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco nella sottoscrizione di Azure. Specificare un nome con almeno due caratteri, ma non più di 50 caratteri. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini.
+   - **Name**: immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco nella sottoscrizione di Azure. Specificare un nome con almeno due caratteri, ma non più di 50 caratteri. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini.
    - **Sottoscrizione** scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure.
    - **Gruppo di risorse**: Usare un gruppo di risorse esistente oppure crearne uno nuovo. Selezionare **Usa esistente** e nell'elenco a discesa scegliere una risorsa per visualizzare l'elenco di gruppi di risorse disponibili nella sottoscrizione. Per creare un nuovo gruppo di risorse, selezionare **Crea nuovo** e inserire il nome.
    - **Località**: selezionare l'area geografica per l'insieme di credenziali. Per creare un insieme di credenziali per proteggere le macchine virtuali della soluzione VMware di Azure, l'insieme di credenziali *deve* trovarsi nella stessa area del cloud privato della soluzione VMware di Azure.
 
 1. Quando si è pronti per creare l'insieme di credenziali di Servizi di ripristino, selezionare **Crea**.
 
-   ![Creare l'insieme di credenziali di Servizi di ripristino](../backup/media/backup-create-rs-vault/click-create-button.png)
+   ![Creare l'insieme di credenziali di servizi di ripristino.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
    La creazione dell'insieme di credenziali di Servizi di ripristino può richiedere del tempo. Monitorare le notifiche di stato nell'area **notifiche** nell'angolo superiore destro del portale. Dopo essere stato creato, l'insieme di credenziali, sarà visualizzabile nell'insieme di credenziali di Servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
 
-   ![Aggiornare l'elenco dell'insieme di credenziali di backup](../backup/media/backup-create-rs-vault/refresh-button.png)
+   ![Aggiornare l'elenco degli insiemi di credenziali di backup.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
 ## <a name="set-storage-replication"></a>Impostare la replica di archiviazione
 
@@ -184,7 +184,7 @@ L'opzione di replica di archiviazione consente di scegliere tra l'archiviazione 
 
 1. Selezionare il tipo di replica di archiviazione e selezionare **Salva**.
 
-   ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+   ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Scaricare e installare il pacchetto software
 
@@ -198,7 +198,7 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
    1. Nell'elenco di risorse digitare **Servizi di ripristino**.
 
-   1. Quando si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
+   1. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
 
    ![Creare l'insieme di credenziali di servizi di ripristino passaggio 1](../backup/media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
@@ -206,15 +206,15 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
    Viene aperto il dashboard dell'insieme di credenziali selezionato.
 
-   ![Aprire il dashboard dell'insieme di credenziali](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
+   ![Viene aperto il dashboard dell'insieme di credenziali selezionato.](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
    Per impostazione predefinita, viene visualizzata l'opzione **Impostazioni** . Se chiuso, selezionare **Impostazioni** per aprirlo.
 
-   ![Aprire l'opzione Impostazioni insieme di credenziali](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
+   ![Per impostazione predefinita, viene visualizzata l'opzione impostazioni. Se chiuso, selezionare impostazioni per aprirlo.](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
 
 1. Selezionare **backup** per aprire la procedura guidata **Introduzione** .
 
-   ![Il backup verrà aperto Introduzione procedura guidata](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+   ![Selezionare Backup per aprire la procedura guidata Introduzione.](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
 1. Nella finestra che viene visualizzata eseguire le operazioni seguenti:
 
@@ -241,7 +241,7 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
    > [!NOTE]
    > È necessario scaricare tutti i file nella stessa cartella. Poiché le dimensioni del download dei file insieme sono maggiori di 3 GB, per il completamento del download potrebbero essere necessari fino a 60 minuti. 
 
-   ![Selezionare i file nell'area download](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+   ![Nella pagina di download selezionare tutti i file e fare clic su Avanti.](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
 ### <a name="extract-the-software-package"></a>Estrarre il pacchetto software
 
@@ -256,7 +256,7 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
 
 1. Selezionare **Estrai** per avviare il processo di estrazione.
 
-   ![Installazione guidata di Backup di Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
+   ![Selezionare Estrai per avviare il processo di estrazione.](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
 
 1. Una volta estratto, selezionare l'opzione per **eseguire setup.exe** e quindi fare clic su **fine**.
 
@@ -267,17 +267,17 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
 
 1. Nella finestra di installazione in **Installa**selezionare **backup di Microsoft Azure** per aprire l'installazione guidata.
 
-   ![Pulsante di installazione di Backup di Microsoft Azure installazione guidata](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
+   ![Nella finestra di installazione in Installa selezionare Backup di Microsoft Azure per aprire l'installazione guidata.](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
 1. Nella schermata **iniziale** selezionare **Avanti** per passare alla pagina controlli dei **prerequisiti** .
 
 1. Selezionare di **nuovo controlla** per determinare se i prerequisiti hardware e software per server di backup di Azure sono soddisfatti. Se l'operazione è stata completata, fare clic su **Avanti**.
 
-   ![Controllo dei prerequisiti server di Backup di Azure](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   ![ Selezionare di nuovo controlla per determinare se i prerequisiti hardware e software per server di Backup di Azure sono soddisfatti. Se l'operazione è stata completata, fare clic su Avanti.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 1. Il pacchetto di installazione di server di Backup di Azure viene fornito con i file binari SQL Server appropriati necessari. Quando si avvia una nuova installazione di server di Backup di Azure, selezionare l'opzione **installa nuova istanza di SQL Server con questa impostazione** . Selezionare quindi **Controlla e installa**.
 
-   ![Verifica SQL Server server di Backup di Azure](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
+   ![Il pacchetto di installazione di server di Backup di Azure viene fornito con i file binari SQL Server appropriati necessari.](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
    > Se si vuole usare un'istanza di SQL Server personalizzata, le versioni SQL Server supportate sono SQL Server 2014 SP1 o versione successiva, 2016 e 2017. Tutte le versioni di SQL Server devono essere Standard o Enterprise a 64 bit. Server di Backup di Azure non funziona con un'istanza di SQL Server remota. L'istanza usata dal server di Backup di Azure deve essere locale. Se si utilizza un'istanza di SQL Server esistente per server di Backup di Azure, il programma di installazione di supporta solo l'utilizzo di *istanze denominate* di SQL Server.
@@ -321,18 +321,18 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
    > [!NOTE]
    > Il percorso dei file temporanei è obbligatorio per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione del disco, è necessario configurare dischi separati dopo aver completato l'installazione. Per altre informazioni sui pool di archiviazione, vedere [configurare i pool di archiviazione e l'archiviazione su disco](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
-   ![Impostazioni di installazione di Backup di Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
+   ![Specificare un percorso per l'installazione dei file di Backup di Microsoft Azure server e selezionare Avanti.](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
 1. Specificare una password complessa per gli account utente locali con restrizioni e selezionare **Avanti**.
 
-   ![Impostazioni di sicurezza dell'installazione di Backup di Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
+   ![Specificare una password complessa per gli account utente locali con restrizioni e selezionare Avanti.](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
 
 1. Selezionare se si desidera utilizzare Microsoft Update per verificare la disponibilità di aggiornamenti e selezionare **Avanti**.
 
    > [!NOTE]
    > Si consiglia di Windows Update reindirizzare a Microsoft Update, che offre sicurezza e aggiornamenti importanti per Windows e altri prodotti come server di Backup di Azure.
 
-   ![Programma di installazione di Backup di Microsoft Azure Microsoft Update consenso esplicito](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+   ![Selezionare se si desidera utilizzare Microsoft Update per verificare la disponibilità di aggiornamenti e selezionare Avanti.](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
 1. Esaminare il **Riepilogo delle impostazioni**e selezionare **Installa**.
 
@@ -352,7 +352,7 @@ Se il pacchetto software è stato scaricato in un server diverso, copiare i file
 
    Al termine dell'installazione dell'agente di Servizi di ripristino di Microsoft Azure, il passaggio di installazione passa all'installazione e alla configurazione dei componenti di SQL Server e server di Backup di Azure.
 
-   ![Installazione di Backup di Microsoft Azure installazione](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+   ![Al termine dell'installazione dell'agente di Servizi di ripristino di Microsoft Azure, il passaggio di installazione passa all'installazione e alla configurazione dei componenti di SQL Server e server di Backup di Azure.](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 1. Al termine del passaggio di installazione, selezionare **Chiudi**.
 

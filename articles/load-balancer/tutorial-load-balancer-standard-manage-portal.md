@@ -16,10 +16,10 @@ ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 8961a50490bdbf8b456e87e1c00577c2c8afd050
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80240369"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure
@@ -162,7 +162,7 @@ Load Balancer Standard supporta solo le macchine virtuali con indirizzi IP stand
 1. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**. In **Monitoraggio** impostare **Diagnostica di avvio** su **Off**. 
 1. Selezionare **Rivedi e crea**.   
 1. Rivedere le impostazioni e quindi selezionare **Crea**.
-1. Seguire i passaggi per creare due macchine virtuali aggiuntive: *myVM2* e *myVM3*, con un indirizzo IP pubblico con SKU Standard rispettivamente nella **Zona di disponibilità** **2** e **3** e tutte le altre impostazioni identiche a quelle di *myVM1*.  
+1. Seguire i passaggi per creare due macchine virtuali aggiuntive: *myVM2* e *myVM3*, con un indirizzo IP pubblico con SKU standard in **Zona di disponibilità, rispettivamente ** **2** e **3** e tutte le altre impostazioni identiche a *myVM1*.  
 
 ### <a name="create-network-security-group-rule"></a>Creare una regola del gruppo di sicurezza di rete
 

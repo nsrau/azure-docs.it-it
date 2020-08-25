@@ -1,31 +1,55 @@
 ---
-title: Scarica il dashboard in Microsoft Commercial Marketplace Analytics nel centro per i partner
+title: Download del dashboard in Microsoft Commercial Marketplace Analytics nel centro per i partner-Azure Marketplace
 description: Informazioni su come accedere alle richieste di download per le offerte del Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
+ms.topic: article
+ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: f426b0466046b366655c183a9372b2468937565b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245673"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750269"
 ---
-# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Dashboard dei download nell'analisi per il mrketplace commerciale
+# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Scarica il dashboard in Commercial Marketplace Analytics
 
 Questo articolo fornisce informazioni sul dashboard Downloads nel centro per i partner. Questo dashboard Visualizza un elenco delle richieste di download negli ultimi 30 giorni.
 
-Per accedere al dashboard dei download, aprire il dashboard **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
+Per accedere al dashboard dei download, aprire il dashboard di **[analisi](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** nel Marketplace commerciale.
 
 >[!NOTE]
 > Per definizioni dettagliate della terminologia di analisi, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](./faq-terminology.md).
 
 ## <a name="downloads-dashboard"></a>Dashboard Download
 
-Il dashboard **download** del menu **analizza** consente di visualizzare le richieste di download che contengono oltre 1000 righe di dati del cliente o dell'ordine. Questi download dei dati saranno disponibili per 30 giorni e quindi rimossi.
+Il dashboard **download** del menu **analizza** consente di visualizzare le richieste di download che contengono oltre 1000 righe di dati del cliente o dell'ordine.
+
+Quando si richiede un download con oltre 1000 righe di dati, si riceverà una notifica popup contenente un collegamento al dashboard **Downloads** . Questi download dei dati saranno disponibili per un periodo di 30 giorni e quindi rimossi.
+
+## <a name="lifetime-export-of-commercial-marketplace-analytics-reports"></a>Esportazione della durata dei report di analisi del Marketplace commerciale
+
+Nella pagina download l'utente finale può eseguire le operazioni seguenti:
+
+- Esportazione della durata dei report di analisi del Marketplace commerciale nel formato CSV e TSV.
+- Esportazione dei report di analisi del Marketplace commerciale per qualsiasi intervallo di date.
+- Esportazione dei report di analisi del Marketplace commerciale per la durata di 6 o 12 mesi.
+
+Supporto per la funzionalità di esportazione della durata dei report di analisi:
+
+| Report | Esportazione della durata | Qualsiasi durata basata sulla data |
+| - | - | - |
+| Orders | ![Segno di spunta verde](media/check-green-yes.png) | ![Segno di spunta verde](media/check-green-yes.png) |
+| Clienti | ![Segno di spunta verde](media/check-green-yes.png) | ![Segno di spunta verde](media/check-green-yes.png) |
+| Informazioni dettagliate sul Marketplace | ![Segno di spunta verde](media/check-green-yes.png) | ![Segno di spunta verde](media/check-green-yes.png) |
+| Utilizzo | ![Segno X nero](media/check-black-no.png) | Massimo un anno |
+|
+
+Un utente può pianificare i download asincroni dei report dalla sezione Downloads:
+
+[![pianificazione di download asincroni dei report dalla sezione Downloads](media/download-reports.png)](media/download-reports.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82207888"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
@@ -117,7 +117,7 @@ In questa sezione è necessario sostituire i parametri seguenti delle procedure 
    1. In **Seleziona un servizio di bilanciamento del carico**, selezionare **MyLoadBalancer** nell'elenco a discesa. 
    1. In **Seleziona un pool back-end**, selezionare **Crea nuovo**, quindi digitare *MyBackendPool*, infine selezionare **Crea**. 
    
-   ![Crea rete virtuale](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
+   ![Creare una rete virtuale](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
    
 1. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**. In **Monitoraggio** impostare **Diagnostica di avvio** su **Off**.
    
@@ -144,13 +144,13 @@ Creare una regola del gruppo di sicurezza di rete (NSG) per far sì che le macch
    
 1. Nella finestra di dialogo **Aggiungi regola di sicurezza in ingresso**, digitare o selezionare le impostazioni seguenti:
    
-   - **Origine**: selezionare **Tag del servizio**.  
+   - **Origine**: selezionare **Service Tag** (Tag del servizio).  
    - **Tag del servizio di origine**: selezionare **Internet**. 
-   - **Intervalli di porte di destinazione**: Digitare *80*.
+   - **Intervalli di porte di destinazione**: digitare *80*.
    - **Protocollo**: selezionare **TCP**. 
    - **Azione**: selezionare **Consenti**.  
    - **Priorità**: digitare *100*. 
-   - **Name**: digitare *MyHTTPRule*. 
+   - **Nome**: digitare *MyHTTPRule*. 
    - **Descrizione**: digitare *Allow HTTP*. 
    
 1. Selezionare **Aggiungi**. 

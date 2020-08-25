@@ -11,10 +11,10 @@ ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 5c16173fb46144be7c44664c45e917ec0a886313
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82181159"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Esempi di codice di Azure Active Directory B2C
@@ -46,7 +46,7 @@ Le tabelle seguenti contengono collegamenti a esempi di applicazioni per diversi
 
 | Esempio | Descrizione |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Applicazione a singola pagina che chiama un'API Web. L'autenticazione viene eseguita con Azure Active Directory B2C usando MSAL.js. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Applicazione a singola pagina (SPA) che chiama un'API Web. L'autenticazione viene eseguita con Azure Active Directory B2C usando MSAL.js. |
 
 ## <a name="saml-test-application"></a>Applicazione di test SAML
 

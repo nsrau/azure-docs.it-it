@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78251899"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
@@ -146,7 +146,7 @@ In questa sezione vengono create regole NSG per consentire le connessioni in ing
 
 1. Scegliere **Tutte le risorse** nel menu a sinistra. Quindi nell'elenco di risorse selezionare **myVM1**. Si trova nel gruppo di risorse **myResourceGroupZLB**.
 2. Nella pagina **Panoramica** selezionare **Connetti** per usare RDP per passare alla macchina virtuale.
-3. Accedere alla macchina virtuale con il nome utente e la password specificati durante la creazione. Per specificare le credenziali immesse al momento della creazione della VM potrebbe essere necessario selezionare **Altre opzioni**. Selezionare **Usa un account diverso**. Quindi selezionare **OK**. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Selezionare **Sì** per procedere con la connessione.
+3. Accedere alla macchina virtuale con il nome utente e la password specificati durante la creazione. Per specificare le credenziali immesse al momento della creazione della VM potrebbe essere necessario selezionare **Altre opzioni**. Selezionare quindi **Usa un account diverso**. Quindi selezionare **OK**. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Selezionare **Sì** per procedere con la connessione.
 4. Nel desktop del server passare a **Strumenti di amministrazione Windows** > **Windows PowerShell**.
 6. Nella finestra di **PowerShell** eseguire i comandi seguenti per installare il server IIS. Questi comandi consentono inoltre di rimuovere il file predefinito iisstart.htm e aggiungere un nuovo file iisstart.htm che visualizza il nome della macchina virtuale:
 
@@ -186,7 +186,7 @@ Per distribuire il traffico alle macchine virtuali, è necessario che un pool di
 Usare un probe di integrità per consentire al servizio di bilanciamento del carico di monitorare lo stato dell'app. Il probe di integrità aggiunge o rimuove in modo dinamico le VM nella rotazione del servizio di bilanciamento del carico in base alla rispettiva risposta ai controlli di integrità. Creare un probe di integrità **myHealthProbe** per monitorare l'integrità delle macchine virtuali.
 
 1. Scegliere **Tutte le risorse** nel menu a sinistra. Quindi selezionare **myLoadBalancer** dall'elenco di risorse.
-2. In **Impostazioni** selezionare **Probe integrità**. Quindi selezionare **Aggiungi**.
+2. In **Impostazioni** selezionare **Probe di integrità**. Quindi selezionare **Aggiungi**.
 3. Usare questi valori per creare il probe di integrità:
     - **myHealthProbe** come nome del probe di integrità.
     - **HTTP** come tipo di protocollo.

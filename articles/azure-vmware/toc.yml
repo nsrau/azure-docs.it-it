@@ -1,14 +1,14 @@
-- name: Soluzione Azure VMware (AVS)
+- name: Soluzione Azure VMware
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sulla soluzione Azure VMware (AVS)
+    - name: Informazioni sulla soluzione Azure VMware
       href: introduction.md
 - name: Esercitazioni
   items:
     - name: 1 - Pianificazione della rete
       href: tutorial-network-checklist.md
-    - name: 2 - Creare un cloud privato AVS
+    - name: 2 - Creare un cloud privato
       href: tutorial-create-private-cloud.md
     - name: 3 - Configurare la rete
       href: tutorial-configure-networking.md
@@ -38,7 +38,7 @@
       href: concepts-upgrades.md
 - name: Guide pratiche
   items:
-    - name: Valutazione della migrazione della soluzione Azure VMware
+    - name: Valutazione della migrazione
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Configurare HCX
       href: hybrid-cloud-extension-installation.md
@@ -52,19 +52,19 @@
           href: concepts-api-management.md
         - name: Hub e spoke
           href: concepts-avs-hub-and-spoke-integration.md
-        - name: Server di Backup di Azure per AVS
+        - name: Server di backup di Azure
           items:
-            - name: Configurare un server di backup per la soluzione Azure VMware
+            - name: Configurare un server di Backup
               href: set-up-mabs-for-avs.md
-            - name: Eseguire il backup di VM della soluzione Azure VMware con il server di backup
+            - name: Eseguire il backup delle VM di un cloud privato con un server di Backup
               href: backup-avs-vms-with-mabs.md
-        - name: Gateway applicazione con la soluzione Azure VMware
+        - name: Gateway applicazione
           href: protect-avs-web-apps-with-app-gateway.md
         - name: Gestione traffico con la soluzione Azure VMware
           href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: Soluzioni VMware
       items:
-        - name: Configurareoperazioni vRealize per la soluzione Azure VMware
+        - name: Configurare operazioni vRealize
           href: vrealize-operations-for-avs.md
 - name: Informazioni di riferimento
   items: null
@@ -72,7 +72,7 @@
   items:
     - name: Risoluzione dei problemi
       items:
-        - name: Ottenere assistenza per la distribuzione di AVS o gli errori di provisioning
+        - name: Ottenere assistenza per gli errori di distribuzione o provisioning
           href: fix-deployment-provisioning-failures.md
     - name: Domande frequenti
       href: faq.md

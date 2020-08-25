@@ -3,12 +3,12 @@ title: Informazioni sul processo di ripristino della macchina virtuale di Azure
 description: Informazioni su come il servizio backup di Azure Ripristina le macchine virtuali di Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: a604e146dbe387675e9ed82030639921cfc03167
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb3f6bf729047dc6fe1c13c5ead1191188e30e5c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067458"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761390"
 ---
 # <a name="about-azure-vm-restore"></a>Informazioni sul ripristino di VM di Azure
 
@@ -46,12 +46,6 @@ Questo articolo descrive il modo in cui il [servizio backup di Azure](./backup-o
 | [Ripristinare file specifici all'interno della VM](./backup-azure-restore-files-from-vm.md) | Scegliere punto di ripristino, Sfoglia, selezionare i file e ripristinarli nello stesso sistema operativo (o compatibile) della macchina virtuale di cui è stato eseguito il backup. |  Se si conoscono i file specifici da ripristinare, usare questa opzione anziché ripristinare l'intera macchina virtuale. |
 | [Ripristinare una macchina virtuale crittografata](./backup-azure-vms-encryption.md) | Dal portale ripristinare i dischi e quindi usare PowerShell per creare la macchina virtuale | <li> [VM crittografata con Azure Active Directory (AAD)](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [VM crittografata senza AAD](../virtual-machines/windows/disk-encryption-windows.md) <li> [VM crittografata *con AAD* migrata a *senza AAD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [Ripristino tra aree](./backup-azure-arm-restore-vms.md#cross-region-restore) | Creare una nuova macchina virtuale o ripristinare i dischi in un'area secondaria (area abbinata di Azure) | <li> **Interruzione completa**: con la funzionalità di ripristino tra aree, non è previsto alcun tempo di attesa per il ripristino dei dati nell'area secondaria. È possibile avviare i ripristini nell'area secondaria anche prima che Azure dichiari un'interruzione del servizio. <li> **Interruzione parziale**: i tempi di inattività possono verificarsi in cluster di archiviazione specifici in cui backup di Azure archivia i dati sottoposti a backup o persino in rete, connettendo i cluster di backup e archiviazione di Azure associati ai dati di cui è stato eseguito il backup. Con il ripristino tra più aree, è possibile eseguire un ripristino nell'area secondaria usando una replica di dati di cui è stato eseguito il backup nell'area secondaria. <li> **Nessuna interruzione**: è possibile eseguire esercitazioni di continuità aziendale e ripristino di emergenza (BCdR) a scopo di controllo o conformità con i dati dell'area secondaria. In questo modo è possibile eseguire un ripristino dei dati di cui è stato eseguito il backup nell'area secondaria anche se non è presente un'interruzione completa o parziale nell'area primaria per le esercitazioni di continuità aziendale e ripristino di emergenza.  |
-
-------
-
-
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

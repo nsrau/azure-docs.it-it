@@ -4,12 +4,12 @@ description: In questo articolo sono incluse informazioni sugli scenari supporta
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 674bbf968b42f66a4c421aec6653881c8fd52a8b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: f254b50f196b4087080162755eee4397da5a9940
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439574"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761781"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice di supporto per il backup di database di SAP HANA in VM di Azure
 
@@ -24,7 +24,7 @@ Backup di Azure supporta il backup dei database SAP HANA in Azure. In questo art
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologia**               | SAP HANA in esecuzione solo in VM Linux di Azure                    | Istanze Large di HANA (HLI, Hana Large Instances)                                   |
 | **Aree**                   | **Area geografica:**<br> **Americhe**: Stati Uniti centrali, Stati uniti orientali 2, Stati Uniti orientali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Stati Uniti occidentali, Canada centrale, Canada orientale, Brasile meridionale <br> **Asia Pacifico**: Australia centrale, Australia centrale 2, Australia orientale, Australia sud-orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Asia orientale, Asia sud-orientale, India centrale, India meridionale, India occidentale, Cina orientale, Cina settentrionale, Cina orientale 2, Cina settentrionale 2 <br> **Europa** -Europa occidentale, Europa settentrionale, Francia centrale, Regno Unito meridionale, Regno Unito occidentale, Germania settentrionale, Germania centro-occidentale, Svizzera settentrionale Svizzera occidentale, Svizzera settentrionale centrale, Norvegia orientale, Norvegia occidentale <br> **Africa/Medio Oriente**: Sudafrica settentrionale, Sudafrica occidentale, Emirati Arabi settentrionali, Emirati Arabi centrali  <BR>  **Aree di Azure per enti pubblici** | Francia meridionale, Germania centrale, Germania nord-orientale, US Gov IOWA |
-| **Versioni del sistema operativo**            | SLES 12 con SP2, SP3 e SP4; SLES 15 con SP0 e SP1 <br><br>  A partire dal 1 ° agosto 2020 SAP HANA backup per RHEL (7,4, 7,6, 7,7 & 8,1) è disponibile a livello generale.                |                                             |
+| **Versioni del sistema operativo**            | SLES 12 con SP2, SP3 e SP4; SLES 15 con SP0 e SP1 <br><br>  A partire dal 1° agosto 2020, il backup di SAP HANA per RHEL (7.4, 7.6, 7.7 e 8.1) è disponibile a livello generale.                |                                             |
 | **Versioni di HANA**          | DSC su HANA 1. x, MDC su HANA 2. x <= SPS04 Rev 48, SPS05 (ancora da convalidare per gli scenari di crittografia abilitata)      |                                                            |
 | **Distribuzioni HANA**       | SAP HANA su una singola VM di Azure: solo scalabilità verticale. <br><br> Per le distribuzioni a disponibilità elevata, entrambi i nodi in due computer diversi vengono considerati come nodi singoli con catene di dati separate.               | Scalabilità orizzontale <br><br> Nelle distribuzioni a disponibilità elevata, il backup non esegue automaticamente il failover nel nodo secondario. La configurazione del backup deve essere eseguita separatamente per ogni nodo.                                           |
 | **Istanze HANA**         | Una singola istanza SAP HANA in una singola VM di Azure: solo scalabilità verticale | Più istanze SAP HANA in una singola VM                  |
@@ -41,7 +41,6 @@ Backup di Azure supporta il backup dei database SAP HANA in Azure. In questo art
 >Backup di Azure non si adatta automaticamente al cambiamento dell'ora legale per il backup di un database SAP HANA in esecuzione in una VM di Azure.
 >
 >Modificare manualmente i criteri in base alle esigenze.
-
 
 > [!NOTE]
 > È ora possibile [monitorare i processi di backup e ripristino](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) (nello stesso computer) generati da Hana native clients (SAP Hana Studio/Cockpit/DBA Cockpit) nell'portale di Azure.
