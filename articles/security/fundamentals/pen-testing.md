@@ -1,6 +1,6 @@
 ---
 title: Test di penetrazione | Microsoft Docs
-description: L'articolo offre una panoramica del processo del test di penetrazione e di come eseguire il test di penetrazione sulle app in esecuzione nell'infrastruttura di Azure.
+description: Questo articolo fornisce una panoramica del processo di test di penetrazione e illustra come eseguire un test di penna sull'app in esecuzione nell'infrastruttura di Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -13,25 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2018
+ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: db6e25b6304ee9ac41ca95d5a3a6eac0e91eb41b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dfacf124f8db0e5323c9abff56c4a78f85f6f014
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287776"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816134"
 ---
 # <a name="penetration-testing"></a>Test di penetrazione
+
 Uno dei vantaggi che si ottengono usando Azure per il test e la distribuzione delle applicazioni consiste nella creazione rapida degli ambienti. Non è necessario richiedere, acquistare e installare il proprio hardware locale.
 
-È tuttavia necessario continuare ad applicare la normale due diligence in materia di sicurezza. Una delle operazioni che probabilmente si desidera eseguire è il test di penetrazione delle applicazioni distribuite in Azure.
+La creazione rapida di ambienti è un'ottima soluzione, ma è comunque necessario assicurarsi di eseguire la normale sicurezza dovuta alla diligenza. Una delle operazioni che probabilmente si desidera eseguire è il test di penetrazione delle applicazioni distribuite in Azure.
 
-Forse si è già a conoscenza del fatto che Microsoft esegue [il test di penetrazione dell'ambiente di Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e), utile per ottenere miglioramenti in Azure.
+Forse si è già a conoscenza del fatto che Microsoft esegue [il test di penetrazione dell'ambiente di Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e), Questo test aiuta a migliorare i miglioramenti di Azure.
 
-Il test non viene penetrato per l'utente, ma si è consapevoli che è necessario eseguire il test delle applicazioni. Questo è un aspetto positivo, perché quando si migliora la sicurezza delle applicazioni, è possibile rendere più sicuro l'intero ecosistema di Azure.
+I test di penetrazione dell'applicazione non vengono eseguiti per l'utente, ma è importante comprendere che si vuole ed è necessario eseguire il test delle applicazioni. Questo è un aspetto positivo, perché quando si migliora la sicurezza delle applicazioni, è possibile rendere più sicuro l'intero ecosistema di Azure.
 
-A partire dal 15 giugno 2017, Microsoft non richiede più la pre-approvazione per condurre un test di penetrazione sulle risorse di Azure. I clienti che desiderano documentare formalmente i test di penetrazione previsti su Microsoft Azure sono invitati a compilare il [modulo di notifica dei test di penetrazione sul servizio Azure](https://portal.msrc.microsoft.com/en-us/engage/pentest). Questo processo interessa esclusivamente Microsoft Azure e non è applicabile ad alcun altro servizio Microsoft Cloud.
+A partire dal 15 giugno 2017, Microsoft non richiede più la pre-approvazione per condurre un test di penetrazione sulle risorse di Azure. Questo processo interessa esclusivamente Microsoft Azure e non è applicabile ad alcun altro servizio Microsoft Cloud.
 
 >[!IMPORTANT]
 >Anche se la notifica dei test di penetrazione Microsoft non è più necessaria, i clienti devono comunque conformarsi alle [Regole unificate di partecipazione ai test di penetrazione di Microsoft Cloud](https://technet.microsoft.com/mt784683).
@@ -42,6 +43,11 @@ I test standard che è possibile eseguire includono:
 * [Test con dati casuali](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) degli endpoint
 * [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) degli endpoint
 
+Un tipo di test di penna che non è possibile eseguire è qualsiasi tipo di attacco [Denial of Service (DOS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Questo test include l'avvio di un attacco DoS o l'esecuzione di test correlati che potrebbero determinare, dimostrare o simulare qualsiasi tipo di attacco DoS.
+
+>[!Note]
+>Microsoft ha collaborato con BreakingPoint Cloud per compilare un'interfaccia in cui è possibile generare il traffico per abilitare la protezione DDoS agli indirizzi IP pubblici per simulazioni. Per altre informazioni sulla simulazione cloud dei punti di interruzione, vedere [Validate DDoS Detection](../../virtual-network/manage-ddos-protection.md#validate-ddos-detection).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se si vuole documentare formalmente un imminente test di penetrazione per le applicazioni ospitate in Microsoft Azure, è possibile passare alle [regole di engagement per il test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) e compilare il modulo di notifica di test.
+* Altre informazioni sulle [regole di test di penetrazione di engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2).

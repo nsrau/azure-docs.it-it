@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497580"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816236"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
@@ -65,25 +65,9 @@ Nei cluster OpenShift 4. x di Azure Red Hat, i nodi dell'infrastruttura non sono
 
 Nei cluster Azure Red Hat OpenShift 3,11 i nodi dell'infrastruttura sono inclusi per impostazione predefinita.
 
-## <a name="upgrades"></a>Aggiornamenti
+## <a name="how-do-i-handle-cluster-upgrades"></a>Ricerca per categorie gestire gli aggiornamenti del cluster?
 
-###  <a name="what-is-the-general-upgrade-process"></a>Qual è il processo di aggiornamento generale?
-
-Le patch vengono applicate automaticamente al cluster. Non è necessario eseguire alcuna azione per ricevere gli aggiornamenti delle patch nel cluster.
-
-L'esecuzione di un aggiornamento è un processo sicuro da eseguire e non deve compromettere i servizi cluster. Il team di Microsoft-Red Hat è in grado di attivare il processo di aggiornamento quando sono disponibili nuove versioni o le vulnerabilità e le esposizioni comuni sono in attesa. Gli aggiornamenti disponibili vengono testati in un ambiente di gestione temporanea e quindi applicati ai cluster di produzione. Le procedure consigliate seguenti consentono di evitare tempi di inattività minimi.
-
-La manutenzione pianificata non è prepianificata con il cliente. Le notifiche relative alla manutenzione possono essere inviate tramite posta elettronica.
-
-### <a name="what-is-the-azure-red-hat-openshift-maintenance-process"></a>Che cos'è il processo di manutenzione di Azure Red Hat OpenShift?
-
-Sono disponibili due tipi di manutenzione per Azure Red Hat OpenShift: aggiornamenti e manutenzione avviata dal provider di servizi cloud.
-- Gli aggiornamenti includono aggiornamenti software e vulnerabilità e esposizioni comuni.
-- La manutenzione avviata dal provider di servizi cloud include le interruzioni di rete, di archiviazione e a livello di area. La manutenzione dipende dal provider di servizi cloud e si basa sugli aggiornamenti forniti dal provider.
-
-### <a name="what-about-emergency-vs-planned-maintenance-windows"></a>Che cosa si intende per le finestre di manutenzione di emergenza e pianificate?
-
-Non viene fatta distinzione tra i due tipi di manutenzione. I nostri team sono disponibili 24/7/365 e non usano le finestre di manutenzione pianificate "fuori orario" tradizionali.
+Per informazioni sugli aggiornamenti, sulla manutenzione e sulle versioni supportate, vedere la [Guida del ciclo](support-lifecycle.md)di vita del supporto.
 
 ### <a name="how-will-the-host-operating-system-and-openshift-software-be-updated"></a>Come verrà aggiornato il sistema operativo host e il software OpenShift?
 
@@ -157,7 +141,7 @@ Gli amministratori di singoli progetti e clienti possono personalizzare la rete 
 
 ### <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Si sta tentando di eseguire il peering in una rete virtuale in una sottoscrizione diversa, ma non è stato possibile ottenere l'errore CIDR VNet.
 
-Nella sottoscrizione in cui è presente la rete virtuale, assicurarsi di registrare `Microsoft.ContainerService` il provider con il comando seguente:`az provider register -n Microsoft.ContainerService --wait`
+Nella sottoscrizione in cui è presente la rete virtuale, assicurarsi di registrare `Microsoft.ContainerService` il provider con il comando seguente: `az provider register -n Microsoft.ContainerService --wait`
 
 ### <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>È possibile specificare gli intervalli IP per la distribuzione nel VNet privato, evitando conflitti con altri reti virtuali aziendali una volta eseguito il peering?
 

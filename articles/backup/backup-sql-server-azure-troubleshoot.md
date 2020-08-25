@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 98240254a71695fa72acaf5c7f930c11d9f99cae
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660138"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756912"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -24,7 +24,7 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 Dopo aver creato e configurato un insieme di credenziali di servizi di ripristino, l'individuazione dei database e la configurazione del backup sono un processo in due passaggi.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![Obiettivo di backup-SQL Server in una macchina virtuale di Azure](./media/backup-azure-sql-database/sql.png)
 
 Durante la configurazione del backup, se la macchina virtuale SQL e le relative istanze non sono visibili nei database **di individuazione nelle VM** e **configurare il backup** (vedere l'immagine precedente), verificare che:
 

@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Istanze di Azure Container
       href: container-instances-overview.md
-- name: Avvi rapidi
+- name: Guide introduttive
   expanded: true
   items:
     - name: Distribuire un'istanza di contenitore - Interfaccia della riga di comando
@@ -41,7 +41,7 @@
 - name: Esempi
   items:
     - name: Esempi di codice
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance'
     - name: Modelli di Gestione risorse
       href: container-instances-samples-rm.md
 - name: Concetti
