@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 98240254a71695fa72acaf5c7f930c11d9f99cae
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 53b701e5bfae9313732f4b76a4e13b63afb3864a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756912"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826719"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -62,7 +62,7 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 
 | Gravità | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
-| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Il backup differenziale e il backup del log delle transazioni non sono possibili. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
+| Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Il backup differenziale e il backup del log delle transazioni non sono possibili. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database SP tutti i tipi di backup nel criterio sono supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 

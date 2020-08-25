@@ -3,12 +3,12 @@ title: Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 description: Questo articolo offre una matrice di supporto che elenca tutti i carichi di lavoro, i tipi di dati e le installazioni che vengono protetti dal server di Backup di Azure.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 541f7b18059dd049670b5c42d20ae409b3aee38a
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 70d8b8cd26a40b0c7ec8b538bcb702d281f829e6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660044"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826838"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 
@@ -37,7 +37,7 @@ Le sezioni seguenti illustrano in dettaglio la matrice di supporto per la protez
 
 ## <a name="applications-backup"></a>Backup di applicazioni
 
-| **Carico di lavoro**               | **Version**                                                  | **Installazione server di Backup di Azure**                       | **server di Backup di Azure supportati** | **Protezione e ripristino**                                  |
+| **Carico di lavoro**               | **Versione**                                                  | **Installazione server di Backup di Azure**                       | **server di Backup di Azure supportati** | **Protezione e ripristino**                                  |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
 | Computer client (64 bit) | Windows 10                                                  | Server fisico  <br><br>    Macchina virtuale Hyper-V   <br><br>   Macchina virtuale VMware | UR1 V3                            | Volume, condivisione, cartella, file, volumi deduplicati   <br><br>   I volumi protetti devono essere NTFS. FAT e FAT32 non sono supportati.  <br><br>    Le dimensioni dei volumi devono essere di almeno 1 GB. Server di Backup di Azure utilizza Servizio Copia Shadow del volume (VSS) per eseguire lo snapshot dei dati e lo snapshot funziona solo se il volume è di almeno 1 GB. |
 | Server (64 bit)          | Windows Server 2019, 2016, 2012 R2, 2012                    | Macchina virtuale di Azure (quando il carico di lavoro è in esecuzione come macchina virtuale di Azure)  <br><br>    Server fisico  <br><br>    Macchina virtuale Hyper-V <br><br>     Macchina virtuale VMware  <br><br>    Azure Stack | UR1 V3                            | Volume, condivisione, cartella, file <br><br>    Volumi deduplicati (solo NTFS)  <br><br>   Stato del sistema e bare metal (non supportato quando il carico di lavoro è in esecuzione come macchina virtuale di Azure) |
@@ -48,14 +48,14 @@ Le sezioni seguenti illustrano in dettaglio la matrice di supporto per la protez
 
 ## <a name="vm-backup"></a>Backup di macchine virtuali
 
-| **Carico di lavoro**                                                 | **Version**                                             | **Installazione server di Backup di Azure**                      | **server di Backup di Azure supportati** | **Protezione e ripristino**                                 |
+| **Carico di lavoro**                                                 | **Versione**                                             | **Installazione server di Backup di Azure**                      | **server di Backup di Azure supportati** | **Protezione e ripristino**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Host Hyper-V-agente protezione MAB in server host Hyper-V, cluster o macchina virtuale | Windows Server 2019, 2016, 2012 R2, 2012               | Server fisico  <br><br>    Macchina virtuale Hyper-V <br><br>    Macchina virtuale VMware | UR1 V3                             | Protezione: computer Hyper-V, volumi condivisi cluster (CSVs)  <br><br>    Ripristino: macchina virtuale, ripristino a livello di elemento di file e cartelle disponibili solo per Windows, volumi e dischi rigidi virtuali |
 | Macchine virtuali VMware                                                  | Server VMware 5,5, 6,0 o 6,5, 6,7 (versione con licenza) | Macchina virtuale Hyper-V  <br><br>   Macchina virtuale VMware         | UR1 V3                             | Proteggere: macchine virtuali VMware in volumi condivisi cluster (CSVs), NFS e archiviazione SAN   <br><br>     Ripristino: macchina virtuale, ripristino a livello di elemento di file e cartelle disponibili solo per Windows, volumi e dischi rigidi virtuali <br><br>    VMware vApp non è supportato. |
 
 ## <a name="linux"></a>Linux
 
-| **Carico di lavoro** | **Version**                               | **Installazione server di Backup di Azure**                      | **server di Backup di Azure supportati** | **Protezione e ripristino**                                 |
+| **Carico di lavoro** | **Versione**                               | **Installazione server di Backup di Azure**                      | **server di Backup di Azure supportati** | **Protezione e ripristino**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Linux        | Linux in esecuzione come guest Hyper-V o VMware | Server fisico, macchina virtuale Hyper-V locale, VM Windows in VMWare | UR1 V3                             | Hyper-V deve essere in esecuzione in Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019. Proteggi: intera macchina virtuale   <br><br>   Ripristino: intera macchina virtuale   <br><br>    Sono supportati solo snapshot coerenti a livello di file.    <br><br>   Per un elenco completo delle distribuzioni e delle versioni di Linux supportate, vedere l'articolo [relativo alle distribuzioni di Linux approvate da Azure](../virtual-machines/linux/endorsed-distros.md). |
 

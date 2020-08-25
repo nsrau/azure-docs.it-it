@@ -4,12 +4,12 @@ description: Informazioni su come usare le funzionalità di sicurezza in Backup 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a793b67b88f11988a584e3f57a296c69606cdd5f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757031"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826906"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 
@@ -20,14 +20,14 @@ Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e 
 - **Ripristino**. I dati di backup eliminati vengono conservati per altri 14 giorni dalla data di eliminazione. In questo modo, viene garantita la possibilità di recuperare i dati entro un certo periodo di tempo, così da scongiurare la perdita di dati anche in caso di attacco. Inoltre, viene conservato un maggior numero di punti di recupero per prevenire il rischio di dati danneggiati.
 
 > [!NOTE]
-> Le funzionalità di sicurezza non devono essere abilitate se si usa il backup di VM IaaS (Infrastructure as a Service, infrastruttura distribuita come servizio). Poiché queste funzionalità non sono ancora disponibili per il backup di VM IaaS, la loro abilitazione non avrà alcun impatto. Le funzionalità di sicurezza devono essere abilitate solo se si usa: <br/>
+> Le funzionalità di sicurezza non devono essere abilitate se si usa il backup di macchine virtuali IaaS (Infrastructure as a Service). Queste funzionalità non sono ancora disponibili per il backup delle macchine virtuali IaaS, quindi l'abilitazione non avrà alcun effetto. Le funzionalità di sicurezza devono essere abilitate solo se si usa: <br/>
 >
 > - **Agente di backup di Azure**. Versione minima dell'agente: 2.0.9052. Dopo aver abilitato queste funzionalità, è necessario eseguire l'aggiornamento a questa versione dell'agente per poter eseguire operazioni critiche. <br/>
 > - **Server di backup di Azure**. Versione minima dell'agente di Backup di Azure: 2.0.9052, con l'aggiornamento 1 del server di Backup di Azure. <br/>
 > - **System Center Data Protection Manager**. Versione minima dell'agente di Backup di Azure: 2.0.9052, con Data Protection Manager 2012 R2 UR12 o Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
-> Queste funzionalità sono disponibili solo per l'insieme di credenziali dei Servizi di ripristino. Tutti i nuovi insiemi di credenziali creati con i Servizi di ripristino hanno queste funzionalità abilitate per impostazione predefinita. Per gli insiemi di credenziali di Servizi di ripristino esistenti, gli utenti devono abilitare queste funzionalità tramite i passaggi descritti nella sezione seguente. Una volta abilitate, le funzionalità vengono applicate a tutti i computer dell'agente di Servizi di ripristino, le istanze del server di Backup di Azure e i server Data Protection Manager registrati con l'insieme di credenziali. L'abilitazione di questa impostazione è un'azione eseguibile una volta sola e in seguito non sarà più possibile disabilitare le funzionalità.
+> Queste funzionalità sono disponibili solo per l'insieme di credenziali dei Servizi di ripristino. Tutti i nuovi insiemi di credenziali creati con i Servizi di ripristino hanno queste funzionalità abilitate per impostazione predefinita. Per gli insiemi di credenziali di Servizi di ripristino esistenti, gli utenti devono abilitare queste funzionalità tramite i passaggi descritti nella sezione seguente. Una volta abilitate, le funzionalità vengono applicate a tutti i computer dell'agente di Servizi di ripristino, le istanze del server di Backup di Azure e i server Data Protection Manager registrati con l'insieme di credenziali. L'abilitazione di questa impostazione può essere eseguita una sola volta e non è possibile disabilitare queste funzionalità dopo averle abilitate.
 >
 
 ## <a name="enable-security-features"></a>Abilitare le funzionalità di sicurezza
@@ -84,7 +84,7 @@ Nell'ambito dell'aggiunta di un ulteriore livello di autenticazione per le opera
 
 > [!NOTE]
 >
-> Attualmente, il pin di sicurezza non è supportato per l'operazione **Arresta protezione dati con eliminazione dei dati** per DPM e MABS.
+> Attualmente, il pin di sicurezza non è supportato per l' **arresto della protezione con i dati di eliminazione** per DPM e MAB.
 
 Per ricevere questo PIN:
 

@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755263"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826855"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -89,7 +89,7 @@ Usare questa scheda per visualizzare i parametri di fatturazione principali per 
    ![Scheda Utilizzo](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> Per i carichi di lavoro DPM, è possibile che gli utenti visualizzino una lieve differenza (dell'ordine di 20 MB per ogni server DPM) tra i valori di utilizzo indicati nei report rispetto al valore di utilizzo aggregato, come illustrato nella scheda **Panoramica dell'insieme** di credenziali di servizi di ripristino. Questa differenza è rappresentata dal fatto che a ogni server DPM registrato per il backup è associata un'origine dati ' Metadata ', che non viene rilevata come artefatto per la creazione di report.
+> Per i carichi di lavoro DPM, è possibile che gli utenti visualizzino una lieve differenza (dell'ordine di 20 MB per ogni server DPM) tra i valori di utilizzo indicati nei report rispetto al valore di utilizzo aggregato, come illustrato nella scheda **Panoramica dell'insieme** di credenziali di servizi di ripristino. Questa differenza è rappresentata dal fatto che a ogni server DPM registrato per il backup è associata un'origine dati ' Metadata ' che non viene rilevata come artefatto per la creazione di report.
 
 ##### <a name="jobs"></a>Processi
 

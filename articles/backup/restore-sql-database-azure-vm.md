@@ -3,12 +3,12 @@ title: Ripristinare i database di SQL Server in una macchina virtuale di Azure
 description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 97cf8a7d7fcae0e31dde14e045b222c5899dbb02
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921147"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826557"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -126,7 +126,7 @@ Per ripristinare i dati di backup come file con estensione bak anziché come dat
     >
     >- Eseguire `PsExec -s cmd` per accedere a NT AUTHORITY\SYSTEM Shell
     >   - Eseguire `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
-    >   - Verificare l'accesso con`dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >   - Verificare l'accesso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Avviare un ripristino come file dall'insieme di credenziali per il backup a `\\<storageacct>.file.core.windows.net\<filesharename>` come percorso<BR>
     È possibile scaricare PsExec dalla pagina [Sysinternals](/sysinternals/downloads/psexec) .
 
@@ -165,7 +165,7 @@ Se si è scelto **Completo e differenziale** come tipo di ripristino, eseguire l
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Ripristinare i database con un numero elevato di file
 
-Se le dimensioni totali della stringa dei file in un database sono maggiori di un [limite specifico](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), backup di Azure archivia l'elenco dei file di database in un componente Pit diverso in modo che non sia possibile impostare il percorso di ripristino di destinazione durante l'operazione di ripristino. In alternativa, i file verranno ripristinati nel percorso predefinito SQL.
+Se le dimensioni totali della stringa dei file in un database sono maggiori di un [limite specifico](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), backup di Azure archivia l'elenco dei file di database in un componente Pit diverso, in modo da non poter impostare il percorso di ripristino di destinazione durante l'operazione di ripristino. In alternativa, i file verranno ripristinati nel percorso predefinito SQL.
 
   ![Ripristinare un database con file di grandi dimensioni](./media/backup-azure-sql-database/restore-large-files.jpg)
 

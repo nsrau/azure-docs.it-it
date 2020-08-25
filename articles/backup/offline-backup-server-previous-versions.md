@@ -3,12 +3,12 @@ title: Backup offline per Data Protection Manager (DPM) e server di Backup di Mi
 description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per le versioni precedenti di DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261923"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826600"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (versioni precedenti)
 
@@ -46,7 +46,7 @@ Il backup offline è supportato per tutti i modelli di distribuzione di backup d
 > * Backup di tutti i carichi di lavoro e i file con MAB.
 
 >[!NOTE]
->Le sottoscrizioni di Azure CSP non sono supportate per l'uso con il seeding offline per DPM 2019 RTM e versioni precedenti e per MAB V3 RTM e versioni precedenti. I backup online sulla rete sono ancora supportati.
+>Le sottoscrizioni CSP di Azure non sono supportate per l'uso con il seeding offline per DPM 2019 RTM e versioni precedenti e per le versioni precedenti e MAB V3 RTM e versioni precedenti. I backup online sulla rete sono ancora supportati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -121,7 +121,7 @@ Attenersi alla procedura seguente per caricare manualmente il certificato di bac
     >[!NOTE]
     > Per trovare l'ID utente di Azure, eseguire una delle operazioni seguenti:
     >
-    >* Da PowerShell connesso ad Azure, eseguire il `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"` comando.
+    >* In PowerShell connesso ad Azure eseguire il comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"`.
     >* Passare al percorso del registro di sistema `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` .
 
 1. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 7. Selezionare **OK**.

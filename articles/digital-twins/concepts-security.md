@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 973eeebfdf9164cb50cf98ae8edc845a80a7e080
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d528ff41d8b7098e313e070dfe734960cdc89eaa
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794499"
+ms.locfileid: "88827529"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -79,7 +79,7 @@ Se un utente tenta di eseguire un'azione non consentita dal ruolo, può ricevere
 
 ## <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
 
-I dispositivi gemelli digitali di Azure forniscono la crittografia dei dati inattivi e in transito come sono scritti nei data center e li decrittografa per l'accesso.
+I dispositivi gemelli digitali di Azure forniscono la crittografia dei dati inattivi e in transito come sono scritti nei data center e li decrittografa per l'accesso. Questa crittografia viene eseguita usando una chiave di crittografia gestita da Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

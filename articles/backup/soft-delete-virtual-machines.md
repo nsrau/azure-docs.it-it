@@ -4,12 +4,12 @@ description: Informazioni sul modo in cui l'eliminazione temporanea per le macch
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 90d55e8ed6c831adf4efaf0663d191697177ea63
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763695"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826481"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminazione temporanea per le macchine virtuali
 
@@ -38,7 +38,7 @@ L'eliminazione temporanea è attualmente supportata negli Stati Uniti centro-occ
    ![Screenshot di portale di Azure, VM in stato di eliminazione temporanea](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > Se nell'insieme di credenziali sono presenti elementi di backup eliminati temporaneamente, non è possibile eliminare l'insieme di credenziali in quel momento. Provare a eliminare l'insieme di credenziali dopo che gli elementi di backup sono stati eliminati definitivamente e non è presente alcun elemento nello stato di eliminazione temporanea lasciato nell'insieme di credenziali.
+   > Se nell'insieme di credenziali sono presenti elementi di backup eliminati temporaneamente, non è possibile eliminare l'insieme di credenziali in quel momento. Provare a eliminare l'insieme di credenziali dopo che gli elementi di backup sono stati eliminati definitivamente e non ci sono elementi in stato di eliminazione temporanea rimasti nell'insieme di credenziali.
 
 4. Per ripristinare la macchina virtuale eliminata temporaneamente, è prima necessario annullarne l'eliminazione. Per annullare l'eliminazione, scegliere la macchina virtuale eliminata temporaneamente, quindi selezionare l'opzione **Annulla eliminazione**.
 
@@ -62,13 +62,13 @@ L'eliminazione temporanea è attualmente supportata negli Stati Uniti centro-occ
 ## <a name="soft-delete-for-vms-using-azure-powershell"></a>Eliminazione temporanea per le macchine virtuali con Azure PowerShell
 
 > [!IMPORTANT]
-> La versione AZ. RecoveryServices necessaria per usare l'eliminazione temporanea con Azure PS è min 2.2.0. Usare ```Install-Module -Name Az.RecoveryServices -Force``` per ottenere la versione più recente.
+> La versione AZ. RecoveryServices necessaria per usare l'eliminazione temporanea con Azure PowerShell è la 2.2.0 minima. Usare ```Install-Module -Name Az.RecoveryServices -Force``` per ottenere la versione più recente.
 
 Come descritto in precedenza per portale di Azure, la sequenza dei passaggi è identica anche quando si usa Azure PowerShell.
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Eliminare l'elemento di backup usando Azure PowerShell
 
-Eliminare l'elemento di backup usando il cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
+Eliminare l'elemento di backup usando il cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) di PowerShell.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -95,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Eseguire quindi l'operazione di annullamento dell'eliminazione usando il cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
+Eseguire quindi l'operazione di annullamento dell'eliminazione usando il cmdlet di PowerShell [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) .
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

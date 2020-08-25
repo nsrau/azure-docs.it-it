@@ -3,12 +3,12 @@ title: Eseguire il backup dei carichi di lavoro DPM tramite PowerShell
 description: Informazioni su come distribuire e gestire Backup di Azure per Data Protection Manager (DPM) usando PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 8a60d1c412a36c5c2a7ca264eda524b5d5649f1a
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 1f77337c9b5b1dce73f39cff7090bb5d892c29cd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762743"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825971"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
 
@@ -69,7 +69,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 
-4. Specificare il tipo di ridondanza di archiviazione da usare; è possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md) o l' [archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md). Nell'esempio seguente l'opzione BackupStorageRedundancy per testVault è impostata su GeoRedundant.
+4. Specificare il tipo di ridondanza di archiviazione da usare. È possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md) o l' [archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md). Nell'esempio seguente l'opzione BackupStorageRedundancy per testVault è impostata su GeoRedundant.
 
    > [!TIP]
    > Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è utile archiviare l'oggetto dell'insieme di credenziali dei servizi di ripristino di Backup in una variabile.
@@ -111,7 +111,7 @@ Per installare l'agente, eseguire il comando seguente in una console di PowerShe
 MARSAgentInstaller.exe /q
 ```
 
-L'agente verrà installato con tutte le opzioni predefinite. L'installazione richiede alcuni minuti in background. Se non si specifica l'opzione */nu* , al termine dell'installazione verrà aperta la finestra **Windows Update** per verificare la presenza di eventuali aggiornamenti.
+L'agente verrà installato con tutte le opzioni predefinite. L'installazione richiede alcuni minuti in background. Se non si specifica l'opzione */nu* , alla fine dell'installazione viene visualizzata la finestra **Windows Update** per verificare la presenza di eventuali aggiornamenti.
 
 L'agente verrà visualizzato nell'elenco dei programmi installati. Per visualizzare l'elenco dei programmi installati, passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità**.
 
@@ -177,7 +177,7 @@ Dopo la registrazione con l'insieme di credenziali dei servizi di ripristino, il
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Tutte le modifiche vengono apportate a questo oggetto locale PowerShell ```$setting``` e poi viene eseguito il commit dell'oggetto completo in DPM e in Backup di Azure eseguendo il salvataggio mediante il cmdlet [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019). È necessario usare il flag ```–Commit``` per garantire che le modifiche vengano mantenute. Le impostazioni vengono applicate e usate da Backup di Azure solo dopo il commit.
+Tutte le modifiche vengono apportate a questo oggetto locale PowerShell ```$setting``` e poi viene eseguito il commit dell'oggetto completo in DPM e in Backup di Azure eseguendo il salvataggio mediante il cmdlet [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019). È necessario usare il flag ```–Commit``` per garantire che le modifiche vengano mantenute. Le impostazioni non verranno applicate e usate da backup di Azure a meno che non sia stato eseguito il commit.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -262,7 +262,7 @@ Ogni agente DPM conosce l'elenco di origini dati nel server in cui è installato
 3. Recuperare un elenco di tutte le origini dati nel server.
 4. Scegliere una o più origini dati e aggiungerle al gruppo protezione dati.
 
-È possibile acquisire l'elenco di tutti i server in cui è installato l'agente DPM e che sono gestiti dal server DPM tramite il cmdlet [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) . In questo esempio verrà applicato un filtro e per il backup verrà configurato solo il server di produzione denominato *productionserver01* .
+È possibile acquisire l'elenco di tutti i server in cui è installato l'agente DPM e che sono gestiti dal server DPM tramite il cmdlet [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) . In questo esempio verrà filtrato e configurato solo PowerShell con il nome *ServerProduzione01* per il backup.
 
 ```powershell
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}

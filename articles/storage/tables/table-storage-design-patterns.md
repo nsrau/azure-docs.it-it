@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8a50aa02a2ba7187c8221c046fcabb7f4a6473fa
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034198"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826685"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -310,7 +310,7 @@ Si noti che ora il valore di **RowKey** è una chiave composta costituita dall'I
 
 L'esempio seguente illustra come recuperare tutti i dati di valutazione per uno specifico dipendente (ad esempio il dipendente 000123 del reparto vendite):  
 
-$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+$filter = (PartitionKey EQ ' Sales ') e (RowKey GE ' empid_000123') e (RowKey lt ' 000123_2012') &$select = RowKey, rating Manager, classificazione peer, commenti  
 
 ### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -710,7 +710,7 @@ Le eccezioni generate quando la libreria client di archiviazione esegue una tran
 È inoltre opportuno considerare l'influenza della progettazione sul modo in cui l'applicazione gestisce le operazioni di concorrenza e aggiornamento.  
 
 ### <a name="managing-concurrency"></a>Gestione della concorrenza
-Per impostazione predefinita, il servizio tabelle implementa controlli di concorrenza ottimistica a livello di singole entità per le operazioni **Insert**, **Merge** e **Delete**, sebbene sia possibile per un client forzare il servizio tabelle in modo da ignorare questi controlli. Per ulteriori informazioni sul modo in cui il servizio tabelle gestisce la concorrenza, vedere [gestione della concorrenza in archiviazione di Microsoft Azure](../../storage/common/storage-concurrency.md).  
+Per impostazione predefinita, il servizio tabelle implementa controlli di concorrenza ottimistica a livello di singole entità per le operazioni **Insert**, **Merge** e **Delete**, sebbene sia possibile per un client forzare il servizio tabelle in modo da ignorare questi controlli. Per ulteriori informazioni sul modo in cui il servizio tabelle gestisce la concorrenza, vedere  [gestione della concorrenza in archiviazione di Microsoft Azure](../../storage/common/storage-concurrency.md).  
 
 ### <a name="merge-or-replace"></a>Unione o sostituzione
 Il metodo **Replace** della classe **TableOperation** sostituisce sempre l'entità completa nel servizio tabelle. Se non si include una proprietà nella richiesta quando tale proprietà è presente nell'entità archiviata, la richiesta rimuove la proprietà dall'entità archiviata. A meno che non si voglia rimuovere una proprietà in modo esplicito da un'entità archiviata, è necessario includere ogni proprietà nella richiesta.  

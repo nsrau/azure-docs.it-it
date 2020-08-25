@@ -3,12 +3,12 @@ title: Gestire i backup dei database SAP HANA su macchine virtuali di Azure
 description: Questo articolo illustra alcune attività comuni per la gestione e il monitoraggio di database SAP HANA in esecuzione su macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049456"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826702"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gestire e monitorare i database SAP HANA di cui è stato eseguito il backup
 
@@ -171,7 +171,7 @@ Occasionalmente, un'operazione di modifica dei criteri può comportare una versi
 
 Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
-* Tutti i punti di ripristino rimarranno invariati per sempre, tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
+* Tutti i punti di ripristino rimarranno intatti per sempre e tutte le eliminazioni si arresteranno in arresto della protezione con Mantieni dati.
 * Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione utilizzato. Per altre informazioni, vedere [Prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 * Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo.
 

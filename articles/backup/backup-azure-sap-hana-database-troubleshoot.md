@@ -3,12 +3,12 @@ title: Risolvere i problemi relativi agli errori di backup dei database SAP HANA
 description: Viene descritto come risolvere i problemi relativi agli errori comuni che possono verificarsi quando si usa Backup di Azure per eseguire il backup di database SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503609"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826991"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi relativi al backup di database SAP HANA in Azure
 
@@ -96,7 +96,7 @@ Si supponga di eseguire il backup di un'istanza SDC HANA denominata "H21". Il no
 Tenere presente quanto segue:
 
 - Per impostazione predefinita, il nome del database ripristinato verrà popolato con il nome dell'elemento di backup, in questo caso h21(sdc).
-- Se come destinazione si seleziona H11, il nome del database ripristinato NON verrà modificato automaticamente. **Deve essere modificato in h11(sdc)** . Per quanto riguarda SDC, il nome del database ripristinato corrisponderà all'ID istanza di destinazione scritto in lettere minuscole e con il suffisso 'sdc' racchiuso tra parentesi quadre.
+- Se si seleziona la destinazione come H11, il nome del database ripristinato non verrà modificato automaticamente. **Deve essere modificato in h11(sdc)** . Per quanto riguarda SDC, il nome del database ripristinato corrisponderà all'ID istanza di destinazione scritto in lettere minuscole e con il suffisso 'sdc' racchiuso tra parentesi quadre.
 - Poiché il contenitore SDC può includere un solo database singolo, è anche necessario fare clic sulla casella di controllo per consentire l'override dei dati del database esistenti con i dati del punto di ripristino.
 - Linux fa distinzione tra maiuscole e minuscole, di conseguenza prestare attenzione a rispettare tale distinzione.
 

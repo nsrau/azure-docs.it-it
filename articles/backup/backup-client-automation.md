@@ -3,12 +3,12 @@ title: Usare PowerShell per eseguire il backup di Windows Server in Azure
 description: Questo articolo illustra come usare PowerShell per configurare backup di Azure in Windows Server o un client Windows e come gestire il backup e il ripristino.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: d0ae5165fc13193737ec75cf06060123ca4a13d4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 8e9b2f0adc2cdd4e0d17f618b516486d8ca9f8a8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756997"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826328"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 
@@ -42,7 +42,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Specificare il tipo di ridondanza di archiviazione da usare; è possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md) o l' [archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md). Nell'esempio seguente viene illustrata l'opzione **-BackupStorageRedundancy** per *testVault* è impostata su **georidondante**.
+4. Specificare il tipo di ridondanza di archiviazione da usare. È possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md) o l' [archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md). Nell'esempio seguente viene illustrata l'opzione **-BackupStorageRedundancy** per *testVault* è impostata su **georidondante**.
 
    > [!TIP]
    > Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è utile archiviare l'oggetto dell'insieme di credenziali dei servizi di ripristino di Backup in una variabile.
@@ -177,7 +177,7 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
+> Non usare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
 >
 >
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: ba3c7304b0ce52cb720a9e2ac7ae6cf1b5ffeeea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 08/25/2020
+ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751465"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826821"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -75,4 +75,4 @@ Questa release non prevede alcuna modifica della versione dei componenti. È pos
 
 ## <a name="known-issues"></a>Problemi noti
 
-Quando si prova a creare un cluster Azure HDInsight dalla portale di Azure e si usa un tipo di autenticazione SSH della chiave pubblica, si verifica un errore quando si fa clic su **Verifica + crea**. L'errore nel portale è "non deve contenere tre caratteri consecutivi dal nome utente SSH". Questo problema è stato risolto. Tuttavia, se si verifica questo errore, la soluzione alternativa consiste nel creare un cluster con un modello ARM. 
+È stato risolto un problema nel portale di Azure, in cui si è verificato un errore durante la creazione di un cluster HDInsight di Azure con un tipo di autenticazione SSH di chiave pubblica. Quando si fa clic su **Verifica + crea**, gli utenti riceveranno l'errore "non deve contenere tre caratteri consecutivi dal nome utente SSH". Questo problema è stato risolto, ma potrebbe essere necessario aggiornare la cache del browser premendo CTRL + F5 per caricare la visualizzazione corretta. La soluzione alternativa a questo problema consiste nel creare un cluster con un modello ARM. 

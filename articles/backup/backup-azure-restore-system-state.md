@@ -3,12 +3,12 @@ title: Ripristinare lo stato del sistema per Windows Server
 description: Spiegazione dettagliata del ripristino dello stato del sistema di Windows Server da un backup in Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 727268b2dc9473a6bda79f023e8a75202d43afe4
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1adf20b08a5c7f93108b3af5077afae9555f2219
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263436"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827104"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -88,7 +88,7 @@ Include la terminologia utilizzata in questi passaggi:
 6. Nel riquadro Seleziona server di backup selezionare il *computer di origine* dall'elenco di computer visualizzati.
 7. Nel riquadro Seleziona modalità di ripristino scegliere **stato del sistema** e fare clic su **Avanti**.
 
-    ![Cerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Ricerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. Nel riquadro **Seleziona volume e data** del Calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dall'elenco a discesa **Ora**.
 

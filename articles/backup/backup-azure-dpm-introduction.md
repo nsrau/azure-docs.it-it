@@ -3,12 +3,12 @@ title: Preparare il server DPM per il backup dei carichi di lavoro
 description: Questo articolo illustra come preparare i backup di System Center Data Protection Manager (DPM) in Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612657"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827308"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -160,8 +160,8 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
     ![Crittografia](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
-    > L'utente è proprietario della passphrase di crittografia e Microsoft non può visualizzarla.
-    > Se la passphrase viene persa o dimenticata, Microsoft non potrà fornire assistenza per il recupero dei dati di backup.
+    > Si è proprietari della passphrase di crittografia e Microsoft non ha visibilità.
+    > Se la passphrase viene persa o dimenticata, Microsoft non può aiutare a recuperare i dati di backup.
 
 7. Selezionare **Register (registra** ) per registrare il server DPM nell'insieme di credenziali.
 

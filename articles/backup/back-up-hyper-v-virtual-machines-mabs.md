@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali Hyper-V con MAB
 description: Questo articolo contiene le procedure per il backup e il ripristino di macchine virtuali con Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514553"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823965"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali Hyper-V con server di Backup di Azure
 
@@ -90,13 +90,13 @@ Questi sono i prerequisiti per il backup di macchine virtuali Hyper-V con MAB:
     >
     >Se si intende proteggere i carichi di lavoro dell'applicazione, i punti di ripristino vengono creati in base al valore di Frequenza di sincronizzazione se l'applicazione supporta i backup incrementali. In caso contrario, MAB esegue un backup completo rapido, anziché un backup incrementale, e crea punti di ripristino in base alla pianificazione del backup rapido.
 
-7. Nella pagina **Verifica allocazione dischi** esaminare lo spazio su disco del pool di archiviazione allocato per il gruppo protezione dati.
+7. Nella pagina **Verifica allocazione dischi** verificare lo spazio su disco per il pool di archiviazione allocato al gruppo protezione dati.
 
    Le **dimensioni dati totali** sono le dimensioni dei dati di cui si esegue il backup e lo **spazio su disco per il provisioning nel server di Backup di Microsoft Azure** è lo spazio consigliato dal server per il gruppo protezione dati. Il server di Backup di Microsoft Azure sceglie il volume di backup in base alle impostazioni. Tuttavia è possibile modificare le opzioni del volume di backup nei **dettagli di allocazione del disco**. Per i carichi di lavoro, selezionare la risorsa di archiviazione preferita nel menu a discesa. Le modifiche modificano i valori per **Totale spazio di archiviazione** e **Spazio libero di archiviazione** nel riquadro **Spazio di archiviazione su disco disponibile**. Per spazio con provisioning insufficiente si intende la quantità di spazio di archiviazione che il server di Backup di Microsoft Azure suggerisce di aggiungere al volume per continuare a eseguire backup uniformi in futuro.
 
 8. Nella pagina **Scelta del metodo per la creazione della replica** specificare come verrà eseguita la replica iniziale dei dati nel gruppo protezione dati. Se si sceglie di eseguire **la replica automatica in rete**, è consigliabile scegliere un orario di minore traffico. Per grandi quantità di dati o condizioni di rete non ottimali, è consigliabile selezionare **manualmente**, che richiede la replica dei dati offline mediante supporti rimovibili.
 
-9. Nella pagina **Opzioni di verifica coerenza** scegliere come automatizzare le verifiche della coerenza. È possibile impostare l'esecuzione di una verifica solo quando i dati di replica diventano incoerenti o in base a una pianificazione. Se non si vuole configurare la verifica coerenza automatica, è possibile eseguire una verifica manuale in qualsiasi momento facendo clic con il pulsante destro del mouse sul gruppo protezione dati e scegliendo **Esegui verifica coerenza**.
+9. Nella pagina **Opzioni di verifica coerenza** scegliere come automatizzare le verifiche della coerenza. È possibile fare in modo che una verifica venga eseguita solo quando i dati della replica diventano incoerenti o in base a una pianificazione. Se non si vuole configurare la verifica coerenza automatica, è possibile eseguire una verifica manuale in qualsiasi momento facendo clic con il pulsante destro del mouse sul gruppo protezione dati e scegliendo **Esegui verifica coerenza**.
 
     Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale dei dati in base al metodo selezionato. Dopo la replica iniziale, ogni backup viene eseguito in base alle impostazioni del gruppo protezione dati. Se è necessario ripristinare i dati di cui è stato eseguito il backup, tenere presente quanto segue:
 
@@ -132,7 +132,7 @@ Quando è possibile ripristinare una macchina virtuale sottoposto a backup, usar
 
 3. Nel menu **Azioni** fare clic su **Ripristina** per aprire il Ripristino guidato.
 
-    La macchina virtuale e il punto di ripristino selezionato vengono visualizzati nella schermata **Verifica selezione per ripristino**. Fare clic su **Avanti**.
+    La macchina virtuale e il punto di ripristino selezionato vengono visualizzati nella schermata **Verifica selezione per ripristino**. Fare clic su **Next** (Avanti).
 
 4. Nella schermata **Selezione tipo di ripristino** selezionare la posizione in cui si vuole ripristinare i dati e quindi fare clic su **Avanti**.
 

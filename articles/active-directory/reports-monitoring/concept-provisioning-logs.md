@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2019
+ms.date: 08/25/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924031"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826872"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -85,7 +85,7 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtro")
+![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtra")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrare le attività di provisioning
@@ -94,12 +94,12 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 Nella visualizzazione predefinita è possibile selezionare i filtri seguenti:
 
 - Identità
-- Data
+- Date
 - Stato
 - Azione
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Filtro")
+![Filter](./media/concept-provisioning-logs/default-filter.png "Filtra")
 
 Il filtro di **identità** consente di specificare il nome o l'identità a cui si è interessati. Questa identità può essere un utente, un gruppo, un ruolo o un altro oggetto. È possibile eseguire la ricerca in base al nome o all'ID dell'oggetto. L'ID varia in base allo scenario. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a SalesForce, l'ID di origine è l'ID oggetto dell'utente in Azure AD mentre TargetID è l'ID dell'utente in Salesforce. Quando si effettua il provisioning da giorni lavorativi a Active Directory, l'ID di origine è l'ID del dipendente del lavoro lavorativo. Si noti che il nome dell'utente potrebbe non essere sempre presente nella colonna Identity. Ci sarà sempre un ID. 
 
@@ -127,11 +127,11 @@ Il filtro **Stato** consente di selezionare:
 
 Il filtro **azione** consente di filtrare:
 
-- Create 
+- Crea 
 - Aggiornamento
 - Delete
 - Disabilita
-- Altri
+- Altro
 
 Inoltre, per i filtri della visualizzazione predefinita, è anche possibile impostare i filtri seguenti:
 
@@ -190,7 +190,7 @@ Nella scheda **passaggi** vengono descritti i passaggi necessari per eseguire il
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filtro")
+![Filter](./media/concept-provisioning-logs/steps.png "Filtra")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Risoluzione dei problemi e suggerimenti
@@ -242,6 +242,8 @@ Usare la tabella seguente per comprendere meglio come risolvere gli errori che s
 |LicenseLimitExceeded|Impossibile creare l'utente nell'applicazione di destinazione perché non sono disponibili licenze per questo utente. Ottenere licenze aggiuntive per l'applicazione di destinazione o esaminare le assegnazioni degli utenti e la configurazione del mapping degli attributi per assicurarsi che gli utenti corretti vengano assegnati con gli attributi corretti.|
 |DuplicateTargetEntries  |Non è stato possibile completare l'operazione perché è stato trovato più di un utente nell'applicazione di destinazione con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato dall'applicazione di destinazione o riconfigurare i mapping degli attributi come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | Non è stato possibile completare l'operazione perché è stato trovato più di un utente con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato o riconfigurare i mapping degli attributi come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|ImportSkipped | Quando viene valutato ogni utente, si tenta di importare l'utente dal sistema di origine. Questo errore si verifica in genere quando all'utente importato manca la proprietà corrispondente definita nei mapping degli attributi. Senza un valore presente nell'oggetto utente per l'attributo corrispondente, non è possibile valutare le modifiche dell'ambito, della corrispondenza o dell'esportazione. Si noti che la presenza di questo errore non indica che l'utente è nell'ambito perché non è ancora stata valutata la definizione dell'ambito per l'utente.|
+|EntrySynchronizationSkipped | Il servizio di provisioning ha eseguito una query sul sistema di origine e ha identificato l'utente. Non è stata eseguita alcuna azione aggiuntiva per l'utente e i relativi elementi sono stati ignorati. Il salto potrebbe essere dovuto all'esterno dell'ambito o all'utente già esistente nel sistema di destinazione senza che siano necessarie altre modifiche.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

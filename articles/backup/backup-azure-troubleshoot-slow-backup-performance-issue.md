@@ -3,12 +3,12 @@ title: Risolvere i problemi relativi al rallentamento delle prestazioni di backu
 description: Fornisce indicazioni sulla risoluzione dei problemi per diagnosticare la causa del rallentamento delle prestazioni di backup per file e cartelle di Backup di Azure
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 7bdda02b837cc2312b997b23ba7b714ca7ebb41a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3f2ac343ef4a703f347ec8a57f242a636bb32d2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513833"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824016"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 
@@ -93,7 +93,7 @@ Questo comportamento è dovuto al fatto che mentre è attivo il backup e lo spos
 Gli indicatori seguenti possono risultare utili per individuare il collo di bottiglia e agire di conseguenza nei passaggi successivi:
 
 * **L'interfaccia utente visualizza lo stato di avanzamento per il trasferimento dei dati**. I dati sono ancora in fase di trasferimento. La larghezza di banda di rete o le dimensioni dei dati potrebbero causare ritardi.
-* **L'interfaccia utente non visualizza lo stato di avanzamento per il trasferimento dei dati**. Aprire i log disponibili in "C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\Temp" e quindi cercare la voce FileProvider::EndData nei log. Questa voce indica che il trasferimento dei dati è stato completato e che l'operazione di catalogo è in corso. Non annullare i processi di backup. Al contrario, attendere ancora qualche istante che l'operazione di catalogo venga completata. Se il problema persiste, contattare il [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
+* **L'interfaccia utente non Visualizza lo stato di avanzamento per il trasferimento dei dati**. Aprire i log disponibili in "C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\Temp" e quindi cercare la voce FileProvider::EndData nei log. Questa voce indica che il trasferimento dei dati è stato completato e che l'operazione di catalogo è in corso. Non annullare i processi di backup. Al contrario, attendere ancora qualche istante che l'operazione di catalogo venga completata. Se il problema persiste, contattare il [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 Se si sta provando a eseguire il backup di dischi di grandi dimensioni, è consigliabile usare [Azure Data Box](./offline-backup-azure-data-box.md) per il primo backup (replica iniziale).  Se non è possibile usare Data Box, eventuali problemi di rete temporanei che si verificano nell'ambiente durante i trasferimenti di dati di lunga durata sulla rete possono causare errori di backup.  Per evitare questi errori, è possibile aggiungere alcune cartelle al backup iniziale e continuare ad aggiungerle in modo incrementale fino a quando non viene completato il backup di tutte le cartelle in Azure.  I successivi backup incrementali saranno relativamente più veloci.
 

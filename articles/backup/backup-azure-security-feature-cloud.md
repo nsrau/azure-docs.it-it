@@ -3,12 +3,12 @@ title: Eliminazione temporanea per backup di Azure
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: d791b76698330cd14c56f01cf5da62c8a64bec29
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763440"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826974"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminazione temporanea per backup di Azure
 
@@ -44,9 +44,9 @@ Per disabilitare l'eliminazione temporanea, attenersi alla procedura seguente:
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Disabilitazione dell'eliminazione temporanea con Azure PowerShell
 
 > [!IMPORTANT]
-> La versione AZ. RecoveryServices necessaria per usare l'eliminazione temporanea con Azure PS è min 2.2.0. Usare ```Install-Module -Name Az.RecoveryServices -Force``` per ottenere la versione più recente.
+> La versione AZ. RecoveryServices necessaria per usare l'eliminazione temporanea con Azure PowerShell è la 2.2.0 minima. Usare ```Install-Module -Name Az.RecoveryServices -Force``` per ottenere la versione più recente.
 
-Per disabilitare, usare il cmdlet [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) di PS.
+Per disabilitare, usare il cmdlet di PowerShell [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) .
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable

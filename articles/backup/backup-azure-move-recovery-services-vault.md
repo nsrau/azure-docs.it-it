@@ -4,12 +4,12 @@ description: Istruzioni su come spostare un insieme di credenziali di servizi di
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: b4de4c58e6a6551fa7c27db9755bb02a11700721
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 0b06b12c2bb989e4c0fc4e04440fc5f452df2da3
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755739"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827121"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -106,7 +106,7 @@ Per spostare un insieme di credenziali di servizi di ripristino e le risorse ass
 7. Selezionare **ho compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiorno per usare la nuova opzione ID risorsa** per confermare, quindi selezionare **OK**.
 
 > [!NOTE]
-> Il backup tra sottoscrizioni (l'insieme di credenziali di Servizi di ripristino e le macchine virtuali protette si trovano in sottoscrizioni diverse) non è uno scenario supportato. Neppure l'opzione di ridondanza di archiviazione può essere modificata da archiviazione con ridondanza locale ad archiviazione con ridondanza globale e viceversa durante l'operazione di spostamento dell'insieme di credenziali.
+> Il backup tra sottoscrizioni (insieme di credenziali RS e VM protette si trovano in sottoscrizioni diverse) non è uno scenario supportato. Inoltre, l'opzione di ridondanza di archiviazione da archiviazione con ridondanza locale (con ridondanza locale) a archiviazione con ridondanza globale (GRS) e viceversa non può essere modificata durante l'operazione di spostamento dell'insieme di credenziali.
 >
 >
 

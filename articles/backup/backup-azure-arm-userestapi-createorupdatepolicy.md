@@ -4,12 +4,12 @@ description: In questo articolo si apprenderà come creare e gestire i criteri d
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 2fa35ed5e03ad174407e4c82fb5d4bbe69ee8131
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6a045ff1653c58a3a583b6c64941fff26f480861
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497812"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826393"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
 
@@ -29,9 +29,9 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|Nome  |Obbligatoria  |Type  |Descrizione  |
+|Nome  |Obbligatorio  |Tipo  |Descrizione  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
+|properties     |   Vero      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
 |tags     |         | Oggetto        |  Tag delle risorse       |
 
 Per l'elenco completo delle definizioni nel corpo della richiesta, vedere il [documento relativo all'API REST dei criteri di backup](/rest/api/backup/protectionpolicies/createorupdate).
@@ -129,7 +129,7 @@ Il criterio indica:
 ```
 
 > [!IMPORTANT]
-> I formati di ora per la pianificazione e la conservazione supportano solo DateTime. Non supportano il solo formato Time.
+> I formati di ora per la pianificazione e la conservazione supportano solo DateTime. Il formato dell'ora non è supportato da solo.
 
 ## <a name="responses"></a>Risposte
 
@@ -137,7 +137,7 @@ La creazione o l'aggiornamento dei criteri di backup è un'[operazione asincrona
 
 Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione, quindi 200 (OK) al termine dell'operazione.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectionPolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 - Accettato     |         |     Accettato    |

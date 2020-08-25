@@ -3,12 +3,12 @@ title: Installare il server di Backup di Azure in Azure Stack
 description: Questo articolo illustra come usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5b6ae97f30bf704e5bc495cc8020e8bcb0e30ce3
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263062"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827008"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -94,7 +94,7 @@ Quando si sceglie un server per il server di Backup di Azure, usare come punto d
 La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. La [matrice di protezione per il server di Backup di Microsoft Azure ](./backup-mabs-protection-matrix.md) aiuta a comprendere questa complessità. Prima di distribuire la macchina leggere interamente questo articolo.
 
 > [!NOTE]
-> Il server di Backup di Azure è progettato per essere eseguito su una macchina virtuale dedicata, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
+> Il server di Backup di Azure è progettato per essere eseguito su una macchina virtuale dedicata, con un unico scopo. Non è possibile installare server di Backup di Azure in:
 >
 > - Un computer in esecuzione come controller di dominio
 > - Un computer in cui è installato il ruolo di server applicazioni
@@ -228,7 +228,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 4. Il server di Backup di Microsoft Azure richiede SQL Server. Il pacchetto di installazione del server di Backup di Azure include i file binari appropriati di SQL Server. Se si preferisce, è possibile usare la propria installazione di SQL. Tuttavia, la scelta consigliata è consentire al programma di installazione di aggiungere una nuova istanza di SQL Server. Per assicurarsi che la scelta funzioni con l'ambiente, selezionare **Controlla e installa**.
 
    > [!NOTE]
-   > Il server di Backup di Azure non funzionerà con un'istanza remota di SQL Server. L'istanza usata dal server di Backup di Azure deve essere locale.
+   > Server di Backup di Azure non funzionerà con un'istanza di SQL Server remota. L'istanza usata dal server di Backup di Azure deve essere locale.
    >
 
     ![Impostazioni server di Backup di Azure-SQL](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)

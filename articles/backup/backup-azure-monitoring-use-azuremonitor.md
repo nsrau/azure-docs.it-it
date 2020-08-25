@@ -4,12 +4,12 @@ description: Eseguire il monitoraggio dei carichi di lavoro di Backup di Azure e
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f5f663a2f0ed0f91cc414d352e975a2ff3b9649
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054613"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827155"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Eseguire il monitoraggio su larga scala tramite Monitoraggio di Azure
 
@@ -46,7 +46,7 @@ La caratteristica che definisce un avviso è la condizione di attivazione dell'a
 Se necessario, è possibile modificare la query Kusto. Scegliere una soglia, un periodo e una frequenza. La soglia determina quando verrà generato l'avviso. Il periodo è l'intervallo di tempo in cui viene eseguita la query. Se, ad esempio, la soglia è Maggiore di 0, il periodo è 5 minuti e la frequenza è 5 minuti, la regola esegue la query ogni 5 minuti, esaminando i 5 minuti precedenti. Se il numero di risultati è maggiore di 0, si riceve una notifica attraverso il gruppo di azioni selezionato.
 
 > [!NOTE]
-> Per eseguire la regola di avviso una volta al giorno, in tutti gli eventi e i log creati nel giorno specificato modificare il valore di 'Periodo' e 'Frequenza' in 1440, ovvero 24 ore.
+> Per eseguire la regola di avviso una volta al giorno, in tutti gli eventi/log creati nel giorno specificato, modificare il valore di ' period ' è Frequency ' in 1440, ovvero 24 ore.
 
 #### <a name="alert-action-groups"></a>Gruppi di azioni di avviso
 

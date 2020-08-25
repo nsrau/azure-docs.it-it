@@ -3,19 +3,19 @@ title: Eseguire un backup dei database SQL Server in Azure
 description: Questo articolo illustra come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: edcc77c98737b9f4e76ade0471d273f5e0070969
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 88ac95a3e21269ccb5ca2c0fed1c1444af2f4d11
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763423"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826923"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
 [Backup di Azure](backup-overview.md) offre una soluzione specializzata basata sul flusso per eseguire il backup SQL Server in esecuzione in macchine virtuali di Azure. Questa soluzione è allineata ai vantaggi del backup con infrastruttura zero, alla conservazione a lungo termine e alla gestione centrale del backup di Azure. Offre inoltre i seguenti vantaggi specifici per SQL Server:
 
 1. Backup con supporto del carico di lavoro che supportano tutti i tipi di backup: completo, differenziale e log
-2. 15-min RPO (obiettivo del punto di ripristino) con backup del log frequenti
+2. RPO di 15 minuti (obiettivo del punto di ripristino) con backup del log frequenti
 3. Recupero temporizzato fino a un secondo
 4. Backup e ripristino a livello di database singolo
 
@@ -27,7 +27,7 @@ Questa soluzione sfrutta le API native SQL per eseguire i backup dei database SQ
 
 * Dopo aver specificato la macchina virtuale di SQL Server da proteggere e aver eseguito la query per trovare i database al suo interno, il servizio Backup di Azure installerà un'estensione di backup di carichi di lavoro nella macchina virtuale denominata `AzureBackupWindowsWorkload`.
 * Questa estensione è costituita da un coordinatore e da un plug-in SQL. Mentre il coordinatore è responsabile di attivare i flussi di lavoro per varie operazioni, come la configurazione del backup, il backup e il ripristino, il plug-in gestisce il flusso di dati effettivo.
-* Per individuare i database in questa VM, Backup di Azure crea l'account `NT SERVICE\AzureWLBackupPluginSvc`. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL. L'account `NT SERVICE\AzureWLBackupPluginSvc` è un [account del servizio virtuale](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) e pertanto non richiede alcuna gestione delle password. Backup di Azure sfrutta l'account `NT AUTHORITY\SYSTEM` per l'individuazione o l'interrogazione dei database, di conseguenza questo account deve essere un account di accesso pubblico in SQL. Se la VM SQL Server non è stata creata da Azure Marketplace, è possibile ricevere un errore **UserErrorSQLNoSysadminMembership**. In tal caso [seguire queste istruzioni](#set-vm-permissions).
+* Per individuare i database in questa VM, Backup di Azure crea l'account `NT SERVICE\AzureWLBackupPluginSvc`. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL. L' `NT SERVICE\AzureWLBackupPluginSvc` account è un [account del servizio virtuale](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)e pertanto non richiede alcuna gestione delle password. Backup di Azure usa l' `NT AUTHORITY\SYSTEM` account per l'individuazione/richiesta di database, pertanto questo account deve essere un account di accesso pubblico in SQL. Se la VM SQL Server non è stata creata da Azure Marketplace, è possibile ricevere un errore **UserErrorSQLNoSysadminMembership**. In tal caso [seguire queste istruzioni](#set-vm-permissions).
 * Dopo l'attivazione della configurazione della protezione nei database selezionati, il servizio di backup configura il coordinatore con le pianificazioni di backup e altri dettagli sui criteri, che l'estensione memorizza nella cache locale della VM.
 * Nell'orario pianificato il coordinatore comunica con il plug-in, che avvia lo streaming dei dati di backup dal server SQL tramite VDI.  
 * Il plug-in Invia i dati direttamente all'insieme di credenziali dei servizi di ripristino, eliminando così la necessità di un percorso di gestione temporanea. I dati vengono crittografati e archiviati dal servizio Backup di Azure negli account di archiviazione.

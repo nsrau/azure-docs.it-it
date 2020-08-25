@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure con PowerShell
 description: Viene descritto come eseguire il backup e il ripristino di macchine virtuali di Azure tramite backup di Azure con PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763372"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826447"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -96,7 +96,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Specificare il tipo di ridondanza di archiviazione da usare; è possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md) o l' [archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md). Nell'esempio seguente l'opzione BackupStorageRedundancy per testvault è impostata su GeoRedundant.
+3. Specificare il tipo di ridondanza di archiviazione da usare. È possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md) o l' [archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md). Nell'esempio seguente l'opzione BackupStorageRedundancy per testvault è impostata su GeoRedundant.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Dopo aver definito i criteri di protezione è necessario abilitarli per un elemento. Usare [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) per abilitare la protezione. Per abilitare la protezione sono necessari due oggetti, l'elemento e i criteri. Dopo aver associato i criteri all'insieme di credenziali, il flusso di lavoro di backup verrà attivato al momento definito nella pianificazione dei criteri.
 
 > [!IMPORTANT]
-> Quando si usa PS per abilitare il backup per più macchine virtuali contemporaneamente, assicurarsi che a un singolo criterio non siano associate più di 100 macchine virtuali. Si tratta di una [procedura consigliata](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Attualmente, il client PS non si blocca in modo esplicito se sono presenti più di 100 macchine virtuali, ma per il futuro è pianificata l'aggiunta del controllo.
+> Quando si usa PowerShell per abilitare il backup per più macchine virtuali contemporaneamente, assicurarsi che a un singolo criterio non siano associate più di 100 macchine virtuali. Si tratta di una [procedura consigliata](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Attualmente, il client PowerShell non si blocca in modo esplicito se sono presenti più di 100 macchine virtuali, ma il controllo è pianificato per essere aggiunto in futuro.
 
 Gli esempi seguenti abilitano la protezione per l'elemento V2VM usando i criteri NewPolicy. Gli esempi variano a seconda del fatto che la macchina virtuale sia crittografata o meno e in base al tipo di crittografia.
 
@@ -315,7 +315,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 #### <a name="configuring-instant-restore-snapshot-retention"></a>Configurazione della conservazione snapshot per il ripristino immediato
 
 > [!NOTE]
-> Da AZ PS versione 1.6.0 in poi, è possibile aggiornare il periodo di conservazione degli snapshot di ripristino istantaneo nei criteri usando PowerShell
+> Da Azure PowerShell versione 1.6.0 in poi, è possibile aggiornare il periodo di conservazione degli snapshot di ripristino istantaneo nei criteri usando PowerShell
 
 ````powershell
 $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
@@ -328,7 +328,7 @@ Il valore predefinito sarà 2, l'utente può impostare il valore con un minimo d
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Creazione del gruppo di risorse di backup di Azure durante la conservazione degli snapshot
 
 > [!NOTE]
-> Da Azure PS versione 3.7.0 in poi, è possibile creare e modificare il gruppo di risorse creato per archiviare snapshot istantanei.
+> A partire da Azure PowerShell versione 3.7.0, è possibile creare e modificare il gruppo di risorse creato per l'archiviazione degli snapshot istantanei.
 
 Per ulteriori informazioni sulle regole di creazione del gruppo di risorse e altre informazioni rilevanti, vedere la documentazione relativa al [gruppo di risorse di backup di Azure per le macchine virtuali](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines) .
 
@@ -385,7 +385,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 #### <a name="retain-data"></a>Mantenere i dati
 
-Se l'utente desidera arrestare la protezione, può usare il cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS. Questa operazione arresterà i backup pianificati, ma i dati di cui è stato eseguito il backup fino a questo momento verranno conservati per sempre.
+Se si desidera arrestare la protezione dati, è possibile utilizzare il cmdlet di PowerShell [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) . Questa operazione arresterà i backup pianificati, ma i dati di cui è stato eseguito il backup fino a questo momento verranno conservati per sempre.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
@@ -481,7 +481,7 @@ $restorejob
 Indicare un parametro aggiuntivo **TargetResourceGroupName** per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti.
 
 > [!IMPORTANT]
-> È consigliabile usare il parametro **TargetResourceGroupName** per il ripristino dei dischi gestiti poiché consente di ottenere miglioramenti significativi in termini di prestazioni. Se questo parametro non viene specificato, i clienti non possono trarre vantaggio dalla funzionalità di ripristino istantaneo e l'operazione di ripristino sarà più lenta rispetto a. Se lo scopo è quello di ripristinare i dischi gestiti come dischi non gestiti, non specificare questo parametro e rendere chiara l'intenzione fornendo il parametro-RestoreAsUnmanagedDisks. Il parametro-RestoreAsUnmanagedDisks è disponibile in AZ PS 3.7.0 e versioni successive. Nelle versioni future, sarà obbligatorio fornire uno di questi parametri per la corretta esperienza di ripristino
+> È consigliabile usare il parametro **TargetResourceGroupName** per il ripristino dei dischi gestiti poiché consente di ottenere miglioramenti significativi in termini di prestazioni. Se questo parametro non è specificato, non è possibile trarre vantaggio dalla funzionalità di ripristino immediato e l'operazione di ripristino sarà più lenta rispetto a. Se lo scopo è ripristinare i dischi gestiti come dischi non gestiti, non specificare questo parametro e rendere chiara l'intenzione fornendo il `-RestoreAsUnmanagedDisks` parametro. Il `-RestoreAsUnmanagedDisks` parametro è disponibile dal Azure PowerShell 3.7.0 in poi. Nelle versioni future, sarà obbligatorio fornire uno di questi parametri per la corretta esperienza di ripristino.
 >
 >
 
@@ -529,8 +529,8 @@ Dopo aver ripristinato i dischi, usare la procedura seguente per creare e config
 > [!NOTE]
 >
 > 1. Il modulo AzureAz 3.0.0 o versione successiva è obbligatorio. <br>
-> 2. Per creare macchine virtuali crittografate da dischi ripristinati, il ruolo di Azure deve disporre dell'autorizzazione per eseguire l'azione, ovvero **Microsoft.KeyVault/vaults/deploy/action**. Se il ruolo non dispone di questa autorizzazione, crearne uno personalizzato con questa azione. Per altre informazioni, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md). <br>
-> 3. Dopo aver ripristinato i dischi, è ora possibile ottenere un modello di distribuzione che può essere usato direttamente per creare una nuova macchina virtuale. Non vi sono più cmdlet di PowerShell differenti per creare macchine virtuali gestite o non gestite che sono crittografate o non crittografate.<br>
+> 2. Per creare macchine virtuali crittografate da dischi ripristinati, il ruolo di Azure deve disporre dell'autorizzazione per eseguire l'azione, ovvero **Microsoft.KeyVault/vaults/deploy/action**. Se il ruolo non dispone di questa autorizzazione, creare un ruolo personalizzato con questa azione. Per altre informazioni, vedere [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md). <br>
+> 3. Dopo aver ripristinato i dischi, è ora possibile ottenere un modello di distribuzione che può essere usato direttamente per creare una nuova macchina virtuale. Non sono necessari cmdlet di PowerShell diversi per creare macchine virtuali gestite/non gestite crittografate o non crittografate.<br>
 > <br>
 
 ### <a name="create-a-vm-using-the-deployment-template"></a>Creare una macchina virtuale usando il modello di distribuzione

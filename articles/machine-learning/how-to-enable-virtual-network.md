@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506499"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824203"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento rete durante il training & inferenza con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* database SQL di Azure
+* Database SQL di Azure
 
 ### <a name="add-resources-to-the-virtual-network"></a>Aggiungere risorse alla rete virtuale 
 
@@ -210,7 +210,7 @@ Per impostazione predefinita, Azure Machine Learning esegue la validità dei dat
 - Archiviazione BLOB di Azure
 - Condivisione file di Azure
 - PostgreSQL
-- database SQL di Azure
+- Database SQL di Azure
 
 L'esempio di codice seguente crea un nuovo archivio dati BLOB di Azure e imposta `skip_validation=True` .
 
@@ -366,6 +366,12 @@ Se si usa il [tunneling forzato](/azure/vpn-gateway/vpn-gateway-forced-tunneling
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > Se si usano le aree Stati Uniti-Virginia, Stati Uniti-Arizona o Cina-Est-2, questi comandi non restituiscono indirizzi IP. Usare invece uno dei collegamenti seguenti per scaricare un elenco di indirizzi IP:
+        >
+        > * [Intervalli IP di Azure e tag dei servizi per Azure per enti pubblici](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Intervalli IP di Azure e tag dei servizi per Azure Cina](https://www.microsoft.com//download/details.aspx?id=57062)
     
     Quando si aggiungono le route definite dall'utente, definire la route per ogni prefisso dell'indirizzo IP di Batch correlato e impostare __Tipo hop successivo__ su __Internet__. La figura seguente illustra un esempio di route definita dall'utente nel portale di Azure:
 

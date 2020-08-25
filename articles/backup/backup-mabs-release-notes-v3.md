@@ -4,12 +4,12 @@ description: Questo articolo fornisce le informazioni sui problemi noti e le sol
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1f4900bb129ee67cd75d2b793f4179e3135569a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26d30a56b3117642678f98ba3e7927c27bfd6a69
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032562"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826617"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Note sulla versione per il server di Backup di Microsoft Azure
 
@@ -78,7 +78,7 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 **Soluzione alternativa**: per sostituire i file RDL, attenersi alla procedura seguente:
 
 1. Nel computer MAB aprire l'URL del portale Web di SQL Reporting Services.
-1. Nell'URL del portale Web la cartella DPMReports è presente nel formato**`DPMReports_<GUID>`**
+1. Nell'URL del portale Web la cartella DPMReports è presente nel formato **`DPMReports_<GUID>`**
 
     >[!NOTE]
     >Questa convenzione di denominazione contiene sempre una sola cartella. Se MAB viene aggiornato da una versione precedente, potrebbe essere presente anche un'altra cartella precedente, ma non sarà possibile aprirlo.
@@ -87,7 +87,7 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 
 1. Selezionare e aprire la **`DPMReports_<GUID>`** cartella. I singoli file di report verranno elencati come illustrato di seguito.
 
-    ![Elenco dei singoli file di report](./media/backup-mabs-release-notes-v3/individual-report-files.png)
+    ![Elenco dei file dei singoli report](./media/backup-mabs-release-notes-v3/individual-report-files.png)
 
 1. Selezionare i file di report che non terminano con il **report**, fare clic con il pulsante destro del mouse sull' **opzione** e scegliere **Gestisci**.
 
@@ -95,13 +95,13 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 
 1. Nella nuova pagina selezionare l'opzione **Sostituisci** per sostituire i file con i file di report più recenti.
 
-    I file di report più recenti sono reperibili nel percorso`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    I file di report più recenti sono reperibili nel percorso `<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
-    Ad esempio: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    ad esempio `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     ![Sostituire i file con i file di report più recenti](./media/backup-mabs-release-notes-v3/replace-files.png)
 
-    Dopo la sostituzione dei file, assicurarsi che il **nome** e la **Descrizione** siano intatti e non siano vuoti.
+    Dopo che i file sono stati sostituiti, assicurarsi che **Nome** e **Descrizione** non siano stati modificati e non siano vuoti.
 
 1. Dopo la sostituzione dei file, riavviare i servizi MAB e utilizzare i file di report.
 

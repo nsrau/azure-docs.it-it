@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: ac121195ba46389798acc7f099829fde96da72e1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763457"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827138"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -17,7 +17,7 @@ Backup di Azure offre la possibilità di ripristinare [dischi e macchine virtual
 
 > [!NOTE]
 > Questa funzionalità è disponibile per le VM di Azure distribuite usando il modello Resource Manager e protette in un insieme di credenziali di Servizi di ripristino.
-> Il ripristino di file da un backup della VM crittografato non è supportato.
+> Il ripristino di file da un backup di VM crittografato non è supportato.
 >
 
 ## <a name="mount-the-volume-and-copy-files"></a>Montare il volume e copiare i file
@@ -87,7 +87,7 @@ Dopo che i dischi sono stati smontati, viene visualizzato un messaggio. L'aggior
 In Linux, dopo che la connessione al punto di ripristino viene interrotta, il sistema operativo non rimuove automaticamente i percorsi di montaggio corrispondenti, che rimangono come volumi "orfani" visibili, ma generano un errore in caso di accesso/scrittura di file. Questi percorsi possono essere rimossi manualmente. Quando viene eseguito, lo script identifica tutti i volumi di questo tipo esistenti da eventuali punti di ripristino precedenti e li elimina dopo avere ottenuto il consenso.
 
 > [!NOTE]
-> Assicurarsi che la connessione venga chiusa dopo il ripristino dei file necessari. Si tratta di un aspetto importante, soprattutto nello scenario in cui il computer in cui viene eseguito lo script è configurato anche per il backup. Se la connessione è ancora aperta, il backup successivo potrebbe non riuscire con l'errore "UserErrorUnableToOpenMount". Questo problema si verifica perché si presuppone che le unità o i volumi montati siano disponibili e quando vi si accede potrebbero avere esito negativo perché l'archiviazione sottostante, ovvero, il server di destinazione iSCSI potrebbe non essere disponibile. Se si pulisce la connessione, queste unità/volumi verranno rimossi e pertanto non saranno disponibili durante il backup.
+> Assicurarsi che la connessione venga chiusa dopo il ripristino dei file necessari. Si tratta di un aspetto importante, soprattutto nello scenario in cui il computer in cui viene eseguito lo script è configurato anche per il backup. Se la connessione è ancora aperta, il backup successivo potrebbe non riuscire con l'errore "UserErrorUnableToOpenMount". Questo problema si verifica perché si presuppone che le unità o i volumi montati siano disponibili e quando vi si accede potrebbero avere esito negativo perché l'archiviazione sottostante, ovvero il server di destinazione iSCSI potrebbe non essere disponibile. Se si pulisce la connessione, queste unità/volumi verranno rimossi e pertanto non saranno disponibili durante il backup.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Selezione del computer corretto per l'esecuzione dello script
 
@@ -234,7 +234,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Non usare "Mount-a". Questo comando monta tutti i dispositivi descritti in '/etc/fstab '. Questo potrebbe significare che i dispositivi duplicati possono essere montati. I dati possono essere reindirizzati ai dispositivi creati dallo script, che non mantengono i dati, quindi potrebbero causare la perdita di dati.
+> Non usare "Mount-a". Questo comando monta tutti i dispositivi descritti in '/etc/fstab '. Questo potrebbe significare che i dispositivi duplicati possono essere montati. I dati possono essere reindirizzati ai dispositivi creati da uno script, che non vengono salvati in modo permanente e potrebbero quindi causare la perdita di dati.
 
 #### <a name="for-raid-arrays"></a>Per le matrici RAID
 
@@ -355,7 +355,7 @@ Se si verificano problemi durante il ripristino di file dalle macchine virtuali,
 | Messaggio di errore/scenario | Possibile causa | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
 | Output del file EXE: *Exception caught while connecting to target (Eccezione rilevata durante la connessione alla destinazione)* | Lo script non è in grado di accedere al punto di ripristino    | Controllare se il computer soddisfa i [requisiti di accesso indicati in precedenza](#access-requirements). |  
-| Output del file EXE: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file. |
+| Output del file EXE: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. Potrebbero non essere montati con le stesse lettere di unità della macchina virtuale originale. Esplorare tutti i volumi disponibili in Esplora file per il file. |
 | Output del file EXE: *Questo script non è valido perché è stato necessario smontare i dischi tramite il portale o è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |    I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore | Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe.|
 | Nella macchina virtuale in cui viene eseguito il file con estensione EXE: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di smontaggio | L'iniziatore iSCSI nel computer non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache. |  Dopo aver fatto clic **Smontare**, attendere qualche minuto. Se i nuovi volumi non vengono smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile.|
 | Output del file EXE: lo script viene eseguito correttamente ma l’indicazione di nuovi volumi associati non viene visualizzata nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stati già associati. Aprire Explorer per visualizzare lo stato. Se si usa lo stesso computer per eseguire gli script ogni volta, è consigliabile riavviarlo; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |

@@ -4,12 +4,12 @@ description: Questo articolo illustra come gestire le operazioni di ripristino d
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763542"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826362"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -210,7 +210,7 @@ Poiché il processo di ripristino è un'operazione a esecuzione prolungata, deve
 
 ### <a name="restore-disks"></a>Ripristinare i dischi
 
-Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare solo i dischi in un account di archiviazione scelto e creare una VM da tali dischi in base ai requisiti. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("vmconfig.json") verranno archiviati nell'account di archiviazione specificato. Come spiegato in [precedenza](#restore-operations), il corpo della richiesta pertinente per i dischi di ripristino è riportato di seguito.
+Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare solo i dischi in un account di archiviazione scelto e creare una VM da tali dischi in base ai requisiti. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di servizi di ripristino e non deve essere con ridondanza della zona. I dischi, così come la configurazione della macchina virtuale di cui è stato eseguito il backup ("vmconfig.json"), verranno archiviati nell'account di archiviazione specificato. Come spiegato in [precedenza](#restore-operations), il corpo della richiesta pertinente per i dischi di ripristino è riportato di seguito.
 
 #### <a name="create-request-body"></a>Creare il corpo della richiesta
 

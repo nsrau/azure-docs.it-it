@@ -3,12 +3,12 @@ title: Matrice di supporto di MAB & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34b15ea0752bf013d2b1e5c3a7434ff009e2d80a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 26d9e3012749298a781cd611866bc6d0a6596979
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761339"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825223"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -76,7 +76,7 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 **DPM in locale** | Server fisico/macchina virtuale Hyper-V: System Center 2012 SP1 o versione successiva.<br/><br/> VM VMware: System Center 2012 R2 con aggiornamento 5 o versione successiva.
 
 >[!NOTE]
->L'installazione del server di Backup di Azure non è supportata in Windows Server Core o in Microsoft Hyper-V Server.
+>L'installazione di server di Backup di Azure non è supportata in Windows Server Core o Microsoft Hyper-V Server.
 
 ## <a name="management-support"></a>Supporto della gestione
 

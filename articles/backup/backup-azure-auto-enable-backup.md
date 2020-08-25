@@ -3,12 +3,12 @@ title: Abilitare automaticamente il backup durante la creazione di macchine virt
 description: Articolo che descrive come usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali create in un determinato ambito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: fd54c25899bc1e58a753821d2c7c2df8ff213865
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: de4923000bc842203535e03727fd532c67a8f517
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763593"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826073"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
 
@@ -52,7 +52,7 @@ Per assegnare i criteri all'ambito richiesto, attenersi alla procedura seguente:
 
 > [!NOTE]
 >
-> Si consiglia di non assegnare questo criterio a più di 200 macchine virtuali alla volta. Se il criterio è assegnato a più di 200 macchine virtuali, il backup potrebbe essere attivato alcune ore dopo il valore specificato dalla pianificazione.
+> Si consiglia di non assegnare questo criterio a più di 200 di macchine virtuali alla volta. Se il criterio è assegnato a più di 200 macchine virtuali, il backup potrebbe essere attivato alcune ore dopo il valore specificato dalla pianificazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

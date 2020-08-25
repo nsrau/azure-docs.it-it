@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652781"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824033"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -143,7 +143,7 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
 1. Dopo la creazione dello snapshot, i dati vengono trasferiti nell'insieme di credenziali.
     - Vengono copiati solo i blocchi di dati modificati dopo l'ultimo backup.
     - I dati non vengono crittografati. Backup di Azure può eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure.
-    - I dati dello snapshot potrebbero non essere copiati immediatamente nell'insieme di credenziali. In momenti di picco, il backup potrebbe richiedere alcune ore. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+    - È possibile che i dati dello snapshot non vengano copiati immediatamente nell'insieme di credenziali. In momenti di picco, il backup potrebbe richiedere alcune ore. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
 1. Dopo che i dati sono stati inviati all'insieme di credenziali, viene creato un punto di ripristino. Per impostazione predefinita, gli snapshot vengono conservati per due giorni prima di essere eliminati. Questa funzionalità consente l'operazione di ripristino da questi snapshot, riducendo così i tempi di ripristino. Riduce il tempo necessario per la trasformazione e la copia dei dati dall'insieme di credenziali. Vedere [funzionalità di ripristino immediato di backup di Azure](./backup-instant-restore-capability.md).
 
 Non è necessario consentire esplicitamente la connettività Internet per eseguire il backup delle macchine virtuali di Azure.

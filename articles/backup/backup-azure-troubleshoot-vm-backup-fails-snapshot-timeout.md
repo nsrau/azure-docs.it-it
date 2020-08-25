@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755369"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826054"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -119,7 +119,7 @@ Questo errore si verifica quando uno degli errori di estensione inserisce la mac
 Azione consigliata:<br>
 Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macchina virtuale e ripetere l'operazione per attivare la pulizia.
 > [!NOTE]
-> Il servizio di backup crea un gruppo di risorse distinto da quello della macchina virtuale per archiviare la raccolta di punti di ripristino. È consigliabile che i clienti non blocchino il gruppo di risorse creato per l'uso dal servizio di backup. Il formato del nome del gruppo di risorse creato dal servizio Backup è: AzureBackupRG_`<Geo>`_`<number>`, ad esempio AzureBackupRG_nordeuropa_1.
+> Il servizio di backup crea un gruppo di risorse distinto da quello della macchina virtuale per archiviare la raccolta di punti di ripristino. Si consiglia di non bloccare il gruppo di risorse creato per l'uso da parte del servizio di backup. Il formato di denominazione del gruppo di risorse creato dal servizio di backup è: AzureBackupRG_ `<Geo>` _ `<number>` . Ad esempio: *AzureBackupRG_northeurope_1*
 
 **Passaggio 1: [Rimuovere il blocco dal gruppo di risorse dei punti di ripristino](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passaggio 2: [Pulire la raccolta di punti di ripristino](#clean_up_restore_point_collection)**<br>
@@ -320,4 +320,4 @@ Per cancellare manualmente la raccolta di punti di ripristino, che non è stata 
 6. Ripetere l'operazione di backup.
 
 > [!NOTE]
- >Se la risorsa (raccolta RP) ha un numero elevato di punti di ripristino, la loro eliminazione dal portale può avere un timeout e un errore. Questo è un problema noto di CRP, dovuto al fatto che non tutti i punti di ripristino vengono eliminati nel tempo stabilito e si verifica il timeout dell'operazione. L'operazione di eliminazione, tuttavia, viene in genere completata dopo due o tre tentativi.
+ >Se la risorsa (raccolta RP) ha un numero elevato di punti di ripristino, la loro eliminazione dal portale può avere un timeout e un errore. Si tratta di un problema di CRP noto, in cui tutti i punti di ripristino non vengono eliminati nel tempo previsto e si verifica il timeout dell'operazione. Tuttavia, l'operazione di eliminazione viene in genere completata dopo due o tre tentativi.

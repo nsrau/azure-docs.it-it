@@ -3,12 +3,12 @@ title: Aggiornare l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 description: Informazioni su come aggiornare l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 782975583547bb5b51c3816d815ae1129c979509
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 1f4fd5074b0c6195742935e0cf0e742a00a3549e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757337"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827325"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Aggiornare l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -71,7 +71,7 @@ Dopo aver identificato i server che necessitano di un aggiornamento dell'agente 
 
     ![Aggiornamento guidato dell'agente di Servizi di ripristino di Microsoft Azure](./media/upgrade-mars-agent/agent-upgrade-wizard.png)
 
-1. Fare clic su **Avanti**.
+1. Fare clic su **Next** (Avanti).
 
 1. Fare clic su **Aggiorna**.
 

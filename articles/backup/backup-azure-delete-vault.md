@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali di servizi di ripristino di backup di Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: a7e922069f567a0b907c2f2cd28fe09de040cdee
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: c0b75d147abba45a745f811de5e4b8ac45088bd8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757218"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826736"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -101,7 +101,7 @@ Prima di tutto, leggere la sezione **[prima di iniziare](#before-you-start)** pe
     > [!NOTE]
     >
     >- Se il server protetto viene sincronizzato con i servizi di Azure e gli elementi di backup sono presenti, la casella di controllo del consenso visualizzerà il numero di elementi di backup dipendenti e il collegamento per visualizzare gli elementi di backup.
-    >- Se il server protetto non è sincronizzato con i servizi di Azure e sono presenti elementi di backup, nella casella di controllo del consenso verrà visualizzato solo il numero di elementi di backup.
+    >- Se il server protetto non è sincronizzato con i servizi di Azure e gli elementi di backup esistono, nella casella di controllo del consenso sarà visualizzato solo il numero di elementi di backup.
     >- Se non sono presenti elementi di backup, la casella di controllo del consenso richiede l'eliminazione.
 
 4. Selezionare la casella di controllo consenso, quindi selezionare **Elimina**.

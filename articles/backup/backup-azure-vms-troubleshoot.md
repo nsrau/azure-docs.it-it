@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: bf2a811098138663f1b7f2acd174d6bca4aa6150
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763304"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826241"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -23,12 +23,12 @@ Questa sezione descrive l'errore relativo all'operazione di backup della macchin
 
 * Verificare di disporre dell'[ultima versione](./backup-azure-arm-vms-prepare.md#install-the-vm-agent) dell'agente di macchine virtuali (WA Agent).
 * Verificare che la versione del sistema operativo per le macchine virtuali Windows o Linux sia supportata. Fare riferimento a [Matrice di supporto per il backup di macchine virtuali IaaS](./backup-support-matrix-iaas.md).
-* Verificare che non sia in esecuzione un altro servizio di backup.
+* Verificare che un altro servizio di backup non sia in esecuzione.
   * Per assicurarsi che non siano presenti problemi di estensione degli snapshot, [disinstallare le estensioni per forzare il ricaricamento e riprovare a eseguire il backup](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * Verificare che la macchina virtuale disponga della connettività Internet.
-  * Assicurarsi che non sia in esecuzione un altro servizio di backup.
+  * Assicurarsi che un altro servizio di backup non sia in esecuzione.
 * In `Services.msc` assicurarsi che il servizio **agente guest di Microsoft Azure** sia **in esecuzione**. Se il servizio **agente guest di Microsoft Azure** manca, installarlo da [Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* Il **registro eventi** potrebbe mostrare errori di backup provenienti da altri prodotti di backup, ad esempio Windows Server Backup, e che non sono dovuti al backup di Azure. Seguire questa procedura per determinare se il problema è correlato a Backup di Azure:
+* È possibile che nel **registro eventi** vengano visualizzati errori di backup provenienti da altri prodotti di backup, ad esempio Windows Server backup, e che non siano dovuti a backup di Azure. Seguire questa procedura per determinare se il problema è correlato a Backup di Azure:
   * Se si verifica un errore con una voce **Backup** nell'origine o nel messaggio dell'evento, controllare se i backup delle macchine virtuali IaaS di Azure sono stati completati e se è stato creato un punto di ripristino con il tipo di snapshot desiderato.
   * Se Backup di Azure è in funzione, il problema è probabilmente correlato a un'altra soluzione di backup.
   * Di seguito è riportato un esempio di errore 517 del visualizzatore eventi che indica il corretto funzionamento del backup di Azure, ma la presenza di un errore di "Windows Server Backup":<br>
@@ -71,7 +71,7 @@ L'operazione di backup non è riuscita perché la macchina virtuale è in stato 
 Codice errore: UserErrorFsFreezeFailed <br/>
 Messaggio di errore: Impossibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con il file system.
 
-* Smontare i dispositivi con lo stato del file system modificato, ma non salvato tramite il comando **umount**.
+* Smontare i dispositivi per cui lo stato del file system non è stato pulito, usando il comando **umount** .
 * Eseguire una verifica di coerenza del file system in questi dispositivi usando il comando **fsck**.
 * Montare di nuovo i dispositivi e provare a ripetere l'operazione di backup.</ol>
 
@@ -114,7 +114,7 @@ Un'altra procedura che può essere utile consiste nell'usare il comando seguente
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Se si aggiunge questa chiave del Registro di sistema, i thread non verranno creati per i BLOB di snapshot e si eviterà il timeout.
+Se si aggiunge questa chiave del registro di sistema, i thread non verranno creati per gli snapshot BLOB e si eviterà il timeout.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Errore durante l'analisi della configurazione per l'estensione di backup
 
@@ -167,12 +167,12 @@ Messaggio di errore: L'operazione di creazione snapshot non è riuscita perché 
 
 L'operazione di creazione snapshot non è riuscita poiché il limite di snapshot è stato superato per alcuni dischi collegati. Completare le seguenti procedure di risoluzione dei problemi, quindi ripetere l'operazione.
 
-* Eliminare i BLOB di snapshot del disco che non sono necessari. Prestare attenzione a non eliminare i BLOB Disk. È necessario eliminare solo i BLOB di snapshot.
+* Eliminare gli snapshot BLOB del disco che non sono necessari. Prestare attenzione a non eliminare i BLOB del disco. Solo i BLOB di snapshot devono essere eliminati.
 * Se l'eliminazione temporanea è abilitata negli account di archiviazione su disco della macchina virtuale, configurare la conservazione dell'eliminazione temporanea in modo che gli snapshot esistenti siano inferiori al massimo consentito in qualsiasi momento.
 * Se Azure Site Recovery è abilitato nella macchina virtuale di cui è stato eseguito il backup, attenersi questa procedura:
 
   * Verificare che il valore di **isanysnapshotfailed** sia impostato su false in /etc/azure/vmbackup.conf
-  * Pianificare Azure Site Recovery in un altro momento, in modo che non sia in conflitto con l'operazione di backup.
+  * Pianificare Azure Site Recovery in un momento diverso, pertanto non è in conflitto con l'operazione di backup.
 
 ### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - L'operazione di creazione snapshot non è riuscita a causa di risorse inadeguate della macchina virtuale
 

@@ -3,19 +3,19 @@ title: Gestire i backup di condivisioni file di Azure con PowerShell
 description: Informazioni su come usare PowerShell per gestire e monitorare le condivisioni file di Azure di cui è stato eseguito il backup con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 889c9bb3ef087c700bbfc3a68959f2c5924bffda
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bb400c25ca6b1deebaef6af6fe4b322951dfcdcc
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538594"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826753"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Gestire i backup di condivisioni file di Azure con PowerShell
 
 Questo articolo descrive come usare Azure PowerShell per gestire e monitorare le condivisioni file di Azure di cui è stato eseguito il backup dal servizio backup di Azure.
 
 > [!WARNING]
-> Verificare che la versione PS sia aggiornata alla versione minima per "AZ. RecoveryServices 2.6.0" per i backup AFS. Per ulteriori informazioni, fare riferimento alla [sezione](backup-azure-afs-automation.md#important-notice-backup-item-identification) che descrive il requisito per questa modifica.
+> Verificare che la versione di PowerShell sia aggiornata alla versione minima per "AZ. RecoveryServices 2.6.0" per i backup AFS. Per ulteriori informazioni, fare riferimento alla [sezione](backup-azure-afs-automation.md#important-notice-backup-item-identification) che descrive il requisito per questa modifica.
 
 ## <a name="modify-the-protection-policy"></a>Modificare i criteri di protezione
 

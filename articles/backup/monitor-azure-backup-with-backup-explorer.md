@@ -4,12 +4,12 @@ description: Questo articolo descrive come usare Explorer di Backup per eseguire
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092797"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824413"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorare i backup con Explorer di Backup
 
@@ -28,8 +28,8 @@ Si tratta di funzionalità predefinite nell'integrazione nativa con le cartelle 
 > * Explorer di Backup è attualmente disponibile solo per i dati delle macchine virtuali di Azure.
 > * Explorer di Backup è concepito per essere un dashboard operativo per visualizzare le informazioni sui backup negli ultimi 7 giorni (tempo massimo).
 > * Explorer di Backup non è attualmente supportato nei cloud nazionali.
-> * La personalizzazione del modello di Explorer di Backup non è attualmente supportata.
-> * Non è consigliabile scrivere automazioni personalizzate nei dati di Azure Resource Graph.
+> * Attualmente, la personalizzazione del modello di Esplora backup non è supportata.
+> * Non è consigliabile scrivere automazione personalizzate sui dati del grafico delle risorse di Azure.
 > * Attualmente Explorer di Backup consente di monitorare i backup in un massimo di 1000 sottoscrizioni (nei tenant).
 
 ## <a name="get-started"></a>Introduzione
@@ -78,7 +78,7 @@ Selezionare la scheda **Avvisi** per visualizzare i dettagli di tutti gli avvisi
 
 ### <a name="the-backup-not-enabled-tab"></a>Scheda Backup Not Enabled (Backup non abilitato)
 
-Il backup deve essere abilitato per tutti i computer che devono essere protetti. Con Explorer di Backup, gli amministratori di backup possono identificare rapidamente quali computer di un'organizzazione non sono ancora protetti dal backup. Per visualizzare queste informazioni, selezionare la scheda **Backup Not Enabled** (Backup non abilitato).
+Il backup deve essere abilitato per tutti i computer che devono essere protetti. Con Esplora backup, gli amministratori di backup possono identificare rapidamente i computer di un'organizzazione che non sono ancora protetti dal backup. Per visualizzare queste informazioni, selezionare la scheda **Backup Not Enabled** (Backup non abilitato).
 
 Il riquadro **Backup Not Enabled** (Backup non abilitato) visualizza una tabella con un elenco di computer non protetti. L'organizzazione può assegnare tag diversi ai computer di produzione e ai computer di test o ai computer che svolgono funzioni diverse. Poiché ogni classe di computer richiede un criterio di backup distinto, l'applicazione di filtri in base ai tag consente di visualizzare informazioni specifiche su ogni computer. Se si seleziona il nome di un computer, si viene reindirizzati al riquadro **Configura backup** del computer, in cui è possibile scegliere di applicare un criterio di backup appropriato.
 

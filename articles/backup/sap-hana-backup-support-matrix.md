@@ -4,12 +4,12 @@ description: In questo articolo sono incluse informazioni sugli scenari supporta
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: f254b50f196b4087080162755eee4397da5a9940
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 5b0d1b603e8a9c06e210083863e0ca6bfbee2399
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761781"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826464"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice di supporto per il backup di database di SAP HANA in VM di Azure
 

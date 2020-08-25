@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande più co
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 28645311328a2e2054851af6bacf07927eaa88aa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 2112a439585e6b111614e728dbc4a1a5eb4ee3d2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761118"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827172"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Avviso di monitoraggio di backup di Azure-Domande frequenti
 
@@ -48,7 +48,7 @@ Sì, è possibile visualizzare i report negli insiemi di credenziali e nelle sot
 
 Se si è un utente di [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) con accesso delegato alle sottoscrizioni dei clienti o alle aree di lavoro di la, è possibile usare i report di backup per visualizzare i dati in tutti i tenant.
 
-## <a name="recovery-services-vault"></a>Insieme di credenziali dei servizi di ripristino
+## <a name="recovery-services-vault"></a>Insieme di credenziali di Servizi di ripristino
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Dopo quanto tempo lo stato del processo dell'agente di Backup di Azure viene indicato nel portale?
 

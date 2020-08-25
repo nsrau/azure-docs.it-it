@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652577"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823982"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -57,7 +57,7 @@ R.  Per informazioni sui paesi o sulle aree geografiche in cui Data Box è dispo
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. In quali aree è possibile archiviare dati con Data Box?
 R. Data Box è supportato in tutte le aree negli Stati Uniti, in Europa occidentale e settentrionale, in Francia, nel Regno Unito, in Giappone, in Australia e in Canada. Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>Q. Come si importano i dati di origine locale in un'area di Azure in un paese o in un'area geografica diversa oppure si esportano dati da un'area di Azure in un paese a un paese diverso?
+### <a name="q-how-can-i-import-source-data-at-my-location-in-a-particular-country-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>Q. Come si importano i dati di origine nel percorso in un determinato paese in un'area di Azure in un paese o in un'area geografica diversa oppure si esportano dati da un'area di Azure in un paese a un paese diverso?
 
 Data Box supporta l'inserimento o l'uscita di dati solo all'interno dello stesso paese/area geografica della destinazione e non attraverserà i confini internazionali. L'unica eccezione riguarda gli ordini nell'Unione europea (UE), in cui le caselle di dati possono essere fornite da e verso qualsiasi paese dell'UE.
 

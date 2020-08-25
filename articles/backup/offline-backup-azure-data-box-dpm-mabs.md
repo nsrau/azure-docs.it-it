@@ -3,12 +3,12 @@ title: Backup offline con Azure Data Box per DPM e MAB
 description: È possibile utilizzare Azure Data Box per inizializzare i dati di backup iniziali offline da DPM e da MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: d6305607170e02c2f6e104ff8b18011b8657947b
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 974be6d337c3376d10e09ba6211f7804c2c8cada
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762454"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824560"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline con Azure Data Box per DPM e MAB (anteprima)
 
@@ -60,14 +60,14 @@ Verificare quanto segue:
 - L'utente che dovrà eseguire i criteri di backup offline deve essere un proprietario della sottoscrizione di Azure.
 - Il processo Data Box e l'insieme di credenziali dei servizi di ripristino in cui è necessario eseguire il seeding dei dati devono essere disponibili nelle stesse sottoscrizioni.
     > [!NOTE]
-    > È consigliabile che l'account di archiviazione di destinazione e l'insieme di credenziali di servizi di ripristino si trovino nella stessa area. Tuttavia, questa operazione non è obbligatoria.
+    > È consigliabile che l'account di archiviazione di destinazione e l'insieme di credenziali di servizi di ripristino si trovino nella stessa area. Tuttavia, questo non è obbligatorio.
 
 ### <a name="order-and-receive-the-data-box-device"></a>Ordinare e ricevere il dispositivo Data Box
 
 Verificare che i dispositivi Data Box richiesti siano in stato *recapitato* prima di attivare il backup offline. Per ordinare lo SKU più adatto in base alle proprie esigenze, vedere [Dimensioni dei dati di backup e SKU Data Box supportati](#backup-data-size-and-supported-data-box-skus). Per ordinare e ricevere i dispositivi Data Box, seguire i passaggi di [questo articolo](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered).
 
 > [!IMPORTANT]
-> Non selezionare *BlobStorage* per il **tipo di account**. Il server DPM/MAB richiede un account che supporti i BLOB di pagine non supportati quando si seleziona *BlobStorage* . Selezionare  **storage V2 (utilizzo generico v2)** come **tipo di account** quando si crea l'account di archiviazione di destinazione per il processo di Azure Data Box.
+> Non selezionare *BlobStorage* per il **tipo di account**. Il server DPM/MAB richiede un account che supporti i BLOB di pagine che non sono supportati quando si seleziona *BlobStorage* . Selezionare  **storage V2 (utilizzo generico v2)** come **tipo di account** quando si crea l'account di archiviazione di destinazione per il processo di Azure Data Box.
 
 ![Configurare Azure Data Box](./media/offline-backup-azure-data-box-dpm-mabs/setup-azure-databox.png)
 
@@ -234,7 +234,7 @@ Per risolvere questo problema, seguire questa procedura e riprovare a configurar
 2. Se nessun altro server ha il seeding offline configurato e nessun altro server dipende dall'applicazione `AzureOfflineBackup_<Azure User Id>`, eliminare questa applicazione dal **portale di Azure > Azure Active Directory > Registrazioni app**.
 
    > [!NOTE]
-   > Controllare che l'applicazione `AzureOfflineBackup_<Azure User Id>` non abbia altri seeding offline configurati e anche che nessun altro server dipenda da questa applicazione. Passare a **Impostazioni > Chiavi** nella sezione Chiavi pubbliche e controllare che non siano state aggiunte altre **chiavi pubbliche**. Come riferimento, vedere la schermata seguente:
+   > Controllare se nell'applicazione `AzureOfflineBackup_<Azure User Id>` non sono configurati altri seeding offline e anche nessun altro server dipende da questa applicazione. Passare a **impostazioni > chiavi** nella sezione chiavi pubbliche. Non devono essere aggiunte altre **chiavi pubbliche** . Come riferimento, vedere la schermata seguente:
    >
    > ![Chiavi pubbliche](./media/offline-backup-azure-data-box-dpm-mabs/public-keys.png)
 

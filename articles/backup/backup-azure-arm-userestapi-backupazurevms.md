@@ -4,12 +4,12 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 89bf2df0b5b9279053ca8258e6d21b00e2789557
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: a0ad08e9fd750166f8df82a1b3a36cecd8f12f27
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762879"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826413"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -302,7 +302,7 @@ Per l'elenco completo di definizioni del corpo della richiesta e altri dettagli,
 
 #### <a name="example-request-body-for-on-demand-backup"></a>Corpo della richiesta di esempio per il backup su richiesta
 
-Il corpo della richiesta seguente definisce le proprietà necessarie per attivare un backup per un elemento protetto. Se non specificato, si presuppone che la durata della conservazione sia di 30 giorni a partire dal giorno del trigger del processo di backup.
+Il corpo della richiesta seguente definisce le proprietà necessarie per attivare un backup per un elemento protetto. Se la conservazione non è specificata, verrà mantenuta per 30 giorni dall'ora del trigger del processo di backup.
 
 ```json
 {
@@ -445,7 +445,7 @@ L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un
 |202 - Accettato     |         |     Accettato    |
 
 > [!IMPORTANT]
-> Per garantire la protezione da scenari di eliminazione accidentale, è [disponibile una funzionalità di eliminazione](use-restapi-update-vault-properties.md#soft-delete-state) temporanea per l'insieme di credenziali di servizi di ripristino. Se lo stato di eliminazione temporanea dell'insieme di credenziali è impostato su abilitato, l'operazione di eliminazione non eliminerà immediatamente i dati. Verranno conservati per 14 giorni e quindi eliminati definitivamente. Il cliente non viene addebitato per l'archiviazione per il periodo di 14 giorni. Per annullare l'operazione di eliminazione, fare riferimento alla [sezione Undo-Delete](#undo-the-deletion).
+> Per garantire la protezione da scenari di eliminazione accidentale, è [disponibile una funzionalità di eliminazione](use-restapi-update-vault-properties.md#soft-delete-state) temporanea per l'insieme di credenziali di servizi di ripristino. Se lo stato di eliminazione temporanea dell'insieme di credenziali è impostato su abilitato, l'operazione di eliminazione non eliminerà immediatamente i dati. Verranno conservati per 14 giorni e quindi eliminati definitivamente. Non viene addebitato alcun costo per l'archiviazione per questo periodo di 14 giorni. Per annullare l'operazione di eliminazione, fare riferimento alla [sezione Undo-Delete](#undo-the-deletion).
 
 ### <a name="undo-the-deletion"></a>Annulla l'eliminazione
 

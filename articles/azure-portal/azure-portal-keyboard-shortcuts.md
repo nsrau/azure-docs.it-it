@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 7d9bc6365070c0aec96def2f55758204925fe7ba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: e3f078cdaa54246d91e6bff5393171c05935d755
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205949"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826787"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Tasti di scelta rapida nel portale di Azure
 
@@ -37,7 +37,7 @@ Questo articolo elenca i tasti di scelta rapida che funzionano ovunque nel porta
 |Sposta in alto l'elemento della barra laterale sinistra selezionata |ALT+MAIUSC+FRECCIA SU|
 |Sposta l'elemento della sidebar a sinistra selezionato verso il basso |ALT+MAIUSC+FRECCIA GIÙ|
 
-## <a name="navigation"></a>Navigazione
+## <a name="navigation"></a>Spostamento
 
 |Per eseguire questa navigazione |Premere |
 | --- | --- |
@@ -52,6 +52,10 @@ Questo articolo elenca i tasti di scelta rapida che funzionano ovunque nel porta
 |Vai a **tutte le risorse**|G+A |
 |Vai a **gruppi di risorse**|G+R |
 |Apre l'elemento della barra laterale a sinistra in questa posizione |G+numero|
+
+## <a name="keyboard-shortcuts-for-specific-pages-in-the-azure-portal"></a>Scelte rapide da tastiera per pagine specifiche nel portale di Azure
+
+- [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

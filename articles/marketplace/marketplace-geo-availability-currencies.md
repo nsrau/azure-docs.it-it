@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136338"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826770"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilità geografica e valute supportate per il marketplace commerciale
 
@@ -172,12 +172,19 @@ Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geo
 
 ## <a name="how-we-convert-currency"></a>Conversione della valuta
 
-Per tutti i tipi di offerta a pagamento, gli ISV hanno la possibilità di immettere i prezzi in USD o di caricare i prezzi nella valuta locale. I prezzi immessi in USD vengono convertiti automaticamente in valuta locale quando la pagina viene salvata. Le tariffe utilizzate dal centro per i partner vengono aggiornate ogni giorno. Gli ISV possono esportare i prezzi ed esaminare gli equivalenti convertiti.
+Per tutti i tipi di offerta a pagamento, è possibile immettere i prezzi in USD o caricare i prezzi nella valuta locale. I prezzi immessi in USD vengono convertiti automaticamente in valuta locale quando la pagina viene salvata. Le tariffe utilizzate dal centro per i partner vengono aggiornate ogni giorno. È possibile esportare i prezzi ed esaminare gli equivalenti convertiti.
 
 Per modificare il prezzo prima della pubblicazione, è sufficiente esportare il foglio di calcolo dei prezzi, modificarlo e caricarlo con le modifiche.
 
 > [!NOTE]
 > In seguito alla pubblicazione, non sarà più possibile modificare il prezzo per un mercato del piano. Per assicurarsi che i prezzi siano corretti prima di procedere con la pubblicazione, esportare il foglio di calcolo dei prezzi ed esaminare i prezzi per ogni mercato.
+
+Il prezzo di un'offerta viene sempre visualizzato ai clienti nella propria valuta locale. Il prezzo selezionato in Partner Center viene convertito nella valuta locale dei clienti in base al tasso di cambio nel momento in cui è stato salvato il prezzo nel centro per i partner. Il prezzo indicato ai clienti nei negozi online non cambia, a meno che l'offerta non venga ripubblicata.
+
+Microsoft riceve i pagamenti dai clienti nella valuta locale e paga la valuta locale. Microsoft converte la valuta locale del cliente nella valuta locale usando il tasso di cambio del giorno di acquisto.
+
+> [!NOTE]
+> Microsoft converte i prezzi delle offerte usando il tasso di cambio del tesoro Microsoft.
 
 ## <a name="retrieving-currency-information-by-api"></a>Recupero delle informazioni sulla valuta per API
 
@@ -189,7 +196,7 @@ Per informazioni dettagliate su come immettere il prezzo per i tipi di offerta s
 - [Creare un'offerta di contenitore di Azure](partner-center-portal/create-azure-container-offer.md)
 - [Creare un'offerta per macchine virtuali di Azure](partner-center-portal/azure-vm-create-offer.md)
 - [Creare un'offerta di un servizio di consulenza](partner-center-portal/create-consulting-service-offer.md)
-- [Creare un'offerta di Dynamics 365 per Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Creare un'offerta Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Creare un'offerta Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Creare un'offerta Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Creare un'offerta di moduli IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)

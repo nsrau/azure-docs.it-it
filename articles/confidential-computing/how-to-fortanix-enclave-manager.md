@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815845"
+ms.locfileid: "88826294"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Procedura: eseguire un'applicazione con Fortanix enclave Manager 
 
 Avviare l'esecuzione dell'applicazione in Azure Confidential computing con [Fortanix enclave Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) e [Fortanix node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) da [Fortanix](https://www.fortanix.com/).
 
 
-Fortanix è un fornitore di software di terze parti con prodotti e servizi basati sull'infrastruttura di Azure. Sono disponibili altri provider di terze parti che offrono servizi di elaborazione riservati simili in Azure, ad esempio [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) e [Scone](https://sconedocs.github.io).  
+Fortanix è un fornitore di software di terze parti con prodotti e servizi basati sull'infrastruttura di Azure. In Azure sono disponibili altri provider di terze parti che offrono servizi di elaborazione riservati analoghi.
 
 > [!Note] 
  > I PRODOTTI A CUI VIENE FATTO RIFERIMENTO IN QUESTO DOCUMENTO NON SONO SOTTO IL CONTROLLO DI MICROSOFT. MICROSOFT FORNISCE QUESTE INFORMAZIONI SOLO PER PRATICITÀ E IL RIFERIMENTO A QUESTI PRODOTTI NON MICROSOFT NON IMPLICA L'APPROVAZIONE DA PARTE DI MICROSOFT.
@@ -162,7 +162,7 @@ dove
 
 Quando non è più necessario, è possibile eliminare il gruppo di risorse, la macchina virtuale e le risorse associate. Eliminando il gruppo di risorse, verrà annullata la registrazione dei nodi associati all'immagine convertita. 
 
-Selezionare il gruppo di risorse per la macchina virtuale, quindi fare clic su **Elimina**. Confermare il nome del gruppo di risorse per completare l'eliminazione delle risorse. \
+Selezionare il gruppo di risorse per la macchina virtuale, quindi fare clic su **Elimina**. Confermare il nome del gruppo di risorse da terminare eliminando le risorse.
 
 Per eliminare l'account di Fortanix enclave Manager creato, passare alla [pagina accounts](https://em.fortanix.com/accounts) (gestione enclave). Passare il puntatore del mouse sull'account che si desidera eliminare. Selezionare i punti neri verticali nell'angolo superiore destro e selezionare **Elimina account**.
 
@@ -174,3 +174,4 @@ In questa Guida introduttiva sono stati usati gli strumenti Fortanix per convert
 
 Per altre informazioni sulle offerte di informatica riservate di Azure, vedere [Panoramica di Azure Confidential computing](overview.md)
 
+ Informazioni su come completare attività simili con altre offerte di terze parti in Azure, ad esempio [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) e [Scone](https://sconedocs.github.io).  

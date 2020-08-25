@@ -3,12 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: b4917129b7b6dd3799f5e79dab881a1bcaa130d5
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 61a1dae356209126af47837ec7e8940c394b77a5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761662"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827053"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -183,7 +183,7 @@ Specificare le impostazioni del criterio come segue:
 10. Dopo aver completato la definizione dei criteri di backup, fare clic su **OK**.
 
 > [!NOTE]
-> Ogni backup del log viene concatenato al backup completo precedente per formare una catena di recupero. Questo backup completo verrà mantenuto fino alla scadenza della conservazione dell'ultimo backup del log. Questo potrebbe significare che il backup completo viene mantenuto per un periodo aggiuntivo per assicurarsi che tutti i log possano essere ripristinati. Si supponga che l'utente disponga di log di un backup completo settimanale, giornaliero differenziale e ogni 2 ore. Vengono tutti conservati per 30 giorni. Tuttavia, l'intero settimanale può essere effettivamente pulito/eliminato solo dopo che è disponibile il backup completo successivo, ad esempio dopo 30 + 7 giorni. Supponiamo che venga effettuato un backup completo settimanale il 16 novembre. In base ai criteri di conservazione, deve essere mantenuto fino al 16 dicembre. L'ultimo backup del log per questa versione completa si verifica prima del successivo completo in programma, il 22 novembre. Questo log è disponibile fino al 22 dicembre e fino a quel momento non sarà possibile eliminare il backup completo del 16 novembre. Il backup completo del 16 novembre, quindi, viene mantenuto fino al 22 dicembre.
+> Ogni backup del log viene concatenato al backup completo precedente per formare una catena di recupero. Questo backup completo verrà mantenuto fino alla scadenza della conservazione dell'ultimo backup del log. Questo potrebbe significare che il backup completo viene mantenuto per un periodo aggiuntivo per assicurarsi che tutti i log possano essere ripristinati. Si supponga che l'utente disponga di log di un backup completo settimanale, giornaliero differenziale e ogni 2 ore. Vengono tutti conservati per 30 giorni. Tuttavia, la versione settimanale completa può essere effettivamente eliminata o eliminata solo dopo i successivi backup completi, ovvero dopo 30 + 7 giorni. Per esempio, un backup completo settimanale si verifica il 16 novembre. In base ai criteri di conservazione, deve essere mantenuto fino al 16 dicembre. L'ultimo backup del log per questa versione completa si verifica prima del successivo completo in programma, il 22 novembre. Questo log è disponibile fino al 22 dicembre e fino a quel momento non sarà possibile eliminare il backup completo del 16 novembre. Il backup completo del 16 novembre, quindi, viene mantenuto fino al 22 dicembre.
 
 ## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
 
