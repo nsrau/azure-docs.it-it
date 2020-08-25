@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cccab009ddd5624fcc98ad6f871fe40d9540823
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604059"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783604"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
 
@@ -180,7 +180,7 @@ Le destinazioni tipiche per la revisione includono:
 
 * [Applicazioni integrate con Azure ad per l'accesso Single Sign-on](../manage-apps/what-is-application-management.md) (ad esempio Saas, line-of-business).
 
-* [Appartenenza](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) a un gruppo (sincronizzato con Azure ad o creato in Azure ad o Office 365, incluso Microsoft Teams).
+* [Appartenenza](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) a un gruppo (sincronizzato con Azure ad o creato in Azure ad o Office 365, incluso Microsoft Teams).
 
 * Consente di [accedere al pacchetto](/entitlement-management-overview.md) che raggruppa le risorse (gruppi, app e siti) in un unico pacchetto per gestire l'accesso.
 
@@ -241,7 +241,7 @@ Per creare un criterio di verifica di accesso, è necessario disporre delle info
 
 **Piano di verifica di accesso di esempio**
 
-| Componente| Valore |
+| Componente| valore |
 | - | - |
 | **Risorse da rivedere**| Accesso a Microsoft Dynamics |
 | **Frequenza di Revisione**| Ogni mese |
@@ -389,7 +389,7 @@ Le verifiche di accesso possono essere relative ai membri di un gruppo o agli ut
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Pianificare la revisione dei ruoli di Azure AD e delle risorse di Azure
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse Azure ad. In questo modo, l'elenco dei ruoli con privilegi, sia in [Azure ad](../users-groups-roles/directory-assign-admin-roles.md) che nelle [risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) è molto più piccolo e aumenta la sicurezza complessiva della directory.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse Azure ad. In questo modo, l'elenco dei ruoli con privilegi, sia in [Azure ad](../users-groups-roles/directory-assign-admin-roles.md) che nelle [risorse di Azure](../../role-based-access-control/built-in-roles.md) è molto più piccolo e aumenta la sicurezza complessiva della directory.
 
 Le verifiche di accesso consentono ai revisori di attestare se gli utenti devono ancora avere un ruolo. Proprio come le verifiche di accesso per i pacchetti Access, le recensioni per i ruoli di Azure AD e le risorse di Azure sono integrate nell'esperienza utente di amministrazione di PIM. Si consiglia di esaminare regolarmente le seguenti assegnazioni di ruolo:
 
@@ -452,9 +452,9 @@ Seguire le istruzioni riportate nei collegamenti seguenti:
 
 | Procedure | Descrizione |
 | - | - |
- [Creazione di verifiche di accesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| Creare verifiche di accesso per i ruoli di Azure AD con privilegi in PIM |
-| [Verifica autonoma dell'accesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| Se si è assegnati a un ruolo amministrativo, approvare o negare l'accesso al ruolo |
-| [Completare una verifica di accesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| Visualizzare una verifica di accesso e applicare i risultati |
+ [Creazione di verifiche di accesso](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Creare verifiche di accesso per i ruoli di Azure AD con privilegi in PIM |
+| [Verifica autonoma dell'accesso](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se si è assegnati a un ruolo amministrativo, approvare o negare l'accesso al ruolo |
+| [Completare una verifica di accesso](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Visualizzare una verifica di accesso e applicare i risultati |
 
 
 ### <a name="review-azure-resource-roles"></a>Esaminare i ruoli delle risorse di Azure
@@ -467,14 +467,14 @@ Seguire le istruzioni riportate nei collegamenti seguenti:
 
 | Procedure| Descrizione |
 | - | -|
-| [Creazione di verifiche di accesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| Creare verifiche di accesso per i ruoli delle risorse di Azure con privilegi in PIM |
-| [Verifica autonoma dell'accesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| Se si è assegnati a un ruolo amministrativo, approvare o negare l'accesso al ruolo |
-| [Completare una verifica di accesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| Visualizzare una verifica di accesso e applicare i risultati |
+| [Creazione di verifiche di accesso](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Creare verifiche di accesso per i ruoli delle risorse di Azure con privilegi in PIM |
+| [Verifica autonoma dell'accesso](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se si è assegnati a un ruolo amministrativo, approvare o negare l'accesso al ruolo |
+| [Completare una verifica di accesso](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Visualizzare una verifica di accesso e applicare i risultati |
 
 
 ## <a name="use-the-access-reviews-api"></a>Usare l'API verifiche di accesso
 
-Vedere [metodi dell'API Graph](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) e [controlli di autorizzazione per ruoli e applicazioni](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) per interagire con le risorse e gestirle. I metodi delle verifiche di accesso nell'API Microsoft Graph sono disponibili sia per i contesti dell'applicazione che dell'utente. Quando si eseguono script nel contesto dell'applicazione, all'account usato per eseguire l'API (l'entità servizio) deve essere concessa l'autorizzazione "AccessReview. Read. All" per eseguire query sulle informazioni sulle verifiche di accesso.
+Vedere [metodi dell'API Graph](/graph/api/resources/accessreviews-root?view=graph-rest-beta) e [controlli di autorizzazione per ruoli e applicazioni](/graph/api/resources/accessreviews-root?view=graph-rest-beta) per interagire con le risorse e gestirle. I metodi delle verifiche di accesso nell'API Microsoft Graph sono disponibili sia per i contesti dell'applicazione che dell'utente. Quando si eseguono script nel contesto dell'applicazione, all'account usato per eseguire l'API (l'entità servizio) deve essere concessa l'autorizzazione "AccessReview. Read. All" per eseguire query sulle informazioni sulle verifiche di accesso.
 
 Le attività di verifica di accesso più diffuse per automatizzare l'utilizzo del API Graph per le verifiche di accesso sono:
 
@@ -519,4 +519,3 @@ Informazioni sulle tecnologie correlate seguenti.
 
 * [Che cos'è Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
- 

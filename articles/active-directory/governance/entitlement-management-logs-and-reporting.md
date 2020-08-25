@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4756ced858210f86bb8e979705db99a563441490
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078185"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783823"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Log di archiviazione e creazione di report su gestione entitlement di Azure AD in Monitoraggio di Azure
 
@@ -59,7 +59,7 @@ Per archiviare i log di controllo di Azure AD è necessario disporre di Monitora
 
 ## <a name="view-events-for-an-access-package"></a>Visualizzare gli eventi per un pacchetto di accesso  
 
-Per visualizzare gli eventi per un pacchetto di accesso, è necessario disporre dell'accesso all'area di lavoro Monitoraggio di Azure sottostante (vedere [Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) per informazioni) e in uno dei ruoli seguenti: 
+Per visualizzare gli eventi per un pacchetto di accesso, è necessario disporre dell'accesso all'area di lavoro Monitoraggio di Azure sottostante (vedere [Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) per informazioni) e in uno dei ruoli seguenti: 
 
 - Amministratore globale  
 - Amministratore della sicurezza  
@@ -170,7 +170,7 @@ $wks | ft CustomerId, Name
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Inviare la query all'area di lavoro Log Analytics
 Infine, dopo aver identificato un'area di lavoro, è possibile usare [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) per inviare una query Kusto a tale area di lavoro. Queste query sono scritte nel [linguaggio di query Kusto](https://docs.microsoft.com/azure/kusto/query/).
+) per inviare una query Kusto a tale area di lavoro. Queste query sono scritte nel [linguaggio di query Kusto](/azure/kusto/query/).
  
 Ad esempio, è possibile recuperare l'intervallo di date dei record degli eventi di controllo dall'area di lavoro Log Analytics, con i cmdlet di PowerShell per inviare una query come la seguente:
  
@@ -189,5 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi:
-- [Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md) 
-
+- [Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md)

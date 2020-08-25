@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a98ff68500593c644e6f0fa5eacb338ab90f5604
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421723"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795393"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
 
@@ -44,7 +44,7 @@ Creare due o più account di accesso di emergenza. Devono essere account solo cl
 Durante la configurazione di questi account, devono essere soddisfatti i requisiti seguenti:
 
 - Gli account di accesso di emergenza non devono essere associati a un utente specifico dell'organizzazione. Assicurarsi che gli account non siano connessi a cellulari forniti ai dipendenti, token hardware che viaggiano con i singoli dipendenti o altre credenziali specifiche del dipendente. Questa precauzione consente di affrontare le situazioni in cui un singolo dipendente è irraggiungibile quando sono necessarie le credenziali. È importante verificare che tutti i dispositivi registrati vengano conservati in una posizione nota e sicura con più mezzi di comunicazione con Azure AD.
-- Il meccanismo di autenticazione usato per un account di accesso di emergenza deve essere diverso da quello usato dagli altri account amministrativi, inclusi altri account di accesso di emergenza.  Ad esempio, se l'amministratore usuale accede tramite l'autenticazione a più fattori locale, Azure MFA sarebbe un meccanismo diverso.  Tuttavia, se Azure MFA rappresenta la parte principale dell'autenticazione per gli account amministrativi, è consigliabile adottare un approccio diverso per questi ultimi, ad esempio usare l'Accesso condizionale con un provider di autenticazione a più fattori di terze parti tramite i [Controlli personalizzati](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
+- Il meccanismo di autenticazione usato per un account di accesso di emergenza deve essere diverso da quello usato dagli altri account amministrativi, inclusi altri account di accesso di emergenza.  Ad esempio, se l'amministratore usuale accede tramite l'autenticazione a più fattori locale, Azure MFA sarebbe un meccanismo diverso.  Tuttavia, se Azure MFA rappresenta la parte principale dell'autenticazione per gli account amministrativi, è consigliabile adottare un approccio diverso per questi ultimi, ad esempio usare l'Accesso condizionale con un provider di autenticazione a più fattori di terze parti tramite i [Controlli personalizzati](../conditional-access/controls.md).
 - Il dispositivo o le credenziali non devono scadere o trovarsi nell'ambito della pulizia automatica per mancanza di utilizzo.  
 - È necessario rendere permanente l'assegnazione del ruolo di amministratore globale per gli account di accesso di emergenza. 
 
@@ -74,7 +74,7 @@ Le organizzazioni devono monitorare l'attività del log di accesso e controllo d
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. [Inviare i log di accesso Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a Monitoraggio di Azure.
+1. [Inviare i log di accesso Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) a Monitoraggio di Azure.
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Ottenere gli ID oggetto degli account critici
 
@@ -156,5 +156,5 @@ Questi passaggi devono essere eseguiti a intervalli regolari e per le modifiche 
 - [Aggiungere utenti tramite Azure AD](../fundamentals/add-users-azure-active-directory.md) e [assegnare il nuovo utente al ruolo di amministratore globale](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [Iscriversi a Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), se non è ancora stato fatto
 - [Come richiedere la verifica in due passaggi per un utente](../authentication/howto-mfa-userstates.md)
-- [Configurare protezioni aggiuntive per gli amministratori globali in Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), se si usa Microsoft 365
+- [Configurare protezioni aggiuntive per gli amministratori globali in Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), se si usa Microsoft 365
 - [Avviare una verifica di accesso per gli amministratori globali](../privileged-identity-management/pim-how-to-start-security-review.md) e [spostare gli amministratori globali esistenti in ruoli di amministratore più specifici](directory-assign-admin-roles.md)

@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come aumentare e ridurre il numero di
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257105"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716895"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: Ridimensionare un cluster di Service Fabric in Azure
 
@@ -833,7 +833,7 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Aumentare le risorse dei nodi 
-Dopo aver creato un cluster di Service Fabric, è possibile aumentare un tipo di nodo del cluster in verticale (cambiare le risorse dei nodi) o aggiornare il sistema operativo delle macchine virtuali del tipo di nodo sostituendo il tipo di nodo originale con un nuovo (con un'immagine del sistema operativo o uno SKU di VM aggiornato). Per altre informazioni, vedere [Aumentare le prestazioni di un tipo di nodo di Azure Service Fabric](service-fabric-scale-up-node-type.md).
+Dopo aver creato un cluster di Service Fabric, è possibile aumentare un tipo di nodo del cluster in verticale (cambiare le risorse dei nodi) o aggiornare il sistema operativo delle macchine virtuali del tipo di nodo sostituendo il tipo di nodo originale con un nuovo (con un'immagine del sistema operativo o uno SKU di VM aggiornato). Per altre informazioni, vedere [Aumentare le prestazioni di un tipo di nodo di Azure Service Fabric](service-fabric-scale-up-primary-node-type.md).
 
 > [!IMPORTANT]
 > Non tentare mai una modifica sul posto dello SKU della VM o dell'immagine del sistema operativo, perché si tratta di un'operazione pericolosa e non supportata.

@@ -4,15 +4,15 @@ description: Vengono descritti le origini dati e i connettori supportati per i m
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503600"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749097"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -120,7 +120,7 @@ Per le origini dati cloud:
 
 ## <a name="oauth-credentials"></a>Credenziali OAuth
 
-Per i modelli tabulari con livello di compatibilità 1400 e superiore con la modalità in memoria, il database SQL di Azure, la sinapsi di Azure (in precedenza SQL Data Warehouse), Dynamics 365 e l'elenco di SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
+Per i modelli tabulari con livello di compatibilità 1400 e superiore con la modalità in memoria, il database SQL di Azure, la sinapsi di Azure (in precedenza SQL Data Warehouse), Dynamics 365 e l'elenco di SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali utilizzando Power Query.
 
 La modalità DirectQuery non è supportata con le credenziali OAuth.
 

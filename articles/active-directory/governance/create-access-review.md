@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be8a714d57d0f84b195c9f3846964aa2bf2525b
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605083"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783655"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -158,7 +158,7 @@ Se sono stati assegnati Guest come revisori che non hanno accettato l'invito, no
 
 ## <a name="create-reviews-via-apis"></a>Creare verifiche tramite API
 
-È anche possibile creare verifiche di accesso usando le API. Le operazioni eseguite per gestire le verifiche di accesso di gruppi e utenti di applicazioni nel portale di Azure possono essere svolte anche tramite le API Microsoft Graph. Per altre informazioni, vedere le informazioni di [riferimento sull'API Azure ad Access revisioni](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Per un esempio di codice, vedere [esempio di recupero delle verifiche di accesso Azure ad tramite Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+È anche possibile creare verifiche di accesso usando le API. Le operazioni eseguite per gestire le verifiche di accesso di gruppi e utenti di applicazioni nel portale di Azure possono essere svolte anche tramite le API Microsoft Graph. Per altre informazioni, vedere le informazioni di [riferimento sull'API Azure ad Access revisioni](/graph/api/resources/accessreviews-root?view=graph-rest-beta). Per un esempio di codice, vedere [esempio di recupero delle verifiche di accesso Azure ad tramite Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

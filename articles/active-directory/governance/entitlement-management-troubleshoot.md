@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145782"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783332"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Risolvere i problemi di Azure AD gestione dei diritti
 
@@ -45,9 +45,9 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 * Se ci sono utenti già assegnati a una risorsa che si desidera gestire con un pacchetto di accesso, assicurarsi che siano assegnati al pacchetto di accesso con un criterio appropriato. Ad esempio, potrebbe essere necessario includere un gruppo in un pacchetto di accesso che ha già utenti nel gruppo. Se gli utenti nel gruppo richiedono accesso continuo, devono disporre dei un criterio appropriato per i pacchetti di accesso, in modo da non perdere l'accesso al gruppo. È possibile assegnare il pacchetto di accesso chiedendo agli utenti di richiedere il pacchetto di accesso contenente tale risorsa oppure assegnandoli direttamente al pacchetto di accesso. Per ulteriori informazioni, vedere [modifica delle impostazioni di richiesta e approvazione per un pacchetto di accesso](entitlement-management-access-package-request-policy.md).
 
-* Quando si rimuove un membro di un team, questi vengono rimossi anche dal gruppo di Microsoft 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)a un gruppo.
+* Quando si rimuove un membro di un team, questi vengono rimossi anche dal gruppo di Microsoft 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](/microsoftteams/office-365-groups#group-membership)a un gruppo.
 
-* Verificare che la directory non sia configurata per varie aree geografiche. Attualmente la gestione entitlement non supporta varie posizioni geografiche per SharePoint Online. Per poter essere gestiti con la gestione entitlement, i siti di SharePoint Online devono trovarsi nella posizione geografica predefinita. Per altre informazioni, vedere funzionalità per più aree [geografiche in OneDrive e SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Verificare che la directory non sia configurata per varie aree geografiche. Attualmente la gestione entitlement non supporta varie posizioni geografiche per SharePoint Online. Per poter essere gestiti con la gestione entitlement, i siti di SharePoint Online devono trovarsi nella posizione geografica predefinita. Per altre informazioni, vedere funzionalità per più aree [geografiche in OneDrive e SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Pacchetti di accesso
 
@@ -69,7 +69,7 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 * Quando un utente che non è ancora presente nella directory accede al portale Accesso personale per richiedere un pacchetto di accesso, assicurarsi che esegua l'autenticazione usando il suo account aziendale. L'account aziendale può appartenere alla directory delle risorse o a una directory inclusa in uno dei criteri del pacchetto di accesso. Se l'account dell'utente non è un account aziendale o la directory in cui esegue l'autenticazione non è inclusa nel criterio, l'utente non visualizzerà il pacchetto di accesso. Per altre informazioni, vedere [richiedere l'accesso a un pacchetto di accesso](entitlement-management-request-access.md).
 
-* Se a un utente viene impedito di accedere alla directory delle risorse, tale utente non potrà richiedere l'accesso nel portale Accesso personale. Prima che l'utente possa richiedere l'accesso, è necessario rimuovere il blocco dell'accesso dal profilo dell'utente. Per rimuovere il blocco di accesso, nella portale di Azure fare clic su **Azure Active Directory**, fare clic su **utenti**, fare clic sull'utente e quindi su **profilo**. Modificare la sezione **Impostazioni** e modificare **Accedi** a **No**. Per altre informazioni, vedere [aggiungere o aggiornare le informazioni sul profilo di un utente usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  È anche possibile controllare se l'utente è stato bloccato a causa di un [criterio di Identity Protection](../identity-protection/howto-unblock-user.md).
+* Se a un utente viene impedito di accedere alla directory delle risorse, tale utente non potrà richiedere l'accesso nel portale Accesso personale. Prima che l'utente possa richiedere l'accesso, è necessario rimuovere il blocco dell'accesso dal profilo dell'utente. Per rimuovere il blocco di accesso, nella portale di Azure fare clic su **Azure Active Directory**, fare clic su **utenti**, fare clic sull'utente e quindi su **profilo**. Modificare la sezione **Impostazioni** e modificare **Accedi** a **No**. Per altre informazioni, vedere [aggiungere o aggiornare le informazioni sul profilo di un utente usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  È anche possibile controllare se l'utente è stato bloccato a causa di un [criterio di Identity Protection](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * Se un utente è un richiedente e un responsabile approvazione, nel portale di accesso personale non visualizzerà la richiesta di un pacchetto di accesso nella pagina **approvazioni** . Questo comportamento è intenzionale: un utente non può approvare la sua stessa richiesta. Verificare che nei criteri del pacchetto di accesso richiesto siano configurati altri responsabili approvazione. Per ulteriori informazioni, vedere [modifica delle impostazioni di richiesta e approvazione per un pacchetto di accesso](entitlement-management-access-package-request-policy.md).
 

@@ -16,17 +16,17 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034123"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783196"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
 
-Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la collaborazione all'interno dell'azienda usando la [funzionalità Azure AD B2B](../b2b/what-is-b2b.md). Gli utenti guest dagli altri tenant possono essere [invitati dagli amministratori](../b2b/add-users-administrator.md) o da [altri utenti](../b2b/what-is-b2b.md). Questa funzionalità si applica anche alle identità di social networking, ad esempio gli account Microsoft.
+Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la collaborazione all'interno dell'azienda usando la [funzionalità Azure AD B2B](../external-identities/what-is-b2b.md). Gli utenti guest dagli altri tenant possono essere [invitati dagli amministratori](../external-identities/add-users-administrator.md) o da [altri utenti](../external-identities/what-is-b2b.md). Questa funzionalità si applica anche alle identità di social networking, ad esempio gli account Microsoft.
 
 È possibile anche assicurarsi che gli utenti guest dispongano dell'accesso appropriato. Si può chiedere ai guest stessi o a un decision maker di partecipare a una verifica di accesso e certificare di nuovo (o "attestare") l'accesso dei guest. I revisori possono esprimere il proprio giudizio sull'effettiva esigenza di accesso continuo da parte di ogni utente in base ai suggerimenti ottenuti da Azure AD. Al termine di una verifica di accesso è possibile apportare modifiche e rimuovere l'accesso per i guest per i quali non è più necessario.
 
@@ -120,10 +120,3 @@ In alcune organizzazioni i guest potrebbero non essere consapevoli delle proprie
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Creare una verifica di accesso di gruppi o applicazioni](create-access-review.md)
-
-
-
-
-
-
-

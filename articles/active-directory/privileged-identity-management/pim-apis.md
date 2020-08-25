@@ -14,18 +14,18 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea3e307df95fe4cb18986ed8e68a7f3381c5fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 95b0b026b75b9b77c94451245ac4f18d487fc2e4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742897"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783519"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>API Microsoft Graph per Privileged Identity Management (anteprima)
 
-È possibile eseguire le attività di Privileged Identity Management con le [API Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/overview) per Azure Active Directory. Questo articolo descrive alcuni concetti importanti per l'uso delle API Microsoft Graph per Privileged Identity Management.
+È possibile eseguire le attività di Privileged Identity Management con le [API Microsoft Graph](/graph/overview) per Azure Active Directory. Questo articolo descrive alcuni concetti importanti per l'uso delle API Microsoft Graph per Privileged Identity Management.
 
-Per informazioni dettagliate sulle API Microsoft Graph, esaminare le [informazioni di riferimento sulle API di Azure Active Directory Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
+Per informazioni dettagliate sulle API Microsoft Graph, esaminare le [informazioni di riferimento sulle API di Azure Active Directory Privileged Identity Management](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta).
 
 > [!IMPORTANT]
 > Le API nella versione beta in Microsoft Graph sono disponibili in anteprima e sono soggetti a modifiche. L'uso di queste API nelle applicazioni di produzione non è supportato.
@@ -61,4 +61,4 @@ Se si usa Graph Explorer per testare le chiamate, è possibile specificare le au
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni di riferimento sulle API di Azure Active Directory Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root)
+- [Informazioni di riferimento sulle API di Azure Active Directory Privileged Identity Management](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)

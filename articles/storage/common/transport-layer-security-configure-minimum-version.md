@@ -10,12 +10,12 @@ ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533377"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755909"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Applicare una versione minima richiesta di Transport Layer Security (TLS) per le richieste a un account di archiviazione
 
@@ -338,6 +338,10 @@ Dopo aver creato il criterio con l'effetto nega e averlo assegnato a un ambito, 
 La figura seguente mostra l'errore che si verifica se si prova a creare un account di archiviazione con la versione minima di TLS impostata su TLS 1,0 (impostazione predefinita per un nuovo account) quando un criterio con un effetto di negazione richiede che la versione minima di TLS sia impostata su TLS 1,2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot che mostra l'errore che si verifica quando si crea un account di archiviazione in violazione dei criteri":::
+
+## <a name="network-considerations"></a>Considerazioni per la rete
+
+Quando un client invia una richiesta all'account di archiviazione, prima di elaborare le richieste il client stabilisce prima di tutto una connessione con l'endpoint pubblico dell'account di archiviazione. L'impostazione minima della versione di TLS viene controllata dopo che è stata stabilita la connessione. Se la richiesta usa una versione precedente di TLS rispetto a quella specificata dall'impostazione, la connessione continuerà ad avere esito positivo, ma la richiesta avrà esito negativo. Per altre informazioni sugli endpoint pubblici per archiviazione di Azure, vedere [sintassi dell'URI della risorsa](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

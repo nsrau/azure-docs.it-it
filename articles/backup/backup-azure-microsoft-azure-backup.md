@@ -3,12 +3,12 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612334"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756011"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -101,7 +101,7 @@ Per modificare le impostazioni di replica di archiviazione:
    * Nell'elenco di risorse digitare **servizi di ripristino**.
    * Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
 
-     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Creare l'insieme di credenziali di servizi di ripristino passaggio 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino.
    * Nell'elenco di insiemi di credenziali dei servizi di ripristino selezionare un insieme di credenziali.
@@ -135,7 +135,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
     ![Attività iniziali guidate modifica](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. Nel riquadro **prepara infrastruttura** visualizzato selezionare i collegamenti per il **download** per installa server di backup di Azure e scaricare le credenziali dell'insieme di credenziali. Tali credenziali vengono usate durante la registrazione del server di Backup di Azure nell'insieme di credenziali dei servizi di ripristino. I collegamenti consentono di accedere alla pagina dell'Area download da cui è possibile scaricare il pacchetto software.
+6. Nel riquadro **prepara infrastruttura** visualizzato selezionare i collegamenti per il **download** per installa server di backup di Azure e scaricare le credenziali dell'insieme di credenziali. Usare le credenziali dell'insieme di credenziali durante la registrazione di server di Backup di Azure nell'insieme di credenziali di servizi di ripristino. I collegamenti consentono di accedere alla pagina dell'Area download da cui è possibile scaricare il pacchetto software.
 
     ![Preparare l'infrastruttura per il Server di Backup di Azure](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -143,7 +143,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
     ![Area download 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Poiché le dimensioni di download di tutti questi file sono pari a > 3 GB, per il download completo potrebbero essere necessari fino a 60 minuti su un collegamento di download a 10 Mbps.
+    Poiché le dimensioni di download di tutti i file insieme sono > 3 GB, in un collegamento di download a 10 Mbps potrebbero essere necessari fino a 60 minuti per il completamento del download.
 
 ### <a name="extracting-the-software-package"></a>Estrazione del pacchetto software
 

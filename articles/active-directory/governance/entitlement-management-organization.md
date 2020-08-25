@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586572"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783944"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -43,8 +43,8 @@ In questo caso, è possibile configurare due organizzazioni connesse. Si crea un
 Il modo in cui gli utenti della directory Azure AD o del dominio si autenticano dipende dal tipo di autenticazione. I tipi di autenticazione per le organizzazioni connesse sono:
 
 - Azure AD
-- [Federazione diretta](../b2b/direct-federation.md)
-- [Un codice di](../b2b/one-time-passcode.md) accesso monouso (dominio)
+- [Federazione diretta](../external-identities/direct-federation.md)
+- [Un codice di](../external-identities/one-time-passcode.md) accesso monouso (dominio)
 
 Per una dimostrazione di come aggiungere un'organizzazione connessa, guardare il video seguente:
 
@@ -79,7 +79,7 @@ Per aggiungere una directory o un dominio di Azure AD esterno come organizzazion
 1. Selezionare **Aggiungi** per aggiungere la directory Azure ad o il dominio. Attualmente, è possibile aggiungere una sola directory Azure AD o dominio per ogni organizzazione connessa.
 
     > [!NOTE]
-    > Tutti gli utenti della directory Azure AD o del dominio saranno in grado di richiedere questo pacchetto di accesso. Sono inclusi gli utenti in Azure AD da tutti i sottodomini associati alla directory, a meno che tali domini non siano bloccati dal Azure AD elenco Consenti o nega business to business (B2B). Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](../b2b/allow-deny-list.md).
+    > Tutti gli utenti della directory Azure AD o del dominio saranno in grado di richiedere questo pacchetto di accesso. Sono inclusi gli utenti in Azure AD da tutti i sottodomini associati alla directory, a meno che tali domini non siano bloccati dal Azure AD elenco Consenti o nega business to business (B2B). Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](../external-identities/allow-deny-list.md).
 
 1. Dopo aver aggiunto la directory Azure AD o il dominio, selezionare **Seleziona**.
 
@@ -89,7 +89,7 @@ Per aggiungere una directory o un dominio di Azure AD esterno come organizzazion
 
 1. Selezionare la scheda **sponsor** , quindi aggiungere sponsor facoltativi per l'organizzazione connessa.
 
-    Gli sponsor sono utenti interni o esterni già presenti nella directory che rappresentano il punto di contatto per la relazione con l'organizzazione connessa. Gli sponsor interni sono utenti membri della directory. Gli sponsor esterni sono utenti Guest dell'organizzazione connessa che in precedenza erano invitati e sono già presenti nella directory. Gli sponsor possono essere utilizzati come responsabili approvazione quando gli utenti di questa organizzazione connessa richiedono l'accesso a questo pacchetto di accesso. Per informazioni su come invitare un utente guest nella directory, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../b2b/add-users-administrator.md).
+    Gli sponsor sono utenti interni o esterni già presenti nella directory che rappresentano il punto di contatto per la relazione con l'organizzazione connessa. Gli sponsor interni sono utenti membri della directory. Gli sponsor esterni sono utenti Guest dell'organizzazione connessa che in precedenza erano invitati e sono già presenti nella directory. Gli sponsor possono essere utilizzati come responsabili approvazione quando gli utenti di questa organizzazione connessa richiedono l'accesso a questo pacchetto di accesso. Per informazioni su come invitare un utente guest nella directory, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../external-identities/add-users-administrator.md).
 
     Quando si seleziona **Aggiungi/Rimuovi**, viene aperto un riquadro in cui è possibile scegliere sponsor interni o esterni. Il riquadro Visualizza un elenco non filtrato di utenti e gruppi nella directory.
 
@@ -134,9 +134,9 @@ Se non si ha più una relazione con una directory o un dominio di Azure AD ester
 
 ## <a name="managing-a-connected-organization-programmatically"></a>Gestione di un'organizzazione connessa a livello di codice
 
-È anche possibile creare, elencare, aggiornare ed eliminare le organizzazioni connesse usando Microsoft Graph. Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per gestire gli oggetti [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) e impostare gli sponsor.
+È anche possibile creare, elencare, aggiornare ed eliminare le organizzazioni connesse usando Microsoft Graph. Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per gestire gli oggetti [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) e impostare gli sponsor.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Gestire l'accesso per gli utenti esterni](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
+- [Gestire l'accesso per gli utenti esterni](./entitlement-management-external-users.md)
 - [Governare l'accesso per gli utenti che non si trovino nella directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 1d11318d2af640a0cf417286ee777ce833297a4f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873603"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749863"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -43,7 +43,7 @@ La tabella seguente illustra i diversi metodi che è possibile usare per configu
 
 Questo articolo illustra la configurazione nel [portale di Azure](https://portal.azure.com), in cui è possibile creare un cluster HDInsight.
 
-## <a name="basics"></a>Operazioni di base
+## <a name="basics"></a>Nozioni di base
 
 ![HDInsight creare opzioni personalizzate Quick](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -97,13 +97,13 @@ Con i cluster HDInsight è possibile configurare due account utente durante la c
 
 Il nome utente HTTP presenta le restrizioni seguenti:
 
-* Caratteri speciali consentiti: `_` e`@`
+* Caratteri speciali consentiti: `_` e `@`
 * Caratteri non consentiti: #;. "', \/ :'! *? $ () {} [] <>|&--= +% ~ ^ spazio
 * Lunghezza massima: 20
 
 Il nome utente SSH presenta le restrizioni seguenti:
 
-* Caratteri speciali consentiti: `_` e`@`
+* Caratteri speciali consentiti: `_` e `@`
 * Caratteri non consentiti: #;. "', \/ :'! *? $ () {} [] <>|&--= +% ~ ^ spazio
 * Lunghezza massima: 64
 * Nomi riservati: Hadoop, Users, oozie, hive, mapred, Ambari-QA, Zookeeper, Tez, HDFS, Sqoop, Yarn, hcat, AMS, HBase, Storm, amministratore, amministratore, utente, User1, test, User2, test1, utente3, Admin1, 1, 123, a, ACTUser, ADM, Amministratore2, ASPNET, backup, console, David, Guest, John, proprietario, radice, server, SQL, supporto tecnico, support_388945a0, sys, test2, test3, User4, User5, Spark
@@ -133,6 +133,9 @@ Durante la configurazione, per l'endpoint di archiviazione predefinito si specif
 
 > [!IMPORTANT]
 > L'abilitazione del trasferimento di archiviazione protetta dopo la creazione di un cluster può causare errori con l'account di archiviazione e non è consigliabile. È preferibile creare un nuovo cluster usando un account di archiviazione con trasferimento sicuro già abilitato.
+
+> [!Note]  
+> Azure HDInsight non trasferisce, sposta o copia automaticamente i dati archiviati in archiviazione di Azure da un'area a un'altra.
 
 ### <a name="metastore-settings"></a>Impostazioni Metastore
 
@@ -209,7 +212,7 @@ Viene addebitato l'utilizzo del nodo fino a quando esiste il cluster. La fattura
 
 Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica per i nodi e dimensioni predefinite delle macchine virtuali. Nella tabella seguente, il numero di nodi per ogni tipo di nodo è indicato tra parentesi.
 
-| Type | Nodi | Diagramma |
+| Tipo | Nodi | Diagramma |
 | --- | --- | --- |
 | Hadoop |Nodo Head (2), nodo Worker (1 +) |![Nodi del cluster HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | hbase |Server head (2), server di area (1+), nodo master/ZooKeeper (3) |![Installazione del tipo di cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

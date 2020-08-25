@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c58086a163bf558ffdc71e51e55d296e8d4d25e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12193b469b6e1f014e6c948da7b2adb370e78d4b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728589"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795344"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 
@@ -71,9 +71,9 @@ Per eliminare un nome di dominio personalizzato, è prima necessario assicurarsi
 
 ### <a name="forcedelete-option"></a>Opzione ForceDelete
 
-È possibile eseguire l'operazione **ForceDelete** su un nome di dominio nell'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) oppure usando l'[API Microsoft Graph](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Tali opzioni usano un'operazione asincrona e aggiornano tutti i riferimenti del nome di dominio personalizzato, come "user@contoso.com", con il nome di dominio predefinito iniziale, come "user@contoso.onmicrosoft.com". 
+È possibile eseguire l'operazione **ForceDelete** su un nome di dominio nell'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) oppure usando l'[API Microsoft Graph](/graph/api/domain-forcedelete?view=graph-rest-beta). Tali opzioni usano un'operazione asincrona e aggiornano tutti i riferimenti del nome di dominio personalizzato, come "user@contoso.com", con il nome di dominio predefinito iniziale, come "user@contoso.onmicrosoft.com". 
 
-Per chiamare **ForceDelete** nel portale di Azure, è necessario verificare che siano presenti meno di 1000 riferimenti al nome di dominio e aggiornare o rimuovere nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/) tutti i riferimenti in cui il servizio di provisioning è Exchange. Ciò include gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica di Exchange. Per altre informazioni, vedere l'articolo relativo alla [rimozione dei gruppi di sicurezza abilitati alla posta elettronica](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). L'operazione **ForceDelete** non riesce, inoltre, in presenza di una delle condizioni seguenti:
+Per chiamare **ForceDelete** nel portale di Azure, è necessario verificare che siano presenti meno di 1000 riferimenti al nome di dominio e aggiornare o rimuovere nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/) tutti i riferimenti in cui il servizio di provisioning è Exchange. Ciò include gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica di Exchange. Per altre informazioni, vedere l'articolo relativo alla [rimozione dei gruppi di sicurezza abilitati alla posta elettronica](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). L'operazione **ForceDelete** non riesce, inoltre, in presenza di una delle condizioni seguenti:
 
 * Si è acquistato un dominio tramite servizi di sottoscrizione di domini di Office 365
 * Si amministra come partner per conto dell'organizzazione di un altro cliente
@@ -110,11 +110,11 @@ Se si riscontra che una o più condizioni non sono state soddisfatte, eseguire l
 
 Per completare la maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory, è anche possibile usare Microsoft PowerShell oppure usare l'API Microsoft Graph per eseguire attività a livello di codice.
 
-* [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Tipo di risorsa di dominio](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
+* [Uso di PowerShell per gestire i nomi di dominio in Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains)
+* [Tipo di risorsa di dominio](/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Aggiungere nomi di dominio personalizzati](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
-* [Rimuovere i gruppi di sicurezza abilitati alla posta elettronica di Exchange nell'interfaccia di amministrazione di Exchange per un nome di dominio personalizzato in Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [Eseguire l'operazione ForceDelete su un nome di dominio personalizzato con l'API Microsoft Graph](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)
+* [Aggiungere nomi di dominio personalizzati](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
+* [Rimuovere i gruppi di sicurezza abilitati alla posta elettronica di Exchange nell'interfaccia di amministrazione di Exchange per un nome di dominio personalizzato in Azure AD](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)
+* [Eseguire l'operazione ForceDelete su un nome di dominio personalizzato con l'API Microsoft Graph](/graph/api/domain-forcedelete?view=graph-rest-beta)

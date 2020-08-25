@@ -32,6 +32,8 @@
           href: tutorial-micro-fulfillment-center.md
     - name: Analisi video - rilevamento movimento e oggetti
       items:
+        - name: 0 - Distribuire un'applicazione di rilevamento movimento e oggetti
+          href: tutorial-video-analytics-deploy.md
         - name: 1 - Creare un'applicazione di analisi video
           href: tutorial-video-analytics-create-app.md
         - name: 2 - Configurare un dispositivo IoT Edge
@@ -64,8 +66,6 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Guide pratiche
   items:
-    - name: Distribuire un'applicazione di rilevamento movimento e oggetti
-      href: howto-deploy-video-analytics-template.md
     - name: Connettere dispositivi
       items:
         - name: Preparare e connettere un componente Rigado Cascade 500

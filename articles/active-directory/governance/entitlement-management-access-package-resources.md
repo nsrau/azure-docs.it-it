@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 006a79c91cd9bfb4c3bbf4a7e0ffb58314af49cc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 56948b700f816c13d35915400658136ffcf48846
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798640"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783587"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -78,7 +78,7 @@ Un ruolo di risorsa è una raccolta di autorizzazioni associate a una risorsa. P
 - Azure AD non è possibile modificare l'appartenenza di un gruppo sincronizzato da Windows Server Active Directory utilizzando Azure AD Connect o creato in Exchange Online come gruppo di distribuzione.  
 - Non è possibile aggiornare l'appartenenza dei gruppi dinamici tramite l'aggiunta o la rimozione di un membro, quindi l'appartenenza dinamica ai gruppi non è adatta per l'uso con la gestione dei diritti.
 
-Per altre informazioni, vedere [confrontare gruppi](https://docs.microsoft.com/office365/admin/create-groups/compare-groups) e [gruppi di Office 365 e Microsoft teams](https://docs.microsoft.com/microsoftteams/office-365-groups).
+Per altre informazioni, vedere [confrontare gruppi](/office365/admin/create-groups/compare-groups) e [gruppi di Office 365 e Microsoft teams](/microsoftteams/office-365-groups).
 
 1. Nella pagina **Aggiungi ruoli risorse per accedere al pacchetto** fare clic su **gruppi e team** per aprire il riquadro Seleziona gruppi.
 
@@ -178,7 +178,7 @@ Azure AD possibile assegnare automaticamente agli utenti l'accesso a un sito di 
 
 Per la gestione dei diritti, Azure AD elaborerà le modifiche bulk per l'assegnazione e le risorse nei pacchetti di accesso più volte al giorno. Pertanto, se si esegue un'assegnazione o si modificano i ruoli delle risorse del pacchetto di accesso, possono essere necessarie fino a 24 ore prima che la modifica venga effettuata in Azure AD, oltre alla quantità di tempo necessaria per propagare tali modifiche ad altri Microsoft Online Services o ad applicazioni SaaS connesse. Se la modifica interessa solo pochi oggetti, la modifica richiederà solo alcuni minuti per l'applicazione Azure AD, dopo la quale altri componenti Azure AD rileveranno la modifica e aggiorneranno le applicazioni SaaS. Se la modifica interessa migliaia di oggetti, la modifica avrà più tempo. Se, ad esempio, si dispone di un pacchetto di accesso con due applicazioni e 100 assegnazioni utente e si decide di aggiungere un ruolo del sito di SharePoint al pacchetto di accesso, è possibile che si verifichi un ritardo fino a quando tutti gli utenti non fanno parte del ruolo del sito di SharePoint. È possibile monitorare lo stato di avanzamento tramite il registro di controllo Azure AD, il log di provisioning Azure AD e i log di controllo del sito di SharePoint.
 
-Quando si rimuove un membro di un team, questo membro del team viene rimosso anche dal gruppo di Office 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)a un gruppo.
+Quando si rimuove un membro di un team, questo membro del team viene rimosso anche dal gruppo di Office 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](/microsoftteams/office-365-groups#group-membership)a un gruppo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

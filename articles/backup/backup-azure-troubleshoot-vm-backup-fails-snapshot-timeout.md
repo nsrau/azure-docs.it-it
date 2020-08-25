@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611858"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755369"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -175,8 +175,8 @@ L'operazione di backup potrebbe non riuscire quando si esegue il backup di una m
 
 Il processo di backup recente non è riuscito perché è in corso un processo di backup esistente. Non è possibile avviare un nuovo processo di backup fino al termine del processo corrente. Verificare che l'operazione di backup attualmente in corso sia stata completata prima di attivare o pianificare altre operazioni di backup. Per controllare lo stato dei processi di backup, attenersi alla procedura seguente:
 
-1. Accedere alla portale di Azure e selezionare **tutti i servizi**. Digitare servizi di ripristino e selezionare insiemi di credenziali **dei servizi di ripristino**. Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
-2. Nell'elenco degli insiemi di credenziali di Servizi di ripristino selezionare un insieme di credenziali in cui è configurato il backup.
+1. Accedere alla portale di Azure e selezionare **tutti i servizi**. Digitare servizi di ripristino e selezionare insiemi di credenziali **dei servizi di ripristino**. Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino.
+2. Nell'elenco degli insiemi di credenziali di servizi di ripristino selezionare un insieme di credenziali in cui è configurato il backup.
 3. Nel menu del dashboard dell'insieme di credenziali selezionare **processi di backup** per visualizzare tutti i processi di backup.
    - Se è in corso un processo di backup, attenderne il completamento o annullarlo.
      - Per annullare il processo di backup, fare clic con il pulsante destro del mouse sul processo di backup e scegliere **Annulla** o usa [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
