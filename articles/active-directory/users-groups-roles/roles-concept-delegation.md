@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 468b874ae4a19b8b5ea2a9a91a258722cef60e3a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498226"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798602"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegare i ruoli di amministratore in Azure Active Directory
 
@@ -60,7 +60,7 @@ Determinare le attività di Active Directory che vengono eseguite dagli amminist
 Ogni attività deve essere valutata in termini di frequenza, importanza e difficoltà. Questi criteri sono aspetti fondamentali della definizione delle attività perché determinano se un'autorizzazione deve essere delegata:
 
 * Le attività svolte con frequenza regolare, con rischi limitati e semplici da eseguire sono particolarmente adatte a essere delegate.
-* Le attività che vengono eseguite raramente, ma hanno un notevole impatto su tutta l'organizzazione e richiedono competenze di alto livello, devono essere valutate molto attentamente prima di un'eventuale delega. In alternativa, è possibile [elevare temporaneamente un account al ruolo richiesto](../active-directory-privileged-identity-management-configure.md) o riassegnare l'attività.
+* Le attività che vengono eseguite raramente, ma hanno un notevole impatto su tutta l'organizzazione e richiedono competenze di alto livello, devono essere valutate molto attentamente prima di un'eventuale delega. In alternativa, è possibile [elevare temporaneamente un account al ruolo richiesto](../privileged-identity-management/pim-configure.md) o riassegnare l'attività.
 
 ## <a name="delegate-app-administration"></a>Delegare l'amministrazione di app
 
@@ -110,7 +110,7 @@ Gli utenti malintenzionati che ottengono il controllo degli account con privileg
 
 ## <a name="elevate-privilege-temporarily"></a>Elevare temporaneamente i privilegi
 
-Per la maggior parte delle attività quotidiane, non tutti gli utenti necessitano di diritti di amministratore globale e non tutti devono essere assegnati in modo permanente al ruolo Amministratore globale. Quando gli utenti devono disporre delle autorizzazioni di Amministratore globale, devono attivare l'assegnazione del ruolo in Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) per il proprio account o per un account di amministratore alternativo.
+Per la maggior parte delle attività quotidiane, non tutti gli utenti necessitano di diritti di amministratore globale e non tutti devono essere assegnati in modo permanente al ruolo Amministratore globale. Quando gli utenti devono disporre delle autorizzazioni di Amministratore globale, devono attivare l'assegnazione del ruolo in Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md) per il proprio account o per un account di amministratore alternativo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,13 +2,13 @@
 title: Definizione dello schema dell'app
 description: L'app LUIS è rappresentata in `.json` o `.lu` e include tutti gli Intent, le entità, le espressioni di esempio, le funzionalità e le impostazioni.
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/22/2020
+ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684350"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756789"
 ---
 # <a name="app-schema-definition"></a>Definizione dello schema dell'app
 
@@ -55,12 +55,30 @@ Quando si importa ed Esporta l'app, scegliere `.json` o `.lu` .
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
+
+| element                  | Commento                              |
+|--------------------------|--------------------------------------|
+| "gerarchie": [],     | Deprecato, usare le [entità di Machine Learning](luis-concept-entity-types.md).   |
+| "compositi": [],        | Deprecato, usare le [entità di Machine Learning](luis-concept-entity-types.md). Riferimento all' [entità composita](reference-entity-composite.md) . |
+| "closedLists": [],       | [Elencare le entità](reference-entity-list.md) di riferimento, utilizzate principalmente come funzionalità per le entità.    |
+| "VersionId": "0,1",      | Versione di un'app LUIS.|
+| "nome": "example-app",   | Nome dell'app LUIS. |
+| "DESC": "",              | Descrizione facoltativa dell'app LUIS.  |
+| "cultura": "en-US",      | [Lingua](luis-language-support.md) dell'app, influisca sulle funzionalità sottostanti, ad esempio le entità predefinite, Machine Learning e Tokenizer.  |
+| "tokenizerVersion": "1.0.0", | [Tokenizer](luis-language-support.md#tokenization)  |
+| "patternAnyEntities": [],   | [Entità pattern.any](reference-entity-pattern-any.md)    |
+| "regex_entities": [],    |  [Entità di espressione regolare](reference-entity-regular-expression.md)   |
+| "phraselists": [],       |  [Elenchi di frasi (funzionalità)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  Deprecato, usare le [entità di Machine Learning](luis-concept-entity-types.md). |
+| "Patterns": [],          |  [Modelli per migliorare l'accuratezza della stima](luis-concept-patterns.md) con la [sintassi](reference-pattern-syntax.md) dei modelli   |
+| "Impostazioni": []           | [Impostazioni app](luis-reference-application-settings.md)|
 
 ## <a name="version-6x"></a>Versione 6. x
 

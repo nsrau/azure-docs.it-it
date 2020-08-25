@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921946"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756725"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -36,14 +36,12 @@ Quando si ripristina un database, il servizio determina quali backup completi, d
 
 ### <a name="backup-storage-redundancy"></a>Ridondanza dell'archiviazione di backup
 
-> [!IMPORTANT]
-> La ridondanza di archiviazione configurabile per i backup è attualmente disponibile solo per SQL Istanza gestita e può essere specificata solo durante il processo di creazione dell'istanza gestita. Una volta eseguito il provisioning della risorsa, non è possibile modificare l'opzione di ridondanza dell'archiviazione di backup.
+Per impostazione predefinita, il database SQL e SQL Istanza gestita archiviano i dati in [BLOB di archiviazione](../../storage/common/storage-redundancy.md) con ridondanza geografica (RA-GRS) che vengono replicati in un' [area associata](../../best-practices-availability-paired-regions.md). In questo modo è possibile proteggere da interruzioni che influiscano sull'archiviazione di backup nell'area primaria e consentire il ripristino del server in un'area diversa in caso di emergenza. 
 
-L'opzione per configurare la ridondanza dell'archiviazione di backup offre la flessibilità di scegliere tra i [BLOB di archiviazione](../../storage/common/storage-redundancy.md)con ridondanza locale (con ridondanza locale), con ridondanza della zona (ZRS) o con ridondanza geografica (RA-GRS). I meccanismi di ridondanza dell'archiviazione archiviano più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione o calamità naturali di grandi dimensioni. Questa funzionalità è attualmente disponibile solo per SQL Istanza gestita.
+In SQL Istanza gestita è stata introdotta la possibilità di modificare la ridondanza di archiviazione in BLOB di archiviazione con ridondanza locale (con ridondanza locale) o con ridondanza della zona (ZRS) per garantire che i dati rimangano nella stessa area in cui viene distribuita l'istanza gestita. I meccanismi di ridondanza dell'archiviazione archiviano più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione o calamità naturali di grandi dimensioni. 
 
-I BLOB di archiviazione RA-GRS vengono replicati in un' [area abbinata](../../best-practices-availability-paired-regions.md) per evitare interruzioni che influiscano sull'archiviazione dei backup nell'area primaria e consentono di ripristinare il server in un'area diversa in caso di emergenza. 
+L'opzione per configurare la ridondanza dell'archiviazione di backup offre la flessibilità di scegliere tra i BLOB di archiviazione con ridondanza locale, ZRS o RA-GRS per un Istanza gestita SQL. Configurare la ridondanza dell'archiviazione di backup durante il processo di creazione dell'istanza gestita quando viene eseguito il provisioning della risorsa, non è più possibile modificare la ridondanza di archiviazione. L'archiviazione con ridondanza della zona (ZRS) è attualmente disponibile solo in [determinate aree geografiche](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
-Viceversa, i BLOB di archiviazione con ridondanza locale e ZRS assicurano che i dati rimangano nella stessa area in cui è distribuito il database SQL o SQL Istanza gestita. L'archiviazione con ridondanza della zona (ZRS) è attualmente disponibile solo in [determinate aree geografiche](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 > [!IMPORTANT]
 > In SQL Istanza gestita la ridondanza del backup configurata viene applicata alle impostazioni di conservazione dei backup a breve termine usate per il ripristino temporizzato (ripristino temporizzato) e i backup con conservazione a lungo termine usati per i backup a lungo termine (LTR).
@@ -116,7 +114,7 @@ L'utilizzo dell'archiviazione di backup fino alle dimensioni massime dei dati pe
 - Utilizzare TempDB anziché le tabelle permanenti nella logica dell'applicazione per archiviare i risultati temporanei e/o i dati temporanei.
 - Usare l'archiviazione di backup con ridondanza locale quando possibile (ad esempio, ambienti di sviluppo/test)
 
-## <a name="backup-retention"></a>Conservazione backup
+## <a name="backup-retention"></a>Conservazione dei backup
 
 Per tutti i nuovi database, ripristinati e copiati, il database SQL di Azure e Azure SQL Istanza gestita conservano backup sufficienti per consentire ripristino temporizzato negli ultimi 7 giorni per impostazione predefinita. Fatta eccezione per i database con iperscalabilità, è possibile [modificare il periodo di conservazione dei backup](#change-the-pitr-backup-retention-period) per ogni database attivo nell'intervallo di 1-35 giorni. Come descritto in [utilizzo dell'archiviazione di backup](#backup-storage-consumption), i backup archiviati per abilitare ripristino temporizzato potrebbero essere precedenti al periodo di conservazione. Solo per Istanza gestita SQL di Azure, è possibile impostare il tasso di conservazione dei backup di ripristino temporizzato dopo l'eliminazione di un database nell'intervallo di 0-35 giorni. 
 
@@ -194,7 +192,7 @@ Aggiungere un filtro per **nome servizio**e quindi selezionare **database SQL** 
 
 ## <a name="encrypted-backups"></a>Backup crittografati
 
-Se il database è crittografato con Transparent Data Encryption, i backup vengono crittografati automaticamente a riposo, inclusi i backup di LTR. Tutti i nuovi database in Azure SQL sono configurati con Transparent Data Encryption abilitato per impostazione predefinita. Per ulteriori informazioni su Transparent Data Encryption, vedere [Transparent Data Encryption con SQL Database & sql istanza gestita](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Se il database è crittografato con Transparent Data Encryption, i backup vengono crittografati automaticamente a riposo, inclusi i backup di LTR. Tutti i nuovi database in Azure SQL sono configurati con Transparent Data Encryption abilitato per impostazione predefinita. Per ulteriori informazioni su Transparent Data Encryption, vedere  [Transparent Data Encryption con SQL Database & sql istanza gestita](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Integrità backup
 

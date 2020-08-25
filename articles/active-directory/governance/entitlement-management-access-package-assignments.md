@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78bed4f5c600bfa0218f924dc4444119e9729e28
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 355f0127829b709d82127fb340381830793c93ff
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798750"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783553"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -58,7 +58,7 @@ Per utilizzare Azure AD gestione dei diritti e assegnare gli utenti per l'access
 
 ### <a name="viewing-assignments-programmatically"></a>Visualizzazione delle assegnazioni a livello di codice
 
-È inoltre possibile recuperare le assegnazioni in un pacchetto di accesso utilizzando Microsoft Graph.  Un utente in un ruolo appropriato con un'applicazione con l'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [elencare accessPackageAssignments](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
+È inoltre possibile recuperare le assegnazioni in un pacchetto di accesso utilizzando Microsoft Graph.  Un utente in un ruolo appropriato con un'applicazione con l'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [elencare accessPackageAssignments](/graph/api/accesspackageassignment-list?view=graph-rest-beta).
 
 ## <a name="directly-assign-a-user"></a>Assegnare direttamente un utente
 
@@ -90,7 +90,7 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 
 ### <a name="directly-assigning-users-programmatically"></a>Assegnazione diretta di utenti a livello di codice
 
-È inoltre possibile assegnare direttamente un utente a un pacchetto di accesso utilizzando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [creare un accessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
+È inoltre possibile assegnare direttamente un utente a un pacchetto di accesso utilizzando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [creare un accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
 
 ## <a name="remove-an-assignment"></a>Rimuovere un'assegnazione
 

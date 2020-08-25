@@ -3,12 +3,12 @@ title: Informazioni sul backup di condivisioni file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c57537519888138698e9add1a687e0018d330cfa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289522"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757881"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
 
@@ -42,9 +42,9 @@ Il backup di condivisioni file di Azure è una soluzione di backup nativa basata
     >[!NOTE]
     >I dati della condivisione file non vengono trasferiti al servizio di backup, perché il servizio di backup crea e gestisce gli snapshot che fanno parte dell'account di archiviazione e i backup non vengono trasferiti nell'insieme di credenziali.
 
-6. È possibile ripristinare il contenuto della condivisione file di Azure (singoli file o la condivisione completa) dagli snapshot disponibili nella condivisione file di origine. Una volta attivata l'operazione, l'URL dello snapshot viene recuperato dall'archivio di metadati e i dati vengono elencati e trasferiti dallo snapshot di origine alla condivisione file di destinazione di propria scelta. 
+6. È possibile ripristinare il contenuto della condivisione file di Azure (singoli file o la condivisione completa) dagli snapshot disponibili nella condivisione file di origine. Una volta attivata l'operazione, l'URL dello snapshot viene recuperato dall'archivio di metadati e i dati vengono elencati e trasferiti dallo snapshot di origine alla condivisione file di destinazione di propria scelta.
 
-7. Se si utilizza Sincronizzazione file di Azure, il servizio di backup indica al servizio Sincronizzazione file di Azure i percorsi dei file da ripristinare, che attiva quindi un processo di rilevamento delle modifiche in background su questi file. Tutti i file che sono stati modificati vengono sincronizzati con l'endpoint server. Questo processo avviene in parallelo con il ripristino originale per la condivisione file di Azure. 
+7. Se si utilizza Sincronizzazione file di Azure, il servizio di backup indica al servizio Sincronizzazione file di Azure i percorsi dei file da ripristinare, che attiva quindi un processo di rilevamento delle modifiche in background su questi file. Tutti i file che sono stati modificati vengono sincronizzati con l'endpoint server. Questo processo avviene in parallelo con il ripristino originale per la condivisione file di Azure.
 
 8. Viene eseguito il push dei dati di monitoraggio del processo di backup e ripristino nel servizio di monitoraggio di backup di Azure. In questo modo è possibile monitorare i backup cloud per le condivisioni file in un unico dashboard. Inoltre, è possibile configurare avvisi o notifiche tramite posta elettronica quando l'integrità del backup è interessata. I messaggi vengono inviati tramite il servizio di posta elettronica di Azure.
 

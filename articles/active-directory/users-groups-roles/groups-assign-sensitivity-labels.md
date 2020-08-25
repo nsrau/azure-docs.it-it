@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f80b986a9d1a3b2be9aa413ce4175d8eb88bc4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213822"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795314"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Assegnare etichette di riservatezza ai gruppi di Microsoft 365 in Azure Active Directory
 
-Azure Active Directory (Azure AD) supporta l'applicazione di etichette di riservatezza pubblicate dal [centro conformità Microsoft 365](https://sip.protection.office.com/homepage) a gruppi Microsoft 365. Le etichette di riservatezza si applicano al gruppo tra servizi come Outlook, Microsoft teams e SharePoint. Questa funzionalità è attualmente disponibile nella versione GA pubblica. Per ulteriori informazioni sul supporto delle app di Office 365, vedere [supporto di office 365 per le etichette di riservatezza](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) supporta l'applicazione di etichette di riservatezza pubblicate dal [centro conformità Microsoft 365](https://sip.protection.office.com/homepage) a gruppi Microsoft 365. Le etichette di riservatezza si applicano al gruppo tra servizi come Outlook, Microsoft teams e SharePoint. Questa funzionalità è attualmente disponibile nella versione GA pubblica. Per ulteriori informazioni sul supporto delle app di Office 365, vedere [supporto di office 365 per le etichette di riservatezza](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Per configurare questa funzionalità, è necessario che sia presente almeno una licenza attiva Azure Active Directory Premium P1 nell'organizzazione Azure AD.
@@ -48,7 +48,7 @@ Per applicare le etichette pubblicate ai gruppi, è innanzitutto necessario abil
     ```
 
     > [!NOTE]
-    > Se per questa organizzazione Azure AD non sono state create impostazioni di gruppo, è necessario innanzitutto creare le impostazioni. Attenersi alla procedura descritta in [Azure Active Directory cmdlets per configurare le impostazioni di gruppo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-cmdlets) per creare le impostazioni di gruppo per l'organizzazione Azure ad.
+    > Se per questa organizzazione Azure AD non sono state create impostazioni di gruppo, è necessario innanzitutto creare le impostazioni. Attenersi alla procedura descritta in [Azure Active Directory cmdlets per configurare le impostazioni di gruppo](./groups-settings-cmdlets.md) per creare le impostazioni di gruppo per l'organizzazione Azure ad.
 
 1. Successivamente, visualizzare le impostazioni del gruppo corrente.
 
@@ -68,7 +68,7 @@ Per applicare le etichette pubblicate ai gruppi, è innanzitutto necessario abil
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Questo è tutto. È stata abilitata la funzionalità ed è possibile applicare etichette pubblicate ai gruppi.
+È tutto. È stata abilitata la funzionalità ed è possibile applicare etichette pubblicate ai gruppi.
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Assegnare un'etichetta a un nuovo gruppo in portale di Azure
 
@@ -145,7 +145,7 @@ Se è necessario apportare una modifica, usare uno [script di Azure ad PowerShel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare le etichette di riservatezza con Microsoft teams, gruppi di Microsoft 365 e siti di SharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+- [Usare le etichette di riservatezza con Microsoft teams, gruppi di Microsoft 365 e siti di SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Aggiornare i gruppi dopo aver modificato manualmente i criteri di etichetta con Azure AD script di PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
-- [Modificare le impostazioni del gruppo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal)
-- [Gestire i gruppi con i comandi di PowerShell](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets)
+- [Modificare le impostazioni del gruppo](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Gestire i gruppi con i comandi di PowerShell](./groups-settings-v2-cmdlets.md)

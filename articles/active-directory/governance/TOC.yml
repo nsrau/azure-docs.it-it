@@ -126,6 +126,6 @@
   expanded: true
   items:
     - name: Verifiche di accesso - API Graph
-      href: 'https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta'
+      href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
     - name: Gestione entitlement - API Graph
-      href: 'https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta'
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

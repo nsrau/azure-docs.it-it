@@ -3,12 +3,12 @@ title: Analisi video in tempo reale sulle quote di IoT Edge-Azure
 description: Questo articolo descrive le analisi video in tempo reale su IoT Edge quote e limitazioni.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091811"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750236"
 ---
 # <a name="quotas-and-limitations"></a>Quote e limitazioni
 
@@ -36,21 +36,23 @@ Con la versione di anteprima, è possibile connettere in una topologia del grafi
    * È consentita una sola origine RTSP per ogni topologia Graph.
 * Processore filtro frequenza frame
    * Deve essere immediatamente a valle dal processore RTSP source o Motion Detection.
-   * Non può essere utilizzato a valle di un processore di estensione HTTP.
+   * Non può essere usato a valle di un processore di estensione HTTP o gRPC.
    * Non può essere upstream da un processore di rilevamento del movimento.
 * Processore di estensione HTTP
+   * Può essere presente al massimo un processore per ogni topologia Graph.
+* processore di estensione gRPC
    * Può essere presente al massimo un processore per ogni topologia Graph.
 * Processore rilevamento movimento
    * Deve essere immediatamente a valle dall'origine RTSP.
    * Può essere presente al massimo un processore per ogni topologia Graph.
-   * Non può essere utilizzato a valle di un processore di estensione HTTP.
+   * Non può essere usato a valle di un processore di estensione HTTP o gRPC.
 * Processore Gate Signal
    * Deve essere immediatamente a valle dall'origine RTSP.
 * Sink di asset 
    * Deve essere immediatamente downstream dal processore RTSP source o Signal Gate.
 * Sink di file
    * Deve essere immediatamente downstream dal processore del Gate Signal.
-   * Non può essere immediatamente downstream del processore di estensione HTTP o del processore di rilevamento del movimento
+   * Non può essere immediatamente downstream di un processore di estensione HTTP o gRPC o di un processore di rilevamento del movimento
 * Sink hub tutto
    * Non può essere immediatamente a valle di un'origine hub Internet.
 
@@ -66,4 +68,4 @@ Al momento della versione di anteprima, l'analisi video live su IoT Edge non sup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](overview.md)
+[Overview](overview.md)

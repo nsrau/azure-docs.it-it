@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326087"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798908"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -38,7 +38,9 @@ Ulteriori informazioni sulle diverse funzionalità supportate da [Monitoraggio p
 NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi parte del mondo, da un'area di lavoro ospitata in una delle seguenti aree:
 * Europa settentrionale
 * Europa occidentale
+* Svizzera settentrionale
 * Francia centrale
+* Sudafrica settentrionale
 * Canada centrale
 * Stati Uniti occidentali
 * Stati Uniti centro-occidentali
@@ -58,6 +60,7 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Corea centrale
 * India centrale
 * Virginia e US Gov
+* Arizona del governo degli Stati Uniti
 * Cina orientale 2
 
 
@@ -163,7 +166,7 @@ Tutti i nodi su cui è installato un agente sono elencati nella scheda **Nodi**.
 
 Configurare le funzionalità desiderate:
 
-- [Monitoraggio delle prestazioni](network-performance-monitor-performance-monitor.md#configuration)
+- [Performance Monitor](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitoraggio connettività servizio](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitoraggio di ExpressRoute](network-performance-monitor-expressroute.md#configuration)
 
@@ -283,7 +286,7 @@ Le notifiche vengono addebitate separatamente in base ai [prezzi per le notifich
 
 Le informazioni sui prezzi sono disponibili [online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti 
+## <a name="provide-feedback"></a>Fornire il feedback 
 
 * **UserVoice**: è possibile pubblicare le proprie idee sulle funzionalità di Monitoraggio prestazioni rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

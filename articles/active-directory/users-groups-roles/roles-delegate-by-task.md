@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 692b20bf301bbd7bf03ea1af5527e08d947b50da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117880"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798364"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -42,7 +42,7 @@ Leggere tutta la configurazione | Amministratore di applicazioni |
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Creare directory di Azure AD B2C | Tutti gli utenti non guest ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Creare directory di Azure AD B2C | Tutti gli utenti non guest ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | 
 Creare applicazioni B2C | Amministratore globale | 
 Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore di applicazioni
 Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore dei criteri IEF B2C | 
@@ -54,7 +54,7 @@ Creare, leggere, aggiornare ed eliminare flussi utente con iscrizione |Amministr
 Creare, leggere, aggiornare ed eliminare attributi utente | Amministratore attributo flusso utente ID esterno | 
 Creare, leggere, aggiornare ed eliminare utenti | Amministratore utenti
 Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | 
-Log di controllo di B2C di lettura | Lettore globale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+Log di controllo di B2C di lettura | Lettore globale ([vedere la documentazione](../../active-directory-b2c/faq.md)) | 
 
 > [!NOTE]
 > Azure AD B2C i lettori globali non hanno le stesse autorizzazioni degli amministratori globali Azure AD. Se si dispone di Azure AD B2C privilegi di amministratore globale, assicurarsi di trovarsi in una directory Azure AD B2C e non in una directory di Azure AD.
@@ -64,7 +64,7 @@ Log di controllo di B2C di lettura | Lettore globale ([vedere la documentazione]
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Configurare la personalizzazione aziendale | Amministratore globale | 
-Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md))
 
 ## <a name="company-properties"></a>Proprietà della società
 
@@ -92,25 +92,25 @@ Accesso Single Sign-On facile (Seamless SSO) | Amministratore delle identità ib
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Aggiungere o eliminare i servizi | Proprietario ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
-Applicare le correzioni agli errori di sincronizzazione | Collaboratore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Proprietario
-Configurare le notifiche | Collaboratore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Proprietario
-Configurare le impostazioni | Proprietario ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
-Configurare le notifiche di sincronizzazione | Collaboratore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Proprietario
+Aggiungere o eliminare i servizi | Proprietario ([vedere la documentazione](../hybrid/how-to-connect-health-operations.md)) | 
+Applicare le correzioni agli errori di sincronizzazione | Collaboratore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Proprietario
+Configurare le notifiche | Collaboratore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Proprietario
+Configurare le impostazioni | Proprietario ([vedere la documentazione](../hybrid/how-to-connect-health-operations.md)) | 
+Configurare le notifiche di sincronizzazione | Collaboratore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Proprietario
 Leggere report sulla sicurezza del file system distribuito di Azure (ADFS) | Ruolo con autorizzazioni di lettura per la sicurezza | Collaboratore, proprietario
-Leggere tutta la configurazione | Lettore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Collaboratore, proprietario
-Leggere errori di sincronizzazione | Lettore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Collaboratore, proprietario
-Leggere servizi di sincronizzazione | Lettore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Collaboratore, proprietario
-Visualizzare metriche e avvisi | Lettore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Collaboratore, proprietario
-Visualizzare metriche e avvisi | Lettore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Collaboratore, proprietario
-Visualizzare le metriche del servizio di sincronizzazione e gli avvisi | Lettore ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Collaboratore, proprietario
+Leggere tutta la configurazione | Lettore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Collaboratore, proprietario
+Leggere errori di sincronizzazione | Lettore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Collaboratore, proprietario
+Leggere servizi di sincronizzazione | Lettore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Collaboratore, proprietario
+Visualizzare metriche e avvisi | Lettore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Collaboratore, proprietario
+Visualizzare metriche e avvisi | Lettore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Collaboratore, proprietario
+Visualizzare le metriche del servizio di sincronizzazione e gli avvisi | Lettore ([vedere la documentazione](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Collaboratore, proprietario
 
 ## <a name="custom-domain-names"></a>Nomi di dominio personalizzati
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Gestire domini | Amministratore globale | 
-Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md))
 
 ## <a name="domain-services"></a>Servizi di dominio
 
@@ -126,7 +126,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Disabilitare dispositivo | Amministratore dispositivo cloud | 
 Abilitare dispositivo | Amministratore dispositivo cloud | 
-Leggere configurazione di base | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Leggere configurazione di base | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | 
 Leggere le chiavi BitLocker | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore password/amministratore sicurezza
 
 ## <a name="enterprise-applications"></a>Applicazioni aziendali
@@ -136,18 +136,18 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 Fornire il consenso per eventuali autorizzazioni delegate | Amministratore di applicazioni cloud | Amministratore di applicazioni
 Il consenso alle autorizzazioni dell'applicazione non include Microsoft Graph | Amministratore di applicazioni cloud | Amministratore di applicazioni
 Consenso alle autorizzazioni dell'applicazione per Microsoft Graph | Amministratore dei ruoli con privilegi | 
-Fornire il consenso alle applicazioni che accedono ai propri dati | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Fornire il consenso alle applicazioni che accedono ai propri dati | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | 
 Creare applicazioni aziendali | Amministratore di applicazioni cloud | Amministratore di applicazioni
 Gestire proxy di applicazione | Amministratore di applicazioni | 
 Gestire le impostazioni dell'utente | Amministratore globale | 
 Leggere la verifica di accesso di un gruppo o di un'applicazione | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore sicurezza/amministratore utente
-Leggere tutta la configurazione | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Aggiornare le assegnazioni di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore applicazione cloud, amministratore dell'applicazione
-Aggiornare i proprietari di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore applicazione cloud, amministratore dell'applicazione
-Aggiornare le proprietà di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore applicazione cloud, amministratore dell'applicazione
-Aggiornare il provisioning di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore applicazione cloud, amministratore dell'applicazione
-Aggiornare il self-service di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore applicazione cloud, amministratore dell'applicazione
-Aggiornare le proprietà del servizio Single Sign-On | Proprietario dell'applicazione aziendale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore applicazione cloud, amministratore dell'applicazione
+Leggere tutta la configurazione | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | 
+Aggiornare le assegnazioni di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore applicazione cloud, amministratore dell'applicazione
+Aggiornare i proprietari di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore applicazione cloud, amministratore dell'applicazione
+Aggiornare le proprietà di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore applicazione cloud, amministratore dell'applicazione
+Aggiornare il provisioning di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore applicazione cloud, amministratore dell'applicazione
+Aggiornare il self-service di applicazioni aziendali | Proprietario dell'applicazione aziendale ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore applicazione cloud, amministratore dell'applicazione
+Aggiornare le proprietà del servizio Single Sign-On | Proprietario dell'applicazione aziendale ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore applicazione cloud, amministratore dell'applicazione
 
 ## <a name="entitlement-management"></a>Gestione entitlement
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
@@ -165,13 +165,13 @@ Creare un gruppo | Amministratore di gruppi | Amministratore utenti
 Creare, aggiornare o cancellare la verifica di accesso di un gruppo o di un'applicazione | Amministratore utenti | 
 Gestire la scadenza dei gruppi | Amministratore utenti | 
 Gestire le impostazioni dei gruppi | Amministratore di gruppi | Amministratore utenti | 
-Leggere tutta la configurazione (eccetto l'appartenenza nascosta) | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Leggere tutta la configurazione (eccetto l'appartenenza nascosta) | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md))
 Leggere le appartenenze nascoste | Membro di un gruppo | Proprietario del gruppo, amministratore password, amministratore di Exchange, amministratore di SharePoint, amministratore team, Amministratore utenti
 Leggere l'appartenenza dei gruppi con appartenenza nascosta | Amministratore del supporto tecnico | Amministratore utenti, amministratore team
 Revocare la licenza | Amministratore licenze | Amministratore utenti
-Aggiornare l'appartenenza al gruppo | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
-Aggiornare i proprietari dei gruppi | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
-Aggiornare proprietà del gruppo | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
+Aggiornare l'appartenenza al gruppo | Proprietario del gruppo ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore utenti
+Aggiornare i proprietari dei gruppi | Proprietario del gruppo ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore utenti
+Aggiornare proprietà del gruppo | Proprietario del gruppo ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | Amministratore utenti
 Eliminare gruppo | Amministratore di gruppi | Amministratore utenti
 
 ## <a name="identity-protection"></a>Identity Protection
@@ -189,12 +189,12 @@ Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sic
 Leggi tutti i rilevamenti di rischio | Ruolo con autorizzazioni di lettura per la sicurezza | 
 Leggere le vulnerabilità | Ruolo con autorizzazioni di lettura per la sicurezza | 
 
-## <a name="licenses"></a>Licenze
+## <a name="licenses"></a>Licenses
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Assegnare una licenza | Amministratore licenze | Amministratore utenti
-Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
+Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md))
 Revocare la licenza | Amministratore licenze | Amministratore utenti
 Provare o acquistare la sottoscrizione | Amministratore fatturazione | 
 
@@ -275,15 +275,15 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Gestire le assegnazioni di ruoli | Amministratore dei ruoli con privilegi | 
 Leggere verifica di accesso di un ruolo di Azure AD  | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della sicurezza, amministratore dei ruoli con privilegi
-Leggere tutta la configurazione | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
+Leggere tutta la configurazione | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | 
 
 ## <a name="security---authentication-methods"></a>Sicurezza - metodi di autenticazione
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Configurare i metodi di autenticazione | Amministratore globale | 
-Configurare la protezione con password | Amministratore della protezione
-Configurare il blocco intelligente | Amministratore della protezione
+Configurare la protezione con password | Amministratore della sicurezza
+Configurare il blocco intelligente | Amministratore della sicurezza
 Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | 
 
 ## <a name="security---conditional-access"></a>Sicurezza-accesso condizionale
@@ -291,18 +291,18 @@ Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali |
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Configurare indirizzi IP attendibili MFA | Amministratore di accesso condizionale | 
-Creare controlli personalizzati | Amministratore di accesso condizionale | Amministratore della protezione
-Creare posizioni specifiche | Amministratore di accesso condizionale | Amministratore della protezione
-Creare criteri | Amministratore di accesso condizionale | Amministratore della protezione
-Creare condizioni per l'utilizzo | Amministratore di accesso condizionale | Amministratore della protezione
-Creare il certificato di connettività VPN | Amministratore di accesso condizionale | Amministratore della protezione
-Eliminare un criterio classico | Amministratore di accesso condizionale | Amministratore della protezione
-Eliminare le condizioni per l'utilizzo | Amministratore di accesso condizionale | Amministratore della protezione
-Eliminare il certificato di connettività VPN | Amministratore di accesso condizionale | Amministratore della protezione
-Disabilitare i criteri classici | Amministratore di accesso condizionale | Amministratore della protezione
-Gestire controlli personalizzati | Amministratore di accesso condizionale | Amministratore della protezione
-Gestire posizioni specifiche | Amministratore di accesso condizionale | Amministratore della protezione
-Gestire le condizioni per l'utilizzo | Amministratore di accesso condizionale | Amministratore della protezione
+Creare controlli personalizzati | Amministratore di accesso condizionale | Amministratore della sicurezza
+Creare posizioni specifiche | Amministratore di accesso condizionale | Amministratore della sicurezza
+Creare criteri | Amministratore di accesso condizionale | Amministratore della sicurezza
+Creare condizioni per l'utilizzo | Amministratore di accesso condizionale | Amministratore della sicurezza
+Creare il certificato di connettività VPN | Amministratore di accesso condizionale | Amministratore della sicurezza
+Eliminare un criterio classico | Amministratore di accesso condizionale | Amministratore della sicurezza
+Eliminare le condizioni per l'utilizzo | Amministratore di accesso condizionale | Amministratore della sicurezza
+Eliminare il certificato di connettività VPN | Amministratore di accesso condizionale | Amministratore della sicurezza
+Disabilitare i criteri classici | Amministratore di accesso condizionale | Amministratore della sicurezza
+Gestire controlli personalizzati | Amministratore di accesso condizionale | Amministratore della sicurezza
+Gestire posizioni specifiche | Amministratore di accesso condizionale | Amministratore della sicurezza
+Gestire le condizioni per l'utilizzo | Amministratore di accesso condizionale | Amministratore della sicurezza
 Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della sicurezza
 Leggere posizioni specifiche | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore dell'accesso condizionale, amministratore della sicurezza
 
@@ -312,7 +312,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi |
 ---- | --------------------- | ----------------
 Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della sicurezza
 Leggere punteggio di sicurezza | Ruolo con autorizzazioni di lettura per la sicurezza | Amministratore della sicurezza
-Aggiornare stato dell'evento | Amministratore della protezione | 
+Aggiornare stato dell'evento | Amministratore della sicurezza | 
 
 ## <a name="security---risky-sign-ins"></a>Sicurezza - accessi a rischio
 
@@ -342,7 +342,7 @@ Eliminare gli utenti | Amministratore utenti |
 Invalidare i token di aggiornamento degli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 
 Invalidare i token di aggiornamento dei non amministratori (vedere la documentazione) | Amministratore password | Amministratore utenti
 Invalidare i token di aggiornamento degli amministratori con privilegi (vedere la documentazione) | Amministratore autenticazione con privilegi | 
-Leggere configurazione di base | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
+Leggere configurazione di base | Ruolo utente predefinito ([vedere la documentazione](../fundamentals/users-default-permissions.md) | 
 Reimpostare la password per gli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 
 Reimpostare la password per i non amministratori (vedere la documentazione) | Amministratore password | Amministratore utenti
 Reimpostare la password degli amministratori con privilegi | Amministratore autenticazione con privilegi | 

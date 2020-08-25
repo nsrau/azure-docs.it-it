@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 8519daffd8ee0ad6c12be2f40fd8030caaaf34c8
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1c9e40738d70b6fbb9fed267a6a047d8330023b7
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724997"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749281"
 ---
 # <a name="business-card-concepts"></a>Concetti relativi ai biglietti di business
 
@@ -69,6 +69,8 @@ Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business ca
 | |  | Succeeded: l'operazione di analisi ha avuto esito positivo. |
 
 Quando il campo **stato** presenta il valore **succeeded** , la risposta JSON includerà i risultati relativi a business card e riconoscimento testo. Il risultato della comprensione del business card è organizzato come un dizionario di valori di campo denominati, dove ogni valore contiene il testo estratto, il valore normalizzato, il rettangolo di delimitazione, la confidenza e gli elementi di parola corrispondenti. Il risultato del riconoscimento del testo è organizzato come una gerarchia di righe e parole, con testo, rettangolo di delimitazione e informazioni sulla confidenza.
+
+![Risultati di Contoso smample](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Output JSON di esempio
 
@@ -374,7 +376,7 @@ Vedere l'esempio seguente di una risposta JSON riuscita: il nodo "readResults" c
 }
 ```
 
-Seguire la Guida introduttiva estrazione [dati business card](./QuickStarts/python-business-cards.md) per implementare l'estrazione dei dati della smart card con Python e l'API REST.
+Seguire la Guida introduttiva per l'estrazione dei [dati delle schede business](./QuickStarts/python-business-cards.md) con Python e l'API REST.
 
 ## <a name="customer-scenarios"></a>Scenari utente  
 

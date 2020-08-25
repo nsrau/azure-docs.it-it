@@ -1,16 +1,16 @@
 ---
 title: 'Concetti: identità e accesso'
-description: Informazioni sui concetti di identità e accesso della soluzione VMware di Azure (AVS)
+description: Informazioni sui concetti di identità e accesso della soluzione VMware di Azure
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ce85b60b38db86af14b9e9aa06e568436dc76658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82740954"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750580"
 ---
-# <a name="azure-vmware-solution-avs-identity-concepts"></a>Concetti di identità della soluzione VMware di Azure (AVS)
+# <a name="azure-vmware-solution-identity-concepts"></a>Concetti di identità della soluzione VMware di Azure
 
 Viene eseguito il provisioning di un server vCenter e di una gestione NSX-T quando viene distribuito un cloud privato. VCenter viene usato per gestire i carichi di lavoro delle macchine virtuali e NSX-T Manager per estendere la rete di cloud privato definita dal software.
 

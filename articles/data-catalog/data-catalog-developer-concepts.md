@@ -6,25 +6,23 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68976837"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799248"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure
 **Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell'origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
 
-## <a name="key-concepts"></a>Concetti chiave
+## <a name="key-concepts"></a>Concetti chiave 
 Il modello concettuale di **Azure Data Catalog** è basato su quattro concetti chiave: il **catalogo**, gli **utenti**, gli **asset** e le **annotazioni**.
 
 ![Illustrazione del modello concettuale Azure Data Catalog](./media/data-catalog-developer-concepts/concept2.png)
 
-*Figura 1. Modello concettuale semplificato del Catalogo dati di Azure*
-
 ### <a name="catalog"></a>Catalogo
-Il **catalogo** è il contenitore di livello principale per tutti i metadati archiviati da un'organizzazione. Per ogni account Azure è consentito un solo **catalogo**. I cataloghi sono legati a una sottoscrizione di Azure. Anche se un account può avere più sottoscrizioni, per un determinato account Azure è possibile creare un solo **catalogo**.
+Un **Catalogo** è il contenitore di livello superiore per tutti i metadati archiviati da un'organizzazione. Per ogni account Azure è consentito un solo **catalogo**. I cataloghi sono legati a una sottoscrizione di Azure. Anche se un account può avere più sottoscrizioni, per un determinato account Azure è possibile creare un solo **catalogo**.
 
 Un catalogo contiene **utenti** e **asset**.
 
@@ -46,10 +44,10 @@ L'**asset** è l'elemento che si aggiunge o si rimuove da un catalogo. È l'unit
 
 L' **asset** è composto dal relativo nome, dal percorso, dal tipo e dalle annotazioni che lo descrivono ulteriormente.
 
-### <a name="annotations"></a>Annotazioni
+### <a name="annotations"></a>annotazioni
 Le annotazioni sono elementi che rappresentano i metadati relativi agli asset.
 
-Esempi di annotazioni sono descrizione, tag, schema, documentazione e così via. Un elenco completo dei tipi di asset e dei tipi di annotazione si trova nella sezione modello a oggetti asset.
+Esempi di annotazioni sono descrizione, tag, schema, documentazione e così via. Vedere la [sezione asset Object Model](#asset-object-model) per un elenco completo dei tipi di asset e delle annotazioni.
 
 ## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Annotazioni crowdsourcing e prospettiva dell'utente (molteplicità di opinione)
 Un aspetto fondamentale del Catalogo dati di Azure è il supporto crowdsourcing dei metadati nel sistema. A differenza dell'approccio wiki, dove è presente una sola opinione e l'ultima scrittura prevale, il modello Catalogo dati di Azure consente a più opinioni di convivere affiancate nel sistema.
@@ -76,21 +74,21 @@ L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esi
 Come descritto nella sezione dei concetti chiave, il modello a oggetti del **Catalogo dati di Azure** include elementi che possono essere asset o annotazioni. Gli elementi dispongono di proprietà che possono essere obbligatorie o facoltative. Alcune proprietà si applicano a tutti gli elementi. Alcune proprietà si applicano a tutti gli asset. Alcune proprietà si applicano solo a tipi di asset specifici.
 
 ### <a name="system-properties"></a>Proprietà di sistema
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>Data e ora dell'ultima modifica apportata all'elemento. Questo campo viene generato dal server quando viene inserito un elemento e ogni volta che viene aggiornato un elemento. Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>id</td><td>Uri</td><td>URL assoluto dell'elemento (sola lettura). Si tratta dell'URI indirizzabile univoco per l'elemento.  Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>tipo</td><td>string</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>etag</td><td>string</td><td>Stringa che corrisponde alla versione dell'elemento che è possibile usare per il controllo della concorrenza ottimistica quando si eseguono operazioni che aggiornano gli elementi nel catalogo. È possibile usare "*" per cercare corrispondenze per qualsiasi valore.</td></tr></table>
+<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>Data e ora dell'ultima modifica apportata all'elemento. Questo campo viene generato dal server quando viene inserito un elemento e ogni volta che viene aggiornato un elemento. Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>ID</td><td>Uri</td><td>URL assoluto dell'elemento (sola lettura). Si tratta dell'URI indirizzabile univoco per l'elemento.  Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>tipo</td><td>string</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>etag</td><td>string</td><td>Stringa che corrisponde alla versione dell'elemento che è possibile usare per il controllo della concorrenza ottimistica quando si eseguono operazioni che aggiornano gli elementi nel catalogo. È possibile usare "*" per cercare corrispondenze per qualsiasi valore.</td></tr></table>
 
 ### <a name="common-properties"></a>Proprietà comuni
 Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi di annotazione.
 
 <table>
 <tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
-<tr><td>fromSourceSystem</td><td>Boolean</td><td>Indica se i dati dell'elemento sono derivati da un sistema di origine, ad esempio un database SQL Server o un database Oracle, o creati da un utente.</td></tr>
+<tr><td>fromSourceSystem</td><td>Boolean</td><td>Indica se i dati dell'elemento sono derivati da un sistema di origine, ad esempio SQL Server database Oracle Database, o creati da un utente.</td></tr>
 </table>
 
 ### <a name="common-root-properties"></a>Proprietà radice comuni
 <p>
 Queste proprietà si applicano a tutti i tipi di asset radice.
 
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>string</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l'asset. Vedere la sezione relativa all'identità doppia.  La struttura del percorso dell'origine dati varia in base al tipo di protocollo e di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l'asset più di recente.  Contiene l'ID univoco per l'utente (upn) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>containerId</td><td>string</td><td>ID dell'asset di contenitore per l'origine dati. Questa proprietà non è supportata per il tipo di contenitore.</td></tr></table>
+<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>string</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l'asset. Vedere la sezione relativa all'identità doppia.  La struttura del percorso dell'origine dati varia in base al tipo di protocollo e di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l'asset più di recente.  Contiene l'ID univoco per l'utente (UPN) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>containerID</td><td>string</td><td>ID dell'asset del contenitore per l'origine dati. Questa proprietà non è supportata per il tipo di contenitore.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Proprietà comuni di annotazione non singleton
 Queste proprietà si applicano a tutti i tipi di annotazione non singleton, ad esempio le annotazioni di cui sono consentite più occorrenze per ogni asset.
@@ -132,7 +130,7 @@ I tipi di annotazione sono tipi di metadati che possono essere assegnati ad altr
 <tr><td></td><td>columnName</td><td>string</td><td>Nome della colonna a cui fa riferimento questo tag.</td></tr>
 <tr><td></td><td>tag</td><td>string</td><td>Tag che descrive la colonna.</td></tr>
 
-<tr><td>Esperto ("esperti")</td><td></td><td></td><td>Questa proprietà contiene un utente che viene considerato un esperto nel set di dati. Le opinioni degli esperti, ad esempio le descrizioni, vengono visualizzate all'inizio dell'esperienza utente nell'elenco delle descrizioni. Ogni utente può specificare i propri esperti. Solo tale utente può modificare l'oggetto esperti. Gli amministratori e i proprietari di asset possono eliminare l'oggetto Expert ma non modificarlo.</td></tr>
+<tr><td>Esperto ("esperti")</td><td></td><td></td><td>Questa proprietà contiene un utente che viene considerato un esperto nel set di dati. Le opinioni degli esperti, ad esempio le descrizioni, vengono visualizzate all'inizio dell'esperienza utente nell'elenco delle descrizioni. Ogni utente può specificare i propri esperti. Solo tale utente può modificare l'oggetto Experts. Gli amministratori e i proprietari di asset possono eliminare l'oggetto Expert ma non modificarlo.</td></tr>
 <tr><td></td><td>esperto</td><td>SecurityPrincipal</td><td></td></tr>
 
 <tr><td>Anteprima ("anteprime")</td><td></td><td></td><td>L'anteprima contiene uno snapshot delle prime 20 righe di dati per l'asset. L'anteprima risulta utile solo per alcuni tipi di asset, ad esempio per la tabella ma non per la misura.</td></tr>
@@ -171,41 +169,39 @@ I tipi comuni possono essere usati come tipi per proprietà, ma non sono element
 <tr><td></td><td>objectType</td><td>string</td><td>Descrive il tipo di oggetto nell'origine dati. Ad esempio: tabella, vista per SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>string</td><td>Obbligatorio. Descrive un protocollo usato per comunicare con l'origine dati. Ad esempio: "TDS" per SQl server, "Oracle" per Oracle e così via. Per l'elenco dei protocolli attualmente supportati, fare riferimento alla specifica di riferimento per l' <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">origine dati: struttura DSL</a> .</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Obbligatorio. Descrive un protocollo usato per comunicare con l'origine dati. Ad esempio: `tds` per SQL Server, `oracle` per Oracle e così via. Per l'elenco dei protocolli attualmente supportati, fare riferimento alla specifica di riferimento per l' [origine dati: struttura DSL](data-catalog-dsr.md) .</td></tr>
 <tr><td></td><td>address</td><td>Stringa del dizionario &lt; , oggetto&gt;</td><td>Obbligatorio. Si tratta di un set di dati specifico per il protocollo usato per identificare l'origine dati a cui si fa riferimento. Dati indirizzo specifici per un determinato protocollo, vale a dire privi di significato se il protocollo non è noto.</td></tr>
 <tr><td></td><td>autenticazione</td><td>string</td><td>Facoltativa. Schema di autenticazione usato per comunicare con l'origine dati. Ad esempio, Windows, OAuth e così via.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Stringa del dizionario &lt; , oggetto&gt;</td><td>Facoltativa. Altre informazioni su come connettersi a un'origine dati.</td></tr>
 
-<tr><td>SecurityPrincipal</td><td></td><td></td><td>Il back-end non esegue alcuna convalida delle proprietà fornite in base ad AAD durante la pubblicazione.</td></tr>
+<tr><td>SecurityPrincipal</td><td></td><td></td><td>Il back-end non esegue alcuna convalida delle proprietà fornite rispetto a Azure Active Directory durante la pubblicazione.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Indirizzo e-mail univoco dell'utente. Deve essere specificato se objectId non viene fornito o se è nel contesto della proprietà "lastRegisteredBy". In caso contrario, è facoltativo.</td></tr>
-<tr><td></td><td>objectId</td><td>Guid</td><td>Identità AAD del gruppo di utenti o di sicurezza. Facoltativa. Deve essere specificato se upn non viene fornito. In caso contrario, è facoltativo.</td></tr>
+<tr><td></td><td>objectId</td><td>Guid</td><td>Identità Azure Active Directory utente o gruppo di sicurezza. Facoltativa. Deve essere specificato se upn non viene fornito. In caso contrario, è facoltativo.</td></tr>
 <tr><td></td><td>firstName</td><td>string</td><td>Nome dell'utente (per scopi di visualizzazione). Facoltativa. Valido solo nel contesto della proprietà "lastRegisteredBy". Non può essere specificato quando si fornisce l'entità di sicurezza per "ruoli", "autorizzazioni" ed "esperti".</td></tr>
 <tr><td></td><td>lastName</td><td>string</td><td>Cognome dell'utente (per scopi di visualizzazione). Facoltativa. Valido solo nel contesto della proprietà "lastRegisteredBy". Non può essere specificato quando si fornisce l'entità di sicurezza per "ruoli", "autorizzazioni" ed "esperti".</td></tr>
 
 <tr><td>Colonna</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome della colonna o dell'attributo.</td></tr>
-<tr><td></td><td>tipo</td><td>stringa</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset.  È supportato un solo subset di tipi.</td></tr>
+<tr><td></td><td>tipo</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset.  È supportato un solo subset di tipi.</td></tr>
 <tr><td></td><td>maxLength</td><td>INT</td><td>Lunghezza massima consentita per la colonna o l'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
-<tr><td></td><td>precision</td><td>byte</td><td>Precisione della colonna o dell'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
+<tr><td></td><td>precisione</td><td>byte</td><td>Precisione della colonna o dell'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Verifica se la colonna può avere un valore null o meno. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 <tr><td></td><td>expression</td><td>string</td><td>Se il valore è una colonna calcolata, questo campo contiene l'espressione che esprime il valore. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>string</td><td>Nome della colonna</td></tr>
-<tr><td></td><td>tipo </td><td>stringa</td><td>Il tipo della colonna</td></tr>
+<tr><td></td><td>tipo </td><td>string</td><td>Il tipo della colonna</td></tr>
 <tr><td></td><td>min </td><td>string</td><td>Il valore minimo nel set di dati</td></tr>
 <tr><td></td><td>max </td><td>string</td><td>Il valore massimo nel set di dati</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>Il valore medio del set di dati</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>La deviazione standard per il set di dati</td></tr>
 <tr><td></td><td>nullCount </td><td>INT</td><td>Il numero di valori null nel set di dati</td></tr>
 <tr><td></td><td>distinctCount  </td><td>INT</td><td>Il numero di valori distinct nel set di dati</td></tr>
-
-
 </table>
 
 ## <a name="asset-identity"></a>Identità di asset
 Azure Data Catalog usa le proprietà Identity e "protocol" disponibili nel contenitore della proprietà "address", nella proprietà DataSourceLocation "dsl", per generare l'identità dell'asset usata per trovare l'asset nel catalogo.
-Ad esempio, le proprietà Identity del protocollo "tds" sono "server", "database", "schema" e "object". Per generare l'identità dell'asset tabella di SQL Server vengono usate combinazioni delle proprietà Identity e "protocol".
+Il protocollo TDS (Tabular Data Stream) dispone ad esempio di proprietà Identity "Server", "database", "schema" e "Object". Per generare l'identità dell'asset tabella di SQL Server vengono usate combinazioni delle proprietà Identity e "protocol".
 Azure Data Catalog offre vari protocolli di origine dati predefiniti, che sono elencati nella [specifica di riferimento per l'origine dati: struttura DSL](data-catalog-dsr.md).
 Il set di protocolli supportati può essere esteso a livello di codice. Vedere in proposito il riferimento all'API REST di Data Catalog. Gli amministratori di Data Catalog possono registrare protocolli di origine dati personalizzati. La tabella seguente illustra le proprietà necessarie per registrare un protocollo personalizzato.
 
@@ -214,15 +210,15 @@ Il set di protocolli supportati può essere esteso a livello di codice. Vedere i
 <tr><td><b>Tipo</b></td><td><b>Proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>spazio dei nomi</td><td>string</td><td>Spazio dei nomi del protocollo. Lo spazio dei nomi deve avere una lunghezza compresa tra 1 e 255 caratteri e contenere una o più parti non vuote separate da un punto (.). Ogni parte deve avere una lunghezza compresa tra 1 e 255 caratteri, iniziare con una lettera e contenere solo lettere e numeri.</td></tr>
+<tr><td></td><td>namespace</td><td>string</td><td>Spazio dei nomi del protocollo. Lo spazio dei nomi deve avere una lunghezza compresa tra 1 e 255 caratteri e contenere una o più parti non vuote separate da un punto (.). Ogni parte deve avere una lunghezza compresa tra 1 e 255 caratteri, iniziare con una lettera e contenere solo lettere e numeri.</td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome del protocollo. Lo spazio dei nomi deve avere una lunghezza compresa tra 1 e 255 caratteri, iniziare con una lettera e contenere solo lettere, numeri e trattini (-).</td></tr>
 <tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Elenco di proprietà Identity, deve contenere almeno una proprietà, ma non oltre 20. Ad esempio: "server", "database", "schema", "object" sono proprietà Identity del protocollo "tds".</td></tr>
-<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Elenco di set di identità. Definisce i set di proprietà Identity che rappresentano l'identità valida dell'asset. Deve contenere almeno un set, ma non oltre 20. Ad esempio: {"server", "database", "schema" e "object"} è un set di identità del protocollo "tds", che definisce l'identità dell'asset Tabella di SQL Server.</td></tr>
+<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Elenco di set di identità. Definisce i set di proprietà Identity che rappresentano l'identità valida dell'asset. Deve contenere almeno un set, ma non oltre 20. Ad esempio: {"Server", "database", "schema" e "Object"} è un set di identità per il protocollo TDS, che definisce l'identità dell'asset SQL Server tabella.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome della proprietà. Il nome della proprietà deve avere una lunghezza compresa tra 1 e 100 caratteri, iniziare con una lettera e può contenere solo lettere e numeri.</td></tr>
-<tr><td></td><td>tipo</td><td>stringa</td><td>Tipo della proprietà. Valori supportati: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
-<tr><td></td><td>ignoreCase</td><td>bool</td><td>Indica se deve essere ignorato il caso quando si usa il valore della proprietà. Può essere specificato solo per le proprietà di tipo "string". Il valore predefinito è False.</td></tr>
+<tr><td></td><td>tipo</td><td>string</td><td>Tipo della proprietà. Valori supportati: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
+<tr><td></td><td>ignoreCase</td><td>bool</td><td>Indica se deve essere ignorato il caso quando si usa il valore della proprietà. Può essere specificato solo per le proprietà di tipo "string". Il valore predefinito è false.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indica se deve essere ignorato il caso per ogni segmento del percorso URL. Può essere specificato solo per le proprietà di tipo "url". Il valore predefinito è [false].</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
@@ -234,7 +230,6 @@ Il set di protocolli supportati può essere esteso a livello di codice. Vedere i
 ## <a name="roles-and-authorization"></a>Ruoli e autorizzazione
 Catalogo dati di Microsoft Azure offre funzionalità di autorizzazione per le operazioni CRUD su asset e annotazioni.
 
-## <a name="key-concepts"></a>Concetti chiave
 Catalogo dati di Azure usa due meccanismi di autorizzazione:
 
 * Autorizzazione basata sui ruoli
@@ -247,13 +242,12 @@ Sono disponibili tre ruoli: **Amministratore**, **Proprietario** e **Collaborato
 
 ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Proprietario</td><td>Ogni asset (elemento radice)</td><td>Read Delete ViewRoles
 
-ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Collaboratore</td><td>Ogni singolo asset e annotazione</td><td>Read Update Delete ViewRoles Nota: tutti i diritti vengono revocati se il diritto Read sull'elemento viene revocato dall'autore</td></tr></table>
+ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Autore di contributi</td><td>Ogni singolo asset e annotazione</td><td>Read Update Delete ViewRoles Nota: tutti i diritti vengono revocati se il diritto Read sull'elemento viene revocato dall'autore</td></tr></table>
 
 > [!NOTE]
 > I diritti **Read**, **Update**, **Delete** e **ViewRoles** sono applicabili a qualsiasi elemento (asset o annotazione) mentre **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** e **ViewPermissions** sono applicabili solo all'asset radice.
 > 
 > **Delete** si applica a un elemento e agli eventuali elementi secondari o al singolo elemento sottostante. Ad esempio, l'eliminazione di un asset comporta l'eliminazione delle annotazioni dell'asset.
-> 
 > 
 
 ### <a name="permissions"></a>Autorizzazioni
@@ -273,7 +267,6 @@ Le richieste dell'elemento di visualizzazione **PUT** e **POST** possono essere 
 > 
 > Per impostazione predefinita quando viene creato un elemento nel catalogo, il relativo **Collaboratore** è impostato sull'utente attualmente autenticato. Se l'elemento deve poter essere aggiornato da tutti, è necessario che **Collaboratore** sia impostato sull'entità di sicurezza speciale &lt;Tutti&gt; nella proprietà **ruoli** quando l'elemento viene pubblicato per la prima volta. Vedere l'esempio riportato di seguito. **Collaboratore** non può essere modificato e rimane invariato per la durata di un elemento. Neanche **Amministratore** o **Proprietario** hanno il diritto di modificare il ruolo **Collaboratore**. L'unico valore supportato per l'impostazione esplicita di **Collaboratore** è &lt;Tutti&gt;: ad esempio, **Collaboratore** può essere solo un utente che ha creato un elemento o &lt;Tutti&gt;.
 > 
-> 
 
 ### <a name="examples"></a>Esempi
 **Impostare collaboratore su &lt;Tutti&gt; durante la pubblicazione di un elemento.**
@@ -282,7 +275,6 @@ L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-00
 
 > [!NOTE]
 > Alcune implementazioni di client HTTP possono ripetere automaticamente l'invio di richieste in caso di risposta 302 dal server, eliminando in genere le intestazioni di autorizzazione dalla richiesta. Dato che l'intestazione dell'autorizzazione è obbligatoria per l'invio di richieste ad Azure Data Catalog, è necessario assicurarsi che sia ancora disponibile quando si invia di nuovo una richiesta a un percorso di reindirizzamento specificato da Azure Data Catalog. L'esempio di codice seguente offre una dimostrazione usando l'oggetto .NET HttpWebRequest.
-> 
 > 
 
 **Corpo**
@@ -350,3 +342,6 @@ L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-00
 > [!NOTE]
 > In PUT non è necessario specificare un payload dell'elemento nel corpo: PUT consente di aggiornare solo i ruoli e/o le autorizzazioni.
 > 
+
+## <a name="next-steps"></a>Passaggi successivi
+[Informazioni di riferimento sull'API REST di Azure Data Catalog](/rest/api/datacatalog/)

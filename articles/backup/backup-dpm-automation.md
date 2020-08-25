@@ -3,12 +3,12 @@ title: Eseguire il backup dei carichi di lavoro DPM tramite PowerShell
 description: Informazioni su come distribuire e gestire Backup di Azure per Data Protection Manager (DPM) usando PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 4d8b8f6ca233c997bc2a94f88903d14009481d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a60d1c412a36c5c2a7ca264eda524b5d5649f1a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538854"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762743"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
 
@@ -47,7 +47,7 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 * Impostazioni di rete
 * Impostazioni di crittografia
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei servizi di ripristino. Un insieme di credenziali dei servizi di ripristino è diverso da un insieme di credenziali di backup.
 
@@ -140,7 +140,7 @@ Le opzioni disponibili includono:
 | /pu |Nome utente host proxy |- |
 | /pw |Password proxy |- |
 
-## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registrazione di Data Protection Manager (DPM) con l'insieme di credenziali dei servizi di ripristino
+## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registrazione di DPM in un insieme di credenziali di servizi di ripristino
 
 Dopo aver creato l'insieme di credenziali dei servizi di ripristino, scaricare l'ultimo agente e le credenziali dell'insieme di credenziali e archiviarli in un percorso semplice da ricordare, ad esempio C:\Downloads.
 
@@ -321,7 +321,7 @@ Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[3] -TimesOfDay 
 Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 
-Nell'esempio precedente, ```$onlineSch``` è una matrice con quattro elementi che contiene la pianificazione della protezione online esistente per il gruppo protezione dati nello schema GFS:
+Nell'esempio precedente ```$onlineSch``` è una matrice con quattro elementi che contiene la pianificazione della protezione online esistente per il gruppo protezione dati nello schema GFS:
 
 1. ```$onlineSch[0]``` contiene la pianificazione giornaliera
 2. ```$onlineSch[1]``` contiene la pianificazione settimanale

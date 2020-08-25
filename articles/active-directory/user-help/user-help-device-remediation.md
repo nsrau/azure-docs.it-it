@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b76e84f6ae2449347604ab823fde5b74d5c68f07
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: df3941c895ce67862eb53b8e96bc7a6d53c1ed02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741002"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799418"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Risoluzioni possibili del messaggio d'errore "Non è possibile accedervi da qui"
 
@@ -68,6 +68,6 @@ Se il dispositivo non è stato aggiunto alla rete dell'organizzazione, è possib
 - **Registrare un dispositivo personale per l'uso aziendale**. Registrare il dispositivo personale, in genere un telefono o tablet, nella rete dell'organizzazione. Dopo aver registrato il dispositivo, esso potrà accedere alle risorse limitate della propria organizzazione. Per altre informazioni e istruzioni dettagliate, vedere [Registrare il dispositivo personale nella rete dell'organizzazione](user-help-register-device-on-network.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Cos'è il portale App personali?](active-directory-saas-access-panel-introduction.md)
+- [Cos'è il portale App personali?](./my-apps-portal-end-user-access.md)
 
 - [Accedere con il telefono, non con la password](user-help-auth-app-sign-in.md)
