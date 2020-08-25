@@ -1,5 +1,5 @@
 ---
-title: Connettersi con Ruby - Database di Azure per MySQL
+title: 'Avvio rapido: Connettersi con Ruby - Database di Azure per MySQL'
 description: Questa guida introduttiva fornisce diversi esempi di codice Ruby che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,17 +8,19 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: b069a9ba0e2c56ff027e351789177f8bfe0b2ff4
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 79f3efad9ba5f6c0378f8b093a2f375275767659
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869976"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185843"
 ---
-# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare Ruby per connettersi ai dati ed eseguire query
+# <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Ruby per connettersi ai dati ed eseguire query in Database di Azure per MySQL
+
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [Ruby](https://www.ruby-lang.org) e Gem [mysql2](https://rubygems.org/gems/mysql2) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Ruby, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)

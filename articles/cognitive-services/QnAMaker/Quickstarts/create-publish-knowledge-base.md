@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: creare, eseguire il training e pubblicare la Knowledge base-QnA Maker'
+title: 'Avvio rapido: Eseguire la creazione, il training e la pubblicazione di una knowledge base - QnA Maker'
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere alle domande di QnA Maker.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 12f46e9a72f0a3b027fe67e5b8bf27c940685cfe
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340590"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540755"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Guida introduttiva: creare, eseguire il training e pubblicare la QnA Maker Knowledge base
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Avvio rapido: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
 È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere alle domande di QnA Maker.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!div class="checklist"]
-> * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+> * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 > * Una [risorsa](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) QnA Maker creata nel portale di Azure. Prendere nota dei valori di ID di Azure Active Directory, sottoscrizione e nome della risorsa di QnA selezionati durante la creazione della risorsa.
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Creare la prima knowledge base di QnA Maker
@@ -47,7 +47,7 @@ ms.locfileid: "84340590"
     |**+ Add URL** (+ Aggiungi URL)|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Chit-chat**|Selezionare **Professional**|
 
-1. Nel **passaggio 5**selezionare **Crea la KB**.
+1. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
 
     Il processo di estrazione impiega alcuni minuti per leggere il documento e identificare le domande e risposte.
 
@@ -114,7 +114,7 @@ Quando si apportano modifiche alla knowledge base e si ripete la pubblicazione, 
 
 1. Viene visualizzata una nuova scheda del browser per il portale di Azure, con la pagina di creazione del servizio Azure Bot. Configurare il servizio Azure Bot. Il bot e QnA Maker possono condividere il piano di servizio dell'app Web, ma non l'app Web. Ciò significa che il **nome app** del bot deve essere diverso da quello del servizio QnA Maker.
 
-    * **Fare**
+    * **Cosa fare**
         * Cambiare l'handle del bot, se non è univoco.
         * Selezionare il linguaggio dell'SDK. Una volta creato il bot, è possibile scaricare il codice nell'ambiente di sviluppo locale e continuare il processo di sviluppo.
     * **Cosa non fare**
@@ -124,7 +124,7 @@ Quando si apportano modifiche alla knowledge base e si ripete la pubblicazione, 
 
 
 1. Dopo aver creato il bot, aprire la risorsa **servizio Bot**.
-1. In **bot Management**selezionare **test in web chat**.
+1. In **Bot Management** (Gestione bot) selezionare **Test in Web Chat** (Testa nella chat Web).
 1. Quando viene visualizzato il prompt della chat **Type your message** (Digitare il messaggio), immettere:
 
     `Azure services?`
@@ -135,7 +135,7 @@ Quando si apportano modifiche alla knowledge base e si ripete la pubblicazione, 
 
 ## <a name="what-did-you-accomplish"></a>Cosa si è ottenuto?
 
-È stata creata una nuova Knowledge base, è stato aggiunto un URL pubblico alla Knowledge base, è stata aggiunta la propria coppia QnA, sottoposta a training, testato e pubblicata la Knowledge base.
+È stata creata una nuova knowledge base in cui sono stati aggiunti un URL pubblico e una coppia personalizzata di domande e risposte, quindi la knowledge base è stata sottoposta a training, testata e pubblicata.
 
 Dopo aver pubblicato la knowledge base, è stato creato un bot, che è stato testato.
 

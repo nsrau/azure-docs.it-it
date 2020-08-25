@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 6f54a8993b602110e35c410338b6f0a51109738f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528464"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603901"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Caricare i dati in modo sicuro tramite Synapse SQL
 
@@ -23,10 +23,11 @@ Questo articolo descrive i meccanismi di autenticazione sicura per l'[istruzione
 
 La matrice seguente descrive i metodi di autenticazione supportati per ogni tipo di file e di account di archiviazione. Si applica alla posizione di archiviazione di origine e al percorso del file di errore.
 
-|                          |                CSV                |              Parquet              |                ORC                |
-| :----------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  **Archiviazione BLOB di Azure**  | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD |              FIRMA DI ACCESSO CONDIVISO/CHIAVE              |              FIRMA DI ACCESSO CONDIVISO/CHIAVE              |
-| **Azure Data Lake Gen2** | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD |
+|                          |                CSV                |              Parquet               |                ORC                 |
+| :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
+|  **Archiviazione BLOB di Azure**  | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD |              FIRMA DI ACCESSO CONDIVISO/CHIAVE               |              FIRMA DI ACCESSO CONDIVISO/CHIAVE               |
+| **Azure Data Lake Gen2** | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD | FIRMA DI ACCESSO CONDIVISO (endpoint BLOB)/IDENTITÀ DEL SERVIZIO GESTITA (endpoint DFS)/ENTITÀ SERVIZIO/CHIAVE/AAD | FIRMA DI ACCESSO CONDIVISO (endpoint BLOB)/IDENTITÀ DEL SERVIZIO GESTITA (endpoint DFS)/ENTITÀ SERVIZIO/CHIAVE/AAD |
+
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>R. Chiave dell'account di archiviazione con LF come carattere di terminazione della riga (nuova riga in stile Unix)
 

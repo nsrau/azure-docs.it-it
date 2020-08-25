@@ -1,5 +1,5 @@
 ---
-title: Connettersi tramite MySQL Workbench - Database di Azure per MySQL
+title: 'Avvio rapido: Connettere MySQL Workbench - Database di Azure per MySQL'
 description: Questa guida introduttiva illustra come usare MySQL Workbench per connettersi ed eseguire query sui dati dal database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,17 +7,19 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1e2dd26e2b954bebd7bac15991b2b5aef9def88d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1b1249fe7159e2a3a8d2a74d22f274a9766e7922
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870054"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185826"
 ---
-# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare MySQL Workbench per connettersi ai dati ed eseguire query su di essi
-Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione MySQL Workbench. 
+# <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare MySQL Workbench per connettersi ai dati ed eseguire query in Database di Azure per MySQL
+
+Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione MySQL Workbench.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)

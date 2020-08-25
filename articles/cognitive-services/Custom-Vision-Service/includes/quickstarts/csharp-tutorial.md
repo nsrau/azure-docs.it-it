@@ -2,22 +2,22 @@
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: de0c8fd674872a48a302a76a3f0951df13041206
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 08/17/2020
+ms.openlocfilehash: 758d288480c8d6a7ef5185cff33a857633c5e95b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82135072"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508541"
 ---
-Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare Custom Vision SDK con C# per compilare un modello di classificazione delle immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione .NET personalizzata. Se si preferisce eseguire la procedura di creazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
+Questo articolo fornisce informazioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata con C# per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione .NET personalizzata. Se si preferisce eseguire la procedura di creazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Ottenere Custom Vision SDK e il codice di esempio
+## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Ottenere la libreria client di Visione personalizzata e il codice di esempio
 
 Per scrivere un'app .NET che usa Visione personalizzata saranno necessari i pacchetti NuGet di Visione personalizzata. Questi pacchetti sono inclusi nel progetto di esempio che si scaricherà, ma è possibile accedervi singolarmente qui.
 

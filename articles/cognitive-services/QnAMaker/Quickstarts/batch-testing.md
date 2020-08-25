@@ -3,12 +3,12 @@ title: 'Guida introduttiva: Testare la knowledge base con domande batch'
 description: Usare lo strumento di test batch di QnA Maker per testare le knowledge base nella risorsa QnA Maker e verificare le risposte previste, i punteggi di attendibilità e i prompt multiturno.
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bcee98678212a3bc233c36a831f6bcde7e6ae550
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337734"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531070"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Guida introduttiva: Testare la Knowledge base con domande batch e risposte previste
 
@@ -16,7 +16,7 @@ Usare lo strumento di test batch di QnA Maker per testare le knowledge base nell
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * [Creare un servizio di QnA Maker](create-publish-knowledge-base.md) o usarne uno esistente in lingua inglese.
 * Scaricare il file di [esempio multiturno`.docx` ](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Scaricare lo [strumento di test batch](https://aka.ms/qnamakerbatchtestingtool) ed estrarre il file eseguibile dal file `.zip`.
@@ -61,7 +61,7 @@ Usare lo strumento di test batch di QnA Maker per testare le knowledge base nell
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Creare un file di test batch con gli ID domanda
 
-Per usare lo strumento di test batch, creare un file denominato `batch-test-data-1.tsv` con un editor di testo. Il file deve avere le colonne seguenti separate da una tabulazione.
+Per usare lo strumento di test batch, creare un file denominato `batch-test-data-1.tsv` con un editor di testo. Il file deve essere nel formato UTF-8 e deve contenere le colonne seguenti separate da una tabulazione.
 
 |Campi del file di input TSV|Note|Esempio|
 |--|--|--|

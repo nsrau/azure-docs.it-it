@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 69bb61012082404dfd6488b5e0606e5966c2fcef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504652"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245095"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Esercitazione: Creare e usare set di repliche per la resilienza o la georilevazione in Azure Active Directory Domain Services (anteprima)
 
@@ -42,11 +42,11 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
-* Un dominio gestito di Azure Active Directory Domain Services creato con set di repliche e configurato nel tenant di Azure AD.
+* Un dominio gestito di Azure Active Directory Domain Services creato con il modello di distribuzione Azure Resource Manager e configurato nel tenant di Azure AD.
     * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Assicurarsi di creare un dominio gestito che usa set di repliche. Un dominio gestito esistente creato prima di questa anteprima non supporta i set di repliche. Per il dominio gestito sarà inoltre necessario usare almeno uno SKU *Enterprise*. Se necessario, [cambiare lo SKU di un dominio gestito][howto-change-sku].
+    > I domini gestiti creati usando il modello di distribuzione classica non possono usare i set di repliche. Per il dominio gestito sarà inoltre necessario usare almeno uno SKU *Enterprise*. Se necessario, [cambiare lo SKU di un dominio gestito][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 

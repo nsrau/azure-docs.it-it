@@ -1,6 +1,6 @@
 ---
 title: Esempi di modelli di Azure Resource Manager - Servizio Frontdoor di Azure
-description: Esempi di modelli di Azure Resource Manager per il servizio Frontdoor di Azure
+description: Informazioni sugli esempi di modelli di Resource Manager per il servizio Frontdoor di Azure, inclusi i modelli per la creazione di una frontdoor di base e la configurazione della limitazione della frequenza del traffico per la frontdoor.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
 ms.author: sharadag
-ms.openlocfilehash: 47db565288d1bfe1f98c58536e726eb7ec55d0a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14f9cb33ce298b97ead0f6d7fbec0ad77e79a1ee
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084637"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182188"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modello di distribuzione Azure Resource Manager per Frontdoor
 

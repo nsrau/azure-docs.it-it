@@ -3,18 +3,18 @@ title: Concetti-cloud privati e cluster
 description: Informazioni sulle funzionalità principali dei data center e dei cluster vSphere definiti dal software VMware di Azure in una soluzione VMware in Azure di VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906990"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752285"
 ---
-# <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Concetti relativi al cloud privato e ai cluster di Azure VMware Solution (AVS) Preview
+# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Concetti relativi al cloud privato e ai cluster in anteprima della soluzione VMware di Azure
 
-La soluzione VMware di Azure (AVS) fornisce cloud privati basati su VMware in Azure. I cloud privati sono compilati da cluster di host bare metal dedicati e vengono distribuiti e gestiti tramite il portale di Azure. Il provisioning dei cluster nei cloud privati viene effettuato con il software VMware vSphere, vCenter, rete VSAN e NSX. Le distribuzioni di hardware e software del cloud privato AVS sono completamente integrate e automatizzate in Azure.
+La soluzione VMware di Azure offre cloud privati basati su VMware in Azure. I cloud privati sono compilati da cluster di host bare metal dedicati e vengono distribuiti e gestiti tramite il portale di Azure. Il provisioning dei cluster nei cloud privati viene effettuato con il software VMware vSphere, vCenter, rete VSAN e NSX. Le distribuzioni software e hardware del cloud privato della soluzione VMware di Azure sono completamente integrate e automatizzate in Azure.
 
-Esiste una relazione logica tra le sottoscrizioni di Azure, i cloud privati AVS, i cluster rete VSAN e gli host. Nel diagramma vengono visualizzati due cloud privati in una singola sottoscrizione di Azure. I cloud privati rappresentano uno sviluppo e un ambiente di produzione, ognuno con il proprio cloud privato. In ognuno di questi cloud privati sono presenti due cluster. Per mostrare le potenziali esigenze inferiori di un ambiente di sviluppo, vengono usati cluster più piccoli con host con capacità inferiore. Tutti questi concetti sono descritti nelle sezioni riportate di seguito.
+Esiste una relazione logica tra le sottoscrizioni di Azure, i cloud privati della soluzione VMware di Azure, i cluster rete VSAN e gli host. Nel diagramma vengono visualizzati due cloud privati in una singola sottoscrizione di Azure. I cloud privati rappresentano uno sviluppo e un ambiente di produzione, ognuno con il proprio cloud privato. In ognuno di questi cloud privati sono presenti due cluster. Per mostrare le potenziali esigenze inferiori di un ambiente di sviluppo, vengono usati cluster più piccoli con host con capacità inferiore. Tutti questi concetti sono descritti nelle sezioni riportate di seguito.
 
 ![Immagine di due cloud privati in una sottoscrizione del cliente](./media/hosts-clusters-private-clouds-final.png)
 
@@ -34,7 +34,7 @@ I cluster di valutazione sono disponibili per la valutazione e sono limitati a t
 
 ## <a name="hosts"></a>Hosts
 
-I nodi dell'infrastruttura bare metal iperconvergenti vengono usati nei cluster di cloud privato AVS. Nella tabella seguente sono disponibili le capacità di RAM, CPU e disco dell'host. 
+I nodi dell'infrastruttura bare metal iperconvergenti vengono usati nei cluster di cloud privati della soluzione VMware di Azure. Nella tabella seguente sono disponibili le capacità di RAM, CPU e disco dell'host. 
 
 | Host Type              |             CPU             |   RAM (GB)   |  Livello cache NVMe rete VSAN (TB, RAW)  |  livello di capacità SSD rete VSAN (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
@@ -44,7 +44,7 @@ Gli host utilizzati per compilare o ridimensionare i cluster vengono acquisiti d
 
 ## <a name="vmware-software-versions"></a>Versioni del software VMware
 
-Le versioni software correnti del software VMware usato nei cluster di cloud privato AVS sono:
+Le versioni software correnti del software VMware usato nei cluster di cloud privato della soluzione VMware di Azure sono:
 
 | Software              |    Versione   |
 | :---                  |     :---:    |
@@ -55,16 +55,16 @@ Le versioni software correnti del software VMware usato nei cluster di cloud pri
 
 Per qualsiasi nuovo cluster in un cloud privato, la versione del software corrisponderà a quella attualmente in esecuzione nel cloud privato. Per ogni nuovo cloud privato in una sottoscrizione del cliente, viene installata la versione più recente dello stack di software.
 
-I criteri e i processi generali per l'aggiornamento del software della piattaforma AVS sono descritti nel documento relativo ai concetti relativi agli aggiornamenti.
+I criteri e i processi di aggiornamento generali per il software della piattaforma della soluzione VMware di Azure sono descritti nel documento concetti relativi agli aggiornamenti.
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Gestione del ciclo di vita e manutenzione dell'host
 
 La gestione del ciclo di vita e la manutenzione dell'host vengono eseguite senza alcun effetto sulla capacità o sulle prestazioni dei cluster di cloud privati. Esempi di manutenzione automatica degli host includono gli aggiornamenti del firmware e la riparazione o la sostituzione dell'hardware.
 
-Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Microsoft è anche responsabile del bootstrap della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing nord-sud. In qualità di amministratore del cloud privato AVS, l'utente è responsabile della configurazione NSX-T SDN, ad esempio segmenti di rete, regole firewall distribuite, gateway di livello 1 e bilanciamento del carico.
+Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Microsoft è anche responsabile del bootstrap della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing nord-sud. In qualità di amministratore del cloud privato della soluzione VMware di Azure, l'utente è responsabile della configurazione NSX-T SDN, ad esempio segmenti di rete, regole firewall distribuite, gateway di livello 1 e bilanciamento del carico.
 
 > [!IMPORTANT]
-> Un amministratore AVS non deve modificare la configurazione del gateway NSX-T Edge o di livello 0. Questo può comportare una perdita di servizio.
+> Un amministratore della soluzione VMware di Azure non deve modificare la configurazione del gateway NSX-T Edge o di livello 0. Questo può comportare una perdita di servizio.
 
 ## <a name="backup-and-restoration"></a>Backup e ripristino
 

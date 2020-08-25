@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564544"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566251"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Avvio rapido: Caricare dati in Azure Sentinel
 
@@ -58,7 +58,10 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
    > - Azure Sentinel può essere eseguito in aree di lavoro in qualsiasi [area di disponibilità generale di Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), ad eccezione delle aree Cina e Germania (sovrane). I dati generati da Azure Sentinel (ad esempio eventi imprevisti, segnalibri e regole di avviso, che possono contenere dati del cliente originati da tali aree di lavoro), vengono salvati in Europa (per le aree di lavoro che risiedono in Europa), in Australia (per le aree di lavoro che risiedono in Australia) o nell'area Stati Uniti orientali (per le aree di lavoro che risiedono in tutte le altre aree).
 
    >[!IMPORTANT]
-   > - Una volta abilitata la funzionalità Azure Sentinel in un'area di lavoro, il trasferimento di tale area di lavoro in altri gruppi di risorse o sottoscrizioni non è supportato. Se è necessario spostare l'area di lavoro, contattare [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
+   >
+   > - Una volta distribuito in un'area di lavoro, Azure Sentinel **non supporta al momento** il trasferimento di tale area di lavoro in altri gruppi di risorse o sottoscrizioni. 
+   >
+   >   Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Questa operazione dovrebbe essere efficace nella maggior parte dei casi, tuttavia, come già detto, non è supportata e viene eseguita a proprio rischio.
 
 1. Selezionare **Aggiungi Azure Sentinel**.
   

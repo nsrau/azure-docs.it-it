@@ -3,15 +3,16 @@ title: Avvio rapido per l'aggiunta di flag funzionalità ad ASP.NET Core
 description: Aggiungere flag funzionalità alle app ASP.NET Core e gestirli in Configurazione app di Azure
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 12b66dc173a8d3f93f97fb369ce03533299a65d7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760142"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235265"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida di avvio rapido: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
@@ -114,7 +115,7 @@ Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo
 
 1. Aggiungere un segreto denominato **ConnectionStrings:AppConfig** a Secret Manager.
 
-    Questo segreto contiene la stringa di connessione per accedere all'archivio di Configurazione app. Sostituire il valore `<your_connection_string>` nel comando seguente con la stringa di connessione per l'archivio di Configurazione app. È possibile trovare la stringa di connessione in **Chiavi di accesso** nel portale di Azure.
+    Questo segreto contiene la stringa di connessione per accedere all'archivio di Configurazione app. Sostituire il valore `<your_connection_string>` nel comando seguente con la stringa di connessione per l'archivio di Configurazione app. È possibile trovare la stringa di connessione della chiave primaria di sola lettura in **Chiavi di accesso** nel portale di Azure.
 
     Questo comando deve essere eseguito nella stessa directory del file con estensione *csproj*.
 
@@ -186,7 +187,7 @@ Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddSingleton(Configuration).AddFeatureManagement();
+        services.AddFeatureManagement();
     }
 
     ---

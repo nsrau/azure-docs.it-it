@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 6d1042ea21308dd0f82165c288824aaef000e36d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 05a45a2a8aeabae2b160701020e5deb89fb3aa81
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192332"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751704"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -165,158 +165,50 @@ Per altre informazioni, vedere [Crittografia di dati inattivi](concept-enterpris
 
 > [!IMPORTANT]
 > Prima di usare questo modello, è necessario che la sottoscrizione soddisfi alcuni requisiti specifici:
->
-> * L'applicazione __Azure Machine Learning__ deve essere un servizio __collaboratore__ per la sottoscrizione di Azure.
 > * È necessario che l’insieme di credenziali delle chiavi esistenti contenga una chiave di crittografia.
-> * È necessario disporre di criteri di accesso in Azure Key Vault che concedano di __ottenere__, __eseguire il wrapping__e __annullare il wrapping__ dell'accesso all'applicazione __Azure Cosmos DB__.
 > * L’insieme di credenziali delle chiavi di Azure deve trovarsi nella stessa area in cui si intende creare l'area di lavoro di Azure Machine Learning.
+> * È necessario specificare l'ID del Azure Key Vault e l'URI della chiave di crittografia.
 
-__Per aggiungere l’app Azure Machine Learning come collaboratore__, usare i comando seguenti:
+__Per ottenere i valori__ per i parametri `cmk_keyvault` (ID dell’insieme di credenziali delle chiavi) e `resource_cmk_uri` (URI della chiave) richiesti da questo modello, seguire questa procedura:    
 
-1. Accedere al proprio account Azure e ottenere l'ID sottoscrizione. Questa sottoscrizione deve corrispondere a quella che contiene l'area di lavoro Azure Machine Learning.  
+1. Per ottenere l’ID dell’insieme di credenziali delle chiavi, usare il comando seguente:  
 
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
+    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)   
 
-    ```azurecli
-    az account list --query '[].[name,id]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv   
+    ``` 
 
-    > [!TIP]
-    > Per selezionare un'altra sottoscrizione, usare il comando `az account set -s <subscription name or ID>` e specificare il nome o l'ID sottoscrizione a cui passare. Per altre informazioni sulla selezione delle sottoscrizioni, vedere [Usare più sottoscrizioni di Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzSubscription
-    ```
-
-    > [!TIP]
-    > Per selezionare un'altra sottoscrizione, usare il comando `Az-SetContext -SubscriptionId <subscription ID>` e specificare il nome o l'ID sottoscrizione a cui passare. Per altre informazioni sulla selezione delle sottoscrizioni, vedere [Usare più sottoscrizioni di Azure](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
-
-    ---
-
-1. Per ottenere l’ID oggetto dell’app Azure Machine Learning, usare il comando seguente. Il valore può variare per ogni sottoscrizione di Azure:
-
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
-
-    ```azurecli
-    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
-    ```
-
-    ---
-    Questo comando restituisce l'ID oggetto, che è un GUID.
-
-1. Per aggiungere l'ID oggetto come collaboratore alla sottoscrizione, usare il comando seguente. Sostituire `<object-ID>` con l'ID oggetto dell'entità servizio. Sostituire `<subscription-ID>` con il nome o l’ID della propria sottoscrizione di Azure:
-
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
-
-    ```azurecli
-    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
-    ```
-
-    ---
-
-1. Per generare una chiave in un Azure Key Vault esistente, usare uno dei comandi seguenti. Sostituire `<keyvault-name>` con il nome dell'insieme di credenziali delle chiavi. Sostituire `<key-name>` con il nome da usare per la chiave:
-
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
-    ```
+    ```azurepowershell  
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
+    ``` 
     --- 
 
-__Per aggiungere criteri di accesso all'insieme di credenziali delle chiavi, usare i comandi seguenti__:
+    Il comando restituisce un valore analogo a `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.  
 
-1. Per ottenere l’ID oggetto dell’app Azure Cosmos DB, usare il comando seguente. Il valore può variare per ogni sottoscrizione di Azure:
+1. Per ottenere il valore dell'URI per la chiave gestita dal cliente, usare il comando seguente:    
 
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
+    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)   
 
-    ```azurecli
-    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv  
+    ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
-    ```
-    ---
+    ```azurepowershell  
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>' 
+    ``` 
+    --- 
 
-    Questo comando restituisce l'ID oggetto, che è un GUID. Salvarlo per un momento successivo
+    Il comando restituisce un valore analogo a `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`. 
 
-1. Per impostare i criteri, usare il comando seguente. Sostituire `<keyvault-name>` con il nome dell'insieme di credenziali delle chiavi di Azure. Sostituire `<object-ID>` con il GUID ottenuto con il passaggio precedente:
-
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-    
-    ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
-    ```
-    ---    
-
-__Per ottenere i valori__ per i parametri `cmk_keyvault` (ID dell’insieme di credenziali delle chiavi) e `resource_cmk_uri` (URI della chiave) richiesti da questo modello, seguire questa procedura:
-
-1. Per ottenere l’ID dell’insieme di credenziali delle chiavi, usare il comando seguente:
-
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault show --name <keyvault-name> --query 'id' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
-    ```
-    ---
-
-    Il comando restituisce un valore analogo a `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.
-
-1. Per ottenere il valore dell'URI per la chiave gestita dal cliente, usare il comando seguente:
-
-    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
-    ```
-    ---
-
-    Il comando restituisce un valore analogo a `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Dopo aver creato un'area di lavoro, non è possibile modificare le impostazioni relative ai dati riservati, la crittografia, l'ID dell'insieme di credenziali delle chiavi o gli identificatori di chiave. Per modificare questi valori, è necessario creare una nuova area di lavoro usando altri valori.
 
-Una volta completati i passaggi precedenti, distribuire il modello come si farebbe normalmente. Per abilitare l'utilizzo delle chiavi gestite dal cliente, impostare i parametri seguenti:
+Per abilitare l'utilizzo delle chiavi gestite dal cliente, impostare i parametri seguenti durante la distribuzione del modello:
 
 * **Encryption_status** **abilitata**.
 * **cmk_keyvault** al `cmk_keyvault` valore ottenuto nei passaggi precedenti.

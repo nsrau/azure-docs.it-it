@@ -2,16 +2,16 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f1a89b311a524e6ef0d8e1fc8145f7e13d10bb6b
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 2a8937debc38dab4b2d38b56d1c6a9c3edcbe2a7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406037"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508583"
 ---
-Questo articolo mostra come iniziare a usare Custom Vision SDK con Node.js per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la compilazione dell'applicazione Node.js. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
+Questo articolo illustra come iniziare a usare la libreria client di Visione personalizzata con Node.js per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la compilazione dell'applicazione Node.js. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -19,9 +19,9 @@ Questo articolo mostra come iniziare a usare Custom Vision SDK con Node.js per c
 - [npm](https://www.npmjs.com/) installato.
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="install-the-custom-vision-sdk"></a>Installare Custom Vision SDK
+## <a name="install-the-custom-vision-client-library"></a>Installare la libreria client di Visione personalizzata
 
-Per installare Custom Vision SDK per Node.js, usare il comando seguente in PowerShell:
+Per installare la libreria client di Visione personalizzata per Node.js, eseguire il comando seguente in PowerShell:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training

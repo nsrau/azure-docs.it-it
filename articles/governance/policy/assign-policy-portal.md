@@ -1,14 +1,14 @@
 ---
 title: 'Guida introduttiva: Nuova assegnazione di criteri con il portale'
 description: In questo argomento di avvio rapido viene usato il portale di Azure per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi.
-ms.date: 03/24/2020
+ms.date: 08/17/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3a514478f3cefa49c37c3431a80b578dff480584
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb3f97ab2f8da3ff2809cb969c8442779e173983
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240016"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548380"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi
 
@@ -37,7 +37,7 @@ In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la 
 
    :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Assegnare una definizione di criteri dalla pagina Assegnazioni" border="false":::
 
-1. Nella pagina **Assegna criterio** selezionare il valore di **Ambito** facendo clic sui puntini di sospensione e quindi selezionando un gruppo di gestione o una sottoscrizione. Facoltativamente, selezionare un gruppo di risorse. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri Fare quindi clic su **Seleziona** nella parte inferiore della pagina **Ambito**.
+1. Nella pagina **Assegna criterio** impostare il valore di **Ambito** selezionando i puntini di sospensione e quindi scegliendo un gruppo di gestione o una sottoscrizione. Facoltativamente, selezionare un gruppo di risorse. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri Quindi usare il pulsante **Seleziona** nella parte inferiore della pagina **Ambito**.
 
    Questo esempio descrive come usare la sottoscrizione **Contoso**. ma le opzioni disponibili sono diverse.
 
@@ -51,7 +51,7 @@ In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la 
 
    Per un elenco parziale di tutti i criteri predefiniti disponibili, vedere [Esempi di Criteri di Azure](./samples/index.md).
 
-1. Cercare nell'elenco di definizioni per trovare la definizione _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks). Fare clic su tale criterio e fare clic su **Select** (Seleziona).
+1. Cercare nell'elenco di definizioni per trovare la definizione _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks). Selezionare il criterio e quindi usare il pulsante **Seleziona**.
 
    :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Trovare la definizione di criteri corretta" border="false":::
 
@@ -60,13 +60,13 @@ In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la 
 
 1. Lasciare l'opzione **Crea un'identità gestita** deselezionata. Questa casella _deve_ essere selezionata quando il criterio o l'iniziativa include un criterio con l'effetto [deployIfNotExists](./concepts/effects.md#deployifnotexists). Dal momento che il criterio usato per questa guida introduttiva non lo include, lasciare il campo vuoto. Per altre informazioni, vedere le [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) e il [funzionamento della sicurezza di monitoraggio e aggiornamento](./how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Fare clic su **Assegna**.
+1. Selezionare **Assegna**.
 
 A questo punto si è pronti per identificare le risorse non conformi e comprendere così lo stato di conformità dell'ambiente.
 
 ## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi
 
-Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) creata.
+Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione dei criteri _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
 :::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Dettagli di conformità nella pagina Conformità di Criteri" border="false":::
 
@@ -88,9 +88,9 @@ Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non con
 
 Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
-1. Selezionare **Conformità** (o **Assegnazioni**) a sinistra della pagina Criteri di Azure e individuare l'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) creata.
+1. Selezionare **Conformità** (o **Assegnazioni**) a sinistra della pagina Criteri di Azure e individuare l'assegnazione dei criteri _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
-1. Fare clic con il pulsante destro del mouse sull'assegnazione di criteri **Controlla macchine virtuali che non usano dischi gestiti** e scegliere **Elimina assegnazione**.
+1. Fare clic con il pulsante destro del mouse sull'assegnazione di criteri _Controlla macchine virtuali che non usano dischi gestiti_ e scegliere **Elimina assegnazione**.
 
    :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Eliminare un'assegnazione dalla pagina Conformità" border="false":::
 

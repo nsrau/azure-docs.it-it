@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565506"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509366"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Avvio rapido: Eseguire il rendering di un modello con Unity
 
@@ -84,7 +84,7 @@ In seguito si vuole distribuire il progetto in un HoloLens e connettersi al serv
 
 ### <a name="create-a-session-and-view-the-default-model"></a>Creare una sessione e visualizzare il modello predefinito
 
-Premere il pulsante **Play** di Unity per avviare la sessione. Verrà visualizzata una sovrimpressione con il testo di stato nella parte inferiore del riquadro di visualizzazione nel pannello *Game*. La sessione viene sottoposta a una serie di transizioni di stato. Nel stato di **avvio** la macchina virtuale remota viene attivata, operazione che richiede alcuni minuti. Al termine dell'operazione, viene eseguito il passaggio allo stato **pronto**. A questo punto la sessione passa allo stato di **connessione**, dove prova a raggiungere il runtime di rendering in tale macchina virtuale. In caso di esito positivo, l'esempio passa allo stato **connesso**. A questo punto, inizierà a scaricare il modello per il rendering. A causa delle dimensioni del modello, il download può richiedere alcuni minuti. Viene quindi visualizzato il modello di cui è stato eseguito il rendering in remoto.
+Premere il pulsante **Play** di Unity per avviare la sessione. Verrà visualizzata una sovrimpressione con il testo di stato nella parte inferiore del riquadro di visualizzazione nel pannello *Game*. La sessione viene sottoposta a una serie di transizioni di stato. Nello stato di **avvio** il server viene avviato, operazione che richiede diversi minuti. Al termine dell'operazione, viene eseguito il passaggio allo stato **pronto**. A questo punto la sessione passa allo stato di **connessione**, in cui prova a raggiungere il runtime di rendering in tale server. In caso di esito positivo, l'esempio passa allo stato **connesso**. A questo punto, inizierà a scaricare il modello per il rendering. A causa delle dimensioni del modello, il download può richiedere alcuni minuti. Viene quindi visualizzato il modello di cui è stato eseguito il rendering in remoto.
 
 ![Output dell'esempio](media/arr-sample-output.png)
 

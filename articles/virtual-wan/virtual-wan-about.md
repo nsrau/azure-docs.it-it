@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 713e980eb84032c98ccf08c52e68dab36eadd659
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513146"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604685"
 ---
-# <a name="about-azure-virtual-wan"></a>Informazioni sulla rete WAN virtuale di Azure
+# <a name="what-is-azure-virtual-wan"></a>Che cos'è la rete WAN virtuale di Azure?
 
 La rete WAN virtuale di Azure è un servizio che raggruppa numerose funzionalità di rete, sicurezza e routing per offrire una singola interfaccia operativa. Queste funzionalità includono la connettività dei rami (tramite l'automazione della connettività da dispositivi partner della rete WAN virtuale, ad esempio SD-WAN o CPE VPN), la connettività VPN da sito a sito, la connettività VPN (da punto a sito) di utenti remoti, la connettività privata (ExpressRoute), la connettività intra-cloud (connettività di transito per reti virtuali), la connettività ExpressRoute VPN, il routing, Firewall di Azure, la crittografia per la connettività privata e così via. Per iniziare a usare la rete WAN virtuale, non è necessario avere tutti questi casi d'uso. È possibile iniziare con un solo caso d'uso e adattare la rete quando si evolve.
 
@@ -98,11 +98,11 @@ Il router può avere quattro stati di routing: Provisioning eseguito, Provisioni
 * Lo stato **Nessuno** indica che l'hub virtuale non ha effettuato il provisioning del router. Può succedere se la rete WAN virtuale è di tipo *Basic* o se l'hub virtuale è stato distribuito prima che il servizio fosse reso disponibile.
 * Lo stato **Errore** indica un errore durante la creazione dell'istanza. Per creare un'istanza del router o reimpostarlo, è possibile usare l'opzione **Reimposta router** nella pagina di panoramica dell'hub virtuale nel portale di Azure.
 
-Ogni router di hub virtuale supporta una velocità effettiva aggregata fino a 50 Gbps. La connettività tra le connessioni di rete virtuale presuppone un totale di 2000 carichi di lavoro di VM in tutte le reti virtuali in una rete WAN virtuale.
+Ogni router di hub virtuale supporta una velocità effettiva aggregata fino a 50 Gbps. La connettività tra le connessioni di rete virtuale presuppone un totale di 2000 carichi di lavoro di VM in tutte le reti virtuali connesse a un singolo hub virtuale.
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Connettività di transito tra VPN ed ExpressRoute
 
-La rete WAN virtuale consente la connettività di transito tra VPN ed ExpressRoute. Questo significa che i siti connessi alla VPN o gli utenti remoti possono comunicare con i siti connessi a ExpressRoute. Implica anche che il contrassegno di **connettività da ramo a ramo** è abilitato. Questo contrassegno si trova nelle impostazioni della rete WAN virtuale di Azure nel portale di Azure. La gestione delle route viene interamente fornita dal router dell'hub virtuale, che consente anche la connettività di transito tra le reti virtuali.
+La rete WAN virtuale consente la connettività di transito tra VPN ed ExpressRoute. Questo significa che i siti connessi alla VPN o gli utenti remoti possono comunicare con i siti connessi a ExpressRoute. Si presuppone inoltre implicitamente che il **flag Da ramo a ramo** sia abilitato e che il protocollo BGP sia supportato nelle connessioni VPN ed ExpressRoute. Questo flag si trova nelle impostazioni della rete WAN virtuale di Azure nel portale di Azure. La gestione delle route viene interamente fornita dal router dell'hub virtuale, che consente anche la connettività di transito tra le reti virtuali.
 
 ### <a name="custom-routing"></a><a name="routing"></a>Routing personalizzato
 
@@ -120,7 +120,7 @@ La rete WAN virtuale di Azure consente di crittografare il traffico ExpressRoute
 
 Per informazioni sulle località, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md).
 
-## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Tabelle di route nelle reti WAN virtuali Basic e Standard
+## <a name="route-tables-for-basic-and-standard-virtual-wans"></a><a name="route"></a>Tabelle di route per reti WAN virtuali Basic e Standard
 
 Le tabelle di route includono ora funzionalità per l'associazione e la propagazione. Le tabelle di route preesistenti non hanno queste funzionalità. Se si dispone di route preesistenti nel routing dell'hub e si vogliono usare le nuove funzionalità, considerare le opzioni seguenti:
 
@@ -131,6 +131,10 @@ Le tabelle di route includono ora funzionalità per l'associazione e la propagaz
 ## <a name="faq"></a><a name="faq"></a>Domande frequenti
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+
+## <a name="view-the-latest-feature-updates"></a><a name="new"></a>Visualizzare gli aggiornamenti delle funzionalità più recenti
+
+Sottoscrivere il feed RSS e visualizzare gli aggiornamenti più recenti delle funzionalità della rete WAN virtuale nella pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

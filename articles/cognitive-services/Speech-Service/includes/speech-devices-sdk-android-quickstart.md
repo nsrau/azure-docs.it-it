@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: abc9a42c7ced6a71f93c00968eb825f28f720843
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374740"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226234"
 ---
 In questa guida di avvio rapido si apprenderà come usare Speech Devices SDK per Android per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription-service.md).
 
-Per riprodurre le procedure di questa guida, è necessario un account di [Servizi cognitivi di Azure](../get-started.md) con una risorsa del servizio Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per riprodurre le procedure di questa guida, è necessario un account di [Servizi cognitivi di Azure](../get-started.md) con una risorsa del servizio Voce.
 
 Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -126,7 +126,7 @@ Per convalidare la configurazione del kit di sviluppo, compilare e installare l'
 
    Per usare una nuova parola chiave, aggiornare le due righe seguenti in `MainActivity.java` e copiare il pacchetto di parole chiave nell'app. Ad esempio, per usare la parola chiave 'Machine' del pacchetto di parole chiave kws-machine.zip:
 
-   - Copiare il pacchetto di parole chiave nella cartella "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   - Copiare il pacchetto di parole chiave nella cartella "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\\".
    - Aggiornare `MainActivity.java` con la parola chiave e il nome del pacchetto:
 
      ```java

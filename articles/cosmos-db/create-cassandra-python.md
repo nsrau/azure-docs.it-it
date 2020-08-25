@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2521a579538b272ac4990c3d390fb1aa6f2e58a0
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f376a1f3601c976ff1efdaee1da6181510a9cf64
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876530"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234942"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con Python SDK e Azure Cosmos DB
 
@@ -68,68 +68,29 @@ Clonare ora un'app per le API Cassandra da GitHub, impostare la stringa di conne
 
 Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le risorse del database, è possibile esaminare i frammenti di codice seguenti. I frammenti di codice provengono tutti dal file *pyquickstart.py*. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). 
 
-* I valori di nome utente e password sono stati impostati usando la pagina della stringa di connessione nel portale di Azure. `path\to\cert` consente di specificare il percorso di un certificato X509. 
+* `cluster` viene inizializzato con le informazioni su `contactPoint` e `port` recuperate dal portale di Azure. `cluster` si connette quindi all'API Cassandra di Azure Cosmos DB tramite il metodo `connect()`. Viene stabilita una connessione autorizzata usando il nome utente, la password e il certificato predefinito oppure un certificato esplicito se ne viene fornito uno con il file config.
 
-   ```python
-    ssl_opts = {
-            'ca_certs': 'path\to\cert',
-            'ssl_version': ssl.PROTOCOL_TLSv1_2
-            }
-    auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
-    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
-    session = cluster.connect()
-   
-   ```
-
-* `cluster` viene inizializzato con le informazioni di contactPoint. Il valore di contactPoint viene recuperato dal portale di Azure.
-
-    ```python
-   cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider)
-    ```
-
-* `cluster` si connette all'API Cassandra di Azure Cosmos DB.
-
-    ```python
-    session = cluster.connect()
-    ```
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="authenticateAndConnect":::
 
 * Viene creato un nuovo keyspace.
 
-    ```python
-   session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }')
-    ```
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="createKeyspace":::
 
 * Viene creata una nuova tabella.
 
-   ```
-   session.execute('CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)');
-   ```
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="createTable":::
 
 * Le entità chiave/valore vengono inserite.
 
-    ```Python
-    insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
-    session.execute(insert_data, [1,'Lybkov','Seattle'])
-    session.execute(insert_data, [2,'Doniv','Dubai'])
-    session.execute(insert_data, [3,'Keviv','Chennai'])
-    session.execute(insert_data, [4,'Ehtevs','Pune'])
-    session.execute(insert_data, [5,'Dnivog','Belgaum'])
-    ....
-    
-    ```
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="insertData":::
 
 * Eseguire una query per ottenere tutti i valori di chiave.
 
-    ```Python
-    rows = session.execute('SELECT * FROM uprofile.user')
-    ```  
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="queryAllItems":::
     
 * Eseguire una query per ottenere un valore di chiave.
 
-    ```Python
-    
-    rows = session.execute('SELECT * FROM uprofile.user where user_id=1')
-    ```  
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="queryByID":::
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 

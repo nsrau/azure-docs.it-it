@@ -5,14 +5,14 @@ keywords: servizio app, servizio app di Azure, mapping di dominio, nome di domin
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 08/13/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c301876a57b3be4a112c7df2706bf17389a5af44
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543563"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190050"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -125,11 +125,11 @@ Se è presente un sottodominio diverso da `www`, sostituire `www` con il sottodo
 
 #### <a name="create-the-cname-record"></a>Creazione di un record CNAME
 
-Eseguire il mapping di un sottodominio al nome di dominio predefinito dell'app (`<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app). Per creare un mapping CNAME per il sottodominio `www`, creare due record:
+Eseguire il mapping di un sottodominio al nome di dominio predefinito dell'app (`<app-name>.azurewebsites.net`, dove `<app-name>` è il nome dell'app). Per creare un mapping CNAME per il sottodominio `www`, creare due record:
 
 | Tipo di record | Host | valore | Commenti |
 | - | - | - |
-| CNAME | `www` | `<app_name>.azurewebsites.net` | Il mapping del dominio stesso. |
+| CNAME | `www` | `<app-name>.azurewebsites.net` | Il mapping del dominio stesso. |
 | TXT | `asuid.www` | [ID verifica ottenuto in precedenza](#get-domain-verification-id) | Il servizio app accede al record TXT `asuid.<subdomain>` per verificare la proprietà del dominio personalizzato. |
 
 Dopo aver aggiunto i record CNAME e TXT, la pagina dei record DNS è simile all'esempio seguente:
@@ -210,7 +210,7 @@ Per eseguire il mapping di un record A a un'app, in genere al dominio radice, cr
 > | Tipo di record | Host | valore |
 > | - | - | - |
 > | Una | `www` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
-> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
 >
 
 Dopo aver aggiunto i record, la pagina dei record DNS è simile all'esempio seguente:
@@ -262,9 +262,14 @@ Nell'esempio dell'esercitazione si esegue il mapping di un [nome DNS con caratte
 
 #### <a name="create-the-cname-record"></a>Creazione di un record CNAME
 
-Aggiungere un record CNAME per eseguire il mapping di un nome con caratteri jolly al nome di dominio predefinito dell'app (`<app_name>.azurewebsites.net`).
+Eseguire il mapping di un nome con caratteri jolly `*` al nome di dominio predefinito dell'app (`<app-name>.azurewebsites.net`, dove `<app-name>` è il nome dell'app). Per eseguire il mapping del nome con caratteri jolly, creare due record:
 
-Per l'esempio di dominio `*.contoso.com`, il record CNAME eseguirà il mapping del nome `*` a `<app_name>.azurewebsites.net`.
+| Tipo di record | Host | valore | Commenti |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | Il mapping del dominio stesso. |
+| TXT | `asuid` | [ID verifica ottenuto in precedenza](#get-domain-verification-id) | Il servizio app accede al record TXT `asuid` per verificare la proprietà del dominio personalizzato. |
+
+Per l'esempio di dominio `*.contoso.com`, il record CNAME eseguirà il mapping del nome `*` a `<app-name>.azurewebsites.net`.
 
 Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esempio seguente:
 
@@ -272,7 +277,7 @@ Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esemp
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Abilitare il mapping dei record CNAME nell'app
 
-È ora possibile aggiungere qualsiasi sottodominio che corrisponde al nome con caratteri jolly nell'app, ad esempio `sub1.contoso.com` e `sub2.contoso.com` corrispondono a `*.contoso.com`.
+È ora possibile aggiungere qualsiasi sottodominio che corrisponde al nome con caratteri jolly nell'app, ad esempio `sub1.contoso.com` e `sub2.contoso.com` corrispondono entrambi a `*.contoso.com`.
 
 Nel riquadro di spostamento a sinistra della pagina dell'app nel portale di Azure selezionare **Domini personalizzati**.
 
@@ -342,7 +347,7 @@ Il seguente comando aggiunge un nome DNS personalizzato configurato a un'applica
 
 ```bash 
 az webapp config hostname add \
-    --webapp-name <app_name> \
+    --webapp-name <app-name> \
     --resource-group <resource_group_name> \
     --hostname <fully_qualified_domain_name>
 ``` 
@@ -357,9 +362,9 @@ Il seguente comando aggiunge un nome DNS personalizzato configurato a un'applica
 
 ```powershell  
 Set-AzWebApp `
-    -Name <app_name> `
+    -Name <app-name> `
     -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net")
+    -HostNames @("<fully_qualified_domain_name>","<app-name>.azurewebsites.net")
 ```
 
 Per ulteriori informazioni, vedere [Assegnazione di un dominio personalizzato a un’app Web](scripts/powershell-configure-custom-domain.md).

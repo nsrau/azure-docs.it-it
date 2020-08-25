@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986815"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258283"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limiti dei dati e di velocità per l'API Analisi del testo
 <a name="data-limits"></a>
@@ -31,8 +31,8 @@ Usare questo articolo per informazioni sui limiti di dimensioni e velocità per 
 
 | Limite | valore |
 |------------------------|---------------|
-| Dimensioni massime di un singolo documento | 5\.120 caratteri misurati in base a [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Dimensioni massime dell'intera richiesta | 1 MB |
+| Dimensioni massime di un singolo documento | 5\.120 caratteri misurati in base a [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Si applica anche al contenitore Analisi del testo per la sanità. |
+| Dimensioni massime dell'intera richiesta | 1 MB. Si applica anche al contenitore Analisi del testo per la sanità. |
 
 Il numero massimo di documenti che è possibile inviare in una singola richiesta dipende dalla versione dell'API e dalla funzionalità in uso.
 
@@ -48,7 +48,7 @@ Nell'API v3 sono stati modificati i limiti seguenti. Il superamento dei limiti i
 | Estrazione frasi chiave | 10 |
 | Riconoscimento di entità denominate | 5 |
 | Collegamento delle entità | 5 |
-
+| Contenitore Analisi del testo per la sanità | 1000 |
 #### <a name="version-2"></a>[Versione 2](#tab/version-2)
 
 | Funzionalità | Numero massimo di documenti per richiesta | 
@@ -63,7 +63,7 @@ Nell'API v3 sono stati modificati i limiti seguenti. Il superamento dei limiti i
 
 ## <a name="rate-limits"></a>Limiti di velocità
 
-Il limite di velocità varia in base al [piano tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) in uso. Questi limiti sono identici per entrambe le versioni dell'API.
+Il limite di velocità varia in base al [piano tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) in uso. Questi limiti sono identici per entrambe le versioni dell'API. Questi limiti di velocità non si applicano al contenitore Analisi del testo per la sanità, che non prevede un limite di velocità impostato.
 
 | Livello          | Richieste al secondo | Richieste al minuto |
 |---------------|---------------------|---------------------|

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d831d40733f9fa1d0db4c53d72de22898e493639
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037100"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795865"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
 
@@ -134,7 +134,7 @@ L'archivio analitico segue un modello di prezzi a consumo in base al quale viene
 * Operazioni di lettura analitica: le operazioni di lettura eseguite sull'archivio analitico dai runtime Spark e SQL serverless di Synapse Analytics.
 
 > [!NOTE]
-> L'archivio analitico di Azure Cosmos DB è disponibile in anteprima pubblica senza alcun addebito fino al 30 agosto 2020.
+> Azure Cosmos DB archivio analitico è attualmente disponibile in versione di anteprima pubblica senza alcun addebito.
 
 Il prezzo dell'archivio analitico è separato dal modello di prezzi dell'archivio transazioni. Non esiste alcun concetto di UR con provisioning nell'archivio analitico. Per informazioni dettagliate sul modello di prezzi per l'archivio analitico, vedere la [pagina dei prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
@@ -144,7 +144,7 @@ Per ottenere una stima dei costi di alto livello per abilitare l'archivio analit
 
 La durata (TTL) dei dati analitici indica per quanto tempo i dati devono essere conservati nell'archivio analitico, per un contenitore. 
 
-Le operazioni di inserimento, aggiornamento ed eliminazione dei dati operativi vengono sincronizzate automaticamente dall'archivio transazionale all'archivio analitico, indipendentemente dalla configurazione della durata (TTL) dei dati transazionali. La conservazione di questi dati operativi nell'archivio analitico può essere controllata dal valore della durata (TTL) dei dati analitici a livello di contenitore, come specificato di seguito:
+Se l'archivio analitico è abilitato, gli inserimenti, gli aggiornamenti, le eliminazioni nei dati operativi vengono sincronizzati automaticamente dall'archivio transazionale all'archivio analitico, indipendentemente dalla configurazione di TTL transazionale. La conservazione di questi dati operativi nell'archivio analitico può essere controllata dal valore della durata (TTL) dei dati analitici a livello di contenitore, come specificato di seguito:
 
 Il valore della durata (TTL) dei dati analitici in un contenitore viene impostato usando la proprietà `AnalyticalStoreTimeToLiveInSeconds`:
 
@@ -152,7 +152,7 @@ Il valore della durata (TTL) dei dati analitici in un contenitore viene impostat
 
 * Se presente e il valore è impostato su "-1": l'archivio analitico conserva tutti i dati cronologici, indipendentemente dalla conservazione dei dati nell'archivio transazionale. Questa impostazione indica che l'archivio analitico ha una conservazione infinita dei dati operativi
 
-* Se presente e il valore è impostato su un numero positivo "n": gli elementi scadranno dall'archivio analitico "n" secondi dopo l'ora dell'ultima modifica nell'archivio transazionale. Questa impostazione può essere usata se si vuole conservare i dati operativi per un periodo di tempo limitato nell'archivio analitico, indipendentemente dalla conservazione dei dati nell'archivio transazionale.
+* Se presente e il valore è impostato su un numero positivo "n": gli elementi scadranno dall'archivio analitico "n" secondi dopo l'ora dell'ultima modifica nell'archivio transazionale. Questa impostazione può essere sfruttata se si desidera conservare i dati operativi per un periodo di tempo limitato nell'archivio analitico, indipendentemente dalla conservazione dei dati nell'archivio transazionale.
 
 Alcune informazioni da considerare:
 *   Dopo aver abilitato l'archivio analitico con un valore della durata (TTL) dei dati analitici, è possibile aggiornarlo con un altro valore valido in un secondo momento. 

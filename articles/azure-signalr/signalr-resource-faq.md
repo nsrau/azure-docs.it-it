@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c944ae3a5d647cc457edd20a5d3dd0489e19e286
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75891257"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192291"
 ---
 # <a name="azure-signalr-service-faq"></a>Domande frequenti sul servizio Azure SignalR
 
@@ -68,3 +68,39 @@ No.
 Il servizio Azure SignalR fornisce tutti e tre i trasporti supportati da ASP.NET Core SignalR per impostazione predefinita. Non è configurabile. Il servizio SignalR gestirà le connessioni e i trasporti per tutte le connessioni client.
 
 È possibile configurare i trasporti lato client, come illustrato [qui](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).
+
+## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-showed-in-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Qual è il significato di metriche come il numero di messaggi o il numero di connessioni mostrato nel portale di Azure? Quale tipo di aggregazione scegliere?
+
+Per informazioni dettagliate su come vengono calcolate queste metriche, vedere [qui](signalr-concept-messages-and-connections.md).
+
+Nel pannello Panoramica delle risorse del Servizio Azure SignalR è già stato scelto il tipo di aggregazione appropriato. Se si passa al pannello Metriche, è possibile usare il tipo di aggregazione indicato [qui](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) come riferimento.
+
+## <a name="what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose"></a>Qual è il significato della modalità servizio `Default`/`Serverless`/`Classic`? Come è possibile scegliere?
+
+Modalità:
+* La modalità `Default` **richiede** un server di hub. Quando non è disponibile alcuna connessione al server per l'hub, il client che prova a connettersi a questo hub non riesce.
+* La modalità `Serverless` **NON** consente alcuna connessione al server, ovvero verranno rifiutate tutte le connessioni al server. Tutti i client devono essere in modalità serverless.
+* La modalità `Classic` è uno stato misto. Quando un hub ha una connessione al server, il nuovo client verrà indirizzato al server di hub, in caso contrario, il client entrerà in modalità serverless.
+
+  Ciò potrebbe causare un problema, ad esempio, tutte le connessioni al server vengono perse per un momento, alcuni client entreranno in modalità serverless, invece di essere indirizzati al server di hub.
+
+Scegliere:
+1. Nessun server di hub, scegliere `Serverless`.
+1. Tutti gli hub hanno un server di hub, scegliere `Default`.
+1. Alcuni hub hanno un server di hub, altri no, scegliere `Classic`, ma ciò potrebbe causare un problema. Il modo migliore è creare due istanze, una è `Serverless`, un'altra è `Default`.
+
+## <a name="any-feature-differences-when-using-azure-signalr-for-aspnet-signalr"></a>Ci sono differenze tra le funzionalità quando si usa Azure SignalR per ASP.NET SignalR?
+Quando si usa Azure SignalR, alcune API e funzionalità di ASP.NET SignalR non sono più supportate:
+- La possibilità di passare uno stato arbitrario tra i client e l'hub (spesso denominati `HubState`) non è supportata quando si usa Azure SignalR
+- La classe `PersistentConnection` non è ancora supportata quando si usa Azure SignalR
+- **Il trasporto Forever Frame** non è supportato quando si usa Azure SignalR
+- Azure SignalR non riproduce più i messaggi inviati al client quando il client è offline
+- Quando si usa Azure SignalR, il traffico per una connessione client viene sempre indirizzato a un'istanza del server app per la durata della connessione (denominata anche **modalità permanete**)
+
+Il supporto di ASP.NET SignalR è incentrato sulla compatibilità, quindi non sono supportate tutte le nuove funzionalità di ASP.NET Core SignalR. Ad esempio, **MessagePack**, **Streaming** e così via, sono disponibili solo per le applicazioni ASP.NET Core SignalR.
+
+Il servizio SignalR può essere configurato per modalità di servizio diverse: `Classic`/`Default`/`Serverles`s. In questo supporto di ASP.NET la modalità `Serverless` non è supportata. Neanche l'API REST del piano dati è supportata.
+
+## <a name="where-do-my-data-reside"></a>Dove si trovano i dati?
+
+Il Servizio Azure SignalR funziona come servizio di elaborazione dati. Non verrà archiviato alcun contenuto del cliente e la residenza dei dati è garantita per impostazione predefinita. Se si usa il Servizio Azure SignalR insieme ad altri servizi di Azure, ad esempio Archiviazione di Azure per la diagnostica, controllare [qui](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) per ottenere informazioni su come conservare la residenza dei dati nelle aree di Azure.

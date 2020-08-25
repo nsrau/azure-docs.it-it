@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 38ae6bec99498440d7bf7e68e2d5c397e696192a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115677"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604894"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informazioni sui certificati di Azure Key Vault
 
@@ -84,7 +84,8 @@ Quando viene creato un certificato di Key Vault completamente nuovo, è necessar
 In generale, i criteri dei certificati contengono le informazioni seguenti, le cui definizioni sono disponibili [qui](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0):  
 
 -   Proprietà del certificato X509: nome del soggetto, nomi alternativi del soggetto e altre proprietà usate per creare una richiesta di certificato x509.  
--   Proprietà della chiave: contiene i campi relativi al tipo di chiave, alla lunghezza della chiave, nonché all'esportabilità e il campo ReuseKeyOnRenewal. Questi campi indicare all’insieme di credenziali delle chiavi come generare una chiave.  
+-   Proprietà della chiave: contiene i campi relativi al tipo di chiave, alla lunghezza della chiave, nonché all'esportabilità e il campo ReuseKeyOnRenewal. Questi campi indicare all’insieme di credenziali delle chiavi come generare una chiave. 
+     - Tipi di chiavi supportati: RSA, RSA-HSM, EC, EC-HSM, oct (elencati [qui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Proprietà del segreto: contiene le proprietà del segreto, ad esempio tipo di contenuto del segreto indirizzabile per generare il valore del segreto, al fine di recuperare il certificato come segreto.  
 -   Azioni di durata: contiene le azioni di durata per il certificato KV. Ogni azione di durata contiene:  
 

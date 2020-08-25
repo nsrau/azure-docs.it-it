@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare una pipeline CI/CD per .NET con Azure DevOps Starter'
+title: 'Avvio rapido: Creare una pipeline CI/CD per .NET con Azure DevOps Starter'
 description: Azure DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app .NET in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 3f0d937737cb261fb81dc4cdad3579ee593b5981
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: c434abdac19c0afd3a76256c27fc3316a8b09940
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233304"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163697"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Creare una pipeline CI/CD per .NET con Azure DevOps Starter
 
-Configurare l'integrazione continua (CI) e il recapito continuo (CD) per l'applicazione .NET Core o ASP.NET con DevOps Starter. DevOps Starter semplifica la configurazione iniziale di una pipeline di compilazione e di rilascio in Azure Pipelines.
+Configurare l'integrazione continua (CI) e la distribuzione continua (CD) per un'applicazione .NET Core o ASP.NET con DevOps Starter. DevOps Starter semplifica la configurazione iniziale di una pipeline di compilazione e di versione in Azure Pipelines.
 
 Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -54,9 +54,9 @@ DevOps Starter crea una pipeline CI/CD in Azure DevOps. È possibile creare una 
 
 2. Creare una nuova **organizzazione Azure DevOps** gratuita o scegliere un'organizzazione esistente dall'elenco a discesa.
 
-3. Selezionare la **sottoscrizione di Azure**, immettere un nome per l'**app Web** o accettare quello predefinito, quindi selezionare **Fine**. Dopo alcuni minuti, nella portale di Azure viene visualizzata la panoramica della distribuzione iniziale di DevOps. 
+3. Selezionare la **sottoscrizione di Azure**, immettere un nome per l'**app Web** o accettare quello predefinito, quindi selezionare **Fine**. Dopo alcuni minuti, nel portale di Azure viene visualizzata la panoramica della distribuzione di DevOps Starter. 
 
-4. Selezionare **Vai alla risorsa** per visualizzare il dashboard iniziale di DevOps. Nell'angolo superiore destro aggiungere il **progetto** al dashboard, in modo da potervi accedere rapidamente. Viene configurata un'app di esempio in un repository nell'**organizzazione Azure DevOps**. Viene eseguita una compilazione e l'app viene distribuita in Azure.
+4. Selezionare **Vai alla risorsa** per visualizzare il dashboard di DevOps Starter. Nell'angolo superiore destro aggiungere il **progetto** al dashboard, in modo da potervi accedere rapidamente. Viene configurata un'app di esempio in un repository nell'**organizzazione Azure DevOps**. Viene eseguita una compilazione e l'app viene distribuita in Azure.
 
 5. Il dashboard fornisce visibilità su repository di codice, pipeline CI/CD e l'app in Azure. A destra, in Risorse di Azure, selezionare **Sfoglia** per visualizzare l'app in esecuzione.
 
@@ -64,25 +64,25 @@ DevOps Starter crea una pipeline CI/CD in Azure DevOps. È possibile creare una 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline di CI/CD
 
-DevOps Starter ha creato un repository git in Azure Repos o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
+DevOps Starter ha creato un repository Git in Azure Repos o in GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
 
-1. Nella parte sinistra del dashboard di DevOps Starter selezionare il collegamento per il ramo **Master** . Questo collegamento apre una visualizzazione del repository Git appena creato.
+1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo **master**. Questo collegamento apre una visualizzazione del repository Git appena creato.
 
 2. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo **master**. È anche possibile clonare il repository Git nel proprio ambiente IDE preferito selezionando **Clona** nella parte superiore destra della pagina del repository. 
 
 3. A sinistra, passare nella struttura dei file dell'applicazione a **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-4. Selezionare **Modifica** e quindi apportare una modifica al titolo h2. Inserire, ad esempio, **iniziare subito a usare Azure DevOps Starter** o apportare altre modifiche.
+4. Selezionare **Modifica** e quindi apportare una modifica al titolo h2. Ad esempio, digitare **Iniziare subito con il progetto Azure DevOps Starter** o apportare altre modifiche.
 
       ![Editor di codice](_img/azure-devops-project-aspnet-core/codechange.png)
 
 5. Selezionare **Commit**, lasciare un commento e selezionare nuovamente **Commit**.
 
-6. Nel browser passare al dashboard iniziale di Azure DevOps.  Dovrebbe venire visualizzata una compilazione in corso. Le modifiche apportate vengono compilate e distribuite automaticamente tramite una pipeline CI/CD.
+6. Nel browser passare al dashboard di Azure DevOps Starter.  Dovrebbe venire visualizzata una compilazione in corso. Le modifiche apportate vengono compilate e distribuite automaticamente tramite una pipeline CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Esaminare la pipeline CI/CD
 
-Nel passaggio precedente, Azure DevOps Starter configurava automaticamente una pipeline di integrazione continua/distribuzione continua completa. Esplorare e personalizzare la pipeline in base alle esigenze. Eseguire questa procedura per acquisire familiarità con le pipeline di compilazione e di versione di Azure DevOps.
+Nel passaggio precedente Azure DevOps Starter ha configurato automaticamente una pipeline CI/CD completa. Esplorare e personalizzare la pipeline in base alle esigenze. Eseguire questa procedura per acquisire familiarità con le pipeline di compilazione e di versione di Azure DevOps.
 
 1. Selezionare **Pipeline di compilazione** nel dashboard di DevOps Starter. Questo collegamento apre una scheda del browser e la pipeline di compilazione di Azure DevOps per il nuovo progetto.
 
@@ -101,7 +101,7 @@ Nel passaggio precedente, Azure DevOps Starter configurava automaticamente una p
 1. Sotto il nome della pipeline di compilazione selezionare **Cronologia**.   
 Nel riquadro **Cronologia** verrà visualizzato un log di controllo delle modifiche recenti per la compilazione.  Azure Pipelines tiene traccia di tutte le modifiche apportate alla pipeline di compilazione e consente di confrontare le versioni.
 
-1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger CI e ogni commit nel repository avvia una nuova compilazione. Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
+1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger di integrazione continua e ogni commit nel repository avvia una nuova compilazione. Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
 
 1. Selezionare **Conservazione**. A seconda dello scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 

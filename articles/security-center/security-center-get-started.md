@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038546"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226014"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida di avvio rapido: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre il livello gratuito offre sicurezza limitata delle risorse di Azure, il livello Standard estende le funzionalità in locale e in altri ambienti cloud. Il livello Standard del Centro sicurezza consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
@@ -34,7 +34,8 @@ Per aggiornare una sottoscrizione al livello Standard, è necessario avere il ru
 ## <a name="enable-your-azure-subscription"></a>Abilitare la sottoscrizione di Azure
 
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
-2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
+
+1. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
 
    ![Panoramica del Centro sicurezza di Azure][2]
 
@@ -49,21 +50,25 @@ Dopo pochi minuti dal primo avvio del Centro di sicurezza, è possibile visualiz
 
 Per sfruttare al meglio il Centro sicurezza, è necessario completare i passaggi seguenti per eseguire l'aggiornamento al livello Standard e installare l'agente di Log Analytics.
 
-## <a name="upgrade-to-the-standard-pricing-tier"></a>Eseguire l'aggiornamento al piano tariffario Standard
-Ai fini della Guida introduttiva e delle esercitazioni per il Centro di sicurezza è necessario eseguire l'aggiornamento al livello Standard. È disponibile una versione di valutazione gratuita del livello Standard del Centro sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
+## <a name="upgrade-to-the-standard-tier"></a>Eseguire l'aggiornamento al livello Standard
+
+Ai fini della Guida di avvio rapido e delle esercitazioni per il Centro di sicurezza è necessario eseguire l'aggiornamento al livello Standard. È disponibile una versione di valutazione gratuita del livello Standard del Centro sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). 
+
+1. Nella barra laterale del Centro sicurezza selezionare **Attività iniziali**.
  
-   ![Introduzione][4]
+   ![Introduzione](./media/security-center-get-started/get-started-upgrade-tab.png)
 
-2. In **Aggiorna**, il Centro sicurezza di Azure elenca tutte le sottoscrizioni e i carichi di lavoro idonei per il caricamento. 
-   - È possibile espandere **Applica la versione di prova gratuita** per visualizzare un elenco di tutte le sottoscrizioni e aree di lavoro con il relativo stato di idoneità di valutazione.
-   -    È possibile aggiornare le sottoscrizioni e le aree di lavoro che non sono idonee per la versione di prova gratuita.
-   -    È possibile selezionare le aree di lavoro e le sottoscrizioni idonee per avviare la versione di prova gratuita.
-3. Fare clic su **Avvia versione di prova gratuita** per avviare la versione di prova gratuita nelle sottoscrizioni selezionate.
+    La scheda **Aggiorna** contiene un elenco di sottoscrizioni e aree di lavoro idonee per l'onboarding.
+
+1. Nell'elenco **Selezionare le aree di lavoro in cui abilitare il livello Standard** selezionare le aree di lavoro da aggiornare.
 
 
-  ![Avvisi di sicurezza][9]
+    > [!TIP]
+    > Se si seleziona un'area di lavoro idonea per una versione di valutazione gratuita, il passaggio successivo inizierà una versione di valutazione. Se le aree di lavoro non sono idonee per la versione di valutazione, verranno aggiornate e verranno applicati addebiti.
+
+1. Selezionare **Aggiorna** per aggiornare le aree di lavoro selezionate al livello Standard.
+
 
 ## <a name="automate-data-collection"></a>Automatizzare la raccolta dei dati
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer senza Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Per impostazione predefinita, il Centro sicurezza crea una nuova area di lavoro per l'utente.
@@ -73,9 +78,9 @@ Dopo aver abilitato il provisioning automatico, il Centro sicurezza installa l'a
 Per abilitare il provisioning automatico dell'agente di Log Analytics:
 
 1. Scegliere **Prezzi e impostazioni** dal menu principale del Centro sicurezza.
-2. Nella riga della sottoscrizione fare clic sulla sottoscrizione di cui si vogliono modificare le impostazioni.
-3. Nella scheda **Raccolta dati**, impostare **Provisioning automatico** su **Sì**.
-4. Selezionare **Salva**.
+1. Nella riga della sottoscrizione fare clic sulla sottoscrizione di cui si vogliono modificare le impostazioni.
+1. Nella scheda **Raccolta dati**, impostare **Provisioning automatico** su **Sì**.
+1. Selezionare **Salva**.
 ---
   ![Abilitare il provisioning automatico][6]
 

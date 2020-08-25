@@ -1,35 +1,39 @@
 ---
-title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Interfaccia della riga di comando'
-description: Imparare rapidamente a eseguire un processo Batch con l'interfaccia della riga di comando di Azure. Creare e gestire risorse di Azure dalla riga di comando o negli script.
+title: "Avvio rapido: Eseguire il primo processo Batch con l'interfaccia della riga di comando di Azure"
+description: Informazioni su come creare un account Batch ed eseguire un processo Batch con l'interfaccia della riga di comando di Azure.
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4c56695180f8f07384f31b750cec03f9d14fb9da
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8824d4485167955dd1b928bc57381b2e6b672c5d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504161"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213093"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Avvio rapido: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare un account Batch, un *pool* di nodi di calcolo (macchine virtuali) e un *processo* che esegue *attività* nel pool. Ogni attività di esempio esegue un comando di base in uno dei nodi del pool. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+Introduzione ad Azure Batch con informazioni su come usare l'interfaccia della riga di comando di Azure per creare un account Batch, un pool di nodi di calcolo (macchine virtuali) e un processo che esegue attività nel pool. Ogni attività di esempio esegue un comando di base in uno dei nodi del pool.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento di avvio rapido è necessaria la versione 2.0.20 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.20 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
-
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti orientali 2*.
+L'esempio seguente crea un gruppo di risorse denominato *QuickstartBatch-rg* nella località *Stati Uniti orientali 2*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create \
-    --name myResourceGroup \
+    --name QuickstartBatch-rg \
     --location eastus2
 ```
 
@@ -39,7 +43,7 @@ az group create \
 
 ```azurecli-interactive
 az storage account create \
-    --resource-group myResourceGroup \
+    --resource-group QuickstartBatch-rg \
     --name mystorageaccount \
     --location eastus2 \
     --sku Standard_LRS
@@ -49,22 +53,22 @@ az storage account create \
 
 Creare un account Batch con il comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). È necessario un account per creare risorse di calcolo (pool di nodi di calcolo) e processi Batch.
 
-L'esempio seguente crea un account Batch denominato *mybatchaccount* in *myResourceGroup* e collega l'account di archiviazione creato.  
+L'esempio seguente crea un account Batch denominato *mybatchaccount* in *QuickstartBatch-rg* e collega l'account di archiviazione creato.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch account create \
     --name mybatchaccount \
     --storage-account mystorageaccount \
-    --resource-group myResourceGroup \
+    --resource-group QuickstartBatch-rg \
     --location eastus2
 ```
 
 Per creare e gestire pool e processi di calcolo, è necessario eseguire l'autenticazione con Batch. Accedere all'account con il comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). Dopo aver effettuato l'accesso, i comandi `az batch` useranno il contesto di questo account.
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch account login \
     --name mybatchaccount \
-    --resource-group myResourceGroup \
+    --resource-group QuickstartBatch-rg \
     --shared-key-auth
 ```
 
@@ -77,7 +81,7 @@ az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
     --target-dedicated-nodes 2 \
     --image canonical:ubuntuserver:16.04-LTS \
-    --node-agent-sku-id "batch.node.ubuntu 16.04" 
+    --node-agent-sku-id "batch.node.ubuntu 16.04"
 ```
 
 Batch crea immediatamente il pool, ma richiede alcuni minuti per allocare e avviare i nodi di calcolo. In questa fase, il pool si trova nello stato `resizing`. Per visualizzare lo stato del pool, eseguire il comando [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). Questo comando mostra tutte le proprietà del pool ed è possibile eseguire query per le proprietà specifiche. Il comando seguente ottiene lo stato di allocazione del pool:
@@ -87,13 +91,13 @@ az batch pool show --pool-id mypool \
     --query "allocationState"
 ```
 
-Continuare con i passaggi seguenti per creare un processo e le attività mentre lo stato del pool sta ancora cambiando. Il pool è pronto per l'esecuzione di attività quando lo stato di allocazione è `steady` e tutti i nodi sono in esecuzione. 
+Continuare con i passaggi seguenti per creare un processo e le attività mentre lo stato del pool sta ancora cambiando. Il pool è pronto per l'esecuzione di attività quando lo stato di allocazione è `steady` e tutti i nodi sono in esecuzione.
 
 ## <a name="create-a-job"></a>Creare un processo
 
-Dopo aver creato un pool, creare un processo da eseguire nel pool stesso.  Un processo Batch è un gruppo logico per una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. Creare un processo Batch usando il comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). Nell'esempio seguente viene creato un processo *myjob* nel pool *mypool*. Inizialmente il processo è privo di attività.
+Dopo aver creato un pool, creare un processo da eseguire nel pool stesso. Un processo Batch è un gruppo logico per una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. Creare un processo Batch usando il comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). Nell'esempio seguente viene creato un processo *myjob* nel pool *mypool*. Inizialmente il processo è privo di attività.
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch job create \
     --id myjob \
     --pool-id mypool
@@ -105,7 +109,7 @@ Usare ora il comando [az batch task create](/cli/azure/batch/task#az-batch-task-
 
 Lo script Bash seguente crea 4 attività parallele (da *mytask1* a *mytask4*).
 
-```azurecli-interactive 
+```azurecli-interactive
 for i in {1..4}
 do
    az batch task create \
@@ -123,7 +127,7 @@ Dopo aver creato un'attività, Batch la accoda per l'esecuzione nel pool. Quando
 
 Usare il comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) per visualizzare lo stato delle attività Batch. L'esempio seguente mostra i dettagli di *mytask1* in esecuzione in uno dei nodi del pool.
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch task show \
     --job-id myjob \
     --task-id mytask1
@@ -133,9 +137,9 @@ L'output del comando include molti dettagli, ma annotare il valore di `exitCode`
 
 ## <a name="view-task-output"></a>Visualizzare l'output dell'attività
 
-Per elencare i file creati da un'attività in un nodo di calcolo, usare il comando [az batch task file list](/cli/azure/batch/task). Il comando seguente elenca i file creati da *mytask1*: 
+Per elencare i file creati da un'attività in un nodo di calcolo, usare il comando [az batch task file list](/cli/azure/batch/task). Il comando seguente elenca i file creati da *mytask1*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az batch task file list \
     --job-id myjob \
     --task-id mytask1 \
@@ -154,7 +158,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Per scaricare uno dei file di output in una directory locale, usare il comando [az batch task file download](/cli/azure/batch/task). In questo esempio l'output dell'attività è in `stdout.txt`. 
+Per scaricare uno dei file di output in una directory locale, usare il comando [az batch task file download](/cli/azure/batch/task). In questo esempio l'output dell'attività è in `stdout.txt`.
 
 ```azurecli-interactive
 az batch task file download \
@@ -183,10 +187,12 @@ AZ_BATCH_TASK_ID=mytask1
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
+
 Se si vuole proseguire con le esercitazioni e gli esempi di Batch, usare l'account Batch e l'account di archiviazione collegato creati in questa guida introduttiva. Non è previsto alcun addebito per l'account Batch in sé.
 
-Vengono addebitati i costi dei pool mentre i nodi sono in esecuzione, anche se non sono pianificati processi. Quando un pool non è più necessario, eliminarlo con il comando [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Quando si elimina il pool, tutto l'output delle attività nei nodi viene eliminato. 
+Vengono addebitati i costi dei pool mentre i nodi sono in esecuzione, anche se non sono pianificati processi. Quando un pool non è più necessario, eliminarlo con il comando [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Quando si elimina il pool, tutto l'output delle attività nei nodi viene eliminato.
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool
@@ -194,14 +200,13 @@ az batch pool delete --pool-id mypool
 
 Quando non sono più necessari, è possibile eliminare il gruppo di risorse, l'account Batch, i pool e tutte le risorse correlate usando il comando [az group delete](/cli/azure/group#az-group-delete). Eliminare le risorse in questo modo:
 
-```azurecli-interactive 
-az group delete --name myResourceGroup
+```azurecli-interactive
+az group delete --name QuickstartBatch-rg
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva sono stati creati un account Batch, un pool Batch e un processo Batch. Il processo ha eseguito attività di esempio ed è stato esaminato l'output creato in uno dei nodi. Ora che sono stati appresi i concetti fondamentali del servizio Batch, è possibile provare Batch con carichi di lavoro più realistici su scala più ampia. Per altre informazioni su Azure Batch, passare alle esercitazioni di Azure Batch. 
-
+In questa guida introduttiva sono stati creati un account Batch, un pool Batch e un processo Batch. Il processo ha eseguito attività di esempio ed è stato esaminato l'output creato in uno dei nodi. Ora che sono stati appresi i concetti fondamentali del servizio Batch, è possibile provare Batch con carichi di lavoro più realistici su scala più ampia. Per altre informazioni su Azure Batch, passare alle esercitazioni di Azure Batch.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni di Azure Batch](./tutorial-parallel-dotnet.md)

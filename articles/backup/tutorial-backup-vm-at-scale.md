@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come creare un insieme di credenziali
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372553"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263419"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
@@ -156,7 +156,7 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
 1. Nel dashboard **myRecoveryServicesVault** selezionare **3** sotto **Elementi di backup** per aprire il menu Elementi di backup.
 
-    ![Elementi di backup](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Aprire il menu Elementi di backup](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. Nel menu **Elementi di backup** selezionare **Macchina virtuale di Azure** per aprire l'elenco di macchine virtuali associate all'insieme di credenziali.
 
@@ -185,7 +185,7 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
 1. Quando nell'insieme di credenziali non ci sono più elementi, selezionare **Elimina**.
 
-    ![Selezionare Interrompi backup per eliminare l'insieme di credenziali](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Selezionare Elimina](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Dopo l'eliminazione dell'insieme di credenziali, verrà nuovamente visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
 

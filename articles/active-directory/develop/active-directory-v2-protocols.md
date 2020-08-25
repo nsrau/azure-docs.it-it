@@ -13,12 +13,12 @@ ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2be68a858773dd4e76126ba6cd04ad98a2fd6a06
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313439"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751453"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocolli OAuth 2.0 e OpenID Connect su Microsoft Identity Platform
 
@@ -30,7 +30,7 @@ In quasi tutti i flussi di OAuth 2.0 e OpenID Connect, sono coinvolte nello scam
 
 ![Diagramma che mostra i ruoli di OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* Il **server di autorizzazione** è l'endpoint di Microsoft Identity Platform e garantisce l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. Il server di autorizzazione agisce anche come provider di identità: gestisce in modo sicuro le informazioni dell'utente, l'accesso e le relazioni di trust tra le parti di un flusso.
+* Il **server di autorizzazione** è l'endpoint di Microsoft Identity Platform e garantisce l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. Il server di autorizzazione è anche noto come provider di identità: gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e le relazioni di trust tra le parti in un flusso.
 * Il **proprietario della risorsa** è in genere l'utente finale. Si tratta della parte che possiede i dati e ha la possibilità di consentire ai client di accedere a tali dati o risorse.
 * Il **client OAuth** è l'app, identificata dall'ID applicazione. In genere il client OAuth è l'entità con cui interagisce l'utente finale e che richiede i token dal server di autorizzazione. Per accedere alla risorsa, il client deve ottenere l'autorizzazione da parte del proprietario della risorsa.
 * Il **server della risorsa** è la posizione in cui si trova la risorsa o i dati. Consente al server di autorizzazione di autenticare e autorizzare il client OAuth in modo sicuro e usa i token di accesso bearer per assicurarsi che sia garantito l'accesso a una risorsa.

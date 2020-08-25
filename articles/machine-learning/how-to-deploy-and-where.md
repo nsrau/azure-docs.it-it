@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d7502414f6476cafcc85bbefd28a4ec463f62099
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185418"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751694"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ Per altre informazioni sull'uso dell'SDK per connettersi a un'area di lavoro, ve
 ---
 
 
-## <a name="register-your-model"></a><a id="registermodel"></a>Registrare il modello
+## <a name="register-your-model"></a><a id="registermodel"></a> Registrare il modello
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
 
@@ -218,12 +218,12 @@ La configurazione dell'inferenza USA ambienti Azure Machine Learning per definir
 
 name: project_environment
 dependencies:
-    - python=3.6.2
-    - scikit-learn=0.20.0
-    - pip:
-        # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
+- python=3.6.2
+- scikit-learn=0.22.1
+- pip:
+ # You must list azureml-defaults as a pip dependency
+ - azureml-defaults>=1.0.45
+ - inference-schema[numpy-support]
 ```
 
 > [!IMPORTANT]
@@ -357,12 +357,12 @@ Nella tabella seguente vengono descritti i diversi Stati del servizio:
 | Healthy | Il servizio è integro e l'endpoint è disponibile. | Sì |
 
 
-### <a name="batch-inference"></a><a id="azuremlcompute"></a>Inferenza batch
+### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inferenza batch
 Azure Machine Learning le destinazioni di calcolo vengono create e gestite da Azure Machine Learning. Possono essere usati per la stima in batch da Azure Machine Learning pipeline.
 
 Per una procedura dettagliata di inferenza batch con Azure Machine Learning calcolo, vedere [How to Run batch Predictions](tutorial-pipeline-batch-scoring-classification.md).
 
-### <a name="iot-edge-inference"></a><a id="iotedge"></a>Inferenza IoT Edge
+### <a name="iot-edge-inference"></a><a id="iotedge"></a> Inferenza IoT Edge
 Il supporto per la distribuzione in Edge è in anteprima. Per altre informazioni, vedere [Deploy Azure Machine Learning As an IOT Edge Module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="delete-resources"></a>Eliminare le risorse
@@ -371,7 +371,7 @@ Il supporto per la distribuzione in Edge è in anteprima. Per altre informazioni
 
 Per eliminare un WebService distribuito, usare `az ml service <name of webservice>` .
 
-Per eliminare un modello registrato dall'area di lavoro, usare`az ml model delete <model id>`
+Per eliminare un modello registrato dall'area di lavoro, usare `az ml model delete <model id>`
 
 Altre informazioni sull' [eliminazione di un](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) servizio Web e sull' [eliminazione di un modello](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
 

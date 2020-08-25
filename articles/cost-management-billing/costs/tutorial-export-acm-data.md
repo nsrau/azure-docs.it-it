@@ -3,17 +3,17 @@ title: 'Esercitazione: Creare e gestire dati esportati da Gestione costi di Azur
 description: Questo articolo descrive come creare e gestire dati esportati di Gestione costi di Azure per poterli usare in sistemi esterni.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 08/05/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 69b7b4bff46ba2998ca931ba1cb6bc9e7c1d9096
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142316"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272219"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -49,40 +49,38 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-daily-export"></a>Creare un'esportazione giornaliera
 
-Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Analisi dei costi** nel menu. Nella parte superiore della pagina Analisi dei costi selezionare **Impostazioni** e quindi **Esporta** e infine scegliere un'opzione di esportazione.
+Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Analisi dei costi** nel menu. Nella parte superiore della pagina Analisi dei costi selezionare **Impostazioni** e quindi **Esportazioni**.
 
 > [!NOTE]
-> - Oltre alle sottoscrizioni, è possibile creare esportazioni di gruppi di risorse, account, reparti e iscrizioni. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+> - Oltre alle sottoscrizioni, è possibile creare esportazioni di gruppi di risorse, gruppi di gestione, reparti e registrazioni. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 >- Dopo aver eseguito l'accesso come partner a livello dell'ambito dell'account di fatturazione o nel tenant di un cliente, è possibile esportare i dati in un account di archiviazione di Azure collegato all'account di archiviazione partner. Tuttavia, è necessario disporre di una sottoscrizione attiva nel tenant CSP.
 
-Selezionare **Aggiungi**, digitare un nome per l'esportazione e quindi selezionare l'opzione **Esportazione giornaliera dei costi da inizio mese**. Selezionare **Avanti**.
+1. Selezionare **Aggiungi** e digitare un nome per l'esportazione. 
+1. Per **Metrica**, effettuare una selezione:
+    - **Costo effettivo (utilizzo e acquisti)** : selezionare questa opzione per esportare dati su utilizzo e acquisti standard
+    - **Costo ammortizzato (utilizzo e acquisti)** : selezionare questa opzione per esportare dati sui costi ammortizzati per gli acquisti, come le prenotazioni di Azure
+1. Per **Tipo di esportazione**, effettuare una selezione:
+    - **Esportazione giornaliera dei costi da inizio mese**: fornisce un nuovo file di esportazione giornaliera per i costi da inizio mese. I dati più recenti vengono aggregati dalle esportazioni giornaliere precedenti.
+    - **Esportazione settimanale dei costi per gli ultimi 7 giorni**: crea un'esportazione settimanale dei costi relativi agli ultimi sette giorni a partire dalla data di inizio dell'esportazione selezionata.  
+    - **Esportazione mensile dei costi dell'ultimo mese**: consente di esportare i costi del mese scorso rispetto al mese corrente in cui si crea l'esportazione. In futuro, la pianificazione esegue un'esportazione il quinto giorno di ogni nuovo mese con i costi dei mesi precedenti.  
+    - **Esportazione occasionale**: consente di scegliere un intervallo di date per i dati cronologici da esportare in archiviazione BLOB di Azure. È possibile esportare i costi cronologici relativi a un massimo di 90 giorni a partire dal giorno scelto. Questa esportazione viene eseguita immediatamente ed è disponibile nell'account di archiviazione entro due ore.  
+        A seconda del tipo di esportazione, scegliere una data di inizio oppure scegliere le date **Da** e **A**.
+1. Specificare la sottoscrizione per l'account di archiviazione di Azure, quindi selezionare un gruppo di risorse o crearne uno nuovo. 
+1. Selezionare il nome dell'account di archiviazione o crearne uno nuovo. 
+1. Selezionare la località (area di Azure).
+1. Specificare il contenitore di archiviazione e il percorso della directory in cui memorizzare il file di esportazione. 
+    :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="Esempio di nuova esportazione" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
+1. Verificare i dati dell'esportazione e selezionare **Crea**.
 
-[![Nuovo esempio di esportazione con tipo di esportazione](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
+La nuova esportazione verrà visualizzata nell'elenco di esportazioni. Per impostazione predefinita, le nuove esportazioni sono abilitate. Se si vuole disabilitare o eliminare un'esportazione pianificata, selezionare qualsiasi voce nell'elenco e quindi selezionare **Disabilita** o **Elimina**.
 
-Specificare la sottoscrizione per l'account di archiviazione di Azure, quindi selezionare l'account di archiviazione.  Specificare il contenitore di archiviazione e il percorso della directory dove si desidera memorizzare il file di esportazione. Selezionare **Avanti**.
+Inizialmente, possono essere necessarie 12-24 ore prima che l'esportazione venga eseguita. Tuttavia, può essere necessario più tempo prima che i dati vengano visualizzati nei file esportati.
 
-![Nuovo esempio di esportazione con i dettagli degli account di archiviazione](./media/tutorial-export-acm-data/storage_exports.png)
+### <a name="export-schedule"></a>Pianificazione dell'esportazione
 
-Verificare i dati dell'esportazione e selezionare **Crea**.
+Le esportazioni pianificate dipendono dall'ora e dal giorno della settimana in cui è stata creata inizialmente l'esportazione. Quando si crea un'esportazione pianificata, l'esportazione viene eseguita con la stessa frequenza per ogni occorrenza successiva dell'esportazione. Ad esempio, un'esportazione giornaliera dei costi da inizio mese impostata con frequenza giornaliera viene eseguita ogni giorno. Analogamente, per un'esportazione settimanale, l'esportazione viene eseguita ogni settimana nello stesso giorno in cui è stata pianificata. L'ora di recapito esatta dell'esportazione non è garantita e i dati esportati sono disponibili entro quattro ore dall'ora di esecuzione.
 
-La nuova esportazione viene visualizzata nell'elenco delle esportazioni. Per impostazione predefinita, le nuove esportazioni sono abilitate. Se si vuole disabilitare o eliminare un'esportazione pianificata, selezionare qualsiasi voce nell'elenco e quindi selezionare **Disabilita** o **Elimina**.
-
-Inizialmente, possono essere necessarie da una a due ore prima che l'esportazione venga eseguita. Tuttavia, possono essere necessarie fino a quattro ore prima che i dati vengano visualizzati nei file esportati.
-
-### <a name="export-schedule"></a>Pianificazione delle esportazioni
-
-Le esportazioni pianificate dipendono dall'ora e dal giorno della settimana in cui è stata creata inizialmente l'esportazione. Quando si crea un'esportazione pianificata, l'esportazione viene eseguita con la stessa frequenza per ogni occorrenza successiva dell'esportazione. Ad esempio, per un'esportazione da inizio mese impostata con frequenza giornaliera, l'esportazione viene eseguita ogni giorno. Analogamente, per un'esportazione settimanale, l'esportazione viene eseguita ogni settimana nello stesso giorno in cui è stata pianificata. L'ora di recapito esatta dell'esportazione non è garantita e i dati esportati sono disponibili entro quattro ore dalla fase di esecuzione.
-Con ogni esportazione viene creato un nuovo file, di conseguenza le esportazioni meno recenti non vengono sovrascritte.
-
-Esistono due tipi di opzioni di esportazione:
-
-**Esportazione giornaliera dei costi da inizio mese**: l'esportazione iniziale viene eseguita immediatamente. Le esportazioni successive vengono eseguite il giorno successivo alla stessa ora dell'esportazione iniziale. I dati più recenti vengono aggregati dalle esportazioni giornaliere precedenti.
-
-**Personalizzata**: consente di pianificare esportazioni settimanali e mensili con le opzioni da inizio settimana e da inizio mese. *L'esportazione iniziale verrà eseguita immediatamente.*
-
-Se si ha una sottoscrizione con pagamento in base al consumo, MSDN o Visual Studio, il periodo di fatturazione potrebbe non allinearsi con il mese di calendario. Per tali tipi di sottoscrizioni e gruppi di risorse, è possibile creare un'esportazione allineata al periodo di fatturazione o ai mesi di calendario. Per creare un'esportazione allineata al mese di fatturazione, passare a **Personalizzato**, quindi selezionare **Periodo di fatturazione a oggi**.  Per creare un'esportazione allineata al mese di calendario, selezionare **Da inizio mese**.
-
-![Nuova esportazione - scheda Informazioni di base in cui è illustrata la selezione dell'opzione personalizzata per l'esportazione settimanale da inizio settimana](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+Ogni esportazione crea un nuovo file, quindi le esportazioni precedenti non vengono sovrascritte.
 
 #### <a name="create-an-export-for-multiple-subscriptions"></a>Creare un'esportazione per più sottoscrizioni
 
@@ -90,14 +88,15 @@ Se si ha un Contratto Enterprise, è possibile usare un gruppo di gestione per a
 
 Le esportazioni per i gruppi di gestione di altri tipi di sottoscrizione non sono supportate.
 
-1. Creare un gruppo di gestione e assegnarvi le sottoscrizioni.
-1. In Esportazioni selezionare **Ambito**.
-1. Selezionare **Selezionare questo gruppo di gestione**.
-1. Creare un'esportazione a livello di ambito per ottenere i dati di gestione dei costi per le sottoscrizioni nel gruppo di gestione.
+1. Se non è stato ancora creato un gruppo di gestione, crearne uno e assegnarvi le sottoscrizioni.
+1. Nell'analisi dei costi impostare l'ambito sul gruppo di gestione e scegliere **Select this management group** (Seleziona questo gruppo di gestione).  
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Esempio che mostra l'opzione per selezionare il gruppo di gestione" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+1. Creare un'esportazione a livello di ambito per ottenere i dati di gestione dei costi per le sottoscrizioni nel gruppo di gestione.  
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Esempio che mostra l'opzione Crea nuova esportazione con un ambito del gruppo di gestione":::
 
 ## <a name="verify-that-data-is-collected"></a>Verificare che i dati vengano raccolti
 
-È possibile verificare che i dati di Gestione costi vengano raccolti e visualizzare il file CSV esportato in tutta semplicità usando Azure Storage Explorer.
+È possibile verificare in tutta semplicità che i dati di Gestione costi vengano raccolti e visualizzare il file CSV esportato usando Azure Storage Explorer.
 
 Nell'elenco delle esportazioni selezionare il nome dell'account di archiviazione. Nella pagina dell'account di archiviazione selezionare Apri in Explorer. Se viene visualizzata una finestra di conferma, selezionare **Sì** per aprire il file in Azure Storage Explorer.
 
@@ -123,6 +122,16 @@ Il file viene aperto con l'applicazione o il programma impostato per aprire le e
 1. Selezionare il file CSV e quindi selezionare **Scarica**.
 
 [![Download di esportazione di esempio](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
+
+## <a name="view-export-run-history"></a>Visualizzare la cronologia di esecuzione dell'esportazione  
+
+È possibile visualizzare la cronologia di esecuzione dell'esportazione pianificata selezionando una singola esportazione nella pagina dell'elenco. La pagina dell'elenco di esportazioni fornisce un accesso rapido per visualizzare l'ora di esecuzione delle esportazioni precedenti e l'ora successiva in cui ne verrà eseguita una. Ecco un esempio che mostra la cronologia di esecuzione.
+
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Esempio che mostra la cronologia di esecuzione dell'esportazione":::
+
+Selezionare un'esportazione per visualizzare la relativa cronologia di esecuzione.
+
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Esempio che mostra la cronologia di esecuzione dell'esportazione":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Accedere a dati esportati da altri sistemi
 

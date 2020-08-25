@@ -3,17 +3,17 @@ title: 'Guida introduttiva: Creare le code di Archiviazione di Azure nel portale
 description: Usare il portale di Azure per creare una coda. Quindi, usare il portale di Azure per aggiungere un messaggio, visualizzarne le proprietà e rimuoverlo dalla coda.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/06/2019
+ms.date: 08/13/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: af3f812c8018f059f26c29cd373714e4ab3c8a49
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808977"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213470"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Guida introduttiva: Creare una coda e aggiungere un messaggio con il portale di Azure
 
@@ -40,8 +40,8 @@ Per creare una coda nel portale di Azure, seguire questa procedura:
 Aggiungere quindi un messaggio alla nuova coda. Il messaggio può avere una dimensione massima di 64 KB.
 
 1. Selezionare la nuova coda nell'elenco delle code nell'account di archiviazione.
-1. Selezionare il pulsante **+ Aggiungi messaggio** per aggiungere un messaggio alla coda. Immettere un messaggio nel campo **Testo del messaggio**. 
-1. Specificare la scadenza del messaggio. Un messaggio può rimanere nella coda per un periodo massimo di 7 giorni.
+1. Selezionare il pulsante **+ Aggiungi messaggio** per aggiungere un messaggio alla coda. Immettere un messaggio nel campo **Testo del messaggio**.
+1. Specificare la scadenza del messaggio. I valori validi che è possibile immettere nel campo **Scadenza tra** sono compresi tra 1 secondo e sette giorni. Selezionare **Messaggio senza scadenza** per indicare un messaggio che rimarrà nella coda fino a quando non viene rimosso in modo esplicito.
 1. Indicare se al messaggio deve essere applicata la codifica Base64. È consigliabile codificare i dati binari.
 1. Selezionare il pulsante **OK** per aggiungere il messaggio.
 

@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db0956b1a2dec7626a24de2939941c2384d6a8a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080763"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212811"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -32,7 +31,7 @@ Questa esercitazione:
 > * Aggiunge un'applicazione locale al tenant di Azure AD
 > * Verifica che un utente di test possa accedere all'applicazione con un account Azure AD
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 Per aggiungere un'applicazione locale ad Azure AD, sono necessari:
 
@@ -235,6 +234,10 @@ Per testare l'accesso all'applicazione:
 
 Per la risoluzione dei problemi, vedere [Risolvere i problemi e i messaggi di errore del proxy dell'applicazione](application-proxy-troubleshoot.md).
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessarie, eliminare le risorse create in questa esercitazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione si è preparato l'ambiente locale per l'uso del proxy di applicazione e quindi si è installato e registrato il connettore del proxy di applicazione. È stata quindi aggiunta un'applicazione al tenant di Azure AD ed è stato verificato che un utente di test potesse accedere all'applicazione con un account Azure AD.
@@ -250,4 +253,4 @@ Sono state eseguite queste operazioni:
 È ora possibile configurare l'applicazione per l'accesso Single Sign-On. Usare il collegamento seguente per scegliere un metodo di accesso Single Sign-On e per trovare esercitazioni su Single Sign-On.
 
 > [!div class="nextstepaction"]
-> [Configurare l'accesso Single Sign-On](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Configurare l'accesso Single Sign-On](sso-options.md#choosing-a-single-sign-on-method)

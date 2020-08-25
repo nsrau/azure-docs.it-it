@@ -1,7 +1,7 @@
 ---
 title: Eseguire l'aggiornamento alla versione 3.0 dell'API Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come eseguire l'aggiornamento dalla versione 2.0 o 2.1 alla versione 3.0 dell'API Visione artificiale.
+description: Informazioni su come eseguire l'aggiornamento all'API di lettura di Visione artificiale versione 3.0 dalla versione 2.0/v 2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16add0dce88d0f809dc291d3c9de33e1a853f257
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6e695fcfacac19ca82273d84d049bdb2afe14b54
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136573"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214192"
 ---
-# <a name="upgrade-to-v30-of-computer-vision-api-from-v20-and-v21"></a>Eseguire l'aggiornamento alla versione 3.0 dell'API Visione artificiale dalla versione 2.0 o 2.1
+# <a name="upgrade-to-computer-vision-v30-read-api-from-v20v21"></a>Eseguire l'aggiornamento all'API di lettura di Visione artificiale versione 3.0 dalla versione 2.0/v 2.1
 
-Questa guida illustra come modificare il codice esistente per eseguire la migrazione dalla versione 2.0 o 2.1 dell'API Visione artificiale alla versione 3.0 per gli utenti dell'API REST. 
+Questa guida illustra come aggiornare il codice dell'API REST di Visione artificiale versione 2.0 o 2.1 esistente alle operazioni di lettura versione 3.0. 
 
 ## <a name="upgrade-batch-read-file-to-read"></a>Aggiornare `Batch Read File` in `Read`
 

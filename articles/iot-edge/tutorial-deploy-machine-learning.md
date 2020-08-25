@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ae76fab6359675a87ad252a08ebb199bf724f129
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: fd297ec5cfb7831a438fc51e72e3c2fc163eff49
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439371"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271278"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Azure Machine Learning come modulo di IoT Edge (anteprima)
 
@@ -49,7 +49,7 @@ Risorse cloud:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
 * Un'area di lavoro di Azure Machine Learning. Seguire le istruzioni contenute in [Iniziare a usare Azure Machine Learning con il portale di Azure](../machine-learning/tutorial-1st-experiment-sdk-setup.md) per crearne una e imparare a usarla.
-  * Prendere nota del nome dell'area di lavoro, del gruppo di risorse e dell'ID sottoscrizione. Tutti questi valori sono disponibili nella panoramica dell'area di lavoro nel portale di Azure. Sarà necessario usare questi valori più avanti nell'esercitazione per connettere un notebook di Azure alle risorse dell'area di lavoro.
+  * Prendere nota del nome dell'area di lavoro, del gruppo di risorse e dell'ID sottoscrizione. Tutti questi valori sono disponibili nella panoramica dell'area di lavoro nel portale di Azure. Sarà necessario usare questi valori più avanti nell'esercitazione per connettere un file di Azure Notebooks alle risorse dell'area di lavoro.
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Creare e distribuire un modulo di Azure Machine Learning
 

@@ -2,7 +2,7 @@
 title: Creazione dinamica dei pacchetti in Servizi multimediali di Azure versione 3
 titleSuffix: Azure Media Services
 description: Questo articolo offre una panoramica della creazione dinamica dei pacchetti in Servizi multimediali di Azure.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/31/2020
-ms.author: juliako
-ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489776"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604575"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -80,8 +80,10 @@ Il client di streaming può specificare i formati Smooth Streaming seguenti:
 
 I passaggi seguenti indicano un flusso di lavoro comune di streaming di Servizi multimediali in cui viene usata la creazione dinamica dei pacchetti insieme al codificatore Standard in Servizi multimediali di Azure.
 
-1. Caricare un file di input, ad esempio un file QuickTime/MOV o MXF. Questo tipo di file è anche detto file di origine o mezzanine. Per l'elenco di formati supportati, vedere [Formati supportati dal codificatore standard](media-encoder-standard-formats.md).
+1. [Caricare un file di input](job-input-from-http-how-to.md), ad esempio MP4, QuickTime/MOV o un altro formato di file supportato. Questo tipo di file è anche detto file di origine o mezzanine. Per l'elenco di formati supportati, vedere [Formati supportati dal codificatore standard](media-encoder-standard-formats.md).
 1. [Codificare](#encode-to-adaptive-bitrate-mp4s) il file mezzanine in un set di file MP4 H.264/AAC a bitrate adattivo.
+
+    Se sono già presenti file codificati da copiare e trasmettere in streaming, usare le API [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) e [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio). Verrà quindi creato un nuovo file MP4 con un manifesto di streaming (file con estensione ism).
 1. Pubblicare l'asset di output contenente il set MP4 a bitrate adattivo. La pubblicazione avviene creando un [localizzatore di streaming](streaming-locators-concept.md).
 1. Creare URL destinati a formati diversi (HLS, MPEG-DASH e Smooth Streaming). L'*endpoint di streaming* si occupa di gestire il manifesto corretto e le richieste per tutti questi formati diversi.
     

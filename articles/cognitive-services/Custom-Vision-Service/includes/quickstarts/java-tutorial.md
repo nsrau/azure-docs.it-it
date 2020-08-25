@@ -3,15 +3,15 @@ author: areddish
 ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: f4d4075fae22c22e249a6891185c7b7fc9a572de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/17/2020
+ms.openlocfilehash: cd6388e6c6313ba84978d43d388855b114a4875d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375660"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508539"
 ---
-Questo articolo mostra come iniziare a usare Custom Vision SDK per Java per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Java personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
+Questo articolo mostra come iniziare a usare la libreria client di Visione personalizzata per Java per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Java personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -20,11 +20,11 @@ Questo articolo mostra come iniziare a usare Custom Vision SDK per Java per crea
 - [Maven](https://maven.apache.org/) installato
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Ottenere Custom Vision SDK e il codice di esempio
+## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Ottenere la libreria client di Visione personalizzata e il codice di esempio
 
 Per scrivere un'app Java che usa Visione personalizzata saranno necessari i pacchetti maven di Visione personalizzata. Questi pacchetti sono inclusi nel progetto di esempio che si scaricherà, ma è possibile accedervi singolarmente qui.
 
-È possibile trovare l'SDK di Visione personalizzata nel repository centrale Maven:
+È possibile trovare la libreria client di Visione personalizzata nel repository centrale Maven:
 
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)

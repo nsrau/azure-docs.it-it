@@ -2,15 +2,15 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: 14ea15734a1db71c03d4ebd0cc3b10dabfb9b2dc
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.date: 08/17/2020
+ms.openlocfilehash: 1bf0ecbc996fe853a6ca1d0ed5a749c798383146
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85805930"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508584"
 ---
-Questo articolo mostra come iniziare a usare Custom Vision SDK con Python per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Python personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
+Questo articolo illustra come iniziare a usare la libreria client di Visione personalizzata con Python per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Python personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -18,9 +18,9 @@ Questo articolo mostra come iniziare a usare Custom Vision SDK con Python per cr
 - Strumento [pip](https://pip.pypa.io/en/stable/installing/)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="install-the-custom-vision-sdk"></a>Installare Custom Vision SDK
+## <a name="install-the-custom-vision-client-library"></a>Installare la libreria client di Visione personalizzata
 
-Per installare l'SDK del Servizio visione artificiale personalizzato per Python, usare il comando seguente in PowerShell:
+Per installare la libreria client del servizio Visione personalizzata per Python, eseguire il comando seguente in PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision

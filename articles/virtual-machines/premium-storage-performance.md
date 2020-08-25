@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0e0f6df04eda45af04659edc2010e8d68b013892
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701487"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751498"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -31,16 +31,16 @@ Questo articolo è utile per rispondere alle domande comuni seguenti sull'ottimi
 Queste indicazioni sono specifiche per l'Archiviazione Premium, perché i carichi di lavoro in esecuzione nell'Archiviazione Premium sono influenzati in modo significativo dalle prestazioni. Sono disponibili esempi nei casi appropriati. È anche possibile applicare alcune indicazioni alle applicazioni in esecuzione su VM IaaS con dischi di archiviazione Standard.
 
 > [!NOTE]
-> In alcuni casi, quello che sembra essere un problema di prestazioni del disco è in realtà un collo di bottiglia a livello di rete. In queste situazioni, è consigliabile ottimizzare le [prestazioni di rete](~/articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> In alcuni casi, quello che sembra essere un problema di prestazioni del disco è in realtà un collo di bottiglia a livello di rete. In queste situazioni, è consigliabile ottimizzare le [prestazioni di rete](../virtual-network/virtual-network-optimize-network-bandwidth.md).
 >
 > Se si sta cercando di eseguire il benchmarking del disco, vedere gli articoli relativi al benchmarking di un disco:
 >
-> * Per Linux: [benchmark dell'applicazione in archiviazione su disco di Azure](./linux/disks-benchmarks.md)
-> * Per Windows: [benchmarking di un disco](./windows/disks-benchmarks.md).
+> * Per Linux: [benchmark dell'applicazione in archiviazione su disco di Azure](linux/disks-benchmarks.md)
+> * Per Windows: [benchmarking di un disco](windows/disks-benchmarks.md).
 >
-> Se la macchina virtuale supporta la rete accelerata, è necessario assicurarsi che sia abilitata. Se non è abilitata, è possibile abilitarla nelle macchine virtuali già distribuite sia in [Windows](~/articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) che in [Linux](~/articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+> Se la macchina virtuale supporta la rete accelerata, è necessario assicurarsi che sia abilitata. Se non è abilitata, è possibile abilitarla nelle macchine virtuali già distribuite sia in [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) che in [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere gli articoli relativi alla [selezione di un tipo di disco di Azure per le macchine virtuali IaaS](./linux/disks-types.md) e agli [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](~/articles/storage/blobs/scalability-targets-premium-page-blobs.md).
+Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere gli articoli relativi alla [selezione di un tipo di disco di Azure per le macchine virtuali IaaS](disks-types.md) e agli [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -62,7 +62,7 @@ Quando si collega un disco di Archiviazione Premium a una macchina virtuale a sc
 
 Come illustrato dalla formula seguente, esiste una relazione tra la velocità effettiva e IOPS.
 
-![Relazione tra IOPS e velocità effettiva](~/articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Relazione tra IOPS e velocità effettiva](linux/media/premium-storage-performance/image1.png)
 
 È quindi importante determinare i valori ottimali per IOPS e velocità effettiva richiesti dall'applicazione. I tentativi di ottimizzazione di uno dei valori influiscono anche sull'altro. In una sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verrà illustrata in modo dettagliato l'ottimizzazione di IOPS e velocità effettiva.
 
@@ -144,7 +144,7 @@ In questa sezione è consigliabile vedere l'elenco di controllo creato relativo 
 
 Questa tabella riepiloga i fattori relativi alle prestazioni e i passaggi necessari per ottimizzare operazioni di I/O al secondo, velocità effettiva e latenza. Le sezioni successive al riepilogo illustreranno ogni fattore in modo più dettagliato.
 
-Per altre informazioni sulle dimensioni delle macchine virtuali e le operazioni di I/O al secondo, la velocità effettiva e la latenza disponibili per ogni tipo di VM, vedere [Dimensioni delle macchine virtuali Linux](~/articles/virtual-machines/linux/sizes.md) o [Dimensioni delle macchine virtuali Windows](~/articles/virtual-machines/windows/sizes.md).
+Per altre informazioni sulle dimensioni delle VM e sugli IOPS, sulla velocità effettiva e sulla latenza disponibili per ogni tipo di macchina virtuale, vedere [dimensioni delle macchine virtuali in Azure](sizes.md).
 
 | | **IOPS** | **Velocità effettiva** | **Latency** |
 | --- | --- | --- | --- |
@@ -206,7 +206,7 @@ Le VM a scalabilità elevata sono disponibili in dimensioni diverse con un numer
 | Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB <br> SSD locale = 224 GB |32 |576 GB |50.000 IOPS <br> 512 MB al secondo |4\.000 IOPS e 33 MB al secondo |
 | Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB <br> SSD locale = 896 GB |64 |4224 GB |80.000 IOPS <br> 2.000 MB al secondo |5\.000 IOPS e 50 MB al secondo |
 
-Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni per le macchine virtuali Windows](~/articles/virtual-machines/windows/sizes.md) o [Dimensioni per le macchine virtuali Linux](~/articles/virtual-machines/linux/sizes.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
+Per visualizzare un elenco completo di tutte le dimensioni di VM di Azure disponibili, vedere [dimensioni per le macchine virtuali in Azure](sizes.md) o. Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
 
 *Limiti di scalabilità*  
 I limiti massimi per IOPS per ogni VM e ogni disco sono diversi e indipendenti gli uni dagli altri. Assicurarsi che l'applicazione gestisca i valori di IOPS entro i limiti della VM e dei dischi Premium collegati alla VM. In caso contrario, le prestazioni dell'applicazione verranno limitate.
@@ -238,7 +238,7 @@ Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibi
 
 Archiviazione Premium di Azure offre un'ampia gamma di dimensioni in modo che si possa scegliere quella più adatta alle proprie esigenze. Ogni dimensione di disco ha un limite di scala diverso per IOPS, larghezza di banda e archiviazione. Scegliere la dimensione del disco di Archiviazione Premium appropriata, in base ai requisiti dell'applicazione e le dimensioni delle VM a scalabilità elevata. La tabella seguente illustra le dimensioni di disco e le relative capacità. Le dimensioni di disco P4, P6, P15, P60, P70 e P80 sono attualmente supportate solo per Managed Disks.
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Il numero di dischi scelto dipende dalla dimensione scelta per il disco. È possibile usare un singolo disco P50 o più dischi P10 per soddisfare i requisiti dell'applicazione. Valutare le considerazioni elencate di seguito quando si effettua la scelta.
 
@@ -353,14 +353,14 @@ In Windows è possibile usare gli spazi di archiviazione per lo striping dei dis
 
 Importante: l'uso dell'interfaccia utente di Gestione server consente di impostare il numero totale di colonne fino a un massimo di 8 per un volume con striping. Quando si collegano più di otto dischi, usare PowerShell per creare il volume. L'uso di PowerShell consente di impostare un numero di colonne uguale al numero di dischi. Ad esempio, se un singolo set di striping include 16 dischi, specificare 16 colonne nel parametro *NumberOfColumns* del cmdlet *New-VirtualDisk* di PowerShell.
 
-In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](~/articles/virtual-machines/linux/configure-raid.md).
+In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](linux/configure-raid.md).
 
 *Dimensioni di striping*  
 Un elemento importante della configurazione dello striping del disco è la dimensione di striping. La dimensione di striping o la dimensione del blocco è il blocco più piccolo di dati che l'applicazione può gestire in un volume con striping. La dimensione di striping configurabile dipende dal tipo di applicazione e dal relativo modello di richieste. Se si sceglie la dimensione di striping errata, è possibile che si ottenga un allineamento di I/O non corretto, che porta a prestazioni degradate per l'applicazione.
 
 Ad esempio, se una richiesta I/O generata dall'applicazione è maggiore della dimensione di striping del disco, il sistema di archiviazione la scrive oltre i limiti di unità di striping in più dischi. Quando è necessario accedere ai dati, occorrerà cercarli in più unità di striping per completare la richiesta. L'effetto cumulativo di questo comportamento può portare a una riduzione significativa delle prestazioni. D'altra parte, se la dimensione della richiesta I/O è minore della dimensione di striping ed è di tipo casuale, è possibile che le richieste I/P si concentrino sullo stesso disco, provocando un collo di bottiglia e danneggiando le prestazioni di I/O.
 
-Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) .
+Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) .
 
 > [!NOTE]
 > è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.
@@ -414,15 +414,15 @@ L'Archiviazione Premium di Azure effettua il provisioning di un numero specifica
 
 Se si sta cercando di eseguire il benchmarking del disco, vedere gli articoli relativi al benchmarking di un disco:
 
-* Per Linux: [benchmark dell'applicazione in archiviazione su disco di Azure](./linux/disks-benchmarks.md)
-* Per Windows: [benchmarking di un disco](./windows/disks-benchmarks.md).
+* Per Linux: [benchmark dell'applicazione in archiviazione su disco di Azure](linux/disks-benchmarks.md)
+* Per Windows: [benchmarking di un disco](windows/disks-benchmarks.md).
 
 Altre informazioni sui tipi di disco disponibili:
 
-* Per Linux: [selezionare un tipo di disco](./linux/disks-types.md)
-* Per Windows: [selezionare un tipo di disco](./windows//disks-types.md)
+* Per Linux: [selezionare un tipo di disco](disks-types.md)
+* Per Windows: [selezionare un tipo di disco](disks-types.md)
 
 Per gli utenti di SQL Server sono disponibili articoli sulle procedure consigliate per le prestazioni per SQL Server:
 
-* [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
+* [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
 * [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

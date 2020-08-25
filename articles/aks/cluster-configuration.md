@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008798"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752091"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -81,17 +81,17 @@ Se si desidera creare pool di nodi con l'immagine AKS Ubuntu 16,04, è possibile
 
 Un runtime contenitore è un software che esegue contenitori e gestisce le immagini del contenitore in un nodo. Il runtime consente di astrarre la funzionalità sys-calls o del sistema operativo (OS) specifica per l'esecuzione di contenitori in Linux o Windows. Attualmente AKS USA [Moby](https://mobyproject.org/) (upstream Docker) come runtime del contenitore. 
     
-![CRI di Docker](media/cluster-configuration/docker-cri.png)
+![IRC Docker 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/)è un runtime del contenitore principale conforme a [OCI](https://opencontainers.org/) (Open Container Initiative) che fornisce il set minimo di funzionalità necessarie per l'esecuzione di contenitori e la gestione delle immagini in un nodo. È stata [donata](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) al cloud native Compute Foundation (CNCF) a marzo 2017. La versione corrente di Moby usata attualmente da AKS usa già e si basa su `containerd` , come illustrato in precedenza. 
+[`Containerd`](https://containerd.io/) è un runtime del contenitore principale conforme a [OCI](https://opencontainers.org/) (Open Container Initiative) che fornisce il set minimo di funzionalità necessarie per l'esecuzione di contenitori e la gestione delle immagini in un nodo. È stata [donata](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) al cloud native Compute Foundation (CNCF) a marzo 2017. La versione corrente di Moby usata attualmente da AKS usa già e si basa su `containerd` , come illustrato in precedenza. 
 
 Con un nodo basato su contenitori e i pool di nodi, anziché comunicare con `dockershim` , il kubelet parlerà direttamente con il plug-in dell' `containerd` interfaccia di runtime del contenitore, rimuovendo gli hop aggiuntivi nel flusso rispetto all'implementazione di IRC di Docker. Di conseguenza, si noterà una migliore latenza di avvio del Pod e un minor utilizzo di risorse (CPU e memoria).
 
 Usando `containerd` per i nodi AKS, la latenza di avvio del Pod migliora e l'utilizzo delle risorse del nodo da parte del runtime del contenitore diminuisce. Questi miglioramenti sono abilitati da questa nuova architettura, in cui kubelet comunica direttamente con `containerd` il plug-in di cri, mentre nell'architettura di Moby/Docker kubelet comunicherà con il `dockershim` motore Docker e prima di raggiungere `containerd` , ottenendo hop aggiuntivi nel flusso.
 
-![CRI di Docker](media/cluster-configuration/containerd-cri.png)
+![CRI di Docker 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd`funziona a ogni versione GA di kubernetes in AKS e in ogni versione upstream di kubernetes precedente alla versione 1.10 e supporta tutte le funzionalità kubernetes e AKS.
+`Containerd` funziona a ogni versione GA di kubernetes in AKS e in ogni versione upstream di kubernetes precedente alla versione 1.10 e supporta tutte le funzionalità kubernetes e AKS.
 
 > [!IMPORTANT]
 > Una volta che `containerd` diventa disponibile a livello generale in AKS, sarà l'opzione predefinita e unica disponibile per il runtime del contenitore nei nuovi cluster. È comunque possibile usare Moby nodepools e i cluster nelle versioni precedenti supportate fino a quando non sono supportati. 
@@ -159,14 +159,14 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 Se si desidera creare pool di nodi con il runtime Moby (Docker), è possibile omettere il `--aks-custom-headers` tag personalizzato.
 
 
-### <a name="containerd-limitationsdifferences"></a>`Containerd`limitazioni/differenze
+### <a name="containerd-limitationsdifferences"></a>`Containerd` limitazioni/differenze
 
 * Per usare `containerd` come runtime del contenitore è necessario usare AKS Ubuntu 18,04 come immagine del sistema operativo di base.
 * Mentre il set di strumenti Docker è ancora presente nei nodi, Kubernetes USA `containerd` come runtime del contenitore. Quindi, poiché Moby/Docker non gestisce i contenitori creati da Kubernetes nei nodi, non è possibile visualizzare o interagire con i contenitori usando i comandi di Docker (ad esempio `docker ps` ) o l'API docker.
 * Per `containerd` , è consigliabile usare [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) come interfaccia della riga di comando sostitutiva anziché l'interfaccia della riga di comando di Docker per la **risoluzione dei problemi relativi** a Pod, contenitori e immagini contenitore nei nodi Kubernetes (ad esempio, `crictl ps` ). 
    * Non fornisce la funzionalità completa dell'interfaccia della riga di comando di Docker. È progettato solo per la risoluzione dei problemi.
-   * `crictl`offre una visualizzazione più intuitiva dei contenitori, con concetti quali pod e così via.
-* `Containerd`imposta la registrazione usando il formato di registrazione standardizzato, `cri` che è diverso da quello attualmente ottenuto dal driver JSON di Docker. La soluzione di registrazione deve supportare il `cri` formato di registrazione, ad esempio [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-enable-new-cluster.md).
+   * `crictl` offre una visualizzazione più intuitiva dei contenitori, con concetti quali pod e così via.
+* `Containerd` imposta la registrazione usando il formato di registrazione standardizzato, `cri` che è diverso da quello attualmente ottenuto dal driver JSON di Docker. La soluzione di registrazione deve supportare il `cri` formato di registrazione, ad esempio [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-enable-new-cluster.md).
 * Non è più possibile accedere al motore Docker, `/var/run/docker.sock` o usare Docker-in-Docker (DinD).
   * Se al momento si estraggono i registri applicazioni o i dati di monitoraggio dal motore Docker, usare invece un elemento come [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-enable-new-cluster.md) . Inoltre, AKS non supporta l'esecuzione di comandi fuori banda sui nodi dell'agente che potrebbero causare instabilità.
   * Anche quando si usa Moby/Docker, la creazione di immagini e la possibilità di sfruttare direttamente il motore Docker con i metodi precedenti sono fortemente sconsigliate. Kubernetes non è in grado di riconoscere le risorse [usate e questi](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)approcci presentano molti problemi descritti [qui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) , ad esempio.
@@ -236,7 +236,7 @@ Se si desidera creare pool di nodi Gen1 normali, è possibile omettere il `--aks
 
 ## <a name="ephemeral-os-preview"></a>Sistema operativo temporaneo (anteprima)
 
-Per impostazione predefinita, il disco del sistema operativo per una macchina virtuale di Azure viene replicato automaticamente in archiviazione di Azure per evitare la perdita di dati se la macchina virtuale deve essere rilocata in un altro host. Tuttavia, poiché i contenitori non sono progettati per lo stato locale in modo permanente, questo comportamento offre un valore limitato e fornisce alcuni svantaggi, tra cui provisioning più lento del nodo e latenza di lettura/scrittura inferiore.
+Per impostazione predefinita, il disco del sistema operativo per una macchina virtuale di Azure viene replicato automaticamente in archiviazione di Azure per evitare la perdita di dati se la macchina virtuale deve essere rilocata in un altro host. Tuttavia, poiché i contenitori non sono progettati per lo stato locale in modo permanente, questo comportamento offre un valore limitato, offrendo alcuni svantaggi, tra cui il provisioning di nodi più lenti e una latenza di lettura/scrittura superiore.
 
 Al contrario, i dischi del sistema operativo temporanei vengono archiviati solo nel computer host, proprio come un disco temporaneo. Questo garantisce una latenza di lettura/scrittura più bassa, oltre a un aumento più rapido dei nodi e agli aggiornamenti del cluster.
 

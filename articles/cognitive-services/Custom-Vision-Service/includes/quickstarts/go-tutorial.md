@@ -2,24 +2,24 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: 0efc0f1e07ef9370dbc8e300cd6bd3410f0265d3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 08/17/2020
+ms.openlocfilehash: 918ac54836adf6ad12934d7e30cf88f2786e1fba
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82135080"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508540"
 ---
-Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare Custom Vision SDK con Go per creare un modello di classificazione delle immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Go personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
+Questo articolo fornisce informazioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata con Go per creare un modello di classificazione immagini. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Go personalizzata. Se si preferisce eseguire la procedura di compilazione e utilizzo di un modello di classificazione _senza_ codice, vedere le [indicazioni basate su browser](../../getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="install-the-custom-vision-sdk"></a>Installare Custom Vision SDK
+## <a name="install-the-custom-vision-client-library"></a>Installare la libreria client di Visione personalizzata
 
-Per installare l'SDK del servizio Visione personalizzata per Go, usare il comando seguente in PowerShell:
+Per installare la libreria client di Visione personalizzata per Go, eseguire il comando seguente in PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...

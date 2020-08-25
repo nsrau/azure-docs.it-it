@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c1406b5e7297b1d48b23d9dfa684e0d76b68139f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d35b7309a161d790131b0040b9ebf113a3c061fc
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102776"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186339"
 ---
 <a name="HOLTop"></a>
 
@@ -221,7 +221,7 @@ Aggiungere la chiamata al metodo nel metodo `Main`.
 
 Nella classe **Program** salvare un riferimento all'URL dell'immagine da cui si vuole estrarre il testo. Questo frammento di codice include immagini di esempio per testo sia stampato che scritto a mano.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttext_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readtext_url)]
 
 > [!NOTE]
 > È anche possibile estrarre il testo da un'immagine locale. Per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).
@@ -230,19 +230,19 @@ Nella classe **Program** salvare un riferimento all'URL dell'immagine da cui si 
 
 Definire il nuovo metodo per la lettura del testo. Aggiungere il codice seguente, che chiama il metodo **ReadAsync** per l'immagine specificata. Viene restituito un ID operazione e viene avviato un processo asincrono per leggere il contenuto dell'immagine.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
 
 ### <a name="get-read-results"></a>Ottenere risultati della lettura
 
-Ottenere quindi l'ID operazione restituito dalla chiamata a **ReadAsync** e usarlo per eseguire una query sul servizio per ottenere i risultati dell'operazione. Il codice seguente controlla l'operazione a intervalli di un secondo fino a quando non vengono restituiti i risultati. Stampa quindi i dati di testo estratti nella console.
+Ottenere quindi l'ID operazione restituito dalla chiamata a **ReadAsync** e usarlo per eseguire una query sul servizio per ottenere i risultati dell'operazione. Il codice seguente controlla l'operazione fino a quando non vengono restituiti i risultati. Stampa quindi i dati di testo estratti nella console.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_response)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_response)]
 
 ### <a name="display-read-results"></a>Visualizzare i risultati della lettura
 
 Aggiungere il codice seguente per analizzare e visualizzare i dati di testo recuperati e terminare la definizione del metodo.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_display)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_display)]
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 

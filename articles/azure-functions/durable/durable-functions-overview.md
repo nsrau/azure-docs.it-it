@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 8fd670104a04229ed688b365de89e2ffc22b5429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: adf58b667d17393fc905fbf31261530fce88d9f8
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499382"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272349"
 ---
 # <a name="what-are-durable-functions"></a>Informazioni su Durable Functions
 
@@ -25,6 +25,7 @@ Durable Functions supporta attualmente i linguaggi seguenti:
 * **JavaScript**: supportato per la versione 2.x del runtime di Funzioni di Azure. Richiede la versione 1.7.0 dell'estensione Durable Functions, o versione successiva. 
 * **Python**: richiede la versione 1.8.5 o successiva dell'estensione Durable Functions. 
 * **F#** : librerie di classe precompilate e script F#. Lo script F# è supportato solo per la versione 1.x del runtime di Funzioni di Azure.
+* **PowerShell**: il supporto di Durable Functions è attualmente disponibile in anteprima pubblica. Supportato solo per la versione 3.x del runtime di Funzioni di Azure e PowerShell 7. Richiede la versione 2.2.2 dell'estensione Durable Functions o una versione successiva. Attualmente sono supportati solo i criteri seguenti: [Concatenamento di funzioni](#chaining), [fan-out/fan-in](#fan-in-out), [API HTTP asincrone](#async-http).
 
 Durable Functions ha l'obiettivo di supportare tutti i [linguaggi di Funzioni di Azure](../supported-languages.md). Vedere l'[elenco dei problemi di Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) per ottenere lo stato del lavoro più recente a supporto di linguaggi aggiuntivi.
 
@@ -119,6 +120,19 @@ main = df.Orchestrator.create(orchestrator_function)
 > [!NOTE]
 > L'oggetto `context` in Python rappresenta il contesto dell'orchestrazione. Accedere al contesto principale di Funzioni di Azure usando la proprietà `function_context` nel contesto di orchestrazione.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+$X = Invoke-ActivityFunction -FunctionName 'F1'
+$Y = Invoke-ActivityFunction -FunctionName 'F2' -Input $X
+$Z = Invoke-ActivityFunction -FunctionName 'F3' -Input $Y
+Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
+```
+
+È possibile usare il comando `Invoke-ActivityFunction` per richiamare altre funzioni tramite il nome, i parametri passati e l'output restituito dalla funzione. Ogni volta che il codice chiama `Invoke-ActivityFunction` senza l'opzione `NoWait`, il framework di Durable Functions imposta checkpoint sullo stato di avanzamento dell'istanza della funzione corrente. Se la VM o il processo viene riciclato durante l'esecuzione, l'istanza della funzione riprende dalla chiamata `Invoke-ActivityFunction` precedente. Per altre informazioni, vedere la sezione seguente, Modello 2: Fan-out/fan-in.
+
 ---
 
 ### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Modello 2: Fan-out/fan-in
@@ -211,6 +225,30 @@ main = df.Orchestrator.create(orchestrator_function)
 L'operazione di fan-out viene distribuita a più istanze della funzione `F2` e viene monitorata tramite un elenco dinamico di attività. Viene chiamata l'API `context.task_all` per attendere il completamento di tutte le funzioni chiamate. Quindi, gli output della funzione `F2` vengono aggregati dall'elenco dinamico di attività e passati alla funzione `F3`.
 
 L'impostazione automatica di checkpoint che avviene alla chiamata di `yield` su `context.task_all` assicura che qualsiasi potenziale riavvio o arresto anomalo del sistema durante l'esecuzione non richieda il riavvio di un'attività già completata.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+# Get a list of work items to process in parallel.
+$WorkBatch = Invoke-ActivityFunction -FunctionName 'F1'
+
+$ParallelTasks =
+    foreach ($WorkItem in $WorkBatch) {
+        Invoke-ActivityFunction -FunctionName 'F2' -Input $WorkItem -NoWait
+    }
+
+$Outputs = Wait-ActivityFunction -Task $ParallelTasks
+
+# Aggregate all outputs and send the result to F3.
+$Total = ($Outputs | Measure-Object -Sum).Sum
+Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
+```
+
+L'operazione di fan-out viene distribuita a più istanze della funzione `F2` Si noti l'utilizzo dell'opzione `NoWait` per la chiamata della funzione `F2`: questa opzione consente all'agente di orchestrazione di continuare a richiamare `F2` senza il completamento dell'attività. e viene monitorata tramite un elenco dinamico di attività. Il comando `Wait-ActivityFunction` viene chiamato per attendere il completamento di tutte le funzioni chiamate. Quindi, gli output della funzione `F2` vengono aggregati dall'elenco dinamico di attività e passati alla funzione `F3`.
+
+L'impostazione automatica di checkpoint che avviene alla chiamata di `Wait-ActivityFunction` assicura che qualsiasi potenziale riavvio o arresto anomalo del sistema durante l'esecuzione non richieda il riavvio di un'attività già completata.
 
 ---
 
@@ -357,6 +395,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Il monitoraggio non è attualmente supportato in PowerShell.
+
 ---
 
 Quando viene ricevuta una richiesta, viene creata una nuova istanza di orchestrazione per tale ID di processo. L'istanza esegue il polling di uno stato fino a quando non viene soddisfatta una condizione e terminato il ciclo. Un timer durevole controlla l'intervallo di polling. Quindi, possono essere eseguite più operazioni oppure l'orchestrazione può terminare. Quando `nextCheck` supera `expiryTime`, il monitoraggio termina.
@@ -455,6 +497,10 @@ main = df.Orchestrator.create(orchestrator_function)
 
 Per creare il timer durevole, chiamare `context.create_timer`. La notifica viene ricevuta da `context.wait_for_external_event`. Viene quindi effettuata una chiamata a `context.task_any` per stabilire se attivare l'escalation (si verifica prima il timeout) o elaborare l'approvazione (l'approvazione viene ricevuta prima del timeout).
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+L'interazione umana non è attualmente supportata in PowerShell.
+
 ---
 
 Un client esterno può recapitare la notifica degli eventi a una funzione dell'agente di orchestrazione in attesa usando le [API HTTP predefinite](durable-functions-http-api.md#raise-event):
@@ -501,6 +547,10 @@ async def main(client: str):
     is_approved = True
     await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+L'interazione umana non è attualmente supportata in PowerShell.
 
 ---
 
@@ -583,6 +633,10 @@ module.exports = df.entity(function(context) {
 
 Le entità durevoli non sono attualmente supportate in Python.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Le entità durevoli non sono attualmente supportate in PowerShell.
+
 ---
 
 I client possono accodare *operazioni* ("segnalazione") per una funzione di entità tramite il [binding del client di entità](durable-functions-bindings.md#entity-client).
@@ -622,6 +676,10 @@ module.exports = async function (context) {
 # <a name="python"></a>[Python](#tab/python)
 
 Le entità durevoli non sono attualmente supportate in Python.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Le entità durevoli non sono attualmente supportate in PowerShell.
 
 ---
 

@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 7044954d2ba67e61172c08c0a77acaaaec3822c6
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 5da9e5b38b88a5a148bd3d85664daa523153086b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992675"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589452"
 ---
 # <a name="what-is-the-translator"></a>Che cos'è Translator?
 
-Translator è facilmente integrabile in applicazioni, siti Web, strumenti e soluzioni. Consente di aggiungere esperienze utente multilingue in [oltre 60 lingue](languages.md) e può essere usata in qualsiasi piattaforma hardware con qualsiasi sistema operativo per la traduzione da testo a testo in una lingua.
+Translator è facilmente integrabile in applicazioni, siti Web, strumenti e soluzioni. Consente di aggiungere esperienze utente multilingui in [oltre 70 lingue](languages.md) e si può usare in qualsiasi piattaforma hardware con qualsiasi sistema operativo per la traduzione linguistica da testo a testo.
 
 Translator fa parte della raccolta [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) di algoritmi di apprendimento automatico e di intelligenza artificiale disponibili nel cloud ed è facilmente utilizzabile nei progetti di sviluppo.
 

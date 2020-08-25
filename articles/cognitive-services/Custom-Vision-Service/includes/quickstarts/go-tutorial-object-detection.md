@@ -2,24 +2,24 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: 45dad7d7b176037087e37638db380294521a8e19
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 08/17/2020
+ms.openlocfilehash: a56b95fe4f6b7005e823ebe80fd2e74ed1cf7725
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82135056"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511354"
 ---
-Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare l'SDK di Visione personalizzata con Go per compilare un modello di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Go personalizzata.
+Questo articolo fornisce informazioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata con Go per creare un modello di rilevamento oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint di stima pubblicato del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Go personalizzata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="install-the-custom-vision-sdk"></a>Installare Custom Vision SDK
+## <a name="install-the-custom-vision-client-library"></a>Installare la libreria client di Visione personalizzata
 
-Per installare l'SDK del servizio Visione personalizzata per Go, usare il comando seguente in PowerShell:
+Per installare la libreria client di Visione personalizzata per Go, eseguire il comando seguente in PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...

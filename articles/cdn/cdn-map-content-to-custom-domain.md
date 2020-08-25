@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure | Microsoft Docs
-description: In questa esercitazione si esegue il mapping del contenuto dell'endpoint della rete CDN di Azure a un dominio personalizzato.
+description: Questa esercitazione descrive come aggiungere un dominio personalizzato a un endpoint Rete CDN di Azure affinché il nome di dominio sia visibile nell'URL.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: ab4845a93771bace5bca15ea3afa7027884e36f4
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4ca601a3f149d8287137265665379d407d10b988
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260582"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192690"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure
 Questa esercitazione illustra come aggiungere un dominio personalizzato a un endpoint della rete CDN di Azure. Quando si usa un endpoint della rete CDN per distribuire il contenuto, è necessario un dominio personalizzato se si vuole che il nome di dominio sia visibile nell'URL della rete CDN. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione. 

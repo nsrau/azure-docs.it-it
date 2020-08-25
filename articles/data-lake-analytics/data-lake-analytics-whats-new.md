@@ -1,19 +1,17 @@
 ---
 title: Modifiche recenti apportate a Data Lake Analytics
 description: Questo articolo include un elenco in continuo aggiornamento delle modifiche recenti apportate al servizio Data Lake Analytics.
-services: data-lake-analytics
 author: xujiang1
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
-ms.openlocfilehash: e78389ffc06f1b4cd4e39c15ac66215d514e9bc1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 6f4885594e4f67d91c595d8afdddc15e8ed4ae75
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476316"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263181"
 ---
 # <a name="whats-new-in-data-lake-analytics"></a>Novità di Data Lake Analytics
 
@@ -25,7 +23,7 @@ Il servizio Azure Data Lake Analytics non viene aggiornato periodicamente, ma so
 
 ## <a name="notification-of-key-component-beta-preview"></a>Notifica dell'anteprima beta del componente chiave
 
-Non ci sono versioni beta del componente chiave disponibili per l'anteprima. 
+Nessuna versione beta del componente chiave disponibile per l'anteprima. 
 
 ## <a name="u-sql-runtime"></a>Runtime U-SQL
 
@@ -35,14 +33,13 @@ Il processo di Azure Data Lake Analytics inviato da qualsiasi strumento userà i
 
 La versione del runtime verrà aggiornata non periodicamente. Il runtime precedente verrà mantenuto disponibile per un certo periodo di tempo. Quando una nuova versione beta è pronta per l'anteprima, sarà resa disponibile.
 
-Le versioni del runtime attualmente disponibili sono le seguenti.
+> [!CAUTION]
+> - La scelta di un runtime diverso da quello predefinito potrebbe interrompere i processi U-SQL. È consigliabile evitare di usare queste versioni non predefinite per l'ambiente di produzione. Usarle solo per i test.
+> - La versione del runtime non predefinita ha un ciclo di vita fisso. Scadrà automaticamente.
 
-- Release-20200124live_adl_16283022_2--> **la versione predefinita corrente**
-- release_20200124live_adl_16283022
-- release_20200124_adl_14480125
-- release_20190904_adl_10236248_1
-- release_20190904_adl_10236248
-- release_20190904_adl_9225818
+La versione seguente è la versione del runtime predefinita corrente.
+
+- release-20200124live_adl_16283022_2
 
 Per informazioni su come risolvere gli errori del runtime U-SQL, vedere [Risolvere gli errori del runtime U-SQL](runtime-troubleshoot.md).
 

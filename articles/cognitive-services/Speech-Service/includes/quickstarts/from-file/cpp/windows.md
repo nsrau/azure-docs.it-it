@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 885dc178c6c0bfed5c49b8d9e88792a1072b0f10
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 20fd944b71f91b35e36dd124c1eb40a8937c806e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400600"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226169"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,7 +31,7 @@ Prima di iniziare, assicurarsi di:
 
 1. Nello stesso file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.
 
-1. Sostituire la stringa `YourServiceRegion` con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione, ad esempio `westus` per la sottoscrizione di prova gratuita.
+1. Sostituire la stringa `YourServiceRegion` con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione.
 
 1. Sostituire la stringa `whatstheweatherlike.wav` con il proprio nome file.
 

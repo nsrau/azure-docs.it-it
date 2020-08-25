@@ -8,13 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: 07c5e73ecd53bad0e5d5ec7959b288e0b6237a87
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 08/17/2020
+ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171925"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510913"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Postman con le API REST
 > [!div class="op_single_selector"]
@@ -25,9 +25,9 @@ ms.locfileid: "86171925"
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Uno dei modi più semplici per esplorare le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice) consiste nell'usare Postman o un altro strumento di test Web per formulare le richieste HTTP ed esaminare le risposte. Con gli strumenti corretti e con queste istruzioni è possibile inviare richieste e visualizzare le risposte prima di scrivere codice.
+Questo articolo illustra come formulare richieste all'API REST in modo interattivo usando le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice) e un client API per l'invio e la ricezione di richieste. Con un client API e queste istruzioni è possibile inviare richieste e visualizzare le risposte prima di scrivere codice.
 
-Questo articolo illustra come formulare le richieste in modo interattivo. In alternativa, è possibile [scaricare e importare una raccolta Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) per usare le richieste predefinite.
+L'articolo usa l'applicazione Postman. È possibile [scaricare e importare una raccolta Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) se si preferisce usare le richieste predefinite. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -61,14 +61,14 @@ Per ogni strumento è necessario scegliere un comando (GET, POST, PUT e così vi
 
 Si notino il prefisso HTTPS, il nome del servizio, il nome di un oggetto (in questo caso la raccolta di indici) e la [versione API](search-api-versions.md). La versione API è una stringa obbligatoria in caratteri minuscoli specificata come `?api-version=2020-06-30` per la versione corrente. Le versioni API vengono aggiornate regolarmente. Includendo l'elemento api-version in ogni richiesta, è possibile avere controllo completo sulla versione API usata.  
 
-La composizione dell'intestazione della richiesta include due elementi, il tipo di contenuto e la chiave API usata per l'autenticazione in Ricerca cognitiva di Azure. Sostituire la chiave API di amministrazione (YOUR-AZURE-SEARCH-ADMIN-API-KEY) con un valore valido. 
+La composizione dell'intestazione della richiesta include due elementi, `Content-Type` e `api-key` che si usa per l'autenticazione in Ricerca cognitiva di Azure. Sostituire la chiave API di amministrazione (YOUR-AZURE-SEARCH-ADMIN-API-KEY) con un valore valido. 
 
 ```http
 api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
 Content-Type: application/json
 ```
 
-In Postman formulare una richiesta simile allo screenshot seguente. Scegliere **GET** come verbo, specificare l'URL e fare clic su **Send** (Invia). Questo comando si connette a Ricerca cognitiva di Azure, legge la raccolta di indici e restituisce il codice di stato HTTP 200 se la connessione riesce. Se il servizio ha già indici, la risposta includerà anche le definizioni di indice.
+In Postman formulare una richiesta simile allo screenshot seguente. Scegliere **GET** come comando, specificare l'URL e fare clic su **Invia**. Questo comando si connette a Ricerca cognitiva di Azure, legge la raccolta di indici e restituisce il codice di stato HTTP 200 se la connessione riesce. Se il servizio ha già indici, la risposta includerà anche le definizioni di indice.
 
 ![Intestazione e URL della richiesta Postman](media/search-get-started-postman/postman-url.png "Intestazione e URL della richiesta Postman")
 
@@ -80,7 +80,7 @@ L'URL è stato esteso per includere il nome dell'indice `hotels`.
 
 Per eseguire questa operazione in Postman:
 
-1. Modificare il verbo in **PUT**.
+1. Cambiare il comando in **PUT**.
 
 2. Copiare questo URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30`.
 
@@ -92,7 +92,7 @@ Per eseguire questa operazione in Postman:
 
 ### <a name="index-definition"></a>Definizione di indice
 
-La raccolta campi (fields) definisce la struttura del documento. Ogni documento deve avere questi campi e ogni campo deve avere un tipo di dati. I campi stringa vengono usati nella ricerca full-text, quindi è consigliabile eseguire il cast dei dati numerici come stringhe se è necessario consentire l'esecuzione di ricerche nel contenuto.
+La raccolta campi (fields) definisce la struttura del documento. Ogni documento deve avere questi campi e ogni campo deve avere un tipo di dati. Nella ricerca full-text vengono usati campi stringa. Per eseguire ricerche in dati numerici, è necessario eseguirne il cast come stringhe.
 
 Gli attributi nel campo determinano l'azione consentita. Le API REST consentono numerose azioni per impostazione predefinita. Tutte le stringhe, ad esempio, per impostazione predefinita consentono le ricerche, possono essere recuperate e filtrate e prevedono facet. Spesso è necessario impostare gli attributi solo per disattivare un comportamento.
 
@@ -128,13 +128,13 @@ Quando si invia questa richiesta, si dovrebbe ottenere una risposta HTTP 201, ch
 
 ## <a name="2---load-documents"></a>2 - Caricare i documenti
 
-La creazione e il popolamento dell'indice sono passaggi distinti. In Ricerca cognitiva di Azure l'indice contiene tutti i dati in cui è possibile eseguire ricerche, che possono essere forniti come documenti JSON. Per questa attività viene usata l'[API REST di aggiunta, aggiornamento o eliminazione di documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). 
+La creazione e il popolamento dell'indice sono passaggi distinti. In Ricerca cognitiva di Azure l'indice contiene tutti dati ricercabili. In questo scenario i dati vengono forniti come documenti JSON. Per questa attività viene usata l'[API REST di aggiunta, aggiornamento o eliminazione di documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). 
 
 L'URL è stato esteso per includere le raccolte `docs` e l'operazione `index`.
 
 Per eseguire questa operazione in Postman:
 
-1. Modificare il verbo in **POST**.
+1. Cambiare il comando in **POST**.
 
 2. Copiare questo URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30`.
 
@@ -241,13 +241,13 @@ Se viene restituito un codice 207, significa che il caricamento di almeno uno de
 
 ## <a name="3---search-an-index"></a>3 - Eseguire la ricerca in un indice
 
-Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query su di essi con l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Ora che l'indice e il set di documenti sono stati caricati, è possibile sottoporli a query con l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 L'URL viene esteso per includere un'espressione di query, specificata usando l'operatore di ricerca.
 
 Per eseguire questa operazione in Postman:
 
-1. Cambiare il verbo in **GET**.
+1. Cambiare il comando in **GET**.
 
 2. Copiare questo URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2020-06-30`.
 

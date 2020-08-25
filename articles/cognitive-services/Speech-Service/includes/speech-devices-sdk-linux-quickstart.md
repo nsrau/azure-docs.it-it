@@ -5,18 +5,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: cc44b587bfa3b65b551df46bef025b461c8f6849
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: aee6e6d8ca505bfdcfd4a51e4693779f44b2b0c0
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374792"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226509"
 ---
 In questa Guida introduttiva, si apprenderà come usare Speech Devices SDK per Linux per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription-service.md). Attualmente solo [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) è supportato.
 
 L'applicazione è compilata con il pacchetto Speech SDK ed Eclipse Java IDE (v4) su Linux a 64 bit (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
-Per riprodurre le procedure di questa guida, è necessario un account di [Servizi cognitivi di Azure](../get-started.md) con una risorsa del servizio Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per riprodurre le procedure di questa guida, è necessario un account di [Servizi cognitivi di Azure](../get-started.md) con una risorsa del servizio Voce. 
 
 Il codice sorgente dell'[applicazione di esempio](https://aka.ms/sdsdk-download-JRE) è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 

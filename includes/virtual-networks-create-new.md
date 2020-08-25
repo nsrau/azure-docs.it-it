@@ -9,10 +9,10 @@ ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
 ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: MT
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78244956"
 ---
 ## <a name="create-the-virtual-network"></a>Creare la rete virtuale
@@ -27,10 +27,10 @@ In questa sezione si crea una rete virtuale e una subnet.
     |------------------|-----------------------------------------------------------------|
     | **Dettagli del progetto**  |                                                                 |
     | Subscription     | Selezionare la sottoscrizione ad Azure                                  |
-    | Gruppo di risorse   | Selezionare **Crea nuovo**, immettere **\<nome-gruppo-di-risorse>** e quindi selezionare OK oppure selezionare un **\<nome-gruppo-di-risorse>** esistente in base ai parametri. |
+    | Gruppo di risorse   | Selezionare **Crea nuovo**, immettere **\<resource-group-name>** , quindi selezionare OK oppure selezionare un valore **\<resource-group-name>** esistente in base ai parametri. |
     | **Dettagli istanza** |                                                                 |
-    | Nome             | Immettere **\<nome-di-rete-virtuale>**                                    |
-    | Region           | Selezionare **\<nome-area>** |
+    | Nome             | Immettere **\<virtual-network-name>**                                    |
+    | Region           | Selezionare **\<region-name>** |
 
 3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
 
@@ -38,7 +38,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
     | Impostazione            | valore                      |
     |--------------------|----------------------------|
-    | Spazio indirizzi IPv4 | Immettere **\<spazio-indirizzi-IPv4>** |
+    | Spazio indirizzi IPv4 | Immettere **\<IPv4-address-space>** |
 
 5. In **Nome subnet** selezionare la parola **predefinito**.
 
@@ -46,8 +46,8 @@ In questa sezione si crea una rete virtuale e una subnet.
 
     | Impostazione            | valore                      |
     |--------------------|----------------------------|
-    | Nome della subnet | Immettere **\<nome-subnet>** |
-    | Intervallo di indirizzi subnet | Immettere **\<intervallo-di-indirizzi-subnet>**
+    | Nome della subnet | Immettere **\<subnet-name>** |
+    | Intervallo di indirizzi subnet | Immettere **\<subnet-address-range>**
 
 7. Selezionare **Salva**.
 

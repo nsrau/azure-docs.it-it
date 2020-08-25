@@ -1,18 +1,18 @@
 ---
 title: Ottenere assistenza per la distribuzione di soluzioni VMware di Azure o gli errori di provisioning
-description: Come ottenere le informazioni necessarie dal cloud privato della soluzione VMware di Azure (AVS) per archiviare una richiesta di servizio per la distribuzione AVS o gli errori di provisioning.
+description: Come ottenere le informazioni necessarie dal cloud privato della soluzione VMware di Azure per archiviare una richiesta di servizio per la distribuzione della soluzione VMware di Azure o gli errori di provisioning.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514578"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752230"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Ottenere assistenza per la distribuzione di soluzioni VMware di Azure o gli errori di provisioning
 
-Questo articolo illustra come ottenere assistenza per la distribuzione di soluzioni VMware di Azure (AVS) o per il provisioning degli errori nel cloud privato aprendo una richiesta di servizio (SR) nell'portale di Azure. Prima di tutto, tuttavia, è necessario raccogliere alcune informazioni chiave nella portale di Azure. Nella maggior parte dei casi, è necessario:
+Questo articolo illustra come ottenere assistenza per la distribuzione di soluzioni VMware di Azure o per il provisioning degli errori nel cloud privato aprendo una richiesta di servizio (SR) nell'portale di Azure. Prima di tutto, tuttavia, è necessario raccogliere alcune informazioni chiave nella portale di Azure. Nella maggior parte dei casi, è necessario:
 
 - ID di correlazione (della distribuzione non riuscita)
 - ID circuito ExpressRoute (quando si tenta di ridimensionare o eseguire il peering di un cloud privato esistente con il circuito ExpressRoute del cloud privato e l'errore)
@@ -27,9 +27,9 @@ Di seguito è riportato un esempio dell'output di una distribuzione di cloud pri
 
 Copiare e salvare l'ID correlazione da includere nella richiesta di servizio. Per informazioni dettagliate, vedere [creare la richiesta di supporto](#create-your-support-request) alla fine di questo articolo.
 
-Se l'errore si verifica nelle fasi di pre-convalida, prima della distribuzione di un cloud privato, non viene generato alcun ID di correlazione. In questo caso, è possibile fornire semplicemente le informazioni usate durante la creazione del cloud privato AVS, tra cui:
+Se l'errore si verifica nelle fasi di pre-convalida, prima della distribuzione di un cloud privato, non viene generato alcun ID di correlazione. In questo caso, è possibile fornire semplicemente le informazioni usate durante la creazione del cloud privato della soluzione VMware di Azure, tra cui:
 
-- Location
+- Percorso
 - Resource group
 - Nome risorsa
  
@@ -53,7 +53,7 @@ In notifiche selezionare **altri eventi nel log attività**.
 
 Cercare quindi il nome della risorsa o un'altra informazione univoca usata per la creazione della risorsa, per individuare la distribuzione non riuscita e il relativo ID di correlazione. Nell'esempio seguente vengono illustrati i risultati della ricerca in una risorsa cloud privata (PC03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Trova le distribuzioni AVS precedenti non riuscite.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Trova le distribuzioni non riuscite della soluzione VMware di Azure.":::
  
 Se si seleziona il nome dell'operazione di distribuzione non riuscita, viene visualizzata una finestra con i dettagli. Selezionare la scheda JSON e cercare correlationId. Copiare e includere in SR. 
  
@@ -63,7 +63,7 @@ Probabilmente si ha già un cloud privato e si verifica un errore quando si prov
 
 Quando si visualizza un cloud privato nel portale, selezionare **Connectivity > ExpressRoute** e copiare l' **ID ExpressRoute** negli Appunti.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Raccogliere un ID ExpressRoute."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copiare l'ID ExpressRoute negli Appunti."::: 
  
 Incollare l'ID ExpressRoute nel campo appropriato nella nuova richiesta di supporto. Per altre informazioni, vedere la sezione seguente [creare la richiesta di supporto](#create-your-support-request).
  
@@ -74,11 +74,11 @@ Incollare l'ID ExpressRoute nel campo appropriato nella nuova richiesta di suppo
 
 Per indicazioni generali sulla creazione della richiesta di supporto, vedere [come creare una richiesta di supporto tecnico di Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Di seguito sono riportate altre linee guida specifiche per la creazione di un SR per la distribuzione AVS o per errori di provisioning
+Di seguito sono riportate altre linee guida specifiche per la creazione di un SR per la distribuzione della soluzione VMware di Azure o per errori di Provision
 
 1. Selezionare l'icona della **Guida** e quindi **+ nuova richiesta di supporto**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Raccogliere un ID ExpressRoute.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Raccogliere un ID ExpressRoute per la SR.":::
 
 2. Compilare tutti i campi obbligatori e nella scheda **nozioni di base** :
 

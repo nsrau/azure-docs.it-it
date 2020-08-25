@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: ef0ee6047bd23206a2c0122b9409e00cee5f0ddf
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5a2811b9bfda663892296c6194b401a610d2bbbe
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400589"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226520"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Prima di iniziare, assicurarsi di:
 
 1. Nel nuovo file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del Servizio di riconoscimento vocale.
 
-1. Sostituire la stringa `YourServiceRegion` con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione, ad esempio `westus` per la sottoscrizione di prova gratuita.
+1. Sostituire la stringa `YourServiceRegion` con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione.
 
 1. Sostituire la stringa `whatstheweatherlike.wav` con il proprio nome file.
 

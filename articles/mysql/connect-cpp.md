@@ -1,5 +1,5 @@
 ---
-title: Connettersi con C++ - Database di Azure per MySQL
+title: 'Avvio rapido: Connettersi con C++ - Database di Azure per MySQL'
 description: Questa guida introduttiva offre un esempio di codice C++ che è possibile usare per connettersi ed eseguire query sui dati da Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,17 +8,19 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: a8c922912cae72e1b4344d4d970ec9f3b4949d9f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 6aa550a9c3f58fc7101e632bcd56800b27efc84e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871508"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185979"
 ---
-# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Connector/C++ per connettersi ai dati ed eseguire query sui dati
+# <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Connector/C++ per connettersi ai dati ed eseguire query in Database di Azure per MySQL
+
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione C++. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con C++, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)

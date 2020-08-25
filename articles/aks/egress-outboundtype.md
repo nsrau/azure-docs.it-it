@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214227"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796970"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizzare l'uscita del cluster con una route definita dall'utente
 
@@ -32,7 +32,7 @@ Questo articolo illustra in dettaglio come personalizzare la route in uscita di 
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Panoramica dei tipi in uscita nel servizio Azure Kubernetes
 
-Un cluster del servizio Azure Kubernetes può essere personalizzato con un `outboundType` univoco di tipo bilanciamento del carico o un routing definito dall'utente.
+Un cluster AKS può essere personalizzato con un oggetto univoco `outboundType` di tipo `loadBalancer` o `userDefinedRouting` .
 
 > [!IMPORTANT]
 > Il tipo in uscita influisce solo sul traffico in uscita del cluster. Per altre informazioni, vedere [configurazione dei controller di ingresso](ingress-basic.md).
@@ -62,7 +62,11 @@ Se `userDefinedRouting` è impostato, AKS non configurerà automaticamente i per
 
 Il cluster AKS deve essere distribuito in una rete virtuale esistente con una subnet configurata in precedenza perché, quando non si usa l'architettura di Load Balancer standard (SLB), è necessario stabilire una uscita esplicita. Per questo tipo di architettura è necessario inviare in modo esplicito il traffico in uscita a un dispositivo, ad esempio un firewall, un gateway, un proxy o consentire a Network Address Translation (NAT) di essere eseguito da un IP pubblico assegnato al servizio di bilanciamento del carico standard o al dispositivo.
 
-Il provider di risorse del servizio Azure Kubernetes distribuirà un'istanza di Load Balancer Standard. Il servizio di bilanciamento del carico non è configurato con alcuna regola e non comporta alcun [addebito fino a quando non viene inserita una regola](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **non** esegue automaticamente il provisioning di un indirizzo IP pubblico per il front-end SLB né configura automaticamente il pool back-end di bilanciamento del carico.
+#### <a name="load-balancer-creation-with-userdefinedrouting"></a>Creazione del servizio di bilanciamento del carico con userDefinedRouting
+
+I cluster AKS con un tipo di UDR in uscita ricevono un servizio di bilanciamento del carico standard (SLB) solo quando viene distribuito il primo servizio Kubernetes di tipo "loadBalancer". Il servizio di bilanciamento del carico è configurato con un indirizzo IP pubblico per le richieste in *ingresso* e un pool back-end per le richieste in *ingresso* . Le regole in ingresso vengono configurate dal provider di servizi cloud di Azure, ma non sono configurate regole in uscita **o indirizzi IP pubblici** in uscita come risultato della presenza di un tipo di UdR in uscita. Il UDR sarà ancora l'unica fonte per il traffico in uscita.
+
+Il servizio di bilanciamento del carico [di Azure non viene addebitato fino a quando non viene inserita una regola](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Distribuire un cluster con tipo di uscita con route definita dall'utente e Firewall di Azure
 
@@ -70,9 +74,7 @@ Per illustrare l'applicazione di un cluster con tipo in uscita usando una route 
 
 > [!IMPORTANT]
 > Il tipo di UDR in uscita richiede la presenza di una route per 0.0.0.0/0 e della destinazione hop successiva di appliance virtuale di rete nella tabella di route.
-> La tabella di route dispone già di un 0.0.0.0/0 predefinito a Internet, senza un indirizzo IP pubblico per SNAT. l'aggiunta di questa route non fornirà l'uscita. AKS convaliderà la mancata creazione di una route 0.0.0.0/0 che punta a Internet, bensì a appliance virtuale di rete o gateway e così via.
-> 
-> Quando si usa un tipo di UDR in uscita, non viene creato un indirizzo IP pubblico di bilanciamento del carico a meno che non sia configurato un servizio di tipo *LoadBalancer* .
+> La tabella di route dispone già di un 0.0.0.0/0 predefinito a Internet, senza un indirizzo IP pubblico per SNAT. l'aggiunta di questa route non fornirà l'uscita. AKS convaliderà la mancata creazione di una route 0.0.0.0/0 che punta a Internet, bensì a appliance virtuale di rete o gateway e così via. Quando si usa un tipo di UDR in uscita, viene creato un indirizzo IP pubblico di bilanciamento del carico per **le richieste in ingresso** , a meno che non sia configurato un servizio di tipo *LoadBalancer* . Un indirizzo IP pubblico per **le richieste in uscita** non viene mai creato da AKS se è impostato un tipo in uscita di UdR.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

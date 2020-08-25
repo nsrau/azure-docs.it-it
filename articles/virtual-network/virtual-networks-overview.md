@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 480e22b319edd03dc9bb9d666dd43718fb3c841b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386997"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507031"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -37,7 +37,7 @@ Durante la creazione della rete in Azure, è importante tenere presente i princi
 
 - Verificare che gli spazi indirizzi non si sovrappongano. Assicurarsi che lo spazio indirizzi della rete virtuale (blocco CIDR) non si sovrapponga con altri intervalli di rete dell'organizzazione.
 - È importante che le subnet non coprano l'intero spazio indirizzi della rete virtuale, in modo da poter riservare una parte dello spazio indirizzi per esigenze future.
-- È preferibile avere poche reti virtuali di grandi dimensioni piuttosto che tante reti virtuali di piccole dimensioni. In questo modo, si eviterà infatti un sovraccarico di gestione.
+- È preferibile avere poche reti virtuali di grandi dimensioni invece di tante reti virtuali di piccole dimensioni. In questo modo, si eviterà infatti un sovraccarico di gestione.
 - Proteggere le reti virtuali assegnando gruppi di sicurezza di rete alle subnet sottostanti.
 
 ## <a name="communicate-with-the-internet"></a>Comunicare con Internet

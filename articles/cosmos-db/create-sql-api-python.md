@@ -1,24 +1,24 @@
 ---
 title: "Avvio rapido: Creare un'app Python usando un account API SQL di Azure Cosmos DB"
 description: Presenta un esempio di codice Python che permette di connettersi all'API SQL di Azure Cosmos DB ed eseguire query su di essa
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/11/2020
-ms.author: anfeldma
+ms.date: 08/11/2020
+ms.author: rosouz
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 7014e39492033b241d05cb670083d5b6277fac6e
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 16f1a7d3608b13dd5423205dc75500d76f62d69a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872940"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588144"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
 
@@ -34,11 +34,19 @@ In questa guida di avvio rapido si apprenderà a creare e gestire un account API
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con l'URI `https://localhost:8081` e la chiave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
-- [Python 3.6+](https://www.python.org/downloads/), con il file eseguibile `python` in `PATH`.
+- Un account Cosmos DB. Le opzioni disponibili sono le seguenti:
+    * All'interno di una sottoscrizione di Azure attiva:
+        * [Creare un account Azure gratuito](https://azure.microsoft.com/free) o usare una sottoscrizione esistente 
+        * [Crediti mensili di Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
+        * [Livello gratuito di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+    * Senza una sottoscrizione di Azure attiva:
+        * [Provare Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/), un ambiente di test con validità di 30 giorni.
+        * [Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
+- [Python 2.7 o 3.5.3+](https://www.python.org/downloads/), con il file eseguibile `python` in `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
+- [Azure Cosmos DB SQL API SDK per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: b181c810d15695f72e73ef8a3359396686e77a1b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5cbbcaae7b656eb89cd1bc292d89ab184589d71
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925382"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226085"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -122,7 +122,7 @@ Prima di iniziare, assicurarsi di:
 
 1. Sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.
 
-1. Sostituire la stringa `YourServiceRegion` con la [regione](~/articles/cognitive-services/Speech-Service/regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
+1. Sostituire la stringa `YourServiceRegion` con l'[area](~/articles/cognitive-services/Speech-Service/regions.md).
 
 1. Salvare le modifiche apportate al progetto.
 

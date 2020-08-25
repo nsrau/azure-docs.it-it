@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 08/18/2020
 ms.author: victorh
-ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: b4ef35f2892925919ca9c8eda37a9b0e0d11835e
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056993"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590405"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Che cos'è Gestione firewall di Azure?
 
@@ -85,6 +85,8 @@ Gestione firewall di Azure presenta i problemi noti seguenti:
 |Spoke in un'area diversa rispetto all'hub virtuale|Gli spoke in un'area diversa rispetto all'hub virtuale non sono supportati.|Analisi in corso<br><br>Creare un hub per ogni area e connettere le reti virtuali tramite peering nella stessa area dell'hub.|
 |Traffico tra rami con filtri abilitati per il traffico privato|Il traffico tra rami non è supportato quando sono abilitati filtri per il traffico privato. |Analisi in corso.<br><br>Non proteggere il traffico privato se la connettività tra rami è essenziale.|
 |Tutti gli hub virtuali protetti che condividono la stessa rete WAN virtuale devono risiedere nello stesso gruppo di risorse.|Questo comportamento è attualmente allineato agli hub di rete WAN virtuale.|Creare più reti WAN virtuali per consentire la creazione di hub virtuali protetti in gruppi di risorse diversi.|
+|L'aggiunta in blocco di indirizzi IP non riesce|Se si aggiungono più indirizzi IP pubblici, il firewall dell'hub protetto entra in uno stato di errore.|Aggiungere incrementi più piccoli di indirizzi IP pubblici. Ad esempio, aggiungerne 10 alla volta.|
+|Le regole dell'applicazione non riescono in un hub protetto con DNS personalizzato (anteprima) configurato.|Il proxy DNS/DNS personalizzato (anteprima) non funziona negli scenari in cui è configurata una scheda di interfaccia di rete di gestione del firewall. Sono incluse le distribuzioni di hub protetti e i casi in cui è abilitato il tunneling forzato.|La correzione è in corso di analisi.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Connettersi con C# - Database di Azure per MySQL
+title: 'Avvio rapido: Connettersi con C# - Database di Azure per MySQL'
 description: Questa guida introduttiva offre un esempio di codice C# (.NET) che è possibile usare per connettersi ed eseguire query sui dati da Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,17 +8,19 @@ ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8b2873944aec82d3df7d0a3bf127f19578eecf83
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: f3d59cae7351d53fcdb499c1b709b928b1274c37
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871498"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185962"
 ---
-# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare .NET (C#) per connettersi ai dati ed eseguire query
+# <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare .NET (C#) per connettersi ai dati ed eseguire query in Database di Azure per MySQL
+
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione C#. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con C#, ma non con Database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)

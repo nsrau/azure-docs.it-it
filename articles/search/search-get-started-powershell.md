@@ -8,13 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: eb7dcc0956cd9ce214ad3894aa8cc2b99beed942
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: b74deaecd1a71fec14e31f0a6aca2fed34361d76
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519814"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506006"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in PowerShell con le API REST
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "86519814"
 > * [Portale](search-get-started-portal.md)
 > 
 
-Questo articolo illustra in modo dettagliato il processo per creare e caricare un indice di Ricerca cognitiva di Azure ed eseguire query su di esso usando PowerShell e le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/). L'articolo descrive come eseguire i comandi di PowerShell in modo interattivo. In alternativa, è possibile [scaricare ed eseguire uno script di Powershell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) che esegue le stesse operazioni.
+Questo articolo illustra in modo dettagliato il processo per creare e caricare un indice di Ricerca cognitiva di Azure ed eseguire query su di esso usando PowerShell e le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/). L'articolo descrive come eseguire i comandi di PowerShell in modo interattivo. In alternativa, è possibile [scaricare ed eseguire uno script di PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) che esegue le stesse operazioni.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -89,7 +89,7 @@ A meno che non si usi il portale, per poter caricare dati è prima necessario ch
 
 Gli elementi obbligatori di un indice includono un nome e una raccolta di campi. La raccolta di campi (fields) definisce la struttura di un *documento*. Ogni campo ha un nome, un tipo e attributi che determinano come viene usato, ad esempio se è compatibile con la ricerca full-text, filtrabile o recuperabile nei risultati della ricerca. All'interno di un indice, uno dei campi di tipo `Edm.String` deve essere designato come chiave (*key*) per l'identità del documento.
 
-Questo indice è denominato "hotels-quickstart" e include le definizioni dei campi riportate di seguito. È un subset di un più esteso [indice hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) usato in altre procedure dettagliate. In questa guida di avvio rapido è stato tagliato per brevità.
+Questo indice è denominato "hotels-quickstart" e include le definizioni dei campi riportate di seguito. Si tratta di un sottoinsieme di un [indice Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) più lungo usato in altri articoli. Le definizioni dei campi sono state tagliate in questo articolo per brevità.
 
 1. Incollare questo esempio in PowerShell per creare un oggetto **$body** contenente lo schema di indice.
 
@@ -179,7 +179,7 @@ Questo indice è denominato "hotels-quickstart" e include le definizioni dei cam
 
 ## <a name="2---load-documents"></a>2 - Caricare i documenti
 
-Per effettuare il push di documenti, usare una richiesta HTTP POST all'endpoint URL dell'indice. L'API REST per questa attività è illustrata in [Aggiungere, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Per eseguire il push di documenti, usare una richiesta HTTP POST all'endpoint URL dell'indice. L'API REST per questa attività è illustrata in [Aggiungere, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Incollare questo esempio in PowerShell per creare un oggetto **$body** contenente i documenti da caricare. 
 
@@ -319,7 +319,7 @@ Per effettuare il push di documenti, usare una richiesta HTTP POST all'endpoint 
 
 Questo passaggio illustra come eseguire query su un indice con l'[API per la ricerca di documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Assicurarsi di usare virgolette singole negli oggetti $url per la ricerca. Le stringhe di query includono caratteri **$** e se l'intera stringa è racchiusa tra virgolette singole si può evitare di farli precedere da caratteri di escape.
+Assicurarsi di usare virgolette singole negli oggetti $url per la ricerca. Le stringhe di query includono i caratteri **$** e se l'intera stringa è racchiusa tra virgolette singole si può evitare di farli precedere da caratteri di escape.
 
 1. Impostare l'endpoint sulla raccolta di documenti di *hotels-quickstart* e aggiungere un parametro **search** per passare una stringa di query. 
   
@@ -378,7 +378,7 @@ Provare altri esempi di query per fare pratica con la sintassi. È possibile ese
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
-# Apply a filter to the index to find hotels rated 4 or highter
+# Apply a filter to the index to find hotels rated 4 or higher
 # Returns the HotelName and Rating. Two documents match.
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 

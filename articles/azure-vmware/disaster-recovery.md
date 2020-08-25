@@ -1,14 +1,14 @@
 ---
 title: Completare un ripristino di emergenza di macchine virtuali
-description: Questo articolo illustra come completare un ripristino di emergenza di macchine virtuali tramite AVS
+description: Questo articolo illustra come completare un ripristino di emergenza di macchine virtuali usando la soluzione VMware di Azure
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a417b9ba00c4c0e6e958e5a04d19aecfe24563
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749944"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752260"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Completare un ripristino di emergenza di macchine virtuali con la soluzione VMware di Azure
 
@@ -46,7 +46,7 @@ Immettere l'area **ripristino di emergenza** e fare clic su **Proteggi VM**.
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machine.png" alt-text="Selezionare Proteggi VM" border="true":::
 
-Nella finestra che viene visualizzata selezionare l'origine e i siti remoti, in questo caso il sito remoto dovrebbe essere il cloud privato AVS.
+Nella finestra che viene visualizzata selezionare l'origine e i siti remoti. in questo caso il sito remoto dovrebbe essere il cloud privato della soluzione VMware di Azure.
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machines.png" alt-text="finestra Proteggi VM" border="true":::
 
@@ -56,7 +56,7 @@ Se necessario, selezionare le opzioni di replica predefinite:
 
 - **Abilita quiescenza:** Sospende la macchina virtuale per garantire che una copia coerente venga sincronizzata con il sito remoto.
 
-- **Archiviazione di destinazione:** Selezionare l'archivio dati remoto per le macchine virtuali protette. In un cloud privato AVS questa selezione deve essere l'archivio dati rete VSAN.
+- **Archiviazione di destinazione:** Selezionare l'archivio dati remoto per le macchine virtuali protette. In una soluzione VMware di Azure cloud privato questa selezione deve essere l'archivio dati rete VSAN.
 
 - **Contenitore di calcolo:** Il cluster vSphere remoto o il pool di risorse.
 
@@ -95,7 +95,7 @@ Quando la macchina virtuale è accesa, avvierà il processo di sincronizzazione 
 
 ## <a name="complete-a-test-recover-of-virtual-machines"></a>Completare un ripristino di test delle macchine virtuali
 
-Accedere a **vSphere client** nel sito remoto, che è il cloud privato AVS. Nel plug-in **HCX**, nell'area ripristino di emergenza selezionare i puntini di sospensione verticali in qualsiasi macchina virtuale per visualizzare il menu operazioni. Selezionare **Verifica ripristino macchina virtuale**.
+Accedere a **vSphere client** nel sito remoto, che è il cloud privato della soluzione VMware di Azure. Nel plug-in **HCX**, nell'area ripristino di emergenza selezionare i puntini di sospensione verticali in qualsiasi macchina virtuale per visualizzare il menu operazioni. Selezionare **Verifica ripristino macchina virtuale**.
 
 :::image type="content" source="./media/disaster-recovery/test-recover-virtual-machine.png" alt-text="Selezionare il ripristino del test della macchina virtuale" border="true":::
 
@@ -105,7 +105,7 @@ Nella nuova finestra selezionare le opzioni per il test. Selezionare lo snapshot
 
 Dopo aver fatto clic su **test**, viene avviata l'operazione di ripristino.
 
-Al termine dell'operazione di ripristino di test, è possibile archiviare la nuova VM in AVS private cloud vCenter.
+Al termine dell'operazione di ripristino di test, è possibile archiviare la nuova macchina virtuale nella soluzione VMware di Azure private cloud vCenter.
 
 :::image type="content" source="./media/disaster-recovery/verify-test-recovery.png" alt-text="Controlla operazione di ripristino" border="true":::
 
@@ -115,7 +115,7 @@ Infine, dopo aver eseguito il test nella VM o in qualsiasi applicazione in esecu
 
 ## <a name="recover-virtual-machines"></a>Ripristinare le macchine virtuali
 
-Accedere a **vSphere client** nel sito remoto, che è il cloud privato AVS, e accedere al plug-in **HCX**.
+Accedere a **vSphere client** nel sito remoto, che è il cloud privato della soluzione VMware di Azure, e accedere al plug-in **HCX**.
 
 Per lo scenario di ripristino, un gruppo di macchine virtuali usate per questo esempio.
 
@@ -131,7 +131,7 @@ Al termine dell'operazione di ripristino, le nuove macchine virtuali verranno vi
 
 ## <a name="complete-a-reverse-replication-on-virtual-machines"></a>Completare una replica inversa nelle macchine virtuali
 
-Accedere a **vSphere client** nel cloud privato AVS e accedere al plug-in **HCX**.
+Accedere a **vSphere client** nel cloud privato della soluzione VMware di Azure e accedere al plug-in **HCX**.
 È necessario che le macchine virtuali originali nel sito di origine vengano spente prima di avviare la replica inversa. L'operazione ha esito negativo se le macchine virtuali non sono spente.
 
 Selezionare le macchine virtuali da replicare nuovamente nel sito di origine dall'elenco, aprire il menu **azioni** e selezionare **Inverti**. Nella finestra popup fare clic su **Inverti** per avviare la replica.

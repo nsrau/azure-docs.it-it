@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 06/04/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eca67c4a5a942e6cd06f67cac868905da0e1f533
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535145"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520771"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
@@ -78,20 +78,28 @@ az storage account create \
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-Gli elementi BLOB vengono sempre caricati in un contenitore. È possibile organizzare i gruppi di BLOB in contenitori, modo simile a come si organizzano i file in cartelle sul computer. Creare un contenitore per l'archiviazione di BLOB con il comando [az storage container create](/cli/azure/storage/container). 
+Gli elementi BLOB vengono sempre caricati in un contenitore. È possibile organizzare i gruppi di BLOB in contenitori, modo simile a come si organizzano i file in cartelle sul computer. Creare un contenitore per l'archiviazione di BLOB con il comando [az storage container create](/cli/azure/storage/container).
 
 Nell'esempio seguente viene usato l'account Azure AD per autorizzare l'operazione di creazione del contenitore. Prima di creare il contenitore, assegnare il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli di Azure, vedere [Usare l'interfaccia della riga di comando di Azure per assegnare un ruolo di Azure per l'accesso](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
-
-È anche possibile usare la chiave dell'account di archiviazione per autorizzare l'operazione di creazione del contenitore. Per altre informazioni sull'autorizzazione delle operazioni sui dati con l'interfaccia della riga di comando di Azure, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```azurecli
+az ad signed-in-user show --query objectId -o tsv | az role assignment create \
+    --role "Storage Blob Data Contributor" \
+    --assignee @- \
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
+
 az storage container create \
     --account-name <storage-account> \
     --name <container> \
     --auth-mode login
 ```
+
+> [!IMPORTANT]
+> La propagazione delle assegnazioni dei ruoli può richiedere alcuni minuti.
+
+È anche possibile usare la chiave dell'account di archiviazione per autorizzare l'operazione di creazione del contenitore. Per altre informazioni sull'autorizzazione delle operazioni sui dati con l'interfaccia della riga di comando di Azure, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 ## <a name="upload-a-blob"></a>Caricare un BLOB
 

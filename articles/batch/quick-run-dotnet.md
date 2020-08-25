@@ -1,29 +1,31 @@
 ---
-title: 'Guida introduttiva di Azure: Eseguire un processo Batch - .NET'
-description: Eseguire rapidamente un processo e attività di esempio di Azure Batch da un'applicazione C# con la libreria client Batch .NET.
+title: "Avvio rapido: Eseguire il primo processo di Azure Batch con l'API .NET"
+description: In questo argomento di avvio rapido si eseguono un processo e le attività di esempio di Azure Batch da un'applicazione C# con la libreria client .NET di Batch.
 ms.topic: quickstart
-ms.date: 11/29/2018
+ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f17fc2103e4b8512e050d79f5a639b38d90a2a95
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117217"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511032"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Avvio rapido: Eseguire il primo processo di Azure Batch con l'API .NET
 
-Questa guida introduttiva esegue un processo Azure Batch da un'applicazione C# compilata con l'API .NET di Azure Batch. L'applicazione carica più file di dati di input nell'archivio di Azure e quindi crea un *pool* di nodi di calcolo Batch (macchine virtuali). Crea quindi un *processo* di esempio che esegue *attività* per l'elaborazione di ogni file di input nel pool usando un comando di base. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+Introduzione ad Azure Batch con l'esecuzione di un processo da un'applicazione C# basata sull'API .NET di Azure Batch. L'applicazione carica più file di dati di input nell'archivio di Azure e quindi crea un pool di nodi di calcolo Batch (macchine virtuali). Crea quindi un processo di esempio che esegue attività per l'elaborazione di ogni file di input nel pool usando un comando di base.
 
-![Flusso di lavoro dell'app della guida introduttiva](./media/quick-run-dotnet/sampleapp.png)
+Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+![Diagramma che mostra una panoramica del flusso di lavoro dell'app Azure Batch.](./media/quick-run-dotnet/sampleapp.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs) oppure [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows. 
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Un account Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md). 
+- Un account Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md).
+
+- [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs) oppure [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows. 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -60,11 +62,11 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 Per vedere in azione il flusso di lavoro di Batch, compilare ed eseguire l'applicazione in Visual Studio oppure eseguire i comandi `dotnet build` e `dotnet run` dalla riga di comando. Dopo l'esecuzione dell'applicazione, esaminare il codice per comprendere le operazioni eseguite da ogni parte dell'applicazione. Ad esempio, in Visual Studio:
 
-* In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Compila soluzione**. 
+- In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Compila soluzione**. 
 
-* Confermare il ripristino di eventuali pacchetti NuGet, se richiesto. Se è necessario scaricare i pacchetti mancanti, verificare che lo strumento [Gestione pacchetti NuGet](https://docs.nuget.org/consume/installing-nuget) sia installato.
+- Confermare il ripristino di eventuali pacchetti NuGet, se richiesto. Se è necessario scaricare i pacchetti mancanti, verificare che lo strumento [Gestione pacchetti NuGet](https://docs.nuget.org/consume/installing-nuget) sia installato.
 
-Eseguire quindi lo strumento. Quando si esegue l'applicazione di esempio, l'output della console è simile al seguente. Durante l'esecuzione si verifica una pausa in corrispondenza di `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` mentre vengono avviati i nodi di calcolo del pool. Le attività vengono accodate per l'esecuzione non appena il primo nodo di calcolo è in esecuzione. Passare all'account Batch nel [portale di Azure](https://portal.azure.com) per monitorare il pool, i nodi di calcolo, il processo e le attività.
+Quando si esegue l'applicazione di esempio, l'output della console è simile al seguente. Durante l'esecuzione si verifica una pausa in corrispondenza di `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` mentre vengono avviati i nodi di calcolo del pool. Le attività vengono accodate per l'esecuzione non appena il primo nodo di calcolo è in esecuzione. Passare all'account Batch nel [portale di Azure](https://portal.azure.com) per monitorare il pool, i nodi di calcolo, il processo e le attività.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM
@@ -93,17 +95,16 @@ stderr:
 
 Se si esegue l'applicazione con la configurazione predefinita, il tempo di esecuzione tipico è di circa 5 minuti. La maggior parte del tempo è necessaria per la configurazione iniziale del pool. Per eseguire nuovamente il processo, eliminarlo dall'esecuzione precedente e non eliminare il pool. In un pool preconfigurato, il processo viene completato in pochi secondi.
 
-
 ## <a name="review-the-code"></a>Esaminare il codice
 
 L'app .NET in questa guida introduttiva esegue queste operazioni:
 
-* Carica tre piccoli file di testo in un contenitore BLOB nell'account di archiviazione di Azure. Questi file sono input per l'elaborazione da parte di Batch.
-* Crea un pool di nodi di calcolo che eseguono Windows Server.
-* Crea un processo e tre attività da eseguire nei nodi. Ogni attività elabora uno dei file di input tramite una riga di comando di Windows. 
-* Visualizza i file restituiti dalle attività.
+- Carica tre piccoli file di testo in un contenitore BLOB nell'account di archiviazione di Azure. Questi file sono input per l'elaborazione da parte di Batch.
+- Crea un pool di nodi di calcolo che eseguono Windows Server.
+- Crea un processo e tre attività da eseguire nei nodi. Ogni attività elabora uno dei file di input tramite una riga di comando di Windows. 
+- Visualizza i file restituiti dalle attività.
 
-Per altre informazioni, vedere il file `Program.cs` e le sezioni seguenti. 
+Per altre informazioni, vedere il file `Program.cs` e le sezioni seguenti.
 
 ### <a name="preliminaries"></a>Operazioni preliminari
 
@@ -245,7 +246,6 @@ Quando non sono più necessari, eliminare il gruppo di risorse, l'account Batch 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa guida introduttiva è stata eseguita una piccola app compilata con l'API .NET di Batch per creare un pool Batch e un processo Batch. Il processo ha eseguito attività di esempio e ha scaricato l'output creato nei nodi. Ora che sono stati appresi i concetti fondamentali del servizio Batch, è possibile provare Batch con carichi di lavoro più realistici su scala più ampia. Per altre informazioni su Azure Batch e la descrizione di un carico di lavoro parallelo con un'applicazione reale, continuare con l'esercitazione su .NET per Batch.
-
 
 > [!div class="nextstepaction"]
 > [Elaborare un carico di lavoro parallelo con .NET](tutorial-parallel-dotnet.md)

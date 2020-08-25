@@ -1,32 +1,34 @@
 ---
-title: Usare l'API Python per eseguire un processo di Azure Batch
-description: Eseguire rapidamente un processo e attività di esempio di Azure Batch con la libreria client Batch Python. Apprendere i concetti chiave del servizio Batch.
+title: "Avvio rapido: usare l'API Python per eseguire un processo di Azure Batch"
+description: Questo argomento di avvio rapido illustra come eseguire un processo e le attività di esempio di Azure Batch usando la libreria client Python. Apprendere i concetti chiave del servizio Batch.
 ms.topic: quickstart
-ms.date: 11/27/2018
+ms.date: 08/17/2020
 ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: 7cef08c81a4122fcbfcc18160ad8e6602f335569
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852566"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511015"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Guida introduttiva: Usare l'API Python per eseguire un processo di Azure Batch
 
-In questo argomento di avvio rapido si usa l'API Python per eseguire un processo di Azure Batch da un'app. L'applicazione carica i file di dati di input in Archiviazione di Azure e crea un *pool* di nodi di calcolo Batch (macchine virtuali). Crea quindi un *processo* che esegue *attività* per l'elaborazione di ogni file di input nel pool usando un comando di base.
+Introduzione ad Azure Batch con informazioni su come usare l'API Python per eseguire un processo di Azure Batch da un'app. L'applicazione carica i file di dati di input in Archiviazione di Azure e crea un pool di nodi di calcolo Batch (macchine virtuali). Crea quindi un processo che esegue attività per l'elaborazione di ogni file di input nel pool usando un comando di base.
 
-Qui sono illustrati i concetti fondamentali del servizio Batch ed è possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+Completando questo argomento di avvio rapido si apprenderanno i concetti di base del servizio Batch e sarà possibile provare a usarlo con carichi di lavoro più realistici e su larga scala.
 
 ![Panoramica del flusso di lavoro di Azure Batch](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Un account **Azure Batch** e un account di **Archiviazione di Azure** collegato. Usare il [portale di Azure](quick-create-portal.md) o [CLI](quick-create-cli.md) per creare questi account.
-- [Python](https://python.org/downloads), versione 2.7 o 3.3 o successiva, inclusa la gestione pacchetti [PIP](https://pip.pypa.io/en/stable/installing/)
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Un account Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md).
+
+- [Python](https://python.org/downloads) versione 2.7, 3.3 o successiva, con la gestione pacchetti [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -68,7 +70,7 @@ Per vedere il flusso di lavoro di Batch in azione, eseguire questo script:
 python python_quickstart_client.py
 ```
 
-Dopo l'esecuzione dello script, esaminare il codice per comprendere le operazioni eseguite da ogni parte dell'applicazione. 
+Dopo l'esecuzione dello script, esaminare il codice per comprendere le operazioni eseguite da ogni parte dell'applicazione.
 
 Quando si esegue l'applicazione di esempio, l'output della console è simile al seguente. Durante l'esecuzione si verifica una pausa in corrispondenza di `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` mentre vengono avviati i nodi di calcolo del pool. Le attività vengono accodate per l'esecuzione non appena il primo nodo di calcolo è in esecuzione. Passare all'account Batch nel [portale di Azure](https://portal.azure.com) per monitorare il pool, i nodi di calcolo, i processi e le attività dell'account.
 
@@ -102,9 +104,9 @@ Se si esegue l'applicazione con la configurazione predefinita, il tempo di esecu
 
 L'app Python in questa guida introduttiva esegue queste operazioni:
 
-* Carica tre piccoli file di testo in un contenitore BLOB nell'account di archiviazione di Azure. Questi file sono input per l'elaborazione da parte di attività Batch.
-* Crea un pool di due nodi di calcolo che eseguono Ubuntu 18.04 LTS.
-* Crea un processo e tre attività da eseguire nei nodi. Ogni attività elabora uno dei file di input tramite una riga di comando della shell Bash.
+- Carica tre piccoli file di testo in un contenitore BLOB nell'account di archiviazione di Azure. Questi file sono input per l'elaborazione da parte di attività Batch.
+- Crea un pool di due nodi di calcolo che eseguono Ubuntu 18.04 LTS.
+- Crea un processo e tre attività da eseguire nei nodi. Ogni attività elabora uno dei file di input tramite una riga di comando della shell Bash.
 * Visualizza i file restituiti dalle attività.
 
 Per altre informazioni, vedere il file `python_quickstart_client.py` e le sezioni seguenti.
@@ -182,7 +184,7 @@ batch_service_client.job.add(job)
 
 Questa app crea un elenco di oggetti attività usando la classe [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Ogni attività elabora un oggetto `resource_files` di input usando un parametro `command_line`. Nell'esempio, la riga di comando esegue il comando `cat` della shell Bash per visualizzare il file di testo. Questo comando è un esempio semplice fornito a scopo dimostrativo. Quando si usa Batch, in questa riga di comando si specifica l'app o lo script. Batch offre una serie di modi per distribuire app e script nei nodi di calcolo.
 
-L'app aggiunge quindi le attività al processo con il metodo [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), che le accoda per l'esecuzione nei nodi di calcolo. 
+L'app aggiunge quindi le attività al processo con il metodo [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), che le accoda per l'esecuzione nei nodi di calcolo.
 
 ```python
 tasks = list()

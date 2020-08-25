@@ -4,14 +4,14 @@ description: Informazioni su come viene applicato lo sconto per le istanze di ma
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/13/2020
 ms.author: banders
-ms.openlocfilehash: a9d9a5661e8a094b7d92a9dd83db3cdcd76b8b65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ddf232dbe6c6ff61f685e2910286188fb92e1f17
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018383"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192222"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Come viene applicato lo sconto per la prenotazione di Azure alle macchine virtuali
 
@@ -56,11 +56,15 @@ Quando si eseguono istanze di macchine virtuali Windows, viene applicata la pren
 
 ## <a name="discount-can-apply-to-different-sizes"></a>Lo sconto può essere applicato a diverse dimensioni
 
-Quando si acquista un'istanza di macchina virtuale riservata, se si seleziona **Ottimizzato per**: **flessibilità delle dimensioni istanza**, la copertura degli sconti dipende dalle dimensioni della macchina virtuale selezionata. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Quando si acquista un'istanza di VM riservata, se si seleziona **Ottimizzato per flessibilità delle dimensioni istanza**, la copertura degli sconti si applica alle dimensioni di VM selezionate. Può anche essere applicabile ad altre dimensioni di VM che si trovano nello stesso gruppo di flessibilità delle dimensioni istanza della serie. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## <a name="discount-applies-to-matching-servicetype-only"></a>Lo sconto si applica solo al valore ServiceType corrispondente
+## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Le VM di archiviazione Premium non ottengono sconti non Premium
 
-Lo sconto per la prenotazione si applica solo all'utilizzo delle macchine virtuali in cui il valore `ServiceType` in `AdditionalInfo` corrisponde alla prenotazione acquistata. L'applicazione dello sconto per la prenotazione ignora il contatore usato per le macchine virtuali e valuta solo il valore `ServiceType`. Conoscere per quale tipo di servizio è stata acquistata la macchina virtuale. È possibile scambiare una prenotazione di macchina virtuale di archiviazione non Premium con una prenotazione di archiviazione Premium o viceversa.
+Ecco un esempio. Se ad esempio si acquista una prenotazione per cinque VM Standard_D1, lo sconto per la prenotazione si applica solo alle VM Standard_D1 o ad altre VM nella stessa famiglia di istanze. Lo sconto non si applica alla VM Standard_DS1 o ad altre dimensioni nel gruppo di flessibilità delle dimensioni istanza DS1.
+
+L'applicazione dello sconto per la prenotazione ignora il contatore usato per le VM e valuta solo il valore ServiceType. Esaminare il valore `ServiceType` in `AdditionalInfo` per determinare le informazioni sul gruppo di flessibilità istanza/ per le macchine virtuali. I valori si trovano nel file CSV sull'utilizzo.
+
+Non è possibile cambiare direttamente il gruppo di flessibilità istanza/serie della prenotazione dopo l'acquisto. Tuttavia, è possibile *scambiare* una prenotazione di VM da un gruppo di flessibilità istanza/serie a un altro.
 
 ## <a name="services-that-get-vm-reservation-discounts"></a>Servizi che ottengono sconti per la prenotazione di macchine virtuali
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 03477fa46aaec04c0563ed38b085605dce5b87a1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120831"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751734"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,9 @@ Informazioni su come usare Azure Machine Learning per distribuire un modello com
 - Opzioni di __accelerazione hardware__ quali GPU e FPGA (Field-Programmable Gate Array).
 
 > [!IMPORTANT]
-> Il ridimensionamento del cluster non viene fornito tramite il Azure Machine Learning SDK. Per altre informazioni sul ridimensionamento dei nodi in un cluster AKS, vedere [ridimensionare il numero di nodi in un cluster AKS](../aks/scale-cluster.md).
+> Il ridimensionamento del cluster non viene fornito tramite il Azure Machine Learning SDK. Per ulteriori informazioni sul ridimensionamento dei nodi in un cluster AKS, vedere 
+- [Ridimensionare manualmente il numero di nodi in un cluster AKS](../aks/scale-cluster.md)
+- [Configurare la scalabilità automatica del cluster in AKS](../aks/cluster-autoscaler.md)
 
 Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribuito in un cluster AKS __connesso all'area di lavoro__. Esistono due modi per connettere un cluster AKS all'area di lavoro:
 
@@ -43,7 +45,7 @@ Il cluster AKS e l'area di lavoro di AML possono trovarsi in gruppi di risorse d
 > [!IMPORTANT]
 > Si consiglia di eseguire il debug in locale prima della distribuzione nel servizio Web. Per ulteriori informazioni, vedere [debug in locale](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> È anche possibile fare riferimento a Azure Machine Learning- [Distribuisci nel notebook locale](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> È anche possibile fare riferimento ad Azure Machine Learning - [Eseguire la distribuzione a un notebook locale](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,9 +57,9 @@ Il cluster AKS e l'area di lavoro di AML possono trovarsi in gruppi di risorse d
 
 - I frammenti di codice __Python__ in questo articolo presuppongono che siano impostate le variabili seguenti:
 
-    * `ws`-Impostare sull'area di lavoro.
-    * `model`: Impostare sul modello registrato.
-    * `inference_config`-Impostare sulla configurazione di inferenza per il modello.
+    * `ws` -Impostare sull'area di lavoro.
+    * `model` : Impostare sul modello registrato.
+    * `inference_config` -Impostare sulla configurazione di inferenza per il modello.
 
     Per ulteriori informazioni sull'impostazione di queste variabili, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
@@ -65,9 +67,16 @@ Il cluster AKS e l'area di lavoro di AML possono trovarsi in gruppi di risorse d
 
 - Se è necessario un Load Balancer Standard (SLB) distribuito nel cluster anziché una Load Balancer di base (BLB), creare un cluster nel portale AKS/CLI/SDK e quindi collegarlo all'area di lavoro AML.
 
-- Se si connette un cluster AKS per cui è [abilitato un intervallo di indirizzi IP autorizzati per accedere al server API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), abilitare gli intervalli IP del piano di controllo AML per il cluster AKS. Il piano di controllo AML viene distribuito tra le aree abbinate e distribuisce i pod di inferenza nel cluster AKS. Senza l'accesso al server API, non è possibile distribuire i pod di inferenza. Usare gli [intervalli IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) per entrambe le [aree abbinate]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) quando si abilitano gli intervalli IP in un cluster AKS.
+- Se si dispone di un criterio di Azure che limita la creazione di indirizzi IP pubblici, la creazione del cluster AKS avrà esito negativo. AKS richiede un indirizzo IP pubblico per il [traffico in uscita](https://docs.microsoft.com/azure/aks/limit-egress-traffic). Questo articolo fornisce anche indicazioni per il blocco del traffico in uscita dal cluster tramite l'indirizzo IP pubblico, ad eccezione di alcuni FQDN. Esistono due modi per abilitare un IP pubblico:
+  - Il cluster può usare l'indirizzo IP pubblico creato per impostazione predefinita con BLB o SLB oppure
+  - Il cluster può essere creato senza un indirizzo IP pubblico e un indirizzo IP pubblico viene configurato con un firewall con una route definita dall'utente, come descritto [qui](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  Il piano di controllo AML non comunica con questo indirizzo IP pubblico. Comunica con il piano di controllo AKS per le distribuzioni. 
 
-__Gli intervalli IP Authroized funzionano solo con Load Balancer Standard.__
+- Se si connette un cluster AKS per cui è [abilitato un intervallo di indirizzi IP autorizzati per accedere al server API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), abilitare gli intervalli di indirizzi IP del piano di AML per il cluster AKS. Il piano di controllo AML viene distribuito tra le aree abbinate e distribuisce i pod di inferenza nel cluster AKS. Senza l'accesso al server API, non è possibile distribuire i pod di inferenza. Usare gli [intervalli IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) per entrambe le [aree abbinate]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) quando si abilitano gli intervalli IP in un cluster AKS.
+
+
+  Gli intervalli IP Authroized funzionano solo con Load Balancer Standard.
  
  - Il nome di calcolo deve essere univoco all'interno di un'area di lavoro
    - Il nome è obbligatorio e deve avere una lunghezza compresa tra 3 e 24 caratteri.
@@ -76,10 +85,6 @@ __Gli intervalli IP Authroized funzionano solo con Load Balancer Standard.__
    - Il nome deve essere univoco in tutti i calcoli esistenti all'interno di un'area di Azure. Se il nome scelto non è univoco, verrà visualizzato un avviso
    
  - Se si desidera distribuire modelli a nodi GPU o a nodi FPGA (o a qualsiasi SKU specifico), è necessario creare un cluster con lo SKU specifico. Non è disponibile alcun supporto per la creazione di un pool di nodi secondari in un cluster esistente e la distribuzione di modelli nel pool di nodi secondari.
- 
- 
-
-
 
 ## <a name="create-a-new-aks-cluster"></a>Creare un nuovo cluster AKS
 
@@ -290,7 +295,7 @@ In Azure Machine Learning, "distribuzione" viene usato nel senso più generale d
     1. Se non viene trovato, il sistema compila una nuova immagine (che verrà memorizzata nella cache e registrata con l'area di lavoro ACR)
 1. Download del file di progetto compresso nell'archiviazione temporanea nel nodo di calcolo
 1. Decompressione del file di progetto
-1. Nodo di calcolo in esecuzione`python <entry script> <arguments>`
+1. Nodo di calcolo in esecuzione `python <entry script> <arguments>`
 1. Salvataggio dei log, dei file di modello e di altri file scritti nell' `./outputs` account di archiviazione associato all'area di lavoro
 1. Riduzione delle prestazioni di calcolo, inclusa la rimozione dell'archiviazione temporanea (in relazione a Kubernetes)
 
@@ -409,7 +414,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se è necessario rigenerare una chiave, usare[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autenticazione con token
 

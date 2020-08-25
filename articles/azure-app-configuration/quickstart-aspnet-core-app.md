@@ -1,19 +1,20 @@
 ---
 title: Guida di avvio rapido di Configurazione app di Azure con ASP.NET Core | Microsoft Docs
-description: Guida di avvio rapido per l'uso di Configurazione app di Azure con app ASP.NET Core
+description: Creare un'app ASP.NET Core con Configurazione app di Azure per centralizzare l'archiviazione e la gestione delle impostazioni di un'applicazione ASP.NET Core.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 41675eb1911eede750b5a9cdc19cfe49e4699bac
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373522"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590303"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app ASP.NET Core con Configurazione app di Azure
 

@@ -1,17 +1,17 @@
 ---
 title: Informazioni su Configurazione app di Azure
-description: Panoramica del servizio Configurazione app di Azure.
+description: Leggere una panoramica del servizio Configurazione app di Azure. Informazioni sul motivo per potrebbe essere necessario usare Configurazione app e informazioni su come usarlo.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 02/19/2020
-ms.openlocfilehash: 1f1cec68813d33e7fa19a414a30adfc9a41df91f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f38b8de37e84cd8a65c5a5caadf8d3b6b71ce455
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523476"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587073"
 ---
 # <a name="what-is-azure-app-configuration"></a>Informazioni su Configurazione app di Azure
 

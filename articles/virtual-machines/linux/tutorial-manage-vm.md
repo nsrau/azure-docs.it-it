@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6e4f71be1dc3cdaeb01069f234531da29a7b4977
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 601e51c7a587cd55e9b0b235bbdfb2e559be09e2
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498702"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263096"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Esercitazione: Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure
 
@@ -279,6 +279,8 @@ ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
 ```
+
+Per recuperare lo stato di alimentazione di tutte le macchine virtuali nella sottoscrizione, usare l'[API Macchine virtuali - Elenca tutte](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) con il parametro **statusOnly** impostato su *true*.
 
 ## <a name="management-tasks"></a>Attività di gestione
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587600"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796953"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -104,8 +104,10 @@ object result = await client.GetDigitalTwin(id);
 
 Questa chiamata restituisce i dati gemelli come stringa JSON. 
 
-> [!TIP]
-> Quando si recupera un gemello con, vengono restituite solo le proprietà impostate almeno una volta `GetDigitalTwin` .
+Quando si recupera un gemello con, vengono restituite solo le proprietà impostate almeno una volta `GetDigitalTwin` .
+
+>[!TIP]
+>`displayName`Per un dispositivo gemello fa parte dei metadati del modello, pertanto non verrà visualizzato quando si recuperano i dati per l'istanza del dispositivo gemello. Per visualizzare questo valore, è possibile [recuperarlo dal modello](how-to-manage-model.md#retrieve-models).
 
 Per recuperare più dispositivi gemelli usando una singola chiamata API, vedere gli esempi di API di query in [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).
 
@@ -164,7 +166,7 @@ Il risultato della chiamata `object result = await client.DigitalTwins.GetByIdAs
 Le proprietà definite del gemello digitale vengono restituite come proprietà di primo livello nel dispositivo gemello digitale. I metadati o le informazioni di sistema che non fanno parte della definizione DTDL vengono restituiti con un `$` prefisso. Le proprietà dei metadati includono:
 * ID del gemello digitale in questa istanza di Azure Digital gemelli, come `$dtId` .
 * `$etag`, un campo HTTP standard assegnato dal server Web
-* Altre proprietà in una `$metadata` sezione. incluse le seguenti:
+* Altre proprietà in una `$metadata` sezione. Sono inclusi:
     - DTMI del modello del gemello digitale.
     - Stato di sincronizzazione per ogni proprietà scrivibile. Questa operazione è particolarmente utile per i dispositivi, in cui è possibile che il servizio e il dispositivo abbiano stati divergenti, ad esempio quando un dispositivo è offline. Attualmente questa proprietà si applica solo ai dispositivi fisici connessi all'hub Internet. Con i dati nella sezione dei metadati, è possibile comprendere lo stato completo di una proprietà, oltre ai timestamp dell'Ultima modifica. Per altre informazioni sullo stato di sincronizzazione, vedere [questa esercitazione sull'hub di questo](../iot-hub/tutorial-device-twins.md) strumento sulla sincronizzazione dello stato del dispositivo.
     - Metadati specifici del servizio, ad esempio dall'hub o dai dispositivi gemelli digitali di Azure. 
