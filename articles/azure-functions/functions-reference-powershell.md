@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642215"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816406"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
 
@@ -375,7 +375,7 @@ param([string] $myBlob)
 
 In PowerShell è presente il concetto di profilo di PowerShell. Se non si ha familiarità con i profili di PowerShell, vedere [About Profiles](/powershell/module/microsoft.powershell.core/about/about_profiles).
 
-Nelle funzioni di PowerShell, lo script del profilo viene eseguito all'avvio dell'app per le funzioni. Le app per le funzioni vengono avviate alla prima distribuzione e dopo essere state inattive ([avvio a freddo](#cold-start)).
+Nelle funzioni di PowerShell, lo script del profilo viene eseguito una volta per ogni istanza del ruolo di lavoro PowerShell nell'app al momento della prima distribuzione e dopo essere stato inattivo ([avvio a freddo](#cold-start)). Quando è abilitata la concorrenza impostando il valore [PSWorkerInProcConcurrencyUpperBound](#concurrency) , lo script del profilo viene eseguito per ogni spazio creato.
 
 Quando si crea un'app per le funzioni usando strumenti, ad esempio Visual Studio Code e Azure Functions Core Tools, viene creato automaticamente un valore predefinito `profile.ps1` . Il profilo predefinito viene mantenuto [nel repository GitHub degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1) e contiene:
 
@@ -417,7 +417,10 @@ Quando si crea un nuovo progetto di funzioni di PowerShell, la gestione delle di
 Quando si aggiorna il file requirements.psd1, i moduli aggiornati vengono installati dopo il riavvio.
 
 > [!NOTE]
-> Le dipendenze gestite richiedono l'accesso a www.powershellgallery.com per scaricare i moduli. Quando si esegue localmente, verificare che il runtime possa accedere a questo URL aggiungendo le regole del firewall necessarie. 
+> Le dipendenze gestite richiedono l'accesso a www.powershellgallery.com per scaricare i moduli. Quando si esegue localmente, verificare che il runtime possa accedere a questo URL aggiungendo le regole del firewall necessarie.
+
+> [!NOTE]
+> Le dipendenze gestite attualmente non supportano i moduli che richiedono all'utente di accettare una licenza, accettando la licenza in modo interattivo o fornendo il `-AcceptLicense` parametro durante la chiamata `Install-Module` .
 
 Le seguenti impostazioni dell'applicazione possono essere usate per modificare il modo in cui le dipendenze gestite vengono scaricate e installate. L'aggiornamento dell'app viene avviato all'interno di `MDMaxBackgroundUpgradePeriod` e il processo di aggiornamento viene completato entro approssimativamente il `MDNewSnapshotCheckPeriod` .
 
@@ -435,6 +438,7 @@ In funzioni `PSModulePath` contiene due percorsi:
 
 * `Modules`Cartella esistente nella radice dell'app per le funzioni.
 * Percorso di una `Modules` cartella controllata dal ruolo di lavoro del linguaggio di PowerShell.
+
 
 ### <a name="function-app-level-modules-folder"></a>Cartella a livello di app per le funzioni `Modules`
 
@@ -502,17 +506,22 @@ Per impostazione predefinita, il runtime di PowerShell di funzioni può elaborar
 * Quando si sta tentando di gestire un numero elevato di chiamate allo stesso tempo.
 * Quando sono presenti funzioni che richiamano altre funzioni all'interno della stessa app per le funzioni.
 
-È possibile modificare questo comportamento impostando la variabile di ambiente seguente su un valore integer:
+Sono disponibili alcuni modelli di concorrenza che è possibile esplorare a seconda del tipo di carico di lavoro:
 
-```
-PSWorkerInProcConcurrencyUpperBound
-```
+* Incremento ```FUNCTIONS_WORKER_PROCESS_COUNT``` . In questo modo è possibile gestire le chiamate di funzione in più processi all'interno della stessa istanza, introducendo un certo sovraccarico di memoria e CPU. In generale, le funzioni con binding I/O non subiscono questo sovraccarico. Per le funzioni con associazione alla CPU, l'impatto può essere significativo.
 
-Questa variabile di ambiente viene impostata nelle [impostazioni dell'app](functions-app-settings.md) del app per le funzioni.
+* Aumentare il ```PSWorkerInProcConcurrencyUpperBound``` valore dell'impostazione dell'app. Ciò consente di creare più Runspaces all'interno dello stesso processo, riducendo in modo significativo il sovraccarico della CPU e della memoria.
+
+È possibile impostare queste variabili di ambiente nelle [impostazioni dell'app](functions-app-settings.md) per le funzioni.
+
+A seconda del caso d'uso, Durable Functions possibile migliorare significativamente la scalabilità. Per altre informazioni, vedere [Durable Functions modelli di applicazione](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+
+>[!NOTE]
+> È possibile che venga ricevuto il messaggio "le richieste vengono accodate a causa di un avviso di Runspaces disponibile". si noti che questo non è un errore. Il messaggio indica che le richieste vengono accodate e verranno gestite al completamento delle richieste precedenti.
 
 ### <a name="considerations-for-using-concurrency"></a>Considerazioni sull'utilizzo della concorrenza
 
-PowerShell è un linguaggio di scripting a _thread singolo_ per impostazione predefinita. Tuttavia, è possibile aggiungere la concorrenza usando più Runspaces di PowerShell nello stesso processo. La quantità di Runspaces creata corrisponderà all'impostazione dell'applicazione PSWorkerInProcConcurrencyUpperBound. La velocità effettiva avrà un effetto sulla quantità di CPU e memoria disponibile nel piano selezionato.
+PowerShell è un linguaggio di scripting a _thread singolo_ per impostazione predefinita. Tuttavia, è possibile aggiungere la concorrenza usando più Runspaces di PowerShell nello stesso processo. La quantità di Runspaces creata corrisponderà all' ```PSWorkerInProcConcurrencyUpperBound``` impostazione dell'applicazione. La velocità effettiva avrà un effetto sulla quantità di CPU e memoria disponibile nel piano selezionato.
 
 Azure PowerShell usa alcuni contesti a _livello di processo_ e lo stato per facilitare il salvataggio dalla digitazione in eccesso. Tuttavia, se si attiva la concorrenza nell'app per le funzioni e si richiamano azioni che modificano lo stato, è possibile che si verifichino race condition. Queste race condition sono difficili da sottomettere a debug perché una chiamata si basa su un determinato stato e l'altra chiamata ha modificato lo stato.
 

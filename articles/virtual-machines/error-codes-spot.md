@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e151145bd3c4d1db87ef5d1b0d553555a580279
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069789"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816746"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Messaggi di errore per le VM spot e i set di scalabilità
 
@@ -31,11 +31,11 @@ Di seguito sono riportati alcuni possibili codici di errore che è possibile ric
 | MaxPriceChangeNotAllowedForAllocatedVMs | La variazione del prezzo massima non è consentita quando la macchina virtuale ' {0} ' è attualmente allocata. Deallocare e riprovare. | Stop\Deallocate la macchina virtuale in modo da poter modificare il prezzo massimo. |
 | MaxPriceChangeNotAllowed | La variazione del prezzo massima non è consentita. | Non è possibile modificare il prezzo massimo per questa macchina virtuale. |
 | AzureSpotIsNotSupportedForThisAPIVersion  |  Azure spot non è supportato per questa versione API. | La versione dell'API deve essere 2019-03-01. |
-| AzureSpotIsNotSupportedForThisVMSize  |  Azure spot non è supportato per questa dimensione di macchina virtuale {0} . | Selezionare le altre dimensioni della macchina virtuale. Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./linux/spot-vms.md). |
-| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Il prezzo massimo è supportato solo per le macchine virtuali Azure spot. | Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./linux/spot-vms.md). |
+| AzureSpotIsNotSupportedForThisVMSize  |  Azure spot non è supportato per questa dimensione di macchina virtuale {0} . | Selezionare le altre dimensioni della macchina virtuale. Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./spot-vms.md). |
+| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Il prezzo massimo è supportato solo per le macchine virtuali Azure spot. | Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  La richiesta di spostamento delle risorse contiene una macchina virtuale Azure spot. Non supportato attualmente. Controllare i dettagli dell'errore per gli ID macchina virtuale. | Non è possibile spostare le VM spot. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  La richiesta di spostamento delle risorse contiene un set di scalabilità di macchine virtuali Azure spot. Non supportato attualmente. Controllare i dettagli dell'errore per gli ID del set di scalabilità di macchine virtuali. | Non è possibile spostare le istanze del set di scalabilità di punti. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | La macchina virtuale Azure spot non è supportata nel set di scalabilità di macchine virtuali con la modalità di orchestrazione VM. | Impostare la modalità di orchestrazione sul set di scalabilità di macchine virtuali per usare le istanze di spot. |
 
 
-**Passaggi successivi** Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./linux/spot-vms.md).
+**Passaggi successivi** Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./spot-vms.md).

@@ -4,17 +4,17 @@ description: Archiviazione di Azure protegge i dati mediante la crittografia aut
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/21/2020
+ms.date: 08/24/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a5e7060b31a936bd54dc0a1f084f823beb076044
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: fd819f0b819007611f5232d0fdfb324173d9c4b4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756810"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797922"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -36,7 +36,7 @@ Per informazioni sulla crittografia e la gestione delle chiavi per Azure Managed
 
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 
-I dati in un nuovo account di archiviazione vengono crittografati con le chiavi gestite da Microsoft. È possibile utilizzare chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con chiavi personalizzate. Se si sceglie di gestire la crittografia con le proprie chiavi, sono disponibili due opzioni:
+Per impostazione predefinita, i dati in un nuovo account di archiviazione vengono crittografati con chiavi gestite da Microsoft. È possibile continuare a utilizzare le chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, sono disponibili due opzioni. È possibile utilizzare entrambi i tipi di gestione delle chiavi o entrambi:
 
 - È possibile specificare una *chiave gestita dal cliente* con Azure Key Vault da usare per crittografare e decrittografare i dati nell'archivio BLOB e in file di Azure. <sup>1, 2</sup> per altre informazioni sulle chiavi gestite dal cliente, vedere [usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di archiviazione di Azure](encryption-customer-managed-keys.md).
 - È possibile specificare una *chiave fornita dal cliente* per le operazioni di archiviazione BLOB. Un client che effettua una richiesta di lettura o scrittura sull'archiviazione BLOB può includere una chiave di crittografia sulla richiesta per un controllo granulare sulla modalità di crittografia e decrittografia dei dati BLOB. Per altre informazioni sulle chiavi fornite dal cliente, vedere [fornire una chiave di crittografia per una richiesta all'archiviazione BLOB](encryption-customer-provided-keys.md).
@@ -46,13 +46,16 @@ La tabella seguente confronta le opzioni di gestione delle chiavi per la crittog
 | Parametro di gestione delle chiavi | chiavi gestite da Microsoft | Chiavi gestite dal cliente | Chiavi fornite dal cliente |
 |--|--|--|--|
 | Operazioni di crittografia/decrittografia | Azure | Azure | Azure |
-| Servizi di archiviazione di Azure supportati | Tutti | Archiviazione BLOB, File di Azure<sup>1, 2</sup> | Archiviazione - BLOB |
+| Servizi di archiviazione di Azure supportati | Tutti | Archiviazione BLOB, File di Azure<sup>1, 2</sup> | Archiviazione BLOB |
 | Archiviazione chiavi | Archivio chiavi Microsoft | Azure Key Vault | Archivio chiavi personalizzato del cliente |
 | Responsabilità della rotazione delle chiavi | Microsoft | Customer | Customer |
 | Controllo chiave | Microsoft | Customer | Customer |
 
 <sup>1</sup> per informazioni sulla creazione di un account che supporta l'uso di chiavi gestite dal cliente con l'archiviazione code, vedere [creare un account che supporta chiavi gestite dal cliente per le code](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> per informazioni sulla creazione di un account che supporta l'uso di chiavi gestite dal cliente con l'archiviazione tabelle, vedere [creare un account che supporta chiavi gestite dal cliente per le tabelle](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+
+> [!NOTE]
+> Le chiavi gestite da Microsoft vengono ruotate in modo appropriato in base ai requisiti di conformità. Se si dispone di requisiti specifici per la rotazione delle chiavi, Microsoft consiglia di passare alle chiavi gestite dal cliente per poter gestire e controllare la rotazione autonomamente.
 
 ## <a name="encryption-scopes-for-blob-storage-preview"></a>Ambiti di crittografia per l'archiviazione BLOB (anteprima)
 

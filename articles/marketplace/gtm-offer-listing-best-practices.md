@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607407"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816270"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -54,12 +54,12 @@ Le categorie e le sottocategorie sono mappate a ogni negozio online in base ai d
 
 Selezionare le categorie e le sottocategorie che meglio si allineano con l'offerta e con i destinatari desiderati. È possibile selezionare:
 
-* Fino a due categorie (2), tra cui una categoria primaria e una secondaria (facoltativo).
-* Fino a due (2) sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile solo per la categoria selezionata.
+* Fino a due categorie, tra cui una categoria primaria e una secondaria (facoltativo).
+* Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile solo per la categoria selezionata.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-**IMPORTANTE: offerte SaaS e componenti aggiuntivi Microsoft 365**
+#### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>IMPORTANTE: offerte SaaS e componenti aggiuntivi Microsoft 365
 
 Per informazioni dettagliate sul modo in cui le funzionalità di transazione possono influire sulla modalità di visualizzazione e acquisto da parte dei clienti del Marketplace, vedere la [Guida in base al tipo di offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . Per le offerte SaaS, la funzionalità di transazione dell'offerta e la selezione delle categorie determinano il negozio online in cui verrà pubblicata l'offerta:
 
@@ -120,9 +120,9 @@ Le parole chiave consentono ai clienti di trovare l'offerta durante la ricerca. 
 ## <a name="online-store-marketing-details"></a>Dettagli di marketing dell'archivio online
 | Impostazione | Procedura consigliata |
 |:--- |:--- |  
-| Logo dell'offerta (formato PNG, 48&nbsp;&times;&nbsp;48): pagina di ricerca | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina di ricerca dell'offerta. |
-| Logo dell'offerta (formato PNG, 216&nbsp;&times;&nbsp;216): pagina dei dettagli dell'app | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina dell'inserzione con i dettagli dell'app dell'offerta. |
-| Documenti "Altre informazioni" | Nella sezione "Altre informazioni" includere risorse di supporto per le vendite e il marketing, ad esempio: <ul> <li> White paper </li> <li> Brochure, </li> <li> Elenchi di controllo </li> <li> Presentazioni di PowerPoint</li> </ul>Salvare tutti i file in formato PDF. L'obiettivo di questi documenti deve essere l'informazione, non la vendita ai clienti. <br><br>Nella pagina di destinazione dell'app inserire un collegamento a tutti i documenti e aggiungere parametri dell'URL per tenere traccia dei visitatori e dell'uso delle versioni di valutazione. |
+| Logo dell'offerta (formato PNG, da 216 × 216 a 350 x 350 px): pagina dei dettagli dell'app | Progettare e ottimizzare il logo per un supporto digitale:<br>Caricare il logo in formato PNG nella pagina dell'inserzione con i dettagli dell'app dell'offerta. Il centro per i partner verrà ridimensionato in modo da configurarne le dimensioni necessarie. |
+| Logo dell'offerta (formato PNG, 48 × 48 pixel): pagina di ricerca | Il centro per i partner genererà questo logo dal logo di grandi dimensioni caricato. Facoltativamente, è possibile sostituire questo oggetto con un'immagine diversa in un secondo momento. |
+| Documenti "Altre informazioni" | Nella sezione "Altre informazioni" includere risorse di supporto per le vendite e il marketing, ad esempio:<ul><li>White paper</li><li> Brochure</li><li>Elenchi di controllo</li><li> Presentazioni di PowerPoint</li></ul><br>Salvare tutti i file in formato PDF. L'obiettivo di questi documenti deve essere l'informazione, non la vendita ai clienti.<br><br>Nella pagina di destinazione dell'app inserire un collegamento a tutti i documenti e aggiungere parametri dell'URL per tenere traccia dei visitatori e dell'uso delle versioni di valutazione. |
 | Video: solo AppSource, servizi di consulenza e offerte SaaS | I video più efficaci comunicano il valore dell'offerta in forma narrativa:<ul> <li> Il protagonista deve essere il cliente e non la società che presenta l'offerta. </li> <li> Il video deve dare risposte riguardo alle sfide e agli obiettivi fondamentali del cliente a cui ci si rivolge. </li> <li> Lunghezza consigliata: da 60 a 90 secondi.</li> <li> Includere parole chiave di ricerca che usano il nome dei video. </li> <li> Valutare l'opportunità di aggiungere altri video, ad esempio per illustrare procedure, fornire un avvio rapido o presentare la testimonianza di un cliente. </li> </ul> |
 | Screenshot (1280&nbsp;&times;&nbsp;720) | Aggiungere al massimo cinque screenshot:<br>Includere parole chiave di ricerca nei nomi file. |
 
@@ -141,4 +141,3 @@ Aggiungendo questi parametri all'URL di AppSource, è possibile verificare l'eff
 Vedere altre informazioni sui [vantaggi del marketplace commerciale](./gtm-your-marketplace-benefits.md).
 
 Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare e configurare l'offerta.
-

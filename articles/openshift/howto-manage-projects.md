@@ -8,14 +8,14 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79139114"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816440"
 ---
-# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gestire progetti, modelli, flussi di immagini in un cluster Azure Red Hat OpenShift 
+# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gestire progetti, modelli, flussi di immagini in un cluster Azure Red Hat OpenShift
 
 In una piattaforma OpenShift container, i progetti vengono utilizzati per raggruppare e isolare gli oggetti correlati. In qualità di amministratore, è possibile concedere agli sviluppatori l'accesso a progetti specifici, consentire loro di creare progetti personalizzati e concedere loro diritti amministrativi a singoli progetti.
 
@@ -45,7 +45,7 @@ L'accesso all'API viene concesso agli sviluppatori con l'associazione del ruolo 
    oc edit template project-request -n openshift
    ```
 
-3. Rimuovere il modello di progetto predefinito dal processo di aggiornamento di Azure Red Hat OpenShift (ARO) aggiungendo l'annotazione seguente:`openshift.io/reconcile-protect: "true"`
+3. Rimuovere il modello di progetto predefinito dal processo di aggiornamento di Azure Red Hat OpenShift (ARO) aggiungendo l'annotazione seguente: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -112,7 +112,7 @@ Per disabilitare gli aggiornamenti per tutti i `Templates` e `ImageStreams` nell
    oc edit namespace openshift
    ```
 
-3. Rimuovere lo `openshift` spazio dei nomi dal processo di aggiornamento di Aro aggiungendo l'annotazione seguente:`openshift.io/reconcile-protect: "true"`
+3. Rimuovere lo `openshift` spazio dei nomi dal processo di aggiornamento di Aro aggiungendo l'annotazione seguente: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...

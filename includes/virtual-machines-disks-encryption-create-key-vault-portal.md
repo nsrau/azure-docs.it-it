@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: roygara
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2d4ab180818e597afa86a4cfdf73c6948d44e630
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132458"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815471"
 ---
 Per configurare le chiavi gestite dal cliente per i dischi, è necessario creare le risorse in un ordine particolare, se si esegue questa operazione per la prima volta. Prima di tutto, è necessario creare e configurare un Azure Key Vault.
 
@@ -22,7 +22,7 @@ Per configurare le chiavi gestite dal cliente per i dischi, è necessario creare
 1. Accedere al [portale di Azure](https://aka.ms/diskencryptionupdates).
 1. Cercare e selezionare **Key Vault**.
 
-    [![server-side-encryption-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
+    [![Screenshot della portale di Azure con la finestra di dialogo Cerca espansa.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
     > L'insieme di credenziali delle chiavi di Azure, la crittografia del disco, la macchina virtuale, i dischi e gli snapshot devono trovarsi nella stessa area e nella stessa sottoscrizione affinché la distribuzione abbia esito positivo.
@@ -36,25 +36,25 @@ Per configurare le chiavi gestite dal cliente per i dischi, è necessario creare
 
 1. Selezionare **Verifica + crea**, verificare le scelte, quindi selezionare **Crea**.
 
-    ![Screenshot dell'esperienza di creazione del Azure Key Vault. Visualizzazione dei valori specifici creati](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
+    ![Screenshot dell'esperienza di creazione del Azure Key Vault. Visualizzazione dei valori specifici creati](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
 
 1. Al termine della distribuzione dell'insieme di credenziali delle chiavi, selezionarlo.
 1. Selezionare **chiavi** in **Impostazioni**.
 1. Selezionare **Genera/Importa**.
 
-    ![Screenshot del riquadro Impostazioni risorsa Key Vault. Mostra il pulsante genera/importa all'interno delle impostazioni.](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png)
+    ![Screenshot del riquadro Impostazioni risorsa Key Vault. Mostra il pulsante genera/importa all'interno delle impostazioni.](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png)
 
 1. Lasciare entrambi i **tipi di chiave** impostati su **RSA** e le **dimensioni della chiave RSA** impostate su **2048**.
 1. Inserire le selezioni rimanenti desiderate e quindi selezionare **Crea**.
 
-    ![Screenshot del pannello Crea chiave visualizzato dopo la selezione del pulsante genera/importa](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    ![Screenshot del pannello Crea chiave visualizzato dopo la selezione del pulsante genera/importa](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
 ## <a name="set-up-your-disk-encryption-set"></a>Configurare il set di crittografia del disco
 
 1. Cercare i **set di crittografia del disco** e selezionarlo.
 1. Nel pannello **set di crittografia del disco** selezionare **+ Aggiungi**.
 
-    ![Screenshot della schermata principale del portale di crittografia del disco. Evidenziazione del pulsante Aggiungi](media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
+    ![Screenshot della schermata principale del portale di crittografia del disco. Evidenziazione del pulsante Aggiungi](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
 1. Selezionare il gruppo di risorse, denominare il set di crittografia e selezionare la stessa area dell'insieme di credenziali delle chiavi.
 1. Per **tipo di crittografia** selezionare crittografia inattiva **con una chiave gestita dal cliente**.
@@ -67,12 +67,12 @@ Per configurare le chiavi gestite dal cliente per i dischi, è necessario creare
 1. Fare clic su **Seleziona**.
 1. Selezionare **Verifica + crea** e quindi **Crea**.
 
-    ![Screenshot del pannello di creazione della crittografia del disco. Visualizzazione di sottoscrizione, gruppo di risorse, nome del set di crittografia del disco, area e Key Vault + selettore di chiave.](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    ![Screenshot del pannello di creazione della crittografia del disco. Visualizzazione di sottoscrizione, gruppo di risorse, nome del set di crittografia del disco, area e Key Vault + selettore di chiave.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 
 1. Aprire il set di crittografia del disco al termine della creazione e selezionare l'avviso visualizzato.
 
-    ![Screenshot della finestra popup avviso:' per associare un disco, un'immagine o uno snapshot con un set di crittografia del disco, è necessario concedere le autorizzazioni all'insieme di credenziali delle chiavi '. Selezionare questo avviso per continuare](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
+    ![Screenshot della finestra popup avviso:' per associare un disco, un'immagine o uno snapshot con un set di crittografia del disco, è necessario concedere le autorizzazioni all'insieme di credenziali delle chiavi '. Selezionare questo avviso per continuare](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
 
     Due notifiche dovrebbero apparire e avere esito positivo. Questo consente di usare la crittografia del disco impostata con l'insieme di credenziali delle chiavi.
 
-    ![Screenshot dell'autorizzazione riuscita e dell'assegnazione di ruolo per l'insieme di credenziali delle chiavi.](media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)
+    ![Screenshot dell'autorizzazione riuscita e dell'assegnazione di ruolo per l'insieme di credenziali delle chiavi.](./media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)

@@ -2,17 +2,17 @@
 title: Azure PowerShell abilitare le chiavi gestite dal cliente con dischi gestiti da SSE
 description: Abilitare la crittografia lato server usando chiavi gestite dal cliente sui dischi gestiti con Azure PowerShell.
 author: roygara
-ms.date: 07/09/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: f27f704c0bfbe0c7718ef9c64e907c86a065ebbd
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: f967d061ece5887457375b4e93469809f6a575f9
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235936"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814774"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell-abilitare le chiavi gestite dal cliente con la crittografia lato server-Managed Disks
 
@@ -32,7 +32,7 @@ Per usare chiavi gestite dal cliente con SSE, è necessario configurare una Azur
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Ora che sono state create e configurate queste risorse, è possibile usarle per proteggere i dischi gestiti. Di seguito sono riportati alcuni script di esempio, ognuno con un rispettivo scenario, che è possibile usare per proteggere i dischi gestiti.
 

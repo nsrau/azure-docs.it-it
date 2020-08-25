@@ -4,12 +4,12 @@ description: Informazioni su come connettersi privatamente a un account Azure Ba
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0fd16e4e11d0b3f08a7ba0e2f425785e3cce7927
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004237"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814111"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Usare endpoint privati con account Azure Batch
 
@@ -19,7 +19,8 @@ Con il [collegamento privato di Azure](../private-link/private-link-overview.md)
 
 Il collegamento privato consente agli utenti di accedere a un account Azure Batch dall'interno della rete virtuale o da qualsiasi rete virtuale con peering. Le risorse mappate al collegamento privato sono accessibili anche in locale tramite peering privato tramite VPN o [Azure ExpressRoute](../expressroute/expressroute-introduction.md). È possibile connettersi a un account Azure Batch configurato con un collegamento privato utilizzando il [metodo di approvazione automatico o manuale](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-Il supporto per la connettività privata in Azure Batch è attualmente disponibile nelle aree di Azure seguenti: Stati Uniti centro-occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti centro-meridionali, US Gov Virginia, US Gov Arizona, Asia orientale, Francia e Regno Unito meridionale.
+> [!IMPORTANT]
+> Il supporto per la connettività privata in Azure Batch è attualmente disponibile nelle aree di Azure seguenti: Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Asia orientale, Francia centrale, Regno Unito meridionale, Europa settentrionale, Europa occidentale, Giappone US DoD US Gov orientale
 
 Questo articolo descrive i passaggi per creare un account batch privato e accedervi usando un endpoint privato.
 

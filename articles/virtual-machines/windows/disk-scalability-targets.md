@@ -7,12 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: d63c1517c025b9d7a3fd5523c6184eb5f43aad90
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bf56f1fac1f12f9e4994221d672410715393ae9f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825311"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815139"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Obiettivi di scalabilità e prestazioni per i dischi delle VM in Windows
 
@@ -22,7 +22,7 @@ Per altri dettagli, vedere [Dimensioni per le macchine virtuali Windows](../size
 
 ## <a name="managed-virtual-machine-disks"></a>Dischi delle macchine virtuali gestiti
 
-Le dimensioni indicate con un asterisco sono attualmente in anteprima. Vedere la pagina relativa alle [domande frequenti](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) per informazioni sulle aree in cui sono disponibili.
+Le dimensioni indicate con un asterisco sono attualmente in anteprima. Vedere la pagina relativa alle [domande frequenti](../faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) per informazioni sulle aree in cui sono disponibili.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 

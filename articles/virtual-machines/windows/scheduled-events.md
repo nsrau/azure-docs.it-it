@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
-ms.openlocfilehash: 213d9fe2db148c6260a1271c3c2b22978b98a8f3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b6e877f4e4ce7b50a2e50a2925850b9f533b7f97
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508203"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814825"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Windows
 
@@ -42,7 +42,7 @@ Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 - [Manutenzione avviata dalla piattaforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json) (ad esempio, riavvio di macchine virtuali, migrazione in tempo reale o aggiornamenti con manutenzione della memoria per l'host)
 - Macchina virtuale in esecuzione in [hardware host danneggiato](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) ed è possibile un guasto imminente
 - Manutenzione avviata dall'utente, ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente
-- Eliminazione di istanze di [macchina virtuale Spot](spot-vms.md) e [set di scalabilità Spot](../../virtual-machine-scale-sets/use-spot.md).
+- Eliminazione di istanze di [macchina virtuale Spot](../spot-vms.md) e [set di scalabilità Spot](../../virtual-machine-scale-sets/use-spot.md).
 
 ## <a name="the-basics"></a>Nozioni di base  
 
@@ -145,7 +145,7 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 |EventType  | Preavviso minimo |
 | - | - |
 | Freeze| 15 minuti |
-| Reboot | 15 minuti |
+| Riavvio | 15 minuti |
 | Ripetere la distribuzione | 10 minuti |
 | Preempt | 30 secondi |
 | Terminate | [Configurabile dall'utente](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): da 5 a 15 minuti |

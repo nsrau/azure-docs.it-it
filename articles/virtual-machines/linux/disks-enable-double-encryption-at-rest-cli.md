@@ -2,20 +2,20 @@
 title: Abilitare la crittografia doppia inattiva-dischi gestiti dell'interfaccia della riga di comando di Azure
 description: Abilitare la crittografia doppia per i dati dei dischi gestiti usando l'interfaccia della riga di comando di Azure.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 25f4f99d2bd80034d2f337aa649417d2d06026be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 76e5ab49e354faac085be533fed1ff16c0315a5e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082529"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816831"
 ---
-# <a name="azure-cli---enable-double-encryption-at-rest-on-your-managed-disks"></a>INTERFACCIA della riga di comando di Azure-abilitare la crittografia doppia sui dischi gestiti
+# <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usare l'interfaccia della riga di comando di Azure per abilitare la crittografia doppia per i dischi gestiti
 
 Archiviazione su disco di Azure supporta la crittografia doppia per i dischi gestiti. Per informazioni di carattere generale sulla crittografia dei dati inattivi, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione relativa alla crittografia [a doppio](disk-encryption.md#double-encryption-at-rest) inattivo dell'articolo crittografia del disco.
 
@@ -27,7 +27,7 @@ Archiviazione su disco di Azure supporta la crittografia doppia per i dischi ges
 
 Installare la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-az-cli2) e accedere a un account Azure con [AZ login](/cli/azure/reference-index).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 1. Creare un'istanza di Azure Key Vault e la chiave di crittografia.
 

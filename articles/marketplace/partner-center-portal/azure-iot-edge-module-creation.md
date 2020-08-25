@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 2584d10a73f183958e3b7010255979cc47bc2cd9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606354"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815777"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -201,16 +201,17 @@ Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono es
 
 #### <a name="store-logos"></a>Logo dello store
 
-Inserire file PNG del logo dell'offerta in tutte e quattro le dimensioni in pixel seguenti:
+Fornire un file PNG per il logo di **grandi** dimensioni. Il centro per i partner lo utilizzerà per creare un logo **piccolo** e **medio** . Facoltativamente, è possibile sostituirli con immagini diverse in un secondo momento.
 
-- **Piccola (48 x 48)**
-- **Media (90 X 90)**
-- **Grande (216 x 216)**
-- **Molto grande (255 X 115)**
+- **Grande** (da 216 x 216 a 350 x 350 px, obbligatorio)
+- **Media** (90 x 90 px, facoltativo)
+- **Piccolo** (48 x 48 px, facoltativo)
 
-Tutti e quattro i logo sono obbligatori e vengono usati in posizioni diverse nella presentazione del marketplace.
+Questi logo vengono usati in posizioni diverse nell'elenco:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Screenshot (facoltativo)
 

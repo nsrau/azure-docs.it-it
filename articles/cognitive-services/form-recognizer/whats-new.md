@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751081"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816372"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -28,12 +28,12 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 
 
 - Per **informazioni di riferimento sull'API REST** , vedere il [riferimento v 2.1-Preview. 1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- Sono ora supportate le **nuove lingue supportate oltre all'inglese**, le seguenti lingue: per `Layout` e `Train Custom Model` : inglese (en), cinese (semplificato) (ZH-ZH), olandese (NL), francese (FR), tedesco (de), Italiano (it), portoghese (PT) e spagnolo (es).
+- Sono ora supportate le **nuove lingue supportate oltre all'inglese**, le seguenti [lingue](language-support.md) : per `Layout` e `Train Custom Model` : inglese ( `en` ), cinese (semplificato) ( `zh-Hans` ), olandese () `nl` , francese ( `fr` ), tedesco ( `de` ), Italiano (), `it` portoghese () `pt` e spagnolo ( `es` ).
 - **Rilevamento del contrassegno della casella** di controllo: il riconoscimento del modulo supporta il rilevamento e l'estrazione dei contrassegni di selezione, ad esempio caselle di controllo e pulsanti di opzione. I contrassegni di selezione vengono estratti in `Layout` ed è ora possibile anche etichettare e eseguire il training in `Train Custom Model`  -  _Train con etichette_ per estrarre le coppie chiave-valore per i contrassegni di selezione. 
 - Il **modello compose** consente la composizione e la chiamata di più modelli con un unico ID modello. Quando un documento viene inviato per essere analizzato con un ID di modello composto, viene innanzitutto eseguito un passaggio di classificazione per indirizzarlo al modello personalizzato corretto. La composizione del modello è disponibile per il `Train Custom Model`  -  _training con etichette_.
 - **Nome modello** consente di aggiungere un nome descrittivo ai modelli personalizzati per semplificare la gestione e il rilevamento.
-- **Nuovo modello predefinito per i biglietti** da visita per l'estrazione di campi comuni in lingua inglese, business card.
-- **Nuove impostazioni locali per le ricevute** predefinite, oltre a en-US, è ora disponibile il supporto per en-au, en-CA, en-GB, en-in
+- **[Nuovo modello predefinito per i biglietti](concept-business-cards.md)** da visita per l'estrazione di campi comuni in lingua inglese, business card.
+- **[Nuove impostazioni locali per le ricevute](concept-receipts.md)** predefinite, oltre a en-US, è ora disponibile il supporto per en-au, en-CA, en-GB, en-in
 - **Miglioramenti qualitativi** per `Layout` , il `Train Custom Model`  -  _training senza etichette_ e il _training con etichette_.
 
 
@@ -43,6 +43,7 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 
 I **nuovi esempi** sono disponibili in GitHub. 
 - Le [ricette di estrazione delle informazioni](https://github.com/microsoft/knowledge-extraction-recipes-forms) , ovvero i moduli PlayBook, raccolgono le procedure consigliate dagli impegni dei clienti riconoscibili in forma reale e forniscono esempi di codice, elenchi di controllo e pipeline di esempio utilizzabili per lo sviluppo di questi progetti. 
+- Lo [strumento di assegnazione di etichette di esempio](https://github.com/microsoft/OCR-Form-Tools) è stato aggiornato per supportare la nuova funzionalità v 2.1. Per iniziare a usare lo strumento, vedere questa [Guida introduttiva](quickstarts/label-tool.md) . 
 - L'esempio di riconoscimento in modalità [chiosco intelligente](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Mostra come eseguire l'integrazione `Analyze Receipt` e il `Train Custom Model`  -  _training senza etichette_.
 
 

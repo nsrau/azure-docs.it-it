@@ -2,19 +2,19 @@
 title: 'INTERFACCIA della riga di comando di Azure: abilitare le chiavi gestite dal cliente con dischi gestiti da SSE'
 description: Abilitare le chiavi gestite dal cliente nei dischi gestiti con l'interfaccia della riga di comando di Azure.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: cd1855a4ce2d394559db28448d9f1c9a01b4bd08
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2acc95190454de2ffdd81a05a6e6cf166a9a6549
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235997"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814136"
 ---
-# <a name="azure-cli---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>INTERFACCIA della riga di comando di Azure-abilitare le chiavi gestite dal cliente con la crittografia lato server-Managed Disks
+# <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Usare l'interfaccia della riga di comando di Azure per abilitare la crittografia lato server con chiavi gestite dal cliente per Managed Disks
 
 Archiviazione su disco di Azure consente di gestire chiavi personalizzate quando si usa la crittografia lato server (SSE) per Managed disks, se si sceglie. Per informazioni concettuali su SSE con chiavi gestite dal cliente, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione [chiavi gestite dal cliente](disk-encryption.md#customer-managed-keys) dell'articolo crittografia del disco.
 
@@ -34,7 +34,7 @@ In primo luogo, è necessario configurare un Azure Key Vault e una risorsa diske
 
 Ora che sono state create e configurate queste risorse, è possibile usarle per proteggere i dischi gestiti. I collegamenti seguenti contengono script di esempio, ognuno con un rispettivo scenario, che è possibile usare per proteggere i dischi gestiti.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 ### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Creare una macchina virtuale usando un'immagine del Marketplace, crittografando il sistema operativo e i dischi dati con chiavi gestite dal cliente
 

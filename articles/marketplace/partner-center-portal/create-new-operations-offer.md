@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bdce311efbe7e41e09a3be76562c6be752a4b5c1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 79bf5f0d6b7e3fa4735d94c7b26c1736ab25113e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606105"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817001"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creare un'offerta Dynamics 365 for Operations
 
@@ -21,7 +21,7 @@ Questo argomento descrive come creare una nuova offerta Dynamics 365 for Operati
 Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](create-account.md) se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
 
 >[!NOTE]
-> Dopo la pubblicazione di un'offerta, le modifiche apportate all'offerta nel Centro per i partner verranno aggiornate solo nel sistema e archiviate dopo la nuova pubblicazione. Assicurarsi di inviare l'offerta per la pubblicazione dopo aver apportato le modifiche.
+> Dopo la pubblicazione di un'offerta, le modifiche all'offerta verranno aggiornate solo nel centro per i partner e nel negozio online dopo aver inviato di nuovo l'offerta per la pubblicazione.
 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
@@ -32,11 +32,11 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
     ![Menu di spostamento di sinistra.](./media/new-offer-dynamics-365-operations.png)
 
 > [!NOTE]
-> Dopo la pubblicazione di un'offerta, le modifiche apportate al centro per i partner vengono visualizzate solo negli archivi online dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo aver apportato modifiche.
+> Dopo la pubblicazione di un'offerta, le modifiche apportate al centro per i partner vengono visualizzate solo negli archivi online dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
 
 ## <a name="new-offer"></a>Nuova offerta
 
-Immettere l'ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
+Immettere un ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 - Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
 - Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
@@ -193,12 +193,16 @@ In questa sezione è possibile specificare logo e immagini che verranno usati qu
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire il logo dell'offerta in due dimensioni di pixel:
+Fornire un file PNG per il logo di **grandi** dimensioni. Il centro per i partner utilizzerà questo per creare un logo di **piccole dimensioni** . Facoltativamente, è possibile sostituire questo oggetto con un'immagine diversa in un secondo momento.
 
-- **Piccola** (48 x 48)
-- **Grande** (216 x 216)
+- **Grande** (da 216 x 216 a 350 x 350 px, obbligatorio)
+- **Piccolo** (48 x 48 px, facoltativo)
+
+Questi logo vengono usati in posizioni diverse nell'elenco:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 

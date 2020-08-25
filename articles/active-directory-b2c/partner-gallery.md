@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 225e337cdb4a1901d6b8e563a2a7d7c0bea4b05d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ab9a9785f2f995a6f8df766603e3fc3b9a894be5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552960"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814230"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partner ISV Azure Active Directory B2C
 
@@ -33,11 +33,13 @@ Microsoft ISV partner Network estende le funzionalità della soluzione per facil
 | ![Logo](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) è un provider di verifica dell'identità e di correzione che esegue valutazioni del rischio in base agli attributi dell'utente per prevenire le frodi.|
 | ![Logo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) è un provider di verifica dell'identità e di correzione con soluzioni di verifica ID, soluzioni per la prevenzione di frodi, soluzioni di conformità e altro ancora.|
 | ![Logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) è una soluzione di identificazione digitale conforme ai servizi di identificazione, autenticazione e attendibilità (eiDAS) per consentire agli utenti di accedere in modo sicuro senza lettori di schede, password, autenticazione a due fattori e codici pin multipli. |
+| ![Logo](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) è un servizio di verifica ID, che consente la verifica automatica in tempo reale degli ID, salvaguardando i dati dei clienti. |
 | ![Logo](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) è un provider di convalida dell'identità e di profilatura che verifica l'identificazione dell'utente e fornisce una valutazione completa dei rischi in base al dispositivo dell'utente. |
 | ![Logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) è un ID documento e una soluzione di verifica biometria facciale che consente alle aziende di soddisfare i requisiti dei *clienti* e delle identità in tempo reale.  |
 | ![Logo](./media/partner-gallery/trusona-logo.png) | L'integrazione con [Trusona](./partner-trusona.md) consente di accedere in modo sicuro e consente l'autenticazione senza password, l'autenticazione a più fattori e l'analisi delle licenze digitali.|
 | ![Logo](./media/partner-gallery/twilio-logo.png) | L' [app Twilio Verify](./partner-twilio.md) offre più soluzioni per abilitare l'autenticazione a più fattori tramite la password monouso (OTP) SMS, la password monouso basata sul tempo (TOTP) e le notifiche push e per conformarsi ai requisiti SCA per la direttiva 2 (PSD2) dei servizi di pagamento.|
 | ![Logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) è un provider di verifica dell'identità e di correzione basato sul modello di digitazione degli utenti, fornisce soluzioni di verifica dell'ID che forzano l'autenticazione a più fattori e contribuisce a conformarsi ai requisiti SCA per la direttiva 2 (PSD2) di Payment Services. |
+| ![Logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) è un'applicazione con un sistema di gestione delle identità personalizzato che consente alle organizzazioni di verificare la propria base di utenti tramite voce, SMS e posta elettronica. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

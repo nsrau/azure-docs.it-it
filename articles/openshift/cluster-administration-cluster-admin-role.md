@@ -7,15 +7,15 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: ae9a421a165d6c8bda688819c5233ae5bb1a8562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38686ba35285159d7a27724b5402a6b6e2f3a696
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79139097"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815522"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Ruolo di amministratore del cliente Red Hat OpenShift di Azure
-
+ 
 Si è l'amministratore del cluster di un cluster OpenShift di Azure Red Hat. L'account dispone di autorizzazioni maggiori e di accesso a tutti i progetti creati dall'utente.
 
 Quando al proprio account è associato il ruolo di autorizzazione Customer-Admin-cluster, può gestire automaticamente un progetto.
@@ -37,7 +37,7 @@ Se, ad esempio, il `list` verbo indica che è possibile visualizzare un elenco d
 
 ## <a name="confirm-membership-in-the-customer-administrator-role"></a>Confermare l'appartenenza al ruolo di amministratore del cliente
 
-Per confermare l'appartenenza al gruppo Customer Admin, provare i comandi dell'interfaccia della riga di comando di OpenShift `oc get nodes` o `oc projects` . `oc get nodes`visualizzerà un elenco di nodi se si ha il ruolo Customer-Admin-cluster e un errore di autorizzazione se si ha solo il ruolo Customer-Admin-Project. `oc projects`mostrerà tutti i progetti nel cluster invece dei soli progetti in uso.
+Per confermare l'appartenenza al gruppo Customer Admin, provare i comandi dell'interfaccia della riga di comando di OpenShift `oc get nodes` o `oc projects` . `oc get nodes` visualizzerà un elenco di nodi se si ha il ruolo Customer-Admin-cluster e un errore di autorizzazione se si ha solo il ruolo Customer-Admin-Project. `oc projects` mostrerà tutti i progetti nel cluster invece dei soli progetti in uso.
 
 Per esplorare ulteriormente i ruoli e le autorizzazioni nel cluster, è possibile usare il [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) comando.
 

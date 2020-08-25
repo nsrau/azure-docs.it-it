@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: ec050f3dfd2537f8cffde353772d61c32cb9d676
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5104783aff5684471819ecf04e965670fff2798b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422369"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798143"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Visualizzare come vengono usati i dati relativi alla privacy nell'organizzazione
 
@@ -42,7 +42,7 @@ ms.locfileid: "87422369"
 
 Dopo aver visualizzato come vengono usati i propri dati nell'organizzazione, è possibile:
 
-- Visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md).
+- Visualizzare o gestire le [informazioni di sicurezza](./security-info-setup-signin.md).
 
 - Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md) connessi.
 
@@ -50,6 +50,6 @@ Dopo aver visualizzato come vengono usati i propri dati nell'organizzazione, è 
 
 - Visualizzare l'[attività di accesso](my-account-portal-sign-ins-page.md).
 
-- Modificare [le impostazioni del portale per gli account personali](my-account-portal-settings.md)
+- Modificare le [impostazioni del portale Account personale](my-account-portal-settings.md)
 
 - È anche possibile visualizzare le preferenze di contatto relative a Microsoft Office e le informazioni sulla privacy nella [pagina Sicurezza e privacy del portale di Office](https://portal.office.com/account/#security).

@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 23b7205e63c7991368efe421d5c067e980314611
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f5804819e3a7a63120fa8c64d8df27b16608ece1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741989"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798075"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aggiornare le informazioni sui gruppi nel portale App personali
 
@@ -26,7 +26,7 @@ ms.locfileid: "83741989"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](../manage-apps/index.yml).
 
 ## <a name="view-your-groups-information"></a>Visualizzare le informazioni sui gruppi
 

@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388119"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816083"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -47,11 +47,7 @@ Questo articolo fornisce una panoramica del report degli accessi.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Quale licenza di Azure AD è necessaria per visualizzare le attività di accesso?
 
-- Il report delle attività di accesso è disponibile in [tutte le edizioni di Azure ad](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
-
-- Per accedere ai dati di accesso usando un'API, è necessario che al tenant sia associata una licenza di [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) .
-
-
+Il report delle attività di accesso è disponibile in [tutte le edizioni di Azure ad](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) ed è possibile accedervi anche tramite l'API Microsoft Graph.
 
 ## <a name="sign-ins-report"></a>Report sugli accessi
 
@@ -128,7 +124,7 @@ Per prima cosa, limitare i dati segnalati a un livello che funziona per l'utente
 
 Il **percorso: il percorso da** cui è stata avviata la connessione:
 
-- Città
+- city
 
 - Stato/provincia
 
@@ -198,7 +194,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 250.000 più recenti. Iniziare a [scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usarli al di fuori della portale di Azure.  
 
-![Scaricare](./media/concept-sign-ins/71.png "Download")
+![Scaricare](./media/concept-sign-ins/71.png "Scarica")
 
 > [!IMPORTANT]
 > Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
@@ -238,7 +234,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - Client
 - Location
 - Indirizzo IP
-- Data
+- Date
 - Autenticazione a più fattori obbligatoria
 - Stato accesso
 

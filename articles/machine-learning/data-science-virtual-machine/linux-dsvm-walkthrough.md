@@ -8,19 +8,17 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: ed552a57e51ce9249f84bab6bb72bfe783e43edb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/17/2020
+ms.openlocfilehash: ca3cfa44bd4f757c6fbb0dd2c84d7a843f9bff36
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078115"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816219"
 ---
-# <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data science con Data Science Virtual Machine per Linux in Azure
+# <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Data Science con Ubuntu Data Science Virtual Machine in Azure
 
-Questa procedura dettagliata illustra come eseguire diverse attività comuni di data science tramite la Data Science Virtual Machine (DVSM) per Linux. La DSVM per Linux è un'immagine di macchina virtuale, disponibile in Azure, in cui è preinstallata una raccolta di strumenti usati comunemente per analisi dei dati e Machine Learning. I componenti software principali sono elencati in [Effettuare il provisioning della Data Science Virtual Machine per Linux](linux-dsvm-intro.md). L'immagine DSVM consente di iniziare le attività di data science in pochi minuti, senza dover installare e configurare ogni strumento singolarmente. Se necessario, è possibile aumentare facilmente le prestazioni della DSVM e arrestarla quando non è in uso. La risorsa DSVM è sia flessibile che conveniente.
-
-Le attività di data science illustrate in questa procedura dettagliata si basano sulla procedura illustrata in [Introduzione a Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview). Team Data Science Process offre alle attività di data science un approccio sistematico che consente ai team di data scientist di collaborare in modo efficace al ciclo di vita della creazione di applicazioni intelligenti. Il processo di analisi scientifica dei dati fornisce anche un framework iterativo di analisi scientifica dei dati da seguire.
+Questa procedura dettagliata illustra come completare diverse attività comuni di data science usando Ubuntu Data Science Virtual Machine (DSVM). Ubuntu DSVM è un'immagine di macchina virtuale disponibile in Azure preinstallata con una raccolta di strumenti comunemente usati per l'analisi dei dati e l'apprendimento automatico. I componenti software principali sono disponibili nell'articolo relativo [al provisioning di Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md). L'immagine DSVM consente di iniziare le attività di data science in pochi minuti, senza dover installare e configurare ogni strumento singolarmente. Se necessario, è possibile aumentare facilmente le prestazioni della DSVM e arrestarla quando non è in uso. La risorsa DSVM è sia flessibile che conveniente.
 
 Questa procedura dettagliata illustra il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase è un set di messaggi di posta elettronica contrassegnati come posta indesiderata o non indesiderata. Contiene anche alcune statistiche sul contenuto dei messaggi di posta elettronica. Le statistiche verranno illustrate più avanti nella procedura dettagliata.
 
@@ -29,10 +27,10 @@ Questa procedura dettagliata illustra il set di dati [spambase](https://archive.
 Per poter usare una DVSM per Linux, è necessario soddisfare i prerequisiti seguenti:
 
 * **Sottoscrizione di Azure**. Per ottenere una sottoscrizione di Azure, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/free/).
-* [**Data Science Virtual Machine per Linux** ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Per informazioni sul provisioning della macchina virtuale, vedere [Effettuare il provisioning della Data Science Virtual Machine per Linux](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) installato nel computer con una sessione di XFCE aperta. Per altre informazioni, vedere [Installare e configurare il client X2Go](dsvm-ubuntu-intro.md#x2go).
+
+* [**Data Science Virtual Machine Ubuntu**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Per informazioni sul provisioning della macchina virtuale, vedere [Provision the Ubuntu Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) installato nel computer con una sessione di XFCE aperta. Per altre informazioni, vedere [Installare e configurare il client X2Go](linux-dsvm-intro.md#x2go).
 * Per un'esperienza di scorrimento più uniforme, nel Web browser Firefox della DSVM attivare/disattivare il flag `gfx.xrender.enabled` in `about:config`. [Altre informazioni](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Valutare anche la possibilità di impostare `mousewheel.enable_pixel_scrolling` su `False`. [Altre informazioni](https://support.mozilla.org/questions/981140)
-* **Account di Azure Machine Learning**. Se non si dispone già di un account, iscriversi per ottenerne uno nella [home page di Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Scaricare il set di dati spambase
 
@@ -228,7 +226,7 @@ Le sezioni rimanenti illustrano come usare alcuni degli strumenti installati nel
 * JupyterHub
 * Rattle
 * PostgreSQL e SQuirrel SQL
-* SQL Server Data Warehouse
+* Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 
 ### <a name="xgboost"></a>XGBoost
 
@@ -286,31 +284,6 @@ clf = svm.SVC()
 clf.fit(X, y)
 ```
 
-Per pubblicare il modello in Azure Machine Learning:
-
-```Python
-# Publish the model.
-workspace_id = "<workspace-id>"
-workspace_token = "<workspace-token>"
-from azureml import services
-@services.publish(workspace_id, workspace_token)
-@services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
-@services.returns(int) # 0 or 1
-def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
-    inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
-    return clf.predict(inputArray)
-
-# Get some info about the resulting model.
-predictSpam.service.url
-predictSpam.service.api_key
-
-# Call the model
-predictSpam.service(1, 1, 1)
-```
-
-> [!NOTE]
-> Questa opzione è disponibile solo per Python 2.7. Non è ancora supportata in Python 3.5. Per l'esecuzione, usare **/anaconda/bin/python2.7**.
-
 ### <a name="jupyterhub"></a>JupyterHub
 
 La distribuzione Anaconda nella DSVM include Jupyter Notebook, un ambiente multipiattaforma per la condivisione di codice e analisi Python, R o Julia. Jupyter Notebook è accessibile tramite JupyterHub. Per accedere, usare il nome utente e la password di Linux locale in https:// \<DSVM DNS name or IP address\> : 8000/. Tutti i file di configurazione per JupyterHub si trovano in/etc/jupyterhub.
@@ -334,7 +307,6 @@ Nella DSVM sono già installati diversi notebook di esempio:
 
 * Notebook di Python di esempio:
   * [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb)
-  * [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb)
 * Notebook R di esempio:
   * [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) 
 
@@ -532,9 +504,9 @@ La maggior parte dei messaggi di posta elettronica con un'occorrenza elevata di 
 
 Se si desidera eseguire operazioni di Machine Learning con dati archiviati in un database PostgreSQL, è consigliabile usare [MADlib](https://madlib.incubator.apache.org/).
 
-### <a name="sql-data-warehouse"></a>SQL Data Warehouse
+### <a name="azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 
-Azure SQL Data Warehouse è un database basato su cloud, con possibilità di aumentare il numero di istanze, che può elaborare ingenti volumi di dati relazionali e non relazionali. Per altre informazioni, vedere [Informazioni su Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure sinapsi Analytics è un database basato su cloud e con scalabilità orizzontale in grado di elaborare grandi volumi di dati, relazionali e non relazionali. Per altre informazioni, vedere [che cos'è Azure sinapsi Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Per connettersi al data warehouse e creare la tabella, eseguire questo comando al prompt dei comandi:
 
@@ -567,8 +539,4 @@ GO
 
 È anche possibile eseguire query usando SQuirreL SQL. Seguire le procedure come per PostgreSQL usando il driver JDBC di SQL Server. Il driver JDBC si trova nella cartella /usr/share/java/jdbcdrivers/sqljdbc42.jar.
 
-## <a name="next-steps"></a>Passaggi successivi
 
-Per una panoramica degli articoli che forniscono informazioni dettagliate sulle attività che costituiscono il processo di data science in Azure, vedere [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
-
-Per una descrizione delle procedure dettagliate complete che illustrano i passaggi del processo per scenari specifici, vedere [Procedure dettagliate di Team Data Science Process](../team-data-science-process/walkthroughs.md). Le procedure dettagliate illustrano anche come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.

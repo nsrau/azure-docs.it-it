@@ -3,17 +3,17 @@ title: Crittografare i dischi del sistema operativo usando chiavi gestite dal cl
 description: Informazioni su come crittografare i dischi del sistema operativo usando chiavi gestite dal cliente in Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: 209ab1f74dce0982af66777f211c41066d53b8f9
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 241f53f0c8f289b43b8de465eb7509489345b955
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566200"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815922"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Crittografare i dischi del sistema operativo usando chiavi gestite dal cliente in Azure DevTest Labs
 La crittografia lato server (SSE) protegge i dati e consente di soddisfare gli obblighi di sicurezza e conformità dell'organizzazione. SSE crittografa automaticamente i dati archiviati nei dischi gestiti in Azure (dischi del sistema operativo e dati) per impostazione predefinita quando vengono salvati in modo permanente nel cloud. Scopri di più sulla [crittografia del disco](../virtual-machines/windows/disk-encryption.md) in Azure. 
 
-All'interno di DevTest Labs tutti i dischi del sistema operativo e i dischi dati creati come parte di un Lab vengono crittografati usando chiavi gestite dalla piattaforma. Tuttavia, in qualità di proprietario del Lab, è possibile scegliere di crittografare i dischi del sistema operativo della macchina virtuale del Lab usando le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una **chiave gestita dal cliente** da usare per la crittografia dei dati nei dischi del sistema operativo Lab. Per altre informazioni sulla crittografia lato server (SSE) con chiavi gestite dal cliente e altri tipi di crittografia dei dischi gestiti, vedere [chiavi gestite dal cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Vedere anche [restrizioni relative all'uso delle chiavi gestite dal cliente](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
+All'interno di DevTest Labs tutti i dischi del sistema operativo e i dischi dati creati come parte di un Lab vengono crittografati usando chiavi gestite dalla piattaforma. Tuttavia, in qualità di proprietario del Lab, è possibile scegliere di crittografare i dischi del sistema operativo della macchina virtuale del Lab usando le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una **chiave gestita dal cliente** da usare per la crittografia dei dati nei dischi del sistema operativo Lab. Per altre informazioni sulla crittografia lato server (SSE) con chiavi gestite dal cliente e altri tipi di crittografia dei dischi gestiti, vedere [chiavi gestite dal cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Vedere anche [restrizioni relative all'uso delle chiavi gestite dal cliente](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 
 > [!NOTE]
@@ -25,7 +25,7 @@ La sezione seguente illustra come un proprietario del Lab può configurare la cr
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-1. Se non è stata impostata una crittografia del disco, seguire questo articolo per [configurare un Key Vault e un set di crittografia del disco](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Tenere presente i requisiti seguenti per il set di crittografia del disco: 
+1. Se non è stata impostata una crittografia del disco, seguire questo articolo per [configurare un Key Vault e un set di crittografia del disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Tenere presente i requisiti seguenti per il set di crittografia del disco: 
 
     - Il set di crittografia del disco deve trovarsi **nella stessa area e nella stessa sottoscrizione del Lab**. 
     - Assicurarsi che (proprietario del Lab) disponga almeno di un **accesso a livello di lettura** al set di crittografia del disco che verrà usato per crittografare i dischi del sistema operativo del Lab. 

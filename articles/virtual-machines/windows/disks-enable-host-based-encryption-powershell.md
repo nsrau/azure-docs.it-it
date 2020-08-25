@@ -4,18 +4,18 @@ description: Come abilitare la crittografia end-to-end per le macchine virtuali 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6cb6235c5c1a34cb3f48d315adee565591bb72c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a352ecc2d2b02f03e2b55f7c5896ac905077921
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088462"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814793"
 ---
-# <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-powershell"></a>Abilitare la crittografia end-to-end usando la crittografia nel Azure PowerShell Host
+# <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usare il modulo Azure PowerShell per abilitare la crittografia end-to-end usando la crittografia nell'host
 
 Quando si Abilita la crittografia in host, i dati archiviati nell'host della macchina virtuale vengono crittografati a riposo e i flussi vengono crittografati nel servizio di archiviazione. Per informazioni concettuali sulla crittografia nell'host, nonché altri tipi di crittografia del disco gestito, vedere [crittografia end-to-end della crittografia per i dati della VM](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
@@ -35,7 +35,7 @@ Quando si Abilita la crittografia in host, i dati archiviati nell'host della mac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft . com con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni.
+Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft.com con gli ID sottoscrizione per abilitare la funzionalità per le sottoscrizioni.
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Creare una Azure Key Vault e DiskEncryptionSet
 

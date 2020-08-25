@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/20/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116343"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814627"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -45,7 +45,7 @@ Questo articolo illustra come elencare un'applicazione nella raccolta di applica
 
 **Come ottenere Azure AD per gli sviluppatori?**
 
-È possibile ottenere un account di test gratuito con tutte le funzionalità Premium Azure AD-90 giorni gratuiti e possono essere estese fino a quando si lavora con il proprio sviluppo:https://docs.microsoft.com/office/developer-program/office-365-developer-program
+È possibile ottenere un account di test gratuito con tutte le funzionalità Premium Azure AD-90 giorni gratuiti e possono essere estese fino a quando si lavora con il proprio sviluppo: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 
@@ -113,7 +113,7 @@ Creare un'applicazione Web con una pagina di accesso HTML per configurare l'[acc
 
 ![Elenco di un'applicazione con password SSO nella raccolta](./media/howto-app-gallery-listing/passwordsso.png)
 
-* Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO basato su password, selezionare **SSO con password** come illustrato.
+* Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO basato su password, selezionare **password SSO (UserName & password)** , come illustrato.
 * In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="request-for-user-provisioning"></a>Richiesta di provisioning utenti

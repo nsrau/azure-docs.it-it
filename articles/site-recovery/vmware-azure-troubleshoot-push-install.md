@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185214"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816178"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -41,8 +41,8 @@ Per Windows (**errore 95107**), verificare che l'account utente disponga dell'ac
 * Per aggiungere manualmente una chiave del registro di sistema che disabilita il controllo dell'accesso utente remoto:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * Aggiungere un nuovo `DWORD` :`LocalAccountTokenFilterPolicy`
-  * Impostare il valore su`1`
+  * Aggiungere un nuovo `DWORD` : `LocalAccountTokenFilterPolicy`
+  * Impostare il valore su `1`
 
 * Per aggiungere la chiave del registro di sistema, al prompt dei comandi eseguire il comando seguente:
 
@@ -50,7 +50,7 @@ Per Windows (**errore 95107**), verificare che l'account utente disponga dell'ac
 
 Per Linux (**errore 95108**), è necessario scegliere l'account **radice** per l'installazione corretta dell'agente del servizio Mobility. Inoltre, è necessario che i servizi SSH File Transfer Protocol (SFTP) siano in esecuzione. Per abilitare il sottosistema SFTP e l'autenticazione della password nel file _sshd_config_ :
 
-1. Accedere come utente **root**.
+1. Accedere come **utente root**.
 1. Passare a _nella/etc/ssh/sshd_config file_, trovare la riga che inizia con `PasswordAuthentication` .
 1. Rimuovere il commento dalla riga e modificare il valore in `yes` .
 1. Trovare la riga che inizia con `Subsystem` e rimuovere il commento dalla riga.
@@ -117,7 +117,7 @@ Per risolvere l'errore:
   * Assicurarsi che il protocollo SSH (Secure Shell) sia abilitato e in esecuzione sulla porta 22.
   * I servizi SFTP devono essere in esecuzione. Per abilitare il sottosistema SFTP e l'autenticazione della password nel file _sshd_config_ :
 
-    1. Accedere come utente **root**.
+    1. Accedere come **utente root**.
     1. Passare a _nella/etc/ssh/sshd_config_ file, trovare la riga che inizia con `PasswordAuthentication` .
     1. Rimuovere il commento dalla riga e modificare il valore in `yes` .
     1. Trovare la riga che inizia con `Subsystem` e rimuovere il commento dalla riga
@@ -129,6 +129,28 @@ Per risolvere l'errore:
 ## <a name="connectivity-failure-errorid-95523"></a>Errore di connettività (ErrorID: 95523)
 
 Questo errore si verifica quando la rete in cui risiede la macchina di origine non è stata trovata, potrebbe essere stata eliminata o non è più disponibile. L'unico modo per risolvere l'errore consiste nel verificare che la rete esista.
+
+## <a name="check-access-for-network-shared-folders-on-source-machine-errorid-9510595523"></a>Controllare l'accesso per le cartelle condivise di rete nel computer di origine (ErrorID: 95105, 95523)
+
+Verificare che le cartelle condivise di rete nella macchina virtuale siano accessibili dal server di elaborazione (PS) in remoto usando le credenziali specificate. Per verificare l'accesso: 
+
+1. Accedere al computer del server di elaborazione.
+2. Aprire Esplora file. Nella barra degli indirizzi digitare `\\<SOURCE-MACHINE-IP>\C$` e premere INVIO.
+
+    ![Apri cartella in PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. Esplora file richiederà le credenziali. Immettere il nome utente e la password e fare clic su OK. <br><br/>
+
+    ![Fornire le credenziali](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > Se il computer di origine è aggiunto a un dominio, specificare il nome di dominio insieme al nome utente come `<domainName>\<username>` . Se il computer di origine è in gruppo di lavoro, fornire solo il nome utente.
+
+4. Se la connessione ha esito positivo, le cartelle del computer di origine saranno visibili in remoto dal server di elaborazione.
+
+    ![Cartelle visibili dal computer di origine](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+Se la connessione ha esito negativo, verificare che tutti i prerequisiti siano soddisfatti.
 
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Controllo del servizio di condivisione di file e stampanti (ID errore: 95105 e 95106)
 
@@ -260,7 +282,7 @@ Quando l'agente di mobilità viene copiato nella macchina di origine, è necessa
 
 ## <a name="low-system-resources"></a>Risorse di sistema insufficienti
 
-Questo problema si verifica quando la memoria disponibile nel sistema non è sufficiente e non è in grado di allocare memoria per l'installazione del servizio Mobility. Verificare che sia stata liberata una quantità di memoria sufficiente perché l'installazione continui e venga completata correttamente.
+I possibili ID di errore visualizzati per questo problema sono 95572 e 95573. Questo problema si verifica quando la memoria disponibile nel sistema non è sufficiente e non è in grado di allocare memoria per l'installazione del servizio Mobility. Verificare che sia stata liberata una quantità di memoria sufficiente perché l'installazione continui e venga completata correttamente.
 
 ## <a name="vss-installation-failures"></a>Errori di installazione di VSS
 

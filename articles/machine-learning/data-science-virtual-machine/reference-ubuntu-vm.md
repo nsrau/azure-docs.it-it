@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 247840fe4719dc83be8048826ac4defc76d7ef9d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c919e8abc55dd5cb36325ae060340c1ee147a1a0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852226"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816304"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Informazioni di riferimento: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -248,14 +248,12 @@ Dopo aver effettuato l'accesso a Azure Machine Learning Studio, è possibile usa
 
 È anche possibile creare modelli personalizzati in R o Python nella VM e quindi distribuirli nell'ambiente di produzione in Azure Machine Learning. Per abilitare questa funzionalità sono state installate librerie in R (**AzureML**) e Python (**azureml**).
 
-Per informazioni su come distribuire i modelli in R e Python in Azure Machine Learning, vedere [Ten things you can do on the Data Science Virtual Machine](vm-do-ten-things.md).
-
 > [!NOTE]
 > Queste istruzioni sono state scritte per la versione Windows della Data Science Virtual Machine. Tuttavia, le informazioni sulla distribuzione di modelli in Azure Machine Learning è applicabile anche alle VM Linux.
 
 ## <a name="machine-learning-tools"></a>Strumenti di Machine Learning
 
-La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. incluse le seguenti:
+La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Sono inclusi:
 
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
 * **xgboost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.

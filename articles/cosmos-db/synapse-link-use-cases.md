@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 493a2b0d0aab47c2e38648ec8f6be75685dfd7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a522a5a5945fe7a4b63dc759077d744f951a76f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119495"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814417"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Collegamento ad Azure Synapse per Azure Cosmos DB: casi d'uso dell'analisi quasi in tempo reale
 
@@ -34,7 +34,7 @@ I produttori adottano tecnologie native del cloud per interrompere i vincoli da 
 
 L'architettura seguente mostra i vantaggi associati all'uso di Azure Cosmos DB come database operativo nativo del cloud e di Collegamento a Synapse nell'analisi della supply chain:
 
-:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Collegamento a sinapsi di Azure per Azure Cosmos DB in analisi Supply Chain" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Collegamento a sinapsi di Azure per Azure Cosmos DB in analisi Supply Chain " border="false":::
 
 In base all'architettura precedente, è possibile ottenere i casi d'uso seguenti con Collegamento a Synapse per Azure Cosmos DB:
 
@@ -52,9 +52,9 @@ In base all'architettura precedente, è possibile ottenere i casi d'uso seguenti
 
   Collegamento a Synapse per Azure Cosmos DB rende possibili scenari avanzati di business intelligence (BI) e creazione di report:
 
-  * Eseguire query sui dati operativi dall'archivio analitico di Azure Cosmos DB tramite integrazione nativa con Synapse SQL serverless e con la completa espressività del linguaggio T-SQL.
+  * Eseguire query sui dati operativi da Azure Cosmos DB archivio analitico usando l'integrazione nativa con la sinapsi SQL senza server e l'espressività completa del linguaggio T-SQL.
 
-  * Modellare e pubblicare i dashboard di business intelligence con aggiornamento automatico su Azure Cosmos DB tramite il supporto di Synapse SQL serverless per strumenti BI familiari, ad esempio Azure Analysis Services, Power BI Premium e così via.
+  * Modellare e pubblicare i dashboard di Business Intelligence per l'aggiornamento automatico tramite la Azure Cosmos DB tramite la sinapsi supporto SQL senza server per gli strumenti di business intelligence noti. ad esempio Azure Analysis Services, Power BI Premium e così via.
 
 Di seguito sono riportate alcune indicazioni per l'integrazione dei dati in batch e in streaming in Azure Cosmos DB:
 

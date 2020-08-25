@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761373"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815369"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -195,6 +195,7 @@ Gruppi di posizionamento di prossimità | Supportato | Le macchine virtuali che 
 -- | ---
 Ridimensionamento del disco nella macchina virtuale replicata | Supportata nella macchina virtuale di origine prima del failover. Non è necessario disabilitare e riabilitare la replica.<br/><br/> Se si modifica la macchina virtuale di origine dopo il failover, le modifiche non vengono acquisite.<br/><br/> Se si modificano le dimensioni del disco nella macchina virtuale di Azure dopo il failover, le modifiche non vengono acquisite da Site Recovery e il failback si verificherà sulle dimensioni originali della macchina virtuale.
 Aggiunta di un disco a una macchina virtuale replicata | Supportato
+Modifiche offline ai dischi protetti | La disconnessione di dischi e l'esecuzione di modifiche offline a tali dischi richiedono l'attivazione di una risincronizzazione completa.
 
 ## <a name="replicated-machines---storage"></a>Computer replicati - Archiviazione
 
@@ -241,7 +242,7 @@ Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limit
 Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Supportato | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
-Dischi condivisi di Azure | Non supportate
+Dischi condivisi di Azure | Non supportato
 Opzione di trasferimento sicuro | Supportato
 
 >[!IMPORTANT]
@@ -254,6 +255,7 @@ La tabella seguente offre un riepilogo dei limiti di Site Recovery.
 - Questi limiti sono basati sui test di Microsoft, ma non coprono tutte le possibili combinazioni di I/O delle applicazioni.
 - I risultati effettivi possono variare in base alla combinazione di I/O dell'applicazione.
 - È necessario considerare due limiti, la varianza dei dati del disco e la varianza dei dati della macchina virtuale.
+- Il limite corrente per la varianza dei dati per macchina virtuale è 54 MB/s, indipendentemente dalle dimensioni.
 
 **Destinazione di archiviazione** | **I/O medio del disco di origine** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
 ---|---|---|---

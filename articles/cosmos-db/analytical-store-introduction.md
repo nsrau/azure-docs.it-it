@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: d831d40733f9fa1d0db4c53d72de22898e493639
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795865"
+ms.locfileid: "88815828"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
 
@@ -22,7 +22,7 @@ L'archivio analitico di Azure Cosmos DB è un archivio colonne completamente iso
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Problemi con l'analisi su larga scala dei dati operativi
 
-I dati operativi multimodello in un contenitore Azure Cosmos DB vengono archiviati internamente in un "archivio transazionale" indicizzato basato su righe. Il formato dell'archivio righe è progettato per consentire letture e scritture transazionali rapide nei tempi di risposta dell'ordine dei millisecondi e query operative. Se le dimensioni del set di dati aumentano, le query analitiche complesse possono risultare costose in termini di velocità effettiva con provisioning sui dati archiviati in questo formato. L'utilizzo elevato della velocità effettiva con provisioning a sua volta influisce sulle prestazioni dei carichi di lavoro transazionali usati dalle applicazioni e dai servizi in tempo reale.
+I dati operativi multimodello in un contenitore Azure Cosmos DB vengono archiviati internamente in un "archivio transazionale" indicizzato basato su righe. Il formato dell'archivio righe è progettato per consentire letture e scritture transazionali rapide nei tempi di risposta dell'ordine dei millisecondi e query operative. Se le dimensioni del set di dati aumentano, le query analitiche complesse possono risultare costose in termini di velocità effettiva con provisioning nei dati archiviati in questo formato. A sua volta, l'utilizzo elevato della velocità effettiva con provisioning influisca sulle prestazioni dei carichi di lavoro transazionali utilizzati dalle applicazioni e dai servizi in tempo reale.
 
 Tradizionalmente, per analizzare grandi quantità di dati, i dati operativi vengono estratti dall'archivio transazionale di Azure Cosmos DB e archiviati in un livello dati separato. Ad esempio, i dati vengono archiviati in un data warehouse o data lake in un formato appropriato. Questi dati vengono successivamente usati per analisi su larga scala e analizzati con un motore di calcolo come i cluster Apache Spark. Questa separazione dei livelli di archiviazione analitica e di calcolo dai dati operativi comporta una latenza aggiuntiva, perché le pipeline ETL (Extract, Transform, Load) vengono eseguite con minore frequenza per ridurre al minimo l'impatto potenziale sui carichi di lavoro transazionali.
 
@@ -131,7 +131,7 @@ L'archivio analitico segue un modello di prezzi a consumo in base al quale viene
 
 * Operazioni di scrittura analitica: sincronizzazione completamente gestita degli aggiornamenti dei dati operativi nell'archivio analitico dall'archivio transazionale (sincronizzazione automatica)
 
-* Operazioni di lettura analitica: le operazioni di lettura eseguite sull'archivio analitico dai runtime Spark e SQL serverless di Synapse Analytics.
+* Operazioni di lettura analitica: le operazioni di lettura eseguite sull'archivio analitico da Spark Analytics Spark e da SQL Server Run times.
 
 > [!NOTE]
 > Azure Cosmos DB archivio analitico è attualmente disponibile in versione di anteprima pubblica senza alcun addebito.

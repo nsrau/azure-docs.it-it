@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461613"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815726"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -77,6 +77,9 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
    Tutti i trigger del bus di servizio sono trigger con *polling prolungato* . Questa descrizione significa che quando viene attivato il trigger, il trigger elabora tutti i messaggi e quindi attende 30 secondi che vengano visualizzati più messaggi nella sottoscrizione della coda o dell'argomento. Se non vengono visualizzati messaggi per 30 secondi, l'esecuzione del trigger viene ignorata. In caso contrario, il trigger continua a leggere i messaggi finché la coda o la sottoscrizione dell'argomento non sono vuote. Il polling successivo si baserà sull'intervallo di ricorrenza specificato nelle proprietà del trigger.
 
    Alcuni trigger, ad esempio **quando uno o più messaggi arrivano in un trigger di coda (completamento automatico)** , possono restituire uno o più messaggi. Quando questi trigger vengono attivati, restituiscono tra uno e il numero di messaggi specificato dalla proprietà numero **massimo messaggi** del trigger.
+
+    > [!NOTE]
+    > Il trigger di completamento automatico completa automaticamente un messaggio, ma il completamento si verifica solo alla successiva esecuzione del trigger. Questo comportamento può influire sulla progettazione dell'app per la logica. Se ad esempio si imposta il trigger di completamento automatico per verificare la presenza di messaggi ogni minuto, ma la durata del blocco è impostata su 30 secondi sul lato del bus di servizio, il risultato è un errore di blocco scaduto che si verifica durante il completamento del messaggio. È necessario impostare la durata del blocco su un valore più lungo dell'intervallo di polling.
 
 1. Se il trigger si connette allo spazio dei nomi del bus di servizio per la prima volta, seguire questa procedura quando la finestra di progettazione dell'app per la logica richiede le informazioni di connessione.
 

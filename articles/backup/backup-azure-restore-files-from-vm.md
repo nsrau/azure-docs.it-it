@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757150"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763457"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -215,7 +215,7 @@ vgchange –a y  <volume-group-name>
 
 ##### <a name="listing-logical-volumes-within-volume-groups"></a>Elenco di volumi logici nei gruppi di volumi
 
-Una volta ottenuto l'elenco univoco e attivo dei VGs correlati allo script, i volumi logici presenti in tali gruppi possono essere elencati usando il comando seguente.
+Una volta ottenuto l'elenco univoco e attivo dei VGs correlati allo script, i volumi logici presenti in tali gruppi di volumi possono essere elencati usando il comando seguente.
 
 ```bash
 #!/bin/bash

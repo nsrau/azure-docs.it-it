@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 30839fac6a264ad9defb565663b28a5b12b571b5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034465"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814519"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -24,7 +24,7 @@ Archiviazione di Azure archivia sempre più copie dei dati in modo che siano pro
 Quando si decide quale opzione di ridondanza è più adatta allo scenario in uso, considerare il rapporto tra costi inferiori, maggiore disponibilità e durabilità. Ecco i fattori che consentono di determinare l'opzione di ridondanza da scegliere:  
 
 - Modalità di replica dei dati nell'area primaria
-- Se i dati vengono replicati in una seconda posizione geograficamente distante rispetto all'area primaria, per proteggerli da emergenze locali
+- Se i dati vengono replicati in una seconda area geograficamente distante rispetto all'area primaria, per la protezione da emergenze a livello di area
 - Se l'applicazione richiede l'accesso in lettura ai dati replicati nell'area secondaria se l'area primaria, per un qualsiasi motivo, non è più disponibile
 
 ## <a name="redundancy-in-the-primary-region"></a>Ridondanza nell'area primaria
@@ -64,8 +64,8 @@ La tabella seguente illustra i tipi di account di archiviazione che supportano l
 | Tipo di account di archiviazione | Aree supportate | Servizi supportati |
 |--|--|--|
 | Utilizzo generico v2<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Sudafrica settentrionale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2 | BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-| BlockBlobStorage<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali | Solo BLOB in blocchi Premium |
-| FileStorage | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali | Solo condivisioni file Premium |
+| BlockBlobStorage<sup>1</sup> | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali <br /> Stati Uniti occidentali 2| Solo BLOB in blocchi Premium |
+| FileStorage | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali <br /> Stati Uniti occidentali 2 | Solo condivisioni file Premium |
 
 <sup>1</sup> Il livello di archiviazione non è attualmente supportato per gli account ZRS.<br />
 <sup>2</sup> Gli account di archiviazione contenenti i dischi gestiti di Azure per le macchine virtuali usano sempre con l'archiviazione con ridondanza locale. I dischi non gestiti di Azure devono usare anche l'archiviazione con ridondanza locale. È possibile creare un account di archiviazione per i dischi non gestiti di Azure che usa l'archiviazione con ridondanza geografica, ma non è consigliabile a causa di possibili problemi di coerenza della replica geografica asincrona. Né i dischi gestiti e né quelli non gestiti supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [Prezzi per i dischi gestiti di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -83,9 +83,9 @@ Archiviazione di Azure offre due opzioni per la copia dei dati in un'area second
 - L'**archiviazione con ridondanza geografica (GRS)** copia i dati in modo sincrono tre volte all'interno di un'unica posizione fisica nell'area primaria usando l'archiviazione con ridondanza locale. Copia quindi i dati in modo asincrono in un'unica posizione fisica nell'area secondaria.
 - L'**archiviazione con ridondanza geografica della zona (GZRS)** copia i dati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l'archiviazione con ridondanza della zona. Copia quindi i dati in modo asincrono in un'unica posizione fisica nell'area secondaria.
 
-La differenza principale tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica della zona è il modo in cui i dati vengono replicati nell'area primaria. All'interno della posizione secondaria, i dati vengono sempre replicati in modo sincrono tre volte usando l'archiviazione con ridondanza locale. CON ridondanza locale nell'area secondaria protegge i dati da errori hardware.
+La differenza principale tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica della zona è il modo in cui i dati vengono replicati nell'area primaria. All'interno dell'area secondaria, i dati vengono sempre replicati in modo sincrono tre volte usando con ridondanza locale. CON ridondanza locale nell'area secondaria protegge i dati da errori hardware.
 
-Con l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica della zona, i dati nella posizione secondaria non sono disponibili per la lettura o la scrittura a meno che non ci sia un failover nell'area secondaria. Per l'accesso in lettura all'area secondaria, configurare l'account di archiviazione per l'uso dell'archiviazione con ridondanza geografica e accesso in lettura(RA-GRS) o l'archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS). Per altre informazioni, vedere [Accesso in lettura ai dati nell'area secondaria](#read-access-to-data-in-the-secondary-region).
+Con GRS o GZRS, i dati nell'area secondaria non sono disponibili per l'accesso in lettura o in scrittura, a meno che non esista un failover nell'area secondaria. Per l'accesso in lettura all'area secondaria, configurare l'account di archiviazione in modo che usi l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) o l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS). Per altre informazioni, vedere [Accesso in lettura ai dati nell'area secondaria](#read-access-to-data-in-the-secondary-region).
 
 Se l'area primaria non è più disponibile, è possibile scegliere di effettuare il failover all'area secondaria. Al termine del failover, l'area secondaria diventa l'area primaria ed è di nuovo possibile leggere e scrivere i dati. Per altre informazioni sul ripristino di emergenza e per informazioni su come eseguire il failover nell'area secondaria, vedere [Ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md).
 

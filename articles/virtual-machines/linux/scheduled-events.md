@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088734"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816729"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -42,7 +42,7 @@ Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 - [Manutenzione avviata dalla piattaforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (ad esempio, riavvio di macchine virtuali, migrazione in tempo reale o aggiornamenti con manutenzione della memoria per l'host)
 - Macchina virtuale in esecuzione in [hardware host danneggiato](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) ed è possibile un guasto imminente
 - Manutenzione avviata dall'utente, ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente
-- Eliminazione di istanze di [macchina virtuale Spot](spot-vms.md) e [set di scalabilità Spot](../../virtual-machine-scale-sets/use-spot.md).
+- Eliminazione di istanze di [macchina virtuale Spot](../spot-vms.md) e [set di scalabilità Spot](../../virtual-machine-scale-sets/use-spot.md).
 
 ## <a name="the-basics"></a>Nozioni di base  
 
@@ -139,7 +139,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 | EventStatus | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato dopo la data e l'ora specificate nella proprietà `NotBefore`.<li>`Started`: l'evento è stato avviato.</ul> Lo stato `Completed` o simile non viene mai restituito. Al termine dell'evento, quest'ultimo non viene più restituito.
 | NotBefore| Tempo al termine del quale l'evento può essere avviato. <br><br> Esempio: <br><ul><li> Lun 19 set 2016 18:29:47 GMT  |
 | Descrizione | Descrizione dell'evento. <br><br> Esempio: <br><ul><li> Il server host è in fase di manutenzione. |
-| EventSource | Initiator dell'evento. <br><br> Esempio: <br><ul><li> `Platform`: Questo evento viene avviato da platfrom. <li>`User`: Questo evento viene avviato dall'utente. |
+| EventSource | Initiator dell'evento. <br><br> Esempio: <br><ul><li> `Platform`: Questo evento viene avviato dalla piattaforma. <li>`User`: Questo evento viene avviato dall'utente. |
 
 ### <a name="event-scheduling"></a>Event Scheduling
 Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento. Questo tempo si riflette in una proprietà `NotBefore` dell'evento. 
@@ -147,7 +147,7 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 |EventType  | Preavviso minimo |
 | - | - |
 | Freeze| 15 minuti |
-| Reboot | 15 minuti |
+| Riavvio | 15 minuti |
 | Ripetere la distribuzione | 10 minuti |
 | Preempt | 30 secondi |
 | Terminate | [Configurabile dall'utente](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): da 5 a 15 minuti |

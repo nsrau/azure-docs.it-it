@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607453"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814723"
 ---
 # <a name="consulting-service-offers"></a>Offerte di servizi di consulenza
 
@@ -72,40 +72,40 @@ Per altre informazioni sulle competenze, passare alla pagina [Competenze di Micr
 
 I partner System-Integrator possono inviare offerte di servizi di consulenza per i 20 paesi/aree geografiche seguenti:
 
-| Paesi  | (continua)   | (continua)  | (continua)  |
+| Paesi | (cont.) |  (cont.) |  (cont.) |
 |---------|----------|----------|----------|
 | Australia | Belgio | Canada | Danimarca |
 | Finlandia  | Francia | Germania  | India   |
 | Italia    | Giappone  |  Messico  |  Paesi Bassi  |
 |  Nuova Zelanda  |  Norvegia  |  Polonia  | Sud Africa |
 |  Svezia  | Svizzera  |  Stati Uniti  | Regno Unito  |
-||
+|
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Effettuare la registrazione ai servizi di consulenza nel marketplace commerciale
 
-Iniziare [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) le informazioni sulla società nel marketplace. Per un elenco di controllo completo dei requisiti di registrazione, vedere [Diventare un editore nel marketplace](become-publisher.md). 
+Iniziare [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) le informazioni sulla società nel marketplace. Per un elenco di controllo completo dei requisiti di registrazione, vedere [Diventare un editore nel marketplace](become-publisher.md).
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparare la pubblicazione degli elementi
 Prima della registrazione è possibile iniziare a raccogliere e preparare il contenuto che consentirà di specificare chiaramente il valore del servizio e della soluzione per il cliente di destinazione. 
 
 |Configurazione per i nuovi editori  |
-|---------|
-|ID MPN     |
-|Logo della società (48 x 48, 216 x 216 pixel)     |
-|Clienti potenziali destinatari     |
-||
+| - |
+| ID MPN |
+| Logo della società (48 x 48, 216 x 216 pixel) |
+| Clienti potenziali destinatari |
+|
 
 |Configurazione per le nuove offerte  |
-|---------|
-|Nome dell'offerta (200 caratteri) e descrizione (2.000 caratteri)    |
-|Competenze     |
-|Disponibilità per paese/area geografica     |
-|Durata dell'impegno     |
-|Settori, categorie e parole chiave di ricerca applicabili     |
-|Video di presentazione del prodotto    |
-|Screenshot (fino a un massimo di 5, 1280 x 720 pixel)     |
-|Documenti di marketing (al massimo 3)     |
-||
+| - |
+| Nome dell'offerta (200 caratteri) e descrizione (2.000 caratteri) |
+| Competenze  |
+| Disponibilità per paese/area geografica |
+| Durata dell'impegno  |
+| Settori, categorie e parole chiave di ricerca applicabili |
+| Video di presentazione del prodotto |
+| Screenshot (fino a un massimo di 5, 1280 x 720 pixel) |
+| Documenti di marketing (al massimo 3) |
+|
 
 ## <a name="the-publishing-process"></a>Processo di pubblicazione
 

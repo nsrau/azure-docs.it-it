@@ -1,22 +1,22 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 08/24/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b2d4ce0de130942ccd52dc2894d91a4e4f667c99
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326622"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815666"
 ---
-Quando si pubblica l'offerta nel Marketplace tramite il centro per i partner, è necessario connettere l'offerta al sistema CRM. In questo modo, è possibile ricevere le informazioni di contatto del cliente immediatamente dopo che un cliente esprime interesse o distribuisce il prodotto.
+Quando si pubblica l'offerta nel Marketplace commerciale tramite il centro per i partner, è necessario connettere l'offerta al sistema CRM. In questo modo, è possibile ricevere le informazioni di contatto del cliente immediatamente dopo che un cliente esprime interesse o distribuisce il prodotto.
 
 1. Selezionare la destinazione a cui si desidera che vengano inviati i lead. Sono supportati i sistemi CRM seguenti:
 
@@ -29,7 +29,6 @@ Quando si pubblica l'offerta nel Marketplace tramite il centro per i partner, è
     * [Tabella di Azure](../commercial-marketplace-lead-management-instructions-azure-table.md)
     * [Endpoint HTTPS](../commercial-marketplace-lead-management-instructions-https.md)
 
-2. Per informazioni su come configurare la destinazione principale per ricevere lead dall'offerta del Marketplace, vedere la documentazione collegata per la destinazione selezionata.
-3. Connettere l'offerta alla destinazione principale quando si pubblica l'offerta nel Marketplace nel centro per i partner. Per informazioni su come eseguire questa operazione, vedere la documentazione collegata.
-4. Verificare che la connessione alla destinazione principale sia configurata correttamente. Dopo aver configurato correttamente la destinazione del lead, selezionare **pubblica** nell'offerta nel centro per i partner. Si convaliderà quindi la connessione e si invierà un lead di test. Quando si visualizza l'offerta prima di iniziare, è anche possibile testare la connessione del lead provando ad acquisire l'offerta nell'ambiente di anteprima.
-5. Assicurarsi che la connessione alla destinazione lead rimanga aggiornata in modo da non perdere i lead. Assicurarsi di aggiornare queste connessioni ogni volta che viene apportata una modifica alla fine.
+1. Per informazioni su come configurare la destinazione lead e ricevere lead dalle offerte del Marketplace commerciale, vedere la documentazione collegata applicabile.
+1. Dopo aver connesso l'offerta alla destinazione principale, selezionare **pubblica** nell'offerta nel centro per i partner. La connessione verrà convalidata e verrà inviato un lead di test. Quando si visualizza l'offerta prima di iniziare, è anche possibile testare la connessione del lead provando ad acquisire l'offerta nell'ambiente di anteprima.
+1. Assicurarsi che la connessione alla destinazione lead rimanga aggiornata in modo da non perdere i lead. Assicurarsi di aggiornare queste connessioni ogni volta che viene modificato un elemento.

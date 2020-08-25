@@ -3,16 +3,16 @@ title: Come arrestare il monitoraggio del cluster di Azure Red Hat OpenShift V3 
 description: Questo articolo descrive come arrestare il monitoraggio del cluster Azure Red Hat OpenShift con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 26c8a574894e117694545508174d0ce7d0f0f5ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091216"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815437"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift V3
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift V3 
 
-Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift versione 3. x, è possibile arrestare il monitoraggio del cluster con monitoraggio di Azure per i contenitori se si decide di non monitorarlo più. Questo articolo illustra come eseguire questa operazione usando il modello di Azure Resource Manager fornito.  
+Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift versione 3. x, è possibile arrestare il monitoraggio del cluster con monitoraggio di Azure per i contenitori se si decide di non monitorarlo più. Questo articolo illustra come eseguire questa operazione usando il modello di Azure Resource Manager fornito. 
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 

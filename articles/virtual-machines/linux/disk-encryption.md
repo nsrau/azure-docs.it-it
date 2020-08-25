@@ -1,6 +1,6 @@
 ---
 title: Crittografia lato server di Azure Managed Disks - Interfaccia della riga di comando di Azure
-description: Archiviazione di Azure protegge i dati crittografandoli nello stato inattivo prima di renderli persistenti nei cluster di archiviazione. È possibile basarsi sulle chiavi gestite da Microsoft per la crittografia dei dischi gestiti oppure usare chiavi gestite dal cliente per gestire la crittografia con chiavi personalizzate.
+description: Archiviazione di Azure protegge i dati crittografandoli nello stato inattivo prima di renderli persistenti nei cluster di archiviazione. È possibile usare chiavi gestite dal cliente per gestire la crittografia con chiavi personalizzate oppure è possibile fare affidamento sulle chiavi gestite da Microsoft per la crittografia dei dischi gestiti.
 author: roygara
 ms.date: 07/10/2020
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e541fd90f0cb9c8f0e2763f16541824c5a7b3000
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449158"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816899"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Crittografia lato server di archiviazione su disco di Azure
 
@@ -80,7 +80,7 @@ I clienti sensibili alla sicurezza elevata interessati dal rischio associato a u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Abilitare la crittografia end-to-end usando la crittografia nell'host con l' [interfaccia](disks-enable-host-based-encryption-cli.md) della riga di comando o la [portale di Azure](disks-enable-host-based-encryption-portal.md).
-- Abilitare la crittografia doppia per i dischi gestiti con l' [interfaccia](disks-enable-double-encryption-at-rest-cli.md) della riga di comando o la [portale di Azure](disks-enable-double-encryption-at-rest-portal.md).
-- Abilitare le chiavi gestite dal cliente per Managed disks con l' [interfaccia](disks-enable-customer-managed-keys-cli.md) della riga di comando o la [portale di Azure](disks-enable-customer-managed-keys-portal.md).
+- Abilitare la crittografia end-to-end usando la crittografia nell'host con l' [interfaccia](disks-enable-host-based-encryption-cli.md) della riga di comando o la [portale di Azure](../disks-enable-host-based-encryption-portal.md).
+- Abilitare la crittografia doppia per i dischi gestiti con l' [interfaccia](disks-enable-double-encryption-at-rest-cli.md) della riga di comando o la [portale di Azure](../disks-enable-double-encryption-at-rest-portal.md).
+- Abilitare le chiavi gestite dal cliente per Managed disks con l' [interfaccia](disks-enable-customer-managed-keys-cli.md) della riga di comando o la [portale di Azure](../disks-enable-customer-managed-keys-portal.md).
 - [Cos'è l'insieme di credenziali chiave di Azure?](../../key-vault/general/overview.md)

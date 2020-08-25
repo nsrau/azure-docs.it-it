@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cad6c41b465e14b11d4fa7b8e7fa6037d49e8eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742913"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815998"
 ---
 # <a name="start-using-privileged-identity-management"></a>Iniziare a usare Privileged Identity Management
 
@@ -38,9 +38,7 @@ Per ulteriori informazioni, vedere [requisiti di licenza per l'utilizzo di Privi
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Preparare PIM per i ruoli di Azure AD
 
-Dopo aver abilitato Privileged Identity Management per la directory, è possibile preparare Privileged Identity Management per gestire i ruoli di Azure AD.
-
-Di seguito sono riportate le attività consigliate per preparare i ruoli di Azure AD, in ordine:
+Di seguito sono riportate le attività consigliate per preparare Privileged Identity Management per gestire i ruoli di Azure AD:
 
 1. [Configurare le impostazioni del ruolo Azure ad](pim-how-to-change-default-settings.md).
 1. [Assegnare le assegnazioni idonee](pim-how-to-add-role-to-user.md).
@@ -48,9 +46,7 @@ Di seguito sono riportate le attività consigliate per preparare i ruoli di Azur
 
 ## <a name="prepare-pim-for-azure-roles"></a>Preparare PIM per i ruoli di Azure
 
-Dopo aver abilitato Privileged Identity Management per la directory, è possibile preparare Privileged Identity Management per gestire i ruoli di Azure per l'accesso alle risorse di Azure in una sottoscrizione.
-
-Di seguito sono riportate le attività consigliate per la preparazione dei ruoli di Azure, in ordine:
+Di seguito sono riportate le attività consigliate per preparare Privileged Identity Management per gestire i ruoli di Azure per una sottoscrizione:
 
 1. [Individuare le risorse di Azure](pim-resource-roles-discover-resources.md)
 1. [Configurare le impostazioni del ruolo di Azure](pim-resource-roles-configure-role-settings.md).
@@ -82,15 +78,15 @@ Per semplificare l'apertura di Privileged Identity Management, aggiungere un riq
 
     ![Azure AD Privileged Identity Management in Tutti i servizi](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Selezionare la Guida introduttiva Privileged Identity Management.
+1. Selezionare la Privileged Identity Management **avvio rapido**.
 
-1. Selezionare il **Pannello Aggiungi al dashboard** per aggiungere il pannello avvio rapido Privileged Identity Management al dashboard.
+1. Selezionare **Aggiungi pannello al dashboard** per aggiungere la Privileged Identity Management pagina **avvio rapido** al dashboard.
 
-    ![Icona a puntina da disegno per aggiungere Privileged Identity Management pannello al dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Icona puntina da disegno per aggiungere Privileged Identity Management pagina al dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Nel dashboard di Azure viene visualizzato un riquadro simile al seguente:
 
-    ![Riquadro avvio rapido Privileged Identity Management nel dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Privileged Identity Management riquadro avvio rapido nel dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

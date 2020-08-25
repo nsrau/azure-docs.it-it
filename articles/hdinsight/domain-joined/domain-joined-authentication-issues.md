@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 11/08/2019
-ms.openlocfilehash: 218850feea8b0e22b8e11695a3aa3c69173f1ab7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 08/24/2020
+ms.openlocfilehash: 6473b6b69ba45138c30e4f2c8a7f1ba1a7f2ae7e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88504926"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816848"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemi di autenticazione in Azure HDInsight
 
@@ -36,7 +36,7 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 Azure AD codice di errore 50126 indica che il `AllowCloudPasswordValidation` criterio non è stato impostato dal tenant.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 L'amministratore della società del tenant di Azure AD deve consentire Azure AD di utilizzare gli hash delle password per gli utenti supportati da ADFS.  Applicare il `AllowCloudPasswordValidationPolicy` come illustrato nell'articolo [usare Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
@@ -56,7 +56,7 @@ L'accesso ha esito negativo con codice di errore 50034. Il messaggio di errore �
 
 Nome utente errato (inesistente). L'utente non usa lo stesso nome utente usato in portale di Azure.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Usare lo stesso nome utente che funziona in tale portale.
 
@@ -76,13 +76,13 @@ L'account utente è bloccato, codice di errore 50053. Il messaggio di errore è 
 
 Troppi tentativi di accesso con una password non corretta.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Attendere 30 minuti, quindi arrestare tutte le applicazioni che potrebbero tentare di eseguire l'autenticazione.
 
 ---
 
-## <a name="invalid_grant-or-unauthorized_client-50053"></a>invalid_grant o unauthorized_client, 50053
+## <a name="invalid_grant-or-unauthorized_client-50053-2"></a>invalid_grant o unauthorized_client, 50053 (#2)
 
 ### <a name="issue"></a>Problema
 
@@ -96,7 +96,7 @@ Password scaduta, codice errore 50053. Il messaggio di errore è simile al segue
 
 La password è scaduta.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Modificare la password nel portale di Azure (nel sistema locale) e attendere 30 minuti per l'aggiornamento della sincronizzazione.
 
@@ -112,7 +112,7 @@ Messaggio di errore di ricezione `interaction_required` .
 
 L'autenticazione a più fattori o i criteri di accesso condizionale vengono applicati all'utente. Poiché l'autenticazione interattiva non è ancora supportata, l'utente o il cluster deve essere esentato dall'accesso condizionale/con autenticazione a più fattori. Se si sceglie di esentare il cluster (criterio di esenzione basato su indirizzi IP), verificare che Active Directory `ServiceEndpoints` sia abilitato per tale vnet.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Usare i criteri di accesso condizionale ed esentare i cluster HDInsight da multi-factor authentication, come illustrato nella pagina relativa alla [configurazione di un cluster HDInsight con Enterprise Security Package tramite Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -128,7 +128,7 @@ L'accesso è stato negato.
 
 Per ottenere questa fase, l'autenticazione OAuth non è un problema, ma l'autenticazione Kerberos è. Se il cluster è supportato da ADLS, l'accesso OAuth ha avuto esito positivo prima del tentativo di autenticazione Kerberos. Nei cluster WASB non è stato effettuato un tentativo di accesso OAuth. Potrebbero esserci diversi motivi per cui gli hash delle password di tipo errore Kerberos non sono sincronizzati, l'account utente è stato bloccato in Azure AD DS e così via. Gli hash delle password vengono sincronizzati solo quando l'utente cambia la password. Quando si crea l'istanza di Azure AD DS, viene avviata la sincronizzazione delle password che vengono modificate dopo la creazione. La sincronizzazione delle password impostate prima del suo inizio non verrà sincronizzata in maniera retroattiva.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Se si ritiene che le password potrebbero non essere sincronizzate, provare a modificare la password e attendere alcuni minuti per la sincronizzazione.
 
@@ -146,7 +146,7 @@ Kinit ha esito negativo.
 
 Variabile.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Per la riuscita di kinit, è necessario conoscerla `sAMAccountName` (si tratta del nome dell'account breve senza l'area di autenticazione). `sAMAccountName` è in genere il prefisso dell'account (ad esempio, Bob in `bob@contoso.com` ). Per alcuni utenti, può essere diverso. È necessario avere la possibilità di sfogliare o cercare la directory per apprendere il `sAMAccountName` .
 
@@ -172,7 +172,7 @@ Kinit ha esito negativo con `Preauthentication` errori.
 
 Nome utente o password non corretta.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Verificare il nome utente e la password. Controllare anche le altre proprietà descritte in precedenza. Per abilitare il debug dettagliato, eseguire `export KRB5_TRACE=/tmp/krb.log` dalla sessione prima di provare kinit.
 
@@ -188,7 +188,7 @@ Il comando job/HDFS ha esito negativo a causa di `TokenNotFoundException` .
 
 Il token di accesso OAuth richiesto non è stato trovato perché il processo o il comando abbia esito positivo. Il driver ADLS/ABFS tenterà di recuperare il token di accesso OAuth dal servizio credenziali prima di eseguire le richieste di archiviazione. Questo token viene registrato quando si accede al portale di Ambari usando lo stesso utente.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Assicurarsi di aver effettuato l'accesso al portale di Ambari una volta tramite il nome utente la cui identità viene utilizzata per eseguire il processo.
 
@@ -204,7 +204,7 @@ Messaggio di errore ricevuto dall'utente `Error fetching access token` .
 
 Questo errore si verifica in modo intermittente quando gli utenti provano ad accedere al ADLS Gen2 usando gli ACL e il token Kerberos è scaduto.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 * Per Azure Data Lake Storage Gen1, pulire la cache del browser e accedere di nuovo a Ambari.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9e8dd4b7d7e6f0de1f3ce19238e4ab1e3cf958e1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034179"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814391"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)?
 
@@ -75,7 +75,7 @@ Se si ha un account Azure Cosmos DB distribuito a livello globale, un archivio a
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Integrazione con Azure Synapse Analytics
 
-Con Collegamento a Synapse è ora possibile connettersi direttamente ai contenitori Azure Cosmos DB da Azure Synapse Analytics e accedere all'archivio analitico senza connettori separati. Azure Synapse Analytics attualmente supporta Collegamento a Synapse con [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e [Synapse SQL serverless](../synapse-analytics/sql/on-demand-workspace-overview.md).
+Con Collegamento a Synapse è ora possibile connettersi direttamente ai contenitori Azure Cosmos DB da Azure Synapse Analytics e accedere all'archivio analitico senza connettori separati. Azure sinapsi Analytics supporta attualmente il collegamento sinapsi con [sinapsi Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e [sinapsi SQL senza server](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 È possibile eseguire query sui dati dell'archivio analitico di Azure Cosmos DB simultaneamente, con interoperabilità tra diversi runtime di analisi supportati da Azure Synapse Analytics. Per analizzare i dati operativi, non è necessario eseguire trasformazioni aggiuntive. È possibile eseguire query e analizzare i dati dell'archivio analitico tramite:
 

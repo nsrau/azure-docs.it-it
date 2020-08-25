@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/10/2020
+ms.date: 8/24/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e99d378b49596ac208f7235a4d1d8b2b1c8c5310
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c85af0f4078010fa5b6a1d116b3bfda942c0490c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498787"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816933"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Come creare e gestire le repliche di lettura nel database di Azure per MySQL usando PowerShell
 
@@ -49,10 +49,10 @@ Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure us
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
-  New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
+  New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-Il comando `New-AzMySqlServerReplica` richiede i parametri seguenti:
+Il comando `New-AzMySqlReplica` richiede i parametri seguenti:
 
 | Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
@@ -63,7 +63,7 @@ Per creare una replica di lettura tra aree, usare il parametro **location** . Ne
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md).

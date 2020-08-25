@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 37cbddbb54493c54a29a790d617bbdb44bf17da9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653138"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815573"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 
@@ -19,7 +19,7 @@ Collegamento a Synapse per Azure Cosmos DB è una funzionalità HTAP (Hybrid Tra
 
 
 > [!IMPORTANT]
-> Per usare Collegamento ad Azure Synapse, assicurarsi di effettuare il provisioning dell'account Azure Cosmos e dell'area di lavoro di Azure Synapse in una delle aree supportate indicate sopra. Per l'elenco delle aree supportate, vedere [Aggiornamenti dei servizi di Azure](https://azure.microsoft.com/updates/). 
+> Per usare il collegamento sinapsi di Azure, assicurarsi di effettuare il provisioning dell'account Azure Cosmos & area di lavoro di Azure sinapsi Analytics in una delle aree supportate. Il collegamento a sinapsi di Azure è attualmente disponibile nelle aree di Azure seguenti: Stati Uniti centro-occidentali, Stati Uniti orientali, Uniti occidentali, Europa settentrionale, Europa occidentale, Stati Uniti centro-meridionali, Asia sudorientale, Australia orientale, U2 est, Regno Unito meridionale.
 
 Per eseguire query analitiche con Collegamento a Synapse per Azure Cosmos DB, seguire questa procedura:
 

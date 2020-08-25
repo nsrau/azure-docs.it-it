@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507434"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815053"
 ---
 # <a name="what-is-risk"></a>Che cosa sono i rischi?
 
@@ -39,6 +39,7 @@ Questi rischi vengono calcolati offline usando le origini di intelligence per le
 | Rilevamento del rischio | Descrizione |
 | --- | --- |
 | Credenziali perse | Questo tipo di rilevamento del rischio indica che le credenziali valide dell'utente sono state perse. Quando i criminali informatici compromettono password valide di utenti legittimi, spesso condividono tali credenziali, Questa condivisione viene in genere effettuata pubblicando sul Web scuro, incollando i siti oppure negoziando e vendendo le credenziali sul mercato nero. Quando il servizio credenziali di Microsoft ha acquisito le credenziali utente dal Web scuro, incollare i siti o altre origini, viene verificata la presenza di Azure AD credenziali valide correnti degli utenti per trovare corrispondenze valide. Per ulteriori informazioni sulle credenziali perse, vedere [domande comuni](#common-questions). |
+| Spray password | Un attacco con spray per la password è la posizione in cui vengono attaccati più nomi utente usando password comuni in modo unificato per la forza bruta per ottenere accessi non autorizzati. Questo rilevamento del rischio viene attivato quando viene eseguito un attacco di spray per la password. |
 | Intelligence per le minacce di Azure AD | Questo tipo di rilevamento del rischio indica che l'attività dell'utente è insolita per l'utente specificato o è coerente con i modelli di attacco noti basati sulle fonti di intelligence per le minacce interne ed esterne di Microsoft. |
 
 ### <a name="sign-in-risk"></a>Rischio di accesso
@@ -68,9 +69,9 @@ Questi rischi possono essere calcolati in tempo reale o calcolati offline usando
 
 ### <a name="risk-levels"></a>Livelli di rischio
 
-Identity Protection suddivide i rischi in tre livelli: basso, medio e alto. 
+Identity Protection classifica il rischio in tre livelli: basso, medio e alto. 
 
-Sebbene Microsoft non fornisca dettagli specifici sul modo in cui viene calcolato il rischio, si dirà che ogni livello garantisce una maggiore fiducia nell'utente o nell'accesso. Ad esempio, qualcosa di simile a un'istanza di proprietà di accesso non note per un utente potrebbe non essere così minaccioso come le credenziali perse per un altro utente.
+Microsoft non fornisce dettagli specifici sul modo in cui viene calcolato il rischio, ma ogni livello comporta una maggiore probabilità che l'utente o l'accesso sia compromesso. Ad esempio, un'istanza di proprietà di accesso insolite per un utente potrebbe non essere pericolosa quanto le credenziali perse per un altro utente.
 
 ### <a name="leaked-credentials"></a>Credenziali perse
 

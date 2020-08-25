@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 7c6537ace2caeb2f5dc25848a04aa2e0e65b31d6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783213"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815981"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -30,7 +30,7 @@ Questa guida dettagliata descrive come pianificare la distribuzione di Privilege
 >
 > : heavy_check_mark: **Microsoft consiglia**
 >
-> Si tratta di indicazioni di carattere generale che è opportuno implementare solo se sono applicabili alle specifiche esigenze aziendali.
+> Si tratta di raccomandazioni generali ed è necessario implementarle solo quando si applicano alle specifiche esigenze aziendali.
 
 ## <a name="learn-about-privileged-identity-management"></a>Informazioni sulle Privileged Identity Management
 
@@ -100,7 +100,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Parti interessate: Privileged Identity Management per i ruoli di Azure AD
 
-| Name | Ruolo | Azione |
+| Nome | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Architetto delle identità o Amministratore globale di Azure**<br/>Un rappresentante del team di gestione delle identità che è responsabile di definire come questa modifica è allineata all'infrastruttura di base per la gestione delle identità all'interno dell'organizzazione. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Proprietario del servizio o diretto superiore**<br/>Un rappresentante dei proprietari IT di un servizio o di un gruppo di servizi. Sono essenziali per prendere decisioni e contribuire a implementare Privileged Identity Management per il team. | A/R/I |
@@ -110,16 +110,16 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Stakeholder: Privileged Identity Management per i ruoli delle risorse di Azure
 
-| Name | Ruolo | Azione |
+| Nome | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Proprietario delle risorse o delle sottoscrizioni**<br/>Un rappresentante dei proprietari IT di ogni sottoscrizione o risorsa che si desidera distribuire Privileged Identity Management per | A/R/I |
 | Nome e indirizzo di posta elettronica | **Responsabile della sicurezza**<br/>Un rappresentante del team addetto alla sicurezza che può approvare la conformità del piano ai requisiti di sicurezza dell'organizzazione. | A/R |
 | Nome e indirizzo di posta elettronica | **Responsabile del supporto tecnico**<br/>Un rappresentante dell'organizzazione di supporto IT che può fornire pareri riguardanti l'attuabilità di questa modifica dal punto di vista del supporto tecnico. | R/I |
 | Nome e indirizzo di posta elettronica per gli utenti pilota | **Utenti del ruolo di Azure**<br/>Il gruppo di utenti per cui è stata implementata la gestione delle identità con privilegi. Dovranno essere in grado di attivare i ruoli una volta implementato Privileged Identity Management. | I |
 
-### <a name="enable-privileged-identity-management"></a>Abilita Privileged Identity Management
+### <a name="start-using-privileged-identity-management"></a>Iniziare a usare Privileged Identity Management
 
-Come parte del processo di pianificazione, è necessario prima di tutto concedere il consenso e abilitare Privileged Identity Management seguendo l'articolo [iniziare a usare Privileged Identity Management](pim-getting-started.md) . L'abilitazione di Privileged Identity Management consente di accedere ad alcune funzionalità progettate in modo specifico per facilitare la distribuzione.
+Come parte del processo di pianificazione, è necessario preparare Privileged Identity Management seguendo l'articolo [iniziare a usare Privileged Identity Management](pim-getting-started.md) . Privileged Identity Management consente di accedere ad alcune funzionalità progettate specificamente per facilitare la distribuzione.
 
 Se l'obiettivo consiste nel distribuire Privileged Identity Management per le risorse di Azure, è necessario seguire l'articolo [individuare le risorse di Azure da gestire in Privileged Identity Management](pim-resource-roles-discover-resources.md) . Solo i proprietari di sottoscrizioni e gruppi di gestione possono individuare e caricare queste risorse in Privileged Identity Management. Una volta caricato, la funzionalità PIM è disponibile per i proprietari a tutti i livelli, inclusi gruppo di gestione, sottoscrizione, gruppo di risorse e risorsa. Gli amministratori globali che tentano di distribuire Privileged Identity Management per le risorse di Azure possono [elevare l'accesso per gestire tutte le sottoscrizioni di Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) per consentire l'accesso a tutte le risorse di Azure nella directory per l'individuazione. Tuttavia, si consiglia di ottenere l'approvazione da ogni proprietario della sottoscrizione prima di gestire le risorse con Privileged Identity Management.
 
@@ -244,16 +244,16 @@ Prima di implementare la soluzione di Privileged Identity Management, è consigl
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Amministratore globale | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri amministratori globali | 1 ora | Account di accesso di emergenza |
-| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | nessuno | 2 ore | nessuno |
-| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | nessuno | 8 ore | nessuno |
+| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nessuno | 2 ore | Nessuno |
+| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | Nessuno | 8 ore | Nessuno |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Impostazioni Privileged Identity Management per i ruoli delle risorse di Azure
 
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | nessuno | n/d | 3 mesi |
-| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | nessuno | 1 ora | nessuno | n/d | 3 mesi |
-| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | nessuno | 3 ore | nessuno | n/d | 6 mesi |
+| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | Nessuno | n/d | 3 mesi |
+| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | Nessuno | 1 ora | Nessuno | n/d | 3 mesi |
+| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | Nessuno | 3 ore | Nessuno | n/d | 6 mesi |
 
 La tabella seguente include le descrizioni per ciascuna delle impostazioni.
 

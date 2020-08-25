@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685477"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816117"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -149,7 +149,7 @@ Backup con [impostazioni di diagnostica](../azure-monitor/platform/platform-logs
 Ripristino di macchine virtuali aggiunte alla zona | Supportato (per le macchine virtuali di cui viene eseguito il backup dopo il mese di gennaio 2019 e dove sono disponibili [zone di disponibilità](https://azure.microsoft.com/global-infrastructure/availability-zones/)).<br/><br/>È attualmente supportato il ripristino nella stessa zona a cui le macchine virtuali sono aggiunte. Se tuttavia la zona non è disponibile, il ripristino ha esito negativo.
 Macchine virtuali di seconda generazione | Supportato <br> Backup di Azure supporta il backup e il ripristino di [macchine virtuali di seconda generazione](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando queste VM vengono ripristinate dal punto di ripristino, vengono ripristinate come [macchine virtuali Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup di macchine virtuali di Azure con blocchi | Non supportato per le macchine virtuali non gestite. <br><br> Supportato per le macchine virtuali gestite.
-[VM Spot](../virtual-machines/windows/spot-vms.md) | Non supportato. Backup di Azure Ripristina le VM spot come normali macchine virtuali di Azure.
+[VM Spot](../virtual-machines/spot-vms.md) | Non supportato. Backup di Azure Ripristina le VM spot come normali macchine virtuali di Azure.
 
 ## <a name="vm-storage-support"></a>Supporto per l'archiviazione delle macchine virtuali
 

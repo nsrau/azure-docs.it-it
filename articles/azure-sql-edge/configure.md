@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 0cb2eed0895c10f649facaa184a5f9f9ea158aa5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 722d33e76b6009a44811dfcb8a3238b042ec6918
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551983"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816882"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Configurare SQL Edge di Azure (anteprima)
 
@@ -157,6 +157,60 @@ Le versioni precedenti della versione CTP di Azure SQL Edge sono state configura
   - Aggiornare le opzioni di creazione del contenitore per specificare Aggiungi `*"User": "user_name | user_id*` coppia chiave-valore in opzioni di creazione del contenitore. Sostituire user_name o user_id con un user_name o un user_id effettivo dall'host docker. 
   - Modificare le autorizzazioni per la directory o il volume di montaggio.
 
+## <a name="persist-your-data"></a> Rendere persistenti i dati
+
+Le modifiche alla configurazione di Azure SQL Edge e i file di database vengono salvati in modo permanente nel contenitore anche se il contenitore viene riavviato con `docker stop` e `docker start` . Tuttavia, se si rimuove il contenitore con `docker rm` , tutto il contenitore viene eliminato, inclusi Azure SQL Edge e i database. La sezione seguente illustra come usare i **volumi di dati** per rendere persistenti i file di database anche se vengono eliminati i contenitori associati.
+
+> [!IMPORTANT]
+> Per Azure SQL Edge, è fondamentale comprendere la persistenza dei dati in docker. Oltre alle informazioni in questa sezione, vedere la documentazione di Docker su [come gestire i dati nei contenitori Docker](https://docs.docker.com/engine/tutorials/dockervolumes/).
+
+### <a name="mount-a-host-directory-as-data-volume"></a>Montare una directory host come volume di dati
+
+La prima opzione consiste nel montare una directory nell'host come volume di dati nel contenitore. A tale scopo, usare il comando `docker run` con il flag `-v <host directory>:/var/opt/mssql`. In questo modo è possibile ripristinare i dati tra le esecuzioni dei contenitori.
+
+```bash
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+```PowerShell
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+Questa tecnica consente anche di condividere e visualizzare i file nell'host all'esterno di Docker.
+
+> [!IMPORTANT]
+> Il mapping del volume host per **Docker in Windows** non supporta attualmente il mapping della directory `/var/opt/mssql` completa. È tuttavia possibile eseguire il mapping di una sottodirectory, ad esempio `/var/opt/mssql/data` al computer host.
+
+> [!IMPORTANT]
+> Il mapping del volume host per **Docker su Mac** con l'immagine Azure SQL Edge non è supportato in questo momento. Usare invece i contenitori di volumi di dati. Questa restrizione è specifica per la directory `/var/opt/mssql`. La lettura da una directory montata funziona correttamente. Ad esempio, è possibile montare una directory host usando -v in Mac e ripristinare un backup da un file con estensione bak che risiede nell'host.
+
+### <a name="use-data-volume-containers"></a>Usare i contenitori di volumi di dati
+
+La seconda opzione consiste nell'usare un contenitore di volumi di dati. È possibile creare un contenitore di volumi di dati specificando un nome di volume anziché una directory host con il parametro `-v`. Nell'esempio seguente viene creato un volume di dati condiviso denominato **sqlvolume**.
+
+```bash
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+```PowerShell
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+> [!NOTE]
+> Questa tecnica per la creazione implicita di un volume di dati nel comando run non funziona con le versioni precedenti di Docker. In tal caso, usare i passaggi espliciti descritti nella documentazione di Docker, in [Creating and mounting a data volume container](https://docs.docker.com/engine/tutorials/dockervolumes/#creating-and-mounting-a-data-volume-container) (Creazione e montaggio di un contenitore di volumi di dati).
+
+Anche se si arresta e rimuove il contenitore, il volume di dati è persistente. È possibile visualizzarlo con il comando `docker volume ls`.
+
+```bash
+docker volume ls
+```
+
+Se successivamente si crea un altro contenitore con lo stesso nome del volume, il nuovo contenitore userà gli stessi dati di Azure SQL Edge contenuti nel volume.
+
+Per rimuovere un contenitore di volumi di dati, usare il comando `docker volume rm`.
+
+> [!WARNING]
+> Se si elimina il contenitore del volume di dati, qualsiasi dato di Azure SQL Edge nel contenitore viene eliminato *definitivamente* .
 
 
 ## <a name="next-steps"></a>Passaggi successivi

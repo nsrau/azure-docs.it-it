@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: f8515668cc30f62edadc0975533fe3bb9646e5e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 165a2c6221c8d3c14f71134deef962d0859bb438
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288387"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816712"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Distribuire macchine virtuali con l'interfaccia della riga di comando di Azure
 
@@ -21,7 +21,7 @@ L'uso di [macchine virtuali di Azure spot](spot-vms.md) consente di sfruttare la
 
 I prezzi per le macchine virtuali spot variano in base all'area e allo SKU. Per altre informazioni, vedere i prezzi delle macchine virtuali per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
-È possibile impostare un prezzo massimo che si è disposti a pagare, per ora, per la macchina virtuale. Il prezzo massimo per una VM spot può essere impostato in dollari USA (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.98765`sarebbe un prezzo massimo di 0,98765 USD all'ora. Se si imposta il prezzo massimo su `-1`, la macchina virtuale non verrà eliminata in base al prezzo. Il prezzo della macchina virtuale corrisponderà al prezzo corrente per spot o al prezzo di una macchina virtuale standard, che sempre è inferiore, purché siano disponibili capacità e quota. Per altre informazioni sull'impostazione del prezzo massimo, vedere [spot VM-prezzi](spot-vms.md#pricing).
+È possibile impostare un prezzo massimo che si è disposti a pagare, per ora, per la macchina virtuale. Il prezzo massimo per una VM spot può essere impostato in dollari USA (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.98765`sarebbe un prezzo massimo di 0,98765 USD all'ora. Se si imposta il prezzo massimo su `-1`, la macchina virtuale non verrà eliminata in base al prezzo. Il prezzo della macchina virtuale corrisponderà al prezzo corrente per spot o al prezzo di una macchina virtuale standard, che sempre è inferiore, purché siano disponibili capacità e quota. Per altre informazioni sull'impostazione del prezzo massimo, vedere [spot VM-prezzi](../spot-vms.md#pricing).
 
 Il processo di creazione di una macchina virtuale con l'interfaccia della riga di comando di Azure è identico a quello descritto nell' [articolo introduttivo](./quick-create-cli.md). È sufficiente aggiungere il parametro '--Priority spot ', impostare `--eviction-policy` su deallocate (impostazione predefinita) o `Delete` e specificare un prezzo massimo o `-1` . 
 

@@ -3,12 +3,12 @@ title: Novità di Azure Site Recovery
 description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamenti più recenti nel servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 09afd4416efc8e6904b7c487d5ed2f3be22db081
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 837344d10e21d20488760f6d5aa4749c039f9b07
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654821"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816950"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -538,7 +538,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** | È stato aggiunto il supporto per RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Sono ora supportate le macchine virtuali basate su Linux che usano lo stile di partizione GPT (tabella di partizione GUID) in modalità di compatibilità BIOS legacy. Per ulteriori informazioni, vedere le [domande frequenti sulle VM di Azure](../virtual-machines/linux/faq-for-disks.md) .
+**Supporto di Linux** | È stato aggiunto il supporto per RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Sono ora supportate le macchine virtuali basate su Linux che usano lo stile di partizione GPT (tabella di partizione GUID) in modalità di compatibilità BIOS legacy. Per ulteriori informazioni, vedere le [domande frequenti sulle VM di Azure](../virtual-machines/faq-for-disks.md) .
 **Ripristino di emergenza per le VM dopo la migrazione** | Supporto per l'abilitazione del ripristino di emergenza in un'area secondaria per una VM VMware locale migrata in Azure, senza la necessità di disinstallare il servizio Mobility nella macchina virtuale prima di abilitare la replica.
 **Windows Server 2008** | Supporto per la migrazione di computer che eseguono Windows Server 2008 R2/2008 a 64 bit e 32 bit.<br/><br/> Solo migrazione (replica e failover). Il failback non è supportato.
 

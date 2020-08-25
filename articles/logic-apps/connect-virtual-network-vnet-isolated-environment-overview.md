@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: 85f4cc9f9e6e762a85571010840cc697bc6c9888
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963666"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816023"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -117,7 +117,14 @@ Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni 
 > [!IMPORTANT]
 > È possibile selezionare l'endpoint di accesso solo durante la creazione di ISE e non è possibile modificare questa opzione in un secondo momento.
 
-* **Interno**: gli endpoint privati consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica solo dall'interno della rete virtuale*. Assicurarsi di disporre della connettività di rete tra gli endpoint privati e il computer da cui si vuole accedere alla cronologia delle esecuzioni. Ad esempio, il computer client può esistere all'interno della rete virtuale di ISE o in una rete virtuale connessa alla rete virtuale di ISE, ad esempio tramite il peering o una rete privata virtuale.
+* **Interno**: gli endpoint privati consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica solo dall'interno della rete virtuale*.
+
+  > [!IMPORTANT]
+  > Assicurarsi di disporre della connettività di rete tra gli endpoint privati e il computer da cui si desidera accedere alla cronologia di esecuzione. In caso contrario, quando si prova a visualizzare la cronologia di esecuzione dell'app per la logica, viene visualizzato un errore che indica "errore imprevisto. Non è stato possibile recuperare ".
+  >
+  > ![Errore di azione di archiviazione di Azure risultante dall'impossibilità di inviare il traffico attraverso il firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
+  >
+  > Ad esempio, il computer client può esistere all'interno della rete virtuale di ISE o in una rete virtuale connessa alla rete virtuale di ISE tramite peering o una rete privata virtuale. 
 
 * **External**: gli endpoint pubblici consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica dall'esterno della rete virtuale*. Se si usano i gruppi di sicurezza di rete (gruppi), assicurarsi che siano configurati con regole in ingresso per consentire l'accesso agli input e agli output della cronologia di esecuzione. Per altre informazioni, vedere [abilitare l'accesso per ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 

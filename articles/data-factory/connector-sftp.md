@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 8ec950ddabd3844618c878471d2e1391979e2056
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 08/25/2020
+ms.openlocfilehash: a03a141a4140ca4ac000a8e2afb8dd8f45d40662
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521373"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816617"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copiare i dati da e verso il server SFTP usando Azure Data Factory
 
@@ -112,7 +112,7 @@ Per usare l'autenticazione basata su chiave pubblica SSH, impostare la propriet�
 | userName | Utente che ha accesso al server SFTP. |Sì |
 | privateKeyPath | Specificare il percorso assoluto del file di chiave privata a cui il runtime di integrazione può accedere. Si applica solo quando il tipo self-hosted del runtime di integrazione viene specificato in "connectVia". | Specificare `privateKeyPath` o `privateKeyContent`.  |
 | privateKeyContent | Contenuto della chiave privata SSH con codifica Base64. La chiave privata SSH deve essere in formato OpenSSH. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro nel data factory oppure [fare riferimento a un segreto archiviato in un insieme di credenziali delle chiavi di Azure](store-credentials-in-key-vault.md). | Specificare `privateKeyPath` o `privateKeyContent`. |
-| passPhrase | Specificare la passphrase o la password per decrittografare la chiave privata se il file di chiave è protetto da una passphrase. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro nel data factory oppure [fare riferimento a un segreto archiviato in un insieme di credenziali delle chiavi di Azure](store-credentials-in-key-vault.md). | Sì, se il file di chiave privata è protetto da una passphrase. |
+| passPhrase | Specificare la passphrase o la password per decrittografare la chiave privata se il file di chiave o il contenuto della chiave è protetto da una passphrase. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro nel data factory oppure [fare riferimento a un segreto archiviato in un insieme di credenziali delle chiavi di Azure](store-credentials-in-key-vault.md). | Sì, se il file di chiave privata o il contenuto della chiave è protetto da una passphrase. |
 
 > [!NOTE]
 > Il connettore SFTP supporta una chiave OpenSSH RSA/DSA. Verificare che il contenuto del file di chiave inizi con "-----BEGIN [RSA/DSA] chiave privata-----". Se il file di chiave privata è un file in formato PPK, usare lo strumento PuTTy per eseguire la conversione da PPK a formato OpenSSH. 

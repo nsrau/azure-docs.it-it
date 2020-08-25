@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336923"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815811"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -113,7 +113,7 @@ Di seguito è riportata una guida per la configurazione di una versione di Azure
     h. Selezionare **Incrementale** per la **Modalità di distribuzione**.
 
     > [!WARNING]
-    > Se si seleziona **Completa** per la **Modalità di distribuzione**, le risorse esistenti potrebbero essere eliminate, incluse tutte le risorse nel gruppo di risorse di destinazione che non sono definite nel modello di Resource Manager.
+    > In modalità di distribuzione completa, le risorse esistenti nel gruppo di risorse, ma non specificate nel nuovo modello di Gestione risorse verranno **eliminate**. Per altre informazioni, vedere [Azure Resource Manager modalità di distribuzione](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Distribuzione di produzione della Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 

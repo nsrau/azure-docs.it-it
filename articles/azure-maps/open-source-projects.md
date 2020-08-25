@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f24a04db9317083fb47c0956174e649b5bd7ae10
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048902"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815692"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Community di Azure Maps-progetti open source
 
@@ -22,16 +22,41 @@ Queste iniziative open source basate sulla community vengono create e gestite da
 
 Di seguito sono elencati alcuni dei più diffusi progetti ed esempi Open Source di Azure maps.
 
+**Bot**
+
 | Nome del progetto | Descrizione |
 |-|-|
-| [Esempi di codice di Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Una raccolta di esempi di codice per l'uso di mappe di Azure in app basate sul Web. |
+| [Bot Framework-competenze per punti di interesse](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | Il punto di interesse fornisce funzionalità correlate a un assistente virtuale usando mappe di Azure con il servizio Azure bot e il Framework bot. |
+| [Percorso BotBuilder](https://github.com/Microsoft/BotBuilder-Location) | Controllo selezione posizione open source per Microsoft bot Framework basato sui servizi REST di Bing Maps. |
+
+**Apri moduli SDK Web**
+
+Di seguito è riportato un elenco di progetti open source che estendono le funzionalità di Azure Maps Web SDK.
+
+| Nome del progetto | Descrizione |
+|-|-|
+| [Modulo animazione di Azure Maps](https://github.com/Azure-Samples/azure-maps-animations)| Una ricca libreria di animazioni da usare con Azure Maps Web SDK. |
+| [Modulo dell'interfaccia utente dei servizi Maps di Azure](https://github.com/Azure-Samples/azure-maps-services-ui) | Un set di controlli dell'interfaccia utente Web che esegue il wrapping dei servizi REST di Azure maps. |
+
+**Esempi**
+
+| Nome del progetto | Descrizione |
+|-|-|
+| [Esempi di codice di Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Raccolta di esempi di codice per l'uso di mappe di Azure in app basate sul Web. |
 | [Esempi di codice cloud di Azure Maps gov](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Una raccolta di esempi di codice per l'uso di mappe di Azure tramite il cloud di Azure per enti pubblici. |
 | [Esempi di Azure Maps & Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Raccolta di esempi che illustrano come usare Azure Active Directory con le mappe di Azure. | 
-| [Implementare l'analisi spaziale di IoT con Mappe di Azure](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Il rilevamento e l'acquisizione di eventi pertinenti che si verificano nello spazio e nel tempo sono uno scenario comune di IoT, |
 | [Esempi di Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Una raccolta di esempi di Python che usano i servizi REST di Azure maps. |
-| [Bot Framework-competenze per punti di interesse](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | Il punto di interesse fornisce funzionalità correlate a un assistente virtuale usando mappe di Azure con il servizio Azure bot e il Framework bot. |
+| [Controllo remoto UWP di Azure maps .NET](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Si tratta di un'applicazione di esempio che illustra come creare una mappa controllata in remoto usando le mappe di Azure e i servizi dell'hub Internet. |
+| [Implementare l'analisi spaziale di IoT con Mappe di Azure](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Il rilevamento e l'acquisizione di eventi pertinenti che si verificano nello spazio e nel tempo sono uno scenario comune di IoT, |
 
-Un elenco più lungo che include progetti open source creati dalla community è disponibile [qui](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
+**Strumenti e risorse**
+
+| Nome del progetto | Descrizione |
+|-|-|
+| [Documentazione di mappe di Azure](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Origine per tutta la documentazione di servizi location based di Azure. |
+| [Strumenti per l'autore di mappe di Azure](https://github.com/Azure-Samples/AzureMapsCreator) | Strumenti di creazione di Python Tools per Azure Maps Creator. |
+
+Un elenco più lungo di progetti open source per mappe di Azure che include progetti creati dalla community è disponibile [qui](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 
 ## <a name="supportability-of-open-source-projects"></a>Supporto di progetti open source
 

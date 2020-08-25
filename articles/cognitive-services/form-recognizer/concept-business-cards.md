@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757915"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799282"
 ---
-# <a name="business-card-concepts"></a>Concetti relativi ai biglietti di business
+# <a name="business-card-concepts"></a>Concetti relativi ai biglietti da visita
 
 Il riconoscitore di form di Azure può analizzare ed estrarre coppie chiave-valore da schede commerciali usando uno dei modelli predefiniti. L'API del biglietto da visita combina potenti funzionalità di riconoscimento ottico dei caratteri (OCR) con il modello di informazioni sui biglietti da visita per estrarre le informazioni chiave dai biglietti da visita in inglese. Estrae le informazioni di contatto personali, il nome della società, il titolo del processo e altro ancora. L'API del business card predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview. 
 
@@ -70,7 +70,7 @@ Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business ca
 
 Quando il campo **stato** presenta il valore **succeeded** , la risposta JSON includerà i risultati relativi a business card e riconoscimento testo. Il risultato della comprensione del business card è organizzato come un dizionario di valori di campo denominati, dove ogni valore contiene il testo estratto, il valore normalizzato, il rettangolo di delimitazione, la confidenza e gli elementi di parola corrispondenti. Il risultato del riconoscimento del testo è organizzato come una gerarchia di righe e parole, con testo, rettangolo di delimitazione e informazioni sulla confidenza.
 
-![Risultati di Contoso smample](./media/business-card-results.png)
+![esempio di output della scheda di business](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Output JSON di esempio
 
@@ -90,8 +90,8 @@ Vedere l'esempio seguente di una risposta JSON riuscita: il nodo "readResults" c
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-    "lines": 
-         {
+                "lines": 
+                          {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,

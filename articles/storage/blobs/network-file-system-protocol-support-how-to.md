@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 985fbc70f15c0806c45ae43d62995590e10b1bb2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798925"
+ms.locfileid: "88816100"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
@@ -90,9 +90,9 @@ Nella versione di anteprima di questa funzionalità il protocollo NFS 3,0 è sup
 
 Quando si configura l'account, scegliere i valori seguenti:
 
-|Impostazione | valore|
+|Impostazione | Valore|
 |----|---|
-|Percorso|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale |
+|Location|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale |
 |Prestazioni|Premium|
 |Tipo di account|BlockBlobStorage|
 |Replica|Archiviazione con ridondanza locale|
@@ -109,11 +109,11 @@ Creare un contenitore nell'account di archiviazione usando uno di questi strumen
 
 |Strumenti|SDK|
 |---|---|
-|[Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Azure portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Interfaccia della riga di comando di Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-|[Portale di Azure](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Passaggio 7: montare il contenitore
 
