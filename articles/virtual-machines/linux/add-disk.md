@@ -1,21 +1,21 @@
 ---
 title: Aggiungere un disco dati a una VM Linux usando l'interfaccia della riga di comando di Azure
 description: Informazioni su come aggiungere un disco dati permanente alla macchina virtuale Linux con l'interfaccia della riga di comando di Azure
-author: roygara
-manager: twooley
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 06/13/2018
-ms.author: rogarana
+ms.date: 08/20/2020
+ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 1791d33627f04f69d10916c8ff0a154f7d8b967b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9d04e28c4af462719644deca4c4aa0e3aa94fa16
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502827"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757728"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Aggiungere un disco a una VM Linux
+
 Questo articolo illustra come collegare un disco persistente alla macchina virtuale per poter mantenere i dati, anche se si effettua di nuovo il provisioning della macchina virtuale per manutenzione o ridimensionamento.
 
 
@@ -42,131 +42,74 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connettersi alla VM Linux per montare il nuovo disco
+## <a name="format-and-mount-the-disk"></a>Formattare e montare il disco
 
-È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*:
+È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguita la connessione a una macchina virtuale con l'indirizzo IP pubblico di *10.123.123.25* con il nome utente *azureuser*:
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@10.123.123.25
 ```
 
-Una volta connessi alla macchina virtuale, si è pronti per collegare un disco. Trovare prima il disco usando `dmesg`. Il metodo usato per trovare il nuovo disco può variare. L'esempio seguente usa dmesg per applicare un filtro ai dischi *SCSI*:
+### <a name="find-the-disk"></a>Trovare il disco
+
+Una volta connessi alla macchina virtuale, è necessario trovare il disco. In questo esempio viene usato `lsblk` per elencare i dischi. 
 
 ```bash
-dmesg | grep SCSI
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 ```
 
 L'output è simile all'esempio seguente:
 
 ```bash
-[    0.294784] SCSI subsystem initialized
-[    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-[    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0      50G
 ```
+
+Qui, `sdc` è il disco desiderato, perché è 50g. Se non si è certi di quale disco sia basato solo sulle dimensioni, è possibile passare alla pagina VM nel portale, selezionare **dischi**e verificare il numero di lun del disco in **dischi dati**. 
+
+
+### <a name="format-the-disk"></a>Formattare il disco
+
+Formattare il disco con `parted` , se la dimensione del disco è 2 TB (tib) o superiore, è necessario usare il partizionamento GPT, se si trova in 2TiB, è possibile usare il partizionamento MBR o GPT. 
 
 > [!NOTE]
-> È consigliabile usare le versioni più recenti di fdisk o parted disponibili per la distribuzione.
+> Si consiglia di usare la versione più recente `parted` disponibile per la distribuzione.
+> Se la dimensione del disco è 2 TB (TiB) o superiore, è necessario utilizzare il partizionamento GPT. Se la dimensione del disco è inferiore a 2 TiB, è possibile usare il partizionamento MBR o GPT.  
 
-In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `parted`, se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare sia il partizionamento MBR che il partizionamento GPT. Se si usa il partizionamento MBR, è possibile usare `fdisk`. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
 
-```bash
-sudo fdisk /dev/sdc
-```
-
-Usare il comando `n` per aggiungere una nuova partizione. In questo esempio si sceglie il comando `p` anche per una partizione primaria e si accettano gli altri valori predefiniti. L'output sarà simile all'esempio seguente:
+Nell'esempio seguente viene usato `parted` on `/dev/sdc` , dove il primo disco dati sarà in genere nella maggior parte delle macchine virtuali. Sostituire `sdc` con l'opzione corretta per il disco. Viene anche formattato con il file System [XFS](https://xfs.wiki.kernel.org/) .
 
 ```bash
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
-
-Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
-
-Command (m for help): n
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Using default value 2048
-Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
-Using default value 10485759
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
-Stampare la tabella delle partizioni digitando `p` e usare `w` per scrivere la tabella sul disco e uscire. L'output dovrebbe essere simile all'esempio seguente:
+Usare l' [`partprobe`](https://linux.die.net/man/8/partprobe) utilità per assicurarsi che il kernel sia in grado di riconoscere la nuova partizione e il file System. La mancata utilizzo `partprobe` può causare la restituzione immediata dell'UUID per il nuovo file System da parte dei comandi blkid o lslbk.
 
-```bash
-Command (m for help): p
 
-Disk /dev/sdc: 5368 MB, 5368709120 bytes
-255 heads, 63 sectors/track, 652 cylinders, total 10485760 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x2a59b123
+### <a name="mount-the-disk"></a>Montare il disco
 
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1            2048    10485759     5241856   83  Linux
-
-Command (m for help): w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
-Usare il comando seguente per aggiornare il kernel:
-```
-partprobe 
-```
-
-A questo punto, scrivere un file system nella partizione con il comando `mkfs`. Specificare il tipo di file system e il nome del dispositivo. Nell'esempio seguente viene creato un file system *ext4* nella partizione *dev/sdc1* creata nei passaggi precedenti:
-
-```bash
-sudo mkfs -t ext4 /dev/sdc1
-```
-
-L'output è simile all'esempio seguente:
-
-```bash
-mke2fs 1.42.9 (4-Feb-2014)
-Discarding device blocks: done
-Filesystem label=
-OS type: Linux
-Block size=4096 (log=2)
-Fragment size=4096 (log=2)
-Stride=0 blocks, Stripe width=0 blocks
-327680 inodes, 1310464 blocks
-65523 blocks (5.00%) reserved for the super user
-First data block=0
-Maximum filesystem blocks=1342177280
-40 block groups
-32768 blocks per group, 32768 fragments per group
-8192 inodes per group
-Superblock backups stored on blocks:
-    32768, 98304, 163840, 229376, 294912, 819200, 884736
-Allocating group tables: done
-Writing inode tables: done
-Creating journal (32768 blocks): done
-Writing superblocks and filesystem accounting information: done
-```
-
-Creare ora una directory per montare il nuovo file system usando `mkdir`. L'esempio seguente crea una directory in */datadrive*:
+Creare ora una directory per montare il nuovo file system usando `mkdir`. Nell'esempio seguente viene creata una directory in `/datadrive` :
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Usare `mount` quindi per installare il file system. Nell'esempio seguente viene installata la partizione */dev/sdc1* nel punto di montaggio */datadrive*:
+Usare `mount` quindi per installare il file system. Nell'esempio seguente la partizione viene montata nel `/dev/sdc1` `/datadrive` punto di montaggio:
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file */etc/fstab*. È anche consigliabile che l'UUID (Universally Unique IDentifier) usato in */etc/fstab* faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio */dev/sdc1*. Se il sistema operativo rileva un errore del disco durante l'avvio, l'uso di UUID evita che venga montato il disco non corretto in una posizione specificata. Ai dischi dati rimanenti verrebbero quindi assegnati gli stessi ID di dispositivo. Per individuare l'UUID della nuova unità, usare l'utilità `blkid`:
+### <a name="persist-the-mount"></a>Rendere permanente il montaggio
+
+Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file */etc/fstab*. Si consiglia inoltre di usare UUID (Universally Unique Identifier) in */etc/fstab* per fare riferimento all'unità anziché al solo nome del dispositivo (ad esempio, */dev/sdc1*). Se il sistema operativo rileva un errore del disco durante l'avvio, l'uso di UUID evita che venga montato il disco non corretto in una posizione specificata. Ai dischi dati rimanenti verrebbero quindi assegnati gli stessi ID di dispositivo. Per individuare l'UUID della nuova unità, usare l'utilità `blkid`:
 
 ```bash
 sudo blkid
@@ -186,14 +129,16 @@ L'output è simile al seguente esempio:
 Successivamente, aprire il file */etc/fstab* in un editor di testo, come segue:
 
 ```bash
-sudo vi /etc/fstab
+sudo nano /etc/fstab
 ```
 
-In questo esempio viene usato il valore UUID del dispositivo */dev/sdc1* creato nei passaggi precedenti e il punto di montaggio di */datadrive*. Alla fine del file */etc/fstab* aggiungere la riga di codice seguente:
+In questo esempio, usare il valore UUID per il `/dev/sdc1` dispositivo creato nei passaggi precedenti e il mountpoint di `/datadrive` . Aggiungere la riga seguente alla fine del `/etc/fstab` file:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
+
+In questo esempio viene usato l'editor nano, quindi, dopo aver completato la modifica del file, usare `Ctrl+O` per scrivere il file e `Ctrl+X` uscire dall'editor.
 
 > [!NOTE]
 > Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della VM. La maggior parte delle distribuzioni specifica le opzioni fstab *nofail* e/o *nobootwait*. Queste opzioni consentono l'avvio di un sistema anche se il montaggio del disco non riesce in fase di avvio. Per altre informazioni su questi parametri, consultare la documentazione della distribuzione.

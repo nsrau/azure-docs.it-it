@@ -3,12 +3,12 @@ title: Eseguire il backup di una macchina virtuale SQL Server dal riquadro VM
 description: Questo articolo illustra come eseguire il backup di SQL Server database in macchine virtuali di Azure dal riquadro VM.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: dd30ca1fb138d3e3bd44633b9d5e71beae6d96be
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227252"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755246"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Eseguire il backup di un SQL Server dal riquadro VM
 
@@ -62,7 +62,7 @@ Questo articolo illustra come eseguire il backup di SQL Server in esecuzione in 
 
     ![Preparazione backup non pronta](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
-8. Per ulteriori operazioni o monitoraggio da eseguire nella macchina virtuale SQL Server di cui è stato eseguito il backup, passare all'insieme di credenziali del servizio di ripristino corrispondente. Passare a **elementi di backup** per visualizzare tutti i database di cui è stato eseguito il backup in questo insieme di credenziali e attivare operazioni come il backup e il ripristino su richiesta. Analogamente, passare a **processi di backup** per [monitorare](manage-monitor-sql-database-backup.md) i processi corrispondenti a operazioni come la configurazione della protezione, il backup e il ripristino.
+8. Per ulteriori operazioni o monitoraggio da eseguire nella macchina virtuale SQL Server di cui è stato eseguito il backup, passare all'insieme di credenziali dei servizi di ripristino corrispondente. Passare a **elementi di backup** per visualizzare tutti i database di cui è stato eseguito il backup in questo insieme di credenziali e attivare operazioni come il backup e il ripristino su richiesta. Analogamente, passare a **processi di backup** per [monitorare](manage-monitor-sql-database-backup.md) i processi corrispondenti a operazioni come la configurazione della protezione, il backup e il ripristino.
 
     ![Vedere database sottoposti a backup in elementi di backup](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 

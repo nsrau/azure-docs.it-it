@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 96ff7fedf0574d5eb1b7bb540ccb425f4d7e9ade
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553088"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757201"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 

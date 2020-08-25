@@ -4,17 +4,17 @@ description: Archiviazione di Azure protegge i dati mediante la crittografia aut
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/16/2020
+ms.date: 08/21/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 002eeaedf4ae479408cd1ba0c7a373d8a2661cdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5e7060b31a936bd54dc0a1f084f823beb076044
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089397"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756810"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -43,11 +43,11 @@ I dati in un nuovo account di archiviazione vengono crittografati con le chiavi 
 
 La tabella seguente confronta le opzioni di gestione delle chiavi per la crittografia di archiviazione di Azure.
 
-| Parametro di gestione delle chiavi | Chiavi gestite da Microsoft | Chiavi gestite dal cliente | Chiavi fornite dal cliente |
+| Parametro di gestione delle chiavi | chiavi gestite da Microsoft | Chiavi gestite dal cliente | Chiavi fornite dal cliente |
 |--|--|--|--|
 | Operazioni di crittografia/decrittografia | Azure | Azure | Azure |
-| Servizi di archiviazione di Azure supportati | Tutti | Archiviazione BLOB, File di Azure<sup>1, 2</sup> | Archiviazione BLOB |
-| Archiviazione chiavi | Archivio chiavi Microsoft | Insieme di credenziali chiave di Azure | Archivio chiavi personalizzato del cliente |
+| Servizi di archiviazione di Azure supportati | Tutti | Archiviazione BLOB, File di Azure<sup>1, 2</sup> | Archiviazione - BLOB |
+| Archiviazione chiavi | Archivio chiavi Microsoft | Azure Key Vault | Archivio chiavi personalizzato del cliente |
 | Responsabilità della rotazione delle chiavi | Microsoft | Customer | Customer |
 | Controllo chiave | Microsoft | Customer | Customer |
 

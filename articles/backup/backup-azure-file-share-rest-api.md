@@ -3,12 +3,12 @@ title: Eseguire il backup delle condivisioni file di Azure con l'API REST
 description: Informazioni su come usare l'API REST per eseguire il backup di condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b3d83104b699740c43b0c6506c00694c2b2ac063
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654141"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757133"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Eseguire il backup di una condivisione file di Azure con backup di Azure tramite l'API REST
 
@@ -467,7 +467,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-| Nome       | Type                       | Descrizione                       |
+| Nome       | Tipo                       | Descrizione                       |
 | ---------- | -------------------------- | --------------------------------- |
 | Proprietà | AzurefilesharebackupReques | Proprietà di BackupRequestResource |
 

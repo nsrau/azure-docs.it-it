@@ -3,12 +3,12 @@ title: Gestire i backup di condivisioni file di Azure
 description: Questo articolo descrive le attività comuni per la gestione e il monitoraggio delle condivisioni file di Azure di cui è stato eseguito il backup da backup di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073301"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757626"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gestire i backup di condivisioni file di Azure
 

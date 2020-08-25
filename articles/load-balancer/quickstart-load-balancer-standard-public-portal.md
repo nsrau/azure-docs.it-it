@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923833"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607218"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico per bilanciare il carico delle macchine virtuali con il portale di Azure
 
@@ -36,14 +36,12 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Opzione 1 (predefinita): Crea un servizio di bilanciamento del carico pubblico (SKU Standard)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Il bilanciamento del carico di SKU Standard è l'impostazione consigliata per i carichi di lavoro di produzione.  Per altre informazioni sugli SKU, vedere **[SKU di Azure Load Balancer](skus.md)** .
 
 In questa sezione verrà creato un servizio di bilanciamento del carico che bilancia il carico delle macchine virtuali. 
-
-È possibile creare un servizio di bilanciamento del carico pubblico o interno. 
 
 Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un nuovo indirizzo IP pubblico che viene configurato come front-end (denominato **LoadBalancerFrontend** per impostazione predefinita).
 
@@ -213,7 +211,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | valore                                          |
+    | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -237,7 +235,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
@@ -256,7 +254,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 6. Nella scheda **Gestione** selezionare o immettere:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Monitoring** |  |
     | Diagnostica di avvio | Selezionare **Disattivato** |
@@ -286,7 +284,7 @@ Per altre informazioni sulle connessioni in uscita, vedere [Connessioni in uscit
 
 3. Usare questi valori per configurare le regole in uscita:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Name (Nome) | Immettere **myOutboundRule**. |
     | Indirizzo IP front-end | Selezionare **Crea nuovo**. </br> In **Nome** immettere **LoadBalancerFrontEndOutbound**. </br> Selezionare **Indirizzo IP** o **Prefisso IP**. </br> Selezionare **Crea nuovo** in **Indirizzo IP pubblico**  o **Prefisso IP pubblico**. </br> In Nome immettere **myPublicIPOutbound** o **myPublicIPPrefixOutbound**. </br> Selezionare **Aggiungi**.|
@@ -317,14 +315,12 @@ Per altre informazioni sulle connessioni in uscita, vedere [Connessioni in uscit
 
 8. Selezionare **Salva**.
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Opzione 2: Creare un servizio di bilanciamento del carico pubblico (SKU Basic)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**SKU Basic**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Il bilanciamento del carico di SKU Standard è l'impostazione consigliata per i carichi di lavoro di produzione.  Per altre informazioni sugli SKU, vedere **[SKU di Azure Load Balancer](skus.md)** .
 
 In questa sezione verrà creato un servizio di bilanciamento del carico che bilancia il carico delle macchine virtuali. 
-
-È possibile creare un servizio di bilanciamento del carico pubblico o interno. 
 
 Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un nuovo indirizzo IP pubblico che viene configurato come front-end (denominato **LoadBalancerFrontend** per impostazione predefinita).
 
@@ -422,7 +418,7 @@ Creare il pool di indirizzi back-end **myBackendPool** per includere le macchine
 
 3. Nella pagina **Aggiungi pool back-end** immettere o selezionare:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myBackendPool**. |
     | Rete virtuale | Selezionare **myVNET**. |
@@ -440,7 +436,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -468,7 +464,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -501,7 +497,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
    
 2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
-    | Impostazione | valore                                          |
+    | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
@@ -523,7 +519,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | Selezionare **myVNet** |
@@ -538,7 +534,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 6. Nella scheda **Gestione** selezionare o immettere:
     
-    | Impostazione | valore |
+    | Impostazione | Valore |
     |---|---|
     | **Monitoring** | |
     | Diagnostica di avvio | Selezionare **Disattivato** |

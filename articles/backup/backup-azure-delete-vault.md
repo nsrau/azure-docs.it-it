@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali di servizi di ripristino di backup di Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7e922069f567a0b907c2f2cd28fe09de040cdee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652829"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757218"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -357,13 +357,13 @@ Per ulteriori informazioni sul comando ARMClient, vedere il [file Leggimi di ARM
 1. Eseguire il comando seguente usando l'ID sottoscrizione, il nome del gruppo di risorse e il nome dell'insieme di credenziali. Se non sono presenti dipendenze, l'insieme di credenziali viene eliminato quando si esegue il comando seguente:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>?api-version=2015-03-15
    ```
 
 2. Se l'insieme di credenziali non è vuoto, verrà visualizzato il messaggio di errore seguente: *non è possibile eliminare l'insieme di credenziali perché sono presenti risorse esistenti all'interno di questo insieme di credenziali.* Per rimuovere un elemento o un contenitore protetto in un insieme di credenziali, eseguire il comando seguente:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
 3. Nel portale di Azure assicurarsi che l'insieme di credenziali venga eliminato.

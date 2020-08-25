@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/21/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e037607d1f86e6df4d3f5b12e29ba8fde447ebc9
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118418"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757932"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurare Advanced Threat Protection per archiviazione di Azure
 
@@ -33,6 +33,17 @@ Gli account con spazi dei nomi gerarchici abilitati per Data Lake Storage suppor
 
 Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
 
+Nell'elenco seguente viene riepilogata la disponibilità di Advanced Threat Protection per archiviazione di Azure:
+
+- Stato versione:
+  - [Archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) (disponibilità generale)
+  - [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (anteprima supporta le transazioni SMB e REST)
+  - Versione di anteprima di Azure Data Lake Storage Gen2
+- Cloud:<br>
+    ✔ Cloud commerciali<br>
+    ✔ US Gov<br>
+    ✘ Cina, altro gov
+
 ## <a name="set-up-advanced-threat-protection"></a>Configurare Advanced Threat Protection
 
 È possibile configurare Advanced Threat Protection in vari modi, descritti nelle sezioni seguenti.
@@ -45,13 +56,13 @@ Quando si sottoscrive il livello standard nel centro sicurezza di Azure, Advance
 1. Nel menu principale fare clic su **prezzi & impostazioni**.
 1. Fare clic sulla sottoscrizione che si vuole abilitare o disabilitare la protezione dalle minacce per gli account di archiviazione.
 
-    ![Seleziona sottoscrizione](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+    ![Selezionare la sottoscrizione](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. Fare clic su piano **tariffario**.
 1. Nella sezione **selezionare il piano tariffario per tipo di risorsa** , nella riga **account di archiviazione** , fare clic su **abilitato** o **disabilitato**.
 
     ![Abilita ATP nel centro sicurezza](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. Fare clic su **Salva**.
+1. Fare clic su **Save** (Salva).
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -107,7 +118,7 @@ Usare i cmdlet di PowerShell seguenti:
 Quando si verificano anomalie nelle attività di archiviazione, si riceve una e-mail di notifica con le informazioni sull'evento sospetto di sicurezza. I dettagli sull'evento comprendono:
 
 * Natura dell'anomalia
-* nome dell'account di archiviazione
+* Il nome dell'account di archiviazione
 * Ora dell'evento
 * Tipo di archiviazione
 * Possibili cause

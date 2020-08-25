@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fb3113b02d20355e3ac9ede593bf8fc4136461
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 0ed286cf2b11429d5f0f56b3a85f173c2a39bc81
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705963"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799299"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Microsoft 365
 
@@ -110,7 +110,7 @@ Se il gruppo che si sta ripristinando contiene documenti, siti di SharePoint o a
 
 ## <a name="how-to-retrieve-microsoft-365-group-expiration-date"></a>Come recuperare Microsoft 365 data di scadenza del gruppo
 
-Oltre al pannello di accesso in cui gli utenti possono visualizzare i dettagli dei gruppi, tra cui la data di scadenza e l'ultima data di rinnovo, è possibile recuperare la data di scadenza di un gruppo di Microsoft 365 da Microsoft Graph API REST beta. expirationDateTime come proprietà del gruppo è stato abilitato in Microsoft Graph beta. Può essere recuperato con una richiesta GET. Per altri dettagli, vedere [questo esempio](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
+Oltre al pannello di accesso in cui gli utenti possono visualizzare i dettagli dei gruppi, tra cui la data di scadenza e l'ultima data di rinnovo, è possibile recuperare la data di scadenza di un gruppo di Microsoft 365 da Microsoft Graph API REST beta. expirationDateTime come proprietà del gruppo è stato abilitato in Microsoft Graph beta. Può essere recuperato con una richiesta GET. Per altri dettagli, vedere [questo esempio](/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > Per gestire le appartenenze ai gruppi nel pannello di accesso, è necessario impostare "limita l'accesso ai gruppi nel pannello di accesso" su "No" nell'impostazione generale gruppi Azure Active Directory.
@@ -172,7 +172,7 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-I cmdlet seguenti possono essere usati per configurare i criteri in modo più dettagliato. Per ulteriori informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
+I cmdlet seguenti possono essere usati per configurare i criteri in modo più dettagliato. Per ulteriori informazioni, vedere la [documentazione di PowerShell](/powershell/module/azuread/?branch=master&view=azureadps-2.0-preview#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

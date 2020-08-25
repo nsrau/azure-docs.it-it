@@ -4,16 +4,16 @@ description: Questo articolo illustra come gestire le operazioni di backup e rip
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079333"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757252"
 ---
-# <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creare l'insieme di credenziali di Servizi di ripristino di Azure con l'API REST
+# <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creare un insieme di credenziali di servizi di ripristino di Azure usando l'API
 
-La procedura per creare un insieme di credenziali di Servizi di ripristino di Azure con l'API REST è descritta nella documentazione sull'[API REST per creare insiemi di credenziali](/rest/api/recoveryservices/vaults/createorupdate). Questo documento verrà usato come riferimento per creare un insieme di credenziali denominato "testVault" nell'area Stati Uniti occidentali ("West US").
+I passaggi per creare un insieme di credenziali di servizi di ripristino di Azure tramite l'API REST sono descritti nella documentazione sull' [API REST di creazione](/rest/api/recoveryservices/vaults/createorupdate) dell'insieme di credenziali. Questo documento verrà usato come riferimento per creare un insieme di credenziali denominato "testVault" nell'area Stati Uniti occidentali ("West US").
 
 Per creare o aggiornare un insieme di credenziali di Servizi di ripristino di Azure, usare l'operazione *PUT* seguente.
 
@@ -38,10 +38,10 @@ Per altre informazioni su come creare la richiesta, vedere [Componenti di una ri
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-|Nome  |Obbligatoria  |Tipo  |Description  |
+|Nome  |Obbligatoria  |Tipo  |Descrizione  |
 |---------|---------|---------|---------|
-|eTag     |         |   Stringa      |  eTag facoltativo       |
-|posizione     |  true       |Stringa         |   Posizione risorsa      |
+|eTag     |         |   string      |  eTag facoltativo       |
+|posizione     |  true       |string         |   Posizione risorsa      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Indica l'identificatore di sistema univoco per ogni risorsa di Azure     |
 |tags     |         | Oggetto        |     Tag delle risorse    |
@@ -66,7 +66,7 @@ Il corpo di esempio riportato di seguito viene usato per creare un insieme di cr
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di un insieme di credenziali di Servizi di ripristino:
 
-|Nome  |Tipo  |Description  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [Insiemi di credenziali](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Creato     | [Insiemi di credenziali](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Data di creazione      |

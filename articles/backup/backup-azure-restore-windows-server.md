@@ -3,12 +3,12 @@ title: Ripristinare i file in Windows Server con l'agente di Servizi di ripristi
 description: Questo articolo illustra come ripristinare i dati archiviati in Azure in un computer Windows Server o Windows con l'agente di Servizi di ripristino di Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d9bc22204156f7562290f53db77272b9cabe6c69
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263402"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757082"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Ripristinare i file in Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -72,7 +72,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
 9. Al termine, nella pagina **Browse and Recover Files** selezionare **unmount**. Fare clic su **Sì** per confermare che si intende smontare il volume.
 
-    ![Screenshot della pagina Cerca e Ripristina file della procedura guidata ripristino dati (Ripristina nello stesso computer)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Screenshot della pagina Cerca e Ripristina file della procedura guidata ripristino dati (Ripristina nello stesso computer)-conferma smontaggio volume di ripristino](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Se non si fa clic su **Unmount** (Smonta), il volume di ripristino rimane montato per 6 ore. Il tempo di montaggio viene tuttavia esteso fino a un massimo di 24 ore in caso di copia dei file in corso. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.

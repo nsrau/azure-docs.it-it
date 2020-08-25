@@ -11,21 +11,21 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266118"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799044"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reimpostare la password aziendale o dell'istituto di istruzione tramite l'informazione di sicurezza
 
-Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare la password per un account aziendale o dell'istituto di istruzione. Per poter configurare le informazioni e [reimpostare la password](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register), è necessario che l'amministratore attivi questa funzionalità.
+Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare la password per un account aziendale o dell'istituto di istruzione. Per poter configurare le informazioni e [reimpostare la password](./active-directory-passwords-reset-register.md), è necessario che l'amministratore attivi questa funzionalità.
 
-Se si conosce la password e si vuole modificarla, vedere le sezioni [modificare le procedure](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) per la password di questo articolo.
+Se si conosce la password e si vuole modificarla, vedere le sezioni [modificare le procedure](#how-to-change-your-password) per la password di questo articolo.
 
 >[!Important]
->Questo articolo è destinato agli utenti che provano a reimpostare una password dell'account aziendale o dell'istituto di istruzione dimenticata o sconosciuta. Se si è un amministratore alla ricerca di informazioni su come attivare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere [Distribuire la reimpostazione della password self-service in Azure AD e altri articoli](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Questo articolo è destinato agli utenti che provano a reimpostare una password dell'account aziendale o dell'istituto di istruzione dimenticata o sconosciuta. Se si è un amministratore alla ricerca di informazioni su come attivare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere [Distribuire la reimpostazione della password self-service in Azure AD e altri articoli](../authentication/howto-sspr-deployment.md).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Come reimpostare o sbloccare la password per un account aziendale o dell'istituto di istruzione
 
@@ -164,6 +164,6 @@ Di seguito sono riportati alcuni degli errori più comuni e le relative soluzion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulle informazioni di sicurezza sono disponibili nell'articolo [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md).
+- Altre informazioni sulle informazioni di sicurezza sono disponibili nell'articolo [Panoramica delle informazioni di sicurezza (anteprima)](./security-info-setup-signin.md).
 
 - Se si sta provando ad accedere nuovamente a un account personale, ad esempio Xbox, hotmail.com o outlook.com, provare i suggerimenti nell'articolo [Quando non si riesce ad accedere all'account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

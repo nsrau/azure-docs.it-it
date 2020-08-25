@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 3b529c8112683281148751091ee93dd12ae73b4a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dbe05f264b0fca6c1a5e8e7d944d94a6bed55392
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741933"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798024"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Eseguire una verifica di accesso dal portale App personali
 
@@ -28,7 +28,7 @@ Se non si ha accesso al portale **App personali**, è necessario contattare il s
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Questo contenuto è destinato agli utenti di **App personali**. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Questo contenuto è destinato agli utenti di **App personali**. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](../manage-apps/index.yml).
 
 ## <a name="manage-access-reviews"></a>Gestire le verifiche di accesso
 
@@ -58,7 +58,7 @@ Se l'amministratore ha concesso l'autorizzazione per eseguire le proprie verific
     ![Pagina Verifica di accesso che mostra i dettagli della verifica](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >Se si è un amministratore e si è autorizzati a verificare l'accesso dell'organizzazione a gruppi e app, verrà visualizzata una pagina diversa. Per altre informazioni su come verificare i gruppi o le app per l'organizzazione, vedere [Verificare l'accesso a gruppi o applicazioni nelle verifiche di accesso di Azure AD](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
+    >Se si è un amministratore e si è autorizzati a verificare l'accesso dell'organizzazione a gruppi e app, verrà visualizzata una pagina diversa. Per altre informazioni su come verificare i gruppi o le app per l'organizzazione, vedere [Verificare l'accesso a gruppi o applicazioni nelle verifiche di accesso di Azure AD](../governance/perform-access-review.md).
 
 6. Selezionare **Sì** per mantenere l'accesso o **No** per rimuoverlo.
 

@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497064"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797939"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Risoluzione dei problemi di Azure FarmBeats
 
-Questo articolo offre soluzioni ai problemi comuni di Azure FarmBeats. Per ulteriore assistenza, contattare il [Forum di supporto](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) o inviare un messaggio di posta elettronica all'indirizzo farmbeatssupport@microsoft.com.
+Questo articolo offre soluzioni ai problemi comuni di Azure FarmBeats. Per ulteriore assistenza, contattare il [Q&un forum di supporto](https://aka.ms/farmbeatssupport) o inviare un messaggio di posta elettronica all'indirizzo farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Se FarmBeats è stato installato nel mese di aprile e i processi non riescono e producono un messaggio di errore vuoto, è possibile che non sia stata allocata alcuna quota batch all'installazione per dare la priorità al supporto di organizzazioni sanitarie e di sicurezza essenziali. Per altre informazioni, fare clic [qui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) . Per eseguire correttamente i processi, è necessario richiedere l'allocazione delle macchine virtuali all'account Batch.

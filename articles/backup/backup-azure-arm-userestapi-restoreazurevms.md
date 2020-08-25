@@ -4,12 +4,12 @@ description: Questo articolo illustra come gestire le operazioni di ripristino d
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: add4bdeaa202c244ce2e0e83f999f29afdca5c28
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761475"
+ms.locfileid: "88763542"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -31,7 +31,7 @@ All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario un
 
 ### <a name="responses"></a>Risposte
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -115,11 +115,16 @@ X-Powered-By: ASP.NET
 
 Il punto di ripristino viene identificato con il campo `{name}` nella risposta precedente.
 
-## <a name="restore-disks"></a>Ripristinare i dischi
+## <a name="restore-operations"></a>Operazioni di ripristino
 
-Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare solo i dischi in un account di archiviazione scelto e creare una VM da tali dischi in base ai requisiti. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("vmconfig.json") verranno archiviati nell'account di archiviazione specificato.
+Dopo aver selezionato il [punto di ripristino pertinente](#select-recovery-point), procedere con l'attivazione dell'operazione di ripristino.
 
-L'attivazione dei dischi di ripristino è una richiesta *POST*. Per altre informazioni sull'operazione di ripristino dei dischi, fare riferimento all'[API REST per attivare il ripristino](/rest/api/backup/restores/trigger).
+***Tutte le operazioni di ripristino sull'elemento di backup vengono eseguite con la stessa API *post* . Solo il corpo della richiesta cambia con gli scenari di ripristino.***
+
+> [!IMPORTANT]
+> Di [seguito](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options)sono indicati tutti i dettagli sulle varie opzioni di ripristino e le relative dipendenze. Prima di procedere con l'attivazione di queste operazioni, vedere.
+
+L'attivazione delle operazioni di ripristino è una richiesta *post* . Per altre informazioni sull'API, vedere l' [API REST "trigger Restore"](/rest/api/backup/restores/trigger).
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -127,45 +132,19 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 `{containerName}` e `{protectedItemName}` sono come creati [qui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` è "Azure" e `{recoveryPointId}` è il campo `{name}` del punto di ripristino indicato [in precedenza](#example-response).
 
-### <a name="create-request-body"></a>Creare il corpo della richiesta
+Una volta ottenuto il punto di ripristino, è necessario creare il corpo della richiesta per lo scenario di ripristino pertinente. Le sezioni seguenti descrivono il corpo della richiesta per ogni scenario.
 
-Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare il ripristino di un disco da un backup di macchine virtuali di Azure.
+- [Ripristinare i dischi](#restore-disks)
+- [Sostituisci dischi](#replace-disks-in-a-backed-up-virtual-machine)
+- [Ripristina come nuova macchina virtuale](#restore-as-another-virtual-machine)
 
-|Nome  |Type  |Descrizione  |
-|---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+### <a name="restore-response"></a>Ripristina risposta
 
-Per l'elenco completo di definizioni del corpo della richiesta e altri dettagli, vedere il [documento sull'API REST per attivare il ripristino](/rest/api/backup/restores/trigger#request-body).
-
-#### <a name="example-request"></a>Richiesta di esempio
-
-Il corpo della richiesta seguente definisce le proprietà necessarie per attivare il ripristino di un disco.
-
-```json
-{
-  "properties": {
-    "objectType": "IaasVMRestoreRequest",
-    "recoveryPointId": "20982486783671",
-    "recoveryType": "RestoreDisks",
-    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
-    "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
-    "region": "westus",
-    "createNewCloudService": false,
-    "originalStorageAccountOption": false,
-    "encryptionDetails": {
-      "encryptionEnabled": false
-    }
-  }
-}
-```
-
-### <a name="response"></a>Risposta
-
-L'attivazione di un disco di ripristino è un'[operazione asincrona](../azure-resource-manager/management/async-operations.md). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+L'attivazione di qualsiasi operazione di ripristino è un' [operazione asincrona](../azure-resource-manager/management/async-operations.md). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accettato    |
 
@@ -227,15 +206,90 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Poiché il processo di backup è un'operazione con esecuzione prolungata, ne deve essere tenuta traccia come illustrato nel [documento per monitorare i processi usando l'API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Poiché il processo di ripristino è un'operazione a esecuzione prolungata, deve essere rilevata come illustrato nel [documento monitorare i processi tramite l'API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-Al termine del processo con esecuzione prolungata, i dischi e la configurazione della macchina virtuale sottoposta a backup ("VMConfig.json") saranno presenti nell'account di archiviazione specificato.
+### <a name="restore-disks"></a>Ripristinare i dischi
 
-## <a name="restore-as-another-virtual-machine"></a>Eseguire il ripristino come un'altra macchina virtuale
+Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare solo i dischi in un account di archiviazione scelto e creare una VM da tali dischi in base ai requisiti. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("vmconfig.json") verranno archiviati nell'account di archiviazione specificato. Come spiegato in [precedenza](#restore-operations), il corpo della richiesta pertinente per i dischi di ripristino è riportato di seguito.
 
-[Selezionare il punto di ripristino](#select-recovery-point) e creare il corpo della richiesta come specificato di seguito per creare un'altra macchina virtuale di Azure con i dati del punto di ripristino.
+#### <a name="create-request-body"></a>Creare il corpo della richiesta
 
-Il corpo della richiesta seguente definisce le proprietà necessarie per attivare il ripristino di una macchina virtuale.
+Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare il ripristino di un disco da un backup di macchine virtuali di Azure.
+
+|Nome  |Tipo  |Descrizione  |
+|---------|---------|---------|
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+
+Per l'elenco completo di definizioni del corpo della richiesta e altri dettagli, vedere il [documento sull'API REST per attivare il ripristino](/rest/api/backup/restores/trigger#request-body).
+
+##### <a name="example-request"></a>Richiesta di esempio
+
+Il corpo della richiesta seguente definisce le proprietà necessarie per attivare il ripristino di un disco.
+
+```json
+{
+  "properties": {
+    "objectType": "IaasVMRestoreRequest",
+    "recoveryPointId": "20982486783671",
+    "recoveryType": "RestoreDisks",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+    "region": "westus",
+    "createNewCloudService": false,
+    "originalStorageAccountOption": false,
+    "encryptionDetails": {
+      "encryptionEnabled": false
+    }
+  }
+}
+```
+
+Quando si tiene traccia della risposta come illustrato in [precedenza](#responses)e il processo a esecuzione prolungata è completo, i dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("VMConfig.json") saranno presenti nell'account di archiviazione specificato.
+
+### <a name="replace-disks-in-a-backed-up-virtual-machine"></a>Sostituire i dischi in una macchina virtuale di cui è stato eseguito il backup
+
+Mentre i dischi di ripristino creano dischi dal punto di ripristino, Replace disks sostituisce i dischi correnti della VM di cui è stato eseguito il backup con i dischi dal punto di ripristino. Come spiegato in [precedenza](#restore-operations), il corpo della richiesta pertinente per la sostituzione dei dischi è riportato di seguito.
+
+#### <a name="create-request-body"></a>Creare il corpo della richiesta
+
+Per attivare una sostituzione del disco da un backup di VM di Azure, di seguito sono riportati i componenti del corpo della richiesta.
+
+|Nome  |Tipo  |Descrizione  |
+|---------|---------|---------|
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+
+Per l'elenco completo di definizioni del corpo della richiesta e altri dettagli, vedere il [documento sull'API REST per attivare il ripristino](/rest/api/backup/restores/trigger#request-body).
+
+#### <a name="example-request"></a>Richiesta di esempio
+
+Il corpo della richiesta seguente definisce le proprietà necessarie per attivare il ripristino di un disco.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "OriginalLocation",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",  
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "affinityGroup": "",
+        "diskEncryptionSetId": null,
+        "subnetId": null,
+        "targetDomainNameId": null,
+        "targetResourceGroupId": null,
+        "targetVirtualMachineId": null,
+        "virtualNetworkId": null
+     }
+}
+
+```
+
+### <a name="restore-as-another-virtual-machine"></a>Eseguire il ripristino come un'altra macchina virtuale
+
+Come spiegato in [precedenza](#restore-operations), il corpo della richiesta seguente definisce le proprietà necessarie per attivare un ripristino della macchina virtuale.
 
 ```json
 {
@@ -271,7 +325,7 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
 }
 ```
 
-La risposta deve essere gestita nello stesso modo [descritto in precedenza per il ripristino dei dischi](#response).
+La risposta deve essere gestita nello stesso modo [descritto in precedenza per il ripristino dei dischi](#responses).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

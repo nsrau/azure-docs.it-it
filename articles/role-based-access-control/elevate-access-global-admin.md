@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791997"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799333"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
@@ -144,6 +144,22 @@ Per rimuovere l'assegnazione del ruolo amministratore accesso utenti per se stes
     ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+### <a name="elevate-access-for-a-global-administrator"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale
+
+Usare la procedura di base seguente per elevare l'accesso per un amministratore globale usando l'interfaccia della riga di comando di Azure.
+
+1. Usare il comando [AZ Rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) per chiamare l' `elevateAccess` endpoint, che concede il ruolo di amministratore accesso utenti nell'ambito radice ( `/` ).
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Apportare le modifiche necessarie per eseguire l'accesso con privilegi elevati.
+
+    Per informazioni sull'assegnazione dei ruoli, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della](role-assignments-cli.md)riga di comando di Azure.
+
+1. Per rimuovere l'accesso con privilegi elevati, eseguire la procedura descritta in una sezione successiva.
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Elencare l'assegnazione di ruolo nell'ambito radice (/)
 

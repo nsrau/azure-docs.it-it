@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bbb59439677f6c7297aabbecbafeb04327f482b5
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654702"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762913"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -88,7 +88,7 @@ L'uso di endpoint privati richiede DNS privato zone per consentire all'estension
     - `privatelink.blob.core.windows.net`
     - `privatelink.queue.core.windows.net`
 
-    | **Zona**                           | **Service** | **Dettagli di sottoscrizione e gruppo di risorse (RG)**                  |
+    | **Zona**                           | **Servizio** | **Dettagli di sottoscrizione e gruppo di risorse (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
     | `privatelink.blob.core.windows.net`  | BLOB        | **Sottoscrizione**: uguale a quello in cui deve essere creato l'endpoint privato  **RG**: il RG del VNET o quello dell'endpoint privato |
     | `privatelink.queue.core.windows.net` | Coda       | **RG**: il RG di VNET o quello dell'endpoint privato |
@@ -103,7 +103,7 @@ I clienti possono scegliere di integrare i propri endpoint privati con le zone D
 
 Se si vuole creare una zona DNS privata separata in Azure, è possibile eseguire la stessa operazione usando la stessa procedura usata per creare zone DNS obbligatorie. I dettagli relativi alla denominazione e alla sottoscrizione sono condivisi di seguito:
 
-| **Zona**                                                     | **Service** | **Dettagli relativi a sottoscrizione e gruppo di risorse**                  |
+| **Zona**                                                     | **Servizio** | **Dettagli relativi a sottoscrizione e gruppo di risorse**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Nota**: la posizione *geografica* si riferisce al codice dell'area geografica. Ad esempio, *wcus* e *ne* per Stati Uniti centro-occidentali ed Europa settentrionale. | Backup      | **Sottoscrizione**: uguale a quello in cui deve essere creato l'endpoint privato  **RG**: qualsiasi RG nella sottoscrizione |
 
@@ -192,7 +192,7 @@ Vedere [approvazione manuale degli endpoint privati usando il client Azure Resou
 ## <a name="adding-dns-records"></a>Aggiunta di record DNS
 
 >[!NOTE]
-> Questo passaggio non è necessario se si usa una zona DNS integrata. Tuttavia, se è stata creata una propria area di DNS privato di Azure o si usa una zona DNS privata personalizzata, assicurarsi che le voci vengano effettuate come descritto in questa sezione.
+> Questo passaggio non è necessario se si usa una zona DNS integrata. Tuttavia, se è stata creata una propria area di DNS privato di Azure o si usa una zona DNS privata personalizzata, assicurarsi che le voci vengano apportate come descritto in questa sezione.
 
 Dopo aver creato la zona DNS privata facoltativa e gli endpoint privati per l'insieme di credenziali, è necessario aggiungere i record DNS alla zona DNS. Questa operazione può essere eseguita manualmente o tramite uno script di PowerShell. Questa operazione deve essere eseguita solo per la zona DNS di backup, che per i BLOB e le code verrà aggiornata automaticamente.
 
@@ -220,7 +220,7 @@ A questo scopo, è necessario creare voci per ogni FQDN nell'endpoint privato ne
 
 1. Passare alla cartella Home (ad esempio: `cd /home/user` )
 
-1. Eseguire lo script riportato di seguito:
+1. Eseguire lo script seguente:
 
     ```azurepowershell
     ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
@@ -413,7 +413,7 @@ PrivateEndpointSubnetContributorRoleDef.js
 
 1. Passare alla cartella Home (ad esempio: `cd /home/user` )
 
-1. Eseguire lo script riportato di seguito:
+1. Eseguire lo script seguente:
 
     ```azurepowershell
     ./VaultMsiPrereqScript.ps1 -subscription <subscription-Id> -vaultPEResourceGroup <vaultPERG> -vaultPESubnetResourceGroup <subnetRG> -vaultMsiName <msiName>
@@ -495,7 +495,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 È necessario creare tre zone DNS private e collegarle alla rete virtuale.
 
-| **Zona**                                                     | **Service** |
+| **Zona**                                                     | **Servizio** |
 | ------------------------------------------------------------ | ----------- |
 | `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
 | `privatelink.blob.core.windows.net`                            | BLOB        |

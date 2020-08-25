@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850908"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798959"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestisci gli utenti con il personale (anteprima)
 
@@ -64,7 +64,7 @@ Una volta configurata la funzionalità AUs, è possibile applicare questo ambito
 
 È possibile proteggere il portale personale usando Azure AD i criteri di accesso condizionale. Usare questa funzionalità per attività come la richiesta di autenticazione a più fattori prima di accedere al personale.
 
-Si consiglia vivamente di proteggere il personale utilizzando [Azure ad criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/). Per applicare un criterio di accesso condizionale al personale, è necessario creare manualmente l'entità servizio personale con PowerShell.
+Si consiglia vivamente di proteggere il personale utilizzando [Azure ad criteri di accesso condizionale](../conditional-access/index.yml). Per applicare un criterio di accesso condizionale al personale, è necessario creare manualmente l'entità servizio personale con PowerShell.
 
 ### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Applicare un criterio di accesso condizionale al personale
 
@@ -115,11 +115,11 @@ A seconda delle impostazioni, l'utente può quindi usare il numero di telefono c
 
 Per gestire il numero di telefono di un utente, è necessario disporre di uno dei ruoli seguenti:
 
-- [Amministratore dell'autenticazione](directory-assign-admin-roles.md#authentication-administrator)
+- [Amministratore autenticazione](directory-assign-admin-roles.md#authentication-administrator)
 - [Amministratore autenticazione con privilegi](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Amministratore globale](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Ricerca
+## <a name="search"></a>Cerca
 
 È possibile cercare gli AUs e gli utenti dell'organizzazione usando la barra di ricerca del personale. È possibile eseguire ricerche in tutte le unità di analisi e tutti gli utenti dell'organizzazione, ma è possibile apportare modifiche solo agli utenti che si trovano in un'unità di analisi per cui sono state concesse le autorizzazioni di amministratore.
 

@@ -2,13 +2,13 @@
 title: Criteri di riavvio per le attività Esegui una sola volta
 description: Informazioni su come usare Istanze di Azure Container per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
 ms.topic: article
-ms.date: 04/15/2019
-ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/11/2020
+ms.openlocfilehash: 336a31a03cdc9dfdfebe79ef47b59ef90053f523
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261341"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798942"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Eseguire attività in contenitori con criteri di riavvio
 
@@ -24,9 +24,11 @@ Quando si crea un [gruppo di contenitori](container-instances-container-groups.m
 
 | Criterio di riavvio   | Descrizione |
 | ---------------- | :---------- |
-| `Always` | I contenitori nel gruppo contenitore vengono sempre riavviati. Questa è l'impostazione **predefinita** applicata quando non si specifica alcun criterio di riavvio al momento della creazione del contenitore. |
-| `Never` | I contenitori nel gruppo contenitore non vengono riavviati mai. I contenitori vengono eseguiti al massimo una volta. |
-| `OnFailure` | I contenitori nel gruppo contenitore vengono riavviati solo quando il processo eseguito nel contenitore ha esito negativo, quando termina con un codice di uscita diverso da zero. I contenitori vengono eseguiti almeno una volta. |
+| `Always` | I contenitori nel gruppo di contenitori vengono sempre riavviati. Questa è l'impostazione **predefinita** applicata quando non si specifica alcun criterio di riavvio al momento della creazione del contenitore. |
+| `Never` | I contenitori nel gruppo di contenitori non vengono mai riavviati. I contenitori vengono eseguiti al massimo una volta. |
+| `OnFailure` | I contenitori nel gruppo di contenitori vengono riavviati solo quando il processo eseguito nel contenitore ha esito negativo, ovvero quando termina con un codice di uscita diverso da zero. I contenitori vengono eseguiti almeno una volta. |
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="specify-a-restart-policy"></a>Specificare un criterio di riavvio
 

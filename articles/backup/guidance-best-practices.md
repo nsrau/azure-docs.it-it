@@ -3,12 +3,12 @@ title: Materiale sussidiario e procedure consigliate
 description: Scopri le procedure consigliate e le linee guida per il backup del carico di lavoro cloud e locale nel cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650877"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757592"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Eseguire il backup di carichi di lavoro cloud e locali nel cloud
 
@@ -48,7 +48,7 @@ Backup di Azure consente la protezione dei dati per diversi carichi di lavoro (i
 
 ### <a name="management-plane"></a>Piano di gestione
 
-* **Controllo degli accessi** : l'insieme di credenziali dei servizi di ripristino fornisce le funzionalità di gestione ed è accessibile tramite il portale di Azure, SDK, CLI e anche le API REST. Si tratta anche di un limite RBAC, che consente di limitare l'accesso ai backup solo agli amministratori di backup autorizzati.
+* **Controllo degli accessi** : l'insieme di credenziali di servizi di ripristino fornisce le funzionalità di gestione ed è accessibile tramite il portale di Azure, SDK, CLI e anche le API REST. Si tratta anche di un limite RBAC, che consente di limitare l'accesso ai backup solo agli amministratori di backup autorizzati.
 
 * **Gestione dei criteri** : i criteri di backup di Azure in ogni insieme di credenziali definiscono quando devono essere attivati i backup e per quanto tempo devono essere conservati. È anche possibile gestire questi criteri e applicarli tra più elementi.
 
@@ -143,7 +143,7 @@ Per semplificare la protezione dei dati di backup e soddisfare le esigenze di si
 
 * Backup di Azure include diversi controlli di sicurezza incorporati nel servizio per prevenire, rilevare e rispondere alle vulnerabilità di sicurezza (altre informazioni)
 
-* Gli account di archiviazione usati dagli insiemi di credenziali di Servizi di ripristino sono isolati e gli utenti non possono accedervi per eventuali azioni dannose. L'accesso è consentito solo tramite le operazioni di gestione di Backup di Azure, ad esempio il ripristino.
+* Gli account di archiviazione usati dagli insiemi di credenziali dei servizi di ripristino sono isolati e non è possibile accedervi dagli utenti per eventuali scopi dannosi. L'accesso è consentito solo tramite le operazioni di gestione di Backup di Azure, ad esempio il ripristino.
 
 ### <a name="encryption-of-data-in-transit-and-at-rest"></a>Crittografia dei dati in transito e inattivi
 
@@ -247,7 +247,7 @@ Un utente o un amministratore di backup deve essere in grado di monitorare tutte
 
 * Backup di Azure fornisce un meccanismo di notifica degli **avvisi incorporato** tramite posta elettronica per errori, avvisi e operazioni critiche. È possibile specificare singoli indirizzi di posta elettronica o liste di distribuzione per ricevere una notifica quando viene generato un avviso. È anche possibile scegliere se ricevere una notifica per ogni singolo avviso o raggrupparli in un digest orario e quindi ricevere una notifica.
   * Questi avvisi sono definiti dal servizio e forniscono supporto per scenari limitati: errori di backup/ripristino, arresto della protezione con Mantieni dati/Interrompi protezione con Elimina dati e così via. [Altre informazioni](backup-azure-monitoring-built-in-monitor.md#alert-scenarios)sono disponibili qui.
-  * Se viene eseguita un'operazione distruttiva, ad esempio arresta la protezione con l'eliminazione dei dati, viene generato un avviso e viene inviato un messaggio di posta elettronica ai proprietari, agli amministratori e ai coamministratori della sottoscrizione anche se le notifiche non sono configurate per l'insieme di credenziali dei servizi di ripristino.
+  * Se viene eseguita un'operazione distruttiva, ad esempio arresta la protezione con l'eliminazione dei dati, viene generato un avviso e viene inviato un messaggio di posta elettronica ai proprietari, agli amministratori e ai coamministratori della sottoscrizione anche se le notifiche non sono configurate per l'insieme di credenziali di servizi di ripristino.
   * Alcuni carichi di lavoro possono generare una frequenza elevata di errori, ad esempio SQL Server ogni 15 minuti. Per evitare che vengano sovraccaricati gli avvisi generati per ogni occorrenza di errore, gli avvisi vengono consolidati. [Altre informazioni](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts)sono disponibili qui.
   * Gli avvisi incorporati non possono essere personalizzati e sono limitati ai messaggi di posta elettronica definiti nel portale di Azure.
 

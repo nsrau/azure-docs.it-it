@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128059"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799350"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Flusso di contenuto con l'integrazione della rete CDN
 
@@ -47,7 +47,7 @@ Questo argomento illustra l'abilitazione dell'integrazione della rete [CDN](#ena
 
 Quando viene eseguito il provisioning di un endpoint di streaming con la rete CDN abilitata, è previsto un tempo di attesa definito in servizi multimediali prima di eseguire l'aggiornamento DNS per eseguire il mapping dell'endpoint di streaming all'endpoint rete CDN.
 
-Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming e il flusso senza interruzioni dall'endpoint di streaming. Una volta completata l'integrazione, il flusso viene recapitato dalla rete CDN. Durante il periodo di provisioning, l'endpoint di streaming sarà nello stato **iniziale** ed è possibile che si verifichi un calo delle prestazioni.
+Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. Una volta avviato l'endpoint di streaming, potrebbero essere necessarie fino a due ore per l'attivazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i pop della rete CDN. Tuttavia, è possibile avviare l'endpoint di streaming e il flusso senza interruzioni dall'endpoint di streaming. Una volta completata l'integrazione, il flusso viene recapitato dalla rete CDN. Durante il periodo di provisioning, l'endpoint di streaming sarà nello stato **iniziale** ed è possibile che si verifichi un calo delle prestazioni.
 
 Quando viene creato l'endpoint di streaming standard, questo viene configurato per impostazione predefinita con Verizon standard. È possibile configurare Premium Verizon o provider Akamai standard usando le API REST.
 

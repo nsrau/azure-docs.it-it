@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f4cf9e2d02030021d3092629731fcd8b77566907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eaea80ae874b93a640c885e0d4b7afde2a165c16
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213942"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798568"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Progettare le tabelle nel pool SQL sinapsi
 
@@ -107,7 +107,7 @@ La categoria della tabella spesso determina l'opzione appropriata per la distrib
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
 | Dimension      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
-| Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
+| Gestione temporanea        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
 
 ## <a name="table-partitions"></a>Partizioni della tabella
 
@@ -149,7 +149,7 @@ La chiave primaria è supportata solo se vengono usati entrambi non CLUSTER e no
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una tabella vuota definendo tutte le opzioni e le colonne della tabella. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una tabella esterna. La definizione della tabella viene archiviata nel pool SQL. I dati della tabella vengono archiviati nell'archivio BLOB di Azure o in Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Popola una nuova tabella con i risultati di un'istruzione SELECT. Le colonne e i tipi di dati della tabella si basano sui risultati dell'istruzione SELECT. Per importare i dati, questa istruzione può selezionare da una tabella esterna. |
-| [CREA TABELLA ESTERNA COME SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una nuova tabella esterna esportando i risultati di un'istruzione SELECT in una posizione esterna,  vale a dire l'archivio BLOB di Azure o Azure Data Lake Store. |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una nuova tabella esterna esportando i risultati di un'istruzione SELECT in una posizione esterna,  vale a dire l'archivio BLOB di Azure o Azure Data Lake Store. |
 
 ## <a name="aligning-source-data-with-the-sql-pool"></a>Allineamento dei dati di origine al pool SQL
 
@@ -294,6 +294,9 @@ SELECT *
 FROM size
 ;
 ```
+
+>[!TIP]
+> Per migliorare le prestazioni in sinapsi SQL, provare a usare **sys. pdw_permanent_table_mappings** anziché **sys. pdw_table_mappings** su tabelle utente permanenti. Per ulteriori informazioni, vedere **[sys. pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Riepilogo dello spazio della tabella
 

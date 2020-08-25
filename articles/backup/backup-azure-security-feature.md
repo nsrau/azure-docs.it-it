@@ -4,12 +4,12 @@ description: Informazioni su come usare le funzionalità di sicurezza in Backup 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 03bbcef2ce408a1b1f5e2c2d909728d3ed8e7e19
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611246"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757031"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 
@@ -39,7 +39,7 @@ Se si sta creando un insieme di credenziali di servizi di ripristino, è possibi
 
     ![Screenshot dell'opzione Sfoglia del portale di Azure](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    Verrà visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino. Selezionare un insieme di credenziali dall'elenco. Viene aperto il dashboard dell'insieme di credenziali selezionato.
+    Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino. Selezionare un insieme di credenziali dall'elenco. Viene aperto il dashboard dell'insieme di credenziali selezionato.
 3. Nell'elenco di elementi visualizzato sotto l'insieme di credenziali, in **Impostazioni**, selezionare **Proprietà**.
 
     ![Screenshot delle opzioni per l'insieme di credenziali di Servizi di ripristino](./media/backup-azure-security-feature/vault-list-properties.png)

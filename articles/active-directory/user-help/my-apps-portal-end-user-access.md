@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 78204be967bafdd7d01af4f9f286bd15347e4a9f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741959"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798041"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Eseguire l'accesso e avviare le app dal portale App personali
 
@@ -33,7 +33,7 @@ Se non si ha accesso al portale **App personali**, è necessario contattare il s
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Questo contenuto è destinato agli utenti di App personali. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Questo contenuto è destinato agli utenti di App personali. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](../manage-apps/index.yml).
 
 ## <a name="supported-browsers"></a>Browser supportati
 
@@ -59,7 +59,7 @@ Questa estensione consente di:
 
 - Visualizzare le ultime app usate nella sezione **Usate di recente**.
 
-- Usare URL aziendali interne in modalità remota tramite [Proxy di applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Usare URL aziendali interne in modalità remota tramite [Proxy di applicazione](../manage-apps/application-proxy.md).
 
 ### <a name="to-download-and-install-the-extension"></a>Per scaricare e installare l'estensione
 

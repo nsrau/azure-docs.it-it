@@ -3,12 +3,12 @@ title: Concetto di grafico multimediale-Azure
 description: Un grafico multimediale consente di definire la posizione in cui devono essere acquisiti i supporti, la modalità di elaborazione e la posizione in cui devono essere recapitati i risultati. Questo articolo fornisce una descrizione dettagliata del concetto di grafico multimediale.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690681"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798840"
 ---
 # <a name="media-graph"></a>Grafico multimediale
 
@@ -83,7 +83,7 @@ Il nodo processore di estensione HTTP consente di connettere il proprio modulo d
 
 #### <a name="grpc-extension-processor"></a>processore di estensione gRPC
 
-Il nodo del processore di estensione gRPC accetta i fotogrammi video decodificati come input e inoltra tali frame a un endpoint gRPC esposto dal modulo. Inoltre, il nodo dispone di un formattatore di immagine incorporato per la scalabilità e la codifica dei fotogrammi video prima che vengano inoltrati all'endpoint gRPC. Scaler dispone di opzioni per le proporzioni dell'immagine da mantenere, imbottire o allungare. Il codificatore di immagini supporta formati JPEG, PNG o BMP.
+Il nodo del processore di estensione gRPC accetta i fotogrammi video decodificati come input e inoltra tali frame a un endpoint [gRPC](terminology.md#grpc) esposto dal modulo. Inoltre, il nodo dispone di un formattatore di immagine incorporato per la scalabilità e la codifica dei fotogrammi video prima che vengano inoltrati all'endpoint gRPC. Scaler dispone di opzioni per le proporzioni dell'immagine da mantenere, imbottire o allungare. Il codificatore di immagini supporta formati JPEG, PNG o BMP.
 
 #### <a name="signal-gate-processor"></a>Processore Gate Signal  
 
@@ -105,7 +105,7 @@ Un nodo del sink di messaggi dell'hub Internet consente di pubblicare eventi nel
 
 ## <a name="rules-on-the-use-of-nodes"></a>Regole sull'uso dei nodi
 
-Per altre regole su come usare i diversi nodi in un grafico multimediale, vedere [quote](quotas-limitations.md#limitations-on-graph-topologies-at-preview) .
+Vedere [limitazioni sulle topologie dei grafi](quotas-limitations.md#limitations-on-graph-topologies-at-preview) per altre regole su come usare i diversi nodi in un grafico multimediale.
 
 ## <a name="scenarios"></a>Scenari
 

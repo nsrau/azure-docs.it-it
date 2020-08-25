@@ -3,12 +3,12 @@ title: Eseguire il backup di condivisioni file di Azure nel portale di Azure
 description: Informazioni su come usare la portale di Azure per eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: e0d9edbcb89dbdcac51893eb720da880a150bc7b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 40b966d719360570a472b17fbf733aa4c8795b4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532699"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757796"
 ---
 # <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
 
@@ -31,7 +31,7 @@ In questo articolo si apprenderà come:
 
 ## <a name="configure-backup-from-the-recovery-services-vault"></a>Configurare il backup dall'insieme di credenziali di servizi di ripristino
 
-I passaggi seguenti illustrano come configurare il backup per più condivisioni file dal riquadro dell'insieme di credenziali dei servizi di ripristino:
+I passaggi seguenti illustrano come configurare il backup per più condivisioni file dal riquadro dell'insieme di credenziali di servizi di ripristino:
 
 1. Nella [portale di Azure](https://portal.azure.com/)aprire l'insieme di credenziali di servizi di ripristino che si vuole usare per la configurazione del backup per la condivisione file.
 
@@ -80,7 +80,7 @@ I passaggi seguenti illustrano come configurare il backup per più condivisioni 
 
       1. Per creare un nuovo criterio di backup per la condivisione file, selezionare il testo del collegamento sotto l'elenco a discesa nella sezione **criteri di backup** .<br>
 
-         ![Creare un nuovo criterio](./media/backup-afs/create-new-policy.png)
+         ![Creare nuovi criteri](./media/backup-afs/create-new-policy.png)
 
       1. Si apre il riquadro del contesto dei **criteri di backup** a destra. Specificare un nome per i criteri nella casella di testo e scegliere il periodo di memorizzazione in base alle esigenze. Per impostazione predefinita, è abilitata solo l'opzione di conservazione giornaliera. Se si desidera disporre di un periodo di conservazione settimanale, mensile o annuale, selezionare la casella di controllo corrispondente e specificare il valore di memorizzazione desiderato.
 
@@ -123,11 +123,11 @@ Nei passaggi seguenti viene illustrato come è possibile configurare il backup p
 
 1. Per la selezione dell'insieme di credenziali di servizi di ripristino, eseguire una delle operazioni seguenti:
 
-    * Se si dispone già di un insieme di credenziali, selezionare il pulsante di opzione Seleziona insieme di credenziali del servizio di ripristino **esistente** e scegliere uno degli insiemi di credenziali esistenti dal menu a discesa **nome** insieme di credenziali.
+    * Se si dispone già di un insieme di credenziali, selezionare il pulsante di opzione Seleziona insieme di credenziali di servizi di ripristino **esistente** e scegliere uno degli insiemi di credenziali esistenti dal menu a discesa **nome** insieme di credenziali.
 
        ![Seleziona insieme di credenziali esistente](./media/backup-afs/select-existing-vault.png)
 
-    * Se non si dispone di un insieme di credenziali, selezionare il pulsante di opzione **Crea nuovo** insieme di credenziali del servizio di ripristino. Specificare un nome per l'insieme di credenziali. Viene creato nella stessa area della condivisione file. Per impostazione predefinita, l'insieme di credenziali viene creato nello stesso gruppo di risorse della condivisione file. Se si vuole scegliere un gruppo di risorse diverso, selezionare **Crea nuovo** collegamento sotto l'elenco a discesa **tipo di risorsa** e specificare un nome per il gruppo di risorse. Selezionare **OK** per continuare.
+    * Se non si dispone di un insieme di credenziali, selezionare il pulsante di opzione **Crea nuovo** insieme di credenziali di servizi di ripristino. Specificare un nome per l'insieme di credenziali. Viene creato nella stessa area della condivisione file. Per impostazione predefinita, l'insieme di credenziali viene creato nello stesso gruppo di risorse della condivisione file. Se si vuole scegliere un gruppo di risorse diverso, selezionare **Crea nuovo** collegamento sotto l'elenco a discesa **tipo di risorsa** e specificare un nome per il gruppo di risorse. Selezionare **OK** per continuare.
 
        ![Crea nuovo insieme di credenziali](./media/backup-afs/create-new-vault.png)
 

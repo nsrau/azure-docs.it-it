@@ -3,12 +3,12 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717577"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756691"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -111,25 +111,16 @@ Se il computer dispone attualmente di un'identità di sistema assegnata dall'ute
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione di Configurazione guest
 
-Ogni controllo eseguito da Configurazione guest richiede due definizioni dei criteri, **DeployIfNotExists** e **AuditIfNotExists**. Le definizioni dei criteri **DeployIfNotExists** gestiscono le dipendenze per l'esecuzione di controlli in ogni computer.
+I criteri di configurazione Guest usano l'effetto **AuditIfNotExists** . Quando viene assegnata la definizione, un servizio back-end gestisce automaticamente il ciclo di vita di tutti i requisiti nel `Microsoft.GuestConfiguration` provider di risorse di Azure.
 
-La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elementi seguenti:
+I criteri **AuditIfNotExists** non restituiscono risultati di conformità fino a quando tutti i requisiti non vengono soddisfatti nel computer. I requisiti sono descritti nella sezione [distribuire i requisiti per le macchine virtuali di Azure](#deploy-requirements-for-azure-virtual-machines)
 
-- Conferma che al computer sia stata assegnata una configurazione da valutare. Se non è attualmente presente nessuna assegnazione, ottiene l'assegnazione e prepara il computer eseguendo queste operazioni:
-  - Autenticazione del computer usando un'[identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Installazione della versione più recente dell'estensione **Microsoft.GuestConfiguration**
-  - Installazione degli [strumenti di convalida](#validation-tools) e delle dipendenze, se necessario
+> [!IMPORTANT]
+> In una versione precedente della configurazione Guest, era necessaria un'iniziativa per combinare le definizioni **DeployIfNoteExists** e **AuditIfNotExists** . Le definizioni **DeployIfNotExists** non sono più necessarie. Le definizioni e intiaitives sono etichettate, `[Deprecated]` ma le assegnazioni esistenti continueranno a funzionare.
+>
+> È necessario eseguire un passaggio manuale. Se in precedenza sono state assegnate le iniziative dei criteri in Category `Guest Configuration` , eliminare l'assegnazione dei criteri e assegnare la nuova definizione. I criteri di configurazione Guest hanno un modello di nome come segue: `Audit <Windows/Linux> machines that <non-compliant condition>`
 
-Se l'assegnazione **DeployIfNotExists** è non conforme, è possibile usare un'[attività di correzione](../how-to/remediate-resources.md#create-a-remediation-task).
-
-Quando l'assegnazione di **DeployIfNotExists** è conforme, l'assegnazione dei criteri **AuditIfNotExists** determina se l'assegnazione guest è conforme o meno. Lo strumento di convalida fornisce i risultati al client di Configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di Configurazione guest.
-
-Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse di Configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/get-compliance-data.md).
-
-> [!NOTE]
-> I criteri **DeployIfNotExists** sono necessari affinché i criteri **AuditIfNotExists** restituiscano i risultati. Senza **DeployIfNotExists**, i criteri **AuditIfNotExists** mostrano "0 di 0" risorse come stato.
-
-Tutti i criteri predefiniti per Configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata _\[Anteprima\]: Controlla le impostazioni di sicurezza della password nelle macchine virtuali Linux e Windows_ contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) verifica che venga valutato solo il sistema operativo di destinazione.
+Criteri di Azure usa la proprietà **complianceStatus** del provider di risorse di configurazione Guest per segnalare la conformità nel nodo **conformità** . Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Controllo delle impostazioni del sistema operativo secondo le impostazioni di base del settore
 

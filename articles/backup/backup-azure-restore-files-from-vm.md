@@ -4,16 +4,16 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654158"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757150"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
-Backup di Azure offre la possibilità di ripristinare [dischi e macchine virtuali (VM) di Azure](./backup-azure-arm-restore-vms.md) dai backup di VM di Azure, detti anche punti di recupero. Questo articolo illustra come ripristinare file e cartelle da un backup di VM di Azure. Il ripristino di file e cartelle è disponibile solo per le VM di Azure distribuite con il modello Resource Manager e protette in un insieme di credenziali dei servizi di ripristino.
+Backup di Azure offre la possibilità di ripristinare [dischi e macchine virtuali (VM) di Azure](./backup-azure-arm-restore-vms.md) dai backup di VM di Azure, detti anche punti di recupero. Questo articolo illustra come ripristinare file e cartelle da un backup di VM di Azure. Il ripristino di file e cartelle è disponibile solo per le VM di Azure distribuite usando il modello di Gestione risorse e protette in un insieme di credenziali di servizi di ripristino.
 
 > [!NOTE]
 > Questa funzionalità è disponibile per le VM di Azure distribuite usando il modello Resource Manager e protette in un insieme di credenziali di Servizi di ripristino.
@@ -68,7 +68,7 @@ Per assicurarsi che lo script venga eseguito correttamente, fare riferimento all
 
 Quando si esegue il file eseguibile, il sistema operativo monta i nuovi volumi e assegna lettere di unità. È possibile usare Esplora risorse o Esplora file per individuare queste unità. Le lettere di unità assegnate ai volumi potrebbero non essere le stesse lettere della macchina virtuale originale. Il nome del volume viene tuttavia mantenuto. Il volume della macchina virtuale originale "Disco dati (E:`\`)", ad esempio, può essere collegato nel computer locale come "Disco dati ('Qualsiasi lettera':`\`)". Esplorare tutti i volumi indicati nell'output dello script fino a individuare i file o la cartella.  
 
-   ![Menu Ripristino file](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![Volumi di ripristino collegati](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### <a name="for-linux"></a>Per Linux
 
@@ -302,7 +302,7 @@ Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richi
 Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
 
 - `download.microsoft.com`
-- URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
+- URL del servizio di ripristino (nome geografico si riferisce all'area in cui risiede l'insieme di credenziali dei servizi di ripristino)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Per le aree pubbliche di Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (per Azure China (21Vianet))
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Per Azure US Gov)
@@ -332,7 +332,7 @@ Poiché il processo di recupero file connette tutti i dischi dal backup, quando 
     - Verificare che il sistema operativo sia WS 2012 o versione successiva.
     - Verificare che le chiavi del Registro di sistema siano impostate come indicato di seguito nel server di ripristino e assicurarsi di riavviare il server. Il numero accanto al GUID può essere compreso tra 0001 e 0005. Nell'esempio seguente è 0004. Passare al percorso della chiave del Registro di sistema fino alla sezione Parameters.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![Modifiche della chiave del registro di sistema](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -343,7 +343,7 @@ Poiché il processo di recupero file connette tutti i dischi dal backup, quando 
 
 - Se il server di ripristino è una macchina virtuale Linux:
   - Nel file /etc/iscsi/iscsid.conf modificare l'impostazione da:
-    - node.conn[0].timeo.noop_out_timeout = 5 in node.conn[0].timeo.noop_out_timeout = 30
+    - `node.conn[0].timeo.noop_out_timeout = 5`  A `node.conn[0].timeo.noop_out_timeout = 30`
 - Dopo avere apportato la modifica precedente, eseguire di nuovo lo script. Con queste modifiche, è molto probabile che il ripristino del file venga eseguito correttamente.
 - Ogni volta che un utente scarica uno script, Backup di Azure avvia il processo di preparazione del punto di ripristino per il download. Con dischi di grandi dimensioni, questo processo richiede molto tempo. In caso di picchi di richieste successivi, la preparazione della destinazione entra in una spirale di download. È quindi consigliabile scaricare uno script da Portal/PowerShell/CLI, attendere 20-30 minuti (approccio euristico) e quindi eseguirlo. A questo punto, la destinazione dovrebbe essere pronta per la connessione dallo script.
 - Dopo il ripristino del file, assicurarsi di tornare al portale e selezionare **smontare i dischi** per i punti di ripristino in cui non è stato possibile montare i volumi. In pratica, questo passaggio elimina eventuali processi/sessioni esistenti e aumenta le probabilità di ripristino.

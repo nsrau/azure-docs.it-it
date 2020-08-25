@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927216"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752329"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -364,6 +364,16 @@ Quando si tenta di configurare gli ACL di Windows con Esplora file in una condiv
 ### <a name="solution"></a>Soluzione
 
 È consigliabile usare [lo strumento icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) per configurare le autorizzazioni a livello di directory/file come soluzione alternativa. 
+
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Errori durante l'esecuzione del cmdlet join-AzStorageAccountForAuth
+
+### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Errore: "il servizio directory non è stato in grado di allocare un identificatore relativo"
+
+Questo errror può verificarsi se un controller di dominio che dispone del ruolo FSMO master RID non è disponibile o è stato rimosso dal dominio e ripristinato dal backup.  Verificare che tutti i controller di dominio siano in esecuzione e disponibili.
+
+### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Errore: "Cannot bind positional parameters because no names were given" (Non è possibile associare i parametri posizionali perché non è stato indicato alcun nome)
+
+Probabilmente questo errore viene attivato da un errore di sintassi nel comando join-AzStorageAccountforAuth.  Controllare il comando per rilevare errori di ortografia o di sintassi e verificare che sia installata la versione più recente del modulo AzFilesHybrid https://github.com/Azure-Samples/azure-files-samples/releases) .  
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

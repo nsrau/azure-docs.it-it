@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup e il ripristino de
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566234"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757439"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e ripristino di dischi selettivi per macchine virtuali di Azure
 
@@ -38,7 +38,7 @@ Assicurarsi di usare AZ CLI Version 2.0.80 o versione successiva. È possibile o
 az --version
 ```
 
-Accedere all'ID sottoscrizione in cui si trovano l'insieme di credenziali dei servizi di ripristino e la macchina virtuale:
+Accedere all'ID sottoscrizione in cui è presente l'insieme di credenziali dei servizi di ripristino e la macchina virtuale:
 
 ```azurecli
 az account set -s {subscriptionID}

@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: dfed3f983867568befc77d7dbc81cdde70eef9ed
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2c83350acad59e72cfabc8e40069aab46d785b63
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589606"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763117"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -160,7 +160,7 @@ Per assegnare la chiave:
 
         ![Selezionare la chiave da Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save** (Salva).
 
 1. **Rilevamento dello stato di avanzamento dell'aggiornamento della chiave di crittografia:** È possibile tenere traccia dello stato di avanzamento dell'assegnazione della chiave usando il **log attività** nell'insieme di credenziali di servizi di ripristino. Lo stato dovrebbe presto essere modificato in **riuscito**. L'insieme di credenziali ora eseguirà la crittografia di tutti i dati con la chiave specificata come KEK.
 
