@@ -3,12 +3,12 @@ title: Eseguire il backup dello stato del sistema Windows in Azure
 description: Informazioni su come eseguire il backup dello stato del sistema dei computer Windows Server in Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263045"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824463"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Eseguire il backup dello stato del sistema Windows in Azure
 
@@ -98,7 +98,7 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 ## <a name="install-and-register-the-agent"></a>Installare e registrare l'agente
 
 > [!NOTE]
-> L'abilitazione del backup tramite il portale di Azure non è ancora disponibile. Usare l'agente di Servizi di ripristino di Microsoft Azure per eseguire il backup dello stato del sistema Windows Server.
+> L'abilitazione del backup tramite il portale di Azure non è disponibile. Usare l'agente di Servizi di ripristino di Microsoft Azure per eseguire il backup dello stato del sistema Windows Server.
 >
 
 1. Cercare e fare doppio clic sul file **MARSagentinstaller.exe** nella cartella Downloads o nella cartella in cui è stato salvato.
@@ -116,7 +116,7 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
    * Salvare la passphrase di crittografia in un luogo sicuro.
 
      > [!NOTE]
-     > Se la passphrase viene persa o dimenticata, Microsoft non potrà offrire assistenza per il recupero dei dati di backup. Salvare il file in una posizione sicura. È necessario per ripristinare un backup.
+     > Se la passphrase viene persa o dimenticata, Microsoft non può contribuire a recuperare i dati di backup. Salvare il file in una posizione sicura. È necessario ripristinare un backup.
      >
      >
 
@@ -132,7 +132,7 @@ Il backup iniziale comprende due attività:
 Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Microsoft Azure.
 
 > [!NOTE]
-> È possibile eseguire il backup dello stato del sistema in Windows Server 2008 R2 tramite Windows Server 2016. Il backup dello stato del sistema non è supportato per le SKU client. Lo stato del sistema non viene visualizzato come opzione per i client Windows o per i computer Windows Server 2008 SP2.
+> È possibile eseguire il backup dello stato del sistema in Windows Server 2008 R2 tramite Windows Server 2016. Il backup dello stato del sistema non è supportato negli SKU client. Lo stato del sistema non viene visualizzato come opzione per i client Windows o per i computer Windows Server 2008 SP2.
 >
 >
 
@@ -158,7 +158,7 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
 8. Nella pagina Conferma esaminare le informazioni e quindi fare clic su **fine**.
 
-9. Al termine della creazione della pianificazione del backup da parte della procedura guidata, selezionare **Chiudi**.
+9. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
 
 ### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Eseguire il backup dello stato del sistema Windows Server per la prima volta
 
@@ -170,9 +170,9 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
 3. Selezionare **stato del sistema** nella schermata **Selezione elemento di backup** visualizzata e selezionare **Avanti**.
 
-4. Nella pagina Conferma riesaminare le impostazioni che l'Esecuzione guidata backup userà per il backup del computer. Quindi selezionare **backup**.
+4. Nella pagina Conferma riesaminare le impostazioni che l'Esecuzione guidata backup userà per il backup del computer. Selezionare quindi **Backup**.
 
-5. Selezionare **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
+5. Fare clic su **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
     > [!NOTE]
     > L'agente MARS viene attivato `SFC /verifyonly` come parte delle verifiche preliminari prima di ogni backup dello stato del sistema. In questo modo si garantisce che i file di cui è stato eseguito il backup come parte dello stato del sistema abbiano le versioni corrette corrispondenti alla versione di Windows. Altre informazioni su controllo file di sistema (SFC) in [questo articolo](/windows-server/administration/windows-commands/sfc).
     >

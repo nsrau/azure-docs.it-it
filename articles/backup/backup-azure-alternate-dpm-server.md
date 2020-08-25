@@ -3,12 +3,12 @@ title: Recuperare dati da un server di Backup di Azure
 description: Recuperare i dati che sono stati protetti in un insieme di credenziali di Servizi di ripristino da qualsiasi server di Backup di Azure registrato in tale insieme di credenziali.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 5531a2a9599465bd5ad3410504cbf341fb6c0c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ae34184679b5144288a4c8cb4dabd90ae69fa1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84249077"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827444"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Ripristinare i dati da un server di Backup di Azure
 
@@ -54,8 +54,8 @@ Per ripristinare i dati da un server di Backup di Azure:
 8. Scegliere l'opzione relativa a **Crea copia**, **Ignora** o **Sovrascrivi**.
 
    * **Crea copia**: crea una copia del file se si verifica un conflitto di nome.
-   * **Ignora** : se si verifica un conflitto di nomi, non ripristina il file, lasciando il file originale.
-   * **Sovrascrivi**: se si verifica un conflitto di nome, sovrascrive la copia esistente del file.
+   * **Ignora** : se si verifica un conflitto di nomi, il file non viene ripristinato, lasciando il file originale.
+   * Sovrascrivi: se si verifica un conflitto di nomi **, sovrascrive la** copia esistente del file.
 
      Scegliere l'opzione appropriata per **Ripristina protezione**. È possibile applicare le impostazioni di sicurezza del computer di destinazione in cui i dati vengono ripristinati o le impostazioni di sicurezza che erano applicabili al prodotto nel momento in cui è stato creato il punto di ripristino.
 
@@ -83,7 +83,7 @@ Per ripristinare i dati da un server di Backup di Azure:
 | 1. |Questo server non è registrato nell'insieme di credenziali specificate per le credenziali dell'insieme di credenziali. |**Causa:** questo errore viene visualizzato quando il file di archivio dell'insieme di credenziali selezionato non appartiene a un insieme di credenziali di Servizi di ripristino associato al server di Backup di Azure in cui viene tentato il ripristino. <br> **Risoluzione:** scaricare il file di archivio delle credenziali dall'insieme di credenziali di Servizi di ripristino nel quale il server di Backup di Azure è registrato. |
 | 2. |I dati ripristinabili non sono disponibili o il server selezionato non è un server DPM. |**Motivo:** Non sono presenti altri server di backup di Azure registrati nell'insieme di credenziali di servizi di ripristino oppure i server non hanno ancora caricato i metadati o il server selezionato non è un server di Backup di Azure (usando Windows Server o Windows client). <br> **Risoluzione:** se sono presenti altri server di Backup di Azure registrati per l'insieme di credenziali di Servizi di ripristino, assicurarsi che sia installato l'agente di Backup di Azure più recente. <br>Se sono presenti altri server di Backup di Azure registrati nell'insieme di credenziali di Servizi di ripristino, attendere un giorno dopo l'installazione per avviare il processo di ripristino. I processi notturni caricheranno i metadati per tutti i backup protetti nel cloud. I dati saranno disponibili per il ripristino. |
 | 3. |Nessun altro server DPM viene registrato nell'insieme di credenziali. |**Causa:** non ci sono altri server di Backup di Azure registrati nell'insieme di credenziali da cui si sta tentando il ripristino.<br>**Risoluzione:** se sono presenti altri server di Backup di Azure registrati per l'insieme di credenziali di Servizi di ripristino, assicurarsi che sia installato l'agente di Backup di Azure più recente.<br>Se sono presenti altri server di Backup di Azure registrati nell'insieme di credenziali di Servizi di ripristino, attendere un giorno dopo l'installazione per avviare il processo di ripristino. I processi notturni caricano i metadati per tutti i backup protetti nel cloud. I dati saranno disponibili per il ripristino. |
-| 4. |La passphrase di crittografia fornita non corrisponde alla passphrase associata al server seguente:**\<server name>** |**Causa:** la passphrase di crittografia usata nel processo di crittografia dai dati del server di Backup di Azure che è stata ripristinata non corrisponde a quella specificata. L'agente non è in grado di decrittografare i dati, quindi il ripristino non riesce.<br>**Risoluzione:** specificare esattamente la stessa passphrase di crittografia associata al server di Backup di Azure i cui dati sono stati ripristinati. |
+| 4. |La passphrase di crittografia fornita non corrisponde alla passphrase associata al server seguente: **\<server name>** |**Causa:** la passphrase di crittografia usata nel processo di crittografia dai dati del server di Backup di Azure che è stata ripristinata non corrisponde a quella specificata. L'agente non è in grado di decrittografare i dati, quindi il ripristino non riesce.<br>**Risoluzione:** specificare esattamente la stessa passphrase di crittografia associata al server di Backup di Azure i cui dati sono stati ripristinati. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

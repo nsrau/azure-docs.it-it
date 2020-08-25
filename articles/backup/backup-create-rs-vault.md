@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare e configurare insiemi di crede
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 309d87da11c6a015a9e4db8429587e498d55882c
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 048b0e3fae776be5577948f91d84bb2be7fa2d59
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757745"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827359"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
@@ -57,7 +57,7 @@ Per questo processo, esistono implicazioni relative ai prezzi a livello di archi
 >- La funzionalità di ripristino tra aree (CRR) è ora visualizzata in anteprima in tutte le aree pubbliche di Azure.
 >- CRR è una funzionalità di consenso esplicito a livello di insieme di credenziali GRS (disattivata per impostazione predefinita).
 >- Dopo aver acconsentito, potrebbero essere necessarie fino a 48 ore affinché gli elementi di backup siano disponibili nelle aree secondarie.
->- Attualmente CRR è supportato solo per il tipo di gestione di backup-macchina virtuale di Azure ARM (la macchina virtuale di Azure classica non sarà supportata).  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
+>- Attualmente CRR è supportato solo per il tipo di gestione di backup: macchina virtuale di Azure ARM (la macchina virtuale di Azure classica non sarà supportata).  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
 >- Il ripristino tra aree attualmente non può essere ripristinato in GRS o con ridondanza locale una volta avviata la protezione per la prima volta.
 
 ### <a name="configure-cross-region-restore"></a>Configurare il ripristino tra aree

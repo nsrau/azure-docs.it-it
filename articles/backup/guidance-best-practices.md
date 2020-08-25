@@ -3,12 +3,12 @@ title: Materiale sussidiario e procedure consigliate
 description: Scopri le procedure consigliate e le linee guida per il backup del carico di lavoro cloud e locale nel cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757592"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825580"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Eseguire il backup di carichi di lavoro cloud e locali nel cloud
 
@@ -143,7 +143,7 @@ Per semplificare la protezione dei dati di backup e soddisfare le esigenze di si
 
 * Backup di Azure include diversi controlli di sicurezza incorporati nel servizio per prevenire, rilevare e rispondere alle vulnerabilità di sicurezza (altre informazioni)
 
-* Gli account di archiviazione usati dagli insiemi di credenziali dei servizi di ripristino sono isolati e non è possibile accedervi dagli utenti per eventuali scopi dannosi. L'accesso è consentito solo tramite le operazioni di gestione di Backup di Azure, ad esempio il ripristino.
+* Gli account di archiviazione usati dagli insiemi di credenziali dei servizi di ripristino sono isolati e non è possibile accedervi dagli utenti per scopi dannosi. L'accesso è consentito solo tramite le operazioni di gestione di Backup di Azure, ad esempio il ripristino.
 
 ### <a name="encryption-of-data-in-transit-and-at-rest"></a>Crittografia dei dati in transito e inattivi
 
@@ -247,13 +247,13 @@ Un utente o un amministratore di backup deve essere in grado di monitorare tutte
 
 * Backup di Azure fornisce un meccanismo di notifica degli **avvisi incorporato** tramite posta elettronica per errori, avvisi e operazioni critiche. È possibile specificare singoli indirizzi di posta elettronica o liste di distribuzione per ricevere una notifica quando viene generato un avviso. È anche possibile scegliere se ricevere una notifica per ogni singolo avviso o raggrupparli in un digest orario e quindi ricevere una notifica.
   * Questi avvisi sono definiti dal servizio e forniscono supporto per scenari limitati: errori di backup/ripristino, arresto della protezione con Mantieni dati/Interrompi protezione con Elimina dati e così via. [Altre informazioni](backup-azure-monitoring-built-in-monitor.md#alert-scenarios)sono disponibili qui.
-  * Se viene eseguita un'operazione distruttiva, ad esempio arresta la protezione con l'eliminazione dei dati, viene generato un avviso e viene inviato un messaggio di posta elettronica ai proprietari, agli amministratori e ai coamministratori della sottoscrizione anche se le notifiche non sono configurate per l'insieme di credenziali di servizi di ripristino.
+  * Se viene eseguita un'operazione distruttiva, ad esempio arresta la protezione con l'eliminazione dei dati, viene generato un avviso e viene inviato un messaggio di posta elettronica ai proprietari, agli amministratori e ai coamministratori della sottoscrizione anche se le notifiche **non** sono configurate per l'insieme di credenziali di servizi di ripristino.
   * Alcuni carichi di lavoro possono generare una frequenza elevata di errori, ad esempio SQL Server ogni 15 minuti. Per evitare che vengano sovraccaricati gli avvisi generati per ogni occorrenza di errore, gli avvisi vengono consolidati. [Altre informazioni](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts)sono disponibili qui.
   * Gli avvisi incorporati non possono essere personalizzati e sono limitati ai messaggi di posta elettronica definiti nel portale di Azure.
 
 * Se è necessario **creare avvisi personalizzati** (ad esempio, avvisi di processi riusciti), usare log Analytics. In Monitoraggio di Azure è possibile creare avvisi personalizzati in un'area di lavoro Log Analytics. I carichi di lavoro ibridi (DPM/MAB) possono anche inviare dati a LA e usare LA per fornire avvisi comuni tra i carichi di lavoro supportati da backup di Azure.
 
-* È anche possibile ottenere le notifiche tramite i **log attività**predefiniti dell'insieme di credenziali di servizi di ripristino. supporta tuttavia scenari limitati e non è adatto per operazioni come il backup pianificato, che si allinea meglio con i log delle risorse rispetto ai log attività. Per altre informazioni su queste limitazioni e su come usare Log Analytics area di lavoro per il monitoraggio e l'invio di avvisi su larga scala per tutti i carichi di lavoro protetti da backup di Azure, fare riferimento a questo [articolo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* È anche possibile ottenere le notifiche tramite i **log attività**predefiniti dell'insieme di credenziali di servizi di ripristino. Supporta tuttavia scenari limitati e non è adatto per operazioni come il backup pianificato, che si allinea meglio con i log delle risorse rispetto ai log attività. Per altre informazioni su queste limitazioni e su come usare Log Analytics area di lavoro per il monitoraggio e l'invio di avvisi su larga scala per tutti i carichi di lavoro protetti da backup di Azure, fare riferimento a questo [articolo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

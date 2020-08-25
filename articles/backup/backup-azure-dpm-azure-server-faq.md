@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande più co
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: b2994e250c37d707eee5428e83c151728f83a1ab
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00eb064aaf549ee0d83d0cf7d9c9b47c2dc5ef78
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522930"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827206"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Domande frequenti su server di Backup di Azure e DPM
 
@@ -65,7 +65,7 @@ Sì, l'elemento può essere ripristinato nel sito originale di SharePoint.
 
 ### <a name="can-i-recover-a-sharepoint-database-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson"></a>È possibile ripristinare un database di SharePoint nel percorso originale se SharePoint è configurato con SQL AlwaysOn?
 
-Poiché i database di SharePoint sono configurati in SQL AlwaysOn, non possono essere modificati se non si rimuove il gruppo di disponibilità. Di conseguenza DPM non può ripristinare il database nel percorso originale. È possibile ripristinare un database di SQL Server in un'altra istanza di SQL Server.
+Poiché i database di SharePoint sono configurati in SQL AlwaysOn, non possono essere modificati, a meno che il gruppo di disponibilità non venga rimosso. Di conseguenza, DPM non è in grado di ripristinare un database nel percorso originale. È possibile ripristinare un database di SQL Server in un'altra istanza di SQL Server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

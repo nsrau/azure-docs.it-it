@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51804a9f98bfa17dcfbeb90a268b91b2d28dbbde
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086592"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827223"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Log e metriche di Firewall di Azure
 
 È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure.
 
-Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati ai [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati nei log di Monitoraggio di Azure o con strumenti diversi come ad esempio Excel e Power BI.
+Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati a [log di monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), archiviazione e hub eventi e analizzati nei log di monitoraggio di Azure o in strumenti diversi, ad esempio Excel e Power bi.
 
 Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rendendoli utili per gli avvisi e il rilevamento rapido dei problemi.
 
@@ -111,11 +111,11 @@ Per il firewall di Azure sono disponibili le metriche seguenti:
 
     Unità: percentuale
 
-   Questa metrica ha due dimensioni:
+   Questa metrica dispone di due dimensioni:
   - Stato: i valori possibili sono *integro*, *danneggiato*, non *integro*.
   - Motivo: indica il motivo dello stato corrispondente del firewall. 
 
-     Se vengono usate le porte SNAT > 95%, vengono considerate esaurite e l'integrità è 50% con status =**Degraded** e Reason =**SNAT Port**. Il firewall mantiene l'elaborazione del traffico e le connessioni esistenti non sono interessate. Tuttavia, le nuove connessioni potrebbero non essere stabilite in modo intermittente.
+     Se vengono usate le porte SNAT > 95%, vengono considerate esaurite e l'integrità è 50% con status =**Degraded** e Reason =**SNAT Port**. Il firewall continua a elaborare il traffico e le connessioni esistenti non sono interessate. Tuttavia, le nuove connessioni potrebbero non essere stabilite in modo intermittente.
 
      Se vengono usate porte SNAT < 95%, il firewall viene considerato integro e l'integrità viene visualizzata come 100%.
 
@@ -125,7 +125,7 @@ Per il firewall di Azure sono disponibili le metriche seguenti:
 
     Unità: percentuale
 
-   Quando si aggiungono altri indirizzi IP pubblici al firewall, sono disponibili più porte SNAT, riducendo l'utilizzo delle porte SNAT. Inoltre, quando il firewall viene scalato per diversi motivi, ad esempio CPU o velocità effettiva, diventano disponibili anche porte SNAT aggiuntive. Pertanto, una determinata percentuale di utilizzo delle porte SNAT può diventare inattiva senza aggiungere indirizzi IP pubblici, solo perché il servizio è stato scalato orizzontalmente. È possibile controllare direttamente il numero di indirizzi IP pubblici disponibili per aumentare le porte disponibili sul firewall. Tuttavia, non è possibile controllare direttamente il ridimensionamento del firewall. Attualmente, le porte SNAT vengono aggiunte solo per i primi cinque indirizzi IP pubblici.   
+   Quando si aggiungono altri indirizzi IP pubblici al firewall, sono disponibili più porte SNAT, cosa che ne riduce l'utilizzo. Inoltre, quando il firewall viene ridimensionato per diversi motivi, ad esempio in termini di CPU o velocità effettiva, diventano disponibili anche porte SNAT aggiuntive. Pertanto, una determinata percentuale di utilizzo delle porte SNAT può diventare inattiva senza aggiungere indirizzi IP pubblici, solo perché il servizio è stato scalato orizzontalmente. È possibile controllare direttamente il numero di indirizzi IP pubblici disponibili per aumentare le porte disponibili sul firewall. Tuttavia, non è possibile controllare direttamente il ridimensionamento del firewall.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

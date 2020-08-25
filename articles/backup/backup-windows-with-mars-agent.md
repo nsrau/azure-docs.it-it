@@ -3,12 +3,12 @@ title: Eseguire il backup di computer Windows usando l'agente MARS
 description: Utilizzare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup dei computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 381df40dfe4149b2f43dc22bb2186ec1f17b0515
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538633"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825895"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Eseguire il backup di file e cartelle di Windows Server in Azure
 
@@ -89,7 +89,7 @@ Per creare un criterio di backup:
 
     ![Confermare il tipo di backup](./media/backup-azure-manage-mars/confirm-backup-type.png)
 
-1. Al termine della creazione della pianificazione del backup da parte della procedura guidata, selezionare **Chiudi**.
+1. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
 
     ![Visualizzare lo stato di avanzamento della pianificazione del backup](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
 
@@ -138,7 +138,7 @@ Per abilitare la limitazione della larghezza di banda:
    ![Usare il calendario per personalizzare una data di conservazione](./media/backup-configure-vault/mars-ondemand.png)
 
 1. Nella pagina **conferma** rivedere le impostazioni e selezionare **backup**.
-1. Selezionare **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima del completamento del backup, la procedura guidata continua a essere eseguita in background.
+1. Fare clic su **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima del completamento del backup, la procedura guidata continua a essere eseguita in background.
 
 Al termine del backup iniziale, lo stato del **processo completato** viene visualizzato nella console di backup.
 

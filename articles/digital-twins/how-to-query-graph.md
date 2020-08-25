@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905594"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824951"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -187,7 +187,7 @@ Potrebbe verificarsi un ritardo di un massimo di 10 secondi prima che le modific
 
 Esistono ulteriori limitazioni sull'utilizzo di `JOIN` durante l'anteprima.
 * Nessuna sottoquery supportata nell' `FROM` istruzione.
-* `OUTER JOIN`la semantica non è supportata, ovvero se la relazione ha un rango pari a zero, l'intera "riga" viene eliminata dal set di risultati di output.
+* `OUTER JOIN` la semantica non è supportata, ovvero se la relazione ha un rango pari a zero, l'intera "riga" viene eliminata dal set di risultati di output.
 * Durante l'anteprima, la profondità di attraversamento del grafico è limitata a cinque `JOIN` livelli per query.
 * L'origine per `JOIN` le operazioni è limitata: la query deve dichiarare i dispositivi gemelli in cui inizia la query.
 
@@ -222,7 +222,6 @@ Di seguito sono riportati alcuni suggerimenti per eseguire query con i dispositi
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * I nomi e i valori delle proprietà fanno distinzione tra maiuscole e minuscole, quindi prestare attenzione a utilizzare i nomi esatti definiti nei modelli. Se i nomi delle proprietà non sono stati digitati in modo errato o sono stati erroneamente configurati, il set di risultati è vuoto e non vengono restituiti errori.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

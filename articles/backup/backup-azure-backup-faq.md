@@ -3,18 +3,18 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96ff7fedf0574d5eb1b7bb540ccb425f4d7e9ade
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 332b86d58e4c3f64dfbc528b4fe30399ef69d2a3
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757201"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827393"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
 
-## <a name="recovery-services-vault"></a>Insieme di credenziali dei servizi di ripristino
+## <a name="recovery-services-vault"></a>Insieme di credenziali di Servizi di ripristino
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Esistono limiti al numero degli insiemi di credenziali che è possibile creare in ogni sottoscrizione di Azure?
 
@@ -214,7 +214,7 @@ Sì. I dati in Azure vengono crittografati a riposo.
 - Per il backup in locale, la crittografia dei dati inattivi viene eseguita con l'uso della passphrase immessa durante il backup in Azure.
 - Per le macchine virtuali di Azure, i dati inattivi sono crittografati usando la crittografia del servizio di archiviazione.
 
-Microsoft non decrittografa mai i dati di backup.
+Microsoft non decrittografa i dati di backup in qualsiasi momento.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Qual è la lunghezza minima della chiave di crittografia usata per crittografare i dati di backup?
 
@@ -222,7 +222,7 @@ La chiave di crittografia utilizzata dall'agente di Servizi di ripristino di Mic
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può ripristinare i dati?
 
-La chiave usata per crittografare i dati di backup è presente solo sul posto. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
+La chiave usata per crittografare i dati di backup è presente solo sul posto. Microsoft non gestisce una copia in Azure e non ha accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

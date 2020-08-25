@@ -3,12 +3,12 @@ title: Eliminazione temporanea per SQL Server in una macchina virtuale di Azure 
 description: Informazioni su come l'eliminazione temporanea per SQL Server in macchine virtuali di Azure e SAP HANA nei carichi di lavoro delle macchine virtuali di Azure rende più sicuri i backup.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: bf9cc2551d85c1bc663db2f9e61e2ea6895f1d23
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757473"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825172"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Eliminazione temporanea per SQL Server in una macchina virtuale di Azure e SAP HANA nei carichi di lavoro delle macchine virtuali di Azure
 
@@ -99,7 +99,7 @@ La sequenza di passaggi per l'utilizzo di Azure PowerShell è identica a quella 
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Eliminare l'elemento di backup usando Azure PowerShell
 
-Eliminare l'elemento di backup usando il cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
+Eliminare l'elemento di backup usando il cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) di PowerShell.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -117,7 +117,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-Eseguire quindi l'operazione di annullamento dell'eliminazione usando il cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
+Eseguire quindi l'operazione di annullamento dell'eliminazione usando il cmdlet di PowerShell [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) .
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612521"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825189"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -135,7 +135,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Impostazione** | **Limiti**
 --- | ---
-**Numero massimo di punti di ripristino per ogni istanza protetta (computer o carico di lavoro)** | 9\.999
+**Punti di ripristino massimi per istanza protetta (computer o carico di lavoro)** | 9\.999
 **Tempo massimo prima della scadenza di un punto di ripristino** | Nessun limite
 **Frequenza massima di backup in DPM/MABS** | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro
 **Frequenza massima di backup in insieme di credenziali** | **Computer Windows locali o VM di Azure che eseguono MARS:** tre volte al giorno<br/><br/> **DPM/MABS:** due volte al giorno<br/><br/> **Backup di VM di Azure:** una volta al giorno

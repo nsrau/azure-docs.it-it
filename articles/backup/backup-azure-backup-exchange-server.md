@@ -4,12 +4,12 @@ description: Informazioni su come eseguire il backup di un server di Exchange in
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: c9d54bb8e9875bcd622c5ce5343dc6f8baa3f2be
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 139741c4f721f0fd86cc585b4cfb2ed97c45b25c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763576"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827410"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 
@@ -62,7 +62,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 
    * Protezione dati breve termine tramite: Disco.
    * Protezione dati online.
-6. Fare clic su **Avanti**.
+6. Fare clic su **Next** (Avanti).
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
     Dopo aver selezionato questa opzione, la verifica della coerenza dei backup verrà eseguita nel server DPM per evitare il traffico di I/O generato eseguendo il comando **eseutil** sul server Exchange.
@@ -72,7 +72,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Fare clic su **Avanti**.
+8. Fare clic su **Next** (Avanti).
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
    > [!NOTE]

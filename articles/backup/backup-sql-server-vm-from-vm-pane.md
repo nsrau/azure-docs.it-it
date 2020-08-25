@@ -3,12 +3,12 @@ title: Eseguire il backup di una macchina virtuale SQL Server dal riquadro VM
 description: Questo articolo illustra come eseguire il backup di SQL Server database in macchine virtuali di Azure dal riquadro VM.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3d44c856d264c784d07b8301fa5605affddd7c02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755246"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827478"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Eseguire il backup di un SQL Server dal riquadro VM
 
@@ -60,7 +60,7 @@ Questo articolo illustra come eseguire il backup di SQL Server in esecuzione in 
 
 7. Per le immagini non del Marketplace, la registrazione potrebbe avere esito positivo, ma la **configurazione del backup** potrebbe non essere attivata finché l'estensione di backup di Azure non dispone dell'autorizzazione per la SQL Server. In questi casi, la colonna **conformità backup** non è **pronta**. È necessario [assegnare manualmente le autorizzazioni appropriate per le](backup-azure-sql-database.md#set-vm-permissions) immagini non del Marketplace, in modo che sia possibile attivare la configurazione del backup.
 
-    ![Preparazione backup non pronta](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
+    ![La preparazione per il backup non è pronta](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
 8. Per ulteriori operazioni o monitoraggio da eseguire nella macchina virtuale SQL Server di cui è stato eseguito il backup, passare all'insieme di credenziali dei servizi di ripristino corrispondente. Passare a **elementi di backup** per visualizzare tutti i database di cui è stato eseguito il backup in questo insieme di credenziali e attivare operazioni come il backup e il ripristino su richiesta. Analogamente, passare a **processi di backup** per [monitorare](manage-monitor-sql-database-backup.md) i processi corrispondenti a operazioni come la configurazione della protezione, il backup e il ripristino.
 

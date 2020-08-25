@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9c95501c4e17e0afaa082c3e02c29934435c1a19
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3ec4e6ee49052657210fffa8976b661c1a9e5948
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032503"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827461"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -384,7 +384,7 @@ Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, all
 | Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log del traffico di rete, inclusi i servizi Network Watcher e Analisi del traffico. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usa un account di archiviazione di origine, di destinazione o della cache abilitato per il firewall.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
 
-L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a una particolare istanza dei servizi seguenti di accedere all'account di archiviazione, se si assegna in modo esplicito [un ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso, l'ambito di accesso per l'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
+L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a una particolare istanza dei servizi seguenti di accedere all'account di archiviazione, se si assegna in modo esplicito [un ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
 
 | Service                        | Nome provider di risorse                 | Scopo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -396,8 +396,8 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 | Hub IoT Azure                  | Microsoft.Devices/IotHubs              | Consente la scrittura dei dati di un hub IoT nell'archivio BLOB. [Altre informazioni](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity) |
 | Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) | 
-| Azure SQL Data Warehouse       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da istanze specifiche del database SQL tramite PolyBase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
-| database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) dei dati di controllo negli account di archiviazione dietro il firewall. |
+| Azure Synapse Analytics (in precedenza SQL Data Warehouse)       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
+| Database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) dei dati di controllo negli account di archiviazione dietro il firewall. |
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. Questa funzionalità è attualmente in anteprima. [Altre informazioni](/azure/stream-analytics/blob-output-managed-identity) |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati di Archiviazione di Azure da Synapse Analytics. |
 

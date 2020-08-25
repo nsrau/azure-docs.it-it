@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873637"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827427"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro un firewall per Azure Machine Learning
 
@@ -57,6 +57,7 @@ Gli host in questa sezione sono di proprietà di Microsoft e forniscono i serviz
 | **mcr.microsoft.com** | Microsoft Container Registry per le immagini Docker di base |
 | **your-acr-server-name.azurecr.io** | È necessario solo se il Container Registry di Azure è dietro la rete virtuale. In questa configurazione, viene creato un collegamento privato dall'ambiente Microsoft all'istanza di ACR nella sottoscrizione. Usare il nome del server ACR per l'area di lavoro Azure Machine Learning. |
 | **\*. notebooks.azure.net** | Necessaria per i notebook in Azure Machine Learning Studio. |
+| **graph.windows.net** | Necessaria per i notebook |
 
 ## <a name="python-hosts"></a>Host Python
 
@@ -78,6 +79,15 @@ Gli host in questa sezione vengono usati per installare i pacchetti R. Sono nece
 | **Nome host** | **Scopo** |
 | ---- | ---- |
 | **cloud.r-project.org** | Usato quando si installano i pacchetti CRAN. |
+
+## <a name="azure-government-region"></a>Area di Azure per enti pubblici
+
+URL richiesti per le aree di Azure per enti pubblici.
+
+| **Nome host** | **Scopo** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | Area US-Arizona |
+| **usgovvirginia.api.ml.azure.us** | Regione US-Virginia |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

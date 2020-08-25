@@ -4,12 +4,12 @@ description: Risposte alle domande frequenti sul backup di SQL Server database i
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a5fdbb78f6d700d14c2458a8d87a4b0f9a971207
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762845"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827240"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -30,7 +30,7 @@ In alcune circostanze, il servizio backup di Azure attiva i backup corretti. La 
 - Se si sceglie di sovrascrivere il database durante il ripristino, il successivo backup del log/differenziale ha esito negativo e viene invece attivato un backup completo.
 - Nei casi in cui è necessario un backup completo per reimpostare le catene di log a causa di una modifica nel modello di recupero del database, viene attivata automaticamente una completa per la pianificazione successiva.
 
-Per impostazione predefinita, la funzionalità di correzione automatica è abilitata per tutti gli utenti. Tuttavia, nel caso in cui si scelga di rifiutare esplicitamente, eseguire le operazioni seguenti:
+Per impostazione predefinita, la funzionalità di correzione automatica è abilitata per tutti gli utenti. Tuttavia, se si sceglie di rifiutare esplicitamente, seguire questa procedura:
 
 - Nell'istanza di SQL Server, nella cartella *C:\Program Files\Azure workload Backup\bin* creare o modificare il **ExtensionSettingsOverrides.jssu** file.
 - In **ExtensionSettingsOverrides.json**impostare *{"EnableAutoHealer": false}*.
@@ -56,7 +56,7 @@ Il valore predefinito di DefaultBackupTasksThreshold è **20**.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>È possibile eseguire un backup completo da una replica secondaria?
 
-Secondo le limitazioni di SQL, è possibile eseguire solo backup completo di copia nella replica secondaria; Tuttavia, il backup completo non è consentito.
+Secondo le limitazioni di SQL, è possibile eseguire il backup completo di copia solo sulla replica secondaria. Tuttavia, il backup completo non è consentito.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>È possibile proteggere I gruppi di disponibilità in locale?
 

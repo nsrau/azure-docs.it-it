@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2c83350acad59e72cfabc8e40069aab46d785b63
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 9e299095709e07d3c73c8e8c847042cc51f549dd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763117"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827342"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -60,7 +60,7 @@ Questa sezione prevede i passaggi seguenti:
 Backup di Azure usa l'identità gestita assegnata dal sistema per autenticare l'insieme di credenziali di servizi di ripristino per accedere alle chiavi di crittografia archiviate nel Azure Key Vault. Per abilitare l'identità gestita per l'insieme di credenziali di servizi di ripristino, attenersi alla procedura descritta di seguito.
 
 >[!NOTE]
->Una volta abilitata, l'identità gestita non deve essere disabilitata (anche temporaneamente). La disabilitazione dell'identità gestita può causare un comportamento incoerente.
+>Una volta abilitata, l'identità gestita **non** deve essere disabilitata (anche temporaneamente). La disabilitazione dell'identità gestita può causare un comportamento incoerente.
 
 1. Passare all'insieme di credenziali dei servizi di ripristino-> **identità**
 
@@ -138,7 +138,7 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 > - Tutti i passaggi indicati in precedenza sono stati completati correttamente:
 >   - L'identità gestita dell'insieme di credenziali di servizi di ripristino è stata abilitata ed è stata assegnata le autorizzazioni necessarie
 >   - Per la Azure Key Vault è abilitata l'eliminazione temporanea e la protezione da ripulitura
-> - L'insieme di credenziali di servizi di ripristino per cui si vuole abilitare la crittografia CMK non contiene elementi protetti o registrati
+> - L'insieme di credenziali di servizi di ripristino per cui si vuole abilitare la crittografia CMK **non contiene** elementi protetti o registrati
 
 Una volta verificate le precedenti, continuare con la selezione della chiave di crittografia per l'insieme di credenziali.
 
@@ -160,7 +160,7 @@ Per assegnare la chiave:
 
         ![Selezionare la chiave da Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Fare clic su **Save** (Salva).
+1. Fare clic su **Salva**.
 
 1. **Rilevamento dello stato di avanzamento dell'aggiornamento della chiave di crittografia:** È possibile tenere traccia dello stato di avanzamento dell'assegnazione della chiave usando il **log attività** nell'insieme di credenziali di servizi di ripristino. Lo stato dovrebbe presto essere modificato in **riuscito**. L'insieme di credenziali ora eseguirà la crittografia di tutti i dati con la chiave specificata come KEK.
 
@@ -252,7 +252,7 @@ No, in questo articolo viene illustrata solo la crittografia dei dati di backup.
 
 ### <a name="i-missed-one-of-the-steps-in-this-article-and-went-on-to-protect-my-data-source-can-i-still-use-cmk-encryption"></a>Ho perso una delle procedure descritte in questo articolo e ho continuato a proteggere l'origine dati. È ancora possibile usare la crittografia CMK?
 
-Non seguire i passaggi nell'articolo e continuare a proteggere gli elementi può comportare che l'insieme di credenziali non è in grado di usare la crittografia con chiavi gestite dal cliente. È quindi consigliabile fare riferimento a [questo elenco di controllo](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) prima di procedere con la protezione degli elementi.
+Non seguendo la procedura descritta nell'articolo e continuando a proteggere gli elementi, l'insieme di credenziali potrebbe non essere in grado di usare la crittografia con chiavi gestite dal cliente. È quindi consigliabile fare riferimento a [questo elenco di controllo](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) prima di procedere con la protezione degli elementi.
 
 ### <a name="does-using-cmk-encryption-add-to-the-cost-of-my-backups"></a>L'uso di CMK-Encryption viene aggiunto al costo dei backup?
 

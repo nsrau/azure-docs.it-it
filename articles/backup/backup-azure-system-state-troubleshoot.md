@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi relativi al back
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: add54955def7df31f8e1688f56382067343616fe
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763389"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824271"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
 
@@ -37,7 +37,7 @@ Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del
 
 ### <a name="limitation"></a>Limitazione
 
-- Il ripristino dello stato del sistema in un hardware diverso non è consigliato
+- Il ripristino in un hardware diverso tramite il ripristino dello stato del sistema non è consigliato da Microsoft
 - Il backup dello stato del sistema supporta attualmente i server Windows "locali". Questa funzionalità non è disponibile per le macchine virtuali di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -86,7 +86,7 @@ Per installare Windows Server Backup usando Server Manager, seguire questa proce
 
 ### <a name="system-volume-information-permission"></a>Autorizzazione informazioni volume di sistema
 
-Verificare che il sistema locale disponga del controllo completo sulla cartella **System Volume Information** che si trova nel volume in cui è installato Windows. Si tratta in genere di **informazioni sul volume c: System**. Windows Server backup può avere esito negativo se le autorizzazioni indicate sopra non sono impostate correttamente.
+Verificare che il sistema locale disponga del controllo completo sulla cartella **System Volume Information** che si trova nel volume in cui è installato Windows. Si tratta in genere di **informazioni sul volume c: System**. Windows Server backup può avere esito negativo se le autorizzazioni precedenti non sono impostate correttamente.
 
 ### <a name="dependent-services"></a>Servizi dipendenti
 
