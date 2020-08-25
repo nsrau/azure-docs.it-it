@@ -4,12 +4,12 @@ description: Informazioni sul modo in cui l'eliminazione temporanea per le macch
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503541"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763695"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminazione temporanea per le macchine virtuali
 
@@ -38,7 +38,7 @@ L'eliminazione temporanea è attualmente supportata negli Stati Uniti centro-occ
    ![Screenshot di portale di Azure, VM in stato di eliminazione temporanea](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > Se nell'insieme di credenziali sono presenti elementi di backup eliminati temporaneamente, non è possibile eliminare l'insieme di credenziali in quel momento. Provare l'eliminazione dell'insieme di credenziali dopo che gli elementi di backup sono stati eliminati definitivamente e non è presente alcun elemento nello stato di eliminazione temporanea lasciato nell'insieme di credenziali.
+   > Se nell'insieme di credenziali sono presenti elementi di backup eliminati temporaneamente, non è possibile eliminare l'insieme di credenziali in quel momento. Provare a eliminare l'insieme di credenziali dopo che gli elementi di backup sono stati eliminati definitivamente e non è presente alcun elemento nello stato di eliminazione temporanea lasciato nell'insieme di credenziali.
 
 4. Per ripristinare la macchina virtuale eliminata temporaneamente, è prima necessario annullarne l'eliminazione. Per annullare l'eliminazione, scegliere la macchina virtuale eliminata temporaneamente, quindi selezionare l'opzione **Annulla eliminazione**.
 
@@ -110,7 +110,7 @@ Il ' DeleteState ' dell'elemento di backup verrà ripristinato in ' NotDeleted '
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Eliminazione temporanea per le macchine virtuali con l'API REST
 
 - Eliminare i backup usando l'API REST come indicato [qui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- Se l'utente desidera annullare queste operazioni di eliminazione, fare riferimento ai passaggi indicati [qui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+- Se l'utente desidera annullare queste operazioni di eliminazione, fare riferimento ai passaggi indicati [qui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## <a name="how-to-disable-soft-delete"></a>Come disabilitare l'eliminazione temporanea
 

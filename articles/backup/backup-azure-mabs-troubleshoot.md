@@ -4,12 +4,12 @@ description: Risolvere i problemi di installazione e registrazione del server di
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 54b7295eaed5f04a118cf5097ebc7b25b18f67d2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 40f461c1c2e62b12497800bb1a4d1c0ee0b04579
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522845"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763491"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Risolvere i problemi del server di Backup di Azure
 
@@ -17,7 +17,7 @@ Fare riferimento alle informazioni elencate nelle tabelle seguenti possibile ris
 
 ## <a name="basic-troubleshooting"></a>Risoluzione dei problemi di base
 
-Prima di iniziare la risoluzione dei problemi del server di Backup di Microsoft Azure, è consigliabile eseguire la verifica seguente:
+Prima di iniziare la risoluzione dei problemi relativi a Backup di Microsoft Azure Server (MAB), è consigliabile eseguire la convalida seguente:
 
 - [Assicurarsi che l'agente di Servizi di ripristino di Microsoft Azure sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verificare che sia presente la connettività di rete tra l'agente MARS e Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Restore | **Codice errore**: Errore CBPServerRegisteredVaultDontMatchWithCurrent/Credenziali dell'insieme di credenziali: 100110 <br/> <br/>**Messaggio di errore**: I server DPM originali e quelli esterni devono essere registrati nello stesso insieme di credenziali | **Causa**: questo problema si verifica se si cerca di ripristinare file nel server alternativo dal server originale usando l'opzione di ripristino DPM esterno e se il server da ripristinare e il server originale da cui è stato eseguito il backup dei dati non sono associati allo stesso insieme di credenziali di Servizi di ripristino.<br/> <br/>**Soluzione alternativa**: per risolvere questo problema verificare che il server originale e il server alternativo siano registrati nello stesso insieme di credenziali.|
+| Restore | **Codice errore**: Errore CBPServerRegisteredVaultDontMatchWithCurrent/Credenziali dell'insieme di credenziali: 100110 <br/> <br/>**Messaggio di errore**: I server DPM originali e quelli esterni devono essere registrati nello stesso insieme di credenziali | **Causa**: questo problema si verifica quando si tenta di ripristinare i file nel server alternativo dal server originale utilizzando l'opzione di ripristino DPM esterno e se il server che viene ripristinato e il server originale da cui viene eseguito il backup dei dati non sono associati allo stesso insieme di credenziali di servizi di ripristino.<br/> <br/>**Soluzione alternativa**: per risolvere questo problema verificare che il server originale e il server alternativo siano registrati nello stesso insieme di credenziali.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>I processi di creazione dei punti di ripristino online per VM VMware non riescono
 
@@ -119,7 +119,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Configurazione di gruppi di protezione | DPM non è in grado di enumerare il componente dell'applicazione nel computer protetto (nome computer protetto). | Selezionare **Aggiorna** nella schermata dell'interfaccia utente per la configurazione del gruppo protezione dati al livello di origine dati/componente appropriato. |
 | Configurazione di gruppi di protezione | Impossibile configurare la protezione | Se il server protetto è un server SQL, verificare che le autorizzazioni del ruolo sysadmin siano state fornite all'account di sistema (NTAuthority\System) del computer protetto come indicato in [questo articolo](/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
 | Configurazione di gruppi di protezione | Non c'è spazio sufficiente nel pool di archiviazione per questo gruppo protezione dati. | I dischi aggiunti al pool di archiviazione [non devono contenere una partizione](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Eliminare gli eventuali volumi presenti sui dischi. Quindi aggiungerli al pool di archiviazione.|
-| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione dopo alcuni minuti. Se il problema persiste, contattare il supporto tecnico Microsoft. | **Causa:**<br/>Questo errore si verifica in tre situazioni: quando sono abilitate le impostazioni di sicurezza, quando si prova a ridurre l'intervallo di conservazione dei dati al di sotto dei valori minimi specificati in precedenza e quando si usa una versione non supportata. Le versioni non supportate sono quelle precedenti al server di Backup di Microsoft Azure 2.0.9052 e server di Backup di Azure aggiornamento 1. <br/>**Azione consigliata:**<br/> per procedere con gli aggiornamenti relativi ai criteri, impostare un periodo di conservazione superiore al periodo di conservazione minimo specificato. Il periodo di conservazione minimo è sette giorni per i backup giornalieri, quattro settimane per quelli settimanali, tre settimane per quelli mensili e un anno per quelli annuali. <br><br>Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza, un altro approccio consigliato è aggiornare l'agente di backup e il server di Backup di Azure. |
+| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione dopo alcuni minuti. Se il problema persiste, contattare il supporto tecnico Microsoft. | **Causa:**<br/>Questo errore si verifica in tre situazioni: quando sono abilitate le impostazioni di sicurezza, quando si prova a ridurre l'intervallo di conservazione dei dati al di sotto dei valori minimi specificati in precedenza e quando si usa una versione non supportata. (Le versioni non supportate sono quelle inferiori a Backup di Microsoft Azure Server versione 2.0.9052 e server di Backup di Azure aggiornamento 1). <br/>**Azione consigliata:**<br/> per procedere con gli aggiornamenti relativi ai criteri, impostare un periodo di conservazione superiore al periodo di conservazione minimo specificato. Il periodo di conservazione minimo è sette giorni per i backup giornalieri, quattro settimane per quelli settimanali, tre settimane per quelli mensili e un anno per quelli annuali. <br><br>Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza, un altro approccio consigliato è aggiornare l'agente di backup e il server di Backup di Azure. |
 
 ## <a name="backup"></a>Backup
 

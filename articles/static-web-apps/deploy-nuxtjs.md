@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9c7e03f5e658b8e15dcae1c5314b73dfbfdf0206
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 2eafd2f74ffcf5fe0fe65d04884cfd2d668cdf0b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430285"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684576"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Distribuire siti Web Nuxt.js con rendering del server in App Web statiche di Azure (anteprima)
 
@@ -56,7 +56,7 @@ Per configurare un nuovo progetto Nuxt.js, usare `create-nuxt-app`. Invece di un
     npm run dev
     ```
 
-Passare a <http://localhost:3000> per aprire l'app, dove dovrebbe essere visualizzato il sito Web seguente nel browser preferito:
+Passare a `http://localhost:3000` per aprire l'app, dove dovrebbe essere visualizzato il sito Web seguente nel browser preferito:
 
 :::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Avviare l'app Nuxt.js":::
 

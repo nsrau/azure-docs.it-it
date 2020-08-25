@@ -6,13 +6,13 @@ manager: barbkess
 ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
-ms.custom: security-recommendations
-ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: security-recommendations,fasttrack-edit
+ms.openlocfilehash: 39073169fbc4558492a47f78f0840a0e314b3ee8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447903"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763559"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
 
@@ -64,7 +64,7 @@ Per impostazione predefinita, le connessioni per NodeJS non vengono mantenute at
 Keep-alive HTTP
 
 * [per agentkeepalive](https://www.npmjs.com/package/agentkeepalive)
-* [Documentazione diNode.js v 13.9.0](https://nodejs.org/api/http.html)
+* [ Documentazione diNode.js v 13.9.0](https://nodejs.org/api/http.html)
 
 #### <a name="java"></a>Java
 
@@ -120,7 +120,7 @@ Per altri ambienti, consultare il provider o i documenti specifici del driver pe
 * Un [test di carico](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) deve simulare dati reali in una velocità di alimentazione costante. Il test delle app e delle funzioni con lo stress reale può identificare e risolvere i problemi di esaurimento delle porte SNAT in anticipo.
 * Assicurarsi che i servizi back-end possano restituire rapidamente le risposte. Per la risoluzione dei problemi di prestazioni del database SQL di Azure, vedere [risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Aumentare il numero di istanze del piano di servizio app. Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app nel Servizio app di Azure](https://docs.microsoft.com/azure/app-service/manage-scale-up). Ogni istanza del ruolo di lavoro in un piano di servizio app viene allocata in un numero di porte SNAT. Se si distribuisce l'utilizzo in più istanze, è possibile ottenere l'utilizzo della porta SNAT per ogni istanza al di sotto del limite consigliato di 100 connessioni in uscita, per endpoint remoto univoco.
-* Prendere in considerazione il passaggio a [ambiente del servizio app (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), in cui viene assegnato un singolo indirizzo IP in uscita e i limiti per le connessioni e le porte SNAT sono molto più elevati.
+* Prendere in considerazione il passaggio a [ambiente del servizio app (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), in cui viene assegnato un singolo indirizzo IP in uscita e i limiti per le connessioni e le porte SNAT sono molto più elevati. In un ambiente del servizio app il numero di porte SNAT per istanza è basato sulla tabella di preallocazione di [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatporttable) . ad esempio, un ambiente del servizio app con 1-50 di istanze di lavoro ha 1024 porte preallocate per ogni istanza, mentre un ambiente del servizio app con 51-100 istanze di lavoro ha 512 porte preallocate per istanza.
 
 Evitare i limiti TCP in uscita è più semplice da risolvere, poiché i limiti vengono impostati dalle dimensioni del ruolo di lavoro. È possibile visualizzare i limiti nei [limiti numerici di sandbox tra macchine virtuali-connessioni TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 

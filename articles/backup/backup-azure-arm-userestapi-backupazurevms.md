@@ -4,12 +4,12 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 48b5a8c596ec5b23d2962acb9c1f95a1d5aafbc0
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 89bf2df0b5b9279053ca8258e6d21b00e2789557
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761679"
+ms.locfileid: "88762879"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -41,7 +41,7 @@ L'operazione di aggiornamento è un'[operazione asincrona](../azure-resource-man
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
 |202 - Accettato     |         |     Accettato    |
@@ -104,7 +104,7 @@ All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario al
 
 #### <a name="responses-to-get-operation"></a>Risposte per l'operazione Get
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per creare un elemento protetto.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Proprietà delle risorse ProtectedItem         |
 
@@ -208,7 +208,7 @@ La creazione di un elemento protetto è un'[operazione asincrona](../azure-resou
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 - Accettato     |         |     Accettato    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Proprietà BackupRequestResource         |
 
@@ -319,7 +319,7 @@ L'attivazione di un backup su richiesta è un'[operazione asincrona](../azure-re
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accettato    |
 
@@ -439,15 +439,15 @@ L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](../
 
 L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 204 (nessun contenuto restituito) quando tale operazione viene completata.
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |204 NoContent (Nessun contenuto)     |         |  Nessun contenuto restituito       |
 |202 - Accettato     |         |     Accettato    |
 
 > [!IMPORTANT]
-> Per garantire la protezione da scenari di eliminazione accidentale, è [disponibile una funzionalità di eliminazione](use-restapi-update-vault-properties.md#soft-delete-state) temporanea per l'insieme di credenziali di servizi di ripristino. Se lo stato di eliminazione temporanea dell'insieme di credenziali è impostato su abilitato, l'operazione di eliminazione non eliminerà immediatamente i dati. Verranno conservati per 14 giorni e quindi eliminati definitivamente. Il cliente non viene addebitato per l'archiviazione per il periodo di 14 giorni. Per annullare l'operazione di eliminazione, fare riferimento alla [sezione Undo-Delete](#undo-the-stop-protection-and-delete-data).
+> Per garantire la protezione da scenari di eliminazione accidentale, è [disponibile una funzionalità di eliminazione](use-restapi-update-vault-properties.md#soft-delete-state) temporanea per l'insieme di credenziali di servizi di ripristino. Se lo stato di eliminazione temporanea dell'insieme di credenziali è impostato su abilitato, l'operazione di eliminazione non eliminerà immediatamente i dati. Verranno conservati per 14 giorni e quindi eliminati definitivamente. Il cliente non viene addebitato per l'archiviazione per il periodo di 14 giorni. Per annullare l'operazione di eliminazione, fare riferimento alla [sezione Undo-Delete](#undo-the-deletion).
 
-### <a name="undo-the-stop-protection-and-delete-data"></a>Annullare l'arresto della protezione ed eliminare i dati
+### <a name="undo-the-deletion"></a>Annulla l'eliminazione
 
 L'eliminazione accidentale è simile alla creazione dell'elemento di backup. Dopo aver annullato l'eliminazione, l'elemento viene mantenuto, ma non vengono attivati backup futuri.
 

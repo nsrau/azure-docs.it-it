@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: cc5964bb243216233300e8616b0460b7a1a043d9
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661538"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782329"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -160,6 +160,7 @@ Translator rileva le seguenti lingue per la conversione e la traslitterazione.
 |Malese| `ms`        |
 |Maltese|   `mt`    |
 |Norvegese| `nb`    |
+|Pashto|    `ps`    |
 |Persiano|   `fa`    |
 |Polacco|    `pl`    |
 |Portoghese (Brasile)|   `pt-br` |
@@ -196,19 +197,19 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Cinese semplificato `Hans` |
-| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latino `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latino `Latn` |
 | Ebraico | `he` | Ebraico `Hebr` | <--> | Latino `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Giapponese | `ja` | Giapponese `Jpan` | <--> | Latino `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latino `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
-| Marathi | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latino `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latino `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Odia | `or` | Oriya `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbo (alfabeto cirillico) | `sr-Cyrl` | Cirillico `Cyrl`  | --> | Latino `Latn` |
 | Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latino `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latino `Latn` |
 | Thai | `th` | Thai `Thai` | --> | Latino `Latn` |
 
 ### <a name="dictionary"></a>Dizionario

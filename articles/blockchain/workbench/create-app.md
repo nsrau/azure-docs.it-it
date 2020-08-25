@@ -1,15 +1,15 @@
 ---
 title: Creare un'applicazione blockchain - Azure Blockchain Workbench
 description: Esercitazione su come creare un'applicazione blockchain per l'anteprima di Azure Blockchain Workbench.
-ms.date: 10/14/2019
+ms.date: 08/24/2020
 ms.topic: tutorial
-ms.reviewer: brendal
-ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: ravastra
+ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073104"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784029"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Esercitazione: Creare un'applicazione blockchain per Azure Blockchain Workbench
 
@@ -40,7 +40,7 @@ Seguire i passaggi per creare i file dell'applicazione oppure [scaricare l'esemp
 
 ## <a name="configuration-file"></a>File di configurazione
 
-I metadati di configurazione definiscono i flussi di lavoro di alto livello e il modello di interazione dell'applicazione blockchain. I metadati di configurazione rappresentano le fasi dei flussi di lavoro e il modello di interazione dell'applicazione blockchain.
+I metadati di configurazione definiscono i flussi di lavoro di alto livello e il modello di interazione dell'applicazione blockchain. I metadati di configurazione rappresentano le fasi dei flussi di lavoro e il modello di interazione dell'applicazione blockchain. Per altre informazioni sui contenuti dei file di configurazione, vedere [Riferimento alla configurazione del flusso di lavoro di Azure Blockchain](configuration.md).
 
 1. Usare l'editor preferito per creare un file denominato `HelloBlockchain.json`.
 2. Aggiungere il codice JSON seguente per definire la configurazione dell'applicazione blockchain.
@@ -196,7 +196,7 @@ I metadati di configurazione definiscono i flussi di lavoro di alto livello e il
     }
     ```
 
-3. Salvare il file.`HelloBlockchain.json`
+3. Salvare il file `HelloBlockchain.json`.
 
 Il file di configurazione ha molte sezioni. I dettagli di ciascuna sezione sono indicati di seguito:
 
@@ -211,8 +211,6 @@ La sezione dei ruoli applicazione definisce i ruoli utente che possono agire o p
 ### <a name="workflows"></a>Flussi di lavoro
 
 I flussi di lavoro definiscono una o più fasi e azioni del contratto. Nello scenario di richiesta-risposta la prima fase (stato) del flusso di lavoro è quella in cui un richiedente (ruolo) intraprende un'azione (transizione) per inviare una richiesta (funzione). La fase (stato) successiva è quella in cui un risponditore (ruolo) intraprende un'azione (transizione) per inviare una risposta (funzione). Il flusso di lavoro di un'applicazione può coinvolgere proprietà, funzioni e stati necessari per descrivere il flusso di un contratto.
-
-Per altre informazioni sui contenuti dei file di configurazione, vedere [Riferimento alla configurazione del flusso di lavoro di Azure Blockchain](configuration.md).
 
 ## <a name="smart-contract-code-file"></a>File di codice del contratto intelligente
 

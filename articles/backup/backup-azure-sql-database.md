@@ -3,12 +3,12 @@ title: Eseguire un backup dei database SQL Server in Azure
 description: Questo articolo illustra come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 92097f4be02e81d3a8d306f6dc00bb0e8c939005
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: edcc77c98737b9f4e76ade0471d273f5e0070969
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612538"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763423"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -27,17 +27,17 @@ Questa soluzione sfrutta le API native SQL per eseguire i backup dei database SQ
 
 * Dopo aver specificato la macchina virtuale di SQL Server da proteggere e aver eseguito la query per trovare i database al suo interno, il servizio Backup di Azure installerà un'estensione di backup di carichi di lavoro nella macchina virtuale denominata `AzureBackupWindowsWorkload`.
 * Questa estensione è costituita da un coordinatore e da un plug-in SQL. Mentre il coordinatore è responsabile di attivare i flussi di lavoro per varie operazioni, come la configurazione del backup, il backup e il ripristino, il plug-in gestisce il flusso di dati effettivo.
-* Per individuare i database in questa VM, Backup di Azure crea l'account `NT SERVICE\AzureWLBackupPluginSvc`. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL. L'account `NT SERVICE\AzureWLBackupPluginSvc` è un [account del servizio virtuale](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) e pertanto non richiede alcuna gestione delle password. Backup di Azure sfrutta l'account `NT AUTHORITY\SYSTEM` per l'individuazione o l'interrogazione dei database, di conseguenza questo account deve essere un account di accesso pubblico in SQL. Se non è stata creata la macchina virtuale SQL Server da Azure Marketplace, è possibile che venga visualizzato un errore **UserErrorSQLNoSysadminMembership**. In tal caso [seguire queste istruzioni](#set-vm-permissions).
+* Per individuare i database in questa VM, Backup di Azure crea l'account `NT SERVICE\AzureWLBackupPluginSvc`. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL. L'account `NT SERVICE\AzureWLBackupPluginSvc` è un [account del servizio virtuale](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) e pertanto non richiede alcuna gestione delle password. Backup di Azure sfrutta l'account `NT AUTHORITY\SYSTEM` per l'individuazione o l'interrogazione dei database, di conseguenza questo account deve essere un account di accesso pubblico in SQL. Se la VM SQL Server non è stata creata da Azure Marketplace, è possibile ricevere un errore **UserErrorSQLNoSysadminMembership**. In tal caso [seguire queste istruzioni](#set-vm-permissions).
 * Dopo l'attivazione della configurazione della protezione nei database selezionati, il servizio di backup configura il coordinatore con le pianificazioni di backup e altri dettagli sui criteri, che l'estensione memorizza nella cache locale della VM.
 * Nell'orario pianificato il coordinatore comunica con il plug-in, che avvia lo streaming dei dati di backup dal server SQL tramite VDI.  
-* Il plug-in invia i dati direttamente all'insieme di credenziali dei servizi di ripristino, eliminando così la necessità di una posizione per la gestione temporanea. I dati vengono crittografati e archiviati dal servizio Backup di Azure negli account di archiviazione.
+* Il plug-in Invia i dati direttamente all'insieme di credenziali dei servizi di ripristino, eliminando così la necessità di un percorso di gestione temporanea. I dati vengono crittografati e archiviati dal servizio Backup di Azure negli account di archiviazione.
 * Al termine del trasferimento dei dati, il coordinatore conferma il commit con il servizio di backup.
 
   ![Architettura del backup SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Prima di iniziare, verificare quanto segue:
+Prima di iniziare, verificare i requisiti seguenti:
 
 1. Assicurarsi che sia in esecuzione un'istanza di SQL Server in Azure. È possibile [creare rapidamente un'istanza di SQL Server](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) nel Marketplace.
 2. Esaminare le [considerazioni sulle funzionalità](sql-support-matrix.md#feature-considerations-and-limitations) e il [supporto degli scenari](sql-support-matrix.md#scenario-support).

@@ -3,12 +3,12 @@ title: Ripristinare le condivisioni file di Azure
 description: Informazioni su come usare la portale di Azure per ripristinare un'intera condivisione file o file specifici da un punto di ripristino creato da backup di Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761849"
+ms.locfileid: "88762824"
 ---
 # <a name="restore-azure-file-shares"></a>Ripristinare le condivisioni file di Azure
 
@@ -59,7 +59,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
     ![Seleziona punto di ripristino](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >Per impostazione predefinita, nel riquadro **Seleziona punto di ripristino** sono elencati i punti di ripristino degli ultimi 30 giorni. Per esaminare i punti di ripristino creati durante una durata specifica, specificare l'intervallo selezionando l'ora di **inizio** e l' **ora di fine** appropriate e quindi fare clic sul pulsante **Aggiorna** .
+    >Per impostazione predefinita, nel riquadro **Seleziona punto di ripristino** sono elencati i punti di ripristino degli ultimi 30 giorni. Se si desidera esaminare i punti di ripristino creati durante una durata specifica, specificare l'intervallo selezionando l'ora di **inizio** e l' **ora di fine** appropriate e quindi fare clic sul pulsante **Aggiorna** .
 
 1. Il passaggio successivo consiste nel scegliere il **percorso di ripristino**. Nella sezione **destinazione ripristino** specificare dove o come ripristinare i dati. Selezionare una delle due opzioni seguenti utilizzando l'interruttore:
 

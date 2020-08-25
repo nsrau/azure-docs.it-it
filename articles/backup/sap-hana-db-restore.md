@@ -3,12 +3,12 @@ title: Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare SAP HANA database in esecuzione in macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: c62ea68683355fc703a5258e6e5fa0f3795f7e34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503592"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763287"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 
@@ -194,10 +194,10 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
         * `<DatabaseName>`: nome del nuovo database o del database esistente che si vuole ripristinare
         * `<Timestamp>`: timestamp esatto del ripristino temporizzato
         * `<DatabaseName@HostName>`: nome del database il cui backup viene usato per il ripristino e nome del server **host**/SAP HANA host in cui risiede il database. L'opzione `USING SOURCE <DatabaseName@HostName>` specifica che il backup dei dati (usato per il ripristino) è di un database con un SID o un nome diverso rispetto al computer SAP HANA di destinazione. Non è quindi necessario specificare per i ripristini eseguiti nello stesso server HANA da cui viene eseguito il backup.
-        * `<PathToGeneratedCatalogInStep3>`-Percorso del file di catalogo generato nel **passaggio C**
+        * `<PathToGeneratedCatalogInStep3>` -Percorso del file di catalogo generato nel **passaggio C**
         * `<DataFileDir>`: cartella che contiene i backup completi
         * `<LogFilesDir>`: cartella che contiene i backup del log
-        * `<BackupIdFromJsonFile>`- **BackupId** estratti nel **passaggio C**
+        * `<BackupIdFromJsonFile>` - **BackupId** estratti nel **passaggio C**
 
     * Per eseguire il ripristino in un backup completo o differenziale specifico:
 
@@ -213,7 +213,7 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
         * `<PathToGeneratedCatalogInStep3>`: percorso del file di catalogo generato nel **passaggio C** .
         * `<DataFileDir>`: cartella che contiene i backup completi
         * `<LogFilesDir>`: cartella che contiene i backup del log
-        * `<BackupIdFromJsonFile>`- **BackupId** estratti nel **passaggio C**
+        * `<BackupIdFromJsonFile>` - **BackupId** estratti nel **passaggio C**
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Ripristinare un punto temporizzato specifico
 

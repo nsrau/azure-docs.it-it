@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi relativi al back
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: add54955def7df31f8e1688f56382067343616fe
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513850"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763389"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
 
@@ -17,7 +17,7 @@ Questo articolo descrive le soluzioni per i problemi che potrebbero verificarsi 
 
 ## <a name="basic-troubleshooting"></a>Risoluzione dei problemi di base
 
-Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del sistema, è consigliabile eseguire la convalida seguente:
+Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del sistema, è consigliabile eseguire i passaggi di convalida seguenti:
 
 - [Assicurarsi che l'agente di Servizi di ripristino di Microsoft Azure sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verificare la presenza di connettività di rete tra l'agente dei Servizi di ripristino di Microsoft Azure e Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -42,7 +42,7 @@ Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di risolvere i problemi relativi al backup dello stato del sistema con backup di Azure, eseguire il controllo dei prerequisiti riportato di seguito.  
+Prima di risolvere i problemi relativi al backup dello stato del sistema con backup di Azure, eseguire il controllo dei prerequisiti seguente.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Verificare che Windows Server Backup sia installato
 
@@ -77,16 +77,16 @@ Per installare Windows Server Backup usando Server Manager, seguire questa proce
 3. Selezionare un server dal pool di server e fare clic su **Avanti**. Nel ruolo del server lasciare la selezione predefinita e fare clic su **Avanti**.
 4. Selezionare **Windows Server Backup** nella scheda **funzionalità** e fare clic su **Avanti**.
 
-    ![funzionalità](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Selezionare la finestra funzionalità](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. Nella scheda **conferma** fare clic su **Installa** per avviare il processo di installazione.
 6. Nella scheda **risultati** verrà visualizzata la funzionalità Windows Server backup viene installata correttamente in Windows Server.
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Risultati dell'installazione](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Autorizzazione informazioni volume di sistema
 
-Verificare che il sistema locale disponga del controllo completo sulla cartella **System Volume Information** che si trova nel volume in cui è installato Windows. Si tratta in genere di **informazioni sul volume c: System**. Windows Server backup può avere esito negativo se le autorizzazioni indicate sopra non sono impostate correttamente
+Verificare che il sistema locale disponga del controllo completo sulla cartella **System Volume Information** che si trova nel volume in cui è installato Windows. Si tratta in genere di **informazioni sul volume c: System**. Windows Server backup può avere esito negativo se le autorizzazioni indicate sopra non sono impostate correttamente.
 
 ### <a name="dependent-services"></a>Servizi dipendenti
 
@@ -113,7 +113,7 @@ Per convalidare Windows Server Backup stato, seguire questa procedura:
 
     - Se il problema persiste, reinstallare la funzionalità Windows Server Backup nel computer server come indicato nel passaggio 1 dei prerequisiti.
 
-  - Verificare che il backup WSB funzioni correttamente eseguendo il comando seguente da un prompt dei comandi con privilegi elevati:
+  - Verificare che il backup WSB funzioni correttamente, eseguendo il comando seguente da un prompt dei comandi con privilegi elevati:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 

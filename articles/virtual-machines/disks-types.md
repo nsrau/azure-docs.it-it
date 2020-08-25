@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 2b8a5cf1bd3df1405f148c5fe84701c04a4d0c0a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658118"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752021"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -26,7 +26,7 @@ La tabella seguente fornisce un confronto tra dischi Ultra, unità SSD Premium, 
 | Dettaglio | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |Carichi di lavoro intensivo di i/o, come [SAP Hana](~/articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), database di livello superiore (ad esempio, SQL, Oracle) e altri carichi di lavoro con transazioni pesanti.   |Carichi di lavoro di produzione con requisiti particolari di prestazioni   |Server Web, applicazioni aziendali usate poco di frequente e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
+|Scenario   |Carichi di lavoro intensivo di i/o, come [SAP Hana](workloads/sap/hana-vm-operations-storage.md), database di livello superiore (ad esempio, SQL, Oracle) e altri carichi di lavoro con transazioni pesanti.   |Carichi di lavoro di produzione con requisiti particolari di prestazioni   |Server Web, applicazioni aziendali usate poco di frequente e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
 |Dimensioni massime disco   |65.536 gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
 |Velocità effettiva massima   |2\.000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
 |Operazioni di I/O al secondo max   |160.000    |20.000   |6.000   |2.000   |
@@ -62,7 +62,7 @@ Di seguito sono riportate alcune funzionalità chiave di dischi Ultra:
 
 ### <a name="ga-scope-and-limitations"></a>Ambito e limitazioni di GA
 
-[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](~/includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
 
 Per iniziare a usare i dischi Ultra, vedere l'articolo sull'argomento relativo all'uso di [dischi ultra di Azure](disks-enable-ultra-ssd.md).
@@ -71,10 +71,10 @@ Per iniziare a usare i dischi Ultra, vedere l'articolo sull'argomento relativo a
 
 I dischi SSD Premium di Azure offrono prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) con carichi di lavoro con I/O intensivo. È possibile migrare i dischi delle VM esistenti in SSD Premium per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi. I dischi SSD Premium sono idonei per applicazioni di produzione cruciali. Le unità SSD Premium possono essere usate solo con le serie di VM che sono compatibili con archiviazione Premium.
 
-Per altre informazioni sui singoli tipi e dimensioni delle macchine virtuali in Azure per Windows, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni delle macchine virtuali Windows](~/articles/virtual-machines/windows/sizes.md). Per altre informazioni sui singoli tipi e dimensioni delle macchine virtuali in Azure per Linux, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni delle macchine virtuali Linux](~/articles/virtual-machines/linux/sizes.md). Da uno di questi articoli è necessario controllare ogni singolo articolo sulle dimensioni della VM per determinare se è compatibile con archiviazione Premium.
+Per altre informazioni sui singoli tipi e dimensioni delle VM in Azure per Windows o Linux, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni per le macchine virtuali in Azure](sizes.md). Per altre informazioni sui singoli tipi e dimensioni delle VM in Azure per Linux, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni per le macchine virtuali in Azure](sizes.md). Da uno di questi articoli è necessario controllare ogni singolo articolo sulle dimensioni della VM per determinare se è compatibile con archiviazione Premium.
 
 ### <a name="disk-size"></a>Dimensioni del disco
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Quando si effettua il provisioning di un disco di archiviazione Premium, a differenza di Archiviazione Standard, vengono garantiti livelli di capacità, IOPS e velocità effettiva del disco. Se ad esempio si crea un disco P50, Azure effettua il provisioning di 4.095 GB di capacità di archiviazione, 7.500 IOPS e 250 MB/s di velocità effettiva per tale disco. L'applicazione può usare la totalità o una della capacità e delle prestazioni. I dischi SSD Premium sono progettati per fornire latenze di millisecondi a singola cifra e la velocità effettiva e la velocità effettiva di destinazione descritti nella tabella precedente 99,9% del tempo.
 
@@ -82,7 +82,7 @@ Quando si effettua il provisioning di un disco di archiviazione Premium, a diffe
 
 SSD Premium dimensioni inferiori a P30 offrono ora l'espansione del disco e possono aumentare le operazioni di i/o al secondo per ogni disco fino a 3.500 e la larghezza di banda fino a 170 Mbps. L'espansione è automatizzata e funziona in base a un sistema di credito. I crediti vengono accumulati automaticamente in un bucket di espansione quando il traffico del disco è inferiore alla destinazione di prestazioni con provisioning e i crediti vengono usati automaticamente quando il traffico supera la soglia, fino al limite massimo di picchi. Il limite massimo di impulsi definisce il limite di IOPS del disco & larghezza di banda anche se sono presenti crediti di espansione da utilizzare. Il provisioning del disco garantisce una maggiore tolleranza sulle modifiche imprevedibili dei modelli di i/o. È possibile sfruttarlo per l'avvio del disco del sistema operativo e le applicazioni con traffico irregolare.    
 
-Il supporto per l'espansione dei dischi verrà abilitato per le nuove distribuzioni di dimensioni del disco applicabili per impostazione predefinita, senza alcuna azione da utente. Per i dischi esistenti con le dimensioni applicabili, è possibile abilitare l'espansione con una delle due opzioni: scollegare e ricollegare il disco oppure arrestare e riavviare la macchina virtuale collegata. Tutte le dimensioni del disco applicabili a impulsi iniziano con un bucket di credito a espansione completa quando il disco è collegato a una macchina virtuale che supporta una durata massima al limite massimo di 30 minuti. Per altre informazioni sul funzionamento del proromping nei dischi di Azure, vedere [SSD Premium](~/articles/virtual-machines/linux/disk-bursting.md)l'espansione. 
+Il supporto per l'espansione dei dischi verrà abilitato per le nuove distribuzioni di dimensioni del disco applicabili per impostazione predefinita, senza alcuna azione da utente. Per i dischi esistenti con le dimensioni applicabili, è possibile abilitare l'espansione con una delle due opzioni: scollegare e ricollegare il disco oppure arrestare e riavviare la macchina virtuale collegata. Tutte le dimensioni del disco applicabili a impulsi iniziano con un bucket di credito a espansione completa quando il disco è collegato a una macchina virtuale che supporta una durata massima al limite massimo di 30 minuti. Per altre informazioni sul funzionamento del proromping nei dischi di Azure, vedere [SSD Premium](linux/disk-bursting.md)l'espansione. 
 
 ### <a name="transactions"></a>Transazioni
 
@@ -93,7 +93,7 @@ Per le unità SSD Premium, ogni operazione di I/O inferiore o uguale a 256 KiB d
 Le unità SSD Standard di Azure sono un'opzione di archiviazione conveniente, ottimizzata per carichi di lavoro che richiedono prestazioni coerenti a livelli più bassi di I/O al secondo. Le unità SSD Standard offrono una buona esperienza iniziale per coloro che vogliono passare al cloud, soprattutto se riscontrano problemi di varianza dei carichi di lavoro in esecuzione nelle soluzioni HDD locali. Rispetto agli HDD standard, le unità SSD standard offrono disponibilità, coerenza, affidabilità e latenza migliori. Le unità SSD Standard sono idonee per server Web, server applicazioni con un numero ridotto di operazioni di I/O al secondo, applicazioni aziendali con un utilizzo non intensivo e carichi di lavoro di sviluppo/test. Analogamente agli HDD standard, le unità SSD standard sono disponibili in tutte le macchine virtuali di Azure.
 
 ### <a name="disk-size"></a>Dimensioni del disco
-[!INCLUDE [disk-storage-standard-ssd-sizes](~/includes/disk-storage-standard-ssd-sizes.md)]
+[!INCLUDE [disk-storage-standard-ssd-sizes](../../includes/disk-storage-standard-ssd-sizes.md)]
 
 Le unità SSD standard sono progettate per fornire latenze di millisecondi a una sola cifra e i valori di IOPS e velocità effettiva fino ai limiti descritti nella tabella precedente 99% del tempo. Gli IOPS e la velocità effettiva possono variare a seconda dei modelli di traffico. Le unità SSD Standard offrono prestazioni più coerenti rispetto ai dischi HDD con latenza più bassa.
 
@@ -106,7 +106,7 @@ Per le unità SSD standard, ogni operazione di I/O inferiore o uguale a 256 KiB 
 Le unità HDD Standard di Azure offrono un supporto dei dischi affidabile e a basso costo per le VM che eseguono carichi di lavoro non sensibili alla latenza. Con l'archiviazione standard, i dati vengono archiviati in unità disco rigido (HDD). Latenza, IOPS e velocità effettiva dei dischi HDD Standard possono variare in modo più ampio rispetto ai dischi basati su unità SSD. HDD Standard dischi sono progettati per fornire latenze di scrittura in 10 ms e le latenze di lettura in 20ms per la maggior parte delle operazioni di i/o, tuttavia le prestazioni effettive possono variare a seconda delle dimensioni di i/o e del carico Quando si lavora con le macchine virtuali, è possibile usare dischi HDD standard per scenari di sviluppo/test e carichi di lavoro meno critici. I dischi rigidi standard sono disponibili in tutte le aree di Azure e possono essere usati con tutte le macchine virtuali di Azure.
 
 ### <a name="disk-size"></a>Dimensioni del disco
-[!INCLUDE [disk-storage-standard-hdd-sizes](~/includes/disk-storage-standard-hdd-sizes.md)]
+[!INCLUDE [disk-storage-standard-hdd-sizes](../../includes/disk-storage-standard-hdd-sizes.md)]
 
 ### <a name="transactions"></a>Transazioni
 
@@ -139,7 +139,7 @@ Per informazioni dettagliate sui prezzi per Managed Disks, inclusi i costi delle
 Le macchine virtuali di Azure sono in grado di indicare se sono compatibili con dischi Ultra. Una macchina virtuale compatibile con dischi Ultra alloca una capacità di larghezza di banda dedicata tra l'istanza della macchina virtuale di calcolo e l'unità di scala di archiviazione a blocchi per ottimizzare le prestazioni e ridurre la latenza. L'aggiunta di questa capacità alla macchina virtuale comporta un addebito per la prenotazione, che viene applicato solo se si abilita la funzionalità per i dischi Ultra nella macchina virtuale senza collegare un disco Ultra. Quando alla macchina virtuale compatibile con i dischi Ultra viene collegato un disco Ultra, questo addebito non viene applicato. L'addebito viene calcolato per ogni vCPU di cui è stato effettuato il provisioning nella macchina virtuale. 
 
 > [!Note]
-> Per le [dimensioni delle VM Core vincolate](~/articles/virtual-machines/linux/constrained-vcpu.md), la tariffa di prenotazione è basata sul numero effettivo di vCPU e non sui core vincolati. Per Standard_E32 8s_v3, la tariffa di prenotazione sarà basata su 32 core. 
+> Per le [dimensioni delle VM Core vincolate](constrained-vcpu.md), la tariffa di prenotazione è basata sul numero effettivo di vCPU e non sui core vincolati. Per Standard_E32 8s_v3, la tariffa di prenotazione sarà basata su 32 core. 
 
 Per informazioni sui prezzi di dischi Ultra, vedere la [pagina dei prezzi di Azure disks](https://azure.microsoft.com/pricing/details/managed-disks/) .
 

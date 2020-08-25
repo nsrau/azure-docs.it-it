@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075728"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763134"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partizionamento delle tabelle nel pool SQL sinapsi
 
@@ -30,7 +30,7 @@ Il partizionamento può recare vantaggio alle prestazioni di query e di conserva
 
 ### <a name="benefits-to-loads"></a>Vantaggi in termini di caricamento
 
-Il vantaggio principale del partizionamento nel pool SQL sinapsi è quello di migliorare l'efficienza e le prestazioni del caricamento dei dati tramite l'eliminazione, il cambio e l'Unione delle partizioni. Nella maggior parte dei casi viene eseguito il partizionamento dei dati in una colonna di date strettamente legata all'ordine in cui i dati vengono caricati nel database. Uno dei principali vantaggi dell'uso di partizioni per conservare i dati è che evita la registrazione delle transazioni. Mentre le semplici operazioni di inserimento, aggiornamento o eliminazione dei dati possono rappresentare l'approccio più semplice, con un po' di impegno e di ragionamento, l'uso del partizionamento durante il processo di caricamento può migliorare notevolmente le prestazioni.
+Il vantaggio principale del partizionamento nel pool SQL sinapsi è quello di migliorare l'efficienza e le prestazioni del caricamento dei dati tramite l'eliminazione, il cambio e l'Unione delle partizioni. Nella maggior parte dei casi viene eseguito il partizionamento dei dati in una colonna di date strettamente legata all'ordine in cui i dati vengono caricati nel database. Uno dei principali vantaggi derivanti dall'utilizzo delle partizioni per la manutenzione dei dati è l'evitare la registrazione delle transazioni. Mentre le semplici operazioni di inserimento, aggiornamento o eliminazione dei dati possono rappresentare l'approccio più semplice, con un po' di impegno e di ragionamento, l'uso del partizionamento durante il processo di caricamento può migliorare notevolmente le prestazioni.
 
 Il cambio di partizioni consente di rimuovere o sostituire rapidamente una sezione di tabella.  Ad esempio, una tabella dei fatti delle vendite potrebbe contenere solo i dati relativi agli ultimi 36 mesi. Alla fine di ogni mese, il mese dei dati di vendita meno recenti viene eliminato dalla tabella.  Questi dati potrebbero essere eliminati tramite un'istruzione delete per eliminare i dati relativi al mese meno recente. 
 

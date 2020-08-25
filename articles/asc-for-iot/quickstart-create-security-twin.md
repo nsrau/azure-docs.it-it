@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e9c4470ea16f1840274a6fa8613822b20d6772b3
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b867f5bcbbdc5deab2d67f356df69ee870c21f3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310872"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142248"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Guida introduttiva: Creare un modulo gemello azureiotsecurity
 
@@ -76,7 +76,7 @@ Per altre informazioni sulla personalizzazione delle proprietà dei moduli gemel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare gli avvisi personalizzati, passare all'articolo successivo...
+Per informazioni su come esaminare le raccomandazioni sulla sicurezza, passare all'articolo successivo:
 
 > [!div class="nextstepaction"]
-> [Configurare avvisi personalizzati](quickstart-create-custom-alerts.md)
+> [Esaminare le raccomandazioni sulla sicurezza](quickstart-investigate-security-recommendations.md)

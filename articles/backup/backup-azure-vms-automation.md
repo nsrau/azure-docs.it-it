@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure con PowerShell
 description: Viene descritto come eseguire il backup e il ripristino di macchine virtuali di Azure tramite backup di Azure con PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e695fae087ca4e10a1d900a45cb02947bd5afa0b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652747"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763372"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -462,7 +462,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Ripristinare i dischi
 
-Usare il cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) per ripristinare i dati e la configurazione di un elemento di backup in un punto di ripristino. Dopo aver identificato un punto di ripristino, usarlo come valore per il parametro **-RecoveryPoint**. Nell'esempio precedente **$rp[0]** è il punto di ripristino da usare. Nell'esempio di codice seguente **$rp[0]** è il punto di ripristino da usare per il ripristino del disco.
+Usare il cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) per ripristinare i dati e la configurazione di un elemento di backup in un punto di ripristino. Dopo aver identificato un punto di ripristino, usarlo come valore per il parametro **-RecoveryPoint**. Nell'esempio precedente **$RP [0]** è il punto di ripristino da utilizzare. Nell'esempio di codice seguente **$rp[0]** è il punto di ripristino da usare per il ripristino del disco.
 
 Per ripristinare i dischi e le informazioni di configurazione:
 
@@ -652,7 +652,7 @@ La sezione seguente elenca i passaggi necessari per creare una macchina virtuale
 
     Quando i **segreti sono disponibili** e le informazioni dettagliate sulla crittografia sono impostate nel BLOB del sistema operativo, collegare i dischi usando lo script riportato di seguito.
 
-    Se l'insieme di credenziali delle chiavi e i segreti sono già disponibili, non è necessario eseguire lo script precedente.
+    Se l'insieme di credenziali delle chiavi di origine e i segreti sono già disponibili, non è necessario eseguire lo script precedente.
 
     ```powershell
         Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -680,7 +680,7 @@ La sezione seguente elenca i passaggi necessari per creare una macchina virtuale
 
     Quando **la chiave e i segreti sono disponibili** e le informazioni dettagliate sulla crittografia sono impostate nel BLOB del sistema operativo, collegare i dischi usando lo script riportato di seguito.
 
-    Se l'insieme di credenziali delle chiavi, la chiave e i segreti sono disponibili, non è necessario eseguire lo script precedente.
+    Se l'insieme di credenziali delle chiavi/chiave/segreti di origine è disponibile, non è necessario eseguire lo script precedente.
 
     ```powershell
         Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
