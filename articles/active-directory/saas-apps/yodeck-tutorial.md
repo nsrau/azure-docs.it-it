@@ -2,25 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con Yodeck | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Yodeck.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: af0748f36e8d2299921f987c517f7a4923bd0d55
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8eed884ed9d957ede4ae9fc192ae5a8e501b652e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086468"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Esercitazione: Integrazione di Azure Active Directory con Yodeck
 
@@ -119,13 +115,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con Yodeck, seguire questa 
 
 ### <a name="configure-yodeck-single-sign-on"></a>Configurare l'accesso Single Sign-On di Yodeck
 
+1. Per automatizzare la configurazione all'interno di **Yodeck**, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+
+    ![image](./media/target-process-tutorial/install_extension.png)
+
+1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Yodeck** per passare direttamente all'applicazione Yodeck. Nell'applicazione specificare le credenziali di amministratore per accedere a Yodeck. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 5.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+    **Per configurare l'applicazione manualmente, seguire questa procedura:**
+
 1. In un'altra finestra del Web browser accedere al sito aziendale di Yodeck come amministratore.
 
-2. Fare clic sull'opzione **User Settings** (Impostazioni utente) nell'angolo in alto a destra della pagina e selezionare **Account Settings** (Impostazioni account).
+1. Fare clic sull'opzione **User Settings** (Impostazioni utente) nell'angolo in alto a destra della pagina e selezionare **Account Settings** (Impostazioni account).
 
     ![Configurazione di Yodeck](./media/yodeck-tutorial/configure1.png)
 
-3. Selezionare **SAML** e seguire questa procedura:
+1. Selezionare **SAML** e seguire questa procedura:
 
     ![Configurazione di Yodeck](./media/yodeck-tutorial/configure2.png)
 
@@ -139,7 +145,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Yodeck, seguire questa 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -191,7 +197,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Per consentire agli utenti di Azure AD di accedere a Yodeck, è necessario effettuarne il provisioning in Yodeck. Nel caso di Yodeck, il provisioning è un'attività manuale.
 
-**Per eseguire il provisioning di un account utente, seguire questa procedura:**
+**Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
 1. Accedere al sito aziendale di Yodeck come amministratore.
 
@@ -203,7 +209,7 @@ Per consentire agli utenti di Azure AD di accedere a Yodeck, è necessario effet
 
     ![Aggiungere un dipendente](./media/yodeck-tutorial/user2.png)
 
-4. Nella finestra di dialogo **Dettagli utente** seguire questa procedura:
+4. Nella pagina **User Details** eseguire la procedura seguente:
 
     ![Aggiungere un dipendente](./media/yodeck-tutorial/user3.png)
 

@@ -1,15 +1,15 @@
 ---
 title: Come spostare gli insiemi di credenziali dei servizi di ripristino di backup di Azure
-description: Istruzioni su come spostare l'insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure.
+description: Istruzioni su come spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure.
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b4de4c58e6a6551fa7c27db9755bb02a11700721
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650914"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755739"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -50,12 +50,12 @@ Francia centrale, Francia meridionale, Germania nord-orientale, Germania central
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Usare portale di Azure per spostare l'insieme di credenziali di servizi di ripristino in un gruppo di risorse diverso
 
-Per spostare un insieme di credenziali di Servizi di ripristino e le risorse associate in un gruppo di risorse diverso
+Per spostare un insieme di credenziali di servizi di ripristino e le risorse associate in un gruppo di risorse diverso:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Aprire l'elenco **Insiemi di credenziali dei servizi di ripristino** e selezionare l'insieme di credenziali che si vuole spostare. Quando il dashboard dell'insieme di credenziali viene aperto, viene visualizzato come illustrato nell'immagine seguente.
 
-   ![Insieme di credenziali di Servizi di ripristino aperto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Aprire l'insieme di credenziali di servizi di ripristino](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
    Se non vengono visualizzate le **informazioni di base per l'insieme** di credenziali, selezionare l'icona a discesa. Le informazioni di base dovrebbero ora essere visualizzate.
 
@@ -84,7 +84,7 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Aprire l'elenco Insiemi di credenziali dei servizi di ripristino e selezionare l'insieme di credenziali che si vuole spostare. Quando il dashboard dell'insieme di credenziali viene aperto, viene visualizzato come illustrato nell'immagine seguente.
 
-    ![Insieme di credenziali di Servizi di ripristino aperto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+    ![Aprire l'insieme di credenziali di servizi di ripristino](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
     Se non vengono visualizzate le **informazioni di base per l'insieme** di credenziali, selezionare l'icona a discesa. Le informazioni di base dovrebbero ora essere visualizzate.
 

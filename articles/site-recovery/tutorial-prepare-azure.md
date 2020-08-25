@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0d697f2100360732666c9f5ea8050800dad154b4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498974"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653818"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparare Azure per il ripristino di emergenza in locale in Azure
 
@@ -94,4 +94,4 @@ La creazione della rete virtuale richiede qualche secondo. La rete creata verrà
 - [Predisporre i server Hyper-V locali](hyper-v-prepare-on-premises-tutorial.md) per il ripristino di emergenza Hyper-V.
 - Per il ripristino di emergenza di server fisici, [configurare il server di configurazione e l'ambiente di origine](physical-azure-disaster-recovery.md)
 - [Informazioni](../virtual-network/virtual-networks-overview.md) sulle reti di Azure.
-- [Informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi gestiti.
+- [Informazioni](../virtual-machines/managed-disks-overview.md) sui dischi gestiti.

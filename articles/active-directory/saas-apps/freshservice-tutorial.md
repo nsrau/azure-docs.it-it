@@ -2,25 +2,21 @@
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Freshservice | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Freshservice.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3dd22b1f-445d-45c6-8eda-30207eb9a1a8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b52ec552434f74c56333d1afe00cde2a285418
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9e53881d5b28b61cd220b14e02c411db53d19d36
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905415"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Freshservice
 
@@ -60,7 +56,7 @@ Per configurare l'integrazione di Freshservice in Azure AD è necessario aggiung
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Freshservice** nella casella di ricerca.
 1. Selezionare **Freshservice** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshservice"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Freshservice
+## <a name="configure-and-test-azure-ad-sso-for-freshservice"></a>Configurare e testare l'accesso SSO di Azure AD per Freshservice
 
 Configurare e testare l'accesso Single Sign-On di Azure AD con Freshservice usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Freshservice.
 
@@ -132,7 +128,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-freshservice-sso"></a>Configurare l'accesso Single Sign-On per Freshservice
 
-1. Aprire una nuova finestra del Web browser e accedere al sito aziendale di Freshservice come amministratore.
+1. Per automatizzare la configurazione all'interno di Freshservice, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa estensione**.
+
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Freshservice** per passare direttamente all'applicazione Freshservice. Da qui, fornire le credenziali di amministratore per accedere a Freshservice. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 6.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+1. Se si vuole configurare Freshservice manualmente, accedere al sito aziendale di Freshservice come amministratore.
 
 1. Nel menu a sinistra fare clic su **Admin** (Amministratore) e selezionare **Helpdesk Security** (Sicurezza helpdesk) in **General Settings** (Impostazioni generali).
 

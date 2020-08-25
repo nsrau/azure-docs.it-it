@@ -2,25 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con TurboRater | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e TurboRater.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: abb116b8-8024-4cc6-bc81-f32ef490ea17
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c22993baa6a9095bddba67bdc9d18a40021db6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67088282"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Esercitazione: Integrazione di Azure Active Directory con TurboRater
 
@@ -151,7 +147,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     1. Nella casella **Name** (Nome) immettere **BSimon**.
   
-    1. Nella casella **Nome utente** immettere **BSimon\@\<dominioazienda>.\<estensione>** . Ad esempio, **BSimon\@contoso.com**.
+    1. Nella casella **Nome utente** immettere **BSimon\@\<yourcompanydomain>.\<extension>** . Ad esempio, **BSimon\@contoso.com**.
 
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 

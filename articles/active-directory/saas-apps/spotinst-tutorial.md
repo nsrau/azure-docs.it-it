@@ -2,25 +2,21 @@
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Spotinst | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Spotinst.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2f6dbd70-c2db-4ae9-99ee-976c3090d214
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5490ff6c6143dff258d74e013bb9d4c821aab625
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76263286"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587957"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Spotinst
 
@@ -79,18 +75,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **Configurazione SAML di base** completare questa procedura se si vuole configurare l'applicazione nella modalità avviata da IDP:
 
-    a. Selezionare **Impostare URL aggiuntivi**.
-
-    b. Nella casella di testo **Stato dell'inoltro** digitare un valore: `<ID>`
-
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
-
-    Nella casella di testo **URL di accesso** digitare l'URL: `https://console.spotinst.com/auth/saml`
-
-    > [!NOTE]
-    > Poiché non è reale, è necessario aggiornarlo con il valore di Stato dell'inoltro reale, descritto più avanti nell'esercitazione.
+   1. Assicurarsi che **URL di risposta** sia impostato su: https://console.spotinst.com/auth/saml.
+   1. In **Stato dell'inoltro** immettere l'ID organizzazione di Spotinst, che è possibile confermare anche nella scheda **SSO**.
+   1. Il campo **URL di accesso** deve essere vuoto.
 
 1. Fare clic su **Salva**.
 
@@ -160,7 +149,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     b. Fare clic su **BROWSE** (SFOGLIA) per caricare il file XML di metadati scaricato dal portale di Azure
 
-    c. Fare clic su **SAVE**.
+    c. Fare clic su **SALVA**.
 
 ### <a name="create-spotinst-test-user"></a>Creare un utente di test di Spotinst
 

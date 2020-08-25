@@ -2,25 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con Pegasystems | Microsoft Docs'
 description: In questa esercitazione si apprenderà come configurare l'accesso Single Sign-On tra Azure Active Directory e Pegasystems.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 31acf80f-1f4b-41f1-956f-a9fbae77ee69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3dd09770ef5f747f008090368c35b1f274374c5f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72026811"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Esercitazione: Integrazione di Azure Active Directory con Pegasystems
 
@@ -234,7 +230,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     a. Nella casella **Nome** immettere **BrittaSimon**.
   
-    b. Nella casella **Nome utente** immettere **brittasimon@\<dominioazienda>.\<estensione>** . ad esempio BrittaSimon@contoso.com.
+    b. Nella casella **Nome utente** immettere **brittasimon@\<yourcompanydomain>.\<extension>** , ad esempio BrittaSimon@contoso.com.
 
     c. Selezionare **Mostra password**, quindi prendere nota del valore visualizzato nella casella **Password**.
 

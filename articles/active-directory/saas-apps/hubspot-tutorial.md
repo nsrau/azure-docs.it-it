@@ -2,26 +2,21 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con HubSpot | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e HubSpot.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 51e27526b10bcdd74d6e2bffb8bf620d7b022aac
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68944439"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Esercitazione: Integrazione di Azure Active Directory con HubSpot
 
@@ -106,9 +101,9 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con HubSpot 
 
 1. Nel riquadro **Configurazione SAML di base** seguire questa procedura per configurare la *modalità avviata da IDP*:
 
-    1. Nella casella **Identificatore** immettere un URL con il modello seguente: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<ID cliente\>.
+    1. Nella casella **Identificatore** immettere un URL nel formato seguente: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<CUSTOMER ID\>.
 
-    1. Nella casella **URL di risposta** immettere un URL con il modello seguente: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<ID cliente\>.
+    1. Nella casella **URL di risposta** immettere un URL nel formato seguente: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<CUSTOMER ID\>.
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di HubSpot](common/idp-intiated.png)
 
@@ -183,7 +178,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     1. Nella casella **Nome** immettere **BrittaSimon**.
   
-    1. Nella casella **Nome utente** immettere **brittasimon\@\<dominio-azienda>.\<estensione>\>** . Ad esempio, **brittasimon\@contoso.com**.
+    1. Nella casella **Nome utente** immettere **brittasimon\@\<your-company-domain>.\<extension\>** . Ad esempio, **brittasimon\@contoso.com**.
 
     1. Selezionare la casella di controllo **Mostra password**. Prendere nota del valore visualizzato nella casella **Password**.
 

@@ -2,26 +2,21 @@
 title: "Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SAP Fiori | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SAP Fiori.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897753"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543394"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SAP Fiori
 
@@ -126,7 +121,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella casella **Nome del provider**, sostituire **T01122** con **http:\//T01122**, quindi selezionare **Salva**.
 
     > [!NOTE]
-    > Per impostazione predefinita, il nome del provider è nel formato \<sid>\<client>. Azure AD prevede che il nome sia nel formato \<protocollo>://\<nome>. È consigliabile mantenere il nome del provider come https\://\<sid>\<client> in modo da poter configurare più motori ABAP SAP Fioriin Azure AD.
+    > Per impostazione predefinita, il nome del provider viene specificato nel formato \<sid>\<client>. Azure AD prevede che il nome sia specificato nel formato \<protocol>://\<name>. È consigliabile specificare il nome del provider nel formato https\://\<sid>\<client> in modo da poter configurare più motori ABAP SAP Fiori in Azure AD.
 
     ![Nome del provider aggiornato nella pagina di configurazione del sistema T01/122 ABAP di SAML 2.0 in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -319,7 +314,7 @@ In questa sezione viene creato un utente di nome Britta Simon in SAP Fiori. Coll
 
     ![Pagina di test standard in SAP](./media/sapfiori-tutorial/testingsso.png)
 
-1. Se viene chiesto di immettere nome utente e password, abilitare l’analisi per agevolare la diagnosi del problema. Per l’analisi, usare il seguente URL: https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool?client-sap=122&lingua-sap=EN#.
+1. Se viene chiesto di immettere nome utente e password, abilitare l’analisi per agevolare la diagnosi del problema. Per l'analisi usare l'URL seguente: https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

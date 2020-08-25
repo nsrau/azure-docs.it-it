@@ -4,15 +4,15 @@ description: Risolvere i problemi di prestazioni noti con le condivisioni file d
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6739e5619a0dcaa940d38571c4a88c4f68971dfe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009274"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782371"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -20,9 +20,9 @@ Questo articolo elenca alcuni problemi comuni relativi alle condivisioni file di
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Latenza elevata, velocità effettiva bassa e problemi di prestazioni generali
 
-### <a name="cause-1-share-experiencing-throttling"></a>Cause 1: condivisione con limitazione delle richieste
+### <a name="cause-1-share-was-throttled"></a>Motivo 1: la condivisione è stata limitata
 
-La quota predefinita in una condivisione Premium è 100 GiB, che fornisce 100 IOPS Baseline (con un potenziale aumento fino a 300 per un'ora). Per ulteriori informazioni sul provisioning e la relativa relazione con IOPS, vedere la sezione relativa alle condivisioni sottoposte a [provisioning](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) nella Guida alla pianificazione.
+Le richieste vengono limitate quando vengono raggiunti i limiti di IOPS, in ingresso o in uscita per una condivisione file. Per informazioni sui limiti per le condivisioni file standard e Premium, vedere destinazioni per la [condivisione file e la scalabilità di file](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
 
 Per verificare se la condivisione è stata limitata, è possibile sfruttare le metriche di Azure nel portale.
 
@@ -47,7 +47,8 @@ Per verificare se la condivisione è stata limitata, è possibile sfruttare le m
 
 ### <a name="solution"></a>Soluzione
 
-- Aumentare la capacità con provisioning delle condivisioni specificando una quota superiore nella condivisione.
+- Se si usa una condivisione file standard, abilitare le [condivisioni file di grandi dimensioni](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) nell'account di archiviazione. Le condivisioni file di grandi dimensioni supportano fino a 10.000 IOPS per condivisione.
+- Se si usa una condivisione file Premium, aumentare le dimensioni della condivisione file di cui è stato effettuato il provisioning per aumentare il limite di IOPS. Per ulteriori informazioni, vedere la sezione [informazioni sul provisioning per le condivisioni file Premium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) nella Guida alla pianificazione del file di Azure.
 
 ### <a name="cause-2-metadatanamespace-heavy-workload"></a>Cause 2: carico di lavoro elevato di metadati/spazio dei nomi
 
@@ -160,7 +161,7 @@ I carichi di lavoro che si basano sulla creazione di un numero elevato di file n
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- No.
+- Nessuno.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Windows 8.1 o Server 2012 R2
 

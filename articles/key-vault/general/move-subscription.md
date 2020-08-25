@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d37fae18cd2f3e3bfad647cc176253dc6bb101ab
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585770"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782720"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
 
@@ -39,7 +39,7 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 
 Alcune entità servizio (utenti e applicazioni) sono associate a un tenant specifico. Se si sposta l'insieme di credenziali delle chiavi in una sottoscrizione in un altro tenant, è probabile che non sia possibile ripristinare l'accesso a un'entità servizio specifica. Verificare che tutte le entità servizio essenziali esistano nel tenant in cui si sta migrando l'insieme di credenziali delle chiavi.
 
-## <a name="design-considerations"></a>Considerazioni sulla progettazione
+## <a name="design-considerations"></a>Considerazioni relative alla progettazione
 
 È possibile che l'organizzazione abbia implementato criteri di Azure con l'imposizione o le esclusioni a livello di sottoscrizione. Nella sottoscrizione in cui è attualmente presente l'insieme di credenziali delle chiavi e la sottoscrizione in cui si sta migrando l'insieme di credenziali delle chiavi può essere presente un set di assegnazioni di criteri diverso. Un conflitto nei requisiti dei criteri può causare l'interruzione delle applicazioni.
 
@@ -59,7 +59,9 @@ Assicurarsi di passare alla pagina Criteri di Azure nella portale di Azure ed es
 
 ## <a name="procedure"></a>Procedura
 
-### <a name="initial-steps-moving-key-vault"></a>Passaggi iniziali (trasferimento Key Vault)
+Se 
+
+### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Passaggio Key Vault a una nuova sottoscrizione nello stesso tenant
 
 1. Accedere al Portale di Azure
 2. Passare a Key Vault
@@ -70,9 +72,9 @@ Assicurarsi di passare alla pagina Criteri di Azure nella portale di Azure ed es
 7. Confermare l'avviso relativo allo scambio di risorse
 8. Scegliere "OK"
 
-### <a name="additional-steps-post-move"></a>Passaggi aggiuntivi (post-spostamento)
+### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Passaggi aggiuntivi se è stato spostato Key Vault in una sottoscrizione in un nuovo tenant
 
-Ora che l'insieme di credenziali delle chiavi è stato spostato nella nuova sottoscrizione, è necessario aggiornare l'ID tenant e rimuovere i criteri di accesso precedenti. Ecco le esercitazioni per questi passaggi in PowerShell e nell'interfaccia della riga di comando di Azure.
+Se l'insieme di credenziali delle chiavi è stato spostato in una sottoscrizione di un nuovo tenant, è necessario aggiornare manualmente l'ID tenant e rimuovere i criteri di accesso precedenti. Ecco le esercitazioni per questi passaggi in PowerShell e nell'interfaccia della riga di comando di Azure. Se si usa PowerShell, potrebbe essere necessario eseguire il comando Clear-AzContext descritto di seguito per consentire di visualizzare le risorse al di fuori dell'ambito selezionato corrente. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

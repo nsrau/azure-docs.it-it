@@ -4,10 +4,10 @@ description: Questo modello di Criteri di Azure fornisce un esempio di come usar
 ms.date: 06/29/2020
 ms.topic: sample
 ms.openlocfilehash: 87c550e5fb3ef0efbf219efc738a69071d2e89ba
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85565721"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Modello di Criteri di Azure: proprietà field

@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84728368"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213798"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
-In Azure Active Directory (Azure AD) è possibile creare regole complesse basate su attributi per abilitare appartenenze dinamiche per gruppi. L'appartenenza a gruppi dinamica riduce il sovraccarico amministrativo per l'aggiunta e la rimozione di utenti. Questo articolo descrive in dettaglio le proprietà e la sintassi per creare regole di appartenenza dinamica per utenti o dispositivi. È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
+In Azure Active Directory (Azure AD) è possibile creare regole complesse basate su attributi per abilitare appartenenze dinamiche per gruppi. L'appartenenza a gruppi dinamica riduce il sovraccarico amministrativo per l'aggiunta e la rimozione di utenti. Questo articolo descrive in dettaglio le proprietà e la sintassi per creare regole di appartenenza dinamica per utenti o dispositivi. È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Microsoft 365.
 
 Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica attiverà aggiunte o rimozioni nel gruppo. Se un utente o un dispositivo soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfano la regola, vengono rimossi. Non è possibile aggiungere o rimuovere un membro di un gruppo dinamico manualmente.
 
@@ -118,7 +118,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | streetAddress |Qualsiasi valore di stringa o *null* |(user.streetAddress -eq "valore") |
 | surname |Qualsiasi valore di stringa o *null* |(user.surname -eq "valore") |
 | telephoneNumber |Qualsiasi valore di stringa o *null* |(user.telephoneNumber -eq "valore") |
-| usageLocation |Codice di paese/area geografica di due lettere |(user.usageLocation -eq "US") |
+| usageLocation |Codice di paese/regione di due lettere |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualsiasi valore di stringa |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro guest *null* |(user.userType -eq "Membro") |
 
@@ -269,7 +269,7 @@ assignedPlans è una proprietà multivalore che elenca tutti i piani di servizio
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-Una regola di questo tipo può essere usata per raggruppare tutti gli utenti per i quali è abilitata la funzionalità di Office 365 (o un altro servizio Microsoft online). È quindi possibile applicare un set di criteri al gruppo.
+Una regola di questo tipo può essere usata per raggruppare tutti gli utenti per cui è abilitata una funzionalità di Microsoft 365 o di un altro servizio Microsoft online. È quindi possibile applicare un set di criteri al gruppo.
 
 #### <a name="example-2"></a>Esempio 2
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce3a97678dea7e7b26caa3b1b091b023eca1a555
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015698"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794564"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 
@@ -134,7 +134,7 @@ Il cmdlet restituisce ora il gruppo il cui objectID corrisponde al valore del pa
 ```
 
 > [!NOTE]
-> I cmdlet di Azure AD PowerShell implementano lo standard di query OData. Per altre informazioni, vedere **$filter** in [Opzioni query di sistema OData usando l'endpoint OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> I cmdlet di Azure AD PowerShell implementano lo standard di query OData. Per altre informazioni, vedere **$filter** in [Opzioni query di sistema OData usando l'endpoint OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)#BKMK_filter).
 
 ## <a name="create-groups"></a>Creare i gruppi
 
@@ -322,7 +322,7 @@ Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di s
 * postmaster
 * root
 * secure
-* sicurezza
+* security
 * ssl-admin
 * webmaster
 
