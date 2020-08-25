@@ -4,12 +4,12 @@ description: Eseguire il backup e il ripristino di database SQL in macchine virt
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: a5b62b05c36afac078ccc7aeb7ed0e7259072fc1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6bd119b743ad83bcab9f92d386a5091593f6a5c0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513796"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761322"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -522,6 +522,7 @@ Per modificare un criterio esistente, usare il comando [set-AzRecoveryServicesBa
 ```powershell
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
 ```
+
 Controllare i processi di backup dopo che è trascorso del tempo per tenere traccia degli eventuali errori. In tal caso, è necessario risolvere i problemi. Eseguire quindi nuovamente il comando Edit Policy con il parametro **FixForInconsistentItems** per riprovare a modificare i criteri in tutti gli elementi di backup per i quali l'operazione non è riuscita in precedenza.
 
 ```powershell

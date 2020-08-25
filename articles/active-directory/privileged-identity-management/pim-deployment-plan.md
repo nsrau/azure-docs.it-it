@@ -14,12 +14,12 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008092"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783213"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -100,7 +100,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Parti interessate: Privileged Identity Management per i ruoli di Azure AD
 
-| Nome | Ruolo | Action |
+| Name | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Architetto delle identità o Amministratore globale di Azure**<br/>Un rappresentante del team di gestione delle identità che è responsabile di definire come questa modifica è allineata all'infrastruttura di base per la gestione delle identità all'interno dell'organizzazione. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Proprietario del servizio o diretto superiore**<br/>Un rappresentante dei proprietari IT di un servizio o di un gruppo di servizi. Sono essenziali per prendere decisioni e contribuire a implementare Privileged Identity Management per il team. | A/R/I |
@@ -110,7 +110,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Stakeholder: Privileged Identity Management per i ruoli delle risorse di Azure
 
-| Nome | Ruolo | Action |
+| Name | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Proprietario delle risorse o delle sottoscrizioni**<br/>Un rappresentante dei proprietari IT di ogni sottoscrizione o risorsa che si desidera distribuire Privileged Identity Management per | A/R/I |
 | Nome e indirizzo di posta elettronica | **Responsabile della sicurezza**<br/>Un rappresentante del team addetto alla sicurezza che può approvare la conformità del piano ai requisiti di sicurezza dell'organizzazione. | A/R |
@@ -291,7 +291,7 @@ In questa tabella identificare gli utenti di test che verificheranno il corretto
 
 ### <a name="test-implementation"></a>Testare l'implementazione
 
-Ora che sono stati identificati gli utenti di test, usare questo passaggio per configurare Privileged Identity Management per gli utenti di test. Se l'organizzazione vuole incorporare Privileged Identity Management flusso di lavoro nella propria applicazione interna invece di usare Privileged Identity Management nel portale di Azure, tutte le operazioni in Privileged Identity Management sono supportate anche tramite l' [API Graph](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root).
+Ora che sono stati identificati gli utenti di test, usare questo passaggio per configurare Privileged Identity Management per gli utenti di test. Se l'organizzazione vuole incorporare Privileged Identity Management flusso di lavoro nella propria applicazione interna invece di usare Privileged Identity Management nel portale di Azure, tutte le operazioni in Privileged Identity Management sono supportate anche tramite l' [API Graph](/graph/api/resources/privilegedidentitymanagement-root).
 
 #### <a name="configure-privileged-identity-management-for-azure-ad-roles"></a>Configurare Privileged Identity Management per i ruoli di Azure AD
 

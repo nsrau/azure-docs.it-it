@@ -1,5 +1,5 @@
 ---
-title: Provisioning utenti automatizzato per app SaaS in Azure AD
+title: Informazioni sul provisioning utenti automatizzato per app SaaS in Azure AD
 description: Introduzione all'uso di Azure AD per eseguire automaticamente il provisioning, il deprovisioning e l'aggiornamento continuo degli account utente in più applicazioni SaaS di terze parti.
 services: active-directory
 author: kenwith
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 7f09bb42f529164ef0f5062ef801ddc7ecfef85c
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84781091"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235401"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatizzare il provisioning e il deprovisioning di utenti nelle applicazioni con Azure AD
+# <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Informazioni sul provisioning utenti automatizzato per app SaaS in Azure AD
 
 In Azure Active Directory (Azure AD) il termine **provisioning di app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md) e altre ancora.
 
@@ -59,7 +59,7 @@ Azure AD offre il supporto preintegrato per numerosi sistemi di risorse umane e 
 
    ![Logo Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile inviare una [richiesta di integrazione dell'applicazione nella raccolta di app](../develop/howto-app-gallery-listing.md). Affinché la richiesta di provisioning venga accettata, l'applicazione deve avere un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per consentire un rapido onboarding dell'app sulla piattaforma.
+   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile inviare una [richiesta di integrazione dell'applicazione nella raccolta di app](../azuread-dev/howto-app-gallery-listing.md). Affinché la richiesta di provisioning venga accettata, l'applicazione deve avere un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per consentire un rapido onboarding dell'app sulla piattaforma.
 
 * **Applicazioni che supportano SCIM 2.0**. Per informazioni su come connettere in modo generico le applicazioni che implementano le API di gestione utenti basate su SCIM 2.0, vedere [Creare un endpoint SCIM e configurare il provisioning utenti](use-scim-to-provision-users-and-groups.md).
 
@@ -94,11 +94,8 @@ Per le applicazioni preintegrate elencate nella raccolta sono disponibili istruz
 Per altre applicazioni che supportano SCIM 2.0, seguire i passaggi descritti nell'articolo [Creare un endpoint SCIM e configurare il provisioning utenti](use-scim-to-provision-users-and-groups.md).
 
 
-## <a name="related-articles"></a>Articoli correlati
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
 - [Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory](customize-application-attributes.md)
-- [Scrittura di espressioni per i mapping degli attributi](../app-provisioning/functions-for-customizing-application-data.md)
-- [Filtri di ambito per il provisioning utenti](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
-- [Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD](use-scim-to-provision-users-and-groups.md)
-- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Panoramica dell'API di sincronizzazione di Azure AD)
+- [Filtri di ambito per il provisioning utenti](define-conditional-rules-for-provisioning-user-accounts.md)

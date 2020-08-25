@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd11690f2a3597d6e1a835ad7ca9c5880117eeea
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535690"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782210"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure
 
@@ -29,7 +29,7 @@ Per completare questa procedura:
 
 ## <a name="bind-the-domain-name-preemptively"></a>Associare preventivamente il nome del dominio
 
-Quando si associa preventivamente un dominio personalizzato, è necessario eseguire entrambe le operazioni seguenti prima di apportare modifiche ai record DNS:
+Quando si associa un dominio personalizzato in modo preemptive, prima di apportare modifiche ai record DNS esistenti è necessario eseguire entrambe le operazioni seguenti:
 
 - Verificare la proprietà del dominio
 - Abilitare il nome di dominio per l'app
@@ -38,26 +38,24 @@ Dopo aver eseguito la migrazione del nome DNS personalizzato dal sito precedente
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
+### <a name="get-domain-verification-id"></a>Ottenere l'ID verifica del dominio
+
+Per ottenere l'ID di verifica del dominio per l'app, seguire la procedura descritta in [ottenere l'ID di verifica del dominio](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+
 ### <a name="create-domain-verification-record"></a>Creare un record di verifica del dominio
 
-Per verificare la proprietà del dominio, aggiungere un record TXT. Il record TXT esegue il mapping da _awverify.&lt;subdomain>_ a _&lt;appname>.azurewebsites.net_. 
-
-Il record TXT necessario varia a seconda del record DNS di cui si vuole eseguire la migrazione. Ad esempio, vedere la tabella seguente (`@` rappresenta in genere il dominio radice):
+Per verificare la proprietà del dominio, aggiungere un record TXT per la verifica del dominio. Il nome host per il record TXT dipende dal tipo di record DNS di cui si vuole eseguire il mapping. Vedere la tabella seguente ( `@` rappresenta in genere il dominio radice):
 
 | Esempio di record DNS | Host TXT | Valore TXT |
 | - | - | - |
-| \@ (radice) | _awverify_ | _&lt;AppName>. azurewebsites.net_ |
-| www (sottodominio) | _awverify.www_ | _&lt;AppName>. azurewebsites.net_ |
-| \* (wildcard) | _awverify.\*_ | _&lt;AppName>. azurewebsites.net_ |
+| \@ (radice) | _asuid_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| www (sottodominio) | _asuid. www_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \* (wildcard) | _asuid_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
 
 Nella pagina dei record DNS prendere nota del tipo di record del nome DNS di cui si vuole eseguire la migrazione. Il servizio app supporta i mapping da record CNAME e A.
 
 > [!NOTE]
-> Per alcuni provider, come ad esempio CloudFlare, `awverify.*` non è un record valido. Usare invece solo `*`.
-
-> [!NOTE]
 > I record con il carattere jolly `*` non convalideranno i sottodomini con un record CNAME esistente. Potrebbe essere necessario creare in modo esplicito un record TXT per ogni sottodominio.
-
 
 ### <a name="enable-the-domain-for-your-app"></a>Abilitare il dominio per l'app
 
@@ -69,7 +67,7 @@ Nella pagina **Domini personalizzati** selezionare l'icona **+** accanto ad **Ag
 
 ![Aggiunta del nome host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digitare il nome di dominio completo al quale è stato aggiunto un record TXT, ad esempio `www.contoso.com`. Per un dominio con caratteri jolly (ad esempio \*. contoso.com), è possibile usare un nome DNS qualsiasi che corrisponda al dominio con caratteri jolly. 
+Digitare il nome di dominio completo di cui si desidera eseguire la migrazione, che corrisponde al record TXT creato, ad esempio `contoso.com` , `www.contoso.com` o `*.contoso.com` .
 
 Selezionare **Convalida**.
 
@@ -111,7 +109,7 @@ Tornare alla pagina dei record DNS del provider di dominio e selezionare il reco
 
 Per l'esempio di dominio radice `contoso.com`, modificare il mapping del record A o CNAME come negli esempi illustrati nella tabella seguente: 
 
-| Esempio di FQDN | Tipo di record | Host | Valore |
+| Esempio di FQDN | Tipo di record | Host | valore |
 | - | - | - | - |
 | contoso.com (radice) | Una | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 | www \. contoso.com (Sub) | CNAME | `www` | _&lt;AppName>. azurewebsites.net_ |
@@ -121,7 +119,7 @@ Salvare le impostazioni.
 
 Le query DNS inizieranno a risolversi nell'app del servizio app immediatamente dopo la propagazione DNS.
 
-## <a name="active-domain-in-azure"></a>Dominio attivo in Azure
+## <a name="migrate-domain-from-another-app"></a>Migrare il dominio da un'altra app
 
 È possibile eseguire la migrazione di un dominio personalizzato attivo in Azure, tra sottoscrizioni o all'interno della stessa sottoscrizione. Tuttavia, tale migrazione senza tempi di inattività richiede che l'app di origine e l'app di destinazione siano assegnate allo stesso dominio personalizzato in un determinato momento. Pertanto, è necessario assicurarsi che le due app non vengano distribuite nella stessa unità di distribuzione (internamente nota come spazio Web). Un nome di dominio può essere assegnato a una sola app in ogni unità di distribuzione.
 

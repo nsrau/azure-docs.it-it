@@ -8,19 +8,41 @@
       displayName: release notes
       href: release-notes.md
 - name: Avvi rapidi
-  expanded: true
   items:
-    - name: Evento live con portale e Wirecast
-      displayName: 'live, event, portal, wirecast'
-      href: live-events-wirecast-quickstart.md
-    - name: Evento live con portale e OBS
-      displayName: 'live, event, portal, obs'
-      href: live-events-obs-quickstart.md
-    - name: 'Usare il portale per caricare, codificare ed eseguire lo streaming di contenuto'
-      href: manage-assets-quickstart.md
-    - name: Usare il portale per crittografare contenuto
-      displayName: 'protect, drm, aes'
-      href: encrypt-content-quickstart.md
+    - name: Configurare l'ambiente
+      items:
+        - name: Trovare la sottoscrizione di Azure
+          href: how-to-set-azure-subscription.md
+        - name: Creare un account di Servizi multimediali
+          href: create-account-howto.md
+        - name: Accedere all'API
+          href: access-api-howto.md
+        - name: Configurare Azure Cloud Shell
+          href: 'https://docs.microsoft.com/azure/cloud-shell/overview'
+        - name: Sviluppare con REST
+          items:
+            - name: Connettersi con Postman
+              href: media-rest-apis-with-postman.md
+        - name: Sviluppare con gli SDK
+          items:
+            - name: Connettersi con Java
+              href: configure-connect-java-howto.md
+            - name: Connettersi con .NET
+              href: configure-connect-dotnet-howto.md
+            - name: Connettersi con Node. js
+              href: configure-connect-nodejs-howto.md
+            - name: Connettersi con Python
+              href: configure-connect-python-howto.md
+    - name: Provare Servizi multimediali nel portale di Azure
+      items:
+        - name: Evento live con portale e Wirecast
+          href: live-events-wirecast-quickstart.md
+        - name: Evento live con portale e OBS
+          href: live-events-obs-quickstart.md
+        - name: 'Usare il portale per caricare, codificare ed eseguire lo streaming di contenuto'
+          href: manage-assets-quickstart.md
+        - name: Usare il portale per crittografare contenuto
+          href: encrypt-content-quickstart.md
 - name: Esercitazioni
   items:
     - name: Codificare il file remoto e trasmettere il video in streaming
@@ -56,6 +78,7 @@
     - name: Esempi REST di Servizi multimediali v3
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Concetti
+  expanded: true
   items:
     - name: Panoramica
       href: concepts-overview.md
@@ -207,6 +230,8 @@
               href: live-event-error-codes.md
             - name: Codici di errore dei processi
               href: job-error-codes.md
+        - name: Reimpostare le credenziali dell'account
+          href: cli-reset-account-credentials.md
     - name: Eseguire la migrazione da v2 a v3
       items:
         - name: Confronto tra v2 e v3
@@ -217,70 +242,30 @@
           displayName: naming
 - name: Guide pratiche
   items:
-    - name: Introduzione
-      items:
-        - name: Trovare la sottoscrizione di Azure
-          href: how-to-set-azure-subscription.md
-        - name: Creare un account di Servizi multimediali
-          href: create-account-howto.md
-          displayName: 'portal, cli, storage'
-        - name: Accedere all'API
-          displayName: 'portal, cli'
-          href: access-api-howto.md
-        - name: Sviluppare con REST
-          items:
-            - name: Connettersi con Postman
-              href: media-rest-apis-with-postman.md
-        - name: Sviluppare con gli SDK
-          items:
-            - name: Connettersi con Java
-              href: configure-connect-java-howto.md
-            - name: Connettersi con .NET
-              href: configure-connect-dotnet-howto.md
-            - name: Connettersi con Node. js
-              href: configure-connect-nodejs-howto.md
-            - name: Connettersi con Python
-              href: configure-connect-python-howto.md
-        - name: Reimpostare le credenziali dell'account
-          href: cli-reset-account-credentials.md
-    - name: Creare e gestire asset
+    - name: Creare asset e caricare file multimediali
       items:
         - name: Creare un asset
           href: how-to-create-asset.md
-    - name: Caricare contenuti
-      items:
-        - name: Da HTTPS
-          displayName: upload
-          href: job-input-from-http-how-to.md
-        - name: Da un file locale
-          items:
-            - name: Con .NET
-              displayName: upload
-              href: job-input-from-local-file-how-to.md
-            - name: Con REST
-              displayName: upload
-              href: upload-files-rest-how-to.md
-            - name: Con l'interfaccia della riga di comando
-              href: cli-upload-file-asset.md
+        - name: Caricare file multimediali
+          href: how-to-upload-media.md
     - name: Creare trasformazioni e processi
       items:
         - name: Creare trasformazioni
           href: cli-create-transform.md
         - name: Creare processi
           href: cli-create-jobs.md
+        - name: Creare un input del processo con un file locale e .NET
+          displayName: upload
+          href: job-input-from-local-file-how-to.md
         - name: Processi con più output di trasformazione
           href: job-multiple-transform-outputs.md
     - name: Codificare contenuti
       items:
         - name: HTTPS come input del processo
-          displayName: 'encode, encoding'
           href: job-input-from-http-how-to.md
         - name: File locale come input del processo
-          displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
         - name: Codificare con una trasformazione personalizzata
-        - name: Dimensionare le Media Reserved Units
-          href: media-reserved-units-cli-how-to.md
           items:
             - name: Con .NET
               displayName: 'encode, encoding, custom, transform'
@@ -299,6 +284,8 @@
               href: custom-preset-rest-howto.md
             - name: Generare anteprime con REST
               href: media-services-generate-thumbnails-rest.md
+            - name: Dimensionare le Media Reserved Units
+              href: media-reserved-units-cli-how-to.md
         - name: Creare una clip video secondaria
           items:
             - name: Con .NET

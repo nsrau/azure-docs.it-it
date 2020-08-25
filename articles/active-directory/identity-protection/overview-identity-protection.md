@@ -5,20 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
+ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019612"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509111"
 ---
-# <a name="what-is-azure-active-directory-identity-protection"></a>Cos'è Azure Active Directory Identity Protection?
+# <a name="what-is-identity-protection"></a>Informazioni su Identity Protection
 
 Identity Protection è uno strumento che consente alle organizzazioni di eseguire tre attività principali:
 
@@ -68,6 +69,12 @@ Gli amministratori possono esaminare i rilevamenti e, se necessario, intervenire
 - Rilevamenti dei rischi
 
 Per altre informazioni, vedere l'articolo [Procedura: Analizzare i rischi](howto-identity-protection-investigate-risk.md).
+
+### <a name="risk-levels"></a>Livelli di rischio
+
+Identity Protection classifica il rischio in tre livelli: basso, medio e alto. 
+
+Microsoft non fornisce dettagli specifici sul modo in cui viene calcolato il rischio, ma ogni livello comporta una maggiore probabilità che l'utente o l'accesso sia compromesso. Ad esempio, un'istanza di proprietà di accesso insolite per un utente potrebbe non essere pericolosa quanto le credenziali perse per un altro utente.
 
 ## <a name="exporting-risk-data"></a>Esportazione dei dati relativi ai rischi
 

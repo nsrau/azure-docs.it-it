@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 03e2f004fa54ee235eabc49afd6abd7532a6ee44
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262773"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761509"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -195,8 +195,8 @@ Sì, è previsto un limite di 100 VM che possono essere associate agli stessi cr
 
 ### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>Come è possibile visualizzare le impostazioni di conservazione per i backup?
 
-Attualmente, è possibile visualizzare le impostazioni di conservazione a livello di elemento di backup (VM) in base al criterio di backup assegnato alla macchina virtuale. 
+Attualmente, è possibile visualizzare le impostazioni di conservazione a livello di elemento di backup (VM) in base al criterio di backup assegnato alla macchina virtuale.
 
 Per visualizzare le impostazioni di conservazione per i backup, è possibile passare al [Dashboard](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) dell'elemento di backup per la macchina virtuale, nella portale di Azure. Facendo clic sul collegamento ai criteri di backup è possibile visualizzare la durata di conservazione di tutti i punti di conservazione giornalieri, settimanali, mensili e annuali associati alla macchina virtuale.
 
-È anche possibile usare [Esplora backup](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) per visualizzare le impostazioni di conservazione per tutte le macchine virtuali all'interno di un singolo riquadro di vetro. Passare a backup Explorer da qualsiasi insieme di credenziali di servizi di ripristino, passare alla scheda **elementi di backup** e selezionare la visualizzazione avanzata per visualizzare informazioni dettagliate sulla conservazione per ogni macchina virtuale.  
+È anche possibile usare [Esplora backup](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) per visualizzare le impostazioni di conservazione per tutte le macchine virtuali all'interno di un singolo riquadro di vetro. Passare a backup Explorer da qualsiasi insieme di credenziali di servizi di ripristino, passare alla scheda **elementi di backup** e selezionare la visualizzazione avanzata per visualizzare informazioni dettagliate sulla conservazione per ogni macchina virtuale.

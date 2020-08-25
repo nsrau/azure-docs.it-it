@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80762511591d10bd2823101e2ff233fdd0f0eb00
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495625"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782482"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Ruoli che non è possibile gestire in Privileged Identity Management
 
@@ -37,7 +37,7 @@ Per altre informazioni sui ruoli di amministratore della sottoscrizione classica
 
 ## <a name="what-about-office-365-admin-roles"></a>Informazioni sui ruoli amministratore di Office 365
 
-Sono supportati tutti i ruoli Office365 nell'esperienza del portale degli amministratori e ruoli di Azure AD, ad esempio amministratore di Exchange e amministratore di SharePoint, ma non sono supportati ruoli specifici all'interno di Exchange RBAC o di SharePoint RBAC. Per altre informazioni su questi servizi di Office 365, vedere [Informazioni sui ruoli di amministratore di Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+Sono supportati tutti i ruoli Office365 nell'esperienza del portale degli amministratori e ruoli di Azure AD, ad esempio amministratore di Exchange e amministratore di SharePoint, ma non sono supportati ruoli specifici all'interno di Exchange RBAC o di SharePoint RBAC. Per altre informazioni su questi servizi di Office 365, vedere [Informazioni sui ruoli di amministratore di Office 365](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Gli utenti idonei per il ruolo di amministratore di SharePoint, il ruolo di amministratore del dispositivo e tutti i ruoli che tentano di accedere a Microsoft Security and Compliance Center potrebbero subire ritardi di poche ore dopo l'attivazione del ruolo. Microsoft sta collaborando con i team per risolvere i problemi.

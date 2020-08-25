@@ -3,12 +3,12 @@ title: Modello di dati di Monitoraggio di Azure
 description: In questo articolo si apprenderanno i dettagli del modello di dati di Log Analytics di Monitoraggio di Azure per i dati di Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 73247dac1ca829a7893192101da0981c3edcf8d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 897431feae6cd3166b594d4d6848204df76fe3fa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539075"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761407"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -461,35 +461,37 @@ Di seguito sono riportati alcuni esempi che facilitano la scrittura di query sui
     ````
 
 ## <a name="v1-schema-vs-v2-schema"></a>Schema V1 e schema V2 schema
-In precedenza, i dati di diagnostica per l'agente di Backup di Azure e per il backup delle macchine virtuali di Azure venivano inviati a una tabella di Diagnostica di Azure in uno schema denominato ***Schema V1***. Successivamente sono state aggiunte nuove colonne per supportare altri scenari e altri carichi di lavoro ed è stato eseguito il push dei dati di diagnostica in un nuovo schema denominato ***Schema V2***. 
 
-Per motivi di compatibilità con le versioni precedenti, i dati di diagnostica per l'agente di Backup di Azure e per il backup delle macchine virtuali di Azure vengono attualmente inviati alla tabella di Diagnostica di Azure sia nello schema V1 che nello schema V2 (con lo schema V1 ora in un percorso di deprecazione). È possibile identificare quali record in Log Analytics appartengono allo schema V1 filtrando i record per SchemaVersion_s=="V1" nelle query di log. 
+In precedenza, i dati di diagnostica per l'agente di Backup di Azure e per il backup delle macchine virtuali di Azure venivano inviati a una tabella di Diagnostica di Azure in uno schema denominato ***Schema V1***. Successivamente sono state aggiunte nuove colonne per supportare altri scenari e altri carichi di lavoro ed è stato eseguito il push dei dati di diagnostica in un nuovo schema denominato ***Schema V2***.  
+
+Per motivi di compatibilità con le versioni precedenti, i dati di diagnostica per l'agente di Backup di Azure e per il backup delle macchine virtuali di Azure vengono attualmente inviati alla tabella di Diagnostica di Azure sia nello schema V1 che nello schema V2 (con lo schema V1 ora in un percorso di deprecazione). È possibile identificare quali record in Log Analytics appartengono allo schema V1 filtrando i record per SchemaVersion_s=="V1" nelle query di log.
 
 Fare riferimento alla terza colonna, 'Description', nel [modello di dati ](#using-azure-backup-data-model) descritto in precedenza per identificare le colonne che appartengono solo allo schema V1.
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modifica delle query per l'uso dello schema V2
+
 Poiché lo schema V1 si trova in un percorso di deprecazione, è consigliabile usare solo lo schema V2 in tutte le query personalizzate sui dati di diagnostica di backup di Azure. Di seguito è riportato un esempio di come aggiornare le query per rimuovere la dipendenza dallo schema v1:
 
 1. Identificare se la query utilizza qualsiasi campo applicabile solo allo schema v1. Si supponga di disporre di una query per elencare tutti gli elementi di backup e i server protetti associati come indicato di seguito:
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+    ````
 
-La query precedente usa il campo ProtectedServerUniqueId_s applicabile solo allo schema v1. L'equivalente dello schema V2 di questo campo è ProtectedContainerUniqueId_s (vedere le tabelle precedenti). Il campo BackupItemUniqueId_s è applicabile anche allo schema V2 e lo stesso campo può essere utilizzato in questa query.
+    La query precedente usa il campo ProtectedServerUniqueId_s applicabile solo allo schema v1. L'equivalente dello schema V2 di questo campo è ProtectedContainerUniqueId_s (vedere le tabelle precedenti). Il campo BackupItemUniqueId_s è applicabile anche allo schema V2 e lo stesso campo può essere utilizzato in questa query.
 
 2. Aggiornare la query per utilizzare i nomi dei campi dello schema V2. È consigliabile usare il filtro ' where SchemaVersion_s = = "V2"' in tutte le query, in modo che solo i record corrispondenti allo schema V2 vengano analizzati dalla query:
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| where SchemaVersion_s=="V2"
-| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | where SchemaVersion_s=="V2"
+    | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
+    ````
 
 ## <a name="next-steps"></a>Passaggi successivi
 

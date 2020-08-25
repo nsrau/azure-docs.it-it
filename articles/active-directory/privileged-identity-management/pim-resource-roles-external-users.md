@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 046a0d61bb7a6d715a1d732790d2b472b3e83c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743780"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782737"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Invitare gli utenti guest e assegnare i ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -45,7 +45,7 @@ Di seguito sono riportati alcuni esempi di quando è possibile invitare i guest 
 
 ## <a name="how-does-collaboration-using-b2b-guests-work"></a>Come funziona la collaborazione con i guest B2B?
 
-Quando si usa la collaborazione B2B, è possibile invitare un utente esterno alla propria organizzazione come Guest. Il Guest può essere gestito come un utente dell'organizzazione, ma un guest deve essere autenticato nella propria organizzazione principale e non nell'organizzazione Azure AD. Ciò significa che se il Guest non ha più accesso alla propria organizzazione principale, perderà anche l'accesso all'organizzazione. Se, ad esempio, il Guest abbandona l'organizzazione, perderà automaticamente l'accesso a tutte le risorse condivise in Azure AD senza dover eseguire alcuna operazione. Per ulteriori informazioni sulla collaborazione B2B, vedere [che cos'è l'accesso utente guest in Azure Active Directory B2B?](../b2b/what-is-b2b.md).
+Quando si usa la collaborazione B2B, è possibile invitare un utente esterno alla propria organizzazione come Guest. Il Guest può essere gestito come un utente dell'organizzazione, ma un guest deve essere autenticato nella propria organizzazione principale e non nell'organizzazione Azure AD. Ciò significa che se il Guest non ha più accesso alla propria organizzazione principale, perderà anche l'accesso all'organizzazione. Se, ad esempio, il Guest abbandona l'organizzazione, perderà automaticamente l'accesso a tutte le risorse condivise in Azure AD senza dover eseguire alcuna operazione. Per ulteriori informazioni sulla collaborazione B2B, vedere [che cos'è l'accesso utente guest in Azure Active Directory B2B?](../external-identities/what-is-b2b.md).
 
 ![Diagramma che illustra come viene autenticato un utente guest nella home directory](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
@@ -166,4 +166,4 @@ Se si è un utente esterno, è necessario accettare l'invito come guest nell'org
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Assegnare i ruoli di amministratore di Azure AD in Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [Informazioni sull'accesso degli utenti guest in Azure AD collaborazione B2B](../b2b/what-is-b2b.md)
+- [Informazioni sull'accesso degli utenti guest in Azure AD collaborazione B2B](../external-identities/what-is-b2b.md)

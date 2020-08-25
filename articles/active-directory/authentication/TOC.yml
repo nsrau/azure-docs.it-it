@@ -43,7 +43,7 @@
         - name: Licenze
           href: concept-mfa-licensing.md
         - name: Multi-Factor Authentication per Office 365
-          href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
+          href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
         - name: Domande frequenti
           href: multi-factor-authentication-faq.md
     - name: Autenticazione senza password
@@ -87,7 +87,7 @@
         - name: Federazione di directory
           items:
             - name: Adattatore AD FS per Windows Server 2016
-              href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa'
+              href: /windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
             - name: Federation Services
               href: multi-factor-authentication-get-started-adfs.md
             - name: Usare AD FS
@@ -119,7 +119,7 @@
         - name: Accesso tramite telefono senza password
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello for Business
-          href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+          href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
     - name: Registrazione dell'informazione di sicurezza
       items:
         - name: Abilitare la registrazione combinata
@@ -220,7 +220,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Manuale dell'utente di Multi-Factor Authentication
-      href: ./end-user/current/multi-factor-authentication-end-user.md
+      href: ../user-help/multi-factor-authentication-end-user-first-time.md
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
     - name: Cmdlet di Azure PowerShell
@@ -234,7 +234,7 @@
     - name: Forum di commenti e suggerimenti su Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Pagina delle domande di Domande e risposte Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Aggiornamenti del servizio

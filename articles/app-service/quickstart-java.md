@@ -10,16 +10,19 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8289b21da5009459d2eb7ddc8d26b549f0920317
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 274228ea5aa9ac9de9725176c8b6221ee9e9542e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084107"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182698"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Avvio rapido: Creare un'app Java nel Servizio app di Azure
 
 [Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione.  Questa guida di avvio rapido spiega come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in di App Web di Azure per Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web Java (WAR).
+
+> [!NOTE]
+> In questo articolo vengono usate solo app Java in pacchetto con file WAR. Il plug-in supporta anche le applicazioni Web JAR. Vedere [Distribuire un file JAR Java SE nel servizio app di Azure in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per provarlo.
 
 > [!NOTE]
 > La stessa operazione può essere eseguita anche con gli IDE più comuni come Eclipse e IntelliJ. Consultare i documenti simili in [Avvio rapido di Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) oppure in [Avvio rapido di Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
@@ -53,12 +56,12 @@ Il processo di distribuzione nel servizio app di Azure può prelevare automatica
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
-::: zone pivot="platform-windows"  
+::: zone pivot="platform-windows" 
 Verrà richiesto di effettuare queste selezioni 
 * **Sistema operativo (impostazione predefinita: `linux`)**
 * **Versione di Java (impostazione predefinita: `1.8`)**
 * **Contenitore Web (impostazione predefinita: `tomcat 8.5`)** 
-
+ 
 Prestare attenzione a inserire **`2`** per scegliere il sistema operativo **windows** nel primo passaggio. Per le altre opzioni di configurazione è possibile lasciare le impostazioni predefinite premendo **INVIO**. Infine, premere **`Y`** nella richiesta **Conferma (S/N)** per completare la configurazione.
 
 Un processo di esempio ha un aspetto simile al seguente:
@@ -137,6 +140,13 @@ Confirm (Y/N)? :
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"  
+
+Verrà richiesto di effettuare queste selezioni 
+* **Sistema operativo (impostazione predefinita: `linux`)**
+* **Versione di Java (impostazione predefinita: `Java 8`)**
+* **Contenitore Web (impostazione predefinita: `Tomcat 8.5`)** 
+
+Per tutte le opzioni di configurazione è possibile lasciare le impostazioni predefinite premendo **INVIO**. Infine, premere **`Y`** nella richiesta **Conferma (S/N)** per completare la configurazione.
 Un processo di esempio ha un aspetto simile al seguente:
 
 ```cmd
@@ -174,16 +184,7 @@ Confirm (Y/N)? : Y
 ```
 ::: zone-end
 
-> [!NOTE]
-> In questo articolo vengono usate solo app Java in pacchetto con file WAR. Il plug-in supporta anche le applicazioni Web JAR. Vedere [Distribuire un file JAR Java SE nel servizio app di Azure in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per provarlo.
-
-Aprire `pom.xml` per vedere la configurazione aggiornata.
-
-```bash
-code pom.xml
-```
-
-È possibile modificare le configurazioni per Servizio app di Azure direttamente nel file pom, se necessario. Alcune configurazioni comuni sono elencate di seguito:
+È possibile modificare le configurazioni per il servizio app direttamente nel file `pom.xml`, se necessario. Di seguito sono elencate alcune configurazioni comuni:
 
  Proprietà | Obbligatoria | Descrizione | Versione
 ---|---|---|---
@@ -195,11 +196,8 @@ code pom.xml
 `<runtime>` | true | Configurazione dell'ambiente di runtime. I dettagli sono disponibili [qui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 `<deployment>` | true | Configurazione della distribuzione. I dettagli sono disponibili [qui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
-::: zone pivot="platform-windows"
 Prestare attenzione ai valori di `<appName>` e `<resourceGroup>`(`helloworld-1590394316693` e `helloworld-1590394316693-rg` nella demo), perché verranno usati in seguito.
-::: zone-end
-::: zone pivot="platform-linux"
-::: zone-end
+
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
@@ -216,21 +214,11 @@ Quindi è possibile distribuire l'app Java in Azure con il comando seguente:
 mvn package azure-webapp:deploy
 ```
 
-::: zone pivot="platform-windows"
 Al termine della distribuzione, l'applicazione sarà pronta all'indirizzo `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` nella demo). Aprire l'URL con il Web browser locale. Si dovrebbe vedere
 
-![App di esempio in esecuzione nel Servizio app di Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+![App di esempio in esecuzione nel Servizio app di Azure](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
-**Congratulazioni** La distribuzione della prima app Java nel servizio app in Windows è stata completata.
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-::: zone-end
-::: zone pivot="platform-linux"
-Al termine della distribuzione, passare all'applicazione distribuita usando l'URL seguente nel Web browser, ad esempio `http://<webapp>.azurewebsites.net`. 
-
-![App di esempio in esecuzione nel Servizio app di Azure](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Congratulazioni** La distribuzione della prima app Java nel servizio app in Linux è stata completata.
+**Congratulazioni** La distribuzione della prima app Java nel servizio app è stata completata.
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
@@ -244,19 +232,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 ```
 
 L'esecuzione del comando può richiedere un minuto.
-::: zone-end
-
-Al termine della distribuzione, l'applicazione sarà pronta all'indirizzo `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` nella demo). Aprire l'URL con il Web browser locale. Si dovrebbe vedere
-
-![App di esempio in esecuzione nel Servizio app di Azure](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Congratulazioni** La distribuzione della prima app Java nel servizio app è stata completata.
-
-> [!div class="nextstepaction"]
-> [Si è verificato un problema](https://www.research.net/r/javae2e?quickstart-java&step=deploy)
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

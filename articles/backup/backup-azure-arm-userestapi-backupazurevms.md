@@ -4,12 +4,12 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 595291549b4d181967ea168d0dc71bc7e2237a67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48b5a8c596ec5b23d2962acb9c1f95a1d5aafbc0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514204"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761679"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -35,7 +35,7 @@ Per l'URI di POST sono presenti i parametri `{subscriptionId}`, `{vaultName}`, `
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Risposte
+#### <a name="responses-to-refresh-operation"></a>Risposte all'operazione di aggiornamento
 
 L'operazione di aggiornamento è un'[operazione asincrona](../azure-resource-manager/management/async-operations.md). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
@@ -46,7 +46,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
 |202 - Accettato     |         |     Accettato    |
 
-##### <a name="example-responses"></a>Risposte di esempio
+##### <a name="example-responses-to-refresh-operation"></a>Risposte di esempio all'operazione di aggiornamento
 
 Dopo che la richiesta *POST* è stata inviata, viene restituita una risposta 202 di accettazione.
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Selezione della macchina virtuale di Azure pertinente
 
- È possibile verificare che la memorizzazione nella cache venga eseguita [elencando tutti gli elementi da proteggere](/rest/api/backup/backupprotectableitems/list) nella sottoscrizione e individuare la macchina virtuale desiderata nella risposta. [La risposta di questa operazione](#example-responses-1) fornisce anche informazioni sul modo in cui i servizi di ripristino identificano una macchina virtuale.  Dopo aver acquisito familiarità con il modello, è possibile ignorare questo passaggio e procedere direttamente con l'[abilitazione della protezione](#enabling-protection-for-the-azure-vm).
+ È possibile verificare che la memorizzazione nella cache venga eseguita [elencando tutti gli elementi da proteggere](/rest/api/backup/backupprotectableitems/list) nella sottoscrizione e individuare la macchina virtuale desiderata nella risposta. [La risposta di questa operazione](#example-responses-to-get-operation) fornisce anche informazioni sul modo in cui i servizi di ripristino identificano una macchina virtuale.  Dopo aver acquisito familiarità con il modello, è possibile ignorare questo passaggio e procedere direttamente con l'[abilitazione della protezione](#enabling-protection-for-the-azure-vm).
 
 Questa è un'operazione *GET*.
 
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
 
-#### <a name="responses"></a><a name="responses-1"></a>Risposte
+#### <a name="responses-to-get-operation"></a>Risposte per l'operazione Get
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### <a name="example-responses"></a><a name="example-responses-1"></a>Risposte di esempio
+#### <a name="example-responses-to-get-operation"></a>Risposte di esempio per l'operazione Get
 
 Dopo che la richiesta *GET* è stata inviata, viene restituita una risposta 200 (OK).
 
@@ -200,9 +200,9 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per creare 
 }
 ```
 
-`{sourceResourceId}` è l'elemento `{virtualMachineId}` citato in precedenza per dalla [risposta per l'elenco di elementi che è possibile proteggere](#example-responses-1).
+`{sourceResourceId}` è l'elemento `{virtualMachineId}` citato in precedenza per dalla [risposta per l'elenco di elementi che è possibile proteggere](#example-responses-to-get-operation).
 
-#### <a name="responses"></a>Risposte
+#### <a name="responses-to-create-protected-item-operation"></a>Risposte per creare un'operazione di elemento protetto
 
 La creazione di un elemento protetto è un'[operazione asincrona](../azure-resource-manager/management/async-operations.md). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
@@ -213,7 +213,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 |200 - OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 - Accettato     |         |     Accettato    |
 
-##### <a name="example-responses"></a>Risposte di esempio
+##### <a name="example-responses-to-create-protected-item-operation"></a>Risposte di esempio per creare un'operazione di elemento protetto
 
 Dopo aver inviato la richiesta *PUT* per la creazione o l'aggiornamento dell'elemento protetto, la risposta iniziale è 202 (accettazione) con intestazione location o Azure-async.
 
@@ -284,13 +284,13 @@ L'attivazione di un backup su richiesta è un'operazione *POST*.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in precedenza](#responses-1). Il valore di `{fabricName}` è "Azure". Per questo esempio, la situazione è quindi la seguente:
+Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in precedenza](#responses-to-get-operation). Il valore di `{fabricName}` è "Azure". Per questo esempio, la situazione è quindi la seguente:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
 ```
 
-### <a name="create-the-request-body"></a>Creare il corpo della richiesta
+### <a name="create-the-request-body-for-on-demand-backup"></a>Creare il corpo della richiesta per il backup su richiesta
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
@@ -300,7 +300,7 @@ Di seguito vengono indicati i componenti del corpo della richiesta necessari per
 
 Per l'elenco completo di definizioni del corpo della richiesta e altri dettagli, vedere il [documento sull'API REST per attivare il backup di elementi protetti](/rest/api/backup/backups/trigger#request-body).
 
-#### <a name="example-request-body"></a>Esempio di corpo della richiesta
+#### <a name="example-request-body-for-on-demand-backup"></a>Corpo della richiesta di esempio per il backup su richiesta
 
 Il corpo della richiesta seguente definisce le proprietà necessarie per attivare un backup per un elemento protetto. Se non specificato, si presuppone che la durata della conservazione sia di 30 giorni a partire dal giorno del trigger del processo di backup.
 
@@ -313,7 +313,7 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
 }
 ```
 
-### <a name="responses"></a>Risposte
+### <a name="responses-for-on-demand-backup"></a>Risposte per il backup su richiesta
 
 L'attivazione di un backup su richiesta è un'[operazione asincrona](../azure-resource-manager/management/async-operations.md). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
@@ -323,7 +323,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 |---------|---------|---------|
 |202 - Accettato     |         |     Accettato    |
 
-#### <a name="example-responses"></a><a name="example-responses-3"></a>Risposte di esempio
+#### <a name="example-responses-for-on-demand-backup"></a>Risposte di esempio per il backup su richiesta
 
 Dopo aver inviato la richiesta *POST* per un backup su richiesta, la risposta iniziale è 202 (accettazione) con un'intestazione location o Azure-async.
 
@@ -399,7 +399,7 @@ Per modificare i criteri con cui la macchina virtuale è protetta, è possibile 
 }
 ```
 
-Il formato della risposta è analogo a quello indicato [per l'abilitazione della protezione](#responses-2)
+Il formato della risposta è analogo a quello indicato [per l'abilitazione della protezione](#responses-to-create-protected-item-operation)
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Arrestare la protezione dati, ma conservare i dati esistenti
 
@@ -415,7 +415,7 @@ Per rimuovere la protezione in una macchina virtuale protetta conservando contem
 }
 ```
 
-Il formato della risposta è analogo a quello indicato [per attivare un backup su richiesta](#example-responses-3). Il processo risultante deve essere rilevato come illustrato nel [documento per monitorare i processi usando l'API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Il formato della risposta è analogo a quello indicato [per attivare un backup su richiesta](#example-responses-for-on-demand-backup). Il processo risultante deve essere rilevato come illustrato nel [documento per monitorare i processi usando l'API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ### <a name="stop-protection-and-delete-data"></a>Arrestare la protezione ed eliminare i dati
 
@@ -427,13 +427,13 @@ L'arresto della protezione e l'eliminazione dei dati sono operazioni *DELETE*.
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in precedenza](#responses-1). `{fabricName}` è "Azure". Per questo esempio, la situazione è quindi la seguente:
+Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in precedenza](#responses-to-get-operation). `{fabricName}` è "Azure". Per questo esempio, la situazione è quindi la seguente:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses"></a><a name="responses-2"></a>Risposte
+#### <a name="responses-for-delete-protection"></a>Risposte per la protezione dell'eliminazione
 
 L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](../azure-resource-manager/management/async-operations.md). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
@@ -451,7 +451,7 @@ L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un
 
 L'eliminazione accidentale è simile alla creazione dell'elemento di backup. Dopo aver annullato l'eliminazione, l'elemento viene mantenuto, ma non vengono attivati backup futuri.
 
-L'eliminazione Annulla è un'operazione *put* che è molto simile alla [modifica dei criteri](#changing-the-policy-of-protection) e/o [all'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire l'intenzione di annullare l'eliminazione con la variabile *isRehydrate* nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per annullare l'eliminazione per testVM, è necessario usare il corpo della richiesta seguente.
+L'eliminazione Annulla è un'operazione *put* che è molto simile alla [modifica dei criteri](#changing-the-policy-of-protection) e/o [all'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire l'intenzione di annullare l'eliminazione con la variabile *isRehydrate*  nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per annullare l'eliminazione per testVM, è necessario usare il corpo della richiesta seguente.
 
 ```http
 {
@@ -464,7 +464,7 @@ L'eliminazione Annulla è un'operazione *put* che è molto simile alla [modifica
 }
 ```
 
-Il formato della risposta è analogo a quello indicato [per attivare un backup su richiesta](#example-responses-3). Il processo risultante deve essere rilevato come illustrato nel [documento per monitorare i processi usando l'API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Il formato della risposta è analogo a quello indicato [per attivare un backup su richiesta](#example-responses-for-on-demand-backup). Il processo risultante deve essere rilevato come illustrato nel [documento per monitorare i processi usando l'API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

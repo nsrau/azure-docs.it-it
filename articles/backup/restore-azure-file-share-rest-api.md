@@ -3,12 +3,12 @@ title: Ripristinare le condivisioni file di Azure con l'API REST
 description: Informazioni su come usare l'API REST per ripristinare condivisioni file di Azure o file specifici da un punto di ripristino creato da backup di Azure
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 3a1f2999fa1b50507fd3d1b6f21f508ec9f82841
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538157"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761798"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Ripristinare le condivisioni file di Azure usando l'API REST
 
@@ -64,7 +64,7 @@ All'URI GET sono associati tutti i parametri obbligatori. Non è necessario un c
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
 ```
 
-### <a name="example-response"></a>Risposta di esempio
+### <a name="example-response-for-fetch-recovery-points"></a>Risposta di esempio per il recupero dei punti di ripristino
 
 Una volta inviato l'URI GET, viene restituita una risposta 200:
 
@@ -168,7 +168,7 @@ Per l'elenco completo delle definizioni del corpo della richiesta e altri dettag
 
 ### <a name="restore-to-original-location"></a>Il ripristino viene eseguito nel percorso originale
 
-#### <a name="request-body-example"></a>Esempio di corpo della richiesta
+#### <a name="request-body-example-for-restore-to-original-location"></a>Esempio di corpo della richiesta per il ripristino nel percorso originale
 
 Il corpo della richiesta seguente definisce le proprietà necessarie per attivare un ripristino della condivisione file di Azure:
 
@@ -192,7 +192,7 @@ Specificare i seguenti parametri per il ripristino del percorso alternativo:
 * **nome**: la condivisione file all'interno dell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
 * **targetFolderPath**: cartella nella condivisione file in cui vengono ripristinati i dati.
 
-#### <a name="request-body-example"></a>Esempio di corpo della richiesta
+#### <a name="request-body-example-for-restore-to-alternate-location"></a>Esempio di corpo della richiesta per il ripristino in un percorso alternativo
 
 Il corpo della richiesta seguente ripristina la condivisione file *risorsa* nell'account di archiviazione *afsaccount* nella condivisione file *azurefiles1* nell'account di archiviazione *afaccount1* .
 
@@ -366,7 +366,7 @@ I valori {ContainerName} e {protectedItemName} sono impostati [qui](#fetch-conta
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### <a name="create-request-body"></a>Creare il corpo della richiesta
+### <a name="create-request-body-for-item-level-recovery-using-rest-api"></a>Creare il corpo della richiesta per il ripristino a livello di elemento tramite l'API REST
 
 Per attivare un ripristino per una condivisione file di Azure, di seguito sono riportati i componenti del corpo della richiesta:
 
@@ -376,7 +376,7 @@ Proprietà | AzureFileShareRestoreRequest | Proprietà di RestoreRequestResource
 
 Per l'elenco completo delle definizioni del corpo della richiesta e altri dettagli, fare riferimento al [documento sull'API REST di ripristino del trigger](/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Il ripristino viene eseguito nel percorso originale
+### <a name="restore-to-original-location-for-item-level-recovery-using-rest-api"></a>Ripristino nel percorso originale per il ripristino a livello di elemento tramite l'API REST
 
 Il corpo della richiesta seguente consente di ripristinare il file di *Restoretest.txt* nella condivisione file *risorsa* nell'account di archiviazione *afsaccount* .
 
@@ -402,7 +402,7 @@ Crea corpo della richiesta
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Ripristinare in un percorso alternativo
+### <a name="restore-to-alternate-location-for-item-level-recovery-using-rest-api"></a>Ripristino in un percorso alternativo per il ripristino a livello di elemento tramite l'API REST
 
 Il corpo della richiesta seguente consente di ripristinare il file di *Restoretest.txt* nella condivisione file *risorsa* nell'account di archiviazione *afsaccount* nella cartella *RestoreData* della condivisione file *azurefiles1* nell'account di archiviazione *afaccount1* .
 

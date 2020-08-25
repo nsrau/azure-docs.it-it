@@ -134,8 +134,10 @@
           href: load-balancer-troubleshoot.md
         - name: Risolvere gli errori di distribuzione comuni
           href: load-balancer-common-deployment-errors.md
-        - name: Risolvere i problemi comuni relativi alle connessioni in uscita
+        - name: Risolvere i problemi comuni delle connessioni in uscita
           href: troubleshoot-outbound-connection.md
+        - name: Risolvere i problemi di integrità e di disponibilità delle risorse in ingresso
+          href: troubleshoot-rhc.md
 - name: Informazioni di riferimento
   items:
     - name: Esempi di codice
