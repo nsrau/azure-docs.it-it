@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
-ms.date: 08/21/2020
+ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea274c349c968852b77f3c3f2d39637f91484335
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723435"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798551"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -63,6 +63,25 @@ Resources
 
 > [!NOTE]
 > Quando si limitano i risultati di `join` con `project`, la proprietà usata da `join` per correlare le due tabelle, _subscriptionId_ nell'esempio precedente, deve essere inclusa in `project`.
+
+## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Proprietà estese (anteprima)
+
+Come funzionalità di _Anteprima_ , alcuni tipi di risorse in Graph di risorse dispongono di proprietà aggiuntive correlate ai tipi disponibili per eseguire query oltre le proprietà fornite da Azure Resource Manager. Questo set di valori, noto come _proprietà estese_, esiste in un tipo di risorsa supportato in `properties.extended` . Per visualizzare i tipi di risorse con _proprietà estese_, usare la query seguente:
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+Esempio: ottenere il numero di macchine virtuali per `instanceView.powerState.code` :
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
 
 ## <a name="resource-graph-custom-language-elements"></a>Elementi di linguaggio personalizzati del grafico risorse
 
@@ -123,8 +142,7 @@ Di seguito è riportato l'elenco degli operatori tabulari di KQL supportati da R
 L'ambito delle sottoscrizioni da cui le risorse vengono restituite da una query dipende dal metodo di accesso al grafico delle risorse. L'interfaccia della riga di comando di Azure e Azure PowerShell popolare l'elenco di sottoscrizioni da includere nella richiesta in base al contesto dell'utente autorizzato. L'elenco delle sottoscrizioni può essere definito manualmente per ogni con le **sottoscrizioni** e i parametri di **sottoscrizione** , rispettivamente.
 Nell'API REST e in tutti gli altri SDK, l'elenco di sottoscrizioni per includere le risorse da deve essere definito in modo esplicito come parte della richiesta.
 
-Come **Anteprima**, la versione dell'API REST `2020-04-01-preview` aggiunge una proprietà per definire l'ambito della query a un [gruppo di gestione](../../management-groups/overview.md). Questa API di anteprima rende inoltre la proprietà della sottoscrizione facoltativa. Se non è stato definito né l'elenco di sottoscrizioni né il gruppo di gestione, l'ambito della query corrisponde a tutte le risorse a cui l'utente autenticato può accedere. La nuova `managementGroupId` proprietà accetta l'ID del gruppo di gestione, che è diverso dal nome del gruppo di gestione.
-Quando `managementGroupId` si specifica, vengono incluse le risorse della prima sottoscrizioni 5000 in o sotto la gerarchia del gruppo di gestione specificata. `managementGroupId` non può essere usato contemporaneamente a `subscriptions` .
+Come **Anteprima**, la versione dell'API REST `2020-04-01-preview` aggiunge una proprietà per definire l'ambito della query a un [gruppo di gestione](../../management-groups/overview.md). Questa API di anteprima rende inoltre la proprietà della sottoscrizione facoltativa. Se un gruppo di gestione o un elenco di sottoscrizioni non è definito, l'ambito della query è tutte le risorse a cui l'utente autenticato può accedere. La nuova `managementGroupId` proprietà accetta l'ID del gruppo di gestione, che è diverso dal nome del gruppo di gestione. Quando `managementGroupId` si specifica, vengono incluse le risorse della prima sottoscrizioni 5000 in o sotto la gerarchia del gruppo di gestione specificata. `managementGroupId` non può essere usato contemporaneamente a `subscriptions` .
 
 Esempio: eseguire una query su tutte le risorse nella gerarchia del gruppo di gestione denominato "My Management Group" con ID "myMG".
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 159cdef6b2c831e8c20d7249334bebac4f2061c5
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 93e7a720e9d39eca6d808c8c49b3b340226997ff
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606131"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817035"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creare un'offerta Dynamics 365 for Customer Engagement e PowerApps
 
@@ -197,12 +197,16 @@ Fornire logo e immagini per l'offerta. Tutte le immagini devono essere in format
 
 #### <a name="store-logos"></a>Logo dello store
 
-Fornire il logo dell'offerta in tre dimensioni di pixel:
-- **Piccolo** (obbligatorio; 48 x 48)
-- **Grande** (obbligatorio; 216 x 216)
-- **Molto grande** (facoltativo; 255 x 115)
+Fornire un file PNG per il logo di **grandi** dimensioni. Il centro per i partner utilizzerà questo per creare un logo di **piccole dimensioni** . Facoltativamente, è possibile sostituire questo oggetto con un'immagine diversa in un secondo momento.
+
+- **Grande** (da 216 x 216 a 350 x 350 px, obbligatorio)
+- **Piccolo** (48 x 48 px, facoltativo)
+
+Questi logo vengono usati in posizioni diverse nell'elenco:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 

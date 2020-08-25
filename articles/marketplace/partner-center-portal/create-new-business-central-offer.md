@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 0d00f779031ec294523c861a4e9868f7cbbe790d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606144"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817052"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creare un'offerta Dynamics 365 Business Central
 
@@ -182,16 +182,16 @@ Fornire qui almeno un documento di marketing correlato (e fino a un massimo di t
 
 ### <a name="marketplace-images"></a>Immagini del Marketplace
 
-Fornire logo e immagini per l'offerta. Tutte le immagini devono essere in formato PNG. 
+Fornire un file PNG per il logo di **grandi** dimensioni. Il centro per i partner utilizzerà questo per creare un logo di **piccole dimensioni** . Facoltativamente, è possibile sostituire questo oggetto con un'immagine diversa in un secondo momento.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+- **Grande** (da 216 x 216 a 350 x 350 px, obbligatorio)
+- **Piccolo** (48 x 48 px, facoltativo)
 
-Caricare il logo dell'offerta in due dimensioni:
-
-* **Small** (48 x 48 pixel)
-* **Large** (216 x 216 pixel)
+Questi logo vengono usati in posizioni diverse nell'elenco:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il servizio `https://upload.xboxlive.com` usato dal Centro per i partner.
@@ -202,7 +202,7 @@ Aggiungere screenshot che mostrano il funzionamento dell'offerta. Sono necessari
 
 #### <a name="videos"></a>Video
 
-Se si vuole, è possibile aggiungere fino a cinque video che descrivono l'offerta. Questi video devono essere ospitati in YouTube e/o Vimeo. Per ogni video, immettere il nome, l'URL e un'immagine di anteprima (1280 x 720 pixel).
+Facoltativamente, è possibile aggiungere fino a cinque video che descrivono l'offerta. Questi video devono essere ospitati in YouTube e/o Vimeo. Per ogni video, immettere il nome, l'URL e un'immagine di anteprima (1280 x 720 pixel).
 
 #### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per la presentazione nel marketplace
 
@@ -229,7 +229,7 @@ Tenere presente che anche se si selezionano tutti i mercati, le leggi locali, le
 
 ### <a name="preview-audience"></a>Visualizza in anteprima gruppo di destinatari
 
-Prima di pubblicare l'offerta live all'interno della più ampia offerta del marketplace, è necessario renderla disponibile **in anteprima a un numero di destinatari** limitato. Immettere qui un valore in **Nascondi chiave** (qualsiasi stringa che usa solo lettere minuscole e/o numeri). I membri del gruppo di destinatari in anteprima possono usare questa chiave come token per visualizzare un'anteprima dell'offerta nel marketplace.
+Prima di pubblicare l'offerta live all'interno della più ampia offerta del marketplace, è necessario renderla disponibile a un **gruppo di destinatari dell'anteprima** limitato. Immettere qui un valore in **Nascondi chiave** (qualsiasi stringa che usa solo lettere minuscole e/o numeri). I membri del gruppo di destinatari in anteprima possono usare questa chiave come token per visualizzare un'anteprima dell'offerta nel marketplace.
 
 Quindi, quando si è pronti a rendere disponibile l'offerta e a rimuovere la restrizione, sarà necessario rimuovere la chiave specificata in **Nascondi chiave** e ripubblicare l'offerta.
 

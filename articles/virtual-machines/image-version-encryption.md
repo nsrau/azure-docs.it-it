@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245554"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816491"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 
@@ -27,9 +27,9 @@ La crittografia lato server con chiavi gestite dal cliente usa Azure Key Vault. 
 
 Per questo articolo è necessario avere già un set di crittografia del disco da usare per l'immagine.
 
-- Per usare solo una chiave gestita dal cliente, vedere **abilitare le chiavi gestite dal cliente con la crittografia lato server** usando il [portale di Azure](./windows/disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Per usare solo una chiave gestita dal cliente, vedere **abilitare le chiavi gestite dal cliente con la crittografia lato server** usando il [portale di Azure](./disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- Per usare le chiavi gestite dalla piattaforma e gestite dal cliente (per la crittografia doppia), vedere **abilitare la crittografia a doppia inattiva** usando il [portale di Azure](./windows/disks-enable-double-encryption-at-rest-portal.md) o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- Per usare le chiavi gestite dalla piattaforma e gestite dal cliente (per la crittografia doppia), vedere **abilitare la crittografia a doppia inattiva** usando il [portale di Azure](./disks-enable-double-encryption-at-rest-portal.md) o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
     > È necessario usare questo collegamento [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) per accedere al portale di Azure. La crittografia a doppio inattivo non è attualmente visibile nel portale di Azure pubblico senza usare il collegamento.
 

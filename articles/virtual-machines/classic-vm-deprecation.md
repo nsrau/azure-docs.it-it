@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: c1807da76fe25d31581a07706489967d6e83f748
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0b2b995a6fe4cedd14b2e4ceeddc5747ec2423cf
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505309"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754804"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Eseguire la migrazione delle risorse IaaS a Azure Resource Manager entro il 1 ° marzo 2023 
 
@@ -38,6 +38,8 @@ I servizi e le funzionalità di Azure seguenti **non** saranno interessati dal r
 ## <a name="what-actions-should-i-take"></a>Quali azioni è necessario eseguire? 
 
 - Inizia a pianificare la migrazione a Azure Resource Manager oggi stesso. 
+
+- Creare un elenco di tutte le macchine virtuali interessate. Il tipo di macchina virtuale "macchine virtuali (classico)" nel pannello della [macchina virtuale del portale di Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) sono tutte le VM interessate nella sottoscrizione. 
 
 - [Scopri di più](./windows/migration-classic-resource-manager-overview.md) sulla migrazione di macchine virtuali [Linux](./linux/migration-classic-resource-manager-plan.md) e [Windows](./windows/migration-classic-resource-manager-plan.md) classiche a Azure Resource Manager.
 

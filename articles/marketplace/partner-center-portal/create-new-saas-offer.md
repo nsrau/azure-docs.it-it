@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604744"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817018"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Creare un'offerta SaaS nel Marketplace commerciale
 
@@ -282,18 +282,19 @@ Questo campo è obbligatorio.
 #### <a name="files-and-images"></a>File e immagini
 
 - **Documenti** (obbligatorio): aggiungere documenti di marketing correlati per l'offerta, in formato PDF, di almeno uno e fino a tre documenti per ogni offerta.
-- **Immagini**  -caricare immagini del logo in formato png:
+- **Immagini** (obbligatorio): sono presenti più posizioni in cui le immagini del logo dell'offerta possono essere visualizzate in tutto il Marketplace. Fornire un file PNG per il logo di **grandi** dimensioni. Il centro per i partner lo utilizzerà per creare un logo **piccolo** e **medio** . Facoltativamente, è possibile sostituirli con immagini diverse in un secondo momento.
 
-  - **Piccolo** (48 x 48 pixel, obbligatorio)
-  - **Media** (90 x 90 pixel, obbligatorio)
-  - **Grande** (216 x 216 pixel, obbligatorio)
-  - **Wide** (255 x 115 pixel) (facoltativo)
+  - **Grande** (da 216 x 216 a 350 x 350 px, obbligatorio)
+  - **Media** (90 x 90 px, facoltativo)
+  - **Piccolo** (48 x 48 px, facoltativo)
+  
+  Questi logo vengono usati in posizioni diverse nell'elenco:
 
-   Queste tre dimensioni del logo vengono usate in posizioni diverse negli archivi online:
+   - Il logo di grandi dimensioni viene visualizzato nella pagina di inserzione dell'offerta in Azure Marketplace e Microsoft AppSource.
+   - Il logo medio viene visualizzato quando si crea una nuova risorsa in Microsoft Azure.
+   - Il logo piccolo viene visualizzato nei risultati della ricerca di Azure Marketplace e nella pagina principale Microsoft AppSource e nei risultati della ricerca.
 
-   -   Il logo piccolo (48 x 48 pixel) viene visualizzato nei risultati della ricerca di Azure Marketplace e nella pagina principale Microsoft AppSource e nei risultati della ricerca. 
-   -   Il logo medio (90 x 90 pixel) viene visualizzato quando si crea una nuova risorsa in Microsoft Azure.
-   -   Il logo di grandi dimensioni (compreso tra 216 x 216 e 350 x 350 pixel) viene visualizzato nella pagina di inserzione dell'offerta in Azure Marketplace e Microsoft AppSource.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Screenshot** (obbligatorio): aggiungere un massimo di cinque screenshot che dimostrano l'offerta, ridimensionata a 1280 x 720 pixel. Tutte le immagini devono essere in formato PNG.
 - **Video** (facoltativo): aggiungere collegamenti a video che mostrano l'offerta. È possibile usare collegamenti a video di YouTube e/o Vimeo che vengono visualizzati insieme all'offerta ai clienti. È necessario immettere anche un'immagine di anteprima del video, in formato PNG con dimensioni 1280 x 720 pixel. È possibile fornire un massimo di quattro video per ogni offerta.

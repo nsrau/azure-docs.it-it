@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752329"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797786"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -369,7 +369,7 @@ Quando si tenta di configurare gli ACL di Windows con Esplora file in una condiv
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Errore: "il servizio directory non è stato in grado di allocare un identificatore relativo"
 
-Questo errror può verificarsi se un controller di dominio che dispone del ruolo FSMO master RID non è disponibile o è stato rimosso dal dominio e ripristinato dal backup.  Verificare che tutti i controller di dominio siano in esecuzione e disponibili.
+Questo errore può verificarsi se un controller di dominio che dispone del ruolo FSMO master RID non è disponibile o è stato rimosso dal dominio e ripristinato dal backup.  Verificare che tutti i controller di dominio siano in esecuzione e disponibili.
 
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Errore: "Cannot bind positional parameters because no names were given" (Non è possibile associare i parametri posizionali perché non è stato indicato alcun nome)
 

@@ -3,12 +3,12 @@ title: Risolvere i problemi del backup delle condivisioni file di Azure
 description: Questo articolo contiene informazioni per la risoluzione dei problemi che si verificano quando si proteggono le condivisioni file di Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524489"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763678"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Risolvere i problemi durante il backup delle condivisioni file di Azure
 
@@ -25,7 +25,7 @@ Questo articolo fornisce informazioni per la risoluzione dei problemi che si ver
   >le condivisioni file di un account di archiviazione possono essere protette solo con un unico insieme di credenziali di Servizi di ripristino. È possibile usare [questo script](scripts/backup-powershell-script-find-recovery-services-vault.md) per trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione.
 
 - Assicurarsi che la condivisione file non sia presente in uno degli account di archiviazione non supportati. Per trovare gli account di archiviazione supportati, è possibile fare riferimento alla [matrice di supporto per il backup di condivisioni file di Azure](azure-file-share-support-matrix.md) .
-- Verificare che la lunghezza combinata del nome dell'account di archiviazione e del nome del gruppo di risorse non superi 84 caratteri nel caso di nuovi account di archiviazione e di 77 caratteri in caso di account di archiviazione classici. 
+- Verificare che la lunghezza combinata del nome dell'account di archiviazione e del nome del gruppo di risorse non superi 84 caratteri nel caso di nuovi account di archiviazione e di 77 caratteri in caso di account di archiviazione classici.
 - Controllare le impostazioni del firewall dell'account di archiviazione per assicurarsi che sia abilitata l'opzione di consentire ai servizi Microsoft attendibili di accedere all'account di archiviazione.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Un errore visualizzato nel portale indica che non è possibile individuare gli account di archiviazione

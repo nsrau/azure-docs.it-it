@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fd819f0b819007611f5232d0fdfb324173d9c4b4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797922"
+ms.locfileid: "88814451"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -47,9 +47,9 @@ La tabella seguente confronta le opzioni di gestione delle chiavi per la crittog
 |--|--|--|--|
 | Operazioni di crittografia/decrittografia | Azure | Azure | Azure |
 | Servizi di archiviazione di Azure supportati | Tutti | Archiviazione BLOB, File di Azure<sup>1, 2</sup> | Archiviazione BLOB |
-| Archiviazione chiavi | Archivio chiavi Microsoft | Azure Key Vault | Archivio chiavi personalizzato del cliente |
-| Responsabilità della rotazione delle chiavi | Microsoft | Customer | Customer |
-| Controllo chiave | Microsoft | Customer | Customer |
+| Archiviazione chiavi | Archivio chiavi Microsoft | Insieme di credenziali chiave di Azure | Archivio chiavi personalizzato del cliente |
+| Responsabilità della rotazione delle chiavi | Microsoft | Cliente | Cliente |
+| Controllo chiave | Microsoft | Cliente | Cliente |
 
 <sup>1</sup> per informazioni sulla creazione di un account che supporta l'uso di chiavi gestite dal cliente con l'archiviazione code, vedere [creare un account che supporta chiavi gestite dal cliente per le code](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> per informazioni sulla creazione di un account che supporta l'uso di chiavi gestite dal cliente con l'archiviazione tabelle, vedere [creare un account che supporta chiavi gestite dal cliente per le tabelle](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
@@ -68,7 +68,7 @@ Gli ambiti di crittografia consentono di gestire facoltativamente la crittografi
 Dopo aver creato un ambito di crittografia, è possibile specificare tale ambito di crittografia per una richiesta di creazione di un contenitore o di un BLOB. Per ulteriori informazioni su come creare un ambito di crittografia, vedere [creare e gestire ambiti di crittografia (anteprima)](../blobs/encryption-scope-manage.md).
 
 > [!NOTE]
-> Gli ambiti di crittografia non sono supportati con account di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) durante la fase di anteprima.
+> Gli ambiti di crittografia non sono supportati con l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) e gli account di archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) durante la fase di anteprima.
 
 > [!IMPORTANT]
 > L'anteprima degli ambiti di crittografia è destinata solo all'uso non in produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
