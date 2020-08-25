@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6d3e35f44d11cd9ed41badbc64ff7528b5b15558
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 31f64a504156134b1d622705d5301d9cd5a5f5b1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084393"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756827"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Risolvere il problema dei nomi di dispositivo nelle macchine virtuali Linux
 
@@ -42,7 +42,7 @@ Il problema si verifica perché l'analisi dei dispositivi in Linux, programmata 
 
 Per risolvere questo problema, usare la denominazione permanente. Per consentire la denominazione persistente sono disponibili quattro metodi: per etichetta file system, per UUID, per ID e per percorso. Per le macchine virtuali Linux di Azure è consigliabile usare il metodo per etichetta file system o per UUID.
 
-La maggior parte delle distribuzioni dispone dei parametri `fstab` **nofail** o **nobootwait**. Questi parametri consentono l'avvio di un sistema quando il montaggio del disco in fase di avvio non riesce. Per altre informazioni su questi parametri, vedere la documentazione della distribuzione in uso. Per informazioni su come configurare una macchina virtuale Linux per l'uso di un UUID quando si aggiunge un disco dati, vedere [Connettersi alla VM Linux per montare il nuovo disco](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+La maggior parte delle distribuzioni dispone dei parametri `fstab` **nofail** o **nobootwait**. Questi parametri consentono l'avvio di un sistema quando il montaggio del disco in fase di avvio non riesce. Per altre informazioni su questi parametri, vedere la documentazione della distribuzione in uso. Per informazioni su come configurare una macchina virtuale Linux per l'uso di un UUID quando si aggiunge un disco dati, vedere [Connettersi alla VM Linux per montare il nuovo disco](../linux/add-disk.md#format-and-mount-the-disk).
 
 Quando l'agente Linux di Azure viene installato in una macchina virtuale, usa le regole Udev per creare un set di collegamenti simbolici nel percorso /dev/disk/azure. Le applicazioni e gli script usano regole Udev per identificare i dischi collegati alla macchina virtuale, oltre al tipo di disco e ai LUN del disco stesso.
 

@@ -4,15 +4,15 @@ description: 'Esercitazione: Informazioni su come eseguire gli script Python com
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853314"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185112"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Esercitazione: Eseguire script Python tramite Azure Data Factory usando Azure Batch
 
@@ -67,8 +67,7 @@ Verranno ora creati i contenitori BLOB in cui archiviare i file di input e outpu
 1. Accedere a Storage Explorer con le credenziali di Azure.
 1. Usando l'account di archiviazione collegato all'account Batch, creare due contenitori BLOB (uno per i file di input e uno per i file di output) seguendo i passaggi in [Creare un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * In questo esempio, il contenitore di input sarà denominato `input` e il contenitore di output `output`.
-1. Caricare `main.py` e [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) nel contenitore di input `input` usando Storage Explorer seguendo la procedura descritta in [Gestione dei BLOB in un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
-
+1. Caricare [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) nel contenitore di input `input` usando Storage Explorer seguendo la procedura descritta in [Gestione dei BLOB in un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 ## <a name="develop-a-script-in-python"></a>Sviluppare uno script in Python
 

@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ed1f06e4747492c43d19a00c1091b2b4d7f7050f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741875"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798007"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Risolvere i problemi del portale delle app personali
 
@@ -51,7 +51,7 @@ Se si verificano problemi durante l'accesso al portale delle **app personali**, 
 
 - Assicurarsi che la password sia corretta e che non sia scaduta. Per altre informazioni, vedere [Reimpostare la password aziendale o scolastica](active-directory-passwords-update-your-own-password.md).
 
-- Assicurarsi che le informazioni per la verifica siano aggiornate e accurate. Per altre informazioni, vedere [Quali sono i vantaggi di Azure Multi-Factor Authentication?](multi-factor-authentication-end-user.md) o [Modificare i metodi per le informazioni di sicurezza e le informazioni](security-info-add-update-methods-overview.md).
+- Assicurarsi che le informazioni per la verifica siano aggiornate e accurate. Per altre informazioni, vedere [Quali sono i vantaggi di Azure Multi-Factor Authentication?](./multi-factor-authentication-end-user-first-time.md) o [Modificare i metodi per le informazioni di sicurezza e le informazioni](./security-info-setup-auth-app.md).
 
 - Aggiungere l'URL del portale delle **app personali** alle impostazioni **Proprietà Internet > Sicurezza > Siti attendibili**.
 
@@ -75,7 +75,7 @@ Se riceve un messaggio di **accesso negato** dopo l'avvio di un'app dal portale 
 
 - Assicurarsi che la password sia corretta e che non sia scaduta. Per altre informazioni, vedere [Reimpostare la password aziendale o scolastica](active-directory-passwords-update-your-own-password.md).
 
-- Assicurarsi che le informazioni per la verifica siano aggiornate e accurate. Per altre informazioni, vedere [Quali sono i vantaggi di Azure Multi-Factor Authentication?](multi-factor-authentication-end-user.md) o [Modificare i metodi per le informazioni di sicurezza e le informazioni](security-info-add-update-methods-overview.md).
+- Assicurarsi che le informazioni per la verifica siano aggiornate e accurate. Per altre informazioni, vedere [Quali sono i vantaggi di Azure Multi-Factor Authentication?](./multi-factor-authentication-end-user-first-time.md) o [Modificare i metodi per le informazioni di sicurezza e le informazioni](./security-info-setup-auth-app.md).
 
 - Cancellare la cache del browser e riprovare ad accedere.
 

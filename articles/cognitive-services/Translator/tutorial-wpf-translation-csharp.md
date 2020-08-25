@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: f80d22adc432a81fcc88391e71ed7540399fa559
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 70550b61354c23889836b48be6f09475569ecd52
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995735"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589657"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Esercitazione: Creare un'app di traduzione con WPF
 
@@ -40,7 +40,7 @@ Questo elenco include i Servizi cognitivi usati nell'esercitazione. Seguire il c
 | Service | Funzionalità | Descrizione |
 |---------|---------|-------------|
 | Funzione di conversione | [Recupera lingue](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupera un elenco completo di lingue supportate per la traduzione testuale. |
-| Funzione di conversione | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduce il testo in più di 60 lingue. |
+| Funzione di conversione | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduce il testo in più di 70 lingue. |
 | Funzione di conversione | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Rileva la lingua del testo di input. Include il punteggio di attendibilità per il rilevamento. |
 | Controllo ortografico Bing | [Controllo ortografico](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corregge gli errori di ortografia per migliorare l'accuratezza della traduzione. |
 
@@ -263,7 +263,7 @@ Infine, è stato aggiunto il codice per chiamare i metodi per recuperare le ling
 
 ## <a name="get-supported-languages"></a>Ottenere le lingue supportate
 
-Translator attualmente supporta più di 60 lingue. Nel corso del tempo verranno aggiunte altre lingue supportate, quindi è consigliabile chiamare la risorsa Languages esposta da Translator invece di impostare come hardcoded l'elenco di lingue nell'app.
+Translator attualmente supporta più di 70 lingue. Nel corso del tempo verranno aggiunte altre lingue supportate, quindi è consigliabile chiamare la risorsa Languages esposta da Translator invece di impostare come hardcoded l'elenco di lingue nell'app.
 
 In questa sezione verrà creata una richiesta `GET` per la risorsa Languages, specificando che è necessario un elenco di lingue disponibili per la traduzione.
 

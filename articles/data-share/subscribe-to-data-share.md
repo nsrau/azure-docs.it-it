@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 999d99b0ed4701eb6758ed0bf7a71ca625e622b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512092"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258665"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure  
 
@@ -93,38 +93,35 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
    Nel campo **Received Share Name** (Nome condivisione ricevuta) si può lasciare il valore predefinito specificato dal provider di dati o specificare un nuovo nome per la condivisione ricevuta. 
 
-   ![Account di condivisione dati di destinazione](./media/target-data-share.png "Account di condivisione dati di destinazione") 
-
-1. Dopo aver accettato le condizioni per l'utilizzo e specificato una località per la condivisione, selezionare *Accept and Configure* (Accetta e configura). Verrà creata una nuova sottoscrizione di condivisione.
-
-   Per la condivisione basata su snapshot, nella schermata successiva verrà richiesto di selezionare un account di archiviazione di destinazione in cui copiare i dati. 
+   Dopo aver accettato le condizioni per l'utilizzo e specificato un account Condivisione dati per gestire la condivisione ricevuta, selezionare **Accept and Configure** (Accetta e configura). Verrà creata una nuova sottoscrizione di condivisione. 
 
    ![Opzioni di accettazione](./media/accept-options.png "Opzioni di accettazione") 
 
-   Se si preferisce accettare l'invito adesso ma configurare l'archivio dei dati di destinazione in un secondo momento, selezionare *Accept and Configure later* (Accettare e configurare in seguito). Per continuare a configurare l'archiviazione in seguito, vedere la pagina che illustra come [configurare i mapping dei set di dati](how-to-configure-mapping.md) per la procedura dettagliata di ripresa della configurazione della condivisione dati. 
-
-   Per la condivisione sul posto, vedere la pagina che illustra come [configurare i mapping dei set di dati](how-to-configure-mapping.md) per la procedura dettagliata di ripresa della configurazione della condivisione dati. 
+   Si verrà reindirizzati alla condivisione ricevuta nell'account Condivisione dati. 
 
    Se non si vuole accettare l'invito, selezionare *Reject* (Rifiuta). 
 
-## <a name="configure-storage"></a>Configurare l'archiviazione
-1. In *Target Storage Settings* (Impostazioni archiviazione di destinazione) selezionare la sottoscrizione, il gruppo di risorse e l'account di archiviazione in cui si vogliono ricevere i dati. 
+## <a name="configure-received-share"></a>Configurare la condivisione ricevuta
+Seguire questa procedura per configurare la posizione in cui si desidera ricevere i dati.
 
-   ![Impostazioni archiviazione di destinazione](./media/target-storage-settings.png "Archiviazione di destinazione") 
+1. Selezionare la scheda **Set di dati**. Selezionare la casella accanto al set di dati a cui si vuole assegnare una destinazione. Selezionare **+ Esegui mapping alla destinazione** per scegliere un archivio dati di destinazione. 
 
-1. Per ricevere aggiornamenti periodici dei dati, assicurarsi di abilitare le impostazioni di snapshot. Tenere presente che la pianificazione delle impostazioni di snapshot sarà visibile solo se il provider di dati l'avrà inclusa nella condivisione dati. 
+   ![Esegui mapping alla destinazione](./media/dataset-map-target.png "Esegui mapping alla destinazione") 
 
-   ![Impostazioni dello snapshot](./media/snapshot-settings.png "Impostazioni dello snapshot") 
+1. Selezionare un tipo di archivio dati di destinazione in cui verranno ospitati i dati. Eventuali tabelle o file di dati nell'archivio dati di destinazione con lo stesso percorso e nome verranno sovrascritti. 
 
-1. Selezionare *Salva*. 
+   Per la condivisione sul posto selezionare un archivio dati nella località specificata. La località è il data center di Azure in cui si trova l'archivio dati di origine del provider di dati. Una volta eseguito il mapping del set di dati, è possibile seguire il collegamento nel percorso di destinazione per accedere ai dati.
 
-> [!IMPORTANT]
-> Se si ricevono dati basati su SQL e si intende ricevere tali dati in un'origine basata su SQL, visitare la guida pratica sulla [configurazione del mapping di un set di dati](how-to-configure-mapping.md) per informazioni su come configurare un server SQL come destinazione per il set di dati. 
+   ![Account di archiviazione di destinazione](./media/dataset-map-target-sql.png "Archiviazione di destinazione") 
+
+1. Per la condivisione basata su snapshot, se il provider di dati ha creato una pianificazione degli snapshot per fornire aggiornamenti regolari ai dati, è anche possibile abilitare la pianificazione degli snapshot selezionando la scheda **Pianificazione degli snapshot**. Selezionare la casella accanto alla pianificazione degli snapshot e selezionare **+ Abilita**.
+
+   ![Abilitare la pianificazione degli snapshot](./media/enable-snapshot-schedule.png "Abilitare la pianificazione degli snapshot")
 
 ## <a name="trigger-a-snapshot"></a>Attivazione di uno snapshot
 Questa procedura si applica solo alla condivisione basata su snapshot.
 
-1. È possibile attivare uno snapshot in Received Shares -> Details selezionando **Trigger snapshot** (Attiva snapshot). Qui è possibile attivare uno snapshot completo o incrementale dei dati. Se è la prima volta che si ricevono i dati dal provider, selezionare Full copy (Copia completa). 
+1. È possibile attivare uno snapshot selezionando la scheda **Dettagli** e quindi **Attiva snapshot**. Qui è possibile attivare uno snapshot completo o incrementale dei dati. Se è la prima volta che si ricevono i dati dal provider, selezionare Full copy (Copia completa). 
 
    ![Attivazione dello snapshot](./media/trigger-snapshot.png "Attivazione dello snapshot") 
 
@@ -133,7 +130,7 @@ Questa procedura si applica solo alla condivisione basata su snapshot.
    ![Set di dati consumer](./media/consumer-datasets.png "Mapping dei set di dati consumer") 
 
 ## <a name="view-history"></a>Visualizzare la cronologia
-Per visualizzare una cronologia degli snapshot, passare a Received Shares -> History. Qui è presente una cronologia di tutti gli snapshot generati negli ultimi 60 giorni. 
+Questo passaggio si applica solo alla condivisione basata su snapshot. Per visualizzare la cronologia degli snapshot, selezionare la scheda **Cronologia**. Qui è presente una cronologia di tutti gli snapshot generati negli ultimi 30 giorni. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come accettare e ricevere una Condivisione dati di Azure. Per altre informazioni sui concetti di Condivisione dati di Azure, passare a [Concetti: Terminologia di Condivisione dati di Azure](terminology.md).

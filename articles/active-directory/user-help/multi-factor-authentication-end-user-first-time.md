@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: fc95e988b3f89402967cdbedd06c4b945a99f99a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266254"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795984"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Cos'è la pagina Verifica aggiuntiva?
 
@@ -33,7 +33,7 @@ La verifica a due fattori è un metodo più sicuro rispetto alla sola password p
 La verifica a due fattori consente di impedire a utenti malintenzionati di fingere di essere un utente autorizzato. Anche se conoscono la password, è improbabile che abbiano anche il dispositivo.
 
 >[!Important]
->Se si è un amministratore e si cercano informazioni su come attivare la verifica a due fattori per i dipendenti o altri utenti, vedere la [documentazione sull'autenticazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/). Questo articolo è destinato agli utenti che provano a usare la verifica a due fattori con un account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com.
+>Se si è un amministratore e si cercano informazioni su come attivare la verifica a due fattori per i dipendenti o altri utenti, vedere la [documentazione sull'autenticazione di Azure Active Directory](../authentication/index.yml). Questo articolo è destinato agli utenti che provano a usare la verifica a due fattori con un account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com.
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Chi decide se usare questa funzionalità?
 

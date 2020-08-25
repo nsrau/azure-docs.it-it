@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312188"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205582"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Esercitazione: Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure
 
@@ -33,9 +33,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="prerequisites"></a>Prerequisiti
 
-Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com)
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
@@ -204,7 +204,11 @@ Rivedere le impostazioni nella scheda **Rivedi e crea** e quindi selezionare **C
 
    Il listener sulla porta 8080 instrada questa richiesta al pool back-end *Video*.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse e quindi fare clic su **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitazione di TLS end-to-end nel gateway applicazione di Azure](application-gateway-backend-ssl.md)
+> [!div class="nextstepaction"]
+> [Abilitare TLS end-to-end nel gateway applicazione di Azure](application-gateway-backend-ssl.md)

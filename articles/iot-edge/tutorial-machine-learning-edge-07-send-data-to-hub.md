@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dca903591c5d6805108d55163aaedc2435d9297e
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 718f4c0b41400ae2e35b88820b2d4154dab23111
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610081"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272825"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Esercitazione: Inviare i dati tramite un gateway trasparente
 
@@ -225,7 +225,7 @@ Se si intende esplorare le risorse usate da questa esercitazione end-to-end, att
 
 1. Eliminare i gruppi di risorse creati per contenere la macchina virtuale di sviluppo, la macchina virtuale IoT Edge, l'hub IoT, l'account di archiviazione, l'area di lavoro del servizio Machine Learning (e le risorse create, ovvero registro contenitori, informazioni dettagliate sull'applicazione, insieme di credenziali delle chiavi e account di archiviazione).
 
-1. Eliminare il progetto di Machine Learning nei [notebook di Azure](https://notebooks.azure.com).
+1. Eliminare il progetto di Machine Learning in [Azure Notebooks](https://notebooks.azure.com).
 
 1. Se il repository è stato clonato localmente, chiudere le eventuali finestre di PowerShell o VS Code che fanno riferimento al repository locale e quindi eliminare la directory del repository.
 

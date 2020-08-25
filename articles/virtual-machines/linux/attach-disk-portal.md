@@ -4,15 +4,15 @@ description: Usare il portale per collegare il disco dati nuovo o esistente a un
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 07/12/2018
+ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 8bafde086febce78ca2715ab77c8a071467b986b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 82b4bd4444ae73b6a4631bae7efb8110de00f439
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825464"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757703"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -27,177 +27,115 @@ Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerime
 ## <a name="find-the-virtual-machine"></a>Trovare la macchina virtuale
 1. Accedere al [portale di Azure](https://portal.azure.com/) per trovare la macchina virtuale. Cercare e selezionare **Macchine virtuali**.
 2. Scegliere la macchina virtuale nell'elenco.
-3. Nella barra laterale della pagina **Macchine virtuali**, in **Impostazioni**, scegliere **Dischi**.
-   
-    ![Aprire le impostazioni del disco](./media/attach-disk-portal/find-disk-settings.png)
+3. Nella pagina **macchine virtuali** , in **Impostazioni**, scegliere **dischi**.
 
 
 ## <a name="attach-a-new-disk"></a>Collegare un nuovo disco
 
-1. Nel riquadro **Dischi** fare clic su **+ Aggiungi disco dati**.
-2. Fare clic sul menu a discesa **Nome** e selezionare **Crea disco**:
+1. Nel riquadro **dischi** , in **dischi dati**, selezionare **Crea e Connetti un nuovo disco**.
 
-    ![Creare un disco gestito Azure](./media/attach-disk-portal/create-new-md.png)
-
-3. Immettere un nome per il disco gestito. Esaminare le impostazioni predefinite, aggiornare se necessario e quindi fare clic su **Crea**.
+1. Immettere un nome per il disco gestito. Verificare le impostazioni predefinite e aggiornare il **tipo di archiviazione**, le **dimensioni (GIB)**, la **crittografia** e la **memorizzazione nella cache dell'host** , se necessario.
    
-   ![Esaminare le impostazioni del disco](./media/attach-disk-portal/create-new-md-settings.png)
+   :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Verificare le impostazioni del disco.":::
 
-4. Fare clic su **Salva** per creare il disco gestito e aggiornare la configurazione della macchina virtuale:
 
-   ![Salvare il nuovo disco gestito Azure](./media/attach-disk-portal/confirm-create-new-md.png)
+1. Al termine, selezionare **Salva** nella parte superiore della pagina per creare il disco gestito e aggiornare la configurazione della macchina virtuale.
 
-5. Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**. Dal momento che i dischi gestiti sono una risorsa di livello superiore, il disco viene visualizzato nella directory principale del gruppo di risorse:
-
-   ![Disco gestito Azure nel gruppo di risorse](./media/attach-disk-portal/view-md-resource-group.png)
 
 ## <a name="attach-an-existing-disk"></a>Collegare un disco esistente
-1. Nel riquadro **Dischi** fare clic su **+ Aggiungi disco dati**.
-2. Fare clic sul menu a discesa **Nome** per visualizzare un elenco di dischi gestiti esistenti a cui è possibile accedere con la sottoscrizione di Azure. Selezionare il disco gestito da collegare:
+1. Nel riquadro **dischi** fare clic su **Connetti dischi esistenti**in **dischi dati**.
+1. Fare clic sul menu a discesa **nome disco** e selezionare un disco nell'elenco dei dischi gestiti disponibili. 
 
-   ![Collegare il disco gestito di Azure](./media/attach-disk-portal/select-existing-md.png)
-
-3. Fare clic su **Salva** per collegare il disco gestito esistente e aggiornare la configurazione della macchina virtuale:
+1. Fare clic su **Salva** per collegare il disco gestito esistente e aggiornare la configurazione della macchina virtuale:
    
-   ![Salvare gli aggiornamenti del disco gestito Azure](./media/attach-disk-portal/confirm-attach-existing-md.png)
-
-4. Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connettersi alla VM Linux per montare il nuovo disco
-È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*: 
+È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguita la connessione a una macchina virtuale con l'indirizzo IP pubblico di *10.123.123.25* con il nome utente *azureuser*: 
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@10.123.123.25
 ```
 
-Una volta connessi alla macchina virtuale, si è pronti per collegare un disco. Trovare prima il disco usando `dmesg`. Il metodo usato per trovare il nuovo disco può variare. L'esempio seguente usa dmesg per applicare un filtro ai dischi *SCSI*:
+## <a name="find-the-disk"></a>Trovare il disco
+
+Una volta connessi alla macchina virtuale, è necessario trovare il disco. In questo esempio viene usato `lsblk` per elencare i dischi. 
 
 ```bash
-dmesg | grep SCSI
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 ```
 
 L'output è simile all'esempio seguente:
 
 ```bash
-[    0.294784] SCSI subsystem initialized
-[    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-[    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
 ```
 
-In questo caso, *sdc* è il disco interessato. 
+In questo esempio, il disco aggiunto è `sdc` . Si tratta di un LUN 0 e è di 4 GB.
+
+Per un esempio più complesso, ecco l'aspetto di più dischi dati nel portale:
+
+:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Verificare le impostazioni del disco.":::
+
+Nell'immagine è possibile vedere che ci sono 3 dischi dati: 4 GB su LUN 0, 16GB in LUN 1 e 32G in LUN 2.
+
+Ecco cosa può sembrare `lsblk` :
+
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+sdd     3:0:0:1      16G
+sde     3:0:0:2      32G
+```
+
+Dall'output di `lsblk` è possibile vedere che il disco da 4 GB in lun 0 è `sdc` , il disco da 16 GB al lun 1 è `sdd` e il disco 32G in lun 2 è `sde` .
 
 ### <a name="partition-a-new-disk"></a>Eseguire la partizione di un nuovo disco
+
 Se si usa un disco esistente contenente dati, procedere al montaggio del disco. Se si collega un nuovo disco, è necessario eseguire la partizione del disco.
 
+L' `parted` utilità può essere utilizzata per partizionare e formattare un disco dati.
+
 > [!NOTE]
-> È consigliabile usare le versioni più recenti di fdisk o parted disponibili per la distribuzione.
+> Si consiglia di usare la versione più recente `parted` disponibile per la distribuzione.
+> Se la dimensione del disco è 2 TB (TiB) o superiore, è necessario utilizzare il partizionamento GPT. Se la dimensione del disco è inferiore a 2 TiB, è possibile usare il partizionamento MBR o GPT.  
 
-Eseguire la partizione del disco con `fdisk`. Se le dimensioni del disco sono 2 tebibyte (TiB) o maggiori è necessario utilizzare il partizionamento GPT. È possibile usare `parted` per eseguire il partizionamento GPT. Se le dimensioni del disco sono inferiori a 2 TiB, è possibile usare il partizionamento MBR oppure GPT. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
 
-```bash
-sudo fdisk /dev/sdc
-```
+Nell'esempio seguente viene usato `parted` on `/dev/sdc` , dove il primo disco dati sarà in genere nella maggior parte delle macchine virtuali. Sostituire `sdc` con l'opzione corretta per il disco. Viene anche formattato con il file System [XFS](https://xfs.wiki.kernel.org/) .
 
-Usare il comando `n` per aggiungere una nuova partizione. In questo esempio si sceglie il comando `p` anche per una partizione primaria e si accettano gli altri valori predefiniti. L'output sarà simile all'esempio seguente:
-
-```bash
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
-
-Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
-
-Command (m for help): n
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Using default value 2048
-Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
-Using default value 10485759
-```
-
-Stampare la tabella delle partizioni digitando `p` e usare `w` per scrivere la tabella sul disco e uscire. L'output dovrebbe essere simile all'esempio seguente:
-
-```bash
-Command (m for help): p
-
-Disk /dev/sdc: 5368 MB, 5368709120 bytes
-255 heads, 63 sectors/track, 652 cylinders, total 10485760 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x2a59b123
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1            2048    10485759     5241856   83  Linux
-
-Command (m for help): w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
-
-A questo punto, scrivere un file system nella partizione con il comando `mkfs`. Specificare il tipo di file system e il nome del dispositivo. Nell'esempio seguente viene creato un file system *ext4* nella partizione *dev/sdc1* creata nei passaggi precedenti:
-
-```bash
-sudo mkfs -t ext4 /dev/sdc1
-```
-
-L'output è simile all'esempio seguente:
-
-```bash
-mke2fs 1.42.9 (4-Feb-2014)
-Discarding device blocks: done
-Filesystem label=
-OS type: Linux
-Block size=4096 (log=2)
-Fragment size=4096 (log=2)
-Stride=0 blocks, Stripe width=0 blocks
-327680 inodes, 1310464 blocks
-65523 blocks (5.00%) reserved for the super user
-First data block=0
-Maximum filesystem blocks=1342177280
-40 block groups
-32768 blocks per group, 32768 fragments per group
-8192 inodes per group
-Superblock backups stored on blocks:
-    32768, 98304, 163840, 229376, 294912, 819200, 884736
-Allocating group tables: done
-Writing inode tables: done
-Creating journal (32768 blocks): done
-Writing superblocks and filesystem accounting information: done
-```
-
-#### <a name="alternate-method-using-parted"></a>Metodo alternativo con parted
-L'utilità fdisk richiede un input interattivo e pertanto non è ideale per l'uso negli script di automazione. Tuttavia, è possibile generare uno script per l'utilità [parted](https://www.gnu.org/software/parted/) e offre quindi una migliore qualità negli scenari di automazione. L'utilità parted può essere usata per partizionare e formattare un disco dati. Per la procedura dettagliata riportata di seguito, viene usato un nuovo disco dati /dev/sdc e viene formattato con il filesystem [XFS](https://xfs.wiki.kernel.org/).
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 sudo mkfs.xfs /dev/sdc1
-partprobe /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
-Come illustrato sopra, si usa l'utilità [partprobe](https://linux.die.net/man/8/partprobe) per assicurarsi che il kernel sia immediatamente in grado di riconoscere la nuova partizione e il filesystem. Il mancato utilizzo di partprobe può fare sì che i comandi blkid o lslbk non restituiscano immediatamente l'UUID per il nuovo filesystem.
+
+Usare l' [`partprobe`](https://linux.die.net/man/8/partprobe) utilità per assicurarsi che il kernel sia in grado di riconoscere la nuova partizione e il file System. La mancata utilizzo `partprobe` può causare la restituzione immediata dell'UUID per il nuovo file System da parte dei comandi blkid o lslbk.
 
 ### <a name="mount-the-disk"></a>Montare il disco
-Creare una directory per montare il file system usando `mkdir`. L'esempio seguente crea una directory in */datadrive*:
+
+Creare una directory per montare il file system usando `mkdir`. Nell'esempio seguente viene creata una directory in `/datadrive` :
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Usare `mount` quindi per installare il file system. Nell'esempio seguente viene installata la partizione */dev/sdc1* nel punto di montaggio */datadrive*:
+Usare `mount` quindi per installare il file system. Nell'esempio seguente viene montata la partizione */dev/sdc1* nel `/datadrive` punto di montaggio:
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file */etc/fstab*. È anche consigliabile che l'UUID (Universally Unique IDentifier) usato in */etc/fstab* faccia riferimento all'unità anziché al solo nome del dispositivo, ad esempio */dev/sdc1*. Se il sistema operativo rileva un errore del disco durante l'avvio, l'uso di UUID evita che venga montato il disco non corretto in una posizione specificata. Ai dischi dati rimanenti verrebbero quindi assegnati gli stessi ID di dispositivo. Per individuare l'UUID della nuova unità, usare l'utilità `blkid`:
+Per assicurarsi che l'unità venga rimontata automaticamente dopo un riavvio, è necessario aggiungerla al file */etc/fstab*. Si consiglia inoltre di usare UUID (Universally Unique Identifier) in */etc/fstab* per fare riferimento all'unità anziché al solo nome del dispositivo (ad esempio, */dev/sdc1*). Se il sistema operativo rileva un errore del disco durante l'avvio, l'uso di UUID evita che venga montato il disco non corretto in una posizione specificata. Ai dischi dati rimanenti verrebbero quindi assegnati gli stessi ID di dispositivo. Per individuare l'UUID della nuova unità, usare l'utilità `blkid`:
 
 ```bash
 sudo -i blkid
@@ -217,21 +155,48 @@ L'output è simile al seguente esempio:
 Successivamente, aprire il file */etc/fstab* in un editor di testo, come segue:
 
 ```bash
-sudo vi /etc/fstab
+sudo nano /etc/fstab
 ```
 
-In questo esempio viene usato il valore UUID del dispositivo */dev/sdc1* creato nei passaggi precedenti e il punto di montaggio di */datadrive*. Alla fine del file */etc/fstab* aggiungere la riga di codice seguente:
+In questo esempio, usare il valore UUID per il `/dev/sdc1` dispositivo creato nei passaggi precedenti e il mountpoint di `/datadrive` . Aggiungere la riga seguente alla fine del `/etc/fstab` file:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-Al termine, salvare il file */etc/fstab* e riavviare il sistema.
+
+È stato usato l'editor nano, quindi, dopo aver completato la modifica del file, usare `Ctrl+O` per scrivere il file e `Ctrl+X` uscire dall'editor.
+
 > [!NOTE]
 > Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della VM. La maggior parte delle distribuzioni specifica le opzioni fstab *nofail* e/o *nobootwait*. Queste opzioni consentono l'avvio di un sistema anche se il montaggio del disco non riesce in fase di avvio. Per altre informazioni su questi parametri, consultare la documentazione della distribuzione.
 > 
 > L'opzione *nofail* garantisce che l'avvio della VM anche se il file system è danneggiato o se non è presente il disco in fase di avvio. Senza questa opzione potrebbero verificarsi comportamenti come quelli descritti in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting) (Impossibile eseguire una connessione SSH a VM Linux a causa di errori FSTAB).
 
+
+## <a name="verify-the-disk"></a>Verificare il disco
+
+È ora possibile usare `lsblk` di nuovo per visualizzare il disco e il mountpoint.
+
+```bash
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+```
+
+L'output sarà simile al seguente:
+
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+└─sdc1                4G /datadrive
+```
+
+È possibile osservare che `sdc` ora è montata in `/datadrive` .
+
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Supporto delle funzioni TRIM/UNMAP per Linux in Azure
+
 Alcuni kernel di Linux supportano operazioni TRIM/UNMAP allo scopo di rimuovere i blocchi inutilizzati sul disco. Nel servizio di archiviazione standard, questa caratteristica è particolarmente utile per informare Azure che le pagine eliminate non sono più valide e possono essere rimosse, permettendo di risparmiare denaro se si creano file di grandi dimensioni per eliminarli successivamente.
 
 Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consueto, consultare la documentazione della distribuzione per stabilire l'approccio consigliato:

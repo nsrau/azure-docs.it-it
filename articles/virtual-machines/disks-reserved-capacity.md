@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: d041bfe1187c48e5544e8933763eaf45a507a424
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701499"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752066"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Riduci i costi con la prenotazione di dischi di Azure
 
@@ -31,7 +31,7 @@ Viene effettuata una prenotazione su disco per ogni SKU di disco. Di conseguenza
 Si supponga, ad esempio, di riservare un disco P40 con 2 TiB di capacità di archiviazione con provisioning. Si supponga inoltre di allocare solo due dischi P30. La prenotazione di P40 in questo caso non considera il consumo di P30 e si paga la tariffa con pagamento in base al consumo sui dischi P30.
 <br/>
 <br/>
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 ## <a name="purchase-considerations"></a>Considerazioni relative all'acquisto
 
@@ -55,7 +55,7 @@ In rari casi, Azure limita l'acquisto di nuove prenotazioni a un sottoinsieme di
 
 ## <a name="buy-a-disk-reservation"></a>Acquistare una prenotazione su disco
 
-È possibile acquistare archiviazione su disco di Azure prenotazioni tramite il [portale di Azure](https://portal.azure.com/). È possibile pagare per la prenotazione in anticipo o con pagamenti mensili. Per ulteriori informazioni sull'acquisto con pagamenti mensili, vedere [prenotazioni di acquisto con pagamenti mensili](~/articles/cost-management-billing/reservations/monthly-payments-reservations.md).
+È possibile acquistare archiviazione su disco di Azure prenotazioni tramite il [portale di Azure](https://portal.azure.com/). È possibile pagare per la prenotazione in anticipo o con pagamenti mensili. Per ulteriori informazioni sull'acquisto con pagamenti mensili, vedere [prenotazioni di acquisto con pagamenti mensili](../cost-management-billing/reservations/prepare-buy-reservation.md#buy-reservations-with-monthly-payments).
 
 Per acquistare la capacità riservata, seguire questa procedura:
 
@@ -103,5 +103,5 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sulle prenotazioni di Azure](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Informazioni su come viene applicato lo sconto per la prenotazione all'archiviazione su disco di Azure](~/articles/cost-management-billing/reservations/understand-disk-reservations.md)
+- [Informazioni sulle prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Informazioni su come viene applicato lo sconto per la prenotazione all'archiviazione su disco di Azure](../cost-management-billing/reservations/understand-disk-reservations.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 692ddbf1e17e316bdcee6c34062ffa51ef278bc7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923782"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257448"
 ---
 ::: zone target="docs"
 
@@ -224,7 +224,7 @@ Eseguire questa procedura se si restituisce il dispositivo in Cina.
 
 ### <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged)
 
-Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale o India ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni.
+Se si usa Data Box Disk nelle aree Governo degli Stati Uniti, Giappone, Singapore, Corea, Europa occidentale, Sudafrica o India ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni.
 
 1. Passare al pannello **Panoramica** dell'ordine nel portale di Azure. Seguire le istruzioni visualizzate quando si seleziona **Pianifica ritiro**. Verrà visualizzato un codice di autorizzazione da usare per la consegna dell'ordine.
 

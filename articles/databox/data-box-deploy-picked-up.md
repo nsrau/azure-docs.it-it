@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 08/14/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 577c184f78c5784b29db7562f3c33a3cb7518f0c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1d84d25e5605ede064ddc853a4249ba49d59513d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142044"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257749"
 ---
 ::: zone target="docs"
 
@@ -352,7 +352,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged)
 
-Se si usa il dispositivo Data Box in Giappone, Singapore, Corea, India, Sudafrica o Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
+Se si usa il dispositivo Data Box nelle aree Governo degli Stati Uniti, Giappone, Singapore, Corea, India, Sudafrica o Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
 
 1. Annotare il codice di autorizzazione visualizzato nella pagina Prepara per la spedizione dell'interfaccia utente Web locale di Data Box una volta completato questo passaggio.
 2. Spegnere il dispositivo e rimuovere i cavi. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.

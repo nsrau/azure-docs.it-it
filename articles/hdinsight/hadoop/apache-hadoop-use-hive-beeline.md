@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 04/17/2020
-ms.openlocfilehash: 3614fac027dd32ab5f5d70f5835432ac3b9b512d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/21/2020
+ms.custom: contperfq1
+ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207740"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755093"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usare il client Apache Beeline con Apache Hive
 
@@ -25,7 +25,7 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Per esegu
 
 * Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Si noti lo schema URI per l'archiviazione primaria del cluster. Ad esempio, `wasb://` per archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è `wasbs://` . Per altre informazioni, vedere [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* Si noti lo schema URI per l'archiviazione primaria del cluster. Ad esempio,  `wasb://` per archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è `wasbs://` . Per altre informazioni, vedere [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 
 * Opzione 1: un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Per la maggior parte dei passaggi di questo documento si presuppone che si stia usando una sessione SSH nel cluster.
 

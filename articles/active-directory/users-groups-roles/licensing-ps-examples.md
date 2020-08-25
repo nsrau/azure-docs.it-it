@@ -14,12 +14,12 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 230ccb3d10c7ba6f3abcac9d83309fd7fa3c5c3f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025218"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797684"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Esempi di PowerShell e Graph per le licenze basate sui gruppi in Azure AD
 
@@ -445,7 +445,7 @@ HTTP/1.1 200 OK
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Rimuovere licenze dirette per gli utenti con licenze di gruppo
 
-Lo scopo di questo script è rimuovere le licenze dirette non necessarie dagli utenti che ereditano già le stesse licenze dai gruppi, ad esempio in caso di [transizione alle licenze basate sui gruppi](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+Lo scopo di questo script è rimuovere le licenze dirette non necessarie dagli utenti che ereditano già le stesse licenze dai gruppi, ad esempio in caso di [transizione alle licenze basate sui gruppi](./licensing-groups-migrate-users.md).
 > [!NOTE]
 > Per prima cosa è importante verificare che le licenze dirette da rimuovere non abilitino altre funzionalità di servizio rispetto alle licenze ereditate. In caso contrario, rimuovere le licenze dirette può disabilitare l'accesso a servizi e dati per gli utenti. Attualmente non è possibile verificare con PowerShell quali servizi vengono abilitati usando le licenze ereditate e quali usando le licenze dirette. Nello script viene specificato il livello minimo dei servizi sicuramente ereditati dai gruppi e questo valore viene usato come riferimento per accertarsi che gli utenti non perdano inaspettatamente l'accesso ai servizi.
 

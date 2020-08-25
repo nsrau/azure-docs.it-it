@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 4566d32682c8d0345c66d99ba5e4fd58695a325d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7dcaae80842f06714759cb5c933a62ccd85aac63
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424795"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798092"
 ---
 # <a name="view-or-change-your-settings-in-the-my-account-portal"></a>Visualizzare o modificare le impostazioni nel portale per gli account personali
 
@@ -47,7 +47,7 @@ Dopo aver modificato la lingua di visualizzazione, è consigliabile disconnetter
 
 Dopo aver modificato le impostazioni del portale account personale, è possibile:
 
-- Visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md).
+- Visualizzare o gestire le [informazioni di sicurezza](./security-info-setup-signin.md).
 
 - Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md) connessi.
 

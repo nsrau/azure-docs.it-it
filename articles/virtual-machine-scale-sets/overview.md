@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 7539b951a4a138802150d9408221b6e4ad19e92b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0fcad26bb78e0e9a03d51818ac66a98af1ef0b18
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075542"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590388"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Che cosa sono i set di scalabilità delle macchine virtuali?
 I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di macchine virtuali con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono disponibilità elevata per le applicazioni e consentono di gestire in modo centralizzato, configurare e aggiornare un numero elevato di macchine virtuali. Con i set di scalabilità di macchine virtuali è possibile creare servizi su larga scala per aree quali calcolo, Big Data e carichi di lavoro contenitore.
@@ -60,6 +60,10 @@ Non sono previsti costi aggiuntivi per i set di scalabilità. Si paga solo per l
 Usare il [Monitoraggio di Azure per le macchine virtuali](../azure-monitor/insights/vminsights-overview.md), che prevede un semplice processo di onboarding e automatizza la raccolta di importanti contatori delle prestazioni di CPU, memoria, disco e rete dalle macchine virtuali nel set di scalabilità. Include anche funzionalità di monitoraggio e visualizzazioni predefinite aggiuntive che consentono di concentrarsi sulla disponibilità e sulle prestazioni dei set di scalabilità.
 
 Abilitare il monitoraggio per l'[applicazione del set di scalabilità di macchine virtuali](../azure-monitor/app/azure-vm-vmss-apps.md) con Application Insights per raccogliere informazioni dettagliate sull'applicazione tra cui visualizzazioni pagina, richieste di applicazioni ed eccezioni. Verificare ulteriormente la disponibilità dell'applicazione configurando un [test di disponibilità](../azure-monitor/app/monitor-web-app-availability.md) per simulare il traffico utente.
+
+## <a name="singapore-data-residency"></a>Residenza dei dati per Singapore
+
+In Azure la funzionalità per abilitare l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica Asia Pacifico. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo. Per altre informazioni, visitare il [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per cominciare, creare un set di scalabilità di macchine virtuali nel portale di Azure.

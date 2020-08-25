@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b00fe7a515d1d27ce9be2ab62a96c719d5e045a5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302917"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798585"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  Restituisce l'espressione convertita in una matrice. Se l'espressione non può essere convertita, restituisce undefined.  
@@ -32,8 +32,8 @@ StringToArray(<str_expr>)
   
   Restituisce un'espressione di matrice o undefined. 
   
-## <a name="remarks"></a>Osservazioni
-  I valori stringa annidati devono essere scritti con virgolette doppie per essere JSON validi. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/)
+## <a name="remarks"></a>Commenti
+  I valori stringa annidati devono essere scritti con virgolette doppie per essere JSON validi. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/). Questa funzione di sistema non utilizzerà l'indice.
   
 ## <a name="examples"></a>Esempi
   
@@ -90,10 +90,6 @@ Questo è il set di risultati.
 ```json
 [{}]
 ```
-
-## <a name="remarks"></a>Osservazioni
-
-Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

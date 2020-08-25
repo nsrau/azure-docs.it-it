@@ -1,17 +1,17 @@
 ---
 title: Eseguire il debug di funzioni di Azure PowerShell in locale
-description: Informazioni su come sviluppare funzioni usando PowerShell.
+description: Informazioni su come eseguire il debug di funzioni di PowerShell durante l'esecuzione in locale.
 author: tylerleonhardt
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: dc5bfacf470980a5d38832ec6299c8ff1426ee05
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642232"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799367"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Eseguire il debug di funzioni di Azure PowerShell in locale
 
@@ -129,7 +129,7 @@ L'operazione Avvia debug esegue le attività seguenti:
 * Alleghi il debugger di PowerShell ai spazio di PowerShell nel runtime di funzioni.
 
 >[!NOTE]
-> È necessario assicurarsi che PSWorkerInProcConcurrencyUpperBound sia impostato su 1 per garantire la corretta esperienza di debug in Visual Studio Code. Questa è la modalità predefinita.
+> È necessario assicurarsi che PSWorkerInProcConcurrencyUpperBound sia impostato su 1 per garantire la corretta esperienza di debug in Visual Studio Code. Questa è l'impostazione predefinita.
 
 Con l'app per le funzioni in esecuzione, è necessaria una console di PowerShell separata per chiamare la funzione attivata tramite HTTP.
 

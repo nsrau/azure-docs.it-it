@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b13585b4a839bfcf6c0645c911e98d1f1885f3ca
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b5bf7cc74a5444e5f51aaddb1d088f6b0c1e52a8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036709"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798891"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Flussi di modifiche nell'API di Azure Cosmos DB per MongoDB
 
@@ -21,26 +21,6 @@ Il supporto del [feed di modifiche](change-feed.md) nell'API di Azure Cosmos DB 
 
 > [!NOTE]
 > Per usare i flussi di modifiche, creare l'account con la versione 3.6 dell'API di Azure Cosmos DB per MongoDB o una versione successiva. Se gli esempi dei flussi di modifiche vengono eseguiti con una versione precedente, potrebbe essere visualizzato l'errore `Unrecognized pipeline stage name: $changeStream`.
-
-## <a name="current-limitations"></a>Limitazioni correnti
-
-Quando si usano i flussi di modifiche, sono applicabili le limitazioni seguenti:
-
-* Le proprietà `operationType` e `updateDescription` non sono ancora supportate nel documento di output.
-* I tipi di operazioni `insert`, `update` e `replace` sono attualmente supportati. 
-* L'operazione di eliminazione o altri eventi non sono ancora supportati.
-
-A causa di queste limitazioni, sono necessarie la fase $match, la fase $project e le opzioni fullDocument, come illustrato negli esempi precedenti.
-
-A differenza del feed di modifiche nell'API SQL di Azure Cosmos DB, non è presente una [libreria del processore dei feed di modifiche](change-feed-processor.md) separata per utilizzare i flussi di modifiche e non è necessario un contenitore dei lease. Al momento non è disponibile il supporto dei [trigger di Funzioni di Azure](change-feed-functions.md) per l'elaborazione dei flussi di modifiche.
-
-## <a name="error-handling"></a>Gestione degli errori
-
-Quando si usano i flussi di modifiche, sono supportati i codici e messaggi di errore seguenti:
-
-* **Codice di errore HTTP 16500**: quando il flusso di modifiche è rallentato, viene restituita una pagina vuota.
-
-* **NamespaceNotFound (Invalidate OperationType)** : se si esegue il flusso di modifiche su una raccolta inesistente o se la raccolta viene eliminata, viene restituito un errore `NamespaceNotFound`. Poiché la proprietà `operationType` non può essere restituita nel documento di output, invece dell'errore `operationType Invalidate` viene restituito l'errore `NamespaceNotFound`.
 
 ## <a name="examples"></a>Esempi
 
@@ -156,15 +136,17 @@ var cursor = db.coll.watch(
 Quando si usano i flussi di modifiche, sono applicabili le limitazioni seguenti:
 
 * Le proprietà `operationType` e `updateDescription` non sono ancora supportate nel documento di output.
-* I tipi di operazioni `insert`, `update` e `replace` sono attualmente supportati. L'operazione di eliminazione o altri eventi non sono ancora supportati.
+* I tipi di operazioni `insert`, `update` e `replace` sono attualmente supportati. Tuttavia, l'operazione di eliminazione o altri eventi non sono ancora supportati.
 
 A causa di queste limitazioni, sono necessarie la fase $match, la fase $project e le opzioni fullDocument, come illustrato negli esempi precedenti.
+
+A differenza del feed di modifiche nell'API SQL di Azure Cosmos DB, non è presente una [libreria del processore dei feed di modifiche](change-feed-processor.md) separata per utilizzare i flussi di modifiche e non è necessario un contenitore dei lease. Al momento non è disponibile il supporto dei [trigger di Funzioni di Azure](change-feed-functions.md) per l'elaborazione dei flussi di modifiche.
 
 ## <a name="error-handling"></a>Gestione degli errori
 
 Quando si usano i flussi di modifiche, sono supportati i codici e messaggi di errore seguenti:
 
-* **Codice di errore HTTP 429**: quando il flusso di modifiche è rallentato, viene restituita una pagina vuota.
+* **Codice di errore HTTP 16500**: quando il flusso di modifiche è rallentato, viene restituita una pagina vuota.
 
 * **NamespaceNotFound (Invalidate OperationType)** : se si esegue il flusso di modifiche su una raccolta inesistente o se la raccolta viene eliminata, viene restituito un errore `NamespaceNotFound`. Poiché la proprietà `operationType` non può essere restituita nel documento di output, invece dell'errore `operationType Invalidate` viene restituito l'errore `NamespaceNotFound`.
 

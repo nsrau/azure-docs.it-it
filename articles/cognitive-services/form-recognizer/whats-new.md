@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 3a48511c896a3e4c677c35ca3069ff236761c444
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724133"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751081"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -50,8 +50,10 @@ I **nuovi esempi** sono disponibili in GitHub.
 ## <a name="july-2020"></a>Luglio 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
+
 * **riferimento v 2.0 disponibile** Visualizzare le informazioni di [riferimento sulle API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e gli SDK aggiornati per [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
 * I miglioramenti apportati alle tabelle e ai miglioramenti dell' **estrazione** includono miglioramenti di accuratezza ed estrazioni di tabelle, in particolare la possibilità di apprendere le intestazioni e le strutture delle tabelle in un _training personalizzato senza etichette_. 
+
 * **Supporto** per la valuta Rilevamento ed estrazione dei simboli di valuta globali.
 * **Azure gov** Il riconoscimento del modulo è ora disponibile anche in Azure gov.
 * **Funzionalità di sicurezza avanzate**: 
@@ -76,8 +78,8 @@ I **nuovi esempi** sono disponibili in GitHub.
 * **Supporto dell'SDK per l'anteprima pubblica dell'API di riconoscimento moduli v 2.0** Questo mese abbiamo ampliato il supporto tecnico per includere un SDK di anteprima per il rilascio di form Recognizer v 2.0 (anteprima). Usare i collegamenti seguenti per iniziare a usare la lingua preferita: 
    * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
    * [SDK per Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
 
   Il nuovo SDK supporta tutte le funzionalità dell'API REST v 2.0 per il riconoscimento del modulo. Ad esempio, è possibile eseguire il training di un modello con o senza etichette ed estrarre il testo, le coppie chiave-valore e le tabelle dai moduli, estrarre i dati dalle ricevute con il servizio ricevute predefinite ed estrarre il testo e le tabelle con il servizio di layout dai documenti. È possibile condividere commenti e suggerimenti sugli SDK tramite il [modulo feedback SDK](https://aka.ms/FR_SDK_v1_feedback).
  

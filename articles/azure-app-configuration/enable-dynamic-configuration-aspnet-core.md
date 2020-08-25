@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 5ac09aae724cf7481245ba9e898b52945b394cae
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856528"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585016"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app ASP.NET Core
 
@@ -57,6 +57,9 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
 1. In **Chiave** immettere *TestApp:Settings:Sentinel*. In **Valore** immettere 1. Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto**.
 
 1. Selezionare **Applica**.
+
+    > [!NOTE]
+    > Se non si usa una chiave Sentinel, è necessario registrare manualmente ogni chiave da controllare.
 
 ## <a name="reload-data-from-app-configuration"></a>Ricaricare i dati di Configurazione app
 
@@ -159,6 +162,9 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
     }
     ```
     ---
+
+    > [!TIP]
+    > Per altre informazioni sul modello di opzioni durante la lettura dei valori di configurazione, vedere  [Modelli di opzioni in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Aggiornare il metodo `Configure` aggiungendo il middleware `UseAzureAppConfiguration` per consentire l'aggiornamento delle impostazioni di configurazione appositamente registrate mentre l'app Web ASP.NET Core continua a ricevere richieste.
 
@@ -328,7 +334,7 @@ Una *chiave Sentinel* è una chiave speciale usata per segnalare quando la confi
 
 1. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
     | TestApp:Settings:BackgroundColor | green |
     | TestApp:Settings:FontColor | lightGray |

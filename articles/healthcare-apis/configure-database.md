@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: adc6fdf144927d10f811a00aa33f244cfdc25042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84870961"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795780"
 ---
 # <a name="configure-database-settings"></a>Configurare le impostazioni del database 
 
@@ -25,8 +25,11 @@ L'API di Azure per FHIR prende in prestito il concetto di ur da Cosmos DB (veder
 > [!NOTE]
 > Poiché diverse operazioni utilizzano un numero diverso di UR, viene restituito il numero effettivo di ur utilizzate in ogni chiamata API nell'intestazione della risposta. In questo modo è possibile profilare il numero di ur utilizzate dall'applicazione.
 
-## <a name="update-throughput"></a>Velocità effettiva aggiornamento
+## <a name="update-throughput"></a>Aggiornare la velocità effettiva
+
 Per modificare questa impostazione nel portale di Azure, passare all'API di Azure per FHIR e aprire il pannello del database. Modificare quindi la velocità effettiva con provisioning sul valore desiderato a seconda delle esigenze di prestazioni. È possibile modificare il valore fino a un massimo di 10.000 UR/sec. Se è necessario un valore superiore, contattare il supporto tecnico di Azure.
+
+Se la velocità effettiva del database è superiore a 10.000 UR/sec o se i dati archiviati nel database sono maggiori di 50 GB, l'applicazione client deve essere in grado di gestire i token di continuazione. Viene creata una nuova partizione nel database per ogni aumento della velocità effettiva di 10.000 UR/sec o se la quantità di dati archiviati è superiore a 50 GB. Più partizioni crea una risposta a più pagine in cui l'impaginazione viene implementata usando i token di continuazione.
 
 > [!NOTE] 
 > Un valore superiore indica un'API di Azure superiore per la velocità effettiva FHIR e un costo superiore del servizio.

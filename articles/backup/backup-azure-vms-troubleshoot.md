@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761764"
+ms.locfileid: "88763304"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -44,7 +44,7 @@ Di seguito sono riportati i problemi comuni relativi agli errori di backup nelle
 Codice di errore: VMRestorePointInternalError
 
 Se al momento del backup, nei **registri applicazioni Visualizzatore eventi** viene visualizzato il nome dell'applicazione per cui si è verificato l' **errore: IaaSBcdrExtension.exe** quindi viene confermato che l'antivirus configurato nella VM sta limitando l'esecuzione dell'estensione di backup.
-Per risolvere questo problema, escludere le directory seguenti nella configurazione dell'antivirus e ripetere l'operazione di backup.
+Per risolvere questo problema, escludere le directory seguenti nella configurazione del programma antivirus, quindi ripetere l'operazione di backup.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 * `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -90,11 +90,11 @@ L'operazione di backup non è riuscita a causa di un problema con il servizio di
 
 * Provare ad avviare/riavviare il servizio di Windows **Applicazione di sistema COM+** (da un prompt dei comandi con privilegi elevati **- net start COMSysApp**).
 * Assicurarsi che il servizio **Distributed Transaction Coordinator** sia in esecuzione come account **Servizio di rete**. In caso contrario, modificarlo in modo che venga eseguito come account **Servizio di rete** e riavviare **Applicazione di sistema COM+** .
-* Se non è possibile riavviare il servizio, reinstallare il servizio **Distributed Transaction Coordinator** seguendo questa procedura:
+* Se non è possibile riavviare il servizio, reinstallare **Distributed Transaction Coordinator** servizio attenendosi alla procedura seguente:
   * Arrestare il servizio MSDTC
   * Aprire un prompt dei comandi (cmd)
-  * Eseguire il comando "msdtc -uninstall"
-  * Eseguire il comando "msdtc -install"
+  * Eseguire il comando `msdtc -uninstall`
+  * Eseguire il comando `msdtc -install`
   * Avviare il servizio MSDTC
 * Avviare il servizio di Windows **Applicazione di sistema COM+** . Dopo che il servizio **Applicazione sistema COM+** è stato avviato, attivare un processo di backup dal portale di Azure.</ol>
 
@@ -165,7 +165,7 @@ L'operazione di backup non è riuscita a causa dello stato non coerente dell'est
 Codice errore: ExtensionFailedSnapshotLimitReachedError  <br/>
 Messaggio di errore: L'operazione di creazione snapshot non è riuscita perché è stato superato il limite di snapshot per alcuni dischi collegati
 
-L'operazione di creazione snapshot non è riuscita poiché il limite di snapshot è stato superato per alcuni dischi collegati. Completare questa procedura di risoluzione dei problemi e provare a eseguire di nuovo l'operazione.
+L'operazione di creazione snapshot non è riuscita poiché il limite di snapshot è stato superato per alcuni dischi collegati. Completare le seguenti procedure di risoluzione dei problemi, quindi ripetere l'operazione.
 
 * Eliminare i BLOB di snapshot del disco che non sono necessari. Prestare attenzione a non eliminare i BLOB Disk. È necessario eliminare solo i BLOB di snapshot.
 * Se l'eliminazione temporanea è abilitata negli account di archiviazione su disco della macchina virtuale, configurare la conservazione dell'eliminazione temporanea in modo che gli snapshot esistenti siano inferiori al massimo consentito in qualsiasi momento.
@@ -183,7 +183,7 @@ L'operazione di backup sulla macchina virtuale ha avuto esito negativo a causa d
 
 **Passaggio 1**: Creare uno snapshot tramite host
 
-Da un prompt dei comandi elevato (amministratore) eseguire il comando seguente:
+Da un prompt dei comandi con privilegi elevati (amministratore), eseguire il comando seguente:
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f

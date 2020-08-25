@@ -1,17 +1,17 @@
 ---
 title: 'Esercitazione: Aggiungere nodi a un cluster di Azure FXT Edge Filer'
-description: Come aggiungere nodi alla cache di archiviazione di Azure FXT Edge Filer
+description: Informazioni su come aggiungere nodi del cluster alla cache di archiviazione di Azure FXT Edge Filer e su come abilitare la funzionalità Disponibilità elevata.
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b62927930212fc7e59fc4329a29ceecbe2815e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75551948"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185333"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Esercitazione: Aggiungere nodi del cluster a un cluster di Azure FXT Edge Filer
 

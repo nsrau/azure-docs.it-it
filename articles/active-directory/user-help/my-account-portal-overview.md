@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
-ms.translationtype: HT
+ms.openlocfilehash: 95947a9350f19f0f0ff45b7c65e14729b66f26cf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422412"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798160"
 ---
 # <a name="what-is-the-my-account-portal"></a>Che cos'è il portale Account personale?
 
@@ -33,11 +33,11 @@ Il portale **Account personale** (anteprima) consente di gestire l'account azien
 ![Portale Account personale, pagina Panoramica](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Questo articolo è destinato agli utenti che provano ad accedere al portale Account personale per aggiornare le informazioni di sicurezza, le informazioni sui dispositivi, la password, le organizzazioni connesse, le impostazioni della lingua, la privacy o le precedenti informazioni di accesso. Se si è un amministratore e si cercano informazioni su come attivare l'autenticazione e altre funzionalità di Azure Active Directory (Azure AD) per i dipendenti e altri utenti, vedere la [documentazione di Azure AD per amministratori](https://docs.microsoft.com/azure/active-directory/).
+>Questo articolo è destinato agli utenti che provano ad accedere al portale Account personale per aggiornare le informazioni di sicurezza, le informazioni sui dispositivi, la password, le organizzazioni connesse, le impostazioni della lingua, la privacy o le precedenti informazioni di accesso. Se si è un amministratore e si cercano informazioni su come attivare l'autenticazione e altre funzionalità di Azure Active Directory (Azure AD) per i dipendenti e altri utenti, vedere la [documentazione di Azure AD per amministratori](../index.yml).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md)
+- Visualizzare o gestire le [informazioni di sicurezza](./security-info-setup-signin.md)
 
 - Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md) connessi
 

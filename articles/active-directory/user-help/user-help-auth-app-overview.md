@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741178"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799435"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Che cos'è l'app Microsoft Authenticator?
 
@@ -33,7 +33,7 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
 > [!Important]
 > L'app Microsoft Authenticator funziona con qualsiasi account che usa la verifica a due fattori e supporta gli standard di password monouso basate sul tempo (Time-Based One-Time Passwords, TOTP).
 >
->Questo articolo è destinato agli utenti che provano a scaricare e usare l'app Microsoft Authenticator come metodo di verifica di sicurezza. Se si è un amministratore e si cercano informazioni su come attivare l'accesso senza password usando l'app Authenticator per i dipendenti e altri tenti, vedere [Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>Questo articolo è destinato agli utenti che provano a scaricare e usare l'app Microsoft Authenticator come metodo di verifica di sicurezza. Se si è un amministratore e si cercano informazioni su come attivare l'accesso senza password usando l'app Authenticator per i dipendenti e altri tenti, vedere [Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)](../authentication/howto-authentication-passwordless-phone.md).
 
 ## <a name="terminology"></a>Terminologia
 

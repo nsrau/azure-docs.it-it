@@ -1,18 +1,18 @@
 ---
 title: Concetti-archiviazione
-description: Informazioni sulle funzionalità di archiviazione chiavi in cloud privati di Azure Solution (AVS) Preview.
+description: Informazioni sulle funzionalità di archiviazione chiavi in cloud privati in anteprima della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91484c1baae9801684bc49b931fa2080db676a00
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604117"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752221"
 ---
-# <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Concetti relativi all'archiviazione di anteprima della soluzione VMware di Azure (AVS)
+# <a name="azure-vmware-solution-preview-storage-concepts"></a>Concetti relativi all'archiviazione anteprima della soluzione VMware di Azure
 
-I cloud privati AVS forniscono l'archiviazione nativa a livello di cluster con VMware rete VSAN. Tutte le archiviazioni locali da ogni host in un cluster vengono usate in un archivio dati rete VSAN e la crittografia dei dati inattivi è disponibile e abilitata per impostazione predefinita. È possibile usare le risorse di archiviazione di Azure per estendere le funzionalità di archiviazione dei cloud privati.
+I cloud privati della soluzione VMware di Azure forniscono l'archiviazione nativa a livello di cluster con VMware rete VSAN. Tutte le archiviazioni locali da ogni host in un cluster vengono usate in un archivio dati rete VSAN e la crittografia dei dati inattivi è disponibile e abilitata per impostazione predefinita. È possibile usare le risorse di archiviazione di Azure per estendere le funzionalità di archiviazione dei cloud privati.
 
 ## <a name="vsan-clusters"></a>cluster rete VSAN
 
