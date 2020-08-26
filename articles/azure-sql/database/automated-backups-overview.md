@@ -5,18 +5,18 @@ description: Il database SQL di Azure e Azure SQL Istanza gestita crea automatic
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 485a137f552ca06fba366d261eb38268d821ccaf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756725"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853209"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -46,7 +46,14 @@ L'opzione per configurare la ridondanza dell'archiviazione di backup offre la fl
 > [!IMPORTANT]
 > In SQL Istanza gestita la ridondanza del backup configurata viene applicata alle impostazioni di conservazione dei backup a breve termine usate per il ripristino temporizzato (ripristino temporizzato) e i backup con conservazione a lungo termine usati per i backup a lungo termine (LTR).
 
+
+> [!NOTE]
+> La ridondanza dell'archiviazione di backup configurabile del database SQL di Azure è attualmente disponibile come anteprima privata limitata per determinati clienti nell'area di Azure Asia sudorientale. Se si vuole essere presi in considerazione per la registrazione in questa anteprima privata, contattare [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com) . 
+
+Se le regole di protezione dei dati richiedono che i backup siano disponibili per un periodo di tempo prolungato (fino a 10 anni), è possibile configurare la [conservazione a lungo termine](long-term-retention-overview.md) per i database singoli e in pool.
+
 ### <a name="backup-usage"></a>Utilizzo backup
+
 
 È possibile usare questi backup per:
 

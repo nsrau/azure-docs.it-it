@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033582"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853702"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -224,6 +224,10 @@ Le sessioni estese sono un'impostazione che mantiene le orchestrazioni e le enti
 Ad esempio, se `durableTask/extendedSessionIdleTimeoutInSeconds` è impostato su 30 secondi, un agente di orchestrazione di breve durata o un episodio di funzione di entità che viene eseguito in meno di 1 secondo occupa ancora memoria per 30 secondi. Viene inoltre conteggiato rispetto alla `durableTask/maxConcurrentOrchestratorFunctions` quota indicata in precedenza, impedendo potenzialmente l'esecuzione di altre funzioni dell'agente di orchestrazione o di entità.
 
 Le sezioni successive illustrano gli effetti specifici delle sessioni estese sulle funzioni dell'agente di orchestrazione e dell'entità.
+
+> [!NOTE]
+> Le sessioni estese sono attualmente supportate solo nei linguaggi .NET, ad esempio C# o F #. L'impostazione `extendedSessionsEnabled` di su `true` per altre piattaforme può causare problemi di runtime, ad esempio la mancata esecuzione invisibile di un'attività e l'esecuzione di funzioni attivate dall'orchestrazione.
+
 
 ### <a name="orchestrator-function-replay"></a>Riproduzione delle funzioni dell'agente di orchestrazione
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 30b90b89300d6ca63255a000c7a6f7723f648056
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 64b38d0e776a0e3dab155704dcc368cc738c278e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118765"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855428"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>App Web che esegue l'accesso degli utenti: configurazione del codice
 
@@ -132,7 +132,7 @@ In ASP.NET Core un altro file ([properties\launchSettings.jssu](https://github.c
 }
 ```
 
-Nel portale di Azure gli URI di risposta necessari per la registrazione nella pagina di **autenticazione** per l'applicazione devono corrispondere a questi URL. Per i due file di configurazione precedenti, sarebbe `https://localhost:44321/signin-oidc` . Il motivo è `applicationUrl` `http://localhost:3110` , ma `sslPort` è specificato (44321). `CallbackPath`è `/signin-oidc` , come definito in `appsettings.json` .
+Nel portale di Azure gli URI di risposta necessari per la registrazione nella pagina di **autenticazione** per l'applicazione devono corrispondere a questi URL. Per i due file di configurazione precedenti, sarebbe `https://localhost:44321/signin-oidc` . Il motivo è `applicationUrl` `http://localhost:3110` , ma `sslPort` è specificato (44321). `CallbackPath` è `/signin-oidc` , come definito in `appsettings.json` .
 
 Allo stesso modo, l'URI di disconnessione viene impostato su `https://localhost:44321/signout-oidc` .
 
@@ -225,7 +225,7 @@ Per aggiungere l'autenticazione con la piattaforma di identità Microsoft (in pr
 
 1. Aggiungere i pacchetti NuGet [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) e [Microsoft. Identity. Web. UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) al progetto. Rimuovere il pacchetto NuGet Microsoft. AspNetCore. Authentication. AzureAD. UI se presente.
 
-2. Aggiornare il codice in in `ConfigureServices` modo che usi i `AddMicrosoftWebAppAuthentication` `AddMicrosoftIdentityUI` metodi e.
+2. Aggiornare il codice in in `ConfigureServices` modo che usi i `AddMicrosoftIdentityWebAppAuthentication` `AddMicrosoftIdentityUI` metodi e.
 
    ```c#
    public class Startup
@@ -234,7 +234,7 @@ Per aggiungere l'autenticazione con la piattaforma di identità Microsoft (in pr
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-     services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd");
+     services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd");
 
      services.AddRazorPages().AddMvcOptions(options =>
      {
@@ -245,7 +245,7 @@ Per aggiungere l'autenticazione con la piattaforma di identità Microsoft (in pr
      }).AddMicrosoftIdentityUI();
     ```
 
-3. Nel `Configure` metodo in *Startup.cs*abilitare l'autenticazione con una chiamata a`app.UseAuthentication();`
+3. Nel `Configure` metodo in *Startup.cs*abilitare l'autenticazione con una chiamata a `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -259,20 +259,20 @@ Per aggiungere l'autenticazione con la piattaforma di identità Microsoft (in pr
    ```
 
 Nel codice precedente:
-- Il `AddMicrosoftWebAppAuthentication` metodo di estensione è definito in **Microsoft. Identity. Web**. È
+- Il `AddMicrosoftIdentityWebAppAuthentication` metodo di estensione è definito in **Microsoft. Identity. Web**. È
   - Aggiunge il servizio di autenticazione.
   - Configura le opzioni per la lettura del file di configurazione (qui dalla sezione "AzureAD")
   - Configura le opzioni di OpenID Connect in modo che l'autorità sia l'endpoint della piattaforma di identità Microsoft.
   - Convalida l'emittente del token.
   - Garantisce che le attestazioni corrispondenti al nome siano mappate dall' `preferred_username` attestazione nel token ID.
 
-- Oltre all'oggetto di configurazione, è possibile specificare il nome della sezione di configurazione quando si chiama `AddMicrosoftWebAppAuthentication` . Per impostazione predefinita, è `AzureAd` .
+- Oltre all'oggetto di configurazione, è possibile specificare il nome della sezione di configurazione quando si chiama `AddMicrosoftIdentityWebAppAuthentication` . Per impostazione predefinita, è `AzureAd` .
 
-- `AddMicrosoftWebAppAuthentication`dispone di altri parametri per gli scenari avanzati. Ad esempio, la traccia degli eventi del middleware OpenID Connect può aiutare a risolvere i problemi dell'applicazione Web se l'autenticazione non funziona. Impostando il parametro facoltativo `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` su verrà visualizzato il modo in cui le `true` informazioni vengono elaborate dal set di ASP.NET Core middleware durante l'avanzamento dalla risposta http all'identità dell'utente in `HttpContext.User` .
+- `AddMicrosoftIdentityWebAppAuthentication` dispone di altri parametri per gli scenari avanzati. Ad esempio, la traccia degli eventi del middleware OpenID Connect può aiutare a risolvere i problemi dell'applicazione Web se l'autenticazione non funziona. Impostando il parametro facoltativo `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` su verrà visualizzato il modo in cui le `true` informazioni vengono elaborate dal set di ASP.NET Core middleware durante l'avanzamento dalla risposta http all'identità dell'utente in `HttpContext.User` .
 
 - Il `AddMicrosoftIdentityUI` metodo di estensione è definito in **Microsoft. Identity. Web. UI**. Fornisce un controller predefinito per gestire l'accesso e la disconnessione.
 
-Per altre informazioni sul modo in cui Microsoft. Identity. Web consente di creare app Web in, vedere<https://aka.ms/ms-id-web/webapp>
+Per altre informazioni sul modo in cui Microsoft. Identity. Web consente di creare app Web in, vedere <https://aka.ms/ms-id-web/webapp>
 
 > [!WARNING]
 > Attualmente, Microsoft. Identity. Web non supporta lo scenario di **singoli account utente** (archiviando gli account utente in-app) quando si usa Azure ad come e provider di accesso esterno. Per informazioni dettagliate, vedere: [AzureAD/Microsoft-Identity-Web # 133](https://github.com/AzureAD/microsoft-identity-web/issues/133)
