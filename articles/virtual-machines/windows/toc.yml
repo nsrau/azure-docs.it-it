@@ -282,7 +282,7 @@
               href: ../reserved-vm-instance-size-flexibility.md
         - name: VM Spot
           displayName: 'pre-empt, preempt'
-          href: spot-vms.md
+          href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Macchine virtuali di Azure senza disco temporaneo
           href: ../azure-vms-no-temp-disk.md
         - name: Convenzioni di denominazione delle dimensioni delle macchine virtuali di Azure
@@ -879,15 +879,15 @@
             - name: Abilitare la crittografia a livello di host - PowerShell
               href: disks-enable-host-based-encryption-powershell.md
             - name: Abilitare la crittografia a livello di host - Portale
-              href: disks-enable-host-based-encryption-portal.md
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Abilitare chiavi gestite dal cliente - PowerShell
               href: disks-enable-customer-managed-keys-powershell.md
             - name: Abilitare chiavi gestite dal cliente - Portale
-              href: disks-enable-customer-managed-keys-portal.md
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Abilitare la crittografia doppia dei dati inattivi
               href: disks-enable-double-encryption-at-rest-powershell.md
             - name: Abilitare la crittografia doppia dei dati inattivi - Portale
-              href: disks-enable-double-encryption-at-rest-portal.md
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Migrazione e conversione
           items:
             - name: Convertire il disco tra archiviazione Standard e Premium
@@ -911,7 +911,7 @@
         - name: Trovare dischi non collegati - Portale
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Domande frequenti sui dischi
-          href: faq-for-disks.md
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Gestire la rete
       href: ps-common-network-ref.md
       items:

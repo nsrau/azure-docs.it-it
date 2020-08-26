@@ -510,6 +510,8 @@
           href: unique-keys.md
         - name: Transazioni e controllo della concorrenza ottimistica
           href: database-transactions-optimistic-concurrency.md
+        - name: Allegati
+          href: attachments.md
     - name: Feed delle modifiche
       items:
         - name: Panoramica sul feed di modifiche

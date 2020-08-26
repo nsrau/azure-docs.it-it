@@ -195,7 +195,7 @@
     - name: Panoramica
       href: ../managed-disks-overview.md
     - name: Domande frequenti
-      href: ../windows/faq-for-disks.md
+      href: ../faq-for-disks.md
     - name: Errori durante l'eliminazione di risorse di archiviazione
       href: storage-resource-deletion-errors.md
     - name: Errori durante l'eliminazione di risorse di archiviazione classiche

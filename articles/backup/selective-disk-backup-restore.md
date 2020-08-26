@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup e il ripristino de
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757439"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824747"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e ripristino di dischi selettivi per macchine virtuali di Azure
 
@@ -190,7 +190,7 @@ Quando si eseguono questi comandi, verrà visualizzato `"diskExclusionProperties
 
 ## <a name="using-powershell"></a>Utilizzo di PowerShell
 
-Assicurarsi di usare Azure PS versione 3.7.0 o successiva.
+Assicurarsi di usare Azure PowerShell versione 3.7.0 o successiva.
 
 ### <a name="enable-backup-with-powershell"></a>Abilitare il backup con PowerShell
 
