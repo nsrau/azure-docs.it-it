@@ -3,12 +3,12 @@ title: Ripristinare i file in Windows Server con l'agente di Servizi di ripristi
 description: Questo articolo illustra come ripristinare i dati archiviati in Azure in un computer Windows Server o Windows con l'agente di Servizi di ripristino di Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 78663edadfdef581dbdd259882a6dd4afe5a4b0b
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871259"
+ms.locfileid: "88892508"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Ripristinare i file in Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -75,7 +75,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
     ![Screenshot della pagina Cerca e Ripristina file della procedura guidata ripristino dati (Ripristina nello stesso computer)-conferma smontaggio volume di ripristino](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Se non si seleziona **Smonta**, il volume di ripristino rimarrà montato per 6 ore dal momento in cui è stato montato. Il tempo di montaggio viene tuttavia esteso fino a un massimo di 24 ore in caso di copia dei file in corso. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
+    > Se non si seleziona **Smonta**, il volume di ripristino rimarrà montato per 6 ore dal momento in cui è stato montato. Tuttavia, il tempo di montaggio viene esteso fino a un massimo di 24 ore in caso di copia di file in corso. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
     >
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Usare il ripristino immediato per ripristinare i dati in un altro computer
@@ -138,7 +138,7 @@ Tali passaggi usano la terminologia seguente:
     ![Smontare il volume (ripristinare il computer alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Se non si seleziona **Smonta**, il volume di ripristino rimarrà montato per 6 ore dal momento in cui è stato montato. Il tempo di montaggio viene tuttavia esteso fino a un massimo di 24 ore in caso di copia dei file in corso. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
+    > Se non si seleziona **Smonta**, il volume di ripristino rimarrà montato per 6 ore dal momento in cui è stato montato. Tuttavia, il tempo di montaggio viene esteso fino a un massimo di 24 ore in caso di copia di file in corso. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
     >
 
 ## <a name="next-steps"></a>Passaggi successivi

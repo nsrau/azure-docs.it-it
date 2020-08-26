@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826054"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892389"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -58,7 +58,7 @@ Backup di Azure usa l'estensione di snapshot VM per eseguire un backup coerente 
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
 - **Controllare se è necessario l'accesso alla rete**: i pacchetti di estensione vengono scaricati dal repository dell'estensione di archiviazione di Azure e i caricamenti dello stato dell'estensione vengono inseriti in archiviazione di Azure. [Altre informazioni](../virtual-machines/extensions/features-windows.md#network-access)
-  - Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
+  - Se si usa una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad archiviazione di Azure in tale area dalla macchina virtuale.
   - Se è stato bloccato l'accesso a `168.63.129.16` tramite il firewall Guest o con un proxy, le estensioni avranno esito negativo indipendentemente da quanto sopra. Sono necessarie le porte 80, 443 e 32526, [altre informazioni](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Verificare che DHCP sia abilitato all'interno della VM guest**: questa operazione è necessaria per ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP affinché il backup della macchina virtuale IaaS funzioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite il portale di Azure o PowerShell e assicurarsi che l'opzione DHCP all'interno della VM sia abilitata. [altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).

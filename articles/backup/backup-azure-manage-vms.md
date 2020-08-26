@@ -3,12 +3,12 @@ title: Gestire e monitorare i backup delle macchine virtuali di Azure
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a3349d30d5913781fb3348e7f5622366b3abc1d0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532052"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892168"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -188,7 +188,7 @@ Per proteggere i dati, backup di Azure include la funzionalità di eliminazione 
 
 * Se le macchine virtuali di Azure configurate per backup di Azure vengono eliminate o spostate senza arrestare la protezione, i processi di backup pianificati e su richiesta (ad-hoc) avranno esito negativo con l'errore UserErrorVmNotFoundV2. Il controllo preliminare di backup verrà visualizzato come critico solo per i processi di backup su richiesta non riusciti (i processi pianificati non riusciti non vengono visualizzati).
 * Questi elementi di backup rimangono attivi nel sistema rispettando i criteri di backup e conservazione impostati dall'utente. I dati di cui è stato eseguito il backup per queste macchine virtuali di Azure verranno conservati in base ai criteri di conservazione. I punti di ripristino scaduti, ad eccezione dell'ultimo punto di ripristino, vengono puliti in base al periodo di mantenimento dati impostato nei criteri di backup.
-* Si consiglia agli utenti di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché l'ultimo punto di ripristino viene mantenuto per sempre e l'utente viene addebitato in base ai prezzi di backup applicabili.
+* Si consiglia di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché l'ultimo punto di ripristino viene mantenuto per sempre e l'utente viene addebitato in base ai prezzi di backup applicabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

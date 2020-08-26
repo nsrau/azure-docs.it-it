@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6e1a6cb583c0d310cc7ce73995224c42bb84784d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 26531e80292a53400671ac3507b47371c1fbbcad
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566166"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796817"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Avvio rapido: Distribuire un esempio di Unity sul desktop
 
@@ -57,7 +57,7 @@ Sul desktop sono attualmente supportate solo le app desktop flat, quindi è nece
 1. Impostare la configurazione su **Release** e **x86**.
 1. Impostare la modalità del debugger su **Local Machine** (Computer locale).\
   ![Configurazione della soluzione](./media/unity-deploy-config-pc.png)
-1. Compilare la soluzione (F7).
+1. Compilare la soluzione.
 
 ## <a name="launch-the-sample-project"></a>Avviare il progetto di esempio
 

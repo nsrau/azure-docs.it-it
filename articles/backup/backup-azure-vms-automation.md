@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure con PowerShell
 description: Viene descritto come eseguire il backup e il ripristino di macchine virtuali di Azure tramite backup di Azure con PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826447"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892406"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -104,7 +104,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
     ```
 
    > [!TIP]
-   > Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è utile archiviare l'oggetto dell'insieme di credenziali dei servizi di ripristino di Backup in una variabile.
+   > Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è consigliabile archiviare l'oggetto insieme di credenziali di servizi di ripristino di backup in una variabile.
    >
    >
 
@@ -256,7 +256,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> Se si usa il cloud di Azure per enti pubblici, usare il valore ff281ffe-705c-4f53-9F37-a40e6f2c68f3 per il parametro ServicePrincipalName nel cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
+> Se si usa il cloud di Azure per enti pubblici, usare il valore `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` per il parametro **servicePrincipalName** nel cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
 >
 
 ## <a name="monitoring-a-backup-job"></a>Monitoraggio di un processo di backup
@@ -294,7 +294,7 @@ Quando si crea un criterio di protezione, per impostazione predefinita viene ass
 
 ````powershell
 $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that you want to start the backup)
 $UtcTime = $UtcTime.ToUniversalTime()
 $SchPol.ScheduleRunTimes[0] = $UtcTime
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -323,7 +323,7 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-Il valore predefinito sarà 2, l'utente può impostare il valore con un minimo di 1 e un massimo di 5. Per i criteri di backup settimanali, il periodo è impostato su 5 e non può essere modificato.
+Il valore predefinito sarà 2. È possibile impostare il valore con un minimo di 1 e un massimo di 5. Per i criteri di backup settimanali, il periodo è impostato su 5 e non può essere modificato.
 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Creazione del gruppo di risorse di backup di Azure durante la conservazione degli snapshot
 
@@ -365,7 +365,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Modificare i criteri per gli elementi di backup
 
-L'utente può modificare i criteri esistenti o modificare i criteri dell'elemento di cui è stato eseguito il backup da Policy1 a Policy2. Per modificare i criteri per un elemento di cui è stato eseguito il backup, recuperare i criteri pertinenti ed eseguire il backup dell'elemento e usare il comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) con l'elemento di backup come parametro.
+È possibile modificare i criteri esistenti o modificare i criteri dell'elemento di cui è stato eseguito il backup da Policy1 a Policy2. Per modificare i criteri per un elemento di cui è stato eseguito il backup, recuperare i criteri pertinenti ed eseguire il backup dell'elemento e usare il comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) con l'elemento di backup come parametro.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
@@ -481,7 +481,7 @@ $restorejob
 Indicare un parametro aggiuntivo **TargetResourceGroupName** per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti.
 
 > [!IMPORTANT]
-> È consigliabile usare il parametro **TargetResourceGroupName** per il ripristino dei dischi gestiti poiché consente di ottenere miglioramenti significativi in termini di prestazioni. Se questo parametro non è specificato, non è possibile trarre vantaggio dalla funzionalità di ripristino immediato e l'operazione di ripristino sarà più lenta rispetto a. Se lo scopo è ripristinare i dischi gestiti come dischi non gestiti, non specificare questo parametro e rendere chiara l'intenzione fornendo il `-RestoreAsUnmanagedDisks` parametro. Il `-RestoreAsUnmanagedDisks` parametro è disponibile dal Azure PowerShell 3.7.0 in poi. Nelle versioni future, sarà obbligatorio fornire uno di questi parametri per la corretta esperienza di ripristino.
+> Si consiglia vivamente di usare il parametro **TargetResourceGroupName** per il ripristino dei dischi gestiti, in quanto comporta miglioramenti significativi delle prestazioni. Se questo parametro non è specificato, non è possibile trarre vantaggio dalla funzionalità di ripristino immediato e l'operazione di ripristino sarà più lenta rispetto a. Se lo scopo è ripristinare i dischi gestiti come dischi non gestiti, non specificare questo parametro e rendere chiara l'intenzione fornendo il `-RestoreAsUnmanagedDisks` parametro. Il `-RestoreAsUnmanagedDisks` parametro è disponibile dal Azure PowerShell 3.7.0 in poi. Nelle versioni future, sarà obbligatorio fornire uno di questi parametri per la corretta esperienza di ripristino.
 >
 >
 

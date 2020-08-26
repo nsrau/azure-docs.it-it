@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c646c750cb54228211fadb0a4f6733d495e9219
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311286"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892066"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel dispositivo IoT Edge
 
@@ -47,7 +47,7 @@ Usare la procedura seguente per distribuire un centro sicurezza di Azure per il 
     - Verificare che il controllo sia attivo eseguendo il comando seguente:
 
     `sudo systemctl status auditd`<br>
-    - La risposta prevista è:`active (running)`
+    - La risposta prevista è: `active (running)`
 
 ### <a name="deployment-using-azure-portal"></a>Distribuzione con portale di Azure
 
@@ -93,9 +93,21 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per il Cen
 
 1. Nella scheda **Impostazioni gemelli del modulo** aggiungere la configurazione seguente:
 
-    ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-    ```
+   Proprietà del modulo gemello:
+   
+   ``` json
+     "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+   ```
+
+   Contenuto della proprietà del modulo gemello: 
+
+   ```json
+     {
+
+     }
+   ```
+    
+   Per ulteriori informazioni sulla configurazione dell'agente, vedere [configurare gli agenti di sicurezza](https://docs.microsoft.com/azure/asc-for-iot/how-to-agent-configuration).
 
 1. Selezionare **Aggiorna**.
 
@@ -129,7 +141,7 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per il Cen
     }
     ```
 
-1. Selezionare **Salva**.
+1. Seleziona **Salva**.
 
 1. Selezionare **Avanti**.
 

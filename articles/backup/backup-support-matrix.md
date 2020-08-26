@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825189"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892185"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -145,7 +145,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 ## <a name="cross-region-restore"></a>Ripristino tra aree
 
-Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforzare la disponibilità dei dati e la capacità di resilienza, offrendo ai clienti il controllo completo per ripristinare i dati in un'area secondaria. Per configurare questa funzionalità, vedere l'[articolo sul ripristino tra aree](backup-create-rs-vault.md#set-cross-region-restore). Questa funzionalità è supportata nei seguenti tipi di gestione:
+Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforzare la disponibilità dei dati e la capacità di resilienza, offrendo il controllo completo per ripristinare i dati in un'area secondaria. Per configurare questa funzionalità, vedere l'[articolo sul ripristino tra aree](backup-create-rs-vault.md#set-cross-region-restore). Questa funzionalità è supportata nei seguenti tipi di gestione:
 
 | Tipo di gestione di backup | Supportato                                                    | Aree supportate |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

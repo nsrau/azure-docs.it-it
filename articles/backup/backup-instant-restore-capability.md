@@ -4,17 +4,17 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: e8037af9433cc642f57c1ab6ca2709a3d92c2f81
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825852"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892627"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
 > [!NOTE]
-> In base al feedback degli utenti lo **stack di backup di macchine virtuali V2** viene rinominato **Ripristino istantaneo** per evitare confusione con la funzionalità Azure Stack.
+> In base ai commenti e suggerimenti degli utenti, lo **stack di backup delle macchine virtuali V2** è stato rinominato in un **ripristino immediato** per ridurre la confusione con Azure stack funzionalità.
 > Tutti gli utenti di backup di Azure sono stati aggiornati per il **ripristino immediato**.
 
 Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzionalità seguenti:
@@ -76,7 +76,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-La conservazione predefinita degli snapshot per ciascun criterio è impostata su due giorni. L'utente può modificare il valore in un minimo di 1 e un massimo di cinque giorni. Per i criteri settimanali, la conservazione dello snapshot è fissata a cinque giorni.
+La conservazione predefinita degli snapshot per ciascun criterio è impostata su due giorni. È possibile impostare il valore su un minimo di 1 e un massimo di cinque giorni. Per i criteri settimanali, la conservazione dello snapshot è fissata a cinque giorni.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

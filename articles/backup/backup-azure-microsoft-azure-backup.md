@@ -3,12 +3,12 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 74d4d01d535f7148d3c3878a431dac2f951ae134
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827376"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892287"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "88827376"
 >
 >
 
-> Si applica a: server di Backup di Microsoft Azure v3. Il server di Backup di Microsoft Azure v2 non è più supportato. Se si usa una versione precedente al server di Backup di Microsoft Azure v3, eseguire l'aggiornamento alla versione più recente.
+> Si applica a: server di Backup di Microsoft Azure v3. Il server di Backup di Microsoft Azure v2 non è più supportato. Se si usa una versione precedente a MAB V3, eseguire l'aggiornamento alla versione più recente.
 
 Questo articolo illustra come preparare l'ambiente per eseguire il backup dei carichi di lavoro con il server di Backup di Microsoft Azure (MABS). Con il server di Backup di Azure è possibile proteggere i carichi di lavoro dell'applicazione, ad esempio le VM Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e i client di Windows, da una singola console.
 
@@ -129,7 +129,7 @@ Per modificare le impostazioni di replica di archiviazione:
     La procedura guidata **Introduzione al backup** imposta l'opzione **Preparare l'infrastruttura** per eseguire il backup dei carichi di lavoro in Azure.
 
    > [!NOTE]
-   > Se si vuole solo eseguire il backup di file e cartelle, è consigliabile usare l'agente di Backup di Azure e seguire le istruzioni disponibili nell'articolo [Primi passi: eseguire il backup di file e cartelle](./backup-windows-with-mars-agent.md). Se si prevede di proteggere altri carichi di lavoro oltre a file e cartelle oppure se si vuole in futuro espandere i requisiti di protezione, selezionare quei carichi di lavoro.
+   > Se si vuole solo eseguire il backup di file e cartelle, è consigliabile usare l'agente di Backup di Azure e seguire le istruzioni disponibili nell'articolo [Primi passi: eseguire il backup di file e cartelle](./backup-windows-with-mars-agent.md). Se si intende proteggere più file e cartelle oppure si prevede di espandere le esigenze di protezione in futuro, selezionare questi carichi di lavoro.
    >
    >
 

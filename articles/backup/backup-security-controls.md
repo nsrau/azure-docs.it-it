@@ -3,12 +3,12 @@ title: Controlli di sicurezza
 description: Informazioni sui controlli di sicurezza usati nel servizio backup di Azure. Questi controlli consentono al servizio di prevenire, rilevare e rispondere alle vulnerabilità di sicurezza.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: e69053d4646207b34e8df31b949410994c967303
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ce1ca0a79476e4985569c677b58892fad91866a5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827291"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892963"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controlli di sicurezza per backup di Azure
 
@@ -29,7 +29,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in backup di Azure
 
 | Controllo di sicurezza | Sì/No | Note| Documentazione
 |---|---|--|--|
-| Supporto monitoraggio di Azure (analisi dei log, analisi approfondita dell'app e così via)| Sì | Log Analytics è supportato tramite i log delle risorse. Per altre informazioni, vedere [monitorare i carichi di lavoro protetti di backup di Azure con log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Supporto di monitoraggio di Azure (ad esempio log Analytics, App Insights)| Sì | Log Analytics è supportato tramite i log delle risorse. Per altre informazioni, vedere [monitorare i carichi di lavoro protetti di backup di Azure con log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Piano di gestione e controllo - Registrazione e controllo| Sì | Tutte le azioni attivate dai clienti dal portale di Azure vengono registrate nei log attività. |  |
 | Piano dati - Registrazione e controllo| No | Il piano dati di Backup di Azure non è raggiungibile direttamente.  |  |
 
@@ -54,7 +54,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in backup di Azure
 
 | Controllo di sicurezza | Sì/No | Note| Documentazione
 |---|---|--|--|
-| Supporto gestione della configurazione (controllo delle versioni di configurazione e così via)| Sì|  |  |
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì|  |  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

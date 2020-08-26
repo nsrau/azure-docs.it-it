@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 332b86d58e4c3f64dfbc528b4fe30399ef69d2a3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827393"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892763"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -26,7 +26,7 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quante origini dati o quanti elementi è possibile proteggere in un insieme di credenziali?
 
-In un insieme di credenziali è possibile proteggere fino a 2000 origini dati/elementi tra tutti i carichi di lavoro (macchine virtuali IaaS, SQL, AFS e così via).
+È possibile proteggere fino a 2000 origini dati/elementi in tutti i carichi di lavoro, ad esempio IaaS VM, SQL, AFS, in un insieme di credenziali.
 Ad esempio, se sono già state protette 500 VM e 400 condivisioni File di Azure nell'insieme di credenziali, è possibile proteggere solo fino a 1100 database SQL.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Quanti criteri è possibile creare per ogni insieme di credenziali?

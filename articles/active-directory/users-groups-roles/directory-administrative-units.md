@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093f4f3cd54f1e4638a0fbcd161a2af4fecba5da
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475788"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795899"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestione delle unità amministrative in Azure Active Directory (anteprima)
 
@@ -47,8 +47,8 @@ Per usare le unità amministrative, è necessario che ogni amministratore di uni
 In questa versione di anteprima è possibile gestire le unità amministrative usando il portale di Azure, i cmdlet e gli script di PowerShell o Microsoft Graph. Per altre informazioni, è possibile fare riferimento alla documentazione seguente:
 
 - [Creare, rimuovere, popolare e aggiungere ruoli alle unità amministrative](roles-admin-units-manage.md): completare le procedure dettagliate
-- [Uso delle unità amministrative](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): come usare le unità amministrative con PowerShell
-- [Supporto delle unità amministrative in Microsoft Graph](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta): documentazione dettagliata su Microsoft Graph per le unità amministrative.
+- [Uso delle unità amministrative](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): come usare le unità amministrative con PowerShell
+- [Supporto delle unità amministrative in Microsoft Graph](/graph/api/resources/administrativeunit?view=graph-rest-beta): documentazione dettagliata su Microsoft Graph per le unità amministrative.
 
 ### <a name="planning-your-administrative-units"></a>Pianificazione delle unità amministrative
 

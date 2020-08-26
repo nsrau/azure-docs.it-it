@@ -3,12 +3,12 @@ title: Usare PowerShell per eseguire il backup di Windows Server in Azure
 description: Questo articolo illustra come usare PowerShell per configurare backup di Azure in Windows Server o un client Windows e come gestire il backup e il ripristino.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 8e9b2f0adc2cdd4e0d17f618b516486d8ca9f8a8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 47c8fc39626d3bca3355c1d1e46f1634327748a8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826328"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892372"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 
@@ -45,7 +45,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
 4. Specificare il tipo di ridondanza di archiviazione da usare. È possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md) o l' [archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md). Nell'esempio seguente viene illustrata l'opzione **-BackupStorageRedundancy** per *testVault* è impostata su **georidondante**.
 
    > [!TIP]
-   > Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è utile archiviare l'oggetto dell'insieme di credenziali dei servizi di ripristino di Backup in una variabile.
+   > Molti cmdlet di Backup di Azure richiedono l'oggetto dell'insieme di credenziali dei servizi di ripristino come input. Per questo motivo, è consigliabile archiviare l'oggetto insieme di credenziali di servizi di ripristino di backup in una variabile.
    >
    >
 
@@ -226,7 +226,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non è possibile ripristinare dati da Azure senza la passphrase.
+> Mantieni sicure le informazioni sulla passphrase e proteggi una volta impostate. Non è possibile ripristinare dati da Azure senza la passphrase.
 >
 >
 

@@ -3,12 +3,12 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: dabf9798ba80600d638318304c8ef3c7e40d7ecf
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824050"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892236"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
@@ -20,9 +20,9 @@ Per semplificare la creazione di impostazioni di diagnostica su larga scala (con
 
 ## <a name="supported-scenarios"></a>Scenari Supportati
 
-* I criteri possono essere applicati contemporaneamente a tutti gli insiemi di credenziali di servizi di ripristino in una sottoscrizione specifica o a un gruppo di risorse all'interno della sottoscrizione. L'utente che assegna i criteri deve avere l'accesso "Owner" alla sottoscrizione a cui è assegnato il criterio.
+* I criteri possono essere applicati contemporaneamente a tutti gli insiemi di credenziali di servizi di ripristino in una sottoscrizione specifica o a un gruppo di risorse all'interno della sottoscrizione. L'utente che assegna i criteri deve disporre dell'accesso **proprietario** alla sottoscrizione a cui è assegnato il criterio.
 
-* L'area di lavoro LA come specificato dall'utente (a cui verranno inviati i dati di diagnostica) può trovarsi in una sottoscrizione diversa dagli insiemi di credenziali a cui è assegnato il criterio. L'utente deve disporre dell'accesso ' Reader ',' collaboratore ' o ' Owner ' alla sottoscrizione in cui è presente l'area di lavoro LA specificata.
+* L'area di lavoro LA come specificato dall'utente (a cui verranno inviati i dati di diagnostica) può trovarsi in una sottoscrizione diversa dagli insiemi di credenziali a cui è assegnato il criterio. L'utente deve disporre dell'accesso **Reader**, **collaboratore** o **proprietario** alla sottoscrizione in cui è presente l'area di lavoro la specificata.
 
 * Ambito del gruppo di gestione attualmente non supportato.
 

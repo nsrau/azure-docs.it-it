@@ -3,12 +3,12 @@ title: Eseguire un backup dei database SQL Server in Azure
 description: Questo articolo illustra come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 88ac95a3e21269ccb5ca2c0fed1c1444af2f4d11
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826923"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892440"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -51,9 +51,9 @@ Prima di iniziare, verificare i requisiti seguenti:
 * Crea un account NT SERVICE\AzureWLBackupPluginSvc per individuare i database nella macchina virtuale. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni di amministratore di sistema SQL.
 * Individua i database in esecuzione in una macchina virtuale. Backup di Azure usa l'account NT AUTHORITY\SYSTEM. Questo account deve essere un account di accesso pubblico in SQL.
 
-Se non è stata creata la macchina virtuale SQL Server in Azure Marketplace o se si è in SQL 2008 e 2008 R2, è possibile che venga visualizzato un errore **UserErrorSQLNoSysadminMembership** .
+Se non è stata creata la macchina virtuale SQL Server in Azure Marketplace o se si usa SQL 2008 o 2008 R2, è possibile che venga visualizzato un errore **UserErrorSQLNoSysadminMembership** .
 
-Per concedere le autorizzazioni in caso di **SQL 2008** e **2008 R2** in esecuzione in Windows 2008 R2, vedere [qui](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+Per concedere le autorizzazioni nel caso di **SQL 2008** e **2008 R2** in esecuzione su Windows 2008 R2, vedere [qui](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
 Per tutte le altre versioni, correggere le autorizzazioni con i passaggi seguenti:
 
