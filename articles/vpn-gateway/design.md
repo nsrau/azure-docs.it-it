@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7b9077af50115e912415d784dc98ace081c0c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302313"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852698"
 ---
 # <a name="vpn-gateway-design"></a>Progettazione del gateway VPN
 
@@ -26,6 +26,8 @@ ms.locfileid: "84302313"
 Una connessione gateway VPN da sito a sito (S2S) avviene tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride. Una connessione da sito a sito richiede la presenza in locale di un dispositivo VPN a cui è stato assegnato un indirizzo IP pubblico. Per informazioni sulla selezione di un dispositivo VPN, vedere [Domande frequenti sul gateway VPN - Dispositivi VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Esempio di connessione gateway VPN di Azure da sito a sito](./media/design/vpngateway-site-to-site-connection-diagram.png)
+
+Il gateway VPN può essere configurato in modalità attivo-standby usando un indirizzo IP pubblico o in modalità attivo-attivo usando due indirizzi IP pubblici. In modalità attivo-standby, un tunnel IPsec è attivo e l'altro è in standby. In questa configurazione, il traffico passa attraverso il tunnel attivo e, se si verifica un problema con questo tunnel, il traffico passa al tunnel di standby. È *consigliabile* configurare il gateway VPN in modalità attivo-attivo, in cui entrambi i tunnel IPSec sono contemporaneamente attivi, con il flusso di dati in entrambi i tunnel contemporaneamente. Un ulteriore vantaggio della modalità attivo-attivo è che i clienti riscontrano velocità effettiva più elevate.
 
 ### <a name="multi-site"></a><a name="Multi"></a>Multisito
 
@@ -75,7 +77,7 @@ Azure offre attualmente di due modelli di distribuzione: classica e Resource Man
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (connessione privata)
 
-ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e CRM Online. La connettività può provenire da una rete any-to-any (VPN IP), una rete Ethernet da punto a punto o una cross-Connection virtuale tramite un provider di connettività in una struttura di condivisione percorso.
+ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata offerta da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e CRM Online. La connettività può provenire da una rete any-to-any (VPN IP), una rete Ethernet da punto a punto o una cross-Connection virtuale tramite un provider di connettività in una struttura di condivisione percorso.
 
 Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. In questo modo possono offrire un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali.
 

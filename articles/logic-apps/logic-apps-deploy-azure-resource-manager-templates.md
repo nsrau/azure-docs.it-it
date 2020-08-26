@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827495"
+ms.locfileid: "88855597"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementare modelli di Azure Resource Manager per App per la logica di Azure
 
@@ -119,7 +119,9 @@ Ecco i passaggi generali generali per l'uso di Azure Pipelines:
 
 ## <a name="authorize-oauth-connections"></a>Autorizzare le connessioni OAuth
 
-Dopo la distribuzione, l'app per la logica funziona end-to-end con parametri validi. Tuttavia, è comunque necessario autorizzare o usare connessioni OAuth preautorizzate per generare token di accesso validi per [autenticare le credenziali](../active-directory/develop/authentication-vs-authorization.md). Ecco alcuni suggerimenti:
+Dopo la distribuzione, l'app per la logica funziona end-to-end con parametri validi, ma per generare token di accesso validi per [autenticare le credenziali](../active-directory/develop/authentication-vs-authorization.md), è comunque necessario autorizzare o usare connessioni OAuth preautorizzate. Tuttavia, è necessario distribuire e autenticare le risorse di connessione API una sola volta, ovvero non è necessario includere le risorse di connessione nelle distribuzioni successive, a meno che non sia necessario aggiornare le informazioni di connessione. Se si usa una pipeline di integrazione continua e distribuzione continua, è necessario distribuire solo le risorse aggiornate delle app per la logica e non è necessario autorizzare nuovamente le connessioni ogni volta.
+
+Ecco alcuni suggerimenti per gestire le connessioni di autorizzazione:
 
 * Preautorizzare e condividere le risorse di connessione API tra app per la logica che si trovano nella stessa area. Le connessioni API sono disponibili come risorse di Azure indipendentemente dalle app per la logica. Mentre le app per la logica hanno dipendenze dalle risorse di connessione API, le risorse di connessione API non hanno dipendenze dalle app per la logica e rimangono dopo l'eliminazione delle app per la logica dipendenti. Inoltre, le app per la logica possono usare le connessioni API presenti in altri gruppi di risorse. Tuttavia, la finestra di progettazione delle app per la logica supporta la creazione di connessioni API solo nello stesso gruppo di risorse delle app per la logica.
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 06c36b3f3939c8804149448ecb770a22d658fcbf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192021"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854719"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -28,6 +28,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 * Versione `2020-07-01` del modello per V3 `/keyphrases` `/pii` ed `/languages` endpoint, che aggiunge:
     * [Categorie di entità](named-entity-types.md?tabs=personal) governative e specifiche del paese aggiuntive per il riconoscimento delle entità denominate.
 * Verrà ora restituito un errore HTTP 400 per le richieste API V3 che superano i [limiti dei dati](concepts/data-limits.md)pubblicati. 
+* Gli endpoint che restituiscono un offset supportano ora il `stringIndexType` parametro facoltativo, che consente di modificare `offset` i `length` valori restituiti e in modo che corrispondano a uno [schema di indice delle stringhe](concepts/text-offsets.md)supportato.
 
 ### <a name="text-analytics-for-health-container-august-updates"></a>Analisi del testo per il contenitore di integrità aggiornamenti agosto
 
@@ -140,16 +141,16 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
     * Prodotto
-    * Event
+    * Evento
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organizzazione
+    * Organization
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
-    * E-mail 
+    * Posta elettronica 
     * Numero di telefono (solo Stati Uniti)
     * URL
     * Indirizzo IP
@@ -189,7 +190,7 @@ Supporta inglese (), `en` giapponese () `ja` , cinese semplificato ( `zh-Hans` )
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sull'API Analisi del testo](overview.md)  
+* [Qual è la API Analisi del testo?](overview.md)  
 * [Esempi di scenari utente](text-analytics-user-scenarios.md)
 * [Analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rilevamento della lingua](how-tos/text-analytics-how-to-language-detection.md)

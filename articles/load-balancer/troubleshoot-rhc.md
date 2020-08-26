@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 6148cedbf004e3e63200ac50b91a40866c5b18db
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719720"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855256"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Risolvere i problemi di disponibilità di integrità delle risorse, front-end e back-end 
 
@@ -30,6 +30,9 @@ La metrica di disponibilità del percorso dati viene generata da un ping TCP ogn
 
 ## <a name="health-probe-status"></a>Stato del probe di integrità
 La metrica dello stato del probe di integrità viene generata da un ping del protocollo definito nel Probe di integrità. Questo ping viene inviato a ogni istanza nel pool back-end e sulla porta definita nel Probe di integrità. Per i probe HTTP e HTTPS, un ping con esito positivo richiede una risposta HTTP 200 OK, mentre con i probe TCP qualsiasi risposta viene considerata corretta. I successi consecutivi o gli errori di ogni Probe determinano quindi se un'istanza back-end è integra e in grado di ricevere traffico per le regole di bilanciamento del carico a cui è assegnato il pool back-end. In modo analogo alla disponibilità del percorso dati, viene utilizzata l'aggregazione media, che indica la media dei ping riusciti/totali durante l'intervallo di campionamento. Questo valore di stato del probe di integrità indica l'integrità back-end in isolamento dal servizio di bilanciamento del carico eseguendo il sondaggio delle istanze back-end senza inviare il traffico attraverso il front-end.
+
+>[!IMPORTANT]
+>Lo stato del probe di integrità viene campionato in base a un minuto. Questo può causare fluttuazioni secondarie in un valore altrimenti costante. Se, ad esempio, sono presenti due istanze di back-end, una con Probe e una analizzata, il servizio Probe di integrità può acquisire 7 campioni per l'istanza integro e 6 per l'istanza non integra. In questo modo si otterrà un valore fisso in precedenza pari a 50 come 46,15 per un intervallo di un minuto. 
 
 ## <a name="diagnose-degraded-and-unavailable-load-balancers"></a>Diagnosticare i bilanciamenti del carico ridotti e non disponibili
 Come illustrato nell' [articolo sull'integrità delle risorse](load-balancer-standard-diagnostics.md#resource-health-status), un servizio di bilanciamento del carico danneggiato è uno che mostra una disponibilità del percorso dati compresa tra il 25% e il 90% e un servizio di bilanciamento del carico non disponibile con una disponibilità del percorso dati inferiore al 25%, in un periodo di due minuti. Gli stessi passaggi possono essere eseguiti per esaminare l'errore riscontrato in qualsiasi stato del probe di integrità o di disponibilità del percorso dati configurato. Si esplorerà il caso in cui è stata verificata l'integrità delle risorse e il servizio di bilanciamento del carico non è disponibile con una disponibilità del percorso dati pari allo 0%. il servizio è inattivo.

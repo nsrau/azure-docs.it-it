@@ -4,12 +4,12 @@ description: Informazioni su come ridimensionare un cluster di Service Fabric ag
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: eecf398359470f6e5e151c53eb63b3cb56efbe39
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: b34f3f77dab6c4dcd8b7653f552c32a669d257c9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056755"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854631"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>Scalare verticalmente un tipo di nodo primario del cluster Service Fabric aggiungendo un tipo di nodo
 Questo articolo descrive come aumentare la scalabilità verticale di un Service Fabric tipo di nodo primario del cluster aggiungendo un tipo di nodo aggiuntivo al cluster. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente.
@@ -43,7 +43,7 @@ $resourceGroupName = "myResourceGroup"
 $location = "WestUS"
 
 New-AzResourceGroup `
-    -Name $resourceGroupName
+    -Name $resourceGroupName `
     -Location $location
 ```
 3. Immettere i valori dei parametri nei file di modello. 
@@ -56,7 +56,7 @@ $parameterFilePath = "C:\AzureDeploy.Parameters.json"
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
+    -TemplateParameterFile $parameterFilePath
 ```
 
 ### <a name="add-a-new-primary-node-type-to-the-cluster"></a>Aggiungere un nuovo tipo di nodo primario al cluster

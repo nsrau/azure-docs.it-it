@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a13fa7c819dcccc101c23015214bac55d2ab26c9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751498"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855542"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -230,7 +230,7 @@ La tabella seguente riepiloga la scomposizione costi di questo scenario per l'Ar
 
 *Distribuzioni Linux*  
 
-Archiviazione Premium di Azure offre lo stesso livello di prestazioni per le macchine virtuali che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile [qui](~/articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
+Archiviazione Premium di Azure offre lo stesso livello di prestazioni per le macchine virtuali che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile [qui](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
 
 Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibili aggiornamenti recenti per i driver necessari, in modo da assicurare prestazioni elevate.
 

@@ -8,12 +8,12 @@ ms.date: 05/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4f49d4e78cd58d16627a0b6fda1957baa9f1f085
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4c005bc49780edcb7f322455e37163e78d87619f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752078"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852681"
 ---
 # <a name="using-azure-ultra-disks"></a>Uso di Azure ultra Disks
 
@@ -55,7 +55,7 @@ La risposta sarà simile a quella riportata di seguito, dove X è la zona da usa
 
 Mantenere il valore **Zones** , che rappresenta la zona di disponibilità e sarà necessario per distribuire un disco Ultra.
 
-|ResourceType  |Nome  |Location  |Zone  |Restrizione  |Funzionalità  |valore  |
+|ResourceType  |Nome  |Location  |Zone  |Restrizione  |Funzionalità  |Valore  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -128,7 +128,7 @@ Dopo aver effettuato il provisioning della macchina virtuale, è possibile parti
 
 ## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>Distribuire un disco Ultra usando il portale di Azure
 
-In questa sezione viene illustrata la distribuzione di una macchina virtuale dotata di disco rigido come disco dati. Si presuppone che l'utente abbia familiarità con la distribuzione di una macchina virtuale. in caso contrario, vedere [la Guida introduttiva: creare una macchina virtuale Windows nel portale di Azure](~/articles/virtual-machines/windows/quick-create-portal.md).
+In questa sezione viene illustrata la distribuzione di una macchina virtuale dotata di disco rigido come disco dati. Si presuppone che l'utente abbia familiarità con la distribuzione di una macchina virtuale. in caso contrario, vedere [la Guida introduttiva: creare una macchina virtuale Windows nel portale di Azure](./windows/quick-create-portal.md).
 
 - Accedere al [portale di Azure](https://portal.azure.com/) e passare a distribuire una macchina virtuale (VM).
 - Assicurarsi di scegliere [le dimensioni e l'area della VM supportate](#ga-scope-and-limitations).

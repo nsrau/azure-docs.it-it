@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ece836e172b8316222ea606ca638650795d5d7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82120782"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852602"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemi di utilizzo delle estensioni VM in Python 3-sistemi di macchine virtuali di Azure abilitati per Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "82120782"
 >
 > Prima di installare **Python 2. x** in produzione, si consideri la questione del supporto a lungo termine di Python 2. x, in particolare la possibilità di ricevere aggiornamenti della sicurezza. Come prodotti, incluse alcune delle estensioni indicate, aggiornamento con il supporto di **python 3,8** , è necessario sospendere l'uso di Python 2. x.
 
-Alcune distribuzioni di Linux sono passate a Python 3,8 e hanno rimosso il `/usr/bin/python` EntryPoint legacy per Python. Questa transizione influisca sulla distribuzione automatica predefinita di determinate estensioni di macchina virtuale (VM) con le condizioni seguenti:
+Alcune distribuzioni di Linux sono passate a Python 3,8 e hanno rimosso il `/usr/bin/python` EntryPoint legacy per Python. Questa transizione influisca sulla distribuzione automatica predefinita di determinate estensioni di macchina virtuale (VM) con queste due condizioni:
 
 - Estensioni ancora in fase di transizione al supporto per Python 3. x
 - Estensioni che usano il `/usr/bin/python` EntryPoint legacy
@@ -41,52 +41,54 @@ Gli utenti della distribuzione Linux che hanno eseguito la transizione a **Pytho
 
 Gli aggiornamenti sul posto, ad esempio l'aggiornamento da **ubuntu 18,04 LTS** a **Ubuntu 20,04 LTS**, devono mantenere il `/usr/bin/python` collegamento simbolico e rimanere inalterati.
 
-## <a name="resolution"></a>Soluzione
+## <a name="resolution"></a>Risoluzione
 
-Prima di distribuire le estensioni negli scenari di interesse noto descritti in precedenza nel riepilogo, prendere in considerazione i consigli generali seguenti:
+Prendere in considerazione questi consigli generali prima di distribuire le estensioni negli scenari noti, descritti in precedenza nel riepilogo:
 
-1.  Prima di distribuire l'estensione, ripristinare il `/usr/bin/python` collegamento simbolico usando il metodo fornito dal fornitore di distribuzioni Linux.
+1. Prima di distribuire l'estensione, ripristinare il `/usr/bin/python` collegamento simbolico usando il metodo fornito dal fornitore di distribuzioni Linux.
 
-    - Per **Python 2,7**, ad esempio, usare:`sudo apt update && sudo apt install python-is-python2`
+   - Per **Python 2,7**, ad esempio, usare: `sudo apt update && sudo apt install python-is-python2`
 
-2.  Se è già stata distribuita un'istanza che presenta questo problema, usare la funzionalità **Esegui comando** nel pannello della **macchina virtuale** per eseguire i comandi menzionati in precedenza. L'estensione del comando Run non è interessata dalla transizione a Python 3,8.
+1. Questa raccomandazione riguarda i clienti di Azure e non è supportata in Azure Stack:
 
-3.  Se si distribuisce una nuova istanza ed è necessario impostare un'estensione in fase di provisioning, usare i dati utente di **cloud-init** per installare i pacchetti menzionati in precedenza.
+   - Se è già stata distribuita un'istanza che presenta questo problema, usare la funzionalità Esegui comando nel pannello della macchina virtuale per eseguire i comandi menzionati in precedenza. L'estensione del comando Run non è interessata dalla transizione a Python 3,8.
 
-    Ad esempio, per Python 2,7:
+1. Se si distribuisce una nuova istanza ed è necessario impostare un'estensione in fase di provisioning, usare i dati utente di **cloud-init** per installare i pacchetti menzionati in precedenza.
 
-    ```
-    # create cloud-init config
-    cat > cloudinitConfig.json <<EOF
-    #cloud-config
-    package_update: true
+   Ad esempio, per Python 2,7:
+
+   ```python
+   # create cloud-init config
+   cat > cloudinitConfig.json <<EOF
+   #cloud-config
+   package_update: true
     
-    runcmd:
-    - sudo apt update
-    - sudo apt install python-is-python2 
-    EOF
-    
-    # create VM
-    az vm create \
-        --resource-group <resourceGroupName> \
-        --name <vmName> \
-        --image <Ubuntu 20.04 Image URN> \
-        --admin-username azadmin \
-        --ssh-key-value "<sshPubKey>" \
-        --custom-data ./cloudinitConfig.json
-    ```
+   runcmd:
+   - sudo apt update
+   - sudo apt install python-is-python2 
+   EOF
 
-4.  Se gli amministratori dei criteri dell'organizzazione stabiliscono che le estensioni non devono essere distribuite nelle macchine virtuali, è possibile disabilitare il supporto dell'estensione in fase di provisioning:
+   # create VM
+   az vm create \
+       --resource-group <resourceGroupName> \
+       --name <vmName> \
+       --image <Ubuntu 20.04 Image URN> \
+       --admin-username azadmin \
+       --ssh-key-value "<sshPubKey>" \
+       --custom-data ./cloudinitConfig.json
+   ```
 
-    - API REST
+1. Se gli amministratori dei criteri dell'organizzazione stabiliscono che le estensioni non devono essere distribuite nelle macchine virtuali, è possibile disabilitare il supporto dell'estensione in fase di provisioning:
 
-      Per disabilitare e abilitare le estensioni quando è possibile distribuire una macchina virtuale con questa proprietà:
+   - API REST
 
-      ```
-        "osProfile": {
-          "allowExtensionOperations": false
-        },
-      ```
+     Per disabilitare e abilitare le estensioni quando è possibile distribuire una macchina virtuale con questa proprietà:
+
+     ```python
+       "osProfile": {
+         "allowExtensionOperations": false
+       },
+     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

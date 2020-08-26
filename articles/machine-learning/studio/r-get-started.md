@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 719b96c9186d463ca3ee41c6fb401a8f22c4c11c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4f3733806eb810cff7722e6432bb274b6d46a37
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431971"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854832"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introduzione a Azure Machine Learning Studio (classico) in R
 
-**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 <!-- Stephen F Elston, Ph.D. -->
@@ -176,7 +176,7 @@ A questo punto, l'esperimento dovrebbe essere simile a quanto riportato nella Fi
 
 #### <a name="check-on-the-data"></a>Controllo dei dati
 
-Diamo ora un'occhiata ai dati caricati nell'esperimento. Nell'esperimento selezionare l'output del **set di daticadairydata.csv** e selezionare **Visualizza**. Dovrebbe apparire una tabella simile a quella riportata nella Figura 4.  
+Diamo ora un'occhiata ai dati caricati nell'esperimento. Nell'esperimento selezionare l'output del ** set di daticadairydata.csv** e selezionare **Visualizza**. Dovrebbe apparire una tabella simile a quella riportata nella Figura 4.  
 
 ![Riepilogo del set di dati cadairydata.csv](./media/r-quickstart/fig4.png)
 
@@ -225,7 +225,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 È già stato illustrato il caricamento dei set di [dati in caricare il set di dati](#loading). Dopo aver creato e testato lo script R mostrato nella sezione precedente, procedere come segue:
 
-1. Salvare lo script R in un file .R. Chiamerò il mio file di script "simpleplot.R". Ecco il contenuto.
+1. Salvare lo script R in un file .R. Chiamerò il mio file di script "simpleplot.R". Ecco il file:
 
    ```r
    ## Only one of the following two lines should be used
@@ -570,7 +570,7 @@ Sembra che tutto stia funzionando perfettamente. La nuova colonna con i valori p
 
 In questa sezione eseguiremo semplici operazioni di trasformazione sui valori di alcune delle colonne del frame di dati. Il linguaggio R supporta trasformazioni di dati pressoché arbitrarie. I riferimenti in [ulteriori letture](#appendixb) di seguito contengono esempi completi.
 
-Se si guardano i valori nei riepiloghi del frame di dati, si nota qualcosa di strano. In California si produce più gelato che latte? No, ovviamente no, sfortunatamente per gli amanti del gelato. Le unità di misura sono diverse. Il prezzo è espresso in unità di libbre statunitensi, il latte è espresso in unità da un milione di libbre statunitensi, il gelato in unità da 1000 galloni statunitensi e i fiocchi di latte in unità da 1000 libbre statunitensi. Supponendo che il gelato pesi circa 6,5 libbre al gallone, è facile eseguire la moltiplicazione per convertire questi valori in modo che siano espressi in unità da 1000 libbre.
+Se si esaminano i valori nei riepiloghi del dataframe, verrà visualizzato qualcosa di strano. In California si produce più gelato che latte? No, ovviamente no, sfortunatamente per gli amanti del gelato. Le unità di misura sono diverse. Il prezzo è espresso in unità di libbre statunitensi, il latte è espresso in unità da un milione di libbre statunitensi, il gelato in unità da 1000 galloni statunitensi e i fiocchi di latte in unità da 1000 libbre statunitensi. Supponendo che il gelato possa pesare circa 6,5 libbre per gallone, possiamo facilmente eseguire la moltiplicazione per convertire questi valori, in modo che siano tutti in unità uguali a 1.000 libbre.
 
 Per il modello di previsione viene usato un modello moltiplicativo per le tendenze e l'adattamento stagionale dei dati. Una trasformazione logaritmica, infine, ci consente di usare un modello lineare, semplificando notevolmente il processo. Possiamo applicare la trasformazione logaritmica alla stessa funzione a cui è stato applicato il moltiplicatore.
 
@@ -773,7 +773,7 @@ Eseguiamo il codice e vediamo cosa succede. Il grafico generato per la porta R D
 
 ### <a name="correlation-analysis"></a>Analisi delle correlazioni
 
-Per eseguire un'analisi di correlazione è necessario detrendizzare le variabili e standardizzarle. È possibile usare semplicemente la funzione `scale()` di R, che centra e scala le variabili e può essere eseguita più velocemente. In questo caso, tuttavia, preferisco mostrare un esempio di programmazione difensiva in R.
+Per eseguire un'analisi di correlazione è necessario detrendizzare le variabili e standardizzarle. È possibile usare semplicemente la funzione `scale()` di R, che centra e scala le variabili e può essere eseguita più velocemente. Tuttavia, desidero illustrare un esempio di programmazione difensiva in R.
 
 La funzione `ts.detrend()` mostrata di seguito esegue entrambe le operazioni. Le due seguenti righe di codice consentono di detrendizzare i dati e standardizzare i valori.
 
@@ -828,7 +828,7 @@ Un esempio di programmazione difensiva è già stato illustrato in Trasformazion
 
 Osservare come la regressione lineare usata per il detrending sia una regressione in serie temporale e la variabile indipendente un oggetto serie temporale.  
 
-Una volta definito `ts.detrend()` , viene applicato alle variabili di interesse nel frame di dati. È necessario forzare l'elenco risultante creato da `lapply()` nel frame di dati usando `as.data.frame()`. A causa degli aspetti difensivi di `ts.detrend()`, la mancata elaborazione di una delle variabili non impedisce la corretto elaborazione delle altre.  
+Una volta `ts.detrend()` definito, viene applicato alle variabili di interesse nel dataframe. È necessario forzare l'elenco risultante creato da `lapply()` nel frame di dati usando `as.data.frame()`. A causa degli aspetti difensivi di `ts.detrend()`, la mancata elaborazione di una delle variabili non impedisce la corretto elaborazione delle altre.  
 
 La riga di codice finale crea un grafico a dispersione pairwise. Dopo aver eseguito il codice R, i risultati del grafico a dispersione vengono mostrati nella Figura 17.
 
@@ -1136,7 +1136,7 @@ Sembra che il modello di trend si adatti perfettamente. Inoltre, non sembra che 
 
 Con un modello di tendenza disponibile, è necessario proseguire includendo gli effetti stagionali. Verrà usato il mese dell'anno come variabile fittizia nel modello lineare per acquisire l'effetto mese per mese. Tenere presente che, quando si introducono variabili di fattore in un modello, l'intercetta non deve essere elaborata. In caso contrario, la formula risulta eccessivamente specificata ed R eliminerà i fattori desiderati, lasciando invece il termine dell'intercetta.
 
-Poiché il modello di tendenza è soddisfacente, è possibile usare la funzione `update()` per aggiungere i nuovi termini al modello esistente. Nella formula di aggiornamento, il valore -1 elimina il termine dell'intercetta. Continuiamo ora in RStudio.
+Poiché è presente un modello di tendenza soddisfacente, è possibile usare la `update()` funzione per aggiungere i nuovi termini al modello esistente. Nella formula di aggiornamento, il valore -1 elimina il termine dell'intercetta. Continuiamo ora in RStudio.
 
 ```r
 milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
@@ -1333,12 +1333,12 @@ RStudio è molto ben documentato. Di seguito sono riportati alcuni collegamenti 
 * La **modifica e l'esecuzione del codice r** : rstudio fornisce un ambiente integrato per la modifica e l'esecuzione di codice r. Per informazioni dettagliate, vedere [modifica ed esecuzione del codice](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) .
 * **Debug** -rstudio include potenti funzionalità di debug. Per ulteriori informazioni su queste funzionalità, vedere [debug con rstudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) . Per informazioni sulle funzionalità di risoluzione dei problemi, vedere [risoluzione dei problemi](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)del punto di interruzione.
 
-## <a name="further-reading"></a><a id="appendixb"></a>Ulteriori informazioni
+## <a name="further-reading"></a><a id="appendixb"></a>Altre informazioni
 
 Questa esercitazione sulla programmazione R illustra le nozioni di base di ciò che è necessario per usare il linguaggio R con Azure Machine Learning Studio (classico). Se non si ha familiarità con R, in CRAN sono disponibili due introduzioni:
 
 * [R per principianti](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) di Emmanuel Paradis è un valido punto di partenza.  
-* [Introduzione a R](https://cran.r-project.org/doc/manuals/R-intro.html) da W. N. Venables et. al. entra in un po' più approfondito.
+* [Introduzione a R](https://cran.r-project.org/doc/manuals/R-intro.html) da W. N. Venables et al. entra in un po' più approfondito.
 
 Sono disponibili molti libri con informazioni introduttive su R. Di seguito sono elencati quelli che ritengo più utili:
 
@@ -1355,7 +1355,8 @@ Il libro **Time Series introduttivo** con r di Paul Cowpertwait e Andrew Metcalf
 Di seguito sono riportate alcune risorse Internet eccezionali:
 
 * DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. Fai un' [esercitazione su R interattiva](https://www.datacamp.com/courses/introduction-to-r)gratuita.
-* [Informazioni sulla programmazione R, la guida definitiva](https://www.programiz.com/r-programming) di Programiz.
+* [Informazioni sulla programmazione R, la guida definitiva](https://www.datamentor.io/r-programming/) di datamentor.
+* [codificatore R](https://r-coder.com/). Esercitazioni dettagliate su R e un corso di R gratuito per principianti.
 * Una rapida [esercitazione su R](https://www.cyclismo.org/tutorial/R/) di Kelly Black di Clarkson University.
 * Sono disponibili oltre 60 risorse R elencate alle [principali risorse di linguaggio r per migliorare le proprie competenze sui dati](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 

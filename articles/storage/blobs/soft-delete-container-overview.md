@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 47582f941c314933baf378478b1380cb8316935b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066611"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854532"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
@@ -27,8 +27,8 @@ Per la protezione end-to-end per i dati BLOB, Microsoft consiglia di abilitare l
 - Eliminazione temporanea del BLOB, per evitare l'eliminazione o la sovrascrittura accidentale di un singolo BLOB. Per informazioni su come abilitare l'eliminazione temporanea del BLOB, vedere [eliminazione temporanea per i BLOB](soft-delete-blob-overview.md).
 - Controllo delle versioni dei BLOB (anteprima) per gestire automaticamente le versioni precedenti di un BLOB. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati. Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md).
 
-> [!IMPORTANT]
-> Per evitare l'eliminazione accidentale di un account di archiviazione, configurare un blocco **CannotDelete** sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco delle risorse di Azure, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+> [!WARNING]
+> L'eliminazione di un account di archiviazione non può essere annullata. L'eliminazione temporanea non protegge dall'eliminazione di un account di archiviazione. Per evitare l'eliminazione accidentale di un account di archiviazione, configurare un blocco **CannotDelete** sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco delle risorse di Azure, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Funzionamento dell'eliminazione temporanea del contenitore
 

@@ -3,20 +3,20 @@ title: Usare gli ambienti software
 titleSuffix: Azure Machine Learning
 description: Creare e gestire gli ambienti per il training e la distribuzione dei modelli. Gestire i pacchetti Python e altre impostazioni per l'ambiente.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: saachigopal
+ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a08575ac118f38361d82198ccc86a09f7b2558d6
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783740"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853249"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creare & usare gli ambienti software in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,7 +153,7 @@ Aggiungere i pacchetti a un ambiente usando Conda, pip o file wheel privati. Spe
 
 Se un pacchetto è disponibile in un repository conda, è consigliabile usare l'installazione conda anziché l'installazione PIP. I pacchetti conda vengono in genere forniti con file binari predefiniti che rendono l'installazione più affidabile.
 
-L'esempio seguente esegue aggiunte nell'ambiente. Aggiunge la versione 1.17.0 di `numpy`. Viene inoltre aggiunto il `pillow` pacchetto, `myenv` . Vengono usati rispettivamente il metodo [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) e il metodo [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-).
+Nell'esempio seguente viene aggiunto all'ambiente `myenv` . Aggiunge la versione 1.17.0 di `numpy`. Aggiunge anche il `pillow` pacchetto. Vengono usati rispettivamente il metodo [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) e il metodo [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-).
 
 ```python
 from azureml.core.environment import Environment
@@ -245,7 +245,7 @@ build.wait_for_completion(show_output=True)
 È utile per prima cosa creare immagini localmente usando il [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metodo. L'impostazione del parametro facoltativo `pushImageToWorkspaceAcr = True` comporterà il push dell'immagine risultante nel registro contenitori dell'area di lavoro di Azure ml. 
 
 > [!WARNING]
->  La modifica dell'ordine delle dipendenze o dei canali in un ambiente determinerà un nuovo ambiente e richiederà una nuova compilazione dell'immagine.
+>  La modifica dell'ordine delle dipendenze o dei canali in un ambiente determinerà un nuovo ambiente e richiederà una nuova compilazione dell'immagine. Inoltre, la chiamata al `build()` metodo per un'immagine esistente aggiornerà le relative dipendenze se sono presenti nuove versioni. 
 
 ## <a name="enable-docker"></a>Abilita Docker
 
@@ -323,7 +323,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 Per un ambiente registrato, è possibile recuperare i dettagli dell'immagine usando il codice seguente, dove `details` è un'istanza di [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML Python SDK >= 1,11) e fornisce tutte le informazioni sull'immagine dell'ambiente, ad esempio dockerfile, Registry e image name.
 
 ```python
-details = environment.get_image_details()
+details = environment.get_image_details(workspace=ws)
 ```
 
 ## <a name="use-environments-for-training"></a>Usare gli ambienti per il training

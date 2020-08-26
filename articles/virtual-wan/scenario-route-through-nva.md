@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853219"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852098"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: indirizzare il traffico attraverso un'appliance virtuale di dispositivo
 
 Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari disponibili. In questo scenario di appliance virtuale di rete, l'obiettivo è instradare il traffico attraverso un'appliance virtuale di rete (appliance virtuale di rete) per il ramo a VNet e VNet al ramo. Per informazioni sul routing degli hub virtuali, vedere [About Virtual Hub routing](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Alcune delle funzionalità di routing potrebbero ancora essere implementate. Se l'implementazione non è ancora stata eseguita nella propria area, attenersi alla procedura descritta in queste versioni degli articoli nel frattempo:
+> Se è già stata configurata una configurazione con route precedenti alle nuove funzionalità [come configurare il routing dell'hub virtuale](how-to-virtual-hub-routing.md) che diventa disponibile, seguire questa procedura in queste versioni degli articoli:
 >* [Articolo portale di Azure](virtual-wan-route-table-nva-portal.md)
 >* [Articolo di PowerShell](virtual-wan-route-table-nva.md)
 >
@@ -39,7 +39,7 @@ La seguente matrice di connettività, riepiloga i flussi supportati in questo sc
 
 **Matrice di connettività**
 
-| Da             | Con:|   *Spoke di NVA*|*Reti virtuali di appliance virtuale di dispositivo*|*Reti virtuali non appliance virtuale di dispositivo*|*Rami*|
+| From             | Con:|   *Spoke di NVA*|*Reti virtuali di appliance virtuale di dispositivo*|*Reti virtuali non appliance virtuale di dispositivo*|*Rami*|
 |---|---|---|---|---|---|
 | **Spoke di NVA**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
 | **Reti virtuali di appliance virtuale di dispositivo**    | &#8594; |   Statico |      X   |        X     |      X    |
@@ -69,10 +69,10 @@ Tuttavia, in questo scenario è necessario considerare le route statiche da conf
 
 In questo modo, le route statiche necessarie nella tabella predefinita per inviare il traffico ai spoke di appliance virtuale di dispositivo dietro la VNet dell'appliance virtuale di dispositivo sono le seguenti:
 
-| Description | Tabella di route | Route statica              |
+| Descrizione | Tabella di route | Route statica              |
 | ----------- | ----------- | ------------------------- |
-| VNet 2       | Predefinito     | 10.2.0.0/16-> eastusconn |
-| VNet 4       | Predefinito     | 10.4.0.0/16-> weconn     |
+| VNet 2       | Impostazione predefinita     | 10.2.0.0/16-> eastusconn |
+| VNet 4       | Impostazione predefinita     | 10.4.0.0/16-> weconn     |
 
 A questo punto, la rete WAN virtuale sa a quale connessione inviare i pacchetti, ma la connessione deve sapere cosa fare quando ricevono i pacchetti: qui vengono usate le tabelle della route di connessione. Qui verranno usati i prefissi più brevi (/24 anziché più a lungo/16) per assicurarsi che queste route abbiano la preferenza sulle route importate dall'appliance virtuale di reti virtuali (VNet 2 e VNet 4):
 

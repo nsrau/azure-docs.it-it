@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1b296cd942e36817da2832467ab603ebd833f825
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909869"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854836"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Risoluzione dei problemi di Azure Digital gemelli: avvisi
 
@@ -28,13 +28,17 @@ Di seguito viene illustrato come abilitare gli avvisi per l'istanza di Azure Dig
 
 2. Selezionare **avvisi** dal menu, quindi **+ nuova regola di avviso**.
 
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot che mostra la pagina e il pulsante degli avvisi da aggiungere. Nessun avviso ancora configurato" lightbox="media/troubleshoot-alerts/alerts-pre.png":::
-
 3. Nella pagina *Crea regola di avviso* che segue è possibile seguire le istruzioni per definire le condizioni, le azioni da attivare e i dettagli dell'avviso.     
-    * I dettagli dell' **ambito** devono essere riempiti automaticamente con i dettagli dell'istanza.
-    * Per personalizzare i trigger e le risposte degli avvisi, sarà necessario definire i dettagli relativi a **condizioni** e **gruppi di azioni** .
+    * I dettagli dell' **ambito** devono essere riempiti automaticamente con i dettagli dell'istanza
+    * Per personalizzare i trigger e le risposte degli avvisi, sarà necessario definire i dettagli relativi a **condizioni** e **gruppi di azioni**
+    * Nella sezione **Dettagli regola di avviso** immettere il _nome della regola di avviso_, _Descrizione (facoltativo)_. È possibile selezionare la casella di controllo _Abilita regola di avviso al momento della creazione_ se si desidera che l'avviso diventi attivo non appena viene creato.
+    * In base ad alcune condizioni e azioni aggiunte, è necessario selezionare _Salva regola di avviso in gruppo di risorse_ e _gravità_ dai rispettivi elenchi a discesa.
 
-    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot che mostra la pagina creare una regola di avviso con le sezioni per ambito, condizione e gruppo di azione" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+4. Selezionare il pulsante _Crea regola di avviso_ per creare la regola di avviso.
+
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot che mostra la pagina creare una regola di avviso con le sezioni per ambito, condizione e gruppo di azione" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+
+:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Screenshot che illustra la sezione dettagli della regola di avviso relativa alla creazione di una regola di avviso" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
 
 Per una procedura dettagliata relativa alla compilazione di questi campi, vedere [*Panoramica degli avvisi in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Di seguito sono riportati alcuni esempi di come appariranno i passaggi per i dispositivi gemelli digitali di Azure.
 

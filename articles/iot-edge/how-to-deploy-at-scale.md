@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512011"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855385"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuisci moduli IoT Edge su larga scala usando il portale di Azure
 
@@ -61,7 +61,7 @@ La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezi
 
 ### <a name="step-2-modules"></a>Passaggio 2: moduli
 
-È possibile aggiungere fino a 30 moduli a una distribuzione. Se si crea una distribuzione senza moduli, verranno rimossi tutti i moduli correnti dai dispositivi di destinazione.
+È possibile aggiungere fino a 50 moduli a una distribuzione. Se si crea una distribuzione senza moduli, verranno rimossi tutti i moduli correnti dai dispositivi di destinazione.
 
 Nelle distribuzioni è possibile gestire le impostazioni per i moduli agente IoT Edge e hub IoT Edge. Selezionare **le impostazioni di runtime** per configurare i due moduli di Runtime. In una distribuzione a più livelli i moduli di runtime non sono inclusi e pertanto non possono essere configurati.
 

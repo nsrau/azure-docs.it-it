@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475465"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854208"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossario terminologico per l'anteprima Plug and Play IoT
 
@@ -54,6 +54,10 @@ Una stringa di connessione incapsula le informazioni necessarie per connettersi 
 
 - Stringhe di connessione dispositivo che consentono ai [dispositivi Plug and Play IoT](#iot-plug-and-play-device) di connettersi agli endpoint che usano dispositivi in un hub IoT. Il codice client in un dispositivo usa la stringa di connessione per stabilire una connessione sicura con un hub IoT.
 - Le stringhe di connessione hub IoT consentono alle soluzioni e agli strumenti back-end di connettersi in sicurezza agli endpoint che usano i servizi in un hub IoT. Questi strumenti e soluzioni gestiscono l'hub IoT e i dispositivi connessi.
+
+## <a name="device-certification"></a>Certificato del dispositivo
+
+Il programma di certificazione dei dispositivi Plug and Play per verificare che un dispositivo soddisfi i requisiti di certificazione Plug and Play. È possibile aggiungere un dispositivo certificato al catalogo dei [dispositivi Azure per la certificazione](https://aka.ms/devicecatalog)pubblica.
 
 ## <a name="device-model"></a>Modello del dispositivo
 

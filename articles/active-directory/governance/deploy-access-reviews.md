@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783604"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853033"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
 
@@ -241,10 +241,10 @@ Per creare un criterio di verifica di accesso, è necessario disporre delle info
 
 **Piano di verifica di accesso di esempio**
 
-| Componente| valore |
+| Componente| Valore |
 | - | - |
 | **Risorse da rivedere**| Accesso a Microsoft Dynamics |
-| **Frequenza di Revisione**| Ogni mese |
+| **Frequenza di Revisione**| Mensilmente |
 | **Chi esegue la revisione**| Responsabili del programma di Dynamics Business Group |
 | **Notifica**| Invia un messaggio di posta elettronica 24 ore prima della revisione ad alias Dynamics-PMS<p>Includere un messaggio personalizzato incoraggiante ai revisori per proteggere l'acquisto |
 | **Sequenza temporale**| 48 ore dalla notifica |
@@ -283,7 +283,7 @@ Alle identità esterne è possibile concedere l'accesso alle risorse aziendali t
 
 * Assegnazione di un ruolo con privilegi in Azure AD o in una sottoscrizione di Azure
 
-Vedere [script di esempio](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.). Lo script indicherà dove vengono usate le identità esterne invitate nel tenant. È possibile visualizzare l'appartenenza a gruppi, le assegnazioni di ruolo e le assegnazioni di applicazioni dell'utente esterno in Azure AD. Nello script non verranno visualizzate le assegnazioni al di fuori di Azure AD, ad esempio l'assegnazione diretta dei diritti alle risorse di SharePoint, senza l'utilizzo di gruppi.
+Vedere [script di esempio](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). Lo script indicherà dove vengono usate le identità esterne invitate nel tenant. È possibile visualizzare l'appartenenza a gruppi, le assegnazioni di ruolo e le assegnazioni di applicazioni dell'utente esterno in Azure AD. Nello script non verranno visualizzate le assegnazioni al di fuori di Azure AD, ad esempio l'assegnazione diretta dei diritti alle risorse di SharePoint, senza l'utilizzo di gruppi.
 
 Quando si crea una verifica di accesso per i gruppi o le applicazioni, è possibile scegliere di consentire al revisore di concentrarsi su tutti gli utenti con accesso o solo su utenti guest. Selezionando solo utenti guest, ai revisori viene assegnato un elenco mirato di identità esterne da Azure AD B2B che hanno accesso alla risorsa.
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815726"
+ms.locfileid: "88853300"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -85,23 +85,23 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
    1. Specificare un nome per la connessione e selezionare lo spazio dei nomi del bus di servizio.
 
-      ![Creare una connessione al bus di servizio, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Screenshot che mostra il nome della connessione e la selezione dello spazio dei nomi del bus di servizio](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       Per immettere manualmente la stringa di connessione, selezionare **immettere manualmente le informazioni di connessione**. Se non si conosce la stringa di connessione, leggere le informazioni su [come trovare la stringa di connessione](#permissions-connection-string).
 
    1. Selezionare i criteri del bus di servizio e selezionare **Crea**.
 
-      ![Creare una connessione al bus di servizio, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Screenshot che mostra la selezione dei criteri del bus di servizio](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Selezionare l'entità di messaggistica desiderata, ad esempio una coda o un argomento. Per questo esempio, selezionare la coda del bus di servizio.
    
-      ![Selezionare una coda del bus di servizio](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Screenshot che mostra la selezione della coda del bus di servizio](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Fornire le informazioni necessarie per il trigger selezionato. Per aggiungere altre proprietà disponibili all'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare le proprietà desiderate.
 
    Per il trigger di questo esempio, selezionare l'intervallo di polling e la frequenza per il controllo della coda.
 
-   ![Impostare l'intervallo di polling](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Screenshot che mostra l'impostazione dell'intervallo di polling nel trigger del bus di servizio](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    Per altre informazioni sui trigger e sulle proprietà disponibili, vedere la [pagina di riferimento](/connectors/servicebus/)del connettore.
 
@@ -123,29 +123,29 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 
    Per questo esempio, selezionare l'azione **Invia messaggio** .
 
-   ![Selezionare l'azione del bus di servizio](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Screenshot che mostra la selezione dell'azione del bus di servizio](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. Se l'azione si connette allo spazio dei nomi del bus di servizio per la prima volta, seguire questa procedura quando la finestra di progettazione dell'app per la logica richiede le informazioni di connessione.
 
    1. Specificare un nome per la connessione e selezionare lo spazio dei nomi del bus di servizio.
 
-      ![Creare una connessione al bus di servizio, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Screenshot che Mostra come fornire un nome di connessione e selezionare uno spazio dei nomi del bus di servizio](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       Per immettere manualmente la stringa di connessione, selezionare **immettere manualmente le informazioni di connessione**. Se non si conosce la stringa di connessione, leggere le informazioni su [come trovare la stringa di connessione](#permissions-connection-string).
 
    1. Selezionare i criteri del bus di servizio e selezionare **Crea**.
 
-      ![Creare una connessione al bus di servizio, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Screenshot che mostra la selezione di un criterio del bus di servizio e la selezione del pulsante Crea](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Selezionare l'entità di messaggistica desiderata, ad esempio una coda o un argomento. Per questo esempio, selezionare la coda del bus di servizio.
 
-      ![Selezionare una coda del bus di servizio](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Screenshot che mostra la selezione di una coda del bus di servizio](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Specificare i dettagli necessari per l'azione selezionata. Per aggiungere altre proprietà disponibili all'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare le proprietà desiderate.
 
    Selezionare, ad esempio, il **contenuto** e le proprietà del **tipo di contenuto** per aggiungerli all'azione. Specificare quindi il contenuto del messaggio che si desidera inviare.
 
-   ![Specificare il contenuto del messaggio e i dettagli](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Screenshot che Mostra come specificare il tipo di contenuto e i dettagli del messaggio](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    Per ulteriori informazioni sulle azioni disponibili e sulle relative proprietà, vedere la [pagina di riferimento](/connectors/servicebus/)del connettore.
 

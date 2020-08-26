@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: f423ae957d11248b16a180e22647d6566157b7be
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 3a6ecc44791602ea074ebdd1fdf4e11393e10a4b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782839"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852151"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -178,6 +178,7 @@ Nella tabella seguente vengono riepilogati questi parametri aggiuntivi. Vedere l
 |`enable_dnn`|[Abilitare DNN di previsione]().||
 |`time_series_id_column_names`|Il nome o i nomi di colonna utilizzati per identificare in modo univoco la serie temporale nei dati che hanno più righe con lo stesso timestamp. Se gli identificatori delle serie temporali non sono definiti, si presuppone che il set di dati sia una serie temporale. Per altre informazioni sulle singole serie temporali, vedere [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
 |`target_lags`|Numero di righe riferite al ritardo dei valori di destinazione in base alla frequenza dei dati. Il ritardo è rappresentato come un elenco o un singolo Integer. È consigliabile usare il ritardo quando la relazione tra le variabili indipendenti e la variabile dipendente non corrisponde o non è correlata per impostazione predefinita. ||
+|`feature_lags`| Le funzionalità da ritardare verranno automaticamente decise da Machine Learning automatiche quando `target_lags` vengono impostate e `feature_lags` sono impostate su `auto` . L'abilitazione di ritardi delle funzionalità può contribuire a migliorare la precisione. I ritardi delle funzionalità sono disabilitati per impostazione predefinita. ||
 |`target_rolling_window_size`|*n* periodi cronologici da usare per generare valori previsti, < = dimensioni del set di training. Se omesso, *n* è la dimensione massima del set di training. Specificare questo parametro quando si vuole considerare solo una certa quantità di dati cronologici durante il training del modello. Altre informazioni sull' [aggregazione delle finestre in sequenza di destinazione](#target-rolling-window-aggregation).||
 
 

@@ -3,12 +3,12 @@ title: Eseguire il rollup di un certificato del cluster di Azure Service Fabric
 description: Informazioni su come eseguire il rollup di un certificato del cluster Service Fabric identificato dal nome comune del certificato.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 7a5fe2a7f2a05295605ef0e1d5db321a83b96712
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ea4f463073c472ac6a31e62dcfdfd11cb28cc5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611909"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853345"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Eseguire manualmente il rollover del certificato di un cluster di Service Fabric
 Quando il certificato di un cluster di Service Fabric è vicino alla scadenza, è necessario aggiornarlo.  Il rollover dei certificati è semplice se il cluster è stato [impostato per usare i certificati in base al nome comune](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (invece dell'identificazione personale).  Ottenere un nuovo certificato da un'autorità di certificazione con una nuova data di scadenza.  I certificati autofirmati non sono supportati per i cluster di Service Fabric di produzione, per includere certificati generati durante il flusso di lavoro di creazione del cluster del portale di Azure. Il nuovo certificato deve avere lo stesso nome comune del certificato precedente. 
@@ -64,7 +64,7 @@ $certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -
 $vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
+$vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($certConfig)
 
 # Update the VM scale set 
 Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose

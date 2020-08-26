@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: manshuk
-ms.openlocfilehash: 05119a6f9af935a0f4a2887eae53f3d5bdb1a482
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658188"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855501"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate
 
-Quando si acquista un'istanza di macchina virtuale riservata, è possibile scegliere di ottimizzare la flessibilità delle dimensioni dell'istanza o la priorità della capacità. Per altre informazioni sull'impostazione o sulla modifica dell'impostazione di ottimizzazione per le istanze di VM riservate, vedere [modificare l'impostazione di ottimizzazione per le istanze di VM riservate](~/articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+Quando si acquista un'istanza di macchina virtuale riservata, è possibile scegliere di ottimizzare la flessibilità delle dimensioni dell'istanza o la priorità della capacità. Per altre informazioni sull'impostazione o sulla modifica dell'impostazione di ottimizzazione per le istanze di VM riservate, vedere [modificare l'impostazione di ottimizzazione per le istanze di VM riservate](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
 Con un'istanza di macchina virtuale riservata ottimizzata per la flessibilità delle dimensioni dell'istanza, la prenotazione acquistata può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di flessibilità delle dimensioni dell'istanza. Se ad esempio si acquista una prenotazione per le dimensioni di una macchina virtuale elencate nella serie DSv2, ad esempio Standard_DS5_v2, lo sconto di prenotazione può essere applicato alle altre quattro dimensioni elencate nello stesso gruppo di flessibilità delle dimensioni dell'istanza:
 
@@ -52,4 +52,4 @@ L'URL del file e lo schema vengono mantenuti corretti per poter utilizzare quest
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere [che cosa sono le prenotazioni di Azure](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md).
+Per altre informazioni, vedere [che cosa sono le prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md).

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 6e90a8bc0998b43a84658958215e4b7977f8fdd0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 1a35d9c48dd46d5d220699589f4ed758d21feca8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461307"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854289"
 ---
 # <a name="use-fqdn-filtering-in-network-rules-preview"></a>Usare il filtro FQDN nelle regole di rete (anteprima)
 
@@ -21,6 +21,9 @@ ms.locfileid: "87461307"
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Un nome di dominio completo (FQDN) rappresenta un nome di dominio di un host o di un indirizzo IP. È possibile usare i nomi di dominio completi nelle regole di rete in base alla risoluzione DNS nei criteri firewall e firewall di Azure. Questa funzionalità consente di filtrare il traffico in uscita con qualsiasi protocollo TCP/UDP (inclusi NTP, SSH, RDP e altro ancora). È necessario abilitare il proxy DNS per l'uso di FQDN nelle regole di rete. Per altre informazioni, vedere [impostazioni DNS del firewall di Azure (anteprima)](dns-settings.md).
+
+> [!NOTE]
+> Per impostazione predefinita, il filtro FQDN non supporta i caratteri jolly.
 
 ## <a name="how-it-works"></a>Come funziona
 

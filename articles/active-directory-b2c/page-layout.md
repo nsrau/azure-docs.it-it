@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/30/2020
+ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 868d99a82009dc8545fc24ad1cfa1da3959da131
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489538"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852066"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
 
@@ -24,56 +24,125 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="210"></a>2.1.0
+## <a name="self-asserted-page-selfasserted"></a>Pagina autocertificata (selfasserted)
 
-- Pagina autocertificata ( `selfasserted` )
-  - Correzioni per la localizzazione e l'accessibilità.
-- Pagina SSP unificata ( `unifiedssp` )
-  - Aggiunta del supporto per più collegamenti di iscrizione.
-  - Aggiunta del supporto per la convalida dell'input dell'utente in base alle regole del predicato definite nei criteri.
+**2.1.0**
 
-## <a name="200"></a>2.0.0
+- Correzioni per la localizzazione e l'accessibilità.
 
-- Pagina autocertificata ( `selfasserted` )
-  - Aggiunta del supporto per la [visualizzazione dei controlli](display-controls.md) nei criteri personalizzati.
+**2.0.0**
 
-## <a name="120"></a>1.2.0
+- Aggiunta del supporto per la [visualizzazione dei controlli](display-controls.md) nei criteri personalizzati.
 
-- Tutte le pagine
-  -  Correzioni di accessibilità
-  - È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
-    - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
-    - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
-  - Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
-  - Supporto per la conversione di Chrome
-- Pagine unificate e autocertificate
-  - I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
-- Pagina autocertificata
-  - È stato aggiunto un ritardo di convalida dell'input utente configurabile per migliorare l'esperienza utente.
+**1.2.0**
 
-## <a name="110"></a>1.1.0
+- I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
+- È stato aggiunto un ritardo di convalida dell'input utente configurabile per migliorare l'esperienza utente.
+-  Correzioni di accessibilità
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+  - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
+  - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
+- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
+- Supporto per la conversione di Chrome
 
-- Pagina eccezione (globalexception)
-  - Correzione accessibilità
-  - Rimosso il messaggio predefinito quando non è presente alcun contatto dal criterio
-  - CSS predefinito rimosso
-- Pagina multi-factor authentication (a più fattori)
-  - Pulsante ' conferma codice ' rimosso
-  - Il campo di input per il codice ora accetta solo un input composto da sei (6) caratteri
-  - La pagina tenterà automaticamente di verificare il codice immesso quando viene immesso un codice di 6 cifre, senza che sia necessario fare clic su un pulsante
-  - Se il codice è errato, il campo di input viene cancellato automaticamente
-  - Dopo tre (3) tentativi con codice errato, B2C Invia un errore all'relying party
-  -  Correzioni di accessibilità
-  - CSS predefinito rimosso
-- Pagina autocertificata (selfasserted)
-  - Rimosso avviso di annullamento
-  - Classe CSS per gli elementi error
-  - Mostra/Nascondi la logica di errore migliorata
-  - CSS predefinito rimosso
-- SSP unificato (unifiedssp)
-  - Aggiunto il controllo Mantieni l'accesso (KMSI)
+**1.1.0**
 
-## <a name="100"></a>1.0.0
+- Rimosso avviso di annullamento
+- Classe CSS per gli elementi error
+- Mostra/Nascondi la logica di errore migliorata
+- CSS predefinito rimosso
+
+**1.0.0**
+
+- Versione iniziale
+
+## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Pagina di iscrizione dell'accesso unificato con collegamento per la reimpostazione della password (unifiedssp)
+
+**2.1.0**
+
+- Aggiunta del supporto per più collegamenti di iscrizione.
+- Aggiunta del supporto per la convalida dell'input dell'utente in base alle regole del predicato definite nei criteri.
+
+**1.2.0**
+
+- I campi nome utente/indirizzo di posta elettronica e password ora usano l' `form` elemento HTML per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
+-  Correzioni di accessibilità
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+  - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
+  - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
+- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
+- Supporto per la conversione di Chrome
+
+**1.1.0**
+
+- Aggiunto il controllo Mantieni l'accesso (KMSI)
+
+**1.0.0**
+
+- Versione iniziale
+
+## <a name="mfa-page-multifactor"></a>Pagina multi-factor authentication (a più fattori)
+
+**1.2.1**
+
+- Correzioni di accessibilità sui modelli predefiniti
+
+**1.2.0**
+
+-  Correzioni di accessibilità
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+  - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
+  - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
+- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
+- Supporto per la conversione di Chrome
+
+**1.1.0**
+
+- Pulsante ' conferma codice ' rimosso
+- Il campo di input per il codice ora accetta solo un input composto da sei (6) caratteri
+- La pagina tenterà automaticamente di verificare il codice immesso quando viene immesso un codice di 6 cifre, senza che sia necessario fare clic su un pulsante
+- Se il codice è errato, il campo di input viene cancellato automaticamente
+- Dopo tre (3) tentativi con codice errato, B2C Invia un errore all'relying party
+-  Correzioni di accessibilità
+- CSS predefinito rimosso
+
+**1.0.0**
+
+- Versione iniziale
+
+## <a name="exception-page-globalexception"></a>Pagina eccezione (globalexception)
+
+**1.2.0**
+
+-  Correzioni di accessibilità
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+  - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
+  - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
+- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
+- Supporto per la conversione di Chrome
+
+**1.1.0**
+
+- Correzione accessibilità
+- Rimosso il messaggio predefinito quando non è presente alcun contatto dal criterio
+- CSS predefinito rimosso
+
+**1.0.0**
+
+- Versione iniziale
+
+## <a name="other-pages-providerselection-claimsconsent-unifiedssd"></a>Altre pagine (ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.0**
+
+-  Correzioni di accessibilità
+- È ora possibile aggiungere l' `data-preload="true"` attributo [nei tag HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) per controllare l'ordine di caricamento per CSS e JavaScript.
+  - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
+  - Controllare l'ordine in cui i `script` tag vengono recuperati ed eseguiti prima del caricamento della pagina.
+- Il campo posta elettronica è ora `type=email` e le tastiere per dispositivi mobili forniranno i suggerimenti corretti
+- Supporto per la conversione di Chrome
+
+**1.0.0**
 
 - Versione iniziale
 

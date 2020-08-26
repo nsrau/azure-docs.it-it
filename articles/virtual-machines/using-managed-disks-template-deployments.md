@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 15c3f2de30509a7dc6836f5d39fac4c0ea8b7f25
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 708df0a8ed1085c6e7d435c6f3c3b811ef2ed64e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513196"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854323"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Uso di Managed Disks nei modelli di Azure Resource Manager
 
@@ -263,7 +263,7 @@ Per informazioni complete sulle specifiche dell'API REST, vedere la [documentazi
 * Per modelli completi che usano dischi gestiti, visitare i collegamenti seguenti al repository di modelli di avvio rapido di Azure.
     * [Macchina virtuale Windows con disco gestito](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Macchina virtuale Linux con disco gestito](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-* Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](~/articles/virtual-machines/windows/managed-disks-overview.md).
+* Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](managed-disks-overview.md).
 * La documentazione di riferimento del modello per le risorse macchina virtuale è disponibile alla pagina [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines).
 * La documentazione di riferimento del modello per le risorse disco è disponibile alla pagina [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks).
 * Per informazioni su come usare i dischi gestiti nei set di scalabilità di macchine virtuali di Microsoft Azure, vedere [Usare dischi dati con set di scalabilità](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).

@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 3de252b22d7b33e45c3b45e2b6c05e4b33df663d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027054"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854909"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>File di configurazione della libreria di autenticazione Microsoft Android
 
@@ -30,13 +30,13 @@ Questo articolo consente di comprendere le diverse impostazioni nel file di conf
 
 ### <a name="general-settings"></a>Impostazioni generali
 
-| Proprietà | Tipo di dati | Richiesto | Note |
+| Proprietà | Tipo di dati | Obbligatorio | Note |
 |-----------|------------|-------------|-------|
 | `client_id` | string | Sì | ID client dell'app dalla pagina di [registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | string | Sì | URI di reindirizzamento dell'app dalla [pagina di registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Elenco\<Authority> | No | Elenco delle autorità necessarie per l'app |
-| `authorization_user_agent` | AuthorizationAgent (enumerazione) | No | Valori possibili: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
-| `http` | HttpConfiguration | No | Configurare `HttpUrlConnection` `connect_timeout` e`read_timeout` |
+| `authorization_user_agent` | AuthorizationAgent (enumerazione) | No | Valori possibili: `DEFAULT` , `BROWSER` , `WEBVIEW` |
+| `http` | HttpConfiguration | No | Configurare `HttpUrlConnection` `connect_timeout` e `read_timeout` |
 | `logging` | LoggingConfiguration | No | Specifica il livello di dettaglio della registrazione. Le configurazioni facoltative includono: `pii_enabled` , che accetta un valore booleano, e `log_level` , che accetta `ERROR` ,, `WARNING` `INFO` o `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
@@ -58,7 +58,7 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
     "audience": {
         "type": "AzureADandPersonalMicrosoftAccount"
     },
-    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
+    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken call
 },
 // Example AzureAD My Organization
 {
@@ -88,7 +88,7 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 
 | Tipo | Destinatari | ID tenant | Authority_Url | Endpoint risultante | Note |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`è un alias tenant per il quale l'account è. Come un tenant di Azure Active Directory specifico o il sistema di account Microsoft. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` è un alias tenant per il quale l'account è. Come un tenant di Azure Active Directory specifico o il sistema di account Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Solo gli account presenti in contoso.com possono acquisire un token. Qualsiasi dominio verificato o GUID del tenant può essere usato come ID tenant. |
 | AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Con questo endpoint è possibile usare solo account Azure Active Directory. Gli account Microsoft possono essere membri di organizzazioni. Per acquisire un token utilizzando un account Microsoft per una risorsa in un'organizzazione, specificare il tenant aziendale da cui si desidera il token. |
 | AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Solo gli account Microsoft possono usare questo endpoint. |
@@ -101,18 +101,18 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 
 #### <a name="authority-properties"></a>Proprietà dell'autorità
 
-| Proprietà | Tipo di dati  | Richiesto | Note |
+| Proprietà | Tipo di dati  | Obbligatorio | Note |
 |-----------|-------------|-----------|--------|
-| `type` | string | Sì | Rispecchia il tipo di destinatari o di account a cui è destinata l'app. Valori possibili: `AAD` ,`B2C` |
+| `type` | string | Sì | Rispecchia il tipo di destinatari o di account a cui è destinata l'app. Valori possibili: `AAD` , `B2C` |
 | `audience` | Oggetto | No | Si applica solo quando il tipo è = `AAD` . Specifica l'identità a cui è destinata l'app. Usare il valore della registrazione dell'app |
 | `authority_url` | string | Sì | Obbligatorio solo quando il tipo è = `B2C` . Specifica l'URL dell'autorità o i criteri che devono essere usati dall'app  |
 | `default` | boolean | Sì | Un singolo `"default":true` è obbligatorio quando si specifica una o più autorità. |
 
 #### <a name="audience-properties"></a>Proprietà del gruppo di destinatari
 
-| Proprietà | Tipo di dati  | Richiesto | Note |
+| Proprietà | Tipo di dati  | Obbligatorio | Note |
 |-----------|-------------|------------|-------|
-| `type` | string | Sì | Specifica i destinatari a cui si vuole assegnare l'app. Valori possibili: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `type` | string | Sì | Specifica i destinatari a cui si vuole assegnare l'app. Valori possibili: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
 | `tenant_id` | string | Sì | Obbligatorio solo quando `"type":"AzureADMyOrg"` . Facoltativo per altri `type` valori. Può trattarsi di un dominio tenant, ad esempio `contoso.com` , o un ID tenant, ad esempio, `72f988bf-86f1-41af-91ab-2d7cd011db46` |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
@@ -138,7 +138,7 @@ Se si usa l'autorità AAD con audience impostato su `"MicrosoftPersonalAccount"`
 
 Configurare le impostazioni globali per i timeout HTTP, ad esempio:
 
-| Proprietà | Tipo di dati | Richiesto | Note |
+| Proprietà | Tipo di dati | Obbligatorio | Note |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | int | No | Tempo in millisecondi |
 | `read_timeout` | int | No | Tempo in millisecondi |
@@ -147,7 +147,7 @@ Configurare le impostazioni globali per i timeout HTTP, ad esempio:
 
 Per la registrazione sono disponibili le impostazioni globali seguenti:
 
-| Proprietà | Tipo di dati  | Richiesto | Note |
+| Proprietà | Tipo di dati  | Obbligatorio | Note |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Indica se creare dati personali |
 | `log_level`   | stringa | No | I messaggi di log da restituire. I livelli di log supportati sono `ERROR` ,, `WARNING` `INFO` e `VERBOSE` . |

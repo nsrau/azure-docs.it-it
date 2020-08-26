@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 992c29cb8380cf6acbe970b2fd5e958b6b2b33dc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 50de800c94bd0a65fafcff3ef6613d6f063a3797
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026714"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855498"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protetta: configurazione del codice
 
@@ -144,7 +144,19 @@ using Microsoft.Identity.Web;
 public void ConfigureServices(IServiceCollection services)
 {
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftWebApiAuthentication(Configuration, "AzureAd");
+ services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+
+ services.AddControllers();
+}
+```
+
+è anche possibile scrivere il codice seguente (equivalente)
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+ // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
+ services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
 
  services.AddControllers();
 }
@@ -152,11 +164,11 @@ public void ConfigureServices(IServiceCollection services)
 
 > [!NOTE]
 > Se si usa Microsoft. Identity. Web e non si imposta `Audience` in *appsettings.json*, viene usato quanto segue:
-> -  `$"{ClientId}"`Se è stata impostata la [versione accettata del token di accesso](scenario-protected-web-api-app-registration.md#accepted-token-version) su `2` o per Azure ad B2C API Web.
-> - `$"api://{ClientId}`in tutti gli altri casi (per i [token di accesso](access-tokens.md)v 1.0).
+> -  `$"{ClientId}"` Se è stata impostata la [versione accettata del token di accesso](scenario-protected-web-api-app-registration.md#accepted-token-version) su `2` o per Azure ad B2C API Web.
+> - `$"api://{ClientId}` in tutti gli altri casi (per i [token di accesso](access-tokens.md)v 1.0).
 > Per informazioni dettagliate, vedere [codice sorgente](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)Microsoft. Identity. Web.
 
-Il frammento di codice precedente viene estratto dall' [esercitazione incrementale ASP.NET Core API Web](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Il dettaglio di **AddMicrosoftWebApiAuthentication** è disponibile in [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). Questo metodo chiama [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), che a sua volta indica al middleware la modalità di convalida del token. Per informazioni dettagliate, vedere il [codice sorgente](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
+Il frammento di codice precedente viene estratto dall' [esercitazione incrementale ASP.NET Core API Web](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Il dettaglio di **AddMicrosoftIdentityWebApiAuthentication** è disponibile in [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). Questo metodo chiama [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), che a sua volta indica al middleware la modalità di convalida del token. Per informazioni dettagliate, vedere il [codice sorgente](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
 
 ## <a name="token-validation"></a>Convalida dei token
 
@@ -194,7 +206,8 @@ Nella maggior parte dei casi non è necessario modificare i parametri. Le app ch
 In ASP.NET Core, se si desidera personalizzare i parametri di convalida del token, usare il frammento di codice seguente in *Startup.cs*:
 
 ```c#
-services.AddMicrosoftWebApiAuthentication(Configuration);
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApi(Configuration);
 services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
 {
   var existingOnTokenValidatedHandler = options.Events.OnTokenValidated;

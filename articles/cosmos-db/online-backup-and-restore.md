@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1ac7f27015812756a8de9736351cc1fe0e374e0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799519"
+ms.locfileid: "88853924"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup online e ripristino dei dati su richiesta in Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Con Azure Cosmos DB, non solo i dati ma anche i relativi backup sono altamente r
 
 * Azure Cosmos DB archivia questi backup nell'archiviazione BLOB di Azure, mentre i dati effettivi si trovano localmente all'interno Azure Cosmos DB.
 
-*  Per garantire una bassa latenza, lo snapshot del backup viene archiviato nell'archivio BLOB di Azure nella stessa area dell'area di scrittura corrente (o in **una** delle aree di scrittura, nel caso in cui si disponga di una configurazione multimaster). Per garantire la resilienza in caso di emergenze a livello di area, ogni snapshot dei dati di backup nell'archivio BLOB di Azure viene a sua volta replicato in un'altra area tramite l'archiviazione con ridondanza geografica. L'area in cui viene replicato il backup dipende dall'area di origine e dalla coppia di aree associata all'area di origine. Per altre informazioni, vedere l'[elenco di coppie di aree di Azure con ridondanza geografica](../best-practices-availability-paired-regions.md). Non è possibile accedere direttamente a questo backup. Azure Cosmos DB team ripristinerà il backup quando si richiede tramite una richiesta di supporto.
+* Per garantire una bassa latenza, lo snapshot del backup viene archiviato nell'archivio BLOB di Azure nella stessa area dell'area di scrittura corrente (o in **una** delle aree di scrittura, nel caso in cui si disponga di una configurazione multimaster). Per garantire la resilienza in caso di emergenze a livello di area, ogni snapshot dei dati di backup nell'archivio BLOB di Azure viene a sua volta replicato in un'altra area tramite l'archiviazione con ridondanza geografica. L'area in cui viene replicato il backup dipende dall'area di origine e dalla coppia di aree associata all'area di origine. Per altre informazioni, vedere l'[elenco di coppie di aree di Azure con ridondanza geografica](../best-practices-availability-paired-regions.md). Non è possibile accedere direttamente a questo backup. Azure Cosmos DB team ripristinerà il backup quando si richiede tramite una richiesta di supporto.
 
    L'immagine seguente mostra come viene eseguito il backup di un contenitore di Azure Cosmos con tutte le tre partizioni fisiche primarie nell'area Stati Uniti occidentali in un account di Archiviazione BLOB di Azure remoto negli Stati Uniti occidentali e quindi replicato negli Stati Uniti orientali:
 
@@ -42,15 +42,15 @@ Con gli account API SQL di Azure Cosmos DB è anche possibile gestire backup pro
 
 * Usare Azure Cosmos DB [feed di modifiche](change-feed.md) per leggere i dati periodicamente per i backup completi o per le modifiche incrementali e archiviarli nella propria risorsa di archiviazione.
 
-## <a name="backup-interval-and-retention-period"></a>Intervallo di backup e periodo di conservazione
+## <a name="modify-the-backup-interval-and-retention-period"></a>Modificare l'intervallo di backup e il periodo di memorizzazione
 
-Azure Cosmos DB esegue automaticamente il backup dei dati ogni 4 ore e in qualsiasi momento, vengono archiviati i due backup più recenti. Questa configurazione è l'opzione predefinita e viene offerta senza costi aggiuntivi. Se si dispone di carichi di lavoro in cui l'intervallo di backup e il periodo di memorizzazione predefiniti non sono sufficienti, è possibile modificarli. È possibile modificare questi valori durante la creazione dell'account Azure Cosmos o dopo la creazione dell'account. La configurazione del backup è impostata a livello di account Azure Cosmos ed è necessario configurarla in ogni account. Dopo aver configurato le opzioni di backup per un account, questo viene applicato a tutti i contenitori all'interno dell'account. Attualmente è possibile modificare le opzioni di backup solo da portale di Azure.
+Azure Cosmos DB esegue automaticamente il backup dei dati ogni 4 ore e in qualsiasi momento, vengono archiviati i due backup più recenti. Questa configurazione è l'opzione predefinita e viene offerta senza costi aggiuntivi. È possibile modificare l'intervallo di backup e il periodo di memorizzazione predefiniti durante la creazione dell'account Azure Cosmos o dopo la creazione dell'account. La configurazione del backup è impostata a livello di account Azure Cosmos ed è necessario configurarla in ogni account. Dopo aver configurato le opzioni di backup per un account, questo viene applicato a tutti i contenitori all'interno dell'account. Attualmente è possibile modificare le opzioni di backup solo da portale di Azure.
 
 Se i dati sono stati eliminati o danneggiati in modo accidentale, **prima di creare una richiesta di supporto per il ripristino dei dati, assicurarsi di aumentare la conservazione del backup per l'account per almeno sette giorni. È consigliabile aumentare la conservazione entro 8 ore da questo evento.** In questo modo, il team di Azure Cosmos DB ha tempo sufficiente per ripristinare l'account.
 
 Per modificare le opzioni di backup predefinite per un account Azure Cosmos esistente, attenersi alla procedura seguente:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/)
+1. Accedere al [portale di Azure.](https://portal.azure.com/)
 1. Passare all'account Azure Cosmos e aprire il riquadro **Backup & Restore** . Aggiornare l'intervallo di backup e il periodo di conservazione dei backup in modo obbligatorio.
 
    * **Intervallo di backup** : si tratta dell'intervallo in cui Azure Cosmos DB tenta di eseguire un backup dei dati. Il backup richiede un periodo di tempo diverso da zero e in alcuni casi potrebbe avere esito negativo a causa di dipendenze downstream. Azure Cosmos DB tenta di eseguire un backup nell'intervallo configurato, tuttavia, non garantisce che il backup venga completato entro tale intervallo di tempo. È possibile configurare questo valore in ore o minuti. L'intervallo di backup non può essere minore di 1 ora e maggiore di 24 ore. Quando si modifica questo intervallo, il nuovo intervallo diventa effettivo a partire dall'ora in cui è stato effettuato l'ultimo backup.

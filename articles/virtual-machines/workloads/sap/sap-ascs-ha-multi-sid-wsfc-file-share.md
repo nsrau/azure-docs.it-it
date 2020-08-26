@@ -13,19 +13,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2019
+ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035979"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855224"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Disponibilità elevata multi-SID dell'istanza ASCS/SCS di SAP con Windows Server Failover Clustering e condivisione file in Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Sistema operativo Windows][Logo_Windows] Windows
 >
 
 È possibile gestire più indirizzi IP virtuali usando un [servizio di bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. 
@@ -61,6 +61,7 @@ _**Figura 1:** Un'istanza di SAP ASC/SCS e SOFS distribuite in due cluster_
 > * Condivisioni di file diverse di host globali SAP appartenenti a SID SAP distinti devono condividere lo stesso cluster SOFS.
 > * Ogni SID DBMS deve avere un cluster WSFC dedicato.
 > * I server applicazioni SAP che fanno parte di un SID del sistema SAP devono avere proprie VM dedicate.
+> * Una combinazione del server di replica di Accodamento 1 e del server di replica di Accodamento 2 nello stesso cluster non è supportata.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>Architettura multi-SID ASCS/SCS di SAP con condivisione file
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 03477fa46aaec04c0563ed38b085605dce5b87a1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6c85a7315fe05bb4fedabd176295523c2fa95d81
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751734"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855242"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -233,6 +233,10 @@ Per ulteriori informazioni, vedere la Guida di riferimento al comando [AZ ml com
 ## <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 
 Per distribuire un modello nel servizio Azure Kubernetes, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+
+> [!NOTE]
+> Il numero di modelli da distribuire è limitato a 1.000 modelli per distribuzione (per contenitore).
+
 
 ### <a name="using-the-sdk"></a>Uso dell'SDK
 

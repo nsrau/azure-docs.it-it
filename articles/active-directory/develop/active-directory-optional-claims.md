@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: ff3e2c9f989a6688e200a1c34e85ef3a22860840
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1384dc760edb0bca66344d8892c18fdebb54855d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794668"
+ms.locfileid: "88853583"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -54,7 +54,6 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `auth_time`                | Ora dell'ultima autenticazione dell'utente. Vedere la specifica di OpenID Connect.| Token JSON Web        |           |  |
 | `tenant_region_scope`      | Area del tenant della risorsa. | Token JSON Web        |           | |
 | `sid`                      | ID sessione, usato per la disconnessione utente per sessione. | Token JSON Web        |  Account personali e Azure AD.   |         |
-| `platf`                    | Piattaforma del dispositivo.    | Token JSON Web        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.|
 | `verified_primary_email`   | Originato dall'indirizzo di posta elettronica PrimaryAuthoritativeEmail dell'utente      | Token JSON Web        |           |         |
 | `verified_secondary_email` | Originato dall'indirizzo di posta elettronica SecondaryAuthoritativeEmail dell'utente   | Token JSON Web        |           |        |
 | `vnet`                     | Informazioni sull'identificatore di rete virtuale. | Token JSON Web        |           |      |

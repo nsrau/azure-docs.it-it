@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 08/25/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76697898"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853862"
 ---
 # <a name="brokered-authentication-in-android"></a>Autenticazione negoziata in Android
 
@@ -58,7 +58,7 @@ Se per un dispositivo non è già installata un'app broker, MSAL indica all'uten
 
 Quando un broker viene installato in un dispositivo, tutte le successive richieste di token interattivo (chiamate a `acquireToken()` ) vengono gestite dal Broker anziché localmente da MSAL. Qualsiasi stato SSO disponibile in precedenza per MSAL non è disponibile per il broker. Di conseguenza, l'utente dovrà ripetere l'autenticazione oppure selezionare un account dall'elenco esistente di account noti al dispositivo.
 
-L'installazione di un broker non richiede l'accesso dell'utente. Solo quando l'utente deve risolvere un `MsalUiRequiredException` , la richiesta successiva verrà inviata al broker. `MsalUiRequiredException`viene generata per diversi motivi e deve essere risolta in modo interattivo. Di seguito sono riportati alcuni motivi comuni:
+L'installazione di un broker non richiede l'accesso dell'utente. Solo quando l'utente deve risolvere un `MsalUiRequiredException` , la richiesta successiva verrà inviata al broker. `MsalUiRequiredException` viene generata per diversi motivi e deve essere risolta in modo interattivo. Di seguito sono riportati alcuni motivi comuni:
 
 - L'utente ha modificato la password associata al proprio account.
 - L'account dell'utente non soddisfa più i criteri di accesso condizionale.
@@ -76,7 +76,7 @@ Se Portale aziendale Intune è installato e funziona come broker attivo e viene 
 
 È necessario registrare un URI di reindirizzamento compatibile con Service Broker. L'URI di reindirizzamento per il broker deve includere il nome del pacchetto dell'app, nonché la rappresentazione con codifica Base64 della firma dell'app.
 
-Il formato dell'URI di reindirizzamento è il seguente:`msauth://<yourpackagename>/<base64urlencodedsignature>`
+Il formato dell'URI di reindirizzamento è il seguente: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
 Generare la firma codificata con URL Base64 usando le chiavi di firma dell'app. Di seguito sono riportati alcuni comandi di esempio che usano le chiavi di firma del debug:
 
@@ -122,3 +122,12 @@ Se si ottiene un `MsalClientException` con codice di errore `"BROKER_BIND_FAILUR
 
 - Chiedere all'utente di disabilitare l'ottimizzazione alimentazione per l'app Microsoft Authenticator e il Portale aziendale Intune.
 - Chiedere all'utente di concedere l' `"READ_CONTACTS"` autorizzazione
+
+## <a name="verifying-broker-integration"></a>Verifica dell'integrazione di Service Broker
+
+Potrebbe non essere immediatamente chiaro che l'integrazione di Service Broker funziona, ma è possibile seguire questa procedura per verificare:
+
+1. Nel dispositivo Android completare una richiesta utilizzando broker.
+1. Nelle impostazioni del dispositivo Android cercare un account appena creato corrispondente all'account con cui è stata eseguita l'autenticazione. L'account deve essere di tipo *account*aziendale.
+
+Se si desidera ripetere il test, è possibile rimuovere l'account dalle impostazioni.

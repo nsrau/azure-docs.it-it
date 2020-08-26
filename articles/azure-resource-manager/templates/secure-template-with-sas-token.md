@@ -2,17 +2,20 @@
 title: Distribuisci in modo sicuro il modello con token SAS
 description: Distribuire le risorse in Azure con un modello di Azure Resource Manager protetto da un token di firma di accesso condiviso. Mostra Azure PowerShell e l'interfaccia della riga di comando di Azure.
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/25/2020
+ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80156396"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855666"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Distribuire un modello ARM privato con token SAS
 
-Quando il modello di Azure Resource Manager (ARM) si trova in un account di archiviazione, è possibile limitare l'accesso al modello per evitare di esporlo pubblicamente. Per accedere a un modello protetto, creare un token di firma di accesso condiviso (SAS) per il modello e fornire tale token durante la distribuzione. Questo articolo illustra come usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello con un token di firma di accesso condiviso.
+Quando il modello di Azure Resource Manager (modello ARM) si trova in un account di archiviazione, è possibile limitare l'accesso al modello per evitare di esporlo pubblicamente. Per accedere a un modello protetto, creare un token di firma di accesso condiviso (SAS) per il modello e fornire tale token durante la distribuzione. Questo articolo illustra come usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello con un token di firma di accesso condiviso.
+
+> [!IMPORTANT]
+> Anziché proteggere il modello con un token di firma di accesso condiviso, provare a usare le [specifiche del modello](template-specs.md). Con le specifiche dei modelli, è possibile condividere i modelli con altri utenti nell'organizzazione e gestire l'accesso ai modelli tramite il controllo degli accessi in base al ruolo di Azure.
 
 ## <a name="create-storage-account-with-secured-container"></a>Creare un account di archiviazione con un contenitore protetto
 
@@ -110,6 +113,8 @@ New-AzResourceGroupDeployment `
 ```
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+L'esempio seguente usa l'ambiente bash in Cloud Shell. Altri ambienti potrebbero richiedere una sintassi diversa per creare l'ora di scadenza per il token SAS.
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)

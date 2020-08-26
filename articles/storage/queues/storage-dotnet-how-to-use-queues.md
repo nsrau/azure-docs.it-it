@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11fa99acda5f1c8edac3026961c426257bb74d92
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808826"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853659"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introduzione all'archiviazione code di Azure con .NET
 
@@ -69,7 +69,7 @@ Per completare l'esercitazione, è necessario fare riferimento ai quattro pacche
 - [Libreria della coda di archiviazione di Azure per .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): questo pacchetto consente di usare il servizio di Accodamento di archiviazione di Azure per archiviare i messaggi a cui è possibile accedere da un client.
 - [Libreria di Configuration Manager per .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): questo pacchetto consente di accedere ai file di configurazione per le applicazioni client.
 
-È possibile usare NuGet per ottenere questi pacchetti. Attenersi ai passaggi descritti di seguito.
+È possibile usare NuGet per ottenere questi pacchetti. Seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**e scegliere **Gestisci pacchetti NuGet**.
 1. Selezionare **Sfoglia**
@@ -84,7 +84,7 @@ Per completare questa esercitazione, è necessario fare riferimento ai tre pacch
 - [Archiviazione di Microsoft Azure Library Queue per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): questa libreria client consente di utilizzare il archiviazione di Microsoft Azure servizio di Accodamento per archiviare i messaggi a cui è possibile accedere da un client.
 - [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
 
-È possibile usare NuGet per ottenere questi pacchetti. Attenersi ai passaggi descritti di seguito.
+È possibile usare NuGet per ottenere questi pacchetti. Seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**e scegliere **Gestisci pacchetti NuGet**.
 1. Selezionare **Sfoglia**
@@ -154,6 +154,8 @@ Per fare riferimento all'emulatore di archiviazione azzurrite, è possibile usar
 ```
 
 ### <a name="add-using-directives"></a>Aggiungere le direttive using
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Aggiungere le direttive `using` seguenti all'inizio del file `Program.cs`:
 

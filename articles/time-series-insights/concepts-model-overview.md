@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141721"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855197"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modello Time Series in Azure Time Series Insights Gen2
 
@@ -24,9 +24,9 @@ Questo articolo descrive il modello Time Series, le funzionalità e come iniziar
 > [!TIP]
 >
 > * Passare all'ambiente [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) per un esempio di modello Live Time Series.
-> * Informazioni [su come usare il modello Time Series](/azure/time-series-insights/how-to-edit-your-model) con Azure Time Series Insights Gen2 Explorer.
+> * Informazioni [su come usare il modello Time Series](/azure/time-series-insights/how-to-edit-your-model) con Azure Time Series Insights TSI Explorer.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La motivazione principale per il modello Time Series è semplificare la ricerca e l'analisi dei dati delle serie temporali o degli Internet. Questo obiettivo viene raggiunto consentendo la cura, la manutenzione e l'arricchimento dei dati relativi alle serie temporali per preparare i set di dati pronti per il consumo per l'analisi.
 
@@ -75,7 +75,7 @@ Questi componenti vengono combinati per specificare un modello Time Series e per
 
 [![Grafico di panoramica del modello Time Series](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-È possibile creare e gestire un modello Time Series tramite il [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Le impostazioni del modello Time Series possono essere gestite tramite l' [API delle impostazioni del modello](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+È possibile creare e gestire un modello Time Series tramite il [Azure Time Series Insights di TSI Explorer](/azure/time-series-insights/concepts-model-overview). Le impostazioni del modello Time Series possono essere gestite tramite l' [API delle impostazioni del modello](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Istanze di modello serie temporale
 
@@ -87,7 +87,7 @@ Alle istanze sono associate informazioni descrittive denominate *proprietà dell
 
 I *campi di istanza* sono una raccolta di informazioni descrittive che possono includere valori per i livelli della gerarchia, nonché produttore, operatore e così via.
 
-Dopo la configurazione di un'origine evento per l'ambiente Azure Time Series Insights Gen2, le istanze vengono individuate e create automaticamente in un modello Time Series. Le istanze possono essere create o aggiornate tramite il Azure Time Series Insights Esplora Gen2 usando le query del modello Time Series.
+Dopo la configurazione di un'origine evento per l'ambiente Azure Time Series Insights Gen2, le istanze vengono individuate e create automaticamente in un modello Time Series. Le istanze possono essere create o aggiornate tramite il Azure Time Series Insights di gestione delle richieste di inventario usando le query del modello Time Series.
 
 La [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) offre diversi esempi di istanze attive.
 
@@ -102,7 +102,7 @@ Le istanze sono definite da **timeSeriesId**, **typeid**, **Name**, **Descriptio
 | timeSeriesId | ID univoco della serie temporale a cui è associata l'istanza. Nella maggior parte dei casi, le istanze vengono identificate in modo univoco da una proprietà come deviceId o assetId. In alcuni casi, è possibile usare un ID composito più specifico che combina fino a tre proprietà. |
 | typeId | ID di stringa univoco con distinzione tra maiuscole e minuscole del tipo di modello Time Series a cui è associata l'istanza. Per impostazione predefinita, tutte le nuove istanze individuate vengono associate a un tipo predefinito.
 | name | La proprietà **Name** è facoltativa e con distinzione tra maiuscole e minuscole. Se il **nome** non è disponibile, il valore predefinito è **timeSeriesId**. Se viene specificato un nome, **timeSeriesId** è ancora disponibile nel [pozzetto](time-series-insights-update-explorer.md#4-time-series-well). |
-| description | Descrizione di testo dell'istanza. |
+| Descrizione | Descrizione di testo dell'istanza. |
 | hierarchyId | Definisce le gerarchie a cui appartiene l'istanza. |
 | instanceFields | Proprietà di un'istanza di e di qualsiasi dato statico che definisce un'istanza di. Definiscono i valori delle proprietà non di gerarchia o di gerarchia, supportando anche l'indicizzazione per eseguire operazioni di ricerca. |
 
@@ -182,8 +182,8 @@ Le gerarchie sono rappresentate in JSON come:
 
 Nell'esempio JSON precedente:
 
-* `Location`definisce una gerarchia con padre `states` e figlio `cities` . Ogni `location` può avere più `states` di un, che a sua volta può avere più `cities` .
-* `ManufactureDate`definisce una gerarchia con padre `year` e figlio `month` . Ogni `ManufactureDate` può avere più `years` di un, che a sua volta può avere più `months` .
+* `Location` definisce una gerarchia con padre `states` e figlio `cities` . Ogni `location` può avere più `states` di un, che a sua volta può avere più `cities` .
+* `ManufactureDate` definisce una gerarchia con padre `year` e figlio `month` . Ogni `ManufactureDate` può avere più `years` di un, che a sua volta può avere più `months` .
 
 > [!TIP]
 > Per il supporto di creazione, lettura, aggiornamento ed eliminazione (CRUD) dell'API gerarchia, vedere l'articolo relativo alle [query sui dati](concepts-query-overview.md#time-series-model-query-tsm-q-apis) e la [documentazione Rest dell'API gerarchia](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
@@ -216,7 +216,7 @@ Considerati i campi di istanza utilizzati nella definizione precedente e in dive
 | ID4 | "Building" = "1000", "Floor" = "10"  |
 | ID5 | Non è impostato alcun valore di "Building", "Floor" o "Room". |
 
-Le serie temporali **ID1** e **ID4** vengono visualizzate come parte della gerarchia **H1** nel [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md) , perché i parametri di *compilazione*, *piano*e *stanza* sono completamente definiti e ordinati correttamente.
+Le serie temporali **ID1** e **ID4** vengono visualizzate come parte della gerarchia **H1** in [Azure Time Series Insights TSI Explorer](time-series-insights-update-explorer.md) , perché i parametri di *compilazione*, *piano*e *stanza* sono completamente definiti e ordinati correttamente.
 
 Le altre sono classificate in *istanze senza padre* perché non sono conformi alla gerarchia dei dati specificata.
 
@@ -241,7 +241,7 @@ I tipi di modello Time Series sono definiti in base all' **ID**, al **nome**, al
 | ---| ---|
 | id | ID di stringa univoca con distinzione tra maiuscole e minuscole per il tipo. |
 | name | Stringa utilizzata per fornire un nome per il tipo. |
-| description | Descrizione della stringa per il tipo. |
+| Descrizione | Descrizione della stringa per il tipo. |
 | variables | Specificare le variabili associate al tipo. |
 
 I tipi sono conformi all'esempio JSON seguente:

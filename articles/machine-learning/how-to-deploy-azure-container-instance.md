@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cbba0dd5341ad148831ac3b1f94685bf2beddd5a
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541125"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855273"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuire un modello a Istanze di Azure Container
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Per informazioni sulla disponibilità di quote e aree per ACI, vedere l'articolo
 > [!IMPORTANT]
 > È consigliabile eseguire il debug in locale prima della distribuzione nel servizio Web. per altre informazioni, vedere [debug in locale](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> È anche possibile fare riferimento a Azure Machine Learning- [Distribuisci nel notebook locale](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> È anche possibile fare riferimento ad Azure Machine Learning - [Eseguire la distribuzione a un notebook locale](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,9 +43,9 @@ Per informazioni sulla disponibilità di quote e aree per ACI, vedere l'articolo
 
 - I frammenti di codice __Python__ in questo articolo presuppongono che siano impostate le variabili seguenti:
 
-    * `ws`-Impostare sull'area di lavoro.
-    * `model`: Impostare sul modello registrato.
-    * `inference_config`-Impostare sulla configurazione di inferenza per il modello.
+    * `ws` -Impostare sull'area di lavoro.
+    * `model` : Impostare sul modello registrato.
+    * `inference_config` -Impostare sulla configurazione di inferenza per il modello.
 
     Per ulteriori informazioni sull'impostazione di queste variabili, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
@@ -56,8 +56,9 @@ Per informazioni sulla disponibilità di quote e aree per ACI, vedere l'articolo
 Per distribuire un modello in istanze di contenitore di Azure, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 > [!NOTE]
-> * ACI è adatto solo per piccoli modelli <1 GB di dimensioni. 
-> * Si consiglia di usare l'AKS a nodo singolo per lo sviluppo e il test di modelli più grandi.
+> * ACI è adatto solo per piccoli modelli di dimensioni inferiori a 1 GB. 
+> * È consigliabile usare AKS a nodo singolo per i modelli di sviluppo e test di dimensioni maggiori.
+> * Il numero di modelli da distribuire è limitato a 1.000 modelli per distribuzione (per contenitore). 
 
 ### <a name="using-the-sdk"></a>Uso dell'SDK
 
