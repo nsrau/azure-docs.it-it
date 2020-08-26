@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345360"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869865"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Trasmettere i dati nel database SQL di Azure tramite l'integrazione di analisi di flusso di Azure (anteprima)
 
@@ -31,7 +31,7 @@ Ora gli utenti possono inserire, elaborare, visualizzare e analizzare i dati in 
 - Maggiore facilità di utilizzo con i dati di anteprima: visualizzare l'anteprima dei dati in arrivo dall'origine eventi (hub eventi/hub degli eventi) nel contesto della tabella selezionata
 
 > [!IMPORTANT]
-> Un processo di analisi di flusso di Azure può restituire il database SQL di Azure, Azure SQL Istanza gestita o Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse). Per ulteriori informazioni, vedere [output](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Un processo di analisi di flusso di Azure può restituire il database SQL di Azure, Azure SQL Istanza gestita o Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse). Per ulteriori informazioni, vedere [output](../../stream-analytics/sql-database-output.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,7 +50,7 @@ Per seguire la procedura descritta in questo articolo, sono necessarie le risors
 
 3. Per iniziare a inserire i dati in streaming in questo database, selezionare **Crea** e assegnare un nome al processo di streaming, quindi selezionare **Avanti: input**.
 
-    ![Crea processo di analisi di flusso](./media/stream-data-stream-analytics-integration/create-job.png)
+    ![configurare i concetti di base del processo di analisi di flusso](./media/stream-data-stream-analytics-integration/create-job.png)
 
 4. Immettere i dettagli dell'origine eventi e quindi selezionare **Avanti: output**.
 
@@ -64,7 +64,7 @@ Per seguire la procedura descritta in questo articolo, sono necessarie le risors
 
       Si consiglia di creare un gruppo di consumer e un criterio per ogni nuovo processo di analisi di flusso di Azure creato da qui. I gruppi di consumer consentono solo cinque lettori simultanei, pertanto la fornitura di un gruppo di consumer dedicato per ogni processo eviterà eventuali errori che potrebbero derivare dal superamento di tale limite. Un criterio dedicato consente di ruotare la chiave o revocare le autorizzazioni senza influisca sulle altre risorse.
 
-     ![Crea processo di analisi di flusso](./media/stream-data-stream-analytics-integration/create-job-output.png)
+     ![configurare l'output del processo di analisi di flusso](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
 5. Consente di selezionare la tabella in cui si desidera inserire i dati in streaming. Al termine, selezionare **Crea**.
 

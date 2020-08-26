@@ -4,23 +4,25 @@ description: Informazioni su come creare un ambito di crittografia per isolare i
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/04/2020
+ms.date: 08/25/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 32b46d21228bcd84fc3da11cc6ed42c740fece39
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564147"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870256"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Creare e gestire gli ambiti di crittografia (anteprima)
 
-Gli ambiti di crittografia (anteprima) consentono di gestire la crittografia a livello di singolo BLOB o contenitore. Un ambito di crittografia isola i dati BLOB in un enclave sicuro all'interno di un account di archiviazione. È possibile usare gli ambiti di crittografia per creare confini sicuri tra i dati che si trovano nello stesso account di archiviazione, ma appartenenti a clienti diversi. Per ulteriori informazioni sugli ambiti di crittografia, vedere [ambiti di crittografia per l'archiviazione BLOB (anteprima)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
+Gli ambiti di crittografia (anteprima) consentono di gestire la crittografia a livello di singolo BLOB o contenitore. Un ambito di crittografia isola i dati del BLOB in un enclave protetto all'interno di un account di archiviazione. È possibile usare gli ambiti di crittografia per creare confini sicuri tra i dati che si trovano nello stesso account di archiviazione, ma appartenenti a clienti diversi. Per ulteriori informazioni sugli ambiti di crittografia, vedere [ambiti di crittografia per l'archiviazione BLOB (anteprima)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
 
 Questo articolo illustra come creare un ambito di crittografia. Viene inoltre illustrato come specificare un ambito di crittografia quando si crea un BLOB o un contenitore.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>Creare un ambito di crittografia
 

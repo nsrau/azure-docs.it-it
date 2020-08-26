@@ -9,16 +9,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 78e2bd80b689394b654a85ea913c618c08120091
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 9c2f8ea55f99ac893dca0fa380729b7cc866812e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854014"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871285"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Come usare l'archiviazione di accodamento da Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
+
+## <a name="overview"></a>Panoramica
 
 Questa guida illustra come scrivere codice per scenari comuni usando il servizio di archiviazione di Accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari includono **inserimento**, **visualizzazione**, **recupero**ed **eliminazione** dei messaggi in coda. Viene inoltre analizzato il codice per la **creazione** e l' **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
 

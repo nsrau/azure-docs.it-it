@@ -168,7 +168,7 @@
       href: densenet.md
     - name: ResNet
       href: resnet.md
-- name: Raccomandazione
+- name: Recommendation
   items:
     - name: Evaluate Recommender
       href: evaluate-recommender.md
@@ -192,3 +192,5 @@
       href: web-service-input-output.md
 - name: Errori e risoluzione dei problemi dei moduli
   href: designer-error-codes.md
+- name: Sintassi della query di ricerca di grafi
+  href: graph-search-syntax.md

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305925"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870188"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Usare le identità gestite per accedere al database SQL di Azure da un processo di Analisi di flusso di Azure (anteprima)
 
@@ -122,7 +122,7 @@ Assicurarsi di aver creato una tabella nel database SQL con lo schema di output 
 
 1. Selezionare **Aggiungi > Database SQL**. Nella finestra delle proprietà di output del sink di output del database SQL selezionare **Identità gestita** dall'elenco a discesa Modalità di autenticazione.
 
-1. Compilare le proprietà rimanenti. Per altre informazioni sulla creazione di un output del database SQL, vedere [Creare un output del database SQL con Analisi di flusso](stream-analytics-define-outputs.md#sql-database). Al termine dell'operazione, selezionare **Salva**. 
+1. Compilare le proprietà rimanenti. Per altre informazioni sulla creazione di un output del database SQL, vedere [Creare un output del database SQL con Analisi di flusso](sql-database-output.md). Al termine dell'operazione, selezionare **Salva**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

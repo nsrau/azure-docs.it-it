@@ -227,6 +227,8 @@
               href: high-availability-guide-rhel-netapp-files.md
         - name: Configurazione SAP a più SID
           items:
+            - name: Windows con disco condiviso di Azure per l'istanza (A)SCS
+              href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
             - name: Windows con disco condiviso per l'istanza (A)SCS
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: Windows con condivisione file SOFS per l'istanza (A)SCS

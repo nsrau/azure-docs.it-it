@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e75ea5a8f5fdeaf7c3562e50d9493341d41ce393
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037151"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871242"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e l'archivio file 
 
@@ -306,7 +306,8 @@ Se si imposta il `--delete-destination` flag su `true` AzCopy Elimina i file sen
 >
 > |Scenario|Flag|
 > |---|---|
-> |Consente di specificare il modo in cui devono essere convalidati gli hash MD5 durante il download.|**--Check-MD5** = \[ NOCHECK \| loginly \| FailIfDifferent \| FailIfDifferentOrMissing\]|
+> |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
+> |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
 > |Escludere i file in base a un modello.|**--Exclude-Path**|
 > |Specificare il modo in cui si desidera che le voci di log correlate alla sincronizzazione siano disponibili.|**--livello** = \[ di log informazioni sull'errore di avviso \| \| \| nessuno\]|
 > 

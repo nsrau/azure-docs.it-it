@@ -155,7 +155,7 @@
           href: search-howto-large-index.md
         - name: Gestire gli aggiornamenti simultanei
           href: search-howto-concurrency.md
-    - name: Inserire i dati di Azure
+    - name: Inserire dati solo di Azure
       items:
         - name: Configurare gli indicizzatori
           href: search-indexer-overview.md
@@ -203,7 +203,7 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: Database SQL
               href: search-howto-managed-identities-sql.md
-    - name: Inserimento tramite intelligenza artificiale
+    - name: Usare le competenze (IA)
       items:
         - name: Collegare una risorsa Servizi cognitivi
           href: cognitive-search-attach-cognitive-services.md
@@ -215,7 +215,7 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: Eseguire il mapping ai campi dell'indice
               href: cognitive-search-output-field-mapping.md
-            - name: Estrarre informazioni dalle immagini
+            - name: Elaborare file di immagine
               href: cognitive-search-concept-image-scenarios.md
             - name: Arricchimento della cache (incrementale)
               href: search-howto-incremental-index.md

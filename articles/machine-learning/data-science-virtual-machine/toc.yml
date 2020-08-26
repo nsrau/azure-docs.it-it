@@ -8,10 +8,10 @@
       href: overview.md
     - name: Strumenti inclusi nella Data Science Virtual Machine
       href: tools-included.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare una Data Science Virtual Machine Windows
+    - name: Creare una macchina virtuale data science Windows
       href: provision-vm.md
     - name: Creare una Data Science Virtual Machine Ubuntu
       href: dsvm-ubuntu-intro.md
@@ -44,12 +44,18 @@
       href: vm-do-ten-things.md
     - name: Usare una Data Science Virtual Machine Linux
       href: linux-dsvm-walkthrough.md
-    - name: Creare un pool di Data Science Virtual Machine con scalabilità automatica
-      href: dsvm-pools.md
-    - name: Effettuare l'integrazione con Active Directory.
-      href: dsvm-common-identity.md
-    - name: Credenziali di accesso alle risorse protette
-      href: dsvm-secure-access-keys.md
+    - name: Integrazione con Azure Machine Learning
+      items:
+        - name: Tenere traccia degli esperimenti
+          href: how-to-track-experiments.md
+    - name: Materiale sussidiario Enterprise
+      items:
+        - name: Creare un pool di Data Science Virtual Machine con scalabilità automatica
+          href: dsvm-pools.md
+        - name: Effettuare l'integrazione con Active Directory.
+          href: dsvm-common-identity.md
+        - name: Credenziali di accesso alle risorse protette
+          href: dsvm-secure-access-keys.md
 - name: Risorse
   items:
     - name: Pagina delle domande di Domande e risposte Microsoft

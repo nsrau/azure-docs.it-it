@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706376"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871446"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connettere l'applicazione a un'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ La connessione di un'applicazione quando si trova in una rete virtuale diversa d
 
 Sono disponibili due opzioni per la connessione di reti virtuali:
 
-- [Peering VPN di Azure](../../virtual-network/virtual-network-peering-overview.md)
+- [Peering di Azure VNet](../../virtual-network/virtual-network-peering-overview.md)
 - Gateway da rete virtuale a rete virtuale ([portale di Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Interfaccia della riga di comando di Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 Il peering è preferibile perché usa la rete backbone Microsoft. Pertanto, dal punto di vista della connettività, non esiste alcuna differenza evidente nella latenza tra le macchine virtuali in una rete virtuale con peering e nella stessa rete virtuale. Il peering di rete virtuale è limitato alle reti nella stessa area.  
@@ -63,7 +63,7 @@ Se è stata stabilita una connessione da locale ad Azure e non è possibile stab
 
 ## <a name="connect-the-developer-box"></a>Connetti la casella per sviluppatori
 
-È anche possibile connettere la finestra per sviluppatori a SQL Istanza gestita. È possibile accedere a SQL Istanza gestita solo tramite un indirizzo IP privato, quindi, per accedervi dal box per sviluppatori, è prima necessario creare una connessione tra la propria casella di sviluppo e la rete virtuale SQL Istanza gestita. A tale scopo, configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato nativa di Azure. Per altre informazioni, vedere [configurare una connessione da punto a sito per la connessione a istanza gestita SQL di Azure da un computer locale](point-to-site-p2s-configure.md).
+È anche possibile connettere la finestra per sviluppatori a SQL Istanza gestita. È possibile accedere a SQL Istanza gestita solo tramite un indirizzo IP privato, quindi, per accedervi dal box per sviluppatori, è prima necessario creare una connessione tra la propria casella di sviluppo e la rete virtuale SQL Istanza gestita. A tale scopo, configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato nativa di Azure. Per altre informazioni, vedere  [configurare una connessione da punto a sito per la connessione a istanza gestita SQL di Azure da un computer locale](point-to-site-p2s-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Connettersi con il peering VNet
 

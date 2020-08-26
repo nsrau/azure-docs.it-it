@@ -5,12 +5,12 @@ description: Informazioni su come aggiornare o reimpostare l'entità servizio o 
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: a824606bc0e77ba069b6b54725645ee3f348de27
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386929"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871225"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aggiornare o ruotare le credenziali per il servizio Azure Kubernetes (AKS)
 
@@ -31,7 +31,8 @@ Quando si desidera aggiornare le credenziali per un cluster AKS, è possibile sc
 * Aggiornare le credenziali per l'entità servizio esistente.
 * Creare una nuova entità servizio e aggiornare il cluster per usare le nuove credenziali. 
 
-> ! AVVISO Se si sceglie di creare una *nuova* entità servizio, l'aggiornamento di un cluster AKS di grandi dimensioni per usare queste credenziali può richiedere molto tempo.
+> [!WARNING]
+> Se si sceglie di creare una *nuova* entità servizio, l'aggiornamento di un cluster AKS di grandi dimensioni per usare queste credenziali può richiedere molto tempo.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Controllare la data di scadenza dell'entità servizio
 

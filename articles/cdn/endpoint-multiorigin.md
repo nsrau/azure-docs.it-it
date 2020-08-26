@@ -8,12 +8,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 8/20/2020
 ms.author: allensu
-ms.openlocfilehash: ed6c60b4f66361e87f67f3c64bb60846b2df757b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817580"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870459"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Più origini dell'endpoint della rete CDN di Azure
 
@@ -66,6 +66,7 @@ Configurare uno o più gruppi di origine e scegliere un gruppo di origine predef
 
    | Impostazione           | Valore                                                                 |
    |-------------------|-----------------------------------------------------------------------|
+   | Nome        | Immettere un nome per l'origine.        |
    | Tipo di origine | Selezionare **archiviazione**, **servizio cloud**, **app Web**o **origine personalizzata**.                                   |
    | Nome host dell'origine        | Selezionare o immettere il nome host di origine.  Nell'elenco a discesa sono elencate tutte le origini disponibili del tipo specificato nell'impostazione precedente. Se è stata selezionata l'opzione **origine personalizzata** come tipo di origine, immettere il dominio del server di origine del cliente. |
    | Intestazione host di origine    | Immettere l'intestazione host che si vuole che la rete CDN di Azure invii con ogni richiesta o lasciare il valore predefinito.                        |
@@ -114,6 +115,34 @@ Dopo aver creato diverse origini e un gruppo di origine, è possibile aggiungere
 2. Per rimuovere un'origine dal gruppo di origine, selezionare l'icona del cestino accanto all'origine e selezionare **Salva**:
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Aggiornare l'origine di eliminazione del gruppo di origine" border="true":::
+
+## <a name="override-origin-group-with-rules-engine"></a>Esegui override del gruppo di origine con il motore regole
+
+Personalizzare il modo in cui il traffico viene distribuito a gruppi di origini diversi usando il motore regole standard.
+
+Distribuire il traffico a un gruppo diverso in base all'URL della richiesta.
+
+1. Nell'endpoint della rete CDN selezionare **motore regole** in **Impostazioni**:
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Motore regole" border="true":::
+
+2. Selezionare **+ Aggiungi regola**.
+
+3. Immettere un nome per la regola in **nome**.
+
+4. Selezionare **+ Condition**, quindi selezionare **URL path**.
+
+5. Nel riepilogo a discesa **operatore** selezionare **contiene**.
+
+6. In **valore**immettere **/images**.
+
+7. Selezionare **+ Aggiungi azione**, quindi selezionare **sostituzione gruppo di origine**.
+
+8. In **gruppo di origine**selezionare il gruppo di origine nella casella a discesa.
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Condizioni del motore regole" border="true":::
+
+Per tutte le richieste in ingresso se il percorso URL contiene **/images**, la richiesta verrà assegnata al gruppo di origine nella sezione azione **(myorigingroup)**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stata abilitata la funzionalità multiorigine dell'endpoint della rete CDN di Azure.

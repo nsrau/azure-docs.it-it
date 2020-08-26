@@ -4,14 +4,14 @@ description: Informazioni su come eseguire la migrazione di un nome di dominio D
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: bd11690f2a3597d6e1a835ad7ca9c5880117eeea
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782210"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871395"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure
 
@@ -59,31 +59,27 @@ Nella pagina dei record DNS prendere nota del tipo di record del nome DNS di cui
 
 ### <a name="enable-the-domain-for-your-app"></a>Abilitare il dominio per l'app
 
-Nel riquadro di spostamento a sinistra della pagina dell'app nel [portale di Azure](https://portal.azure.com) selezionare **Domini personalizzati**. 
+1. Nel riquadro di spostamento a sinistra della pagina dell'app nel [portale di Azure](https://portal.azure.com) selezionare **Domini personalizzati**. 
 
-![Menu del dominio personalizzato](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menu del dominio personalizzato](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Nella pagina **Domini personalizzati** selezionare l'icona **+** accanto ad **Aggiungi il nome host**.
+1. Nella pagina **domini personalizzati** selezionare **Aggiungi dominio personalizzato**.
 
-![Aggiunta del nome host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Aggiunta del nome host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digitare il nome di dominio completo di cui si desidera eseguire la migrazione, che corrisponde al record TXT creato, ad esempio `contoso.com` , `www.contoso.com` o `*.contoso.com` .
+1. Digitare il nome di dominio completo di cui si desidera eseguire la migrazione, che corrisponde al record TXT creato, ad esempio `contoso.com` , `www.contoso.com` o `*.contoso.com` . Selezionare **Convalida**.
 
-Selezionare **Convalida**.
+    Il pulsante **Aggiungi dominio personalizzato** viene attivato. 
 
-Viene attivato il pulsante **Aggiungi il nome host**. 
+1. Assicurarsi che **Tipo di record del nome host** sia impostato sul tipo di record DNS di cui si vuole eseguire la migrazione. Selezionare **Aggiungi il nome host**.
 
-Assicurarsi che **Tipo di record del nome host** sia impostato sul tipo di record DNS di cui si vuole eseguire la migrazione.
+    ![Aggiunta del nome DNS all'app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Selezionare **Aggiungi il nome host**.
+    La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Provare ad aggiornare il browser per visualizzare i dati più recenti.
 
-![Aggiunta del nome DNS all'app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Provare ad aggiornare il browser per visualizzare i dati più recenti.
-
-![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
-Il dominio DNS personalizzato è ora abilitato nell'app Azure. 
+    Il dominio DNS personalizzato è ora abilitato nell'app Azure. 
 
 ## <a name="remap-the-active-dns-name"></a>Modificare il mapping del nome DNS attivo
 
@@ -97,8 +93,6 @@ Se si vuole modificare il mapping di un record CNAME, ignorare questa sezione.
 
 Per modificare il mapping di un record A, è necessario l'indirizzo IP esterno dell'app del servizio app, visualizzato nella pagina **Domini personalizzati**.
 
-Chiudere la pagina **Aggiungi il nome host** selezionando **X** nell'angolo in alto a destra. 
-
 Nella pagina **Domini personalizzati**, copiare l'indirizzo IP dell'applicazione.
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
@@ -109,7 +103,7 @@ Tornare alla pagina dei record DNS del provider di dominio e selezionare il reco
 
 Per l'esempio di dominio radice `contoso.com`, modificare il mapping del record A o CNAME come negli esempi illustrati nella tabella seguente: 
 
-| Esempio di FQDN | Tipo di record | Host | valore |
+| Esempio di FQDN | Tipo di record | Host | Valore |
 | - | - | - | - |
 | contoso.com (radice) | Una | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 | www \. contoso.com (Sub) | CNAME | `www` | _&lt;AppName>. azurewebsites.net_ |

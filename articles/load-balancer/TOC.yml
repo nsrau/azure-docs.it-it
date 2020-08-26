@@ -16,6 +16,8 @@
       href: quickstart-load-balancer-standard-public-template.md
     - name: Creare una risorsa Load Balancer interna - Portale
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: Creare una risorsa Load Balancer interna - Interfaccia della riga di comando di Azure
+      href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: Esercitazioni
   items:

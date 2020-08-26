@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796936"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871182"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Risoluzione dei problemi di replica nella migrazione di macchine virtuali VMware senza agente
 
@@ -30,13 +30,36 @@ Per monitorare lo stato della replica per le macchine virtuali, attenersi alla p
 
   1. Passare alla pagina Server Azure Migrate nella portale di Azure.
   2. Passare alla pagina "replica di computer" facendo clic su "replica dei server" nel riquadro migrazione server.
-  3. Verrà visualizzato un elenco di server di replica insieme a informazioni aggiuntive, ad esempio stato, integrità, ora dell'ultima sincronizzazione e così via. La colonna Health indica lo stato di replica corrente della macchina virtuale. Il valore "Critical'or" Warning "nella colonna Health indica in genere che il ciclo di replica precedente per la macchina virtuale non è riuscito. Per ottenere altri dettagli, fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare "Dettagli errore". La pagina dei dettagli dell'errore contiene informazioni sull'errore e informazioni aggiuntive su come risolvere i problemi. Verrà anche visualizzato un collegamento "eventi recenti" che può essere usato per passare alla pagina eventi per la macchina virtuale.
+  3. Verrà visualizzato un elenco di server di replica insieme a informazioni aggiuntive, ad esempio stato, integrità, ora dell'ultima sincronizzazione e così via. La colonna Health indica lo stato di replica corrente della macchina virtuale. Un valore ' critical ' o ' Warning ' nella colonna Health indica in genere che il ciclo di replica precedente per la macchina virtuale non è riuscito. Per ottenere altri dettagli, fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare "Dettagli errore". La pagina dei dettagli dell'errore contiene informazioni sull'errore e informazioni aggiuntive su come risolvere i problemi. Verrà anche visualizzato un collegamento "eventi recenti" che può essere usato per passare alla pagina eventi per la macchina virtuale.
   4. Fare clic su "eventi recenti" per visualizzare gli errori precedenti del ciclo di replica per la macchina virtuale. Nella pagina eventi, cercare l'evento più recente di tipo "ciclo di replica non riuscito" o "ciclo di replica non riuscito per il disco" per la macchina virtuale.
   5. Fare clic sull'evento per comprendere le possibili cause dell'errore e le procedure consigliate per la correzione. Utilizzare le informazioni fornite per risolvere i problemi e correggere l'errore.
     
 ## <a name="common-replication-errors"></a>Errori di replica comuni
 
 In questa sezione vengono descritti alcuni degli errori comuni e il modo in cui è possibile risolverli.
+
+## <a name="key-vault-operation-failed-error-when-trying-to-replicate-vms"></a>Errore durante il tentativo di replicare le macchine virtuali Key Vault operazione non riuscita
+
+**Errore:** "Operazione Key Vault non riuscita. Operazione: configurare l'account di archiviazione gestito, Key Vault: Key-Vault-Name, account di archiviazione: il nome dell'account di archiviazione non è riuscito con l'errore: "
+
+**Errore:** "Operazione Key Vault non riuscita. Operazione: generare la definizione della firma di accesso condiviso, Key Vault: Key-Vault-Name, account di archiviazione: nome dell'account di archiviazione non riuscito con l'errore: "
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+Questo errore si verifica in genere perché i criteri di accesso utente per il Key Vault non forniscono all'utente attualmente connesso le autorizzazioni necessarie per configurare gli account di archiviazione da Key Vault gestire. Per verificare i criteri di accesso utente nell'insieme di credenziali delle chiavi, passare alla pagina dell'insieme di credenziali delle chiavi nel portale per l'insieme di credenziali delle chiavi e selezionare criteri di accesso 
+
+Quando il portale crea l'insieme di credenziali delle chiavi, aggiunge anche un criterio di accesso utente che concede le autorizzazioni dell'utente attualmente connesso per configurare gli account di archiviazione in modo che vengano Key Vault gestiti. Questa operazione può avere esito negativo per due motivi
+
+- L'utente connesso è un'entità remota nel tenant di Azure Customers (sottoscrizione CSP) e l'utente connesso è l'amministratore del partner. In questo caso la soluzione alternativa consiste nell'eliminare l'insieme di credenziali delle chiavi, disconnettersi dal portale e quindi accedere con un account utente dal tenant Customers (non un'entità remota) e ripetere l'operazione. Il partner CSP ha in genere un account utente nel tenant di Azure Active Directory dei clienti che possono usare. In caso contrario, è possibile creare un nuovo account utente nel tenant di Azure Active Directory dei clienti, accedere al portale come nuovo utente, quindi ripetere l'operazione di replica. L'account usato deve avere le autorizzazioni proprietario o collaboratore e amministratore accesso utenti concesse all'account nel gruppo di risorse (migrazione del gruppo di risorse del progetto)
+
+- L'altro caso in cui si verifica questo problema è che un utente (User1) ha tentato inizialmente di configurare la replica e si è verificato un errore, ma l'insieme di credenziali delle chiavi è già stato creato e i criteri di accesso utente sono stati assegnati in modo appropriato all'utente. A questo punto un altro utente (User2) tenterà di configurare la replica, ma l'operazione di configurazione dell'account di archiviazione gestito o di generazione della definizione di firma di accesso condiviso non riuscirà perché non sono presenti criteri di accesso utente corrispondenti a User2 nell'insieme di credenziali delle chiavi.
+
+**Soluzione**: per risolvere questo problema, creare un criterio di accesso utente per User2 nell'insieme di credenziali delle credenziali che concede l'autorizzazione User2 per configurare l'account di archiviazione gestito e generare le definizioni SAS. User2 può eseguire questa operazione da Azure PowerShell usando i cmdlet seguenti:
+
+$userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). ID
+
+Set-AzureRmKeyVaultAccessPolicy-VAULTNAME "filevaultname"-ObjectId $userPrincipalId-PermissionsToStorage Get, List, DELETE, set, Update, RegenerateKey, getss, lists, Deletes, sets, Recover, backup, Restore, Purge
+
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut
 

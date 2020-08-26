@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 24f92443acddb17c0a2d337f51dbf9183996c49f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62c2193a0045cc2ee35930e87b360446e94ba861
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520524"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864787"
 ---
 File di Azure offre quattro diversi livelli di archiviazione, ovvero Premium, Ottimizzato per le transazioni, Accesso frequente e Accesso sporadico, che consentono di adattare le condivisioni ai requisiti dello scenario in termini di prestazioni e prezzi:
 
@@ -32,7 +32,22 @@ Le condivisioni file ottimizzate per le transazioni sono disponibili in tutte le
 - Australia sud-orientale
 - Francia centrale
 - Francia meridionale
+- Germania settentrionale (pubblico)
+- Germania centro-occidentale (pubblico)
+- India centrale
+- India meridionale
+- India occidentale
+- Giappone orientale
+- Giappone occidentale
 - Corea centrale
 - Corea meridionale
+- Norvegia orientale
+- Norvegia occidentale
+- Sudafrica settentrionale
+- Sudafrica occidentale
+- Emirati Arabi Uniti centrali
+- Emirati Arabi Uniti settentrionali
+- Regno Unito meridionale
+- Regno Unito occidentale
 
 Per distribuire una condivisione file ad accesso frequente o ad accesso sporadico, vedere [Creare una condivisione file ad accesso frequente o ad accesso sporadico](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 

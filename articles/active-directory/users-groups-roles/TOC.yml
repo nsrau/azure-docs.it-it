@@ -62,12 +62,14 @@
           href: users-revoke-access.md
         - name: Chiudere un account in una directory non gestita
           href: users-close-account.md
-        - name: Aggiungere utenti B2B
-          href: ../external-identities/what-is-b2b.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-        - name: Assegnare un ruolo a un utente B2B
-          href: ../external-identities/add-guest-to-role.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-        - name: Gruppi dinamici e B2B
-          href: ../external-identities/use-dynamic-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+        - name: Aggiungere utenti guest
+          href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Assegnare un ruolo a un utente guest
+          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Restringere l'accesso degli utenti guest
+          href: users-restrict-guest-permissions.md
+        - name: Gruppi dinamici e guest
+          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Gestire la directory
       items:
         - name: Organizzazioni Azure AD

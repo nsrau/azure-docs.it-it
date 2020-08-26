@@ -296,12 +296,12 @@
       href: 'https://azure.microsoft.com/updates/?category=storage'
     - name: Note sulla versione di Sincronizzazione file di Azure
       href: storage-files-release-notes.md
-    - name: Forum di Archiviazione di Azure
-      href: 'https://docs.microsoft.com/answers/products/azure?product=storage'
+    - name: Archiviazione di Azure in Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-files.html'
     - name: Archiviazione di Azure in Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Prezzi di Archiviazione di Azure
-      href: 'https://azure.microsoft.com/pricing/details/storage/'
+    - name: Prezzi di File di Azure
+      href: 'https://azure.microsoft.com/pricing/details/storage/files/'
     - name: Calcolatore prezzi di Azure
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Video

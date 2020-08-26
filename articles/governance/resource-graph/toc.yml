@@ -82,30 +82,34 @@
   href: ./troubleshoot/general.md
 - name: Informazioni di riferimento
   items:
-    - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/resource-graph/graph
-    - name: Azure PowerShell
-      href: /powershell/module/az.resourcegraph/
-    - name: Azure SDK per .NET
-      href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
-    - name: Azure SDK per .NET (NuGet)
-      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/'
-    - name: Azure SDK per Go
-      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph'
-    - name: Azure SDK per Java
-      href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
-    - name: Azure SDK per Java (Maven)
-      href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
-    - name: Azure SDK per JavaScript
-      href: /javascript/api/@azure/arm-resourcegraph
-    - name: Azure SDK per Python
-      href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
-    - name: Azure SDK per Ruby (Gem)
-      href: 'https://rubygems.org/gems/azure_mgmt_resourcegraph'
-    - name: REST
-      href: /rest/api/azure-resourcegraph/
-    - name: OpenAPI
-      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+    - name: Scelte rapide da tastiera
+      href: ./reference/keyboard-shortcuts.md
+    - name: Interfaccia della riga di comando e SDK
+      items:
+        - name: Interfaccia della riga di comando di Azure
+          href: /cli/azure/ext/resource-graph/graph
+        - name: Azure PowerShell
+          href: /powershell/module/az.resourcegraph/
+        - name: Azure SDK per .NET
+          href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+        - name: Azure SDK per .NET (NuGet)
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/'
+        - name: Azure SDK per Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph'
+        - name: Azure SDK per Java
+          href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+        - name: Azure SDK per Java (Maven)
+          href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
+        - name: Azure SDK per JavaScript
+          href: /javascript/api/@azure/arm-resourcegraph
+        - name: Azure SDK per Python
+          href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+        - name: Azure SDK per Ruby (Gem)
+          href: 'https://rubygems.org/gems/azure_mgmt_resourcegraph'
+        - name: REST
+          href: /rest/api/azure-resourcegraph/
+        - name: OpenAPI
+          href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
     - name: Modelli di Gestione risorse
       href: /azure/templates/microsoft.resourcegraph/allversions
     - name: Tabelle e tipi di risorsa di Resource Graph

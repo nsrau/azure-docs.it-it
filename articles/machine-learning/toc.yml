@@ -124,7 +124,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Data
+    - name: Dati
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -509,6 +509,8 @@
       href: monitor-resource-reference.md
     - name: Informazioni di riferimento sulla pipeline di Machine Learning in YAML
       href: reference-pipeline-yaml.md
+    - name: Parità dei cloud sovrani
+      href: reference-machine-learning-cloud-parity.md
 - name: Risorse
   items:
     - name: Note sulla versione
