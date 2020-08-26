@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: ef29be53e776c4c185ac8430b3340c53ca85d855
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475669"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856048"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenzioni di Plug and Play IoT
 
@@ -127,10 +127,10 @@ Il dispositivo deve aggiungere il `{"__t": "c"}` marcatore per indicare che l'el
 
 Il dispositivo deve confermare la ricezione della proprietà inviando una proprietà segnalata. La proprietà segnalata deve includere:
 
-- `value`: valore ricevuto dal dispositivo.
-- `ac`: codice di riconoscimento che usa un codice di stato HTTP.
-- `av`: versione di riconoscimento che fa riferimento all'oggetto `$version` della proprietà desiderata.
-- `ad`-Descrizione facoltativa di riconoscimento.
+- `value` : valore effettivo della proprietà (in genere il valore ricevuto, ma il dispositivo può decidere di segnalare un valore diverso).
+- `ac` : codice di riconoscimento che usa un codice di stato HTTP.
+- `av` : versione di riconoscimento che fa riferimento all'oggetto `$version` della proprietà desiderata.
+- `ad` -Descrizione facoltativa di riconoscimento.
 
 ### <a name="sample-no-component-writable-property"></a>Esempio di proprietà non scrivibile di componenti
 
@@ -261,7 +261,7 @@ In un dispositivo, più interfacce componente utilizzano i nomi di comando con i
 
 A questo punto, dopo aver appreso le informazioni sulle convenzioni Plug and Play, Ecco alcune risorse aggiuntive:
 
-- [Digital Gemini Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK per dispositivi per C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST](https://docs.microsoft.com/rest/api/iothub/device)
 - [Componenti del modello](./concepts-components.md)

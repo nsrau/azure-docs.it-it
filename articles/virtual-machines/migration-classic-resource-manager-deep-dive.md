@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 6f633a585e4fa6ebd12e8d12408847b5ee758855
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513140"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855907"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 
@@ -33,7 +33,7 @@ Sono descritte informazioni approfondite sulla migrazione del modello di distrib
 
 Il piano dati è lo stesso sia per il modello di distribuzione classica che per gli stack di Azure Resource Manager. La differenza sta nel fatto che, durante il processo di migrazione, Microsoft converte la rappresentazione delle risorse dal modello di distribuzione classica a quella nello stack di Azure Resource Manager. È quindi necessario usare nuovi strumenti, API e SDK per gestire le risorse nello stack di Azure Resource Manager.
 
-![Diagramma che mostra la differenza tra piano di gestione/controllo e piano dati](~/articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagramma che mostra la differenza tra piano di gestione/controllo e piano dati](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Prima di iniziare la migrazione:
 
 Il flusso di lavoro della migrazione è il seguente:
 
-![Diagramma che mostra il flusso di lavoro di migrazione](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagramma che mostra il flusso di lavoro di migrazione](windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > Tutte le operazioni descritte nelle sezioni seguenti sono idempotenti. Se vengono rilevati errori diversi da una funzionalità non supportata o un errore di configurazione, provare a ripetere l'operazione di preparazione, interruzione o commit. Azure prova a ripetere l'azione.
@@ -94,17 +94,17 @@ Azure avvia quindi la migrazione dei metadati dal modello di distribuzione class
 Al termine dell'operazione di preparazione, è possibile visualizzare le risorse sia nel modello di distribuzione classica che in Azure Resource Manager. Per ogni servizio cloud nel modello di distribuzione classica, la piattaforma Azure crea un nome di gruppo di risorse nel formato `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> Non è possibile selezionare il nome di un gruppo di risorse creato per le risorse di cui è stata eseguita la migrazione, vale a dire "-Migrated". Al termine della migrazione, tuttavia, è possibile usare la funzionalità di Azure Resource Manager per spostare le risorse in qualsiasi gruppo di risorse. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](~/articles/resource-group-move-resources.md).
+> Non è possibile selezionare il nome di un gruppo di risorse creato per le risorse di cui è stata eseguita la migrazione, vale a dire "-Migrated". Al termine della migrazione, tuttavia, è possibile usare la funzionalità di Azure Resource Manager per spostare le risorse in qualsiasi gruppo di risorse. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 I due screenshot seguenti mostrano il risultato dopo l'esito positivo di un'operazione di preparazione. Il primo screenshot mostra un gruppo di risorse che contiene il servizio cloud originale. Il secondo screenshot mostra il nuovo gruppo di risorse "-Migrated" che contiene le risorse equivalenti di Azure Resource Manager.
 
-![Screenshot che mostra il servizio cloud originale](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+![Screenshot che mostra il servizio cloud originale](windows/media/migration-classic-resource-manager/portal-classic.png)
 
-![Screenshot che mostra le risorse di Azure Resource Manager nell'operazione di preparazione](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+![Screenshot che mostra le risorse di Azure Resource Manager nell'operazione di preparazione](windows/media/migration-classic-resource-manager/portal-arm.png)
 
 Di seguito vengono mostrati i retroscena delle risorse al termine della fase di preparazione. Si noti che la risorsa nel piano dati è la stessa. Viene rappresentata sia nel piano di gestione (modello di distribuzione classica) che nel piano di controllo (Resource Manager).
 
-![Diagramma della fase di preparazione](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagramma della fase di preparazione](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > Le macchine virtuali che non sono in una rete virtuale nel modello di distribuzione classica vengono interrotte e deallocate in questa fase della migrazione.
@@ -124,7 +124,7 @@ Se si verificano problemi, è sempre possibile interrompere la migrazione e torn
 ### <a name="abort"></a>Interruzione
 Questo è un passaggio facoltativo che permette di annullare le modifiche al modello di distribuzione classica e di arrestare la migrazione. L'operazione elimina i metadati di Resource Manager creati nella fase di preparazione per le risorse. 
 
-![Diagramma della fase di interruzione](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagramma della fase di interruzione](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -139,13 +139,13 @@ Dopo aver completato la convalida, è possibile eseguire il commit della migrazi
 >
 >
 
-![Diagramma della fase di commit](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagramma della fase di commit](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## <a name="migration-flowchart"></a>Diagramma di flusso della migrazione
 
 Il diagramma di flusso seguente mostra come procedere con la migrazione:
 
-![Screenshot that shows the migration steps](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Conversione delle risorse dal modello di distribuzione classica ad Azure Resource Manager
 La tabella seguente mostra la rappresentazione delle risorse nel modello di distribuzione classica e Resource Manager. Le seguenti funzionalità e risorse non sono attualmente supportate.

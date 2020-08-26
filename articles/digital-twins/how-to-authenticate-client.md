@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 008d5f22a48fdd31c90e63643adc94b26a975ca2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 00219dbebb8e84c21b9e5b84cf71309c63fc518e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589368"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855973"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
@@ -39,18 +39,19 @@ Per prima cosa, includere i pacchetti seguenti nel progetto per usare .NET SDK e
 
 A seconda degli strumenti scelti, è possibile includere i pacchetti tramite Gestione pacchetti di Visual Studio o lo strumento da `dotnet` riga di comando. 
 
-Per eseguire l'autenticazione con .NET SDK, usare uno dei metodi per ottenere le credenziali definite nella libreria [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) .
-
-Di seguito sono riportati due comunemente utilizzati: 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet). Questo metodo è destinato alle applicazioni interattive e consente di visualizzare un Web browser per l'autenticazione.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet). Questo metodo funziona in modo ottimale nei casi in cui sono necessarie [identità gestite (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), ad esempio quando si lavora con funzioni di Azure. 
-
 Sono necessarie anche le istruzioni using seguenti:
 
 ```csharp
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
+Per eseguire l'autenticazione con .NET SDK, usare uno dei metodi per ottenere le credenziali definite nella libreria [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) . Di seguito sono riportati due comunemente utilizzati (anche insieme nella stessa applicazione):
+
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) è destinato alle applicazioni interattive e può essere usato per creare un client SDK autenticato
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) funziona benissimo nei casi in cui sono necessarie identità gestite (MSI) ed è un buon candidato per lavorare con funzioni di Azure
+
+### <a name="interactivebrowsercredential-method"></a>Metodo InteractiveBrowserCredential
+Il metodo [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) è destinato alle applicazioni interattive e consente di visualizzare un browser Web per l'autenticazione.
 
 Per usare le credenziali del browser interattivo per creare un client SDK autenticato, aggiungere il codice seguente:
 
@@ -79,7 +80,9 @@ try
 >[!NOTE]
 > Sebbene sia possibile inserire l'ID client, l'ID tenant e l'URL dell'istanza direttamente nel codice, come illustrato in precedenza, è consigliabile fare in modo che il codice ottenga questi valori da un file di configurazione o da una variabile di ambiente.
 
-In una funzione di Azure è quindi possibile usare le credenziali di identità gestite come questa:
+### <a name="managedidentitycredential-method"></a>Metodo ManagedIdentityCredential
+ Il metodo [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) funziona in modo ottimale nei casi in cui sono necessarie [identità gestite (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), ad esempio quando si lavora con funzioni di Azure.
+In una funzione di Azure è possibile usare le credenziali di identità gestite come la seguente:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);

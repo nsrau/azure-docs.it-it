@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 335b2f345cbebc55ad7ddd60487cfd17288d547d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c0627dd0833e3b20468eb5f50fbeb9fd9d9ae2b3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88703342"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864845"
 ---
 **Trasferimenti di dati in uscita**: i [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/bandwidth/) (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
 
@@ -26,7 +26,7 @@ Per informazioni dettagliate sui prezzi per Managed Disks, inclusi i costi delle
 Le macchine virtuali di Azure sono in grado di indicare se sono compatibili con dischi Ultra. Una macchina virtuale compatibile con dischi Ultra alloca una capacità di larghezza di banda dedicata tra l'istanza della macchina virtuale di calcolo e l'unità di scala di archiviazione a blocchi per ottimizzare le prestazioni e ridurre la latenza. L'aggiunta di questa capacità alla macchina virtuale comporta un addebito per la prenotazione, che viene applicato solo se si abilita la funzionalità per i dischi Ultra nella macchina virtuale senza collegare un disco Ultra. Quando alla macchina virtuale compatibile con i dischi Ultra viene collegato un disco Ultra, questo addebito non viene applicato. L'addebito viene calcolato per ogni vCPU di cui è stato effettuato il provisioning nella macchina virtuale. 
 
 > [!Note]
-> Per le [dimensioni delle VM Core vincolate](~/articles/virtual-machines/constrained-vcpu.md), la tariffa di prenotazione è basata sul numero effettivo di vCPU e non sui core vincolati. Per Standard_E32 8s_v3, la tariffa di prenotazione sarà basata su 32 core. 
+> Per le [dimensioni delle VM Core vincolate](../articles/virtual-machines/constrained-vcpu.md), la tariffa di prenotazione è basata sul numero effettivo di vCPU e non sui core vincolati. Per Standard_E32 8s_v3, la tariffa di prenotazione sarà basata su 32 core. 
 
 Per informazioni sui prezzi di dischi Ultra, vedere la [pagina dei prezzi di Azure disks](https://azure.microsoft.com/pricing/details/managed-disks/) .
 

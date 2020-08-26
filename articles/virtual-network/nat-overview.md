@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/25/2020
 ms.author: allensu
-ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135811"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855804"
 ---
 # <a name="what-is-virtual-network-nat"></a>Che cos'è NAT di rete virtuale?
 
@@ -123,31 +123,17 @@ NAT è locale per impostazione predefinita. Quando si creano scenari per [zone d
 
 Quando disponibile a livello generale, la disponibilità del percorso dei dati NAT è pari ad almeno il 99,9%.
 
-
 ## <a name="pricing"></a>Prezzi
 
-Per la fatturazione del gateway NAT, si usano due contatori distinti:
-
-| Contatore | Tariffa |
-| --- | --- |
-| Ore risorsa | $ 0,045/ora |
-| Dati elaborati | $ 0,045/GB |
-
-La metrica Ore risorsa rappresenta il periodo di tempo in cui una risorsa gateway NAT risulta esistente.
-La metrica Dati elaborati rappresenta tutti il traffico generato da una risorsa gateway NAT.
+Per informazioni dettagliate sui prezzi, vedere [prezzi della rete virtuale](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="availability"></a>Disponibilità
 
-NAT di rete virtuale e la risorsa gateway NAT sono disponibili in tutte le [aree](https://azure.microsoft.com/global-infrastructure/regions/) del cloud pubblico di Azure.
-
-## <a name="support"></a>Supporto
-
-NAT è supportato tramite i normali canali di assistenza.
+NAT della rete virtuale e la risorsa del gateway NAT sono disponibili in tutte le aree di tutte le [aree](https://azure.microsoft.com/global-infrastructure/regions/)di cloud di Azure.
 
 ## <a name="suggestions"></a>Suggerimenti
 
 Ci interessa sapere come possiamo migliorare il servizio. Proporre nuove funzionalità o esprimere un voto in [UserVoice per NAT](https://aka.ms/natuservoice).
-
 
 ## <a name="limitations"></a>Limitazioni
 

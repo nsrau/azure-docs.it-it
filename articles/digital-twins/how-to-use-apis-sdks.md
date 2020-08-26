@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 885394b2dd50b9f8a94ece409c47609c8f7f18fd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 39c33efb4896893c8baa18d06f62defc26c64949
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587563"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855886"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -63,7 +63,7 @@ Per usare le API del piano dati:
 Azure Digital Twins .NET (C#) SDK è parte di Azure SDK per .NET. È open source ed è basato sulle API dei piani dati di Azure Digital gemelli.
 
 > [!NOTE]
-> Per informazioni dettagliate sulla progettazione di SDK, vedere i principi di [progettazione generali per gli SDK di Azure](https://azure.github.io/azure-sdk/general_introduction.html) e le [linee guida di progettazione .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html)specifiche.
+> Per altre informazioni sulla progettazione di SDK, vedere i [principi di progettazione generali per gli SDK di Azure](https://azure.github.io/azure-sdk/general_introduction.html) e le [linee guida di progettazione .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html)specifiche.
 
 Per usare l'SDK, includere il pacchetto NuGet **Azure. DigitalTwins. Core** con il progetto. Sarà anche necessario il pacchetto **Azure. Identity** (versione 1.1.1).
 
@@ -143,7 +143,7 @@ Vedere l' [*esercitazione: scrivere codice di un'app client*](tutorial-code.md) 
 
 #### <a name="serialization-helpers"></a>Helper di serializzazione
 
-Come descritto in precedenza, i metodi Core SDK restituiscono i dati gemelli come JSON. Tuttavia, l'SDK contiene anche le classi helper per la serializzazione. Queste funzioni helper consentono di creare o deserializzare rapidamente i dati gemelli per l'accesso alle informazioni di base.
+Gli helper di serializzazione sono funzioni di supporto disponibili nell'SDK per creare o deserializzare rapidamente i dati gemelli per l'accesso alle informazioni di base. Poiché i metodi di Core SDK restituiscono i dati gemelli come JSON per impostazione predefinita, può essere utile usare queste classi helper per suddividere ulteriormente i dati gemelli.
 
 Le classi helper disponibili sono:
 * `BasicDigitalTwin`: Rappresenta i dati principali di un dispositivo gemello digitale
@@ -230,7 +230,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### <a name="create-a-relationship"></a>Creare una relazione
 
-Utilizzando la `BasicDigitalTwin` classe, è inoltre possibile preparare i dati per la creazione di relazioni in un'istanza gemella:
+Utilizzando la `BasicRelationship` classe, è inoltre possibile preparare i dati per la creazione di relazioni in un'istanza gemella:
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
-ms.openlocfilehash: 485da8549175af8813a9d0c3052d1e77f336e619
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/25/2020
+ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120841"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855733"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usare l'archiviazione tabelle di Azure per gestire i lead del marketplace commerciale
 
@@ -28,19 +28,19 @@ Se il sistema CRM (Customer Relationship Management, Gestione rapporti con clien
     1. Selezionare **Archiviazione** nel riquadro **Nuovo**. A destra viene visualizzato un elenco **In primo piano**.
     1. Selezionare **Account di archiviazione** per iniziare la creazione dell'account. Seguire le istruzioni in [Crea un account di archiviazione](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
-        ![Procedura di creazione di un account di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
+        :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Procedura per creare un account di archiviazione di Azure.":::
 
         Per altre informazioni sugli account di archiviazione, vedere [Documentazione di Archiviazione di Azure](../../storage/index.yml). Per altre informazioni sui prezzi delle risorse di archiviazione, vedere [Panoramica dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Attendere fino a quando non viene eseguito il provisioning dell'account di archiviazione. Questo processo in genere richiede qualche minuto. 
+1. Attendere fino a quando non viene eseguito il provisioning dell'account di archiviazione. Questo processo in genere richiede qualche minuto.
 
 ## <a name="create-a-table-in-your-storage-account"></a>Creare una tabella nell'account di archiviazione
 
-1. Dalla **pagina iniziale** del portale di Azure, selezionare **Visualizzare tutte le risorse** per accedere all'account di archiviazione. È anche possibile selezionare **Tutte le risorse** nel menu a sinistra del portale di Azure.
+1. Dalla **Home** page del portale di Azure selezionare **Visualizza tutte le risorse** per accedere all'account di archiviazione. È anche possibile selezionare **Tutte le risorse** nel menu a sinistra del portale di Azure.
 
-    ![Accedere all'account di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Accedere all'account di archiviazione di Azure.":::
 
-1. Nel riquadro dell'account di archiviazione selezionare **Chiavi di accesso** e copiare il valore di **Stringa di connessione** per la chiave. Salvare questo valore perché si tratta del valore di **Stringa di connessione a account di archiviazione** che sarà necessario specificare nel portale di pubblicazione per ricevere i lead per l'offerta di Azure Marketplace. 
+1. Nel riquadro dell'account di archiviazione selezionare **Chiavi di accesso** e copiare il valore di **Stringa di connessione** per la chiave. Salvare questo valore perché si tratta del valore di **Stringa di connessione a account di archiviazione** che sarà necessario specificare nel portale di pubblicazione per ricevere i lead per l'offerta di Azure Marketplace.
 
     Di seguito è riportato un esempio di stringa di connessione.
 
@@ -48,13 +48,14 @@ Se il sistema CRM (Customer Relationship Management, Gestione rapporti con clien
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    ![Chiave di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Chiave di archiviazione di Azure.":::
+
 
 1. Nel riquadro dell'account di archiviazione selezionare **Tabelle** e **Tabella** per creare una tabella. Immettere un nome per la tabella e selezionare **OK**. Salvare questo valore perché sarà necessario se si vuole configurare un flusso per ricevere notifiche di posta elettronica quando vengono ricevuti i lead.
 
     ![Tabelle di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    È possibile usare [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) o qualsiasi altro strumento per visualizzare i dati nella tabella di archiviazione. È anche possibile esportare i dati nella tabella di Azure. 
+    È possibile usare [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) o qualsiasi altro strumento per visualizzare i dati nella tabella di archiviazione. È anche possibile esportare i dati nella tabella di Azure.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Facoltativo) Usare Power Automate per ottenere le notifiche dei lead
 
@@ -66,7 +67,7 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
 
 1. Accedere al proprio account Power Automate.
 1. Nella barra a sinistra selezionare **Flussi personali**.
-1. Nella barra in alto selezionare **Nuovo**. 
+1. Nella barra in alto selezionare **Nuovo**.
 1. Nell'elenco a discesa selezionare **+ Scheduled--from blank** (Pianificato--Da zero).
 
    ![Flussi personali + Pianificato--Da zero](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
@@ -90,7 +91,7 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
 
     ![Configurare l’intervallo per recuperare l’ora precedente](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
 
-   >[!TIP] 
+   >[!TIP]
    >È possibile controllare il flusso in qualsiasi momento per verificare che ogni passaggio sia configurato correttamente. Per controllare il flusso, selezionare **Verifica flusso** dalla barra del menu **Flusso**.
 
    Nel set di passaggi successivo ci si collega alla propria tabella e si configura la logica di elaborazione per gestire i nuovi lead.
@@ -123,7 +124,7 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
 
 1. Nella finestra **Condizione** selezionare **Scegliere un valore**. In seguito selezionare **Espressione** nella finestra popup.
 
-1. Incollare `length(body('Get_entities')?['value'])` nella casella **fx**. Selezionare **OK** per aggiungere questa funzione. 
+1. Incollare `length(body('Get_entities')?['value'])` nella casella **fx**. Selezionare **OK** per aggiungere questa funzione.
 
 1. Per completare la configurazione della condizione:
     1. Selezionare **è maggiore di** dall'elenco a discesa.
@@ -134,7 +135,7 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
    Nei passaggi successivi viene configurata l'azione da eseguire in base al risultato della condizione:
 
    * Se la condizione restituisce **Se no**, non eseguire alcuna operazione.
-   * Se la condizione restituisce **Se sì**, attivare un'azione che si connetta all'account di Office 365 per inviare un messaggio di posta elettronica. 
+   * Se la condizione restituisce **Se sì**, attivare un'azione che si connetta all'account di Office 365 per inviare un messaggio di posta elettronica.
 
 1. Selezionare **Aggiungi un'azione** in **Se sì**.
 
