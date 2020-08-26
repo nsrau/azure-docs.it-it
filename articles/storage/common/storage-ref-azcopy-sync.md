@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285204"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869440"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -42,7 +42,7 @@ Il comando di sincronizzazione differisce dal comando copy in diversi modi:
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-### <a name="advanced"></a>Avanzate
+### <a name="advanced"></a>Avanzato
 
 Se non si specifica un'estensione di file, AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -143,13 +143,17 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. ad esempio `*.jpg;*.pdf;exactName`
 
-**--** Guida alla sincronizzazione.
+**--**    Guida alla sincronizzazione.
 
 **--include-Attributes** String (solo Windows) include solo i file con attributi corrispondenti all'elenco di attributi. ad esempio `A;S;R`
 
 **--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. ad esempio `*.jpg;*.pdf;exactName`
 
 **--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: `INFO` (tutte le richieste e risposte), `WARNING` (risposte lente), `ERROR` (solo richieste non riuscite) e `NONE` (nessun log di output). (impostazione predefinita `INFO` ). 
+
+**--Preserve-SMB-info**     False per impostazione predefinita.Conserva le informazioni sulle proprietà SMB (ora dell'ultima scrittura, ora di creazione, bit degli attributi) tra le risorse in grado di riconoscere SMB (Windows e File di Azure).Questo flag si applica sia a file che a cartelle, a meno che non sia specificato un filtro di solo file (ad esempio, include-pattern).Le informazioni trasferite per le cartelle sono identiche a quelle dei file, ad eccezione dell'ora dell'ultima scrittura non conservate per le cartelle.
+
+**--Preserve-SMB-autorizzazioni**     False per impostazione predefinita.Conserva gli ACL SMB tra le risorse compatibili (Windows e File di Azure).Questo flag si applica a file e cartelle, a meno che non sia specificato un filtro di solo file (ad esempio,  `include-pattern` ).
 
 **--put-MD5**     Creare un hash MD5 di ogni file e salvare l'hash come proprietà Content-MD5 del BLOB o del file di destinazione. Per impostazione predefinita, l'hash non viene creato. Disponibile solo durante il caricamento.
 

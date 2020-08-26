@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 1dd38f0360a4471124497d8357481283cd98383c
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 1bd3cb1c18d1bac078ac1344f574914dba73d07b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566302"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871565"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
@@ -48,7 +48,7 @@ I connettori sono disponibili come trigger e azioni predefiniti o come connettor
 
   I connettori sono classificati come standard o Enterprise. I [connettori aziendali](#enterprise-connectors) forniscono l'accesso ai sistemi aziendali, ad esempio SAP, IBM mq e IBM 3270, per un costo aggiuntivo. Per determinare se un connettore è standard o Enterprise, vedere i dettagli tecnici nella pagina di riferimento di ogni connettore in [Panoramica dei connettori](/connectors).
 
-  È anche possibile identificare i connettori usando queste categorie, sebbene alcuni connettori possano incrociare più categorie. Ad esempio, SAP è un connettore aziendale e un connettore locale:
+  È anche possibile identificare i connettori usando queste categorie, anche se alcuni connettori possono esistere in più categorie. Ad esempio, SAP è un connettore aziendale e un connettore locale:
 
   | Category | Descrizione |
   |----------|-------------|
@@ -68,7 +68,7 @@ Per le app per la logica che richiedono l'accesso diretto alle risorse in una re
 
 | Etichetta | Esempio | Descrizione |
 |-------|---------|-------------|
-| **CORE** | ![Connettore ISE di esempio](./media/apis-list/example-core-connector.png) | I trigger e le azioni predefiniti con questa etichetta vengono eseguiti nello stesso ISE delle app per la logica. |
+| **CORE** | ![Connettore di base di esempio](./media/apis-list/example-core-connector.png) | I trigger e le azioni predefiniti con questa etichetta vengono eseguiti nello stesso ISE delle app per la logica. |
 | **ISE** | ![Connettore ISE di esempio](./media/apis-list/example-ise-connector.png) | I connettori gestiti con questa etichetta vengono eseguiti nello stesso ISE delle app per la logica. Se si dispone di un sistema locale connesso a una rete virtuale di Azure, ISE consente alle app per la logica di accedere direttamente a tale sistema senza il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md). È invece possibile usare il connettore **ISE** del sistema, se disponibile, un'azione http o un [connettore personalizzato](#custom). Per i sistemi locali che non dispongono di connettori **ISE** , usare il gateway dati locale. Per esaminare i connettori ISE disponibili, vedere [connettori ISE](#ise-connectors). |
 | Nessuna etichetta | ![Connettore multi-tenant di esempio](./media/apis-list/example-multi-tenant-connector.png) | Tutti gli altri connettori senza l'etichetta **Core** o **ISE** , che è possibile continuare a usare, vengono eseguiti nel servizio app per la logica globale multi-tenant. |
 |||
@@ -81,13 +81,13 @@ App per la logica fornisce trigger e azioni predefiniti che consentono di creare
 
 | Nome | Descrizione |
 |------|-------------|
-| [![Icona API ][schedule-icon]<br> **pianificazione**][schedule-doc] | -Eseguire un'app per la logica in una ricorrenza specificata, da pianificazioni di base a avanzate con il trigger di [ **ricorrenza** ][schedule-recurrence-doc]. <br>-Eseguire un'app per la logica che deve gestire i dati in blocchi continui con il trigger della [ **finestra temporale scorrevole** ][schedule-sliding-window-doc]. <br>-Sospendere l'app per la logica per una durata specificata con l'azione di [ **ritardo** ][schedule-delay-doc]. <br>-Sospendere l'app per la logica fino alla data e all'ora specificate con il [ **ritardo fino** all'azione][schedule-delay-until-doc]. |
-| [![Icona API ][batch-icon]<br> **batch**][batch-doc] | - Elaborare i messaggi in batch con il trigger **Messaggi batch**. <br>- Richiamare le app per la logica con trigger di batch esistenti tramite l'azione **Invia messaggi al batch**. |
-| [![Icona API ][http-icon]<br> **http**][http-doc] | Chiamare endpoint HTTP o HTTPS con trigger e azioni per HTTP. Altri trigger e azioni predefiniti HTTP includono [http + spavalderia][http-swagger-doc] e [http + webhook][http-webhook-doc]. |
-| [![][http-request-icon]<br>**Richiesta** icona API][http-request-doc] | - Rendere l'app per la logica richiamabile da altre app o servizi, attiva gli eventi delle risorse della griglia di eventi o attiva le risposte agli avvisi di Centro sicurezza con il pulsante **Richiesta**. <br>- Inviare risposte a un'app o a un servizio con l'azione **Risposta**. |
-| [![Icona API ][azure-api-management-icon]<br> ** <br> gestione API di Azure**][azure-api-management-doc] | Richiamare trigger e azioni definite dalle proprie API che vengono gestite e pubblicate con Azure API Management. |
-| [![Icona API ][azure-app-services-icon]<br> **app Azure <br> Services**][azure-app-services-doc] | Chiamare l'App per le API Azure o le app Web, ospitato nel servizio App di Azure. I trigger e le azioni definiti da queste app appaiono come qualsiasi altro trigger e azione di prima classe quando Swagger è incluso. |
-| [![Icona API ][azure-logic-apps-icon]<br> ** <br> app** per la logica di Azure][nested-logic-app-doc] | Chiamare altre app per la logica che iniziano con il trigger di **richiesta** . |
+| [![Pianificare la pianificazione del connettore ][schedule-icon]<br> **Schedule** predefinito][schedule-doc] | -Eseguire un'app per la logica in una ricorrenza specificata, da pianificazioni di base a avanzate con il trigger di [ **ricorrenza** ][schedule-recurrence-doc]. <br>-Eseguire un'app per la logica che deve gestire i dati in blocchi continui con il trigger della [ **finestra temporale scorrevole** ][schedule-sliding-window-doc]. <br>-Sospendere l'app per la logica per una durata specificata con l'azione di [ **ritardo** ][schedule-delay-doc]. <br>-Sospendere l'app per la logica fino alla data e all'ora specificate con il [ **ritardo fino** all'azione][schedule-delay-until-doc]. |
+| [![Batch connettore incorporato batch ][batch-icon]<br> **Batch**][batch-doc] | - Elaborare i messaggi in batch con il trigger **Messaggi batch**. <br>- Richiamare le app per la logica con trigger di batch esistenti tramite l'azione **Invia messaggi al batch**. |
+| [![][http-icon]<br>**HTTP** HTTP connettore incorporato http][http-doc] | Chiamare endpoint HTTP o HTTPS con trigger e azioni per HTTP. Altri trigger e azioni predefiniti HTTP includono [connettore predefinito http + spavalderia][http-swagger-doc] e [http + webhook][http-webhook-doc]. |
+| [![][http-request-icon]<br>**Request** Richiedi richiesta connettore incorporata][http-request-doc] | - Rendere l'app per la logica richiamabile da altre app o servizi, attiva gli eventi delle risorse della griglia di eventi o attiva le risposte agli avvisi di Centro sicurezza con il pulsante **Richiesta**. <br>- Inviare risposte a un'app o a un servizio con l'azione **Risposta**. |
+| [![Gestione API di Azure connettore incorporato di gestione API di Azure ][azure-api-management-icon]<br> ** <br> **][azure-api-management-doc] | Richiamare trigger e azioni definite dalle proprie API che vengono gestite e pubblicate con Azure API Management. |
+| [![][azure-app-services-icon]<br>** <br> Servizi di app Azure** del connettore incorporato app Azure Services][azure-app-services-doc] | Chiamare l'App per le API Azure o le app Web, ospitato nel servizio App di Azure. I trigger e le azioni definiti da queste app appaiono come qualsiasi altro trigger e azione di prima classe quando Swagger è incluso. |
+| [![App per la logica di Azure connettore integrato app per la logica di Azure ][azure-logic-apps-icon]<br> ** <br> **][nested-logic-app-doc] | Chiamare altre app per la logica che iniziano con il trigger di **richiesta** . |
 |||
 
 ### <a name="run-code-from-logic-apps"></a>Eseguire codice da app per la logica
@@ -96,8 +96,8 @@ App per la logica offre azioni predefinite per l'esecuzione di codice personaliz
 
 | Nome | Descrizione |
 |------|-------------|
-| [![Icona API ][azure-functions-icon]<br> **funzioni di Azure**][azure-functions-doc] | Richiamare le funzioni Azure che eseguono frammenti di codice personalizzati (C# o Node.js) dalle app per la logica. |
-| [![Icona API ][inline-code-icon]<br> **codice inline**][inline-code-doc] | Aggiungere ed eseguire frammenti di codice JavaScript dalle app per la logica. |
+| [![][azure-functions-icon]<br>**Funzioni di Azure** Connector predefinite di funzioni di Azure][azure-functions-doc] | Richiamare le funzioni Azure che eseguono frammenti di codice personalizzati (C# o Node.js) dalle app per la logica. |
+| [![][inline-code-icon]<br>Codice inline connettore incorporato**del codice** inline][inline-code-doc] | Aggiungere ed eseguire frammenti di codice JavaScript dalle app per la logica. |
 |||
 
 ### <a name="control-workflow"></a>Controllare il flusso di lavoro
@@ -106,12 +106,12 @@ App per la logica offre azioni predefinite per la strutturazione e il controllo 
 
 | Nome | Descrizione |
 |------|-------------|
-| [![][condition-icon]<br>**Condizione** icona predefinita][condition-doc] | Valutare una condizione ed eseguire diverse azioni in base al fatto che la condizione sia true o false. |
-| [![Icona predefinita ][for-each-icon]<br> **per ogni**][for-each-doc] | Eseguire le stesse azioni su ogni elemento in una matrice. |
-| [![Ambito dell'icona predefinito ][scope-icon]<br> **Scope**][scope-doc] | Raggruppare le azioni in *ambiti*, che ottengono un proprio stato al termine delle azioni nell'ambito. |
-| [![][switch-icon]<br>**Opzione** icona predefinita][switch-doc] | Raggruppare le azioni in *case*, ai quali vengono assegnati valori univoci ad eccezione del case predefinito. Eseguire solo il case il cui valore assegnato corrisponde al risultato di un'espressione, oggetto o token. Se non è presente alcuna corrispondenza, eseguire il case predefinito. |
-| [![][terminate-icon]<br>**Terminazione** icona incorporata][terminate-doc] | Arrestare un flusso di lavoro di un'applicazione logica in esecuzione attiva. |
-| [![Icona predefinita ][until-icon]<br> **fino a**][until-doc] | Ripetere azioni fino a quando non viene soddisfatta la condizione specificata o è stato modificato uno stato. |
+| [![Condizione di azione incorporata ][condition-icon]<br> **della condizione**][condition-doc] | Valutare una condizione ed eseguire diverse azioni in base al fatto che la condizione sia true o false. |
+| [![Per ogni azione predefinita ][for-each-icon]<br> **per ogni** azione][for-each-doc] | Eseguire le stesse azioni su ogni elemento in una matrice. |
+| [![][scope-icon]<br>**Scope** Ambito azione predefinito ambito][scope-doc] | Raggruppare le azioni in *ambiti*, che ottengono un proprio stato al termine delle azioni nell'ambito. |
+| [![][switch-icon]<br>**Switch** Switch azione incorporata][switch-doc] | Raggruppare le azioni in *case*, ai quali vengono assegnati valori univoci ad eccezione del case predefinito. Eseguire solo il case il cui valore assegnato corrisponde al risultato di un'espressione, oggetto o token. Se non è presente alcuna corrispondenza, eseguire il case predefinito. |
+| [![Termina azione predefinita ][terminate-icon]<br> **termina**][terminate-doc] | Arrestare un flusso di lavoro di un'applicazione logica in esecuzione attiva. |
+| [![Fino all'azione predefinita ][until-icon]<br> **fino** a][until-doc] | Ripetere azioni fino a quando non viene soddisfatta la condizione specificata o è stato modificato uno stato. |
 |||
 
 ### <a name="manage-or-manipulate-data"></a>Gestire o manipolare i dati
@@ -120,9 +120,9 @@ App per la logica offre azioni predefinite per l'uso degli output dei dati e dei
 
 | Nome | Descrizione |
 |------|-------------|
-| [![][data-operations-icon]<br>**Operazioni dati** icona predefinite][data-operations-doc] | Eseguire operazioni con i dati: <p>- **Componi**: crea un singolo output da più input con tipi diversi. <br>- **Crea tabella CSV**: creare una tabella CSV (valore separato da virgole) da una matrice con oggetti JSON. <br>- **Crea tabella HTML**: crea una tabella HTML da una matrice di oggetti JSON. <br>- **Filtra matrice**: creare una matrice da elementi di un'altra matrice che soddisfano i criteri specificati. <br>- **Join**: crea una stringa da tutti gli elementi in una matrice e separa gli elementi con il delimitatore specificato. <br>- **Parse JSON**: creare token semplici da proprietà e i relativi valori nel contenuto JSON in modo che sia possibile usare tali proprietà nel flusso di lavoro. <br>- **Seleziona**: crea una matrice con oggetti JSON trasformando elementi o valori in un’altra matrice ed eseguendo il mapping di tali elementi per proprietà specifiche. |
-| ![Icona predefinita][date-time-icon]<br>**Data/ora** | Eseguire operazioni con i timestamp: <p>- **Aggiungi a time**: aggiunge il numero di unità specificato a un timestamp. <br>- **Converti fuso orario**: converte un timestamp dal fuso orario di origine al fuso orario di destinazione. <br>- **Tempo corrente**: restituisce il timestamp corrente come stringa. <br>- **Recupera time futuro**: restituisce il timestamp corrente più le unità di tempo specificate. <br>- **Recupera time passato**: restituisce il timestamp corrente meno le unità di tempo specificate. <br>- **Sottrai da time**: sottrae un numero di unità di tempo da un timestamp. |
-| [![Variabili di icona predefinite ][variables-icon]<br> **Variables**][variables-doc] | Eseguire operazioni con le variabili: <p>- **Accoda a variabile di matrice**: inserisce un valore come l'ultimo elemento nella matrice memorizzato da una variabile. <br>- **Accoda a variabile di stringa**: inserire un valore come l'ultimo carattere in una stringa archiviata da una variabile. <br>- **Decrementa variabile**: riduce una variabile di un valore costante. <br>- **Incrementa variabile**: aumenta una variabile di un valore costante. <br>- **Inizializza variabile**: crea una variabile e dichiara il tipo di dati e il valore iniziale. <br>- **Imposta variabile**: assegna un valore diverso ad una variabile esistente. |
+| [![][data-operations-icon]<br>**Operazioni sui dati** di azione predefinite delle operazioni dati][data-operations-doc] | Eseguire operazioni con i dati: <p>- **Componi**: crea un singolo output da più input con tipi diversi. <br>- **Crea tabella CSV**: creare una tabella CSV (valore separato da virgole) da una matrice con oggetti JSON. <br>- **Crea tabella HTML**: crea una tabella HTML da una matrice di oggetti JSON. <br>- **Filtra matrice**: creare una matrice da elementi di un'altra matrice che soddisfano i criteri specificati. <br>- **Join**: crea una stringa da tutti gli elementi in una matrice e separa gli elementi con il delimitatore specificato. <br>- **Parse JSON**: creare token semplici da proprietà e i relativi valori nel contenuto JSON in modo che sia possibile usare tali proprietà nel flusso di lavoro. <br>- **Seleziona**: crea una matrice con oggetti JSON trasformando elementi o valori in un’altra matrice ed eseguendo il mapping di tali elementi per proprietà specifiche. |
+| ![Azione predefinita data/ora][date-time-icon]<br>**Data/ora** | Eseguire operazioni con i timestamp: <p>- **Aggiungi a time**: aggiunge il numero di unità specificato a un timestamp. <br>- **Converti fuso orario**: converte un timestamp dal fuso orario di origine al fuso orario di destinazione. <br>- **Tempo corrente**: restituisce il timestamp corrente come stringa. <br>- **Recupera time futuro**: restituisce il timestamp corrente più le unità di tempo specificate. <br>- **Recupera time passato**: restituisce il timestamp corrente meno le unità di tempo specificate. <br>- **Sottrai da time**: sottrae un numero di unità di tempo da un timestamp. |
+| [![Variabili di azione predefinite delle ][variables-icon]<br> **variabili**][variables-doc] | Eseguire operazioni con le variabili: <p>- **Accoda a variabile di matrice**: inserisce un valore come l'ultimo elemento nella matrice memorizzato da una variabile. <br>- **Accoda a variabile di stringa**: inserire un valore come l'ultimo carattere in una stringa archiviata da una variabile. <br>- **Decrementa variabile**: riduce una variabile di un valore costante. <br>- **Incrementa variabile**: aumenta una variabile di un valore costante. <br>- **Inizializza variabile**: crea una variabile e dichiara il tipo di dati e il valore iniziale. <br>- **Imposta variabile**: assegna un valore diverso ad una variabile esistente. |
 |||
 
 <a name="managed-api-connectors"></a>
@@ -133,18 +133,18 @@ App per la logica fornisce questi comuni connettori standard per l'automazione d
 
 | Nome | Descrizione |
 |------|-------------|
-| [![Icona API ][azure-service-bus-icon]<br> **bus di servizio di Azure**][azure-service-bus-doc] | Gestire i messaggi asincroni, le sessioni e le sottoscrizioni agli argomenti con il connettore più utilizzato nelle app per la logica. |
-| [![Icona API ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Connettersi al SQL Server locale o a un database SQL di Azure nel cloud per poter gestire i record, eseguire stored procedure o eseguire query. |
-| [![Icona API ][azure-blob-storage-icon]<br> ** <br> archiviazione BLOB di Azure**][azure-blob-storage-doc] | Connettersi all'account di archiviazione in modo che sia possibile creare e gestire il contenuto BLOB. |
-| [![Icona API ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Connettersi all'account di posta elettronica di Office 365 per poter creare e gestire messaggi di posta elettronica, attività, eventi del calendario e riunioni, contatti, richieste e altro ancora. |
-| [![Icona API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Connettersi ai server SFTP a cui è possibile accedere da Internet usando SSH per poter usare i file e le cartelle. |
-| [![Icona API ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Connettersi a SharePoint online in modo da poter gestire file, allegati, cartelle e altro ancora. |
-| [![Icona API ][azure-queues-icon]<br> ** <br> code di Azure**][azure-queues-doc] | Connettersi all'account di archiviazione di Azure in modo che sia possibile creare e gestire code e messaggi. |
-| [![Icona API ][ftp-icon]<br> **FTP**][ftp-doc] | Connettersi ai server FTP a cui è possibile accedere da Internet in modo da poter usare i file e le cartelle. |
-| [![Icona API ][file-system-icon]<br> **file <br> System**][file-system-doc] | Connettersi alla condivisione file locale in modo da poter creare e gestire i file. |
-| [![Icona API ][azure-event-hubs-icon]<br> **Hub eventi di Azure**][azure-event-hubs-doc] | Utilizzare e pubblicare eventi tramite un hub eventi. È ad esempio possibile ottenere output dall'app per la logica con gli hub eventi e quindi inviare questo output a un provider di analisi in tempo reale. |
-| [![Icona API ][azure-event-grid-icon]<br> griglia di**eventi di Azure** <br> **Grid**][azure-event-grid-doc] | Monitorare gli eventi pubblicati dalla griglia di eventi, ad esempio, quando le risorse di Azure o le risorse di terze parti vengono modificate. |
-| [![Icona API ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Connettersi all'account di Salesforce per poter creare e gestire elementi quali record, processi, oggetti e altro ancora. |
+| [![Connettore gestito del bus di servizio di Azure- ][azure-service-bus-icon]<br> **bus di servizio di Azure**][azure-service-bus-doc] | Gestire i messaggi asincroni, le sessioni e le sottoscrizioni agli argomenti con il connettore più utilizzato nelle app per la logica. |
+| [![SQL Server SQL Server Connector ][sql-server-icon]<br> **SQL Server** gestito][sql-server-doc] | Connettersi al SQL Server locale o a un database SQL di Azure nel cloud per poter gestire i record, eseguire stored procedure o eseguire query. |
+| [![Connettore gestito di archiviazione BLOB di Azure ][azure-blob-storage-icon]<br> ** <br> archiviazione BLOB di Azure**][azure-blob-storage-doc] | Connettersi all'account di archiviazione in modo che sia possibile creare e gestire il contenuto BLOB. |
+| [![Office 365 Outlook Managed Connector Office ][office-365-outlook-icon]<br> **365 <br> Outlook**][office-365-outlook-doc] | Connettersi all'account di posta elettronica di Office 365 per poter creare e gestire messaggi di posta elettronica, attività, eventi del calendario e riunioni, contatti, richieste e altro ancora. |
+| [![SFTP: connettore gestito SSH ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Connettersi ai server SFTP a cui è possibile accedere da Internet usando SSH per poter usare i file e le cartelle. |
+| [![Connettore gestito SharePoint Online ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Connettersi a SharePoint online in modo da poter gestire file, allegati, cartelle e altro ancora. |
+| [![Code di Azure connettore gestito code di ][azure-queues-icon]<br> **Azure <br> **][azure-queues-doc] | Connettersi all'account di archiviazione di Azure in modo che sia possibile creare e gestire code e messaggi. |
+| [![FTP connettore FTP ][ftp-icon]<br> **FTP** gestito][ftp-doc] | Connettersi ai server FTP a cui è possibile accedere da Internet in modo da poter usare i file e le cartelle. |
+| [![File System del connettore gestito dal file System ][file-system-icon]<br> ** <br> **][file-system-doc] | Connettersi alla condivisione file locale in modo da poter creare e gestire i file. |
+| [![][azure-event-hubs-icon]<br>**Hub eventi di Azure** connettore gestito Hub eventi di Azure][azure-event-hubs-doc] | Utilizzare e pubblicare eventi tramite un hub eventi. È ad esempio possibile ottenere output dall'app per la logica con gli hub eventi e quindi inviare questo output a un provider di analisi in tempo reale. |
+| [![Griglia di ][azure-event-grid-icon]<br> **eventi di Azure** <br> **Grid** connettore gestito griglia di eventi di Azure][azure-event-grid-doc] | Monitorare gli eventi pubblicati dalla griglia di eventi, ad esempio, quando le risorse di Azure o le risorse di terze parti vengono modificate. |
+| [![Salesforce Managed Connector Salesforce ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Connettersi all'account di Salesforce per poter creare e gestire elementi quali record, processi, oggetti e altro ancora. |
 |||
 
 <a name="on-premises-connectors"></a>
@@ -155,38 +155,38 @@ Di seguito sono riportati alcuni connettori standard usati comunemente dalle app
 
 :::row:::
     :::column:::
-        [![Icona API ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc]
+        [![Connettore BizTalk Server ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][file-system-icon]<br> **file <br> System**][file-system-doc]
+        [![][file-system-icon]<br>**File <br> System** del connettore del file System][file-system-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+        [![Connettore DB2 ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icona API ][mysql-icon]<br> **MySQL**][mysql-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][sharepoint-server-icon]<br> **SharePoint <br> server**][sharepoint-server-doc]
+        [![Connettore Informix ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icona API ][sql-server-icon]<br> **SQL <br> server**][sql-server-doc]
+        [![MySQL Connector ][mysql-icon]<br> **MySQL**][mysql-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][teradata-icon]<br> **Teradata**][teradata-doc]
+        [![Connettore Oracle DB ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc]
+    :::column-end:::
+    :::column:::
+        [![PostgreSQL Connector ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc]
+    :::column-end:::
+    :::column:::
+        [![][sharepoint-server-icon]<br>** <br> Server SharePoint** del connettore SharePoint Server][sharepoint-server-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Connettore SQL Server ][sql-server-icon]<br> **SQL <br> server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![][teradata-icon]<br>**Teradata** Teradata connettore Teradata][teradata-doc]
     :::column-end:::
     :::column:::
         
@@ -204,44 +204,44 @@ App per la logica offre connettori standard per la creazione di soluzioni busine
 
 :::row:::
     :::column:::
-        [![Icona API ][as2-icon]<br> ** <br> decodifica AS2**][as2-doc]
+        [![][as2-icon]<br>Decodifica AS2 azione di**decodifica <br> AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][as2-icon]<br> ** <br> codifica AS2**][as2-doc]
+        [![][as2-icon]<br>** <br> Codifica AS2** azione di codifica AS2][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][edifact-icon]<br> ** <br> decodifica EDIFACT**][edifact-decode-doc]
+        [![Decodifica EDIFACT azione ][edifact-icon]<br> **EDIFACT <br> ** decodifica][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][edifact-icon]<br> ** <br> codifica EDIFACT**][edifact-encode-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icona API ][flat-file-decode-icon]<br> ** <br> decodifica file flat**][flat-file-decode-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][flat-file-encode-icon]<br> ** <br> codifica file flat**][flat-file-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][integration-account-icon]<br> ** <br> account di integrazione**][integration-account-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][liquid-icon]<br> **Liquid** <br> **trasformazioni** Liquid][json-liquid-transform-doc]
+        [![][edifact-icon]<br>** <br> Codifica EDIFACT** azione di codifica EDIFACT][edifact-encode-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icona API ][x12-icon]<br> ** <br> decodifica X12**][x12-decode-doc]
+        [![Decodifica ][flat-file-decode-icon]<br> **file flat <br> ** azione di decodifica file flat][flat-file-decode-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][x12-icon]<br> ** <br> codifica X12**][x12-encode-doc]
+        [![Codifica file flat azione di codifica file flat ][flat-file-encode-icon]<br> ** <br> **][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][xml-transform-icon]<br> **XML** <br> **trasformazioni** XML][xml-transform-doc]
+        [![][integration-account-icon]<br>** <br> Account di integrazione** dell'azione dell'account di integrazione][integration-account-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][xml-validate-icon]<br> ** <br> convalida XML**][xml-validate-doc]
+        [![Trasformazione Liquid trasforma le ][liquid-icon]<br> **Liquid** <br> **trasformazioni** liquide][json-liquid-transform-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Decodifica X12 azione ][x12-icon]<br> **X12 <br> decodifica**][x12-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Codifica X12 azione di codifica X12 ][x12-icon]<br> ** <br> **][x12-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![Trasformazioni XML dell'azione trasformazioni ][xml-transform-icon]<br> **XML** <br> **transforms**][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![Convalida XML dell'azione di convalida XML ][xml-validate-icon]<br> ** <br> **][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -253,13 +253,13 @@ App per la logica fornisce questi connettori aziendali per l'accesso ai sistemi 
 
 :::row:::
     :::column:::
-        [![Icona API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+        [![Connettore IBM 3270 ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][ibm-mq-icon]<br> **IBM mq**][ibm-mq-doc]
+        [![Connettore MQ ][ibm-mq-icon]<br> **IBM mq**][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][sap-icon]<br> **SAP**][sap-connector-doc]
+        [![SAP Connector ][sap-icon]<br> **SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
         
@@ -274,86 +274,86 @@ Per le app per la logica create ed eseguite in un [ambiente di Integration Servi
 
 :::row:::
     :::column:::
-        [![Icona API ][as2-icon]<br> **AS2**][as2-doc]
+        [![Connettore AS2 ISE ][as2-icon]<br> **AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][azure-automation-icon]<br> ** <br> automazione di Azure**][azure-automation-doc]
+        [![Azure Automation ISE connettore ][azure-automation-icon]<br> ** <br> automazione di Azure**][azure-automation-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][azure-blob-storage-icon]<br> ** <br> archiviazione BLOB di Azure**][azure-blob-storage-doc]
+        [![Archiviazione BLOB di Azure connettore ISE archiviazione ][azure-blob-storage-icon]<br> **BLOB di Azure <br> **][azure-blob-storage-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icona API ][azure-event-hubs-icon]<br> ** <br> Hub eventi di Azure**][azure-event-hubs-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][azure-event-grid-icon]<br> ** <br> griglia di eventi di Azure**][azure-event-grid-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][azure-file-storage-icon]<br> ** <br> archiviazione file di Azure**][azure-file-storage-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][azure-key-vault-icon]<br> **Azure Key <br> Vault**][azure-key-vault-doc]
+        [![Connettore Azure Cosmos DB ISE ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icona API ][azure-monitor-logs-icon]<br> ** <br> log di monitoraggio di Azure**][azure-monitor-logs-doc]
+        [![Hub eventi di Azure connettore ISE ][azure-event-hubs-icon]<br> ** <br> Hub eventi di Azure**][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][azure-service-bus-icon]<br> ** <br> bus di servizio di Azure**][azure-service-bus-doc]
+        [![Griglia di eventi di Azure ][azure-event-grid-icon]<br> connettore griglia di eventi di** <br> Azure**][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][azure-sql-data-warehouse-icon]<br> **Azure SQL data <br> Warehouse**][azure-sql-data-warehouse-doc]
+        [![Archiviazione file di Azure connettore ISE ][azure-file-storage-icon]<br> ** <br> archiviazione file di Azure**][azure-file-storage-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][azure-table-storage-icon]<br> ** <br> archiviazione tabelle di Azure**][azure-table-storage-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Icona API ][azure-queues-icon]<br> ** <br> code di Azure**][azure-queues-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][edifact-icon]<br> **EDIFACT**][edifact-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][file-system-icon]<br> **file <br> System**][file-system-doc]
-    :::column-end:::
-    :::column:::
-        [![Icona API ][ftp-icon]<br> **FTP**][ftp-doc]
+        [![Connettore Azure Key Vault ISE ][azure-key-vault-icon]<br> **Azure Key <br> Vault**][azure-key-vault-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icona API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+        [![Monitoraggio di Azure log del connettore ISE ][azure-monitor-logs-icon]<br> ** <br> log di monitoraggio di Azure**][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+        [![Connettore ISE del bus di ][azure-service-bus-icon]<br> **servizio <br> ** di Azure][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][ibm-mq-icon]<br> **IBM mq**][ibm-mq-doc]
+        [![Connettore Azure SQL Data Warehouse ISE ][azure-sql-data-warehouse-icon]<br> **Azure SQL data <br> Warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][sap-icon]<br> **SAP**][sap-connector-doc]
+        [![Archiviazione tabelle di Azure connettore ISE ][azure-table-storage-icon]<br> ** <br> archiviazione tabelle di Azure**][azure-table-storage-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Icona API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc]
+        [![Code di Azure connettore ISE- ][azure-queues-icon]<br> ** <br> code di Azure**][azure-queues-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][smtp-icon]<br> **SMTP**][smtp-doc]
+        [![Connettore EDIFACT EDIFACT ][edifact-icon]<br> **EDIFACT**][edifact-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][sql-server-icon]<br> **SQL <br> server**][sql-server-doc]
+        [![File System ISE Connector file ][file-system-icon]<br> ** <br> System**][file-system-doc]
     :::column-end:::
     :::column:::
-        [![Icona API ][x12-icon]<br> **X12**][x12-doc]
+        [![FTP connettore FTP ][ftp-icon]<br> **FTP** ISE][ftp-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Connettore IBM 3270 ISE ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![Connettore DB2 ISE ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![Connettore MQ ISE ][ibm-mq-icon]<br> **IBM mq**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![SAP ISE Connector ][sap-icon]<br> **SAP**][sap-connector-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![SFTP-SSH ISE Connector ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc]
+    :::column-end:::
+    :::column:::
+        [![SMTP connettore SMTP ][smtp-icon]<br> **SMTP** ISE][smtp-doc]
+    :::column-end:::
+    :::column:::
+        [![][sql-server-icon]<br>**SQL <br> server** connettore SQL Server ISE][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Connettore X12 ISE ][x12-icon]<br> **X12**][x12-doc]
     :::column-end:::
 :::row-end:::
 
@@ -410,7 +410,7 @@ Se l'organizzazione non consente la connessione a risorse specifiche usando i co
 
 ## <a name="get-ready-for-deployment"></a>Prepararsi alla distribuzione
 
-Anche se si creano connessioni dall'interno di un'app per la logica, le connessioni sono risorse di Azure separate con le proprie definizioni di risorse. Per esaminare queste definizioni delle risorse di connessione, è possibile [ispezionare il gruppo di risorse per l'app per la logica usando il portale di Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#view-resource-definitions) o scaricare l'app per la [logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è principalmente pronto per la distribuzione.
+Anche se si creano connessioni dall'interno di un'app per la logica, le connessioni sono risorse di Azure separate con le proprie definizioni di risorse. Per esaminare queste definizioni delle risorse di connessione, [scaricare l'app per la logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è prevalentemente pronto per la distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -574,7 +574,7 @@ Anche se si creano connessioni dall'interno di un'app per la logica, le connessi
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Inviare messaggi da code e argomenti del bus di servizio e ricevere messaggi da code e sottoscrizioni del bus di servizio"
 [azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connettersi a Azure SQL Data Warehouse in modo che sia possibile visualizzare i dati"
 [azure-table-storage-doc]: /connectors/azuretables/ "Connettersi all'account di archiviazione di Azure in modo che sia possibile creare, aggiornare ed eseguire query sulle tabelle e altro ancora"
-[biztalk-server-doc]: /connectors/biztalk/ "Connettersi al BizTalk Server in modo che sia possibile eseguire applicazioni basate su BizTalk side-by-side con le app per la logica di Azure"
+[biztalk-server-doc]: /connectors/biztalk/ "Connettersi alla BizTalk Server in modo che sia possibile eseguire applicazioni basate su BizTalk affiancate ad app per la logica di Azure"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connettersi a un file system locale"
 [ftp-doc]: ./connectors-create-api-ftp.md "Connettersi a un server FTP/FTPS ed eseguire diverse attività FTP, come caricare, recuperare ed eliminare file e altro ancora"
 [github-doc]: ./connectors-create-api-github.md "Connettersi a GitHub e tenere traccia dei problemi"

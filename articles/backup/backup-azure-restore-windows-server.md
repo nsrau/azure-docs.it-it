@@ -3,12 +3,12 @@ title: Ripristinare i file in Windows Server con l'agente di Servizi di ripristi
 description: Questo articolo illustra come ripristinare i dati archiviati in Azure in un computer Windows Server o Windows con l'agente di Servizi di ripristino di Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e5158681971c5c10e813187fedb61bc0022ee9e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 78663edadfdef581dbdd259882a6dd4afe5a4b0b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827070"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871259"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Ripristinare i file in Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -50,7 +50,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
    > L'opzione per ripristinare singoli file e cartelle richiede .NET Framework versione 4.5.2 o successiva. Se non viene visualizzata l'opzione **singoli file e cartelle** , è necessario aggiornare .NET Framework alla versione 4.5.2 o successiva e riprovare.
 
    > [!TIP]
-   > L'opzione **Individual files and folders** (Singoli file e cartelle) consente l'accesso rapido ai dati del punto di ripristino. È adatto per il ripristino di singoli file, con dimensioni totali non superiori a 80 GB, e offre velocità di trasferimento o copia fino a 6 MBps durante il ripristino. L'opzione **Volume** consente di ripristinare tutti i dati di cui è stato eseguito il backup in un volume specificato. Questa opzione offre velocità di trasferimento più veloci (fino a 40 MBps), ideale per il ripristino di dati di grandi dimensioni o interi volumi.
+   > L'opzione **Individual files and folders** (Singoli file e cartelle) consente l'accesso rapido ai dati del punto di ripristino. È adatto per il ripristino di singoli file ed è consigliato per una dimensione totale inferiore a 80 GB. Offre velocità di trasferimento o copia fino a 6 MBps durante il ripristino. L'opzione **Volume** consente di ripristinare tutti i dati di cui è stato eseguito il backup in un volume specificato. Questa opzione offre velocità di trasferimento più veloci (fino a 40 MBps) ed è consigliata per il ripristino di dati di grandi dimensioni o interi volumi.
 
 5. Nella pagina **Seleziona volume e data** selezionare il volume che contiene i file e le cartelle da ripristinare.
 

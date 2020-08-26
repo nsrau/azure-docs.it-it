@@ -4,12 +4,12 @@ description: Scenari, risorse e limitazioni per la distribuzione di gruppi di co
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: d904f1333ddf4b22bfca2546bd064b1ae8f299dd
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797862"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870766"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenari e risorse della rete virtuale
 
@@ -80,6 +80,7 @@ Nel diagramma seguente diversi gruppi di contenitori sono stati distribuiti in u
 * Per esempi di distribuzione con l'interfaccia della riga di comando di Azure, vedere [distribuire istanze di contenitore in una rete virtuale di Azure](container-instances-vnet.md).
 * Per distribuire una nuova rete virtuale, subnet, profilo di rete e gruppo di contenitori usando un modello di Resource Manager, vedere [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 ) (Creare un gruppo di contenitori di Azure con VNet).
+* Quando si usa il [portale di Azure](container-instances-quickstart-portal.md) per creare un'istanza di contenitore, è anche possibile specificare le impostazioni per una rete virtuale nuova o exsting nella scheda **rete** .
 
 
 <!-- IMAGES -->

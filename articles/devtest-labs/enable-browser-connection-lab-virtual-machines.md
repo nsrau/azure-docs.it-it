@@ -3,12 +3,12 @@ title: Abilitare la connessione del browser nelle macchine virtuali Azure DevTes
 description: DevTest Labs ora si integra con Azure Bastion, in qualità di proprietario del Lab, è possibile abilitare l'accesso a tutte le macchine virtuali del Lab tramite un browser.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c78b872855b3fe21f2cb41d394c599aeca7a790
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272352"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870494"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Abilitare la connessione del browser nelle macchine virtuali Azure DevTest Labs 
 DevTest Labs si integra con [Azure Bastion](../bastion/index.yml), che consente di connettersi alle macchine virtuali tramite un browser. Per prima cosa è necessario abilitare la connessione del browser nelle macchine virtuali del Lab.
@@ -19,14 +19,12 @@ In qualità di proprietario di un Lab, è possibile abilitare l'accesso a tutte 
 Questo articolo illustra come abilitare la connessione del browser nelle macchine virtuali del Lab.
 
 ## <a name="prerequisites"></a>Prerequisiti 
-Distribuire un host Bastion nella rete virtuale del lab esistente **(o)** connettere il Lab con una rete virtuale configurata con Bastion. 
-
-Per informazioni su come distribuire un host Bastion in una rete virtuale, vedere [creare un host Bastion di Azure](../bastion/bastion-create-host-portal.md). Quando si crea l'host Bastion, selezionare la rete virtuale del Lab. 
-
-In primo luogo, è necessario creare una seconda subnet nella rete virtuale Bastion poiché il AzureBastionSubnet non consente la creazione di risorse non bastione. 
+- Distribuire un host Bastion nella rete virtuale del lab esistente **(o)** connettere il Lab con una rete virtuale configurata con Bastion.
+Per informazioni su come distribuire un host Bastion in una rete virtuale, vedere  [creare un host Bastion di Azure](../bastion/bastion-create-host-portal.md). Quando si crea l'host Bastion, selezionare la rete virtuale del Lab. 
+- L'utente del lab deve avere un ruolo **lettore** nell'host Bastion e nella rete virtuale in cui è configurato il Bastion. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Creare una seconda rete secondaria nella rete virtuale Bastion
-Non è possibile creare macchine virtuali Lab in una subnet di Azure Bastion. Creare un'altra subnet all'interno della rete virtuale Bastion, come illustrato nella figura seguente:
+In primo luogo, è necessario creare una seconda subnet nella rete virtuale Bastion poiché il AzureBastionSubnet non consente la creazione di risorse non bastione. Creare un'altra subnet all'interno della rete virtuale Bastion, come illustrato nella figura seguente:
 
 ![Seconda subnet nella rete virtuale di Azure Bastion](./media/connect-virtual-machine-through-browser/second-subnet.png)
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-ms.date: 01/30/2019
-ms.openlocfilehash: f0bda1f4b9894b1ea5a68f44a728f715676d500e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 08/25/2020
+ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661147"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869118"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Pianificare gli eventi di manutenzione di Azure nel database SQL di Azure e in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,15 +29,15 @@ Per ogni database, il database SQL di Azure e Azure SQL Istanza gestita gestisco
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Esecuzione di un evento di manutenzione pianificata
 
-Le riconfigurazioni e i failover vengono in genere completati entro 30 secondi. La media è di 8 secondi. Se è già connessa, l'applicazione deve riconnettersi alla copia integra della nuova replica primaria del database. Se viene tentata una nuova connessione mentre il database è in fase di riconfigurazione prima che la nuova replica primaria sia online, viene ricevuto l'errore 40613 (database non disponibile): "il database ' {DatabaseName}' nel server ' {ServerName}' non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. Se nel database è presente una query con esecuzione prolungata, la query verrà interrotta durante una riconfigurazione e sarà necessario riavviarla.
+L'evento di manutenzione può produrre failover singoli o multipli, a seconda della costellazione delle repliche primarie e secondarie all'inizio dell'evento di manutenzione. In media, si verificano i failover 1,7 per ogni evento di manutenzione pianificata. Le riconfigurazioni e i failover vengono in genere completati entro 30 secondi. La media è di 8 secondi. Se è già connesso, l'applicazione deve riconnettersi alla nuova replica primaria del database. Se viene tentata una nuova connessione mentre il database è in fase di riconfigurazione prima che la nuova replica primaria sia online, viene ricevuto l'errore 40613 (database non disponibile): *"il database ' {DatabaseName}' nel server ' {ServerName}' non è attualmente disponibile. Ripetere la connessione in un secondo momento. "* Se nel database è presente una query con esecuzione prolungata, la query verrà interrotta durante una riconfigurazione e sarà necessario riavviarla.
+
+## <a name="how-to-simulate-a-planned-maintenance-event"></a>Come simulare un evento di manutenzione pianificata
+
+Assicurarsi che l'applicazione client sia resiliente agli eventi di manutenzione prima della distribuzione nell'ambiente di produzione contribuirà a ridurre il rischio di errori dell'applicazione e contribuirà alla disponibilità dell'applicazione per gli utenti finali. È possibile testare il comportamento dell'applicazione client durante gli eventi di manutenzione pianificata [avviando il failover manuale](https://aka.ms/mifailover-techblog) tramite PowerShell, l'interfaccia della riga di comando o l'API REST. Genererà un comportamento identico all'evento di manutenzione che porta la replica primaria offline.
 
 ## <a name="retry-logic"></a>Logica di retry
 
-Qualsiasi applicazione di produzione client che si connette a un servizio di database cloud dovrebbe implementare un'efficace [logica di ripetizione dei tentativi](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) di connessione. Ciò consente di ridurre queste situazioni e in genere dovrebbe rendere gli errori trasparenti per l'utente finale.
-
-## <a name="frequency"></a>Frequenza
-
-In media si verificano 1,7 eventi di manutenzione pianificata al mese.
+Qualsiasi applicazione di produzione client che si connette a un servizio di database cloud dovrebbe implementare un'efficace [logica di ripetizione dei tentativi](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) di connessione. Ciò consentirà di rendere i failover trasparenti agli utenti finali o almeno ridurre al minimo gli effetti negativi.
 
 ## <a name="resource-health"></a>Resource Health
 

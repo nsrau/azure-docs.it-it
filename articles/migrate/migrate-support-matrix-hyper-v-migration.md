@@ -3,12 +3,12 @@ title: Supporto per la migrazione di Hyper-V in Azure Migrate
 description: Informazioni sul supporto per la migrazione di Hyper-V con Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1ea7d139b3d3cc8c14e43ccfb7c233fcbe4c564c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122065"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871497"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matrice di supporto per la migrazione di Hyper-V
 
@@ -25,7 +25,7 @@ Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la mi
 | :-------------------       | :------------------- |
 | **Distribuzione**       | L'host Hyper-V può essere autonomo o distribuito in un cluster. <br/>Azure Migrate software di replica (provider di replica Hyper-V) viene installato negli host Hyper-V.|
 | **Autorizzazioni**           | Sono necessarie autorizzazioni di amministratore per l'host Hyper-V. |
-| **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2. |
+| **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 con gli aggiornamenti più recenti. Si noti che è supportata anche l'installazione dei componenti di base del server di questi sistemi operativi. |
 | **Accesso alla porta** |  Connessioni in uscita sulla porta HTTPS 443 per inviare i dati di replica della macchina virtuale.
 
 
@@ -34,11 +34,11 @@ Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la mi
 | **Supporto**                  | **Dettagli**               
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) supportati da Azure. |
-**Windows Server 2003** | Per le macchine virtuali che eseguono Windows Server 2003, è necessario [installare Hyper-V Integration Services](prepare-windows-server-2003-migration.md) prima della migrazione. | 
+**Windows Server 2003** | Per le macchine virtuali che eseguono Windows Server 2003, è necessario [installare Hyper-V Integration Services](prepare-windows-server-2003-migration.md) prima della migrazione. | 
 **VM Linux in Azure** | Alcune macchine virtuali potrebbero richiedere alcune modifiche per la corretta esecuzione in Azure.<br/><br/> Per Linux, Azure Migrate apporta automaticamente le modifiche per questi sistemi operativi:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. Per gli altri sistemi operativi apportare manualmente le [modifiche necessarie](prepare-for-migration.md#linux-machines) .
 | **Modifiche necessarie per Azure** | Alcune macchine virtuali potrebbero richiedere alcune modifiche per la corretta esecuzione in Azure. Apportare modifiche manualmente prima della migrazione. Gli articoli pertinenti contengono istruzioni su come eseguire questa operazione. |
 | **Avvio di Linux**                 | Se/boot si trova in una partizione dedicata, deve risiedere nel disco del sistema operativo e non essere distribuito tra più dischi.<br/> Se/boot fa parte della partizione radice (/), la partizione '/' deve trovarsi nel disco del sistema operativo e non si estende su altri dischi. |
-| **Avvio UEFI**                  | La macchina virtuale di cui è stata eseguita la migrazione in Azure verrà automaticamente convertita in una macchina virtuale di avvio BIOS. Nella macchina virtuale deve essere in esecuzione solo Windows Server 2012 e versioni successive. Il disco del sistema operativo deve avere fino a cinque partizioni o meno e la dimensione del disco del sistema operativo deve essere inferiore a 300 GB.|
+| **Avvio UEFI**                  | Supportata. Assicurarsi di selezionare le dimensioni della macchina virtuale supportate dalla VM di generazione 2 di Azure  |
 | **Dimensioni disco**                  | 2 TB per il disco del sistema operativo, 4 TB per i dischi dati.|
 | **Numero disco** | Un massimo di 16 dischi per macchina virtuale.|
 | **Dischi/volumi crittografati**    | Non supportato per la migrazione.|
@@ -47,8 +47,8 @@ Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la mi
 | **NFS**                        | I volumi NFS montati come volumi nelle macchine virtuali non verranno replicati.|
 | **ISCSI**                      | Le macchine virtuali con destinazioni iSCSI non sono supportate per la migrazione.
 | **Disco di destinazione**                | È possibile eseguire la migrazione solo a macchine virtuali di Azure con Managed Disks. |
-| **IPv6** | Non supportato.|
-| **Gruppo NIC** | Non supportato.|
+| **IPv6** | Non supportata.|
+| **Gruppo NIC** | Non supportata.|
 | **Azure Site Recovery** | Non è possibile eseguire la replica usando Azure Migrate migrazione del server se la macchina virtuale è abilitata per la replica con Azure Site Recovery.|
 | **Ports** | Connessioni in uscita sulla porta HTTPS 443 per inviare i dati di replica della macchina virtuale.|
 
@@ -89,11 +89,11 @@ Conteggio dischi del sistema operativo | 1 | Il controllo ha esito negativo se n
 Conteggio dischi dati | 16 o meno. | Il controllo ha esito negativo se non supportato.
 Dimensioni del disco dati | Fino a 4.095 GB | Il controllo ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede. |
-VHD condiviso | Non supportato. | Il controllo ha esito negativo se non supportato.
-Disco FC | Non supportato. | Il controllo ha esito negativo se non supportato.
-BitLocker | Non supportato. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
+VHD condiviso | Non supportata. | Il controllo ha esito negativo se non supportato.
+Disco FC | Non supportata. | Il controllo ha esito negativo se non supportato.
+BitLocker | Non supportata. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale. Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall**  >  **app consentite**per tutti i profili.<br/><br/> -Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md) |
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale. Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall**  >  **app consentite**per tutti i profili.<br/><br/> -Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md). |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/><br/> -Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/><br/> -Dopo la migrazione, nella macchina virtuale di Azure consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 ## <a name="next-steps"></a>Passaggi successivi

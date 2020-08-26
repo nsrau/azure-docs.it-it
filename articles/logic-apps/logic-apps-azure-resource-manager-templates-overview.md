@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 391692d708adbd542b2cf358f0ac597dc1db3fa0
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 9d3c5a914fe472dd7e4f797cb633e65951bf07e7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565554"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871463"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
@@ -269,17 +269,7 @@ Il modello include un `resources` oggetto, ovvero una matrice che contiene le de
 
 ### <a name="view-resource-definitions"></a>Visualizzare le definizioni delle risorse
 
-Per esaminare le definizioni di risorse per tutte le risorse in un gruppo di risorse di Azure, [scaricare l'app per la logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è prevalentemente pronto per la distribuzione oppure seguire questa procedura nel portale di Azure:
-
-1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
-
-1. Trovare il gruppo di risorse di Azure che contiene l'app per la logica, le connessioni e altre risorse.
-
-1. Nella barra degli strumenti del gruppo di risorse selezionare **Panoramica**, quindi selezionare tutte le risorse nel gruppo di risorse.
-
-1. Nella barra degli strumenti del gruppo di risorse, in **Impostazioni**, selezionare **Esporta modello**.
-
-   Il portale Mostra le definizioni per le risorse selezionate. Per ulteriori informazioni, vedere [esportazione a più risorse e una singola in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md).
+Per esaminare le definizioni di risorse per tutte le risorse in un gruppo di risorse di Azure, [scaricare l'app per la logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è prevalentemente pronto per la distribuzione.
 
 Per informazioni generali sulle risorse modello e sui relativi attributi, vedere gli argomenti seguenti:
 
@@ -335,7 +325,7 @@ La definizione di risorsa dell'app per la logica inizia con l' `properties` ogge
 
 Ecco gli attributi specifici della definizione di risorsa dell'app per la logica:
 
-| Attributo | Obbligatoria | Type | Descrizione |
+| Attributo | Obbligatorio | Tipo | Descrizione |
 |-----------|----------|------|-------------|
 | `state` | Sì | string | Lo stato dell'app per la logica in fase di distribuzione `Enabled` , dove indica che l'app per la logica è Live e `Disabled` indica che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare l' `Disabled` opzione. |
 | `integrationAccount` | No | Oggetto | Se l'app per la logica usa un account di integrazione che archivia gli artefatti per gli scenari business-to-business (B2B), questo oggetto include l' `id` attributo, che specifica l'ID dell'account di integrazione. |
@@ -584,7 +574,7 @@ Per ulteriori informazioni sui parametri di definizione del flusso di lavoro, ve
 
 ## <a name="connection-resource-definitions"></a>Definizioni delle risorse di connessione
 
-Quando l'app per la logica crea e usa le connessioni ad altri servizi e sistemi usando i [connettori gestiti](../connectors/apis-list.md), l'oggetto del modello `resources` contiene le definizioni delle risorse per tali connessioni.
+Quando l'app per la logica crea e usa le connessioni ad altri servizi e sistemi usando i [connettori gestiti](../connectors/apis-list.md), l'oggetto del modello `resources` contiene le definizioni delle risorse per tali connessioni. Anche se si creano connessioni dall'interno di un'app per la logica, le connessioni sono risorse di Azure separate con le proprie definizioni di risorse. Per esaminare queste definizioni delle risorse di connessione, [scaricare l'app per la logica da Azure in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), che rappresenta il modo più semplice per creare un modello di app per la logica con parametri valido che è prevalentemente pronto per la distribuzione.
 
 ```json
 {

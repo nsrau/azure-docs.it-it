@@ -3,16 +3,19 @@ title: Archivio dei segreti di Azure Service Fabric Central
 description: Questo articolo descrive come usare l'archivio dei segreti centrali in Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197772"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869756"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Archivio dei segreti centrali in Azure Service Fabric 
 Questo articolo descrive come usare l'archivio dei segreti centrali (CSS) in Azure Service Fabric per creare segreti nelle applicazioni Service Fabric. CSS è una cache di archivio Secret locale che consente di mantenere i dati sensibili, ad esempio password, token e chiavi, crittografati in memoria.
 
+  > [!NOTE] 
+  > Quando si attiva CSS per la prima volta prima di SF versione 7,1. CU3, l'attivazione può avere esito negativo e lasciare CSS in uno stato non integro in modo permanente se: CSS viene attivato in un cluster con autenticazione Windows; Il servizio CSS viene attivato in qualsiasi cluster `EncryptionCertificateThumbprint` , ma è dichiarato in modo non corretto oppure il certificato corrispondente non è installato/ACL nei nodi. Per il cluster di autenticazione Windows, passare a 7,1. CU3 prima di procedere. Per gli altri cluster, verificare che le invarianti o siano disponibili su 7,1. CU3.
+  
 ## <a name="enable-central-secrets-store"></a>Abilita archivio segreti centrali
 Aggiungere lo script seguente alla configurazione del cluster in `fabricSettings` per abilitare CSS. Si consiglia di usare un certificato diverso da un certificato del cluster per CSS. Verificare che il certificato di crittografia sia installato in tutti i nodi e che `NetworkService` disponga dell'autorizzazione di lettura per la chiave privata del certificato.
   ```json

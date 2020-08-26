@@ -3,12 +3,12 @@ title: Gestire certificati in un cluster di Service Fabric di Azure
 description: Questo articolo descrive come aggiungere nuovi certificati, eseguire il rollover di certificati e rimuovere certificati da o in un cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658379"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869746"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
 È consigliabile acquisire familiarità con l'uso dei certificati X.509 da parte di Service Fabric e con gli [scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md). È necessario comprendere cos'è un certificato del cluster e a cosa serve prima di procedere.
@@ -260,7 +260,7 @@ Oltre ai certificati cluster, è possibile aggiungere certificati client per ese
 
 È possibile aggiungere due tipi di certificati client, Amministratore o Sola lettura, che permettono di controllare l'accesso alle operazioni di amministrazione e di query nel cluster. Per impostazione predefinita, i certificati cluster vengono aggiunti all'elenco di certificati Amministratore consentiti.
 
-È possibile specificare un numero qualsiasi di certificati client. Ogni aggiunta o eliminazione comporta un aggiornamento della configurazione del cluster di Service Fabric
+È possibile specificare un numero qualsiasi di certificati client. Ogni aggiunta o eliminazione comporta un aggiornamento della configurazione del cluster Service Fabric.
 
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Aggiunta di certificati client Amministratore o Sola lettura tramite il portale

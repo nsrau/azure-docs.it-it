@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: e303b713adf2925af8bc012a5b858c6f5740fccf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510073"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869270"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Supporto di cloud-init per le macchine virtuali in Azure
 Questo articolo descrive il supporto disponibile per [cloud-init](https://cloudinit.readthedocs.io) per configurare una macchina virtuale (VM) o i set di scalabilità di macchine virtuali in fase di provisioning in Azure. Queste configurazioni cloud-init vengono eseguite al primo avvio dopo il provisioning delle risorse da parte di Azure.  
@@ -62,14 +62,14 @@ Sono previste due fasi per rendere disponibile cloud-init per il sistema operati
 | Editore/versione | Offerta | SKU | Versione | Immagine pronta per cloud-init | Supporto dei pacchetti cloud-init in Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |Sì (Nota: si tratta di un'immagine di anteprima e non **deve** più essere utilizzata, che verrà rimossa il 1 ° settembre 2020) | N/D |
-|OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |sì | Sì-supporto dalla versione del pacchetto:`18.5-6.el7.centos.5`|
-|OpenLogic 7,7 (Gen2) |CentOS | 7_7-Gen2 |7.7.2020062401 |sì | Sì-supporto dalla versione del pacchetto:`18.5-6.el7.centos.5`|
-|OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |sì | Sì-supporto dalla versione del pacchetto:`18.5-6.el7.centos.5`|
-|OpenLogic 7,7 (Gen2) |CentOS-HPC | 7_7-Gen2 |7.6.2020062601 |sì | Sì-supporto dalla versione del pacchetto:`18.5-6.el7.centos.5`|
-|OpenLogic 8,1 |CentOS | 8_1 |8.1.2020062400 |sì | Sì-supporto dalla versione del pacchetto:`18.5-7.el8_1.1`|
-|OpenLogic 8,1 (Gen2) |CentOS | 8_1-Gen2 |8.1.2020062401 |sì | Sì-supporto dalla versione del pacchetto:`18.5-7.el8_1.1`|
-|OpenLogic 8,1 |CentOS-HPC | 8_1 |8.1.2020062400 |sì | Sì-supporto dalla versione del pacchetto:`18.5-7.el8_1.1`|
-|OpenLogic 8,1 (Gen2) |CentOS-HPC: 8_1-Gen2 | 8_1-Gen2 |8.1.2020062401 |sì | Sì-supporto dalla versione del pacchetto:`18.5-7.el8_1.1`|
+|OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |sì | Sì-supporto dalla versione del pacchetto: `18.5-6.el7.centos.5`|
+|OpenLogic 7,7 (Gen2) |CentOS | 7_7-Gen2 |7.7.2020062401 |sì | Sì-supporto dalla versione del pacchetto: `18.5-6.el7.centos.5`|
+|OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |sì | Sì-supporto dalla versione del pacchetto: `18.5-6.el7.centos.5`|
+|OpenLogic 7,7 (Gen2) |CentOS-HPC | 7_7-Gen2 |7.6.2020062601 |sì | Sì-supporto dalla versione del pacchetto: `18.5-6.el7.centos.5`|
+|OpenLogic 8,1 |CentOS | 8_1 |8.1.2020062400 |sì | Sì-supporto dalla versione del pacchetto: `18.5-7.el8_1.1`|
+|OpenLogic 8,1 (Gen2) |CentOS | 8_1-Gen2 |8.1.2020062401 |sì | Sì-supporto dalla versione del pacchetto: `18.5-7.el8_1.1`|
+|OpenLogic 8,1 |CentOS-HPC | 8_1 |8.1.2020062400 |sì | Sì-supporto dalla versione del pacchetto: `18.5-7.el8_1.1`|
+|OpenLogic 8,1 (Gen2) |CentOS-HPC: 8_1-Gen2 | 8_1-Gen2 |8.1.2020062401 |sì | Sì-supporto dalla versione del pacchetto: `18.5-7.el8_1.1`|
 
 * Viene eseguito il provisioning di tutte le immagini OpenLogic: CentOS 7,8 e 8,2 (Gen1 e Gen2) con cloud-init.
 
@@ -151,6 +151,8 @@ az vm create \
 ```
 
 Dopo la creazione della macchina virtuale, l'interfaccia della riga di comando di Azure mostra informazioni specifiche della distribuzione. Prendere nota di `publicIpAddress`. Questo indirizzo viene usato per accedere alla VM.  Sono necessari alcuni minuti per creare la macchina virtuale, installare il pacchetto e avviare l'app. Sono presenti attività in background la cui esecuzione continua dopo che l'interfaccia della riga di comando di Azure è tornata al prompt. È possibile eseguire SSH nella macchina virtuale e seguire i passaggi descritti nella sezione della risoluzione dei problemi per visualizzare i log di cloud-init. 
+
+È anche possibile distribuire una macchina virtuale abilitata per cloud-init passando i [parametri nel modello ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Risoluzione dei problemi relativi a cloud-init
 Al termine del provisioning della macchina virtuale, cloud-init verrà eseguito in tutti i moduli e gli script definiti in `--custom-data` per configurare la macchina virtuale.  Se è necessario correggere eventuali errori o omissioni della configurazione, cercare il nome del modulo (ad esempio, `disk_setup` o `runcmd`) nel log di cloud-init che si trova in **/var/log/cloud-init.log**.

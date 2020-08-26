@@ -1,5 +1,5 @@
 ---
-title: Supporto delle lingue
+title: Lingue supportate
 titleSuffix: Azure Cognitive Services
 description: Servizi cognitivi di Azure consente di creare applicazioni che vedono, ascoltano, comprendono e parlano con gli utenti. Tra questi servizi sono supportate più di trenta lingue, consentendo agli utenti di comunicare con l'applicazione in modi naturali.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 50c6d3ff6e1e8b979b3544c423a15ae8e1e42f6f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dba43c9e9b214a1ad077a2a15bdf014e057bb04e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592152"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869882"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Supporto per le lingue naturali per i servizi cognitivi di Azure
 
@@ -28,7 +28,7 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 * [Viso](./face/index.yml)
 * [Personalizza esperienze](./personalizer/index.yml)
 
-## <a name="vision"></a>Vision
+## <a name="vision"></a>Visione
 
 * [Visione artificiale](./computer-vision/language-support.md)
 * [Riconoscimento modulo (anteprima)](./form-recognizer/language-support.md)
@@ -37,11 +37,11 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 
 ## <a name="language"></a>Linguaggio
 
-* [Strumento di lettura immersiva (anteprima)](./immersive-reader/language-support.md)
+* [Strumento di lettura immersiva](./immersive-reader/language-support.md)
 * [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
 * [QnA Maker](./qnamaker/overview/languages-supported.md)
 * [Analisi del testo](./text-analytics/text-analytics-supported-languages.md)
-* [Traduttore](./translator/languages.md)
+* [Translator](./translator/languages.md)
 
 ## <a name="speech"></a>Voce
 
@@ -49,7 +49,7 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 * [Servizio vocale: Riconoscimento vocale](./speech-service/supported-languages.md#text-to-speech)
 * [Servizio di riconoscimento vocale: Traduzione vocale](./speech-service/supported-languages.md#speech-translation)
 
-## <a name="search"></a>Cerca
+## <a name="search"></a>Ricerca
 
 * [Ricerca personalizzata Bing](./bing-custom-search/supported-countries-markets.md)
 * [Ricerca immagini Bing](./bing-image-search/supported-countries-markets.md)
