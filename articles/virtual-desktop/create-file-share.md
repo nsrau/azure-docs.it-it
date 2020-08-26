@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009223"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825444"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creare un contenitore di profili con File di Azure e servizi di dominio Active Directory
 
@@ -35,7 +35,7 @@ Per configurare un account di archiviazione:
 
 3. Selezionare **+Aggiungi**.
 
-4. Immettere le informazioni seguenti nella pagina **Crea account di archiviazione** :
+4. Immettere le informazioni seguenti nella pagina  **Crea account di archiviazione** :
 
     - Creare un nuovo gruppo di risorse.
     - Immettere un nome univoco per l'account di archiviazione.
@@ -127,11 +127,11 @@ Ecco come ottenere il percorso UNC:
 
 5. Dopo aver copiato l'URI, eseguire le operazioni seguenti per modificarlo nel percorso UNC:
 
-    - Rimuovi `https://` e Sostituisci con`\\`
+    - Rimuovi `https://` e Sostituisci con `\\`
     - Sostituire la barra `/` con una barra rovesciata `\` .
     - Aggiungere il nome della condivisione file creata in [creare una condivisione file di Azure](#create-an-azure-file-share) alla fine dell'UNC.
 
-        Ad esempio: `\\customdomain.file.core.windows.net\<fileshare-name>`
+        ad esempio `\\customdomain.file.core.windows.net\<fileshare-name>`
 
 ### <a name="get-the-storage-account-key"></a>Ottenere la chiave dell'account di archiviazione
 
@@ -151,15 +151,15 @@ Per configurare le autorizzazioni NTFS:
 
 1. Aprire un prompt dei comandi in una macchina virtuale aggiunta a un dominio.
 
-2. Eseguire il cmdlet seguente per montare la condivisione file di Azure e assegnare a questa una lettera di unità: 
+2. Eseguire il comando seguente per montare la condivisione file di Azure e assegnargli una lettera di unità:
 
-     ```powershell
+     ```cmd
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
      ```
 
-3. Eseguire il cmdlet seguente per esaminare le autorizzazioni di accesso per la condivisione file di Azure:
+3. Eseguire il comando seguente per esaminare le autorizzazioni di accesso per la condivisione file di Azure:
 
-    ```powershell
+    ```cmd
     icacls <mounted-drive-letter>:
     ```
 
@@ -167,9 +167,9 @@ Per configurare le autorizzazioni NTFS:
 
     Per impostazione predefinita, *gli utenti di NT Authority\Authenticated Users* e *BUILTIN\Users* hanno determinate autorizzazioni. Queste autorizzazioni predefinite consentono a questi utenti di leggere i contenitori di profili di altri utenti. Tuttavia, le autorizzazioni descritte in [configurare le autorizzazioni di archiviazione per l'uso con](/fslogix/fslogix-storage-config-ht) i contenitori di profili e i contenitori di Office non consentono agli utenti di leggere i contenitori di profili di ogni altro.
 
-4. Eseguire i cmdlet seguenti per consentire agli utenti di desktop virtuali Windows di creare i propri contenitori di profili bloccando l'accesso al contenitore di profili da altri utenti.
+4. Eseguire i comandi seguenti per consentire agli utenti di desktop virtuali Windows di creare il proprio contenitore di profili bloccando l'accesso ai contenitori di profili da altri utenti.
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -181,7 +181,7 @@ Per configurare le autorizzazioni NTFS:
 
      Ad esempio:
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"

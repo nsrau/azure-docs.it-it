@@ -3,12 +3,12 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 74d4d01d535f7148d3c3878a431dac2f951ae134
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756011"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827376"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -62,7 +62,7 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) in caso di distribuzione in macchine virtuali Hyper-V.
 
 > [!NOTE]
-> Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
+> Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare server di Backup di Azure in:
 >
 > * Un computer in esecuzione come controller di dominio
 > * Un computer in cui è installato il ruolo di server applicazioni
@@ -70,7 +70,7 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 > * Un computer su cui è in esecuzione Exchange Server
 > * Un computer che sia un nodo di un cluster
 >
-> L'installazione del server di Backup di Azure non è supportata in Windows Server Core o in Microsoft Hyper-V Server.
+> L'installazione di server di Backup di Azure non è supportata in Windows Server Core o Microsoft Hyper-V Server.
 
 Aggiungere sempre il server di backup di Azure a un dominio. Se si prevede di spostare il server in un dominio diverso, per prima cosa installare il server di Backup di Azure, quindi aggiungere il server al nuovo dominio. Lo spostamento di un server di Backup di Azure esistente in un nuovo dominio dopo la distribuzione *non è supportato*.
 
@@ -170,7 +170,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il *se
 
     >[!NOTE]
     >Se si vuole usare il proprio server SQL, le versioni SQL Server supportate sono SQL Server 2014 SP1 o versione successiva, 2016 e 2017.  Tutte le versioni di SQL Server devono essere Standard o Enterprise a 64 bit
-    >Il server di Backup di Azure non funzionerà con un'istanza remota di SQL Server. L'istanza usata dal server di Backup di Azure deve essere locale. Se si usa un server SQL esistente per il server di Backup di Azure, l'installazione del server supporta solo l'uso di *istanze denominate* di SQL Server.
+    >Server di Backup di Azure non funzionerà con un'istanza di SQL Server remota. L'istanza usata dal server di Backup di Azure deve essere locale. Se si usa un'istanza di SQL Server esistente per MAB, il programma di installazione di MAB supporta solo l'uso di *istanze denominate* di SQL Server.
 
     ![Server di backup di Azure - Controllo SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -333,7 +333,7 @@ Per aggiornare MABS, usare le procedure seguenti.
 
 > [!NOTE]
 >
-> MABS V2 non è un prerequisito per l'installazione di MABS V3. Tuttavia, è possibile aggiornare a MABS V3 solo da MABS V2.
+> MAB V2 non è un prerequisito per l'installazione di MAB V3. Tuttavia, è possibile aggiornare a MABS V3 solo da MABS V2.
 
 Per aggiornare MABS, usare i passaggi seguenti:
 
@@ -343,7 +343,7 @@ Per aggiornare MABS, usare i passaggi seguenti:
 
    > [!NOTE]
    >
-   > Non uscire durante l'aggiornamento dell'istanza di SQL. Se si esce, l'istanza del servizio di report SQL verrà disinstallata e quindi il tentativo di eseguire nuovamente l'aggiornamento di MAB avrà esito negativo.
+   > Non uscire durante l'aggiornamento dell'istanza di SQL. Se si esce, l'istanza del servizio di report SQL verrà disinstallata e il tentativo di aggiornamento di MAB avrà esito negativo.
 
    > [!IMPORTANT]
    >

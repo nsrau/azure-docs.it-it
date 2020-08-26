@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816117"
+ms.locfileid: "88825257"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -49,7 +49,7 @@ Backup al giorno (tramite DPM o il server di Backup di Microsoft Azure) | Due ba
 Backup mensile/annuale| Non supportata quando si esegue il backup con l'estensione della macchina virtuale di Azure. È supportato solo il backup giornaliero e settimanale.<br/><br/> È possibile configurare i criteri in modo da conservare i backup giornalieri/settimanali per il periodo di conservazione mensile/annuale.
 Regolazione automatica dell'orologio | Non supportato.<br/><br/> Backup di Azure non si adatta automaticamente al passaggio all'ora legale per il backup di una macchina virtuale.<br/><br/>  Modificare manualmente i criteri in base alle esigenze.
 [Funzionalità di sicurezza per il backup ibrido](./backup-azure-security-feature.md) |La disabilitazione delle funzionalità di sicurezza non è supportata.
-Eseguire il backup della macchina virtuale la cui ora del computer è cambiata | Non supportato.<br/><br/> Se l'ora del computer viene modificata in una data e ora successiva dopo l'abilitazione del backup per la VM. Tuttavia, anche se la modifica dell'ora viene ripristinata, il backup non è garantito.
+Eseguire il backup della macchina virtuale la cui ora del computer è cambiata | Non supportato.<br/><br/> Se l'ora del computer viene modificata in una data e un'ora future dopo l'abilitazione del backup per tale macchina virtuale, tuttavia, anche se la modifica dell'ora viene ripristinata, il backup non è garantito.
 VM di Azure nei [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md) | Il backup e il ripristino sono supportati per le macchine virtuali con [modalità di orchestrazione](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) impostata su 3. <br><br>I set di disponibilità non sono supportati.
 
 ## <a name="operating-system-support-windows"></a>Supporto dei sistemi operativi (Windows)

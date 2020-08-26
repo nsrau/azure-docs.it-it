@@ -3,22 +3,22 @@ title: Distribuire modelli di app per la logica
 description: Informazioni su come distribuire modelli di Azure Resource Manager creati per app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d3ef4275e5b309bb499338fe90c0f527aeaeb71f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501509"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827495"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementare modelli di Azure Resource Manager per App per la logica di Azure
 
 Dopo aver creato un modello di Azure Resource Manager per l'app per la logica, è possibile distribuire il modello nei modi seguenti:
 
-* [Portale di Azure](#portal)
+* [Azure portal](#portal)
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Interfaccia della riga di comando di Azure](#cli)
@@ -119,13 +119,18 @@ Ecco i passaggi generali generali per l'uso di Azure Pipelines:
 
 ## <a name="authorize-oauth-connections"></a>Autorizzare le connessioni OAuth
 
-Dopo la distribuzione, l'app per la logica funziona end-to-end con parametri validi. Tuttavia, è comunque necessario autorizzare le connessioni OAuth per generare token di accesso validi per [autenticare le credenziali](../active-directory/develop/authentication-vs-authorization.md). Ecco i modi in cui è possibile autorizzare le connessioni OAuth:
+Dopo la distribuzione, l'app per la logica funziona end-to-end con parametri validi. Tuttavia, è comunque necessario autorizzare o usare connessioni OAuth preautorizzate per generare token di accesso validi per [autenticare le credenziali](../active-directory/develop/authentication-vs-authorization.md). Ecco alcuni suggerimenti:
 
-* Per le distribuzioni automatiche, è possibile usare uno script che fornisce il consenso per ogni connessione OAuth. Ecco uno script di esempio in GitHub nel progetto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
+* Preautorizzare e condividere le risorse di connessione API tra app per la logica che si trovano nella stessa area. Le connessioni API sono disponibili come risorse di Azure indipendentemente dalle app per la logica. Mentre le app per la logica hanno dipendenze dalle risorse di connessione API, le risorse di connessione API non hanno dipendenze dalle app per la logica e rimangono dopo l'eliminazione delle app per la logica dipendenti. Inoltre, le app per la logica possono usare le connessioni API presenti in altri gruppi di risorse. Tuttavia, la finestra di progettazione delle app per la logica supporta la creazione di connessioni API solo nello stesso gruppo di risorse delle app per la logica.
 
-* Per autorizzare manualmente le connessioni OAuth, aprire l'app per la logica in progettazione app per la logica, nel portale di Azure o in Visual Studio. Nella finestra di progettazione autorizzare le connessioni necessarie.
+  > [!NOTE]
+  > Se si sta valutando la condivisione delle connessioni API, assicurarsi che la soluzione sia in grado di [gestire potenziali problemi di limitazione](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). La limitazione si verifica a livello di connessione, quindi il riutilizzo della stessa connessione tra più app per la logica potrebbe aumentare il rischio di limitazione dei problemi.
 
-Se invece si usa un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure ad) per autorizzare le connessioni, informazioni su come [specificare i parametri dell'entità servizio nel modello di app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
+* A meno che lo scenario non includa servizi e sistemi che richiedono l'autenticazione a più fattori, è possibile usare uno script di PowerShell per fornire il consenso per ogni connessione OAuth eseguendo un ruolo di lavoro di integrazione continua come account utente normale in una macchina virtuale con sessioni del browser attive con le autorizzazioni e il consenso già fornito. Ad esempio, è possibile riutilizzare lo script di esempio fornito dal [progetto LogicAppConnectionAuth nel repository GitHub delle app per la logica](https://github.com/logicappsio/LogicAppConnectionAuth).
+
+* Autorizzare manualmente le connessioni OAuth aprendo l'app per la logica in progettazione app per la logica, nel portale di Azure o in Visual Studio.
+
+* Se invece si usa un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure ad) per autorizzare le connessioni, informazioni su come [specificare i parametri dell'entità servizio nel modello di app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

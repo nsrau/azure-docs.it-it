@@ -3,12 +3,12 @@ title: Informazioni sul backup di condivisioni file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c57537519888138698e9add1a687e0018d330cfa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757881"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823881"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
 

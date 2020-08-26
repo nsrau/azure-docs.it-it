@@ -3,12 +3,12 @@ title: Gestire e monitorare SQL Server database in una macchina virtuale di Azur
 description: Questo articolo descrive come gestire e monitorare SQL Server database in esecuzione in una macchina virtuale di Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756317"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826634"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -53,7 +53,7 @@ Per monitorare gli avvisi di backup del database:
 
 Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
-- Tutti i punti di ripristino rimarranno invariati per sempre, tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
+- Tutti i punti di ripristino rimarranno intatti per sempre e tutte le eliminazioni si arresteranno in arresto della protezione con Mantieni dati.
 - Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione utilizzato. Per altre informazioni, vedere [Prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 - Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo. I punti di ripristino precedenti scadranno in base ai criteri, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si arrestano i backup ed eliminano i dati.
 
