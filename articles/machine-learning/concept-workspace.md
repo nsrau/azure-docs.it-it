@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287220"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890915"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -49,10 +49,10 @@ Il diagramma mostra i componenti seguenti di un'area di lavoro:
 
 > [!IMPORTANT]
 > Gli strumenti contrassegnati (anteprima) di seguito sono attualmente disponibili in anteprima pubblica.
-> La versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 + Sul Web:
-    + [Azure Machine Learning Studio](https://ml.azure.com) 
+    + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Progettazione Azure Machine Learning (anteprima)](concept-designer.md) -disponibile solo nelle aree di lavoro [Enterprise Edition](overview-what-is-azure-ml.md#sku) .
 + In qualsiasi ambiente Python con [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In qualsiasi ambiente R con [Azure Machine Learning SDK per r (anteprima)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
@@ -87,9 +87,9 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 > [!WARNING]
 > Lo spostamento dell’area di lavoro di Azure Machine Learning in una diversa sottoscrizione o della sottoscrizione proprietaria su un nuovo tenant non è supportato in quanto ciò può provocare errori.
 
-## <a name="create-a-workspace"></a><a name='create-workspace'></a>Creare un'area di lavoro
+## <a name="create-a-workspace"></a><a name='create-workspace'></a> Creare un'area di lavoro
 
-Quando si crea un'area di lavoro, è necessario decidere se crearla con [Basic o Enterprise Edition](overview-what-is-azure-ml.md#sku). L'edizione determina le funzionalità disponibili nell'area di lavoro. Tra le altre funzionalità, Enterprise Edition consente di accedere a [Azure machine learning designer](concept-designer.md) e alla versione studio per la creazione di [esperimenti automatici di Machine Learning](tutorial-first-experiment-automated-ml.md).  Per informazioni dettagliate e informazioni sui prezzi, vedere [Azure Machine Learning prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).
+Quando si crea un'area di lavoro, è necessario decidere se crearla con [Basic o Enterprise Edition](overview-what-is-azure-ml.md#sku). L'edizione determina le funzionalità disponibili nell'area di lavoro. Tra le altre funzionalità, Enterprise Edition consente di accedere a [Azure machine learning designer](concept-designer.md) e alla versione studio per la creazione di [esperimenti automatici di Machine Learning](tutorial-first-experiment-automated-ml.md).  Per ulteriori informazioni e informazioni sui prezzi, vedere [Azure Machine Learning prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Esistono diversi modi per creare un'area di lavoro:  
 
@@ -101,11 +101,11 @@ Esistono diversi modi per creare un'area di lavoro:
 > [!NOTE]
 > Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Eseguire l'aggiornamento a Enterprise Edition
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Eseguire l'aggiornamento a Enterprise Edition
 
 È possibile [aggiornare l'area di lavoro da Basic a Enterprise Edition](how-to-manage-workspace.md#upgrade) usando portale di Azure. Non è possibile effettuare il downgrade di un'area di lavoro Enterprise Edition a un'area di lavoro Basic Edition. 
 
-## <a name="associated-resources"></a><a name="resources"></a>Risorse associate
+## <a name="associated-resources"></a><a name="resources"></a> Risorse associate
 
 Quando si crea una nuova area di lavoro, vengono create automaticamente diverse risorse di Azure usate dall'area di lavoro:
 
@@ -117,8 +117,16 @@ Quando si crea una nuova area di lavoro, vengono create automaticamente diverse 
 > [!NOTE]
 > Oltre alla creazione di nuove versioni, è possibile usare i servizi di Azure esistenti.
 
+### <a name="azure-storage-account"></a>Account di archiviazione di Azure
+
+L'account di archiviazione di Azure creato per impostazione predefinita con l'area di lavoro è un account per utilizzo generico V1. È possibile eseguire l'aggiornamento a utilizzo generico v2 dopo che l'area di lavoro è stata creata seguendo la procedura descritta nell'articolo [eseguire l'aggiornamento a un account di archiviazione per utilizzo generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) .
+
 > [!IMPORTANT]
-> Se si vuole usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione _predefinito_ dell'area di lavoro non sono supportati né archiviazione Premium né spazio dei nomi gerarchico. È possibile usare archiviazione Premium o uno spazio dei nomi gerarchico con account di archiviazione _non predefiniti_ .
+> Non abilitare lo spazio dei nomi gerarchico nell'account di archiviazione dopo l'aggiornamento a utilizzo generico V2.
+
+Se si vuole usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione _predefinito_ dell'area di lavoro non è supportato alcun spazio dei nomi di archiviazione Premium o gerarchico. È possibile usare archiviazione Premium o uno spazio dei nomi gerarchico con account di archiviazione _non predefiniti_ .
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

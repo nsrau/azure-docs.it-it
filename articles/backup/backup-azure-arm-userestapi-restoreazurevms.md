@@ -4,12 +4,12 @@ description: Questo articolo illustra come gestire le operazioni di ripristino d
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 2588ca87e2dc2209fbaa5eae411fe5895d5f5669
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826362"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889652"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -19,7 +19,7 @@ Per qualsiasi operazione di ripristino, è necessario identificare innanzitutto 
 
 ## <a name="select-recovery-point"></a>Selezione di un punto di ripristino
 
-I punti di ripristino disponibili di un elemento di backup possono essere elencati usando l'[API REST per elencare i punti di ripristino](/rest/api/backup/recoverypoints/list). Si tratta di una semplice operazione *GET* con tutti i valori pertinenti.
+I punti di ripristino disponibili di un elemento di backup possono essere elencati usando l'[API REST per elencare i punti di ripristino](/rest/api/backup/recoverypoints/list). Si tratta di una semplice operazione *Get* con tutti i valori pertinenti.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13

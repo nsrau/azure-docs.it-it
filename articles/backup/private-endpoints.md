@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871548"
+ms.locfileid: "88890893"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -99,7 +99,7 @@ L'uso di endpoint privati richiede DNS privato zone per consentire all'estension
 
 ### <a name="optional-dns-zone"></a>Zona DNS facoltativa
 
-I clienti possono scegliere di integrare i propri endpoint privati con le zone DNS private per backup di Azure (illustrata nella sezione relativa alla creazione di endpoint privati) per la comunicazione dei servizi. Se non si vuole eseguire l'integrazione con la zona DNS privata, è possibile scegliere di usare il proprio server DNS o creare separatamente una zona DNS privata. In aggiunta alle due zone DNS private obbligatorie descritte nella sezione precedente.
+È possibile scegliere di integrare gli endpoint privati con le zone DNS private per backup di Azure (illustrata nella sezione [creazione e uso di endpoint privati per il backup](#creating-and-using-private-endpoints-for-backup)) per la comunicazione dei servizi. Se non si vuole eseguire l'integrazione con la zona DNS privata, è possibile scegliere di usare il proprio server DNS o creare separatamente una zona DNS privata. In aggiunta alle due zone DNS private obbligatorie descritte nella sezione precedente.
 
 Se si vuole creare una zona DNS privata separata in Azure, è possibile eseguire la stessa operazione usando la stessa procedura usata per creare zone DNS obbligatorie. I dettagli relativi alla denominazione e alla sottoscrizione sono condivisi di seguito:
 

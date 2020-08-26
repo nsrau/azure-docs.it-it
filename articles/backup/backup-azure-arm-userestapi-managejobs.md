@@ -4,12 +4,12 @@ description: Questo articolo illustra come tenere traccia e gestire i processi d
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: b9f69b8815cc8d508d5a10dda82803581216a4eb
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: ced0e0020fe955734bf6cc767480fbadd6eaffc1
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761628"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890281"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Tenere traccia dei processi di backup e ripristino con l'API REST
 
@@ -41,11 +41,11 @@ Il processo di backup di macchine virtuali di Azure è identificato dal campo "j
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-`{jobName}` è il "jobId" indicato in precedenza. La risposta è sempre 200 OK con il campo "status" che indica lo stato corrente del processo. Quando è "Completed" o "CompletedWithWarnings", nella sezione 'extendedInfo' vengono visualizzati altri dettagli sul processo.
+`{jobName}` è il "jobId" indicato in precedenza. La risposta è sempre 200 OK con il campo "status" che indica lo stato corrente del processo. Una volta "completed" o "CompletedWithWarnings", la sezione ' extendedInfo ' Mostra ulteriori dettagli sul processo.
 
 ### <a name="response"></a>Risposta
 
-|Nome  |Type  |Descrizione  |
+|Nome  |Tipo  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

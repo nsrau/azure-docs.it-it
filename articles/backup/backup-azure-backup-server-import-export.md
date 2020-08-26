@@ -3,12 +3,12 @@ title: Backup offline per DPM e server di Backup di Azure
 description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 30c8526271a636b8890dde0079e27374df9c38af
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757269"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890077"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (MAB)
 
@@ -136,7 +136,7 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA che vengono invia
 
     ![Schermata di accesso di Azure](./media/backup-azure-backup-server-import-export/signin-disk-prep.png)
 
-    Lo strumento inizia quindi a preparare il disco e a copiare i dati di backup. Potrebbe essere necessario alleghi dischi aggiuntivi quando richiesto dallo strumento, nel caso in cui il disco fornito non disponga di spazio sufficiente per i dati di backup. <br/>
+    Lo strumento inizia quindi a preparare il disco e a copiare i dati di backup. Potrebbe essere necessario alleghi dischi aggiuntivi quando richiesto dallo strumento se il disco fornito non dispone di spazio sufficiente per i dati di backup. <br/>
 
     Al termine dell'esecuzione dello strumento, il prompt dei comandi include tre informazioni:
     * Uno o più dischi sono pronti per la spedizione ad Azure.

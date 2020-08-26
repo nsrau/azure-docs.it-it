@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827427"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889941"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro un firewall per Azure Machine Learning
 
@@ -24,9 +24,9 @@ Questo articolo illustra come configurare il firewall di Azure per controllare l
 
 Mentre le informazioni contenute in questo documento si basano sull'uso del [firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md), è possibile usarle con altri prodotti firewall. Per domande su come consentire la comunicazione attraverso il firewall, consultare la documentazione relativa al firewall in uso.
 
-## <a name="network-rules"></a>Regole di rete
+## <a name="application-rules"></a>Regole di applicazione
 
-Nel firewall creare una regola di rete che consenta il traffico da e verso gli indirizzi di questo articolo.
+Nel firewall creare una _regola dell'applicazione_ che consenta il traffico da e verso gli indirizzi in questo articolo.
 
 > [!TIP]
 > Quando si aggiunge la regola di rete, impostare il __protocollo__ su Any e le porte su `*` .

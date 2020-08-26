@@ -4,12 +4,12 @@ description: Questo articolo illustra come aggiornare la configurazione dell'ins
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: c68d3accfc6963d7a5eebfef128e3521b45ac886
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3ee2d57b5589daa756020ebb787a5400ed244506
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827257"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890043"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aggiornare le configurazioni dell'insieme di credenziali di servizi di ripristino di Azure usando l'API
 
@@ -17,7 +17,7 @@ Questo articolo descrive come aggiornare le configurazioni correlate al backup n
 
 ## <a name="soft-delete-state"></a>Stato di eliminazione temporanea
 
-L'eliminazione dei backup di un elemento protetto è un'operazione significativa che deve essere monitorata. Per proteggersi da eliminazioni accidentali, l'insieme di credenziali di servizi di ripristino di Azure dispone di una funzionalità di eliminazione temporanea. Questa funzionalità consente ai clienti di ripristinare i backup eliminati, se necessario, entro un periodo di tempo dopo l'eliminazione.
+L'eliminazione dei backup di un elemento protetto è un'operazione significativa che deve essere monitorata. Per proteggersi da eliminazioni accidentali, l'insieme di credenziali di servizi di ripristino di Azure dispone di una funzionalità di eliminazione temporanea. Questa funzionalità consente di ripristinare i backup eliminati, se necessario, entro un periodo di tempo dopo l'eliminazione.
 
 Tuttavia, esistono scenari in cui questa funzionalità non è obbligatoria. Un insieme di credenziali di servizi di ripristino di Azure non può essere eliminato se sono presenti elementi di backup, anche quelli eliminati temporaneamente. Questo potrebbe rappresentare un problema se l'insieme di credenziali deve essere eliminato immediatamente. Per, ad esempio, le operazioni di distribuzione ripuliscono spesso le risorse create nello stesso flusso di lavoro. Una distribuzione può creare un insieme di credenziali, configurare i backup per un elemento, eseguire un ripristino di test e quindi procedere con l'eliminazione degli elementi di backup e dell'insieme di credenziali. Se l'eliminazione dell'insieme di credenziali non riesce, l'intera distribuzione potrebbe non riuscire. La disabilitazione dell'eliminazione temporanea è l'unico modo per garantire l'eliminazione immediata.
 

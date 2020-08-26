@@ -4,12 +4,12 @@ description: Informazioni su come eseguire il backup di un server di Exchange in
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 139741c4f721f0fd86cc585b4cfb2ed97c45b25c
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 48a0e0f4b838b3f9b26de5a9cf297ddcdfc2a7e9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827410"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889720"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 
@@ -32,7 +32,7 @@ Prima di continuare, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-int
 * Le credenziali dell'agente e dell'insieme di credenziali sono state scaricate nel server DPM.
 * L'agente è installato nel server DPM.
 * Le credenziali dell'insieme di credenziali sono state usate per registrare il server DPM.
-* Per la protezione di Exchange 2016, eseguire l'aggiornamento a DPM 2012 R2 UR9 o versione successiva
+* Se si sta proteggendo Exchange 2016, eseguire l'aggiornamento a DPM 2012 R2 UR9 o versione successiva.
 
 ## <a name="dpm-protection-agent"></a>Agente protezione DPM
 
@@ -49,7 +49,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 4. Selezionare il database di Exchange Server che si vuole proteggere e fare clic su **Avanti**.
 
    > [!NOTE]
-   > Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](/system-center/dpm/back-up-exchange).
+   > Se si sta proteggendo Exchange 2013, verificare i [prerequisiti di exchange 2013](/system-center/dpm/back-up-exchange).
    >
    >
 

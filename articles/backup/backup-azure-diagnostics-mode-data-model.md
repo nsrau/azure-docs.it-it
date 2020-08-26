@@ -3,12 +3,12 @@ title: Modello di dati di Monitoraggio di Azure
 description: In questo articolo si apprenderanno i dettagli del modello di dati di Log Analytics di Monitoraggio di Azure per i dati di Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 897431feae6cd3166b594d4d6848204df76fe3fa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761407"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890264"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -45,7 +45,7 @@ Questa tabella offre dettagli sui campi relativi agli avvisi.
 | BackupItemUniqueId_s |Text |Identificatore univoco dell'elemento di backup associato all'avviso |
 | SchemaVersion_s |Text |Versione corrente dello schema, ad esempio **V2** |
 | State_s |Text |Stato corrente dell'oggetto avviso, ad esempio Active o Deleted |
-| BackupManagementType_s |Text |Tipo di provider per l'esecuzione del backup, ad esempio IaaSVM o FileFolder a cui appartiene questo avviso |
+| BackupManagementType_s |Text |Tipo di provider per l'esecuzione del backup, ad esempio IaaSVM, fileFolder a cui appartiene questo avviso |
 | OperationName |Text |Nome dell'operazione corrente, ad esempio, Avviso |
 | Category |Text |Categoria di dati di diagnostica di cui viene eseguito il push in log di Monitoraggio di Azure. Sempre AzureBackupReport |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
@@ -77,7 +77,7 @@ Questa tabella offre dettagli sui campi relativi agli elementi di backup.
 | SecondaryBackupProtectionState_s |Text |Indica se la protezione secondaria è abilitata per l'elemento di backup|
 | SchemaVersion_s |Text |Versione dello schema, ad esempio **V2** |
 | State_s |Text |Stato dell'oggetto dell'elemento di backup, ad esempio Attivo o Eliminato |
-| BackupManagementType_s |Text |Tipo di provider per l'esecuzione del backup, ad esempio IaaSVM o FileFolder a cui appartiene questo elemento di backup |
+| BackupManagementType_s |Text |Tipo di provider per l'esecuzione del backup, ad esempio IaaSVM, fileFolder a cui appartiene questo elemento di backup |
 | OperationName |Text |Nome dell'operazione, ad esempio BackupItem |
 | Category |Text |Categoria di dati di diagnostica di cui viene eseguito il push in log di Monitoraggio di Azure. Sempre AzureBackupReport |
 | Risorsa |Text |Risorsa per cui sono stati raccolti i dati, ad esempio il nome dell'insieme di credenziali dei Servizi di ripristino |
@@ -94,14 +94,14 @@ Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con
 
 | Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
-| EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |  
+| EventName_s |Text |Questo campo rappresenta il nome dell'evento. È sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |ID univoco dell'elemento di backup |
-| SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **V2** |
+| SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema. È **v2** |
 | State_s |Text |Stato corrente dell'oggetto di associazione dell'elemento di backup, ad esempio Active o Deleted |
 | BackupManagementType_s |Text |Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | BackupItemSourceSize_s |Text | Dimensioni front-end dell'elemento di backup |
 | BackupManagementServerUniqueId_s |Text | Campo per identificare in modo univoco il server di gestione di backup in cui è protetto l'elemento di backup, se applicabile |
-| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti di Log Analytics, ovvero AzureBackupReport |
+| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti in Log Analytics. È AzureBackupReport |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - BackupItemAssociation |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
 | ProtectedContainerUniqueId_s |Text |Identificatore univoco del server protetto associato all'elemento di backup (ProtectedServerUniqueId_s in V1) |
@@ -144,7 +144,7 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | State_s |Text |Stato corrente dell'oggetto processo, ad esempio Active o Deleted |
 | BackupManagementType_s |Text |Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - Processo |
-| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica di cui viene eseguito il push in log di Monitoraggio di Azure, ovvero AzureBackupReport |
+| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. È AzureBackupReport |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
 | ProtectedServerUniqueId_s |Text |Identificatore univoco del server protetto associato al processo |
 | ProtectedContainerUniqueId_s |Text | ID univoco che identifica il contenitore protetto in cui viene eseguito il processo |
@@ -174,12 +174,12 @@ Questa tabella offre dettagli sui campi relativi al criterio.
 
 | Campo | Tipo di dati | Versioni valide | Descrizione |
 | --- | --- | --- | --- |
-| EventName_s |Text ||Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
-| SchemaVersion_s |Text ||Questo campo indica la versione corrente dello schema, ovvero **V2** |
+| EventName_s |Text ||Questo campo rappresenta il nome dell'evento. È sempre AzureBackupCentralReport |
+| SchemaVersion_s |Text ||Questo campo indica la versione corrente dello schema. È **v2** |
 | State_s |Text ||Stato corrente dell'oggetto criteri, ad esempio Active o Deleted |
 | BackupManagementType_s |Text ||Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | OperationName |Text ||Questo campo rappresenta il nome dell'operazione in corso - Criterio |
-| Category |Text ||Questo campo rappresenta la categoria di dati di diagnostica di cui viene eseguito il push in log di Monitoraggio di Azure, ovvero AzureBackupReport |
+| Category |Text ||Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. È AzureBackupReport |
 | Risorsa |Text ||Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
 | PolicyUniqueId_g |Text ||ID univoco per l'identificazione dei criteri |
 | PolicyName_s |Text ||Nome dei criteri definiti |
@@ -196,7 +196,7 @@ Questa tabella offre dettagli sui campi relativi al criterio.
 | MonthlyRetentionTimes_s |Text ||Data e ora di configurazione del mantenimento dati mensile |
 | MonthlyRetentionFormat_s |Text ||Tipo di configurazione per il mantenimento dati mensile, ad esempio daily per la configurazione basata sui giorni o weekly per la configurazione basata sulle settimane |
 | MonthlyRetentionDaysOfTheWeek_s |Text ||Giorni della settimana selezionati per il mantenimento dati mensile |
-| MonthlyRetentionWeeksOfTheMonth_s |Text ||Settimane del mese per le quali è configurato il mantenimento dati mensile, ad esempio First, Last e così via |
+| MonthlyRetentionWeeksOfTheMonth_s |Text ||Settimane del mese in cui è configurato il mantenimento dati mensile, ad esempio First, Last |
 | YearlyRetentionDuration_s |Numero decimale ||Durata totale di mantenimento dati in anni per i backup configurati |
 | YearlyRetentionTimes_s |Text ||Data e ora di configurazione del mantenimento dati annuale |
 | YearlyRetentionMonthsOfTheYear_s |Text ||Mesi dell'anno selezionati per il mantenimento dati annuale |
@@ -222,12 +222,12 @@ Questa tabella fornisce dettagli sulle associazioni dei criteri con varie entit�
 
 | Campo | Tipo di dati | Versioni valide | Descrizione |
 | --- | --- | --- | --- |
-| EventName_s |Text ||Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
-| SchemaVersion_s |Text ||Questo campo indica la versione corrente dello schema, ovvero **V2** |
+| EventName_s |Text ||Questo campo rappresenta il nome dell'evento. È sempre AzureBackupCentralReport |
+| SchemaVersion_s |Text ||Questo campo indica la versione corrente dello schema. È **v2** |
 | State_s |Text ||Stato corrente dell'oggetto criteri, ad esempio Active o Deleted |
 | BackupManagementType_s |Text ||Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | OperationName |Text ||Questo campo rappresenta il nome dell'operazione in corso - PolicyAssociation |
-| Category |Text ||Questo campo rappresenta la categoria di dati di diagnostica di cui viene eseguito il push in log di Monitoraggio di Azure, ovvero AzureBackupReport |
+| Category |Text ||Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. È AzureBackupReport |
 | Risorsa |Text ||Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
 | PolicyUniqueId_g |Text ||ID univoco per l'identificazione dei criteri |
 | VaultUniqueId_s |Text ||ID univoco dell'insieme di credenziali a cui appartiene questo criterio |
@@ -248,7 +248,7 @@ Questa tabella illustra i campi di base sui contenitori protetti. (ProtectedServ
 | ProtectedContainerUniqueId_s |Text | Campo che identifica in modo univoco un contenitore protetto |
 | ProtectedContainerOSType_s |Text |Tipo del sistema operativo del contenitore protetto |
 | ProtectedContainerOSVersion_s |Text |Versione del sistema operativo del contenitore protetto |
-| AgentVersion_s |Text |Numero di versione del backup dell'agente o dell'agente protezione (nel caso di SC DPM e MABS) |
+| AgentVersion_s |Text |Numero di versione del backup dell'agente o dell'agente protezione (nel caso di SC DPM e MAB) |
 | BackupManagementType_s |Text |Tipo di provider per l'esecuzione del backup. Ad esempio, IaaSVM, FileFolder |
 | EntityState_s |Text |Stato corrente dell'oggetto server protetto. Ad esempio Active o Deleted |
 | ProtectedContainerFriendlyName_s |Text |Nome descrittivo del server protetto |
@@ -266,12 +266,12 @@ Questa tabella offre dettagli sui campi relativi all'archiviazione.
 | --- | --- | --- |
 | CloudStorageInBytes_s |Numero decimale |Spazio di archiviazione nel cloud usato dal backup, calcolato in base al valore più recente (solo per lo schema v1)|
 | ProtectedInstances_s |Numero decimale |Numero di istanze protette usato per il calcolo dell'archiviazione front-end a scopo di fatturazione, calcolato in base al valore più recente |
-| EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
-| SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **V2** |
+| EventName_s |Text |Questo campo rappresenta il nome dell'evento. È sempre AzureBackupCentralReport |
+| SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema. È **v2** |
 | State_s |Text |Stato corrente dell'oggetto archiviazione, ad esempio Active o Deleted |
 | BackupManagementType_s |Text |Tipo di provider per processo di backup del server, ad esempio, IaaSVM o FileFolder |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - Archiviazione |
-| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica di cui viene eseguito il push in log di Monitoraggio di Azure, ovvero AzureBackupReport |
+| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. È AzureBackupReport |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
 | ProtectedServerUniqueId_s |Text |ID univoco del server protetto per cui viene calcolato lo spazio di archiviazione |
 | VaultUniqueId_s |Text |ID univoco dell'insieme di credenziali per cui viene calcolato lo spazio di archiviazione |
@@ -293,7 +293,7 @@ Questa tabella illustra i campi di base correlati all'archiviazione che connetto
 | Campo | Tipo di dati | Descrizione |
 | --- | --- |  --- |
 | StorageUniqueId_s |Text |ID univoco usato per identificare l'entità di archiviazione |
-| SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **V2** |
+| SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema. È **v2** |
 | BackupItemUniqueId_s |Text |ID univoco usato per identificare l'elemento di backup correlato all'entità di archiviazione |
 | BackupManagementServerUniqueId_s |Text |ID univoco usato per identificare il server di gestione di backup correlato all'entità di archiviazione|
 | VaultUniqueId_s |Text |ID univoco usato per identificare l'insieme di credenziali correlato all'entità di archiviazione|
@@ -306,11 +306,11 @@ Questa tabella offre dettagli sui campi relativi all'insieme di credenziali.
 
 | Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
-| EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
-| SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **V2** |
+| EventName_s |Text |Questo campo rappresenta il nome dell'evento. È sempre AzureBackupCentralReport |
+| SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema. È **v2** |
 | State_s |Text |Stato corrente dell'oggetto insieme di credenziali, ad esempio Active o Deleted |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - Insieme di credenziali |
-| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica di cui viene eseguito il push in log di Monitoraggio di Azure, ovvero AzureBackupReport |
+| Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure. È AzureBackupReport |
 | Risorsa |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
 | VaultUniqueId_s |Text |ID univoco dell'insieme di credenziali |
 | VaultName_s |Text |Nome dell'insieme di credenziali |
@@ -481,9 +481,9 @@ Poiché lo schema V1 si trova in un percorso di deprecazione, è consigliabile u
     | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
     ````
 
-    La query precedente usa il campo ProtectedServerUniqueId_s applicabile solo allo schema v1. L'equivalente dello schema V2 di questo campo è ProtectedContainerUniqueId_s (vedere le tabelle precedenti). Il campo BackupItemUniqueId_s è applicabile anche allo schema V2 e lo stesso campo può essere utilizzato in questa query.
+    La query precedente usa il campo ProtectedServerUniqueId_s, applicabile solo allo schema v1. L'equivalente dello schema V2 di questo campo è ProtectedContainerUniqueId_s (vedere le tabelle precedenti). Il campo BackupItemUniqueId_s è applicabile anche allo schema V2 e lo stesso campo può essere utilizzato in questa query.
 
-2. Aggiornare la query per utilizzare i nomi dei campi dello schema V2. È consigliabile usare il filtro ' where SchemaVersion_s = = "V2"' in tutte le query, in modo che solo i record corrispondenti allo schema V2 vengano analizzati dalla query:
+2. Aggiornare la query per utilizzare i nomi dei campi dello schema V2. Si consiglia di usare il filtro in **cui SchemaVersion_s = = "V2"** in tutte le query, in modo che solo i record corrispondenti allo schema V2 vengano analizzati dalla query:
 
     ````Kusto
     AzureDiagnostics

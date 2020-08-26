@@ -3,12 +3,12 @@ title: Backup offline per Data Protection Manager (DPM) e server di Backup di Mi
 description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per le versioni precedenti di DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826600"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890094"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (versioni precedenti)
 
@@ -203,7 +203,7 @@ L'utilità *AzureOfflineBackupDiskPrep* viene usata per preparare le unità SATA
 
 1. Immettere la lettera di unità (senza i due punti finali) corrispondente al disco montato che si vuole preparare per il trasferimento ad Azure. Quando richiesto, fornire una conferma per la formattazione dell'unità.
 
-    Lo strumento inizia quindi a preparare il disco e a copiare i dati di backup. Potrebbe essere necessario alleghi dischi aggiuntivi quando richiesto dallo strumento, nel caso in cui il disco fornito non disponga di spazio sufficiente per i dati di backup. <br/>
+    Lo strumento inizia quindi a preparare il disco e a copiare i dati di backup. Potrebbe essere necessario alleghi dischi aggiuntivi quando richiesto dallo strumento se il disco fornito non dispone di spazio sufficiente per i dati di backup. <br/>
 
     Al termine dell'esecuzione dello strumento, uno o più dischi forniti verranno preparati per la spedizione ad Azure. Un processo di importazione con il nome specificato durante il flusso di lavoro nella sezione "avvio del backup offline" viene creato anche in Azure. Lo strumento visualizza infine l'indirizzo del data center di Azure a cui i dischi devono essere spediti.
 
