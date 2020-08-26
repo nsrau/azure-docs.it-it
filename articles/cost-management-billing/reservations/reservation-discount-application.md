@@ -4,15 +4,16 @@ description: Questo articolo fornisce informazioni su come vengono in genere app
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: cd09bb7bde759c543b066070c5d2450404949610
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 1c038e896a9f9fc65c3b2201b3e763e966285c56
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627110"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684678"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 
@@ -38,7 +39,7 @@ Quando si acquista una prenotazione, è possibile applicare lo sconto ad altre i
 
 Piani di servizio:
 
-- Istanze di macchina virtuale riservate: quando si acquista la prenotazione, se si seleziona **Ottimizzato per: Flessibilità delle dimensioni istanza**, la copertura dello sconto dipende dalle dimensioni delle VM selezionate. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Istanze di macchina virtuale riservate: quando si acquista la prenotazione, se si seleziona **Ottimizzato per: Flessibilità delle dimensioni istanza**, la copertura dello sconto dipende dalle dimensioni delle VM selezionate. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 - Capacità riservata di Archiviazione di Azure: è possibile acquistare capacità riservata per gli account di Archiviazione di Azure standard in unità di 100 TiB o 1 PiB al mese. Per informazioni sulle aree che supportano la capacità riservata di Archiviazione di Azure, vedere [Prezzi per i BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/). La capacità riservata di Archiviazione di Azure è disponibile per tutti i livelli di accesso (ad accesso frequente, sporadico e archivio) e per qualsiasi configurazione di replica (archiviazione con ridondanza locale, con ridondanza geografica o con ridondanza della zona).
 - Capacità riservata del database SQL: la copertura degli sconti dipende dal livello di prestazioni selezionato. Per altre informazioni, vedere [Informazioni su come viene applicato ai database SQL lo sconto sulla prenotazione](understand-reservation-charges.md).
 - Capacità riservata di Azure Cosmos DB: la copertura degli sconti dipende dalla velocità effettiva di cui viene effettuato il provisioning. Per altre informazioni, vedere [Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB](understand-cosmosdb-reservation-charges.md).

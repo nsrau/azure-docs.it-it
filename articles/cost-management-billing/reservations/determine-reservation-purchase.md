@@ -4,15 +4,16 @@ description: Questo articolo consente di determinare la prenotazione da acquista
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 909d712e0c8e8ea242c27ab93f16a36e22d36aae
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: d89f890d3e2bb8238a00b4a529b8804a8c38fa6f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759895"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684746"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Determinare la prenotazione da acquistare
 
@@ -38,7 +39,7 @@ Per limitare i risultati all'utilizzo delle macchine virtuali idonee, applicare 
 
 Ignorare le risorse che presentano meno di 24 ore di utilizzo in un giorno.
 
-Per eseguire un'analisi a livello di famiglia delle dimensioni istanza, è possibile ottenere i valori di flessibilità delle dimensioni istanza da [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combinare i valori con i dati per eseguire l'analisi. Per altre informazioni sulla flessibilità delle dimensioni istanza, vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Per eseguire un'analisi a livello di famiglia delle dimensioni istanza, è possibile ottenere i valori di flessibilità delle dimensioni istanza da [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combinare i valori con i dati per eseguire l'analisi. Per altre informazioni sulla flessibilità delle dimensioni istanza, vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Analizzare l'utilizzo per l'acquisto di un'istanza riservata di Azure Synapse Analytics
 

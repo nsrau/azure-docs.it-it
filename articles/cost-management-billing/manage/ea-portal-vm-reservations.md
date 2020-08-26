@@ -3,16 +3,17 @@ title: Istanze riservate di VM per Azure EA
 description: Questo articolo descrive come risparmiare sui costi della registrazione Enterprise con le prenotazioni di Azure di istanze riservate di VM.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/14/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0d707d098eee91136d9e66a826705003e15c6f2a
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: aa95cf8b649558dc3164fe12e4268f210301f755
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244075"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88687041"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
 

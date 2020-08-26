@@ -3,12 +3,12 @@ title: Gestire il backup di condivisioni file di Azure con l'API REST
 description: Informazioni su come usare l'API REST per gestire e monitorare le condivisioni file di Azure di cui è stato eseguito il backup da backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073240"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892848"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gestire il backup di condivisioni file di Azure con l'API REST
 

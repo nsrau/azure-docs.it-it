@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3d810d14dd6b49bc054e3844a60ec33c62dc084c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271244"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891862"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -33,7 +33,7 @@ Alcuni dei vantaggi derivanti dall'aggiunta dell'app alla raccolta Azure AD incl
 
 Sono inoltre disponibili molti vantaggi quando i clienti usano Azure AD come provider di identità per l'app. tra cui:
 
-- Fornire Single Sign-On per gli utenti. Con l'accesso SSO si riducono i costi di supporto rendendo più semplice per i clienti Single Sign-On. Se SSO con un clic è abilitato, gli amministratori IT dei clienti non devono apprendere come configurare l'applicazione per l'uso nell'organizzazione. Per ulteriori informazioni su Single Sign-On, vedere [che cos'è Single Sign-on?](../manage-apps/what-is-single-sign-on.md).
+- Fornire Single Sign-On per gli utenti. Con l'accesso SSO si riducono i costi di supporto rendendo più semplice per i clienti Single Sign-On. Se SSO con un clic è abilitato, gli amministratori IT dei clienti non devono apprendere come configurare l'applicazione per l'uso nell'organizzazione. Per altre informazioni sull'accesso Single Sign-On, vedere [Informazioni sull'accesso Single Sign-On](../manage-apps/what-is-single-sign-on.md).
 - L'app può essere individuabile nella raccolta di app Microsoft 365, nell'utilità di avvio delle app Microsoft 365 e in Microsoft Search in Office.com. 
 - Gestione integrata delle app. Per ulteriori informazioni sulla gestione delle app in Azure AD, vedere informazioni sulla [gestione delle applicazioni](../manage-apps/what-is-application-management.md).
 - L'app può usare la [API Graph](https://docs.microsoft.com/graph/) per accedere ai dati che guidano la produttività degli utenti nell'ecosistema Microsoft.
@@ -98,7 +98,7 @@ OAuth 2,0 è un protocollo [standard del settore](https://oauth.net/2/) per l'au
 
 ### <a name="saml-20-or-ws-fed"></a>SAML 2,0 o WS-Fed
 
-SAML è uno standard Single Sign-On maturo e ampiamente adottato per le applicazioni Web. Per altre informazioni su come Azure usa SAML, vedere [come Azure usa il protocollo SAML](active-directory-saml-protocol-reference.md). 
+SAML è uno [standard single sign-on](https://www.oasis-open.org/standards#samlv2.0) maturo e ampiamente adottato per le applicazioni Web. Per altre informazioni su come Azure usa SAML, vedere [come Azure usa il protocollo SAML](active-directory-saml-protocol-reference.md). 
 
 Web Services Federation (WS-Fed) è uno [standard di settore](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generalmente usato per le applicazioni Web sviluppate con la piattaforma .NET.
 
