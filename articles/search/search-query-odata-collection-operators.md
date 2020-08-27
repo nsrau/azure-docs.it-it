@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4c1243d5d9122539466e94b6bbfdd5ced588e69a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146068"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934906"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatori di raccolte OData in Azure ricerca cognitiva `any` e`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatori di raccolte OData in Azure ricerca cognitiva `any` e `all`
 
 Quando si scrive un' [espressione di filtro OData](query-odata-filter-orderby-syntax.md) da usare con ricerca cognitiva di Azure, è spesso utile filtrare in campi di raccolta. Per ottenere questo risultato, è possibile usare gli `any` `all` operatori e.
 
@@ -107,4 +107,4 @@ Per altri dettagli su queste limitazioni ed esempi, vedere [risoluzione dei prob
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)
 - [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
 - [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
-- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents)

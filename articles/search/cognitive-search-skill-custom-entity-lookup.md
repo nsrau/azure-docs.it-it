@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987480"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936113"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Abilità cognitiva per la ricerca di entità personalizzate (anteprima)
 
@@ -22,7 +22,7 @@ ms.locfileid: "84987480"
 
 L'abilità di **ricerca di entità personalizzata** Cerca testo da un elenco personalizzato di parole e frasi definito dall'utente. Con questo elenco vengono etichettati tutti i documenti con entità corrispondenti. La competenza supporta anche un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non proprio esatte.  
 
-Questa competenza non è associata a un'API servizi cognitivi e può essere usata gratuitamente durante il periodo di anteprima. Tuttavia, è comunque necessario [aggiungere una risorsa Servizi cognitivi](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services)per sostituire il limite di arricchimento giornaliero. Il limite giornaliero si applica all'accesso gratuito ai servizi cognitivi quando si accede tramite ricerca cognitiva di Azure.
+Questa competenza non è associata a un'API servizi cognitivi e può essere usata gratuitamente durante il periodo di anteprima. Tuttavia, è comunque necessario [aggiungere una risorsa Servizi cognitivi](./cognitive-search-attach-cognitive-services.md)per sostituire il limite di arricchimento giornaliero. Il limite giornaliero si applica all'accesso gratuito ai servizi cognitivi quando si accede tramite ricerca cognitiva di Azure.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft. Skills. Text. CustomEntityLookupSkill 
@@ -69,7 +69,7 @@ Se la definizione viene fornita inline, deve essere fornita come inline come con
 
 ### <a name="csv-format"></a>Formato CSV
 
-È possibile specificare la definizione delle entità personalizzate da cercare in un file con valori delimitati da virgole (CSV) specificando il percorso del file e impostandolo nel parametro skill *entitiesDefinitionUri* . Il percorso deve trovarsi in una posizione HTTPS. Il file di definizione può avere dimensioni massime di 10 MB.
+È possibile specificare la definizione delle entità personalizzate da cercare in un file con valori delimitati da virgole (CSV) specificando il percorso del file e impostandolo nel parametro skill *entitiesDefinitionUri*  . Il percorso deve trovarsi in una posizione HTTPS. Il file di definizione può avere dimensioni massime di 10 MB.
 
 Il formato CSV è semplice. Ogni riga rappresenta un'entità univoca, come illustrato di seguito:
 

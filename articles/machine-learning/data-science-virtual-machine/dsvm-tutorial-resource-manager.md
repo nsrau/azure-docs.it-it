@@ -10,18 +10,18 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 675ddf073393afde6ac8d08a65b40da11d90d3ea
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9b89c0a4135bf595991439dd47e57a870ea2b0d1
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026662"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855071"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Avvio rapido: Creare una Data Science Virtual Machine Ubuntu con un modello di Resource Manager
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questa guida di avvio rapido illustra come creare una Data Science Virtual Machine Ubuntu 18.04 usando un modello di Azure Resource Manager. Le Data Science Virtual Machine sono macchine virtuali basate su cloud in cui è precaricata una suite di framework e strumenti di data science e Machine Learning. Quando vengono distribuiti in risorse di calcolo basate su GPU, tutti gli strumenti e le librerie sono configurati per l'utilizzo della GPU. 
+Questa guida di avvio rapido illustra come creare una Data Science Virtual Machine Ubuntu 18.04 usando un modello di Azure Resource Manager. Le Data Science Virtual Machine sono macchine virtuali basate su cloud in cui è precaricata una suite di framework e strumenti di data science e Machine Learning. Quando vengono distribuiti in risorse di calcolo basate su GPU, tutti gli strumenti e le librerie sono configurati per l'utilizzo della GPU.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -37,12 +37,17 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 
 ## <a name="review-the-template"></a>Rivedere il modello
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Il modello completo per questo articolo è troppo lungo per essere mostrato qui. Per visualizzare il modello completo, vedere il file [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). La parte che definisce le specifiche della Data Science Virtual Machine è mostrata qui:
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
+:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json":::
 
 Nel modello sono definite le risorse seguenti:
 
+* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): crea una macchina virtuale basata sul cloud. In questo modello la macchina virtuale è configurata come Data Science Virtual Machine che esegue Ubuntu 18.04.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
@@ -74,7 +79,7 @@ Quando si esegue il comando precedente, immettere:
 
 Per visualizzare la Data Science Virtual Machine:
 
-1. Passare a https://portal.azure.com.
+1. Accedere al [portale di Azure](https://portal.azure.com)
 1. Accedere.
 1. Scegliere il gruppo di risorse appena creato.
 

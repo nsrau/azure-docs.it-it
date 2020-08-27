@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: dddb332498f41437eba77d75c38218c58b8c8379
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507115"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651200"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Eseguire l'inferenza batch su grandi quantità di dati usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -202,7 +202,7 @@ model = Model.register(model_path="models/",
 ## <a name="write-your-inference-script"></a>Scrivere lo script di inferenza
 
 >[!Warning]
->Il codice seguente è solo un esempio usato dal [notebook di esempio](https://aka.ms/batch-inference-notebooks). È necessario creare uno script personalizzato per lo scenario in uso.
+>Il codice seguente è solo un esempio usato dal [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run). È necessario creare uno script personalizzato per lo scenario in uso.
 
 Lo script *deve contenere* due funzioni:
 - `init()`: usare questa funzione per qualsiasi preparazione dispendiosa o comune per un'inferenza successiva. Usarla ad esempio per caricare il modello in un oggetto globale. Questa funzione verrà chiamata solo una volta all'inizio del processo.
@@ -214,7 +214,7 @@ Lo script *deve contenere* due funzioni:
 %%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
-# (https://aka.ms/batch-inference-notebooks)
+# (https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
 # for the implementation script.
 
 import os
@@ -421,7 +421,7 @@ df.head(10)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per vedere questo processo in funzione dall'inizio alla fine, provare il [notebook relativo all'inferenza batch](https://aka.ms/batch-inference-notebooks). 
+Per vedere questo processo in funzione dall'inizio alla fine, provare il [notebook relativo all'inferenza batch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run). 
 
 Per indicazioni sul debug e la risoluzione dei problemi per le ParallelRunStep, vedere la [guida pratica](how-to-debug-parallel-run-step.md).
 

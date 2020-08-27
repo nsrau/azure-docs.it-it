@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201994"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917874"
 ---
-# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatori logici OData in Azure ricerca cognitiva- `and` , `or` ,`not`
+# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatori logici OData in Azure ricerca cognitiva- `and` , `or` , `not`
 
 Le [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) in ricerca cognitiva di Azure sono espressioni booleane che restituiscono `true` o `false` . È possibile scrivere un filtro complesso scrivendo una serie di [filtri più semplici](search-query-odata-comparison-operators.md) e componendoli usando gli operatori logici di [algebra booleana](https://en.wikipedia.org/wiki/Boolean_algebra):
 
@@ -58,21 +58,21 @@ logical_expression ::=
 
 Esistono due forme di espressioni logiche: Binary ( `and` / `or` ), in cui sono presenti due sottoespressioni e unario ( `not` ), dove è presente un solo elemento. Le espressioni secondarie possono essere espressioni booleane di qualsiasi tipo:
 
-- Campi o variabili di intervallo di tipo`Edm.Boolean`
-- Funzioni che restituiscono valori di tipo `Edm.Boolean` , ad esempio `geo.intersects` o`search.ismatch`
-- [Espressioni di confronto](search-query-odata-comparison-operators.md), ad esempio`rating gt 4`
-- [Espressioni di raccolta](search-query-odata-collection-operators.md), ad esempio`Rooms/any(room: room/Type eq 'Deluxe Room')`
+- Campi o variabili di intervallo di tipo `Edm.Boolean`
+- Funzioni che restituiscono valori di tipo `Edm.Boolean` , ad esempio `geo.intersects` o `search.ismatch`
+- [Espressioni di confronto](search-query-odata-comparison-operators.md), ad esempio `rating gt 4`
+- [Espressioni di raccolta](search-query-odata-collection-operators.md), ad esempio `Rooms/any(room: room/Type eq 'Deluxe Room')`
 - Valori letterali booleani `true` o `false` .
 - Altre espressioni logiche costruite con `and` , `or` e `not` .
 
 > [!IMPORTANT]
 > Esistono situazioni in cui non tutti i tipi di espressione secondaria possono essere usati con `and` / `or` , in particolare nelle espressioni lambda. Per informazioni dettagliate, vedere [operatori di raccolte OData in Azure ricerca cognitiva](search-query-odata-collection-operators.md#limitations) .
 
-### <a name="logical-operators-and-null"></a>Operatori logici e`null`
+### <a name="logical-operators-and-null"></a>Operatori logici e `null`
 
 La maggior parte delle espressioni booleane quali funzioni e confronti non può produrre `null` valori e gli operatori logici non possono essere applicati `null` direttamente al valore letterale (ad esempio, `x and null` non è consentito). Tuttavia, i campi booleani possono essere `null` , pertanto è necessario conoscere il `and` comportamento degli operatori, `or` e `not` in presenza di valori null. Questa operazione viene riepilogata nella tabella seguente, dove `b` è un campo di tipo `Edm.Boolean` :
 
-| Espressione | Risultato quando `b` è`null` |
+| Expression | Risultato quando `b` è `null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -120,4 +120,4 @@ Trova la corrispondenza con i documenti per gli alberghi a Vancouver, Canada in 
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)
 - [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
 - [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
-- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents)

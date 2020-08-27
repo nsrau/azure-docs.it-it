@@ -2,15 +2,16 @@
 title: Riferimento all'endpoint RESTful del provider personalizzato C#
 description: Fornisce un riferimento di base per un endpoint RESTful C# di provider personalizzati di Azure. L'endpoint viene fornito tramite un'app per le funzioni di Azure.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: b6ecb22cb968e0d963242c8c2d5dd1a6cb24229c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce329e7cd8db73e217162fa0bc1bb433d57e9971
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651176"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935637"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Riferimento all'endpoint RESTful del provider personalizzato C#
 

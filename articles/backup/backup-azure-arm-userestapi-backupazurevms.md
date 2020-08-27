@@ -4,12 +4,12 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: a0ad08e9fd750166f8df82a1b3a36cecd8f12f27
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826413"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890332"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -23,7 +23,7 @@ Scenario: si vuole proteggere una macchina virtuale "testVM" in un gruppo di ris
 
 ### <a name="discover-unprotected-azure-vms"></a>Individuare le macchine virtuali di Azure non protette
 
-In primo luogo l'insieme di credenziali deve essere in grado di identificare la macchina virtuale di Azure. Questa azione viene attivata tramite l'[operazione di aggiornamento](/rest/api/backup/protectioncontainers/refresh), ovvero un'operazione *POST*  asincrona che garantisce che l'insieme di credenziali ottenga l'elenco più recente di tutte le macchine virtuali non protette della sottoscrizione corrente e che le memorizzi nella cache. Dopo che la macchina virtuale è stata memorizzata nella cache, la funzionalità Servizi di ripristino sarà in grado di accedere alla macchina virtuale e di proteggerla.
+In primo luogo l'insieme di credenziali deve essere in grado di identificare la macchina virtuale di Azure. Questa azione viene attivata tramite l'[operazione di aggiornamento](/rest/api/backup/protectioncontainers/refresh), Si tratta di un'operazione *post*  asincrona che verifica che l'insieme di credenziali ottenga l'elenco più recente di tutte le macchine virtuali non protette nella sottoscrizione corrente e le memorizza nella cache. Dopo che la macchina virtuale è stata memorizzata nella cache, la funzionalità Servizi di ripristino sarà in grado di accedere alla macchina virtuale e di proteggerla.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01

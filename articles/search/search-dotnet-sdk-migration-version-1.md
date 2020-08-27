@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d6c30cb7abffc7e25e78eeabf5fb43fc8c1f682
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3c8e44a3d57ee519ff792de97ed2b3d183bf666b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171959"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923365"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Eseguire l'aggiornamento a .NET SDK di ricerca di Azure versione 1,1
 
-Se si usa la versione 1.0.2 di anteprima o precedente di [.NET SDK Ricerca di Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 1.1.
+Se si usa la versione 1.0.2 di anteprima o precedente di [.NET SDK Ricerca di Azure](/dotnet/api/overview/azure/search), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 1.1.
 
 Per una procedura dettagliata più generale relativa all'SDK, inclusi gli esempi, vedere [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md).
 
@@ -401,4 +401,3 @@ Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 Per questo motivo, è ancora consigliabile usare tipi nullable nelle classi di modelli.
 
 Per altri dettagli sul bug e sulla correzione, vedere [questo problema in GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
-

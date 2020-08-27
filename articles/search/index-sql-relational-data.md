@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c70b42e7d0f647a3b2b60d29b5098a791e4975f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82117570"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924521"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Come modellare i dati SQL relazionali per l'importazione e l'indicizzazione in Azure ricerca cognitiva
 
@@ -107,7 +107,7 @@ La soluzione consiste nell'acquisire i dettagli della stanza come JSON annidato 
 Questo set di righe è ora pronto per l'importazione in Azure ricerca cognitiva.
 
 > [!NOTE]
-> Questo approccio presuppone che il codice JSON incorporato sia inferiore al [limite massimo di dimensioni della colonna di SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
+> Questo approccio presuppone che il codice JSON incorporato sia inferiore al [limite massimo di dimensioni della colonna di SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
 
  ## <a name="use-a-complex-collection-for-the-many-side-of-a-one-to-many-relationship"></a>Usare una raccolta complessa per il lato "molti" di una relazione uno-a-molti
 

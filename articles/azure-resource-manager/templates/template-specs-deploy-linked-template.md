@@ -2,24 +2,24 @@
 title: Distribuire una specifica di modello come modello collegato
 description: Informazioni su come distribuire una specifica di modello esistente in una distribuzione collegata.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 5d4824ea432d804418fda2cdc90d49154d496722
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097728"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918384"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Esercitazione: distribuire una specifica di modello come modello collegato (anteprima)
 
-Informazioni su come distribuire una [specifica di modello](template-specs.md) esistente usando una [distribuzione collegata](linked-templates.md#linked-template). Si usano le specifiche del modello per condividere i modelli ARM con altri utenti nell'organizzazione. Dopo aver creato una specifica del modello, è possibile distribuire la specifica del modello usando Azure PowerShell. È anche possibile distribuire la specifica del modello come parte della soluzione usando un modello collegato.
+Informazioni su come distribuire una [specifica di modello](template-specs.md) esistente usando una [distribuzione collegata](linked-templates.md#linked-template). Si usano le specifiche del modello per condividere i modelli ARM con altri utenti nell'organizzazione. Dopo aver creato una specifica del modello, è possibile distribuire la specifica del modello usando Azure PowerShell o l'interfaccia della riga di comando di Azure. È anche possibile distribuire la specifica del modello come parte della soluzione usando un modello collegato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Le specifiche del modello sono attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/templateSpecOnboarding).
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/templateSpecOnboarding).
 
 ## <a name="create-a-template-spec"></a>Creare una specifica del modello
 
@@ -117,9 +117,22 @@ Per distribuire una specifica di modello in un modello ARM, aggiungere una [riso
 
 L'ID della specifica del modello viene generato utilizzando la [`resourceID()`](template-functions-resource.md#resourceid) funzione. L'argomento del gruppo di risorse nella funzione resourceID () è facoltativo se templateSpec è nello stesso gruppo di risorse della distribuzione corrente.  È anche possibile passare direttamente l'ID risorsa come parametro. Per ottenere l'ID, usare:
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli-interactive
+id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+```
+
+> [!NOTE]
+> Si è verificato un problema noto durante il recupero dell'ID delle specifiche del modello e quindi viene assegnato a una variabile in Windows PowerShell.
+
+---
 
 La sintassi per il passaggio di parametri alla specifica del modello è la seguente:
 
@@ -138,6 +151,8 @@ La sintassi per il passaggio di parametri alla specifica del modello è la segue
 
 Quando si distribuisce il modello collegato, viene distribuita l'applicazione Web e l'account di archiviazione. La distribuzione è identica alla distribuzione di altri modelli ARM.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
@@ -148,6 +163,21 @@ New-AzResourceGroupDeployment `
   -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+az deployment group create \
+  --resource-group webRG \
+  --template-file "c:\Templates\deployTS\azuredeploy.json"
+
+```
+
+---
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulla creazione di una specifica di modello che includa modelli collegati, vedere [creare una specifica di modello di un modello collegato](template-specs-create-linked.md).
+Per informazioni su come creare una specifica di modello che include modelli collegati, vedere [Creare una specifica di modello di un modello collegato](template-specs-create-linked.md).

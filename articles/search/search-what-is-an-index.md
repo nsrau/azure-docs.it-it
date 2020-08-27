@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 9e8d1c012ae07fc458a324315e2635f04c3dbd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496505"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932883"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Creare un indice di ricerca di base in Azure ricerca cognitiva
 
@@ -26,10 +26,10 @@ La struttura fisica di un indice è determinata dallo schema, con campi contrass
 È possibile creare un indice con gli strumenti e le API seguenti:
 
 * Nella portale di Azure usare **Aggiungi indice** o importazione guidata **dati**
-* Uso di [create index (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* Uso di [.NET SDK](search-create-index-dotnet.md)
+* Uso di [create index (API REST)](/rest/api/searchservice/create-index)
+* Uso di [.NET SDK](./search-get-started-dotnet.md)
 
-È più facile da imparare con uno strumento del portale. Il portale applica i requisiti e le regole dello schema per tipi di dati specifici, ad esempio la disabilitazione delle funzionalità di ricerca full-text nei campi numerici. Quando si dispone di un indice praticabile, è possibile passare al codice recuperando la definizione JSON dal servizio usando [Get index (API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e aggiungendola alla soluzione.
+È più facile da imparare con uno strumento del portale. Il portale applica i requisiti e le regole dello schema per tipi di dati specifici, ad esempio la disabilitazione delle funzionalità di ricerca full-text nei campi numerici. Quando si dispone di un indice praticabile, è possibile passare al codice recuperando la definizione JSON dal servizio usando [Get index (API REST)](/rest/api/searchservice/get-index) e aggiungendola alla soluzione.
 
 ## <a name="recommended-workflow"></a>Flusso di lavoro consigliato
 
@@ -59,7 +59,7 @@ L'arrivo a un progetto di indice finale è un processo iterativo. È comune iniz
 
    ![Pagina Aggiungi indice con attributi per tipo di dati](media/search-what-is-an-index//field-definitions.png "Pagina Aggiungi indice con attributi per tipo di dati")
 
-1. Scaricare lo schema dell'indice usando [Get index (API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e uno strumento di test Web come il [post](search-get-started-postman.md). Si dispone ora di una rappresentazione JSON dell'indice che è possibile adattare per il codice.
+1. Scaricare lo schema dell'indice usando [Get index (API REST)](/rest/api/searchservice/get-index) e uno strumento di test Web come il [post](search-get-started-postman.md). Si dispone ora di una rappresentazione JSON dell'indice che è possibile adattare per il codice.
 
 1. [Caricare l'indice con i dati](search-what-is-data-import.md). Azure ricerca cognitiva accetta documenti JSON. Per caricare i dati a livello di codice, è possibile usare Postman con i documenti JSON nel payload della richiesta. Se i dati non possono essere facilmente espressi in JSON, questo passaggio sarà più laborioso. 
 
@@ -180,11 +180,11 @@ I campi hanno un nome, un tipo che classifica i dati archiviati e gli attributi 
 | Edm.DateTimeOffset |Valori di ora rappresentati in formato OData V4 (ad esempio `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | Edm.GeographyPoint |Punto che rappresenta una località geografica del mondo. |
 
-Per ulteriori informazioni, vedere [tipi di dati supportati](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Per ulteriori informazioni, vedere [tipi di dati supportati](/rest/api/searchservice/Supported-data-types).
 
 <a name="index-attributes"></a>
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
 Gli attributi del campo determinano le modalità in cui un campo viene usato, ad esempio se viene usato nella ricerca full-text, nella navigazione con facet, nelle operazioni di ordinamento e così via. 
 
@@ -195,14 +195,14 @@ I campi stringa sono spesso contrassegnati come "ricercabili" e "recuperabili". 
 |ricercabile |Ricercabile full-text, soggetto ad analisi lessicali, ad esempio alla scomposizione delle parole durante l'indicizzazione. Se si imposta un campo ricercabile su un valore come "sunny day", questo viene suddiviso internamente nei singoli token "sunny" e "day". Per informazioni vedere [Funzionamento della ricerca full-text](search-lucene-query-architecture.md).|  
 |filtrabili |A cui si fa riferimento nelle query $filter. I campi filtrabili di tipo `Edm.String` o `Collection(Edm.String)` non sono sottoposti a suddivisione delle parole e quindi i confronti riguardano solo le corrispondenze esatte. Se ad esempio si imposta un campo su "sunny day", `$filter=f eq 'sunny'` non troverà corrispondenze, mentre `$filter=f eq 'sunny day'` ne troverà. |  
 |ordinabile |Per impostazione predefinita il sistema ordina i risultati in base al punteggio, ma è possibile configurare l'ordine in base ai campi nei documenti. I campi di tipo `Collection(Edm.String)` non possono essere "ordinabili". |  
-|con facet |In genere usato in una presentazione dei risultati della ricerca che include un numero di passaggi per categoria, ad esempio, gli hotel in una specifica città. Questa opzione non può essere usata con i campi di tipo `Edm.GeographyPoint`. I campi di tipo `Edm.String` filtrabile, "ordinabile" o "facet" possono avere una lunghezza massima di 32 KB. Per altri dettagli, vedere [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)(Creare un indice: API REST).|  
+|con facet |In genere usato in una presentazione dei risultati della ricerca che include un numero di passaggi per categoria, ad esempio, gli hotel in una specifica città. Questa opzione non può essere usata con i campi di tipo `Edm.GeographyPoint`. I campi di tipo `Edm.String` filtrabile, "ordinabile" o "facet" possono avere una lunghezza massima di 32 KB. Per altri dettagli, vedere [Create Index (REST API)](/rest/api/searchservice/create-index)(Creare un indice: API REST).|  
 |chiave |Identificatore univoco per i documenti all'interno dell'indice. È necessario scegliere un singolo campo come campo chiave e questo deve essere di tipo `Edm.String`.|  
 |recuperabile |Specifica se il campo può essere restituito nel risultato di una ricerca. Questo attributo è utile quando si vuole usare un campo, ad esempio *margine di profitto*, come meccanismo di filtro, ordinamento o punteggio ma si preferisce che il campo non sia visibile all'utente finale. L'attributo deve essere `true` for `key` .|  
 
 Sebbene sia possibile aggiungere nuovi campi in qualsiasi momento, le definizioni del campo esistente vengono bloccate per la durata dell'indice. Per questo motivo, gli sviluppatori in genere usano il portale per la creazione di indici semplici, idee di test o usano le pagine del portale per cercare un'impostazione. L'iterazione frequente su una progettazione degli indici è più efficiente se si segue un approccio basato sul codice in modo che sia possibile ricompilare l'indice con facilità.
 
 > [!NOTE]
-> Le API usate per compilare un indice hanno comportamenti predefiniti variabili. Per le [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la maggior parte degli attributi è abilitata per impostazione predefinita (ad esempio, "Searchable" e "Retrievable" sono true per i campi di stringa) ed è spesso necessario impostarli solo se si desidera disattivarli. Per .NET SDK, il valore opposto è true. Per le proprietà non impostate in modo esplicito, per impostazione predefinita viene disabilitato il comportamento di ricerca corrispondente, a meno che non venga abilitato in modo specifico.
+> Le API usate per compilare un indice hanno comportamenti predefiniti variabili. Per le [API REST](/rest/api/searchservice/Create-Index), la maggior parte degli attributi è abilitata per impostazione predefinita (ad esempio, "Searchable" e "Retrievable" sono true per i campi di stringa) ed è spesso necessario impostarli solo se si desidera disattivarli. Per .NET SDK, il valore opposto è true. Per le proprietà non impostate in modo esplicito, per impostazione predefinita viene disabilitato il comportamento di ricerca corrispondente, a meno che non venga abilitato in modo specifico.
 
 ## `analyzers`
 
@@ -210,7 +210,7 @@ L'elemento analizzatori imposta il nome dell'analizzatore di lingua da usare per
 
 ## `suggesters`
 
-Un componente di suggerimento è una sezione dello schema che definisce quali campi in un indice vengono utilizzati per supportare le query con completamento automatico nelle ricerche. In genere, le stringhe di ricerca parziali vengono inviate ai [Suggerimenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) mentre l'utente digita una query di ricerca e l'API restituisce un set di documenti o frasi suggerite. 
+Un componente di suggerimento è una sezione dello schema che definisce quali campi in un indice vengono utilizzati per supportare le query con completamento automatico nelle ricerche. In genere, le stringhe di ricerca parziali vengono inviate ai [Suggerimenti (API REST)](/rest/api/searchservice/suggestions) mentre l'utente digita una query di ricerca e l'API restituisce un set di documenti o frasi suggerite. 
 
 I campi aggiunti a uno strumento suggerimenti vengono usati per compilare i termini di ricerca con completamento automatico. Tutti i termini di ricerca vengono creati durante l'indicizzazione e archiviati separatamente. Per altre informazioni sulla creazione di una struttura per uno strumento suggerimenti, vedere [Aggiungere strumenti suggerimenti](index-add-suggesters.md).
 
