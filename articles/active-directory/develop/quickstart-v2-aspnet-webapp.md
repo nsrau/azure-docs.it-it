@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 297c2354e8a56b681230bfe2cedd0d49ddbb5b82
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 97a040ec166894197520b2e3a6dfc720262b7f1c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165720"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691293"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET
 In questa guida introduttiva si usa un esempio di codice per illustrare in che modo l'app Web ASP.NET può accedere ad account personali (hotmail.com, outlook.com e di altro tipo) e account aziendali e dell'istituto di istruzione da qualsiasi istanza di Azure Active Directory (Azure AD).  Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
@@ -159,7 +159,7 @@ public void Configuration(IAppBuilder app)
 > |Where  | Descrizione |
 > |---------|---------|
 > | `ClientId`     | ID dell'applicazione registrata nel portale di Azure |
-> | `Authority`    | Endpoint del servizio token di sicurezza per l'utente da autenticare. In genere <https://login.microsoftonline.com/{tenant}/v2.0> per il cloud pubblico, dove {tenant} è il nome del tenant, l'ID del tenant, oppure *common* per un riferimento all'endpoint comune (usato per le applicazioni multi-tenant) |
+> | `Authority`    | Endpoint del servizio token di sicurezza per l'utente da autenticare. In genere `https://login.microsoftonline.com/{tenant}/v2.0` per il cloud pubblico, dove {tenant} è il nome del tenant, l'ID del tenant, oppure *common* per un riferimento all'endpoint comune (usato per le applicazioni multi-tenant) |
 > | `RedirectUri`  | URL a cui vengono indirizzati gli utenti dopo l'autenticazione con l'endpoint di Microsoft Identity Platform |
 > | `PostLogoutRedirectUri`     | URL a cui vengono indirizzati gli utenti dopo la disconnessione |
 > | `Scope`     | Elenco di ambiti richiesti, separati da spazi |

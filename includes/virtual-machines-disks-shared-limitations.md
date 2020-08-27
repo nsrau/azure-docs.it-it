@@ -1,19 +1,19 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/21/2020
+ms.date: 08/26/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cdee82ddae7f6edf43765063bb610b743dbf0121
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88809802"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944402"
 ---
 L'abilitazione dei dischi condivisi è disponibile solo per un subset di tipi di disco. Attualmente solo dischi e SSD Premium possono abilitare i dischi condivisi. Ogni disco gestito con dischi condivisi abilitati è soggetto alle limitazioni seguenti, organizzati in base al tipo di disco:
 
@@ -50,10 +50,15 @@ Le unità SSD Premium condivise sono supportate solo nelle aree geografiche segu
 - Stati Uniti occidentali 2
 - Stati Uniti centro-occidentali
 - Stati Uniti centro-meridionali
+- Stati Uniti centro-settentrionali
 - Stati Uniti centrali
+- Europa occidentale
+- Europa settentrionale
 - Corea centrale
 - Canada centrale
 - Canada orientale
+- Giappone orientale
+- Giappone occidentale
 - US Gov Virginia
 - US Gov Arizona
 

@@ -3,13 +3,13 @@ title: Conservazione e archiviazione dei dati in Azure Application Insights | Mi
 description: Informativa sulla conservazione e sulla privacy
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1b1a1e370d55ad58bf1468c2e8b2381b62707b6a
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f6fa42d6cc20c4d26caa7f571f13bb3917b2c7c5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245945"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929330"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione dei dati in Application Insights
 
@@ -175,7 +175,7 @@ L' [archiviazione della sessione HTML5](https://developer.mozilla.org/en-US/docs
 
 I buffer di telemetria possono essere disabilitati impostando [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) su `false` . Quando l'archiviazione della sessione è disattivata, viene invece utilizzata una matrice locale come archivio permanente. Poiché JavaScript SDK viene eseguito in un dispositivo client, l'utente ha accesso a questa posizione di archiviazione tramite gli strumenti di sviluppo del browser.
 
-### <a name="opencensus-python"></a>Python OpenCensus
+### <a name="opencensus-python"></a>OpenCensus Python
 
 Per impostazione predefinita, OpenCensus Python SDK usa la cartella dell'utente corrente `%username%/.opencensus/.azure/` . Le autorizzazioni per accedere a questa cartella sono limitate all'utente corrente e agli amministratori. (Vedere [implementazione](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) qui). La cartella con i dati salvati in permanenza verrà denominata dopo il file Python che ha generato i dati di telemetria.
 
@@ -253,7 +253,7 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 | [Chiamare TrackMetric][api] |Valori numerici<br/>**Proprietà** |
 | [Chiamare Track*][api] |Nome evento<br/>**Proprietà** |
 | [Chiamare TrackException][api] |**Eccezioni**<br/>Dump dello stack<br/>**Proprietà** |
-| SDK non riesce a raccogliere dati. Esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
+| SDK non riesce a raccogliere dati. Ad esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
 
 Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 

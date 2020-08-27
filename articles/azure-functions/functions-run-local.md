@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505717"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929491"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -37,7 +37,7 @@ Sono disponibili tre versioni di Azure Functions Core Tools. La versione in uso 
 
 + **Versione 1. x**: supporta la versione 1. x del runtime di funzioni di Azure. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Se non specificato diversamente, gli esempi in questo articolo sono per la versione 3. x.
+È possibile installare una sola versione degli strumenti di base in un determinato computer. Se non specificato diversamente, gli esempi in questo articolo sono per la versione 3. x.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -118,7 +118,7 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
 
 1. Controllare il `/etc/apt/sources.list.d/dotnetdev.list` file per una delle stringhe di versione di Linux appropriate elencate di seguito:
 
-    | Distribuzione di Linux | Versione |
+    | Distribuzione di Linux | Version |
     | --------------- | ----------- |
     | Debian 10 | `buster`  |
     | Debian 9  | `stretch` |
@@ -257,20 +257,21 @@ Anche quando si usa la Emulatore di archiviazione di Microsoft Azure per lo svil
 
   ![Copiare la stringa di connessione da Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
-+ Usare strumenti di base per scaricare la stringa di connessione da Azure con uno dei seguenti comandi:
++ Usare gli strumenti di base dalla radice del progetto per scaricare la stringa di connessione da Azure con uno dei comandi seguenti:
 
   + Scaricare tutte le impostazioni di un'app di funzione esistente:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Ottenere la stringa di connessione per uno specifico account di archiviazione:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Quando non è già stato effettuato l'accesso ad Azure, viene richiesto di eseguire questa operazione.
+    Quando non è già stato effettuato l'accesso ad Azure, viene richiesto di eseguire questa operazione. Questi comandi sovrascrivono le impostazioni esistenti nel local.settings.jssu file. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Creare una funzione
 
@@ -596,7 +597,7 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portale di Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
